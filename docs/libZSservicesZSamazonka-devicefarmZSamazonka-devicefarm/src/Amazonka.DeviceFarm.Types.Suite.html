@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.Types.Suite</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.Types.Suite</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Counters.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types.Counters</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceMinutes.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types.DeviceMinutes</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResult.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types.ExecutionResult</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionStatus.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types.ExecutionStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.TestType.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types.TestType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Represents a collection of one or more tests.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSuite' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679369846"><span id="local-6989586621679369847"></span></span><span class="hs-keyword">data</span><span> </span><span id="Suite"><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-var">Suite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Suite%27"><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-var">Suite'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The suite\'s status.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   PENDING_CONCURRENCY</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   PENDING_DEVICE</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   PROCESSING</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   SCHEDULING</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   PREPARING</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   RUNNING</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   COMPLETED</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   STOPPING</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Astatus%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe ExecutionStatus
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Astatus%3ASuite%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The suite\'s result counters.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Acounters%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe Counters
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Acounters%3ASuite%27"><span class="hs-identifier hs-var hs-var">counters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The suite\'s ARN.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aarn%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Aarn%3ASuite%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | When the suite was created.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Acreated%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Acreated%3ASuite%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The suite\'s stop time.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Astopped%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Astopped%3ASuite%27"><span class="hs-identifier hs-var hs-var">stopped</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The suite\'s result.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   PASSED</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   WARNED</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   FAILED</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   SKIPPED</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   ERRORED</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   STOPPED</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Aresult%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe ExecutionResult
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Aresult%3ASuite%27"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResult.html#ExecutionResult"><span class="hs-identifier hs-type">ExecutionResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The suite\'s name.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aname%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Aname%3ASuite%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Represents the total (metered or unmetered) minutes used by the test</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- suite.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AdeviceMinutes%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe DeviceMinutes
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3AdeviceMinutes%3ASuite%27"><span class="hs-identifier hs-var hs-var">deviceMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The suite\'s type.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Must be one of the following values:</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   BUILTIN_FUZZ</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   BUILTIN_EXPLORER</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     Only available for Android; an app explorer that traverses an</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     Android app, interacting with it and capturing screenshots at the</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     same time.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- -   APPIUM_JAVA_JUNIT</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- -   APPIUM_JAVA_TESTNG</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   APPIUM_PYTHON</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- -   APPIUM_NODE</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- -   APPIUM_RUBY</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_JUNIT</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_TESTNG</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_PYTHON</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_NODE</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- -   APPIUM_WEB_RUBY</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- -   CALABASH</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- -   INSTRUMENTATION</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   UIAUTOMATION</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- -   UIAUTOMATOR</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- -   XCTEST</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   XCTEST_UI</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3Atype%27%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe TestType
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Atype%27%3ASuite%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | A message about the suite\'s result.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3Amessage%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Amessage%3ASuite%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The suite\'s start time.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3Astarted%3ASuite%27"><span class="annot"><span class="annottext">Suite -&gt; Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Astarted%3ASuite%27"><span class="hs-identifier hs-var hs-var">started</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369830"><span id="local-6989586621679369832"><span class="annot"><span class="annottext">Suite -&gt; Suite -&gt; Bool
+(Suite -&gt; Suite -&gt; Bool) -&gt; (Suite -&gt; Suite -&gt; Bool) -&gt; Eq Suite
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Suite -&gt; Suite -&gt; Bool
+$c/= :: Suite -&gt; Suite -&gt; Bool
+== :: Suite -&gt; Suite -&gt; Bool
+$c== :: Suite -&gt; Suite -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369821"><span id="local-6989586621679369823"><span id="local-6989586621679369825"><span id="local-6989586621679369827"><span class="annot"><span class="annottext">ReadPrec [Suite]
+ReadPrec Suite
+Int -&gt; ReadS Suite
+ReadS [Suite]
+(Int -&gt; ReadS Suite)
+-&gt; ReadS [Suite]
+-&gt; ReadPrec Suite
+-&gt; ReadPrec [Suite]
+-&gt; Read Suite
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Suite]
+$creadListPrec :: ReadPrec [Suite]
+readPrec :: ReadPrec Suite
+$creadPrec :: ReadPrec Suite
+readList :: ReadS [Suite]
+$creadList :: ReadS [Suite]
+readsPrec :: Int -&gt; ReadS Suite
+$creadsPrec :: Int -&gt; ReadS Suite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369814"><span id="local-6989586621679369816"><span id="local-6989586621679369818"><span class="annot"><span class="annottext">Int -&gt; Suite -&gt; ShowS
+[Suite] -&gt; ShowS
+Suite -&gt; String
+(Int -&gt; Suite -&gt; ShowS)
+-&gt; (Suite -&gt; String) -&gt; ([Suite] -&gt; ShowS) -&gt; Show Suite
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Suite] -&gt; ShowS
+$cshowList :: [Suite] -&gt; ShowS
+show :: Suite -&gt; String
+$cshow :: Suite -&gt; String
+showsPrec :: Int -&gt; Suite -&gt; ShowS
+$cshowsPrec :: Int -&gt; Suite -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Suite -&gt; Rep Suite x)
+-&gt; (forall x. Rep Suite x -&gt; Suite) -&gt; Generic Suite
+forall x. Rep Suite x -&gt; Suite
+forall x. Suite -&gt; Rep Suite x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Suite x -&gt; Suite
+$cfrom :: forall x. Suite -&gt; Rep Suite x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'Suite' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'status', 'suite_status' - The suite\'s status.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   PENDING_CONCURRENCY</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   PENDING_DEVICE</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   PROCESSING</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   SCHEDULING</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -   PREPARING</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   RUNNING</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   COMPLETED</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   STOPPING</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'counters', 'suite_counters' - The suite\'s result counters.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'arn', 'suite_arn' - The suite\'s ARN.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'created', 'suite_created' - When the suite was created.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'stopped', 'suite_stopped' - The suite\'s stop time.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'result', 'suite_result' - The suite\'s result.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- -   PASSED</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   WARNED</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- -   FAILED</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   SKIPPED</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   ERRORED</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   STOPPED</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'name', 'suite_name' - The suite\'s name.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'deviceMinutes', 'suite_deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- suite.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'type'', 'suite_type' - The suite\'s type.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Must be one of the following values:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- -   BUILTIN_FUZZ</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- -   BUILTIN_EXPLORER</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--     Only available for Android; an app explorer that traverses an</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     Android app, interacting with it and capturing screenshots at the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     same time.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   APPIUM_JAVA_JUNIT</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- -   APPIUM_JAVA_TESTNG</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   APPIUM_PYTHON</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   APPIUM_NODE</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   APPIUM_RUBY</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_JUNIT</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_TESTNG</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   APPIUM_WEB_PYTHON</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- -   APPIUM_WEB_NODE</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   APPIUM_WEB_RUBY</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- -   CALABASH</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- -   INSTRUMENTATION</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- -   UIAUTOMATION</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   UIAUTOMATOR</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   XCTEST</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- -   XCTEST_UI</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'message', 'suite_message' - A message about the suite\'s result.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'started', 'suite_started' - The suite\'s start time.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#newSuite"><span class="hs-identifier hs-type">newSuite</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span>
+</span><span id="line-249"></span><span id="newSuite"><span class="annot"><span class="annottext">newSuite :: Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#newSuite"><span class="hs-identifier hs-var hs-var">newSuite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">Suite' :: Maybe ExecutionStatus
+-&gt; Maybe Counters
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe ExecutionResult
+-&gt; Maybe Text
+-&gt; Maybe DeviceMinutes
+-&gt; Maybe TestType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Suite' :: Maybe ExecutionStatus
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Astatus%3ASuite%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:counters:Suite' :: Maybe Counters
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Acounters%3ASuite%27"><span class="hs-identifier hs-var">counters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Counters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Suite' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Aarn%3ASuite%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:Suite' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Acreated%3ASuite%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopped:Suite' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Astopped%3ASuite%27"><span class="hs-identifier hs-var">stopped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:result:Suite' :: Maybe ExecutionResult
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Aresult%3ASuite%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Suite' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Aname%3ASuite%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceMinutes:Suite' :: Maybe DeviceMinutes
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3AdeviceMinutes%3ASuite%27"><span class="hs-identifier hs-var">deviceMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMinutes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Suite' :: Maybe TestType
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Atype%27%3ASuite%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:Suite' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Amessage%3ASuite%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:started:Suite' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Astarted%3ASuite%27"><span class="hs-identifier hs-var">started</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The suite\'s status.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- -   PENDING_CONCURRENCY</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- -   PENDING_DEVICE</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- -   PROCESSING</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- -   SCHEDULING</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- -   PREPARING</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- -   RUNNING</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- -   COMPLETED</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- -   STOPPING</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_status"><span class="hs-identifier hs-type">suite_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="suite_status"><span class="annot"><span class="annottext">suite_status :: (Maybe ExecutionStatus -&gt; f (Maybe ExecutionStatus))
+-&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_status"><span class="hs-identifier hs-var hs-var">suite_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe ExecutionStatus)
+-&gt; (Suite -&gt; Maybe ExecutionStatus -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe ExecutionStatus) (Maybe ExecutionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369805"><span class="annot"><span class="annottext">Maybe ExecutionStatus
+status :: Maybe ExecutionStatus
+$sel:status:Suite' :: Suite -&gt; Maybe ExecutionStatus
+</span><a href="#local-6989586621679369805"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679369805"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369804"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369803"><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679369803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Suite' :: Maybe ExecutionStatus
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Astatus%3ASuite%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679369803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The suite\'s result counters.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_counters"><span class="hs-identifier hs-type">suite_counters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="suite_counters"><span class="annot"><span class="annottext">suite_counters :: (Maybe Counters -&gt; f (Maybe Counters)) -&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_counters"><span class="hs-identifier hs-var hs-var">suite_counters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe Counters)
+-&gt; (Suite -&gt; Maybe Counters -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe Counters) (Maybe Counters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369801"><span class="annot"><span class="annottext">Maybe Counters
+counters :: Maybe Counters
+$sel:counters:Suite' :: Suite -&gt; Maybe Counters
+</span><a href="#local-6989586621679369801"><span class="hs-identifier hs-var hs-var">counters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Counters
+</span><a href="#local-6989586621679369801"><span class="hs-identifier hs-var">counters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369800"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369799"><span class="annot"><span class="annottext">Maybe Counters
+</span><a href="#local-6989586621679369799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:counters:Suite' :: Maybe Counters
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Acounters%3ASuite%27"><span class="hs-identifier hs-var">counters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Counters
+</span><a href="#local-6989586621679369799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | The suite\'s ARN.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_arn"><span class="hs-identifier hs-type">suite_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="suite_arn"><span class="annot"><span class="annottext">suite_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_arn"><span class="hs-identifier hs-var hs-var">suite_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe Text)
+-&gt; (Suite -&gt; Maybe Text -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369797"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Suite' :: Suite -&gt; Maybe Text
+</span><a href="#local-6989586621679369797"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369797"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369796"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369795"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Suite' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Aarn%3ASuite%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | When the suite was created.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_created"><span class="hs-identifier hs-type">suite_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="suite_created"><span class="annot"><span class="annottext">suite_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_created"><span class="hs-identifier hs-var hs-var">suite_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe POSIX)
+-&gt; (Suite -&gt; Maybe POSIX -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369793"><span class="annot"><span class="annottext">Maybe POSIX
+created :: Maybe POSIX
+$sel:created:Suite' :: Suite -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369793"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369793"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369792"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369791"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:Suite' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Acreated%3ASuite%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Suite -&gt; f Suite)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Suite
+-&gt; f Suite
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | The suite\'s stop time.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_stopped"><span class="hs-identifier hs-type">suite_stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="suite_stopped"><span class="annot"><span class="annottext">suite_stopped :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_stopped"><span class="hs-identifier hs-var hs-var">suite_stopped</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe POSIX)
+-&gt; (Suite -&gt; Maybe POSIX -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369786"><span class="annot"><span class="annottext">Maybe POSIX
+stopped :: Maybe POSIX
+$sel:stopped:Suite' :: Suite -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369786"><span class="hs-identifier hs-var hs-var">stopped</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369786"><span class="hs-identifier hs-var">stopped</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369785"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369784"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopped:Suite' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Astopped%3ASuite%27"><span class="hs-identifier hs-var">stopped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Suite -&gt; f Suite)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Suite
+-&gt; f Suite
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The suite\'s result.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- -   PASSED</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- -   WARNED</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- -   FAILED</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- -   SKIPPED</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- -   ERRORED</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- -   STOPPED</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_result"><span class="hs-identifier hs-type">suite_result</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ExecutionResult.html#ExecutionResult"><span class="hs-identifier hs-type">ExecutionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="suite_result"><span class="annot"><span class="annottext">suite_result :: (Maybe ExecutionResult -&gt; f (Maybe ExecutionResult))
+-&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_result"><span class="hs-identifier hs-var hs-var">suite_result</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe ExecutionResult)
+-&gt; (Suite -&gt; Maybe ExecutionResult -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe ExecutionResult) (Maybe ExecutionResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369782"><span class="annot"><span class="annottext">Maybe ExecutionResult
+result :: Maybe ExecutionResult
+$sel:result:Suite' :: Suite -&gt; Maybe ExecutionResult
+</span><a href="#local-6989586621679369782"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionResult
+</span><a href="#local-6989586621679369782"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369781"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369780"><span class="annot"><span class="annottext">Maybe ExecutionResult
+</span><a href="#local-6989586621679369780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:Suite' :: Maybe ExecutionResult
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Aresult%3ASuite%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionResult
+</span><a href="#local-6989586621679369780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | The suite\'s name.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_name"><span class="hs-identifier hs-type">suite_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span id="suite_name"><span class="annot"><span class="annottext">suite_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_name"><span class="hs-identifier hs-var hs-var">suite_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe Text)
+-&gt; (Suite -&gt; Maybe Text -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369778"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Suite' :: Suite -&gt; Maybe Text
+</span><a href="#local-6989586621679369778"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369778"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369777"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369776"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Suite' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Aname%3ASuite%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | Represents the total (metered or unmetered) minutes used by the test</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- suite.</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_deviceMinutes"><span class="hs-identifier hs-type">suite_deviceMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceMinutes.html#DeviceMinutes"><span class="hs-identifier hs-type">DeviceMinutes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span id="suite_deviceMinutes"><span class="annot"><span class="annottext">suite_deviceMinutes :: (Maybe DeviceMinutes -&gt; f (Maybe DeviceMinutes))
+-&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_deviceMinutes"><span class="hs-identifier hs-var hs-var">suite_deviceMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe DeviceMinutes)
+-&gt; (Suite -&gt; Maybe DeviceMinutes -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe DeviceMinutes) (Maybe DeviceMinutes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369774"><span class="annot"><span class="annottext">Maybe DeviceMinutes
+deviceMinutes :: Maybe DeviceMinutes
+$sel:deviceMinutes:Suite' :: Suite -&gt; Maybe DeviceMinutes
+</span><a href="#local-6989586621679369774"><span class="hs-identifier hs-var hs-var">deviceMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMinutes
+</span><a href="#local-6989586621679369774"><span class="hs-identifier hs-var">deviceMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369773"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369772"><span class="annot"><span class="annottext">Maybe DeviceMinutes
+</span><a href="#local-6989586621679369772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceMinutes:Suite' :: Maybe DeviceMinutes
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3AdeviceMinutes%3ASuite%27"><span class="hs-identifier hs-var">deviceMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMinutes
+</span><a href="#local-6989586621679369772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- | The suite\'s type.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- Must be one of the following values:</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- -   BUILTIN_FUZZ</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- -   BUILTIN_EXPLORER</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--     Only available for Android; an app explorer that traverses an</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--     Android app, interacting with it and capturing screenshots at the</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--     same time.</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- -   APPIUM_JAVA_JUNIT</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- -   APPIUM_JAVA_TESTNG</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- -   APPIUM_PYTHON</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- -   APPIUM_NODE</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- -   APPIUM_RUBY</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_JUNIT</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- -   APPIUM_WEB_JAVA_TESTNG</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- -   APPIUM_WEB_PYTHON</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- -   APPIUM_WEB_NODE</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- -   APPIUM_WEB_RUBY</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- -   CALABASH</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- -   INSTRUMENTATION</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- -   UIAUTOMATION</span><span>
+</span><span id="line-370"></span><span class="hs-comment">--</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- -   UIAUTOMATOR</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- -   XCTEST</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- -   XCTEST_UI</span><span>
+</span><span id="line-376"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_type"><span class="hs-identifier hs-type">suite_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span id="suite_type"><span class="annot"><span class="annottext">suite_type :: (Maybe TestType -&gt; f (Maybe TestType)) -&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_type"><span class="hs-identifier hs-var hs-var">suite_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe TestType)
+-&gt; (Suite -&gt; Maybe TestType -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe TestType) (Maybe TestType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369770"><span class="annot"><span class="annottext">Maybe TestType
+type' :: Maybe TestType
+$sel:type':Suite' :: Suite -&gt; Maybe TestType
+</span><a href="#local-6989586621679369770"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestType
+</span><a href="#local-6989586621679369770"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369769"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369768"><span class="annot"><span class="annottext">Maybe TestType
+</span><a href="#local-6989586621679369768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Suite' :: Maybe TestType
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Atype%27%3ASuite%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestType
+</span><a href="#local-6989586621679369768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- | A message about the suite\'s result.</span><span>
+</span><span id="line-380"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_message"><span class="hs-identifier hs-type">suite_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span id="suite_message"><span class="annot"><span class="annottext">suite_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_message"><span class="hs-identifier hs-var hs-var">suite_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe Text)
+-&gt; (Suite -&gt; Maybe Text -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369766"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:Suite' :: Suite -&gt; Maybe Text
+</span><a href="#local-6989586621679369766"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369766"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369765"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369764"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Suite' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Amessage%3ASuite%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- | The suite\'s start time.</span><span>
+</span><span id="line-384"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_started"><span class="hs-identifier hs-type">suite_started</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span id="suite_started"><span class="annot"><span class="annottext">suite_started :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Suite -&gt; f Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#suite_started"><span class="hs-identifier hs-var hs-var">suite_started</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Suite -&gt; Maybe POSIX)
+-&gt; (Suite -&gt; Maybe POSIX -&gt; Suite)
+-&gt; Lens Suite Suite (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369762"><span class="annot"><span class="annottext">Maybe POSIX
+started :: Maybe POSIX
+$sel:started:Suite' :: Suite -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369762"><span class="hs-identifier hs-var hs-var">started</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369762"><span class="hs-identifier hs-var">started</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369761"><span class="annot"><span class="annottext">s :: Suite
+</span><a href="#local-6989586621679369761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-type">Suite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369760"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suite
+</span><a href="#local-6989586621679369761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:started:Suite' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#%24sel%3Astarted%3ASuite%27"><span class="hs-identifier hs-var">started</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Suite -&gt; f Suite)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Suite
+-&gt; f Suite
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-386"></span><span>
+</span><span id="line-387"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369757"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-388"></span><span>  </span><span id="local-6989586621679369755"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Suite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-389"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Suite) -&gt; Value -&gt; Parser Suite
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-390"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Suite&quot;</span></span><span>
+</span><span id="line-391"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369752"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-392"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+-&gt; Maybe Counters
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe ExecutionResult
+-&gt; Maybe Text
+-&gt; Maybe DeviceMinutes
+-&gt; Maybe TestType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Suite
+</span><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite%27"><span class="hs-identifier hs-var">Suite'</span></a></span><span>
+</span><span id="line-393"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExecutionStatus
+ -&gt; Maybe Counters
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe ExecutionResult
+ -&gt; Maybe Text
+ -&gt; Maybe DeviceMinutes
+ -&gt; Maybe TestType
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Suite)
+-&gt; Parser (Maybe ExecutionStatus)
+-&gt; Parser
+     (Maybe Counters
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe ExecutionResult
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceMinutes
+      -&gt; Maybe TestType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Suite)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Counters
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe ExecutionResult
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceMinutes
+   -&gt; Maybe TestType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Suite)
+-&gt; Parser (Maybe Counters)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe ExecutionResult
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceMinutes
+      -&gt; Maybe TestType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Suite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Counters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;counters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe ExecutionResult
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceMinutes
+   -&gt; Maybe TestType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Suite)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe ExecutionResult
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceMinutes
+      -&gt; Maybe TestType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Suite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe ExecutionResult
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceMinutes
+   -&gt; Maybe TestType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Suite)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe ExecutionResult
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceMinutes
+      -&gt; Maybe TestType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Suite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ExecutionResult
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceMinutes
+   -&gt; Maybe TestType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Suite)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ExecutionResult
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceMinutes
+      -&gt; Maybe TestType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Suite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stopped&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-398"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ExecutionResult
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceMinutes
+   -&gt; Maybe TestType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Suite)
+-&gt; Parser (Maybe ExecutionResult)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DeviceMinutes
+      -&gt; Maybe TestType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Suite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;result&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DeviceMinutes
+   -&gt; Maybe TestType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Suite)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DeviceMinutes
+      -&gt; Maybe TestType -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Suite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DeviceMinutes
+   -&gt; Maybe TestType -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Suite)
+-&gt; Parser (Maybe DeviceMinutes)
+-&gt; Parser (Maybe TestType -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Suite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceMinutes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TestType -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Suite)
+-&gt; Parser (Maybe TestType)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; Suite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TestType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-402"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Suite)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; Suite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-403"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Suite)
+-&gt; Parser (Maybe POSIX) -&gt; Parser Suite
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;started&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-404"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span>
+</span><span id="line-406"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369746"><span id="local-6989586621679369748"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span></span></span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369743"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Suite.html#Suite"><span class="hs-identifier hs-type">Suite</span></a></span></span><span>
+</span><span id="line-409"></span></pre></body></html>

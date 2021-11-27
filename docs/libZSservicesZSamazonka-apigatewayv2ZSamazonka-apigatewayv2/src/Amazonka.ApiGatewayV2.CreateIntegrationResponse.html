@@ -1,0 +1,1333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ApiGatewayV2.CreateIntegrationResponse</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an IntegrationResponses.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApiGatewayV2.CreateIntegrationResponse</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#newCreateIntegrationResponse"><span class="hs-identifier">newCreateIntegrationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_templateSelectionExpression"><span class="hs-identifier">createIntegrationResponse_templateSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_contentHandlingStrategy"><span class="hs-identifier">createIntegrationResponse_contentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_responseTemplates"><span class="hs-identifier">createIntegrationResponse_responseTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_responseParameters"><span class="hs-identifier">createIntegrationResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_apiId"><span class="hs-identifier">createIntegrationResponse_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_integrationId"><span class="hs-identifier">createIntegrationResponse_integrationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_integrationResponseKey"><span class="hs-identifier">createIntegrationResponse_integrationResponseKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier">CreateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#newCreateIntegrationResponseResponse"><span class="hs-identifier">newCreateIntegrationResponseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_integrationResponseId"><span class="hs-identifier">createIntegrationResponseResponse_integrationResponseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_integrationResponseKey"><span class="hs-identifier">createIntegrationResponseResponse_integrationResponseKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_templateSelectionExpression"><span class="hs-identifier">createIntegrationResponseResponse_templateSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_contentHandlingStrategy"><span class="hs-identifier">createIntegrationResponseResponse_contentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_responseTemplates"><span class="hs-identifier">createIntegrationResponseResponse_responseTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_responseParameters"><span class="hs-identifier">createIntegrationResponseResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_httpStatus"><span class="hs-identifier">createIntegrationResponseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.html"><span class="hs-identifier">Amazonka.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | Creates a new IntegrationResponse resource to represent an integration</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newCreateIntegrationResponse' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679423937"><span id="local-6989586621679423938"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIntegrationResponse"><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-var">CreateIntegrationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIntegrationResponse%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-var">CreateIntegrationResponse'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The template selection expression for the integration response.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Supported only for WebSocket APIs.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AtemplateSelectionExpression%3ACreateIntegrationResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">templateSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Specifies how to handle response payload content type conversions.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- following behaviors:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AcontentHandlingStrategy%3ACreateIntegrationResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponse -&gt; Maybe ContentHandlingStrategy
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">contentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The collection of response templates for the integration response as a</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AresponseTemplates%3ACreateIntegrationResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseTemplates%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">responseTemplates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- match the pattern of method.response.header.{name}, where {name} is a</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- integration.response.body.{JSON-expression}, where {name} is a valid and</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- unique response header name and {JSON-expression} is a valid JSON</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AresponseParameters%3ACreateIntegrationResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseParameters%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AapiId%3ACreateIntegrationResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponse -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AapiId%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The integration ID.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AintegrationId%3ACreateIntegrationResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponse -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationId%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">integrationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The integration response key.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AintegrationResponseKey%3ACreateIntegrationResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponse -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">integrationResponseKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423925"><span id="local-6989586621679423927"><span class="annot"><span class="annottext">CreateIntegrationResponse -&gt; CreateIntegrationResponse -&gt; Bool
+(CreateIntegrationResponse -&gt; CreateIntegrationResponse -&gt; Bool)
+-&gt; (CreateIntegrationResponse -&gt; CreateIntegrationResponse -&gt; Bool)
+-&gt; Eq CreateIntegrationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateIntegrationResponse -&gt; CreateIntegrationResponse -&gt; Bool
+$c/= :: CreateIntegrationResponse -&gt; CreateIntegrationResponse -&gt; Bool
+== :: CreateIntegrationResponse -&gt; CreateIntegrationResponse -&gt; Bool
+$c== :: CreateIntegrationResponse -&gt; CreateIntegrationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423916"><span id="local-6989586621679423918"><span id="local-6989586621679423920"><span id="local-6989586621679423922"><span class="annot"><span class="annottext">ReadPrec [CreateIntegrationResponse]
+ReadPrec CreateIntegrationResponse
+Int -&gt; ReadS CreateIntegrationResponse
+ReadS [CreateIntegrationResponse]
+(Int -&gt; ReadS CreateIntegrationResponse)
+-&gt; ReadS [CreateIntegrationResponse]
+-&gt; ReadPrec CreateIntegrationResponse
+-&gt; ReadPrec [CreateIntegrationResponse]
+-&gt; Read CreateIntegrationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateIntegrationResponse]
+$creadListPrec :: ReadPrec [CreateIntegrationResponse]
+readPrec :: ReadPrec CreateIntegrationResponse
+$creadPrec :: ReadPrec CreateIntegrationResponse
+readList :: ReadS [CreateIntegrationResponse]
+$creadList :: ReadS [CreateIntegrationResponse]
+readsPrec :: Int -&gt; ReadS CreateIntegrationResponse
+$creadsPrec :: Int -&gt; ReadS CreateIntegrationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423909"><span id="local-6989586621679423911"><span id="local-6989586621679423913"><span class="annot"><span class="annottext">Int -&gt; CreateIntegrationResponse -&gt; ShowS
+[CreateIntegrationResponse] -&gt; ShowS
+CreateIntegrationResponse -&gt; String
+(Int -&gt; CreateIntegrationResponse -&gt; ShowS)
+-&gt; (CreateIntegrationResponse -&gt; String)
+-&gt; ([CreateIntegrationResponse] -&gt; ShowS)
+-&gt; Show CreateIntegrationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateIntegrationResponse] -&gt; ShowS
+$cshowList :: [CreateIntegrationResponse] -&gt; ShowS
+show :: CreateIntegrationResponse -&gt; String
+$cshow :: CreateIntegrationResponse -&gt; String
+showsPrec :: Int -&gt; CreateIntegrationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateIntegrationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateIntegrationResponse -&gt; Rep CreateIntegrationResponse x)
+-&gt; (forall x.
+    Rep CreateIntegrationResponse x -&gt; CreateIntegrationResponse)
+-&gt; Generic CreateIntegrationResponse
+forall x.
+Rep CreateIntegrationResponse x -&gt; CreateIntegrationResponse
+forall x.
+CreateIntegrationResponse -&gt; Rep CreateIntegrationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateIntegrationResponse x -&gt; CreateIntegrationResponse
+$cfrom :: forall x.
+CreateIntegrationResponse -&gt; Rep CreateIntegrationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Create a value of 'CreateIntegrationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'templateSelectionExpression', 'createIntegrationResponse_templateSelectionExpression' - The template selection expression for the integration response.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Supported only for WebSocket APIs.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'contentHandlingStrategy', 'createIntegrationResponse_contentHandlingStrategy' - Specifies how to handle response payload content type conversions.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- following behaviors:</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'responseTemplates', 'createIntegrationResponse_responseTemplates' - The collection of response templates for the integration response as a</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'responseParameters', 'createIntegrationResponse_responseParameters' - A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- match the pattern of method.response.header.{name}, where {name} is a</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- integration.response.body.{JSON-expression}, where {name} is a valid and</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- unique response header name and {JSON-expression} is a valid JSON</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'apiId', 'createIntegrationResponse_apiId' - The API identifier.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'integrationId', 'createIntegrationResponse_integrationId' - The integration ID.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'integrationResponseKey', 'createIntegrationResponse_integrationResponseKey' - The integration response key.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#newCreateIntegrationResponse"><span class="hs-identifier hs-type">newCreateIntegrationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'integrationId'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'integrationResponseKey'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newCreateIntegrationResponse"><span class="annot"><span class="annottext">newCreateIntegrationResponse :: Text -&gt; Text -&gt; Text -&gt; CreateIntegrationResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#newCreateIntegrationResponse"><span class="hs-identifier hs-var hs-var">newCreateIntegrationResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679423904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423904"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679423903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423903"><span class="hs-identifier hs-var">pIntegrationId_</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679423902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423902"><span class="hs-identifier hs-var">pIntegrationResponseKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">CreateIntegrationResponse' :: Maybe Text
+-&gt; Maybe ContentHandlingStrategy
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateIntegrationResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateSelectionExpression:CreateIntegrationResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentHandlingStrategy:CreateIntegrationResponse' :: Maybe ContentHandlingStrategy
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:responseTemplates:CreateIntegrationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseTemplates%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:responseParameters:CreateIntegrationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseParameters%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:apiId:CreateIntegrationResponse' :: Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AapiId%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423904"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:integrationId:CreateIntegrationResponse' :: Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationId%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423903"><span class="hs-identifier hs-var">pIntegrationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">$sel:integrationResponseKey:CreateIntegrationResponse' :: Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423902"><span class="hs-identifier hs-var">pIntegrationResponseKey_</span></a></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The template selection expression for the integration response.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Supported only for WebSocket APIs.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_templateSelectionExpression"><span class="hs-identifier hs-type">createIntegrationResponse_templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="createIntegrationResponse_templateSelectionExpression"><span class="annot"><span class="annottext">createIntegrationResponse_templateSelectionExpression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateIntegrationResponse -&gt; f CreateIntegrationResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_templateSelectionExpression"><span class="hs-identifier hs-var hs-var">createIntegrationResponse_templateSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponse -&gt; Maybe Text)
+-&gt; (CreateIntegrationResponse
+    -&gt; Maybe Text -&gt; CreateIntegrationResponse)
+-&gt; Lens
+     CreateIntegrationResponse
+     CreateIntegrationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423899"><span class="annot"><span class="annottext">Maybe Text
+templateSelectionExpression :: Maybe Text
+$sel:templateSelectionExpression:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423899"><span class="hs-identifier hs-var hs-var">templateSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423899"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423898"><span class="annot"><span class="annottext">s :: CreateIntegrationResponse
+</span><a href="#local-6989586621679423898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423897"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponse
+</span><a href="#local-6989586621679423898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateSelectionExpression:CreateIntegrationResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Specifies how to handle response payload content type conversions.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- following behaviors:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_contentHandlingStrategy"><span class="hs-identifier hs-type">createIntegrationResponse_contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="createIntegrationResponse_contentHandlingStrategy"><span class="annot"><span class="annottext">createIntegrationResponse_contentHandlingStrategy :: (Maybe ContentHandlingStrategy
+ -&gt; f (Maybe ContentHandlingStrategy))
+-&gt; CreateIntegrationResponse -&gt; f CreateIntegrationResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_contentHandlingStrategy"><span class="hs-identifier hs-var hs-var">createIntegrationResponse_contentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponse -&gt; Maybe ContentHandlingStrategy)
+-&gt; (CreateIntegrationResponse
+    -&gt; Maybe ContentHandlingStrategy -&gt; CreateIntegrationResponse)
+-&gt; Lens
+     CreateIntegrationResponse
+     CreateIntegrationResponse
+     (Maybe ContentHandlingStrategy)
+     (Maybe ContentHandlingStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423896"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+contentHandlingStrategy :: Maybe ContentHandlingStrategy
+$sel:contentHandlingStrategy:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679423896"><span class="hs-identifier hs-var hs-var">contentHandlingStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679423896"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423895"><span class="annot"><span class="annottext">s :: CreateIntegrationResponse
+</span><a href="#local-6989586621679423895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423894"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679423894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponse
+</span><a href="#local-6989586621679423895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentHandlingStrategy:CreateIntegrationResponse' :: Maybe ContentHandlingStrategy
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679423894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The collection of response templates for the integration response as a</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_responseTemplates"><span class="hs-identifier hs-type">createIntegrationResponse_responseTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="createIntegrationResponse_responseTemplates"><span class="annot"><span class="annottext">createIntegrationResponse_responseTemplates :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIntegrationResponse -&gt; f CreateIntegrationResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_responseTemplates"><span class="hs-identifier hs-var hs-var">createIntegrationResponse_responseTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateIntegrationResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateIntegrationResponse)
+-&gt; Lens
+     CreateIntegrationResponse
+     CreateIntegrationResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423893"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseTemplates :: Maybe (HashMap Text Text)
+$sel:responseTemplates:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423893"><span class="hs-identifier hs-var hs-var">responseTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423893"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423892"><span class="annot"><span class="annottext">s :: CreateIntegrationResponse
+</span><a href="#local-6989586621679423892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423891"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponse
+</span><a href="#local-6989586621679423892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseTemplates:CreateIntegrationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseTemplates%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateIntegrationResponse -&gt; f CreateIntegrationResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIntegrationResponse
+-&gt; f CreateIntegrationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- match the pattern of method.response.header.{name}, where {name} is a</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- integration.response.body.{JSON-expression}, where {name} is a valid and</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- unique response header name and {JSON-expression} is a valid JSON</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_responseParameters"><span class="hs-identifier hs-type">createIntegrationResponse_responseParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="createIntegrationResponse_responseParameters"><span class="annot"><span class="annottext">createIntegrationResponse_responseParameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIntegrationResponse -&gt; f CreateIntegrationResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_responseParameters"><span class="hs-identifier hs-var hs-var">createIntegrationResponse_responseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateIntegrationResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateIntegrationResponse)
+-&gt; Lens
+     CreateIntegrationResponse
+     CreateIntegrationResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423887"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseParameters :: Maybe (HashMap Text Text)
+$sel:responseParameters:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423887"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423887"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423886"><span class="annot"><span class="annottext">s :: CreateIntegrationResponse
+</span><a href="#local-6989586621679423886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423885"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponse
+</span><a href="#local-6989586621679423886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:CreateIntegrationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseParameters%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateIntegrationResponse -&gt; f CreateIntegrationResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIntegrationResponse
+-&gt; f CreateIntegrationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_apiId"><span class="hs-identifier hs-type">createIntegrationResponse_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-223"></span><span id="createIntegrationResponse_apiId"><span class="annot"><span class="annottext">createIntegrationResponse_apiId :: (Text -&gt; f Text)
+-&gt; CreateIntegrationResponse -&gt; f CreateIntegrationResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_apiId"><span class="hs-identifier hs-var hs-var">createIntegrationResponse_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponse -&gt; Text)
+-&gt; (CreateIntegrationResponse -&gt; Text -&gt; CreateIntegrationResponse)
+-&gt; Lens
+     CreateIntegrationResponse CreateIntegrationResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423884"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Text
+</span><a href="#local-6989586621679423884"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423884"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423883"><span class="annot"><span class="annottext">s :: CreateIntegrationResponse
+</span><a href="#local-6989586621679423883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423882"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponse
+</span><a href="#local-6989586621679423883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:CreateIntegrationResponse' :: Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AapiId%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The integration ID.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_integrationId"><span class="hs-identifier hs-type">createIntegrationResponse_integrationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-227"></span><span id="createIntegrationResponse_integrationId"><span class="annot"><span class="annottext">createIntegrationResponse_integrationId :: (Text -&gt; f Text)
+-&gt; CreateIntegrationResponse -&gt; f CreateIntegrationResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_integrationId"><span class="hs-identifier hs-var hs-var">createIntegrationResponse_integrationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponse -&gt; Text)
+-&gt; (CreateIntegrationResponse -&gt; Text -&gt; CreateIntegrationResponse)
+-&gt; Lens
+     CreateIntegrationResponse CreateIntegrationResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423881"><span class="annot"><span class="annottext">Text
+integrationId :: Text
+$sel:integrationId:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Text
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var hs-var">integrationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">integrationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423880"><span class="annot"><span class="annottext">s :: CreateIntegrationResponse
+</span><a href="#local-6989586621679423880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423879"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponse
+</span><a href="#local-6989586621679423880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationId:CreateIntegrationResponse' :: Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationId%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The integration response key.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_integrationResponseKey"><span class="hs-identifier hs-type">createIntegrationResponse_integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-231"></span><span id="createIntegrationResponse_integrationResponseKey"><span class="annot"><span class="annottext">createIntegrationResponse_integrationResponseKey :: (Text -&gt; f Text)
+-&gt; CreateIntegrationResponse -&gt; f CreateIntegrationResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponse_integrationResponseKey"><span class="hs-identifier hs-var hs-var">createIntegrationResponse_integrationResponseKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponse -&gt; Text)
+-&gt; (CreateIntegrationResponse -&gt; Text -&gt; CreateIntegrationResponse)
+-&gt; Lens
+     CreateIntegrationResponse CreateIntegrationResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423878"><span class="annot"><span class="annottext">Text
+integrationResponseKey :: Text
+$sel:integrationResponseKey:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Text
+</span><a href="#local-6989586621679423878"><span class="hs-identifier hs-var hs-var">integrationResponseKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423878"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423877"><span class="annot"><span class="annottext">s :: CreateIntegrationResponse
+</span><a href="#local-6989586621679423877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponse
+</span><a href="#local-6989586621679423877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationResponseKey:CreateIntegrationResponse' :: Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3ACreateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-235"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679423872"><span class="annot"><span class="annottext">request :: CreateIntegrationResponse -&gt; Request CreateIntegrationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateIntegrationResponse -&gt; Request CreateIntegrationResponse
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679423868"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateIntegrationResponse
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateIntegrationResponse)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateIntegrationResponse))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateIntegrationResponse
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateIntegrationResponse)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679423865"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423865"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679423864"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679423864"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679423863"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423863"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ContentHandlingStrategy
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">CreateIntegrationResponseResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ContentHandlingStrategy
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; CreateIntegrationResponseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ContentHandlingStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;integrationResponseId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ContentHandlingStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateIntegrationResponseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ContentHandlingStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;integrationResponseKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ContentHandlingStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateIntegrationResponseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ContentHandlingStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateSelectionExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ContentHandlingStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateIntegrationResponseResponse)
+-&gt; Either String (Maybe ContentHandlingStrategy)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ContentHandlingStrategy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentHandlingStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateIntegrationResponseResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Int -&gt; CreateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseTemplates&quot;</span></span><span>
+</span><span id="line-247"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-248"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Int -&gt; CreateIntegrationResponseResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; CreateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseParameters&quot;</span></span><span>
+</span><span id="line-250"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-251"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateIntegrationResponseResponse)
+-&gt; Either String Int
+-&gt; Either String CreateIntegrationResponseResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423865"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423854"><span id="local-6989586621679423856"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span></span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679423847"><span class="annot"><span class="annottext">toHeaders :: CreateIntegrationResponse -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateIntegrationResponse -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-262"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-263"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-265"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-266"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423837"><span id="local-6989586621679423839"><span id="local-6989586621679423841"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679423835"><span class="annot"><span class="annottext">toJSON :: CreateIntegrationResponse -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423827"><span id="local-6989586621679423828"><span id="local-6989586621679423829"><span id="local-6989586621679423830"><span id="local-6989586621679423831"><span id="local-6989586621679423832"><span id="local-6989586621679423833"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe ContentHandlingStrategy
+Text
+integrationResponseKey :: Text
+integrationId :: Text
+apiId :: Text
+responseParameters :: Maybe (HashMap Text Text)
+responseTemplates :: Maybe (HashMap Text Text)
+contentHandlingStrategy :: Maybe ContentHandlingStrategy
+templateSelectionExpression :: Maybe Text
+$sel:integrationResponseKey:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Text
+$sel:integrationId:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Text
+$sel:apiId:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Text
+$sel:responseParameters:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+$sel:responseTemplates:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+$sel:contentHandlingStrategy:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe ContentHandlingStrategy
+$sel:templateSelectionExpression:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423827"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-274"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateSelectionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423833"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentHandlingStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContentHandlingStrategy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>              </span><span class="annot"><span class="annottext">(ContentHandlingStrategy -&gt; Pair)
+-&gt; Maybe ContentHandlingStrategy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679423832"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseTemplates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423831"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423830"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-283"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;integrationResponseKey&quot;</span></span><span>
+</span><span id="line-284"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423827"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span>
+</span><span id="line-285"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-287"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679423821"><span class="annot"><span class="annottext">toPath :: CreateIntegrationResponse -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423813"><span id="local-6989586621679423814"><span id="local-6989586621679423815"><span id="local-6989586621679423816"><span id="local-6989586621679423817"><span id="local-6989586621679423818"><span id="local-6989586621679423819"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe ContentHandlingStrategy
+Text
+integrationResponseKey :: Text
+integrationId :: Text
+apiId :: Text
+responseParameters :: Maybe (HashMap Text Text)
+responseTemplates :: Maybe (HashMap Text Text)
+contentHandlingStrategy :: Maybe ContentHandlingStrategy
+templateSelectionExpression :: Maybe Text
+$sel:integrationResponseKey:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Text
+$sel:integrationId:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Text
+$sel:apiId:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Text
+$sel:responseParameters:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+$sel:responseTemplates:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+$sel:contentHandlingStrategy:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe ContentHandlingStrategy
+$sel:templateSelectionExpression:CreateIntegrationResponse' :: CreateIntegrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423813"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/apis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423815"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/integrations/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423814"><span class="hs-identifier hs-var">integrationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/integrationresponses&quot;</span></span><span>
+</span><span id="line-297"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponse"><span class="hs-identifier hs-type">CreateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679423809"><span class="annot"><span class="annottext">toQuery :: CreateIntegrationResponse -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateIntegrationResponse -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | /See:/ 'newCreateIntegrationResponseResponse' smart constructor.</span><span>
+</span><span id="line-303"></span><span id="local-6989586621679423806"><span id="local-6989586621679423807"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIntegrationResponseResponse"><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-var">CreateIntegrationResponseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIntegrationResponseResponse%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">CreateIntegrationResponseResponse'</span></a></span></span><span>
+</span><span id="line-304"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The integration response ID.</span><span>
+</span><span id="line-305"></span><span>    </span><span id="%24sel%3AintegrationResponseId%3ACreateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationResponseId%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">integrationResponseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="hs-comment">-- | The integration response key.</span><span>
+</span><span id="line-307"></span><span>    </span><span id="%24sel%3AintegrationResponseKey%3ACreateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">integrationResponseKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="hs-comment">-- | The template selection expressions for the integration response.</span><span>
+</span><span id="line-309"></span><span>    </span><span id="%24sel%3AtemplateSelectionExpression%3ACreateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">templateSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-comment">-- | Supported only for WebSocket APIs. Specifies how to handle response</span><span>
+</span><span id="line-311"></span><span>    </span><span class="hs-comment">-- payload content type conversions. Supported values are CONVERT_TO_BINARY</span><span>
+</span><span id="line-312"></span><span>    </span><span class="hs-comment">-- and CONVERT_TO_TEXT, with the following behaviors:</span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span>    </span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-315"></span><span>    </span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-316"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span>    </span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-318"></span><span>    </span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-319"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span>    </span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-322"></span><span>    </span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-323"></span><span>    </span><span id="%24sel%3AcontentHandlingStrategy%3ACreateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponseResponse -&gt; Maybe ContentHandlingStrategy
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">contentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- | The collection of response templates for the integration response as a</span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-328"></span><span>    </span><span id="%24sel%3AresponseTemplates%3ACreateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseTemplates%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">responseTemplates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-comment">-- | A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-332"></span><span>    </span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-333"></span><span>    </span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-334"></span><span>    </span><span class="hs-comment">-- match the pattern of method.response.header.{name}, where name is a</span><span>
+</span><span id="line-335"></span><span>    </span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-336"></span><span>    </span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-337"></span><span>    </span><span class="hs-comment">-- integration.response.body.{JSON-expression}, where name is a valid and</span><span>
+</span><span id="line-338"></span><span>    </span><span class="hs-comment">-- unique response header name and JSON-expression is a valid JSON</span><span>
+</span><span id="line-339"></span><span>    </span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-340"></span><span>    </span><span id="%24sel%3AresponseParameters%3ACreateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseParameters%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-342"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">CreateIntegrationResponseResponse -&gt; Int
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AhttpStatus%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-343"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-344"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423795"><span id="local-6989586621679423797"><span class="annot"><span class="annottext">CreateIntegrationResponseResponse
+-&gt; CreateIntegrationResponseResponse -&gt; Bool
+(CreateIntegrationResponseResponse
+ -&gt; CreateIntegrationResponseResponse -&gt; Bool)
+-&gt; (CreateIntegrationResponseResponse
+    -&gt; CreateIntegrationResponseResponse -&gt; Bool)
+-&gt; Eq CreateIntegrationResponseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateIntegrationResponseResponse
+-&gt; CreateIntegrationResponseResponse -&gt; Bool
+$c/= :: CreateIntegrationResponseResponse
+-&gt; CreateIntegrationResponseResponse -&gt; Bool
+== :: CreateIntegrationResponseResponse
+-&gt; CreateIntegrationResponseResponse -&gt; Bool
+$c== :: CreateIntegrationResponseResponse
+-&gt; CreateIntegrationResponseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423787"><span id="local-6989586621679423789"><span id="local-6989586621679423791"><span id="local-6989586621679423793"><span class="annot"><span class="annottext">ReadPrec [CreateIntegrationResponseResponse]
+ReadPrec CreateIntegrationResponseResponse
+Int -&gt; ReadS CreateIntegrationResponseResponse
+ReadS [CreateIntegrationResponseResponse]
+(Int -&gt; ReadS CreateIntegrationResponseResponse)
+-&gt; ReadS [CreateIntegrationResponseResponse]
+-&gt; ReadPrec CreateIntegrationResponseResponse
+-&gt; ReadPrec [CreateIntegrationResponseResponse]
+-&gt; Read CreateIntegrationResponseResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateIntegrationResponseResponse]
+$creadListPrec :: ReadPrec [CreateIntegrationResponseResponse]
+readPrec :: ReadPrec CreateIntegrationResponseResponse
+$creadPrec :: ReadPrec CreateIntegrationResponseResponse
+readList :: ReadS [CreateIntegrationResponseResponse]
+$creadList :: ReadS [CreateIntegrationResponseResponse]
+readsPrec :: Int -&gt; ReadS CreateIntegrationResponseResponse
+$creadsPrec :: Int -&gt; ReadS CreateIntegrationResponseResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423781"><span id="local-6989586621679423783"><span id="local-6989586621679423785"><span class="annot"><span class="annottext">Int -&gt; CreateIntegrationResponseResponse -&gt; ShowS
+[CreateIntegrationResponseResponse] -&gt; ShowS
+CreateIntegrationResponseResponse -&gt; String
+(Int -&gt; CreateIntegrationResponseResponse -&gt; ShowS)
+-&gt; (CreateIntegrationResponseResponse -&gt; String)
+-&gt; ([CreateIntegrationResponseResponse] -&gt; ShowS)
+-&gt; Show CreateIntegrationResponseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateIntegrationResponseResponse] -&gt; ShowS
+$cshowList :: [CreateIntegrationResponseResponse] -&gt; ShowS
+show :: CreateIntegrationResponseResponse -&gt; String
+$cshow :: CreateIntegrationResponseResponse -&gt; String
+showsPrec :: Int -&gt; CreateIntegrationResponseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateIntegrationResponseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateIntegrationResponseResponse
+ -&gt; Rep CreateIntegrationResponseResponse x)
+-&gt; (forall x.
+    Rep CreateIntegrationResponseResponse x
+    -&gt; CreateIntegrationResponseResponse)
+-&gt; Generic CreateIntegrationResponseResponse
+forall x.
+Rep CreateIntegrationResponseResponse x
+-&gt; CreateIntegrationResponseResponse
+forall x.
+CreateIntegrationResponseResponse
+-&gt; Rep CreateIntegrationResponseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateIntegrationResponseResponse x
+-&gt; CreateIntegrationResponseResponse
+$cfrom :: forall x.
+CreateIntegrationResponseResponse
+-&gt; Rep CreateIntegrationResponseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- Create a value of 'CreateIntegrationResponseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- 'integrationResponseId', 'createIntegrationResponseResponse_integrationResponseId' - The integration response ID.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- 'integrationResponseKey', 'createIntegrationResponseResponse_integrationResponseKey' - The integration response key.</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- 'templateSelectionExpression', 'createIntegrationResponseResponse_templateSelectionExpression' - The template selection expressions for the integration response.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- 'contentHandlingStrategy', 'createIntegrationResponseResponse_contentHandlingStrategy' - Supported only for WebSocket APIs. Specifies how to handle response</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- payload content type conversions. Supported values are CONVERT_TO_BINARY</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- and CONVERT_TO_TEXT, with the following behaviors:</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- 'responseTemplates', 'createIntegrationResponseResponse_responseTemplates' - The collection of response templates for the integration response as a</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- 'responseParameters', 'createIntegrationResponseResponse_responseParameters' - A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- match the pattern of method.response.header.{name}, where name is a</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- integration.response.body.{JSON-expression}, where name is a valid and</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- unique response header name and JSON-expression is a valid JSON</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- 'httpStatus', 'createIntegrationResponseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-392"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#newCreateIntegrationResponseResponse"><span class="hs-identifier hs-type">newCreateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-393"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-394"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-395"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span>
+</span><span id="line-396"></span><span id="newCreateIntegrationResponseResponse"><span class="annot"><span class="annottext">newCreateIntegrationResponseResponse :: Int -&gt; CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#newCreateIntegrationResponseResponse"><span class="hs-identifier hs-var hs-var">newCreateIntegrationResponseResponse</span></a></span></span><span> </span><span id="local-6989586621679423778"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423778"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-397"></span><span>  </span><span class="annot"><span class="annottext">CreateIntegrationResponseResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ContentHandlingStrategy
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span>
+</span><span id="line-398"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:integrationResponseId:CreateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationResponseId%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-399"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>      </span><span class="annot"><span class="annottext">$sel:integrationResponseKey:CreateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateSelectionExpression:CreateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-402"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-403"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentHandlingStrategy:CreateIntegrationResponseResponse' :: Maybe ContentHandlingStrategy
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-404"></span><span>        </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseTemplates:CreateIntegrationResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseTemplates%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseParameters:CreateIntegrationResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseParameters%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateIntegrationResponseResponse' :: Int
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AhttpStatus%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423778"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-408"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-409"></span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- | The integration response ID.</span><span>
+</span><span id="line-411"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_integrationResponseId"><span class="hs-identifier hs-type">createIntegrationResponseResponse_integrationResponseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-412"></span><span id="createIntegrationResponseResponse_integrationResponseId"><span class="annot"><span class="annottext">createIntegrationResponseResponse_integrationResponseId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateIntegrationResponseResponse
+-&gt; f CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_integrationResponseId"><span class="hs-identifier hs-var hs-var">createIntegrationResponseResponse_integrationResponseId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponseResponse -&gt; Maybe Text)
+-&gt; (CreateIntegrationResponseResponse
+    -&gt; Maybe Text -&gt; CreateIntegrationResponseResponse)
+-&gt; Lens
+     CreateIntegrationResponseResponse
+     CreateIntegrationResponseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423777"><span class="annot"><span class="annottext">Maybe Text
+integrationResponseId :: Maybe Text
+$sel:integrationResponseId:CreateIntegrationResponseResponse' :: CreateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423777"><span class="hs-identifier hs-var hs-var">integrationResponseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423777"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423776"><span class="annot"><span class="annottext">s :: CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationResponseId:CreateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationResponseId%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-413"></span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- | The integration response key.</span><span>
+</span><span id="line-415"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_integrationResponseKey"><span class="hs-identifier hs-type">createIntegrationResponseResponse_integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span id="createIntegrationResponseResponse_integrationResponseKey"><span class="annot"><span class="annottext">createIntegrationResponseResponse_integrationResponseKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateIntegrationResponseResponse
+-&gt; f CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_integrationResponseKey"><span class="hs-identifier hs-var hs-var">createIntegrationResponseResponse_integrationResponseKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponseResponse -&gt; Maybe Text)
+-&gt; (CreateIntegrationResponseResponse
+    -&gt; Maybe Text -&gt; CreateIntegrationResponseResponse)
+-&gt; Lens
+     CreateIntegrationResponseResponse
+     CreateIntegrationResponseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423774"><span class="annot"><span class="annottext">Maybe Text
+integrationResponseKey :: Maybe Text
+$sel:integrationResponseKey:CreateIntegrationResponseResponse' :: CreateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423774"><span class="hs-identifier hs-var hs-var">integrationResponseKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423774"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423773"><span class="annot"><span class="annottext">s :: CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationResponseKey:CreateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- | The template selection expressions for the integration response.</span><span>
+</span><span id="line-419"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_templateSelectionExpression"><span class="hs-identifier hs-type">createIntegrationResponseResponse_templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span id="createIntegrationResponseResponse_templateSelectionExpression"><span class="annot"><span class="annottext">createIntegrationResponseResponse_templateSelectionExpression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateIntegrationResponseResponse
+-&gt; f CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_templateSelectionExpression"><span class="hs-identifier hs-var hs-var">createIntegrationResponseResponse_templateSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponseResponse -&gt; Maybe Text)
+-&gt; (CreateIntegrationResponseResponse
+    -&gt; Maybe Text -&gt; CreateIntegrationResponseResponse)
+-&gt; Lens
+     CreateIntegrationResponseResponse
+     CreateIntegrationResponseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423771"><span class="annot"><span class="annottext">Maybe Text
+templateSelectionExpression :: Maybe Text
+$sel:templateSelectionExpression:CreateIntegrationResponseResponse' :: CreateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423771"><span class="hs-identifier hs-var hs-var">templateSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423771"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423770"><span class="annot"><span class="annottext">s :: CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateSelectionExpression:CreateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- | Supported only for WebSocket APIs. Specifies how to handle response</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- payload content type conversions. Supported values are CONVERT_TO_BINARY</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- and CONVERT_TO_TEXT, with the following behaviors:</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-431"></span><span class="hs-comment">--</span><span>
+</span><span id="line-432"></span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-435"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_contentHandlingStrategy"><span class="hs-identifier hs-type">createIntegrationResponseResponse_contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-436"></span><span id="createIntegrationResponseResponse_contentHandlingStrategy"><span class="annot"><span class="annottext">createIntegrationResponseResponse_contentHandlingStrategy :: (Maybe ContentHandlingStrategy
+ -&gt; f (Maybe ContentHandlingStrategy))
+-&gt; CreateIntegrationResponseResponse
+-&gt; f CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_contentHandlingStrategy"><span class="hs-identifier hs-var hs-var">createIntegrationResponseResponse_contentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponseResponse
+ -&gt; Maybe ContentHandlingStrategy)
+-&gt; (CreateIntegrationResponseResponse
+    -&gt; Maybe ContentHandlingStrategy
+    -&gt; CreateIntegrationResponseResponse)
+-&gt; Lens
+     CreateIntegrationResponseResponse
+     CreateIntegrationResponseResponse
+     (Maybe ContentHandlingStrategy)
+     (Maybe ContentHandlingStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423768"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+contentHandlingStrategy :: Maybe ContentHandlingStrategy
+$sel:contentHandlingStrategy:CreateIntegrationResponseResponse' :: CreateIntegrationResponseResponse -&gt; Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679423768"><span class="hs-identifier hs-var hs-var">contentHandlingStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679423768"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423767"><span class="annot"><span class="annottext">s :: CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423766"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679423766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentHandlingStrategy:CreateIntegrationResponseResponse' :: Maybe ContentHandlingStrategy
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679423766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-437"></span><span>
+</span><span id="line-438"></span><span class="hs-comment">-- | The collection of response templates for the integration response as a</span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-442"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_responseTemplates"><span class="hs-identifier hs-type">createIntegrationResponseResponse_responseTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-443"></span><span id="createIntegrationResponseResponse_responseTemplates"><span class="annot"><span class="annottext">createIntegrationResponseResponse_responseTemplates :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIntegrationResponseResponse
+-&gt; f CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_responseTemplates"><span class="hs-identifier hs-var hs-var">createIntegrationResponseResponse_responseTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateIntegrationResponseResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateIntegrationResponseResponse)
+-&gt; Lens
+     CreateIntegrationResponseResponse
+     CreateIntegrationResponseResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423765"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseTemplates :: Maybe (HashMap Text Text)
+$sel:responseTemplates:CreateIntegrationResponseResponse' :: CreateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423765"><span class="hs-identifier hs-var hs-var">responseTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423765"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423764"><span class="annot"><span class="annottext">s :: CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423763"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseTemplates:CreateIntegrationResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseTemplates%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateIntegrationResponseResponse
+ -&gt; f CreateIntegrationResponseResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIntegrationResponseResponse
+-&gt; f CreateIntegrationResponseResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- | A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- match the pattern of method.response.header.{name}, where name is a</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- integration.response.body.{JSON-expression}, where name is a valid and</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- unique response header name and JSON-expression is a valid JSON</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-456"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_responseParameters"><span class="hs-identifier hs-type">createIntegrationResponseResponse_responseParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-457"></span><span id="createIntegrationResponseResponse_responseParameters"><span class="annot"><span class="annottext">createIntegrationResponseResponse_responseParameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIntegrationResponseResponse
+-&gt; f CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_responseParameters"><span class="hs-identifier hs-var hs-var">createIntegrationResponseResponse_responseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateIntegrationResponseResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateIntegrationResponseResponse)
+-&gt; Lens
+     CreateIntegrationResponseResponse
+     CreateIntegrationResponseResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423762"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseParameters :: Maybe (HashMap Text Text)
+$sel:responseParameters:CreateIntegrationResponseResponse' :: CreateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423762"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423762"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423761"><span class="annot"><span class="annottext">s :: CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423760"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:CreateIntegrationResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AresponseParameters%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679423760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateIntegrationResponseResponse
+ -&gt; f CreateIntegrationResponseResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIntegrationResponseResponse
+-&gt; f CreateIntegrationResponseResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-458"></span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-460"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_httpStatus"><span class="hs-identifier hs-type">createIntegrationResponseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-461"></span><span id="createIntegrationResponseResponse_httpStatus"><span class="annot"><span class="annottext">createIntegrationResponseResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateIntegrationResponseResponse
+-&gt; f CreateIntegrationResponseResponse
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#createIntegrationResponseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createIntegrationResponseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIntegrationResponseResponse -&gt; Int)
+-&gt; (CreateIntegrationResponseResponse
+    -&gt; Int -&gt; CreateIntegrationResponseResponse)
+-&gt; Lens
+     CreateIntegrationResponseResponse
+     CreateIntegrationResponseResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423759"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateIntegrationResponseResponse' :: CreateIntegrationResponseResponse -&gt; Int
+</span><a href="#local-6989586621679423759"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423759"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423758"><span class="annot"><span class="annottext">s :: CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423757"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIntegrationResponseResponse
+</span><a href="#local-6989586621679423758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateIntegrationResponseResponse' :: Int
+</span><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#%24sel%3AhttpStatus%3ACreateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-462"></span><span>
+</span><span id="line-463"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-464"></span><span>  </span><span id="local-6989586621679423755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-465"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.CreateIntegrationResponse.html#CreateIntegrationResponseResponse"><span class="hs-identifier hs-type">CreateIntegrationResponseResponse</span></a></span></span><span>
+</span><span id="line-466"></span></pre></body></html>

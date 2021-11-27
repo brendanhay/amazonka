@@ -1,0 +1,722 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified user\'s attributes, including developer</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- attributes, as an administrator. Works on any user.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- In addition to updating user attributes, this API can also be used to</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- mark phone and email as verified.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- This action might generate an SMS text message. Starting June 1, 2021,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- U.S. telecom carriers require that you register an origination phone</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- number before you can send SMS messages to U.S. phone numbers. If you</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- use SMS text messages in Amazon Cognito, you must register a phone</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- number with</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint&gt;. Cognito</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- will use the the registered number automatically. Otherwise, Cognito</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- users that must receive SMS messages might be unable to sign up,</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- activate their accounts, or sign in.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- If you have never used SMS text messages with Amazon Cognito or any</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- other Amazon Web Service, Amazon SNS might place your account in SMS</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- sandbox. In</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- /&lt;https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode&gt;/</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- , you&#8217;ll have limitations, such as sending messages to only verified</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- phone numbers. After testing in the sandbox environment, you can move</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- out of the SMS sandbox and into production. For more information, see</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools&gt;</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Calling this action requires developer credentials.</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier">AdminUpdateUserAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#newAdminUpdateUserAttributes"><span class="hs-identifier">newAdminUpdateUserAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_clientMetadata"><span class="hs-identifier">adminUpdateUserAttributes_clientMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_userPoolId"><span class="hs-identifier">adminUpdateUserAttributes_userPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_username"><span class="hs-identifier">adminUpdateUserAttributes_username</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_userAttributes"><span class="hs-identifier">adminUpdateUserAttributes_userAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse"><span class="hs-identifier">AdminUpdateUserAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#newAdminUpdateUserAttributesResponse"><span class="hs-identifier">newAdminUpdateUserAttributesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributesResponse_httpStatus"><span class="hs-identifier">adminUpdateUserAttributesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.html"><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Represents the request to update the user\'s attributes as an</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- administrator.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- /See:/ 'newAdminUpdateUserAttributes' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621679454077"><span id="local-6989586621679454078"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUpdateUserAttributes"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-var">AdminUpdateUserAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUpdateUserAttributes%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-var">AdminUpdateUserAttributes'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- custom workflows that this action triggers.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- You create custom workflows by assigning Lambda functions to user pool</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- triggers. When you use the AdminUpdateUserAttributes API action, Amazon</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Cognito invokes the function that is assigned to the /custom message/</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- trigger. When Amazon Cognito invokes this function, it passes a JSON</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- payload, which the function receives as input. This payload contains a</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- @clientMetadata@ attribute, which provides the data that you assigned to</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- the ClientMetadata parameter in your AdminUpdateUserAttributes request.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- In your function code in Lambda, you can process the @clientMetadata@</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- value to enhance your workflow for your specific needs.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers&gt;</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Take the following limitations into consideration when you use the</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- ClientMetadata parameter:</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   Amazon Cognito does not store the ClientMetadata value. This data is</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     available only to Lambda triggers that are assigned to a user pool</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     to support custom workflows. If your user pool configuration does</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     not include triggers, the ClientMetadata parameter serves no</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     purpose.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   Amazon Cognito does not validate the ClientMetadata value.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AclientMetadata%3AAdminUpdateUserAttributes%27"><span class="annot"><span class="annottext">AdminUpdateUserAttributes -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AclientMetadata%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The user pool ID for the user pool where you want to update user</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AuserPoolId%3AAdminUpdateUserAttributes%27"><span class="annot"><span class="annottext">AdminUpdateUserAttributes -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AuserPoolId%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The user name of the user for whom you want to update user attributes.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3Ausername%3AAdminUpdateUserAttributes%27"><span class="annot"><span class="annottext">AdminUpdateUserAttributes -&gt; Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3Ausername%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | An array of name-value pairs representing user attributes.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AuserAttributes%3AAdminUpdateUserAttributes%27"><span class="annot"><span class="annottext">AdminUpdateUserAttributes -&gt; [AttributeType]
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AuserAttributes%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454068"><span id="local-6989586621679454070"><span class="annot"><span class="annottext">AdminUpdateUserAttributes -&gt; AdminUpdateUserAttributes -&gt; Bool
+(AdminUpdateUserAttributes -&gt; AdminUpdateUserAttributes -&gt; Bool)
+-&gt; (AdminUpdateUserAttributes -&gt; AdminUpdateUserAttributes -&gt; Bool)
+-&gt; Eq AdminUpdateUserAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AdminUpdateUserAttributes -&gt; AdminUpdateUserAttributes -&gt; Bool
+$c/= :: AdminUpdateUserAttributes -&gt; AdminUpdateUserAttributes -&gt; Bool
+== :: AdminUpdateUserAttributes -&gt; AdminUpdateUserAttributes -&gt; Bool
+$c== :: AdminUpdateUserAttributes -&gt; AdminUpdateUserAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454061"><span id="local-6989586621679454063"><span id="local-6989586621679454065"><span class="annot"><span class="annottext">Int -&gt; AdminUpdateUserAttributes -&gt; ShowS
+[AdminUpdateUserAttributes] -&gt; ShowS
+AdminUpdateUserAttributes -&gt; String
+(Int -&gt; AdminUpdateUserAttributes -&gt; ShowS)
+-&gt; (AdminUpdateUserAttributes -&gt; String)
+-&gt; ([AdminUpdateUserAttributes] -&gt; ShowS)
+-&gt; Show AdminUpdateUserAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AdminUpdateUserAttributes] -&gt; ShowS
+$cshowList :: [AdminUpdateUserAttributes] -&gt; ShowS
+show :: AdminUpdateUserAttributes -&gt; String
+$cshow :: AdminUpdateUserAttributes -&gt; String
+showsPrec :: Int -&gt; AdminUpdateUserAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; AdminUpdateUserAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AdminUpdateUserAttributes -&gt; Rep AdminUpdateUserAttributes x)
+-&gt; (forall x.
+    Rep AdminUpdateUserAttributes x -&gt; AdminUpdateUserAttributes)
+-&gt; Generic AdminUpdateUserAttributes
+forall x.
+Rep AdminUpdateUserAttributes x -&gt; AdminUpdateUserAttributes
+forall x.
+AdminUpdateUserAttributes -&gt; Rep AdminUpdateUserAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AdminUpdateUserAttributes x -&gt; AdminUpdateUserAttributes
+$cfrom :: forall x.
+AdminUpdateUserAttributes -&gt; Rep AdminUpdateUserAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'AdminUpdateUserAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'clientMetadata', 'adminUpdateUserAttributes_clientMetadata' - A map of custom key-value pairs that you can provide as input for any</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- custom workflows that this action triggers.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- You create custom workflows by assigning Lambda functions to user pool</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- triggers. When you use the AdminUpdateUserAttributes API action, Amazon</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Cognito invokes the function that is assigned to the /custom message/</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- trigger. When Amazon Cognito invokes this function, it passes a JSON</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- payload, which the function receives as input. This payload contains a</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @clientMetadata@ attribute, which provides the data that you assigned to</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- the ClientMetadata parameter in your AdminUpdateUserAttributes request.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- In your function code in Lambda, you can process the @clientMetadata@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- value to enhance your workflow for your specific needs.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers&gt;</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Take the following limitations into consideration when you use the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- ClientMetadata parameter:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   Amazon Cognito does not store the ClientMetadata value. This data is</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     available only to Lambda triggers that are assigned to a user pool</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     to support custom workflows. If your user pool configuration does</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     not include triggers, the ClientMetadata parameter serves no</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     purpose.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   Amazon Cognito does not validate the ClientMetadata value.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'userPoolId', 'adminUpdateUserAttributes_userPoolId' - The user pool ID for the user pool where you want to update user</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'username', 'adminUpdateUserAttributes_username' - The user name of the user for whom you want to update user attributes.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'userAttributes', 'adminUpdateUserAttributes_userAttributes' - An array of name-value pairs representing user attributes.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#newAdminUpdateUserAttributes"><span class="hs-identifier hs-type">newAdminUpdateUserAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'userPoolId'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'username'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span>
+</span><span id="line-183"></span><span id="newAdminUpdateUserAttributes"><span class="annot"><span class="annottext">newAdminUpdateUserAttributes :: Text -&gt; Text -&gt; AdminUpdateUserAttributes
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#newAdminUpdateUserAttributes"><span class="hs-identifier hs-var hs-var">newAdminUpdateUserAttributes</span></a></span></span><span> </span><span id="local-6989586621679454056"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454056"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679454055"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454055"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">AdminUpdateUserAttributes' :: Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; [AttributeType]
+-&gt; AdminUpdateUserAttributes
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientMetadata:AdminUpdateUserAttributes' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AclientMetadata%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:AdminUpdateUserAttributes' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AuserPoolId%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454056"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:AdminUpdateUserAttributes' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3Ausername%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454055"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:userAttributes:AdminUpdateUserAttributes' :: [AttributeType]
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AuserAttributes%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- custom workflows that this action triggers.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- You create custom workflows by assigning Lambda functions to user pool</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- triggers. When you use the AdminUpdateUserAttributes API action, Amazon</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Cognito invokes the function that is assigned to the /custom message/</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- trigger. When Amazon Cognito invokes this function, it passes a JSON</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- payload, which the function receives as input. This payload contains a</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- @clientMetadata@ attribute, which provides the data that you assigned to</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- the ClientMetadata parameter in your AdminUpdateUserAttributes request.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- In your function code in Lambda, you can process the @clientMetadata@</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- value to enhance your workflow for your specific needs.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers&gt;</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- in the /Amazon Cognito Developer Guide/.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Take the following limitations into consideration when you use the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- ClientMetadata parameter:</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   Amazon Cognito does not store the ClientMetadata value. This data is</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     available only to Lambda triggers that are assigned to a user pool</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     to support custom workflows. If your user pool configuration does</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     not include triggers, the ClientMetadata parameter serves no</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     purpose.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   Amazon Cognito does not validate the ClientMetadata value.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_clientMetadata"><span class="hs-identifier hs-type">adminUpdateUserAttributes_clientMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="adminUpdateUserAttributes_clientMetadata"><span class="annot"><span class="annottext">adminUpdateUserAttributes_clientMetadata :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AdminUpdateUserAttributes -&gt; f AdminUpdateUserAttributes
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_clientMetadata"><span class="hs-identifier hs-var hs-var">adminUpdateUserAttributes_clientMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminUpdateUserAttributes -&gt; Maybe (HashMap Text Text))
+-&gt; (AdminUpdateUserAttributes
+    -&gt; Maybe (HashMap Text Text) -&gt; AdminUpdateUserAttributes)
+-&gt; Lens
+     AdminUpdateUserAttributes
+     AdminUpdateUserAttributes
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454050"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+clientMetadata :: Maybe (HashMap Text Text)
+$sel:clientMetadata:AdminUpdateUserAttributes' :: AdminUpdateUserAttributes -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679454050"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679454050"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454049"><span class="annot"><span class="annottext">s :: AdminUpdateUserAttributes
+</span><a href="#local-6989586621679454049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454048"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679454048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateUserAttributes
+</span><a href="#local-6989586621679454049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientMetadata:AdminUpdateUserAttributes' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AclientMetadata%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679454048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; AdminUpdateUserAttributes -&gt; f AdminUpdateUserAttributes)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AdminUpdateUserAttributes
+-&gt; f AdminUpdateUserAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The user pool ID for the user pool where you want to update user</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_userPoolId"><span class="hs-identifier hs-type">adminUpdateUserAttributes_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-228"></span><span id="adminUpdateUserAttributes_userPoolId"><span class="annot"><span class="annottext">adminUpdateUserAttributes_userPoolId :: (Text -&gt; f Text)
+-&gt; AdminUpdateUserAttributes -&gt; f AdminUpdateUserAttributes
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_userPoolId"><span class="hs-identifier hs-var hs-var">adminUpdateUserAttributes_userPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminUpdateUserAttributes -&gt; Text)
+-&gt; (AdminUpdateUserAttributes -&gt; Text -&gt; AdminUpdateUserAttributes)
+-&gt; Lens
+     AdminUpdateUserAttributes AdminUpdateUserAttributes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454044"><span class="annot"><span class="annottext">Text
+userPoolId :: Text
+$sel:userPoolId:AdminUpdateUserAttributes' :: AdminUpdateUserAttributes -&gt; Text
+</span><a href="#local-6989586621679454044"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454044"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454043"><span class="annot"><span class="annottext">s :: AdminUpdateUserAttributes
+</span><a href="#local-6989586621679454043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454042"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateUserAttributes
+</span><a href="#local-6989586621679454043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminUpdateUserAttributes' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AuserPoolId%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The user name of the user for whom you want to update user attributes.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_username"><span class="hs-identifier hs-type">adminUpdateUserAttributes_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-232"></span><span id="adminUpdateUserAttributes_username"><span class="annot"><span class="annottext">adminUpdateUserAttributes_username :: (Text -&gt; f Text)
+-&gt; AdminUpdateUserAttributes -&gt; f AdminUpdateUserAttributes
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_username"><span class="hs-identifier hs-var hs-var">adminUpdateUserAttributes_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminUpdateUserAttributes -&gt; Sensitive Text)
+-&gt; (AdminUpdateUserAttributes
+    -&gt; Sensitive Text -&gt; AdminUpdateUserAttributes)
+-&gt; Lens
+     AdminUpdateUserAttributes
+     AdminUpdateUserAttributes
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454041"><span class="annot"><span class="annottext">Sensitive Text
+username :: Sensitive Text
+$sel:username:AdminUpdateUserAttributes' :: AdminUpdateUserAttributes -&gt; Sensitive Text
+</span><a href="#local-6989586621679454041"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679454041"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454040"><span class="annot"><span class="annottext">s :: AdminUpdateUserAttributes
+</span><a href="#local-6989586621679454040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454039"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679454039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateUserAttributes
+</span><a href="#local-6989586621679454040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminUpdateUserAttributes' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3Ausername%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679454039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; AdminUpdateUserAttributes -&gt; f AdminUpdateUserAttributes)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; AdminUpdateUserAttributes
+-&gt; f AdminUpdateUserAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | An array of name-value pairs representing user attributes.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_userAttributes"><span class="hs-identifier hs-type">adminUpdateUserAttributes_userAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-239"></span><span id="adminUpdateUserAttributes_userAttributes"><span class="annot"><span class="annottext">adminUpdateUserAttributes_userAttributes :: ([AttributeType] -&gt; f [AttributeType])
+-&gt; AdminUpdateUserAttributes -&gt; f AdminUpdateUserAttributes
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributes_userAttributes"><span class="hs-identifier hs-var hs-var">adminUpdateUserAttributes_userAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminUpdateUserAttributes -&gt; [AttributeType])
+-&gt; (AdminUpdateUserAttributes
+    -&gt; [AttributeType] -&gt; AdminUpdateUserAttributes)
+-&gt; Lens
+     AdminUpdateUserAttributes
+     AdminUpdateUserAttributes
+     [AttributeType]
+     [AttributeType]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454038"><span class="annot"><span class="annottext">[AttributeType]
+userAttributes :: [AttributeType]
+$sel:userAttributes:AdminUpdateUserAttributes' :: AdminUpdateUserAttributes -&gt; [AttributeType]
+</span><a href="#local-6989586621679454038"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeType]
+</span><a href="#local-6989586621679454038"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454037"><span class="annot"><span class="annottext">s :: AdminUpdateUserAttributes
+</span><a href="#local-6989586621679454037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454036"><span class="annot"><span class="annottext">[AttributeType]
+</span><a href="#local-6989586621679454036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateUserAttributes
+</span><a href="#local-6989586621679454037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:AdminUpdateUserAttributes' :: [AttributeType]
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AuserAttributes%3AAdminUpdateUserAttributes%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeType]
+</span><a href="#local-6989586621679454036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeType] -&gt; f [AttributeType])
+ -&gt; AdminUpdateUserAttributes -&gt; f AdminUpdateUserAttributes)
+-&gt; (([AttributeType] -&gt; f [AttributeType])
+    -&gt; [AttributeType] -&gt; f [AttributeType])
+-&gt; ([AttributeType] -&gt; f [AttributeType])
+-&gt; AdminUpdateUserAttributes
+-&gt; f AdminUpdateUserAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AttributeType] -&gt; f [AttributeType])
+-&gt; [AttributeType] -&gt; f [AttributeType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-243"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse"><span class="hs-identifier hs-type">AdminUpdateUserAttributesResponse</span></a></span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679454032"><span class="annot"><span class="annottext">request :: AdminUpdateUserAttributes -&gt; Request AdminUpdateUserAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AdminUpdateUserAttributes -&gt; Request AdminUpdateUserAttributes
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679454028"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AdminUpdateUserAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AdminUpdateUserAttributes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AdminUpdateUserAttributes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AdminUpdateUserAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AdminUpdateUserAttributes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454025"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454025"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679454024"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679454024"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679454023"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679454023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-249"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AdminUpdateUserAttributesResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse%27"><span class="hs-identifier hs-var">AdminUpdateUserAttributesResponse'</span></a></span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AdminUpdateUserAttributesResponse)
+-&gt; Either String Int
+-&gt; Either String AdminUpdateUserAttributesResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454025"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454016"><span id="local-6989586621679454018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span></span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679454009"><span class="annot"><span class="annottext">toHeaders :: AdminUpdateUserAttributes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AdminUpdateUserAttributes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-261"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityProviderService.AdminUpdateUserAttributes&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-263"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-264"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-266"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-267"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-268"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453999"><span id="local-6989586621679454001"><span id="local-6989586621679454003"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679453997"><span class="annot"><span class="annottext">toJSON :: AdminUpdateUserAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453992"><span id="local-6989586621679453993"><span id="local-6989586621679453994"><span id="local-6989586621679453995"><span class="annot"><span class="annottext">[AttributeType]
+Maybe (HashMap Text Text)
+Text
+Sensitive Text
+userAttributes :: [AttributeType]
+username :: Sensitive Text
+userPoolId :: Text
+clientMetadata :: Maybe (HashMap Text Text)
+$sel:userAttributes:AdminUpdateUserAttributes' :: AdminUpdateUserAttributes -&gt; [AttributeType]
+$sel:username:AdminUpdateUserAttributes' :: AdminUpdateUserAttributes -&gt; Sensitive Text
+$sel:userPoolId:AdminUpdateUserAttributes' :: AdminUpdateUserAttributes -&gt; Text
+$sel:clientMetadata:AdminUpdateUserAttributes' :: AdminUpdateUserAttributes -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679453992"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-276"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679453995"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453994"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679453993"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-281"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AttributeType]
+</span><a href="#local-6989586621679453992"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679453986"><span class="annot"><span class="annottext">toPath :: AdminUpdateUserAttributes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AdminUpdateUserAttributes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributes"><span class="hs-identifier hs-type">AdminUpdateUserAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679453982"><span class="annot"><span class="annottext">toQuery :: AdminUpdateUserAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AdminUpdateUserAttributes -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | Represents the response from the server for the request to update user</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- attributes as an administrator.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- /See:/ 'newAdminUpdateUserAttributesResponse' smart constructor.</span><span>
+</span><span id="line-295"></span><span id="local-6989586621679453979"><span id="local-6989586621679453980"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUpdateUserAttributesResponse"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse"><span class="hs-identifier hs-var">AdminUpdateUserAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUpdateUserAttributesResponse%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse%27"><span class="hs-identifier hs-var">AdminUpdateUserAttributesResponse'</span></a></span></span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-297"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAdminUpdateUserAttributesResponse%27"><span class="annot"><span class="annottext">AdminUpdateUserAttributesResponse -&gt; Int
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AhttpStatus%3AAdminUpdateUserAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-298"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453974"><span id="local-6989586621679453976"><span class="annot"><span class="annottext">AdminUpdateUserAttributesResponse
+-&gt; AdminUpdateUserAttributesResponse -&gt; Bool
+(AdminUpdateUserAttributesResponse
+ -&gt; AdminUpdateUserAttributesResponse -&gt; Bool)
+-&gt; (AdminUpdateUserAttributesResponse
+    -&gt; AdminUpdateUserAttributesResponse -&gt; Bool)
+-&gt; Eq AdminUpdateUserAttributesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AdminUpdateUserAttributesResponse
+-&gt; AdminUpdateUserAttributesResponse -&gt; Bool
+$c/= :: AdminUpdateUserAttributesResponse
+-&gt; AdminUpdateUserAttributesResponse -&gt; Bool
+== :: AdminUpdateUserAttributesResponse
+-&gt; AdminUpdateUserAttributesResponse -&gt; Bool
+$c== :: AdminUpdateUserAttributesResponse
+-&gt; AdminUpdateUserAttributesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453966"><span id="local-6989586621679453968"><span id="local-6989586621679453970"><span id="local-6989586621679453972"><span class="annot"><span class="annottext">ReadPrec [AdminUpdateUserAttributesResponse]
+ReadPrec AdminUpdateUserAttributesResponse
+Int -&gt; ReadS AdminUpdateUserAttributesResponse
+ReadS [AdminUpdateUserAttributesResponse]
+(Int -&gt; ReadS AdminUpdateUserAttributesResponse)
+-&gt; ReadS [AdminUpdateUserAttributesResponse]
+-&gt; ReadPrec AdminUpdateUserAttributesResponse
+-&gt; ReadPrec [AdminUpdateUserAttributesResponse]
+-&gt; Read AdminUpdateUserAttributesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AdminUpdateUserAttributesResponse]
+$creadListPrec :: ReadPrec [AdminUpdateUserAttributesResponse]
+readPrec :: ReadPrec AdminUpdateUserAttributesResponse
+$creadPrec :: ReadPrec AdminUpdateUserAttributesResponse
+readList :: ReadS [AdminUpdateUserAttributesResponse]
+$creadList :: ReadS [AdminUpdateUserAttributesResponse]
+readsPrec :: Int -&gt; ReadS AdminUpdateUserAttributesResponse
+$creadsPrec :: Int -&gt; ReadS AdminUpdateUserAttributesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453959"><span id="local-6989586621679453961"><span id="local-6989586621679453963"><span class="annot"><span class="annottext">Int -&gt; AdminUpdateUserAttributesResponse -&gt; ShowS
+[AdminUpdateUserAttributesResponse] -&gt; ShowS
+AdminUpdateUserAttributesResponse -&gt; String
+(Int -&gt; AdminUpdateUserAttributesResponse -&gt; ShowS)
+-&gt; (AdminUpdateUserAttributesResponse -&gt; String)
+-&gt; ([AdminUpdateUserAttributesResponse] -&gt; ShowS)
+-&gt; Show AdminUpdateUserAttributesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AdminUpdateUserAttributesResponse] -&gt; ShowS
+$cshowList :: [AdminUpdateUserAttributesResponse] -&gt; ShowS
+show :: AdminUpdateUserAttributesResponse -&gt; String
+$cshow :: AdminUpdateUserAttributesResponse -&gt; String
+showsPrec :: Int -&gt; AdminUpdateUserAttributesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AdminUpdateUserAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AdminUpdateUserAttributesResponse
+ -&gt; Rep AdminUpdateUserAttributesResponse x)
+-&gt; (forall x.
+    Rep AdminUpdateUserAttributesResponse x
+    -&gt; AdminUpdateUserAttributesResponse)
+-&gt; Generic AdminUpdateUserAttributesResponse
+forall x.
+Rep AdminUpdateUserAttributesResponse x
+-&gt; AdminUpdateUserAttributesResponse
+forall x.
+AdminUpdateUserAttributesResponse
+-&gt; Rep AdminUpdateUserAttributesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AdminUpdateUserAttributesResponse x
+-&gt; AdminUpdateUserAttributesResponse
+$cfrom :: forall x.
+AdminUpdateUserAttributesResponse
+-&gt; Rep AdminUpdateUserAttributesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- Create a value of 'AdminUpdateUserAttributesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- 'httpStatus', 'adminUpdateUserAttributesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#newAdminUpdateUserAttributesResponse"><span class="hs-identifier hs-type">newAdminUpdateUserAttributesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-311"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-312"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-313"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse"><span class="hs-identifier hs-type">AdminUpdateUserAttributesResponse</span></a></span><span>
+</span><span id="line-314"></span><span id="newAdminUpdateUserAttributesResponse"><span class="annot"><span class="annottext">newAdminUpdateUserAttributesResponse :: Int -&gt; AdminUpdateUserAttributesResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#newAdminUpdateUserAttributesResponse"><span class="hs-identifier hs-var hs-var">newAdminUpdateUserAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679453956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453956"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-315"></span><span>  </span><span class="annot"><span class="annottext">AdminUpdateUserAttributesResponse' :: Int -&gt; AdminUpdateUserAttributesResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributesResponse'</span></a></span><span>
+</span><span id="line-316"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AdminUpdateUserAttributesResponse' :: Int
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AhttpStatus%3AAdminUpdateUserAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-317"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453956"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-318"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributesResponse_httpStatus"><span class="hs-identifier hs-type">adminUpdateUserAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse"><span class="hs-identifier hs-type">AdminUpdateUserAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-322"></span><span id="adminUpdateUserAttributesResponse_httpStatus"><span class="annot"><span class="annottext">adminUpdateUserAttributesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AdminUpdateUserAttributesResponse
+-&gt; f AdminUpdateUserAttributesResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#adminUpdateUserAttributesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">adminUpdateUserAttributesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminUpdateUserAttributesResponse -&gt; Int)
+-&gt; (AdminUpdateUserAttributesResponse
+    -&gt; Int -&gt; AdminUpdateUserAttributesResponse)
+-&gt; Lens
+     AdminUpdateUserAttributesResponse
+     AdminUpdateUserAttributesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453955"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AdminUpdateUserAttributesResponse' :: AdminUpdateUserAttributesResponse -&gt; Int
+</span><a href="#local-6989586621679453955"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453955"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453954"><span class="annot"><span class="annottext">s :: AdminUpdateUserAttributesResponse
+</span><a href="#local-6989586621679453954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse%27"><span class="hs-identifier hs-type">AdminUpdateUserAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateUserAttributesResponse
+</span><a href="#local-6989586621679453954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminUpdateUserAttributesResponse' :: Int
+</span><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#%24sel%3AhttpStatus%3AAdminUpdateUserAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse"><span class="hs-identifier hs-type">AdminUpdateUserAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-325"></span><span>  </span><span id="local-6989586621679453951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminUpdateUserAttributes.html#AdminUpdateUserAttributesResponse"><span class="hs-identifier hs-type">AdminUpdateUserAttributesResponse</span></a></span></span><span>
+</span><span id="line-327"></span></pre></body></html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatch.Types.AlarmHistoryItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatch.Types.AlarmHistoryItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmType.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.AlarmType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.HistoryItemType.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.HistoryItemType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents the history of a specific alarm.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAlarmHistoryItem' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679254023"><span id="local-6989586621679254024"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlarmHistoryItem"><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-var">AlarmHistoryItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlarmHistoryItem%27"><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-var">AlarmHistoryItem'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The descriptive name for the alarm.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AalarmName%3AAlarmHistoryItem%27"><span class="annot"><span class="annottext">AlarmHistoryItem -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AalarmName%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The type of alarm history item.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhistoryItemType%3AAlarmHistoryItem%27"><span class="annot"><span class="annottext">AlarmHistoryItem -&gt; Maybe HistoryItemType
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AhistoryItemType%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var hs-var">historyItemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.HistoryItemType.html#HistoryItemType"><span class="hs-identifier hs-type">HistoryItemType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Data about the alarm, in JSON format.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AhistoryData%3AAlarmHistoryItem%27"><span class="annot"><span class="annottext">AlarmHistoryItem -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AhistoryData%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var hs-var">historyData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of alarm, either metric alarm or composite alarm.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AalarmType%3AAlarmHistoryItem%27"><span class="annot"><span class="annottext">AlarmHistoryItem -&gt; Maybe AlarmType
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AalarmType%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var hs-var">alarmType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmType.html#AlarmType"><span class="hs-identifier hs-type">AlarmType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A summary of the alarm history, in text format.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AhistorySummary%3AAlarmHistoryItem%27"><span class="annot"><span class="annottext">AlarmHistoryItem -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AhistorySummary%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var hs-var">historySummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time stamp for the alarm history item.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atimestamp%3AAlarmHistoryItem%27"><span class="annot"><span class="annottext">AlarmHistoryItem -&gt; Maybe ISO8601
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3Atimestamp%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254012"><span id="local-6989586621679254014"><span class="annot"><span class="annottext">AlarmHistoryItem -&gt; AlarmHistoryItem -&gt; Bool
+(AlarmHistoryItem -&gt; AlarmHistoryItem -&gt; Bool)
+-&gt; (AlarmHistoryItem -&gt; AlarmHistoryItem -&gt; Bool)
+-&gt; Eq AlarmHistoryItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AlarmHistoryItem -&gt; AlarmHistoryItem -&gt; Bool
+$c/= :: AlarmHistoryItem -&gt; AlarmHistoryItem -&gt; Bool
+== :: AlarmHistoryItem -&gt; AlarmHistoryItem -&gt; Bool
+$c== :: AlarmHistoryItem -&gt; AlarmHistoryItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254003"><span id="local-6989586621679254005"><span id="local-6989586621679254007"><span id="local-6989586621679254009"><span class="annot"><span class="annottext">ReadPrec [AlarmHistoryItem]
+ReadPrec AlarmHistoryItem
+Int -&gt; ReadS AlarmHistoryItem
+ReadS [AlarmHistoryItem]
+(Int -&gt; ReadS AlarmHistoryItem)
+-&gt; ReadS [AlarmHistoryItem]
+-&gt; ReadPrec AlarmHistoryItem
+-&gt; ReadPrec [AlarmHistoryItem]
+-&gt; Read AlarmHistoryItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AlarmHistoryItem]
+$creadListPrec :: ReadPrec [AlarmHistoryItem]
+readPrec :: ReadPrec AlarmHistoryItem
+$creadPrec :: ReadPrec AlarmHistoryItem
+readList :: ReadS [AlarmHistoryItem]
+$creadList :: ReadS [AlarmHistoryItem]
+readsPrec :: Int -&gt; ReadS AlarmHistoryItem
+$creadsPrec :: Int -&gt; ReadS AlarmHistoryItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253996"><span id="local-6989586621679253998"><span id="local-6989586621679254000"><span class="annot"><span class="annottext">Int -&gt; AlarmHistoryItem -&gt; ShowS
+[AlarmHistoryItem] -&gt; ShowS
+AlarmHistoryItem -&gt; String
+(Int -&gt; AlarmHistoryItem -&gt; ShowS)
+-&gt; (AlarmHistoryItem -&gt; String)
+-&gt; ([AlarmHistoryItem] -&gt; ShowS)
+-&gt; Show AlarmHistoryItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AlarmHistoryItem] -&gt; ShowS
+$cshowList :: [AlarmHistoryItem] -&gt; ShowS
+show :: AlarmHistoryItem -&gt; String
+$cshow :: AlarmHistoryItem -&gt; String
+showsPrec :: Int -&gt; AlarmHistoryItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; AlarmHistoryItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AlarmHistoryItem -&gt; Rep AlarmHistoryItem x)
+-&gt; (forall x. Rep AlarmHistoryItem x -&gt; AlarmHistoryItem)
+-&gt; Generic AlarmHistoryItem
+forall x. Rep AlarmHistoryItem x -&gt; AlarmHistoryItem
+forall x. AlarmHistoryItem -&gt; Rep AlarmHistoryItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AlarmHistoryItem x -&gt; AlarmHistoryItem
+$cfrom :: forall x. AlarmHistoryItem -&gt; Rep AlarmHistoryItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'AlarmHistoryItem' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'alarmName', 'alarmHistoryItem_alarmName' - The descriptive name for the alarm.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'historyItemType', 'alarmHistoryItem_historyItemType' - The type of alarm history item.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'historyData', 'alarmHistoryItem_historyData' - Data about the alarm, in JSON format.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'alarmType', 'alarmHistoryItem_alarmType' - The type of alarm, either metric alarm or composite alarm.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'historySummary', 'alarmHistoryItem_historySummary' - A summary of the alarm history, in text format.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'timestamp', 'alarmHistoryItem_timestamp' - The time stamp for the alarm history item.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#newAlarmHistoryItem"><span class="hs-identifier hs-type">newAlarmHistoryItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span>
+</span><span id="line-68"></span><span id="newAlarmHistoryItem"><span class="annot"><span class="annottext">newAlarmHistoryItem :: AlarmHistoryItem
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#newAlarmHistoryItem"><span class="hs-identifier hs-var hs-var">newAlarmHistoryItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">AlarmHistoryItem' :: Maybe Text
+-&gt; Maybe HistoryItemType
+-&gt; Maybe Text
+-&gt; Maybe AlarmType
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; AlarmHistoryItem
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alarmName:AlarmHistoryItem' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AalarmName%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:historyItemType:AlarmHistoryItem' :: Maybe HistoryItemType
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AhistoryItemType%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">historyItemType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HistoryItemType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:historyData:AlarmHistoryItem' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AhistoryData%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">historyData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmType:AlarmHistoryItem' :: Maybe AlarmType
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AalarmType%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">alarmType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlarmType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:historySummary:AlarmHistoryItem' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AhistorySummary%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">historySummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:AlarmHistoryItem' :: Maybe ISO8601
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3Atimestamp%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The descriptive name for the alarm.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_alarmName"><span class="hs-identifier hs-type">alarmHistoryItem_alarmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="alarmHistoryItem_alarmName"><span class="annot"><span class="annottext">alarmHistoryItem_alarmName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AlarmHistoryItem -&gt; f AlarmHistoryItem
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_alarmName"><span class="hs-identifier hs-var hs-var">alarmHistoryItem_alarmName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmHistoryItem -&gt; Maybe Text)
+-&gt; (AlarmHistoryItem -&gt; Maybe Text -&gt; AlarmHistoryItem)
+-&gt; Lens AlarmHistoryItem AlarmHistoryItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253987"><span class="annot"><span class="annottext">Maybe Text
+alarmName :: Maybe Text
+$sel:alarmName:AlarmHistoryItem' :: AlarmHistoryItem -&gt; Maybe Text
+</span><a href="#local-6989586621679253987"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253987"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253986"><span class="annot"><span class="annottext">s :: AlarmHistoryItem
+</span><a href="#local-6989586621679253986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmHistoryItem
+</span><a href="#local-6989586621679253986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:AlarmHistoryItem' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AalarmName%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The type of alarm history item.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_historyItemType"><span class="hs-identifier hs-type">alarmHistoryItem_historyItemType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.HistoryItemType.html#HistoryItemType"><span class="hs-identifier hs-type">HistoryItemType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="alarmHistoryItem_historyItemType"><span class="annot"><span class="annottext">alarmHistoryItem_historyItemType :: (Maybe HistoryItemType -&gt; f (Maybe HistoryItemType))
+-&gt; AlarmHistoryItem -&gt; f AlarmHistoryItem
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_historyItemType"><span class="hs-identifier hs-var hs-var">alarmHistoryItem_historyItemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmHistoryItem -&gt; Maybe HistoryItemType)
+-&gt; (AlarmHistoryItem -&gt; Maybe HistoryItemType -&gt; AlarmHistoryItem)
+-&gt; Lens
+     AlarmHistoryItem
+     AlarmHistoryItem
+     (Maybe HistoryItemType)
+     (Maybe HistoryItemType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253983"><span class="annot"><span class="annottext">Maybe HistoryItemType
+historyItemType :: Maybe HistoryItemType
+$sel:historyItemType:AlarmHistoryItem' :: AlarmHistoryItem -&gt; Maybe HistoryItemType
+</span><a href="#local-6989586621679253983"><span class="hs-identifier hs-var hs-var">historyItemType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HistoryItemType
+</span><a href="#local-6989586621679253983"><span class="hs-identifier hs-var">historyItemType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253982"><span class="annot"><span class="annottext">s :: AlarmHistoryItem
+</span><a href="#local-6989586621679253982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253981"><span class="annot"><span class="annottext">Maybe HistoryItemType
+</span><a href="#local-6989586621679253981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmHistoryItem
+</span><a href="#local-6989586621679253982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:historyItemType:AlarmHistoryItem' :: Maybe HistoryItemType
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AhistoryItemType%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">historyItemType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HistoryItemType
+</span><a href="#local-6989586621679253981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Data about the alarm, in JSON format.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_historyData"><span class="hs-identifier hs-type">alarmHistoryItem_historyData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="alarmHistoryItem_historyData"><span class="annot"><span class="annottext">alarmHistoryItem_historyData :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AlarmHistoryItem -&gt; f AlarmHistoryItem
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_historyData"><span class="hs-identifier hs-var hs-var">alarmHistoryItem_historyData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmHistoryItem -&gt; Maybe Text)
+-&gt; (AlarmHistoryItem -&gt; Maybe Text -&gt; AlarmHistoryItem)
+-&gt; Lens AlarmHistoryItem AlarmHistoryItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253979"><span class="annot"><span class="annottext">Maybe Text
+historyData :: Maybe Text
+$sel:historyData:AlarmHistoryItem' :: AlarmHistoryItem -&gt; Maybe Text
+</span><a href="#local-6989586621679253979"><span class="hs-identifier hs-var hs-var">historyData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253979"><span class="hs-identifier hs-var">historyData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253978"><span class="annot"><span class="annottext">s :: AlarmHistoryItem
+</span><a href="#local-6989586621679253978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253977"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmHistoryItem
+</span><a href="#local-6989586621679253978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:historyData:AlarmHistoryItem' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AhistoryData%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">historyData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The type of alarm, either metric alarm or composite alarm.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_alarmType"><span class="hs-identifier hs-type">alarmHistoryItem_alarmType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmType.html#AlarmType"><span class="hs-identifier hs-type">AlarmType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="alarmHistoryItem_alarmType"><span class="annot"><span class="annottext">alarmHistoryItem_alarmType :: (Maybe AlarmType -&gt; f (Maybe AlarmType))
+-&gt; AlarmHistoryItem -&gt; f AlarmHistoryItem
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_alarmType"><span class="hs-identifier hs-var hs-var">alarmHistoryItem_alarmType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmHistoryItem -&gt; Maybe AlarmType)
+-&gt; (AlarmHistoryItem -&gt; Maybe AlarmType -&gt; AlarmHistoryItem)
+-&gt; Lens
+     AlarmHistoryItem
+     AlarmHistoryItem
+     (Maybe AlarmType)
+     (Maybe AlarmType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253975"><span class="annot"><span class="annottext">Maybe AlarmType
+alarmType :: Maybe AlarmType
+$sel:alarmType:AlarmHistoryItem' :: AlarmHistoryItem -&gt; Maybe AlarmType
+</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var hs-var">alarmType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlarmType
+</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var">alarmType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253974"><span class="annot"><span class="annottext">s :: AlarmHistoryItem
+</span><a href="#local-6989586621679253974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253973"><span class="annot"><span class="annottext">Maybe AlarmType
+</span><a href="#local-6989586621679253973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmHistoryItem
+</span><a href="#local-6989586621679253974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmType:AlarmHistoryItem' :: Maybe AlarmType
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AalarmType%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">alarmType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlarmType
+</span><a href="#local-6989586621679253973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | A summary of the alarm history, in text format.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_historySummary"><span class="hs-identifier hs-type">alarmHistoryItem_historySummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="alarmHistoryItem_historySummary"><span class="annot"><span class="annottext">alarmHistoryItem_historySummary :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AlarmHistoryItem -&gt; f AlarmHistoryItem
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_historySummary"><span class="hs-identifier hs-var hs-var">alarmHistoryItem_historySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmHistoryItem -&gt; Maybe Text)
+-&gt; (AlarmHistoryItem -&gt; Maybe Text -&gt; AlarmHistoryItem)
+-&gt; Lens AlarmHistoryItem AlarmHistoryItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253971"><span class="annot"><span class="annottext">Maybe Text
+historySummary :: Maybe Text
+$sel:historySummary:AlarmHistoryItem' :: AlarmHistoryItem -&gt; Maybe Text
+</span><a href="#local-6989586621679253971"><span class="hs-identifier hs-var hs-var">historySummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253971"><span class="hs-identifier hs-var">historySummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253970"><span class="annot"><span class="annottext">s :: AlarmHistoryItem
+</span><a href="#local-6989586621679253970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253969"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmHistoryItem
+</span><a href="#local-6989586621679253970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:historySummary:AlarmHistoryItem' :: Maybe Text
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3AhistorySummary%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">historySummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The time stamp for the alarm history item.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_timestamp"><span class="hs-identifier hs-type">alarmHistoryItem_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="alarmHistoryItem_timestamp"><span class="annot"><span class="annottext">alarmHistoryItem_timestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AlarmHistoryItem -&gt; f AlarmHistoryItem
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_timestamp"><span class="hs-identifier hs-var hs-var">alarmHistoryItem_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmHistoryItem -&gt; Maybe ISO8601)
+-&gt; (AlarmHistoryItem -&gt; Maybe ISO8601 -&gt; AlarmHistoryItem)
+-&gt; Lens
+     AlarmHistoryItem AlarmHistoryItem (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253967"><span class="annot"><span class="annottext">Maybe ISO8601
+timestamp :: Maybe ISO8601
+$sel:timestamp:AlarmHistoryItem' :: AlarmHistoryItem -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679253967"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679253967"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253966"><span class="annot"><span class="annottext">s :: AlarmHistoryItem
+</span><a href="#local-6989586621679253966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-type">AlarmHistoryItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253965"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679253965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmHistoryItem
+</span><a href="#local-6989586621679253966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:AlarmHistoryItem' :: Maybe ISO8601
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#%24sel%3Atimestamp%3AAlarmHistoryItem%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679253965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; AlarmHistoryItem -&gt; f AlarmHistoryItem)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AlarmHistoryItem
+-&gt; f AlarmHistoryItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679253959"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AlarmHistoryItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679253957"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe HistoryItemType
+-&gt; Maybe Text
+-&gt; Maybe AlarmType
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; AlarmHistoryItem
+</span><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem%27"><span class="hs-identifier hs-var">AlarmHistoryItem'</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe HistoryItemType
+ -&gt; Maybe Text
+ -&gt; Maybe AlarmType
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; AlarmHistoryItem)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe HistoryItemType
+      -&gt; Maybe Text
+      -&gt; Maybe AlarmType
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; AlarmHistoryItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlarmName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe HistoryItemType
+   -&gt; Maybe Text
+   -&gt; Maybe AlarmType
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; AlarmHistoryItem)
+-&gt; Either String (Maybe HistoryItemType)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe AlarmType
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; AlarmHistoryItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe HistoryItemType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HistoryItemType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe AlarmType
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; AlarmHistoryItem)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe AlarmType
+      -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; AlarmHistoryItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HistoryData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AlarmType
+   -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; AlarmHistoryItem)
+-&gt; Either String (Maybe AlarmType)
+-&gt; Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; AlarmHistoryItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AlarmType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlarmType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; AlarmHistoryItem)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601 -&gt; AlarmHistoryItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HistorySummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; AlarmHistoryItem)
+-&gt; Either String (Maybe ISO8601) -&gt; Either String AlarmHistoryItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253951"><span id="local-6989586621679253953"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier hs-type">AlarmHistoryItem</span></a></span></span><span>
+</span><span id="line-115"></span></pre></body></html>

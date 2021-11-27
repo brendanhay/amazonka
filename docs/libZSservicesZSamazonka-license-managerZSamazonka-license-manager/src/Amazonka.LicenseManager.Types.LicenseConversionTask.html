@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LicenseManager.Types.LicenseConversionTask</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LicenseManager.Types.LicenseConversionTask</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionContext.html"><span class="hs-identifier">Amazonka.LicenseManager.Types.LicenseConversionContext</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTaskStatus.html"><span class="hs-identifier">Amazonka.LicenseManager.Types.LicenseConversionTaskStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about a license type conversion task.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLicenseConversionTask' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679298257"><span id="local-6989586621679298258"></span></span><span class="hs-keyword">data</span><span> </span><span id="LicenseConversionTask"><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-var">LicenseConversionTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LicenseConversionTask%27"><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-var">LicenseConversionTask'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the conversion task.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3ALicenseConversionTask%27"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; Maybe LicenseConversionTaskStatus
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3Astatus%3ALicenseConversionTask%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus"><span class="hs-identifier hs-type">LicenseConversionTaskStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The time the conversion task was started at.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstartTime%3ALicenseConversionTask%27"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; Maybe POSIX
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AstartTime%3ALicenseConversionTask%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Information about the license type this conversion task converted to.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdestinationLicenseContext%3ALicenseConversionTask%27"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; Maybe LicenseConversionContext
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AdestinationLicenseContext%3ALicenseConversionTask%27"><span class="hs-identifier hs-var hs-var">destinationLicenseContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionContext.html#LicenseConversionContext"><span class="hs-identifier hs-type">LicenseConversionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the license type conversion task.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlicenseConversionTaskId%3ALicenseConversionTask%27"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AlicenseConversionTaskId%3ALicenseConversionTask%27"><span class="hs-identifier hs-var hs-var">licenseConversionTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource associated with the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- license type conversion task.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AresourceArn%3ALicenseConversionTask%27"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AresourceArn%3ALicenseConversionTask%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The status message for the conversion task.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstatusMessage%3ALicenseConversionTask%27"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AstatusMessage%3ALicenseConversionTask%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time the conversion task was completed.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AendTime%3ALicenseConversionTask%27"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; Maybe POSIX
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AendTime%3ALicenseConversionTask%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The time the usage operation value of the resource was changed.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AlicenseConversionTime%3ALicenseConversionTask%27"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; Maybe POSIX
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AlicenseConversionTime%3ALicenseConversionTask%27"><span class="hs-identifier hs-var hs-var">licenseConversionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Information about the license type this conversion task converted from.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsourceLicenseContext%3ALicenseConversionTask%27"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; Maybe LicenseConversionContext
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AsourceLicenseContext%3ALicenseConversionTask%27"><span class="hs-identifier hs-var hs-var">sourceLicenseContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionContext.html#LicenseConversionContext"><span class="hs-identifier hs-type">LicenseConversionContext</span></a></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298243"><span id="local-6989586621679298245"><span class="annot"><span class="annottext">LicenseConversionTask -&gt; LicenseConversionTask -&gt; Bool
+(LicenseConversionTask -&gt; LicenseConversionTask -&gt; Bool)
+-&gt; (LicenseConversionTask -&gt; LicenseConversionTask -&gt; Bool)
+-&gt; Eq LicenseConversionTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LicenseConversionTask -&gt; LicenseConversionTask -&gt; Bool
+$c/= :: LicenseConversionTask -&gt; LicenseConversionTask -&gt; Bool
+== :: LicenseConversionTask -&gt; LicenseConversionTask -&gt; Bool
+$c== :: LicenseConversionTask -&gt; LicenseConversionTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298234"><span id="local-6989586621679298236"><span id="local-6989586621679298238"><span id="local-6989586621679298240"><span class="annot"><span class="annottext">ReadPrec [LicenseConversionTask]
+ReadPrec LicenseConversionTask
+Int -&gt; ReadS LicenseConversionTask
+ReadS [LicenseConversionTask]
+(Int -&gt; ReadS LicenseConversionTask)
+-&gt; ReadS [LicenseConversionTask]
+-&gt; ReadPrec LicenseConversionTask
+-&gt; ReadPrec [LicenseConversionTask]
+-&gt; Read LicenseConversionTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LicenseConversionTask]
+$creadListPrec :: ReadPrec [LicenseConversionTask]
+readPrec :: ReadPrec LicenseConversionTask
+$creadPrec :: ReadPrec LicenseConversionTask
+readList :: ReadS [LicenseConversionTask]
+$creadList :: ReadS [LicenseConversionTask]
+readsPrec :: Int -&gt; ReadS LicenseConversionTask
+$creadsPrec :: Int -&gt; ReadS LicenseConversionTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298227"><span id="local-6989586621679298229"><span id="local-6989586621679298231"><span class="annot"><span class="annottext">Int -&gt; LicenseConversionTask -&gt; ShowS
+[LicenseConversionTask] -&gt; ShowS
+LicenseConversionTask -&gt; String
+(Int -&gt; LicenseConversionTask -&gt; ShowS)
+-&gt; (LicenseConversionTask -&gt; String)
+-&gt; ([LicenseConversionTask] -&gt; ShowS)
+-&gt; Show LicenseConversionTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LicenseConversionTask] -&gt; ShowS
+$cshowList :: [LicenseConversionTask] -&gt; ShowS
+show :: LicenseConversionTask -&gt; String
+$cshow :: LicenseConversionTask -&gt; String
+showsPrec :: Int -&gt; LicenseConversionTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; LicenseConversionTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LicenseConversionTask -&gt; Rep LicenseConversionTask x)
+-&gt; (forall x. Rep LicenseConversionTask x -&gt; LicenseConversionTask)
+-&gt; Generic LicenseConversionTask
+forall x. Rep LicenseConversionTask x -&gt; LicenseConversionTask
+forall x. LicenseConversionTask -&gt; Rep LicenseConversionTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LicenseConversionTask x -&gt; LicenseConversionTask
+$cfrom :: forall x. LicenseConversionTask -&gt; Rep LicenseConversionTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'LicenseConversionTask' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'status', 'licenseConversionTask_status' - The status of the conversion task.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'startTime', 'licenseConversionTask_startTime' - The time the conversion task was started at.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'destinationLicenseContext', 'licenseConversionTask_destinationLicenseContext' - Information about the license type this conversion task converted to.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'licenseConversionTaskId', 'licenseConversionTask_licenseConversionTaskId' - The ID of the license type conversion task.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'resourceArn', 'licenseConversionTask_resourceArn' - The Amazon Resource Name (ARN) of the resource associated with the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- license type conversion task.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'statusMessage', 'licenseConversionTask_statusMessage' - The status message for the conversion task.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'endTime', 'licenseConversionTask_endTime' - The time the conversion task was completed.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'licenseConversionTime', 'licenseConversionTask_licenseConversionTime' - The time the usage operation value of the resource was changed.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'sourceLicenseContext', 'licenseConversionTask_sourceLicenseContext' - Information about the license type this conversion task converted from.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#newLicenseConversionTask"><span class="hs-identifier hs-type">newLicenseConversionTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span>
+</span><span id="line-82"></span><span id="newLicenseConversionTask"><span class="annot"><span class="annottext">newLicenseConversionTask :: LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#newLicenseConversionTask"><span class="hs-identifier hs-var hs-var">newLicenseConversionTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">LicenseConversionTask' :: Maybe LicenseConversionTaskStatus
+-&gt; Maybe POSIX
+-&gt; Maybe LicenseConversionContext
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe LicenseConversionContext
+-&gt; LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:LicenseConversionTask' :: Maybe LicenseConversionTaskStatus
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3Astatus%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseConversionTaskStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:LicenseConversionTask' :: Maybe POSIX
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AstartTime%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationLicenseContext:LicenseConversionTask' :: Maybe LicenseConversionContext
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AdestinationLicenseContext%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">destinationLicenseContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseConversionTaskId:LicenseConversionTask' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AlicenseConversionTaskId%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">licenseConversionTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:LicenseConversionTask' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AresourceArn%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:LicenseConversionTask' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AstatusMessage%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:LicenseConversionTask' :: Maybe POSIX
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AendTime%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseConversionTime:LicenseConversionTask' :: Maybe POSIX
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AlicenseConversionTime%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">licenseConversionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceLicenseContext:LicenseConversionTask' :: Maybe LicenseConversionContext
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AsourceLicenseContext%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">sourceLicenseContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The status of the conversion task.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_status"><span class="hs-identifier hs-type">licenseConversionTask_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus"><span class="hs-identifier hs-type">LicenseConversionTaskStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="licenseConversionTask_status"><span class="annot"><span class="annottext">licenseConversionTask_status :: (Maybe LicenseConversionTaskStatus
+ -&gt; f (Maybe LicenseConversionTaskStatus))
+-&gt; LicenseConversionTask -&gt; f LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_status"><span class="hs-identifier hs-var hs-var">licenseConversionTask_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseConversionTask -&gt; Maybe LicenseConversionTaskStatus)
+-&gt; (LicenseConversionTask
+    -&gt; Maybe LicenseConversionTaskStatus -&gt; LicenseConversionTask)
+-&gt; Lens
+     LicenseConversionTask
+     LicenseConversionTask
+     (Maybe LicenseConversionTaskStatus)
+     (Maybe LicenseConversionTaskStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298218"><span class="annot"><span class="annottext">Maybe LicenseConversionTaskStatus
+status :: Maybe LicenseConversionTaskStatus
+$sel:status:LicenseConversionTask' :: LicenseConversionTask -&gt; Maybe LicenseConversionTaskStatus
+</span><a href="#local-6989586621679298218"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseConversionTaskStatus
+</span><a href="#local-6989586621679298218"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298217"><span class="annot"><span class="annottext">s :: LicenseConversionTask
+</span><a href="#local-6989586621679298217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298216"><span class="annot"><span class="annottext">Maybe LicenseConversionTaskStatus
+</span><a href="#local-6989586621679298216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseConversionTask
+</span><a href="#local-6989586621679298217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:LicenseConversionTask' :: Maybe LicenseConversionTaskStatus
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3Astatus%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseConversionTaskStatus
+</span><a href="#local-6989586621679298216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The time the conversion task was started at.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_startTime"><span class="hs-identifier hs-type">licenseConversionTask_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="licenseConversionTask_startTime"><span class="annot"><span class="annottext">licenseConversionTask_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LicenseConversionTask -&gt; f LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_startTime"><span class="hs-identifier hs-var hs-var">licenseConversionTask_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseConversionTask -&gt; Maybe POSIX)
+-&gt; (LicenseConversionTask -&gt; Maybe POSIX -&gt; LicenseConversionTask)
+-&gt; Lens
+     LicenseConversionTask
+     LicenseConversionTask
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298214"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:LicenseConversionTask' :: LicenseConversionTask -&gt; Maybe POSIX
+</span><a href="#local-6989586621679298214"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298214"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298213"><span class="annot"><span class="annottext">s :: LicenseConversionTask
+</span><a href="#local-6989586621679298213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298212"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseConversionTask
+</span><a href="#local-6989586621679298213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:LicenseConversionTask' :: Maybe POSIX
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AstartTime%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; LicenseConversionTask -&gt; f LicenseConversionTask)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LicenseConversionTask
+-&gt; f LicenseConversionTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Information about the license type this conversion task converted to.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_destinationLicenseContext"><span class="hs-identifier hs-type">licenseConversionTask_destinationLicenseContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionContext.html#LicenseConversionContext"><span class="hs-identifier hs-type">LicenseConversionContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="licenseConversionTask_destinationLicenseContext"><span class="annot"><span class="annottext">licenseConversionTask_destinationLicenseContext :: (Maybe LicenseConversionContext
+ -&gt; f (Maybe LicenseConversionContext))
+-&gt; LicenseConversionTask -&gt; f LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_destinationLicenseContext"><span class="hs-identifier hs-var hs-var">licenseConversionTask_destinationLicenseContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseConversionTask -&gt; Maybe LicenseConversionContext)
+-&gt; (LicenseConversionTask
+    -&gt; Maybe LicenseConversionContext -&gt; LicenseConversionTask)
+-&gt; Lens
+     LicenseConversionTask
+     LicenseConversionTask
+     (Maybe LicenseConversionContext)
+     (Maybe LicenseConversionContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298207"><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+destinationLicenseContext :: Maybe LicenseConversionContext
+$sel:destinationLicenseContext:LicenseConversionTask' :: LicenseConversionTask -&gt; Maybe LicenseConversionContext
+</span><a href="#local-6989586621679298207"><span class="hs-identifier hs-var hs-var">destinationLicenseContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+</span><a href="#local-6989586621679298207"><span class="hs-identifier hs-var">destinationLicenseContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298206"><span class="annot"><span class="annottext">s :: LicenseConversionTask
+</span><a href="#local-6989586621679298206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298205"><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+</span><a href="#local-6989586621679298205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseConversionTask
+</span><a href="#local-6989586621679298206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationLicenseContext:LicenseConversionTask' :: Maybe LicenseConversionContext
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AdestinationLicenseContext%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">destinationLicenseContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+</span><a href="#local-6989586621679298205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The ID of the license type conversion task.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_licenseConversionTaskId"><span class="hs-identifier hs-type">licenseConversionTask_licenseConversionTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="licenseConversionTask_licenseConversionTaskId"><span class="annot"><span class="annottext">licenseConversionTask_licenseConversionTaskId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LicenseConversionTask -&gt; f LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_licenseConversionTaskId"><span class="hs-identifier hs-var hs-var">licenseConversionTask_licenseConversionTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseConversionTask -&gt; Maybe Text)
+-&gt; (LicenseConversionTask -&gt; Maybe Text -&gt; LicenseConversionTask)
+-&gt; Lens
+     LicenseConversionTask
+     LicenseConversionTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298203"><span class="annot"><span class="annottext">Maybe Text
+licenseConversionTaskId :: Maybe Text
+$sel:licenseConversionTaskId:LicenseConversionTask' :: LicenseConversionTask -&gt; Maybe Text
+</span><a href="#local-6989586621679298203"><span class="hs-identifier hs-var hs-var">licenseConversionTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298203"><span class="hs-identifier hs-var">licenseConversionTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298202"><span class="annot"><span class="annottext">s :: LicenseConversionTask
+</span><a href="#local-6989586621679298202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseConversionTask
+</span><a href="#local-6989586621679298202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseConversionTaskId:LicenseConversionTask' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AlicenseConversionTaskId%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">licenseConversionTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource associated with the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- license type conversion task.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_resourceArn"><span class="hs-identifier hs-type">licenseConversionTask_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="licenseConversionTask_resourceArn"><span class="annot"><span class="annottext">licenseConversionTask_resourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LicenseConversionTask -&gt; f LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_resourceArn"><span class="hs-identifier hs-var hs-var">licenseConversionTask_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseConversionTask -&gt; Maybe Text)
+-&gt; (LicenseConversionTask -&gt; Maybe Text -&gt; LicenseConversionTask)
+-&gt; Lens
+     LicenseConversionTask
+     LicenseConversionTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298199"><span class="annot"><span class="annottext">Maybe Text
+resourceArn :: Maybe Text
+$sel:resourceArn:LicenseConversionTask' :: LicenseConversionTask -&gt; Maybe Text
+</span><a href="#local-6989586621679298199"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298199"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298198"><span class="annot"><span class="annottext">s :: LicenseConversionTask
+</span><a href="#local-6989586621679298198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298197"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseConversionTask
+</span><a href="#local-6989586621679298198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:LicenseConversionTask' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AresourceArn%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The status message for the conversion task.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_statusMessage"><span class="hs-identifier hs-type">licenseConversionTask_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="licenseConversionTask_statusMessage"><span class="annot"><span class="annottext">licenseConversionTask_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LicenseConversionTask -&gt; f LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_statusMessage"><span class="hs-identifier hs-var hs-var">licenseConversionTask_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseConversionTask -&gt; Maybe Text)
+-&gt; (LicenseConversionTask -&gt; Maybe Text -&gt; LicenseConversionTask)
+-&gt; Lens
+     LicenseConversionTask
+     LicenseConversionTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298195"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:LicenseConversionTask' :: LicenseConversionTask -&gt; Maybe Text
+</span><a href="#local-6989586621679298195"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298195"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298194"><span class="annot"><span class="annottext">s :: LicenseConversionTask
+</span><a href="#local-6989586621679298194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298193"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseConversionTask
+</span><a href="#local-6989586621679298194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:LicenseConversionTask' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AstatusMessage%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The time the conversion task was completed.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_endTime"><span class="hs-identifier hs-type">licenseConversionTask_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="licenseConversionTask_endTime"><span class="annot"><span class="annottext">licenseConversionTask_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LicenseConversionTask -&gt; f LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_endTime"><span class="hs-identifier hs-var hs-var">licenseConversionTask_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseConversionTask -&gt; Maybe POSIX)
+-&gt; (LicenseConversionTask -&gt; Maybe POSIX -&gt; LicenseConversionTask)
+-&gt; Lens
+     LicenseConversionTask
+     LicenseConversionTask
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298191"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:LicenseConversionTask' :: LicenseConversionTask -&gt; Maybe POSIX
+</span><a href="#local-6989586621679298191"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298191"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298190"><span class="annot"><span class="annottext">s :: LicenseConversionTask
+</span><a href="#local-6989586621679298190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298189"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseConversionTask
+</span><a href="#local-6989586621679298190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:LicenseConversionTask' :: Maybe POSIX
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AendTime%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; LicenseConversionTask -&gt; f LicenseConversionTask)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LicenseConversionTask
+-&gt; f LicenseConversionTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The time the usage operation value of the resource was changed.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_licenseConversionTime"><span class="hs-identifier hs-type">licenseConversionTask_licenseConversionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="licenseConversionTask_licenseConversionTime"><span class="annot"><span class="annottext">licenseConversionTask_licenseConversionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LicenseConversionTask -&gt; f LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_licenseConversionTime"><span class="hs-identifier hs-var hs-var">licenseConversionTask_licenseConversionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseConversionTask -&gt; Maybe POSIX)
+-&gt; (LicenseConversionTask -&gt; Maybe POSIX -&gt; LicenseConversionTask)
+-&gt; Lens
+     LicenseConversionTask
+     LicenseConversionTask
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298187"><span class="annot"><span class="annottext">Maybe POSIX
+licenseConversionTime :: Maybe POSIX
+$sel:licenseConversionTime:LicenseConversionTask' :: LicenseConversionTask -&gt; Maybe POSIX
+</span><a href="#local-6989586621679298187"><span class="hs-identifier hs-var hs-var">licenseConversionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298187"><span class="hs-identifier hs-var">licenseConversionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298186"><span class="annot"><span class="annottext">s :: LicenseConversionTask
+</span><a href="#local-6989586621679298186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298185"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseConversionTask
+</span><a href="#local-6989586621679298186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseConversionTime:LicenseConversionTask' :: Maybe POSIX
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AlicenseConversionTime%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">licenseConversionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679298185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; LicenseConversionTask -&gt; f LicenseConversionTask)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; LicenseConversionTask
+-&gt; f LicenseConversionTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Information about the license type this conversion task converted from.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_sourceLicenseContext"><span class="hs-identifier hs-type">licenseConversionTask_sourceLicenseContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionContext.html#LicenseConversionContext"><span class="hs-identifier hs-type">LicenseConversionContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="licenseConversionTask_sourceLicenseContext"><span class="annot"><span class="annottext">licenseConversionTask_sourceLicenseContext :: (Maybe LicenseConversionContext
+ -&gt; f (Maybe LicenseConversionContext))
+-&gt; LicenseConversionTask -&gt; f LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#licenseConversionTask_sourceLicenseContext"><span class="hs-identifier hs-var hs-var">licenseConversionTask_sourceLicenseContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LicenseConversionTask -&gt; Maybe LicenseConversionContext)
+-&gt; (LicenseConversionTask
+    -&gt; Maybe LicenseConversionContext -&gt; LicenseConversionTask)
+-&gt; Lens
+     LicenseConversionTask
+     LicenseConversionTask
+     (Maybe LicenseConversionContext)
+     (Maybe LicenseConversionContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298183"><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+sourceLicenseContext :: Maybe LicenseConversionContext
+$sel:sourceLicenseContext:LicenseConversionTask' :: LicenseConversionTask -&gt; Maybe LicenseConversionContext
+</span><a href="#local-6989586621679298183"><span class="hs-identifier hs-var hs-var">sourceLicenseContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+</span><a href="#local-6989586621679298183"><span class="hs-identifier hs-var">sourceLicenseContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298182"><span class="annot"><span class="annottext">s :: LicenseConversionTask
+</span><a href="#local-6989586621679298182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-type">LicenseConversionTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298181"><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+</span><a href="#local-6989586621679298181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseConversionTask
+</span><a href="#local-6989586621679298182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceLicenseContext:LicenseConversionTask' :: Maybe LicenseConversionContext
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#%24sel%3AsourceLicenseContext%3ALicenseConversionTask%27"><span class="hs-identifier hs-var">sourceLicenseContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseConversionContext
+</span><a href="#local-6989586621679298181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298178"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679298176"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LicenseConversionTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LicenseConversionTask)
+-&gt; Value
+-&gt; Parser LicenseConversionTask
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LicenseConversionTask&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298173"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe LicenseConversionTaskStatus
+-&gt; Maybe POSIX
+-&gt; Maybe LicenseConversionContext
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe LicenseConversionContext
+-&gt; LicenseConversionTask
+</span><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask%27"><span class="hs-identifier hs-var">LicenseConversionTask'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LicenseConversionTaskStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe LicenseConversionContext
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe LicenseConversionContext
+ -&gt; LicenseConversionTask)
+-&gt; Parser (Maybe LicenseConversionTaskStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe LicenseConversionContext
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe LicenseConversionContext
+      -&gt; LicenseConversionTask)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LicenseConversionTaskStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe LicenseConversionContext
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe LicenseConversionContext
+   -&gt; LicenseConversionTask)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe LicenseConversionContext
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe LicenseConversionContext
+      -&gt; LicenseConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LicenseConversionContext
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe LicenseConversionContext
+   -&gt; LicenseConversionTask)
+-&gt; Parser (Maybe LicenseConversionContext)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe LicenseConversionContext
+      -&gt; LicenseConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LicenseConversionContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationLicenseContext&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe LicenseConversionContext
+   -&gt; LicenseConversionTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe LicenseConversionContext
+      -&gt; LicenseConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseConversionTaskId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe LicenseConversionContext
+   -&gt; LicenseConversionTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe LicenseConversionContext
+      -&gt; LicenseConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe LicenseConversionContext
+   -&gt; LicenseConversionTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe LicenseConversionContext
+      -&gt; LicenseConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe LicenseConversionContext
+   -&gt; LicenseConversionTask)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe LicenseConversionContext -&gt; LicenseConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe LicenseConversionContext -&gt; LicenseConversionTask)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe LicenseConversionContext -&gt; LicenseConversionTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseConversionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LicenseConversionContext -&gt; LicenseConversionTask)
+-&gt; Parser (Maybe LicenseConversionContext)
+-&gt; Parser LicenseConversionTask
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LicenseConversionContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceLicenseContext&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298167"><span id="local-6989586621679298169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.LicenseConversionTask.html#LicenseConversionTask"><span class="hs-identifier hs-type">LicenseConversionTask</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

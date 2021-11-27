@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFormation.Types.StackStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFormation.Types.StackStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier">StackStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_CREATE_COMPLETE"><span class="hs-identifier">StackStatus_CREATE_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_CREATE_FAILED"><span class="hs-identifier">StackStatus_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_CREATE_IN_PROGRESS"><span class="hs-identifier">StackStatus_CREATE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_DELETE_COMPLETE"><span class="hs-identifier">StackStatus_DELETE_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_DELETE_FAILED"><span class="hs-identifier">StackStatus_DELETE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_DELETE_IN_PROGRESS"><span class="hs-identifier">StackStatus_DELETE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_COMPLETE"><span class="hs-identifier">StackStatus_IMPORT_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_IN_PROGRESS"><span class="hs-identifier">StackStatus_IMPORT_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_ROLLBACK_COMPLETE"><span class="hs-identifier">StackStatus_IMPORT_ROLLBACK_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_ROLLBACK_FAILED"><span class="hs-identifier">StackStatus_IMPORT_ROLLBACK_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_ROLLBACK_IN_PROGRESS"><span class="hs-identifier">StackStatus_IMPORT_ROLLBACK_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_REVIEW_IN_PROGRESS"><span class="hs-identifier">StackStatus_REVIEW_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_ROLLBACK_COMPLETE"><span class="hs-identifier">StackStatus_ROLLBACK_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_ROLLBACK_FAILED"><span class="hs-identifier">StackStatus_ROLLBACK_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_ROLLBACK_IN_PROGRESS"><span class="hs-identifier">StackStatus_ROLLBACK_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_COMPLETE"><span class="hs-identifier">StackStatus_UPDATE_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"><span class="hs-identifier">StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_FAILED"><span class="hs-identifier">StackStatus_UPDATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_IN_PROGRESS"><span class="hs-identifier">StackStatus_UPDATE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_COMPLETE"><span class="hs-identifier">StackStatus_UPDATE_ROLLBACK_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"><span class="hs-identifier">StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_FAILED"><span class="hs-identifier">StackStatus_UPDATE_ROLLBACK_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_IN_PROGRESS"><span class="hs-identifier">StackStatus_UPDATE_ROLLBACK_IN_PROGRESS</span></a></span><span>
+</span><span id="line-46"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679425982"><span id="local-6989586621679425983"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackStatus"><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-var">StackStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackStatus%27"><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-var">StackStatus'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStackStatus"><span class="annot"><span class="annottext">StackStatus -&gt; Text
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#fromStackStatus"><span class="hs-identifier hs-var hs-var">fromStackStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425974"><span id="local-6989586621679425976"><span id="local-6989586621679425978"><span class="annot"><span class="annottext">Int -&gt; StackStatus -&gt; ShowS
+[StackStatus] -&gt; ShowS
+StackStatus -&gt; String
+(Int -&gt; StackStatus -&gt; ShowS)
+-&gt; (StackStatus -&gt; String)
+-&gt; ([StackStatus] -&gt; ShowS)
+-&gt; Show StackStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StackStatus] -&gt; ShowS
+$cshowList :: [StackStatus] -&gt; ShowS
+show :: StackStatus -&gt; String
+$cshow :: StackStatus -&gt; String
+showsPrec :: Int -&gt; StackStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; StackStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679425965"><span id="local-6989586621679425967"><span id="local-6989586621679425969"><span id="local-6989586621679425971"><span class="annot"><span class="annottext">ReadPrec [StackStatus]
+ReadPrec StackStatus
+Int -&gt; ReadS StackStatus
+ReadS [StackStatus]
+(Int -&gt; ReadS StackStatus)
+-&gt; ReadS [StackStatus]
+-&gt; ReadPrec StackStatus
+-&gt; ReadPrec [StackStatus]
+-&gt; Read StackStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StackStatus]
+$creadListPrec :: ReadPrec [StackStatus]
+readPrec :: ReadPrec StackStatus
+$creadPrec :: ReadPrec StackStatus
+readList :: ReadS [StackStatus]
+$creadList :: ReadS [StackStatus]
+readsPrec :: Int -&gt; ReadS StackStatus
+$creadsPrec :: Int -&gt; ReadS StackStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679425960"><span id="local-6989586621679425962"><span class="annot"><span class="annottext">StackStatus -&gt; StackStatus -&gt; Bool
+(StackStatus -&gt; StackStatus -&gt; Bool)
+-&gt; (StackStatus -&gt; StackStatus -&gt; Bool) -&gt; Eq StackStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StackStatus -&gt; StackStatus -&gt; Bool
+$c/= :: StackStatus -&gt; StackStatus -&gt; Bool
+== :: StackStatus -&gt; StackStatus -&gt; Bool
+$c== :: StackStatus -&gt; StackStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679425944"><span id="local-6989586621679425946"><span id="local-6989586621679425948"><span id="local-6989586621679425950"><span id="local-6989586621679425952"><span id="local-6989586621679425954"><span id="local-6989586621679425956"><span class="annot"><span class="annottext">Eq StackStatus
+Eq StackStatus
+-&gt; (StackStatus -&gt; StackStatus -&gt; Ordering)
+-&gt; (StackStatus -&gt; StackStatus -&gt; Bool)
+-&gt; (StackStatus -&gt; StackStatus -&gt; Bool)
+-&gt; (StackStatus -&gt; StackStatus -&gt; Bool)
+-&gt; (StackStatus -&gt; StackStatus -&gt; Bool)
+-&gt; (StackStatus -&gt; StackStatus -&gt; StackStatus)
+-&gt; (StackStatus -&gt; StackStatus -&gt; StackStatus)
+-&gt; Ord StackStatus
+StackStatus -&gt; StackStatus -&gt; Bool
+StackStatus -&gt; StackStatus -&gt; Ordering
+StackStatus -&gt; StackStatus -&gt; StackStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StackStatus -&gt; StackStatus -&gt; StackStatus
+$cmin :: StackStatus -&gt; StackStatus -&gt; StackStatus
+max :: StackStatus -&gt; StackStatus -&gt; StackStatus
+$cmax :: StackStatus -&gt; StackStatus -&gt; StackStatus
+&gt;= :: StackStatus -&gt; StackStatus -&gt; Bool
+$c&gt;= :: StackStatus -&gt; StackStatus -&gt; Bool
+&gt; :: StackStatus -&gt; StackStatus -&gt; Bool
+$c&gt; :: StackStatus -&gt; StackStatus -&gt; Bool
+&lt;= :: StackStatus -&gt; StackStatus -&gt; Bool
+$c&lt;= :: StackStatus -&gt; StackStatus -&gt; Bool
+&lt; :: StackStatus -&gt; StackStatus -&gt; Bool
+$c&lt; :: StackStatus -&gt; StackStatus -&gt; Bool
+compare :: StackStatus -&gt; StackStatus -&gt; Ordering
+$ccompare :: StackStatus -&gt; StackStatus -&gt; Ordering
+$cp1Ord :: Eq StackStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StackStatus -&gt; Rep StackStatus x)
+-&gt; (forall x. Rep StackStatus x -&gt; StackStatus)
+-&gt; Generic StackStatus
+forall x. Rep StackStatus x -&gt; StackStatus
+forall x. StackStatus -&gt; Rep StackStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StackStatus x -&gt; StackStatus
+$cfrom :: forall x. StackStatus -&gt; Rep StackStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425936"><span id="local-6989586621679425938"><span class="annot"><span class="annottext">Int -&gt; StackStatus -&gt; Int
+StackStatus -&gt; Int
+(Int -&gt; StackStatus -&gt; Int)
+-&gt; (StackStatus -&gt; Int) -&gt; Hashable StackStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StackStatus -&gt; Int
+$chash :: StackStatus -&gt; Int
+hashWithSalt :: Int -&gt; StackStatus -&gt; Int
+$chashWithSalt :: Int -&gt; StackStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679425933"><span class="annot"><span class="annottext">StackStatus -&gt; ()
+(StackStatus -&gt; ()) -&gt; NFData StackStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StackStatus -&gt; ()
+$crnf :: StackStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679425930"><span class="annot"><span class="annottext">Text -&gt; Either String StackStatus
+(Text -&gt; Either String StackStatus) -&gt; FromText StackStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StackStatus
+$cfromText :: Text -&gt; Either String StackStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679425927"><span class="annot"><span class="annottext">StackStatus -&gt; Text
+(StackStatus -&gt; Text) -&gt; ToText StackStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StackStatus -&gt; Text
+$ctoText :: StackStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679425924"><span class="annot"><span class="annottext">StackStatus -&gt; ByteString
+(StackStatus -&gt; ByteString) -&gt; ToByteString StackStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StackStatus -&gt; ByteString
+$ctoBS :: StackStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679425921"><span class="annot"><span class="annottext">StackStatus -&gt; ByteStringBuilder
+(StackStatus -&gt; ByteStringBuilder) -&gt; ToLog StackStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StackStatus -&gt; ByteStringBuilder
+$cbuild :: StackStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679425918"><span class="annot"><span class="annottext">HeaderName -&gt; StackStatus -&gt; [Header]
+(HeaderName -&gt; StackStatus -&gt; [Header]) -&gt; ToHeader StackStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StackStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StackStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679425915"><span class="annot"><span class="annottext">StackStatus -&gt; QueryString
+(StackStatus -&gt; QueryString) -&gt; ToQuery StackStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StackStatus -&gt; QueryString
+$ctoQuery :: StackStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679425910"><span id="local-6989586621679425912"><span class="annot"><span class="annottext">Value -&gt; Parser [StackStatus]
+Value -&gt; Parser StackStatus
+(Value -&gt; Parser StackStatus)
+-&gt; (Value -&gt; Parser [StackStatus]) -&gt; FromJSON StackStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StackStatus]
+$cparseJSONList :: Value -&gt; Parser [StackStatus]
+parseJSON :: Value -&gt; Parser StackStatus
+$cparseJSON :: Value -&gt; Parser StackStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679425905"><span id="local-6989586621679425907"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackStatus]
+FromJSONKeyFunction StackStatus
+FromJSONKeyFunction StackStatus
+-&gt; FromJSONKeyFunction [StackStatus] -&gt; FromJSONKey StackStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StackStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [StackStatus]
+fromJSONKey :: FromJSONKeyFunction StackStatus
+$cfromJSONKey :: FromJSONKeyFunction StackStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679425896"><span id="local-6989586621679425898"><span id="local-6989586621679425900"><span id="local-6989586621679425902"><span class="annot"><span class="annottext">[StackStatus] -&gt; Encoding
+[StackStatus] -&gt; Value
+StackStatus -&gt; Encoding
+StackStatus -&gt; Value
+(StackStatus -&gt; Value)
+-&gt; (StackStatus -&gt; Encoding)
+-&gt; ([StackStatus] -&gt; Value)
+-&gt; ([StackStatus] -&gt; Encoding)
+-&gt; ToJSON StackStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StackStatus] -&gt; Encoding
+$ctoEncodingList :: [StackStatus] -&gt; Encoding
+toJSONList :: [StackStatus] -&gt; Value
+$ctoJSONList :: [StackStatus] -&gt; Value
+toEncoding :: StackStatus -&gt; Encoding
+$ctoEncoding :: StackStatus -&gt; Encoding
+toJSON :: StackStatus -&gt; Value
+$ctoJSON :: StackStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679425891"><span id="local-6989586621679425893"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackStatus]
+ToJSONKeyFunction StackStatus
+ToJSONKeyFunction StackStatus
+-&gt; ToJSONKeyFunction [StackStatus] -&gt; ToJSONKey StackStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StackStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [StackStatus]
+toJSONKey :: ToJSONKeyFunction StackStatus
+$ctoJSONKey :: ToJSONKeyFunction StackStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679425888"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackStatus
+([Node] -&gt; Either String StackStatus) -&gt; FromXML StackStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StackStatus
+$cparseXML :: [Node] -&gt; Either String StackStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679425885"><span class="annot"><span class="annottext">StackStatus -&gt; XML
+(StackStatus -&gt; XML) -&gt; ToXML StackStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StackStatus -&gt; XML
+$ctoXML :: StackStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_CREATE_COMPLETE"><span class="hs-identifier hs-type">StackStatus_CREATE_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_CREATE_COMPLETE"><span id="%24mStackStatus_CREATE_COMPLETE"><span id="StackStatus_CREATE_COMPLETE"><span class="annot"><span class="annottext">$bStackStatus_CREATE_COMPLETE :: StackStatus
+$mStackStatus_CREATE_COMPLETE :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_CREATE_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_CREATE_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_COMPLETE&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_CREATE_FAILED"><span class="hs-identifier hs-type">StackStatus_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_CREATE_FAILED"><span id="%24mStackStatus_CREATE_FAILED"><span id="StackStatus_CREATE_FAILED"><span class="annot"><span class="annottext">$bStackStatus_CREATE_FAILED :: StackStatus
+$mStackStatus_CREATE_FAILED :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_CREATE_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_CREATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_CREATE_IN_PROGRESS"><span id="%24mStackStatus_CREATE_IN_PROGRESS"><span id="StackStatus_CREATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_CREATE_IN_PROGRESS :: StackStatus
+$mStackStatus_CREATE_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_CREATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_CREATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_DELETE_COMPLETE"><span class="hs-identifier hs-type">StackStatus_DELETE_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_DELETE_COMPLETE"><span id="%24mStackStatus_DELETE_COMPLETE"><span id="StackStatus_DELETE_COMPLETE"><span class="annot"><span class="annottext">$bStackStatus_DELETE_COMPLETE :: StackStatus
+$mStackStatus_DELETE_COMPLETE :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_DELETE_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_DELETE_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_COMPLETE&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_DELETE_FAILED"><span class="hs-identifier hs-type">StackStatus_DELETE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_DELETE_FAILED"><span id="%24mStackStatus_DELETE_FAILED"><span id="StackStatus_DELETE_FAILED"><span class="annot"><span class="annottext">$bStackStatus_DELETE_FAILED :: StackStatus
+$mStackStatus_DELETE_FAILED :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_DELETE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_DELETE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_DELETE_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_DELETE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_DELETE_IN_PROGRESS"><span id="%24mStackStatus_DELETE_IN_PROGRESS"><span id="StackStatus_DELETE_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_DELETE_IN_PROGRESS :: StackStatus
+$mStackStatus_DELETE_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_DELETE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_DELETE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_COMPLETE"><span class="hs-identifier hs-type">StackStatus_IMPORT_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_IMPORT_COMPLETE"><span id="%24mStackStatus_IMPORT_COMPLETE"><span id="StackStatus_IMPORT_COMPLETE"><span class="annot"><span class="annottext">$bStackStatus_IMPORT_COMPLETE :: StackStatus
+$mStackStatus_IMPORT_COMPLETE :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_IMPORT_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_IMPORT_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPORT_COMPLETE&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_IMPORT_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_IMPORT_IN_PROGRESS"><span id="%24mStackStatus_IMPORT_IN_PROGRESS"><span id="StackStatus_IMPORT_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_IMPORT_IN_PROGRESS :: StackStatus
+$mStackStatus_IMPORT_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_IMPORT_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_IMPORT_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPORT_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_ROLLBACK_COMPLETE"><span class="hs-identifier hs-type">StackStatus_IMPORT_ROLLBACK_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_IMPORT_ROLLBACK_COMPLETE"><span id="%24mStackStatus_IMPORT_ROLLBACK_COMPLETE"><span id="StackStatus_IMPORT_ROLLBACK_COMPLETE"><span class="annot"><span class="annottext">$bStackStatus_IMPORT_ROLLBACK_COMPLETE :: StackStatus
+$mStackStatus_IMPORT_ROLLBACK_COMPLETE :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_IMPORT_ROLLBACK_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_IMPORT_ROLLBACK_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPORT_ROLLBACK_COMPLETE&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_ROLLBACK_FAILED"><span class="hs-identifier hs-type">StackStatus_IMPORT_ROLLBACK_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_IMPORT_ROLLBACK_FAILED"><span id="%24mStackStatus_IMPORT_ROLLBACK_FAILED"><span id="StackStatus_IMPORT_ROLLBACK_FAILED"><span class="annot"><span class="annottext">$bStackStatus_IMPORT_ROLLBACK_FAILED :: StackStatus
+$mStackStatus_IMPORT_ROLLBACK_FAILED :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_IMPORT_ROLLBACK_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_IMPORT_ROLLBACK_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPORT_ROLLBACK_FAILED&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_IMPORT_ROLLBACK_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_IMPORT_ROLLBACK_IN_PROGRESS"><span id="%24mStackStatus_IMPORT_ROLLBACK_IN_PROGRESS"><span id="StackStatus_IMPORT_ROLLBACK_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_IMPORT_ROLLBACK_IN_PROGRESS :: StackStatus
+$mStackStatus_IMPORT_ROLLBACK_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_IMPORT_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_IMPORT_ROLLBACK_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPORT_ROLLBACK_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_REVIEW_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_REVIEW_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_REVIEW_IN_PROGRESS"><span id="%24mStackStatus_REVIEW_IN_PROGRESS"><span id="StackStatus_REVIEW_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_REVIEW_IN_PROGRESS :: StackStatus
+$mStackStatus_REVIEW_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_REVIEW_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_REVIEW_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REVIEW_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_ROLLBACK_COMPLETE"><span class="hs-identifier hs-type">StackStatus_ROLLBACK_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_ROLLBACK_COMPLETE"><span id="%24mStackStatus_ROLLBACK_COMPLETE"><span id="StackStatus_ROLLBACK_COMPLETE"><span class="annot"><span class="annottext">$bStackStatus_ROLLBACK_COMPLETE :: StackStatus
+$mStackStatus_ROLLBACK_COMPLETE :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_ROLLBACK_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_ROLLBACK_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROLLBACK_COMPLETE&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_ROLLBACK_FAILED"><span class="hs-identifier hs-type">StackStatus_ROLLBACK_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_ROLLBACK_FAILED"><span id="%24mStackStatus_ROLLBACK_FAILED"><span id="StackStatus_ROLLBACK_FAILED"><span class="annot"><span class="annottext">$bStackStatus_ROLLBACK_FAILED :: StackStatus
+$mStackStatus_ROLLBACK_FAILED :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_ROLLBACK_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_ROLLBACK_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROLLBACK_FAILED&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_ROLLBACK_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_ROLLBACK_IN_PROGRESS"><span id="%24mStackStatus_ROLLBACK_IN_PROGRESS"><span id="StackStatus_ROLLBACK_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_ROLLBACK_IN_PROGRESS :: StackStatus
+$mStackStatus_ROLLBACK_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_ROLLBACK_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROLLBACK_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_COMPLETE"><span class="hs-identifier hs-type">StackStatus_UPDATE_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_UPDATE_COMPLETE"><span id="%24mStackStatus_UPDATE_COMPLETE"><span id="StackStatus_UPDATE_COMPLETE"><span class="annot"><span class="annottext">$bStackStatus_UPDATE_COMPLETE :: StackStatus
+$mStackStatus_UPDATE_COMPLETE :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_UPDATE_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_UPDATE_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_COMPLETE&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"><span id="%24mStackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"><span id="StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS :: StackStatus
+$mStackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_COMPLETE_CLEANUP_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_FAILED"><span class="hs-identifier hs-type">StackStatus_UPDATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_UPDATE_FAILED"><span id="%24mStackStatus_UPDATE_FAILED"><span id="StackStatus_UPDATE_FAILED"><span class="annot"><span class="annottext">$bStackStatus_UPDATE_FAILED :: StackStatus
+$mStackStatus_UPDATE_FAILED :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_UPDATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_UPDATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_FAILED&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_UPDATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_UPDATE_IN_PROGRESS"><span id="%24mStackStatus_UPDATE_IN_PROGRESS"><span id="StackStatus_UPDATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_UPDATE_IN_PROGRESS :: StackStatus
+$mStackStatus_UPDATE_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_UPDATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_UPDATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_COMPLETE"><span class="hs-identifier hs-type">StackStatus_UPDATE_ROLLBACK_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_UPDATE_ROLLBACK_COMPLETE"><span id="%24mStackStatus_UPDATE_ROLLBACK_COMPLETE"><span id="StackStatus_UPDATE_ROLLBACK_COMPLETE"><span class="annot"><span class="annottext">$bStackStatus_UPDATE_ROLLBACK_COMPLETE :: StackStatus
+$mStackStatus_UPDATE_ROLLBACK_COMPLETE :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_UPDATE_ROLLBACK_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_UPDATE_ROLLBACK_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_ROLLBACK_COMPLETE&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"><span id="%24mStackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"><span id="StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS :: StackStatus
+$mStackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_FAILED"><span class="hs-identifier hs-type">StackStatus_UPDATE_ROLLBACK_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_UPDATE_ROLLBACK_FAILED"><span id="%24mStackStatus_UPDATE_ROLLBACK_FAILED"><span id="StackStatus_UPDATE_ROLLBACK_FAILED"><span class="annot"><span class="annottext">$bStackStatus_UPDATE_ROLLBACK_FAILED :: StackStatus
+$mStackStatus_UPDATE_ROLLBACK_FAILED :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_UPDATE_ROLLBACK_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_UPDATE_ROLLBACK_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_ROLLBACK_FAILED&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-type">StackStatus_UPDATE_ROLLBACK_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackStatus_UPDATE_ROLLBACK_IN_PROGRESS"><span id="%24mStackStatus_UPDATE_ROLLBACK_IN_PROGRESS"><span id="StackStatus_UPDATE_ROLLBACK_IN_PROGRESS"><span class="annot"><span class="annottext">$bStackStatus_UPDATE_ROLLBACK_IN_PROGRESS :: StackStatus
+$mStackStatus_UPDATE_ROLLBACK_IN_PROGRESS :: forall r. StackStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.StackStatus.html#%24bStackStatus_UPDATE_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">StackStatus_UPDATE_ROLLBACK_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-type">StackStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_ROLLBACK_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_CREATE_COMPLETE"><span class="hs-pragma hs-type">StackStatus_CREATE_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_CREATE_FAILED"><span class="hs-pragma hs-type">StackStatus_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_CREATE_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_CREATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_DELETE_COMPLETE"><span class="hs-pragma hs-type">StackStatus_DELETE_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_DELETE_FAILED"><span class="hs-pragma hs-type">StackStatus_DELETE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_DELETE_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_DELETE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_COMPLETE"><span class="hs-pragma hs-type">StackStatus_IMPORT_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_IMPORT_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_ROLLBACK_COMPLETE"><span class="hs-pragma hs-type">StackStatus_IMPORT_ROLLBACK_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_ROLLBACK_FAILED"><span class="hs-pragma hs-type">StackStatus_IMPORT_ROLLBACK_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_IMPORT_ROLLBACK_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_IMPORT_ROLLBACK_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_REVIEW_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_REVIEW_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_ROLLBACK_COMPLETE"><span class="hs-pragma hs-type">StackStatus_ROLLBACK_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_ROLLBACK_FAILED"><span class="hs-pragma hs-type">StackStatus_ROLLBACK_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_ROLLBACK_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_ROLLBACK_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_COMPLETE"><span class="hs-pragma hs-type">StackStatus_UPDATE_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_FAILED"><span class="hs-pragma hs-type">StackStatus_UPDATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_UPDATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_COMPLETE"><span class="hs-pragma hs-type">StackStatus_UPDATE_ROLLBACK_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_FAILED"><span class="hs-pragma hs-type">StackStatus_UPDATE_ROLLBACK_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus_UPDATE_ROLLBACK_IN_PROGRESS"><span class="hs-pragma hs-type">StackStatus_UPDATE_ROLLBACK_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-pragma hs-type">StackStatus'</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-176"></span></pre></body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.Types.ModelVersionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelVersionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus"><span class="hs-identifier">ModelVersionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus_ACTIVE"><span class="hs-identifier">ModelVersionStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus_INACTIVE"><span class="hs-identifier">ModelVersionStatus_INACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus_TRAINING_CANCELLED"><span class="hs-identifier">ModelVersionStatus_TRAINING_CANCELLED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679306664"><span id="local-6989586621679306665"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelVersionStatus"><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus"><span class="hs-identifier hs-var">ModelVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelVersionStatus%27"><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus%27"><span class="hs-identifier hs-var">ModelVersionStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelVersionStatus"><span class="annot"><span class="annottext">ModelVersionStatus -&gt; Text
+</span><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#fromModelVersionStatus"><span class="hs-identifier hs-var hs-var">fromModelVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306656"><span id="local-6989586621679306658"><span id="local-6989586621679306660"><span class="annot"><span class="annottext">Int -&gt; ModelVersionStatus -&gt; ShowS
+[ModelVersionStatus] -&gt; ShowS
+ModelVersionStatus -&gt; String
+(Int -&gt; ModelVersionStatus -&gt; ShowS)
+-&gt; (ModelVersionStatus -&gt; String)
+-&gt; ([ModelVersionStatus] -&gt; ShowS)
+-&gt; Show ModelVersionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelVersionStatus] -&gt; ShowS
+$cshowList :: [ModelVersionStatus] -&gt; ShowS
+show :: ModelVersionStatus -&gt; String
+$cshow :: ModelVersionStatus -&gt; String
+showsPrec :: Int -&gt; ModelVersionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelVersionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306647"><span id="local-6989586621679306649"><span id="local-6989586621679306651"><span id="local-6989586621679306653"><span class="annot"><span class="annottext">ReadPrec [ModelVersionStatus]
+ReadPrec ModelVersionStatus
+Int -&gt; ReadS ModelVersionStatus
+ReadS [ModelVersionStatus]
+(Int -&gt; ReadS ModelVersionStatus)
+-&gt; ReadS [ModelVersionStatus]
+-&gt; ReadPrec ModelVersionStatus
+-&gt; ReadPrec [ModelVersionStatus]
+-&gt; Read ModelVersionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelVersionStatus]
+$creadListPrec :: ReadPrec [ModelVersionStatus]
+readPrec :: ReadPrec ModelVersionStatus
+$creadPrec :: ReadPrec ModelVersionStatus
+readList :: ReadS [ModelVersionStatus]
+$creadList :: ReadS [ModelVersionStatus]
+readsPrec :: Int -&gt; ReadS ModelVersionStatus
+$creadsPrec :: Int -&gt; ReadS ModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306642"><span id="local-6989586621679306644"><span class="annot"><span class="annottext">ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+(ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool)
+-&gt; (ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool)
+-&gt; Eq ModelVersionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+$c/= :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+== :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+$c== :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679306626"><span id="local-6989586621679306628"><span id="local-6989586621679306630"><span id="local-6989586621679306632"><span id="local-6989586621679306634"><span id="local-6989586621679306636"><span id="local-6989586621679306638"><span class="annot"><span class="annottext">Eq ModelVersionStatus
+Eq ModelVersionStatus
+-&gt; (ModelVersionStatus -&gt; ModelVersionStatus -&gt; Ordering)
+-&gt; (ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool)
+-&gt; (ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool)
+-&gt; (ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool)
+-&gt; (ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool)
+-&gt; (ModelVersionStatus -&gt; ModelVersionStatus -&gt; ModelVersionStatus)
+-&gt; (ModelVersionStatus -&gt; ModelVersionStatus -&gt; ModelVersionStatus)
+-&gt; Ord ModelVersionStatus
+ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+ModelVersionStatus -&gt; ModelVersionStatus -&gt; Ordering
+ModelVersionStatus -&gt; ModelVersionStatus -&gt; ModelVersionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; ModelVersionStatus
+$cmin :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; ModelVersionStatus
+max :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; ModelVersionStatus
+$cmax :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; ModelVersionStatus
+&gt;= :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+$c&gt;= :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+&gt; :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+$c&gt; :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+&lt;= :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+$c&lt;= :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+&lt; :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+$c&lt; :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Bool
+compare :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Ordering
+$ccompare :: ModelVersionStatus -&gt; ModelVersionStatus -&gt; Ordering
+$cp1Ord :: Eq ModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ModelVersionStatus -&gt; Rep ModelVersionStatus x)
+-&gt; (forall x. Rep ModelVersionStatus x -&gt; ModelVersionStatus)
+-&gt; Generic ModelVersionStatus
+forall x. Rep ModelVersionStatus x -&gt; ModelVersionStatus
+forall x. ModelVersionStatus -&gt; Rep ModelVersionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModelVersionStatus x -&gt; ModelVersionStatus
+$cfrom :: forall x. ModelVersionStatus -&gt; Rep ModelVersionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306618"><span id="local-6989586621679306620"><span class="annot"><span class="annottext">Int -&gt; ModelVersionStatus -&gt; Int
+ModelVersionStatus -&gt; Int
+(Int -&gt; ModelVersionStatus -&gt; Int)
+-&gt; (ModelVersionStatus -&gt; Int) -&gt; Hashable ModelVersionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ModelVersionStatus -&gt; Int
+$chash :: ModelVersionStatus -&gt; Int
+hashWithSalt :: Int -&gt; ModelVersionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ModelVersionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306615"><span class="annot"><span class="annottext">ModelVersionStatus -&gt; ()
+(ModelVersionStatus -&gt; ()) -&gt; NFData ModelVersionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ModelVersionStatus -&gt; ()
+$crnf :: ModelVersionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306612"><span class="annot"><span class="annottext">Text -&gt; Either String ModelVersionStatus
+(Text -&gt; Either String ModelVersionStatus)
+-&gt; FromText ModelVersionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ModelVersionStatus
+$cfromText :: Text -&gt; Either String ModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306609"><span class="annot"><span class="annottext">ModelVersionStatus -&gt; Text
+(ModelVersionStatus -&gt; Text) -&gt; ToText ModelVersionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ModelVersionStatus -&gt; Text
+$ctoText :: ModelVersionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306606"><span class="annot"><span class="annottext">ModelVersionStatus -&gt; ByteString
+(ModelVersionStatus -&gt; ByteString)
+-&gt; ToByteString ModelVersionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ModelVersionStatus -&gt; ByteString
+$ctoBS :: ModelVersionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306603"><span class="annot"><span class="annottext">ModelVersionStatus -&gt; ByteStringBuilder
+(ModelVersionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ModelVersionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ModelVersionStatus -&gt; ByteStringBuilder
+$cbuild :: ModelVersionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306600"><span class="annot"><span class="annottext">HeaderName -&gt; ModelVersionStatus -&gt; [Header]
+(HeaderName -&gt; ModelVersionStatus -&gt; [Header])
+-&gt; ToHeader ModelVersionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ModelVersionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ModelVersionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306597"><span class="annot"><span class="annottext">ModelVersionStatus -&gt; QueryString
+(ModelVersionStatus -&gt; QueryString) -&gt; ToQuery ModelVersionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ModelVersionStatus -&gt; QueryString
+$ctoQuery :: ModelVersionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306592"><span id="local-6989586621679306594"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelVersionStatus]
+Value -&gt; Parser ModelVersionStatus
+(Value -&gt; Parser ModelVersionStatus)
+-&gt; (Value -&gt; Parser [ModelVersionStatus])
+-&gt; FromJSON ModelVersionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ModelVersionStatus]
+$cparseJSONList :: Value -&gt; Parser [ModelVersionStatus]
+parseJSON :: Value -&gt; Parser ModelVersionStatus
+$cparseJSON :: Value -&gt; Parser ModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306587"><span id="local-6989586621679306589"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelVersionStatus]
+FromJSONKeyFunction ModelVersionStatus
+FromJSONKeyFunction ModelVersionStatus
+-&gt; FromJSONKeyFunction [ModelVersionStatus]
+-&gt; FromJSONKey ModelVersionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ModelVersionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ModelVersionStatus]
+fromJSONKey :: FromJSONKeyFunction ModelVersionStatus
+$cfromJSONKey :: FromJSONKeyFunction ModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306578"><span id="local-6989586621679306580"><span id="local-6989586621679306582"><span id="local-6989586621679306584"><span class="annot"><span class="annottext">[ModelVersionStatus] -&gt; Encoding
+[ModelVersionStatus] -&gt; Value
+ModelVersionStatus -&gt; Encoding
+ModelVersionStatus -&gt; Value
+(ModelVersionStatus -&gt; Value)
+-&gt; (ModelVersionStatus -&gt; Encoding)
+-&gt; ([ModelVersionStatus] -&gt; Value)
+-&gt; ([ModelVersionStatus] -&gt; Encoding)
+-&gt; ToJSON ModelVersionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ModelVersionStatus] -&gt; Encoding
+$ctoEncodingList :: [ModelVersionStatus] -&gt; Encoding
+toJSONList :: [ModelVersionStatus] -&gt; Value
+$ctoJSONList :: [ModelVersionStatus] -&gt; Value
+toEncoding :: ModelVersionStatus -&gt; Encoding
+$ctoEncoding :: ModelVersionStatus -&gt; Encoding
+toJSON :: ModelVersionStatus -&gt; Value
+$ctoJSON :: ModelVersionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306573"><span id="local-6989586621679306575"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelVersionStatus]
+ToJSONKeyFunction ModelVersionStatus
+ToJSONKeyFunction ModelVersionStatus
+-&gt; ToJSONKeyFunction [ModelVersionStatus]
+-&gt; ToJSONKey ModelVersionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ModelVersionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ModelVersionStatus]
+toJSONKey :: ToJSONKeyFunction ModelVersionStatus
+$ctoJSONKey :: ToJSONKeyFunction ModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306570"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelVersionStatus
+([Node] -&gt; Either String ModelVersionStatus)
+-&gt; FromXML ModelVersionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ModelVersionStatus
+$cparseXML :: [Node] -&gt; Either String ModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679306567"><span class="annot"><span class="annottext">ModelVersionStatus -&gt; XML
+(ModelVersionStatus -&gt; XML) -&gt; ToXML ModelVersionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ModelVersionStatus -&gt; XML
+$ctoXML :: ModelVersionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus_ACTIVE"><span class="hs-identifier hs-type">ModelVersionStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus"><span class="hs-identifier hs-type">ModelVersionStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelVersionStatus_ACTIVE"><span id="%24mModelVersionStatus_ACTIVE"><span id="ModelVersionStatus_ACTIVE"><span class="annot"><span class="annottext">$bModelVersionStatus_ACTIVE :: ModelVersionStatus
+$mModelVersionStatus_ACTIVE :: forall r. ModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#%24bModelVersionStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">ModelVersionStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus%27"><span class="hs-identifier hs-type">ModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus_INACTIVE"><span class="hs-identifier hs-type">ModelVersionStatus_INACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus"><span class="hs-identifier hs-type">ModelVersionStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelVersionStatus_INACTIVE"><span id="%24mModelVersionStatus_INACTIVE"><span id="ModelVersionStatus_INACTIVE"><span class="annot"><span class="annottext">$bModelVersionStatus_INACTIVE :: ModelVersionStatus
+$mModelVersionStatus_INACTIVE :: forall r. ModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#%24bModelVersionStatus_INACTIVE"><span class="hs-identifier hs-var hs-var hs-var">ModelVersionStatus_INACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus%27"><span class="hs-identifier hs-type">ModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INACTIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus_TRAINING_CANCELLED"><span class="hs-identifier hs-type">ModelVersionStatus_TRAINING_CANCELLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus"><span class="hs-identifier hs-type">ModelVersionStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelVersionStatus_TRAINING_CANCELLED"><span id="%24mModelVersionStatus_TRAINING_CANCELLED"><span id="ModelVersionStatus_TRAINING_CANCELLED"><span class="annot"><span class="annottext">$bModelVersionStatus_TRAINING_CANCELLED :: ModelVersionStatus
+$mModelVersionStatus_TRAINING_CANCELLED :: forall r. ModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#%24bModelVersionStatus_TRAINING_CANCELLED"><span class="hs-identifier hs-var hs-var hs-var">ModelVersionStatus_TRAINING_CANCELLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus%27"><span class="hs-identifier hs-type">ModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRAINING_CANCELLED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus_ACTIVE"><span class="hs-pragma hs-type">ModelVersionStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus_INACTIVE"><span class="hs-pragma hs-type">ModelVersionStatus_INACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus_TRAINING_CANCELLED"><span class="hs-pragma hs-type">ModelVersionStatus_TRAINING_CANCELLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus%27"><span class="hs-pragma hs-type">ModelVersionStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

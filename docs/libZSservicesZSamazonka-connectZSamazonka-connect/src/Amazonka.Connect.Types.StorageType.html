@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Connect.Types.StorageType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.Types.StorageType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType"><span class="hs-identifier">StorageType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_KINESIS_FIREHOSE"><span class="hs-identifier">StorageType_KINESIS_FIREHOSE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_KINESIS_STREAM"><span class="hs-identifier">StorageType_KINESIS_STREAM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_KINESIS_VIDEO_STREAM"><span class="hs-identifier">StorageType_KINESIS_VIDEO_STREAM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_S3"><span class="hs-identifier">StorageType_S3</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679404724"><span id="local-6989586621679404725"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StorageType"><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType"><span class="hs-identifier hs-var">StorageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageType%27"><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType%27"><span class="hs-identifier hs-var">StorageType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStorageType"><span class="annot"><span class="annottext">StorageType -&gt; Text
+</span><a href="Amazonka.Connect.Types.StorageType.html#fromStorageType"><span class="hs-identifier hs-var hs-var">fromStorageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679404716"><span id="local-6989586621679404718"><span id="local-6989586621679404720"><span class="annot"><span class="annottext">Int -&gt; StorageType -&gt; ShowS
+[StorageType] -&gt; ShowS
+StorageType -&gt; String
+(Int -&gt; StorageType -&gt; ShowS)
+-&gt; (StorageType -&gt; String)
+-&gt; ([StorageType] -&gt; ShowS)
+-&gt; Show StorageType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StorageType] -&gt; ShowS
+$cshowList :: [StorageType] -&gt; ShowS
+show :: StorageType -&gt; String
+$cshow :: StorageType -&gt; String
+showsPrec :: Int -&gt; StorageType -&gt; ShowS
+$cshowsPrec :: Int -&gt; StorageType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679404707"><span id="local-6989586621679404709"><span id="local-6989586621679404711"><span id="local-6989586621679404713"><span class="annot"><span class="annottext">ReadPrec [StorageType]
+ReadPrec StorageType
+Int -&gt; ReadS StorageType
+ReadS [StorageType]
+(Int -&gt; ReadS StorageType)
+-&gt; ReadS [StorageType]
+-&gt; ReadPrec StorageType
+-&gt; ReadPrec [StorageType]
+-&gt; Read StorageType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StorageType]
+$creadListPrec :: ReadPrec [StorageType]
+readPrec :: ReadPrec StorageType
+$creadPrec :: ReadPrec StorageType
+readList :: ReadS [StorageType]
+$creadList :: ReadS [StorageType]
+readsPrec :: Int -&gt; ReadS StorageType
+$creadsPrec :: Int -&gt; ReadS StorageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679404702"><span id="local-6989586621679404704"><span class="annot"><span class="annottext">StorageType -&gt; StorageType -&gt; Bool
+(StorageType -&gt; StorageType -&gt; Bool)
+-&gt; (StorageType -&gt; StorageType -&gt; Bool) -&gt; Eq StorageType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StorageType -&gt; StorageType -&gt; Bool
+$c/= :: StorageType -&gt; StorageType -&gt; Bool
+== :: StorageType -&gt; StorageType -&gt; Bool
+$c== :: StorageType -&gt; StorageType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679404686"><span id="local-6989586621679404688"><span id="local-6989586621679404690"><span id="local-6989586621679404692"><span id="local-6989586621679404694"><span id="local-6989586621679404696"><span id="local-6989586621679404698"><span class="annot"><span class="annottext">Eq StorageType
+Eq StorageType
+-&gt; (StorageType -&gt; StorageType -&gt; Ordering)
+-&gt; (StorageType -&gt; StorageType -&gt; Bool)
+-&gt; (StorageType -&gt; StorageType -&gt; Bool)
+-&gt; (StorageType -&gt; StorageType -&gt; Bool)
+-&gt; (StorageType -&gt; StorageType -&gt; Bool)
+-&gt; (StorageType -&gt; StorageType -&gt; StorageType)
+-&gt; (StorageType -&gt; StorageType -&gt; StorageType)
+-&gt; Ord StorageType
+StorageType -&gt; StorageType -&gt; Bool
+StorageType -&gt; StorageType -&gt; Ordering
+StorageType -&gt; StorageType -&gt; StorageType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StorageType -&gt; StorageType -&gt; StorageType
+$cmin :: StorageType -&gt; StorageType -&gt; StorageType
+max :: StorageType -&gt; StorageType -&gt; StorageType
+$cmax :: StorageType -&gt; StorageType -&gt; StorageType
+&gt;= :: StorageType -&gt; StorageType -&gt; Bool
+$c&gt;= :: StorageType -&gt; StorageType -&gt; Bool
+&gt; :: StorageType -&gt; StorageType -&gt; Bool
+$c&gt; :: StorageType -&gt; StorageType -&gt; Bool
+&lt;= :: StorageType -&gt; StorageType -&gt; Bool
+$c&lt;= :: StorageType -&gt; StorageType -&gt; Bool
+&lt; :: StorageType -&gt; StorageType -&gt; Bool
+$c&lt; :: StorageType -&gt; StorageType -&gt; Bool
+compare :: StorageType -&gt; StorageType -&gt; Ordering
+$ccompare :: StorageType -&gt; StorageType -&gt; Ordering
+$cp1Ord :: Eq StorageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StorageType -&gt; Rep StorageType x)
+-&gt; (forall x. Rep StorageType x -&gt; StorageType)
+-&gt; Generic StorageType
+forall x. Rep StorageType x -&gt; StorageType
+forall x. StorageType -&gt; Rep StorageType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StorageType x -&gt; StorageType
+$cfrom :: forall x. StorageType -&gt; Rep StorageType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679404678"><span id="local-6989586621679404680"><span class="annot"><span class="annottext">Int -&gt; StorageType -&gt; Int
+StorageType -&gt; Int
+(Int -&gt; StorageType -&gt; Int)
+-&gt; (StorageType -&gt; Int) -&gt; Hashable StorageType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StorageType -&gt; Int
+$chash :: StorageType -&gt; Int
+hashWithSalt :: Int -&gt; StorageType -&gt; Int
+$chashWithSalt :: Int -&gt; StorageType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679404675"><span class="annot"><span class="annottext">StorageType -&gt; ()
+(StorageType -&gt; ()) -&gt; NFData StorageType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StorageType -&gt; ()
+$crnf :: StorageType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679404672"><span class="annot"><span class="annottext">Text -&gt; Either String StorageType
+(Text -&gt; Either String StorageType) -&gt; FromText StorageType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StorageType
+$cfromText :: Text -&gt; Either String StorageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679404669"><span class="annot"><span class="annottext">StorageType -&gt; Text
+(StorageType -&gt; Text) -&gt; ToText StorageType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StorageType -&gt; Text
+$ctoText :: StorageType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679404666"><span class="annot"><span class="annottext">StorageType -&gt; ByteString
+(StorageType -&gt; ByteString) -&gt; ToByteString StorageType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StorageType -&gt; ByteString
+$ctoBS :: StorageType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679404663"><span class="annot"><span class="annottext">StorageType -&gt; ByteStringBuilder
+(StorageType -&gt; ByteStringBuilder) -&gt; ToLog StorageType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StorageType -&gt; ByteStringBuilder
+$cbuild :: StorageType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679404660"><span class="annot"><span class="annottext">HeaderName -&gt; StorageType -&gt; [Header]
+(HeaderName -&gt; StorageType -&gt; [Header]) -&gt; ToHeader StorageType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StorageType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StorageType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679404657"><span class="annot"><span class="annottext">StorageType -&gt; QueryString
+(StorageType -&gt; QueryString) -&gt; ToQuery StorageType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StorageType -&gt; QueryString
+$ctoQuery :: StorageType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679404652"><span id="local-6989586621679404654"><span class="annot"><span class="annottext">Value -&gt; Parser [StorageType]
+Value -&gt; Parser StorageType
+(Value -&gt; Parser StorageType)
+-&gt; (Value -&gt; Parser [StorageType]) -&gt; FromJSON StorageType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StorageType]
+$cparseJSONList :: Value -&gt; Parser [StorageType]
+parseJSON :: Value -&gt; Parser StorageType
+$cparseJSON :: Value -&gt; Parser StorageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679404647"><span id="local-6989586621679404649"><span class="annot"><span class="annottext">FromJSONKeyFunction [StorageType]
+FromJSONKeyFunction StorageType
+FromJSONKeyFunction StorageType
+-&gt; FromJSONKeyFunction [StorageType] -&gt; FromJSONKey StorageType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StorageType]
+$cfromJSONKeyList :: FromJSONKeyFunction [StorageType]
+fromJSONKey :: FromJSONKeyFunction StorageType
+$cfromJSONKey :: FromJSONKeyFunction StorageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679404638"><span id="local-6989586621679404640"><span id="local-6989586621679404642"><span id="local-6989586621679404644"><span class="annot"><span class="annottext">[StorageType] -&gt; Encoding
+[StorageType] -&gt; Value
+StorageType -&gt; Encoding
+StorageType -&gt; Value
+(StorageType -&gt; Value)
+-&gt; (StorageType -&gt; Encoding)
+-&gt; ([StorageType] -&gt; Value)
+-&gt; ([StorageType] -&gt; Encoding)
+-&gt; ToJSON StorageType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StorageType] -&gt; Encoding
+$ctoEncodingList :: [StorageType] -&gt; Encoding
+toJSONList :: [StorageType] -&gt; Value
+$ctoJSONList :: [StorageType] -&gt; Value
+toEncoding :: StorageType -&gt; Encoding
+$ctoEncoding :: StorageType -&gt; Encoding
+toJSON :: StorageType -&gt; Value
+$ctoJSON :: StorageType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679404633"><span id="local-6989586621679404635"><span class="annot"><span class="annottext">ToJSONKeyFunction [StorageType]
+ToJSONKeyFunction StorageType
+ToJSONKeyFunction StorageType
+-&gt; ToJSONKeyFunction [StorageType] -&gt; ToJSONKey StorageType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StorageType]
+$ctoJSONKeyList :: ToJSONKeyFunction [StorageType]
+toJSONKey :: ToJSONKeyFunction StorageType
+$ctoJSONKey :: ToJSONKeyFunction StorageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679404630"><span class="annot"><span class="annottext">[Node] -&gt; Either String StorageType
+([Node] -&gt; Either String StorageType) -&gt; FromXML StorageType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StorageType
+$cparseXML :: [Node] -&gt; Either String StorageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679404627"><span class="annot"><span class="annottext">StorageType -&gt; XML
+(StorageType -&gt; XML) -&gt; ToXML StorageType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StorageType -&gt; XML
+$ctoXML :: StorageType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_KINESIS_FIREHOSE"><span class="hs-identifier hs-type">StorageType_KINESIS_FIREHOSE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStorageType_KINESIS_FIREHOSE"><span id="%24mStorageType_KINESIS_FIREHOSE"><span id="StorageType_KINESIS_FIREHOSE"><span class="annot"><span class="annottext">$bStorageType_KINESIS_FIREHOSE :: StorageType
+$mStorageType_KINESIS_FIREHOSE :: forall r. StorageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.StorageType.html#%24bStorageType_KINESIS_FIREHOSE"><span class="hs-identifier hs-var hs-var hs-var">StorageType_KINESIS_FIREHOSE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType%27"><span class="hs-identifier hs-type">StorageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KINESIS_FIREHOSE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_KINESIS_STREAM"><span class="hs-identifier hs-type">StorageType_KINESIS_STREAM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStorageType_KINESIS_STREAM"><span id="%24mStorageType_KINESIS_STREAM"><span id="StorageType_KINESIS_STREAM"><span class="annot"><span class="annottext">$bStorageType_KINESIS_STREAM :: StorageType
+$mStorageType_KINESIS_STREAM :: forall r. StorageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.StorageType.html#%24bStorageType_KINESIS_STREAM"><span class="hs-identifier hs-var hs-var hs-var">StorageType_KINESIS_STREAM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType%27"><span class="hs-identifier hs-type">StorageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KINESIS_STREAM&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_KINESIS_VIDEO_STREAM"><span class="hs-identifier hs-type">StorageType_KINESIS_VIDEO_STREAM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStorageType_KINESIS_VIDEO_STREAM"><span id="%24mStorageType_KINESIS_VIDEO_STREAM"><span id="StorageType_KINESIS_VIDEO_STREAM"><span class="annot"><span class="annottext">$bStorageType_KINESIS_VIDEO_STREAM :: StorageType
+$mStorageType_KINESIS_VIDEO_STREAM :: forall r. StorageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.StorageType.html#%24bStorageType_KINESIS_VIDEO_STREAM"><span class="hs-identifier hs-var hs-var hs-var">StorageType_KINESIS_VIDEO_STREAM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType%27"><span class="hs-identifier hs-type">StorageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KINESIS_VIDEO_STREAM&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_S3"><span class="hs-identifier hs-type">StorageType_S3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStorageType_S3"><span id="%24mStorageType_S3"><span id="StorageType_S3"><span class="annot"><span class="annottext">$bStorageType_S3 :: StorageType
+$mStorageType_S3 :: forall r. StorageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.StorageType.html#%24bStorageType_S3"><span class="hs-identifier hs-var hs-var hs-var">StorageType_S3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType%27"><span class="hs-identifier hs-type">StorageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;S3&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_KINESIS_FIREHOSE"><span class="hs-pragma hs-type">StorageType_KINESIS_FIREHOSE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_KINESIS_STREAM"><span class="hs-pragma hs-type">StorageType_KINESIS_STREAM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_KINESIS_VIDEO_STREAM"><span class="hs-pragma hs-type">StorageType_KINESIS_VIDEO_STREAM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType_S3"><span class="hs-pragma hs-type">StorageType_S3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.StorageType.html#StorageType%27"><span class="hs-pragma hs-type">StorageType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

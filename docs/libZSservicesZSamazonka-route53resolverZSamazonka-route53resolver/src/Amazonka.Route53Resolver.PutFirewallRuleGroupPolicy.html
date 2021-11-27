@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Attaches an Identity and Access Management (Amazon Web Services IAM)</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- policy for sharing the rule group. You can use the policy to share the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- rule group using Resource Access Manager (RAM).</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier">PutFirewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#newPutFirewallRuleGroupPolicy"><span class="hs-identifier">newPutFirewallRuleGroupPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicy_arn"><span class="hs-identifier">putFirewallRuleGroupPolicy_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicy_firewallRuleGroupPolicy"><span class="hs-identifier">putFirewallRuleGroupPolicy_firewallRuleGroupPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse"><span class="hs-identifier">PutFirewallRuleGroupPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#newPutFirewallRuleGroupPolicyResponse"><span class="hs-identifier">newPutFirewallRuleGroupPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicyResponse_returnValue"><span class="hs-identifier">putFirewallRuleGroupPolicyResponse_returnValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicyResponse_httpStatus"><span class="hs-identifier">putFirewallRuleGroupPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.html"><span class="hs-identifier">Amazonka.Route53Resolver.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newPutFirewallRuleGroupPolicy' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679288989"><span id="local-6989586621679288990"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFirewallRuleGroupPolicy"><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-var">PutFirewallRuleGroupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFirewallRuleGroupPolicy%27"><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-var">PutFirewallRuleGroupPolicy'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN (Amazon Resource Name) for the rule group that you want to</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- share.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aarn%3APutFirewallRuleGroupPolicy%27"><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicy -&gt; Text
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3Aarn%3APutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Identity and Access Management (Amazon Web Services IAM) policy to</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- attach to the rule group.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AfirewallRuleGroupPolicy%3APutFirewallRuleGroupPolicy%27"><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicy -&gt; Text
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3AfirewallRuleGroupPolicy%3APutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-var hs-var">firewallRuleGroupPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288982"><span id="local-6989586621679288984"><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicy -&gt; PutFirewallRuleGroupPolicy -&gt; Bool
+(PutFirewallRuleGroupPolicy -&gt; PutFirewallRuleGroupPolicy -&gt; Bool)
+-&gt; (PutFirewallRuleGroupPolicy
+    -&gt; PutFirewallRuleGroupPolicy -&gt; Bool)
+-&gt; Eq PutFirewallRuleGroupPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutFirewallRuleGroupPolicy -&gt; PutFirewallRuleGroupPolicy -&gt; Bool
+$c/= :: PutFirewallRuleGroupPolicy -&gt; PutFirewallRuleGroupPolicy -&gt; Bool
+== :: PutFirewallRuleGroupPolicy -&gt; PutFirewallRuleGroupPolicy -&gt; Bool
+$c== :: PutFirewallRuleGroupPolicy -&gt; PutFirewallRuleGroupPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288973"><span id="local-6989586621679288975"><span id="local-6989586621679288977"><span id="local-6989586621679288979"><span class="annot"><span class="annottext">ReadPrec [PutFirewallRuleGroupPolicy]
+ReadPrec PutFirewallRuleGroupPolicy
+Int -&gt; ReadS PutFirewallRuleGroupPolicy
+ReadS [PutFirewallRuleGroupPolicy]
+(Int -&gt; ReadS PutFirewallRuleGroupPolicy)
+-&gt; ReadS [PutFirewallRuleGroupPolicy]
+-&gt; ReadPrec PutFirewallRuleGroupPolicy
+-&gt; ReadPrec [PutFirewallRuleGroupPolicy]
+-&gt; Read PutFirewallRuleGroupPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutFirewallRuleGroupPolicy]
+$creadListPrec :: ReadPrec [PutFirewallRuleGroupPolicy]
+readPrec :: ReadPrec PutFirewallRuleGroupPolicy
+$creadPrec :: ReadPrec PutFirewallRuleGroupPolicy
+readList :: ReadS [PutFirewallRuleGroupPolicy]
+$creadList :: ReadS [PutFirewallRuleGroupPolicy]
+readsPrec :: Int -&gt; ReadS PutFirewallRuleGroupPolicy
+$creadsPrec :: Int -&gt; ReadS PutFirewallRuleGroupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288966"><span id="local-6989586621679288968"><span id="local-6989586621679288970"><span class="annot"><span class="annottext">Int -&gt; PutFirewallRuleGroupPolicy -&gt; ShowS
+[PutFirewallRuleGroupPolicy] -&gt; ShowS
+PutFirewallRuleGroupPolicy -&gt; String
+(Int -&gt; PutFirewallRuleGroupPolicy -&gt; ShowS)
+-&gt; (PutFirewallRuleGroupPolicy -&gt; String)
+-&gt; ([PutFirewallRuleGroupPolicy] -&gt; ShowS)
+-&gt; Show PutFirewallRuleGroupPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutFirewallRuleGroupPolicy] -&gt; ShowS
+$cshowList :: [PutFirewallRuleGroupPolicy] -&gt; ShowS
+show :: PutFirewallRuleGroupPolicy -&gt; String
+$cshow :: PutFirewallRuleGroupPolicy -&gt; String
+showsPrec :: Int -&gt; PutFirewallRuleGroupPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutFirewallRuleGroupPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutFirewallRuleGroupPolicy -&gt; Rep PutFirewallRuleGroupPolicy x)
+-&gt; (forall x.
+    Rep PutFirewallRuleGroupPolicy x -&gt; PutFirewallRuleGroupPolicy)
+-&gt; Generic PutFirewallRuleGroupPolicy
+forall x.
+Rep PutFirewallRuleGroupPolicy x -&gt; PutFirewallRuleGroupPolicy
+forall x.
+PutFirewallRuleGroupPolicy -&gt; Rep PutFirewallRuleGroupPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutFirewallRuleGroupPolicy x -&gt; PutFirewallRuleGroupPolicy
+$cfrom :: forall x.
+PutFirewallRuleGroupPolicy -&gt; Rep PutFirewallRuleGroupPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'PutFirewallRuleGroupPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'arn', 'putFirewallRuleGroupPolicy_arn' - The ARN (Amazon Resource Name) for the rule group that you want to</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- share.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'firewallRuleGroupPolicy', 'putFirewallRuleGroupPolicy_firewallRuleGroupPolicy' - The Identity and Access Management (Amazon Web Services IAM) policy to</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- attach to the rule group.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#newPutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">newPutFirewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'firewallRuleGroupPolicy'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span>
+</span><span id="line-82"></span><span id="newPutFirewallRuleGroupPolicy"><span class="annot"><span class="annottext">newPutFirewallRuleGroupPolicy :: Text -&gt; Text -&gt; PutFirewallRuleGroupPolicy
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#newPutFirewallRuleGroupPolicy"><span class="hs-identifier hs-var hs-var">newPutFirewallRuleGroupPolicy</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679288961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288961"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679288960"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288960"><span class="hs-identifier hs-var">pFirewallRuleGroupPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicy' :: Text -&gt; Text -&gt; PutFirewallRuleGroupPolicy
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy'</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:PutFirewallRuleGroupPolicy' :: Text
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3Aarn%3APutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288961"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:firewallRuleGroupPolicy:PutFirewallRuleGroupPolicy' :: Text
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3AfirewallRuleGroupPolicy%3APutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-var">firewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288960"><span class="hs-identifier hs-var">pFirewallRuleGroupPolicy_</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The ARN (Amazon Resource Name) for the rule group that you want to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- share.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicy_arn"><span class="hs-identifier hs-type">putFirewallRuleGroupPolicy_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="putFirewallRuleGroupPolicy_arn"><span class="annot"><span class="annottext">putFirewallRuleGroupPolicy_arn :: (Text -&gt; f Text)
+-&gt; PutFirewallRuleGroupPolicy -&gt; f PutFirewallRuleGroupPolicy
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicy_arn"><span class="hs-identifier hs-var hs-var">putFirewallRuleGroupPolicy_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFirewallRuleGroupPolicy -&gt; Text)
+-&gt; (PutFirewallRuleGroupPolicy
+    -&gt; Text -&gt; PutFirewallRuleGroupPolicy)
+-&gt; Lens
+     PutFirewallRuleGroupPolicy PutFirewallRuleGroupPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288957"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:PutFirewallRuleGroupPolicy' :: PutFirewallRuleGroupPolicy -&gt; Text
+</span><a href="#local-6989586621679288957"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288957"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288956"><span class="annot"><span class="annottext">s :: PutFirewallRuleGroupPolicy
+</span><a href="#local-6989586621679288956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288955"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicy
+</span><a href="#local-6989586621679288956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:PutFirewallRuleGroupPolicy' :: Text
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3Aarn%3APutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The Identity and Access Management (Amazon Web Services IAM) policy to</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- attach to the rule group.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicy_firewallRuleGroupPolicy"><span class="hs-identifier hs-type">putFirewallRuleGroupPolicy_firewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="putFirewallRuleGroupPolicy_firewallRuleGroupPolicy"><span class="annot"><span class="annottext">putFirewallRuleGroupPolicy_firewallRuleGroupPolicy :: (Text -&gt; f Text)
+-&gt; PutFirewallRuleGroupPolicy -&gt; f PutFirewallRuleGroupPolicy
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicy_firewallRuleGroupPolicy"><span class="hs-identifier hs-var hs-var">putFirewallRuleGroupPolicy_firewallRuleGroupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFirewallRuleGroupPolicy -&gt; Text)
+-&gt; (PutFirewallRuleGroupPolicy
+    -&gt; Text -&gt; PutFirewallRuleGroupPolicy)
+-&gt; Lens
+     PutFirewallRuleGroupPolicy PutFirewallRuleGroupPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288954"><span class="annot"><span class="annottext">Text
+firewallRuleGroupPolicy :: Text
+$sel:firewallRuleGroupPolicy:PutFirewallRuleGroupPolicy' :: PutFirewallRuleGroupPolicy -&gt; Text
+</span><a href="#local-6989586621679288954"><span class="hs-identifier hs-var hs-var">firewallRuleGroupPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288954"><span class="hs-identifier hs-var">firewallRuleGroupPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288953"><span class="annot"><span class="annottext">s :: PutFirewallRuleGroupPolicy
+</span><a href="#local-6989586621679288953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288952"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicy
+</span><a href="#local-6989586621679288953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallRuleGroupPolicy:PutFirewallRuleGroupPolicy' :: Text
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3AfirewallRuleGroupPolicy%3APutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-var">firewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679288948"><span class="annot"><span class="annottext">request :: PutFirewallRuleGroupPolicy -&gt; Request PutFirewallRuleGroupPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutFirewallRuleGroupPolicy -&gt; Request PutFirewallRuleGroupPolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53Resolver.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679288944"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutFirewallRuleGroupPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutFirewallRuleGroupPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutFirewallRuleGroupPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutFirewallRuleGroupPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutFirewallRuleGroupPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288941"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288940"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679288940"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288939"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Int -&gt; PutFirewallRuleGroupPolicyResponse
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-var">PutFirewallRuleGroupPolicyResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Int -&gt; PutFirewallRuleGroupPolicyResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; PutFirewallRuleGroupPolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReturnValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutFirewallRuleGroupPolicyResponse)
+-&gt; Either String Int
+-&gt; Either String PutFirewallRuleGroupPolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288941"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288931"><span id="local-6989586621679288933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679288924"><span class="annot"><span class="annottext">toHeaders :: PutFirewallRuleGroupPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutFirewallRuleGroupPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53Resolver.PutFirewallRuleGroupPolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288914"><span id="local-6989586621679288916"><span id="local-6989586621679288918"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679288912"><span class="annot"><span class="annottext">toJSON :: PutFirewallRuleGroupPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288909"><span id="local-6989586621679288910"><span class="annot"><span class="annottext">Text
+firewallRuleGroupPolicy :: Text
+arn :: Text
+$sel:firewallRuleGroupPolicy:PutFirewallRuleGroupPolicy' :: PutFirewallRuleGroupPolicy -&gt; Text
+$sel:arn:PutFirewallRuleGroupPolicy' :: PutFirewallRuleGroupPolicy -&gt; Text
+</span><a href="#local-6989586621679288909"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288910"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-139"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallRuleGroupPolicy&quot;</span></span><span>
+</span><span id="line-140"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288909"><span class="hs-identifier hs-var">firewallRuleGroupPolicy</span></a></span><span>
+</span><span id="line-141"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679288903"><span class="annot"><span class="annottext">toPath :: PutFirewallRuleGroupPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutFirewallRuleGroupPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicy"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679288899"><span class="annot"><span class="annottext">toQuery :: PutFirewallRuleGroupPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutFirewallRuleGroupPolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newPutFirewallRuleGroupPolicyResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679288896"><span id="local-6989586621679288897"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFirewallRuleGroupPolicyResponse"><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-var">PutFirewallRuleGroupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFirewallRuleGroupPolicyResponse%27"><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-var">PutFirewallRuleGroupPolicyResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreturnValue%3APutFirewallRuleGroupPolicyResponse%27"><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicyResponse -&gt; Maybe Bool
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3AreturnValue%3APutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-var hs-var">returnValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutFirewallRuleGroupPolicyResponse%27"><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicyResponse -&gt; Int
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3AhttpStatus%3APutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288890"><span id="local-6989586621679288892"><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicyResponse
+-&gt; PutFirewallRuleGroupPolicyResponse -&gt; Bool
+(PutFirewallRuleGroupPolicyResponse
+ -&gt; PutFirewallRuleGroupPolicyResponse -&gt; Bool)
+-&gt; (PutFirewallRuleGroupPolicyResponse
+    -&gt; PutFirewallRuleGroupPolicyResponse -&gt; Bool)
+-&gt; Eq PutFirewallRuleGroupPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutFirewallRuleGroupPolicyResponse
+-&gt; PutFirewallRuleGroupPolicyResponse -&gt; Bool
+$c/= :: PutFirewallRuleGroupPolicyResponse
+-&gt; PutFirewallRuleGroupPolicyResponse -&gt; Bool
+== :: PutFirewallRuleGroupPolicyResponse
+-&gt; PutFirewallRuleGroupPolicyResponse -&gt; Bool
+$c== :: PutFirewallRuleGroupPolicyResponse
+-&gt; PutFirewallRuleGroupPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288882"><span id="local-6989586621679288884"><span id="local-6989586621679288886"><span id="local-6989586621679288888"><span class="annot"><span class="annottext">ReadPrec [PutFirewallRuleGroupPolicyResponse]
+ReadPrec PutFirewallRuleGroupPolicyResponse
+Int -&gt; ReadS PutFirewallRuleGroupPolicyResponse
+ReadS [PutFirewallRuleGroupPolicyResponse]
+(Int -&gt; ReadS PutFirewallRuleGroupPolicyResponse)
+-&gt; ReadS [PutFirewallRuleGroupPolicyResponse]
+-&gt; ReadPrec PutFirewallRuleGroupPolicyResponse
+-&gt; ReadPrec [PutFirewallRuleGroupPolicyResponse]
+-&gt; Read PutFirewallRuleGroupPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutFirewallRuleGroupPolicyResponse]
+$creadListPrec :: ReadPrec [PutFirewallRuleGroupPolicyResponse]
+readPrec :: ReadPrec PutFirewallRuleGroupPolicyResponse
+$creadPrec :: ReadPrec PutFirewallRuleGroupPolicyResponse
+readList :: ReadS [PutFirewallRuleGroupPolicyResponse]
+$creadList :: ReadS [PutFirewallRuleGroupPolicyResponse]
+readsPrec :: Int -&gt; ReadS PutFirewallRuleGroupPolicyResponse
+$creadsPrec :: Int -&gt; ReadS PutFirewallRuleGroupPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288876"><span id="local-6989586621679288878"><span id="local-6989586621679288880"><span class="annot"><span class="annottext">Int -&gt; PutFirewallRuleGroupPolicyResponse -&gt; ShowS
+[PutFirewallRuleGroupPolicyResponse] -&gt; ShowS
+PutFirewallRuleGroupPolicyResponse -&gt; String
+(Int -&gt; PutFirewallRuleGroupPolicyResponse -&gt; ShowS)
+-&gt; (PutFirewallRuleGroupPolicyResponse -&gt; String)
+-&gt; ([PutFirewallRuleGroupPolicyResponse] -&gt; ShowS)
+-&gt; Show PutFirewallRuleGroupPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutFirewallRuleGroupPolicyResponse] -&gt; ShowS
+$cshowList :: [PutFirewallRuleGroupPolicyResponse] -&gt; ShowS
+show :: PutFirewallRuleGroupPolicyResponse -&gt; String
+$cshow :: PutFirewallRuleGroupPolicyResponse -&gt; String
+showsPrec :: Int -&gt; PutFirewallRuleGroupPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutFirewallRuleGroupPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutFirewallRuleGroupPolicyResponse
+ -&gt; Rep PutFirewallRuleGroupPolicyResponse x)
+-&gt; (forall x.
+    Rep PutFirewallRuleGroupPolicyResponse x
+    -&gt; PutFirewallRuleGroupPolicyResponse)
+-&gt; Generic PutFirewallRuleGroupPolicyResponse
+forall x.
+Rep PutFirewallRuleGroupPolicyResponse x
+-&gt; PutFirewallRuleGroupPolicyResponse
+forall x.
+PutFirewallRuleGroupPolicyResponse
+-&gt; Rep PutFirewallRuleGroupPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutFirewallRuleGroupPolicyResponse x
+-&gt; PutFirewallRuleGroupPolicyResponse
+$cfrom :: forall x.
+PutFirewallRuleGroupPolicyResponse
+-&gt; Rep PutFirewallRuleGroupPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'PutFirewallRuleGroupPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'returnValue', 'putFirewallRuleGroupPolicyResponse_returnValue' -</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'putFirewallRuleGroupPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#newPutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-type">newPutFirewallRuleGroupPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="newPutFirewallRuleGroupPolicyResponse"><span class="annot"><span class="annottext">newPutFirewallRuleGroupPolicyResponse :: Int -&gt; PutFirewallRuleGroupPolicyResponse
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#newPutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutFirewallRuleGroupPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679288873"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicyResponse' :: Maybe Bool -&gt; Int -&gt; PutFirewallRuleGroupPolicyResponse
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse'</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:returnValue:PutFirewallRuleGroupPolicyResponse' :: Maybe Bool
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3AreturnValue%3APutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-var">returnValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutFirewallRuleGroupPolicyResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3AhttpStatus%3APutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicyResponse_returnValue"><span class="hs-identifier hs-type">putFirewallRuleGroupPolicyResponse_returnValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="putFirewallRuleGroupPolicyResponse_returnValue"><span class="annot"><span class="annottext">putFirewallRuleGroupPolicyResponse_returnValue :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; PutFirewallRuleGroupPolicyResponse
+-&gt; f PutFirewallRuleGroupPolicyResponse
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicyResponse_returnValue"><span class="hs-identifier hs-var hs-var">putFirewallRuleGroupPolicyResponse_returnValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFirewallRuleGroupPolicyResponse -&gt; Maybe Bool)
+-&gt; (PutFirewallRuleGroupPolicyResponse
+    -&gt; Maybe Bool -&gt; PutFirewallRuleGroupPolicyResponse)
+-&gt; Lens
+     PutFirewallRuleGroupPolicyResponse
+     PutFirewallRuleGroupPolicyResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288872"><span class="annot"><span class="annottext">Maybe Bool
+returnValue :: Maybe Bool
+$sel:returnValue:PutFirewallRuleGroupPolicyResponse' :: PutFirewallRuleGroupPolicyResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679288872"><span class="hs-identifier hs-var hs-var">returnValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679288872"><span class="hs-identifier hs-var">returnValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288871"><span class="annot"><span class="annottext">s :: PutFirewallRuleGroupPolicyResponse
+</span><a href="#local-6989586621679288871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288870"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679288870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicyResponse
+</span><a href="#local-6989586621679288871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValue:PutFirewallRuleGroupPolicyResponse' :: Maybe Bool
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3AreturnValue%3APutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-var">returnValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679288870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicyResponse_httpStatus"><span class="hs-identifier hs-type">putFirewallRuleGroupPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span id="putFirewallRuleGroupPolicyResponse_httpStatus"><span class="annot"><span class="annottext">putFirewallRuleGroupPolicyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutFirewallRuleGroupPolicyResponse
+-&gt; f PutFirewallRuleGroupPolicyResponse
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#putFirewallRuleGroupPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putFirewallRuleGroupPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFirewallRuleGroupPolicyResponse -&gt; Int)
+-&gt; (PutFirewallRuleGroupPolicyResponse
+    -&gt; Int -&gt; PutFirewallRuleGroupPolicyResponse)
+-&gt; Lens
+     PutFirewallRuleGroupPolicyResponse
+     PutFirewallRuleGroupPolicyResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288869"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutFirewallRuleGroupPolicyResponse' :: PutFirewallRuleGroupPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679288869"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288869"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288868"><span class="annot"><span class="annottext">s :: PutFirewallRuleGroupPolicyResponse
+</span><a href="#local-6989586621679288868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFirewallRuleGroupPolicyResponse
+</span><a href="#local-6989586621679288868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutFirewallRuleGroupPolicyResponse' :: Int
+</span><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#%24sel%3AhttpStatus%3APutFirewallRuleGroupPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679288865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy.html#PutFirewallRuleGroupPolicyResponse"><span class="hs-identifier hs-type">PutFirewallRuleGroupPolicyResponse</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

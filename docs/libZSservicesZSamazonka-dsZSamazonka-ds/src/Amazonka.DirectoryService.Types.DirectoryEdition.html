@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DirectoryService.Types.DirectoryEdition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectoryService.Types.DirectoryEdition</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition"><span class="hs-identifier">DirectoryEdition</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition_Enterprise"><span class="hs-identifier">DirectoryEdition_Enterprise</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition_Standard"><span class="hs-identifier">DirectoryEdition_Standard</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295018"><span id="local-6989586621679295019"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectoryEdition"><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition"><span class="hs-identifier hs-var">DirectoryEdition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryEdition%27"><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition%27"><span class="hs-identifier hs-var">DirectoryEdition'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDirectoryEdition"><span class="annot"><span class="annottext">DirectoryEdition -&gt; Text
+</span><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#fromDirectoryEdition"><span class="hs-identifier hs-var hs-var">fromDirectoryEdition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295010"><span id="local-6989586621679295012"><span id="local-6989586621679295014"><span class="annot"><span class="annottext">Int -&gt; DirectoryEdition -&gt; ShowS
+[DirectoryEdition] -&gt; ShowS
+DirectoryEdition -&gt; String
+(Int -&gt; DirectoryEdition -&gt; ShowS)
+-&gt; (DirectoryEdition -&gt; String)
+-&gt; ([DirectoryEdition] -&gt; ShowS)
+-&gt; Show DirectoryEdition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DirectoryEdition] -&gt; ShowS
+$cshowList :: [DirectoryEdition] -&gt; ShowS
+show :: DirectoryEdition -&gt; String
+$cshow :: DirectoryEdition -&gt; String
+showsPrec :: Int -&gt; DirectoryEdition -&gt; ShowS
+$cshowsPrec :: Int -&gt; DirectoryEdition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295001"><span id="local-6989586621679295003"><span id="local-6989586621679295005"><span id="local-6989586621679295007"><span class="annot"><span class="annottext">ReadPrec [DirectoryEdition]
+ReadPrec DirectoryEdition
+Int -&gt; ReadS DirectoryEdition
+ReadS [DirectoryEdition]
+(Int -&gt; ReadS DirectoryEdition)
+-&gt; ReadS [DirectoryEdition]
+-&gt; ReadPrec DirectoryEdition
+-&gt; ReadPrec [DirectoryEdition]
+-&gt; Read DirectoryEdition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DirectoryEdition]
+$creadListPrec :: ReadPrec [DirectoryEdition]
+readPrec :: ReadPrec DirectoryEdition
+$creadPrec :: ReadPrec DirectoryEdition
+readList :: ReadS [DirectoryEdition]
+$creadList :: ReadS [DirectoryEdition]
+readsPrec :: Int -&gt; ReadS DirectoryEdition
+$creadsPrec :: Int -&gt; ReadS DirectoryEdition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679294996"><span id="local-6989586621679294998"><span class="annot"><span class="annottext">DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+(DirectoryEdition -&gt; DirectoryEdition -&gt; Bool)
+-&gt; (DirectoryEdition -&gt; DirectoryEdition -&gt; Bool)
+-&gt; Eq DirectoryEdition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+$c/= :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+== :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+$c== :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679294980"><span id="local-6989586621679294982"><span id="local-6989586621679294984"><span id="local-6989586621679294986"><span id="local-6989586621679294988"><span id="local-6989586621679294990"><span id="local-6989586621679294992"><span class="annot"><span class="annottext">Eq DirectoryEdition
+Eq DirectoryEdition
+-&gt; (DirectoryEdition -&gt; DirectoryEdition -&gt; Ordering)
+-&gt; (DirectoryEdition -&gt; DirectoryEdition -&gt; Bool)
+-&gt; (DirectoryEdition -&gt; DirectoryEdition -&gt; Bool)
+-&gt; (DirectoryEdition -&gt; DirectoryEdition -&gt; Bool)
+-&gt; (DirectoryEdition -&gt; DirectoryEdition -&gt; Bool)
+-&gt; (DirectoryEdition -&gt; DirectoryEdition -&gt; DirectoryEdition)
+-&gt; (DirectoryEdition -&gt; DirectoryEdition -&gt; DirectoryEdition)
+-&gt; Ord DirectoryEdition
+DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+DirectoryEdition -&gt; DirectoryEdition -&gt; Ordering
+DirectoryEdition -&gt; DirectoryEdition -&gt; DirectoryEdition
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DirectoryEdition -&gt; DirectoryEdition -&gt; DirectoryEdition
+$cmin :: DirectoryEdition -&gt; DirectoryEdition -&gt; DirectoryEdition
+max :: DirectoryEdition -&gt; DirectoryEdition -&gt; DirectoryEdition
+$cmax :: DirectoryEdition -&gt; DirectoryEdition -&gt; DirectoryEdition
+&gt;= :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+$c&gt;= :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+&gt; :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+$c&gt; :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+&lt;= :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+$c&lt;= :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+&lt; :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+$c&lt; :: DirectoryEdition -&gt; DirectoryEdition -&gt; Bool
+compare :: DirectoryEdition -&gt; DirectoryEdition -&gt; Ordering
+$ccompare :: DirectoryEdition -&gt; DirectoryEdition -&gt; Ordering
+$cp1Ord :: Eq DirectoryEdition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DirectoryEdition -&gt; Rep DirectoryEdition x)
+-&gt; (forall x. Rep DirectoryEdition x -&gt; DirectoryEdition)
+-&gt; Generic DirectoryEdition
+forall x. Rep DirectoryEdition x -&gt; DirectoryEdition
+forall x. DirectoryEdition -&gt; Rep DirectoryEdition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DirectoryEdition x -&gt; DirectoryEdition
+$cfrom :: forall x. DirectoryEdition -&gt; Rep DirectoryEdition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294972"><span id="local-6989586621679294974"><span class="annot"><span class="annottext">Int -&gt; DirectoryEdition -&gt; Int
+DirectoryEdition -&gt; Int
+(Int -&gt; DirectoryEdition -&gt; Int)
+-&gt; (DirectoryEdition -&gt; Int) -&gt; Hashable DirectoryEdition
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DirectoryEdition -&gt; Int
+$chash :: DirectoryEdition -&gt; Int
+hashWithSalt :: Int -&gt; DirectoryEdition -&gt; Int
+$chashWithSalt :: Int -&gt; DirectoryEdition -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679294969"><span class="annot"><span class="annottext">DirectoryEdition -&gt; ()
+(DirectoryEdition -&gt; ()) -&gt; NFData DirectoryEdition
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DirectoryEdition -&gt; ()
+$crnf :: DirectoryEdition -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294966"><span class="annot"><span class="annottext">Text -&gt; Either String DirectoryEdition
+(Text -&gt; Either String DirectoryEdition)
+-&gt; FromText DirectoryEdition
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DirectoryEdition
+$cfromText :: Text -&gt; Either String DirectoryEdition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294963"><span class="annot"><span class="annottext">DirectoryEdition -&gt; Text
+(DirectoryEdition -&gt; Text) -&gt; ToText DirectoryEdition
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DirectoryEdition -&gt; Text
+$ctoText :: DirectoryEdition -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679294960"><span class="annot"><span class="annottext">DirectoryEdition -&gt; ByteString
+(DirectoryEdition -&gt; ByteString) -&gt; ToByteString DirectoryEdition
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DirectoryEdition -&gt; ByteString
+$ctoBS :: DirectoryEdition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679294957"><span class="annot"><span class="annottext">DirectoryEdition -&gt; ByteStringBuilder
+(DirectoryEdition -&gt; ByteStringBuilder) -&gt; ToLog DirectoryEdition
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DirectoryEdition -&gt; ByteStringBuilder
+$cbuild :: DirectoryEdition -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679294954"><span class="annot"><span class="annottext">HeaderName -&gt; DirectoryEdition -&gt; [Header]
+(HeaderName -&gt; DirectoryEdition -&gt; [Header])
+-&gt; ToHeader DirectoryEdition
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DirectoryEdition -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DirectoryEdition -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679294951"><span class="annot"><span class="annottext">DirectoryEdition -&gt; QueryString
+(DirectoryEdition -&gt; QueryString) -&gt; ToQuery DirectoryEdition
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DirectoryEdition -&gt; QueryString
+$ctoQuery :: DirectoryEdition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294946"><span id="local-6989586621679294948"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectoryEdition]
+Value -&gt; Parser DirectoryEdition
+(Value -&gt; Parser DirectoryEdition)
+-&gt; (Value -&gt; Parser [DirectoryEdition])
+-&gt; FromJSON DirectoryEdition
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DirectoryEdition]
+$cparseJSONList :: Value -&gt; Parser [DirectoryEdition]
+parseJSON :: Value -&gt; Parser DirectoryEdition
+$cparseJSON :: Value -&gt; Parser DirectoryEdition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294941"><span id="local-6989586621679294943"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectoryEdition]
+FromJSONKeyFunction DirectoryEdition
+FromJSONKeyFunction DirectoryEdition
+-&gt; FromJSONKeyFunction [DirectoryEdition]
+-&gt; FromJSONKey DirectoryEdition
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DirectoryEdition]
+$cfromJSONKeyList :: FromJSONKeyFunction [DirectoryEdition]
+fromJSONKey :: FromJSONKeyFunction DirectoryEdition
+$cfromJSONKey :: FromJSONKeyFunction DirectoryEdition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294932"><span id="local-6989586621679294934"><span id="local-6989586621679294936"><span id="local-6989586621679294938"><span class="annot"><span class="annottext">[DirectoryEdition] -&gt; Encoding
+[DirectoryEdition] -&gt; Value
+DirectoryEdition -&gt; Encoding
+DirectoryEdition -&gt; Value
+(DirectoryEdition -&gt; Value)
+-&gt; (DirectoryEdition -&gt; Encoding)
+-&gt; ([DirectoryEdition] -&gt; Value)
+-&gt; ([DirectoryEdition] -&gt; Encoding)
+-&gt; ToJSON DirectoryEdition
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DirectoryEdition] -&gt; Encoding
+$ctoEncodingList :: [DirectoryEdition] -&gt; Encoding
+toJSONList :: [DirectoryEdition] -&gt; Value
+$ctoJSONList :: [DirectoryEdition] -&gt; Value
+toEncoding :: DirectoryEdition -&gt; Encoding
+$ctoEncoding :: DirectoryEdition -&gt; Encoding
+toJSON :: DirectoryEdition -&gt; Value
+$ctoJSON :: DirectoryEdition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294927"><span id="local-6989586621679294929"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectoryEdition]
+ToJSONKeyFunction DirectoryEdition
+ToJSONKeyFunction DirectoryEdition
+-&gt; ToJSONKeyFunction [DirectoryEdition]
+-&gt; ToJSONKey DirectoryEdition
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DirectoryEdition]
+$ctoJSONKeyList :: ToJSONKeyFunction [DirectoryEdition]
+toJSONKey :: ToJSONKeyFunction DirectoryEdition
+$ctoJSONKey :: ToJSONKeyFunction DirectoryEdition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294924"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectoryEdition
+([Node] -&gt; Either String DirectoryEdition)
+-&gt; FromXML DirectoryEdition
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DirectoryEdition
+$cparseXML :: [Node] -&gt; Either String DirectoryEdition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294921"><span class="annot"><span class="annottext">DirectoryEdition -&gt; XML
+(DirectoryEdition -&gt; XML) -&gt; ToXML DirectoryEdition
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DirectoryEdition -&gt; XML
+$ctoXML :: DirectoryEdition -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition_Enterprise"><span class="hs-identifier hs-type">DirectoryEdition_Enterprise</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition"><span class="hs-identifier hs-type">DirectoryEdition</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDirectoryEdition_Enterprise"><span id="%24mDirectoryEdition_Enterprise"><span id="DirectoryEdition_Enterprise"><span class="annot"><span class="annottext">$bDirectoryEdition_Enterprise :: DirectoryEdition
+$mDirectoryEdition_Enterprise :: forall r. DirectoryEdition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#%24bDirectoryEdition_Enterprise"><span class="hs-identifier hs-var hs-var hs-var">DirectoryEdition_Enterprise</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition%27"><span class="hs-identifier hs-type">DirectoryEdition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Enterprise&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition_Standard"><span class="hs-identifier hs-type">DirectoryEdition_Standard</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition"><span class="hs-identifier hs-type">DirectoryEdition</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDirectoryEdition_Standard"><span id="%24mDirectoryEdition_Standard"><span id="DirectoryEdition_Standard"><span class="annot"><span class="annottext">$bDirectoryEdition_Standard :: DirectoryEdition
+$mDirectoryEdition_Standard :: forall r. DirectoryEdition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#%24bDirectoryEdition_Standard"><span class="hs-identifier hs-var hs-var hs-var">DirectoryEdition_Standard</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition%27"><span class="hs-identifier hs-type">DirectoryEdition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Standard&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition_Enterprise"><span class="hs-pragma hs-type">DirectoryEdition_Enterprise</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition_Standard"><span class="hs-pragma hs-type">DirectoryEdition_Standard</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.Types.DirectoryEdition.html#DirectoryEdition%27"><span class="hs-pragma hs-type">DirectoryEdition'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

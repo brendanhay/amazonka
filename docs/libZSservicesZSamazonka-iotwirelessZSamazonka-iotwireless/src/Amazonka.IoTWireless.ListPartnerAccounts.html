@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.ListPartnerAccounts</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the partner accounts associated with your AWS account.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.ListPartnerAccounts</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier">ListPartnerAccounts</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#newListPartnerAccounts"><span class="hs-identifier">newListPartnerAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccounts_nextToken"><span class="hs-identifier">listPartnerAccounts_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccounts_maxResults"><span class="hs-identifier">listPartnerAccounts_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier">ListPartnerAccountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#newListPartnerAccountsResponse"><span class="hs-identifier">newListPartnerAccountsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccountsResponse_sidewalk"><span class="hs-identifier">listPartnerAccountsResponse_sidewalk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccountsResponse_nextToken"><span class="hs-identifier">listPartnerAccountsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccountsResponse_httpStatus"><span class="hs-identifier">listPartnerAccountsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.html"><span class="hs-identifier">Amazonka.IoTWireless.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newListPartnerAccounts' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679284032"><span id="local-6989586621679284033"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPartnerAccounts"><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-var">ListPartnerAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPartnerAccounts%27"><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts%27"><span class="hs-identifier hs-var">ListPartnerAccounts'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListPartnerAccounts%27"><span class="annot"><span class="annottext">ListPartnerAccounts -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AnextToken%3AListPartnerAccounts%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in this operation.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPartnerAccounts%27"><span class="annot"><span class="annottext">ListPartnerAccounts -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AmaxResults%3AListPartnerAccounts%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284025"><span id="local-6989586621679284027"><span class="annot"><span class="annottext">ListPartnerAccounts -&gt; ListPartnerAccounts -&gt; Bool
+(ListPartnerAccounts -&gt; ListPartnerAccounts -&gt; Bool)
+-&gt; (ListPartnerAccounts -&gt; ListPartnerAccounts -&gt; Bool)
+-&gt; Eq ListPartnerAccounts
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPartnerAccounts -&gt; ListPartnerAccounts -&gt; Bool
+$c/= :: ListPartnerAccounts -&gt; ListPartnerAccounts -&gt; Bool
+== :: ListPartnerAccounts -&gt; ListPartnerAccounts -&gt; Bool
+$c== :: ListPartnerAccounts -&gt; ListPartnerAccounts -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284016"><span id="local-6989586621679284018"><span id="local-6989586621679284020"><span id="local-6989586621679284022"><span class="annot"><span class="annottext">ReadPrec [ListPartnerAccounts]
+ReadPrec ListPartnerAccounts
+Int -&gt; ReadS ListPartnerAccounts
+ReadS [ListPartnerAccounts]
+(Int -&gt; ReadS ListPartnerAccounts)
+-&gt; ReadS [ListPartnerAccounts]
+-&gt; ReadPrec ListPartnerAccounts
+-&gt; ReadPrec [ListPartnerAccounts]
+-&gt; Read ListPartnerAccounts
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPartnerAccounts]
+$creadListPrec :: ReadPrec [ListPartnerAccounts]
+readPrec :: ReadPrec ListPartnerAccounts
+$creadPrec :: ReadPrec ListPartnerAccounts
+readList :: ReadS [ListPartnerAccounts]
+$creadList :: ReadS [ListPartnerAccounts]
+readsPrec :: Int -&gt; ReadS ListPartnerAccounts
+$creadsPrec :: Int -&gt; ReadS ListPartnerAccounts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284009"><span id="local-6989586621679284011"><span id="local-6989586621679284013"><span class="annot"><span class="annottext">Int -&gt; ListPartnerAccounts -&gt; ShowS
+[ListPartnerAccounts] -&gt; ShowS
+ListPartnerAccounts -&gt; String
+(Int -&gt; ListPartnerAccounts -&gt; ShowS)
+-&gt; (ListPartnerAccounts -&gt; String)
+-&gt; ([ListPartnerAccounts] -&gt; ShowS)
+-&gt; Show ListPartnerAccounts
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPartnerAccounts] -&gt; ShowS
+$cshowList :: [ListPartnerAccounts] -&gt; ShowS
+show :: ListPartnerAccounts -&gt; String
+$cshow :: ListPartnerAccounts -&gt; String
+showsPrec :: Int -&gt; ListPartnerAccounts -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPartnerAccounts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListPartnerAccounts -&gt; Rep ListPartnerAccounts x)
+-&gt; (forall x. Rep ListPartnerAccounts x -&gt; ListPartnerAccounts)
+-&gt; Generic ListPartnerAccounts
+forall x. Rep ListPartnerAccounts x -&gt; ListPartnerAccounts
+forall x. ListPartnerAccounts -&gt; Rep ListPartnerAccounts x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPartnerAccounts x -&gt; ListPartnerAccounts
+$cfrom :: forall x. ListPartnerAccounts -&gt; Rep ListPartnerAccounts x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'ListPartnerAccounts' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'nextToken', 'listPartnerAccounts_nextToken' - To retrieve the next set of results, the @nextToken@ value from a</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'maxResults', 'listPartnerAccounts_maxResults' - The maximum number of results to return in this operation.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#newListPartnerAccounts"><span class="hs-identifier hs-type">newListPartnerAccounts</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span>
+</span><span id="line-77"></span><span id="newListPartnerAccounts"><span class="annot"><span class="annottext">newListPartnerAccounts :: ListPartnerAccounts
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#newListPartnerAccounts"><span class="hs-identifier hs-var hs-var">newListPartnerAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ListPartnerAccounts' :: Maybe Text -&gt; Maybe Natural -&gt; ListPartnerAccounts
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts%27"><span class="hs-identifier hs-type">ListPartnerAccounts'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPartnerAccounts' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AnextToken%3AListPartnerAccounts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPartnerAccounts' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AmaxResults%3AListPartnerAccounts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccounts_nextToken"><span class="hs-identifier hs-type">listPartnerAccounts_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="listPartnerAccounts_nextToken"><span class="annot"><span class="annottext">listPartnerAccounts_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPartnerAccounts -&gt; f ListPartnerAccounts
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccounts_nextToken"><span class="hs-identifier hs-var hs-var">listPartnerAccounts_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPartnerAccounts -&gt; Maybe Text)
+-&gt; (ListPartnerAccounts -&gt; Maybe Text -&gt; ListPartnerAccounts)
+-&gt; Lens
+     ListPartnerAccounts ListPartnerAccounts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts%27"><span class="hs-identifier hs-type">ListPartnerAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284002"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPartnerAccounts' :: ListPartnerAccounts -&gt; Maybe Text
+</span><a href="#local-6989586621679284002"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284002"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284001"><span class="annot"><span class="annottext">s :: ListPartnerAccounts
+</span><a href="#local-6989586621679284001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts%27"><span class="hs-identifier hs-type">ListPartnerAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartnerAccounts
+</span><a href="#local-6989586621679284001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPartnerAccounts' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AnextToken%3AListPartnerAccounts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The maximum number of results to return in this operation.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccounts_maxResults"><span class="hs-identifier hs-type">listPartnerAccounts_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="listPartnerAccounts_maxResults"><span class="annot"><span class="annottext">listPartnerAccounts_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPartnerAccounts -&gt; f ListPartnerAccounts
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccounts_maxResults"><span class="hs-identifier hs-var hs-var">listPartnerAccounts_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPartnerAccounts -&gt; Maybe Natural)
+-&gt; (ListPartnerAccounts -&gt; Maybe Natural -&gt; ListPartnerAccounts)
+-&gt; Lens
+     ListPartnerAccounts
+     ListPartnerAccounts
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts%27"><span class="hs-identifier hs-type">ListPartnerAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283999"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPartnerAccounts' :: ListPartnerAccounts -&gt; Maybe Natural
+</span><a href="#local-6989586621679283999"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679283999"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283998"><span class="annot"><span class="annottext">s :: ListPartnerAccounts
+</span><a href="#local-6989586621679283998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts%27"><span class="hs-identifier hs-type">ListPartnerAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283997"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679283997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartnerAccounts
+</span><a href="#local-6989586621679283998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPartnerAccounts' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AmaxResults%3AListPartnerAccounts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679283997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-type">ListPartnerAccountsResponse</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679283993"><span class="annot"><span class="annottext">request :: ListPartnerAccounts -&gt; Request ListPartnerAccounts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPartnerAccounts -&gt; Request ListPartnerAccounts
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679283989"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPartnerAccounts
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPartnerAccounts)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPartnerAccounts))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPartnerAccounts
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPartnerAccounts)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283986"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283986"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283985"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283985"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283984"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283984"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SidewalkAccountInfoWithFingerprint]
+-&gt; Maybe Text -&gt; Int -&gt; ListPartnerAccountsResponse
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse%27"><span class="hs-identifier hs-var">ListPartnerAccountsResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SidewalkAccountInfoWithFingerprint]
+ -&gt; Maybe Text -&gt; Int -&gt; ListPartnerAccountsResponse)
+-&gt; Either String (Maybe [SidewalkAccountInfoWithFingerprint])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListPartnerAccountsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe [SidewalkAccountInfoWithFingerprint]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sidewalk&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SidewalkAccountInfoWithFingerprint]))
+-&gt; Maybe [SidewalkAccountInfoWithFingerprint]
+-&gt; Either String (Maybe [SidewalkAccountInfoWithFingerprint])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SidewalkAccountInfoWithFingerprint]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListPartnerAccountsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListPartnerAccountsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPartnerAccountsResponse)
+-&gt; Either String Int -&gt; Either String ListPartnerAccountsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283986"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283975"><span id="local-6989586621679283977"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283972"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679283968"><span class="annot"><span class="annottext">toHeaders :: ListPartnerAccounts -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPartnerAccounts -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679283963"><span class="annot"><span class="annottext">toPath :: ListPartnerAccounts -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPartnerAccounts -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/partner-accounts&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts"><span class="hs-identifier hs-type">ListPartnerAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679283959"><span class="annot"><span class="annottext">toQuery :: ListPartnerAccounts -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccounts%27"><span class="hs-identifier hs-type">ListPartnerAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283956"><span id="local-6989586621679283957"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListPartnerAccounts' :: ListPartnerAccounts -&gt; Maybe Natural
+$sel:nextToken:ListPartnerAccounts' :: ListPartnerAccounts -&gt; Maybe Text
+</span><a href="#local-6989586621679283956"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283957"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679283956"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newListPartnerAccountsResponse' smart constructor.</span><span>
+</span><span id="line-125"></span><span id="local-6989586621679283953"><span id="local-6989586621679283954"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPartnerAccountsResponse"><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-var">ListPartnerAccountsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPartnerAccountsResponse%27"><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse%27"><span class="hs-identifier hs-var">ListPartnerAccountsResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Sidewalk account credentials.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3Asidewalk%3AListPartnerAccountsResponse%27"><span class="annot"><span class="annottext">ListPartnerAccountsResponse
+-&gt; Maybe [SidewalkAccountInfoWithFingerprint]
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3Asidewalk%3AListPartnerAccountsResponse%27"><span class="hs-identifier hs-var hs-var">sidewalk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkAccountInfoWithFingerprint.html#SidewalkAccountInfoWithFingerprint"><span class="hs-identifier hs-type">SidewalkAccountInfoWithFingerprint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- are no additional results.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AnextToken%3AListPartnerAccountsResponse%27"><span class="annot"><span class="annottext">ListPartnerAccountsResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AnextToken%3AListPartnerAccountsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPartnerAccountsResponse%27"><span class="annot"><span class="annottext">ListPartnerAccountsResponse -&gt; Int
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AhttpStatus%3AListPartnerAccountsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283946"><span id="local-6989586621679283948"><span class="annot"><span class="annottext">ListPartnerAccountsResponse -&gt; ListPartnerAccountsResponse -&gt; Bool
+(ListPartnerAccountsResponse
+ -&gt; ListPartnerAccountsResponse -&gt; Bool)
+-&gt; (ListPartnerAccountsResponse
+    -&gt; ListPartnerAccountsResponse -&gt; Bool)
+-&gt; Eq ListPartnerAccountsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPartnerAccountsResponse -&gt; ListPartnerAccountsResponse -&gt; Bool
+$c/= :: ListPartnerAccountsResponse -&gt; ListPartnerAccountsResponse -&gt; Bool
+== :: ListPartnerAccountsResponse -&gt; ListPartnerAccountsResponse -&gt; Bool
+$c== :: ListPartnerAccountsResponse -&gt; ListPartnerAccountsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283940"><span id="local-6989586621679283942"><span id="local-6989586621679283944"><span class="annot"><span class="annottext">Int -&gt; ListPartnerAccountsResponse -&gt; ShowS
+[ListPartnerAccountsResponse] -&gt; ShowS
+ListPartnerAccountsResponse -&gt; String
+(Int -&gt; ListPartnerAccountsResponse -&gt; ShowS)
+-&gt; (ListPartnerAccountsResponse -&gt; String)
+-&gt; ([ListPartnerAccountsResponse] -&gt; ShowS)
+-&gt; Show ListPartnerAccountsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPartnerAccountsResponse] -&gt; ShowS
+$cshowList :: [ListPartnerAccountsResponse] -&gt; ShowS
+show :: ListPartnerAccountsResponse -&gt; String
+$cshow :: ListPartnerAccountsResponse -&gt; String
+showsPrec :: Int -&gt; ListPartnerAccountsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPartnerAccountsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPartnerAccountsResponse -&gt; Rep ListPartnerAccountsResponse x)
+-&gt; (forall x.
+    Rep ListPartnerAccountsResponse x -&gt; ListPartnerAccountsResponse)
+-&gt; Generic ListPartnerAccountsResponse
+forall x.
+Rep ListPartnerAccountsResponse x -&gt; ListPartnerAccountsResponse
+forall x.
+ListPartnerAccountsResponse -&gt; Rep ListPartnerAccountsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPartnerAccountsResponse x -&gt; ListPartnerAccountsResponse
+$cfrom :: forall x.
+ListPartnerAccountsResponse -&gt; Rep ListPartnerAccountsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Create a value of 'ListPartnerAccountsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'sidewalk', 'listPartnerAccountsResponse_sidewalk' - The Sidewalk account credentials.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'nextToken', 'listPartnerAccountsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- are no additional results.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'listPartnerAccountsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#newListPartnerAccountsResponse"><span class="hs-identifier hs-type">newListPartnerAccountsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-type">ListPartnerAccountsResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newListPartnerAccountsResponse"><span class="annot"><span class="annottext">newListPartnerAccountsResponse :: Int -&gt; ListPartnerAccountsResponse
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#newListPartnerAccountsResponse"><span class="hs-identifier hs-var hs-var">newListPartnerAccountsResponse</span></a></span></span><span> </span><span id="local-6989586621679283937"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283937"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">ListPartnerAccountsResponse' :: Maybe [SidewalkAccountInfoWithFingerprint]
+-&gt; Maybe Text -&gt; Int -&gt; ListPartnerAccountsResponse
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse%27"><span class="hs-identifier hs-type">ListPartnerAccountsResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sidewalk:ListPartnerAccountsResponse' :: Maybe [SidewalkAccountInfoWithFingerprint]
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3Asidewalk%3AListPartnerAccountsResponse%27"><span class="hs-identifier hs-var">sidewalk</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SidewalkAccountInfoWithFingerprint]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListPartnerAccountsResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AnextToken%3AListPartnerAccountsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPartnerAccountsResponse' :: Int
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AhttpStatus%3AListPartnerAccountsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283937"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The Sidewalk account credentials.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccountsResponse_sidewalk"><span class="hs-identifier hs-type">listPartnerAccountsResponse_sidewalk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-type">ListPartnerAccountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTWireless.Types.SidewalkAccountInfoWithFingerprint.html#SidewalkAccountInfoWithFingerprint"><span class="hs-identifier hs-type">SidewalkAccountInfoWithFingerprint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="listPartnerAccountsResponse_sidewalk"><span class="annot"><span class="annottext">listPartnerAccountsResponse_sidewalk :: (Maybe [SidewalkAccountInfoWithFingerprint]
+ -&gt; f (Maybe [SidewalkAccountInfoWithFingerprint]))
+-&gt; ListPartnerAccountsResponse -&gt; f ListPartnerAccountsResponse
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccountsResponse_sidewalk"><span class="hs-identifier hs-var hs-var">listPartnerAccountsResponse_sidewalk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPartnerAccountsResponse
+ -&gt; Maybe [SidewalkAccountInfoWithFingerprint])
+-&gt; (ListPartnerAccountsResponse
+    -&gt; Maybe [SidewalkAccountInfoWithFingerprint]
+    -&gt; ListPartnerAccountsResponse)
+-&gt; Lens
+     ListPartnerAccountsResponse
+     ListPartnerAccountsResponse
+     (Maybe [SidewalkAccountInfoWithFingerprint])
+     (Maybe [SidewalkAccountInfoWithFingerprint])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse%27"><span class="hs-identifier hs-type">ListPartnerAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283936"><span class="annot"><span class="annottext">Maybe [SidewalkAccountInfoWithFingerprint]
+sidewalk :: Maybe [SidewalkAccountInfoWithFingerprint]
+$sel:sidewalk:ListPartnerAccountsResponse' :: ListPartnerAccountsResponse
+-&gt; Maybe [SidewalkAccountInfoWithFingerprint]
+</span><a href="#local-6989586621679283936"><span class="hs-identifier hs-var hs-var">sidewalk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SidewalkAccountInfoWithFingerprint]
+</span><a href="#local-6989586621679283936"><span class="hs-identifier hs-var">sidewalk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283935"><span class="annot"><span class="annottext">s :: ListPartnerAccountsResponse
+</span><a href="#local-6989586621679283935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse%27"><span class="hs-identifier hs-type">ListPartnerAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283934"><span class="annot"><span class="annottext">Maybe [SidewalkAccountInfoWithFingerprint]
+</span><a href="#local-6989586621679283934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartnerAccountsResponse
+</span><a href="#local-6989586621679283935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sidewalk:ListPartnerAccountsResponse' :: Maybe [SidewalkAccountInfoWithFingerprint]
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3Asidewalk%3AListPartnerAccountsResponse%27"><span class="hs-identifier hs-var">sidewalk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SidewalkAccountInfoWithFingerprint]
+</span><a href="#local-6989586621679283934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-type">ListPartnerAccountsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SidewalkAccountInfoWithFingerprint]
+  -&gt; f (Maybe [SidewalkAccountInfoWithFingerprint]))
+ -&gt; ListPartnerAccountsResponse -&gt; f ListPartnerAccountsResponse)
+-&gt; ((Maybe [SidewalkAccountInfoWithFingerprint]
+     -&gt; f (Maybe [SidewalkAccountInfoWithFingerprint]))
+    -&gt; Maybe [SidewalkAccountInfoWithFingerprint]
+    -&gt; f (Maybe [SidewalkAccountInfoWithFingerprint]))
+-&gt; (Maybe [SidewalkAccountInfoWithFingerprint]
+    -&gt; f (Maybe [SidewalkAccountInfoWithFingerprint]))
+-&gt; ListPartnerAccountsResponse
+-&gt; f ListPartnerAccountsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SidewalkAccountInfoWithFingerprint]
+  [SidewalkAccountInfoWithFingerprint]
+  [SidewalkAccountInfoWithFingerprint]
+  [SidewalkAccountInfoWithFingerprint]
+-&gt; Iso
+     (Maybe [SidewalkAccountInfoWithFingerprint])
+     (Maybe [SidewalkAccountInfoWithFingerprint])
+     (Maybe [SidewalkAccountInfoWithFingerprint])
+     (Maybe [SidewalkAccountInfoWithFingerprint])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SidewalkAccountInfoWithFingerprint]
+  [SidewalkAccountInfoWithFingerprint]
+  [SidewalkAccountInfoWithFingerprint]
+  [SidewalkAccountInfoWithFingerprint]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- are no additional results.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccountsResponse_nextToken"><span class="hs-identifier hs-type">listPartnerAccountsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-type">ListPartnerAccountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="listPartnerAccountsResponse_nextToken"><span class="annot"><span class="annottext">listPartnerAccountsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPartnerAccountsResponse -&gt; f ListPartnerAccountsResponse
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccountsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPartnerAccountsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPartnerAccountsResponse -&gt; Maybe Text)
+-&gt; (ListPartnerAccountsResponse
+    -&gt; Maybe Text -&gt; ListPartnerAccountsResponse)
+-&gt; Lens
+     ListPartnerAccountsResponse
+     ListPartnerAccountsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse%27"><span class="hs-identifier hs-type">ListPartnerAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283930"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPartnerAccountsResponse' :: ListPartnerAccountsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679283930"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283930"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283929"><span class="annot"><span class="annottext">s :: ListPartnerAccountsResponse
+</span><a href="#local-6989586621679283929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse%27"><span class="hs-identifier hs-type">ListPartnerAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283928"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartnerAccountsResponse
+</span><a href="#local-6989586621679283929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPartnerAccountsResponse' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AnextToken%3AListPartnerAccountsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-type">ListPartnerAccountsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccountsResponse_httpStatus"><span class="hs-identifier hs-type">listPartnerAccountsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-type">ListPartnerAccountsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span id="listPartnerAccountsResponse_httpStatus"><span class="annot"><span class="annottext">listPartnerAccountsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPartnerAccountsResponse -&gt; f ListPartnerAccountsResponse
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#listPartnerAccountsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPartnerAccountsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPartnerAccountsResponse -&gt; Int)
+-&gt; (ListPartnerAccountsResponse
+    -&gt; Int -&gt; ListPartnerAccountsResponse)
+-&gt; Lens
+     ListPartnerAccountsResponse ListPartnerAccountsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse%27"><span class="hs-identifier hs-type">ListPartnerAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283927"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPartnerAccountsResponse' :: ListPartnerAccountsResponse -&gt; Int
+</span><a href="#local-6989586621679283927"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283927"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283926"><span class="annot"><span class="annottext">s :: ListPartnerAccountsResponse
+</span><a href="#local-6989586621679283926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse%27"><span class="hs-identifier hs-type">ListPartnerAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283925"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartnerAccountsResponse
+</span><a href="#local-6989586621679283926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPartnerAccountsResponse' :: Int
+</span><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#%24sel%3AhttpStatus%3AListPartnerAccountsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-type">ListPartnerAccountsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.ListPartnerAccounts.html#ListPartnerAccountsResponse"><span class="hs-identifier hs-type">ListPartnerAccountsResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

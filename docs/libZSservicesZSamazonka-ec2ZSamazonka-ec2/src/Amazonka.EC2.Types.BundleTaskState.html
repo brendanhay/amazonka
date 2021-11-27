@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.BundleTaskState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.BundleTaskState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier">BundleTaskState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Bundling"><span class="hs-identifier">BundleTaskState_Bundling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Cancelling"><span class="hs-identifier">BundleTaskState_Cancelling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Complete"><span class="hs-identifier">BundleTaskState_Complete</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Failed"><span class="hs-identifier">BundleTaskState_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Pending"><span class="hs-identifier">BundleTaskState_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Storing"><span class="hs-identifier">BundleTaskState_Storing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Waiting_for_shutdown"><span class="hs-identifier">BundleTaskState_Waiting_for_shutdown</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621681089515"><span id="local-6989586621681089516"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BundleTaskState"><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-var">BundleTaskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BundleTaskState%27"><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-var">BundleTaskState'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBundleTaskState"><span class="annot"><span class="annottext">BundleTaskState -&gt; Text
+</span><a href="Amazonka.EC2.Types.BundleTaskState.html#fromBundleTaskState"><span class="hs-identifier hs-var hs-var">fromBundleTaskState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089507"><span id="local-6989586621681089509"><span id="local-6989586621681089511"><span class="annot"><span class="annottext">Int -&gt; BundleTaskState -&gt; ShowS
+[BundleTaskState] -&gt; ShowS
+BundleTaskState -&gt; String
+(Int -&gt; BundleTaskState -&gt; ShowS)
+-&gt; (BundleTaskState -&gt; String)
+-&gt; ([BundleTaskState] -&gt; ShowS)
+-&gt; Show BundleTaskState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BundleTaskState] -&gt; ShowS
+$cshowList :: [BundleTaskState] -&gt; ShowS
+show :: BundleTaskState -&gt; String
+$cshow :: BundleTaskState -&gt; String
+showsPrec :: Int -&gt; BundleTaskState -&gt; ShowS
+$cshowsPrec :: Int -&gt; BundleTaskState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681089498"><span id="local-6989586621681089500"><span id="local-6989586621681089502"><span id="local-6989586621681089504"><span class="annot"><span class="annottext">ReadPrec [BundleTaskState]
+ReadPrec BundleTaskState
+Int -&gt; ReadS BundleTaskState
+ReadS [BundleTaskState]
+(Int -&gt; ReadS BundleTaskState)
+-&gt; ReadS [BundleTaskState]
+-&gt; ReadPrec BundleTaskState
+-&gt; ReadPrec [BundleTaskState]
+-&gt; Read BundleTaskState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BundleTaskState]
+$creadListPrec :: ReadPrec [BundleTaskState]
+readPrec :: ReadPrec BundleTaskState
+$creadPrec :: ReadPrec BundleTaskState
+readList :: ReadS [BundleTaskState]
+$creadList :: ReadS [BundleTaskState]
+readsPrec :: Int -&gt; ReadS BundleTaskState
+$creadsPrec :: Int -&gt; ReadS BundleTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681089493"><span id="local-6989586621681089495"><span class="annot"><span class="annottext">BundleTaskState -&gt; BundleTaskState -&gt; Bool
+(BundleTaskState -&gt; BundleTaskState -&gt; Bool)
+-&gt; (BundleTaskState -&gt; BundleTaskState -&gt; Bool)
+-&gt; Eq BundleTaskState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+$c/= :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+== :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+$c== :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681089477"><span id="local-6989586621681089479"><span id="local-6989586621681089481"><span id="local-6989586621681089483"><span id="local-6989586621681089485"><span id="local-6989586621681089487"><span id="local-6989586621681089489"><span class="annot"><span class="annottext">Eq BundleTaskState
+Eq BundleTaskState
+-&gt; (BundleTaskState -&gt; BundleTaskState -&gt; Ordering)
+-&gt; (BundleTaskState -&gt; BundleTaskState -&gt; Bool)
+-&gt; (BundleTaskState -&gt; BundleTaskState -&gt; Bool)
+-&gt; (BundleTaskState -&gt; BundleTaskState -&gt; Bool)
+-&gt; (BundleTaskState -&gt; BundleTaskState -&gt; Bool)
+-&gt; (BundleTaskState -&gt; BundleTaskState -&gt; BundleTaskState)
+-&gt; (BundleTaskState -&gt; BundleTaskState -&gt; BundleTaskState)
+-&gt; Ord BundleTaskState
+BundleTaskState -&gt; BundleTaskState -&gt; Bool
+BundleTaskState -&gt; BundleTaskState -&gt; Ordering
+BundleTaskState -&gt; BundleTaskState -&gt; BundleTaskState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BundleTaskState -&gt; BundleTaskState -&gt; BundleTaskState
+$cmin :: BundleTaskState -&gt; BundleTaskState -&gt; BundleTaskState
+max :: BundleTaskState -&gt; BundleTaskState -&gt; BundleTaskState
+$cmax :: BundleTaskState -&gt; BundleTaskState -&gt; BundleTaskState
+&gt;= :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+$c&gt;= :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+&gt; :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+$c&gt; :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+&lt;= :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+$c&lt;= :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+&lt; :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+$c&lt; :: BundleTaskState -&gt; BundleTaskState -&gt; Bool
+compare :: BundleTaskState -&gt; BundleTaskState -&gt; Ordering
+$ccompare :: BundleTaskState -&gt; BundleTaskState -&gt; Ordering
+$cp1Ord :: Eq BundleTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BundleTaskState -&gt; Rep BundleTaskState x)
+-&gt; (forall x. Rep BundleTaskState x -&gt; BundleTaskState)
+-&gt; Generic BundleTaskState
+forall x. Rep BundleTaskState x -&gt; BundleTaskState
+forall x. BundleTaskState -&gt; Rep BundleTaskState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BundleTaskState x -&gt; BundleTaskState
+$cfrom :: forall x. BundleTaskState -&gt; Rep BundleTaskState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089469"><span id="local-6989586621681089471"><span class="annot"><span class="annottext">Int -&gt; BundleTaskState -&gt; Int
+BundleTaskState -&gt; Int
+(Int -&gt; BundleTaskState -&gt; Int)
+-&gt; (BundleTaskState -&gt; Int) -&gt; Hashable BundleTaskState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BundleTaskState -&gt; Int
+$chash :: BundleTaskState -&gt; Int
+hashWithSalt :: Int -&gt; BundleTaskState -&gt; Int
+$chashWithSalt :: Int -&gt; BundleTaskState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681089466"><span class="annot"><span class="annottext">BundleTaskState -&gt; ()
+(BundleTaskState -&gt; ()) -&gt; NFData BundleTaskState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BundleTaskState -&gt; ()
+$crnf :: BundleTaskState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681089463"><span class="annot"><span class="annottext">Text -&gt; Either String BundleTaskState
+(Text -&gt; Either String BundleTaskState) -&gt; FromText BundleTaskState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BundleTaskState
+$cfromText :: Text -&gt; Either String BundleTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681089460"><span class="annot"><span class="annottext">BundleTaskState -&gt; Text
+(BundleTaskState -&gt; Text) -&gt; ToText BundleTaskState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BundleTaskState -&gt; Text
+$ctoText :: BundleTaskState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681089457"><span class="annot"><span class="annottext">BundleTaskState -&gt; ByteString
+(BundleTaskState -&gt; ByteString) -&gt; ToByteString BundleTaskState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BundleTaskState -&gt; ByteString
+$ctoBS :: BundleTaskState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681089454"><span class="annot"><span class="annottext">BundleTaskState -&gt; ByteStringBuilder
+(BundleTaskState -&gt; ByteStringBuilder) -&gt; ToLog BundleTaskState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BundleTaskState -&gt; ByteStringBuilder
+$cbuild :: BundleTaskState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681089451"><span class="annot"><span class="annottext">HeaderName -&gt; BundleTaskState -&gt; [Header]
+(HeaderName -&gt; BundleTaskState -&gt; [Header])
+-&gt; ToHeader BundleTaskState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BundleTaskState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BundleTaskState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681089448"><span class="annot"><span class="annottext">BundleTaskState -&gt; QueryString
+(BundleTaskState -&gt; QueryString) -&gt; ToQuery BundleTaskState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BundleTaskState -&gt; QueryString
+$ctoQuery :: BundleTaskState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681089443"><span id="local-6989586621681089445"><span class="annot"><span class="annottext">Value -&gt; Parser [BundleTaskState]
+Value -&gt; Parser BundleTaskState
+(Value -&gt; Parser BundleTaskState)
+-&gt; (Value -&gt; Parser [BundleTaskState]) -&gt; FromJSON BundleTaskState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BundleTaskState]
+$cparseJSONList :: Value -&gt; Parser [BundleTaskState]
+parseJSON :: Value -&gt; Parser BundleTaskState
+$cparseJSON :: Value -&gt; Parser BundleTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681089438"><span id="local-6989586621681089440"><span class="annot"><span class="annottext">FromJSONKeyFunction [BundleTaskState]
+FromJSONKeyFunction BundleTaskState
+FromJSONKeyFunction BundleTaskState
+-&gt; FromJSONKeyFunction [BundleTaskState]
+-&gt; FromJSONKey BundleTaskState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BundleTaskState]
+$cfromJSONKeyList :: FromJSONKeyFunction [BundleTaskState]
+fromJSONKey :: FromJSONKeyFunction BundleTaskState
+$cfromJSONKey :: FromJSONKeyFunction BundleTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681089429"><span id="local-6989586621681089431"><span id="local-6989586621681089433"><span id="local-6989586621681089435"><span class="annot"><span class="annottext">[BundleTaskState] -&gt; Encoding
+[BundleTaskState] -&gt; Value
+BundleTaskState -&gt; Encoding
+BundleTaskState -&gt; Value
+(BundleTaskState -&gt; Value)
+-&gt; (BundleTaskState -&gt; Encoding)
+-&gt; ([BundleTaskState] -&gt; Value)
+-&gt; ([BundleTaskState] -&gt; Encoding)
+-&gt; ToJSON BundleTaskState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BundleTaskState] -&gt; Encoding
+$ctoEncodingList :: [BundleTaskState] -&gt; Encoding
+toJSONList :: [BundleTaskState] -&gt; Value
+$ctoJSONList :: [BundleTaskState] -&gt; Value
+toEncoding :: BundleTaskState -&gt; Encoding
+$ctoEncoding :: BundleTaskState -&gt; Encoding
+toJSON :: BundleTaskState -&gt; Value
+$ctoJSON :: BundleTaskState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681089424"><span id="local-6989586621681089426"><span class="annot"><span class="annottext">ToJSONKeyFunction [BundleTaskState]
+ToJSONKeyFunction BundleTaskState
+ToJSONKeyFunction BundleTaskState
+-&gt; ToJSONKeyFunction [BundleTaskState] -&gt; ToJSONKey BundleTaskState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BundleTaskState]
+$ctoJSONKeyList :: ToJSONKeyFunction [BundleTaskState]
+toJSONKey :: ToJSONKeyFunction BundleTaskState
+$ctoJSONKey :: ToJSONKeyFunction BundleTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681089421"><span class="annot"><span class="annottext">[Node] -&gt; Either String BundleTaskState
+([Node] -&gt; Either String BundleTaskState)
+-&gt; FromXML BundleTaskState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BundleTaskState
+$cparseXML :: [Node] -&gt; Either String BundleTaskState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681089418"><span class="annot"><span class="annottext">BundleTaskState -&gt; XML
+(BundleTaskState -&gt; XML) -&gt; ToXML BundleTaskState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BundleTaskState -&gt; XML
+$ctoXML :: BundleTaskState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Bundling"><span class="hs-identifier hs-type">BundleTaskState_Bundling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleTaskState_Bundling"><span id="%24mBundleTaskState_Bundling"><span id="BundleTaskState_Bundling"><span class="annot"><span class="annottext">$bBundleTaskState_Bundling :: BundleTaskState
+$mBundleTaskState_Bundling :: forall r. BundleTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.BundleTaskState.html#%24bBundleTaskState_Bundling"><span class="hs-identifier hs-var hs-var hs-var">BundleTaskState_Bundling</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-type">BundleTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;bundling&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Cancelling"><span class="hs-identifier hs-type">BundleTaskState_Cancelling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleTaskState_Cancelling"><span id="%24mBundleTaskState_Cancelling"><span id="BundleTaskState_Cancelling"><span class="annot"><span class="annottext">$bBundleTaskState_Cancelling :: BundleTaskState
+$mBundleTaskState_Cancelling :: forall r. BundleTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.BundleTaskState.html#%24bBundleTaskState_Cancelling"><span class="hs-identifier hs-var hs-var hs-var">BundleTaskState_Cancelling</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-type">BundleTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cancelling&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Complete"><span class="hs-identifier hs-type">BundleTaskState_Complete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleTaskState_Complete"><span id="%24mBundleTaskState_Complete"><span id="BundleTaskState_Complete"><span class="annot"><span class="annottext">$bBundleTaskState_Complete :: BundleTaskState
+$mBundleTaskState_Complete :: forall r. BundleTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.BundleTaskState.html#%24bBundleTaskState_Complete"><span class="hs-identifier hs-var hs-var hs-var">BundleTaskState_Complete</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-type">BundleTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;complete&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Failed"><span class="hs-identifier hs-type">BundleTaskState_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleTaskState_Failed"><span id="%24mBundleTaskState_Failed"><span id="BundleTaskState_Failed"><span class="annot"><span class="annottext">$bBundleTaskState_Failed :: BundleTaskState
+$mBundleTaskState_Failed :: forall r. BundleTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.BundleTaskState.html#%24bBundleTaskState_Failed"><span class="hs-identifier hs-var hs-var hs-var">BundleTaskState_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-type">BundleTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Pending"><span class="hs-identifier hs-type">BundleTaskState_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleTaskState_Pending"><span id="%24mBundleTaskState_Pending"><span id="BundleTaskState_Pending"><span class="annot"><span class="annottext">$bBundleTaskState_Pending :: BundleTaskState
+$mBundleTaskState_Pending :: forall r. BundleTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.BundleTaskState.html#%24bBundleTaskState_Pending"><span class="hs-identifier hs-var hs-var hs-var">BundleTaskState_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-type">BundleTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pending&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Storing"><span class="hs-identifier hs-type">BundleTaskState_Storing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleTaskState_Storing"><span id="%24mBundleTaskState_Storing"><span id="BundleTaskState_Storing"><span class="annot"><span class="annottext">$bBundleTaskState_Storing :: BundleTaskState
+$mBundleTaskState_Storing :: forall r. BundleTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.BundleTaskState.html#%24bBundleTaskState_Storing"><span class="hs-identifier hs-var hs-var hs-var">BundleTaskState_Storing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-type">BundleTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;storing&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Waiting_for_shutdown"><span class="hs-identifier hs-type">BundleTaskState_Waiting_for_shutdown</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBundleTaskState_Waiting_for_shutdown"><span id="%24mBundleTaskState_Waiting_for_shutdown"><span id="BundleTaskState_Waiting_for_shutdown"><span class="annot"><span class="annottext">$bBundleTaskState_Waiting_for_shutdown :: BundleTaskState
+$mBundleTaskState_Waiting_for_shutdown :: forall r. BundleTaskState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.BundleTaskState.html#%24bBundleTaskState_Waiting_for_shutdown"><span class="hs-identifier hs-var hs-var hs-var">BundleTaskState_Waiting_for_shutdown</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-identifier hs-type">BundleTaskState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;waiting-for-shutdown&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Bundling"><span class="hs-pragma hs-type">BundleTaskState_Bundling</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Cancelling"><span class="hs-pragma hs-type">BundleTaskState_Cancelling</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Complete"><span class="hs-pragma hs-type">BundleTaskState_Complete</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Failed"><span class="hs-pragma hs-type">BundleTaskState_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Pending"><span class="hs-pragma hs-type">BundleTaskState_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Storing"><span class="hs-pragma hs-type">BundleTaskState_Storing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState_Waiting_for_shutdown"><span class="hs-pragma hs-type">BundleTaskState_Waiting_for_shutdown</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.BundleTaskState.html#BundleTaskState%27"><span class="hs-pragma hs-type">BundleTaskState'</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-97"></span></pre></body></html>

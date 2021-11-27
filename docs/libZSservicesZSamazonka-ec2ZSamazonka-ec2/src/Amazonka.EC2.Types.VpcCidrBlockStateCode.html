@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.VpcCidrBlockStateCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.VpcCidrBlockStateCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier">VpcCidrBlockStateCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Associated"><span class="hs-identifier">VpcCidrBlockStateCode_Associated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Associating"><span class="hs-identifier">VpcCidrBlockStateCode_Associating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Disassociated"><span class="hs-identifier">VpcCidrBlockStateCode_Disassociated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Disassociating"><span class="hs-identifier">VpcCidrBlockStateCode_Disassociating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Failed"><span class="hs-identifier">VpcCidrBlockStateCode_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Failing"><span class="hs-identifier">VpcCidrBlockStateCode_Failing</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621681186564"><span id="local-6989586621681186565"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpcCidrBlockStateCode"><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-var">VpcCidrBlockStateCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcCidrBlockStateCode%27"><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode%27"><span class="hs-identifier hs-var">VpcCidrBlockStateCode'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVpcCidrBlockStateCode"><span class="annot"><span class="annottext">VpcCidrBlockStateCode -&gt; Text
+</span><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#fromVpcCidrBlockStateCode"><span class="hs-identifier hs-var hs-var">fromVpcCidrBlockStateCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681186556"><span id="local-6989586621681186558"><span id="local-6989586621681186560"><span class="annot"><span class="annottext">Int -&gt; VpcCidrBlockStateCode -&gt; ShowS
+[VpcCidrBlockStateCode] -&gt; ShowS
+VpcCidrBlockStateCode -&gt; String
+(Int -&gt; VpcCidrBlockStateCode -&gt; ShowS)
+-&gt; (VpcCidrBlockStateCode -&gt; String)
+-&gt; ([VpcCidrBlockStateCode] -&gt; ShowS)
+-&gt; Show VpcCidrBlockStateCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VpcCidrBlockStateCode] -&gt; ShowS
+$cshowList :: [VpcCidrBlockStateCode] -&gt; ShowS
+show :: VpcCidrBlockStateCode -&gt; String
+$cshow :: VpcCidrBlockStateCode -&gt; String
+showsPrec :: Int -&gt; VpcCidrBlockStateCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; VpcCidrBlockStateCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681186547"><span id="local-6989586621681186549"><span id="local-6989586621681186551"><span id="local-6989586621681186553"><span class="annot"><span class="annottext">ReadPrec [VpcCidrBlockStateCode]
+ReadPrec VpcCidrBlockStateCode
+Int -&gt; ReadS VpcCidrBlockStateCode
+ReadS [VpcCidrBlockStateCode]
+(Int -&gt; ReadS VpcCidrBlockStateCode)
+-&gt; ReadS [VpcCidrBlockStateCode]
+-&gt; ReadPrec VpcCidrBlockStateCode
+-&gt; ReadPrec [VpcCidrBlockStateCode]
+-&gt; Read VpcCidrBlockStateCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VpcCidrBlockStateCode]
+$creadListPrec :: ReadPrec [VpcCidrBlockStateCode]
+readPrec :: ReadPrec VpcCidrBlockStateCode
+$creadPrec :: ReadPrec VpcCidrBlockStateCode
+readList :: ReadS [VpcCidrBlockStateCode]
+$creadList :: ReadS [VpcCidrBlockStateCode]
+readsPrec :: Int -&gt; ReadS VpcCidrBlockStateCode
+$creadsPrec :: Int -&gt; ReadS VpcCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681186542"><span id="local-6989586621681186544"><span class="annot"><span class="annottext">VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+(VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool)
+-&gt; (VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool)
+-&gt; Eq VpcCidrBlockStateCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+$c/= :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+== :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+$c== :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681186526"><span id="local-6989586621681186528"><span id="local-6989586621681186530"><span id="local-6989586621681186532"><span id="local-6989586621681186534"><span id="local-6989586621681186536"><span id="local-6989586621681186538"><span class="annot"><span class="annottext">Eq VpcCidrBlockStateCode
+Eq VpcCidrBlockStateCode
+-&gt; (VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Ordering)
+-&gt; (VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool)
+-&gt; (VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool)
+-&gt; (VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool)
+-&gt; (VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool)
+-&gt; (VpcCidrBlockStateCode
+    -&gt; VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode)
+-&gt; (VpcCidrBlockStateCode
+    -&gt; VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode)
+-&gt; Ord VpcCidrBlockStateCode
+VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Ordering
+VpcCidrBlockStateCode
+-&gt; VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: VpcCidrBlockStateCode
+-&gt; VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode
+$cmin :: VpcCidrBlockStateCode
+-&gt; VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode
+max :: VpcCidrBlockStateCode
+-&gt; VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode
+$cmax :: VpcCidrBlockStateCode
+-&gt; VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode
+&gt;= :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+$c&gt;= :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+&gt; :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+$c&gt; :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+&lt;= :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+$c&lt;= :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+&lt; :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+$c&lt; :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Bool
+compare :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Ordering
+$ccompare :: VpcCidrBlockStateCode -&gt; VpcCidrBlockStateCode -&gt; Ordering
+$cp1Ord :: Eq VpcCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. VpcCidrBlockStateCode -&gt; Rep VpcCidrBlockStateCode x)
+-&gt; (forall x. Rep VpcCidrBlockStateCode x -&gt; VpcCidrBlockStateCode)
+-&gt; Generic VpcCidrBlockStateCode
+forall x. Rep VpcCidrBlockStateCode x -&gt; VpcCidrBlockStateCode
+forall x. VpcCidrBlockStateCode -&gt; Rep VpcCidrBlockStateCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VpcCidrBlockStateCode x -&gt; VpcCidrBlockStateCode
+$cfrom :: forall x. VpcCidrBlockStateCode -&gt; Rep VpcCidrBlockStateCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681186518"><span id="local-6989586621681186520"><span class="annot"><span class="annottext">Int -&gt; VpcCidrBlockStateCode -&gt; Int
+VpcCidrBlockStateCode -&gt; Int
+(Int -&gt; VpcCidrBlockStateCode -&gt; Int)
+-&gt; (VpcCidrBlockStateCode -&gt; Int) -&gt; Hashable VpcCidrBlockStateCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: VpcCidrBlockStateCode -&gt; Int
+$chash :: VpcCidrBlockStateCode -&gt; Int
+hashWithSalt :: Int -&gt; VpcCidrBlockStateCode -&gt; Int
+$chashWithSalt :: Int -&gt; VpcCidrBlockStateCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681186515"><span class="annot"><span class="annottext">VpcCidrBlockStateCode -&gt; ()
+(VpcCidrBlockStateCode -&gt; ()) -&gt; NFData VpcCidrBlockStateCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: VpcCidrBlockStateCode -&gt; ()
+$crnf :: VpcCidrBlockStateCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681186512"><span class="annot"><span class="annottext">Text -&gt; Either String VpcCidrBlockStateCode
+(Text -&gt; Either String VpcCidrBlockStateCode)
+-&gt; FromText VpcCidrBlockStateCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String VpcCidrBlockStateCode
+$cfromText :: Text -&gt; Either String VpcCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681186509"><span class="annot"><span class="annottext">VpcCidrBlockStateCode -&gt; Text
+(VpcCidrBlockStateCode -&gt; Text) -&gt; ToText VpcCidrBlockStateCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: VpcCidrBlockStateCode -&gt; Text
+$ctoText :: VpcCidrBlockStateCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681186506"><span class="annot"><span class="annottext">VpcCidrBlockStateCode -&gt; ByteString
+(VpcCidrBlockStateCode -&gt; ByteString)
+-&gt; ToByteString VpcCidrBlockStateCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: VpcCidrBlockStateCode -&gt; ByteString
+$ctoBS :: VpcCidrBlockStateCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681186503"><span class="annot"><span class="annottext">VpcCidrBlockStateCode -&gt; ByteStringBuilder
+(VpcCidrBlockStateCode -&gt; ByteStringBuilder)
+-&gt; ToLog VpcCidrBlockStateCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: VpcCidrBlockStateCode -&gt; ByteStringBuilder
+$cbuild :: VpcCidrBlockStateCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681186500"><span class="annot"><span class="annottext">HeaderName -&gt; VpcCidrBlockStateCode -&gt; [Header]
+(HeaderName -&gt; VpcCidrBlockStateCode -&gt; [Header])
+-&gt; ToHeader VpcCidrBlockStateCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; VpcCidrBlockStateCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; VpcCidrBlockStateCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681186497"><span class="annot"><span class="annottext">VpcCidrBlockStateCode -&gt; QueryString
+(VpcCidrBlockStateCode -&gt; QueryString)
+-&gt; ToQuery VpcCidrBlockStateCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: VpcCidrBlockStateCode -&gt; QueryString
+$ctoQuery :: VpcCidrBlockStateCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681186492"><span id="local-6989586621681186494"><span class="annot"><span class="annottext">Value -&gt; Parser [VpcCidrBlockStateCode]
+Value -&gt; Parser VpcCidrBlockStateCode
+(Value -&gt; Parser VpcCidrBlockStateCode)
+-&gt; (Value -&gt; Parser [VpcCidrBlockStateCode])
+-&gt; FromJSON VpcCidrBlockStateCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [VpcCidrBlockStateCode]
+$cparseJSONList :: Value -&gt; Parser [VpcCidrBlockStateCode]
+parseJSON :: Value -&gt; Parser VpcCidrBlockStateCode
+$cparseJSON :: Value -&gt; Parser VpcCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681186487"><span id="local-6989586621681186489"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpcCidrBlockStateCode]
+FromJSONKeyFunction VpcCidrBlockStateCode
+FromJSONKeyFunction VpcCidrBlockStateCode
+-&gt; FromJSONKeyFunction [VpcCidrBlockStateCode]
+-&gt; FromJSONKey VpcCidrBlockStateCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [VpcCidrBlockStateCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [VpcCidrBlockStateCode]
+fromJSONKey :: FromJSONKeyFunction VpcCidrBlockStateCode
+$cfromJSONKey :: FromJSONKeyFunction VpcCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681186478"><span id="local-6989586621681186480"><span id="local-6989586621681186482"><span id="local-6989586621681186484"><span class="annot"><span class="annottext">[VpcCidrBlockStateCode] -&gt; Encoding
+[VpcCidrBlockStateCode] -&gt; Value
+VpcCidrBlockStateCode -&gt; Encoding
+VpcCidrBlockStateCode -&gt; Value
+(VpcCidrBlockStateCode -&gt; Value)
+-&gt; (VpcCidrBlockStateCode -&gt; Encoding)
+-&gt; ([VpcCidrBlockStateCode] -&gt; Value)
+-&gt; ([VpcCidrBlockStateCode] -&gt; Encoding)
+-&gt; ToJSON VpcCidrBlockStateCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [VpcCidrBlockStateCode] -&gt; Encoding
+$ctoEncodingList :: [VpcCidrBlockStateCode] -&gt; Encoding
+toJSONList :: [VpcCidrBlockStateCode] -&gt; Value
+$ctoJSONList :: [VpcCidrBlockStateCode] -&gt; Value
+toEncoding :: VpcCidrBlockStateCode -&gt; Encoding
+$ctoEncoding :: VpcCidrBlockStateCode -&gt; Encoding
+toJSON :: VpcCidrBlockStateCode -&gt; Value
+$ctoJSON :: VpcCidrBlockStateCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681186473"><span id="local-6989586621681186475"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpcCidrBlockStateCode]
+ToJSONKeyFunction VpcCidrBlockStateCode
+ToJSONKeyFunction VpcCidrBlockStateCode
+-&gt; ToJSONKeyFunction [VpcCidrBlockStateCode]
+-&gt; ToJSONKey VpcCidrBlockStateCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [VpcCidrBlockStateCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [VpcCidrBlockStateCode]
+toJSONKey :: ToJSONKeyFunction VpcCidrBlockStateCode
+$ctoJSONKey :: ToJSONKeyFunction VpcCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681186470"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpcCidrBlockStateCode
+([Node] -&gt; Either String VpcCidrBlockStateCode)
+-&gt; FromXML VpcCidrBlockStateCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String VpcCidrBlockStateCode
+$cparseXML :: [Node] -&gt; Either String VpcCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681186467"><span class="annot"><span class="annottext">VpcCidrBlockStateCode -&gt; XML
+(VpcCidrBlockStateCode -&gt; XML) -&gt; ToXML VpcCidrBlockStateCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: VpcCidrBlockStateCode -&gt; XML
+$ctoXML :: VpcCidrBlockStateCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Associated"><span class="hs-identifier hs-type">VpcCidrBlockStateCode_Associated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVpcCidrBlockStateCode_Associated"><span id="%24mVpcCidrBlockStateCode_Associated"><span id="VpcCidrBlockStateCode_Associated"><span class="annot"><span class="annottext">$bVpcCidrBlockStateCode_Associated :: VpcCidrBlockStateCode
+$mVpcCidrBlockStateCode_Associated :: forall r.
+VpcCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#%24bVpcCidrBlockStateCode_Associated"><span class="hs-identifier hs-var hs-var hs-var">VpcCidrBlockStateCode_Associated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode%27"><span class="hs-identifier hs-type">VpcCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;associated&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Associating"><span class="hs-identifier hs-type">VpcCidrBlockStateCode_Associating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVpcCidrBlockStateCode_Associating"><span id="%24mVpcCidrBlockStateCode_Associating"><span id="VpcCidrBlockStateCode_Associating"><span class="annot"><span class="annottext">$bVpcCidrBlockStateCode_Associating :: VpcCidrBlockStateCode
+$mVpcCidrBlockStateCode_Associating :: forall r.
+VpcCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#%24bVpcCidrBlockStateCode_Associating"><span class="hs-identifier hs-var hs-var hs-var">VpcCidrBlockStateCode_Associating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode%27"><span class="hs-identifier hs-type">VpcCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;associating&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Disassociated"><span class="hs-identifier hs-type">VpcCidrBlockStateCode_Disassociated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVpcCidrBlockStateCode_Disassociated"><span id="%24mVpcCidrBlockStateCode_Disassociated"><span id="VpcCidrBlockStateCode_Disassociated"><span class="annot"><span class="annottext">$bVpcCidrBlockStateCode_Disassociated :: VpcCidrBlockStateCode
+$mVpcCidrBlockStateCode_Disassociated :: forall r.
+VpcCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#%24bVpcCidrBlockStateCode_Disassociated"><span class="hs-identifier hs-var hs-var hs-var">VpcCidrBlockStateCode_Disassociated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode%27"><span class="hs-identifier hs-type">VpcCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disassociated&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Disassociating"><span class="hs-identifier hs-type">VpcCidrBlockStateCode_Disassociating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVpcCidrBlockStateCode_Disassociating"><span id="%24mVpcCidrBlockStateCode_Disassociating"><span id="VpcCidrBlockStateCode_Disassociating"><span class="annot"><span class="annottext">$bVpcCidrBlockStateCode_Disassociating :: VpcCidrBlockStateCode
+$mVpcCidrBlockStateCode_Disassociating :: forall r.
+VpcCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#%24bVpcCidrBlockStateCode_Disassociating"><span class="hs-identifier hs-var hs-var hs-var">VpcCidrBlockStateCode_Disassociating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode%27"><span class="hs-identifier hs-type">VpcCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disassociating&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Failed"><span class="hs-identifier hs-type">VpcCidrBlockStateCode_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVpcCidrBlockStateCode_Failed"><span id="%24mVpcCidrBlockStateCode_Failed"><span id="VpcCidrBlockStateCode_Failed"><span class="annot"><span class="annottext">$bVpcCidrBlockStateCode_Failed :: VpcCidrBlockStateCode
+$mVpcCidrBlockStateCode_Failed :: forall r.
+VpcCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#%24bVpcCidrBlockStateCode_Failed"><span class="hs-identifier hs-var hs-var hs-var">VpcCidrBlockStateCode_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode%27"><span class="hs-identifier hs-type">VpcCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Failing"><span class="hs-identifier hs-type">VpcCidrBlockStateCode_Failing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVpcCidrBlockStateCode_Failing"><span id="%24mVpcCidrBlockStateCode_Failing"><span id="VpcCidrBlockStateCode_Failing"><span class="annot"><span class="annottext">$bVpcCidrBlockStateCode_Failing :: VpcCidrBlockStateCode
+$mVpcCidrBlockStateCode_Failing :: forall r.
+VpcCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#%24bVpcCidrBlockStateCode_Failing"><span class="hs-identifier hs-var hs-var hs-var">VpcCidrBlockStateCode_Failing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode%27"><span class="hs-identifier hs-type">VpcCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failing&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Associated"><span class="hs-pragma hs-type">VpcCidrBlockStateCode_Associated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Associating"><span class="hs-pragma hs-type">VpcCidrBlockStateCode_Associating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Disassociated"><span class="hs-pragma hs-type">VpcCidrBlockStateCode_Disassociated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Disassociating"><span class="hs-pragma hs-type">VpcCidrBlockStateCode_Disassociating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Failed"><span class="hs-pragma hs-type">VpcCidrBlockStateCode_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode_Failing"><span class="hs-pragma hs-type">VpcCidrBlockStateCode_Failing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode%27"><span class="hs-pragma hs-type">VpcCidrBlockStateCode'</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-92"></span></pre></body></html>

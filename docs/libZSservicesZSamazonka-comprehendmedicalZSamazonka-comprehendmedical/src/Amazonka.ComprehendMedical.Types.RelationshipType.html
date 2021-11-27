@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComprehendMedical.Types.RelationshipType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComprehendMedical.Types.RelationshipType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier">RelationshipType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_ACUITY"><span class="hs-identifier">RelationshipType_ACUITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_ADMINISTERED_VIA"><span class="hs-identifier">RelationshipType_ADMINISTERED_VIA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_DIRECTION"><span class="hs-identifier">RelationshipType_DIRECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_DOSAGE"><span class="hs-identifier">RelationshipType_DOSAGE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_DURATION"><span class="hs-identifier">RelationshipType_DURATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_EVERY"><span class="hs-identifier">RelationshipType_EVERY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_FOR"><span class="hs-identifier">RelationshipType_FOR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_FORM"><span class="hs-identifier">RelationshipType_FORM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_FREQUENCY"><span class="hs-identifier">RelationshipType_FREQUENCY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_NEGATIVE"><span class="hs-identifier">RelationshipType_NEGATIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_OVERLAP"><span class="hs-identifier">RelationshipType_OVERLAP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_RATE"><span class="hs-identifier">RelationshipType_RATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_ROUTE_OR_MODE"><span class="hs-identifier">RelationshipType_ROUTE_OR_MODE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_STRENGTH"><span class="hs-identifier">RelationshipType_STRENGTH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_SYSTEM_ORGAN_SITE"><span class="hs-identifier">RelationshipType_SYSTEM_ORGAN_SITE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_TEST_UNITS"><span class="hs-identifier">RelationshipType_TEST_UNITS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_TEST_VALUE"><span class="hs-identifier">RelationshipType_TEST_VALUE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_WITH_DOSAGE"><span class="hs-identifier">RelationshipType_WITH_DOSAGE</span></a></span><span>
+</span><span id="line-41"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679209060"><span id="local-6989586621679209061"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RelationshipType"><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-var">RelationshipType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelationshipType%27"><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-var">RelationshipType'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRelationshipType"><span class="annot"><span class="annottext">RelationshipType -&gt; Text
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#fromRelationshipType"><span class="hs-identifier hs-var hs-var">fromRelationshipType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209052"><span id="local-6989586621679209054"><span id="local-6989586621679209056"><span class="annot"><span class="annottext">Int -&gt; RelationshipType -&gt; ShowS
+[RelationshipType] -&gt; ShowS
+RelationshipType -&gt; String
+(Int -&gt; RelationshipType -&gt; ShowS)
+-&gt; (RelationshipType -&gt; String)
+-&gt; ([RelationshipType] -&gt; ShowS)
+-&gt; Show RelationshipType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RelationshipType] -&gt; ShowS
+$cshowList :: [RelationshipType] -&gt; ShowS
+show :: RelationshipType -&gt; String
+$cshow :: RelationshipType -&gt; String
+showsPrec :: Int -&gt; RelationshipType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RelationshipType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679209043"><span id="local-6989586621679209045"><span id="local-6989586621679209047"><span id="local-6989586621679209049"><span class="annot"><span class="annottext">ReadPrec [RelationshipType]
+ReadPrec RelationshipType
+Int -&gt; ReadS RelationshipType
+ReadS [RelationshipType]
+(Int -&gt; ReadS RelationshipType)
+-&gt; ReadS [RelationshipType]
+-&gt; ReadPrec RelationshipType
+-&gt; ReadPrec [RelationshipType]
+-&gt; Read RelationshipType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RelationshipType]
+$creadListPrec :: ReadPrec [RelationshipType]
+readPrec :: ReadPrec RelationshipType
+$creadPrec :: ReadPrec RelationshipType
+readList :: ReadS [RelationshipType]
+$creadList :: ReadS [RelationshipType]
+readsPrec :: Int -&gt; ReadS RelationshipType
+$creadsPrec :: Int -&gt; ReadS RelationshipType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209038"><span id="local-6989586621679209040"><span class="annot"><span class="annottext">RelationshipType -&gt; RelationshipType -&gt; Bool
+(RelationshipType -&gt; RelationshipType -&gt; Bool)
+-&gt; (RelationshipType -&gt; RelationshipType -&gt; Bool)
+-&gt; Eq RelationshipType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RelationshipType -&gt; RelationshipType -&gt; Bool
+$c/= :: RelationshipType -&gt; RelationshipType -&gt; Bool
+== :: RelationshipType -&gt; RelationshipType -&gt; Bool
+$c== :: RelationshipType -&gt; RelationshipType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209022"><span id="local-6989586621679209024"><span id="local-6989586621679209026"><span id="local-6989586621679209028"><span id="local-6989586621679209030"><span id="local-6989586621679209032"><span id="local-6989586621679209034"><span class="annot"><span class="annottext">Eq RelationshipType
+Eq RelationshipType
+-&gt; (RelationshipType -&gt; RelationshipType -&gt; Ordering)
+-&gt; (RelationshipType -&gt; RelationshipType -&gt; Bool)
+-&gt; (RelationshipType -&gt; RelationshipType -&gt; Bool)
+-&gt; (RelationshipType -&gt; RelationshipType -&gt; Bool)
+-&gt; (RelationshipType -&gt; RelationshipType -&gt; Bool)
+-&gt; (RelationshipType -&gt; RelationshipType -&gt; RelationshipType)
+-&gt; (RelationshipType -&gt; RelationshipType -&gt; RelationshipType)
+-&gt; Ord RelationshipType
+RelationshipType -&gt; RelationshipType -&gt; Bool
+RelationshipType -&gt; RelationshipType -&gt; Ordering
+RelationshipType -&gt; RelationshipType -&gt; RelationshipType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RelationshipType -&gt; RelationshipType -&gt; RelationshipType
+$cmin :: RelationshipType -&gt; RelationshipType -&gt; RelationshipType
+max :: RelationshipType -&gt; RelationshipType -&gt; RelationshipType
+$cmax :: RelationshipType -&gt; RelationshipType -&gt; RelationshipType
+&gt;= :: RelationshipType -&gt; RelationshipType -&gt; Bool
+$c&gt;= :: RelationshipType -&gt; RelationshipType -&gt; Bool
+&gt; :: RelationshipType -&gt; RelationshipType -&gt; Bool
+$c&gt; :: RelationshipType -&gt; RelationshipType -&gt; Bool
+&lt;= :: RelationshipType -&gt; RelationshipType -&gt; Bool
+$c&lt;= :: RelationshipType -&gt; RelationshipType -&gt; Bool
+&lt; :: RelationshipType -&gt; RelationshipType -&gt; Bool
+$c&lt; :: RelationshipType -&gt; RelationshipType -&gt; Bool
+compare :: RelationshipType -&gt; RelationshipType -&gt; Ordering
+$ccompare :: RelationshipType -&gt; RelationshipType -&gt; Ordering
+$cp1Ord :: Eq RelationshipType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RelationshipType -&gt; Rep RelationshipType x)
+-&gt; (forall x. Rep RelationshipType x -&gt; RelationshipType)
+-&gt; Generic RelationshipType
+forall x. Rep RelationshipType x -&gt; RelationshipType
+forall x. RelationshipType -&gt; Rep RelationshipType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RelationshipType x -&gt; RelationshipType
+$cfrom :: forall x. RelationshipType -&gt; Rep RelationshipType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209014"><span id="local-6989586621679209016"><span class="annot"><span class="annottext">Int -&gt; RelationshipType -&gt; Int
+RelationshipType -&gt; Int
+(Int -&gt; RelationshipType -&gt; Int)
+-&gt; (RelationshipType -&gt; Int) -&gt; Hashable RelationshipType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RelationshipType -&gt; Int
+$chash :: RelationshipType -&gt; Int
+hashWithSalt :: Int -&gt; RelationshipType -&gt; Int
+$chashWithSalt :: Int -&gt; RelationshipType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679209011"><span class="annot"><span class="annottext">RelationshipType -&gt; ()
+(RelationshipType -&gt; ()) -&gt; NFData RelationshipType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RelationshipType -&gt; ()
+$crnf :: RelationshipType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679209008"><span class="annot"><span class="annottext">Text -&gt; Either String RelationshipType
+(Text -&gt; Either String RelationshipType)
+-&gt; FromText RelationshipType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RelationshipType
+$cfromText :: Text -&gt; Either String RelationshipType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679209005"><span class="annot"><span class="annottext">RelationshipType -&gt; Text
+(RelationshipType -&gt; Text) -&gt; ToText RelationshipType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RelationshipType -&gt; Text
+$ctoText :: RelationshipType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679209002"><span class="annot"><span class="annottext">RelationshipType -&gt; ByteString
+(RelationshipType -&gt; ByteString) -&gt; ToByteString RelationshipType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RelationshipType -&gt; ByteString
+$ctoBS :: RelationshipType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679208999"><span class="annot"><span class="annottext">RelationshipType -&gt; ByteStringBuilder
+(RelationshipType -&gt; ByteStringBuilder) -&gt; ToLog RelationshipType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RelationshipType -&gt; ByteStringBuilder
+$cbuild :: RelationshipType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679208996"><span class="annot"><span class="annottext">HeaderName -&gt; RelationshipType -&gt; [Header]
+(HeaderName -&gt; RelationshipType -&gt; [Header])
+-&gt; ToHeader RelationshipType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RelationshipType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RelationshipType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679208993"><span class="annot"><span class="annottext">RelationshipType -&gt; QueryString
+(RelationshipType -&gt; QueryString) -&gt; ToQuery RelationshipType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RelationshipType -&gt; QueryString
+$ctoQuery :: RelationshipType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679208988"><span id="local-6989586621679208990"><span class="annot"><span class="annottext">Value -&gt; Parser [RelationshipType]
+Value -&gt; Parser RelationshipType
+(Value -&gt; Parser RelationshipType)
+-&gt; (Value -&gt; Parser [RelationshipType])
+-&gt; FromJSON RelationshipType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RelationshipType]
+$cparseJSONList :: Value -&gt; Parser [RelationshipType]
+parseJSON :: Value -&gt; Parser RelationshipType
+$cparseJSON :: Value -&gt; Parser RelationshipType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679208983"><span id="local-6989586621679208985"><span class="annot"><span class="annottext">FromJSONKeyFunction [RelationshipType]
+FromJSONKeyFunction RelationshipType
+FromJSONKeyFunction RelationshipType
+-&gt; FromJSONKeyFunction [RelationshipType]
+-&gt; FromJSONKey RelationshipType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RelationshipType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RelationshipType]
+fromJSONKey :: FromJSONKeyFunction RelationshipType
+$cfromJSONKey :: FromJSONKeyFunction RelationshipType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679208974"><span id="local-6989586621679208976"><span id="local-6989586621679208978"><span id="local-6989586621679208980"><span class="annot"><span class="annottext">[RelationshipType] -&gt; Encoding
+[RelationshipType] -&gt; Value
+RelationshipType -&gt; Encoding
+RelationshipType -&gt; Value
+(RelationshipType -&gt; Value)
+-&gt; (RelationshipType -&gt; Encoding)
+-&gt; ([RelationshipType] -&gt; Value)
+-&gt; ([RelationshipType] -&gt; Encoding)
+-&gt; ToJSON RelationshipType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RelationshipType] -&gt; Encoding
+$ctoEncodingList :: [RelationshipType] -&gt; Encoding
+toJSONList :: [RelationshipType] -&gt; Value
+$ctoJSONList :: [RelationshipType] -&gt; Value
+toEncoding :: RelationshipType -&gt; Encoding
+$ctoEncoding :: RelationshipType -&gt; Encoding
+toJSON :: RelationshipType -&gt; Value
+$ctoJSON :: RelationshipType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679208969"><span id="local-6989586621679208971"><span class="annot"><span class="annottext">ToJSONKeyFunction [RelationshipType]
+ToJSONKeyFunction RelationshipType
+ToJSONKeyFunction RelationshipType
+-&gt; ToJSONKeyFunction [RelationshipType]
+-&gt; ToJSONKey RelationshipType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RelationshipType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RelationshipType]
+toJSONKey :: ToJSONKeyFunction RelationshipType
+$ctoJSONKey :: ToJSONKeyFunction RelationshipType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679208966"><span class="annot"><span class="annottext">[Node] -&gt; Either String RelationshipType
+([Node] -&gt; Either String RelationshipType)
+-&gt; FromXML RelationshipType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RelationshipType
+$cparseXML :: [Node] -&gt; Either String RelationshipType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679208963"><span class="annot"><span class="annottext">RelationshipType -&gt; XML
+(RelationshipType -&gt; XML) -&gt; ToXML RelationshipType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RelationshipType -&gt; XML
+$ctoXML :: RelationshipType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_ACUITY"><span class="hs-identifier hs-type">RelationshipType_ACUITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_ACUITY"><span id="%24mRelationshipType_ACUITY"><span id="RelationshipType_ACUITY"><span class="annot"><span class="annottext">$bRelationshipType_ACUITY :: RelationshipType
+$mRelationshipType_ACUITY :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_ACUITY"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_ACUITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACUITY&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_ADMINISTERED_VIA"><span class="hs-identifier hs-type">RelationshipType_ADMINISTERED_VIA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_ADMINISTERED_VIA"><span id="%24mRelationshipType_ADMINISTERED_VIA"><span id="RelationshipType_ADMINISTERED_VIA"><span class="annot"><span class="annottext">$bRelationshipType_ADMINISTERED_VIA :: RelationshipType
+$mRelationshipType_ADMINISTERED_VIA :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_ADMINISTERED_VIA"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_ADMINISTERED_VIA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADMINISTERED_VIA&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_DIRECTION"><span class="hs-identifier hs-type">RelationshipType_DIRECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_DIRECTION"><span id="%24mRelationshipType_DIRECTION"><span id="RelationshipType_DIRECTION"><span class="annot"><span class="annottext">$bRelationshipType_DIRECTION :: RelationshipType
+$mRelationshipType_DIRECTION :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_DIRECTION"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_DIRECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIRECTION&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_DOSAGE"><span class="hs-identifier hs-type">RelationshipType_DOSAGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_DOSAGE"><span id="%24mRelationshipType_DOSAGE"><span id="RelationshipType_DOSAGE"><span class="annot"><span class="annottext">$bRelationshipType_DOSAGE :: RelationshipType
+$mRelationshipType_DOSAGE :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_DOSAGE"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_DOSAGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DOSAGE&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_DURATION"><span class="hs-identifier hs-type">RelationshipType_DURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_DURATION"><span id="%24mRelationshipType_DURATION"><span id="RelationshipType_DURATION"><span class="annot"><span class="annottext">$bRelationshipType_DURATION :: RelationshipType
+$mRelationshipType_DURATION :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_DURATION"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_DURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DURATION&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_EVERY"><span class="hs-identifier hs-type">RelationshipType_EVERY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_EVERY"><span id="%24mRelationshipType_EVERY"><span id="RelationshipType_EVERY"><span class="annot"><span class="annottext">$bRelationshipType_EVERY :: RelationshipType
+$mRelationshipType_EVERY :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_EVERY"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_EVERY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EVERY&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_FOR"><span class="hs-identifier hs-type">RelationshipType_FOR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_FOR"><span id="%24mRelationshipType_FOR"><span id="RelationshipType_FOR"><span class="annot"><span class="annottext">$bRelationshipType_FOR :: RelationshipType
+$mRelationshipType_FOR :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_FOR"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_FOR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FOR&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_FORM"><span class="hs-identifier hs-type">RelationshipType_FORM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_FORM"><span id="%24mRelationshipType_FORM"><span id="RelationshipType_FORM"><span class="annot"><span class="annottext">$bRelationshipType_FORM :: RelationshipType
+$mRelationshipType_FORM :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_FORM"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_FORM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FORM&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_FREQUENCY"><span class="hs-identifier hs-type">RelationshipType_FREQUENCY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_FREQUENCY"><span id="%24mRelationshipType_FREQUENCY"><span id="RelationshipType_FREQUENCY"><span class="annot"><span class="annottext">$bRelationshipType_FREQUENCY :: RelationshipType
+$mRelationshipType_FREQUENCY :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_FREQUENCY"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_FREQUENCY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FREQUENCY&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_NEGATIVE"><span class="hs-identifier hs-type">RelationshipType_NEGATIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_NEGATIVE"><span id="%24mRelationshipType_NEGATIVE"><span id="RelationshipType_NEGATIVE"><span class="annot"><span class="annottext">$bRelationshipType_NEGATIVE :: RelationshipType
+$mRelationshipType_NEGATIVE :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_NEGATIVE"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_NEGATIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NEGATIVE&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_OVERLAP"><span class="hs-identifier hs-type">RelationshipType_OVERLAP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_OVERLAP"><span id="%24mRelationshipType_OVERLAP"><span id="RelationshipType_OVERLAP"><span class="annot"><span class="annottext">$bRelationshipType_OVERLAP :: RelationshipType
+$mRelationshipType_OVERLAP :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_OVERLAP"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_OVERLAP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OVERLAP&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_RATE"><span class="hs-identifier hs-type">RelationshipType_RATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_RATE"><span id="%24mRelationshipType_RATE"><span id="RelationshipType_RATE"><span class="annot"><span class="annottext">$bRelationshipType_RATE :: RelationshipType
+$mRelationshipType_RATE :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_RATE"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_RATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RATE&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_ROUTE_OR_MODE"><span class="hs-identifier hs-type">RelationshipType_ROUTE_OR_MODE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_ROUTE_OR_MODE"><span id="%24mRelationshipType_ROUTE_OR_MODE"><span id="RelationshipType_ROUTE_OR_MODE"><span class="annot"><span class="annottext">$bRelationshipType_ROUTE_OR_MODE :: RelationshipType
+$mRelationshipType_ROUTE_OR_MODE :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_ROUTE_OR_MODE"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_ROUTE_OR_MODE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROUTE_OR_MODE&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_STRENGTH"><span class="hs-identifier hs-type">RelationshipType_STRENGTH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_STRENGTH"><span id="%24mRelationshipType_STRENGTH"><span id="RelationshipType_STRENGTH"><span class="annot"><span class="annottext">$bRelationshipType_STRENGTH :: RelationshipType
+$mRelationshipType_STRENGTH :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_STRENGTH"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_STRENGTH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_SYSTEM_ORGAN_SITE"><span class="hs-identifier hs-type">RelationshipType_SYSTEM_ORGAN_SITE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_SYSTEM_ORGAN_SITE"><span id="%24mRelationshipType_SYSTEM_ORGAN_SITE"><span id="RelationshipType_SYSTEM_ORGAN_SITE"><span class="annot"><span class="annottext">$bRelationshipType_SYSTEM_ORGAN_SITE :: RelationshipType
+$mRelationshipType_SYSTEM_ORGAN_SITE :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_SYSTEM_ORGAN_SITE"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_SYSTEM_ORGAN_SITE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYSTEM_ORGAN_SITE&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_TEST_UNITS"><span class="hs-identifier hs-type">RelationshipType_TEST_UNITS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_TEST_UNITS"><span id="%24mRelationshipType_TEST_UNITS"><span id="RelationshipType_TEST_UNITS"><span class="annot"><span class="annottext">$bRelationshipType_TEST_UNITS :: RelationshipType
+$mRelationshipType_TEST_UNITS :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_TEST_UNITS"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_TEST_UNITS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TEST_UNITS&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_TEST_VALUE"><span class="hs-identifier hs-type">RelationshipType_TEST_VALUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_TEST_VALUE"><span id="%24mRelationshipType_TEST_VALUE"><span id="RelationshipType_TEST_VALUE"><span class="annot"><span class="annottext">$bRelationshipType_TEST_VALUE :: RelationshipType
+$mRelationshipType_TEST_VALUE :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_TEST_VALUE"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_TEST_VALUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TEST_VALUE&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_WITH_DOSAGE"><span class="hs-identifier hs-type">RelationshipType_WITH_DOSAGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipType_WITH_DOSAGE"><span id="%24mRelationshipType_WITH_DOSAGE"><span id="RelationshipType_WITH_DOSAGE"><span class="annot"><span class="annottext">$bRelationshipType_WITH_DOSAGE :: RelationshipType
+$mRelationshipType_WITH_DOSAGE :: forall r. RelationshipType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#%24bRelationshipType_WITH_DOSAGE"><span class="hs-identifier hs-var hs-var hs-var">RelationshipType_WITH_DOSAGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-identifier hs-type">RelationshipType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WITH_DOSAGE&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_ACUITY"><span class="hs-pragma hs-type">RelationshipType_ACUITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_ADMINISTERED_VIA"><span class="hs-pragma hs-type">RelationshipType_ADMINISTERED_VIA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_DIRECTION"><span class="hs-pragma hs-type">RelationshipType_DIRECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_DOSAGE"><span class="hs-pragma hs-type">RelationshipType_DOSAGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_DURATION"><span class="hs-pragma hs-type">RelationshipType_DURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_EVERY"><span class="hs-pragma hs-type">RelationshipType_EVERY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_FOR"><span class="hs-pragma hs-type">RelationshipType_FOR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_FORM"><span class="hs-pragma hs-type">RelationshipType_FORM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_FREQUENCY"><span class="hs-pragma hs-type">RelationshipType_FREQUENCY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_NEGATIVE"><span class="hs-pragma hs-type">RelationshipType_NEGATIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_OVERLAP"><span class="hs-pragma hs-type">RelationshipType_OVERLAP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_RATE"><span class="hs-pragma hs-type">RelationshipType_RATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_ROUTE_OR_MODE"><span class="hs-pragma hs-type">RelationshipType_ROUTE_OR_MODE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_STRENGTH"><span class="hs-pragma hs-type">RelationshipType_STRENGTH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_SYSTEM_ORGAN_SITE"><span class="hs-pragma hs-type">RelationshipType_SYSTEM_ORGAN_SITE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_TEST_UNITS"><span class="hs-pragma hs-type">RelationshipType_TEST_UNITS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_TEST_VALUE"><span class="hs-pragma hs-type">RelationshipType_TEST_VALUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType_WITH_DOSAGE"><span class="hs-pragma hs-type">RelationshipType_WITH_DOSAGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.RelationshipType.html#RelationshipType%27"><span class="hs-pragma hs-type">RelationshipType'</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-151"></span></pre></body></html>

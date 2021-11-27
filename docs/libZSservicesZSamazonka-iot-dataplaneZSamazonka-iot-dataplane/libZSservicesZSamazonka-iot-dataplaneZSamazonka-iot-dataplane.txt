@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.IoTData.Types.RetainedMessageSummary
+module Amazonka.IoTData.Types.RetainedMessageSummary
 
 -- | Information about a single retained message.
 --   
@@ -66,16 +66,16 @@ retainedMessageSummary_qos :: Lens' RetainedMessageSummary (Maybe Natural)
 
 -- | The size of the retained message's payload in bytes.
 retainedMessageSummary_payloadSize :: Lens' RetainedMessageSummary (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
-instance GHC.Show.Show Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
-instance GHC.Read.Read Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
-instance GHC.Classes.Eq Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
-instance Control.DeepSeq.NFData Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
+instance GHC.Generics.Generic Amazonka.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
+instance GHC.Show.Show Amazonka.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
+instance GHC.Read.Read Amazonka.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
+instance GHC.Classes.Eq Amazonka.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
+instance Data.Hashable.Class.Hashable Amazonka.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
+instance Control.DeepSeq.NFData Amazonka.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
 
 
-module Network.AWS.IoTData.Types
+module Amazonka.IoTData.Types
 
 -- | API version <tt>2015-05-28</tt> of the Amazon IoT Data Plane SDK
 --   configuration.
@@ -181,7 +181,7 @@ retainedMessageSummary_payloadSize :: Lens' RetainedMessageSummary (Maybe Intege
 --   
 --   For more information about messaging costs, see <a>IoT Core pricing -
 --   Messaging</a>.
-module Network.AWS.IoTData.Publish
+module Amazonka.IoTData.Publish
 
 -- | The input for the Publish operation.
 --   
@@ -279,22 +279,22 @@ PublishResponse' :: PublishResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPublishResponse :: PublishResponse
-instance GHC.Generics.Generic Network.AWS.IoTData.Publish.Publish
-instance GHC.Show.Show Network.AWS.IoTData.Publish.Publish
-instance GHC.Read.Read Network.AWS.IoTData.Publish.Publish
-instance GHC.Classes.Eq Network.AWS.IoTData.Publish.Publish
-instance GHC.Generics.Generic Network.AWS.IoTData.Publish.PublishResponse
-instance GHC.Show.Show Network.AWS.IoTData.Publish.PublishResponse
-instance GHC.Read.Read Network.AWS.IoTData.Publish.PublishResponse
-instance GHC.Classes.Eq Network.AWS.IoTData.Publish.PublishResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTData.Publish.Publish
-instance Control.DeepSeq.NFData Network.AWS.IoTData.Publish.PublishResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTData.Publish.Publish
-instance Control.DeepSeq.NFData Network.AWS.IoTData.Publish.Publish
-instance Network.AWS.Data.Body.ToBody Network.AWS.IoTData.Publish.Publish
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTData.Publish.Publish
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTData.Publish.Publish
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.Publish.Publish
+instance GHC.Generics.Generic Amazonka.IoTData.Publish.Publish
+instance GHC.Show.Show Amazonka.IoTData.Publish.Publish
+instance GHC.Read.Read Amazonka.IoTData.Publish.Publish
+instance GHC.Classes.Eq Amazonka.IoTData.Publish.Publish
+instance GHC.Generics.Generic Amazonka.IoTData.Publish.PublishResponse
+instance GHC.Show.Show Amazonka.IoTData.Publish.PublishResponse
+instance GHC.Read.Read Amazonka.IoTData.Publish.PublishResponse
+instance GHC.Classes.Eq Amazonka.IoTData.Publish.PublishResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTData.Publish.Publish
+instance Control.DeepSeq.NFData Amazonka.IoTData.Publish.PublishResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTData.Publish.Publish
+instance Control.DeepSeq.NFData Amazonka.IoTData.Publish.Publish
+instance Amazonka.Data.Body.ToBody Amazonka.IoTData.Publish.Publish
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTData.Publish.Publish
+instance Amazonka.Data.Path.ToPath Amazonka.IoTData.Publish.Publish
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTData.Publish.Publish
 
 
 -- | Lists summary information about the retained messages stored for the
@@ -313,7 +313,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.Publish.Publish
 --   Messaging</a>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IoTData.ListRetainedMessages
+module Amazonka.IoTData.ListRetainedMessages
 
 -- | <i>See:</i> <a>newListRetainedMessages</a> smart constructor.
 data ListRetainedMessages
@@ -404,29 +404,29 @@ listRetainedMessagesResponse_nextToken :: Lens' ListRetainedMessagesResponse (Ma
 
 -- | The response's http status code.
 listRetainedMessagesResponse_httpStatus :: Lens' ListRetainedMessagesResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance GHC.Show.Show Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance GHC.Read.Read Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance GHC.Classes.Eq Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance GHC.Generics.Generic Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
-instance GHC.Show.Show Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
-instance GHC.Read.Read Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
-instance GHC.Classes.Eq Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance Control.DeepSeq.NFData Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance Data.Hashable.Class.Hashable Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance Control.DeepSeq.NFData Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.ListRetainedMessages.ListRetainedMessages
+instance GHC.Generics.Generic Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance GHC.Show.Show Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance GHC.Read.Read Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance GHC.Classes.Eq Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance GHC.Generics.Generic Amazonka.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
+instance GHC.Show.Show Amazonka.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
+instance GHC.Read.Read Amazonka.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
+instance GHC.Classes.Eq Amazonka.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance Control.DeepSeq.NFData Amazonka.IoTData.ListRetainedMessages.ListRetainedMessagesResponse
+instance Amazonka.Pager.AWSPager Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance Data.Hashable.Class.Hashable Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance Control.DeepSeq.NFData Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance Amazonka.Data.Path.ToPath Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTData.ListRetainedMessages.ListRetainedMessages
 
 
 -- | Lists the shadows for the specified thing.
 --   
 --   Requires permission to access the <a>ListNamedShadowsForThing</a>
 --   action.
-module Network.AWS.IoTData.ListNamedShadowsForThing
+module Amazonka.IoTData.ListNamedShadowsForThing
 
 -- | <i>See:</i> <a>newListNamedShadowsForThing</a> smart constructor.
 data ListNamedShadowsForThing
@@ -527,21 +527,21 @@ listNamedShadowsForThingResponse_timestamp :: Lens' ListNamedShadowsForThingResp
 
 -- | The response's http status code.
 listNamedShadowsForThingResponse_httpStatus :: Lens' ListNamedShadowsForThingResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
-instance GHC.Show.Show Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
-instance GHC.Read.Read Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
-instance GHC.Classes.Eq Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
-instance GHC.Generics.Generic Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
-instance GHC.Show.Show Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
-instance GHC.Read.Read Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
-instance GHC.Classes.Eq Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
-instance Control.DeepSeq.NFData Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
-instance Control.DeepSeq.NFData Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance GHC.Generics.Generic Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance GHC.Show.Show Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance GHC.Read.Read Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance GHC.Classes.Eq Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance GHC.Generics.Generic Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
+instance GHC.Show.Show Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
+instance GHC.Read.Read Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
+instance GHC.Classes.Eq Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance Control.DeepSeq.NFData Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThingResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance Control.DeepSeq.NFData Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance Amazonka.Data.Path.ToPath Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTData.ListNamedShadowsForThing.ListNamedShadowsForThing
 
 
 -- | Gets the shadow for the specified thing.
@@ -550,7 +550,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.ListNamedShadowsForT
 --   
 --   For more information, see <a>GetThingShadow</a> in the IoT Developer
 --   Guide.
-module Network.AWS.IoTData.GetThingShadow
+module Amazonka.IoTData.GetThingShadow
 
 -- | The input for the GetThingShadow operation.
 --   
@@ -621,20 +621,20 @@ getThingShadowResponse_payload :: Lens' GetThingShadowResponse (Maybe ByteString
 
 -- | The response's http status code.
 getThingShadowResponse_httpStatus :: Lens' GetThingShadowResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTData.GetThingShadow.GetThingShadow
-instance GHC.Show.Show Network.AWS.IoTData.GetThingShadow.GetThingShadow
-instance GHC.Read.Read Network.AWS.IoTData.GetThingShadow.GetThingShadow
-instance GHC.Classes.Eq Network.AWS.IoTData.GetThingShadow.GetThingShadow
-instance GHC.Generics.Generic Network.AWS.IoTData.GetThingShadow.GetThingShadowResponse
-instance GHC.Show.Show Network.AWS.IoTData.GetThingShadow.GetThingShadowResponse
-instance GHC.Classes.Eq Network.AWS.IoTData.GetThingShadow.GetThingShadowResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTData.GetThingShadow.GetThingShadow
-instance Control.DeepSeq.NFData Network.AWS.IoTData.GetThingShadow.GetThingShadowResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTData.GetThingShadow.GetThingShadow
-instance Control.DeepSeq.NFData Network.AWS.IoTData.GetThingShadow.GetThingShadow
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTData.GetThingShadow.GetThingShadow
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTData.GetThingShadow.GetThingShadow
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.GetThingShadow.GetThingShadow
+instance GHC.Generics.Generic Amazonka.IoTData.GetThingShadow.GetThingShadow
+instance GHC.Show.Show Amazonka.IoTData.GetThingShadow.GetThingShadow
+instance GHC.Read.Read Amazonka.IoTData.GetThingShadow.GetThingShadow
+instance GHC.Classes.Eq Amazonka.IoTData.GetThingShadow.GetThingShadow
+instance GHC.Generics.Generic Amazonka.IoTData.GetThingShadow.GetThingShadowResponse
+instance GHC.Show.Show Amazonka.IoTData.GetThingShadow.GetThingShadowResponse
+instance GHC.Classes.Eq Amazonka.IoTData.GetThingShadow.GetThingShadowResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTData.GetThingShadow.GetThingShadow
+instance Control.DeepSeq.NFData Amazonka.IoTData.GetThingShadow.GetThingShadowResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTData.GetThingShadow.GetThingShadow
+instance Control.DeepSeq.NFData Amazonka.IoTData.GetThingShadow.GetThingShadow
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTData.GetThingShadow.GetThingShadow
+instance Amazonka.Data.Path.ToPath Amazonka.IoTData.GetThingShadow.GetThingShadow
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTData.GetThingShadow.GetThingShadow
 
 
 -- | Gets the details of a single retained message for the specified topic.
@@ -647,7 +647,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.GetThingShadow.GetTh
 --   
 --   For more information about messaging costs, see <a>IoT Core pricing -
 --   Messaging</a>.
-module Network.AWS.IoTData.GetRetainedMessage
+module Amazonka.IoTData.GetRetainedMessage
 
 -- | The input for the GetRetainedMessage operation.
 --   
@@ -754,21 +754,21 @@ getRetainedMessageResponse_qos :: Lens' GetRetainedMessageResponse (Maybe Natura
 
 -- | The response's http status code.
 getRetainedMessageResponse_httpStatus :: Lens' GetRetainedMessageResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
-instance GHC.Show.Show Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
-instance GHC.Read.Read Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
-instance GHC.Classes.Eq Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
-instance GHC.Generics.Generic Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessageResponse
-instance GHC.Show.Show Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessageResponse
-instance GHC.Read.Read Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessageResponse
-instance GHC.Classes.Eq Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
-instance Control.DeepSeq.NFData Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
-instance Control.DeepSeq.NFData Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.GetRetainedMessage.GetRetainedMessage
+instance GHC.Generics.Generic Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
+instance GHC.Show.Show Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
+instance GHC.Read.Read Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
+instance GHC.Classes.Eq Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
+instance GHC.Generics.Generic Amazonka.IoTData.GetRetainedMessage.GetRetainedMessageResponse
+instance GHC.Show.Show Amazonka.IoTData.GetRetainedMessage.GetRetainedMessageResponse
+instance GHC.Read.Read Amazonka.IoTData.GetRetainedMessage.GetRetainedMessageResponse
+instance GHC.Classes.Eq Amazonka.IoTData.GetRetainedMessage.GetRetainedMessageResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
+instance Control.DeepSeq.NFData Amazonka.IoTData.GetRetainedMessage.GetRetainedMessageResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
+instance Control.DeepSeq.NFData Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
+instance Amazonka.Data.Path.ToPath Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTData.GetRetainedMessage.GetRetainedMessage
 
 
 -- | Deletes the shadow for the specified thing.
@@ -777,7 +777,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.GetRetainedMessage.G
 --   
 --   For more information, see <a>DeleteThingShadow</a> in the IoT
 --   Developer Guide.
-module Network.AWS.IoTData.DeleteThingShadow
+module Amazonka.IoTData.DeleteThingShadow
 
 -- | The input for the DeleteThingShadow operation.
 --   
@@ -848,20 +848,20 @@ deleteThingShadowResponse_httpStatus :: Lens' DeleteThingShadowResponse Int
 
 -- | The state information, in JSON format.
 deleteThingShadowResponse_payload :: Lens' DeleteThingShadowResponse ByteString
-instance GHC.Generics.Generic Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
-instance GHC.Show.Show Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
-instance GHC.Read.Read Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
-instance GHC.Classes.Eq Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
-instance GHC.Generics.Generic Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadowResponse
-instance GHC.Show.Show Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadowResponse
-instance GHC.Classes.Eq Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadowResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
-instance Control.DeepSeq.NFData Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadowResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
-instance Control.DeepSeq.NFData Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.DeleteThingShadow.DeleteThingShadow
+instance GHC.Generics.Generic Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
+instance GHC.Show.Show Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
+instance GHC.Read.Read Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
+instance GHC.Classes.Eq Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
+instance GHC.Generics.Generic Amazonka.IoTData.DeleteThingShadow.DeleteThingShadowResponse
+instance GHC.Show.Show Amazonka.IoTData.DeleteThingShadow.DeleteThingShadowResponse
+instance GHC.Classes.Eq Amazonka.IoTData.DeleteThingShadow.DeleteThingShadowResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
+instance Control.DeepSeq.NFData Amazonka.IoTData.DeleteThingShadow.DeleteThingShadowResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
+instance Control.DeepSeq.NFData Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
+instance Amazonka.Data.Path.ToPath Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTData.DeleteThingShadow.DeleteThingShadow
 
 
 -- | Updates the shadow for the specified thing.
@@ -870,7 +870,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.DeleteThingShadow.De
 --   
 --   For more information, see <a>UpdateThingShadow</a> in the IoT
 --   Developer Guide.
-module Network.AWS.IoTData.UpdateThingShadow
+module Amazonka.IoTData.UpdateThingShadow
 
 -- | The input for the UpdateThingShadow operation.
 --   
@@ -951,23 +951,23 @@ updateThingShadowResponse_payload :: Lens' UpdateThingShadowResponse (Maybe Byte
 
 -- | The response's http status code.
 updateThingShadowResponse_httpStatus :: Lens' UpdateThingShadowResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
-instance GHC.Show.Show Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
-instance GHC.Classes.Eq Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
-instance GHC.Generics.Generic Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadowResponse
-instance GHC.Show.Show Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadowResponse
-instance GHC.Classes.Eq Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadowResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
-instance Control.DeepSeq.NFData Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadowResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
-instance Control.DeepSeq.NFData Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
-instance Network.AWS.Data.Body.ToBody Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTData.UpdateThingShadow.UpdateThingShadow
+instance GHC.Generics.Generic Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
+instance GHC.Show.Show Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
+instance GHC.Classes.Eq Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
+instance GHC.Generics.Generic Amazonka.IoTData.UpdateThingShadow.UpdateThingShadowResponse
+instance GHC.Show.Show Amazonka.IoTData.UpdateThingShadow.UpdateThingShadowResponse
+instance GHC.Classes.Eq Amazonka.IoTData.UpdateThingShadow.UpdateThingShadowResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
+instance Control.DeepSeq.NFData Amazonka.IoTData.UpdateThingShadow.UpdateThingShadowResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
+instance Control.DeepSeq.NFData Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
+instance Amazonka.Data.Body.ToBody Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
+instance Amazonka.Data.Path.ToPath Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTData.UpdateThingShadow.UpdateThingShadow
 
 
-module Network.AWS.IoTData.Lens
+module Amazonka.IoTData.Lens
 
 -- | The name of the shadow.
 getThingShadow_shadowName :: Lens' GetThingShadow (Maybe Text)
@@ -1114,7 +1114,7 @@ retainedMessageSummary_qos :: Lens' RetainedMessageSummary (Maybe Natural)
 retainedMessageSummary_payloadSize :: Lens' RetainedMessageSummary (Maybe Integer)
 
 
-module Network.AWS.IoTData.Waiters
+module Amazonka.IoTData.Waiters
 
 
 -- | Derived from API version <tt>2015-05-28</tt> of the AWS service
@@ -1139,7 +1139,7 @@ module Network.AWS.IoTData.Waiters
 --   
 --   The service name used by <a>Amazon Web ServicesSignature Version 4</a>
 --   to sign requests is: <i>iotdevicegateway</i>.
-module Network.AWS.IoTData
+module Amazonka.IoTData
 
 -- | API version <tt>2015-05-28</tt> of the Amazon IoT Data Plane SDK
 --   configuration.

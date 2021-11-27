@@ -1,0 +1,724 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaTailor.ListPlaybackConfigurations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of the playback configurations defined in AWS Elemental</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- MediaTailor. You can specify a maximum number of configurations to</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- return at a time. The default maximum is 50. Results are returned in</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- pagefuls. If MediaTailor has more configurations than the specified</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- maximum, it provides parameters in the response that you can use to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- retrieve the next pageful.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaTailor.ListPlaybackConfigurations</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier">ListPlaybackConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#newListPlaybackConfigurations"><span class="hs-identifier">newListPlaybackConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurations_nextToken"><span class="hs-identifier">listPlaybackConfigurations_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurations_maxResults"><span class="hs-identifier">listPlaybackConfigurations_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier">ListPlaybackConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#newListPlaybackConfigurationsResponse"><span class="hs-identifier">newListPlaybackConfigurationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_items"><span class="hs-identifier">listPlaybackConfigurationsResponse_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_nextToken"><span class="hs-identifier">listPlaybackConfigurationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_httpStatus"><span class="hs-identifier">listPlaybackConfigurationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.html"><span class="hs-identifier">Amazonka.MediaTailor.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListPlaybackConfigurations' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679271900"><span id="local-6989586621679271901"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPlaybackConfigurations"><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-var">ListPlaybackConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPlaybackConfigurations%27"><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations%27"><span class="hs-identifier hs-var">ListPlaybackConfigurations'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pagination token returned by the GET list request when results exceed</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the maximum allowed. Use the token to fetch the next page of results.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListPlaybackConfigurations%27"><span class="annot"><span class="annottext">ListPlaybackConfigurations -&gt; Maybe Text
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AnextToken%3AListPlaybackConfigurations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Maximum number of records to return.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPlaybackConfigurations%27"><span class="annot"><span class="annottext">ListPlaybackConfigurations -&gt; Maybe Natural
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AmaxResults%3AListPlaybackConfigurations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271893"><span id="local-6989586621679271895"><span class="annot"><span class="annottext">ListPlaybackConfigurations -&gt; ListPlaybackConfigurations -&gt; Bool
+(ListPlaybackConfigurations -&gt; ListPlaybackConfigurations -&gt; Bool)
+-&gt; (ListPlaybackConfigurations
+    -&gt; ListPlaybackConfigurations -&gt; Bool)
+-&gt; Eq ListPlaybackConfigurations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPlaybackConfigurations -&gt; ListPlaybackConfigurations -&gt; Bool
+$c/= :: ListPlaybackConfigurations -&gt; ListPlaybackConfigurations -&gt; Bool
+== :: ListPlaybackConfigurations -&gt; ListPlaybackConfigurations -&gt; Bool
+$c== :: ListPlaybackConfigurations -&gt; ListPlaybackConfigurations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271884"><span id="local-6989586621679271886"><span id="local-6989586621679271888"><span id="local-6989586621679271890"><span class="annot"><span class="annottext">ReadPrec [ListPlaybackConfigurations]
+ReadPrec ListPlaybackConfigurations
+Int -&gt; ReadS ListPlaybackConfigurations
+ReadS [ListPlaybackConfigurations]
+(Int -&gt; ReadS ListPlaybackConfigurations)
+-&gt; ReadS [ListPlaybackConfigurations]
+-&gt; ReadPrec ListPlaybackConfigurations
+-&gt; ReadPrec [ListPlaybackConfigurations]
+-&gt; Read ListPlaybackConfigurations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPlaybackConfigurations]
+$creadListPrec :: ReadPrec [ListPlaybackConfigurations]
+readPrec :: ReadPrec ListPlaybackConfigurations
+$creadPrec :: ReadPrec ListPlaybackConfigurations
+readList :: ReadS [ListPlaybackConfigurations]
+$creadList :: ReadS [ListPlaybackConfigurations]
+readsPrec :: Int -&gt; ReadS ListPlaybackConfigurations
+$creadsPrec :: Int -&gt; ReadS ListPlaybackConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271877"><span id="local-6989586621679271879"><span id="local-6989586621679271881"><span class="annot"><span class="annottext">Int -&gt; ListPlaybackConfigurations -&gt; ShowS
+[ListPlaybackConfigurations] -&gt; ShowS
+ListPlaybackConfigurations -&gt; String
+(Int -&gt; ListPlaybackConfigurations -&gt; ShowS)
+-&gt; (ListPlaybackConfigurations -&gt; String)
+-&gt; ([ListPlaybackConfigurations] -&gt; ShowS)
+-&gt; Show ListPlaybackConfigurations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPlaybackConfigurations] -&gt; ShowS
+$cshowList :: [ListPlaybackConfigurations] -&gt; ShowS
+show :: ListPlaybackConfigurations -&gt; String
+$cshow :: ListPlaybackConfigurations -&gt; String
+showsPrec :: Int -&gt; ListPlaybackConfigurations -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPlaybackConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPlaybackConfigurations -&gt; Rep ListPlaybackConfigurations x)
+-&gt; (forall x.
+    Rep ListPlaybackConfigurations x -&gt; ListPlaybackConfigurations)
+-&gt; Generic ListPlaybackConfigurations
+forall x.
+Rep ListPlaybackConfigurations x -&gt; ListPlaybackConfigurations
+forall x.
+ListPlaybackConfigurations -&gt; Rep ListPlaybackConfigurations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPlaybackConfigurations x -&gt; ListPlaybackConfigurations
+$cfrom :: forall x.
+ListPlaybackConfigurations -&gt; Rep ListPlaybackConfigurations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListPlaybackConfigurations' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'listPlaybackConfigurations_nextToken' - Pagination token returned by the GET list request when results exceed</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the maximum allowed. Use the token to fetch the next page of results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'listPlaybackConfigurations_maxResults' - Maximum number of records to return.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#newListPlaybackConfigurations"><span class="hs-identifier hs-type">newListPlaybackConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span>
+</span><span id="line-82"></span><span id="newListPlaybackConfigurations"><span class="annot"><span class="annottext">newListPlaybackConfigurations :: ListPlaybackConfigurations
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#newListPlaybackConfigurations"><span class="hs-identifier hs-var hs-var">newListPlaybackConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">ListPlaybackConfigurations' :: Maybe Text -&gt; Maybe Natural -&gt; ListPlaybackConfigurations
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations%27"><span class="hs-identifier hs-type">ListPlaybackConfigurations'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPlaybackConfigurations' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AnextToken%3AListPlaybackConfigurations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPlaybackConfigurations' :: Maybe Natural
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AmaxResults%3AListPlaybackConfigurations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Pagination token returned by the GET list request when results exceed</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the maximum allowed. Use the token to fetch the next page of results.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurations_nextToken"><span class="hs-identifier hs-type">listPlaybackConfigurations_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="listPlaybackConfigurations_nextToken"><span class="annot"><span class="annottext">listPlaybackConfigurations_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPlaybackConfigurations -&gt; f ListPlaybackConfigurations
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurations_nextToken"><span class="hs-identifier hs-var hs-var">listPlaybackConfigurations_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackConfigurations -&gt; Maybe Text)
+-&gt; (ListPlaybackConfigurations
+    -&gt; Maybe Text -&gt; ListPlaybackConfigurations)
+-&gt; Lens
+     ListPlaybackConfigurations
+     ListPlaybackConfigurations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations%27"><span class="hs-identifier hs-type">ListPlaybackConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271871"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPlaybackConfigurations' :: ListPlaybackConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679271871"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271871"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271870"><span class="annot"><span class="annottext">s :: ListPlaybackConfigurations
+</span><a href="#local-6989586621679271870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations%27"><span class="hs-identifier hs-type">ListPlaybackConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271869"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackConfigurations
+</span><a href="#local-6989586621679271870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPlaybackConfigurations' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AnextToken%3AListPlaybackConfigurations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Maximum number of records to return.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurations_maxResults"><span class="hs-identifier hs-type">listPlaybackConfigurations_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="listPlaybackConfigurations_maxResults"><span class="annot"><span class="annottext">listPlaybackConfigurations_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPlaybackConfigurations -&gt; f ListPlaybackConfigurations
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurations_maxResults"><span class="hs-identifier hs-var hs-var">listPlaybackConfigurations_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackConfigurations -&gt; Maybe Natural)
+-&gt; (ListPlaybackConfigurations
+    -&gt; Maybe Natural -&gt; ListPlaybackConfigurations)
+-&gt; Lens
+     ListPlaybackConfigurations
+     ListPlaybackConfigurations
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations%27"><span class="hs-identifier hs-type">ListPlaybackConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271868"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPlaybackConfigurations' :: ListPlaybackConfigurations -&gt; Maybe Natural
+</span><a href="#local-6989586621679271868"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679271868"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271867"><span class="annot"><span class="annottext">s :: ListPlaybackConfigurations
+</span><a href="#local-6989586621679271867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations%27"><span class="hs-identifier hs-type">ListPlaybackConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271866"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679271866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackConfigurations
+</span><a href="#local-6989586621679271867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPlaybackConfigurations' :: Maybe Natural
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AmaxResults%3AListPlaybackConfigurations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679271866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679271862"><span class="annot"><span class="annottext">page :: ListPlaybackConfigurations
+-&gt; AWSResponse ListPlaybackConfigurations
+-&gt; Maybe ListPlaybackConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679271860"><span class="annot"><span class="annottext">ListPlaybackConfigurations
+</span><a href="#local-6989586621679271860"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679271859"><span class="annot"><span class="annottext">AWSResponse ListPlaybackConfigurations
+</span><a href="#local-6989586621679271859"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-101"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPlaybackConfigurations
+ListPlaybackConfigurationsResponse
+</span><a href="#local-6989586621679271859"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse
+-&gt; Getting (First Text) ListPlaybackConfigurationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPlaybackConfigurationsResponse
+-&gt; Const (First Text) ListPlaybackConfigurationsResponse
+Lens' ListPlaybackConfigurationsResponse (Maybe Text)
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_nextToken"><span class="hs-identifier hs-var">listPlaybackConfigurationsResponse_nextToken</span></a></span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPlaybackConfigurationsResponse
+ -&gt; Const (First Text) ListPlaybackConfigurationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPlaybackConfigurationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPlaybackConfigurations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [PlaybackConfiguration] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPlaybackConfigurations
+ListPlaybackConfigurationsResponse
+</span><a href="#local-6989586621679271859"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse
+-&gt; Getting
+     (First [PlaybackConfiguration])
+     ListPlaybackConfigurationsResponse
+     [PlaybackConfiguration]
+-&gt; Maybe [PlaybackConfiguration]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [PlaybackConfiguration]
+ -&gt; Const
+      (First [PlaybackConfiguration]) (Maybe [PlaybackConfiguration]))
+-&gt; ListPlaybackConfigurationsResponse
+-&gt; Const
+     (First [PlaybackConfiguration]) ListPlaybackConfigurationsResponse
+Lens'
+  ListPlaybackConfigurationsResponse (Maybe [PlaybackConfiguration])
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_items"><span class="hs-identifier hs-var">listPlaybackConfigurationsResponse_items</span></a></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [PlaybackConfiguration]
+  -&gt; Const
+       (First [PlaybackConfiguration]) (Maybe [PlaybackConfiguration]))
+ -&gt; ListPlaybackConfigurationsResponse
+ -&gt; Const
+      (First [PlaybackConfiguration]) ListPlaybackConfigurationsResponse)
+-&gt; (([PlaybackConfiguration]
+     -&gt; Const (First [PlaybackConfiguration]) [PlaybackConfiguration])
+    -&gt; Maybe [PlaybackConfiguration]
+    -&gt; Const
+         (First [PlaybackConfiguration]) (Maybe [PlaybackConfiguration]))
+-&gt; Getting
+     (First [PlaybackConfiguration])
+     ListPlaybackConfigurationsResponse
+     [PlaybackConfiguration]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PlaybackConfiguration]
+ -&gt; Const (First [PlaybackConfiguration]) [PlaybackConfiguration])
+-&gt; Maybe [PlaybackConfiguration]
+-&gt; Const
+     (First [PlaybackConfiguration]) (Maybe [PlaybackConfiguration])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPlaybackConfigurations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">ListPlaybackConfigurations -&gt; Maybe ListPlaybackConfigurations
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListPlaybackConfigurations -&gt; Maybe ListPlaybackConfigurations)
+-&gt; ListPlaybackConfigurations -&gt; Maybe ListPlaybackConfigurations
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">ListPlaybackConfigurations
+</span><a href="#local-6989586621679271860"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">ListPlaybackConfigurations
+-&gt; (ListPlaybackConfigurations -&gt; ListPlaybackConfigurations)
+-&gt; ListPlaybackConfigurations
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListPlaybackConfigurations
+-&gt; Identity ListPlaybackConfigurations
+Lens
+  ListPlaybackConfigurations
+  ListPlaybackConfigurations
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurations_nextToken"><span class="hs-identifier hs-var">listPlaybackConfigurations_nextToken</span></a></span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListPlaybackConfigurations
+ -&gt; Identity ListPlaybackConfigurations)
+-&gt; Maybe Text
+-&gt; ListPlaybackConfigurations
+-&gt; ListPlaybackConfigurations
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPlaybackConfigurations
+ListPlaybackConfigurationsResponse
+</span><a href="#local-6989586621679271859"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse
+-&gt; Getting (First Text) ListPlaybackConfigurationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPlaybackConfigurationsResponse
+-&gt; Const (First Text) ListPlaybackConfigurationsResponse
+Lens' ListPlaybackConfigurationsResponse (Maybe Text)
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_nextToken"><span class="hs-identifier hs-var">listPlaybackConfigurationsResponse_nextToken</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPlaybackConfigurationsResponse
+ -&gt; Const (First Text) ListPlaybackConfigurationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPlaybackConfigurationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679271849"><span class="annot"><span class="annottext">request :: ListPlaybackConfigurations -&gt; Request ListPlaybackConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListPlaybackConfigurations -&gt; Request ListPlaybackConfigurations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaTailor.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679271845"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPlaybackConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPlaybackConfigurations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPlaybackConfigurations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPlaybackConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPlaybackConfigurations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271842"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679271841"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679271841"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679271840"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PlaybackConfiguration]
+-&gt; Maybe Text -&gt; Int -&gt; ListPlaybackConfigurationsResponse
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var">ListPlaybackConfigurationsResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PlaybackConfiguration]
+ -&gt; Maybe Text -&gt; Int -&gt; ListPlaybackConfigurationsResponse)
+-&gt; Either String (Maybe [PlaybackConfiguration])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListPlaybackConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [PlaybackConfiguration]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PlaybackConfiguration]))
+-&gt; Maybe [PlaybackConfiguration]
+-&gt; Either String (Maybe [PlaybackConfiguration])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlaybackConfiguration]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListPlaybackConfigurationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListPlaybackConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPlaybackConfigurationsResponse)
+-&gt; Either String Int
+-&gt; Either String ListPlaybackConfigurationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271842"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271831"><span id="local-6989586621679271833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679271824"><span class="annot"><span class="annottext">toHeaders :: ListPlaybackConfigurations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPlaybackConfigurations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-145"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679271818"><span class="annot"><span class="annottext">toPath :: ListPlaybackConfigurations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPlaybackConfigurations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/playbackConfigurations&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations"><span class="hs-identifier hs-type">ListPlaybackConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679271814"><span class="annot"><span class="annottext">toQuery :: ListPlaybackConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurations%27"><span class="hs-identifier hs-type">ListPlaybackConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271811"><span id="local-6989586621679271812"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListPlaybackConfigurations' :: ListPlaybackConfigurations -&gt; Maybe Natural
+$sel:nextToken:ListPlaybackConfigurations' :: ListPlaybackConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679271811"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271812"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679271811"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newListPlaybackConfigurationsResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679271808"><span id="local-6989586621679271809"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPlaybackConfigurationsResponse"><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-var">ListPlaybackConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPlaybackConfigurationsResponse%27"><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var">ListPlaybackConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Array of playback configurations. This might be all the available</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- configurations or a subset, depending on the settings that you provide</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- and the total number of configurations stored.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Aitems%3AListPlaybackConfigurationsResponse%27"><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse -&gt; Maybe [PlaybackConfiguration]
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3Aitems%3AListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | Pagination token returned by the GET list request when results exceed</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- the maximum allowed. Use the token to fetch the next page of results.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AnextToken%3AListPlaybackConfigurationsResponse%27"><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AnextToken%3AListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPlaybackConfigurationsResponse%27"><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse -&gt; Int
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AhttpStatus%3AListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271801"><span id="local-6989586621679271803"><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse
+-&gt; ListPlaybackConfigurationsResponse -&gt; Bool
+(ListPlaybackConfigurationsResponse
+ -&gt; ListPlaybackConfigurationsResponse -&gt; Bool)
+-&gt; (ListPlaybackConfigurationsResponse
+    -&gt; ListPlaybackConfigurationsResponse -&gt; Bool)
+-&gt; Eq ListPlaybackConfigurationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPlaybackConfigurationsResponse
+-&gt; ListPlaybackConfigurationsResponse -&gt; Bool
+$c/= :: ListPlaybackConfigurationsResponse
+-&gt; ListPlaybackConfigurationsResponse -&gt; Bool
+== :: ListPlaybackConfigurationsResponse
+-&gt; ListPlaybackConfigurationsResponse -&gt; Bool
+$c== :: ListPlaybackConfigurationsResponse
+-&gt; ListPlaybackConfigurationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271793"><span id="local-6989586621679271795"><span id="local-6989586621679271797"><span id="local-6989586621679271799"><span class="annot"><span class="annottext">ReadPrec [ListPlaybackConfigurationsResponse]
+ReadPrec ListPlaybackConfigurationsResponse
+Int -&gt; ReadS ListPlaybackConfigurationsResponse
+ReadS [ListPlaybackConfigurationsResponse]
+(Int -&gt; ReadS ListPlaybackConfigurationsResponse)
+-&gt; ReadS [ListPlaybackConfigurationsResponse]
+-&gt; ReadPrec ListPlaybackConfigurationsResponse
+-&gt; ReadPrec [ListPlaybackConfigurationsResponse]
+-&gt; Read ListPlaybackConfigurationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPlaybackConfigurationsResponse]
+$creadListPrec :: ReadPrec [ListPlaybackConfigurationsResponse]
+readPrec :: ReadPrec ListPlaybackConfigurationsResponse
+$creadPrec :: ReadPrec ListPlaybackConfigurationsResponse
+readList :: ReadS [ListPlaybackConfigurationsResponse]
+$creadList :: ReadS [ListPlaybackConfigurationsResponse]
+readsPrec :: Int -&gt; ReadS ListPlaybackConfigurationsResponse
+$creadsPrec :: Int -&gt; ReadS ListPlaybackConfigurationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271787"><span id="local-6989586621679271789"><span id="local-6989586621679271791"><span class="annot"><span class="annottext">Int -&gt; ListPlaybackConfigurationsResponse -&gt; ShowS
+[ListPlaybackConfigurationsResponse] -&gt; ShowS
+ListPlaybackConfigurationsResponse -&gt; String
+(Int -&gt; ListPlaybackConfigurationsResponse -&gt; ShowS)
+-&gt; (ListPlaybackConfigurationsResponse -&gt; String)
+-&gt; ([ListPlaybackConfigurationsResponse] -&gt; ShowS)
+-&gt; Show ListPlaybackConfigurationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPlaybackConfigurationsResponse] -&gt; ShowS
+$cshowList :: [ListPlaybackConfigurationsResponse] -&gt; ShowS
+show :: ListPlaybackConfigurationsResponse -&gt; String
+$cshow :: ListPlaybackConfigurationsResponse -&gt; String
+showsPrec :: Int -&gt; ListPlaybackConfigurationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPlaybackConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPlaybackConfigurationsResponse
+ -&gt; Rep ListPlaybackConfigurationsResponse x)
+-&gt; (forall x.
+    Rep ListPlaybackConfigurationsResponse x
+    -&gt; ListPlaybackConfigurationsResponse)
+-&gt; Generic ListPlaybackConfigurationsResponse
+forall x.
+Rep ListPlaybackConfigurationsResponse x
+-&gt; ListPlaybackConfigurationsResponse
+forall x.
+ListPlaybackConfigurationsResponse
+-&gt; Rep ListPlaybackConfigurationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPlaybackConfigurationsResponse x
+-&gt; ListPlaybackConfigurationsResponse
+$cfrom :: forall x.
+ListPlaybackConfigurationsResponse
+-&gt; Rep ListPlaybackConfigurationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Create a value of 'ListPlaybackConfigurationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'items', 'listPlaybackConfigurationsResponse_items' - Array of playback configurations. This might be all the available</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- configurations or a subset, depending on the settings that you provide</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- and the total number of configurations stored.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'nextToken', 'listPlaybackConfigurationsResponse_nextToken' - Pagination token returned by the GET list request when results exceed</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- the maximum allowed. Use the token to fetch the next page of results.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'listPlaybackConfigurationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#newListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">newListPlaybackConfigurationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newListPlaybackConfigurationsResponse"><span class="annot"><span class="annottext">newListPlaybackConfigurationsResponse :: Int -&gt; ListPlaybackConfigurationsResponse
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#newListPlaybackConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newListPlaybackConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679271784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse' :: Maybe [PlaybackConfiguration]
+-&gt; Maybe Text -&gt; Int -&gt; ListPlaybackConfigurationsResponse
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:ListPlaybackConfigurationsResponse' :: Maybe [PlaybackConfiguration]
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3Aitems%3AListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PlaybackConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListPlaybackConfigurationsResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AnextToken%3AListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPlaybackConfigurationsResponse' :: Int
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AhttpStatus%3AListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Array of playback configurations. This might be all the available</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- configurations or a subset, depending on the settings that you provide</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- and the total number of configurations stored.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_items"><span class="hs-identifier hs-type">listPlaybackConfigurationsResponse_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaTailor.Types.PlaybackConfiguration.html#PlaybackConfiguration"><span class="hs-identifier hs-type">PlaybackConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="listPlaybackConfigurationsResponse_items"><span class="annot"><span class="annottext">listPlaybackConfigurationsResponse_items :: (Maybe [PlaybackConfiguration]
+ -&gt; f (Maybe [PlaybackConfiguration]))
+-&gt; ListPlaybackConfigurationsResponse
+-&gt; f ListPlaybackConfigurationsResponse
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_items"><span class="hs-identifier hs-var hs-var">listPlaybackConfigurationsResponse_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackConfigurationsResponse
+ -&gt; Maybe [PlaybackConfiguration])
+-&gt; (ListPlaybackConfigurationsResponse
+    -&gt; Maybe [PlaybackConfiguration]
+    -&gt; ListPlaybackConfigurationsResponse)
+-&gt; Lens'
+     ListPlaybackConfigurationsResponse (Maybe [PlaybackConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271783"><span class="annot"><span class="annottext">Maybe [PlaybackConfiguration]
+items :: Maybe [PlaybackConfiguration]
+$sel:items:ListPlaybackConfigurationsResponse' :: ListPlaybackConfigurationsResponse -&gt; Maybe [PlaybackConfiguration]
+</span><a href="#local-6989586621679271783"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlaybackConfiguration]
+</span><a href="#local-6989586621679271783"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271782"><span class="annot"><span class="annottext">s :: ListPlaybackConfigurationsResponse
+</span><a href="#local-6989586621679271782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271781"><span class="annot"><span class="annottext">Maybe [PlaybackConfiguration]
+</span><a href="#local-6989586621679271781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse
+</span><a href="#local-6989586621679271782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:ListPlaybackConfigurationsResponse' :: Maybe [PlaybackConfiguration]
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3Aitems%3AListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlaybackConfiguration]
+</span><a href="#local-6989586621679271781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlaybackConfiguration]
+  -&gt; f (Maybe [PlaybackConfiguration]))
+ -&gt; ListPlaybackConfigurationsResponse
+ -&gt; f ListPlaybackConfigurationsResponse)
+-&gt; ((Maybe [PlaybackConfiguration]
+     -&gt; f (Maybe [PlaybackConfiguration]))
+    -&gt; Maybe [PlaybackConfiguration]
+    -&gt; f (Maybe [PlaybackConfiguration]))
+-&gt; (Maybe [PlaybackConfiguration]
+    -&gt; f (Maybe [PlaybackConfiguration]))
+-&gt; ListPlaybackConfigurationsResponse
+-&gt; f ListPlaybackConfigurationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlaybackConfiguration]
+  [PlaybackConfiguration]
+  [PlaybackConfiguration]
+  [PlaybackConfiguration]
+-&gt; Iso
+     (Maybe [PlaybackConfiguration])
+     (Maybe [PlaybackConfiguration])
+     (Maybe [PlaybackConfiguration])
+     (Maybe [PlaybackConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlaybackConfiguration]
+  [PlaybackConfiguration]
+  [PlaybackConfiguration]
+  [PlaybackConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Pagination token returned by the GET list request when results exceed</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- the maximum allowed. Use the token to fetch the next page of results.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_nextToken"><span class="hs-identifier hs-type">listPlaybackConfigurationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="listPlaybackConfigurationsResponse_nextToken"><span class="annot"><span class="annottext">listPlaybackConfigurationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPlaybackConfigurationsResponse
+-&gt; f ListPlaybackConfigurationsResponse
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPlaybackConfigurationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackConfigurationsResponse -&gt; Maybe Text)
+-&gt; (ListPlaybackConfigurationsResponse
+    -&gt; Maybe Text -&gt; ListPlaybackConfigurationsResponse)
+-&gt; Lens' ListPlaybackConfigurationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271778"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPlaybackConfigurationsResponse' :: ListPlaybackConfigurationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679271778"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271778"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271777"><span class="annot"><span class="annottext">s :: ListPlaybackConfigurationsResponse
+</span><a href="#local-6989586621679271777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271776"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse
+</span><a href="#local-6989586621679271777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPlaybackConfigurationsResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AnextToken%3AListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">listPlaybackConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span id="listPlaybackConfigurationsResponse_httpStatus"><span class="annot"><span class="annottext">listPlaybackConfigurationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPlaybackConfigurationsResponse
+-&gt; f ListPlaybackConfigurationsResponse
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#listPlaybackConfigurationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPlaybackConfigurationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackConfigurationsResponse -&gt; Int)
+-&gt; (ListPlaybackConfigurationsResponse
+    -&gt; Int -&gt; ListPlaybackConfigurationsResponse)
+-&gt; Lens
+     ListPlaybackConfigurationsResponse
+     ListPlaybackConfigurationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271775"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPlaybackConfigurationsResponse' :: ListPlaybackConfigurationsResponse -&gt; Int
+</span><a href="#local-6989586621679271775"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271775"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271774"><span class="annot"><span class="annottext">s :: ListPlaybackConfigurationsResponse
+</span><a href="#local-6989586621679271774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271773"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackConfigurationsResponse
+</span><a href="#local-6989586621679271774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPlaybackConfigurationsResponse' :: Int
+</span><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#%24sel%3AhttpStatus%3AListPlaybackConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679271771"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.ListPlaybackConfigurations.html#ListPlaybackConfigurationsResponse"><span class="hs-identifier hs-type">ListPlaybackConfigurationsResponse</span></a></span></span><span>
+</span><span id="line-219"></span></pre></body></html>

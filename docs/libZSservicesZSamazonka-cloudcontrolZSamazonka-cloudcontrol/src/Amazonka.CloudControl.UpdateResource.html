@@ -1,0 +1,769 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudControl.UpdateResource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified property values in the resource.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You specify your resource property updates as a list of patch operations</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- contained in a JSON patch document that adheres to the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://datatracker.ietf.org/doc/html/rfc6902 RFC 6902 - JavaScript Object Notation (JSON) Patch&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- standard.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For details on how Cloud Control API performs resource update</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- operations, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html Updating a resource&gt;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- After you have initiated a resource update request, you can monitor the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- progress of your request by calling</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html GetResourceRequestStatus&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- using the @RequestToken@ of the @ProgressEvent@ returned by</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- @UpdateResource@.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- For more information about the properties of a specific resource, refer</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- to the related topic for the resource in the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Resource and property types reference&gt;</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- in the /Amazon Web Services CloudFormation Users Guide/.</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudControl.UpdateResource</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier">UpdateResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#newUpdateResource"><span class="hs-identifier">newUpdateResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_clientToken"><span class="hs-identifier">updateResource_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_typeVersionId"><span class="hs-identifier">updateResource_typeVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_roleArn"><span class="hs-identifier">updateResource_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_typeName"><span class="hs-identifier">updateResource_typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_identifier"><span class="hs-identifier">updateResource_identifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_patchDocument"><span class="hs-identifier">updateResource_patchDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier">UpdateResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#newUpdateResourceResponse"><span class="hs-identifier">newUpdateResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResourceResponse_progressEvent"><span class="hs-identifier">updateResourceResponse_progressEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResourceResponse_httpStatus"><span class="hs-identifier">updateResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.Types.html"><span class="hs-identifier">Amazonka.CloudControl.Types</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | /See:/ 'newUpdateResource' smart constructor.</span><span>
+</span><span id="line-76"></span><span id="local-6989586621679156951"><span id="local-6989586621679156952"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateResource"><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-var">UpdateResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateResource%27"><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-var">UpdateResource'</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier to ensure the idempotency of the resource request.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- As a best practice, specify this token to ensure idempotency, so that</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Cloud Control API can accurately distinguish between</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- request retries and new resource requests. You might retry a resource</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- request to ensure that it was successfully received.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- A client token is valid for 36 hours once used. After that, a resource</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- request with the same client token is treated as a new request.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- If you do not specify a client token, one is generated for inclusion in</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency Ensuring resource operation requests are unique&gt;</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AclientToken%3AUpdateResource%27"><span class="annot"><span class="annottext">UpdateResource -&gt; Maybe Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AclientToken%3AUpdateResource%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | For private resource types, the type version to use in this resource</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- operation. If you do not specify a resource version, CloudFormation uses</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- the default version.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AtypeVersionId%3AUpdateResource%27"><span class="annot"><span class="annottext">UpdateResource -&gt; Maybe Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AtypeVersionId%3AUpdateResource%27"><span class="hs-identifier hs-var hs-var">typeVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- (IAM) for Cloud Control API to use when performing this resource</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- operation. The role specified must have the permissions required for</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- this operation. The necessary permissions for each event handler are</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- defined in the @ handlers @ section of the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema&gt;.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- If you do not specify a role, Cloud Control API uses a temporary session</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- created using your Amazon Web Services user credentials.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials&gt;</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AroleArn%3AUpdateResource%27"><span class="annot"><span class="annottext">UpdateResource -&gt; Maybe Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AroleArn%3AUpdateResource%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | The name of the resource type.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AtypeName%3AUpdateResource%27"><span class="annot"><span class="annottext">UpdateResource -&gt; Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AtypeName%3AUpdateResource%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The identifier for the resource.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- You can specify the primary identifier, or any secondary identifier</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- defined for the resource type in its resource schema. You can only</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- specify one identifier. Primary identifiers can be specified as a string</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- or JSON; secondary identifiers must be specified as JSON.</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- For compound primary identifiers (that is, one that consists of multiple</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- resource properties strung together), to specify the primary identifier</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- as a string, list the property values /in the order they are specified/</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- in the primary identifier definition, separated by @|@.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html Identifying resources&gt;</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3Aidentifier%3AUpdateResource%27"><span class="annot"><span class="annottext">UpdateResource -&gt; Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3Aidentifier%3AUpdateResource%27"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | A JavaScript Object Notation (JSON) document listing the patch</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- operations that represent the updates to apply to the current resource</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- properties. For details, see</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html#resource-operations-update-patch Composing the patch document&gt;</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3ApatchDocument%3AUpdateResource%27"><span class="annot"><span class="annottext">UpdateResource -&gt; Sensitive Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3ApatchDocument%3AUpdateResource%27"><span class="hs-identifier hs-var hs-var">patchDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156940"><span id="local-6989586621679156942"><span class="annot"><span class="annottext">UpdateResource -&gt; UpdateResource -&gt; Bool
+(UpdateResource -&gt; UpdateResource -&gt; Bool)
+-&gt; (UpdateResource -&gt; UpdateResource -&gt; Bool) -&gt; Eq UpdateResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateResource -&gt; UpdateResource -&gt; Bool
+$c/= :: UpdateResource -&gt; UpdateResource -&gt; Bool
+== :: UpdateResource -&gt; UpdateResource -&gt; Bool
+$c== :: UpdateResource -&gt; UpdateResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156933"><span id="local-6989586621679156935"><span id="local-6989586621679156937"><span class="annot"><span class="annottext">Int -&gt; UpdateResource -&gt; ShowS
+[UpdateResource] -&gt; ShowS
+UpdateResource -&gt; String
+(Int -&gt; UpdateResource -&gt; ShowS)
+-&gt; (UpdateResource -&gt; String)
+-&gt; ([UpdateResource] -&gt; ShowS)
+-&gt; Show UpdateResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateResource] -&gt; ShowS
+$cshowList :: [UpdateResource] -&gt; ShowS
+show :: UpdateResource -&gt; String
+$cshow :: UpdateResource -&gt; String
+showsPrec :: Int -&gt; UpdateResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateResource -&gt; Rep UpdateResource x)
+-&gt; (forall x. Rep UpdateResource x -&gt; UpdateResource)
+-&gt; Generic UpdateResource
+forall x. Rep UpdateResource x -&gt; UpdateResource
+forall x. UpdateResource -&gt; Rep UpdateResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateResource x -&gt; UpdateResource
+$cfrom :: forall x. UpdateResource -&gt; Rep UpdateResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'UpdateResource' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'clientToken', 'updateResource_clientToken' - A unique identifier to ensure the idempotency of the resource request.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- As a best practice, specify this token to ensure idempotency, so that</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Amazon Web Services Cloud Control API can accurately distinguish between</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- request retries and new resource requests. You might retry a resource</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- request to ensure that it was successfully received.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- A client token is valid for 36 hours once used. After that, a resource</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- request with the same client token is treated as a new request.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- If you do not specify a client token, one is generated for inclusion in</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency Ensuring resource operation requests are unique&gt;</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'typeVersionId', 'updateResource_typeVersionId' - For private resource types, the type version to use in this resource</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- operation. If you do not specify a resource version, CloudFormation uses</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- the default version.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'roleArn', 'updateResource_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- (IAM) for Cloud Control API to use when performing this resource</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- operation. The role specified must have the permissions required for</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- this operation. The necessary permissions for each event handler are</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- defined in the @ handlers @ section of the</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema&gt;.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- If you do not specify a role, Cloud Control API uses a temporary session</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- created using your Amazon Web Services user credentials.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials&gt;</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'typeName', 'updateResource_typeName' - The name of the resource type.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'identifier', 'updateResource_identifier' - The identifier for the resource.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- You can specify the primary identifier, or any secondary identifier</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- defined for the resource type in its resource schema. You can only</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- specify one identifier. Primary identifiers can be specified as a string</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- or JSON; secondary identifiers must be specified as JSON.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- For compound primary identifiers (that is, one that consists of multiple</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- resource properties strung together), to specify the primary identifier</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- as a string, list the property values /in the order they are specified/</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- in the primary identifier definition, separated by @|@.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html Identifying resources&gt;</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'patchDocument', 'updateResource_patchDocument' - A JavaScript Object Notation (JSON) document listing the patch</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- operations that represent the updates to apply to the current resource</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- properties. For details, see</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html#resource-operations-update-patch Composing the patch document&gt;</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#newUpdateResource"><span class="hs-identifier hs-type">newUpdateResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'typeName'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'identifier'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'patchDocument'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span>
+</span><span id="line-211"></span><span id="newUpdateResource"><span class="annot"><span class="annottext">newUpdateResource :: Text -&gt; Text -&gt; Text -&gt; UpdateResource
+</span><a href="Amazonka.CloudControl.UpdateResource.html#newUpdateResource"><span class="hs-identifier hs-var hs-var">newUpdateResource</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679156928"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156928"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679156927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156927"><span class="hs-identifier hs-var">pIdentifier_</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679156926"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156926"><span class="hs-identifier hs-var">pPatchDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">UpdateResource' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; UpdateResource
+</span><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:UpdateResource' :: Maybe Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AclientToken%3AUpdateResource%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:typeVersionId:UpdateResource' :: Maybe Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AtypeVersionId%3AUpdateResource%27"><span class="hs-identifier hs-var">typeVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:UpdateResource' :: Maybe Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AroleArn%3AUpdateResource%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:typeName:UpdateResource' :: Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AtypeName%3AUpdateResource%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156928"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:identifier:UpdateResource' :: Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3Aidentifier%3AUpdateResource%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156927"><span class="hs-identifier hs-var">pIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:patchDocument:UpdateResource' :: Sensitive Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3ApatchDocument%3AUpdateResource%27"><span class="hs-identifier hs-var">patchDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156926"><span class="hs-identifier hs-var">pPatchDocument_</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | A unique identifier to ensure the idempotency of the resource request.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- As a best practice, specify this token to ensure idempotency, so that</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Amazon Web Services Cloud Control API can accurately distinguish between</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- request retries and new resource requests. You might retry a resource</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- request to ensure that it was successfully received.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- A client token is valid for 36 hours once used. After that, a resource</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- request with the same client token is treated as a new request.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- If you do not specify a client token, one is generated for inclusion in</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency Ensuring resource operation requests are unique&gt;</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_clientToken"><span class="hs-identifier hs-type">updateResource_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="updateResource_clientToken"><span class="annot"><span class="annottext">updateResource_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateResource -&gt; f UpdateResource
+</span><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_clientToken"><span class="hs-identifier hs-var hs-var">updateResource_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResource -&gt; Maybe Text)
+-&gt; (UpdateResource -&gt; Maybe Text -&gt; UpdateResource)
+-&gt; Lens UpdateResource UpdateResource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156921"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:UpdateResource' :: UpdateResource -&gt; Maybe Text
+</span><a href="#local-6989586621679156921"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156921"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156920"><span class="annot"><span class="annottext">s :: UpdateResource
+</span><a href="#local-6989586621679156920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156919"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResource
+</span><a href="#local-6989586621679156920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:UpdateResource' :: Maybe Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AclientToken%3AUpdateResource%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | For private resource types, the type version to use in this resource</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- operation. If you do not specify a resource version, CloudFormation uses</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- the default version.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_typeVersionId"><span class="hs-identifier hs-type">updateResource_typeVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="updateResource_typeVersionId"><span class="annot"><span class="annottext">updateResource_typeVersionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateResource -&gt; f UpdateResource
+</span><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_typeVersionId"><span class="hs-identifier hs-var hs-var">updateResource_typeVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResource -&gt; Maybe Text)
+-&gt; (UpdateResource -&gt; Maybe Text -&gt; UpdateResource)
+-&gt; Lens UpdateResource UpdateResource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156918"><span class="annot"><span class="annottext">Maybe Text
+typeVersionId :: Maybe Text
+$sel:typeVersionId:UpdateResource' :: UpdateResource -&gt; Maybe Text
+</span><a href="#local-6989586621679156918"><span class="hs-identifier hs-var hs-var">typeVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156918"><span class="hs-identifier hs-var">typeVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156917"><span class="annot"><span class="annottext">s :: UpdateResource
+</span><a href="#local-6989586621679156917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResource
+</span><a href="#local-6989586621679156917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeVersionId:UpdateResource' :: Maybe Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AtypeVersionId%3AUpdateResource%27"><span class="hs-identifier hs-var">typeVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- (IAM) for Cloud Control API to use when performing this resource</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- operation. The role specified must have the permissions required for</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- this operation. The necessary permissions for each event handler are</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- defined in the @ handlers @ section of the</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema&gt;.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- If you do not specify a role, Cloud Control API uses a temporary session</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- created using your Amazon Web Services user credentials.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials&gt;</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_roleArn"><span class="hs-identifier hs-type">updateResource_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="updateResource_roleArn"><span class="annot"><span class="annottext">updateResource_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateResource -&gt; f UpdateResource
+</span><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_roleArn"><span class="hs-identifier hs-var hs-var">updateResource_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResource -&gt; Maybe Text)
+-&gt; (UpdateResource -&gt; Maybe Text -&gt; UpdateResource)
+-&gt; Lens UpdateResource UpdateResource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156915"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:UpdateResource' :: UpdateResource -&gt; Maybe Text
+</span><a href="#local-6989586621679156915"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156915"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156914"><span class="annot"><span class="annottext">s :: UpdateResource
+</span><a href="#local-6989586621679156914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156913"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResource
+</span><a href="#local-6989586621679156914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateResource' :: Maybe Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AroleArn%3AUpdateResource%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The name of the resource type.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_typeName"><span class="hs-identifier hs-type">updateResource_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-267"></span><span id="updateResource_typeName"><span class="annot"><span class="annottext">updateResource_typeName :: (Text -&gt; f Text) -&gt; UpdateResource -&gt; f UpdateResource
+</span><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_typeName"><span class="hs-identifier hs-var hs-var">updateResource_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResource -&gt; Text)
+-&gt; (UpdateResource -&gt; Text -&gt; UpdateResource)
+-&gt; Lens UpdateResource UpdateResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156912"><span class="annot"><span class="annottext">Text
+typeName :: Text
+$sel:typeName:UpdateResource' :: UpdateResource -&gt; Text
+</span><a href="#local-6989586621679156912"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156912"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156911"><span class="annot"><span class="annottext">s :: UpdateResource
+</span><a href="#local-6989586621679156911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResource
+</span><a href="#local-6989586621679156911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:UpdateResource' :: Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AtypeName%3AUpdateResource%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The identifier for the resource.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- You can specify the primary identifier, or any secondary identifier</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- defined for the resource type in its resource schema. You can only</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- specify one identifier. Primary identifiers can be specified as a string</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- or JSON; secondary identifiers must be specified as JSON.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- For compound primary identifiers (that is, one that consists of multiple</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- resource properties strung together), to specify the primary identifier</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- as a string, list the property values /in the order they are specified/</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- in the primary identifier definition, separated by @|@.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html Identifying resources&gt;</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_identifier"><span class="hs-identifier hs-type">updateResource_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-285"></span><span id="updateResource_identifier"><span class="annot"><span class="annottext">updateResource_identifier :: (Text -&gt; f Text) -&gt; UpdateResource -&gt; f UpdateResource
+</span><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_identifier"><span class="hs-identifier hs-var hs-var">updateResource_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResource -&gt; Text)
+-&gt; (UpdateResource -&gt; Text -&gt; UpdateResource)
+-&gt; Lens UpdateResource UpdateResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156909"><span class="annot"><span class="annottext">Text
+identifier :: Text
+$sel:identifier:UpdateResource' :: UpdateResource -&gt; Text
+</span><a href="#local-6989586621679156909"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156909"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156908"><span class="annot"><span class="annottext">s :: UpdateResource
+</span><a href="#local-6989586621679156908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156907"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResource
+</span><a href="#local-6989586621679156908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:UpdateResource' :: Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3Aidentifier%3AUpdateResource%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | A JavaScript Object Notation (JSON) document listing the patch</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- operations that represent the updates to apply to the current resource</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- properties. For details, see</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html#resource-operations-update-patch Composing the patch document&gt;</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_patchDocument"><span class="hs-identifier hs-type">updateResource_patchDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-293"></span><span id="updateResource_patchDocument"><span class="annot"><span class="annottext">updateResource_patchDocument :: (Text -&gt; f Text) -&gt; UpdateResource -&gt; f UpdateResource
+</span><a href="Amazonka.CloudControl.UpdateResource.html#updateResource_patchDocument"><span class="hs-identifier hs-var hs-var">updateResource_patchDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResource -&gt; Sensitive Text)
+-&gt; (UpdateResource -&gt; Sensitive Text -&gt; UpdateResource)
+-&gt; Lens
+     UpdateResource UpdateResource (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156906"><span class="annot"><span class="annottext">Sensitive Text
+patchDocument :: Sensitive Text
+$sel:patchDocument:UpdateResource' :: UpdateResource -&gt; Sensitive Text
+</span><a href="#local-6989586621679156906"><span class="hs-identifier hs-var hs-var">patchDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679156906"><span class="hs-identifier hs-var">patchDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156905"><span class="annot"><span class="annottext">s :: UpdateResource
+</span><a href="#local-6989586621679156905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156904"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679156904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResource
+</span><a href="#local-6989586621679156905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchDocument:UpdateResource' :: Sensitive Text
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3ApatchDocument%3AUpdateResource%27"><span class="hs-identifier hs-var">patchDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679156904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; UpdateResource -&gt; f UpdateResource)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; UpdateResource
+-&gt; f UpdateResource
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-297"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier hs-type">UpdateResourceResponse</span></a></span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679156899"><span class="annot"><span class="annottext">request :: UpdateResource -&gt; Request UpdateResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateResource -&gt; Request UpdateResource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudControl.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679156895"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateResource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateResource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateResource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-302"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679156892"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156892"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679156891"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679156891"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679156890"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156890"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-303"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProgressEvent -&gt; Int -&gt; UpdateResourceResponse
+</span><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse%27"><span class="hs-identifier hs-var">UpdateResourceResponse'</span></a></span><span>
+</span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ProgressEvent -&gt; Int -&gt; UpdateResourceResponse)
+-&gt; Either String (Maybe ProgressEvent)
+-&gt; Either String (Int -&gt; UpdateResourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ProgressEvent)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgressEvent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateResourceResponse)
+-&gt; Either String Int -&gt; Either String UpdateResourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156892"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156882"><span id="local-6989586621679156884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span></span></span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span></span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-313"></span><span>  </span><span id="local-6989586621679156875"><span class="annot"><span class="annottext">toHeaders :: UpdateResource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateResource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-315"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-316"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-317"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CloudApiService.UpdateResource&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-318"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-319"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-321"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-322"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-323"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-325"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156865"><span id="local-6989586621679156867"><span id="local-6989586621679156869"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-328"></span><span>  </span><span id="local-6989586621679156863"><span class="annot"><span class="annottext">toJSON :: UpdateResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource%27"><span class="hs-identifier hs-type">UpdateResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156856"><span id="local-6989586621679156857"><span id="local-6989586621679156858"><span id="local-6989586621679156859"><span id="local-6989586621679156860"><span id="local-6989586621679156861"><span class="annot"><span class="annottext">Maybe Text
+Text
+Sensitive Text
+patchDocument :: Sensitive Text
+identifier :: Text
+typeName :: Text
+roleArn :: Maybe Text
+typeVersionId :: Maybe Text
+clientToken :: Maybe Text
+$sel:patchDocument:UpdateResource' :: UpdateResource -&gt; Sensitive Text
+$sel:identifier:UpdateResource' :: UpdateResource -&gt; Text
+$sel:typeName:UpdateResource' :: UpdateResource -&gt; Text
+$sel:roleArn:UpdateResource' :: UpdateResource -&gt; Maybe Text
+$sel:typeVersionId:UpdateResource' :: UpdateResource -&gt; Maybe Text
+$sel:clientToken:UpdateResource' :: UpdateResource -&gt; Maybe Text
+</span><a href="#local-6989586621679156856"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-330"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-331"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156861"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeVersionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156860"><span class="hs-identifier hs-var">typeVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156859"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156858"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Identifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156857"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-337"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchDocument&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679156856"><span class="hs-identifier hs-var">patchDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-339"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-342"></span><span>  </span><span id="local-6989586621679156850"><span class="annot"><span class="annottext">toPath :: UpdateResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateResource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResource"><span class="hs-identifier hs-type">UpdateResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-345"></span><span>  </span><span id="local-6989586621679156846"><span class="annot"><span class="annottext">toQuery :: UpdateResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateResource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- | /See:/ 'newUpdateResourceResponse' smart constructor.</span><span>
+</span><span id="line-348"></span><span id="local-6989586621679156843"><span id="local-6989586621679156844"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateResourceResponse"><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier hs-var">UpdateResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateResourceResponse%27"><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse%27"><span class="hs-identifier hs-var">UpdateResourceResponse'</span></a></span></span><span>
+</span><span id="line-349"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the current status of the resource update request.</span><span>
+</span><span id="line-350"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span>    </span><span class="hs-comment">-- Use the @RequestToken@ of the @ProgressEvent@ with</span><span>
+</span><span id="line-352"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html GetResourceRequestStatus&gt;</span><span>
+</span><span id="line-353"></span><span>    </span><span class="hs-comment">-- to return the current status of a resource operation request.</span><span>
+</span><span id="line-354"></span><span>    </span><span id="%24sel%3AprogressEvent%3AUpdateResourceResponse%27"><span class="annot"><span class="annottext">UpdateResourceResponse -&gt; Maybe ProgressEvent
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AprogressEvent%3AUpdateResourceResponse%27"><span class="hs-identifier hs-var hs-var">progressEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-356"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateResourceResponse%27"><span class="annot"><span class="annottext">UpdateResourceResponse -&gt; Int
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AhttpStatus%3AUpdateResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-357"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-358"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156837"><span id="local-6989586621679156839"><span class="annot"><span class="annottext">UpdateResourceResponse -&gt; UpdateResourceResponse -&gt; Bool
+(UpdateResourceResponse -&gt; UpdateResourceResponse -&gt; Bool)
+-&gt; (UpdateResourceResponse -&gt; UpdateResourceResponse -&gt; Bool)
+-&gt; Eq UpdateResourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateResourceResponse -&gt; UpdateResourceResponse -&gt; Bool
+$c/= :: UpdateResourceResponse -&gt; UpdateResourceResponse -&gt; Bool
+== :: UpdateResourceResponse -&gt; UpdateResourceResponse -&gt; Bool
+$c== :: UpdateResourceResponse -&gt; UpdateResourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156831"><span id="local-6989586621679156833"><span id="local-6989586621679156835"><span class="annot"><span class="annottext">Int -&gt; UpdateResourceResponse -&gt; ShowS
+[UpdateResourceResponse] -&gt; ShowS
+UpdateResourceResponse -&gt; String
+(Int -&gt; UpdateResourceResponse -&gt; ShowS)
+-&gt; (UpdateResourceResponse -&gt; String)
+-&gt; ([UpdateResourceResponse] -&gt; ShowS)
+-&gt; Show UpdateResourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateResourceResponse] -&gt; ShowS
+$cshowList :: [UpdateResourceResponse] -&gt; ShowS
+show :: UpdateResourceResponse -&gt; String
+$cshow :: UpdateResourceResponse -&gt; String
+showsPrec :: Int -&gt; UpdateResourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateResourceResponse -&gt; Rep UpdateResourceResponse x)
+-&gt; (forall x.
+    Rep UpdateResourceResponse x -&gt; UpdateResourceResponse)
+-&gt; Generic UpdateResourceResponse
+forall x. Rep UpdateResourceResponse x -&gt; UpdateResourceResponse
+forall x. UpdateResourceResponse -&gt; Rep UpdateResourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateResourceResponse x -&gt; UpdateResourceResponse
+$cfrom :: forall x. UpdateResourceResponse -&gt; Rep UpdateResourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- Create a value of 'UpdateResourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- 'progressEvent', 'updateResourceResponse_progressEvent' - Represents the current status of the resource update request.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- Use the @RequestToken@ of the @ProgressEvent@ with</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html GetResourceRequestStatus&gt;</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- to return the current status of a resource operation request.</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- 'httpStatus', 'updateResourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-375"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#newUpdateResourceResponse"><span class="hs-identifier hs-type">newUpdateResourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-376"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-377"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-378"></span><span>  </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier hs-type">UpdateResourceResponse</span></a></span><span>
+</span><span id="line-379"></span><span id="newUpdateResourceResponse"><span class="annot"><span class="annottext">newUpdateResourceResponse :: Int -&gt; UpdateResourceResponse
+</span><a href="Amazonka.CloudControl.UpdateResource.html#newUpdateResourceResponse"><span class="hs-identifier hs-var hs-var">newUpdateResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679156828"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-380"></span><span>  </span><span class="annot"><span class="annottext">UpdateResourceResponse' :: Maybe ProgressEvent -&gt; Int -&gt; UpdateResourceResponse
+</span><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse%27"><span class="hs-identifier hs-type">UpdateResourceResponse'</span></a></span><span>
+</span><span id="line-381"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:progressEvent:UpdateResourceResponse' :: Maybe ProgressEvent
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AprogressEvent%3AUpdateResourceResponse%27"><span class="hs-identifier hs-var">progressEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-382"></span><span>        </span><span class="annot"><span class="annottext">Maybe ProgressEvent
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateResourceResponse' :: Int
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AhttpStatus%3AUpdateResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-384"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-385"></span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- | Represents the current status of the resource update request.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- Use the @RequestToken@ of the @ProgressEvent@ with</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html GetResourceRequestStatus&gt;</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- to return the current status of a resource operation request.</span><span>
+</span><span id="line-391"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResourceResponse_progressEvent"><span class="hs-identifier hs-type">updateResourceResponse_progressEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier hs-type">UpdateResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span id="updateResourceResponse_progressEvent"><span class="annot"><span class="annottext">updateResourceResponse_progressEvent :: (Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; UpdateResourceResponse -&gt; f UpdateResourceResponse
+</span><a href="Amazonka.CloudControl.UpdateResource.html#updateResourceResponse_progressEvent"><span class="hs-identifier hs-var hs-var">updateResourceResponse_progressEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceResponse -&gt; Maybe ProgressEvent)
+-&gt; (UpdateResourceResponse
+    -&gt; Maybe ProgressEvent -&gt; UpdateResourceResponse)
+-&gt; Lens
+     UpdateResourceResponse
+     UpdateResourceResponse
+     (Maybe ProgressEvent)
+     (Maybe ProgressEvent)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse%27"><span class="hs-identifier hs-type">UpdateResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156827"><span class="annot"><span class="annottext">Maybe ProgressEvent
+progressEvent :: Maybe ProgressEvent
+$sel:progressEvent:UpdateResourceResponse' :: UpdateResourceResponse -&gt; Maybe ProgressEvent
+</span><a href="#local-6989586621679156827"><span class="hs-identifier hs-var hs-var">progressEvent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><a href="#local-6989586621679156827"><span class="hs-identifier hs-var">progressEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156826"><span class="annot"><span class="annottext">s :: UpdateResourceResponse
+</span><a href="#local-6989586621679156826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse%27"><span class="hs-identifier hs-type">UpdateResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156825"><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><a href="#local-6989586621679156825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceResponse
+</span><a href="#local-6989586621679156826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressEvent:UpdateResourceResponse' :: Maybe ProgressEvent
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AprogressEvent%3AUpdateResourceResponse%27"><span class="hs-identifier hs-var">progressEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><a href="#local-6989586621679156825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier hs-type">UpdateResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-395"></span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#updateResourceResponse_httpStatus"><span class="hs-identifier hs-type">updateResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier hs-type">UpdateResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-396"></span><span id="updateResourceResponse_httpStatus"><span class="annot"><span class="annottext">updateResourceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateResourceResponse -&gt; f UpdateResourceResponse
+</span><a href="Amazonka.CloudControl.UpdateResource.html#updateResourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateResourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateResourceResponse -&gt; Int)
+-&gt; (UpdateResourceResponse -&gt; Int -&gt; UpdateResourceResponse)
+-&gt; Lens UpdateResourceResponse UpdateResourceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse%27"><span class="hs-identifier hs-type">UpdateResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156824"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateResourceResponse' :: UpdateResourceResponse -&gt; Int
+</span><a href="#local-6989586621679156824"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156824"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156823"><span class="annot"><span class="annottext">s :: UpdateResourceResponse
+</span><a href="#local-6989586621679156823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse%27"><span class="hs-identifier hs-type">UpdateResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156822"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResourceResponse
+</span><a href="#local-6989586621679156823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateResourceResponse' :: Int
+</span><a href="Amazonka.CloudControl.UpdateResource.html#%24sel%3AhttpStatus%3AUpdateResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier hs-type">UpdateResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.UpdateResource.html#UpdateResourceResponse"><span class="hs-identifier hs-type">UpdateResourceResponse</span></a></span></span><span>
+</span><span id="line-399"></span></pre></body></html>

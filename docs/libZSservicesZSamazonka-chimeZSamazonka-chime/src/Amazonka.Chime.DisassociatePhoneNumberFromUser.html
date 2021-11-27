@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.DisassociatePhoneNumberFromUser</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates the primary provisioned phone number from the specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon Chime user.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.DisassociatePhoneNumberFromUser</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier">DisassociatePhoneNumberFromUser</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#newDisassociatePhoneNumberFromUser"><span class="hs-identifier">newDisassociatePhoneNumberFromUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#disassociatePhoneNumberFromUser_accountId"><span class="hs-identifier">disassociatePhoneNumberFromUser_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#disassociatePhoneNumberFromUser_userId"><span class="hs-identifier">disassociatePhoneNumberFromUser_userId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse"><span class="hs-identifier">DisassociatePhoneNumberFromUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#newDisassociatePhoneNumberFromUserResponse"><span class="hs-identifier">newDisassociatePhoneNumberFromUserResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#disassociatePhoneNumberFromUserResponse_httpStatus"><span class="hs-identifier">disassociatePhoneNumberFromUserResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDisassociatePhoneNumberFromUser' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679544014"><span id="local-6989586621679544015"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociatePhoneNumberFromUser"><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-var">DisassociatePhoneNumberFromUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociatePhoneNumberFromUser%27"><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-var">DisassociatePhoneNumberFromUser'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AaccountId%3ADisassociatePhoneNumberFromUser%27"><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUser -&gt; Text
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#%24sel%3AaccountId%3ADisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The user ID.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AuserId%3ADisassociatePhoneNumberFromUser%27"><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUser -&gt; Text
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#%24sel%3AuserId%3ADisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679544007"><span id="local-6989586621679544009"><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUser
+-&gt; DisassociatePhoneNumberFromUser -&gt; Bool
+(DisassociatePhoneNumberFromUser
+ -&gt; DisassociatePhoneNumberFromUser -&gt; Bool)
+-&gt; (DisassociatePhoneNumberFromUser
+    -&gt; DisassociatePhoneNumberFromUser -&gt; Bool)
+-&gt; Eq DisassociatePhoneNumberFromUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociatePhoneNumberFromUser
+-&gt; DisassociatePhoneNumberFromUser -&gt; Bool
+$c/= :: DisassociatePhoneNumberFromUser
+-&gt; DisassociatePhoneNumberFromUser -&gt; Bool
+== :: DisassociatePhoneNumberFromUser
+-&gt; DisassociatePhoneNumberFromUser -&gt; Bool
+$c== :: DisassociatePhoneNumberFromUser
+-&gt; DisassociatePhoneNumberFromUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543998"><span id="local-6989586621679544000"><span id="local-6989586621679544002"><span id="local-6989586621679544004"><span class="annot"><span class="annottext">ReadPrec [DisassociatePhoneNumberFromUser]
+ReadPrec DisassociatePhoneNumberFromUser
+Int -&gt; ReadS DisassociatePhoneNumberFromUser
+ReadS [DisassociatePhoneNumberFromUser]
+(Int -&gt; ReadS DisassociatePhoneNumberFromUser)
+-&gt; ReadS [DisassociatePhoneNumberFromUser]
+-&gt; ReadPrec DisassociatePhoneNumberFromUser
+-&gt; ReadPrec [DisassociatePhoneNumberFromUser]
+-&gt; Read DisassociatePhoneNumberFromUser
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociatePhoneNumberFromUser]
+$creadListPrec :: ReadPrec [DisassociatePhoneNumberFromUser]
+readPrec :: ReadPrec DisassociatePhoneNumberFromUser
+$creadPrec :: ReadPrec DisassociatePhoneNumberFromUser
+readList :: ReadS [DisassociatePhoneNumberFromUser]
+$creadList :: ReadS [DisassociatePhoneNumberFromUser]
+readsPrec :: Int -&gt; ReadS DisassociatePhoneNumberFromUser
+$creadsPrec :: Int -&gt; ReadS DisassociatePhoneNumberFromUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543991"><span id="local-6989586621679543993"><span id="local-6989586621679543995"><span class="annot"><span class="annottext">Int -&gt; DisassociatePhoneNumberFromUser -&gt; ShowS
+[DisassociatePhoneNumberFromUser] -&gt; ShowS
+DisassociatePhoneNumberFromUser -&gt; String
+(Int -&gt; DisassociatePhoneNumberFromUser -&gt; ShowS)
+-&gt; (DisassociatePhoneNumberFromUser -&gt; String)
+-&gt; ([DisassociatePhoneNumberFromUser] -&gt; ShowS)
+-&gt; Show DisassociatePhoneNumberFromUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociatePhoneNumberFromUser] -&gt; ShowS
+$cshowList :: [DisassociatePhoneNumberFromUser] -&gt; ShowS
+show :: DisassociatePhoneNumberFromUser -&gt; String
+$cshow :: DisassociatePhoneNumberFromUser -&gt; String
+showsPrec :: Int -&gt; DisassociatePhoneNumberFromUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociatePhoneNumberFromUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociatePhoneNumberFromUser
+ -&gt; Rep DisassociatePhoneNumberFromUser x)
+-&gt; (forall x.
+    Rep DisassociatePhoneNumberFromUser x
+    -&gt; DisassociatePhoneNumberFromUser)
+-&gt; Generic DisassociatePhoneNumberFromUser
+forall x.
+Rep DisassociatePhoneNumberFromUser x
+-&gt; DisassociatePhoneNumberFromUser
+forall x.
+DisassociatePhoneNumberFromUser
+-&gt; Rep DisassociatePhoneNumberFromUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociatePhoneNumberFromUser x
+-&gt; DisassociatePhoneNumberFromUser
+$cfrom :: forall x.
+DisassociatePhoneNumberFromUser
+-&gt; Rep DisassociatePhoneNumberFromUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DisassociatePhoneNumberFromUser' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'accountId', 'disassociatePhoneNumberFromUser_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'userId', 'disassociatePhoneNumberFromUser_userId' - The user ID.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#newDisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">newDisassociatePhoneNumberFromUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'userId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span>
+</span><span id="line-76"></span><span id="newDisassociatePhoneNumberFromUser"><span class="annot"><span class="annottext">newDisassociatePhoneNumberFromUser :: Text -&gt; Text -&gt; DisassociatePhoneNumberFromUser
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#newDisassociatePhoneNumberFromUser"><span class="hs-identifier hs-var hs-var">newDisassociatePhoneNumberFromUser</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679543986"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543986"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679543985"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543985"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUser' :: Text -&gt; Text -&gt; DisassociatePhoneNumberFromUser
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser'</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DisassociatePhoneNumberFromUser' :: Text
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#%24sel%3AaccountId%3ADisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543986"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:userId:DisassociatePhoneNumberFromUser' :: Text
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#%24sel%3AuserId%3ADisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543985"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#disassociatePhoneNumberFromUser_accountId"><span class="hs-identifier hs-type">disassociatePhoneNumberFromUser_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="disassociatePhoneNumberFromUser_accountId"><span class="annot"><span class="annottext">disassociatePhoneNumberFromUser_accountId :: (Text -&gt; f Text)
+-&gt; DisassociatePhoneNumberFromUser
+-&gt; f DisassociatePhoneNumberFromUser
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#disassociatePhoneNumberFromUser_accountId"><span class="hs-identifier hs-var hs-var">disassociatePhoneNumberFromUser_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociatePhoneNumberFromUser -&gt; Text)
+-&gt; (DisassociatePhoneNumberFromUser
+    -&gt; Text -&gt; DisassociatePhoneNumberFromUser)
+-&gt; Lens
+     DisassociatePhoneNumberFromUser
+     DisassociatePhoneNumberFromUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543982"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:DisassociatePhoneNumberFromUser' :: DisassociatePhoneNumberFromUser -&gt; Text
+</span><a href="#local-6989586621679543982"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543982"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543981"><span class="annot"><span class="annottext">s :: DisassociatePhoneNumberFromUser
+</span><a href="#local-6989586621679543981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543980"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUser
+</span><a href="#local-6989586621679543981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DisassociatePhoneNumberFromUser' :: Text
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#%24sel%3AaccountId%3ADisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The user ID.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#disassociatePhoneNumberFromUser_userId"><span class="hs-identifier hs-type">disassociatePhoneNumberFromUser_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="disassociatePhoneNumberFromUser_userId"><span class="annot"><span class="annottext">disassociatePhoneNumberFromUser_userId :: (Text -&gt; f Text)
+-&gt; DisassociatePhoneNumberFromUser
+-&gt; f DisassociatePhoneNumberFromUser
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#disassociatePhoneNumberFromUser_userId"><span class="hs-identifier hs-var hs-var">disassociatePhoneNumberFromUser_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociatePhoneNumberFromUser -&gt; Text)
+-&gt; (DisassociatePhoneNumberFromUser
+    -&gt; Text -&gt; DisassociatePhoneNumberFromUser)
+-&gt; Lens
+     DisassociatePhoneNumberFromUser
+     DisassociatePhoneNumberFromUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543979"><span class="annot"><span class="annottext">Text
+userId :: Text
+$sel:userId:DisassociatePhoneNumberFromUser' :: DisassociatePhoneNumberFromUser -&gt; Text
+</span><a href="#local-6989586621679543979"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543979"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543978"><span class="annot"><span class="annottext">s :: DisassociatePhoneNumberFromUser
+</span><a href="#local-6989586621679543978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543977"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUser
+</span><a href="#local-6989586621679543978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:DisassociatePhoneNumberFromUser' :: Text
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#%24sel%3AuserId%3ADisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUserResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679543973"><span class="annot"><span class="annottext">request :: DisassociatePhoneNumberFromUser
+-&gt; Request DisassociatePhoneNumberFromUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisassociatePhoneNumberFromUser
+-&gt; Request DisassociatePhoneNumberFromUser
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679543969"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociatePhoneNumberFromUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DisassociatePhoneNumberFromUser)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DisassociatePhoneNumberFromUser))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociatePhoneNumberFromUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DisassociatePhoneNumberFromUser)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679543966"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543966"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679543965"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679543965"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679543964"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679543964"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DisassociatePhoneNumberFromUserResponse
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse%27"><span class="hs-identifier hs-var">DisassociatePhoneNumberFromUserResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DisassociatePhoneNumberFromUserResponse)
+-&gt; Either String Int
+-&gt; Either String DisassociatePhoneNumberFromUserResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543966"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679543957"><span id="local-6989586621679543959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679543954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679543950"><span class="annot"><span class="annottext">toHeaders :: DisassociatePhoneNumberFromUser -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DisassociatePhoneNumberFromUser -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543941"><span id="local-6989586621679543943"><span id="local-6989586621679543945"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679543939"><span class="annot"><span class="annottext">toJSON :: DisassociatePhoneNumberFromUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DisassociatePhoneNumberFromUser -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679543934"><span class="annot"><span class="annottext">toPath :: DisassociatePhoneNumberFromUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser%27"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543931"><span id="local-6989586621679543932"><span class="annot"><span class="annottext">Text
+userId :: Text
+accountId :: Text
+$sel:userId:DisassociatePhoneNumberFromUser' :: DisassociatePhoneNumberFromUser -&gt; Text
+$sel:accountId:DisassociatePhoneNumberFromUser' :: DisassociatePhoneNumberFromUser -&gt; Text
+</span><a href="#local-6989586621679543931"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543932"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/users/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543931"><span class="hs-identifier hs-var">userId</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUser"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679543927"><span class="annot"><span class="annottext">toQuery :: DisassociatePhoneNumberFromUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociatePhoneNumberFromUser -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;operation=disassociate-phone-number&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDisassociatePhoneNumberFromUserResponse' smart constructor.</span><span>
+</span><span id="line-142"></span><span id="local-6989586621679543924"><span id="local-6989586621679543925"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociatePhoneNumberFromUserResponse"><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse"><span class="hs-identifier hs-var">DisassociatePhoneNumberFromUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociatePhoneNumberFromUserResponse%27"><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse%27"><span class="hs-identifier hs-var">DisassociatePhoneNumberFromUserResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociatePhoneNumberFromUserResponse%27"><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUserResponse -&gt; Int
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#%24sel%3AhttpStatus%3ADisassociatePhoneNumberFromUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679543919"><span id="local-6989586621679543921"><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUserResponse
+-&gt; DisassociatePhoneNumberFromUserResponse -&gt; Bool
+(DisassociatePhoneNumberFromUserResponse
+ -&gt; DisassociatePhoneNumberFromUserResponse -&gt; Bool)
+-&gt; (DisassociatePhoneNumberFromUserResponse
+    -&gt; DisassociatePhoneNumberFromUserResponse -&gt; Bool)
+-&gt; Eq DisassociatePhoneNumberFromUserResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociatePhoneNumberFromUserResponse
+-&gt; DisassociatePhoneNumberFromUserResponse -&gt; Bool
+$c/= :: DisassociatePhoneNumberFromUserResponse
+-&gt; DisassociatePhoneNumberFromUserResponse -&gt; Bool
+== :: DisassociatePhoneNumberFromUserResponse
+-&gt; DisassociatePhoneNumberFromUserResponse -&gt; Bool
+$c== :: DisassociatePhoneNumberFromUserResponse
+-&gt; DisassociatePhoneNumberFromUserResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543911"><span id="local-6989586621679543913"><span id="local-6989586621679543915"><span id="local-6989586621679543917"><span class="annot"><span class="annottext">ReadPrec [DisassociatePhoneNumberFromUserResponse]
+ReadPrec DisassociatePhoneNumberFromUserResponse
+Int -&gt; ReadS DisassociatePhoneNumberFromUserResponse
+ReadS [DisassociatePhoneNumberFromUserResponse]
+(Int -&gt; ReadS DisassociatePhoneNumberFromUserResponse)
+-&gt; ReadS [DisassociatePhoneNumberFromUserResponse]
+-&gt; ReadPrec DisassociatePhoneNumberFromUserResponse
+-&gt; ReadPrec [DisassociatePhoneNumberFromUserResponse]
+-&gt; Read DisassociatePhoneNumberFromUserResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociatePhoneNumberFromUserResponse]
+$creadListPrec :: ReadPrec [DisassociatePhoneNumberFromUserResponse]
+readPrec :: ReadPrec DisassociatePhoneNumberFromUserResponse
+$creadPrec :: ReadPrec DisassociatePhoneNumberFromUserResponse
+readList :: ReadS [DisassociatePhoneNumberFromUserResponse]
+$creadList :: ReadS [DisassociatePhoneNumberFromUserResponse]
+readsPrec :: Int -&gt; ReadS DisassociatePhoneNumberFromUserResponse
+$creadsPrec :: Int -&gt; ReadS DisassociatePhoneNumberFromUserResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543905"><span id="local-6989586621679543907"><span id="local-6989586621679543909"><span class="annot"><span class="annottext">Int -&gt; DisassociatePhoneNumberFromUserResponse -&gt; ShowS
+[DisassociatePhoneNumberFromUserResponse] -&gt; ShowS
+DisassociatePhoneNumberFromUserResponse -&gt; String
+(Int -&gt; DisassociatePhoneNumberFromUserResponse -&gt; ShowS)
+-&gt; (DisassociatePhoneNumberFromUserResponse -&gt; String)
+-&gt; ([DisassociatePhoneNumberFromUserResponse] -&gt; ShowS)
+-&gt; Show DisassociatePhoneNumberFromUserResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociatePhoneNumberFromUserResponse] -&gt; ShowS
+$cshowList :: [DisassociatePhoneNumberFromUserResponse] -&gt; ShowS
+show :: DisassociatePhoneNumberFromUserResponse -&gt; String
+$cshow :: DisassociatePhoneNumberFromUserResponse -&gt; String
+showsPrec :: Int -&gt; DisassociatePhoneNumberFromUserResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociatePhoneNumberFromUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociatePhoneNumberFromUserResponse
+ -&gt; Rep DisassociatePhoneNumberFromUserResponse x)
+-&gt; (forall x.
+    Rep DisassociatePhoneNumberFromUserResponse x
+    -&gt; DisassociatePhoneNumberFromUserResponse)
+-&gt; Generic DisassociatePhoneNumberFromUserResponse
+forall x.
+Rep DisassociatePhoneNumberFromUserResponse x
+-&gt; DisassociatePhoneNumberFromUserResponse
+forall x.
+DisassociatePhoneNumberFromUserResponse
+-&gt; Rep DisassociatePhoneNumberFromUserResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociatePhoneNumberFromUserResponse x
+-&gt; DisassociatePhoneNumberFromUserResponse
+$cfrom :: forall x.
+DisassociatePhoneNumberFromUserResponse
+-&gt; Rep DisassociatePhoneNumberFromUserResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'DisassociatePhoneNumberFromUserResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'disassociatePhoneNumberFromUserResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#newDisassociatePhoneNumberFromUserResponse"><span class="hs-identifier hs-type">newDisassociatePhoneNumberFromUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUserResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newDisassociatePhoneNumberFromUserResponse"><span class="annot"><span class="annottext">newDisassociatePhoneNumberFromUserResponse :: Int -&gt; DisassociatePhoneNumberFromUserResponse
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#newDisassociatePhoneNumberFromUserResponse"><span class="hs-identifier hs-var hs-var">newDisassociatePhoneNumberFromUserResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679543902"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUserResponse' :: Int -&gt; DisassociatePhoneNumberFromUserResponse
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse%27"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUserResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociatePhoneNumberFromUserResponse' :: Int
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#%24sel%3AhttpStatus%3ADisassociatePhoneNumberFromUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#disassociatePhoneNumberFromUserResponse_httpStatus"><span class="hs-identifier hs-type">disassociatePhoneNumberFromUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="disassociatePhoneNumberFromUserResponse_httpStatus"><span class="annot"><span class="annottext">disassociatePhoneNumberFromUserResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisassociatePhoneNumberFromUserResponse
+-&gt; f DisassociatePhoneNumberFromUserResponse
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#disassociatePhoneNumberFromUserResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disassociatePhoneNumberFromUserResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociatePhoneNumberFromUserResponse -&gt; Int)
+-&gt; (DisassociatePhoneNumberFromUserResponse
+    -&gt; Int -&gt; DisassociatePhoneNumberFromUserResponse)
+-&gt; Lens
+     DisassociatePhoneNumberFromUserResponse
+     DisassociatePhoneNumberFromUserResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse%27"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543901"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisassociatePhoneNumberFromUserResponse' :: DisassociatePhoneNumberFromUserResponse -&gt; Int
+</span><a href="#local-6989586621679543901"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543901"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543900"><span class="annot"><span class="annottext">s :: DisassociatePhoneNumberFromUserResponse
+</span><a href="#local-6989586621679543900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse%27"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociatePhoneNumberFromUserResponse
+</span><a href="#local-6989586621679543900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociatePhoneNumberFromUserResponse' :: Int
+</span><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#%24sel%3AhttpStatus%3ADisassociatePhoneNumberFromUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679543897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.DisassociatePhoneNumberFromUser.html#DisassociatePhoneNumberFromUserResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumberFromUserResponse</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

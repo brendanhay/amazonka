@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Textract.StartDocumentAnalysis</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts the asynchronous analysis of an input document for relationships</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- between detected items such as key-value pairs, tables, and selection</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- elements.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @StartDocumentAnalysis@ can analyze text in documents that are in JPEG,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- PNG, and PDF format. The documents are stored in an Amazon S3 bucket.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Use DocumentLocation to specify the bucket name and file name of the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @StartDocumentAnalysis@ returns a job identifier (@JobId@) that you use</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- to get the results of the operation. When text analysis is finished,</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Amazon Textract publishes a completion status to the Amazon Simple</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Notification Service (Amazon SNS) topic that you specify in</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @NotificationChannel@. To get the results of the text analysis</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- operation, first check that the status value published to the Amazon SNS</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- topic is @SUCCEEDED@. If so, call GetDocumentAnalysis, and pass the job</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- identifier (@JobId@) from the initial call to @StartDocumentAnalysis@.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html Document Text Analysis&gt;.</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Textract.StartDocumentAnalysis</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#newStartDocumentAnalysis"><span class="hs-identifier">newStartDocumentAnalysis</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_jobTag"><span class="hs-identifier">startDocumentAnalysis_jobTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_notificationChannel"><span class="hs-identifier">startDocumentAnalysis_notificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_kmsKeyId"><span class="hs-identifier">startDocumentAnalysis_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_outputConfig"><span class="hs-identifier">startDocumentAnalysis_outputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_clientRequestToken"><span class="hs-identifier">startDocumentAnalysis_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_documentLocation"><span class="hs-identifier">startDocumentAnalysis_documentLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_featureTypes"><span class="hs-identifier">startDocumentAnalysis_featureTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse"><span class="hs-identifier">StartDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#newStartDocumentAnalysisResponse"><span class="hs-identifier">newStartDocumentAnalysisResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysisResponse_jobId"><span class="hs-identifier">startDocumentAnalysisResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysisResponse_httpStatus"><span class="hs-identifier">startDocumentAnalysisResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.html"><span class="hs-identifier">Amazonka.Textract.Types</span></a></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newStartDocumentAnalysis' smart constructor.</span><span>
+</span><span id="line-75"></span><span id="local-6989586621679178665"><span id="local-6989586621679178666"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDocumentAnalysis"><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-var">StartDocumentAnalysis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDocumentAnalysis%27"><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-var">StartDocumentAnalysis'</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that you specify that\'s included in the completion</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- notification published to the Amazon SNS topic. For example, you can use</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @JobTag@ to identify the type of document that the completion</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- notification corresponds to (such as a tax form or a receipt).</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AjobTag%3AStartDocumentAnalysis%27"><span class="annot"><span class="annottext">StartDocumentAnalysis -&gt; Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AjobTag%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">jobTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The Amazon SNS topic ARN that you want Amazon Textract to publish the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- completion status of the operation to.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AnotificationChannel%3AStartDocumentAnalysis%27"><span class="annot"><span class="annottext">StartDocumentAnalysis -&gt; Maybe NotificationChannel
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AnotificationChannel%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">notificationChannel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The KMS key used to encrypt the inference results. This can be in either</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- Key ID or Key Alias format. When a KMS key is provided, the KMS key will</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- be used for server-side encryption of the objects in the customer</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- bucket. When this parameter is not enabled, the result will be encrypted</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- server side,using SSE-S3.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AStartDocumentAnalysis%27"><span class="annot"><span class="annottext">StartDocumentAnalysis -&gt; Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AkmsKeyId%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | Sets if the output will go to a customer defined bucket. By default,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Amazon Textract will save the results internally to be accessed by the</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- GetDocumentAnalysis operation.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AoutputConfig%3AStartDocumentAnalysis%27"><span class="annot"><span class="annottext">StartDocumentAnalysis -&gt; Maybe OutputConfig
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AoutputConfig%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The idempotent token that you use to identify the start request. If you</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- use the same token with multiple @StartDocumentAnalysis@ requests, the</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- job from being accidentally started more than once. For more</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations&gt;.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AStartDocumentAnalysis%27"><span class="annot"><span class="annottext">StartDocumentAnalysis -&gt; Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AclientRequestToken%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The location of the document to be processed.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AdocumentLocation%3AStartDocumentAnalysis%27"><span class="annot"><span class="annottext">StartDocumentAnalysis -&gt; DocumentLocation
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AdocumentLocation%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">documentLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.DocumentLocation.html#DocumentLocation"><span class="hs-identifier hs-type">DocumentLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | A list of the types of analysis to perform. Add TABLES to the list to</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- return information about the tables that are detected in the input</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- document. Add FORMS to return detected form data. To perform both types</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- of analysis, add TABLES and FORMS to @FeatureTypes@. All lines and words</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- detected in the document are included in the response (including text</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- that isn\'t related to the value of @FeatureTypes@).</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AfeatureTypes%3AStartDocumentAnalysis%27"><span class="annot"><span class="annottext">StartDocumentAnalysis -&gt; [FeatureType]
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AfeatureTypes%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var hs-var">featureTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Textract.Types.FeatureType.html#FeatureType"><span class="hs-identifier hs-type">FeatureType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178653"><span id="local-6989586621679178655"><span class="annot"><span class="annottext">StartDocumentAnalysis -&gt; StartDocumentAnalysis -&gt; Bool
+(StartDocumentAnalysis -&gt; StartDocumentAnalysis -&gt; Bool)
+-&gt; (StartDocumentAnalysis -&gt; StartDocumentAnalysis -&gt; Bool)
+-&gt; Eq StartDocumentAnalysis
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDocumentAnalysis -&gt; StartDocumentAnalysis -&gt; Bool
+$c/= :: StartDocumentAnalysis -&gt; StartDocumentAnalysis -&gt; Bool
+== :: StartDocumentAnalysis -&gt; StartDocumentAnalysis -&gt; Bool
+$c== :: StartDocumentAnalysis -&gt; StartDocumentAnalysis -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178644"><span id="local-6989586621679178646"><span id="local-6989586621679178648"><span id="local-6989586621679178650"><span class="annot"><span class="annottext">ReadPrec [StartDocumentAnalysis]
+ReadPrec StartDocumentAnalysis
+Int -&gt; ReadS StartDocumentAnalysis
+ReadS [StartDocumentAnalysis]
+(Int -&gt; ReadS StartDocumentAnalysis)
+-&gt; ReadS [StartDocumentAnalysis]
+-&gt; ReadPrec StartDocumentAnalysis
+-&gt; ReadPrec [StartDocumentAnalysis]
+-&gt; Read StartDocumentAnalysis
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDocumentAnalysis]
+$creadListPrec :: ReadPrec [StartDocumentAnalysis]
+readPrec :: ReadPrec StartDocumentAnalysis
+$creadPrec :: ReadPrec StartDocumentAnalysis
+readList :: ReadS [StartDocumentAnalysis]
+$creadList :: ReadS [StartDocumentAnalysis]
+readsPrec :: Int -&gt; ReadS StartDocumentAnalysis
+$creadsPrec :: Int -&gt; ReadS StartDocumentAnalysis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178637"><span id="local-6989586621679178639"><span id="local-6989586621679178641"><span class="annot"><span class="annottext">Int -&gt; StartDocumentAnalysis -&gt; ShowS
+[StartDocumentAnalysis] -&gt; ShowS
+StartDocumentAnalysis -&gt; String
+(Int -&gt; StartDocumentAnalysis -&gt; ShowS)
+-&gt; (StartDocumentAnalysis -&gt; String)
+-&gt; ([StartDocumentAnalysis] -&gt; ShowS)
+-&gt; Show StartDocumentAnalysis
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDocumentAnalysis] -&gt; ShowS
+$cshowList :: [StartDocumentAnalysis] -&gt; ShowS
+show :: StartDocumentAnalysis -&gt; String
+$cshow :: StartDocumentAnalysis -&gt; String
+showsPrec :: Int -&gt; StartDocumentAnalysis -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDocumentAnalysis -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartDocumentAnalysis -&gt; Rep StartDocumentAnalysis x)
+-&gt; (forall x. Rep StartDocumentAnalysis x -&gt; StartDocumentAnalysis)
+-&gt; Generic StartDocumentAnalysis
+forall x. Rep StartDocumentAnalysis x -&gt; StartDocumentAnalysis
+forall x. StartDocumentAnalysis -&gt; Rep StartDocumentAnalysis x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartDocumentAnalysis x -&gt; StartDocumentAnalysis
+$cfrom :: forall x. StartDocumentAnalysis -&gt; Rep StartDocumentAnalysis x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'StartDocumentAnalysis' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'jobTag', 'startDocumentAnalysis_jobTag' - An identifier that you specify that\'s included in the completion</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- notification published to the Amazon SNS topic. For example, you can use</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @JobTag@ to identify the type of document that the completion</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- notification corresponds to (such as a tax form or a receipt).</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'notificationChannel', 'startDocumentAnalysis_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Textract to publish the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- completion status of the operation to.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'kmsKeyId', 'startDocumentAnalysis_kmsKeyId' - The KMS key used to encrypt the inference results. This can be in either</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Key ID or Key Alias format. When a KMS key is provided, the KMS key will</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- be used for server-side encryption of the objects in the customer</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- bucket. When this parameter is not enabled, the result will be encrypted</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- server side,using SSE-S3.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'outputConfig', 'startDocumentAnalysis_outputConfig' - Sets if the output will go to a customer defined bucket. By default,</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Amazon Textract will save the results internally to be accessed by the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- GetDocumentAnalysis operation.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'clientRequestToken', 'startDocumentAnalysis_clientRequestToken' - The idempotent token that you use to identify the start request. If you</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- use the same token with multiple @StartDocumentAnalysis@ requests, the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- job from being accidentally started more than once. For more</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations&gt;.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'documentLocation', 'startDocumentAnalysis_documentLocation' - The location of the document to be processed.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'featureTypes', 'startDocumentAnalysis_featureTypes' - A list of the types of analysis to perform. Add TABLES to the list to</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- return information about the tables that are detected in the input</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- document. Add FORMS to return detected form data. To perform both types</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- of analysis, add TABLES and FORMS to @FeatureTypes@. All lines and words</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- detected in the document are included in the response (including text</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- that isn\'t related to the value of @FeatureTypes@).</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#newStartDocumentAnalysis"><span class="hs-identifier hs-type">newStartDocumentAnalysis</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'documentLocation'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.Textract.Types.DocumentLocation.html#DocumentLocation"><span class="hs-identifier hs-type">DocumentLocation</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span>
+</span><span id="line-158"></span><span id="newStartDocumentAnalysis"><span class="annot"><span class="annottext">newStartDocumentAnalysis :: DocumentLocation -&gt; StartDocumentAnalysis
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#newStartDocumentAnalysis"><span class="hs-identifier hs-var hs-var">newStartDocumentAnalysis</span></a></span></span><span> </span><span id="local-6989586621679178632"><span class="annot"><span class="annottext">DocumentLocation
+</span><a href="#local-6989586621679178632"><span class="hs-identifier hs-var">pDocumentLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">StartDocumentAnalysis' :: Maybe Text
+-&gt; Maybe NotificationChannel
+-&gt; Maybe Text
+-&gt; Maybe OutputConfig
+-&gt; Maybe Text
+-&gt; DocumentLocation
+-&gt; [FeatureType]
+-&gt; StartDocumentAnalysis
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobTag:StartDocumentAnalysis' :: Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AjobTag%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">jobTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:notificationChannel:StartDocumentAnalysis' :: Maybe NotificationChannel
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AnotificationChannel%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:StartDocumentAnalysis' :: Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AkmsKeyId%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputConfig:StartDocumentAnalysis' :: Maybe OutputConfig
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AoutputConfig%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartDocumentAnalysis' :: Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AclientRequestToken%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentLocation:StartDocumentAnalysis' :: DocumentLocation
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AdocumentLocation%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">documentLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentLocation
+</span><a href="#local-6989586621679178632"><span class="hs-identifier hs-var">pDocumentLocation_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureTypes:StartDocumentAnalysis' :: [FeatureType]
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AfeatureTypes%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">featureTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[FeatureType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | An identifier that you specify that\'s included in the completion</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- notification published to the Amazon SNS topic. For example, you can use</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- @JobTag@ to identify the type of document that the completion</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- notification corresponds to (such as a tax form or a receipt).</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_jobTag"><span class="hs-identifier hs-type">startDocumentAnalysis_jobTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="startDocumentAnalysis_jobTag"><span class="annot"><span class="annottext">startDocumentAnalysis_jobTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartDocumentAnalysis -&gt; f StartDocumentAnalysis
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_jobTag"><span class="hs-identifier hs-var hs-var">startDocumentAnalysis_jobTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDocumentAnalysis -&gt; Maybe Text)
+-&gt; (StartDocumentAnalysis -&gt; Maybe Text -&gt; StartDocumentAnalysis)
+-&gt; Lens
+     StartDocumentAnalysis
+     StartDocumentAnalysis
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178629"><span class="annot"><span class="annottext">Maybe Text
+jobTag :: Maybe Text
+$sel:jobTag:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe Text
+</span><a href="#local-6989586621679178629"><span class="hs-identifier hs-var hs-var">jobTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178629"><span class="hs-identifier hs-var">jobTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178628"><span class="annot"><span class="annottext">s :: StartDocumentAnalysis
+</span><a href="#local-6989586621679178628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178627"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDocumentAnalysis
+</span><a href="#local-6989586621679178628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTag:StartDocumentAnalysis' :: Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AjobTag%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">jobTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The Amazon SNS topic ARN that you want Amazon Textract to publish the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- completion status of the operation to.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_notificationChannel"><span class="hs-identifier hs-type">startDocumentAnalysis_notificationChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="startDocumentAnalysis_notificationChannel"><span class="annot"><span class="annottext">startDocumentAnalysis_notificationChannel :: (Maybe NotificationChannel -&gt; f (Maybe NotificationChannel))
+-&gt; StartDocumentAnalysis -&gt; f StartDocumentAnalysis
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_notificationChannel"><span class="hs-identifier hs-var hs-var">startDocumentAnalysis_notificationChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDocumentAnalysis -&gt; Maybe NotificationChannel)
+-&gt; (StartDocumentAnalysis
+    -&gt; Maybe NotificationChannel -&gt; StartDocumentAnalysis)
+-&gt; Lens
+     StartDocumentAnalysis
+     StartDocumentAnalysis
+     (Maybe NotificationChannel)
+     (Maybe NotificationChannel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178626"><span class="annot"><span class="annottext">Maybe NotificationChannel
+notificationChannel :: Maybe NotificationChannel
+$sel:notificationChannel:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe NotificationChannel
+</span><a href="#local-6989586621679178626"><span class="hs-identifier hs-var hs-var">notificationChannel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679178626"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178625"><span class="annot"><span class="annottext">s :: StartDocumentAnalysis
+</span><a href="#local-6989586621679178625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178624"><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679178624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDocumentAnalysis
+</span><a href="#local-6989586621679178625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationChannel:StartDocumentAnalysis' :: Maybe NotificationChannel
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AnotificationChannel%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679178624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The KMS key used to encrypt the inference results. This can be in either</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Key ID or Key Alias format. When a KMS key is provided, the KMS key will</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- be used for server-side encryption of the objects in the customer</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- bucket. When this parameter is not enabled, the result will be encrypted</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- server side,using SSE-S3.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_kmsKeyId"><span class="hs-identifier hs-type">startDocumentAnalysis_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="startDocumentAnalysis_kmsKeyId"><span class="annot"><span class="annottext">startDocumentAnalysis_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartDocumentAnalysis -&gt; f StartDocumentAnalysis
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_kmsKeyId"><span class="hs-identifier hs-var hs-var">startDocumentAnalysis_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDocumentAnalysis -&gt; Maybe Text)
+-&gt; (StartDocumentAnalysis -&gt; Maybe Text -&gt; StartDocumentAnalysis)
+-&gt; Lens
+     StartDocumentAnalysis
+     StartDocumentAnalysis
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178623"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe Text
+</span><a href="#local-6989586621679178623"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178623"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178622"><span class="annot"><span class="annottext">s :: StartDocumentAnalysis
+</span><a href="#local-6989586621679178622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178621"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDocumentAnalysis
+</span><a href="#local-6989586621679178622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:StartDocumentAnalysis' :: Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AkmsKeyId%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Sets if the output will go to a customer defined bucket. By default,</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Amazon Textract will save the results internally to be accessed by the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- GetDocumentAnalysis operation.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_outputConfig"><span class="hs-identifier hs-type">startDocumentAnalysis_outputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="startDocumentAnalysis_outputConfig"><span class="annot"><span class="annottext">startDocumentAnalysis_outputConfig :: (Maybe OutputConfig -&gt; f (Maybe OutputConfig))
+-&gt; StartDocumentAnalysis -&gt; f StartDocumentAnalysis
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_outputConfig"><span class="hs-identifier hs-var hs-var">startDocumentAnalysis_outputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDocumentAnalysis -&gt; Maybe OutputConfig)
+-&gt; (StartDocumentAnalysis
+    -&gt; Maybe OutputConfig -&gt; StartDocumentAnalysis)
+-&gt; Lens
+     StartDocumentAnalysis
+     StartDocumentAnalysis
+     (Maybe OutputConfig)
+     (Maybe OutputConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178620"><span class="annot"><span class="annottext">Maybe OutputConfig
+outputConfig :: Maybe OutputConfig
+$sel:outputConfig:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe OutputConfig
+</span><a href="#local-6989586621679178620"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputConfig
+</span><a href="#local-6989586621679178620"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178619"><span class="annot"><span class="annottext">s :: StartDocumentAnalysis
+</span><a href="#local-6989586621679178619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178618"><span class="annot"><span class="annottext">Maybe OutputConfig
+</span><a href="#local-6989586621679178618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDocumentAnalysis
+</span><a href="#local-6989586621679178619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputConfig:StartDocumentAnalysis' :: Maybe OutputConfig
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AoutputConfig%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputConfig
+</span><a href="#local-6989586621679178618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The idempotent token that you use to identify the start request. If you</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- use the same token with multiple @StartDocumentAnalysis@ requests, the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- job from being accidentally started more than once. For more</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations&gt;.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_clientRequestToken"><span class="hs-identifier hs-type">startDocumentAnalysis_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="startDocumentAnalysis_clientRequestToken"><span class="annot"><span class="annottext">startDocumentAnalysis_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartDocumentAnalysis -&gt; f StartDocumentAnalysis
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_clientRequestToken"><span class="hs-identifier hs-var hs-var">startDocumentAnalysis_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDocumentAnalysis -&gt; Maybe Text)
+-&gt; (StartDocumentAnalysis -&gt; Maybe Text -&gt; StartDocumentAnalysis)
+-&gt; Lens
+     StartDocumentAnalysis
+     StartDocumentAnalysis
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178617"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe Text
+</span><a href="#local-6989586621679178617"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178617"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178616"><span class="annot"><span class="annottext">s :: StartDocumentAnalysis
+</span><a href="#local-6989586621679178616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178615"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDocumentAnalysis
+</span><a href="#local-6989586621679178616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartDocumentAnalysis' :: Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AclientRequestToken%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The location of the document to be processed.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_documentLocation"><span class="hs-identifier hs-type">startDocumentAnalysis_documentLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.DocumentLocation.html#DocumentLocation"><span class="hs-identifier hs-type">DocumentLocation</span></a></span><span>
+</span><span id="line-206"></span><span id="startDocumentAnalysis_documentLocation"><span class="annot"><span class="annottext">startDocumentAnalysis_documentLocation :: (DocumentLocation -&gt; f DocumentLocation)
+-&gt; StartDocumentAnalysis -&gt; f StartDocumentAnalysis
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_documentLocation"><span class="hs-identifier hs-var hs-var">startDocumentAnalysis_documentLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDocumentAnalysis -&gt; DocumentLocation)
+-&gt; (StartDocumentAnalysis
+    -&gt; DocumentLocation -&gt; StartDocumentAnalysis)
+-&gt; Lens
+     StartDocumentAnalysis
+     StartDocumentAnalysis
+     DocumentLocation
+     DocumentLocation
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178614"><span class="annot"><span class="annottext">DocumentLocation
+documentLocation :: DocumentLocation
+$sel:documentLocation:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; DocumentLocation
+</span><a href="#local-6989586621679178614"><span class="hs-identifier hs-var hs-var">documentLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentLocation
+</span><a href="#local-6989586621679178614"><span class="hs-identifier hs-var">documentLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178613"><span class="annot"><span class="annottext">s :: StartDocumentAnalysis
+</span><a href="#local-6989586621679178613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178612"><span class="annot"><span class="annottext">DocumentLocation
+</span><a href="#local-6989586621679178612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDocumentAnalysis
+</span><a href="#local-6989586621679178613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentLocation:StartDocumentAnalysis' :: DocumentLocation
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AdocumentLocation%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">documentLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentLocation
+</span><a href="#local-6989586621679178612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | A list of the types of analysis to perform. Add TABLES to the list to</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- return information about the tables that are detected in the input</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- document. Add FORMS to return detected form data. To perform both types</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- of analysis, add TABLES and FORMS to @FeatureTypes@. All lines and words</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- detected in the document are included in the response (including text</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- that isn\'t related to the value of @FeatureTypes@).</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_featureTypes"><span class="hs-identifier hs-type">startDocumentAnalysis_featureTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Textract.Types.FeatureType.html#FeatureType"><span class="hs-identifier hs-type">FeatureType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-215"></span><span id="startDocumentAnalysis_featureTypes"><span class="annot"><span class="annottext">startDocumentAnalysis_featureTypes :: ([FeatureType] -&gt; f [FeatureType])
+-&gt; StartDocumentAnalysis -&gt; f StartDocumentAnalysis
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysis_featureTypes"><span class="hs-identifier hs-var hs-var">startDocumentAnalysis_featureTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDocumentAnalysis -&gt; [FeatureType])
+-&gt; (StartDocumentAnalysis
+    -&gt; [FeatureType] -&gt; StartDocumentAnalysis)
+-&gt; Lens
+     StartDocumentAnalysis
+     StartDocumentAnalysis
+     [FeatureType]
+     [FeatureType]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178611"><span class="annot"><span class="annottext">[FeatureType]
+featureTypes :: [FeatureType]
+$sel:featureTypes:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; [FeatureType]
+</span><a href="#local-6989586621679178611"><span class="hs-identifier hs-var hs-var">featureTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[FeatureType]
+</span><a href="#local-6989586621679178611"><span class="hs-identifier hs-var">featureTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178610"><span class="annot"><span class="annottext">s :: StartDocumentAnalysis
+</span><a href="#local-6989586621679178610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178609"><span class="annot"><span class="annottext">[FeatureType]
+</span><a href="#local-6989586621679178609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDocumentAnalysis
+</span><a href="#local-6989586621679178610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureTypes:StartDocumentAnalysis' :: [FeatureType]
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AfeatureTypes%3AStartDocumentAnalysis%27"><span class="hs-identifier hs-var">featureTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[FeatureType]
+</span><a href="#local-6989586621679178609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([FeatureType] -&gt; f [FeatureType])
+ -&gt; StartDocumentAnalysis -&gt; f StartDocumentAnalysis)
+-&gt; (([FeatureType] -&gt; f [FeatureType])
+    -&gt; [FeatureType] -&gt; f [FeatureType])
+-&gt; ([FeatureType] -&gt; f [FeatureType])
+-&gt; StartDocumentAnalysis
+-&gt; f StartDocumentAnalysis
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([FeatureType] -&gt; f [FeatureType])
+-&gt; [FeatureType] -&gt; f [FeatureType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-219"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse</span></a></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679178603"><span class="annot"><span class="annottext">request :: StartDocumentAnalysis -&gt; Request StartDocumentAnalysis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartDocumentAnalysis -&gt; Request StartDocumentAnalysis
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Textract.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679178599"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartDocumentAnalysis
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartDocumentAnalysis)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartDocumentAnalysis))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartDocumentAnalysis
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartDocumentAnalysis)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178596"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178596"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178595"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178595"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178594"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartDocumentAnalysisResponse
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">StartDocumentAnalysisResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartDocumentAnalysisResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartDocumentAnalysisResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartDocumentAnalysisResponse)
+-&gt; Either String Int -&gt; Either String StartDocumentAnalysisResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178596"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178586"><span id="local-6989586621679178588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span></span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679178579"><span class="annot"><span class="annottext">toHeaders :: StartDocumentAnalysis -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartDocumentAnalysis -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-238"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-239"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Textract.StartDocumentAnalysis&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-240"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-241"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-243"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-244"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-245"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178569"><span id="local-6989586621679178571"><span id="local-6989586621679178573"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679178567"><span class="annot"><span class="annottext">toJSON :: StartDocumentAnalysis -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis%27"><span class="hs-identifier hs-type">StartDocumentAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178559"><span id="local-6989586621679178560"><span id="local-6989586621679178561"><span id="local-6989586621679178562"><span id="local-6989586621679178563"><span id="local-6989586621679178564"><span id="local-6989586621679178565"><span class="annot"><span class="annottext">[FeatureType]
+Maybe Text
+Maybe NotificationChannel
+Maybe OutputConfig
+DocumentLocation
+featureTypes :: [FeatureType]
+documentLocation :: DocumentLocation
+clientRequestToken :: Maybe Text
+outputConfig :: Maybe OutputConfig
+kmsKeyId :: Maybe Text
+notificationChannel :: Maybe NotificationChannel
+jobTag :: Maybe Text
+$sel:featureTypes:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; [FeatureType]
+$sel:documentLocation:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; DocumentLocation
+$sel:clientRequestToken:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe Text
+$sel:outputConfig:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe OutputConfig
+$sel:kmsKeyId:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe Text
+$sel:notificationChannel:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe NotificationChannel
+$sel:jobTag:StartDocumentAnalysis' :: StartDocumentAnalysis -&gt; Maybe Text
+</span><a href="#local-6989586621679178559"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-253"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobTag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178565"><span class="hs-identifier hs-var">jobTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationChannel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NotificationChannel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">(NotificationChannel -&gt; Pair)
+-&gt; Maybe NotificationChannel -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationChannel
+</span><a href="#local-6989586621679178564"><span class="hs-identifier hs-var">notificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KMSKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178563"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OutputConfig -&gt; Pair) -&gt; Maybe OutputConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OutputConfig
+</span><a href="#local-6989586621679178562"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178561"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-261"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentLocation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DocumentLocation
+</span><a href="#local-6989586621679178560"><span class="hs-identifier hs-var">documentLocation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [FeatureType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[FeatureType]
+</span><a href="#local-6989586621679178559"><span class="hs-identifier hs-var">featureTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679178553"><span class="annot"><span class="annottext">toPath :: StartDocumentAnalysis -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartDocumentAnalysis -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysis"><span class="hs-identifier hs-type">StartDocumentAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679178549"><span class="annot"><span class="annottext">toQuery :: StartDocumentAnalysis -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartDocumentAnalysis -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | /See:/ 'newStartDocumentAnalysisResponse' smart constructor.</span><span>
+</span><span id="line-273"></span><span id="local-6989586621679178546"><span id="local-6989586621679178547"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDocumentAnalysisResponse"><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse"><span class="hs-identifier hs-var">StartDocumentAnalysisResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDocumentAnalysisResponse%27"><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">StartDocumentAnalysisResponse'</span></a></span></span><span>
+</span><span id="line-274"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the document text detection job. Use @JobId@ to</span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- identify the job in a subsequent call to @GetDocumentAnalysis@. A</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- @JobId@ value is only valid for 7 days.</span><span>
+</span><span id="line-277"></span><span>    </span><span id="%24sel%3AjobId%3AStartDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">StartDocumentAnalysisResponse -&gt; Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AjobId%3AStartDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-279"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartDocumentAnalysisResponse%27"><span class="annot"><span class="annottext">StartDocumentAnalysisResponse -&gt; Int
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AhttpStatus%3AStartDocumentAnalysisResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178540"><span id="local-6989586621679178542"><span class="annot"><span class="annottext">StartDocumentAnalysisResponse
+-&gt; StartDocumentAnalysisResponse -&gt; Bool
+(StartDocumentAnalysisResponse
+ -&gt; StartDocumentAnalysisResponse -&gt; Bool)
+-&gt; (StartDocumentAnalysisResponse
+    -&gt; StartDocumentAnalysisResponse -&gt; Bool)
+-&gt; Eq StartDocumentAnalysisResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartDocumentAnalysisResponse
+-&gt; StartDocumentAnalysisResponse -&gt; Bool
+$c/= :: StartDocumentAnalysisResponse
+-&gt; StartDocumentAnalysisResponse -&gt; Bool
+== :: StartDocumentAnalysisResponse
+-&gt; StartDocumentAnalysisResponse -&gt; Bool
+$c== :: StartDocumentAnalysisResponse
+-&gt; StartDocumentAnalysisResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178532"><span id="local-6989586621679178534"><span id="local-6989586621679178536"><span id="local-6989586621679178538"><span class="annot"><span class="annottext">ReadPrec [StartDocumentAnalysisResponse]
+ReadPrec StartDocumentAnalysisResponse
+Int -&gt; ReadS StartDocumentAnalysisResponse
+ReadS [StartDocumentAnalysisResponse]
+(Int -&gt; ReadS StartDocumentAnalysisResponse)
+-&gt; ReadS [StartDocumentAnalysisResponse]
+-&gt; ReadPrec StartDocumentAnalysisResponse
+-&gt; ReadPrec [StartDocumentAnalysisResponse]
+-&gt; Read StartDocumentAnalysisResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartDocumentAnalysisResponse]
+$creadListPrec :: ReadPrec [StartDocumentAnalysisResponse]
+readPrec :: ReadPrec StartDocumentAnalysisResponse
+$creadPrec :: ReadPrec StartDocumentAnalysisResponse
+readList :: ReadS [StartDocumentAnalysisResponse]
+$creadList :: ReadS [StartDocumentAnalysisResponse]
+readsPrec :: Int -&gt; ReadS StartDocumentAnalysisResponse
+$creadsPrec :: Int -&gt; ReadS StartDocumentAnalysisResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178526"><span id="local-6989586621679178528"><span id="local-6989586621679178530"><span class="annot"><span class="annottext">Int -&gt; StartDocumentAnalysisResponse -&gt; ShowS
+[StartDocumentAnalysisResponse] -&gt; ShowS
+StartDocumentAnalysisResponse -&gt; String
+(Int -&gt; StartDocumentAnalysisResponse -&gt; ShowS)
+-&gt; (StartDocumentAnalysisResponse -&gt; String)
+-&gt; ([StartDocumentAnalysisResponse] -&gt; ShowS)
+-&gt; Show StartDocumentAnalysisResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartDocumentAnalysisResponse] -&gt; ShowS
+$cshowList :: [StartDocumentAnalysisResponse] -&gt; ShowS
+show :: StartDocumentAnalysisResponse -&gt; String
+$cshow :: StartDocumentAnalysisResponse -&gt; String
+showsPrec :: Int -&gt; StartDocumentAnalysisResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartDocumentAnalysisResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartDocumentAnalysisResponse
+ -&gt; Rep StartDocumentAnalysisResponse x)
+-&gt; (forall x.
+    Rep StartDocumentAnalysisResponse x
+    -&gt; StartDocumentAnalysisResponse)
+-&gt; Generic StartDocumentAnalysisResponse
+forall x.
+Rep StartDocumentAnalysisResponse x
+-&gt; StartDocumentAnalysisResponse
+forall x.
+StartDocumentAnalysisResponse
+-&gt; Rep StartDocumentAnalysisResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartDocumentAnalysisResponse x
+-&gt; StartDocumentAnalysisResponse
+$cfrom :: forall x.
+StartDocumentAnalysisResponse
+-&gt; Rep StartDocumentAnalysisResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- Create a value of 'StartDocumentAnalysisResponse' with all optional fields omitted.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 'jobId', 'startDocumentAnalysisResponse_jobId' - The identifier for the document text detection job. Use @JobId@ to</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- identify the job in a subsequent call to @GetDocumentAnalysis@. A</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- @JobId@ value is only valid for 7 days.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'httpStatus', 'startDocumentAnalysisResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#newStartDocumentAnalysisResponse"><span class="hs-identifier hs-type">newStartDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-298"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-299"></span><span>  </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse</span></a></span><span>
+</span><span id="line-300"></span><span id="newStartDocumentAnalysisResponse"><span class="annot"><span class="annottext">newStartDocumentAnalysisResponse :: Int -&gt; StartDocumentAnalysisResponse
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#newStartDocumentAnalysisResponse"><span class="hs-identifier hs-var hs-var">newStartDocumentAnalysisResponse</span></a></span></span><span> </span><span id="local-6989586621679178523"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-301"></span><span>  </span><span class="annot"><span class="annottext">StartDocumentAnalysisResponse' :: Maybe Text -&gt; Int -&gt; StartDocumentAnalysisResponse
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse'</span></a></span><span>
+</span><span id="line-302"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:StartDocumentAnalysisResponse' :: Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AjobId%3AStartDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-303"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartDocumentAnalysisResponse' :: Int
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AhttpStatus%3AStartDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-305"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | The identifier for the document text detection job. Use @JobId@ to</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- identify the job in a subsequent call to @GetDocumentAnalysis@. A</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- @JobId@ value is only valid for 7 days.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysisResponse_jobId"><span class="hs-identifier hs-type">startDocumentAnalysisResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="startDocumentAnalysisResponse_jobId"><span class="annot"><span class="annottext">startDocumentAnalysisResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartDocumentAnalysisResponse -&gt; f StartDocumentAnalysisResponse
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysisResponse_jobId"><span class="hs-identifier hs-var hs-var">startDocumentAnalysisResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDocumentAnalysisResponse -&gt; Maybe Text)
+-&gt; (StartDocumentAnalysisResponse
+    -&gt; Maybe Text -&gt; StartDocumentAnalysisResponse)
+-&gt; Lens
+     StartDocumentAnalysisResponse
+     StartDocumentAnalysisResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178522"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:StartDocumentAnalysisResponse' :: StartDocumentAnalysisResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679178522"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178522"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178521"><span class="annot"><span class="annottext">s :: StartDocumentAnalysisResponse
+</span><a href="#local-6989586621679178521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178520"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDocumentAnalysisResponse
+</span><a href="#local-6989586621679178521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StartDocumentAnalysisResponse' :: Maybe Text
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AjobId%3AStartDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysisResponse_httpStatus"><span class="hs-identifier hs-type">startDocumentAnalysisResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-315"></span><span id="startDocumentAnalysisResponse_httpStatus"><span class="annot"><span class="annottext">startDocumentAnalysisResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartDocumentAnalysisResponse -&gt; f StartDocumentAnalysisResponse
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#startDocumentAnalysisResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startDocumentAnalysisResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartDocumentAnalysisResponse -&gt; Int)
+-&gt; (StartDocumentAnalysisResponse
+    -&gt; Int -&gt; StartDocumentAnalysisResponse)
+-&gt; Lens
+     StartDocumentAnalysisResponse StartDocumentAnalysisResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178519"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartDocumentAnalysisResponse' :: StartDocumentAnalysisResponse -&gt; Int
+</span><a href="#local-6989586621679178519"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178519"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178518"><span class="annot"><span class="annottext">s :: StartDocumentAnalysisResponse
+</span><a href="#local-6989586621679178518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse%27"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178517"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDocumentAnalysisResponse
+</span><a href="#local-6989586621679178518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartDocumentAnalysisResponse' :: Int
+</span><a href="Amazonka.Textract.StartDocumentAnalysis.html#%24sel%3AhttpStatus%3AStartDocumentAnalysisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178515"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.StartDocumentAnalysis.html#StartDocumentAnalysisResponse"><span class="hs-identifier hs-type">StartDocumentAnalysisResponse</span></a></span></span><span>
+</span><span id="line-318"></span></pre></body></html>

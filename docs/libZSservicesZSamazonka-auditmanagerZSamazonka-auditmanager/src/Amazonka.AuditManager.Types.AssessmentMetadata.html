@@ -1,0 +1,778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.Types.AssessmentMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportsDestination.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentReportsDestination</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentStatus.html"><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Delegation</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Role.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Role</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Scope.html"><span class="hs-identifier">Amazonka.AuditManager.Types.Scope</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | The metadata associated with the specified assessment.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAssessmentMetadata' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679295335"><span id="local-6989586621679295336"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentMetadata"><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-var">AssessmentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentMetadata%27"><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-var">AssessmentMetadata'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies when the assessment was created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationTime%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AcreationTime%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The overall status of the assessment.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe AssessmentStatus
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Astatus%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentStatus.html#AssessmentStatus"><span class="hs-identifier hs-type">AssessmentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time of the most recent update.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastUpdated%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AlastUpdated%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The roles associated with the assessment.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aroles%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe [Role]
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Aroles%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.Role.html#Role"><span class="hs-identifier hs-type">Role</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The delegations associated with the assessment.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Adelegations%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe [Delegation]
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Adelegations%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">delegations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#Delegation"><span class="hs-identifier hs-type">Delegation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the assessment.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aname%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Aname%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The destination in which evidence reports are stored for the specified</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- assessment.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AassessmentReportsDestination%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe AssessmentReportsDestination
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AassessmentReportsDestination%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">assessmentReportsDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportsDestination.html#AssessmentReportsDestination"><span class="hs-identifier hs-type">AssessmentReportsDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The wrapper of Amazon Web Services accounts and services in scope for</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- the assessment.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Ascope%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe Scope
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Ascope%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The name of a compliance standard related to the assessment, such as</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- PCI-DSS.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcomplianceType%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AcomplianceType%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the assessment.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aid%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Aid%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The description of the assessment.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3AAssessmentMetadata%27"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Adescription%3AAssessmentMetadata%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295319"><span id="local-6989586621679295321"><span class="annot"><span class="annottext">AssessmentMetadata -&gt; AssessmentMetadata -&gt; Bool
+(AssessmentMetadata -&gt; AssessmentMetadata -&gt; Bool)
+-&gt; (AssessmentMetadata -&gt; AssessmentMetadata -&gt; Bool)
+-&gt; Eq AssessmentMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssessmentMetadata -&gt; AssessmentMetadata -&gt; Bool
+$c/= :: AssessmentMetadata -&gt; AssessmentMetadata -&gt; Bool
+== :: AssessmentMetadata -&gt; AssessmentMetadata -&gt; Bool
+$c== :: AssessmentMetadata -&gt; AssessmentMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295310"><span id="local-6989586621679295312"><span id="local-6989586621679295314"><span id="local-6989586621679295316"><span class="annot"><span class="annottext">ReadPrec [AssessmentMetadata]
+ReadPrec AssessmentMetadata
+Int -&gt; ReadS AssessmentMetadata
+ReadS [AssessmentMetadata]
+(Int -&gt; ReadS AssessmentMetadata)
+-&gt; ReadS [AssessmentMetadata]
+-&gt; ReadPrec AssessmentMetadata
+-&gt; ReadPrec [AssessmentMetadata]
+-&gt; Read AssessmentMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssessmentMetadata]
+$creadListPrec :: ReadPrec [AssessmentMetadata]
+readPrec :: ReadPrec AssessmentMetadata
+$creadPrec :: ReadPrec AssessmentMetadata
+readList :: ReadS [AssessmentMetadata]
+$creadList :: ReadS [AssessmentMetadata]
+readsPrec :: Int -&gt; ReadS AssessmentMetadata
+$creadsPrec :: Int -&gt; ReadS AssessmentMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295303"><span id="local-6989586621679295305"><span id="local-6989586621679295307"><span class="annot"><span class="annottext">Int -&gt; AssessmentMetadata -&gt; ShowS
+[AssessmentMetadata] -&gt; ShowS
+AssessmentMetadata -&gt; String
+(Int -&gt; AssessmentMetadata -&gt; ShowS)
+-&gt; (AssessmentMetadata -&gt; String)
+-&gt; ([AssessmentMetadata] -&gt; ShowS)
+-&gt; Show AssessmentMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssessmentMetadata] -&gt; ShowS
+$cshowList :: [AssessmentMetadata] -&gt; ShowS
+show :: AssessmentMetadata -&gt; String
+$cshow :: AssessmentMetadata -&gt; String
+showsPrec :: Int -&gt; AssessmentMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssessmentMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssessmentMetadata -&gt; Rep AssessmentMetadata x)
+-&gt; (forall x. Rep AssessmentMetadata x -&gt; AssessmentMetadata)
+-&gt; Generic AssessmentMetadata
+forall x. Rep AssessmentMetadata x -&gt; AssessmentMetadata
+forall x. AssessmentMetadata -&gt; Rep AssessmentMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssessmentMetadata x -&gt; AssessmentMetadata
+$cfrom :: forall x. AssessmentMetadata -&gt; Rep AssessmentMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'AssessmentMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'creationTime', 'assessmentMetadata_creationTime' - Specifies when the assessment was created.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'status', 'assessmentMetadata_status' - The overall status of the assessment.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'lastUpdated', 'assessmentMetadata_lastUpdated' - The time of the most recent update.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'roles', 'assessmentMetadata_roles' - The roles associated with the assessment.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'delegations', 'assessmentMetadata_delegations' - The delegations associated with the assessment.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'name', 'assessmentMetadata_name' - The name of the assessment.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'assessmentReportsDestination', 'assessmentMetadata_assessmentReportsDestination' - The destination in which evidence reports are stored for the specified</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- assessment.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'scope', 'assessmentMetadata_scope' - The wrapper of Amazon Web Services accounts and services in scope for</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the assessment.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'complianceType', 'assessmentMetadata_complianceType' - The name of a compliance standard related to the assessment, such as</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- PCI-DSS.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'id', 'assessmentMetadata_id' - The unique identifier for the assessment.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'description', 'assessmentMetadata_description' - The description of the assessment.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#newAssessmentMetadata"><span class="hs-identifier hs-type">newAssessmentMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span>
+</span><span id="line-97"></span><span id="newAssessmentMetadata"><span class="annot"><span class="annottext">newAssessmentMetadata :: AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#newAssessmentMetadata"><span class="hs-identifier hs-var hs-var">newAssessmentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">AssessmentMetadata' :: Maybe POSIX
+-&gt; Maybe AssessmentStatus
+-&gt; Maybe POSIX
+-&gt; Maybe [Role]
+-&gt; Maybe [Delegation]
+-&gt; Maybe Text
+-&gt; Maybe AssessmentReportsDestination
+-&gt; Maybe Scope
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:AssessmentMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AcreationTime%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:AssessmentMetadata' :: Maybe AssessmentStatus
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Astatus%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdated:AssessmentMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AlastUpdated%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:roles:AssessmentMetadata' :: Maybe [Role]
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Aroles%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Role]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:delegations:AssessmentMetadata' :: Maybe [Delegation]
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Adelegations%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">delegations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Delegation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AssessmentMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Aname%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentReportsDestination:AssessmentMetadata' :: Maybe AssessmentReportsDestination
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AassessmentReportsDestination%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">assessmentReportsDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentReportsDestination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:scope:AssessmentMetadata' :: Maybe Scope
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Ascope%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scope
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceType:AssessmentMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AcomplianceType%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:AssessmentMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Aid%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:AssessmentMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Adescription%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Specifies when the assessment was created.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_creationTime"><span class="hs-identifier hs-type">assessmentMetadata_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="assessmentMetadata_creationTime"><span class="annot"><span class="annottext">assessmentMetadata_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_creationTime"><span class="hs-identifier hs-var hs-var">assessmentMetadata_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe POSIX)
+-&gt; (AssessmentMetadata -&gt; Maybe POSIX -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata AssessmentMetadata (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295294"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679295294"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679295294"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295293"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295292"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679295292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:AssessmentMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AcreationTime%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679295292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AssessmentMetadata -&gt; f AssessmentMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentMetadata
+-&gt; f AssessmentMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The overall status of the assessment.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_status"><span class="hs-identifier hs-type">assessmentMetadata_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentStatus.html#AssessmentStatus"><span class="hs-identifier hs-type">AssessmentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="assessmentMetadata_status"><span class="annot"><span class="annottext">assessmentMetadata_status :: (Maybe AssessmentStatus -&gt; f (Maybe AssessmentStatus))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_status"><span class="hs-identifier hs-var hs-var">assessmentMetadata_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe AssessmentStatus)
+-&gt; (AssessmentMetadata
+    -&gt; Maybe AssessmentStatus -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata
+     AssessmentMetadata
+     (Maybe AssessmentStatus)
+     (Maybe AssessmentStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295287"><span class="annot"><span class="annottext">Maybe AssessmentStatus
+status :: Maybe AssessmentStatus
+$sel:status:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe AssessmentStatus
+</span><a href="#local-6989586621679295287"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentStatus
+</span><a href="#local-6989586621679295287"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295286"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295285"><span class="annot"><span class="annottext">Maybe AssessmentStatus
+</span><a href="#local-6989586621679295285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AssessmentMetadata' :: Maybe AssessmentStatus
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Astatus%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentStatus
+</span><a href="#local-6989586621679295285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The time of the most recent update.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_lastUpdated"><span class="hs-identifier hs-type">assessmentMetadata_lastUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="assessmentMetadata_lastUpdated"><span class="annot"><span class="annottext">assessmentMetadata_lastUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_lastUpdated"><span class="hs-identifier hs-var hs-var">assessmentMetadata_lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe POSIX)
+-&gt; (AssessmentMetadata -&gt; Maybe POSIX -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata AssessmentMetadata (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295283"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdated :: Maybe POSIX
+$sel:lastUpdated:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679295283"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679295283"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295282"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295281"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679295281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:AssessmentMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AlastUpdated%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679295281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AssessmentMetadata -&gt; f AssessmentMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentMetadata
+-&gt; f AssessmentMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The roles associated with the assessment.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_roles"><span class="hs-identifier hs-type">assessmentMetadata_roles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.Role.html#Role"><span class="hs-identifier hs-type">Role</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="assessmentMetadata_roles"><span class="annot"><span class="annottext">assessmentMetadata_roles :: (Maybe [Role] -&gt; f (Maybe [Role]))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_roles"><span class="hs-identifier hs-var hs-var">assessmentMetadata_roles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe [Role])
+-&gt; (AssessmentMetadata -&gt; Maybe [Role] -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata AssessmentMetadata (Maybe [Role]) (Maybe [Role])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295279"><span class="annot"><span class="annottext">Maybe [Role]
+roles :: Maybe [Role]
+$sel:roles:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe [Role]
+</span><a href="#local-6989586621679295279"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Role]
+</span><a href="#local-6989586621679295279"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295278"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295277"><span class="annot"><span class="annottext">Maybe [Role]
+</span><a href="#local-6989586621679295277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:AssessmentMetadata' :: Maybe [Role]
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Aroles%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Role]
+</span><a href="#local-6989586621679295277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Role] -&gt; f (Maybe [Role]))
+ -&gt; AssessmentMetadata -&gt; f AssessmentMetadata)
+-&gt; ((Maybe [Role] -&gt; f (Maybe [Role]))
+    -&gt; Maybe [Role] -&gt; f (Maybe [Role]))
+-&gt; (Maybe [Role] -&gt; f (Maybe [Role]))
+-&gt; AssessmentMetadata
+-&gt; f AssessmentMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Role] [Role] [Role] [Role]
+-&gt; Iso (Maybe [Role]) (Maybe [Role]) (Maybe [Role]) (Maybe [Role])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Role] [Role] [Role] [Role]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The delegations associated with the assessment.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_delegations"><span class="hs-identifier hs-type">assessmentMetadata_delegations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AuditManager.Types.Delegation.html#Delegation"><span class="hs-identifier hs-type">Delegation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="assessmentMetadata_delegations"><span class="annot"><span class="annottext">assessmentMetadata_delegations :: (Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_delegations"><span class="hs-identifier hs-var hs-var">assessmentMetadata_delegations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe [Delegation])
+-&gt; (AssessmentMetadata -&gt; Maybe [Delegation] -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata
+     AssessmentMetadata
+     (Maybe [Delegation])
+     (Maybe [Delegation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295274"><span class="annot"><span class="annottext">Maybe [Delegation]
+delegations :: Maybe [Delegation]
+$sel:delegations:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe [Delegation]
+</span><a href="#local-6989586621679295274"><span class="hs-identifier hs-var hs-var">delegations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Delegation]
+</span><a href="#local-6989586621679295274"><span class="hs-identifier hs-var">delegations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295273"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295272"><span class="annot"><span class="annottext">Maybe [Delegation]
+</span><a href="#local-6989586621679295272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegations:AssessmentMetadata' :: Maybe [Delegation]
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Adelegations%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">delegations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Delegation]
+</span><a href="#local-6989586621679295272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+ -&gt; AssessmentMetadata -&gt; f AssessmentMetadata)
+-&gt; ((Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+    -&gt; Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+-&gt; (Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+-&gt; AssessmentMetadata
+-&gt; f AssessmentMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Delegation] [Delegation] [Delegation] [Delegation]
+-&gt; Iso
+     (Maybe [Delegation])
+     (Maybe [Delegation])
+     (Maybe [Delegation])
+     (Maybe [Delegation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Delegation] [Delegation] [Delegation] [Delegation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The name of the assessment.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_name"><span class="hs-identifier hs-type">assessmentMetadata_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="assessmentMetadata_name"><span class="annot"><span class="annottext">assessmentMetadata_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_name"><span class="hs-identifier hs-var hs-var">assessmentMetadata_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe Text)
+-&gt; (AssessmentMetadata -&gt; Maybe Text -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata AssessmentMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295270"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679295270"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295270"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295269"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295268"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssessmentMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Aname%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The destination in which evidence reports are stored for the specified</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- assessment.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_assessmentReportsDestination"><span class="hs-identifier hs-type">assessmentMetadata_assessmentReportsDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentReportsDestination.html#AssessmentReportsDestination"><span class="hs-identifier hs-type">AssessmentReportsDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="assessmentMetadata_assessmentReportsDestination"><span class="annot"><span class="annottext">assessmentMetadata_assessmentReportsDestination :: (Maybe AssessmentReportsDestination
+ -&gt; f (Maybe AssessmentReportsDestination))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_assessmentReportsDestination"><span class="hs-identifier hs-var hs-var">assessmentMetadata_assessmentReportsDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe AssessmentReportsDestination)
+-&gt; (AssessmentMetadata
+    -&gt; Maybe AssessmentReportsDestination -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata
+     AssessmentMetadata
+     (Maybe AssessmentReportsDestination)
+     (Maybe AssessmentReportsDestination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295266"><span class="annot"><span class="annottext">Maybe AssessmentReportsDestination
+assessmentReportsDestination :: Maybe AssessmentReportsDestination
+$sel:assessmentReportsDestination:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe AssessmentReportsDestination
+</span><a href="#local-6989586621679295266"><span class="hs-identifier hs-var hs-var">assessmentReportsDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentReportsDestination
+</span><a href="#local-6989586621679295266"><span class="hs-identifier hs-var">assessmentReportsDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295265"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295264"><span class="annot"><span class="annottext">Maybe AssessmentReportsDestination
+</span><a href="#local-6989586621679295264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentReportsDestination:AssessmentMetadata' :: Maybe AssessmentReportsDestination
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AassessmentReportsDestination%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">assessmentReportsDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentReportsDestination
+</span><a href="#local-6989586621679295264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The wrapper of Amazon Web Services accounts and services in scope for</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- the assessment.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_scope"><span class="hs-identifier hs-type">assessmentMetadata_scope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="assessmentMetadata_scope"><span class="annot"><span class="annottext">assessmentMetadata_scope :: (Maybe Scope -&gt; f (Maybe Scope))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_scope"><span class="hs-identifier hs-var hs-var">assessmentMetadata_scope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe Scope)
+-&gt; (AssessmentMetadata -&gt; Maybe Scope -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata AssessmentMetadata (Maybe Scope) (Maybe Scope)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295262"><span class="annot"><span class="annottext">Maybe Scope
+scope :: Maybe Scope
+$sel:scope:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe Scope
+</span><a href="#local-6989586621679295262"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scope
+</span><a href="#local-6989586621679295262"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295261"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295260"><span class="annot"><span class="annottext">Maybe Scope
+</span><a href="#local-6989586621679295260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scope:AssessmentMetadata' :: Maybe Scope
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Ascope%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scope
+</span><a href="#local-6989586621679295260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The name of a compliance standard related to the assessment, such as</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- PCI-DSS.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_complianceType"><span class="hs-identifier hs-type">assessmentMetadata_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="assessmentMetadata_complianceType"><span class="annot"><span class="annottext">assessmentMetadata_complianceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_complianceType"><span class="hs-identifier hs-var hs-var">assessmentMetadata_complianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe Text)
+-&gt; (AssessmentMetadata -&gt; Maybe Text -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata AssessmentMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295258"><span class="annot"><span class="annottext">Maybe Text
+complianceType :: Maybe Text
+$sel:complianceType:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679295258"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295258"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295257"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295256"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:AssessmentMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3AcomplianceType%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The unique identifier for the assessment.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_id"><span class="hs-identifier hs-type">assessmentMetadata_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="assessmentMetadata_id"><span class="annot"><span class="annottext">assessmentMetadata_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_id"><span class="hs-identifier hs-var hs-var">assessmentMetadata_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe Text)
+-&gt; (AssessmentMetadata -&gt; Maybe Text -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata AssessmentMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295254"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679295254"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295254"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295253"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295252"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AssessmentMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Aid%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The description of the assessment.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_description"><span class="hs-identifier hs-type">assessmentMetadata_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="assessmentMetadata_description"><span class="annot"><span class="annottext">assessmentMetadata_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentMetadata -&gt; f AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#assessmentMetadata_description"><span class="hs-identifier hs-var hs-var">assessmentMetadata_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentMetadata -&gt; Maybe Text)
+-&gt; (AssessmentMetadata -&gt; Maybe Text -&gt; AssessmentMetadata)
+-&gt; Lens
+     AssessmentMetadata AssessmentMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295250"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:AssessmentMetadata' :: AssessmentMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679295250"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295250"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295249"><span class="annot"><span class="annottext">s :: AssessmentMetadata
+</span><a href="#local-6989586621679295249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-type">AssessmentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295248"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentMetadata
+</span><a href="#local-6989586621679295249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AssessmentMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#%24sel%3Adescription%3AAssessmentMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295245"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679295243"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssessmentMetadata)
+-&gt; Value
+-&gt; Parser AssessmentMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssessmentMetadata&quot;</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295240"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe AssessmentStatus
+-&gt; Maybe POSIX
+-&gt; Maybe [Role]
+-&gt; Maybe [Delegation]
+-&gt; Maybe Text
+-&gt; Maybe AssessmentReportsDestination
+-&gt; Maybe Scope
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AssessmentMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata%27"><span class="hs-identifier hs-var">AssessmentMetadata'</span></a></span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe AssessmentStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe [Role]
+ -&gt; Maybe [Delegation]
+ -&gt; Maybe Text
+ -&gt; Maybe AssessmentReportsDestination
+ -&gt; Maybe Scope
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe AssessmentStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe [Role]
+      -&gt; Maybe [Delegation]
+      -&gt; Maybe Text
+      -&gt; Maybe AssessmentReportsDestination
+      -&gt; Maybe Scope
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AssessmentStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe [Role]
+   -&gt; Maybe [Delegation]
+   -&gt; Maybe Text
+   -&gt; Maybe AssessmentReportsDestination
+   -&gt; Maybe Scope
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe AssessmentStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe [Role]
+      -&gt; Maybe [Delegation]
+      -&gt; Maybe Text
+      -&gt; Maybe AssessmentReportsDestination
+      -&gt; Maybe Scope
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssessmentStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe [Role]
+   -&gt; Maybe [Delegation]
+   -&gt; Maybe Text
+   -&gt; Maybe AssessmentReportsDestination
+   -&gt; Maybe Scope
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe [Role]
+      -&gt; Maybe [Delegation]
+      -&gt; Maybe Text
+      -&gt; Maybe AssessmentReportsDestination
+      -&gt; Maybe Scope
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Role]
+   -&gt; Maybe [Delegation]
+   -&gt; Maybe Text
+   -&gt; Maybe AssessmentReportsDestination
+   -&gt; Maybe Scope
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe [Role])
+-&gt; Parser
+     (Maybe [Delegation]
+      -&gt; Maybe Text
+      -&gt; Maybe AssessmentReportsDestination
+      -&gt; Maybe Scope
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Role]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Role]))
+-&gt; Maybe [Role] -&gt; Parser (Maybe [Role])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Role]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Delegation]
+   -&gt; Maybe Text
+   -&gt; Maybe AssessmentReportsDestination
+   -&gt; Maybe Scope
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe [Delegation])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AssessmentReportsDestination
+      -&gt; Maybe Scope
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Delegation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;delegations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Delegation]))
+-&gt; Maybe [Delegation] -&gt; Parser (Maybe [Delegation])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Delegation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AssessmentReportsDestination
+   -&gt; Maybe Scope
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AssessmentReportsDestination
+      -&gt; Maybe Scope
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AssessmentReportsDestination
+   -&gt; Maybe Scope
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe AssessmentReportsDestination)
+-&gt; Parser
+     (Maybe Scope
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssessmentReportsDestination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentReportsDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Scope
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe Scope)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Scope)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scope&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;complianceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AssessmentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AssessmentMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser AssessmentMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295233"><span id="local-6989586621679295235"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295230"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentMetadata.html#AssessmentMetadata"><span class="hs-identifier hs-type">AssessmentMetadata</span></a></span></span><span>
+</span><span id="line-181"></span></pre></body></html>

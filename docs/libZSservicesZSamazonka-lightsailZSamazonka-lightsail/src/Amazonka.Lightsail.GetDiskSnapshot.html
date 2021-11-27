@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.GetDiskSnapshot</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a specific block storage disk snapshot.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.GetDiskSnapshot</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier">GetDiskSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#newGetDiskSnapshot"><span class="hs-identifier">newGetDiskSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#getDiskSnapshot_diskSnapshotName"><span class="hs-identifier">getDiskSnapshot_diskSnapshotName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse"><span class="hs-identifier">GetDiskSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#newGetDiskSnapshotResponse"><span class="hs-identifier">newGetDiskSnapshotResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#getDiskSnapshotResponse_diskSnapshot"><span class="hs-identifier">getDiskSnapshotResponse_diskSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#getDiskSnapshotResponse_httpStatus"><span class="hs-identifier">getDiskSnapshotResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.html"><span class="hs-identifier">Amazonka.Lightsail.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetDiskSnapshot' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679644420"><span id="local-6989586621679644421"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDiskSnapshot"><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-var">GetDiskSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDiskSnapshot%27"><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot%27"><span class="hs-identifier hs-var">GetDiskSnapshot'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the disk snapshot (e.g., @my-disk-snapshot@).</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AdiskSnapshotName%3AGetDiskSnapshot%27"><span class="annot"><span class="annottext">GetDiskSnapshot -&gt; Text
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#%24sel%3AdiskSnapshotName%3AGetDiskSnapshot%27"><span class="hs-identifier hs-var hs-var">diskSnapshotName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679644414"><span id="local-6989586621679644416"><span class="annot"><span class="annottext">GetDiskSnapshot -&gt; GetDiskSnapshot -&gt; Bool
+(GetDiskSnapshot -&gt; GetDiskSnapshot -&gt; Bool)
+-&gt; (GetDiskSnapshot -&gt; GetDiskSnapshot -&gt; Bool)
+-&gt; Eq GetDiskSnapshot
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDiskSnapshot -&gt; GetDiskSnapshot -&gt; Bool
+$c/= :: GetDiskSnapshot -&gt; GetDiskSnapshot -&gt; Bool
+== :: GetDiskSnapshot -&gt; GetDiskSnapshot -&gt; Bool
+$c== :: GetDiskSnapshot -&gt; GetDiskSnapshot -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644405"><span id="local-6989586621679644407"><span id="local-6989586621679644409"><span id="local-6989586621679644411"><span class="annot"><span class="annottext">ReadPrec [GetDiskSnapshot]
+ReadPrec GetDiskSnapshot
+Int -&gt; ReadS GetDiskSnapshot
+ReadS [GetDiskSnapshot]
+(Int -&gt; ReadS GetDiskSnapshot)
+-&gt; ReadS [GetDiskSnapshot]
+-&gt; ReadPrec GetDiskSnapshot
+-&gt; ReadPrec [GetDiskSnapshot]
+-&gt; Read GetDiskSnapshot
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDiskSnapshot]
+$creadListPrec :: ReadPrec [GetDiskSnapshot]
+readPrec :: ReadPrec GetDiskSnapshot
+$creadPrec :: ReadPrec GetDiskSnapshot
+readList :: ReadS [GetDiskSnapshot]
+$creadList :: ReadS [GetDiskSnapshot]
+readsPrec :: Int -&gt; ReadS GetDiskSnapshot
+$creadsPrec :: Int -&gt; ReadS GetDiskSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644398"><span id="local-6989586621679644400"><span id="local-6989586621679644402"><span class="annot"><span class="annottext">Int -&gt; GetDiskSnapshot -&gt; ShowS
+[GetDiskSnapshot] -&gt; ShowS
+GetDiskSnapshot -&gt; String
+(Int -&gt; GetDiskSnapshot -&gt; ShowS)
+-&gt; (GetDiskSnapshot -&gt; String)
+-&gt; ([GetDiskSnapshot] -&gt; ShowS)
+-&gt; Show GetDiskSnapshot
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDiskSnapshot] -&gt; ShowS
+$cshowList :: [GetDiskSnapshot] -&gt; ShowS
+show :: GetDiskSnapshot -&gt; String
+$cshow :: GetDiskSnapshot -&gt; String
+showsPrec :: Int -&gt; GetDiskSnapshot -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDiskSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDiskSnapshot -&gt; Rep GetDiskSnapshot x)
+-&gt; (forall x. Rep GetDiskSnapshot x -&gt; GetDiskSnapshot)
+-&gt; Generic GetDiskSnapshot
+forall x. Rep GetDiskSnapshot x -&gt; GetDiskSnapshot
+forall x. GetDiskSnapshot -&gt; Rep GetDiskSnapshot x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDiskSnapshot x -&gt; GetDiskSnapshot
+$cfrom :: forall x. GetDiskSnapshot -&gt; Rep GetDiskSnapshot x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetDiskSnapshot' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'diskSnapshotName', 'getDiskSnapshot_diskSnapshotName' - The name of the disk snapshot (e.g., @my-disk-snapshot@).</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#newGetDiskSnapshot"><span class="hs-identifier hs-type">newGetDiskSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'diskSnapshotName'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetDiskSnapshot"><span class="annot"><span class="annottext">newGetDiskSnapshot :: Text -&gt; GetDiskSnapshot
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#newGetDiskSnapshot"><span class="hs-identifier hs-var hs-var">newGetDiskSnapshot</span></a></span></span><span> </span><span id="local-6989586621679644393"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679644393"><span class="hs-identifier hs-var">pDiskSnapshotName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetDiskSnapshot' :: Text -&gt; GetDiskSnapshot
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot%27"><span class="hs-identifier hs-type">GetDiskSnapshot'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:diskSnapshotName:GetDiskSnapshot' :: Text
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#%24sel%3AdiskSnapshotName%3AGetDiskSnapshot%27"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679644393"><span class="hs-identifier hs-var">pDiskSnapshotName_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The name of the disk snapshot (e.g., @my-disk-snapshot@).</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#getDiskSnapshot_diskSnapshotName"><span class="hs-identifier hs-type">getDiskSnapshot_diskSnapshotName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="getDiskSnapshot_diskSnapshotName"><span class="annot"><span class="annottext">getDiskSnapshot_diskSnapshotName :: (Text -&gt; f Text) -&gt; GetDiskSnapshot -&gt; f GetDiskSnapshot
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#getDiskSnapshot_diskSnapshotName"><span class="hs-identifier hs-var hs-var">getDiskSnapshot_diskSnapshotName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiskSnapshot -&gt; Text)
+-&gt; (GetDiskSnapshot -&gt; Text -&gt; GetDiskSnapshot)
+-&gt; Lens GetDiskSnapshot GetDiskSnapshot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot%27"><span class="hs-identifier hs-type">GetDiskSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644390"><span class="annot"><span class="annottext">Text
+diskSnapshotName :: Text
+$sel:diskSnapshotName:GetDiskSnapshot' :: GetDiskSnapshot -&gt; Text
+</span><a href="#local-6989586621679644390"><span class="hs-identifier hs-var hs-var">diskSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679644390"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644389"><span class="annot"><span class="annottext">s :: GetDiskSnapshot
+</span><a href="#local-6989586621679644389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot%27"><span class="hs-identifier hs-type">GetDiskSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644388"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679644388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiskSnapshot
+</span><a href="#local-6989586621679644389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSnapshotName:GetDiskSnapshot' :: Text
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#%24sel%3AdiskSnapshotName%3AGetDiskSnapshot%27"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679644388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse"><span class="hs-identifier hs-type">GetDiskSnapshotResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679644384"><span class="annot"><span class="annottext">request :: GetDiskSnapshot -&gt; Request GetDiskSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDiskSnapshot -&gt; Request GetDiskSnapshot
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679644380"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDiskSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDiskSnapshot)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDiskSnapshot))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDiskSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDiskSnapshot)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679644377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644377"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679644376"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679644376"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679644375"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679644375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe DiskSnapshot -&gt; Int -&gt; GetDiskSnapshotResponse
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse%27"><span class="hs-identifier hs-var">GetDiskSnapshotResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DiskSnapshot -&gt; Int -&gt; GetDiskSnapshotResponse)
+-&gt; Either String (Maybe DiskSnapshot)
+-&gt; Either String (Int -&gt; GetDiskSnapshotResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679644375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DiskSnapshot)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;diskSnapshot&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDiskSnapshotResponse)
+-&gt; Either String Int -&gt; Either String GetDiskSnapshotResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644377"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644367"><span id="local-6989586621679644369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679644360"><span class="annot"><span class="annottext">toHeaders :: GetDiskSnapshot -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDiskSnapshot -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.GetDiskSnapshot&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644350"><span id="local-6989586621679644352"><span id="local-6989586621679644354"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679644348"><span class="annot"><span class="annottext">toJSON :: GetDiskSnapshot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot%27"><span class="hs-identifier hs-type">GetDiskSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644346"><span class="annot"><span class="annottext">Text
+diskSnapshotName :: Text
+$sel:diskSnapshotName:GetDiskSnapshot' :: GetDiskSnapshot -&gt; Text
+</span><a href="#local-6989586621679644346"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;diskSnapshotName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679644346"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679644340"><span class="annot"><span class="annottext">toPath :: GetDiskSnapshot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDiskSnapshot -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshot"><span class="hs-identifier hs-type">GetDiskSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679644336"><span class="annot"><span class="annottext">toQuery :: GetDiskSnapshot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDiskSnapshot -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newGetDiskSnapshotResponse' smart constructor.</span><span>
+</span><span id="line-127"></span><span id="local-6989586621679644333"><span id="local-6989586621679644334"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDiskSnapshotResponse"><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse"><span class="hs-identifier hs-var">GetDiskSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDiskSnapshotResponse%27"><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse%27"><span class="hs-identifier hs-var">GetDiskSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object containing information about the disk snapshot.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AdiskSnapshot%3AGetDiskSnapshotResponse%27"><span class="annot"><span class="annottext">GetDiskSnapshotResponse -&gt; Maybe DiskSnapshot
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#%24sel%3AdiskSnapshot%3AGetDiskSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">diskSnapshot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.DiskSnapshot.html#DiskSnapshot"><span class="hs-identifier hs-type">DiskSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDiskSnapshotResponse%27"><span class="annot"><span class="annottext">GetDiskSnapshotResponse -&gt; Int
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#%24sel%3AhttpStatus%3AGetDiskSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679644327"><span id="local-6989586621679644329"><span class="annot"><span class="annottext">GetDiskSnapshotResponse -&gt; GetDiskSnapshotResponse -&gt; Bool
+(GetDiskSnapshotResponse -&gt; GetDiskSnapshotResponse -&gt; Bool)
+-&gt; (GetDiskSnapshotResponse -&gt; GetDiskSnapshotResponse -&gt; Bool)
+-&gt; Eq GetDiskSnapshotResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDiskSnapshotResponse -&gt; GetDiskSnapshotResponse -&gt; Bool
+$c/= :: GetDiskSnapshotResponse -&gt; GetDiskSnapshotResponse -&gt; Bool
+== :: GetDiskSnapshotResponse -&gt; GetDiskSnapshotResponse -&gt; Bool
+$c== :: GetDiskSnapshotResponse -&gt; GetDiskSnapshotResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644319"><span id="local-6989586621679644321"><span id="local-6989586621679644323"><span id="local-6989586621679644325"><span class="annot"><span class="annottext">ReadPrec [GetDiskSnapshotResponse]
+ReadPrec GetDiskSnapshotResponse
+Int -&gt; ReadS GetDiskSnapshotResponse
+ReadS [GetDiskSnapshotResponse]
+(Int -&gt; ReadS GetDiskSnapshotResponse)
+-&gt; ReadS [GetDiskSnapshotResponse]
+-&gt; ReadPrec GetDiskSnapshotResponse
+-&gt; ReadPrec [GetDiskSnapshotResponse]
+-&gt; Read GetDiskSnapshotResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDiskSnapshotResponse]
+$creadListPrec :: ReadPrec [GetDiskSnapshotResponse]
+readPrec :: ReadPrec GetDiskSnapshotResponse
+$creadPrec :: ReadPrec GetDiskSnapshotResponse
+readList :: ReadS [GetDiskSnapshotResponse]
+$creadList :: ReadS [GetDiskSnapshotResponse]
+readsPrec :: Int -&gt; ReadS GetDiskSnapshotResponse
+$creadsPrec :: Int -&gt; ReadS GetDiskSnapshotResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644313"><span id="local-6989586621679644315"><span id="local-6989586621679644317"><span class="annot"><span class="annottext">Int -&gt; GetDiskSnapshotResponse -&gt; ShowS
+[GetDiskSnapshotResponse] -&gt; ShowS
+GetDiskSnapshotResponse -&gt; String
+(Int -&gt; GetDiskSnapshotResponse -&gt; ShowS)
+-&gt; (GetDiskSnapshotResponse -&gt; String)
+-&gt; ([GetDiskSnapshotResponse] -&gt; ShowS)
+-&gt; Show GetDiskSnapshotResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDiskSnapshotResponse] -&gt; ShowS
+$cshowList :: [GetDiskSnapshotResponse] -&gt; ShowS
+show :: GetDiskSnapshotResponse -&gt; String
+$cshow :: GetDiskSnapshotResponse -&gt; String
+showsPrec :: Int -&gt; GetDiskSnapshotResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDiskSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDiskSnapshotResponse -&gt; Rep GetDiskSnapshotResponse x)
+-&gt; (forall x.
+    Rep GetDiskSnapshotResponse x -&gt; GetDiskSnapshotResponse)
+-&gt; Generic GetDiskSnapshotResponse
+forall x. Rep GetDiskSnapshotResponse x -&gt; GetDiskSnapshotResponse
+forall x. GetDiskSnapshotResponse -&gt; Rep GetDiskSnapshotResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDiskSnapshotResponse x -&gt; GetDiskSnapshotResponse
+$cfrom :: forall x. GetDiskSnapshotResponse -&gt; Rep GetDiskSnapshotResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Create a value of 'GetDiskSnapshotResponse' with all optional fields omitted.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'diskSnapshot', 'getDiskSnapshotResponse_diskSnapshot' - An object containing information about the disk snapshot.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'httpStatus', 'getDiskSnapshotResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#newGetDiskSnapshotResponse"><span class="hs-identifier hs-type">newGetDiskSnapshotResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse"><span class="hs-identifier hs-type">GetDiskSnapshotResponse</span></a></span><span>
+</span><span id="line-150"></span><span id="newGetDiskSnapshotResponse"><span class="annot"><span class="annottext">newGetDiskSnapshotResponse :: Int -&gt; GetDiskSnapshotResponse
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#newGetDiskSnapshotResponse"><span class="hs-identifier hs-var hs-var">newGetDiskSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679644310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">GetDiskSnapshotResponse' :: Maybe DiskSnapshot -&gt; Int -&gt; GetDiskSnapshotResponse
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse%27"><span class="hs-identifier hs-type">GetDiskSnapshotResponse'</span></a></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:diskSnapshot:GetDiskSnapshotResponse' :: Maybe DiskSnapshot
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#%24sel%3AdiskSnapshot%3AGetDiskSnapshotResponse%27"><span class="hs-identifier hs-var">diskSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Maybe DiskSnapshot
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDiskSnapshotResponse' :: Int
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#%24sel%3AhttpStatus%3AGetDiskSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | An object containing information about the disk snapshot.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#getDiskSnapshotResponse_diskSnapshot"><span class="hs-identifier hs-type">getDiskSnapshotResponse_diskSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse"><span class="hs-identifier hs-type">GetDiskSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.DiskSnapshot.html#DiskSnapshot"><span class="hs-identifier hs-type">DiskSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="getDiskSnapshotResponse_diskSnapshot"><span class="annot"><span class="annottext">getDiskSnapshotResponse_diskSnapshot :: (Maybe DiskSnapshot -&gt; f (Maybe DiskSnapshot))
+-&gt; GetDiskSnapshotResponse -&gt; f GetDiskSnapshotResponse
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#getDiskSnapshotResponse_diskSnapshot"><span class="hs-identifier hs-var hs-var">getDiskSnapshotResponse_diskSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiskSnapshotResponse -&gt; Maybe DiskSnapshot)
+-&gt; (GetDiskSnapshotResponse
+    -&gt; Maybe DiskSnapshot -&gt; GetDiskSnapshotResponse)
+-&gt; Lens
+     GetDiskSnapshotResponse
+     GetDiskSnapshotResponse
+     (Maybe DiskSnapshot)
+     (Maybe DiskSnapshot)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse%27"><span class="hs-identifier hs-type">GetDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644309"><span class="annot"><span class="annottext">Maybe DiskSnapshot
+diskSnapshot :: Maybe DiskSnapshot
+$sel:diskSnapshot:GetDiskSnapshotResponse' :: GetDiskSnapshotResponse -&gt; Maybe DiskSnapshot
+</span><a href="#local-6989586621679644309"><span class="hs-identifier hs-var hs-var">diskSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskSnapshot
+</span><a href="#local-6989586621679644309"><span class="hs-identifier hs-var">diskSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644308"><span class="annot"><span class="annottext">s :: GetDiskSnapshotResponse
+</span><a href="#local-6989586621679644308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse%27"><span class="hs-identifier hs-type">GetDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644307"><span class="annot"><span class="annottext">Maybe DiskSnapshot
+</span><a href="#local-6989586621679644307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiskSnapshotResponse
+</span><a href="#local-6989586621679644308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSnapshot:GetDiskSnapshotResponse' :: Maybe DiskSnapshot
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#%24sel%3AdiskSnapshot%3AGetDiskSnapshotResponse%27"><span class="hs-identifier hs-var">diskSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskSnapshot
+</span><a href="#local-6989586621679644307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse"><span class="hs-identifier hs-type">GetDiskSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#getDiskSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">getDiskSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse"><span class="hs-identifier hs-type">GetDiskSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span id="getDiskSnapshotResponse_httpStatus"><span class="annot"><span class="annottext">getDiskSnapshotResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDiskSnapshotResponse -&gt; f GetDiskSnapshotResponse
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#getDiskSnapshotResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDiskSnapshotResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiskSnapshotResponse -&gt; Int)
+-&gt; (GetDiskSnapshotResponse -&gt; Int -&gt; GetDiskSnapshotResponse)
+-&gt; Lens GetDiskSnapshotResponse GetDiskSnapshotResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse%27"><span class="hs-identifier hs-type">GetDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644306"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDiskSnapshotResponse' :: GetDiskSnapshotResponse -&gt; Int
+</span><a href="#local-6989586621679644306"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644306"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644305"><span class="annot"><span class="annottext">s :: GetDiskSnapshotResponse
+</span><a href="#local-6989586621679644305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse%27"><span class="hs-identifier hs-type">GetDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644304"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiskSnapshotResponse
+</span><a href="#local-6989586621679644305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDiskSnapshotResponse' :: Int
+</span><a href="Amazonka.Lightsail.GetDiskSnapshot.html#%24sel%3AhttpStatus%3AGetDiskSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse"><span class="hs-identifier hs-type">GetDiskSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDiskSnapshot.html#GetDiskSnapshotResponse"><span class="hs-identifier hs-type">GetDiskSnapshotResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

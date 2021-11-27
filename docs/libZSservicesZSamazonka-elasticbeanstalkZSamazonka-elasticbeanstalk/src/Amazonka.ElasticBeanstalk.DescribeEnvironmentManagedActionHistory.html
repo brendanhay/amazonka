@@ -1,0 +1,943 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists an environment\'s completed and failed managed actions.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier">DescribeEnvironmentManagedActionHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#newDescribeEnvironmentManagedActionHistory"><span class="hs-identifier">newDescribeEnvironmentManagedActionHistory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_nextToken"><span class="hs-identifier">describeEnvironmentManagedActionHistory_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_environmentName"><span class="hs-identifier">describeEnvironmentManagedActionHistory_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_maxItems"><span class="hs-identifier">describeEnvironmentManagedActionHistory_maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_environmentId"><span class="hs-identifier">describeEnvironmentManagedActionHistory_environmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier">DescribeEnvironmentManagedActionHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#newDescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier">newDescribeEnvironmentManagedActionHistoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems"><span class="hs-identifier">describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_nextToken"><span class="hs-identifier">describeEnvironmentManagedActionHistoryResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_httpStatus"><span class="hs-identifier">describeEnvironmentManagedActionHistoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | Request to list completed and failed managed actions.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newDescribeEnvironmentManagedActionHistory' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679313175"><span id="local-6989586621679313176"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEnvironmentManagedActionHistory"><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-var">DescribeEnvironmentManagedActionHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEnvironmentManagedActionHistory%27"><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var">DescribeEnvironmentManagedActionHistory'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token returned by a previous request.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeEnvironmentManagedActionHistory%27"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AnextToken%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the target environment.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AenvironmentName%3ADescribeEnvironmentManagedActionHistory%27"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AenvironmentName%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for a single request.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxItems%3ADescribeEnvironmentManagedActionHistory%27"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory -&gt; Maybe Natural
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AmaxItems%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The environment ID of the target environment.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AenvironmentId%3ADescribeEnvironmentManagedActionHistory%27"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AenvironmentId%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313166"><span id="local-6989586621679313168"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory
+-&gt; DescribeEnvironmentManagedActionHistory -&gt; Bool
+(DescribeEnvironmentManagedActionHistory
+ -&gt; DescribeEnvironmentManagedActionHistory -&gt; Bool)
+-&gt; (DescribeEnvironmentManagedActionHistory
+    -&gt; DescribeEnvironmentManagedActionHistory -&gt; Bool)
+-&gt; Eq DescribeEnvironmentManagedActionHistory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEnvironmentManagedActionHistory
+-&gt; DescribeEnvironmentManagedActionHistory -&gt; Bool
+$c/= :: DescribeEnvironmentManagedActionHistory
+-&gt; DescribeEnvironmentManagedActionHistory -&gt; Bool
+== :: DescribeEnvironmentManagedActionHistory
+-&gt; DescribeEnvironmentManagedActionHistory -&gt; Bool
+$c== :: DescribeEnvironmentManagedActionHistory
+-&gt; DescribeEnvironmentManagedActionHistory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313157"><span id="local-6989586621679313159"><span id="local-6989586621679313161"><span id="local-6989586621679313163"><span class="annot"><span class="annottext">ReadPrec [DescribeEnvironmentManagedActionHistory]
+ReadPrec DescribeEnvironmentManagedActionHistory
+Int -&gt; ReadS DescribeEnvironmentManagedActionHistory
+ReadS [DescribeEnvironmentManagedActionHistory]
+(Int -&gt; ReadS DescribeEnvironmentManagedActionHistory)
+-&gt; ReadS [DescribeEnvironmentManagedActionHistory]
+-&gt; ReadPrec DescribeEnvironmentManagedActionHistory
+-&gt; ReadPrec [DescribeEnvironmentManagedActionHistory]
+-&gt; Read DescribeEnvironmentManagedActionHistory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEnvironmentManagedActionHistory]
+$creadListPrec :: ReadPrec [DescribeEnvironmentManagedActionHistory]
+readPrec :: ReadPrec DescribeEnvironmentManagedActionHistory
+$creadPrec :: ReadPrec DescribeEnvironmentManagedActionHistory
+readList :: ReadS [DescribeEnvironmentManagedActionHistory]
+$creadList :: ReadS [DescribeEnvironmentManagedActionHistory]
+readsPrec :: Int -&gt; ReadS DescribeEnvironmentManagedActionHistory
+$creadsPrec :: Int -&gt; ReadS DescribeEnvironmentManagedActionHistory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313150"><span id="local-6989586621679313152"><span id="local-6989586621679313154"><span class="annot"><span class="annottext">Int -&gt; DescribeEnvironmentManagedActionHistory -&gt; ShowS
+[DescribeEnvironmentManagedActionHistory] -&gt; ShowS
+DescribeEnvironmentManagedActionHistory -&gt; String
+(Int -&gt; DescribeEnvironmentManagedActionHistory -&gt; ShowS)
+-&gt; (DescribeEnvironmentManagedActionHistory -&gt; String)
+-&gt; ([DescribeEnvironmentManagedActionHistory] -&gt; ShowS)
+-&gt; Show DescribeEnvironmentManagedActionHistory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEnvironmentManagedActionHistory] -&gt; ShowS
+$cshowList :: [DescribeEnvironmentManagedActionHistory] -&gt; ShowS
+show :: DescribeEnvironmentManagedActionHistory -&gt; String
+$cshow :: DescribeEnvironmentManagedActionHistory -&gt; String
+showsPrec :: Int -&gt; DescribeEnvironmentManagedActionHistory -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEnvironmentManagedActionHistory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEnvironmentManagedActionHistory
+ -&gt; Rep DescribeEnvironmentManagedActionHistory x)
+-&gt; (forall x.
+    Rep DescribeEnvironmentManagedActionHistory x
+    -&gt; DescribeEnvironmentManagedActionHistory)
+-&gt; Generic DescribeEnvironmentManagedActionHistory
+forall x.
+Rep DescribeEnvironmentManagedActionHistory x
+-&gt; DescribeEnvironmentManagedActionHistory
+forall x.
+DescribeEnvironmentManagedActionHistory
+-&gt; Rep DescribeEnvironmentManagedActionHistory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEnvironmentManagedActionHistory x
+-&gt; DescribeEnvironmentManagedActionHistory
+$cfrom :: forall x.
+DescribeEnvironmentManagedActionHistory
+-&gt; Rep DescribeEnvironmentManagedActionHistory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'DescribeEnvironmentManagedActionHistory' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'describeEnvironmentManagedActionHistory_nextToken' - The pagination token returned by a previous request.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'environmentName', 'describeEnvironmentManagedActionHistory_environmentName' - The name of the target environment.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'maxItems', 'describeEnvironmentManagedActionHistory_maxItems' - The maximum number of items to return for a single request.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'environmentId', 'describeEnvironmentManagedActionHistory_environmentId' - The environment ID of the target environment.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#newDescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">newDescribeEnvironmentManagedActionHistory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span>
+</span><span id="line-87"></span><span id="newDescribeEnvironmentManagedActionHistory"><span class="annot"><span class="annottext">newDescribeEnvironmentManagedActionHistory :: DescribeEnvironmentManagedActionHistory
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#newDescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-var hs-var">newDescribeEnvironmentManagedActionHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; DescribeEnvironmentManagedActionHistory
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEnvironmentManagedActionHistory' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AnextToken%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentManagedActionHistory' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AenvironmentName%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:DescribeEnvironmentManagedActionHistory' :: Maybe Natural
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AmaxItems%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEnvironmentManagedActionHistory' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AenvironmentId%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The pagination token returned by a previous request.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_nextToken"><span class="hs-identifier hs-type">describeEnvironmentManagedActionHistory_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="describeEnvironmentManagedActionHistory_nextToken"><span class="annot"><span class="annottext">describeEnvironmentManagedActionHistory_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentManagedActionHistory
+-&gt; f DescribeEnvironmentManagedActionHistory
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_nextToken"><span class="hs-identifier hs-var hs-var">describeEnvironmentManagedActionHistory_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentManagedActionHistory -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentManagedActionHistory
+    -&gt; Maybe Text -&gt; DescribeEnvironmentManagedActionHistory)
+-&gt; Lens
+     DescribeEnvironmentManagedActionHistory
+     DescribeEnvironmentManagedActionHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313144"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeEnvironmentManagedActionHistory' :: DescribeEnvironmentManagedActionHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679313144"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313144"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313143"><span class="annot"><span class="annottext">s :: DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEnvironmentManagedActionHistory' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AnextToken%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The name of the target environment.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_environmentName"><span class="hs-identifier hs-type">describeEnvironmentManagedActionHistory_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="describeEnvironmentManagedActionHistory_environmentName"><span class="annot"><span class="annottext">describeEnvironmentManagedActionHistory_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentManagedActionHistory
+-&gt; f DescribeEnvironmentManagedActionHistory
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_environmentName"><span class="hs-identifier hs-var hs-var">describeEnvironmentManagedActionHistory_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentManagedActionHistory -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentManagedActionHistory
+    -&gt; Maybe Text -&gt; DescribeEnvironmentManagedActionHistory)
+-&gt; Lens
+     DescribeEnvironmentManagedActionHistory
+     DescribeEnvironmentManagedActionHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313141"><span class="annot"><span class="annottext">Maybe Text
+environmentName :: Maybe Text
+$sel:environmentName:DescribeEnvironmentManagedActionHistory' :: DescribeEnvironmentManagedActionHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679313141"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313141"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313140"><span class="annot"><span class="annottext">s :: DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentManagedActionHistory' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AenvironmentName%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of items to return for a single request.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_maxItems"><span class="hs-identifier hs-type">describeEnvironmentManagedActionHistory_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="describeEnvironmentManagedActionHistory_maxItems"><span class="annot"><span class="annottext">describeEnvironmentManagedActionHistory_maxItems :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeEnvironmentManagedActionHistory
+-&gt; f DescribeEnvironmentManagedActionHistory
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_maxItems"><span class="hs-identifier hs-var hs-var">describeEnvironmentManagedActionHistory_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentManagedActionHistory -&gt; Maybe Natural)
+-&gt; (DescribeEnvironmentManagedActionHistory
+    -&gt; Maybe Natural -&gt; DescribeEnvironmentManagedActionHistory)
+-&gt; Lens
+     DescribeEnvironmentManagedActionHistory
+     DescribeEnvironmentManagedActionHistory
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313138"><span class="annot"><span class="annottext">Maybe Natural
+maxItems :: Maybe Natural
+$sel:maxItems:DescribeEnvironmentManagedActionHistory' :: DescribeEnvironmentManagedActionHistory -&gt; Maybe Natural
+</span><a href="#local-6989586621679313138"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313138"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313137"><span class="annot"><span class="annottext">s :: DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313136"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:DescribeEnvironmentManagedActionHistory' :: Maybe Natural
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AmaxItems%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The environment ID of the target environment.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_environmentId"><span class="hs-identifier hs-type">describeEnvironmentManagedActionHistory_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="describeEnvironmentManagedActionHistory_environmentId"><span class="annot"><span class="annottext">describeEnvironmentManagedActionHistory_environmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentManagedActionHistory
+-&gt; f DescribeEnvironmentManagedActionHistory
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_environmentId"><span class="hs-identifier hs-var hs-var">describeEnvironmentManagedActionHistory_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentManagedActionHistory -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentManagedActionHistory
+    -&gt; Maybe Text -&gt; DescribeEnvironmentManagedActionHistory)
+-&gt; Lens
+     DescribeEnvironmentManagedActionHistory
+     DescribeEnvironmentManagedActionHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313135"><span class="annot"><span class="annottext">Maybe Text
+environmentId :: Maybe Text
+$sel:environmentId:DescribeEnvironmentManagedActionHistory' :: DescribeEnvironmentManagedActionHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679313135"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313135"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313134"><span class="annot"><span class="annottext">s :: DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313133"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEnvironmentManagedActionHistory' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AenvironmentId%3ADescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679313129"><span class="annot"><span class="annottext">page :: DescribeEnvironmentManagedActionHistory
+-&gt; AWSResponse DescribeEnvironmentManagedActionHistory
+-&gt; Maybe DescribeEnvironmentManagedActionHistory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679313127"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313127"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679313126"><span class="annot"><span class="annottext">AWSResponse DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313126"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEnvironmentManagedActionHistory
+DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="#local-6989586621679313126"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Getting
+     (First Text) DescribeEnvironmentManagedActionHistoryResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Const
+     (First Text) DescribeEnvironmentManagedActionHistoryResponse
+Lens' DescribeEnvironmentManagedActionHistoryResponse (Maybe Text)
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_nextToken"><span class="hs-identifier hs-var">describeEnvironmentManagedActionHistoryResponse_nextToken</span></a></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeEnvironmentManagedActionHistoryResponse
+ -&gt; Const
+      (First Text) DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribeEnvironmentManagedActionHistoryResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeEnvironmentManagedActionHistory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ManagedActionHistoryItem] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEnvironmentManagedActionHistory
+DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="#local-6989586621679313126"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Getting
+     (First [ManagedActionHistoryItem])
+     DescribeEnvironmentManagedActionHistoryResponse
+     [ManagedActionHistoryItem]
+-&gt; Maybe [ManagedActionHistoryItem]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe (NonEmpty ManagedActionHistoryItem)
+ -&gt; Const
+      (First [ManagedActionHistoryItem])
+      (Maybe (NonEmpty ManagedActionHistoryItem)))
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Const
+     (First [ManagedActionHistoryItem])
+     DescribeEnvironmentManagedActionHistoryResponse
+Lens'
+  DescribeEnvironmentManagedActionHistoryResponse
+  (Maybe (NonEmpty ManagedActionHistoryItem))
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems"><span class="hs-identifier hs-var">describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems</span></a></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ManagedActionHistoryItem)
+  -&gt; Const
+       (First [ManagedActionHistoryItem])
+       (Maybe (NonEmpty ManagedActionHistoryItem)))
+ -&gt; DescribeEnvironmentManagedActionHistoryResponse
+ -&gt; Const
+      (First [ManagedActionHistoryItem])
+      DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; (([ManagedActionHistoryItem]
+     -&gt; Const
+          (First [ManagedActionHistoryItem]) [ManagedActionHistoryItem])
+    -&gt; Maybe (NonEmpty ManagedActionHistoryItem)
+    -&gt; Const
+         (First [ManagedActionHistoryItem])
+         (Maybe (NonEmpty ManagedActionHistoryItem)))
+-&gt; Getting
+     (First [ManagedActionHistoryItem])
+     DescribeEnvironmentManagedActionHistoryResponse
+     [ManagedActionHistoryItem]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty ManagedActionHistoryItem
+ -&gt; Const
+      (First [ManagedActionHistoryItem])
+      (NonEmpty ManagedActionHistoryItem))
+-&gt; Maybe (NonEmpty ManagedActionHistoryItem)
+-&gt; Const
+     (First [ManagedActionHistoryItem])
+     (Maybe (NonEmpty ManagedActionHistoryItem))
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">((NonEmpty ManagedActionHistoryItem
+  -&gt; Const
+       (First [ManagedActionHistoryItem])
+       (NonEmpty ManagedActionHistoryItem))
+ -&gt; Maybe (NonEmpty ManagedActionHistoryItem)
+ -&gt; Const
+      (First [ManagedActionHistoryItem])
+      (Maybe (NonEmpty ManagedActionHistoryItem)))
+-&gt; (([ManagedActionHistoryItem]
+     -&gt; Const
+          (First [ManagedActionHistoryItem]) [ManagedActionHistoryItem])
+    -&gt; NonEmpty ManagedActionHistoryItem
+    -&gt; Const
+         (First [ManagedActionHistoryItem])
+         (NonEmpty ManagedActionHistoryItem))
+-&gt; ([ManagedActionHistoryItem]
+    -&gt; Const
+         (First [ManagedActionHistoryItem]) [ManagedActionHistoryItem])
+-&gt; Maybe (NonEmpty ManagedActionHistoryItem)
+-&gt; Const
+     (First [ManagedActionHistoryItem])
+     (Maybe (NonEmpty ManagedActionHistoryItem))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty ManagedActionHistoryItem -&gt; [ManagedActionHistoryItem])
+-&gt; ([ManagedActionHistoryItem]
+    -&gt; Const
+         (First [ManagedActionHistoryItem]) [ManagedActionHistoryItem])
+-&gt; NonEmpty ManagedActionHistoryItem
+-&gt; Const
+     (First [ManagedActionHistoryItem])
+     (NonEmpty ManagedActionHistoryItem)
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ManagedActionHistoryItem -&gt; [ManagedActionHistoryItem]
+forall l. IsList l =&gt; l -&gt; [Item l]
+</span><span class="hs-identifier hs-var">Prelude.toList</span></span><span>
+</span><span id="line-128"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeEnvironmentManagedActionHistory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory
+-&gt; Maybe DescribeEnvironmentManagedActionHistory
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentManagedActionHistory
+ -&gt; Maybe DescribeEnvironmentManagedActionHistory)
+-&gt; DescribeEnvironmentManagedActionHistory
+-&gt; Maybe DescribeEnvironmentManagedActionHistory
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory
+</span><a href="#local-6989586621679313127"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistory
+-&gt; (DescribeEnvironmentManagedActionHistory
+    -&gt; DescribeEnvironmentManagedActionHistory)
+-&gt; DescribeEnvironmentManagedActionHistory
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeEnvironmentManagedActionHistory
+-&gt; Identity DescribeEnvironmentManagedActionHistory
+Lens
+  DescribeEnvironmentManagedActionHistory
+  DescribeEnvironmentManagedActionHistory
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistory_nextToken"><span class="hs-identifier hs-var">describeEnvironmentManagedActionHistory_nextToken</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeEnvironmentManagedActionHistory
+ -&gt; Identity DescribeEnvironmentManagedActionHistory)
+-&gt; Maybe Text
+-&gt; DescribeEnvironmentManagedActionHistory
+-&gt; DescribeEnvironmentManagedActionHistory
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEnvironmentManagedActionHistory
+DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="#local-6989586621679313126"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Getting
+     (First Text) DescribeEnvironmentManagedActionHistoryResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Const
+     (First Text) DescribeEnvironmentManagedActionHistoryResponse
+Lens' DescribeEnvironmentManagedActionHistoryResponse (Maybe Text)
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_nextToken"><span class="hs-identifier hs-var">describeEnvironmentManagedActionHistoryResponse_nextToken</span></a></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeEnvironmentManagedActionHistoryResponse
+ -&gt; Const
+      (First Text) DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribeEnvironmentManagedActionHistoryResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679313115"><span class="annot"><span class="annottext">request :: DescribeEnvironmentManagedActionHistory
+-&gt; Request DescribeEnvironmentManagedActionHistory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeEnvironmentManagedActionHistory
+-&gt; Request DescribeEnvironmentManagedActionHistory
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679313111"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeEnvironmentManagedActionHistory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeEnvironmentManagedActionHistory)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either
+         String (AWSResponse DescribeEnvironmentManagedActionHistory))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeEnvironmentManagedActionHistory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeEnvironmentManagedActionHistory)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeEnvironmentManagedActionHistoryResult&quot;</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313108"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313108"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313107"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313107"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313106"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313106"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty ManagedActionHistoryItem)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var">DescribeEnvironmentManagedActionHistoryResponse'</span></a></span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty ManagedActionHistoryItem)
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; Either String (Maybe (NonEmpty ManagedActionHistoryItem))
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Int -&gt; DescribeEnvironmentManagedActionHistoryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ManagedActionHistoryItems&quot;</span></span><span>
+</span><span id="line-153"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe (NonEmpty ManagedActionHistoryItem)))
+-&gt; Either String (Maybe (NonEmpty ManagedActionHistoryItem))
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String (NonEmpty ManagedActionHistoryItem))
+-&gt; [Node]
+-&gt; Either String (Maybe (NonEmpty ManagedActionHistoryItem))
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String (NonEmpty ManagedActionHistoryItem)
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String (NonEmpty a)
+</span><span class="hs-identifier hs-var">Core.parseXMLList1</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Int -&gt; DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; DescribeEnvironmentManagedActionHistoryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679313106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeEnvironmentManagedActionHistoryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313108"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679313095"><span id="local-6989586621679313097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679313092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679313088"><span class="annot"><span class="annottext">toHeaders :: DescribeEnvironmentManagedActionHistory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeEnvironmentManagedActionHistory -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679313083"><span class="annot"><span class="annottext">toPath :: DescribeEnvironmentManagedActionHistory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEnvironmentManagedActionHistory -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679313079"><span class="annot"><span class="annottext">toQuery :: DescribeEnvironmentManagedActionHistory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistory%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313074"><span id="local-6989586621679313075"><span id="local-6989586621679313076"><span id="local-6989586621679313077"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+environmentId :: Maybe Text
+maxItems :: Maybe Natural
+environmentName :: Maybe Text
+nextToken :: Maybe Text
+$sel:environmentId:DescribeEnvironmentManagedActionHistory' :: DescribeEnvironmentManagedActionHistory -&gt; Maybe Text
+$sel:maxItems:DescribeEnvironmentManagedActionHistory' :: DescribeEnvironmentManagedActionHistory -&gt; Maybe Natural
+$sel:environmentName:DescribeEnvironmentManagedActionHistory' :: DescribeEnvironmentManagedActionHistory -&gt; Maybe Text
+$sel:nextToken:DescribeEnvironmentManagedActionHistory' :: DescribeEnvironmentManagedActionHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679313074"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeEnvironmentManagedActionHistory&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-189"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313077"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313076"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313075"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313074"><span class="hs-identifier hs-var">environmentId</span></a></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | A result message containing a list of completed and failed managed</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- actions.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- /See:/ 'newDescribeEnvironmentManagedActionHistoryResponse' smart constructor.</span><span>
+</span><span id="line-202"></span><span id="local-6989586621679313071"><span id="local-6989586621679313072"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEnvironmentManagedActionHistoryResponse"><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-var">DescribeEnvironmentManagedActionHistoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEnvironmentManagedActionHistoryResponse%27"><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var">DescribeEnvironmentManagedActionHistoryResponse'</span></a></span></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of completed and failed managed actions.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AmanagedActionHistoryItems%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Maybe (NonEmpty ManagedActionHistoryItem)
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AmanagedActionHistoryItems%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var hs-var">managedActionHistoryItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ManagedActionHistoryItem.html#ManagedActionHistoryItem"><span class="hs-identifier hs-type">ManagedActionHistoryItem</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | A pagination token that you pass to</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- DescribeEnvironmentManagedActionHistory to get the next page of results.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AnextToken%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse -&gt; Int
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AhttpStatus%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313064"><span id="local-6989586621679313066"><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse
+-&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; Bool
+(DescribeEnvironmentManagedActionHistoryResponse
+ -&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; Bool)
+-&gt; (DescribeEnvironmentManagedActionHistoryResponse
+    -&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; Bool)
+-&gt; Eq DescribeEnvironmentManagedActionHistoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEnvironmentManagedActionHistoryResponse
+-&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; Bool
+$c/= :: DescribeEnvironmentManagedActionHistoryResponse
+-&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; Bool
+== :: DescribeEnvironmentManagedActionHistoryResponse
+-&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; Bool
+$c== :: DescribeEnvironmentManagedActionHistoryResponse
+-&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313056"><span id="local-6989586621679313058"><span id="local-6989586621679313060"><span id="local-6989586621679313062"><span class="annot"><span class="annottext">ReadPrec [DescribeEnvironmentManagedActionHistoryResponse]
+ReadPrec DescribeEnvironmentManagedActionHistoryResponse
+Int -&gt; ReadS DescribeEnvironmentManagedActionHistoryResponse
+ReadS [DescribeEnvironmentManagedActionHistoryResponse]
+(Int -&gt; ReadS DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; ReadS [DescribeEnvironmentManagedActionHistoryResponse]
+-&gt; ReadPrec DescribeEnvironmentManagedActionHistoryResponse
+-&gt; ReadPrec [DescribeEnvironmentManagedActionHistoryResponse]
+-&gt; Read DescribeEnvironmentManagedActionHistoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEnvironmentManagedActionHistoryResponse]
+$creadListPrec :: ReadPrec [DescribeEnvironmentManagedActionHistoryResponse]
+readPrec :: ReadPrec DescribeEnvironmentManagedActionHistoryResponse
+$creadPrec :: ReadPrec DescribeEnvironmentManagedActionHistoryResponse
+readList :: ReadS [DescribeEnvironmentManagedActionHistoryResponse]
+$creadList :: ReadS [DescribeEnvironmentManagedActionHistoryResponse]
+readsPrec :: Int -&gt; ReadS DescribeEnvironmentManagedActionHistoryResponse
+$creadsPrec :: Int -&gt; ReadS DescribeEnvironmentManagedActionHistoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313050"><span id="local-6989586621679313052"><span id="local-6989586621679313054"><span class="annot"><span class="annottext">Int -&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; ShowS
+[DescribeEnvironmentManagedActionHistoryResponse] -&gt; ShowS
+DescribeEnvironmentManagedActionHistoryResponse -&gt; String
+(Int -&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; ShowS)
+-&gt; (DescribeEnvironmentManagedActionHistoryResponse -&gt; String)
+-&gt; ([DescribeEnvironmentManagedActionHistoryResponse] -&gt; ShowS)
+-&gt; Show DescribeEnvironmentManagedActionHistoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEnvironmentManagedActionHistoryResponse] -&gt; ShowS
+$cshowList :: [DescribeEnvironmentManagedActionHistoryResponse] -&gt; ShowS
+show :: DescribeEnvironmentManagedActionHistoryResponse -&gt; String
+$cshow :: DescribeEnvironmentManagedActionHistoryResponse -&gt; String
+showsPrec :: Int -&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEnvironmentManagedActionHistoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEnvironmentManagedActionHistoryResponse
+ -&gt; Rep DescribeEnvironmentManagedActionHistoryResponse x)
+-&gt; (forall x.
+    Rep DescribeEnvironmentManagedActionHistoryResponse x
+    -&gt; DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; Generic DescribeEnvironmentManagedActionHistoryResponse
+forall x.
+Rep DescribeEnvironmentManagedActionHistoryResponse x
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+forall x.
+DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Rep DescribeEnvironmentManagedActionHistoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEnvironmentManagedActionHistoryResponse x
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+$cfrom :: forall x.
+DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Rep DescribeEnvironmentManagedActionHistoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Create a value of 'DescribeEnvironmentManagedActionHistoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'managedActionHistoryItems', 'describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems' - A list of completed and failed managed actions.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'nextToken', 'describeEnvironmentManagedActionHistoryResponse_nextToken' - A pagination token that you pass to</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- DescribeEnvironmentManagedActionHistory to get the next page of results.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'httpStatus', 'describeEnvironmentManagedActionHistoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#newDescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">newDescribeEnvironmentManagedActionHistoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse</span></a></span><span>
+</span><span id="line-231"></span><span id="newDescribeEnvironmentManagedActionHistoryResponse"><span class="annot"><span class="annottext">newDescribeEnvironmentManagedActionHistoryResponse :: Int -&gt; DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#newDescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-var hs-var">newDescribeEnvironmentManagedActionHistoryResponse</span></a></span></span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679313047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313047"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse' :: Maybe (NonEmpty ManagedActionHistoryItem)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:managedActionHistoryItems:DescribeEnvironmentManagedActionHistoryResponse' :: Maybe (NonEmpty ManagedActionHistoryItem)
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AmanagedActionHistoryItems%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var">managedActionHistoryItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty ManagedActionHistoryItem)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEnvironmentManagedActionHistoryResponse' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AnextToken%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEnvironmentManagedActionHistoryResponse' :: Int
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AhttpStatus%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313047"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | A list of completed and failed managed actions.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems"><span class="hs-identifier hs-type">describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ManagedActionHistoryItem.html#ManagedActionHistoryItem"><span class="hs-identifier hs-type">ManagedActionHistoryItem</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems"><span class="annot"><span class="annottext">describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems :: (Maybe (NonEmpty ManagedActionHistoryItem)
+ -&gt; f (Maybe (NonEmpty ManagedActionHistoryItem)))
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+-&gt; f DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems"><span class="hs-identifier hs-var hs-var">describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentManagedActionHistoryResponse
+ -&gt; Maybe (NonEmpty ManagedActionHistoryItem))
+-&gt; (DescribeEnvironmentManagedActionHistoryResponse
+    -&gt; Maybe (NonEmpty ManagedActionHistoryItem)
+    -&gt; DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; Lens'
+     DescribeEnvironmentManagedActionHistoryResponse
+     (Maybe (NonEmpty ManagedActionHistoryItem))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313046"><span class="annot"><span class="annottext">Maybe (NonEmpty ManagedActionHistoryItem)
+managedActionHistoryItems :: Maybe (NonEmpty ManagedActionHistoryItem)
+$sel:managedActionHistoryItems:DescribeEnvironmentManagedActionHistoryResponse' :: DescribeEnvironmentManagedActionHistoryResponse
+-&gt; Maybe (NonEmpty ManagedActionHistoryItem)
+</span><a href="#local-6989586621679313046"><span class="hs-identifier hs-var hs-var">managedActionHistoryItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ManagedActionHistoryItem)
+</span><a href="#local-6989586621679313046"><span class="hs-identifier hs-var">managedActionHistoryItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313045"><span class="annot"><span class="annottext">s :: DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="#local-6989586621679313045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313044"><span class="annot"><span class="annottext">Maybe (NonEmpty ManagedActionHistoryItem)
+</span><a href="#local-6989586621679313044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="#local-6989586621679313045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedActionHistoryItems:DescribeEnvironmentManagedActionHistoryResponse' :: Maybe (NonEmpty ManagedActionHistoryItem)
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AmanagedActionHistoryItems%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var">managedActionHistoryItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ManagedActionHistoryItem)
+</span><a href="#local-6989586621679313044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ManagedActionHistoryItem)
+  -&gt; f (Maybe (NonEmpty ManagedActionHistoryItem)))
+ -&gt; DescribeEnvironmentManagedActionHistoryResponse
+ -&gt; f DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; ((Maybe (NonEmpty ManagedActionHistoryItem)
+     -&gt; f (Maybe (NonEmpty ManagedActionHistoryItem)))
+    -&gt; Maybe (NonEmpty ManagedActionHistoryItem)
+    -&gt; f (Maybe (NonEmpty ManagedActionHistoryItem)))
+-&gt; (Maybe (NonEmpty ManagedActionHistoryItem)
+    -&gt; f (Maybe (NonEmpty ManagedActionHistoryItem)))
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+-&gt; f DescribeEnvironmentManagedActionHistoryResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ManagedActionHistoryItem)
+  (NonEmpty ManagedActionHistoryItem)
+  (NonEmpty ManagedActionHistoryItem)
+  (NonEmpty ManagedActionHistoryItem)
+-&gt; Iso
+     (Maybe (NonEmpty ManagedActionHistoryItem))
+     (Maybe (NonEmpty ManagedActionHistoryItem))
+     (Maybe (NonEmpty ManagedActionHistoryItem))
+     (Maybe (NonEmpty ManagedActionHistoryItem))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ManagedActionHistoryItem)
+  (NonEmpty ManagedActionHistoryItem)
+  (NonEmpty ManagedActionHistoryItem)
+  (NonEmpty ManagedActionHistoryItem)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | A pagination token that you pass to</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- DescribeEnvironmentManagedActionHistory to get the next page of results.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_nextToken"><span class="hs-identifier hs-type">describeEnvironmentManagedActionHistoryResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="describeEnvironmentManagedActionHistoryResponse_nextToken"><span class="annot"><span class="annottext">describeEnvironmentManagedActionHistoryResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+-&gt; f DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeEnvironmentManagedActionHistoryResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentManagedActionHistoryResponse -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentManagedActionHistoryResponse
+    -&gt; Maybe Text -&gt; DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; Lens'
+     DescribeEnvironmentManagedActionHistoryResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313041"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeEnvironmentManagedActionHistoryResponse' :: DescribeEnvironmentManagedActionHistoryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313041"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313041"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313040"><span class="annot"><span class="annottext">s :: DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="#local-6989586621679313040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313039"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="#local-6989586621679313040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEnvironmentManagedActionHistoryResponse' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AnextToken%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_httpStatus"><span class="hs-identifier hs-type">describeEnvironmentManagedActionHistoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span id="describeEnvironmentManagedActionHistoryResponse_httpStatus"><span class="annot"><span class="annottext">describeEnvironmentManagedActionHistoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeEnvironmentManagedActionHistoryResponse
+-&gt; f DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#describeEnvironmentManagedActionHistoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeEnvironmentManagedActionHistoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentManagedActionHistoryResponse -&gt; Int)
+-&gt; (DescribeEnvironmentManagedActionHistoryResponse
+    -&gt; Int -&gt; DescribeEnvironmentManagedActionHistoryResponse)
+-&gt; Lens
+     DescribeEnvironmentManagedActionHistoryResponse
+     DescribeEnvironmentManagedActionHistoryResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313038"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeEnvironmentManagedActionHistoryResponse' :: DescribeEnvironmentManagedActionHistoryResponse -&gt; Int
+</span><a href="#local-6989586621679313038"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313038"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313037"><span class="annot"><span class="annottext">s :: DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="#local-6989586621679313037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313036"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentManagedActionHistoryResponse
+</span><a href="#local-6989586621679313037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEnvironmentManagedActionHistoryResponse' :: Int
+</span><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#%24sel%3AhttpStatus%3ADescribeEnvironmentManagedActionHistoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679313034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory.html#DescribeEnvironmentManagedActionHistoryResponse"><span class="hs-identifier hs-type">DescribeEnvironmentManagedActionHistoryResponse</span></a></span></span><span>
+</span><span id="line-257"></span></pre></body></html>

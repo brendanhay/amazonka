@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.VoiceId.StartSpeakerEnrollmentJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts a new batch speaker enrollment job using specified details.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.VoiceId.StartSpeakerEnrollmentJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#newStartSpeakerEnrollmentJob"><span class="hs-identifier">newStartSpeakerEnrollmentJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_clientToken"><span class="hs-identifier">startSpeakerEnrollmentJob_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_jobName"><span class="hs-identifier">startSpeakerEnrollmentJob_jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_enrollmentConfig"><span class="hs-identifier">startSpeakerEnrollmentJob_enrollmentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_dataAccessRoleArn"><span class="hs-identifier">startSpeakerEnrollmentJob_dataAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_domainId"><span class="hs-identifier">startSpeakerEnrollmentJob_domainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_inputDataConfig"><span class="hs-identifier">startSpeakerEnrollmentJob_inputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_outputDataConfig"><span class="hs-identifier">startSpeakerEnrollmentJob_outputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse"><span class="hs-identifier">StartSpeakerEnrollmentJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#newStartSpeakerEnrollmentJobResponse"><span class="hs-identifier">newStartSpeakerEnrollmentJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJobResponse_job"><span class="hs-identifier">startSpeakerEnrollmentJobResponse_job</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJobResponse_httpStatus"><span class="hs-identifier">startSpeakerEnrollmentJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.html"><span class="hs-identifier">Amazonka.VoiceId.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newStartSpeakerEnrollmentJob' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679205680"><span id="local-6989586621679205681"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSpeakerEnrollmentJob"><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-var">StartSpeakerEnrollmentJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSpeakerEnrollmentJob%27"><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">StartSpeakerEnrollmentJob'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The idempotency token for starting a new speaker enrollment Job. If not</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- provided, Amazon Web Services SDK populates this field.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AclientToken%3AStartSpeakerEnrollmentJob%27"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob -&gt; Maybe Text
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AclientToken%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A name for your speaker enrollment job.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AjobName%3AStartSpeakerEnrollmentJob%27"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AjobName%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The enrollment config that contains details such as the action to take</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- when a speaker is already enrolled in the Voice ID system or when a</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- speaker is identified as a fraudster.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AenrollmentConfig%3AStartSpeakerEnrollmentJob%27"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob -&gt; Maybe EnrollmentConfig
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AenrollmentConfig%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var hs-var">enrollmentConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.EnrollmentConfig.html#EnrollmentConfig"><span class="hs-identifier hs-type">EnrollmentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- to access customer\'s buckets to read the input manifest file and write</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the job output file. Refer to</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/voiceid-batch-enrollment.html Batch enrollment using audio data from prior calls&gt;</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- documentation for the permissions needed in this role.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdataAccessRoleArn%3AStartSpeakerEnrollmentJob%27"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob -&gt; Text
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AdataAccessRoleArn%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The identifier of the domain that contains the speaker enrollment job</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- and in which the speakers are enrolled.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdomainId%3AStartSpeakerEnrollmentJob%27"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob -&gt; Text
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AdomainId%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The input data config containing the S3 location for the input manifest</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- file that contains the list of speaker enrollment requests.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AinputDataConfig%3AStartSpeakerEnrollmentJob%27"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob -&gt; InputDataConfig
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AinputDataConfig%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The output data config containing the S3 location where Voice ID writes</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- the job output file; you must also include a KMS Key ID to encrypt the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AoutputDataConfig%3AStartSpeakerEnrollmentJob%27"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob -&gt; OutputDataConfig
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AoutputDataConfig%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205668"><span id="local-6989586621679205670"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob -&gt; StartSpeakerEnrollmentJob -&gt; Bool
+(StartSpeakerEnrollmentJob -&gt; StartSpeakerEnrollmentJob -&gt; Bool)
+-&gt; (StartSpeakerEnrollmentJob -&gt; StartSpeakerEnrollmentJob -&gt; Bool)
+-&gt; Eq StartSpeakerEnrollmentJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartSpeakerEnrollmentJob -&gt; StartSpeakerEnrollmentJob -&gt; Bool
+$c/= :: StartSpeakerEnrollmentJob -&gt; StartSpeakerEnrollmentJob -&gt; Bool
+== :: StartSpeakerEnrollmentJob -&gt; StartSpeakerEnrollmentJob -&gt; Bool
+$c== :: StartSpeakerEnrollmentJob -&gt; StartSpeakerEnrollmentJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205661"><span id="local-6989586621679205663"><span id="local-6989586621679205665"><span class="annot"><span class="annottext">Int -&gt; StartSpeakerEnrollmentJob -&gt; ShowS
+[StartSpeakerEnrollmentJob] -&gt; ShowS
+StartSpeakerEnrollmentJob -&gt; String
+(Int -&gt; StartSpeakerEnrollmentJob -&gt; ShowS)
+-&gt; (StartSpeakerEnrollmentJob -&gt; String)
+-&gt; ([StartSpeakerEnrollmentJob] -&gt; ShowS)
+-&gt; Show StartSpeakerEnrollmentJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartSpeakerEnrollmentJob] -&gt; ShowS
+$cshowList :: [StartSpeakerEnrollmentJob] -&gt; ShowS
+show :: StartSpeakerEnrollmentJob -&gt; String
+$cshow :: StartSpeakerEnrollmentJob -&gt; String
+showsPrec :: Int -&gt; StartSpeakerEnrollmentJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartSpeakerEnrollmentJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartSpeakerEnrollmentJob -&gt; Rep StartSpeakerEnrollmentJob x)
+-&gt; (forall x.
+    Rep StartSpeakerEnrollmentJob x -&gt; StartSpeakerEnrollmentJob)
+-&gt; Generic StartSpeakerEnrollmentJob
+forall x.
+Rep StartSpeakerEnrollmentJob x -&gt; StartSpeakerEnrollmentJob
+forall x.
+StartSpeakerEnrollmentJob -&gt; Rep StartSpeakerEnrollmentJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartSpeakerEnrollmentJob x -&gt; StartSpeakerEnrollmentJob
+$cfrom :: forall x.
+StartSpeakerEnrollmentJob -&gt; Rep StartSpeakerEnrollmentJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'StartSpeakerEnrollmentJob' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'clientToken', 'startSpeakerEnrollmentJob_clientToken' - The idempotency token for starting a new speaker enrollment Job. If not</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- provided, Amazon Web Services SDK populates this field.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'jobName', 'startSpeakerEnrollmentJob_jobName' - A name for your speaker enrollment job.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'enrollmentConfig', 'startSpeakerEnrollmentJob_enrollmentConfig' - The enrollment config that contains details such as the action to take</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- when a speaker is already enrolled in the Voice ID system or when a</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- speaker is identified as a fraudster.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'dataAccessRoleArn', 'startSpeakerEnrollmentJob_dataAccessRoleArn' - The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- to access customer\'s buckets to read the input manifest file and write</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the job output file. Refer to</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/voiceid-batch-enrollment.html Batch enrollment using audio data from prior calls&gt;</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- documentation for the permissions needed in this role.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'domainId', 'startSpeakerEnrollmentJob_domainId' - The identifier of the domain that contains the speaker enrollment job</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- and in which the speakers are enrolled.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'inputDataConfig', 'startSpeakerEnrollmentJob_inputDataConfig' - The input data config containing the S3 location for the input manifest</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- file that contains the list of speaker enrollment requests.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'outputDataConfig', 'startSpeakerEnrollmentJob_outputDataConfig' - The output data config containing the S3 location where Voice ID writes</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the job output file; you must also include a KMS Key ID to encrypt the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#newStartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">newStartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'dataAccessRoleArn'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'domainId'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'inputDataConfig'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'outputDataConfig'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span>
+</span><span id="line-127"></span><span id="newStartSpeakerEnrollmentJob"><span class="annot"><span class="annottext">newStartSpeakerEnrollmentJob :: Text
+-&gt; Text
+-&gt; InputDataConfig
+-&gt; OutputDataConfig
+-&gt; StartSpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#newStartSpeakerEnrollmentJob"><span class="hs-identifier hs-var hs-var">newStartSpeakerEnrollmentJob</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679205656"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205656"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679205655"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205655"><span class="hs-identifier hs-var">pDomainId_</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679205654"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679205654"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679205653"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679205653"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob' :: Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe EnrollmentConfig
+-&gt; Text
+-&gt; Text
+-&gt; InputDataConfig
+-&gt; OutputDataConfig
+-&gt; StartSpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:StartSpeakerEnrollmentJob' :: Maybe Text
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AclientToken%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobName:StartSpeakerEnrollmentJob' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AjobName%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:enrollmentConfig:StartSpeakerEnrollmentJob' :: Maybe EnrollmentConfig
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AenrollmentConfig%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">enrollmentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnrollmentConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:StartSpeakerEnrollmentJob' :: Text
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AdataAccessRoleArn%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205656"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainId:StartSpeakerEnrollmentJob' :: Text
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AdomainId%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205655"><span class="hs-identifier hs-var">pDomainId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputDataConfig:StartSpeakerEnrollmentJob' :: InputDataConfig
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AinputDataConfig%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679205654"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputDataConfig:StartSpeakerEnrollmentJob' :: OutputDataConfig
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AoutputDataConfig%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679205653"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The idempotency token for starting a new speaker enrollment Job. If not</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- provided, Amazon Web Services SDK populates this field.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_clientToken"><span class="hs-identifier hs-type">startSpeakerEnrollmentJob_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="startSpeakerEnrollmentJob_clientToken"><span class="annot"><span class="annottext">startSpeakerEnrollmentJob_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartSpeakerEnrollmentJob -&gt; f StartSpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_clientToken"><span class="hs-identifier hs-var hs-var">startSpeakerEnrollmentJob_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSpeakerEnrollmentJob -&gt; Maybe Text)
+-&gt; (StartSpeakerEnrollmentJob
+    -&gt; Maybe Text -&gt; StartSpeakerEnrollmentJob)
+-&gt; Lens
+     StartSpeakerEnrollmentJob
+     StartSpeakerEnrollmentJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205650"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Maybe Text
+</span><a href="#local-6989586621679205650"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205650"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205649"><span class="annot"><span class="annottext">s :: StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205648"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:StartSpeakerEnrollmentJob' :: Maybe Text
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AclientToken%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | A name for your speaker enrollment job.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_jobName"><span class="hs-identifier hs-type">startSpeakerEnrollmentJob_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="startSpeakerEnrollmentJob_jobName"><span class="annot"><span class="annottext">startSpeakerEnrollmentJob_jobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartSpeakerEnrollmentJob -&gt; f StartSpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_jobName"><span class="hs-identifier hs-var hs-var">startSpeakerEnrollmentJob_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSpeakerEnrollmentJob -&gt; Maybe (Sensitive Text))
+-&gt; (StartSpeakerEnrollmentJob
+    -&gt; Maybe (Sensitive Text) -&gt; StartSpeakerEnrollmentJob)
+-&gt; Lens
+     StartSpeakerEnrollmentJob
+     StartSpeakerEnrollmentJob
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205647"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+jobName :: Maybe (Sensitive Text)
+$sel:jobName:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679205647"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679205647"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205646"><span class="annot"><span class="annottext">s :: StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205645"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679205645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:StartSpeakerEnrollmentJob' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AjobName%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679205645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; StartSpeakerEnrollmentJob -&gt; f StartSpeakerEnrollmentJob)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartSpeakerEnrollmentJob
+-&gt; f StartSpeakerEnrollmentJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The enrollment config that contains details such as the action to take</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- when a speaker is already enrolled in the Voice ID system or when a</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- speaker is identified as a fraudster.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_enrollmentConfig"><span class="hs-identifier hs-type">startSpeakerEnrollmentJob_enrollmentConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.EnrollmentConfig.html#EnrollmentConfig"><span class="hs-identifier hs-type">EnrollmentConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="startSpeakerEnrollmentJob_enrollmentConfig"><span class="annot"><span class="annottext">startSpeakerEnrollmentJob_enrollmentConfig :: (Maybe EnrollmentConfig -&gt; f (Maybe EnrollmentConfig))
+-&gt; StartSpeakerEnrollmentJob -&gt; f StartSpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_enrollmentConfig"><span class="hs-identifier hs-var hs-var">startSpeakerEnrollmentJob_enrollmentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSpeakerEnrollmentJob -&gt; Maybe EnrollmentConfig)
+-&gt; (StartSpeakerEnrollmentJob
+    -&gt; Maybe EnrollmentConfig -&gt; StartSpeakerEnrollmentJob)
+-&gt; Lens
+     StartSpeakerEnrollmentJob
+     StartSpeakerEnrollmentJob
+     (Maybe EnrollmentConfig)
+     (Maybe EnrollmentConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205641"><span class="annot"><span class="annottext">Maybe EnrollmentConfig
+enrollmentConfig :: Maybe EnrollmentConfig
+$sel:enrollmentConfig:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Maybe EnrollmentConfig
+</span><a href="#local-6989586621679205641"><span class="hs-identifier hs-var hs-var">enrollmentConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnrollmentConfig
+</span><a href="#local-6989586621679205641"><span class="hs-identifier hs-var">enrollmentConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205640"><span class="annot"><span class="annottext">s :: StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205639"><span class="annot"><span class="annottext">Maybe EnrollmentConfig
+</span><a href="#local-6989586621679205639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enrollmentConfig:StartSpeakerEnrollmentJob' :: Maybe EnrollmentConfig
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AenrollmentConfig%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">enrollmentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnrollmentConfig
+</span><a href="#local-6989586621679205639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- to access customer\'s buckets to read the input manifest file and write</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- the job output file. Refer to</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/voiceid-batch-enrollment.html Batch enrollment using audio data from prior calls&gt;</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- documentation for the permissions needed in this role.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_dataAccessRoleArn"><span class="hs-identifier hs-type">startSpeakerEnrollmentJob_dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-164"></span><span id="startSpeakerEnrollmentJob_dataAccessRoleArn"><span class="annot"><span class="annottext">startSpeakerEnrollmentJob_dataAccessRoleArn :: (Text -&gt; f Text)
+-&gt; StartSpeakerEnrollmentJob -&gt; f StartSpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_dataAccessRoleArn"><span class="hs-identifier hs-var hs-var">startSpeakerEnrollmentJob_dataAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSpeakerEnrollmentJob -&gt; Text)
+-&gt; (StartSpeakerEnrollmentJob -&gt; Text -&gt; StartSpeakerEnrollmentJob)
+-&gt; Lens
+     StartSpeakerEnrollmentJob StartSpeakerEnrollmentJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205638"><span class="annot"><span class="annottext">Text
+dataAccessRoleArn :: Text
+$sel:dataAccessRoleArn:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Text
+</span><a href="#local-6989586621679205638"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205638"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205637"><span class="annot"><span class="annottext">s :: StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:StartSpeakerEnrollmentJob' :: Text
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AdataAccessRoleArn%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The identifier of the domain that contains the speaker enrollment job</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- and in which the speakers are enrolled.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_domainId"><span class="hs-identifier hs-type">startSpeakerEnrollmentJob_domainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-169"></span><span id="startSpeakerEnrollmentJob_domainId"><span class="annot"><span class="annottext">startSpeakerEnrollmentJob_domainId :: (Text -&gt; f Text)
+-&gt; StartSpeakerEnrollmentJob -&gt; f StartSpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_domainId"><span class="hs-identifier hs-var hs-var">startSpeakerEnrollmentJob_domainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSpeakerEnrollmentJob -&gt; Text)
+-&gt; (StartSpeakerEnrollmentJob -&gt; Text -&gt; StartSpeakerEnrollmentJob)
+-&gt; Lens
+     StartSpeakerEnrollmentJob StartSpeakerEnrollmentJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205635"><span class="annot"><span class="annottext">Text
+domainId :: Text
+$sel:domainId:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Text
+</span><a href="#local-6989586621679205635"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205635"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205634"><span class="annot"><span class="annottext">s :: StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205633"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainId:StartSpeakerEnrollmentJob' :: Text
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AdomainId%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The input data config containing the S3 location for the input manifest</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- file that contains the list of speaker enrollment requests.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_inputDataConfig"><span class="hs-identifier hs-type">startSpeakerEnrollmentJob_inputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span>
+</span><span id="line-174"></span><span id="startSpeakerEnrollmentJob_inputDataConfig"><span class="annot"><span class="annottext">startSpeakerEnrollmentJob_inputDataConfig :: (InputDataConfig -&gt; f InputDataConfig)
+-&gt; StartSpeakerEnrollmentJob -&gt; f StartSpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_inputDataConfig"><span class="hs-identifier hs-var hs-var">startSpeakerEnrollmentJob_inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSpeakerEnrollmentJob -&gt; InputDataConfig)
+-&gt; (StartSpeakerEnrollmentJob
+    -&gt; InputDataConfig -&gt; StartSpeakerEnrollmentJob)
+-&gt; Lens
+     StartSpeakerEnrollmentJob
+     StartSpeakerEnrollmentJob
+     InputDataConfig
+     InputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205632"><span class="annot"><span class="annottext">InputDataConfig
+inputDataConfig :: InputDataConfig
+$sel:inputDataConfig:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; InputDataConfig
+</span><a href="#local-6989586621679205632"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679205632"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205631"><span class="annot"><span class="annottext">s :: StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205630"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679205630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataConfig:StartSpeakerEnrollmentJob' :: InputDataConfig
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AinputDataConfig%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679205630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The output data config containing the S3 location where Voice ID writes</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- the job output file; you must also include a KMS Key ID to encrypt the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_outputDataConfig"><span class="hs-identifier hs-type">startSpeakerEnrollmentJob_outputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span>
+</span><span id="line-180"></span><span id="startSpeakerEnrollmentJob_outputDataConfig"><span class="annot"><span class="annottext">startSpeakerEnrollmentJob_outputDataConfig :: (OutputDataConfig -&gt; f OutputDataConfig)
+-&gt; StartSpeakerEnrollmentJob -&gt; f StartSpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJob_outputDataConfig"><span class="hs-identifier hs-var hs-var">startSpeakerEnrollmentJob_outputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSpeakerEnrollmentJob -&gt; OutputDataConfig)
+-&gt; (StartSpeakerEnrollmentJob
+    -&gt; OutputDataConfig -&gt; StartSpeakerEnrollmentJob)
+-&gt; Lens
+     StartSpeakerEnrollmentJob
+     StartSpeakerEnrollmentJob
+     OutputDataConfig
+     OutputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205629"><span class="annot"><span class="annottext">OutputDataConfig
+outputDataConfig :: OutputDataConfig
+$sel:outputDataConfig:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; OutputDataConfig
+</span><a href="#local-6989586621679205629"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679205629"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205628"><span class="annot"><span class="annottext">s :: StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205627"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679205627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJob
+</span><a href="#local-6989586621679205628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputDataConfig:StartSpeakerEnrollmentJob' :: OutputDataConfig
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AoutputDataConfig%3AStartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679205627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-184"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679205623"><span class="annot"><span class="annottext">request :: StartSpeakerEnrollmentJob -&gt; Request StartSpeakerEnrollmentJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartSpeakerEnrollmentJob -&gt; Request StartSpeakerEnrollmentJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.VoiceId.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679205619"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartSpeakerEnrollmentJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartSpeakerEnrollmentJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartSpeakerEnrollmentJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartSpeakerEnrollmentJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartSpeakerEnrollmentJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205616"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205616"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205615"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679205615"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205614"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">Maybe SpeakerEnrollmentJob
+-&gt; Int -&gt; StartSpeakerEnrollmentJobResponse
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-var">StartSpeakerEnrollmentJobResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SpeakerEnrollmentJob
+ -&gt; Int -&gt; StartSpeakerEnrollmentJobResponse)
+-&gt; Either String (Maybe SpeakerEnrollmentJob)
+-&gt; Either String (Int -&gt; StartSpeakerEnrollmentJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SpeakerEnrollmentJob)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Job&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartSpeakerEnrollmentJobResponse)
+-&gt; Either String Int
+-&gt; Either String StartSpeakerEnrollmentJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205616"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205606"><span id="local-6989586621679205608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679205599"><span class="annot"><span class="annottext">toHeaders :: StartSpeakerEnrollmentJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartSpeakerEnrollmentJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VoiceID.StartSpeakerEnrollmentJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-206"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-210"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205589"><span id="local-6989586621679205591"><span id="local-6989586621679205593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679205587"><span class="annot"><span class="annottext">toJSON :: StartSpeakerEnrollmentJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205579"><span id="local-6989586621679205580"><span id="local-6989586621679205581"><span id="local-6989586621679205582"><span id="local-6989586621679205583"><span id="local-6989586621679205584"><span id="local-6989586621679205585"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Maybe EnrollmentConfig
+Text
+InputDataConfig
+OutputDataConfig
+outputDataConfig :: OutputDataConfig
+inputDataConfig :: InputDataConfig
+domainId :: Text
+dataAccessRoleArn :: Text
+enrollmentConfig :: Maybe EnrollmentConfig
+jobName :: Maybe (Sensitive Text)
+clientToken :: Maybe Text
+$sel:outputDataConfig:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; OutputDataConfig
+$sel:inputDataConfig:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; InputDataConfig
+$sel:domainId:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Text
+$sel:dataAccessRoleArn:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Text
+$sel:enrollmentConfig:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Maybe EnrollmentConfig
+$sel:jobName:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Maybe (Sensitive Text)
+$sel:clientToken:StartSpeakerEnrollmentJob' :: StartSpeakerEnrollmentJob -&gt; Maybe Text
+</span><a href="#local-6989586621679205579"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-218"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205585"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679205584"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnrollmentConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EnrollmentConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(EnrollmentConfig -&gt; Pair) -&gt; Maybe EnrollmentConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EnrollmentConfig
+</span><a href="#local-6989586621679205583"><span class="hs-identifier hs-var">enrollmentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-223"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205582"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205581"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-226"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679205580"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-228"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679205579"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679205573"><span class="annot"><span class="annottext">toPath :: StartSpeakerEnrollmentJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartSpeakerEnrollmentJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJob"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679205569"><span class="annot"><span class="annottext">toQuery :: StartSpeakerEnrollmentJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartSpeakerEnrollmentJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | /See:/ 'newStartSpeakerEnrollmentJobResponse' smart constructor.</span><span>
+</span><span id="line-239"></span><span id="local-6989586621679205566"><span id="local-6989586621679205567"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSpeakerEnrollmentJobResponse"><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-var">StartSpeakerEnrollmentJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSpeakerEnrollmentJobResponse%27"><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-var">StartSpeakerEnrollmentJobResponse'</span></a></span></span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the started speaker enrollment job.</span><span>
+</span><span id="line-241"></span><span>    </span><span id="%24sel%3Ajob%3AStartSpeakerEnrollmentJobResponse%27"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJobResponse -&gt; Maybe SpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3Ajob%3AStartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.SpeakerEnrollmentJob.html#SpeakerEnrollmentJob"><span class="hs-identifier hs-type">SpeakerEnrollmentJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-243"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartSpeakerEnrollmentJobResponse%27"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJobResponse -&gt; Int
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AhttpStatus%3AStartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205560"><span id="local-6989586621679205562"><span class="annot"><span class="annottext">StartSpeakerEnrollmentJobResponse
+-&gt; StartSpeakerEnrollmentJobResponse -&gt; Bool
+(StartSpeakerEnrollmentJobResponse
+ -&gt; StartSpeakerEnrollmentJobResponse -&gt; Bool)
+-&gt; (StartSpeakerEnrollmentJobResponse
+    -&gt; StartSpeakerEnrollmentJobResponse -&gt; Bool)
+-&gt; Eq StartSpeakerEnrollmentJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartSpeakerEnrollmentJobResponse
+-&gt; StartSpeakerEnrollmentJobResponse -&gt; Bool
+$c/= :: StartSpeakerEnrollmentJobResponse
+-&gt; StartSpeakerEnrollmentJobResponse -&gt; Bool
+== :: StartSpeakerEnrollmentJobResponse
+-&gt; StartSpeakerEnrollmentJobResponse -&gt; Bool
+$c== :: StartSpeakerEnrollmentJobResponse
+-&gt; StartSpeakerEnrollmentJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205554"><span id="local-6989586621679205556"><span id="local-6989586621679205558"><span class="annot"><span class="annottext">Int -&gt; StartSpeakerEnrollmentJobResponse -&gt; ShowS
+[StartSpeakerEnrollmentJobResponse] -&gt; ShowS
+StartSpeakerEnrollmentJobResponse -&gt; String
+(Int -&gt; StartSpeakerEnrollmentJobResponse -&gt; ShowS)
+-&gt; (StartSpeakerEnrollmentJobResponse -&gt; String)
+-&gt; ([StartSpeakerEnrollmentJobResponse] -&gt; ShowS)
+-&gt; Show StartSpeakerEnrollmentJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartSpeakerEnrollmentJobResponse] -&gt; ShowS
+$cshowList :: [StartSpeakerEnrollmentJobResponse] -&gt; ShowS
+show :: StartSpeakerEnrollmentJobResponse -&gt; String
+$cshow :: StartSpeakerEnrollmentJobResponse -&gt; String
+showsPrec :: Int -&gt; StartSpeakerEnrollmentJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartSpeakerEnrollmentJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartSpeakerEnrollmentJobResponse
+ -&gt; Rep StartSpeakerEnrollmentJobResponse x)
+-&gt; (forall x.
+    Rep StartSpeakerEnrollmentJobResponse x
+    -&gt; StartSpeakerEnrollmentJobResponse)
+-&gt; Generic StartSpeakerEnrollmentJobResponse
+forall x.
+Rep StartSpeakerEnrollmentJobResponse x
+-&gt; StartSpeakerEnrollmentJobResponse
+forall x.
+StartSpeakerEnrollmentJobResponse
+-&gt; Rep StartSpeakerEnrollmentJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartSpeakerEnrollmentJobResponse x
+-&gt; StartSpeakerEnrollmentJobResponse
+$cfrom :: forall x.
+StartSpeakerEnrollmentJobResponse
+-&gt; Rep StartSpeakerEnrollmentJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Create a value of 'StartSpeakerEnrollmentJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'job', 'startSpeakerEnrollmentJobResponse_job' - Details about the started speaker enrollment job.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'httpStatus', 'startSpeakerEnrollmentJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#newStartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-type">newStartSpeakerEnrollmentJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-260"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse</span></a></span><span>
+</span><span id="line-262"></span><span id="newStartSpeakerEnrollmentJobResponse"><span class="annot"><span class="annottext">newStartSpeakerEnrollmentJobResponse :: Int -&gt; StartSpeakerEnrollmentJobResponse
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#newStartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-var hs-var">newStartSpeakerEnrollmentJobResponse</span></a></span></span><span> </span><span id="local-6989586621679205551"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205551"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJobResponse' :: Maybe SpeakerEnrollmentJob
+-&gt; Int -&gt; StartSpeakerEnrollmentJobResponse
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse'</span></a></span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:job:StartSpeakerEnrollmentJobResponse' :: Maybe SpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3Ajob%3AStartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-var">job</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">Maybe SpeakerEnrollmentJob
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartSpeakerEnrollmentJobResponse' :: Int
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AhttpStatus%3AStartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205551"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | Details about the started speaker enrollment job.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJobResponse_job"><span class="hs-identifier hs-type">startSpeakerEnrollmentJobResponse_job</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.SpeakerEnrollmentJob.html#SpeakerEnrollmentJob"><span class="hs-identifier hs-type">SpeakerEnrollmentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="startSpeakerEnrollmentJobResponse_job"><span class="annot"><span class="annottext">startSpeakerEnrollmentJobResponse_job :: (Maybe SpeakerEnrollmentJob -&gt; f (Maybe SpeakerEnrollmentJob))
+-&gt; StartSpeakerEnrollmentJobResponse
+-&gt; f StartSpeakerEnrollmentJobResponse
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJobResponse_job"><span class="hs-identifier hs-var hs-var">startSpeakerEnrollmentJobResponse_job</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSpeakerEnrollmentJobResponse -&gt; Maybe SpeakerEnrollmentJob)
+-&gt; (StartSpeakerEnrollmentJobResponse
+    -&gt; Maybe SpeakerEnrollmentJob -&gt; StartSpeakerEnrollmentJobResponse)
+-&gt; Lens
+     StartSpeakerEnrollmentJobResponse
+     StartSpeakerEnrollmentJobResponse
+     (Maybe SpeakerEnrollmentJob)
+     (Maybe SpeakerEnrollmentJob)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205550"><span class="annot"><span class="annottext">Maybe SpeakerEnrollmentJob
+job :: Maybe SpeakerEnrollmentJob
+$sel:job:StartSpeakerEnrollmentJobResponse' :: StartSpeakerEnrollmentJobResponse -&gt; Maybe SpeakerEnrollmentJob
+</span><a href="#local-6989586621679205550"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpeakerEnrollmentJob
+</span><a href="#local-6989586621679205550"><span class="hs-identifier hs-var">job</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205549"><span class="annot"><span class="annottext">s :: StartSpeakerEnrollmentJobResponse
+</span><a href="#local-6989586621679205549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205548"><span class="annot"><span class="annottext">Maybe SpeakerEnrollmentJob
+</span><a href="#local-6989586621679205548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJobResponse
+</span><a href="#local-6989586621679205549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:job:StartSpeakerEnrollmentJobResponse' :: Maybe SpeakerEnrollmentJob
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3Ajob%3AStartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-var">job</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpeakerEnrollmentJob
+</span><a href="#local-6989586621679205548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJobResponse_httpStatus"><span class="hs-identifier hs-type">startSpeakerEnrollmentJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-275"></span><span id="startSpeakerEnrollmentJobResponse_httpStatus"><span class="annot"><span class="annottext">startSpeakerEnrollmentJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartSpeakerEnrollmentJobResponse
+-&gt; f StartSpeakerEnrollmentJobResponse
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#startSpeakerEnrollmentJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startSpeakerEnrollmentJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSpeakerEnrollmentJobResponse -&gt; Int)
+-&gt; (StartSpeakerEnrollmentJobResponse
+    -&gt; Int -&gt; StartSpeakerEnrollmentJobResponse)
+-&gt; Lens
+     StartSpeakerEnrollmentJobResponse
+     StartSpeakerEnrollmentJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205547"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartSpeakerEnrollmentJobResponse' :: StartSpeakerEnrollmentJobResponse -&gt; Int
+</span><a href="#local-6989586621679205547"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205547"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205546"><span class="annot"><span class="annottext">s :: StartSpeakerEnrollmentJobResponse
+</span><a href="#local-6989586621679205546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205545"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSpeakerEnrollmentJobResponse
+</span><a href="#local-6989586621679205546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartSpeakerEnrollmentJobResponse' :: Int
+</span><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#%24sel%3AhttpStatus%3AStartSpeakerEnrollmentJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679205543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Amazonka.VoiceId.StartSpeakerEnrollmentJob.html#StartSpeakerEnrollmentJobResponse"><span class="hs-identifier hs-type">StartSpeakerEnrollmentJobResponse</span></a></span></span><span>
+</span><span id="line-280"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.CostAndUsageReport.Types.AWSRegion
+module Amazonka.CostAndUsageReport.Types.AWSRegion
 
 -- | The region of the S3 bucket that AWS delivers the report into.
 newtype AWSRegion
@@ -34,28 +34,28 @@ pattern AWSRegion_Us_east_1 :: AWSRegion
 pattern AWSRegion_Us_east_2 :: AWSRegion
 pattern AWSRegion_Us_west_1 :: AWSRegion
 pattern AWSRegion_Us_west_2 :: AWSRegion
-instance Network.AWS.Data.XML.ToXML Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Network.AWS.Data.XML.FromXML Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Network.AWS.Data.Log.ToLog Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Network.AWS.Data.Text.ToText Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Network.AWS.Data.Text.FromText Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance GHC.Classes.Ord Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Amazonka.Data.XML.ToXML Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Amazonka.Data.XML.FromXML Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Amazonka.Data.Headers.ToHeader Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Amazonka.Data.Log.ToLog Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Amazonka.Data.Text.ToText Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Amazonka.Data.Text.FromText Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance GHC.Classes.Ord Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance GHC.Read.Read Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
+instance GHC.Show.Show Amazonka.CostAndUsageReport.Types.AWSRegion.AWSRegion
 
 
-module Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
+module Amazonka.CostAndUsageReport.Types.AdditionalArtifact
 
 -- | The types of manifest that you want AWS to create for this report.
 newtype AdditionalArtifact
@@ -64,28 +64,28 @@ AdditionalArtifact' :: Text -> AdditionalArtifact
 pattern AdditionalArtifact_ATHENA :: AdditionalArtifact
 pattern AdditionalArtifact_QUICKSIGHT :: AdditionalArtifact
 pattern AdditionalArtifact_REDSHIFT :: AdditionalArtifact
-instance Network.AWS.Data.XML.ToXML Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Network.AWS.Data.XML.FromXML Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Network.AWS.Data.Log.ToLog Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Network.AWS.Data.Text.ToText Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Network.AWS.Data.Text.FromText Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance GHC.Classes.Ord Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Amazonka.Data.XML.ToXML Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Amazonka.Data.XML.FromXML Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Amazonka.Data.Headers.ToHeader Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Amazonka.Data.Log.ToLog Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Amazonka.Data.Text.ToText Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Amazonka.Data.Text.FromText Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance GHC.Classes.Ord Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance GHC.Read.Read Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
+instance GHC.Show.Show Amazonka.CostAndUsageReport.Types.AdditionalArtifact.AdditionalArtifact
 
 
-module Network.AWS.CostAndUsageReport.Types.CompressionFormat
+module Amazonka.CostAndUsageReport.Types.CompressionFormat
 
 -- | The compression format that AWS uses for the report.
 newtype CompressionFormat
@@ -94,28 +94,28 @@ CompressionFormat' :: Text -> CompressionFormat
 pattern CompressionFormat_GZIP :: CompressionFormat
 pattern CompressionFormat_Parquet :: CompressionFormat
 pattern CompressionFormat_ZIP :: CompressionFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance GHC.Classes.Ord Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Amazonka.Data.XML.ToXML Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Amazonka.Data.XML.FromXML Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Amazonka.Data.Log.ToLog Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Amazonka.Data.Text.ToText Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Amazonka.Data.Text.FromText Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance GHC.Classes.Ord Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance GHC.Read.Read Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
+instance GHC.Show.Show Amazonka.CostAndUsageReport.Types.CompressionFormat.CompressionFormat
 
 
-module Network.AWS.CostAndUsageReport.Types.ReportFormat
+module Amazonka.CostAndUsageReport.Types.ReportFormat
 
 -- | The format that AWS saves the report in.
 newtype ReportFormat
@@ -123,83 +123,83 @@ ReportFormat' :: Text -> ReportFormat
 [fromReportFormat] :: ReportFormat -> Text
 pattern ReportFormat_Parquet :: ReportFormat
 pattern ReportFormat_TextORcsv :: ReportFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance GHC.Classes.Ord Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Amazonka.Data.XML.ToXML Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Amazonka.Data.XML.FromXML Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Amazonka.Data.Log.ToLog Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Amazonka.Data.Text.ToText Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Amazonka.Data.Text.FromText Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance GHC.Classes.Ord Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance GHC.Read.Read Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
+instance GHC.Show.Show Amazonka.CostAndUsageReport.Types.ReportFormat.ReportFormat
 
 
-module Network.AWS.CostAndUsageReport.Types.ReportVersioning
+module Amazonka.CostAndUsageReport.Types.ReportVersioning
 newtype ReportVersioning
 ReportVersioning' :: Text -> ReportVersioning
 [fromReportVersioning] :: ReportVersioning -> Text
 pattern ReportVersioning_CREATE_NEW_REPORT :: ReportVersioning
 pattern ReportVersioning_OVERWRITE_REPORT :: ReportVersioning
-instance Network.AWS.Data.XML.ToXML Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Network.AWS.Data.XML.FromXML Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Network.AWS.Data.Log.ToLog Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Network.AWS.Data.Text.ToText Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Network.AWS.Data.Text.FromText Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance GHC.Classes.Ord Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Amazonka.Data.XML.ToXML Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Amazonka.Data.XML.FromXML Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Amazonka.Data.Headers.ToHeader Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Amazonka.Data.Log.ToLog Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Amazonka.Data.Text.ToText Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Amazonka.Data.Text.FromText Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance GHC.Classes.Ord Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance GHC.Read.Read Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
+instance GHC.Show.Show Amazonka.CostAndUsageReport.Types.ReportVersioning.ReportVersioning
 
 
-module Network.AWS.CostAndUsageReport.Types.SchemaElement
+module Amazonka.CostAndUsageReport.Types.SchemaElement
 
 -- | Whether or not AWS includes resource IDs in the report.
 newtype SchemaElement
 SchemaElement' :: Text -> SchemaElement
 [fromSchemaElement] :: SchemaElement -> Text
 pattern SchemaElement_RESOURCES :: SchemaElement
-instance Network.AWS.Data.XML.ToXML Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Network.AWS.Data.XML.FromXML Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Network.AWS.Data.Log.ToLog Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Network.AWS.Data.Text.ToText Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Network.AWS.Data.Text.FromText Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance GHC.Classes.Ord Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Amazonka.Data.XML.ToXML Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Amazonka.Data.XML.FromXML Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Amazonka.Data.Headers.ToHeader Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Amazonka.Data.Log.ToLog Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Amazonka.Data.Text.ToText Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Amazonka.Data.Text.FromText Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance GHC.Classes.Ord Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance GHC.Read.Read Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
+instance GHC.Show.Show Amazonka.CostAndUsageReport.Types.SchemaElement.SchemaElement
 
 
-module Network.AWS.CostAndUsageReport.Types.TimeUnit
+module Amazonka.CostAndUsageReport.Types.TimeUnit
 
 -- | The length of time covered by the report.
 newtype TimeUnit
@@ -208,28 +208,28 @@ TimeUnit' :: Text -> TimeUnit
 pattern TimeUnit_DAILY :: TimeUnit
 pattern TimeUnit_HOURLY :: TimeUnit
 pattern TimeUnit_MONTHLY :: TimeUnit
-instance Network.AWS.Data.XML.ToXML Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Network.AWS.Data.XML.FromXML Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Network.AWS.Data.Log.ToLog Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Network.AWS.Data.Text.ToText Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Network.AWS.Data.Text.FromText Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance GHC.Classes.Ord Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Amazonka.Data.XML.ToXML Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Amazonka.Data.XML.FromXML Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Amazonka.Data.Headers.ToHeader Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Amazonka.Data.Log.ToLog Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Amazonka.Data.Text.ToText Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Amazonka.Data.Text.FromText Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance GHC.Classes.Ord Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance GHC.Read.Read Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
+instance GHC.Show.Show Amazonka.CostAndUsageReport.Types.TimeUnit.TimeUnit
 
 
-module Network.AWS.CostAndUsageReport.Types.ReportDefinition
+module Amazonka.CostAndUsageReport.Types.ReportDefinition
 
 -- | The definition of AWS Cost and Usage Report. You can specify the
 --   report name, time unit, report format, compression format, S3 bucket,
@@ -368,17 +368,17 @@ reportDefinition_s3Prefix :: Lens' ReportDefinition Text
 
 -- | Undocumented member.
 reportDefinition_s3Region :: Lens' ReportDefinition AWSRegion
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
+instance GHC.Show.Show Amazonka.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
+instance GHC.Read.Read Amazonka.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.Types.ReportDefinition.ReportDefinition
 
 
-module Network.AWS.CostAndUsageReport.Types
+module Amazonka.CostAndUsageReport.Types
 
 -- | API version <tt>2017-01-06</tt> of the Amazon Cost and Usage Report
 --   Service SDK configuration.
@@ -610,7 +610,7 @@ reportDefinition_s3Region :: Lens' ReportDefinition AWSRegion
 
 
 -- | Creates a new report using the description that you provide.
-module Network.AWS.CostAndUsageReport.PutReportDefinition
+module Amazonka.CostAndUsageReport.PutReportDefinition
 
 -- | Creates a Cost and Usage Report.
 --   
@@ -667,26 +667,26 @@ newPutReportDefinitionResponse :: Int -> PutReportDefinitionResponse
 
 -- | The response's http status code.
 putReportDefinitionResponse_httpStatus :: Lens' PutReportDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance GHC.Show.Show Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance GHC.Read.Read Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
+instance GHC.Show.Show Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
+instance GHC.Read.Read Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.PutReportDefinition.PutReportDefinition
 
 
 -- | Allows you to programatically update your report preferences.
-module Network.AWS.CostAndUsageReport.ModifyReportDefinition
+module Amazonka.CostAndUsageReport.ModifyReportDefinition
 
 -- | <i>See:</i> <a>newModifyReportDefinition</a> smart constructor.
 data ModifyReportDefinition
@@ -740,28 +740,28 @@ newModifyReportDefinitionResponse :: Int -> ModifyReportDefinitionResponse
 
 -- | The response's http status code.
 modifyReportDefinitionResponse_httpStatus :: Lens' ModifyReportDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance GHC.Show.Show Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance GHC.Read.Read Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
+instance GHC.Show.Show Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
+instance GHC.Read.Read Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.ModifyReportDefinition.ModifyReportDefinition
 
 
 -- | Lists the AWS Cost and Usage reports available to this account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
+module Amazonka.CostAndUsageReport.DescribeReportDefinitions
 
 -- | Requests a list of AWS Cost and Usage reports owned by the account.
 --   
@@ -838,27 +838,27 @@ describeReportDefinitionsResponse_reportDefinitions :: Lens' DescribeReportDefin
 
 -- | The response's http status code.
 describeReportDefinitionsResponse_httpStatus :: Lens' DescribeReportDefinitionsResponse Int
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance Network.AWS.Data.Path.ToPath Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance GHC.Show.Show Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance GHC.Read.Read Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
+instance GHC.Show.Show Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
+instance GHC.Read.Read Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance Amazonka.Data.Path.ToPath Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.DescribeReportDefinitions.DescribeReportDefinitions
 
 
 -- | Deletes the specified report.
-module Network.AWS.CostAndUsageReport.DeleteReportDefinition
+module Amazonka.CostAndUsageReport.DeleteReportDefinition
 
 -- | Deletes the specified report.
 --   
@@ -924,25 +924,25 @@ deleteReportDefinitionResponse_responseMessage :: Lens' DeleteReportDefinitionRe
 
 -- | The response's http status code.
 deleteReportDefinitionResponse_httpStatus :: Lens' DeleteReportDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance GHC.Generics.Generic Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance GHC.Show.Show Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance GHC.Read.Read Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance Control.DeepSeq.NFData Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Show.Show Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Read.Read Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance GHC.Generics.Generic Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance GHC.Show.Show Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance GHC.Read.Read Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance GHC.Classes.Eq Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance Control.DeepSeq.NFData Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.CostAndUsageReport.DeleteReportDefinition.DeleteReportDefinition
 
 
-module Network.AWS.CostAndUsageReport.Lens
+module Amazonka.CostAndUsageReport.Lens
 
 -- | Represents the output of the PutReportDefinition operation. The
 --   content consists of the detailed metadata and data file information.
@@ -1030,7 +1030,7 @@ reportDefinition_s3Prefix :: Lens' ReportDefinition Text
 reportDefinition_s3Region :: Lens' ReportDefinition AWSRegion
 
 
-module Network.AWS.CostAndUsageReport.Waiters
+module Amazonka.CostAndUsageReport.Waiters
 
 
 -- | Derived from API version <tt>2017-01-06</tt> of the AWS service
@@ -1052,7 +1052,7 @@ module Network.AWS.CostAndUsageReport.Waiters
 --   <ul>
 --   <li>cur.us-east-1.amazonaws.com</li>
 --   </ul>
-module Network.AWS.CostAndUsageReport
+module Amazonka.CostAndUsageReport
 
 -- | API version <tt>2017-01-06</tt> of the Amazon Cost and Usage Report
 --   Service SDK configuration.

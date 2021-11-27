@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType"><span class="hs-identifier">TaskDefinitionPlacementConstraintType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType_MemberOf"><span class="hs-identifier">TaskDefinitionPlacementConstraintType_MemberOf</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679462758"><span id="local-6989586621679462759"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskDefinitionPlacementConstraintType"><span class="annot"><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType"><span class="hs-identifier hs-var">TaskDefinitionPlacementConstraintType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskDefinitionPlacementConstraintType%27"><span class="annot"><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType%27"><span class="hs-identifier hs-var">TaskDefinitionPlacementConstraintType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaskDefinitionPlacementConstraintType"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraintType -&gt; Text
+</span><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#fromTaskDefinitionPlacementConstraintType"><span class="hs-identifier hs-var hs-var">fromTaskDefinitionPlacementConstraintType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679462750"><span id="local-6989586621679462752"><span id="local-6989586621679462754"><span class="annot"><span class="annottext">Int -&gt; TaskDefinitionPlacementConstraintType -&gt; ShowS
+[TaskDefinitionPlacementConstraintType] -&gt; ShowS
+TaskDefinitionPlacementConstraintType -&gt; String
+(Int -&gt; TaskDefinitionPlacementConstraintType -&gt; ShowS)
+-&gt; (TaskDefinitionPlacementConstraintType -&gt; String)
+-&gt; ([TaskDefinitionPlacementConstraintType] -&gt; ShowS)
+-&gt; Show TaskDefinitionPlacementConstraintType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TaskDefinitionPlacementConstraintType] -&gt; ShowS
+$cshowList :: [TaskDefinitionPlacementConstraintType] -&gt; ShowS
+show :: TaskDefinitionPlacementConstraintType -&gt; String
+$cshow :: TaskDefinitionPlacementConstraintType -&gt; String
+showsPrec :: Int -&gt; TaskDefinitionPlacementConstraintType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TaskDefinitionPlacementConstraintType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679462741"><span id="local-6989586621679462743"><span id="local-6989586621679462745"><span id="local-6989586621679462747"><span class="annot"><span class="annottext">ReadPrec [TaskDefinitionPlacementConstraintType]
+ReadPrec TaskDefinitionPlacementConstraintType
+Int -&gt; ReadS TaskDefinitionPlacementConstraintType
+ReadS [TaskDefinitionPlacementConstraintType]
+(Int -&gt; ReadS TaskDefinitionPlacementConstraintType)
+-&gt; ReadS [TaskDefinitionPlacementConstraintType]
+-&gt; ReadPrec TaskDefinitionPlacementConstraintType
+-&gt; ReadPrec [TaskDefinitionPlacementConstraintType]
+-&gt; Read TaskDefinitionPlacementConstraintType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TaskDefinitionPlacementConstraintType]
+$creadListPrec :: ReadPrec [TaskDefinitionPlacementConstraintType]
+readPrec :: ReadPrec TaskDefinitionPlacementConstraintType
+$creadPrec :: ReadPrec TaskDefinitionPlacementConstraintType
+readList :: ReadS [TaskDefinitionPlacementConstraintType]
+$creadList :: ReadS [TaskDefinitionPlacementConstraintType]
+readsPrec :: Int -&gt; ReadS TaskDefinitionPlacementConstraintType
+$creadsPrec :: Int -&gt; ReadS TaskDefinitionPlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679462736"><span id="local-6989586621679462738"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+(TaskDefinitionPlacementConstraintType
+ -&gt; TaskDefinitionPlacementConstraintType -&gt; Bool)
+-&gt; (TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType -&gt; Bool)
+-&gt; Eq TaskDefinitionPlacementConstraintType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+$c/= :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+== :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+$c== :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679462720"><span id="local-6989586621679462722"><span id="local-6989586621679462724"><span id="local-6989586621679462726"><span id="local-6989586621679462728"><span id="local-6989586621679462730"><span id="local-6989586621679462732"><span class="annot"><span class="annottext">Eq TaskDefinitionPlacementConstraintType
+Eq TaskDefinitionPlacementConstraintType
+-&gt; (TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType -&gt; Ordering)
+-&gt; (TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType -&gt; Bool)
+-&gt; (TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType -&gt; Bool)
+-&gt; (TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType -&gt; Bool)
+-&gt; (TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType -&gt; Bool)
+-&gt; (TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType)
+-&gt; (TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType
+    -&gt; TaskDefinitionPlacementConstraintType)
+-&gt; Ord TaskDefinitionPlacementConstraintType
+TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Ordering
+TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+$cmin :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+max :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+$cmax :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType
+&gt;= :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+$c&gt;= :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+&gt; :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+$c&gt; :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+&lt;= :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+$c&lt;= :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+&lt; :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+$c&lt; :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Bool
+compare :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Ordering
+$ccompare :: TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraintType -&gt; Ordering
+$cp1Ord :: Eq TaskDefinitionPlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ TaskDefinitionPlacementConstraintType
+ -&gt; Rep TaskDefinitionPlacementConstraintType x)
+-&gt; (forall x.
+    Rep TaskDefinitionPlacementConstraintType x
+    -&gt; TaskDefinitionPlacementConstraintType)
+-&gt; Generic TaskDefinitionPlacementConstraintType
+forall x.
+Rep TaskDefinitionPlacementConstraintType x
+-&gt; TaskDefinitionPlacementConstraintType
+forall x.
+TaskDefinitionPlacementConstraintType
+-&gt; Rep TaskDefinitionPlacementConstraintType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TaskDefinitionPlacementConstraintType x
+-&gt; TaskDefinitionPlacementConstraintType
+$cfrom :: forall x.
+TaskDefinitionPlacementConstraintType
+-&gt; Rep TaskDefinitionPlacementConstraintType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679462712"><span id="local-6989586621679462714"><span class="annot"><span class="annottext">Int -&gt; TaskDefinitionPlacementConstraintType -&gt; Int
+TaskDefinitionPlacementConstraintType -&gt; Int
+(Int -&gt; TaskDefinitionPlacementConstraintType -&gt; Int)
+-&gt; (TaskDefinitionPlacementConstraintType -&gt; Int)
+-&gt; Hashable TaskDefinitionPlacementConstraintType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TaskDefinitionPlacementConstraintType -&gt; Int
+$chash :: TaskDefinitionPlacementConstraintType -&gt; Int
+hashWithSalt :: Int -&gt; TaskDefinitionPlacementConstraintType -&gt; Int
+$chashWithSalt :: Int -&gt; TaskDefinitionPlacementConstraintType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679462709"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraintType -&gt; ()
+(TaskDefinitionPlacementConstraintType -&gt; ())
+-&gt; NFData TaskDefinitionPlacementConstraintType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TaskDefinitionPlacementConstraintType -&gt; ()
+$crnf :: TaskDefinitionPlacementConstraintType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679462706"><span class="annot"><span class="annottext">Text -&gt; Either String TaskDefinitionPlacementConstraintType
+(Text -&gt; Either String TaskDefinitionPlacementConstraintType)
+-&gt; FromText TaskDefinitionPlacementConstraintType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TaskDefinitionPlacementConstraintType
+$cfromText :: Text -&gt; Either String TaskDefinitionPlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679462703"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraintType -&gt; Text
+(TaskDefinitionPlacementConstraintType -&gt; Text)
+-&gt; ToText TaskDefinitionPlacementConstraintType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TaskDefinitionPlacementConstraintType -&gt; Text
+$ctoText :: TaskDefinitionPlacementConstraintType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679462700"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraintType -&gt; ByteString
+(TaskDefinitionPlacementConstraintType -&gt; ByteString)
+-&gt; ToByteString TaskDefinitionPlacementConstraintType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TaskDefinitionPlacementConstraintType -&gt; ByteString
+$ctoBS :: TaskDefinitionPlacementConstraintType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679462697"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraintType -&gt; ByteStringBuilder
+(TaskDefinitionPlacementConstraintType -&gt; ByteStringBuilder)
+-&gt; ToLog TaskDefinitionPlacementConstraintType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TaskDefinitionPlacementConstraintType -&gt; ByteStringBuilder
+$cbuild :: TaskDefinitionPlacementConstraintType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679462694"><span class="annot"><span class="annottext">HeaderName -&gt; TaskDefinitionPlacementConstraintType -&gt; [Header]
+(HeaderName -&gt; TaskDefinitionPlacementConstraintType -&gt; [Header])
+-&gt; ToHeader TaskDefinitionPlacementConstraintType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TaskDefinitionPlacementConstraintType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TaskDefinitionPlacementConstraintType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679462691"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraintType -&gt; QueryString
+(TaskDefinitionPlacementConstraintType -&gt; QueryString)
+-&gt; ToQuery TaskDefinitionPlacementConstraintType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TaskDefinitionPlacementConstraintType -&gt; QueryString
+$ctoQuery :: TaskDefinitionPlacementConstraintType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679462686"><span id="local-6989586621679462688"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskDefinitionPlacementConstraintType]
+Value -&gt; Parser TaskDefinitionPlacementConstraintType
+(Value -&gt; Parser TaskDefinitionPlacementConstraintType)
+-&gt; (Value -&gt; Parser [TaskDefinitionPlacementConstraintType])
+-&gt; FromJSON TaskDefinitionPlacementConstraintType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TaskDefinitionPlacementConstraintType]
+$cparseJSONList :: Value -&gt; Parser [TaskDefinitionPlacementConstraintType]
+parseJSON :: Value -&gt; Parser TaskDefinitionPlacementConstraintType
+$cparseJSON :: Value -&gt; Parser TaskDefinitionPlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679462681"><span id="local-6989586621679462683"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskDefinitionPlacementConstraintType]
+FromJSONKeyFunction TaskDefinitionPlacementConstraintType
+FromJSONKeyFunction TaskDefinitionPlacementConstraintType
+-&gt; FromJSONKeyFunction [TaskDefinitionPlacementConstraintType]
+-&gt; FromJSONKey TaskDefinitionPlacementConstraintType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TaskDefinitionPlacementConstraintType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TaskDefinitionPlacementConstraintType]
+fromJSONKey :: FromJSONKeyFunction TaskDefinitionPlacementConstraintType
+$cfromJSONKey :: FromJSONKeyFunction TaskDefinitionPlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679462672"><span id="local-6989586621679462674"><span id="local-6989586621679462676"><span id="local-6989586621679462678"><span class="annot"><span class="annottext">[TaskDefinitionPlacementConstraintType] -&gt; Encoding
+[TaskDefinitionPlacementConstraintType] -&gt; Value
+TaskDefinitionPlacementConstraintType -&gt; Encoding
+TaskDefinitionPlacementConstraintType -&gt; Value
+(TaskDefinitionPlacementConstraintType -&gt; Value)
+-&gt; (TaskDefinitionPlacementConstraintType -&gt; Encoding)
+-&gt; ([TaskDefinitionPlacementConstraintType] -&gt; Value)
+-&gt; ([TaskDefinitionPlacementConstraintType] -&gt; Encoding)
+-&gt; ToJSON TaskDefinitionPlacementConstraintType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TaskDefinitionPlacementConstraintType] -&gt; Encoding
+$ctoEncodingList :: [TaskDefinitionPlacementConstraintType] -&gt; Encoding
+toJSONList :: [TaskDefinitionPlacementConstraintType] -&gt; Value
+$ctoJSONList :: [TaskDefinitionPlacementConstraintType] -&gt; Value
+toEncoding :: TaskDefinitionPlacementConstraintType -&gt; Encoding
+$ctoEncoding :: TaskDefinitionPlacementConstraintType -&gt; Encoding
+toJSON :: TaskDefinitionPlacementConstraintType -&gt; Value
+$ctoJSON :: TaskDefinitionPlacementConstraintType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679462667"><span id="local-6989586621679462669"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskDefinitionPlacementConstraintType]
+ToJSONKeyFunction TaskDefinitionPlacementConstraintType
+ToJSONKeyFunction TaskDefinitionPlacementConstraintType
+-&gt; ToJSONKeyFunction [TaskDefinitionPlacementConstraintType]
+-&gt; ToJSONKey TaskDefinitionPlacementConstraintType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TaskDefinitionPlacementConstraintType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TaskDefinitionPlacementConstraintType]
+toJSONKey :: ToJSONKeyFunction TaskDefinitionPlacementConstraintType
+$ctoJSONKey :: ToJSONKeyFunction TaskDefinitionPlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679462664"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskDefinitionPlacementConstraintType
+([Node] -&gt; Either String TaskDefinitionPlacementConstraintType)
+-&gt; FromXML TaskDefinitionPlacementConstraintType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TaskDefinitionPlacementConstraintType
+$cparseXML :: [Node] -&gt; Either String TaskDefinitionPlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679462661"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraintType -&gt; XML
+(TaskDefinitionPlacementConstraintType -&gt; XML)
+-&gt; ToXML TaskDefinitionPlacementConstraintType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TaskDefinitionPlacementConstraintType -&gt; XML
+$ctoXML :: TaskDefinitionPlacementConstraintType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType_MemberOf"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraintType_MemberOf</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraintType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskDefinitionPlacementConstraintType_MemberOf"><span id="%24mTaskDefinitionPlacementConstraintType_MemberOf"><span id="TaskDefinitionPlacementConstraintType_MemberOf"><span class="annot"><span class="annottext">$bTaskDefinitionPlacementConstraintType_MemberOf :: TaskDefinitionPlacementConstraintType
+$mTaskDefinitionPlacementConstraintType_MemberOf :: forall r.
+TaskDefinitionPlacementConstraintType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#%24bTaskDefinitionPlacementConstraintType_MemberOf"><span class="hs-identifier hs-var hs-var hs-var">TaskDefinitionPlacementConstraintType_MemberOf</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraintType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;memberOf&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType_MemberOf"><span class="hs-pragma hs-type">TaskDefinitionPlacementConstraintType_MemberOf</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType%27"><span class="hs-pragma hs-type">TaskDefinitionPlacementConstraintType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

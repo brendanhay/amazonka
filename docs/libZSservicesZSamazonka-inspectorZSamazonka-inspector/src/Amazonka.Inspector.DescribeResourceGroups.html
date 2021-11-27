@@ -1,0 +1,587 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Inspector.DescribeResourceGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the resource groups that are specified by the ARNs of the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- resource groups.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Inspector.DescribeResourceGroups</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier">DescribeResourceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#newDescribeResourceGroups"><span class="hs-identifier">newDescribeResourceGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroups_resourceGroupArns"><span class="hs-identifier">describeResourceGroups_resourceGroupArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier">DescribeResourceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#newDescribeResourceGroupsResponse"><span class="hs-identifier">newDescribeResourceGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_httpStatus"><span class="hs-identifier">describeResourceGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_resourceGroups"><span class="hs-identifier">describeResourceGroupsResponse_resourceGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_failedItems"><span class="hs-identifier">describeResourceGroupsResponse_failedItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.html"><span class="hs-identifier">Amazonka.Inspector.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeResourceGroups' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679255935"><span id="local-6989586621679255936"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourceGroups"><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-var">DescribeResourceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourceGroups%27"><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-var">DescribeResourceGroups'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN that specifies the resource group that you want to describe.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AresourceGroupArns%3ADescribeResourceGroups%27"><span class="annot"><span class="annottext">DescribeResourceGroups -&gt; NonEmpty Text
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroupArns%3ADescribeResourceGroups%27"><span class="hs-identifier hs-var hs-var">resourceGroupArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255929"><span id="local-6989586621679255931"><span class="annot"><span class="annottext">DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
+(DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool)
+-&gt; (DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool)
+-&gt; Eq DescribeResourceGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
+$c/= :: DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
+== :: DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
+$c== :: DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255920"><span id="local-6989586621679255922"><span id="local-6989586621679255924"><span id="local-6989586621679255926"><span class="annot"><span class="annottext">ReadPrec [DescribeResourceGroups]
+ReadPrec DescribeResourceGroups
+Int -&gt; ReadS DescribeResourceGroups
+ReadS [DescribeResourceGroups]
+(Int -&gt; ReadS DescribeResourceGroups)
+-&gt; ReadS [DescribeResourceGroups]
+-&gt; ReadPrec DescribeResourceGroups
+-&gt; ReadPrec [DescribeResourceGroups]
+-&gt; Read DescribeResourceGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeResourceGroups]
+$creadListPrec :: ReadPrec [DescribeResourceGroups]
+readPrec :: ReadPrec DescribeResourceGroups
+$creadPrec :: ReadPrec DescribeResourceGroups
+readList :: ReadS [DescribeResourceGroups]
+$creadList :: ReadS [DescribeResourceGroups]
+readsPrec :: Int -&gt; ReadS DescribeResourceGroups
+$creadsPrec :: Int -&gt; ReadS DescribeResourceGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255913"><span id="local-6989586621679255915"><span id="local-6989586621679255917"><span class="annot"><span class="annottext">Int -&gt; DescribeResourceGroups -&gt; ShowS
+[DescribeResourceGroups] -&gt; ShowS
+DescribeResourceGroups -&gt; String
+(Int -&gt; DescribeResourceGroups -&gt; ShowS)
+-&gt; (DescribeResourceGroups -&gt; String)
+-&gt; ([DescribeResourceGroups] -&gt; ShowS)
+-&gt; Show DescribeResourceGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeResourceGroups] -&gt; ShowS
+$cshowList :: [DescribeResourceGroups] -&gt; ShowS
+show :: DescribeResourceGroups -&gt; String
+$cshow :: DescribeResourceGroups -&gt; String
+showsPrec :: Int -&gt; DescribeResourceGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeResourceGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeResourceGroups -&gt; Rep DescribeResourceGroups x)
+-&gt; (forall x.
+    Rep DescribeResourceGroups x -&gt; DescribeResourceGroups)
+-&gt; Generic DescribeResourceGroups
+forall x. Rep DescribeResourceGroups x -&gt; DescribeResourceGroups
+forall x. DescribeResourceGroups -&gt; Rep DescribeResourceGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeResourceGroups x -&gt; DescribeResourceGroups
+$cfrom :: forall x. DescribeResourceGroups -&gt; Rep DescribeResourceGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DescribeResourceGroups' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'resourceGroupArns', 'describeResourceGroups_resourceGroupArns' - The ARN that specifies the resource group that you want to describe.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#newDescribeResourceGroups"><span class="hs-identifier hs-type">newDescribeResourceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'resourceGroupArns'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span>
+</span><span id="line-71"></span><span id="newDescribeResourceGroups"><span class="annot"><span class="annottext">newDescribeResourceGroups :: NonEmpty Text -&gt; DescribeResourceGroups
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#newDescribeResourceGroups"><span class="hs-identifier hs-var hs-var">newDescribeResourceGroups</span></a></span></span><span> </span><span id="local-6989586621679255908"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679255908"><span class="hs-identifier hs-var">pResourceGroupArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DescribeResourceGroups' :: NonEmpty Text -&gt; DescribeResourceGroups
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceGroupArns:DescribeResourceGroups' :: NonEmpty Text
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroupArns%3ADescribeResourceGroups%27"><span class="hs-identifier hs-var">resourceGroupArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679255908"><span class="hs-identifier hs-var">pResourceGroupArns_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The ARN that specifies the resource group that you want to describe.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroups_resourceGroupArns"><span class="hs-identifier hs-type">describeResourceGroups_resourceGroupArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="describeResourceGroups_resourceGroupArns"><span class="annot"><span class="annottext">describeResourceGroups_resourceGroupArns :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; DescribeResourceGroups -&gt; f DescribeResourceGroups
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroups_resourceGroupArns"><span class="hs-identifier hs-var hs-var">describeResourceGroups_resourceGroupArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceGroups -&gt; NonEmpty Text)
+-&gt; (DescribeResourceGroups
+    -&gt; NonEmpty Text -&gt; DescribeResourceGroups)
+-&gt; Lens
+     DescribeResourceGroups
+     DescribeResourceGroups
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255903"><span class="annot"><span class="annottext">NonEmpty Text
+resourceGroupArns :: NonEmpty Text
+$sel:resourceGroupArns:DescribeResourceGroups' :: DescribeResourceGroups -&gt; NonEmpty Text
+</span><a href="#local-6989586621679255903"><span class="hs-identifier hs-var hs-var">resourceGroupArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679255903"><span class="hs-identifier hs-var">resourceGroupArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255902"><span class="annot"><span class="annottext">s :: DescribeResourceGroups
+</span><a href="#local-6989586621679255902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255901"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679255901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroups
+</span><a href="#local-6989586621679255902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroupArns:DescribeResourceGroups' :: NonEmpty Text
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroupArns%3ADescribeResourceGroups%27"><span class="hs-identifier hs-var">resourceGroupArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679255901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; DescribeResourceGroups -&gt; f DescribeResourceGroups)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; DescribeResourceGroups
+-&gt; f DescribeResourceGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679255896"><span class="annot"><span class="annottext">request :: DescribeResourceGroups -&gt; Request DescribeResourceGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeResourceGroups -&gt; Request DescribeResourceGroups
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679255892"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeResourceGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeResourceGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeResourceGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeResourceGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeResourceGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255889"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255889"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255888"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679255888"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255887"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255887"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; [ResourceGroup]
+-&gt; HashMap Text FailedItemDetails
+-&gt; DescribeResourceGroupsResponse
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">DescribeResourceGroupsResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; [ResourceGroup]
+ -&gt; HashMap Text FailedItemDetails
+ -&gt; DescribeResourceGroupsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     ([ResourceGroup]
+      -&gt; HashMap Text FailedItemDetails
+      -&gt; DescribeResourceGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255889"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([ResourceGroup]
+   -&gt; HashMap Text FailedItemDetails
+   -&gt; DescribeResourceGroupsResponse)
+-&gt; Either String [ResourceGroup]
+-&gt; Either
+     String
+     (HashMap Text FailedItemDetails -&gt; DescribeResourceGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ResourceGroup])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [ResourceGroup])
+-&gt; [ResourceGroup] -&gt; Either String [ResourceGroup]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[ResourceGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (HashMap Text FailedItemDetails -&gt; DescribeResourceGroupsResponse)
+-&gt; Either String (HashMap Text FailedItemDetails)
+-&gt; Either String DescribeResourceGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (HashMap Text FailedItemDetails))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failedItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (HashMap Text FailedItemDetails))
+-&gt; HashMap Text FailedItemDetails
+-&gt; Either String (HashMap Text FailedItemDetails)
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255878"><span id="local-6989586621679255880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679255871"><span class="annot"><span class="annottext">toHeaders :: DescribeResourceGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeResourceGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InspectorService.DescribeResourceGroups&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255861"><span id="local-6989586621679255863"><span id="local-6989586621679255865"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679255859"><span class="annot"><span class="annottext">toJSON :: DescribeResourceGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255857"><span class="annot"><span class="annottext">NonEmpty Text
+resourceGroupArns :: NonEmpty Text
+$sel:resourceGroupArns:DescribeResourceGroups' :: DescribeResourceGroups -&gt; NonEmpty Text
+</span><a href="#local-6989586621679255857"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceGroupArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679255857"><span class="hs-identifier hs-var">resourceGroupArns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679255851"><span class="annot"><span class="annottext">toPath :: DescribeResourceGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeResourceGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679255847"><span class="annot"><span class="annottext">toQuery :: DescribeResourceGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeResourceGroups -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDescribeResourceGroupsResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679255844"><span id="local-6989586621679255845"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourceGroupsResponse"><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-var">DescribeResourceGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourceGroupsResponse%27"><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">DescribeResourceGroupsResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeResourceGroupsResponse%27"><span class="annot"><span class="annottext">DescribeResourceGroupsResponse -&gt; Int
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AhttpStatus%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | Information about a resource group.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AresourceGroups%3ADescribeResourceGroupsResponse%27"><span class="annot"><span class="annottext">DescribeResourceGroupsResponse -&gt; [ResourceGroup]
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroups%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">resourceGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | Resource group details that cannot be described. An error code is</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- provided for each failed item.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AfailedItems%3ADescribeResourceGroupsResponse%27"><span class="annot"><span class="annottext">DescribeResourceGroupsResponse -&gt; HashMap Text FailedItemDetails
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AfailedItems%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255837"><span id="local-6989586621679255839"><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
+-&gt; DescribeResourceGroupsResponse -&gt; Bool
+(DescribeResourceGroupsResponse
+ -&gt; DescribeResourceGroupsResponse -&gt; Bool)
+-&gt; (DescribeResourceGroupsResponse
+    -&gt; DescribeResourceGroupsResponse -&gt; Bool)
+-&gt; Eq DescribeResourceGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeResourceGroupsResponse
+-&gt; DescribeResourceGroupsResponse -&gt; Bool
+$c/= :: DescribeResourceGroupsResponse
+-&gt; DescribeResourceGroupsResponse -&gt; Bool
+== :: DescribeResourceGroupsResponse
+-&gt; DescribeResourceGroupsResponse -&gt; Bool
+$c== :: DescribeResourceGroupsResponse
+-&gt; DescribeResourceGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255829"><span id="local-6989586621679255831"><span id="local-6989586621679255833"><span id="local-6989586621679255835"><span class="annot"><span class="annottext">ReadPrec [DescribeResourceGroupsResponse]
+ReadPrec DescribeResourceGroupsResponse
+Int -&gt; ReadS DescribeResourceGroupsResponse
+ReadS [DescribeResourceGroupsResponse]
+(Int -&gt; ReadS DescribeResourceGroupsResponse)
+-&gt; ReadS [DescribeResourceGroupsResponse]
+-&gt; ReadPrec DescribeResourceGroupsResponse
+-&gt; ReadPrec [DescribeResourceGroupsResponse]
+-&gt; Read DescribeResourceGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeResourceGroupsResponse]
+$creadListPrec :: ReadPrec [DescribeResourceGroupsResponse]
+readPrec :: ReadPrec DescribeResourceGroupsResponse
+$creadPrec :: ReadPrec DescribeResourceGroupsResponse
+readList :: ReadS [DescribeResourceGroupsResponse]
+$creadList :: ReadS [DescribeResourceGroupsResponse]
+readsPrec :: Int -&gt; ReadS DescribeResourceGroupsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeResourceGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255823"><span id="local-6989586621679255825"><span id="local-6989586621679255827"><span class="annot"><span class="annottext">Int -&gt; DescribeResourceGroupsResponse -&gt; ShowS
+[DescribeResourceGroupsResponse] -&gt; ShowS
+DescribeResourceGroupsResponse -&gt; String
+(Int -&gt; DescribeResourceGroupsResponse -&gt; ShowS)
+-&gt; (DescribeResourceGroupsResponse -&gt; String)
+-&gt; ([DescribeResourceGroupsResponse] -&gt; ShowS)
+-&gt; Show DescribeResourceGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeResourceGroupsResponse] -&gt; ShowS
+$cshowList :: [DescribeResourceGroupsResponse] -&gt; ShowS
+show :: DescribeResourceGroupsResponse -&gt; String
+$cshow :: DescribeResourceGroupsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeResourceGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeResourceGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeResourceGroupsResponse
+ -&gt; Rep DescribeResourceGroupsResponse x)
+-&gt; (forall x.
+    Rep DescribeResourceGroupsResponse x
+    -&gt; DescribeResourceGroupsResponse)
+-&gt; Generic DescribeResourceGroupsResponse
+forall x.
+Rep DescribeResourceGroupsResponse x
+-&gt; DescribeResourceGroupsResponse
+forall x.
+DescribeResourceGroupsResponse
+-&gt; Rep DescribeResourceGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeResourceGroupsResponse x
+-&gt; DescribeResourceGroupsResponse
+$cfrom :: forall x.
+DescribeResourceGroupsResponse
+-&gt; Rep DescribeResourceGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'DescribeResourceGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'describeResourceGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'resourceGroups', 'describeResourceGroupsResponse_resourceGroups' - Information about a resource group.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'failedItems', 'describeResourceGroupsResponse_failedItems' - Resource group details that cannot be described. An error code is</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- provided for each failed item.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#newDescribeResourceGroupsResponse"><span class="hs-identifier hs-type">newDescribeResourceGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newDescribeResourceGroupsResponse"><span class="annot"><span class="annottext">newDescribeResourceGroupsResponse :: Int -&gt; DescribeResourceGroupsResponse
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#newDescribeResourceGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeResourceGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679255820"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255820"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse' :: Int
+-&gt; [ResourceGroup]
+-&gt; HashMap Text FailedItemDetails
+-&gt; DescribeResourceGroupsResponse
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourceGroupsResponse' :: Int
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AhttpStatus%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255820"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceGroups:DescribeResourceGroupsResponse' :: [ResourceGroup]
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroups%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">resourceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedItems:DescribeResourceGroupsResponse' :: HashMap Text FailedItemDetails
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AfailedItems%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeResourceGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="describeResourceGroupsResponse_httpStatus"><span class="annot"><span class="annottext">describeResourceGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeResourceGroupsResponse
+-&gt; f DescribeResourceGroupsResponse
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeResourceGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceGroupsResponse -&gt; Int)
+-&gt; (DescribeResourceGroupsResponse
+    -&gt; Int -&gt; DescribeResourceGroupsResponse)
+-&gt; Lens
+     DescribeResourceGroupsResponse
+     DescribeResourceGroupsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255819"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeResourceGroupsResponse' :: DescribeResourceGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679255819"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255819"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255818"><span class="annot"><span class="annottext">s :: DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679255818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255817"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679255818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourceGroupsResponse' :: Int
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AhttpStatus%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Information about a resource group.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_resourceGroups"><span class="hs-identifier hs-type">describeResourceGroupsResponse_resourceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span id="describeResourceGroupsResponse_resourceGroups"><span class="annot"><span class="annottext">describeResourceGroupsResponse_resourceGroups :: ([ResourceGroup] -&gt; f [ResourceGroup])
+-&gt; DescribeResourceGroupsResponse
+-&gt; f DescribeResourceGroupsResponse
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_resourceGroups"><span class="hs-identifier hs-var hs-var">describeResourceGroupsResponse_resourceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceGroupsResponse -&gt; [ResourceGroup])
+-&gt; (DescribeResourceGroupsResponse
+    -&gt; [ResourceGroup] -&gt; DescribeResourceGroupsResponse)
+-&gt; Lens
+     DescribeResourceGroupsResponse
+     DescribeResourceGroupsResponse
+     [ResourceGroup]
+     [ResourceGroup]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255816"><span class="annot"><span class="annottext">[ResourceGroup]
+resourceGroups :: [ResourceGroup]
+$sel:resourceGroups:DescribeResourceGroupsResponse' :: DescribeResourceGroupsResponse -&gt; [ResourceGroup]
+</span><a href="#local-6989586621679255816"><span class="hs-identifier hs-var hs-var">resourceGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ResourceGroup]
+</span><a href="#local-6989586621679255816"><span class="hs-identifier hs-var">resourceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255815"><span class="annot"><span class="annottext">s :: DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679255815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255814"><span class="annot"><span class="annottext">[ResourceGroup]
+</span><a href="#local-6989586621679255814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679255815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroups:DescribeResourceGroupsResponse' :: [ResourceGroup]
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroups%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">resourceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceGroup]
+</span><a href="#local-6989586621679255814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ResourceGroup] -&gt; f [ResourceGroup])
+ -&gt; DescribeResourceGroupsResponse
+ -&gt; f DescribeResourceGroupsResponse)
+-&gt; (([ResourceGroup] -&gt; f [ResourceGroup])
+    -&gt; [ResourceGroup] -&gt; f [ResourceGroup])
+-&gt; ([ResourceGroup] -&gt; f [ResourceGroup])
+-&gt; DescribeResourceGroupsResponse
+-&gt; f DescribeResourceGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResourceGroup] -&gt; f [ResourceGroup])
+-&gt; [ResourceGroup] -&gt; f [ResourceGroup]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Resource group details that cannot be described. An error code is</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- provided for each failed item.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_failedItems"><span class="hs-identifier hs-type">describeResourceGroupsResponse_failedItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="describeResourceGroupsResponse_failedItems"><span class="annot"><span class="annottext">describeResourceGroupsResponse_failedItems :: (HashMap Text FailedItemDetails
+ -&gt; f (HashMap Text FailedItemDetails))
+-&gt; DescribeResourceGroupsResponse
+-&gt; f DescribeResourceGroupsResponse
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_failedItems"><span class="hs-identifier hs-var hs-var">describeResourceGroupsResponse_failedItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceGroupsResponse -&gt; HashMap Text FailedItemDetails)
+-&gt; (DescribeResourceGroupsResponse
+    -&gt; HashMap Text FailedItemDetails
+    -&gt; DescribeResourceGroupsResponse)
+-&gt; Lens
+     DescribeResourceGroupsResponse
+     DescribeResourceGroupsResponse
+     (HashMap Text FailedItemDetails)
+     (HashMap Text FailedItemDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255813"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+failedItems :: HashMap Text FailedItemDetails
+$sel:failedItems:DescribeResourceGroupsResponse' :: DescribeResourceGroupsResponse -&gt; HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679255813"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679255813"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255812"><span class="annot"><span class="annottext">s :: DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679255812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255811"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679255811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679255812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:DescribeResourceGroupsResponse' :: HashMap Text FailedItemDetails
+</span><a href="Amazonka.Inspector.DescribeResourceGroups.html#%24sel%3AfailedItems%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679255811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
+  -&gt; f (HashMap Text FailedItemDetails))
+ -&gt; DescribeResourceGroupsResponse
+ -&gt; f DescribeResourceGroupsResponse)
+-&gt; ((HashMap Text FailedItemDetails
+     -&gt; f (HashMap Text FailedItemDetails))
+    -&gt; HashMap Text FailedItemDetails
+    -&gt; f (HashMap Text FailedItemDetails))
+-&gt; (HashMap Text FailedItemDetails
+    -&gt; f (HashMap Text FailedItemDetails))
+-&gt; DescribeResourceGroupsResponse
+-&gt; f DescribeResourceGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text FailedItemDetails
+ -&gt; f (HashMap Text FailedItemDetails))
+-&gt; HashMap Text FailedItemDetails
+-&gt; f (HashMap Text FailedItemDetails)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679255809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction"><span class="hs-identifier">DeploymentComponentUpdatePolicyAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS"><span class="hs-identifier">DeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS"><span class="hs-identifier">DeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679227782"><span id="local-6989586621679227783"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentComponentUpdatePolicyAction"><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction"><span class="hs-identifier hs-var">DeploymentComponentUpdatePolicyAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentComponentUpdatePolicyAction%27"><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction%27"><span class="hs-identifier hs-var">DeploymentComponentUpdatePolicyAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentComponentUpdatePolicyAction"><span class="annot"><span class="annottext">DeploymentComponentUpdatePolicyAction -&gt; Text
+</span><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#fromDeploymentComponentUpdatePolicyAction"><span class="hs-identifier hs-var hs-var">fromDeploymentComponentUpdatePolicyAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679227774"><span id="local-6989586621679227776"><span id="local-6989586621679227778"><span class="annot"><span class="annottext">Int -&gt; DeploymentComponentUpdatePolicyAction -&gt; ShowS
+[DeploymentComponentUpdatePolicyAction] -&gt; ShowS
+DeploymentComponentUpdatePolicyAction -&gt; String
+(Int -&gt; DeploymentComponentUpdatePolicyAction -&gt; ShowS)
+-&gt; (DeploymentComponentUpdatePolicyAction -&gt; String)
+-&gt; ([DeploymentComponentUpdatePolicyAction] -&gt; ShowS)
+-&gt; Show DeploymentComponentUpdatePolicyAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentComponentUpdatePolicyAction] -&gt; ShowS
+$cshowList :: [DeploymentComponentUpdatePolicyAction] -&gt; ShowS
+show :: DeploymentComponentUpdatePolicyAction -&gt; String
+$cshow :: DeploymentComponentUpdatePolicyAction -&gt; String
+showsPrec :: Int -&gt; DeploymentComponentUpdatePolicyAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentComponentUpdatePolicyAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679227765"><span id="local-6989586621679227767"><span id="local-6989586621679227769"><span id="local-6989586621679227771"><span class="annot"><span class="annottext">ReadPrec [DeploymentComponentUpdatePolicyAction]
+ReadPrec DeploymentComponentUpdatePolicyAction
+Int -&gt; ReadS DeploymentComponentUpdatePolicyAction
+ReadS [DeploymentComponentUpdatePolicyAction]
+(Int -&gt; ReadS DeploymentComponentUpdatePolicyAction)
+-&gt; ReadS [DeploymentComponentUpdatePolicyAction]
+-&gt; ReadPrec DeploymentComponentUpdatePolicyAction
+-&gt; ReadPrec [DeploymentComponentUpdatePolicyAction]
+-&gt; Read DeploymentComponentUpdatePolicyAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentComponentUpdatePolicyAction]
+$creadListPrec :: ReadPrec [DeploymentComponentUpdatePolicyAction]
+readPrec :: ReadPrec DeploymentComponentUpdatePolicyAction
+$creadPrec :: ReadPrec DeploymentComponentUpdatePolicyAction
+readList :: ReadS [DeploymentComponentUpdatePolicyAction]
+$creadList :: ReadS [DeploymentComponentUpdatePolicyAction]
+readsPrec :: Int -&gt; ReadS DeploymentComponentUpdatePolicyAction
+$creadsPrec :: Int -&gt; ReadS DeploymentComponentUpdatePolicyAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679227760"><span id="local-6989586621679227762"><span class="annot"><span class="annottext">DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+(DeploymentComponentUpdatePolicyAction
+ -&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool)
+-&gt; (DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool)
+-&gt; Eq DeploymentComponentUpdatePolicyAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+$c/= :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+== :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+$c== :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679227744"><span id="local-6989586621679227746"><span id="local-6989586621679227748"><span id="local-6989586621679227750"><span id="local-6989586621679227752"><span id="local-6989586621679227754"><span id="local-6989586621679227756"><span class="annot"><span class="annottext">Eq DeploymentComponentUpdatePolicyAction
+Eq DeploymentComponentUpdatePolicyAction
+-&gt; (DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction -&gt; Ordering)
+-&gt; (DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool)
+-&gt; (DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool)
+-&gt; (DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool)
+-&gt; (DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool)
+-&gt; (DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction)
+-&gt; (DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction
+    -&gt; DeploymentComponentUpdatePolicyAction)
+-&gt; Ord DeploymentComponentUpdatePolicyAction
+DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Ordering
+DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+$cmin :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+max :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+$cmax :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction
+&gt;= :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+$c&gt;= :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+&gt; :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+$c&gt; :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+&lt;= :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+$c&lt;= :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+&lt; :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+$c&lt; :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Bool
+compare :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Ordering
+$ccompare :: DeploymentComponentUpdatePolicyAction
+-&gt; DeploymentComponentUpdatePolicyAction -&gt; Ordering
+$cp1Ord :: Eq DeploymentComponentUpdatePolicyAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DeploymentComponentUpdatePolicyAction
+ -&gt; Rep DeploymentComponentUpdatePolicyAction x)
+-&gt; (forall x.
+    Rep DeploymentComponentUpdatePolicyAction x
+    -&gt; DeploymentComponentUpdatePolicyAction)
+-&gt; Generic DeploymentComponentUpdatePolicyAction
+forall x.
+Rep DeploymentComponentUpdatePolicyAction x
+-&gt; DeploymentComponentUpdatePolicyAction
+forall x.
+DeploymentComponentUpdatePolicyAction
+-&gt; Rep DeploymentComponentUpdatePolicyAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeploymentComponentUpdatePolicyAction x
+-&gt; DeploymentComponentUpdatePolicyAction
+$cfrom :: forall x.
+DeploymentComponentUpdatePolicyAction
+-&gt; Rep DeploymentComponentUpdatePolicyAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679227736"><span id="local-6989586621679227738"><span class="annot"><span class="annottext">Int -&gt; DeploymentComponentUpdatePolicyAction -&gt; Int
+DeploymentComponentUpdatePolicyAction -&gt; Int
+(Int -&gt; DeploymentComponentUpdatePolicyAction -&gt; Int)
+-&gt; (DeploymentComponentUpdatePolicyAction -&gt; Int)
+-&gt; Hashable DeploymentComponentUpdatePolicyAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeploymentComponentUpdatePolicyAction -&gt; Int
+$chash :: DeploymentComponentUpdatePolicyAction -&gt; Int
+hashWithSalt :: Int -&gt; DeploymentComponentUpdatePolicyAction -&gt; Int
+$chashWithSalt :: Int -&gt; DeploymentComponentUpdatePolicyAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679227733"><span class="annot"><span class="annottext">DeploymentComponentUpdatePolicyAction -&gt; ()
+(DeploymentComponentUpdatePolicyAction -&gt; ())
+-&gt; NFData DeploymentComponentUpdatePolicyAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeploymentComponentUpdatePolicyAction -&gt; ()
+$crnf :: DeploymentComponentUpdatePolicyAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679227730"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentComponentUpdatePolicyAction
+(Text -&gt; Either String DeploymentComponentUpdatePolicyAction)
+-&gt; FromText DeploymentComponentUpdatePolicyAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeploymentComponentUpdatePolicyAction
+$cfromText :: Text -&gt; Either String DeploymentComponentUpdatePolicyAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679227727"><span class="annot"><span class="annottext">DeploymentComponentUpdatePolicyAction -&gt; Text
+(DeploymentComponentUpdatePolicyAction -&gt; Text)
+-&gt; ToText DeploymentComponentUpdatePolicyAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeploymentComponentUpdatePolicyAction -&gt; Text
+$ctoText :: DeploymentComponentUpdatePolicyAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679227724"><span class="annot"><span class="annottext">DeploymentComponentUpdatePolicyAction -&gt; ByteString
+(DeploymentComponentUpdatePolicyAction -&gt; ByteString)
+-&gt; ToByteString DeploymentComponentUpdatePolicyAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeploymentComponentUpdatePolicyAction -&gt; ByteString
+$ctoBS :: DeploymentComponentUpdatePolicyAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679227721"><span class="annot"><span class="annottext">DeploymentComponentUpdatePolicyAction -&gt; ByteStringBuilder
+(DeploymentComponentUpdatePolicyAction -&gt; ByteStringBuilder)
+-&gt; ToLog DeploymentComponentUpdatePolicyAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeploymentComponentUpdatePolicyAction -&gt; ByteStringBuilder
+$cbuild :: DeploymentComponentUpdatePolicyAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679227718"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentComponentUpdatePolicyAction -&gt; [Header]
+(HeaderName -&gt; DeploymentComponentUpdatePolicyAction -&gt; [Header])
+-&gt; ToHeader DeploymentComponentUpdatePolicyAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeploymentComponentUpdatePolicyAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeploymentComponentUpdatePolicyAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679227715"><span class="annot"><span class="annottext">DeploymentComponentUpdatePolicyAction -&gt; QueryString
+(DeploymentComponentUpdatePolicyAction -&gt; QueryString)
+-&gt; ToQuery DeploymentComponentUpdatePolicyAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeploymentComponentUpdatePolicyAction -&gt; QueryString
+$ctoQuery :: DeploymentComponentUpdatePolicyAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679227710"><span id="local-6989586621679227712"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentComponentUpdatePolicyAction]
+Value -&gt; Parser DeploymentComponentUpdatePolicyAction
+(Value -&gt; Parser DeploymentComponentUpdatePolicyAction)
+-&gt; (Value -&gt; Parser [DeploymentComponentUpdatePolicyAction])
+-&gt; FromJSON DeploymentComponentUpdatePolicyAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeploymentComponentUpdatePolicyAction]
+$cparseJSONList :: Value -&gt; Parser [DeploymentComponentUpdatePolicyAction]
+parseJSON :: Value -&gt; Parser DeploymentComponentUpdatePolicyAction
+$cparseJSON :: Value -&gt; Parser DeploymentComponentUpdatePolicyAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679227705"><span id="local-6989586621679227707"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentComponentUpdatePolicyAction]
+FromJSONKeyFunction DeploymentComponentUpdatePolicyAction
+FromJSONKeyFunction DeploymentComponentUpdatePolicyAction
+-&gt; FromJSONKeyFunction [DeploymentComponentUpdatePolicyAction]
+-&gt; FromJSONKey DeploymentComponentUpdatePolicyAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeploymentComponentUpdatePolicyAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeploymentComponentUpdatePolicyAction]
+fromJSONKey :: FromJSONKeyFunction DeploymentComponentUpdatePolicyAction
+$cfromJSONKey :: FromJSONKeyFunction DeploymentComponentUpdatePolicyAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679227696"><span id="local-6989586621679227698"><span id="local-6989586621679227700"><span id="local-6989586621679227702"><span class="annot"><span class="annottext">[DeploymentComponentUpdatePolicyAction] -&gt; Encoding
+[DeploymentComponentUpdatePolicyAction] -&gt; Value
+DeploymentComponentUpdatePolicyAction -&gt; Encoding
+DeploymentComponentUpdatePolicyAction -&gt; Value
+(DeploymentComponentUpdatePolicyAction -&gt; Value)
+-&gt; (DeploymentComponentUpdatePolicyAction -&gt; Encoding)
+-&gt; ([DeploymentComponentUpdatePolicyAction] -&gt; Value)
+-&gt; ([DeploymentComponentUpdatePolicyAction] -&gt; Encoding)
+-&gt; ToJSON DeploymentComponentUpdatePolicyAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeploymentComponentUpdatePolicyAction] -&gt; Encoding
+$ctoEncodingList :: [DeploymentComponentUpdatePolicyAction] -&gt; Encoding
+toJSONList :: [DeploymentComponentUpdatePolicyAction] -&gt; Value
+$ctoJSONList :: [DeploymentComponentUpdatePolicyAction] -&gt; Value
+toEncoding :: DeploymentComponentUpdatePolicyAction -&gt; Encoding
+$ctoEncoding :: DeploymentComponentUpdatePolicyAction -&gt; Encoding
+toJSON :: DeploymentComponentUpdatePolicyAction -&gt; Value
+$ctoJSON :: DeploymentComponentUpdatePolicyAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679227691"><span id="local-6989586621679227693"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentComponentUpdatePolicyAction]
+ToJSONKeyFunction DeploymentComponentUpdatePolicyAction
+ToJSONKeyFunction DeploymentComponentUpdatePolicyAction
+-&gt; ToJSONKeyFunction [DeploymentComponentUpdatePolicyAction]
+-&gt; ToJSONKey DeploymentComponentUpdatePolicyAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeploymentComponentUpdatePolicyAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeploymentComponentUpdatePolicyAction]
+toJSONKey :: ToJSONKeyFunction DeploymentComponentUpdatePolicyAction
+$ctoJSONKey :: ToJSONKeyFunction DeploymentComponentUpdatePolicyAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679227688"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentComponentUpdatePolicyAction
+([Node] -&gt; Either String DeploymentComponentUpdatePolicyAction)
+-&gt; FromXML DeploymentComponentUpdatePolicyAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeploymentComponentUpdatePolicyAction
+$cparseXML :: [Node] -&gt; Either String DeploymentComponentUpdatePolicyAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679227685"><span class="annot"><span class="annottext">DeploymentComponentUpdatePolicyAction -&gt; XML
+(DeploymentComponentUpdatePolicyAction -&gt; XML)
+-&gt; ToXML DeploymentComponentUpdatePolicyAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeploymentComponentUpdatePolicyAction -&gt; XML
+$ctoXML :: DeploymentComponentUpdatePolicyAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS"><span class="hs-identifier hs-type">DeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction"><span class="hs-identifier hs-type">DeploymentComponentUpdatePolicyAction</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS"><span id="%24mDeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS"><span id="DeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS"><span class="annot"><span class="annottext">$bDeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS :: DeploymentComponentUpdatePolicyAction
+$mDeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS :: forall r.
+DeploymentComponentUpdatePolicyAction
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#%24bDeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS"><span class="hs-identifier hs-var hs-var hs-var">DeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction%27"><span class="hs-identifier hs-type">DeploymentComponentUpdatePolicyAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOTIFY_COMPONENTS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS"><span class="hs-identifier hs-type">DeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction"><span class="hs-identifier hs-type">DeploymentComponentUpdatePolicyAction</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS"><span id="%24mDeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS"><span id="DeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS"><span class="annot"><span class="annottext">$bDeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS :: DeploymentComponentUpdatePolicyAction
+$mDeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS :: forall r.
+DeploymentComponentUpdatePolicyAction
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#%24bDeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS"><span class="hs-identifier hs-var hs-var hs-var">DeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction%27"><span class="hs-identifier hs-type">DeploymentComponentUpdatePolicyAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SKIP_NOTIFY_COMPONENTS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS"><span class="hs-pragma hs-type">DeploymentComponentUpdatePolicyAction_NOTIFY_COMPONENTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS"><span class="hs-pragma hs-type">DeploymentComponentUpdatePolicyAction_SKIP_NOTIFY_COMPONENTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction.html#DeploymentComponentUpdatePolicyAction%27"><span class="hs-pragma hs-type">DeploymentComponentUpdatePolicyAction'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,1283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.GetOrganizationsAccessReport</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the service last accessed data report for Organizations that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- was previously generated using the @ GenerateOrganizationsAccessReport @</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- operation. This operation retrieves the status of your report job and</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the report contents.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Depending on the parameters that you passed when you generated the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- report, the data returned could include different information. For</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- details, see GenerateOrganizationsAccessReport.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- To call this operation, you must be signed in to the management account</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- in your organization. SCPs must be enabled for your organization root.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- You must have permissions to perform this operation. For more</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html Refining permissions using service last accessed data&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- For each service that principals in an account (root users, IAM users,</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- or IAM roles) could access using SCPs, the operation returns details</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- about the most recent access attempt. If there was no attempt, the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- service is listed without details about the most recent attempt to</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- access the service. If the operation fails, it returns the reason that</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- it failed.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- By default, the list is sorted by service namespace.</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.GetOrganizationsAccessReport</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier">GetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#newGetOrganizationsAccessReport"><span class="hs-identifier">newGetOrganizationsAccessReport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_sortKey"><span class="hs-identifier">getOrganizationsAccessReport_sortKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_marker"><span class="hs-identifier">getOrganizationsAccessReport_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_maxItems"><span class="hs-identifier">getOrganizationsAccessReport_maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_jobId"><span class="hs-identifier">getOrganizationsAccessReport_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#newGetOrganizationsAccessReportResponse"><span class="hs-identifier">newGetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_numberOfServicesNotAccessed"><span class="hs-identifier">getOrganizationsAccessReportResponse_numberOfServicesNotAccessed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_jobCompletionDate"><span class="hs-identifier">getOrganizationsAccessReportResponse_jobCompletionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_accessDetails"><span class="hs-identifier">getOrganizationsAccessReportResponse_accessDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_numberOfServicesAccessible"><span class="hs-identifier">getOrganizationsAccessReportResponse_numberOfServicesAccessible</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_marker"><span class="hs-identifier">getOrganizationsAccessReportResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_errorDetails"><span class="hs-identifier">getOrganizationsAccessReportResponse_errorDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_isTruncated"><span class="hs-identifier">getOrganizationsAccessReportResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_httpStatus"><span class="hs-identifier">getOrganizationsAccessReportResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_jobStatus"><span class="hs-identifier">getOrganizationsAccessReportResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_jobCreationDate"><span class="hs-identifier">getOrganizationsAccessReportResponse_jobCreationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newGetOrganizationsAccessReport' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621679449834"><span id="local-6989586621679449835"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOrganizationsAccessReport"><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-var">GetOrganizationsAccessReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOrganizationsAccessReport%27"><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-var">GetOrganizationsAccessReport'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key that is used to sort the results. If you choose the namespace</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- key, the results are returned in alphabetical order. If you choose the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- time key, the results are sorted numerically by the date and time.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AsortKey%3AGetOrganizationsAccessReport%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReport -&gt; Maybe SortKeyType
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AsortKey%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var hs-var">sortKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType"><span class="hs-identifier hs-type">SortKeyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3Amarker%3AGetOrganizationsAccessReport%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReport -&gt; Maybe Text
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3Amarker%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AmaxItems%3AGetOrganizationsAccessReport%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReport -&gt; Maybe Natural
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AmaxItems%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The identifier of the request generated by the</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- GenerateOrganizationsAccessReport operation.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AjobId%3AGetOrganizationsAccessReport%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReport -&gt; Text
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobId%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449825"><span id="local-6989586621679449827"><span class="annot"><span class="annottext">GetOrganizationsAccessReport
+-&gt; GetOrganizationsAccessReport -&gt; Bool
+(GetOrganizationsAccessReport
+ -&gt; GetOrganizationsAccessReport -&gt; Bool)
+-&gt; (GetOrganizationsAccessReport
+    -&gt; GetOrganizationsAccessReport -&gt; Bool)
+-&gt; Eq GetOrganizationsAccessReport
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetOrganizationsAccessReport
+-&gt; GetOrganizationsAccessReport -&gt; Bool
+$c/= :: GetOrganizationsAccessReport
+-&gt; GetOrganizationsAccessReport -&gt; Bool
+== :: GetOrganizationsAccessReport
+-&gt; GetOrganizationsAccessReport -&gt; Bool
+$c== :: GetOrganizationsAccessReport
+-&gt; GetOrganizationsAccessReport -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449816"><span id="local-6989586621679449818"><span id="local-6989586621679449820"><span id="local-6989586621679449822"><span class="annot"><span class="annottext">ReadPrec [GetOrganizationsAccessReport]
+ReadPrec GetOrganizationsAccessReport
+Int -&gt; ReadS GetOrganizationsAccessReport
+ReadS [GetOrganizationsAccessReport]
+(Int -&gt; ReadS GetOrganizationsAccessReport)
+-&gt; ReadS [GetOrganizationsAccessReport]
+-&gt; ReadPrec GetOrganizationsAccessReport
+-&gt; ReadPrec [GetOrganizationsAccessReport]
+-&gt; Read GetOrganizationsAccessReport
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetOrganizationsAccessReport]
+$creadListPrec :: ReadPrec [GetOrganizationsAccessReport]
+readPrec :: ReadPrec GetOrganizationsAccessReport
+$creadPrec :: ReadPrec GetOrganizationsAccessReport
+readList :: ReadS [GetOrganizationsAccessReport]
+$creadList :: ReadS [GetOrganizationsAccessReport]
+readsPrec :: Int -&gt; ReadS GetOrganizationsAccessReport
+$creadsPrec :: Int -&gt; ReadS GetOrganizationsAccessReport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449809"><span id="local-6989586621679449811"><span id="local-6989586621679449813"><span class="annot"><span class="annottext">Int -&gt; GetOrganizationsAccessReport -&gt; ShowS
+[GetOrganizationsAccessReport] -&gt; ShowS
+GetOrganizationsAccessReport -&gt; String
+(Int -&gt; GetOrganizationsAccessReport -&gt; ShowS)
+-&gt; (GetOrganizationsAccessReport -&gt; String)
+-&gt; ([GetOrganizationsAccessReport] -&gt; ShowS)
+-&gt; Show GetOrganizationsAccessReport
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetOrganizationsAccessReport] -&gt; ShowS
+$cshowList :: [GetOrganizationsAccessReport] -&gt; ShowS
+show :: GetOrganizationsAccessReport -&gt; String
+$cshow :: GetOrganizationsAccessReport -&gt; String
+showsPrec :: Int -&gt; GetOrganizationsAccessReport -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetOrganizationsAccessReport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetOrganizationsAccessReport -&gt; Rep GetOrganizationsAccessReport x)
+-&gt; (forall x.
+    Rep GetOrganizationsAccessReport x -&gt; GetOrganizationsAccessReport)
+-&gt; Generic GetOrganizationsAccessReport
+forall x.
+Rep GetOrganizationsAccessReport x -&gt; GetOrganizationsAccessReport
+forall x.
+GetOrganizationsAccessReport -&gt; Rep GetOrganizationsAccessReport x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetOrganizationsAccessReport x -&gt; GetOrganizationsAccessReport
+$cfrom :: forall x.
+GetOrganizationsAccessReport -&gt; Rep GetOrganizationsAccessReport x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Create a value of 'GetOrganizationsAccessReport' with all optional fields omitted.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'sortKey', 'getOrganizationsAccessReport_sortKey' - The key that is used to sort the results. If you choose the namespace</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- key, the results are returned in alphabetical order. If you choose the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- time key, the results are sorted numerically by the date and time.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'marker', 'getOrganizationsAccessReport_marker' - Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'maxItems', 'getOrganizationsAccessReport_maxItems' - Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'jobId', 'getOrganizationsAccessReport_jobId' - The identifier of the request generated by the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- GenerateOrganizationsAccessReport operation.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#newGetOrganizationsAccessReport"><span class="hs-identifier hs-type">newGetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span>
+</span><span id="line-143"></span><span id="newGetOrganizationsAccessReport"><span class="annot"><span class="annottext">newGetOrganizationsAccessReport :: Text -&gt; GetOrganizationsAccessReport
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#newGetOrganizationsAccessReport"><span class="hs-identifier hs-var hs-var">newGetOrganizationsAccessReport</span></a></span></span><span> </span><span id="local-6989586621679449804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449804"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">GetOrganizationsAccessReport' :: Maybe SortKeyType
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; GetOrganizationsAccessReport
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sortKey:GetOrganizationsAccessReport' :: Maybe SortKeyType
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AsortKey%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var">sortKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Maybe SortKeyType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:GetOrganizationsAccessReport' :: Maybe Text
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3Amarker%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:GetOrganizationsAccessReport' :: Maybe Natural
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AmaxItems%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:GetOrganizationsAccessReport' :: Text
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobId%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449804"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The key that is used to sort the results. If you choose the namespace</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- key, the results are returned in alphabetical order. If you choose the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- time key, the results are sorted numerically by the date and time.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_sortKey"><span class="hs-identifier hs-type">getOrganizationsAccessReport_sortKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType"><span class="hs-identifier hs-type">SortKeyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="getOrganizationsAccessReport_sortKey"><span class="annot"><span class="annottext">getOrganizationsAccessReport_sortKey :: (Maybe SortKeyType -&gt; f (Maybe SortKeyType))
+-&gt; GetOrganizationsAccessReport -&gt; f GetOrganizationsAccessReport
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_sortKey"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReport_sortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReport -&gt; Maybe SortKeyType)
+-&gt; (GetOrganizationsAccessReport
+    -&gt; Maybe SortKeyType -&gt; GetOrganizationsAccessReport)
+-&gt; Lens
+     GetOrganizationsAccessReport
+     GetOrganizationsAccessReport
+     (Maybe SortKeyType)
+     (Maybe SortKeyType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449801"><span class="annot"><span class="annottext">Maybe SortKeyType
+sortKey :: Maybe SortKeyType
+$sel:sortKey:GetOrganizationsAccessReport' :: GetOrganizationsAccessReport -&gt; Maybe SortKeyType
+</span><a href="#local-6989586621679449801"><span class="hs-identifier hs-var hs-var">sortKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortKeyType
+</span><a href="#local-6989586621679449801"><span class="hs-identifier hs-var">sortKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449800"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReport
+</span><a href="#local-6989586621679449800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449799"><span class="annot"><span class="annottext">Maybe SortKeyType
+</span><a href="#local-6989586621679449799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReport
+</span><a href="#local-6989586621679449800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortKey:GetOrganizationsAccessReport' :: Maybe SortKeyType
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AsortKey%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var">sortKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortKeyType
+</span><a href="#local-6989586621679449799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_marker"><span class="hs-identifier hs-type">getOrganizationsAccessReport_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="getOrganizationsAccessReport_marker"><span class="annot"><span class="annottext">getOrganizationsAccessReport_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOrganizationsAccessReport -&gt; f GetOrganizationsAccessReport
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_marker"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReport_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReport -&gt; Maybe Text)
+-&gt; (GetOrganizationsAccessReport
+    -&gt; Maybe Text -&gt; GetOrganizationsAccessReport)
+-&gt; Lens
+     GetOrganizationsAccessReport
+     GetOrganizationsAccessReport
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449798"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:GetOrganizationsAccessReport' :: GetOrganizationsAccessReport -&gt; Maybe Text
+</span><a href="#local-6989586621679449798"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679449798"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449797"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReport
+</span><a href="#local-6989586621679449797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449796"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679449796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReport
+</span><a href="#local-6989586621679449797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:GetOrganizationsAccessReport' :: Maybe Text
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3Amarker%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679449796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_maxItems"><span class="hs-identifier hs-type">getOrganizationsAccessReport_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="getOrganizationsAccessReport_maxItems"><span class="annot"><span class="annottext">getOrganizationsAccessReport_maxItems :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetOrganizationsAccessReport -&gt; f GetOrganizationsAccessReport
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_maxItems"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReport_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReport -&gt; Maybe Natural)
+-&gt; (GetOrganizationsAccessReport
+    -&gt; Maybe Natural -&gt; GetOrganizationsAccessReport)
+-&gt; Lens
+     GetOrganizationsAccessReport
+     GetOrganizationsAccessReport
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449795"><span class="annot"><span class="annottext">Maybe Natural
+maxItems :: Maybe Natural
+$sel:maxItems:GetOrganizationsAccessReport' :: GetOrganizationsAccessReport -&gt; Maybe Natural
+</span><a href="#local-6989586621679449795"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679449795"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449794"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReport
+</span><a href="#local-6989586621679449794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449793"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679449793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReport
+</span><a href="#local-6989586621679449794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:GetOrganizationsAccessReport' :: Maybe Natural
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AmaxItems%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679449793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The identifier of the request generated by the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- GenerateOrganizationsAccessReport operation.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_jobId"><span class="hs-identifier hs-type">getOrganizationsAccessReport_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-180"></span><span id="getOrganizationsAccessReport_jobId"><span class="annot"><span class="annottext">getOrganizationsAccessReport_jobId :: (Text -&gt; f Text)
+-&gt; GetOrganizationsAccessReport -&gt; f GetOrganizationsAccessReport
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReport_jobId"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReport_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReport -&gt; Text)
+-&gt; (GetOrganizationsAccessReport
+    -&gt; Text -&gt; GetOrganizationsAccessReport)
+-&gt; Lens
+     GetOrganizationsAccessReport GetOrganizationsAccessReport Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449792"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:GetOrganizationsAccessReport' :: GetOrganizationsAccessReport -&gt; Text
+</span><a href="#local-6989586621679449792"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449792"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449791"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReport
+</span><a href="#local-6989586621679449791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReport
+</span><a href="#local-6989586621679449791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetOrganizationsAccessReport' :: Text
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobId%3AGetOrganizationsAccessReport%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-184"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679449786"><span class="annot"><span class="annottext">request :: GetOrganizationsAccessReport
+-&gt; Request GetOrganizationsAccessReport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetOrganizationsAccessReport
+-&gt; Request GetOrganizationsAccessReport
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679449782"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetOrganizationsAccessReport
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetOrganizationsAccessReport)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetOrganizationsAccessReport))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetOrganizationsAccessReport
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetOrganizationsAccessReport)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetOrganizationsAccessReportResult&quot;</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449779"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679449778"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679449778"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679449777"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe ISO8601
+-&gt; Maybe [AccessDetail]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe ErrorDetails
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; JobStatusType
+-&gt; ISO8601
+-&gt; GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">GetOrganizationsAccessReportResponse'</span></a></span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe ISO8601
+ -&gt; Maybe [AccessDetail]
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe ErrorDetails
+ -&gt; Maybe Bool
+ -&gt; Int
+ -&gt; JobStatusType
+ -&gt; ISO8601
+ -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe [AccessDetail]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorDetails
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; JobStatusType
+      -&gt; ISO8601
+      -&gt; GetOrganizationsAccessReportResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfServicesNotAccessed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe [AccessDetail]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorDetails
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; JobStatusType
+   -&gt; ISO8601
+   -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe [AccessDetail]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorDetails
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; JobStatusType
+      -&gt; ISO8601
+      -&gt; GetOrganizationsAccessReportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobCompletionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [AccessDetail]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorDetails
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; JobStatusType
+   -&gt; ISO8601
+   -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String (Maybe [AccessDetail])
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ErrorDetails
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; JobStatusType
+      -&gt; ISO8601
+      -&gt; GetOrganizationsAccessReportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [AccessDetail]))
+-&gt; Either String (Maybe [AccessDetail])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [AccessDetail])
+-&gt; [Node] -&gt; Either String (Maybe [AccessDetail])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [AccessDetail]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ErrorDetails
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; JobStatusType
+   -&gt; ISO8601
+   -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ErrorDetails
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; JobStatusType
+      -&gt; ISO8601
+      -&gt; GetOrganizationsAccessReportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfServicesAccessible&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ErrorDetails
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; JobStatusType
+   -&gt; ISO8601
+   -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ErrorDetails
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; JobStatusType
+      -&gt; ISO8601
+      -&gt; GetOrganizationsAccessReportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ErrorDetails
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; JobStatusType
+   -&gt; ISO8601
+   -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String (Maybe ErrorDetails)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Int
+      -&gt; JobStatusType
+      -&gt; ISO8601
+      -&gt; GetOrganizationsAccessReportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ErrorDetails)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Int
+   -&gt; JobStatusType
+   -&gt; ISO8601
+   -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Int
+      -&gt; JobStatusType
+      -&gt; ISO8601
+      -&gt; GetOrganizationsAccessReportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; JobStatusType
+   -&gt; ISO8601
+   -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (JobStatusType -&gt; ISO8601 -&gt; GetOrganizationsAccessReportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449779"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (JobStatusType -&gt; ISO8601 -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String JobStatusType
+-&gt; Either String (ISO8601 -&gt; GetOrganizationsAccessReportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String JobStatusType
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Either String (ISO8601 -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Either String ISO8601
+-&gt; Either String GetOrganizationsAccessReportResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679449777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobCreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679449765"><span id="local-6989586621679449767"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span></span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679449758"><span class="annot"><span class="annottext">toHeaders :: GetOrganizationsAccessReport -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetOrganizationsAccessReport -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679449753"><span class="annot"><span class="annottext">toPath :: GetOrganizationsAccessReport -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetOrganizationsAccessReport -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport"><span class="hs-identifier hs-type">GetOrganizationsAccessReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679449749"><span class="annot"><span class="annottext">toQuery :: GetOrganizationsAccessReport -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReport%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449744"><span id="local-6989586621679449745"><span id="local-6989586621679449746"><span id="local-6989586621679449747"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe SortKeyType
+Text
+jobId :: Text
+maxItems :: Maybe Natural
+marker :: Maybe Text
+sortKey :: Maybe SortKeyType
+$sel:jobId:GetOrganizationsAccessReport' :: GetOrganizationsAccessReport -&gt; Text
+$sel:maxItems:GetOrganizationsAccessReport' :: GetOrganizationsAccessReport -&gt; Maybe Natural
+$sel:marker:GetOrganizationsAccessReport' :: GetOrganizationsAccessReport -&gt; Maybe Text
+$sel:sortKey:GetOrganizationsAccessReport' :: GetOrganizationsAccessReport -&gt; Maybe SortKeyType
+</span><a href="#local-6989586621679449744"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetOrganizationsAccessReport&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-224"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SortKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe SortKeyType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortKeyType
+</span><a href="#local-6989586621679449747"><span class="hs-identifier hs-var">sortKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679449746"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679449745"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449744"><span class="hs-identifier hs-var">jobId</span></a></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | /See:/ 'newGetOrganizationsAccessReportResponse' smart constructor.</span><span>
+</span><span id="line-234"></span><span id="local-6989586621679449741"><span id="local-6989586621679449742"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOrganizationsAccessReportResponse"><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-var">GetOrganizationsAccessReportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOrganizationsAccessReportResponse%27"><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">GetOrganizationsAccessReportResponse'</span></a></span></span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of services that account principals are allowed but did not</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- attempt to access.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3AnumberOfServicesNotAccessed%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; Maybe Int
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AnumberOfServicesNotAccessed%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">numberOfServicesNotAccessed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | The date and time,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- generated report job was completed or failed.</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- This field is null if the job is still in progress, as indicated by a</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- job status value of @IN_PROGRESS@.</span><span>
+</span><span id="line-244"></span><span>    </span><span id="%24sel%3AjobCompletionDate%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; Maybe ISO8601
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobCompletionDate%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">jobCompletionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- | An&#160;object that contains details about the most recent attempt to access</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">-- the service.</span><span>
+</span><span id="line-247"></span><span>    </span><span id="%24sel%3AaccessDetails%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; Maybe [AccessDetail]
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AaccessDetails%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">accessDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- | The number of services that the applicable SCPs allow account principals</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- to access.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3AnumberOfServicesAccessible%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; Maybe Int
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AnumberOfServicesAccessible%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">numberOfServicesAccessible</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-254"></span><span>    </span><span id="%24sel%3Amarker%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; Maybe Text
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3Amarker%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AerrorDetails%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; Maybe ErrorDetails
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AerrorDetails%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">errorDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-263"></span><span>    </span><span id="%24sel%3AisTruncated%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; Maybe Bool
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AisTruncated%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-265"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; Int
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AhttpStatus%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- | The status of the job.</span><span>
+</span><span id="line-267"></span><span>    </span><span id="%24sel%3AjobStatus%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; JobStatusType
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobStatus%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType"><span class="hs-identifier hs-type">JobStatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- | The date and time,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- report job was created.</span><span>
+</span><span id="line-271"></span><span>    </span><span id="%24sel%3AjobCreationDate%3AGetOrganizationsAccessReportResponse%27"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse -&gt; ISO8601
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobCreationDate%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var hs-var">jobCreationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-272"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449727"><span id="local-6989586621679449729"><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+-&gt; GetOrganizationsAccessReportResponse -&gt; Bool
+(GetOrganizationsAccessReportResponse
+ -&gt; GetOrganizationsAccessReportResponse -&gt; Bool)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; GetOrganizationsAccessReportResponse -&gt; Bool)
+-&gt; Eq GetOrganizationsAccessReportResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetOrganizationsAccessReportResponse
+-&gt; GetOrganizationsAccessReportResponse -&gt; Bool
+$c/= :: GetOrganizationsAccessReportResponse
+-&gt; GetOrganizationsAccessReportResponse -&gt; Bool
+== :: GetOrganizationsAccessReportResponse
+-&gt; GetOrganizationsAccessReportResponse -&gt; Bool
+$c== :: GetOrganizationsAccessReportResponse
+-&gt; GetOrganizationsAccessReportResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449719"><span id="local-6989586621679449721"><span id="local-6989586621679449723"><span id="local-6989586621679449725"><span class="annot"><span class="annottext">ReadPrec [GetOrganizationsAccessReportResponse]
+ReadPrec GetOrganizationsAccessReportResponse
+Int -&gt; ReadS GetOrganizationsAccessReportResponse
+ReadS [GetOrganizationsAccessReportResponse]
+(Int -&gt; ReadS GetOrganizationsAccessReportResponse)
+-&gt; ReadS [GetOrganizationsAccessReportResponse]
+-&gt; ReadPrec GetOrganizationsAccessReportResponse
+-&gt; ReadPrec [GetOrganizationsAccessReportResponse]
+-&gt; Read GetOrganizationsAccessReportResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetOrganizationsAccessReportResponse]
+$creadListPrec :: ReadPrec [GetOrganizationsAccessReportResponse]
+readPrec :: ReadPrec GetOrganizationsAccessReportResponse
+$creadPrec :: ReadPrec GetOrganizationsAccessReportResponse
+readList :: ReadS [GetOrganizationsAccessReportResponse]
+$creadList :: ReadS [GetOrganizationsAccessReportResponse]
+readsPrec :: Int -&gt; ReadS GetOrganizationsAccessReportResponse
+$creadsPrec :: Int -&gt; ReadS GetOrganizationsAccessReportResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449713"><span id="local-6989586621679449715"><span id="local-6989586621679449717"><span class="annot"><span class="annottext">Int -&gt; GetOrganizationsAccessReportResponse -&gt; ShowS
+[GetOrganizationsAccessReportResponse] -&gt; ShowS
+GetOrganizationsAccessReportResponse -&gt; String
+(Int -&gt; GetOrganizationsAccessReportResponse -&gt; ShowS)
+-&gt; (GetOrganizationsAccessReportResponse -&gt; String)
+-&gt; ([GetOrganizationsAccessReportResponse] -&gt; ShowS)
+-&gt; Show GetOrganizationsAccessReportResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetOrganizationsAccessReportResponse] -&gt; ShowS
+$cshowList :: [GetOrganizationsAccessReportResponse] -&gt; ShowS
+show :: GetOrganizationsAccessReportResponse -&gt; String
+$cshow :: GetOrganizationsAccessReportResponse -&gt; String
+showsPrec :: Int -&gt; GetOrganizationsAccessReportResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetOrganizationsAccessReportResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetOrganizationsAccessReportResponse
+ -&gt; Rep GetOrganizationsAccessReportResponse x)
+-&gt; (forall x.
+    Rep GetOrganizationsAccessReportResponse x
+    -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Generic GetOrganizationsAccessReportResponse
+forall x.
+Rep GetOrganizationsAccessReportResponse x
+-&gt; GetOrganizationsAccessReportResponse
+forall x.
+GetOrganizationsAccessReportResponse
+-&gt; Rep GetOrganizationsAccessReportResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetOrganizationsAccessReportResponse x
+-&gt; GetOrganizationsAccessReportResponse
+$cfrom :: forall x.
+GetOrganizationsAccessReportResponse
+-&gt; Rep GetOrganizationsAccessReportResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Create a value of 'GetOrganizationsAccessReportResponse' with all optional fields omitted.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'numberOfServicesNotAccessed', 'getOrganizationsAccessReportResponse_numberOfServicesNotAccessed' - The number of services that account principals are allowed but did not</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- attempt to access.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- 'jobCompletionDate', 'getOrganizationsAccessReportResponse_jobCompletionDate' - The date and time,</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- generated report job was completed or failed.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- This field is null if the job is still in progress, as indicated by a</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- job status value of @IN_PROGRESS@.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- 'accessDetails', 'getOrganizationsAccessReportResponse_accessDetails' - An&#160;object that contains details about the most recent attempt to access</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- the service.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- 'numberOfServicesAccessible', 'getOrganizationsAccessReportResponse_numberOfServicesAccessible' - The number of services that the applicable SCPs allow account principals</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- to access.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- 'marker', 'getOrganizationsAccessReportResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'errorDetails', 'getOrganizationsAccessReportResponse_errorDetails' - Undocumented member.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- 'isTruncated', 'getOrganizationsAccessReportResponse_isTruncated' - A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- 'httpStatus', 'getOrganizationsAccessReportResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- 'jobStatus', 'getOrganizationsAccessReportResponse_jobStatus' - The status of the job.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- 'jobCreationDate', 'getOrganizationsAccessReportResponse_jobCreationDate' - The date and time,</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- report job was created.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#newGetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">newGetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-321"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-323"></span><span>  </span><span class="hs-comment">-- | 'jobStatus'</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType"><span class="hs-identifier hs-type">JobStatusType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-325"></span><span>  </span><span class="hs-comment">-- | 'jobCreationDate'</span><span>
+</span><span id="line-326"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-327"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span>
+</span><span id="line-328"></span><span id="newGetOrganizationsAccessReportResponse"><span class="annot"><span class="annottext">newGetOrganizationsAccessReportResponse :: Int
+-&gt; JobStatusType -&gt; UTCTime -&gt; GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#newGetOrganizationsAccessReportResponse"><span class="hs-identifier hs-var hs-var">newGetOrganizationsAccessReportResponse</span></a></span></span><span>
+</span><span id="line-329"></span><span>  </span><span id="local-6989586621679449710"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621679449709"><span class="annot"><span class="annottext">JobStatusType
+</span><a href="#local-6989586621679449709"><span class="hs-identifier hs-var">pJobStatus_</span></a></span></span><span>
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621679449708"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679449708"><span class="hs-identifier hs-var">pJobCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse' :: Maybe Int
+-&gt; Maybe ISO8601
+-&gt; Maybe [AccessDetail]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe ErrorDetails
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; JobStatusType
+-&gt; ISO8601
+-&gt; GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span>
+</span><span id="line-333"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numberOfServicesNotAccessed:GetOrganizationsAccessReportResponse' :: Maybe Int
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AnumberOfServicesNotAccessed%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">numberOfServicesNotAccessed</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-334"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobCompletionDate:GetOrganizationsAccessReportResponse' :: Maybe ISO8601
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobCompletionDate%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">jobCompletionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>        </span><span class="annot"><span class="annottext">$sel:accessDetails:GetOrganizationsAccessReportResponse' :: Maybe [AccessDetail]
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AaccessDetails%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">accessDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfServicesAccessible:GetOrganizationsAccessReportResponse' :: Maybe Int
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AnumberOfServicesAccessible%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">numberOfServicesAccessible</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-338"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>        </span><span class="annot"><span class="annottext">$sel:marker:GetOrganizationsAccessReportResponse' :: Maybe Text
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3Amarker%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>        </span><span class="annot"><span class="annottext">$sel:errorDetails:GetOrganizationsAccessReportResponse' :: Maybe ErrorDetails
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AerrorDetails%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">errorDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>        </span><span class="annot"><span class="annottext">$sel:isTruncated:GetOrganizationsAccessReportResponse' :: Maybe Bool
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AisTruncated%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetOrganizationsAccessReportResponse' :: Int
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AhttpStatus%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobStatus:GetOrganizationsAccessReportResponse' :: JobStatusType
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobStatus%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobStatusType
+</span><a href="#local-6989586621679449709"><span class="hs-identifier hs-var">pJobStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobCreationDate:GetOrganizationsAccessReportResponse' :: ISO8601
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobCreationDate%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">jobCreationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-345"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679449708"><span class="hs-identifier hs-var">pJobCreationDate_</span></a></span><span>
+</span><span id="line-346"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | The number of services that account principals are allowed but did not</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- attempt to access.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_numberOfServicesNotAccessed"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_numberOfServicesNotAccessed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span id="getOrganizationsAccessReportResponse_numberOfServicesNotAccessed"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_numberOfServicesNotAccessed :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_numberOfServicesNotAccessed"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_numberOfServicesNotAccessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; Maybe Int)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; Maybe Int -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449705"><span class="annot"><span class="annottext">Maybe Int
+numberOfServicesNotAccessed :: Maybe Int
+$sel:numberOfServicesNotAccessed:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679449705"><span class="hs-identifier hs-var hs-var">numberOfServicesNotAccessed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679449705"><span class="hs-identifier hs-var">numberOfServicesNotAccessed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449704"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449703"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679449703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfServicesNotAccessed:GetOrganizationsAccessReportResponse' :: Maybe Int
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AnumberOfServicesNotAccessed%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">numberOfServicesNotAccessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679449703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- | The date and time,</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- generated report job was completed or failed.</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- This field is null if the job is still in progress, as indicated by a</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- job status value of @IN_PROGRESS@.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_jobCompletionDate"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_jobCompletionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-360"></span><span id="getOrganizationsAccessReportResponse_jobCompletionDate"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_jobCompletionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_jobCompletionDate"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_jobCompletionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; Maybe ISO8601)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; Maybe ISO8601 -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449702"><span class="annot"><span class="annottext">Maybe ISO8601
+jobCompletionDate :: Maybe ISO8601
+$sel:jobCompletionDate:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679449702"><span class="hs-identifier hs-var hs-var">jobCompletionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679449702"><span class="hs-identifier hs-var">jobCompletionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449701"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449700"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679449700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobCompletionDate:GetOrganizationsAccessReportResponse' :: Maybe ISO8601
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobCompletionDate%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">jobCompletionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679449700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; GetOrganizationsAccessReportResponse
+ -&gt; f GetOrganizationsAccessReportResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | An&#160;object that contains details about the most recent attempt to access</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- the service.</span><span>
+</span><span id="line-364"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_accessDetails"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_accessDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span id="getOrganizationsAccessReportResponse_accessDetails"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_accessDetails :: (Maybe [AccessDetail] -&gt; f (Maybe [AccessDetail]))
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_accessDetails"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_accessDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; Maybe [AccessDetail])
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; Maybe [AccessDetail] -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     (Maybe [AccessDetail])
+     (Maybe [AccessDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449697"><span class="annot"><span class="annottext">Maybe [AccessDetail]
+accessDetails :: Maybe [AccessDetail]
+$sel:accessDetails:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; Maybe [AccessDetail]
+</span><a href="#local-6989586621679449697"><span class="hs-identifier hs-var hs-var">accessDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDetail]
+</span><a href="#local-6989586621679449697"><span class="hs-identifier hs-var">accessDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449696"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449695"><span class="annot"><span class="annottext">Maybe [AccessDetail]
+</span><a href="#local-6989586621679449695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessDetails:GetOrganizationsAccessReportResponse' :: Maybe [AccessDetail]
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AaccessDetails%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">accessDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDetail]
+</span><a href="#local-6989586621679449695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccessDetail] -&gt; f (Maybe [AccessDetail]))
+ -&gt; GetOrganizationsAccessReportResponse
+ -&gt; f GetOrganizationsAccessReportResponse)
+-&gt; ((Maybe [AccessDetail] -&gt; f (Maybe [AccessDetail]))
+    -&gt; Maybe [AccessDetail] -&gt; f (Maybe [AccessDetail]))
+-&gt; (Maybe [AccessDetail] -&gt; f (Maybe [AccessDetail]))
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AccessDetail] [AccessDetail] [AccessDetail] [AccessDetail]
+-&gt; Iso
+     (Maybe [AccessDetail])
+     (Maybe [AccessDetail])
+     (Maybe [AccessDetail])
+     (Maybe [AccessDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AccessDetail] [AccessDetail] [AccessDetail] [AccessDetail]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-366"></span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- | The number of services that the applicable SCPs allow account principals</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- to access.</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_numberOfServicesAccessible"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_numberOfServicesAccessible</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span id="getOrganizationsAccessReportResponse_numberOfServicesAccessible"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_numberOfServicesAccessible :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_numberOfServicesAccessible"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_numberOfServicesAccessible</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; Maybe Int)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; Maybe Int -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449693"><span class="annot"><span class="annottext">Maybe Int
+numberOfServicesAccessible :: Maybe Int
+$sel:numberOfServicesAccessible:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679449693"><span class="hs-identifier hs-var hs-var">numberOfServicesAccessible</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679449693"><span class="hs-identifier hs-var">numberOfServicesAccessible</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449692"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449691"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679449691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfServicesAccessible:GetOrganizationsAccessReportResponse' :: Maybe Int
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AnumberOfServicesAccessible%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">numberOfServicesAccessible</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679449691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-375"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_marker"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span id="getOrganizationsAccessReportResponse_marker"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_marker"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; Maybe Text)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; Maybe Text -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449690"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679449690"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679449690"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449689"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449688"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679449688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:GetOrganizationsAccessReportResponse' :: Maybe Text
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3Amarker%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679449688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-379"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_errorDetails"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_errorDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span id="getOrganizationsAccessReportResponse_errorDetails"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_errorDetails :: (Maybe ErrorDetails -&gt; f (Maybe ErrorDetails))
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_errorDetails"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_errorDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; Maybe ErrorDetails)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; Maybe ErrorDetails -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     (Maybe ErrorDetails)
+     (Maybe ErrorDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449687"><span class="annot"><span class="annottext">Maybe ErrorDetails
+errorDetails :: Maybe ErrorDetails
+$sel:errorDetails:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; Maybe ErrorDetails
+</span><a href="#local-6989586621679449687"><span class="hs-identifier hs-var hs-var">errorDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetails
+</span><a href="#local-6989586621679449687"><span class="hs-identifier hs-var">errorDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449686"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449685"><span class="annot"><span class="annottext">Maybe ErrorDetails
+</span><a href="#local-6989586621679449685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDetails:GetOrganizationsAccessReportResponse' :: Maybe ErrorDetails
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AerrorDetails%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">errorDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetails
+</span><a href="#local-6989586621679449685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-389"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_isTruncated"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_isTruncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span id="getOrganizationsAccessReportResponse_isTruncated"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_isTruncated :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_isTruncated"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_isTruncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; Maybe Bool)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; Maybe Bool -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449684"><span class="annot"><span class="annottext">Maybe Bool
+isTruncated :: Maybe Bool
+$sel:isTruncated:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679449684"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679449684"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449683"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449682"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679449682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:GetOrganizationsAccessReportResponse' :: Maybe Bool
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AisTruncated%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679449682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-393"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_httpStatus"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-394"></span><span id="getOrganizationsAccessReportResponse_httpStatus"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; Int)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; Int -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449681"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; Int
+</span><a href="#local-6989586621679449681"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449681"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449680"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449679"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOrganizationsAccessReportResponse' :: Int
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AhttpStatus%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- | The status of the job.</span><span>
+</span><span id="line-397"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_jobStatus"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.JobStatusType.html#JobStatusType"><span class="hs-identifier hs-type">JobStatusType</span></a></span><span>
+</span><span id="line-398"></span><span id="getOrganizationsAccessReportResponse_jobStatus"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_jobStatus :: (JobStatusType -&gt; f JobStatusType)
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_jobStatus"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; JobStatusType)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; JobStatusType -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     JobStatusType
+     JobStatusType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449678"><span class="annot"><span class="annottext">JobStatusType
+jobStatus :: JobStatusType
+$sel:jobStatus:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; JobStatusType
+</span><a href="#local-6989586621679449678"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobStatusType
+</span><a href="#local-6989586621679449678"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449677"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449676"><span class="annot"><span class="annottext">JobStatusType
+</span><a href="#local-6989586621679449676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:GetOrganizationsAccessReportResponse' :: JobStatusType
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobStatus%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobStatusType
+</span><a href="#local-6989586621679449676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- | The date and time,</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- report job was created.</span><span>
+</span><span id="line-403"></span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_jobCreationDate"><span class="hs-identifier hs-type">getOrganizationsAccessReportResponse_jobCreationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-404"></span><span id="getOrganizationsAccessReportResponse_jobCreationDate"><span class="annot"><span class="annottext">getOrganizationsAccessReportResponse_jobCreationDate :: (UTCTime -&gt; f UTCTime)
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#getOrganizationsAccessReportResponse_jobCreationDate"><span class="hs-identifier hs-var hs-var">getOrganizationsAccessReportResponse_jobCreationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOrganizationsAccessReportResponse -&gt; ISO8601)
+-&gt; (GetOrganizationsAccessReportResponse
+    -&gt; ISO8601 -&gt; GetOrganizationsAccessReportResponse)
+-&gt; Lens
+     GetOrganizationsAccessReportResponse
+     GetOrganizationsAccessReportResponse
+     ISO8601
+     ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449675"><span class="annot"><span class="annottext">ISO8601
+jobCreationDate :: ISO8601
+$sel:jobCreationDate:GetOrganizationsAccessReportResponse' :: GetOrganizationsAccessReportResponse -&gt; ISO8601
+</span><a href="#local-6989586621679449675"><span class="hs-identifier hs-var hs-var">jobCreationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679449675"><span class="hs-identifier hs-var">jobCreationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449674"><span class="annot"><span class="annottext">s :: GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449673"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679449673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOrganizationsAccessReportResponse
+</span><a href="#local-6989586621679449674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobCreationDate:GetOrganizationsAccessReportResponse' :: ISO8601
+</span><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#%24sel%3AjobCreationDate%3AGetOrganizationsAccessReportResponse%27"><span class="hs-identifier hs-var">jobCreationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679449673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601)
+ -&gt; GetOrganizationsAccessReportResponse
+ -&gt; f GetOrganizationsAccessReportResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; GetOrganizationsAccessReportResponse
+-&gt; f GetOrganizationsAccessReportResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-405"></span><span>
+</span><span id="line-406"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-407"></span><span>  </span><span id="local-6989586621679449671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-408"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.GetOrganizationsAccessReport.html#GetOrganizationsAccessReportResponse"><span class="hs-identifier hs-type">GetOrganizationsAccessReportResponse</span></a></span></span><span>
+</span><span id="line-409"></span></pre></body></html>

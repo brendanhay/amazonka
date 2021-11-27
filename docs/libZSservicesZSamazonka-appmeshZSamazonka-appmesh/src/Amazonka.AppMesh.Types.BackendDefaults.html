@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.BackendDefaults</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.BackendDefaults</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ClientPolicy.html"><span class="hs-identifier">Amazonka.AppMesh.Types.ClientPolicy</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object that represents the default properties for a backend.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBackendDefaults' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679334255"><span id="local-6989586621679334256"></span></span><span class="hs-keyword">data</span><span> </span><span id="BackendDefaults"><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-var">BackendDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BackendDefaults%27"><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults%27"><span class="hs-identifier hs-var">BackendDefaults'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A reference to an object that represents a client policy.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AclientPolicy%3ABackendDefaults%27"><span class="annot"><span class="annottext">BackendDefaults -&gt; Maybe ClientPolicy
+</span><a href="Amazonka.AppMesh.Types.BackendDefaults.html#%24sel%3AclientPolicy%3ABackendDefaults%27"><span class="hs-identifier hs-var hs-var">clientPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ClientPolicy.html#ClientPolicy"><span class="hs-identifier hs-type">ClientPolicy</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334249"><span id="local-6989586621679334251"><span class="annot"><span class="annottext">BackendDefaults -&gt; BackendDefaults -&gt; Bool
+(BackendDefaults -&gt; BackendDefaults -&gt; Bool)
+-&gt; (BackendDefaults -&gt; BackendDefaults -&gt; Bool)
+-&gt; Eq BackendDefaults
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BackendDefaults -&gt; BackendDefaults -&gt; Bool
+$c/= :: BackendDefaults -&gt; BackendDefaults -&gt; Bool
+== :: BackendDefaults -&gt; BackendDefaults -&gt; Bool
+$c== :: BackendDefaults -&gt; BackendDefaults -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334240"><span id="local-6989586621679334242"><span id="local-6989586621679334244"><span id="local-6989586621679334246"><span class="annot"><span class="annottext">ReadPrec [BackendDefaults]
+ReadPrec BackendDefaults
+Int -&gt; ReadS BackendDefaults
+ReadS [BackendDefaults]
+(Int -&gt; ReadS BackendDefaults)
+-&gt; ReadS [BackendDefaults]
+-&gt; ReadPrec BackendDefaults
+-&gt; ReadPrec [BackendDefaults]
+-&gt; Read BackendDefaults
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BackendDefaults]
+$creadListPrec :: ReadPrec [BackendDefaults]
+readPrec :: ReadPrec BackendDefaults
+$creadPrec :: ReadPrec BackendDefaults
+readList :: ReadS [BackendDefaults]
+$creadList :: ReadS [BackendDefaults]
+readsPrec :: Int -&gt; ReadS BackendDefaults
+$creadsPrec :: Int -&gt; ReadS BackendDefaults
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334233"><span id="local-6989586621679334235"><span id="local-6989586621679334237"><span class="annot"><span class="annottext">Int -&gt; BackendDefaults -&gt; ShowS
+[BackendDefaults] -&gt; ShowS
+BackendDefaults -&gt; String
+(Int -&gt; BackendDefaults -&gt; ShowS)
+-&gt; (BackendDefaults -&gt; String)
+-&gt; ([BackendDefaults] -&gt; ShowS)
+-&gt; Show BackendDefaults
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BackendDefaults] -&gt; ShowS
+$cshowList :: [BackendDefaults] -&gt; ShowS
+show :: BackendDefaults -&gt; String
+$cshow :: BackendDefaults -&gt; String
+showsPrec :: Int -&gt; BackendDefaults -&gt; ShowS
+$cshowsPrec :: Int -&gt; BackendDefaults -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BackendDefaults -&gt; Rep BackendDefaults x)
+-&gt; (forall x. Rep BackendDefaults x -&gt; BackendDefaults)
+-&gt; Generic BackendDefaults
+forall x. Rep BackendDefaults x -&gt; BackendDefaults
+forall x. BackendDefaults -&gt; Rep BackendDefaults x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BackendDefaults x -&gt; BackendDefaults
+$cfrom :: forall x. BackendDefaults -&gt; Rep BackendDefaults x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'BackendDefaults' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'clientPolicy', 'backendDefaults_clientPolicy' - A reference to an object that represents a client policy.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#newBackendDefaults"><span class="hs-identifier hs-type">newBackendDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-type">BackendDefaults</span></a></span><span>
+</span><span id="line-47"></span><span id="newBackendDefaults"><span class="annot"><span class="annottext">newBackendDefaults :: BackendDefaults
+</span><a href="Amazonka.AppMesh.Types.BackendDefaults.html#newBackendDefaults"><span class="hs-identifier hs-var hs-var">newBackendDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">BackendDefaults' :: Maybe ClientPolicy -&gt; BackendDefaults
+</span><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults%27"><span class="hs-identifier hs-type">BackendDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientPolicy:BackendDefaults' :: Maybe ClientPolicy
+</span><a href="Amazonka.AppMesh.Types.BackendDefaults.html#%24sel%3AclientPolicy%3ABackendDefaults%27"><span class="hs-identifier hs-var">clientPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | A reference to an object that represents a client policy.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#backendDefaults_clientPolicy"><span class="hs-identifier hs-type">backendDefaults_clientPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-type">BackendDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ClientPolicy.html#ClientPolicy"><span class="hs-identifier hs-type">ClientPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span id="backendDefaults_clientPolicy"><span class="annot"><span class="annottext">backendDefaults_clientPolicy :: (Maybe ClientPolicy -&gt; f (Maybe ClientPolicy))
+-&gt; BackendDefaults -&gt; f BackendDefaults
+</span><a href="Amazonka.AppMesh.Types.BackendDefaults.html#backendDefaults_clientPolicy"><span class="hs-identifier hs-var hs-var">backendDefaults_clientPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackendDefaults -&gt; Maybe ClientPolicy)
+-&gt; (BackendDefaults -&gt; Maybe ClientPolicy -&gt; BackendDefaults)
+-&gt; Lens
+     BackendDefaults
+     BackendDefaults
+     (Maybe ClientPolicy)
+     (Maybe ClientPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults%27"><span class="hs-identifier hs-type">BackendDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334224"><span class="annot"><span class="annottext">Maybe ClientPolicy
+clientPolicy :: Maybe ClientPolicy
+$sel:clientPolicy:BackendDefaults' :: BackendDefaults -&gt; Maybe ClientPolicy
+</span><a href="#local-6989586621679334224"><span class="hs-identifier hs-var hs-var">clientPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientPolicy
+</span><a href="#local-6989586621679334224"><span class="hs-identifier hs-var">clientPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334223"><span class="annot"><span class="annottext">s :: BackendDefaults
+</span><a href="#local-6989586621679334223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults%27"><span class="hs-identifier hs-type">BackendDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334222"><span class="annot"><span class="annottext">Maybe ClientPolicy
+</span><a href="#local-6989586621679334222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendDefaults
+</span><a href="#local-6989586621679334223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientPolicy:BackendDefaults' :: Maybe ClientPolicy
+</span><a href="Amazonka.AppMesh.Types.BackendDefaults.html#%24sel%3AclientPolicy%3ABackendDefaults%27"><span class="hs-identifier hs-var">clientPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientPolicy
+</span><a href="#local-6989586621679334222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-type">BackendDefaults</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334219"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-type">BackendDefaults</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679334217"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BackendDefaults
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BackendDefaults)
+-&gt; Value
+-&gt; Parser BackendDefaults
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BackendDefaults&quot;</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334214"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe ClientPolicy -&gt; BackendDefaults
+</span><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults%27"><span class="hs-identifier hs-var">BackendDefaults'</span></a></span><span>
+</span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ClientPolicy -&gt; BackendDefaults)
+-&gt; Parser (Maybe ClientPolicy) -&gt; Parser BackendDefaults
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClientPolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334208"><span id="local-6989586621679334210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-type">BackendDefaults</span></a></span></span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-type">BackendDefaults</span></a></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334197"><span id="local-6989586621679334199"><span id="local-6989586621679334201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-type">BackendDefaults</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679334195"><span class="annot"><span class="annottext">toJSON :: BackendDefaults -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults%27"><span class="hs-identifier hs-type">BackendDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334193"><span class="annot"><span class="annottext">Maybe ClientPolicy
+clientPolicy :: Maybe ClientPolicy
+$sel:clientPolicy:BackendDefaults' :: BackendDefaults -&gt; Maybe ClientPolicy
+</span><a href="#local-6989586621679334193"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-71"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ClientPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ClientPolicy -&gt; Pair) -&gt; Maybe ClientPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ClientPolicy
+</span><a href="#local-6989586621679334193"><span class="hs-identifier hs-var">clientPolicy</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span></pre></body></html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppConfig.DeleteDeploymentStrategy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Delete a deployment strategy. Deleting a deployment strategy does not</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- delete a configuration from a host.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppConfig.DeleteDeploymentStrategy</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier">DeleteDeploymentStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#newDeleteDeploymentStrategy"><span class="hs-identifier">newDeleteDeploymentStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#deleteDeploymentStrategy_deploymentStrategyId"><span class="hs-identifier">deleteDeploymentStrategy_deploymentStrategyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategyResponse"><span class="hs-identifier">DeleteDeploymentStrategyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#newDeleteDeploymentStrategyResponse"><span class="hs-identifier">newDeleteDeploymentStrategyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.html"><span class="hs-identifier">Amazonka.AppConfig.Types</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newDeleteDeploymentStrategy' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679206099"><span id="local-6989586621679206100"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeploymentStrategy"><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-var">DeleteDeploymentStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeploymentStrategy%27"><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy%27"><span class="hs-identifier hs-var">DeleteDeploymentStrategy'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the deployment strategy you want to delete.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdeploymentStrategyId%3ADeleteDeploymentStrategy%27"><span class="annot"><span class="annottext">DeleteDeploymentStrategy -&gt; Text
+</span><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#%24sel%3AdeploymentStrategyId%3ADeleteDeploymentStrategy%27"><span class="hs-identifier hs-var hs-var">deploymentStrategyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206093"><span id="local-6989586621679206095"><span class="annot"><span class="annottext">DeleteDeploymentStrategy -&gt; DeleteDeploymentStrategy -&gt; Bool
+(DeleteDeploymentStrategy -&gt; DeleteDeploymentStrategy -&gt; Bool)
+-&gt; (DeleteDeploymentStrategy -&gt; DeleteDeploymentStrategy -&gt; Bool)
+-&gt; Eq DeleteDeploymentStrategy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDeploymentStrategy -&gt; DeleteDeploymentStrategy -&gt; Bool
+$c/= :: DeleteDeploymentStrategy -&gt; DeleteDeploymentStrategy -&gt; Bool
+== :: DeleteDeploymentStrategy -&gt; DeleteDeploymentStrategy -&gt; Bool
+$c== :: DeleteDeploymentStrategy -&gt; DeleteDeploymentStrategy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206084"><span id="local-6989586621679206086"><span id="local-6989586621679206088"><span id="local-6989586621679206090"><span class="annot"><span class="annottext">ReadPrec [DeleteDeploymentStrategy]
+ReadPrec DeleteDeploymentStrategy
+Int -&gt; ReadS DeleteDeploymentStrategy
+ReadS [DeleteDeploymentStrategy]
+(Int -&gt; ReadS DeleteDeploymentStrategy)
+-&gt; ReadS [DeleteDeploymentStrategy]
+-&gt; ReadPrec DeleteDeploymentStrategy
+-&gt; ReadPrec [DeleteDeploymentStrategy]
+-&gt; Read DeleteDeploymentStrategy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDeploymentStrategy]
+$creadListPrec :: ReadPrec [DeleteDeploymentStrategy]
+readPrec :: ReadPrec DeleteDeploymentStrategy
+$creadPrec :: ReadPrec DeleteDeploymentStrategy
+readList :: ReadS [DeleteDeploymentStrategy]
+$creadList :: ReadS [DeleteDeploymentStrategy]
+readsPrec :: Int -&gt; ReadS DeleteDeploymentStrategy
+$creadsPrec :: Int -&gt; ReadS DeleteDeploymentStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206077"><span id="local-6989586621679206079"><span id="local-6989586621679206081"><span class="annot"><span class="annottext">Int -&gt; DeleteDeploymentStrategy -&gt; ShowS
+[DeleteDeploymentStrategy] -&gt; ShowS
+DeleteDeploymentStrategy -&gt; String
+(Int -&gt; DeleteDeploymentStrategy -&gt; ShowS)
+-&gt; (DeleteDeploymentStrategy -&gt; String)
+-&gt; ([DeleteDeploymentStrategy] -&gt; ShowS)
+-&gt; Show DeleteDeploymentStrategy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDeploymentStrategy] -&gt; ShowS
+$cshowList :: [DeleteDeploymentStrategy] -&gt; ShowS
+show :: DeleteDeploymentStrategy -&gt; String
+$cshow :: DeleteDeploymentStrategy -&gt; String
+showsPrec :: Int -&gt; DeleteDeploymentStrategy -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDeploymentStrategy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteDeploymentStrategy -&gt; Rep DeleteDeploymentStrategy x)
+-&gt; (forall x.
+    Rep DeleteDeploymentStrategy x -&gt; DeleteDeploymentStrategy)
+-&gt; Generic DeleteDeploymentStrategy
+forall x.
+Rep DeleteDeploymentStrategy x -&gt; DeleteDeploymentStrategy
+forall x.
+DeleteDeploymentStrategy -&gt; Rep DeleteDeploymentStrategy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteDeploymentStrategy x -&gt; DeleteDeploymentStrategy
+$cfrom :: forall x.
+DeleteDeploymentStrategy -&gt; Rep DeleteDeploymentStrategy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'DeleteDeploymentStrategy' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'deploymentStrategyId', 'deleteDeploymentStrategy_deploymentStrategyId' - The ID of the deployment strategy you want to delete.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#newDeleteDeploymentStrategy"><span class="hs-identifier hs-type">newDeleteDeploymentStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'deploymentStrategyId'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span><span>
+</span><span id="line-66"></span><span id="newDeleteDeploymentStrategy"><span class="annot"><span class="annottext">newDeleteDeploymentStrategy :: Text -&gt; DeleteDeploymentStrategy
+</span><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#newDeleteDeploymentStrategy"><span class="hs-identifier hs-var hs-var">newDeleteDeploymentStrategy</span></a></span></span><span> </span><span id="local-6989586621679206072"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206072"><span class="hs-identifier hs-var">pDeploymentStrategyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeploymentStrategy' :: Text -&gt; DeleteDeploymentStrategy
+</span><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy%27"><span class="hs-identifier hs-type">DeleteDeploymentStrategy'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentStrategyId:DeleteDeploymentStrategy' :: Text
+</span><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#%24sel%3AdeploymentStrategyId%3ADeleteDeploymentStrategy%27"><span class="hs-identifier hs-var">deploymentStrategyId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206072"><span class="hs-identifier hs-var">pDeploymentStrategyId_</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The ID of the deployment strategy you want to delete.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#deleteDeploymentStrategy_deploymentStrategyId"><span class="hs-identifier hs-type">deleteDeploymentStrategy_deploymentStrategyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="deleteDeploymentStrategy_deploymentStrategyId"><span class="annot"><span class="annottext">deleteDeploymentStrategy_deploymentStrategyId :: (Text -&gt; f Text)
+-&gt; DeleteDeploymentStrategy -&gt; f DeleteDeploymentStrategy
+</span><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#deleteDeploymentStrategy_deploymentStrategyId"><span class="hs-identifier hs-var hs-var">deleteDeploymentStrategy_deploymentStrategyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDeploymentStrategy -&gt; Text)
+-&gt; (DeleteDeploymentStrategy -&gt; Text -&gt; DeleteDeploymentStrategy)
+-&gt; Lens DeleteDeploymentStrategy DeleteDeploymentStrategy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy%27"><span class="hs-identifier hs-type">DeleteDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206069"><span class="annot"><span class="annottext">Text
+deploymentStrategyId :: Text
+$sel:deploymentStrategyId:DeleteDeploymentStrategy' :: DeleteDeploymentStrategy -&gt; Text
+</span><a href="#local-6989586621679206069"><span class="hs-identifier hs-var hs-var">deploymentStrategyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206069"><span class="hs-identifier hs-var">deploymentStrategyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206068"><span class="annot"><span class="annottext">s :: DeleteDeploymentStrategy
+</span><a href="#local-6989586621679206068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy%27"><span class="hs-identifier hs-type">DeleteDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206067"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeploymentStrategy
+</span><a href="#local-6989586621679206068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentStrategyId:DeleteDeploymentStrategy' :: Text
+</span><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#%24sel%3AdeploymentStrategyId%3ADeleteDeploymentStrategy%27"><span class="hs-identifier hs-var">deploymentStrategyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategyResponse"><span class="hs-identifier hs-type">DeleteDeploymentStrategyResponse</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679206063"><span class="annot"><span class="annottext">request :: DeleteDeploymentStrategy -&gt; Request DeleteDeploymentStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteDeploymentStrategy -&gt; Request DeleteDeploymentStrategy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppConfig.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679206059"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteDeploymentStrategy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDeploymentStrategy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteDeploymentStrategy
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteDeploymentStrategy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDeploymentStrategy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteDeploymentStrategy
+DeleteDeploymentStrategyResponse
+</span><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategyResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentStrategyResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206052"><span id="local-6989586621679206054"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679206045"><span class="annot"><span class="annottext">toHeaders :: DeleteDeploymentStrategy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteDeploymentStrategy -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-96"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679206039"><span class="annot"><span class="annottext">toPath :: DeleteDeploymentStrategy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy%27"><span class="hs-identifier hs-type">DeleteDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206037"><span class="annot"><span class="annottext">Text
+deploymentStrategyId :: Text
+$sel:deploymentStrategyId:DeleteDeploymentStrategy' :: DeleteDeploymentStrategy -&gt; Text
+</span><a href="#local-6989586621679206037"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/deployementstrategies/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206037"><span class="hs-identifier hs-var">deploymentStrategyId</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategy"><span class="hs-identifier hs-type">DeleteDeploymentStrategy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679206033"><span class="annot"><span class="annottext">toQuery :: DeleteDeploymentStrategy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDeploymentStrategy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newDeleteDeploymentStrategyResponse' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621679206030"><span id="local-6989586621679206031"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeploymentStrategyResponse"><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategyResponse"><span class="hs-identifier hs-var">DeleteDeploymentStrategyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeploymentStrategyResponse%27"><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategyResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentStrategyResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206026"><span id="local-6989586621679206028"><span class="annot"><span class="annottext">DeleteDeploymentStrategyResponse
+-&gt; DeleteDeploymentStrategyResponse -&gt; Bool
+(DeleteDeploymentStrategyResponse
+ -&gt; DeleteDeploymentStrategyResponse -&gt; Bool)
+-&gt; (DeleteDeploymentStrategyResponse
+    -&gt; DeleteDeploymentStrategyResponse -&gt; Bool)
+-&gt; Eq DeleteDeploymentStrategyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDeploymentStrategyResponse
+-&gt; DeleteDeploymentStrategyResponse -&gt; Bool
+$c/= :: DeleteDeploymentStrategyResponse
+-&gt; DeleteDeploymentStrategyResponse -&gt; Bool
+== :: DeleteDeploymentStrategyResponse
+-&gt; DeleteDeploymentStrategyResponse -&gt; Bool
+$c== :: DeleteDeploymentStrategyResponse
+-&gt; DeleteDeploymentStrategyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206018"><span id="local-6989586621679206020"><span id="local-6989586621679206022"><span id="local-6989586621679206024"><span class="annot"><span class="annottext">ReadPrec [DeleteDeploymentStrategyResponse]
+ReadPrec DeleteDeploymentStrategyResponse
+Int -&gt; ReadS DeleteDeploymentStrategyResponse
+ReadS [DeleteDeploymentStrategyResponse]
+(Int -&gt; ReadS DeleteDeploymentStrategyResponse)
+-&gt; ReadS [DeleteDeploymentStrategyResponse]
+-&gt; ReadPrec DeleteDeploymentStrategyResponse
+-&gt; ReadPrec [DeleteDeploymentStrategyResponse]
+-&gt; Read DeleteDeploymentStrategyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDeploymentStrategyResponse]
+$creadListPrec :: ReadPrec [DeleteDeploymentStrategyResponse]
+readPrec :: ReadPrec DeleteDeploymentStrategyResponse
+$creadPrec :: ReadPrec DeleteDeploymentStrategyResponse
+readList :: ReadS [DeleteDeploymentStrategyResponse]
+$creadList :: ReadS [DeleteDeploymentStrategyResponse]
+readsPrec :: Int -&gt; ReadS DeleteDeploymentStrategyResponse
+$creadsPrec :: Int -&gt; ReadS DeleteDeploymentStrategyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206012"><span id="local-6989586621679206014"><span id="local-6989586621679206016"><span class="annot"><span class="annottext">Int -&gt; DeleteDeploymentStrategyResponse -&gt; ShowS
+[DeleteDeploymentStrategyResponse] -&gt; ShowS
+DeleteDeploymentStrategyResponse -&gt; String
+(Int -&gt; DeleteDeploymentStrategyResponse -&gt; ShowS)
+-&gt; (DeleteDeploymentStrategyResponse -&gt; String)
+-&gt; ([DeleteDeploymentStrategyResponse] -&gt; ShowS)
+-&gt; Show DeleteDeploymentStrategyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDeploymentStrategyResponse] -&gt; ShowS
+$cshowList :: [DeleteDeploymentStrategyResponse] -&gt; ShowS
+show :: DeleteDeploymentStrategyResponse -&gt; String
+$cshow :: DeleteDeploymentStrategyResponse -&gt; String
+showsPrec :: Int -&gt; DeleteDeploymentStrategyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDeploymentStrategyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteDeploymentStrategyResponse
+ -&gt; Rep DeleteDeploymentStrategyResponse x)
+-&gt; (forall x.
+    Rep DeleteDeploymentStrategyResponse x
+    -&gt; DeleteDeploymentStrategyResponse)
+-&gt; Generic DeleteDeploymentStrategyResponse
+forall x.
+Rep DeleteDeploymentStrategyResponse x
+-&gt; DeleteDeploymentStrategyResponse
+forall x.
+DeleteDeploymentStrategyResponse
+-&gt; Rep DeleteDeploymentStrategyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteDeploymentStrategyResponse x
+-&gt; DeleteDeploymentStrategyResponse
+$cfrom :: forall x.
+DeleteDeploymentStrategyResponse
+-&gt; Rep DeleteDeploymentStrategyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Create a value of 'DeleteDeploymentStrategyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#newDeleteDeploymentStrategyResponse"><span class="hs-identifier hs-type">newDeleteDeploymentStrategyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategyResponse"><span class="hs-identifier hs-type">DeleteDeploymentStrategyResponse</span></a></span><span>
+</span><span id="line-122"></span><span id="newDeleteDeploymentStrategyResponse"><span class="annot"><span class="annottext">newDeleteDeploymentStrategyResponse :: DeleteDeploymentStrategyResponse
+</span><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#newDeleteDeploymentStrategyResponse"><span class="hs-identifier hs-var hs-var">newDeleteDeploymentStrategyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeploymentStrategyResponse
+</span><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategyResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentStrategyResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679206008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.DeleteDeploymentStrategy.html#DeleteDeploymentStrategyResponse"><span class="hs-identifier hs-type">DeleteDeploymentStrategyResponse</span></a></span></span><span>
+</span><span id="line-128"></span></pre></body></html>

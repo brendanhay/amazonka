@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationDeploymentStatus.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.ConfigurationDeploymentStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionSetting.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.ConfigurationOptionSetting</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the settings for a configuration set.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newConfigurationSettingsDescription' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679300087"><span id="local-6989586621679300088"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigurationSettingsDescription"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-var">ConfigurationSettingsDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationSettingsDescription%27"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">ConfigurationSettingsDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If not @null@, the name of the configuration template for this</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtemplateName%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AtemplateName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A list of the configuration options and their values in this</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AoptionSettings%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+-&gt; Maybe [ConfigurationOptionSetting]
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AoptionSettings%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">optionSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionSetting.html#ConfigurationOptionSetting"><span class="hs-identifier hs-type">ConfigurationOptionSetting</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The date (in UTC time) when this configuration set was last modified.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdateUpdated%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription -&gt; Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AdateUpdated%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">dateUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The date (in UTC time) when this configuration set was created.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdateCreated%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription -&gt; Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AdateCreated%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ARN of the platform version.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AplatformArn%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AplatformArn%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">platformArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | If not @null@, the name of the environment for this configuration set.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AenvironmentName%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AenvironmentName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the application associated with this configuration set.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AapplicationName%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AapplicationName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | If this configuration set is associated with an environment, the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @DeploymentStatus@ parameter indicates the deployment status of this</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- configuration set:</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @null@: This configuration is not associated with a running</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     environment.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   @pending@: This is a draft configuration that is not deployed to the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     associated environment but is in the process of deploying.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @deployed@: This is the configuration that is currently deployed to</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     the associated running environment.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   @failed@: This is a draft configuration that failed to successfully</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     deploy.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdeploymentStatus%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+-&gt; Maybe ConfigurationDeploymentStatus
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AdeploymentStatus%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationDeploymentStatus.html#ConfigurationDeploymentStatus"><span class="hs-identifier hs-type">ConfigurationDeploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of the solution stack this configuration set uses.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsolutionStackName%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AsolutionStackName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">solutionStackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Describes this configuration set.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Adescription%3AConfigurationSettingsDescription%27"><span class="annot"><span class="annottext">ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3Adescription%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300072"><span id="local-6989586621679300074"><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+-&gt; ConfigurationSettingsDescription -&gt; Bool
+(ConfigurationSettingsDescription
+ -&gt; ConfigurationSettingsDescription -&gt; Bool)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; ConfigurationSettingsDescription -&gt; Bool)
+-&gt; Eq ConfigurationSettingsDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigurationSettingsDescription
+-&gt; ConfigurationSettingsDescription -&gt; Bool
+$c/= :: ConfigurationSettingsDescription
+-&gt; ConfigurationSettingsDescription -&gt; Bool
+== :: ConfigurationSettingsDescription
+-&gt; ConfigurationSettingsDescription -&gt; Bool
+$c== :: ConfigurationSettingsDescription
+-&gt; ConfigurationSettingsDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300063"><span id="local-6989586621679300065"><span id="local-6989586621679300067"><span id="local-6989586621679300069"><span class="annot"><span class="annottext">ReadPrec [ConfigurationSettingsDescription]
+ReadPrec ConfigurationSettingsDescription
+Int -&gt; ReadS ConfigurationSettingsDescription
+ReadS [ConfigurationSettingsDescription]
+(Int -&gt; ReadS ConfigurationSettingsDescription)
+-&gt; ReadS [ConfigurationSettingsDescription]
+-&gt; ReadPrec ConfigurationSettingsDescription
+-&gt; ReadPrec [ConfigurationSettingsDescription]
+-&gt; Read ConfigurationSettingsDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigurationSettingsDescription]
+$creadListPrec :: ReadPrec [ConfigurationSettingsDescription]
+readPrec :: ReadPrec ConfigurationSettingsDescription
+$creadPrec :: ReadPrec ConfigurationSettingsDescription
+readList :: ReadS [ConfigurationSettingsDescription]
+$creadList :: ReadS [ConfigurationSettingsDescription]
+readsPrec :: Int -&gt; ReadS ConfigurationSettingsDescription
+$creadsPrec :: Int -&gt; ReadS ConfigurationSettingsDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300056"><span id="local-6989586621679300058"><span id="local-6989586621679300060"><span class="annot"><span class="annottext">Int -&gt; ConfigurationSettingsDescription -&gt; ShowS
+[ConfigurationSettingsDescription] -&gt; ShowS
+ConfigurationSettingsDescription -&gt; String
+(Int -&gt; ConfigurationSettingsDescription -&gt; ShowS)
+-&gt; (ConfigurationSettingsDescription -&gt; String)
+-&gt; ([ConfigurationSettingsDescription] -&gt; ShowS)
+-&gt; Show ConfigurationSettingsDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigurationSettingsDescription] -&gt; ShowS
+$cshowList :: [ConfigurationSettingsDescription] -&gt; ShowS
+show :: ConfigurationSettingsDescription -&gt; String
+$cshow :: ConfigurationSettingsDescription -&gt; String
+showsPrec :: Int -&gt; ConfigurationSettingsDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigurationSettingsDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ConfigurationSettingsDescription
+ -&gt; Rep ConfigurationSettingsDescription x)
+-&gt; (forall x.
+    Rep ConfigurationSettingsDescription x
+    -&gt; ConfigurationSettingsDescription)
+-&gt; Generic ConfigurationSettingsDescription
+forall x.
+Rep ConfigurationSettingsDescription x
+-&gt; ConfigurationSettingsDescription
+forall x.
+ConfigurationSettingsDescription
+-&gt; Rep ConfigurationSettingsDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConfigurationSettingsDescription x
+-&gt; ConfigurationSettingsDescription
+$cfrom :: forall x.
+ConfigurationSettingsDescription
+-&gt; Rep ConfigurationSettingsDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'ConfigurationSettingsDescription' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'templateName', 'configurationSettingsDescription_templateName' - If not @null@, the name of the configuration template for this</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'optionSettings', 'configurationSettingsDescription_optionSettings' - A list of the configuration options and their values in this</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'dateUpdated', 'configurationSettingsDescription_dateUpdated' - The date (in UTC time) when this configuration set was last modified.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'dateCreated', 'configurationSettingsDescription_dateCreated' - The date (in UTC time) when this configuration set was created.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'platformArn', 'configurationSettingsDescription_platformArn' - The ARN of the platform version.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'environmentName', 'configurationSettingsDescription_environmentName' - If not @null@, the name of the environment for this configuration set.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'applicationName', 'configurationSettingsDescription_applicationName' - The name of the application associated with this configuration set.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'deploymentStatus', 'configurationSettingsDescription_deploymentStatus' - If this configuration set is associated with an environment, the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @DeploymentStatus@ parameter indicates the deployment status of this</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- configuration set:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   @null@: This configuration is not associated with a running</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     environment.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   @pending@: This is a draft configuration that is not deployed to the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     associated environment but is in the process of deploying.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   @deployed@: This is the configuration that is currently deployed to</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--     the associated running environment.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -   @failed@: This is a draft configuration that failed to successfully</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     deploy.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'solutionStackName', 'configurationSettingsDescription_solutionStackName' - The name of the solution stack this configuration set uses.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'description', 'configurationSettingsDescription_description' - Describes this configuration set.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#newConfigurationSettingsDescription"><span class="hs-identifier hs-type">newConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span>
+</span><span id="line-116"></span><span id="newConfigurationSettingsDescription"><span class="annot"><span class="annottext">newConfigurationSettingsDescription :: ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#newConfigurationSettingsDescription"><span class="hs-identifier hs-var hs-var">newConfigurationSettingsDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription' :: Maybe Text
+-&gt; Maybe [ConfigurationOptionSetting]
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ConfigurationDeploymentStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateName:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AtemplateName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionSettings:ConfigurationSettingsDescription' :: Maybe [ConfigurationOptionSetting]
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AoptionSettings%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">optionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationOptionSetting]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateUpdated:ConfigurationSettingsDescription' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AdateUpdated%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">dateUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateCreated:ConfigurationSettingsDescription' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AdateCreated%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:platformArn:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AplatformArn%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">platformArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AenvironmentName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationName:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AapplicationName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentStatus:ConfigurationSettingsDescription' :: Maybe ConfigurationDeploymentStatus
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AdeploymentStatus%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationDeploymentStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:solutionStackName:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AsolutionStackName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">solutionStackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3Adescription%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | If not @null@, the name of the configuration template for this</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_templateName"><span class="hs-identifier hs-type">configurationSettingsDescription_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="configurationSettingsDescription_templateName"><span class="annot"><span class="annottext">configurationSettingsDescription_templateName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_templateName"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription -&gt; Maybe Text)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300047"><span class="annot"><span class="annottext">Maybe Text
+templateName :: Maybe Text
+$sel:templateName:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679300047"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300047"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300046"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300045"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AtemplateName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A list of the configuration options and their values in this</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_optionSettings"><span class="hs-identifier hs-type">configurationSettingsDescription_optionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionSetting.html#ConfigurationOptionSetting"><span class="hs-identifier hs-type">ConfigurationOptionSetting</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="configurationSettingsDescription_optionSettings"><span class="annot"><span class="annottext">configurationSettingsDescription_optionSettings :: (Maybe [ConfigurationOptionSetting]
+ -&gt; f (Maybe [ConfigurationOptionSetting]))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_optionSettings"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_optionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription
+ -&gt; Maybe [ConfigurationOptionSetting])
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe [ConfigurationOptionSetting]
+    -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe [ConfigurationOptionSetting])
+     (Maybe [ConfigurationOptionSetting])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300043"><span class="annot"><span class="annottext">Maybe [ConfigurationOptionSetting]
+optionSettings :: Maybe [ConfigurationOptionSetting]
+$sel:optionSettings:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription
+-&gt; Maybe [ConfigurationOptionSetting]
+</span><a href="#local-6989586621679300043"><span class="hs-identifier hs-var hs-var">optionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationOptionSetting]
+</span><a href="#local-6989586621679300043"><span class="hs-identifier hs-var">optionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300042"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300041"><span class="annot"><span class="annottext">Maybe [ConfigurationOptionSetting]
+</span><a href="#local-6989586621679300041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionSettings:ConfigurationSettingsDescription' :: Maybe [ConfigurationOptionSetting]
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AoptionSettings%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">optionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationOptionSetting]
+</span><a href="#local-6989586621679300041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigurationOptionSetting]
+  -&gt; f (Maybe [ConfigurationOptionSetting]))
+ -&gt; ConfigurationSettingsDescription
+ -&gt; f ConfigurationSettingsDescription)
+-&gt; ((Maybe [ConfigurationOptionSetting]
+     -&gt; f (Maybe [ConfigurationOptionSetting]))
+    -&gt; Maybe [ConfigurationOptionSetting]
+    -&gt; f (Maybe [ConfigurationOptionSetting]))
+-&gt; (Maybe [ConfigurationOptionSetting]
+    -&gt; f (Maybe [ConfigurationOptionSetting]))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConfigurationOptionSetting]
+  [ConfigurationOptionSetting]
+  [ConfigurationOptionSetting]
+  [ConfigurationOptionSetting]
+-&gt; Iso
+     (Maybe [ConfigurationOptionSetting])
+     (Maybe [ConfigurationOptionSetting])
+     (Maybe [ConfigurationOptionSetting])
+     (Maybe [ConfigurationOptionSetting])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConfigurationOptionSetting]
+  [ConfigurationOptionSetting]
+  [ConfigurationOptionSetting]
+  [ConfigurationOptionSetting]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The date (in UTC time) when this configuration set was last modified.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_dateUpdated"><span class="hs-identifier hs-type">configurationSettingsDescription_dateUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="configurationSettingsDescription_dateUpdated"><span class="annot"><span class="annottext">configurationSettingsDescription_dateUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_dateUpdated"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_dateUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription -&gt; Maybe ISO8601)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe ISO8601 -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300036"><span class="annot"><span class="annottext">Maybe ISO8601
+dateUpdated :: Maybe ISO8601
+$sel:dateUpdated:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679300036"><span class="hs-identifier hs-var hs-var">dateUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679300036"><span class="hs-identifier hs-var">dateUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300035"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300034"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679300034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateUpdated:ConfigurationSettingsDescription' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AdateUpdated%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">dateUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679300034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ConfigurationSettingsDescription
+ -&gt; f ConfigurationSettingsDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The date (in UTC time) when this configuration set was created.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_dateCreated"><span class="hs-identifier hs-type">configurationSettingsDescription_dateCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="configurationSettingsDescription_dateCreated"><span class="annot"><span class="annottext">configurationSettingsDescription_dateCreated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_dateCreated"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_dateCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription -&gt; Maybe ISO8601)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe ISO8601 -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300031"><span class="annot"><span class="annottext">Maybe ISO8601
+dateCreated :: Maybe ISO8601
+$sel:dateCreated:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679300031"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679300031"><span class="hs-identifier hs-var">dateCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300030"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300029"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679300029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateCreated:ConfigurationSettingsDescription' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AdateCreated%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679300029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ConfigurationSettingsDescription
+ -&gt; f ConfigurationSettingsDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The ARN of the platform version.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_platformArn"><span class="hs-identifier hs-type">configurationSettingsDescription_platformArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="configurationSettingsDescription_platformArn"><span class="annot"><span class="annottext">configurationSettingsDescription_platformArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_platformArn"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_platformArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription -&gt; Maybe Text)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300027"><span class="annot"><span class="annottext">Maybe Text
+platformArn :: Maybe Text
+$sel:platformArn:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679300027"><span class="hs-identifier hs-var hs-var">platformArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300027"><span class="hs-identifier hs-var">platformArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300026"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformArn:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AplatformArn%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">platformArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | If not @null@, the name of the environment for this configuration set.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_environmentName"><span class="hs-identifier hs-type">configurationSettingsDescription_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="configurationSettingsDescription_environmentName"><span class="annot"><span class="annottext">configurationSettingsDescription_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_environmentName"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription -&gt; Maybe Text)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300023"><span class="annot"><span class="annottext">Maybe Text
+environmentName :: Maybe Text
+$sel:environmentName:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679300023"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300023"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300022"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300021"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AenvironmentName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The name of the application associated with this configuration set.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_applicationName"><span class="hs-identifier hs-type">configurationSettingsDescription_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="configurationSettingsDescription_applicationName"><span class="annot"><span class="annottext">configurationSettingsDescription_applicationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_applicationName"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription -&gt; Maybe Text)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300019"><span class="annot"><span class="annottext">Maybe Text
+applicationName :: Maybe Text
+$sel:applicationName:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679300019"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300019"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300018"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300017"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AapplicationName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | If this configuration set is associated with an environment, the</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- @DeploymentStatus@ parameter indicates the deployment status of this</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- configuration set:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   @null@: This configuration is not associated with a running</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     environment.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   @pending@: This is a draft configuration that is not deployed to the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     associated environment but is in the process of deploying.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   @deployed@: This is the configuration that is currently deployed to</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     the associated running environment.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   @failed@: This is a draft configuration that failed to successfully</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     deploy.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_deploymentStatus"><span class="hs-identifier hs-type">configurationSettingsDescription_deploymentStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationDeploymentStatus.html#ConfigurationDeploymentStatus"><span class="hs-identifier hs-type">ConfigurationDeploymentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="configurationSettingsDescription_deploymentStatus"><span class="annot"><span class="annottext">configurationSettingsDescription_deploymentStatus :: (Maybe ConfigurationDeploymentStatus
+ -&gt; f (Maybe ConfigurationDeploymentStatus))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_deploymentStatus"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_deploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription
+ -&gt; Maybe ConfigurationDeploymentStatus)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe ConfigurationDeploymentStatus
+    -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe ConfigurationDeploymentStatus)
+     (Maybe ConfigurationDeploymentStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300015"><span class="annot"><span class="annottext">Maybe ConfigurationDeploymentStatus
+deploymentStatus :: Maybe ConfigurationDeploymentStatus
+$sel:deploymentStatus:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription
+-&gt; Maybe ConfigurationDeploymentStatus
+</span><a href="#local-6989586621679300015"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationDeploymentStatus
+</span><a href="#local-6989586621679300015"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300014"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300013"><span class="annot"><span class="annottext">Maybe ConfigurationDeploymentStatus
+</span><a href="#local-6989586621679300013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentStatus:ConfigurationSettingsDescription' :: Maybe ConfigurationDeploymentStatus
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AdeploymentStatus%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationDeploymentStatus
+</span><a href="#local-6989586621679300013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The name of the solution stack this configuration set uses.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_solutionStackName"><span class="hs-identifier hs-type">configurationSettingsDescription_solutionStackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="configurationSettingsDescription_solutionStackName"><span class="annot"><span class="annottext">configurationSettingsDescription_solutionStackName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_solutionStackName"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_solutionStackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription -&gt; Maybe Text)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300011"><span class="annot"><span class="annottext">Maybe Text
+solutionStackName :: Maybe Text
+$sel:solutionStackName:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679300011"><span class="hs-identifier hs-var hs-var">solutionStackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300011"><span class="hs-identifier hs-var">solutionStackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300010"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300009"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:solutionStackName:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3AsolutionStackName%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">solutionStackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Describes this configuration set.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_description"><span class="hs-identifier hs-type">configurationSettingsDescription_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="configurationSettingsDescription_description"><span class="annot"><span class="annottext">configurationSettingsDescription_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationSettingsDescription
+-&gt; f ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#configurationSettingsDescription_description"><span class="hs-identifier hs-var hs-var">configurationSettingsDescription_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationSettingsDescription -&gt; Maybe Text)
+-&gt; (ConfigurationSettingsDescription
+    -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+-&gt; Lens
+     ConfigurationSettingsDescription
+     ConfigurationSettingsDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300007"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ConfigurationSettingsDescription' :: ConfigurationSettingsDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679300007"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300007"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300006"><span class="annot"><span class="annottext">s :: ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-type">ConfigurationSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300005"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationSettingsDescription
+</span><a href="#local-6989586621679300006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ConfigurationSettingsDescription' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#%24sel%3Adescription%3AConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679300002"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConfigurationSettingsDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679300000"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ConfigurationOptionSetting]
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ConfigurationDeploymentStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ConfigurationSettingsDescription
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription%27"><span class="hs-identifier hs-var">ConfigurationSettingsDescription'</span></a></span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ConfigurationOptionSetting]
+ -&gt; Maybe ISO8601
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ConfigurationDeploymentStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ConfigurationOptionSetting]
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConfigurationDeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConfigurationSettingsDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ConfigurationOptionSetting]
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConfigurationDeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe [ConfigurationOptionSetting])
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConfigurationDeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConfigurationSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OptionSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ConfigurationOptionSetting]))
+-&gt; Either String (Maybe [ConfigurationOptionSetting])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ConfigurationOptionSetting])
+-&gt; [Node] -&gt; Either String (Maybe [ConfigurationOptionSetting])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ConfigurationOptionSetting]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConfigurationDeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConfigurationDeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConfigurationSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DateUpdated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConfigurationDeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConfigurationDeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConfigurationSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DateCreated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConfigurationDeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConfigurationDeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConfigurationSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlatformArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConfigurationDeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ConfigurationDeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConfigurationSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ConfigurationDeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ConfigurationDeploymentStatus
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ConfigurationDeploymentStatus
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe ConfigurationDeploymentStatus)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe ConfigurationDeploymentStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeploymentStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; ConfigurationSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SolutionStackName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ConfigurationSettingsDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either String ConfigurationSettingsDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679299991"><span id="local-6989586621679299993"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span></span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679299988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription.html#ConfigurationSettingsDescription"><span class="hs-identifier hs-type">ConfigurationSettingsDescription</span></a></span></span><span>
+</span><span id="line-213"></span></pre></body></html>

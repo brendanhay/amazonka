@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RobOMaker.Types.FinishedWorldsSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RobOMaker.Types.FinishedWorldsSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FailureSummary.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.FailureSummary</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about worlds that finished.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFinishedWorldsSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679374961"><span id="local-6989586621679374962"></span></span><span class="hs-keyword">data</span><span> </span><span id="FinishedWorldsSummary"><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-var">FinishedWorldsSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FinishedWorldsSummary%27"><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary%27"><span class="hs-identifier hs-var">FinishedWorldsSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of worlds that succeeded.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsucceededWorlds%3AFinishedWorldsSummary%27"><span class="annot"><span class="annottext">FinishedWorldsSummary -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#%24sel%3AsucceededWorlds%3AFinishedWorldsSummary%27"><span class="hs-identifier hs-var hs-var">succeededWorlds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Information about worlds that failed.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AfailureSummary%3AFinishedWorldsSummary%27"><span class="annot"><span class="annottext">FinishedWorldsSummary -&gt; Maybe FailureSummary
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#%24sel%3AfailureSummary%3AFinishedWorldsSummary%27"><span class="hs-identifier hs-var hs-var">failureSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FailureSummary.html#FailureSummary"><span class="hs-identifier hs-type">FailureSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The total number of finished worlds.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AfinishedCount%3AFinishedWorldsSummary%27"><span class="annot"><span class="annottext">FinishedWorldsSummary -&gt; Maybe Int
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#%24sel%3AfinishedCount%3AFinishedWorldsSummary%27"><span class="hs-identifier hs-var hs-var">finishedCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374953"><span id="local-6989586621679374955"><span class="annot"><span class="annottext">FinishedWorldsSummary -&gt; FinishedWorldsSummary -&gt; Bool
+(FinishedWorldsSummary -&gt; FinishedWorldsSummary -&gt; Bool)
+-&gt; (FinishedWorldsSummary -&gt; FinishedWorldsSummary -&gt; Bool)
+-&gt; Eq FinishedWorldsSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FinishedWorldsSummary -&gt; FinishedWorldsSummary -&gt; Bool
+$c/= :: FinishedWorldsSummary -&gt; FinishedWorldsSummary -&gt; Bool
+== :: FinishedWorldsSummary -&gt; FinishedWorldsSummary -&gt; Bool
+$c== :: FinishedWorldsSummary -&gt; FinishedWorldsSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374944"><span id="local-6989586621679374946"><span id="local-6989586621679374948"><span id="local-6989586621679374950"><span class="annot"><span class="annottext">ReadPrec [FinishedWorldsSummary]
+ReadPrec FinishedWorldsSummary
+Int -&gt; ReadS FinishedWorldsSummary
+ReadS [FinishedWorldsSummary]
+(Int -&gt; ReadS FinishedWorldsSummary)
+-&gt; ReadS [FinishedWorldsSummary]
+-&gt; ReadPrec FinishedWorldsSummary
+-&gt; ReadPrec [FinishedWorldsSummary]
+-&gt; Read FinishedWorldsSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FinishedWorldsSummary]
+$creadListPrec :: ReadPrec [FinishedWorldsSummary]
+readPrec :: ReadPrec FinishedWorldsSummary
+$creadPrec :: ReadPrec FinishedWorldsSummary
+readList :: ReadS [FinishedWorldsSummary]
+$creadList :: ReadS [FinishedWorldsSummary]
+readsPrec :: Int -&gt; ReadS FinishedWorldsSummary
+$creadsPrec :: Int -&gt; ReadS FinishedWorldsSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374937"><span id="local-6989586621679374939"><span id="local-6989586621679374941"><span class="annot"><span class="annottext">Int -&gt; FinishedWorldsSummary -&gt; ShowS
+[FinishedWorldsSummary] -&gt; ShowS
+FinishedWorldsSummary -&gt; String
+(Int -&gt; FinishedWorldsSummary -&gt; ShowS)
+-&gt; (FinishedWorldsSummary -&gt; String)
+-&gt; ([FinishedWorldsSummary] -&gt; ShowS)
+-&gt; Show FinishedWorldsSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FinishedWorldsSummary] -&gt; ShowS
+$cshowList :: [FinishedWorldsSummary] -&gt; ShowS
+show :: FinishedWorldsSummary -&gt; String
+$cshow :: FinishedWorldsSummary -&gt; String
+showsPrec :: Int -&gt; FinishedWorldsSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; FinishedWorldsSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FinishedWorldsSummary -&gt; Rep FinishedWorldsSummary x)
+-&gt; (forall x. Rep FinishedWorldsSummary x -&gt; FinishedWorldsSummary)
+-&gt; Generic FinishedWorldsSummary
+forall x. Rep FinishedWorldsSummary x -&gt; FinishedWorldsSummary
+forall x. FinishedWorldsSummary -&gt; Rep FinishedWorldsSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FinishedWorldsSummary x -&gt; FinishedWorldsSummary
+$cfrom :: forall x. FinishedWorldsSummary -&gt; Rep FinishedWorldsSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'FinishedWorldsSummary' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'succeededWorlds', 'finishedWorldsSummary_succeededWorlds' - A list of worlds that succeeded.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'failureSummary', 'finishedWorldsSummary_failureSummary' - Information about worlds that failed.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'finishedCount', 'finishedWorldsSummary_finishedCount' - The total number of finished worlds.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#newFinishedWorldsSummary"><span class="hs-identifier hs-type">newFinishedWorldsSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span><span>
+</span><span id="line-55"></span><span id="newFinishedWorldsSummary"><span class="annot"><span class="annottext">newFinishedWorldsSummary :: FinishedWorldsSummary
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#newFinishedWorldsSummary"><span class="hs-identifier hs-var hs-var">newFinishedWorldsSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">FinishedWorldsSummary' :: Maybe (NonEmpty Text)
+-&gt; Maybe FailureSummary -&gt; Maybe Int -&gt; FinishedWorldsSummary
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary%27"><span class="hs-identifier hs-type">FinishedWorldsSummary'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:succeededWorlds:FinishedWorldsSummary' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#%24sel%3AsucceededWorlds%3AFinishedWorldsSummary%27"><span class="hs-identifier hs-var">succeededWorlds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureSummary:FinishedWorldsSummary' :: Maybe FailureSummary
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#%24sel%3AfailureSummary%3AFinishedWorldsSummary%27"><span class="hs-identifier hs-var">failureSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailureSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:finishedCount:FinishedWorldsSummary' :: Maybe Int
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#%24sel%3AfinishedCount%3AFinishedWorldsSummary%27"><span class="hs-identifier hs-var">finishedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | A list of worlds that succeeded.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#finishedWorldsSummary_succeededWorlds"><span class="hs-identifier hs-type">finishedWorldsSummary_succeededWorlds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="finishedWorldsSummary_succeededWorlds"><span class="annot"><span class="annottext">finishedWorldsSummary_succeededWorlds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; FinishedWorldsSummary -&gt; f FinishedWorldsSummary
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#finishedWorldsSummary_succeededWorlds"><span class="hs-identifier hs-var hs-var">finishedWorldsSummary_succeededWorlds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FinishedWorldsSummary -&gt; Maybe (NonEmpty Text))
+-&gt; (FinishedWorldsSummary
+    -&gt; Maybe (NonEmpty Text) -&gt; FinishedWorldsSummary)
+-&gt; Lens
+     FinishedWorldsSummary
+     FinishedWorldsSummary
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary%27"><span class="hs-identifier hs-type">FinishedWorldsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374928"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+succeededWorlds :: Maybe (NonEmpty Text)
+$sel:succeededWorlds:FinishedWorldsSummary' :: FinishedWorldsSummary -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679374928"><span class="hs-identifier hs-var hs-var">succeededWorlds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679374928"><span class="hs-identifier hs-var">succeededWorlds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374927"><span class="annot"><span class="annottext">s :: FinishedWorldsSummary
+</span><a href="#local-6989586621679374927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary%27"><span class="hs-identifier hs-type">FinishedWorldsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374926"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679374926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FinishedWorldsSummary
+</span><a href="#local-6989586621679374927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:succeededWorlds:FinishedWorldsSummary' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#%24sel%3AsucceededWorlds%3AFinishedWorldsSummary%27"><span class="hs-identifier hs-var">succeededWorlds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679374926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; FinishedWorldsSummary -&gt; f FinishedWorldsSummary)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; FinishedWorldsSummary
+-&gt; f FinishedWorldsSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Information about worlds that failed.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#finishedWorldsSummary_failureSummary"><span class="hs-identifier hs-type">finishedWorldsSummary_failureSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FailureSummary.html#FailureSummary"><span class="hs-identifier hs-type">FailureSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="finishedWorldsSummary_failureSummary"><span class="annot"><span class="annottext">finishedWorldsSummary_failureSummary :: (Maybe FailureSummary -&gt; f (Maybe FailureSummary))
+-&gt; FinishedWorldsSummary -&gt; f FinishedWorldsSummary
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#finishedWorldsSummary_failureSummary"><span class="hs-identifier hs-var hs-var">finishedWorldsSummary_failureSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FinishedWorldsSummary -&gt; Maybe FailureSummary)
+-&gt; (FinishedWorldsSummary
+    -&gt; Maybe FailureSummary -&gt; FinishedWorldsSummary)
+-&gt; Lens
+     FinishedWorldsSummary
+     FinishedWorldsSummary
+     (Maybe FailureSummary)
+     (Maybe FailureSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary%27"><span class="hs-identifier hs-type">FinishedWorldsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374921"><span class="annot"><span class="annottext">Maybe FailureSummary
+failureSummary :: Maybe FailureSummary
+$sel:failureSummary:FinishedWorldsSummary' :: FinishedWorldsSummary -&gt; Maybe FailureSummary
+</span><a href="#local-6989586621679374921"><span class="hs-identifier hs-var hs-var">failureSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FailureSummary
+</span><a href="#local-6989586621679374921"><span class="hs-identifier hs-var">failureSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374920"><span class="annot"><span class="annottext">s :: FinishedWorldsSummary
+</span><a href="#local-6989586621679374920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary%27"><span class="hs-identifier hs-type">FinishedWorldsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374919"><span class="annot"><span class="annottext">Maybe FailureSummary
+</span><a href="#local-6989586621679374919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FinishedWorldsSummary
+</span><a href="#local-6989586621679374920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureSummary:FinishedWorldsSummary' :: Maybe FailureSummary
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#%24sel%3AfailureSummary%3AFinishedWorldsSummary%27"><span class="hs-identifier hs-var">failureSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailureSummary
+</span><a href="#local-6989586621679374919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The total number of finished worlds.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#finishedWorldsSummary_finishedCount"><span class="hs-identifier hs-type">finishedWorldsSummary_finishedCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="finishedWorldsSummary_finishedCount"><span class="annot"><span class="annottext">finishedWorldsSummary_finishedCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; FinishedWorldsSummary -&gt; f FinishedWorldsSummary
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#finishedWorldsSummary_finishedCount"><span class="hs-identifier hs-var hs-var">finishedWorldsSummary_finishedCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FinishedWorldsSummary -&gt; Maybe Int)
+-&gt; (FinishedWorldsSummary -&gt; Maybe Int -&gt; FinishedWorldsSummary)
+-&gt; Lens
+     FinishedWorldsSummary FinishedWorldsSummary (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary%27"><span class="hs-identifier hs-type">FinishedWorldsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374917"><span class="annot"><span class="annottext">Maybe Int
+finishedCount :: Maybe Int
+$sel:finishedCount:FinishedWorldsSummary' :: FinishedWorldsSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679374917"><span class="hs-identifier hs-var hs-var">finishedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679374917"><span class="hs-identifier hs-var">finishedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374916"><span class="annot"><span class="annottext">s :: FinishedWorldsSummary
+</span><a href="#local-6989586621679374916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary%27"><span class="hs-identifier hs-type">FinishedWorldsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374915"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679374915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FinishedWorldsSummary
+</span><a href="#local-6989586621679374916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finishedCount:FinishedWorldsSummary' :: Maybe Int
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#%24sel%3AfinishedCount%3AFinishedWorldsSummary%27"><span class="hs-identifier hs-var">finishedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679374915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374912"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679374910"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FinishedWorldsSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FinishedWorldsSummary)
+-&gt; Value
+-&gt; Parser FinishedWorldsSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FinishedWorldsSummary&quot;</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374907"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374907"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe FailureSummary -&gt; Maybe Int -&gt; FinishedWorldsSummary
+</span><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary%27"><span class="hs-identifier hs-var">FinishedWorldsSummary'</span></a></span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe FailureSummary -&gt; Maybe Int -&gt; FinishedWorldsSummary)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser
+     (Maybe FailureSummary -&gt; Maybe Int -&gt; FinishedWorldsSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;succeededWorlds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FailureSummary -&gt; Maybe Int -&gt; FinishedWorldsSummary)
+-&gt; Parser (Maybe FailureSummary)
+-&gt; Parser (Maybe Int -&gt; FinishedWorldsSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FailureSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; FinishedWorldsSummary)
+-&gt; Parser (Maybe Int) -&gt; Parser FinishedWorldsSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;finishedCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374901"><span id="local-6989586621679374903"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.FinishedWorldsSummary.html#FinishedWorldsSummary"><span class="hs-identifier hs-type">FinishedWorldsSummary</span></a></span></span><span>
+</span><span id="line-89"></span></pre></body></html>

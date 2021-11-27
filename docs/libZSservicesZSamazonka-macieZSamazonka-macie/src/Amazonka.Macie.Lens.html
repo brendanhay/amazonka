@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-4"></span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Module      : Amazonka.Macie.Lens</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-14"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Macie.Lens</span><span>
+</span><span id="line-15"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-16"></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** AssociateS3Resources</span></span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.AssociateS3Resources.html#associateS3Resources_memberAccountId"><span class="hs-identifier">associateS3Resources_memberAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.AssociateS3Resources.html#associateS3Resources_s3Resources"><span class="hs-identifier">associateS3Resources_s3Resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.AssociateS3Resources.html#associateS3ResourcesResponse_failedS3Resources"><span class="hs-identifier">associateS3ResourcesResponse_failedS3Resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.AssociateS3Resources.html#associateS3ResourcesResponse_httpStatus"><span class="hs-identifier">associateS3ResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** AssociateMemberAccount</span></span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.AssociateMemberAccount.html#associateMemberAccount_memberAccountId"><span class="hs-identifier">associateMemberAccount_memberAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UpdateS3Resources</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.UpdateS3Resources.html#updateS3Resources_memberAccountId"><span class="hs-identifier">updateS3Resources_memberAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.UpdateS3Resources.html#updateS3Resources_s3ResourcesUpdate"><span class="hs-identifier">updateS3Resources_s3ResourcesUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.UpdateS3Resources.html#updateS3ResourcesResponse_failedS3Resources"><span class="hs-identifier">updateS3ResourcesResponse_failedS3Resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.UpdateS3Resources.html#updateS3ResourcesResponse_httpStatus"><span class="hs-identifier">updateS3ResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListMemberAccounts</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListMemberAccounts.html#listMemberAccounts_nextToken"><span class="hs-identifier">listMemberAccounts_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListMemberAccounts.html#listMemberAccounts_maxResults"><span class="hs-identifier">listMemberAccounts_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListMemberAccounts.html#listMemberAccountsResponse_nextToken"><span class="hs-identifier">listMemberAccountsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListMemberAccounts.html#listMemberAccountsResponse_memberAccounts"><span class="hs-identifier">listMemberAccountsResponse_memberAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListMemberAccounts.html#listMemberAccountsResponse_httpStatus"><span class="hs-identifier">listMemberAccountsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DisassociateMemberAccount</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.DisassociateMemberAccount.html#disassociateMemberAccount_memberAccountId"><span class="hs-identifier">disassociateMemberAccount_memberAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListS3Resources</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListS3Resources.html#listS3Resources_memberAccountId"><span class="hs-identifier">listS3Resources_memberAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListS3Resources.html#listS3Resources_nextToken"><span class="hs-identifier">listS3Resources_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListS3Resources.html#listS3Resources_maxResults"><span class="hs-identifier">listS3Resources_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListS3Resources.html#listS3ResourcesResponse_nextToken"><span class="hs-identifier">listS3ResourcesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListS3Resources.html#listS3ResourcesResponse_s3Resources"><span class="hs-identifier">listS3ResourcesResponse_s3Resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.ListS3Resources.html#listS3ResourcesResponse_httpStatus"><span class="hs-identifier">listS3ResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DisassociateS3Resources</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.DisassociateS3Resources.html#disassociateS3Resources_memberAccountId"><span class="hs-identifier">disassociateS3Resources_memberAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.DisassociateS3Resources.html#disassociateS3Resources_associatedS3Resources"><span class="hs-identifier">disassociateS3Resources_associatedS3Resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.DisassociateS3Resources.html#disassociateS3ResourcesResponse_failedS3Resources"><span class="hs-identifier">disassociateS3ResourcesResponse_failedS3Resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.DisassociateS3Resources.html#disassociateS3ResourcesResponse_httpStatus"><span class="hs-identifier">disassociateS3ResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ClassificationType</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationType.html#classificationType_oneTime"><span class="hs-identifier">classificationType_oneTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationType.html#classificationType_continuous"><span class="hs-identifier">classificationType_continuous</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ClassificationTypeUpdate</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationTypeUpdate.html#classificationTypeUpdate_continuous"><span class="hs-identifier">classificationTypeUpdate_continuous</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationTypeUpdate.html#classificationTypeUpdate_oneTime"><span class="hs-identifier">classificationTypeUpdate_oneTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** FailedS3Resource</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.FailedS3Resource.html#failedS3Resource_errorCode"><span class="hs-identifier">failedS3Resource_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.FailedS3Resource.html#failedS3Resource_errorMessage"><span class="hs-identifier">failedS3Resource_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.FailedS3Resource.html#failedS3Resource_failedItem"><span class="hs-identifier">failedS3Resource_failedItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** MemberAccount</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.MemberAccount.html#memberAccount_accountId"><span class="hs-identifier">memberAccount_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** S3Resource</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3Resource.html#s3Resource_prefix"><span class="hs-identifier">s3Resource_prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3Resource.html#s3Resource_bucketName"><span class="hs-identifier">s3Resource_bucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** S3ResourceClassification</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassification.html#s3ResourceClassification_prefix"><span class="hs-identifier">s3ResourceClassification_prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassification.html#s3ResourceClassification_bucketName"><span class="hs-identifier">s3ResourceClassification_bucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassification.html#s3ResourceClassification_classificationType"><span class="hs-identifier">s3ResourceClassification_classificationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** S3ResourceClassificationUpdate</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#s3ResourceClassificationUpdate_prefix"><span class="hs-identifier">s3ResourceClassificationUpdate_prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#s3ResourceClassificationUpdate_bucketName"><span class="hs-identifier">s3ResourceClassificationUpdate_bucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html#s3ResourceClassificationUpdate_classificationTypeUpdate"><span class="hs-identifier">s3ResourceClassificationUpdate_classificationTypeUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.AssociateMemberAccount.html"><span class="hs-identifier">Amazonka.Macie.AssociateMemberAccount</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.AssociateS3Resources.html"><span class="hs-identifier">Amazonka.Macie.AssociateS3Resources</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.DisassociateMemberAccount.html"><span class="hs-identifier">Amazonka.Macie.DisassociateMemberAccount</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.DisassociateS3Resources.html"><span class="hs-identifier">Amazonka.Macie.DisassociateS3Resources</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.ListMemberAccounts.html"><span class="hs-identifier">Amazonka.Macie.ListMemberAccounts</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.ListS3Resources.html"><span class="hs-identifier">Amazonka.Macie.ListS3Resources</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationType.html"><span class="hs-identifier">Amazonka.Macie.Types.ClassificationType</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.ClassificationTypeUpdate.html"><span class="hs-identifier">Amazonka.Macie.Types.ClassificationTypeUpdate</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.FailedS3Resource.html"><span class="hs-identifier">Amazonka.Macie.Types.FailedS3Resource</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.MemberAccount.html"><span class="hs-identifier">Amazonka.Macie.Types.MemberAccount</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3Resource.html"><span class="hs-identifier">Amazonka.Macie.Types.S3Resource</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassification.html"><span class="hs-identifier">Amazonka.Macie.Types.S3ResourceClassification</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.Types.S3ResourceClassificationUpdate.html"><span class="hs-identifier">Amazonka.Macie.Types.S3ResourceClassificationUpdate</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Macie.UpdateS3Resources.html"><span class="hs-identifier">Amazonka.Macie.UpdateS3Resources</span></a></span><span>
+</span><span id="line-104"></span></pre></body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.Types.SkillTypeFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.Types.SkillTypeFilter</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter"><span class="hs-identifier">SkillTypeFilter</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter_ALL"><span class="hs-identifier">SkillTypeFilter_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter_PRIVATE"><span class="hs-identifier">SkillTypeFilter_PRIVATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter_PUBLIC"><span class="hs-identifier">SkillTypeFilter_PUBLIC</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679372427"><span id="local-6989586621679372428"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SkillTypeFilter"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter"><span class="hs-identifier hs-var">SkillTypeFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SkillTypeFilter%27"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter%27"><span class="hs-identifier hs-var">SkillTypeFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSkillTypeFilter"><span class="annot"><span class="annottext">SkillTypeFilter -&gt; Text
+</span><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#fromSkillTypeFilter"><span class="hs-identifier hs-var hs-var">fromSkillTypeFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372419"><span id="local-6989586621679372421"><span id="local-6989586621679372423"><span class="annot"><span class="annottext">Int -&gt; SkillTypeFilter -&gt; ShowS
+[SkillTypeFilter] -&gt; ShowS
+SkillTypeFilter -&gt; String
+(Int -&gt; SkillTypeFilter -&gt; ShowS)
+-&gt; (SkillTypeFilter -&gt; String)
+-&gt; ([SkillTypeFilter] -&gt; ShowS)
+-&gt; Show SkillTypeFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SkillTypeFilter] -&gt; ShowS
+$cshowList :: [SkillTypeFilter] -&gt; ShowS
+show :: SkillTypeFilter -&gt; String
+$cshow :: SkillTypeFilter -&gt; String
+showsPrec :: Int -&gt; SkillTypeFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; SkillTypeFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679372410"><span id="local-6989586621679372412"><span id="local-6989586621679372414"><span id="local-6989586621679372416"><span class="annot"><span class="annottext">ReadPrec [SkillTypeFilter]
+ReadPrec SkillTypeFilter
+Int -&gt; ReadS SkillTypeFilter
+ReadS [SkillTypeFilter]
+(Int -&gt; ReadS SkillTypeFilter)
+-&gt; ReadS [SkillTypeFilter]
+-&gt; ReadPrec SkillTypeFilter
+-&gt; ReadPrec [SkillTypeFilter]
+-&gt; Read SkillTypeFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SkillTypeFilter]
+$creadListPrec :: ReadPrec [SkillTypeFilter]
+readPrec :: ReadPrec SkillTypeFilter
+$creadPrec :: ReadPrec SkillTypeFilter
+readList :: ReadS [SkillTypeFilter]
+$creadList :: ReadS [SkillTypeFilter]
+readsPrec :: Int -&gt; ReadS SkillTypeFilter
+$creadsPrec :: Int -&gt; ReadS SkillTypeFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372405"><span id="local-6989586621679372407"><span class="annot"><span class="annottext">SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+(SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool)
+-&gt; (SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool)
+-&gt; Eq SkillTypeFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+$c/= :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+== :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+$c== :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679372389"><span id="local-6989586621679372391"><span id="local-6989586621679372393"><span id="local-6989586621679372395"><span id="local-6989586621679372397"><span id="local-6989586621679372399"><span id="local-6989586621679372401"><span class="annot"><span class="annottext">Eq SkillTypeFilter
+Eq SkillTypeFilter
+-&gt; (SkillTypeFilter -&gt; SkillTypeFilter -&gt; Ordering)
+-&gt; (SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool)
+-&gt; (SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool)
+-&gt; (SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool)
+-&gt; (SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool)
+-&gt; (SkillTypeFilter -&gt; SkillTypeFilter -&gt; SkillTypeFilter)
+-&gt; (SkillTypeFilter -&gt; SkillTypeFilter -&gt; SkillTypeFilter)
+-&gt; Ord SkillTypeFilter
+SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+SkillTypeFilter -&gt; SkillTypeFilter -&gt; Ordering
+SkillTypeFilter -&gt; SkillTypeFilter -&gt; SkillTypeFilter
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; SkillTypeFilter
+$cmin :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; SkillTypeFilter
+max :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; SkillTypeFilter
+$cmax :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; SkillTypeFilter
+&gt;= :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+$c&gt;= :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+&gt; :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+$c&gt; :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+&lt;= :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+$c&lt;= :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+&lt; :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+$c&lt; :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Bool
+compare :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Ordering
+$ccompare :: SkillTypeFilter -&gt; SkillTypeFilter -&gt; Ordering
+$cp1Ord :: Eq SkillTypeFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SkillTypeFilter -&gt; Rep SkillTypeFilter x)
+-&gt; (forall x. Rep SkillTypeFilter x -&gt; SkillTypeFilter)
+-&gt; Generic SkillTypeFilter
+forall x. Rep SkillTypeFilter x -&gt; SkillTypeFilter
+forall x. SkillTypeFilter -&gt; Rep SkillTypeFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SkillTypeFilter x -&gt; SkillTypeFilter
+$cfrom :: forall x. SkillTypeFilter -&gt; Rep SkillTypeFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372381"><span id="local-6989586621679372383"><span class="annot"><span class="annottext">Int -&gt; SkillTypeFilter -&gt; Int
+SkillTypeFilter -&gt; Int
+(Int -&gt; SkillTypeFilter -&gt; Int)
+-&gt; (SkillTypeFilter -&gt; Int) -&gt; Hashable SkillTypeFilter
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SkillTypeFilter -&gt; Int
+$chash :: SkillTypeFilter -&gt; Int
+hashWithSalt :: Int -&gt; SkillTypeFilter -&gt; Int
+$chashWithSalt :: Int -&gt; SkillTypeFilter -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372378"><span class="annot"><span class="annottext">SkillTypeFilter -&gt; ()
+(SkillTypeFilter -&gt; ()) -&gt; NFData SkillTypeFilter
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SkillTypeFilter -&gt; ()
+$crnf :: SkillTypeFilter -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372375"><span class="annot"><span class="annottext">Text -&gt; Either String SkillTypeFilter
+(Text -&gt; Either String SkillTypeFilter) -&gt; FromText SkillTypeFilter
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SkillTypeFilter
+$cfromText :: Text -&gt; Either String SkillTypeFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372372"><span class="annot"><span class="annottext">SkillTypeFilter -&gt; Text
+(SkillTypeFilter -&gt; Text) -&gt; ToText SkillTypeFilter
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SkillTypeFilter -&gt; Text
+$ctoText :: SkillTypeFilter -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372369"><span class="annot"><span class="annottext">SkillTypeFilter -&gt; ByteString
+(SkillTypeFilter -&gt; ByteString) -&gt; ToByteString SkillTypeFilter
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SkillTypeFilter -&gt; ByteString
+$ctoBS :: SkillTypeFilter -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372366"><span class="annot"><span class="annottext">SkillTypeFilter -&gt; ByteStringBuilder
+(SkillTypeFilter -&gt; ByteStringBuilder) -&gt; ToLog SkillTypeFilter
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SkillTypeFilter -&gt; ByteStringBuilder
+$cbuild :: SkillTypeFilter -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372363"><span class="annot"><span class="annottext">HeaderName -&gt; SkillTypeFilter -&gt; [Header]
+(HeaderName -&gt; SkillTypeFilter -&gt; [Header])
+-&gt; ToHeader SkillTypeFilter
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SkillTypeFilter -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SkillTypeFilter -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372360"><span class="annot"><span class="annottext">SkillTypeFilter -&gt; QueryString
+(SkillTypeFilter -&gt; QueryString) -&gt; ToQuery SkillTypeFilter
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SkillTypeFilter -&gt; QueryString
+$ctoQuery :: SkillTypeFilter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372355"><span id="local-6989586621679372357"><span class="annot"><span class="annottext">Value -&gt; Parser [SkillTypeFilter]
+Value -&gt; Parser SkillTypeFilter
+(Value -&gt; Parser SkillTypeFilter)
+-&gt; (Value -&gt; Parser [SkillTypeFilter]) -&gt; FromJSON SkillTypeFilter
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SkillTypeFilter]
+$cparseJSONList :: Value -&gt; Parser [SkillTypeFilter]
+parseJSON :: Value -&gt; Parser SkillTypeFilter
+$cparseJSON :: Value -&gt; Parser SkillTypeFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372350"><span id="local-6989586621679372352"><span class="annot"><span class="annottext">FromJSONKeyFunction [SkillTypeFilter]
+FromJSONKeyFunction SkillTypeFilter
+FromJSONKeyFunction SkillTypeFilter
+-&gt; FromJSONKeyFunction [SkillTypeFilter]
+-&gt; FromJSONKey SkillTypeFilter
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SkillTypeFilter]
+$cfromJSONKeyList :: FromJSONKeyFunction [SkillTypeFilter]
+fromJSONKey :: FromJSONKeyFunction SkillTypeFilter
+$cfromJSONKey :: FromJSONKeyFunction SkillTypeFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372341"><span id="local-6989586621679372343"><span id="local-6989586621679372345"><span id="local-6989586621679372347"><span class="annot"><span class="annottext">[SkillTypeFilter] -&gt; Encoding
+[SkillTypeFilter] -&gt; Value
+SkillTypeFilter -&gt; Encoding
+SkillTypeFilter -&gt; Value
+(SkillTypeFilter -&gt; Value)
+-&gt; (SkillTypeFilter -&gt; Encoding)
+-&gt; ([SkillTypeFilter] -&gt; Value)
+-&gt; ([SkillTypeFilter] -&gt; Encoding)
+-&gt; ToJSON SkillTypeFilter
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SkillTypeFilter] -&gt; Encoding
+$ctoEncodingList :: [SkillTypeFilter] -&gt; Encoding
+toJSONList :: [SkillTypeFilter] -&gt; Value
+$ctoJSONList :: [SkillTypeFilter] -&gt; Value
+toEncoding :: SkillTypeFilter -&gt; Encoding
+$ctoEncoding :: SkillTypeFilter -&gt; Encoding
+toJSON :: SkillTypeFilter -&gt; Value
+$ctoJSON :: SkillTypeFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372336"><span id="local-6989586621679372338"><span class="annot"><span class="annottext">ToJSONKeyFunction [SkillTypeFilter]
+ToJSONKeyFunction SkillTypeFilter
+ToJSONKeyFunction SkillTypeFilter
+-&gt; ToJSONKeyFunction [SkillTypeFilter] -&gt; ToJSONKey SkillTypeFilter
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SkillTypeFilter]
+$ctoJSONKeyList :: ToJSONKeyFunction [SkillTypeFilter]
+toJSONKey :: ToJSONKeyFunction SkillTypeFilter
+$ctoJSONKey :: ToJSONKeyFunction SkillTypeFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372333"><span class="annot"><span class="annottext">[Node] -&gt; Either String SkillTypeFilter
+([Node] -&gt; Either String SkillTypeFilter)
+-&gt; FromXML SkillTypeFilter
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SkillTypeFilter
+$cparseXML :: [Node] -&gt; Either String SkillTypeFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679372330"><span class="annot"><span class="annottext">SkillTypeFilter -&gt; XML
+(SkillTypeFilter -&gt; XML) -&gt; ToXML SkillTypeFilter
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SkillTypeFilter -&gt; XML
+$ctoXML :: SkillTypeFilter -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter_ALL"><span class="hs-identifier hs-type">SkillTypeFilter_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter"><span class="hs-identifier hs-type">SkillTypeFilter</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSkillTypeFilter_ALL"><span id="%24mSkillTypeFilter_ALL"><span id="SkillTypeFilter_ALL"><span class="annot"><span class="annottext">$bSkillTypeFilter_ALL :: SkillTypeFilter
+$mSkillTypeFilter_ALL :: forall r. SkillTypeFilter -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#%24bSkillTypeFilter_ALL"><span class="hs-identifier hs-var hs-var hs-var">SkillTypeFilter_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter%27"><span class="hs-identifier hs-type">SkillTypeFilter'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALL&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter_PRIVATE"><span class="hs-identifier hs-type">SkillTypeFilter_PRIVATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter"><span class="hs-identifier hs-type">SkillTypeFilter</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSkillTypeFilter_PRIVATE"><span id="%24mSkillTypeFilter_PRIVATE"><span id="SkillTypeFilter_PRIVATE"><span class="annot"><span class="annottext">$bSkillTypeFilter_PRIVATE :: SkillTypeFilter
+$mSkillTypeFilter_PRIVATE :: forall r. SkillTypeFilter -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#%24bSkillTypeFilter_PRIVATE"><span class="hs-identifier hs-var hs-var hs-var">SkillTypeFilter_PRIVATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter%27"><span class="hs-identifier hs-type">SkillTypeFilter'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRIVATE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter_PUBLIC"><span class="hs-identifier hs-type">SkillTypeFilter_PUBLIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter"><span class="hs-identifier hs-type">SkillTypeFilter</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSkillTypeFilter_PUBLIC"><span id="%24mSkillTypeFilter_PUBLIC"><span id="SkillTypeFilter_PUBLIC"><span class="annot"><span class="annottext">$bSkillTypeFilter_PUBLIC :: SkillTypeFilter
+$mSkillTypeFilter_PUBLIC :: forall r. SkillTypeFilter -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#%24bSkillTypeFilter_PUBLIC"><span class="hs-identifier hs-var hs-var hs-var">SkillTypeFilter_PUBLIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter%27"><span class="hs-identifier hs-type">SkillTypeFilter'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PUBLIC&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter_ALL"><span class="hs-pragma hs-type">SkillTypeFilter_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter_PRIVATE"><span class="hs-pragma hs-type">SkillTypeFilter_PRIVATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter_PUBLIC"><span class="hs-pragma hs-type">SkillTypeFilter_PUBLIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SkillTypeFilter.html#SkillTypeFilter%27"><span class="hs-pragma hs-type">SkillTypeFilter'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,1015 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LexModels.GetMigration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides details about an ongoing or complete migration from an Amazon</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Lex V1 bot to an Amazon Lex V2 bot. Use this operation to view the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- migration alerts and warnings related to the migration.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LexModels.GetMigration</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier">GetMigration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#newGetMigration"><span class="hs-identifier">newGetMigration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigration_migrationId"><span class="hs-identifier">getMigration_migrationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#newGetMigrationResponse"><span class="hs-identifier">newGetMigrationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v1BotVersion"><span class="hs-identifier">getMigrationResponse_v1BotVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationStrategy"><span class="hs-identifier">getMigrationResponse_migrationStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationTimestamp"><span class="hs-identifier">getMigrationResponse_migrationTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_alerts"><span class="hs-identifier">getMigrationResponse_alerts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationStatus"><span class="hs-identifier">getMigrationResponse_migrationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v2BotId"><span class="hs-identifier">getMigrationResponse_v2BotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v1BotLocale"><span class="hs-identifier">getMigrationResponse_v1BotLocale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v1BotName"><span class="hs-identifier">getMigrationResponse_v1BotName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v2BotRole"><span class="hs-identifier">getMigrationResponse_v2BotRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationId"><span class="hs-identifier">getMigrationResponse_migrationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_httpStatus"><span class="hs-identifier">getMigrationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.html"><span class="hs-identifier">Amazonka.LexModels.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newGetMigration' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679321618"><span id="local-6989586621679321619"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMigration"><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-var">GetMigration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMigration%27"><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration%27"><span class="hs-identifier hs-var">GetMigration'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the migration to view. The @migrationID@ is</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- returned by the operation.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmigrationId%3AGetMigration%27"><span class="annot"><span class="annottext">GetMigration -&gt; Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationId%3AGetMigration%27"><span class="hs-identifier hs-var hs-var">migrationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321612"><span id="local-6989586621679321614"><span class="annot"><span class="annottext">GetMigration -&gt; GetMigration -&gt; Bool
+(GetMigration -&gt; GetMigration -&gt; Bool)
+-&gt; (GetMigration -&gt; GetMigration -&gt; Bool) -&gt; Eq GetMigration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMigration -&gt; GetMigration -&gt; Bool
+$c/= :: GetMigration -&gt; GetMigration -&gt; Bool
+== :: GetMigration -&gt; GetMigration -&gt; Bool
+$c== :: GetMigration -&gt; GetMigration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321603"><span id="local-6989586621679321605"><span id="local-6989586621679321607"><span id="local-6989586621679321609"><span class="annot"><span class="annottext">ReadPrec [GetMigration]
+ReadPrec GetMigration
+Int -&gt; ReadS GetMigration
+ReadS [GetMigration]
+(Int -&gt; ReadS GetMigration)
+-&gt; ReadS [GetMigration]
+-&gt; ReadPrec GetMigration
+-&gt; ReadPrec [GetMigration]
+-&gt; Read GetMigration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMigration]
+$creadListPrec :: ReadPrec [GetMigration]
+readPrec :: ReadPrec GetMigration
+$creadPrec :: ReadPrec GetMigration
+readList :: ReadS [GetMigration]
+$creadList :: ReadS [GetMigration]
+readsPrec :: Int -&gt; ReadS GetMigration
+$creadsPrec :: Int -&gt; ReadS GetMigration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321596"><span id="local-6989586621679321598"><span id="local-6989586621679321600"><span class="annot"><span class="annottext">Int -&gt; GetMigration -&gt; ShowS
+[GetMigration] -&gt; ShowS
+GetMigration -&gt; String
+(Int -&gt; GetMigration -&gt; ShowS)
+-&gt; (GetMigration -&gt; String)
+-&gt; ([GetMigration] -&gt; ShowS)
+-&gt; Show GetMigration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMigration] -&gt; ShowS
+$cshowList :: [GetMigration] -&gt; ShowS
+show :: GetMigration -&gt; String
+$cshow :: GetMigration -&gt; String
+showsPrec :: Int -&gt; GetMigration -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMigration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetMigration -&gt; Rep GetMigration x)
+-&gt; (forall x. Rep GetMigration x -&gt; GetMigration)
+-&gt; Generic GetMigration
+forall x. Rep GetMigration x -&gt; GetMigration
+forall x. GetMigration -&gt; Rep GetMigration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetMigration x -&gt; GetMigration
+$cfrom :: forall x. GetMigration -&gt; Rep GetMigration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'GetMigration' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'migrationId', 'getMigration_migrationId' - The unique identifier of the migration to view. The @migrationID@ is</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- returned by the operation.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#newGetMigration"><span class="hs-identifier hs-type">newGetMigration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'migrationId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span><span>
+</span><span id="line-82"></span><span id="newGetMigration"><span class="annot"><span class="annottext">newGetMigration :: Text -&gt; GetMigration
+</span><a href="Amazonka.LexModels.GetMigration.html#newGetMigration"><span class="hs-identifier hs-var hs-var">newGetMigration</span></a></span></span><span> </span><span id="local-6989586621679321591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321591"><span class="hs-identifier hs-var">pMigrationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">GetMigration' :: Text -&gt; GetMigration
+</span><a href="Amazonka.LexModels.GetMigration.html#GetMigration%27"><span class="hs-identifier hs-type">GetMigration'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationId:GetMigration' :: Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationId%3AGetMigration%27"><span class="hs-identifier hs-var">migrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321591"><span class="hs-identifier hs-var">pMigrationId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The unique identifier of the migration to view. The @migrationID@ is</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- returned by the operation.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigration_migrationId"><span class="hs-identifier hs-type">getMigration_migrationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="getMigration_migrationId"><span class="annot"><span class="annottext">getMigration_migrationId :: (Text -&gt; f Text) -&gt; GetMigration -&gt; f GetMigration
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigration_migrationId"><span class="hs-identifier hs-var hs-var">getMigration_migrationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigration -&gt; Text)
+-&gt; (GetMigration -&gt; Text -&gt; GetMigration)
+-&gt; Lens GetMigration GetMigration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration%27"><span class="hs-identifier hs-type">GetMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321588"><span class="annot"><span class="annottext">Text
+migrationId :: Text
+$sel:migrationId:GetMigration' :: GetMigration -&gt; Text
+</span><a href="#local-6989586621679321588"><span class="hs-identifier hs-var hs-var">migrationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321588"><span class="hs-identifier hs-var">migrationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321587"><span class="annot"><span class="annottext">s :: GetMigration
+</span><a href="#local-6989586621679321587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration%27"><span class="hs-identifier hs-type">GetMigration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321586"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigration
+</span><a href="#local-6989586621679321587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationId:GetMigration' :: Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationId%3AGetMigration%27"><span class="hs-identifier hs-var">migrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679321582"><span class="annot"><span class="annottext">request :: GetMigration -&gt; Request GetMigration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMigration -&gt; Request GetMigration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679321578"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetMigration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetMigration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetMigration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetMigration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetMigration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321575"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321575"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679321574"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679321574"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679321573"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe MigrationStrategy
+-&gt; Maybe POSIX
+-&gt; Maybe [MigrationAlert]
+-&gt; Maybe MigrationStatus
+-&gt; Maybe Text
+-&gt; Maybe Locale
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-var">GetMigrationResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe MigrationStrategy
+ -&gt; Maybe POSIX
+ -&gt; Maybe [MigrationAlert]
+ -&gt; Maybe MigrationStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Locale
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe MigrationStrategy
+      -&gt; Maybe POSIX
+      -&gt; Maybe [MigrationAlert]
+      -&gt; Maybe MigrationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;v1BotVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe MigrationStrategy
+   -&gt; Maybe POSIX
+   -&gt; Maybe [MigrationAlert]
+   -&gt; Maybe MigrationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Locale
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe MigrationStrategy)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe [MigrationAlert]
+      -&gt; Maybe MigrationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MigrationStrategy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;migrationStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe [MigrationAlert]
+   -&gt; Maybe MigrationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Locale
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe [MigrationAlert]
+      -&gt; Maybe MigrationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;migrationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [MigrationAlert]
+   -&gt; Maybe MigrationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Locale
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe [MigrationAlert])
+-&gt; Either
+     String
+     (Maybe MigrationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MigrationAlert]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alerts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MigrationAlert]))
+-&gt; Maybe [MigrationAlert] -&gt; Either String (Maybe [MigrationAlert])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MigrationAlert]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe MigrationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Locale
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe MigrationStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MigrationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;migrationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Locale
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;v2BotId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Locale
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe Locale)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Locale)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;v1BotLocale&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;v1BotName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;v2BotRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetMigrationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetMigrationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;migrationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetMigrationResponse)
+-&gt; Either String Int -&gt; Either String GetMigrationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321575"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321564"><span id="local-6989586621679321566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679321557"><span class="annot"><span class="annottext">toHeaders :: GetMigration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMigration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679321551"><span class="annot"><span class="annottext">toPath :: GetMigration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration%27"><span class="hs-identifier hs-type">GetMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321549"><span class="annot"><span class="annottext">Text
+migrationId :: Text
+$sel:migrationId:GetMigration' :: GetMigration -&gt; Text
+</span><a href="#local-6989586621679321549"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/migrations/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321549"><span class="hs-identifier hs-var">migrationId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigration"><span class="hs-identifier hs-type">GetMigration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679321545"><span class="annot"><span class="annottext">toQuery :: GetMigration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMigration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newGetMigrationResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679321542"><span id="local-6989586621679321543"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMigrationResponse"><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-var">GetMigrationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMigrationResponse%27"><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-var">GetMigrationResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3Av1BotVersion%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av1BotVersion%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">v1BotVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The strategy used to conduct the migration.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- -   @CREATE_NEW@ - Creates a new Amazon Lex V2 bot and migrates the</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--     Amazon Lex V1 bot to the new bot.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- -   @UPDATE_EXISTING@ - Overwrites the existing Amazon Lex V2 bot</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--     metadata and the locale being migrated. It doesn\'t change any other</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--     locales in the Amazon Lex V2 bot. If the locale doesn\'t exist, a</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--     new locale is created in the Amazon Lex V2 bot.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AmigrationStrategy%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe MigrationStrategy
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationStrategy%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">migrationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.MigrationStrategy.html#MigrationStrategy"><span class="hs-identifier hs-type">MigrationStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The date and time that the migration started.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AmigrationTimestamp%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationTimestamp%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">migrationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | A list of alerts and warnings that indicate issues with the migration</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- for the Amazon Lex V1 bot to Amazon Lex V2. You receive a warning when</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- an Amazon Lex V1 feature has a different implementation if Amazon Lex</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- V2.</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lexv2/latest/dg/migrate.html Migrating a bot&gt;</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- in the /Amazon Lex V2 developer guide/.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3Aalerts%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe [MigrationAlert]
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Aalerts%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">alerts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LexModels.Types.MigrationAlert.html#MigrationAlert"><span class="hs-identifier hs-type">MigrationAlert</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | Indicates the status of the migration. When the status is @COMPLETE@ the</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- migration is finished and the bot is available in Amazon Lex V2. There</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- may be alerts and warnings that need to be resolved to complete the</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- migration.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AmigrationStatus%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe MigrationStatus
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationStatus%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">migrationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-type">MigrationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the Amazon Lex V2 bot that the Amazon Lex V1 is</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- being migrated to.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3Av2BotId%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av2BotId%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">v2BotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3Av1BotLocale%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe Locale
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av1BotLocale%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">v1BotLocale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Lex V1 bot migrated to Amazon Lex V2.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3Av1BotName%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av1BotName%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">v1BotName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Av2BotRole%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av2BotRole%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">v2BotRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the migration. This is the same as the</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- identifier used when calling the @GetMigration@ operation.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AmigrationId%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationId%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">migrationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMigrationResponse%27"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; Int
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AhttpStatus%3AGetMigrationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321527"><span id="local-6989586621679321529"><span class="annot"><span class="annottext">GetMigrationResponse -&gt; GetMigrationResponse -&gt; Bool
+(GetMigrationResponse -&gt; GetMigrationResponse -&gt; Bool)
+-&gt; (GetMigrationResponse -&gt; GetMigrationResponse -&gt; Bool)
+-&gt; Eq GetMigrationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMigrationResponse -&gt; GetMigrationResponse -&gt; Bool
+$c/= :: GetMigrationResponse -&gt; GetMigrationResponse -&gt; Bool
+== :: GetMigrationResponse -&gt; GetMigrationResponse -&gt; Bool
+$c== :: GetMigrationResponse -&gt; GetMigrationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321519"><span id="local-6989586621679321521"><span id="local-6989586621679321523"><span id="local-6989586621679321525"><span class="annot"><span class="annottext">ReadPrec [GetMigrationResponse]
+ReadPrec GetMigrationResponse
+Int -&gt; ReadS GetMigrationResponse
+ReadS [GetMigrationResponse]
+(Int -&gt; ReadS GetMigrationResponse)
+-&gt; ReadS [GetMigrationResponse]
+-&gt; ReadPrec GetMigrationResponse
+-&gt; ReadPrec [GetMigrationResponse]
+-&gt; Read GetMigrationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMigrationResponse]
+$creadListPrec :: ReadPrec [GetMigrationResponse]
+readPrec :: ReadPrec GetMigrationResponse
+$creadPrec :: ReadPrec GetMigrationResponse
+readList :: ReadS [GetMigrationResponse]
+$creadList :: ReadS [GetMigrationResponse]
+readsPrec :: Int -&gt; ReadS GetMigrationResponse
+$creadsPrec :: Int -&gt; ReadS GetMigrationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321513"><span id="local-6989586621679321515"><span id="local-6989586621679321517"><span class="annot"><span class="annottext">Int -&gt; GetMigrationResponse -&gt; ShowS
+[GetMigrationResponse] -&gt; ShowS
+GetMigrationResponse -&gt; String
+(Int -&gt; GetMigrationResponse -&gt; ShowS)
+-&gt; (GetMigrationResponse -&gt; String)
+-&gt; ([GetMigrationResponse] -&gt; ShowS)
+-&gt; Show GetMigrationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMigrationResponse] -&gt; ShowS
+$cshowList :: [GetMigrationResponse] -&gt; ShowS
+show :: GetMigrationResponse -&gt; String
+$cshow :: GetMigrationResponse -&gt; String
+showsPrec :: Int -&gt; GetMigrationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMigrationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetMigrationResponse -&gt; Rep GetMigrationResponse x)
+-&gt; (forall x. Rep GetMigrationResponse x -&gt; GetMigrationResponse)
+-&gt; Generic GetMigrationResponse
+forall x. Rep GetMigrationResponse x -&gt; GetMigrationResponse
+forall x. GetMigrationResponse -&gt; Rep GetMigrationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetMigrationResponse x -&gt; GetMigrationResponse
+$cfrom :: forall x. GetMigrationResponse -&gt; Rep GetMigrationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'GetMigrationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'v1BotVersion', 'getMigrationResponse_v1BotVersion' - The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'migrationStrategy', 'getMigrationResponse_migrationStrategy' - The strategy used to conduct the migration.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   @CREATE_NEW@ - Creates a new Amazon Lex V2 bot and migrates the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     Amazon Lex V1 bot to the new bot.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   @UPDATE_EXISTING@ - Overwrites the existing Amazon Lex V2 bot</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     metadata and the locale being migrated. It doesn\'t change any other</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     locales in the Amazon Lex V2 bot. If the locale doesn\'t exist, a</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     new locale is created in the Amazon Lex V2 bot.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'migrationTimestamp', 'getMigrationResponse_migrationTimestamp' - The date and time that the migration started.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'alerts', 'getMigrationResponse_alerts' - A list of alerts and warnings that indicate issues with the migration</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- for the Amazon Lex V1 bot to Amazon Lex V2. You receive a warning when</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- an Amazon Lex V1 feature has a different implementation if Amazon Lex</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- V2.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lexv2/latest/dg/migrate.html Migrating a bot&gt;</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- in the /Amazon Lex V2 developer guide/.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'migrationStatus', 'getMigrationResponse_migrationStatus' - Indicates the status of the migration. When the status is @COMPLETE@ the</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- migration is finished and the bot is available in Amazon Lex V2. There</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- may be alerts and warnings that need to be resolved to complete the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- migration.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'v2BotId', 'getMigrationResponse_v2BotId' - The unique identifier of the Amazon Lex V2 bot that the Amazon Lex V1 is</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- being migrated to.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'v1BotLocale', 'getMigrationResponse_v1BotLocale' - The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'v1BotName', 'getMigrationResponse_v1BotName' - The name of the Amazon Lex V1 bot migrated to Amazon Lex V2.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'v2BotRole', 'getMigrationResponse_v2BotRole' - The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'migrationId', 'getMigrationResponse_migrationId' - The unique identifier of the migration. This is the same as the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- identifier used when calling the @GetMigration@ operation.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'httpStatus', 'getMigrationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#newGetMigrationResponse"><span class="hs-identifier hs-type">newGetMigrationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newGetMigrationResponse"><span class="annot"><span class="annottext">newGetMigrationResponse :: Int -&gt; GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#newGetMigrationResponse"><span class="hs-identifier hs-var hs-var">newGetMigrationResponse</span></a></span></span><span> </span><span id="local-6989586621679321510"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">GetMigrationResponse' :: Maybe Text
+-&gt; Maybe MigrationStrategy
+-&gt; Maybe POSIX
+-&gt; Maybe [MigrationAlert]
+-&gt; Maybe MigrationStatus
+-&gt; Maybe Text
+-&gt; Maybe Locale
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:v1BotVersion:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av1BotVersion%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v1BotVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationStrategy:GetMigrationResponse' :: Maybe MigrationStrategy
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationStrategy%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">migrationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationTimestamp:GetMigrationResponse' :: Maybe POSIX
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationTimestamp%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">migrationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:alerts:GetMigrationResponse' :: Maybe [MigrationAlert]
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Aalerts%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">alerts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MigrationAlert]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationStatus:GetMigrationResponse' :: Maybe MigrationStatus
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationStatus%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">migrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:v2BotId:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av2BotId%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v2BotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:v1BotLocale:GetMigrationResponse' :: Maybe Locale
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av1BotLocale%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v1BotLocale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:v1BotName:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av1BotName%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v1BotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:v2BotRole:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av2BotRole%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v2BotRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationId:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationId%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">migrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMigrationResponse' :: Int
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AhttpStatus%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v1BotVersion"><span class="hs-identifier hs-type">getMigrationResponse_v1BotVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="getMigrationResponse_v1BotVersion"><span class="annot"><span class="annottext">getMigrationResponse_v1BotVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v1BotVersion"><span class="hs-identifier hs-var hs-var">getMigrationResponse_v1BotVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe Text)
+-&gt; (GetMigrationResponse -&gt; Maybe Text -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse GetMigrationResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321509"><span class="annot"><span class="annottext">Maybe Text
+v1BotVersion :: Maybe Text
+$sel:v1BotVersion:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679321509"><span class="hs-identifier hs-var hs-var">v1BotVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321509"><span class="hs-identifier hs-var">v1BotVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321508"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v1BotVersion:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av1BotVersion%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v1BotVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The strategy used to conduct the migration.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- -   @CREATE_NEW@ - Creates a new Amazon Lex V2 bot and migrates the</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     Amazon Lex V1 bot to the new bot.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- -   @UPDATE_EXISTING@ - Overwrites the existing Amazon Lex V2 bot</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     metadata and the locale being migrated. It doesn\'t change any other</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--     locales in the Amazon Lex V2 bot. If the locale doesn\'t exist, a</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     new locale is created in the Amazon Lex V2 bot.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationStrategy"><span class="hs-identifier hs-type">getMigrationResponse_migrationStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.MigrationStrategy.html#MigrationStrategy"><span class="hs-identifier hs-type">MigrationStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="getMigrationResponse_migrationStrategy"><span class="annot"><span class="annottext">getMigrationResponse_migrationStrategy :: (Maybe MigrationStrategy -&gt; f (Maybe MigrationStrategy))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationStrategy"><span class="hs-identifier hs-var hs-var">getMigrationResponse_migrationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe MigrationStrategy)
+-&gt; (GetMigrationResponse
+    -&gt; Maybe MigrationStrategy -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse
+     GetMigrationResponse
+     (Maybe MigrationStrategy)
+     (Maybe MigrationStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321506"><span class="annot"><span class="annottext">Maybe MigrationStrategy
+migrationStrategy :: Maybe MigrationStrategy
+$sel:migrationStrategy:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe MigrationStrategy
+</span><a href="#local-6989586621679321506"><span class="hs-identifier hs-var hs-var">migrationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStrategy
+</span><a href="#local-6989586621679321506"><span class="hs-identifier hs-var">migrationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321505"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321504"><span class="annot"><span class="annottext">Maybe MigrationStrategy
+</span><a href="#local-6989586621679321504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationStrategy:GetMigrationResponse' :: Maybe MigrationStrategy
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationStrategy%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">migrationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStrategy
+</span><a href="#local-6989586621679321504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The date and time that the migration started.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationTimestamp"><span class="hs-identifier hs-type">getMigrationResponse_migrationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="getMigrationResponse_migrationTimestamp"><span class="annot"><span class="annottext">getMigrationResponse_migrationTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationTimestamp"><span class="hs-identifier hs-var hs-var">getMigrationResponse_migrationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe POSIX)
+-&gt; (GetMigrationResponse -&gt; Maybe POSIX -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse
+     GetMigrationResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321503"><span class="annot"><span class="annottext">Maybe POSIX
+migrationTimestamp :: Maybe POSIX
+$sel:migrationTimestamp:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679321503"><span class="hs-identifier hs-var hs-var">migrationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679321503"><span class="hs-identifier hs-var">migrationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321502"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321501"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679321501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationTimestamp:GetMigrationResponse' :: Maybe POSIX
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationTimestamp%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">migrationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679321501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetMigrationResponse -&gt; f GetMigrationResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetMigrationResponse
+-&gt; f GetMigrationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | A list of alerts and warnings that indicate issues with the migration</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- for the Amazon Lex V1 bot to Amazon Lex V2. You receive a warning when</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- an Amazon Lex V1 feature has a different implementation if Amazon Lex</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- V2.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lexv2/latest/dg/migrate.html Migrating a bot&gt;</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- in the /Amazon Lex V2 developer guide/.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_alerts"><span class="hs-identifier hs-type">getMigrationResponse_alerts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LexModels.Types.MigrationAlert.html#MigrationAlert"><span class="hs-identifier hs-type">MigrationAlert</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="getMigrationResponse_alerts"><span class="annot"><span class="annottext">getMigrationResponse_alerts :: (Maybe [MigrationAlert] -&gt; f (Maybe [MigrationAlert]))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_alerts"><span class="hs-identifier hs-var hs-var">getMigrationResponse_alerts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe [MigrationAlert])
+-&gt; (GetMigrationResponse
+    -&gt; Maybe [MigrationAlert] -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse
+     GetMigrationResponse
+     (Maybe [MigrationAlert])
+     (Maybe [MigrationAlert])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321497"><span class="annot"><span class="annottext">Maybe [MigrationAlert]
+alerts :: Maybe [MigrationAlert]
+$sel:alerts:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe [MigrationAlert]
+</span><a href="#local-6989586621679321497"><span class="hs-identifier hs-var hs-var">alerts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MigrationAlert]
+</span><a href="#local-6989586621679321497"><span class="hs-identifier hs-var">alerts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321496"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321495"><span class="annot"><span class="annottext">Maybe [MigrationAlert]
+</span><a href="#local-6989586621679321495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alerts:GetMigrationResponse' :: Maybe [MigrationAlert]
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Aalerts%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">alerts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MigrationAlert]
+</span><a href="#local-6989586621679321495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MigrationAlert] -&gt; f (Maybe [MigrationAlert]))
+ -&gt; GetMigrationResponse -&gt; f GetMigrationResponse)
+-&gt; ((Maybe [MigrationAlert] -&gt; f (Maybe [MigrationAlert]))
+    -&gt; Maybe [MigrationAlert] -&gt; f (Maybe [MigrationAlert]))
+-&gt; (Maybe [MigrationAlert] -&gt; f (Maybe [MigrationAlert]))
+-&gt; GetMigrationResponse
+-&gt; f GetMigrationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MigrationAlert] [MigrationAlert] [MigrationAlert] [MigrationAlert]
+-&gt; Iso
+     (Maybe [MigrationAlert])
+     (Maybe [MigrationAlert])
+     (Maybe [MigrationAlert])
+     (Maybe [MigrationAlert])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MigrationAlert] [MigrationAlert] [MigrationAlert] [MigrationAlert]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | Indicates the status of the migration. When the status is @COMPLETE@ the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- migration is finished and the bot is available in Amazon Lex V2. There</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- may be alerts and warnings that need to be resolved to complete the</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- migration.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationStatus"><span class="hs-identifier hs-type">getMigrationResponse_migrationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-type">MigrationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="getMigrationResponse_migrationStatus"><span class="annot"><span class="annottext">getMigrationResponse_migrationStatus :: (Maybe MigrationStatus -&gt; f (Maybe MigrationStatus))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationStatus"><span class="hs-identifier hs-var hs-var">getMigrationResponse_migrationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe MigrationStatus)
+-&gt; (GetMigrationResponse
+    -&gt; Maybe MigrationStatus -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse
+     GetMigrationResponse
+     (Maybe MigrationStatus)
+     (Maybe MigrationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321493"><span class="annot"><span class="annottext">Maybe MigrationStatus
+migrationStatus :: Maybe MigrationStatus
+$sel:migrationStatus:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe MigrationStatus
+</span><a href="#local-6989586621679321493"><span class="hs-identifier hs-var hs-var">migrationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStatus
+</span><a href="#local-6989586621679321493"><span class="hs-identifier hs-var">migrationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321492"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321491"><span class="annot"><span class="annottext">Maybe MigrationStatus
+</span><a href="#local-6989586621679321491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationStatus:GetMigrationResponse' :: Maybe MigrationStatus
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationStatus%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">migrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStatus
+</span><a href="#local-6989586621679321491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The unique identifier of the Amazon Lex V2 bot that the Amazon Lex V1 is</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- being migrated to.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v2BotId"><span class="hs-identifier hs-type">getMigrationResponse_v2BotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="getMigrationResponse_v2BotId"><span class="annot"><span class="annottext">getMigrationResponse_v2BotId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v2BotId"><span class="hs-identifier hs-var hs-var">getMigrationResponse_v2BotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe Text)
+-&gt; (GetMigrationResponse -&gt; Maybe Text -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse GetMigrationResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321490"><span class="annot"><span class="annottext">Maybe Text
+v2BotId :: Maybe Text
+$sel:v2BotId:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679321490"><span class="hs-identifier hs-var hs-var">v2BotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321490"><span class="hs-identifier hs-var">v2BotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321489"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321488"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v2BotId:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av2BotId%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v2BotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v1BotLocale"><span class="hs-identifier hs-type">getMigrationResponse_v1BotLocale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="getMigrationResponse_v1BotLocale"><span class="annot"><span class="annottext">getMigrationResponse_v1BotLocale :: (Maybe Locale -&gt; f (Maybe Locale))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v1BotLocale"><span class="hs-identifier hs-var hs-var">getMigrationResponse_v1BotLocale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe Locale)
+-&gt; (GetMigrationResponse -&gt; Maybe Locale -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse
+     GetMigrationResponse
+     (Maybe Locale)
+     (Maybe Locale)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321487"><span class="annot"><span class="annottext">Maybe Locale
+v1BotLocale :: Maybe Locale
+$sel:v1BotLocale:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe Locale
+</span><a href="#local-6989586621679321487"><span class="hs-identifier hs-var hs-var">v1BotLocale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
+</span><a href="#local-6989586621679321487"><span class="hs-identifier hs-var">v1BotLocale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321486"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321485"><span class="annot"><span class="annottext">Maybe Locale
+</span><a href="#local-6989586621679321485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v1BotLocale:GetMigrationResponse' :: Maybe Locale
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av1BotLocale%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v1BotLocale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
+</span><a href="#local-6989586621679321485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | The name of the Amazon Lex V1 bot migrated to Amazon Lex V2.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v1BotName"><span class="hs-identifier hs-type">getMigrationResponse_v1BotName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="getMigrationResponse_v1BotName"><span class="annot"><span class="annottext">getMigrationResponse_v1BotName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v1BotName"><span class="hs-identifier hs-var hs-var">getMigrationResponse_v1BotName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe Text)
+-&gt; (GetMigrationResponse -&gt; Maybe Text -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse GetMigrationResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321484"><span class="annot"><span class="annottext">Maybe Text
+v1BotName :: Maybe Text
+$sel:v1BotName:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679321484"><span class="hs-identifier hs-var hs-var">v1BotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321484"><span class="hs-identifier hs-var">v1BotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321483"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321482"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v1BotName:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av1BotName%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v1BotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v2BotRole"><span class="hs-identifier hs-type">getMigrationResponse_v2BotRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="getMigrationResponse_v2BotRole"><span class="annot"><span class="annottext">getMigrationResponse_v2BotRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_v2BotRole"><span class="hs-identifier hs-var hs-var">getMigrationResponse_v2BotRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe Text)
+-&gt; (GetMigrationResponse -&gt; Maybe Text -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse GetMigrationResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321481"><span class="annot"><span class="annottext">Maybe Text
+v2BotRole :: Maybe Text
+$sel:v2BotRole:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679321481"><span class="hs-identifier hs-var hs-var">v2BotRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321481"><span class="hs-identifier hs-var">v2BotRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321480"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v2BotRole:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3Av2BotRole%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">v2BotRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The unique identifier of the migration. This is the same as the</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- identifier used when calling the @GetMigration@ operation.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationId"><span class="hs-identifier hs-type">getMigrationResponse_migrationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="getMigrationResponse_migrationId"><span class="annot"><span class="annottext">getMigrationResponse_migrationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_migrationId"><span class="hs-identifier hs-var hs-var">getMigrationResponse_migrationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Maybe Text)
+-&gt; (GetMigrationResponse -&gt; Maybe Text -&gt; GetMigrationResponse)
+-&gt; Lens
+     GetMigrationResponse GetMigrationResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321478"><span class="annot"><span class="annottext">Maybe Text
+migrationId :: Maybe Text
+$sel:migrationId:GetMigrationResponse' :: GetMigrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679321478"><span class="hs-identifier hs-var hs-var">migrationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321478"><span class="hs-identifier hs-var">migrationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321477"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321476"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationId:GetMigrationResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AmigrationId%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">migrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_httpStatus"><span class="hs-identifier hs-type">getMigrationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-311"></span><span id="getMigrationResponse_httpStatus"><span class="annot"><span class="annottext">getMigrationResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetMigrationResponse -&gt; f GetMigrationResponse
+</span><a href="Amazonka.LexModels.GetMigration.html#getMigrationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getMigrationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMigrationResponse -&gt; Int)
+-&gt; (GetMigrationResponse -&gt; Int -&gt; GetMigrationResponse)
+-&gt; Lens GetMigrationResponse GetMigrationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321475"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetMigrationResponse' :: GetMigrationResponse -&gt; Int
+</span><a href="#local-6989586621679321475"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321475"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321474"><span class="annot"><span class="annottext">s :: GetMigrationResponse
+</span><a href="#local-6989586621679321474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse%27"><span class="hs-identifier hs-type">GetMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMigrationResponse
+</span><a href="#local-6989586621679321474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMigrationResponse' :: Int
+</span><a href="Amazonka.LexModels.GetMigration.html#%24sel%3AhttpStatus%3AGetMigrationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetMigration.html#GetMigrationResponse"><span class="hs-identifier hs-type">GetMigrationResponse</span></a></span></span><span>
+</span><span id="line-314"></span></pre></body></html>

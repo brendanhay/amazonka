@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Personalize.DescribeFeatureTransformation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the given feature transformation.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Personalize.DescribeFeatureTransformation</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier">DescribeFeatureTransformation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#newDescribeFeatureTransformation"><span class="hs-identifier">newDescribeFeatureTransformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#describeFeatureTransformation_featureTransformationArn"><span class="hs-identifier">describeFeatureTransformation_featureTransformationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse"><span class="hs-identifier">DescribeFeatureTransformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#newDescribeFeatureTransformationResponse"><span class="hs-identifier">newDescribeFeatureTransformationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#describeFeatureTransformationResponse_featureTransformation"><span class="hs-identifier">describeFeatureTransformationResponse_featureTransformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#describeFeatureTransformationResponse_httpStatus"><span class="hs-identifier">describeFeatureTransformationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.html"><span class="hs-identifier">Amazonka.Personalize.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDescribeFeatureTransformation' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679280097"><span id="local-6989586621679280098"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFeatureTransformation"><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-var">DescribeFeatureTransformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFeatureTransformation%27"><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation%27"><span class="hs-identifier hs-var">DescribeFeatureTransformation'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the feature transformation to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- describe.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AfeatureTransformationArn%3ADescribeFeatureTransformation%27"><span class="annot"><span class="annottext">DescribeFeatureTransformation -&gt; Text
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#%24sel%3AfeatureTransformationArn%3ADescribeFeatureTransformation%27"><span class="hs-identifier hs-var hs-var">featureTransformationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280091"><span id="local-6989586621679280093"><span class="annot"><span class="annottext">DescribeFeatureTransformation
+-&gt; DescribeFeatureTransformation -&gt; Bool
+(DescribeFeatureTransformation
+ -&gt; DescribeFeatureTransformation -&gt; Bool)
+-&gt; (DescribeFeatureTransformation
+    -&gt; DescribeFeatureTransformation -&gt; Bool)
+-&gt; Eq DescribeFeatureTransformation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFeatureTransformation
+-&gt; DescribeFeatureTransformation -&gt; Bool
+$c/= :: DescribeFeatureTransformation
+-&gt; DescribeFeatureTransformation -&gt; Bool
+== :: DescribeFeatureTransformation
+-&gt; DescribeFeatureTransformation -&gt; Bool
+$c== :: DescribeFeatureTransformation
+-&gt; DescribeFeatureTransformation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280082"><span id="local-6989586621679280084"><span id="local-6989586621679280086"><span id="local-6989586621679280088"><span class="annot"><span class="annottext">ReadPrec [DescribeFeatureTransformation]
+ReadPrec DescribeFeatureTransformation
+Int -&gt; ReadS DescribeFeatureTransformation
+ReadS [DescribeFeatureTransformation]
+(Int -&gt; ReadS DescribeFeatureTransformation)
+-&gt; ReadS [DescribeFeatureTransformation]
+-&gt; ReadPrec DescribeFeatureTransformation
+-&gt; ReadPrec [DescribeFeatureTransformation]
+-&gt; Read DescribeFeatureTransformation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFeatureTransformation]
+$creadListPrec :: ReadPrec [DescribeFeatureTransformation]
+readPrec :: ReadPrec DescribeFeatureTransformation
+$creadPrec :: ReadPrec DescribeFeatureTransformation
+readList :: ReadS [DescribeFeatureTransformation]
+$creadList :: ReadS [DescribeFeatureTransformation]
+readsPrec :: Int -&gt; ReadS DescribeFeatureTransformation
+$creadsPrec :: Int -&gt; ReadS DescribeFeatureTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280075"><span id="local-6989586621679280077"><span id="local-6989586621679280079"><span class="annot"><span class="annottext">Int -&gt; DescribeFeatureTransformation -&gt; ShowS
+[DescribeFeatureTransformation] -&gt; ShowS
+DescribeFeatureTransformation -&gt; String
+(Int -&gt; DescribeFeatureTransformation -&gt; ShowS)
+-&gt; (DescribeFeatureTransformation -&gt; String)
+-&gt; ([DescribeFeatureTransformation] -&gt; ShowS)
+-&gt; Show DescribeFeatureTransformation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFeatureTransformation] -&gt; ShowS
+$cshowList :: [DescribeFeatureTransformation] -&gt; ShowS
+show :: DescribeFeatureTransformation -&gt; String
+$cshow :: DescribeFeatureTransformation -&gt; String
+showsPrec :: Int -&gt; DescribeFeatureTransformation -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFeatureTransformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeFeatureTransformation
+ -&gt; Rep DescribeFeatureTransformation x)
+-&gt; (forall x.
+    Rep DescribeFeatureTransformation x
+    -&gt; DescribeFeatureTransformation)
+-&gt; Generic DescribeFeatureTransformation
+forall x.
+Rep DescribeFeatureTransformation x
+-&gt; DescribeFeatureTransformation
+forall x.
+DescribeFeatureTransformation
+-&gt; Rep DescribeFeatureTransformation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeFeatureTransformation x
+-&gt; DescribeFeatureTransformation
+$cfrom :: forall x.
+DescribeFeatureTransformation
+-&gt; Rep DescribeFeatureTransformation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DescribeFeatureTransformation' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'featureTransformationArn', 'describeFeatureTransformation_featureTransformationArn' - The Amazon Resource Name (ARN) of the feature transformation to</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- describe.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#newDescribeFeatureTransformation"><span class="hs-identifier hs-type">newDescribeFeatureTransformation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'featureTransformationArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span><span>
+</span><span id="line-71"></span><span id="newDescribeFeatureTransformation"><span class="annot"><span class="annottext">newDescribeFeatureTransformation :: Text -&gt; DescribeFeatureTransformation
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#newDescribeFeatureTransformation"><span class="hs-identifier hs-var hs-var">newDescribeFeatureTransformation</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679280070"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280070"><span class="hs-identifier hs-var">pFeatureTransformationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">DescribeFeatureTransformation' :: Text -&gt; DescribeFeatureTransformation
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation%27"><span class="hs-identifier hs-type">DescribeFeatureTransformation'</span></a></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:featureTransformationArn:DescribeFeatureTransformation' :: Text
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#%24sel%3AfeatureTransformationArn%3ADescribeFeatureTransformation%27"><span class="hs-identifier hs-var">featureTransformationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280070"><span class="hs-identifier hs-var">pFeatureTransformationArn_</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the feature transformation to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- describe.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#describeFeatureTransformation_featureTransformationArn"><span class="hs-identifier hs-type">describeFeatureTransformation_featureTransformationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="describeFeatureTransformation_featureTransformationArn"><span class="annot"><span class="annottext">describeFeatureTransformation_featureTransformationArn :: (Text -&gt; f Text)
+-&gt; DescribeFeatureTransformation -&gt; f DescribeFeatureTransformation
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#describeFeatureTransformation_featureTransformationArn"><span class="hs-identifier hs-var hs-var">describeFeatureTransformation_featureTransformationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFeatureTransformation -&gt; Text)
+-&gt; (DescribeFeatureTransformation
+    -&gt; Text -&gt; DescribeFeatureTransformation)
+-&gt; Lens
+     DescribeFeatureTransformation
+     DescribeFeatureTransformation
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation%27"><span class="hs-identifier hs-type">DescribeFeatureTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280067"><span class="annot"><span class="annottext">Text
+featureTransformationArn :: Text
+$sel:featureTransformationArn:DescribeFeatureTransformation' :: DescribeFeatureTransformation -&gt; Text
+</span><a href="#local-6989586621679280067"><span class="hs-identifier hs-var hs-var">featureTransformationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280067"><span class="hs-identifier hs-var">featureTransformationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280066"><span class="annot"><span class="annottext">s :: DescribeFeatureTransformation
+</span><a href="#local-6989586621679280066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation%27"><span class="hs-identifier hs-type">DescribeFeatureTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280065"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFeatureTransformation
+</span><a href="#local-6989586621679280066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureTransformationArn:DescribeFeatureTransformation' :: Text
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#%24sel%3AfeatureTransformationArn%3ADescribeFeatureTransformation%27"><span class="hs-identifier hs-var">featureTransformationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679280061"><span class="annot"><span class="annottext">request :: DescribeFeatureTransformation
+-&gt; Request DescribeFeatureTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeFeatureTransformation
+-&gt; Request DescribeFeatureTransformation
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Personalize.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679280057"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeFeatureTransformation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFeatureTransformation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeFeatureTransformation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeFeatureTransformation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFeatureTransformation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280054"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280054"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280053"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679280053"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280052"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe FeatureTransformation
+-&gt; Int -&gt; DescribeFeatureTransformationResponse
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-var">DescribeFeatureTransformationResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FeatureTransformation
+ -&gt; Int -&gt; DescribeFeatureTransformationResponse)
+-&gt; Either String (Maybe FeatureTransformation)
+-&gt; Either String (Int -&gt; DescribeFeatureTransformationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FeatureTransformation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;featureTransformation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeFeatureTransformationResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeFeatureTransformationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280054"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679280044"><span id="local-6989586621679280046"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679280037"><span class="annot"><span class="annottext">toHeaders :: DescribeFeatureTransformation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeFeatureTransformation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonPersonalize.DescribeFeatureTransformation&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280027"><span id="local-6989586621679280029"><span id="local-6989586621679280031"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679280025"><span class="annot"><span class="annottext">toJSON :: DescribeFeatureTransformation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation%27"><span class="hs-identifier hs-type">DescribeFeatureTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280023"><span class="annot"><span class="annottext">Text
+featureTransformationArn :: Text
+$sel:featureTransformationArn:DescribeFeatureTransformation' :: DescribeFeatureTransformation -&gt; Text
+</span><a href="#local-6989586621679280023"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;featureTransformationArn&quot;</span></span><span>
+</span><span id="line-126"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280023"><span class="hs-identifier hs-var">featureTransformationArn</span></a></span><span>
+</span><span id="line-127"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679280017"><span class="annot"><span class="annottext">toPath :: DescribeFeatureTransformation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeFeatureTransformation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformation"><span class="hs-identifier hs-type">DescribeFeatureTransformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679280013"><span class="annot"><span class="annottext">toQuery :: DescribeFeatureTransformation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeFeatureTransformation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newDescribeFeatureTransformationResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679280010"><span id="local-6989586621679280011"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFeatureTransformationResponse"><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse"><span class="hs-identifier hs-var">DescribeFeatureTransformationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFeatureTransformationResponse%27"><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-var">DescribeFeatureTransformationResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A listing of the FeatureTransformation properties.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AfeatureTransformation%3ADescribeFeatureTransformationResponse%27"><span class="annot"><span class="annottext">DescribeFeatureTransformationResponse
+-&gt; Maybe FeatureTransformation
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#%24sel%3AfeatureTransformation%3ADescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-var hs-var">featureTransformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.FeatureTransformation.html#FeatureTransformation"><span class="hs-identifier hs-type">FeatureTransformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFeatureTransformationResponse%27"><span class="annot"><span class="annottext">DescribeFeatureTransformationResponse -&gt; Int
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#%24sel%3AhttpStatus%3ADescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280004"><span id="local-6989586621679280006"><span class="annot"><span class="annottext">DescribeFeatureTransformationResponse
+-&gt; DescribeFeatureTransformationResponse -&gt; Bool
+(DescribeFeatureTransformationResponse
+ -&gt; DescribeFeatureTransformationResponse -&gt; Bool)
+-&gt; (DescribeFeatureTransformationResponse
+    -&gt; DescribeFeatureTransformationResponse -&gt; Bool)
+-&gt; Eq DescribeFeatureTransformationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFeatureTransformationResponse
+-&gt; DescribeFeatureTransformationResponse -&gt; Bool
+$c/= :: DescribeFeatureTransformationResponse
+-&gt; DescribeFeatureTransformationResponse -&gt; Bool
+== :: DescribeFeatureTransformationResponse
+-&gt; DescribeFeatureTransformationResponse -&gt; Bool
+$c== :: DescribeFeatureTransformationResponse
+-&gt; DescribeFeatureTransformationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279996"><span id="local-6989586621679279998"><span id="local-6989586621679280000"><span id="local-6989586621679280002"><span class="annot"><span class="annottext">ReadPrec [DescribeFeatureTransformationResponse]
+ReadPrec DescribeFeatureTransformationResponse
+Int -&gt; ReadS DescribeFeatureTransformationResponse
+ReadS [DescribeFeatureTransformationResponse]
+(Int -&gt; ReadS DescribeFeatureTransformationResponse)
+-&gt; ReadS [DescribeFeatureTransformationResponse]
+-&gt; ReadPrec DescribeFeatureTransformationResponse
+-&gt; ReadPrec [DescribeFeatureTransformationResponse]
+-&gt; Read DescribeFeatureTransformationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFeatureTransformationResponse]
+$creadListPrec :: ReadPrec [DescribeFeatureTransformationResponse]
+readPrec :: ReadPrec DescribeFeatureTransformationResponse
+$creadPrec :: ReadPrec DescribeFeatureTransformationResponse
+readList :: ReadS [DescribeFeatureTransformationResponse]
+$creadList :: ReadS [DescribeFeatureTransformationResponse]
+readsPrec :: Int -&gt; ReadS DescribeFeatureTransformationResponse
+$creadsPrec :: Int -&gt; ReadS DescribeFeatureTransformationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279990"><span id="local-6989586621679279992"><span id="local-6989586621679279994"><span class="annot"><span class="annottext">Int -&gt; DescribeFeatureTransformationResponse -&gt; ShowS
+[DescribeFeatureTransformationResponse] -&gt; ShowS
+DescribeFeatureTransformationResponse -&gt; String
+(Int -&gt; DescribeFeatureTransformationResponse -&gt; ShowS)
+-&gt; (DescribeFeatureTransformationResponse -&gt; String)
+-&gt; ([DescribeFeatureTransformationResponse] -&gt; ShowS)
+-&gt; Show DescribeFeatureTransformationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFeatureTransformationResponse] -&gt; ShowS
+$cshowList :: [DescribeFeatureTransformationResponse] -&gt; ShowS
+show :: DescribeFeatureTransformationResponse -&gt; String
+$cshow :: DescribeFeatureTransformationResponse -&gt; String
+showsPrec :: Int -&gt; DescribeFeatureTransformationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFeatureTransformationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeFeatureTransformationResponse
+ -&gt; Rep DescribeFeatureTransformationResponse x)
+-&gt; (forall x.
+    Rep DescribeFeatureTransformationResponse x
+    -&gt; DescribeFeatureTransformationResponse)
+-&gt; Generic DescribeFeatureTransformationResponse
+forall x.
+Rep DescribeFeatureTransformationResponse x
+-&gt; DescribeFeatureTransformationResponse
+forall x.
+DescribeFeatureTransformationResponse
+-&gt; Rep DescribeFeatureTransformationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeFeatureTransformationResponse x
+-&gt; DescribeFeatureTransformationResponse
+$cfrom :: forall x.
+DescribeFeatureTransformationResponse
+-&gt; Rep DescribeFeatureTransformationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'DescribeFeatureTransformationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'featureTransformation', 'describeFeatureTransformationResponse_featureTransformation' - A listing of the FeatureTransformation properties.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'describeFeatureTransformationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#newDescribeFeatureTransformationResponse"><span class="hs-identifier hs-type">newDescribeFeatureTransformationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newDescribeFeatureTransformationResponse"><span class="annot"><span class="annottext">newDescribeFeatureTransformationResponse :: Int -&gt; DescribeFeatureTransformationResponse
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#newDescribeFeatureTransformationResponse"><span class="hs-identifier hs-var hs-var">newDescribeFeatureTransformationResponse</span></a></span></span><span> </span><span id="local-6989586621679279987"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279987"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DescribeFeatureTransformationResponse' :: Maybe FeatureTransformation
+-&gt; Int -&gt; DescribeFeatureTransformationResponse
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:featureTransformation:DescribeFeatureTransformationResponse' :: Maybe FeatureTransformation
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#%24sel%3AfeatureTransformation%3ADescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-var">featureTransformation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe FeatureTransformation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFeatureTransformationResponse' :: Int
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#%24sel%3AhttpStatus%3ADescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279987"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | A listing of the FeatureTransformation properties.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#describeFeatureTransformationResponse_featureTransformation"><span class="hs-identifier hs-type">describeFeatureTransformationResponse_featureTransformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.FeatureTransformation.html#FeatureTransformation"><span class="hs-identifier hs-type">FeatureTransformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="describeFeatureTransformationResponse_featureTransformation"><span class="annot"><span class="annottext">describeFeatureTransformationResponse_featureTransformation :: (Maybe FeatureTransformation -&gt; f (Maybe FeatureTransformation))
+-&gt; DescribeFeatureTransformationResponse
+-&gt; f DescribeFeatureTransformationResponse
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#describeFeatureTransformationResponse_featureTransformation"><span class="hs-identifier hs-var hs-var">describeFeatureTransformationResponse_featureTransformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFeatureTransformationResponse
+ -&gt; Maybe FeatureTransformation)
+-&gt; (DescribeFeatureTransformationResponse
+    -&gt; Maybe FeatureTransformation
+    -&gt; DescribeFeatureTransformationResponse)
+-&gt; Lens
+     DescribeFeatureTransformationResponse
+     DescribeFeatureTransformationResponse
+     (Maybe FeatureTransformation)
+     (Maybe FeatureTransformation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279986"><span class="annot"><span class="annottext">Maybe FeatureTransformation
+featureTransformation :: Maybe FeatureTransformation
+$sel:featureTransformation:DescribeFeatureTransformationResponse' :: DescribeFeatureTransformationResponse
+-&gt; Maybe FeatureTransformation
+</span><a href="#local-6989586621679279986"><span class="hs-identifier hs-var hs-var">featureTransformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureTransformation
+</span><a href="#local-6989586621679279986"><span class="hs-identifier hs-var">featureTransformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279985"><span class="annot"><span class="annottext">s :: DescribeFeatureTransformationResponse
+</span><a href="#local-6989586621679279985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279984"><span class="annot"><span class="annottext">Maybe FeatureTransformation
+</span><a href="#local-6989586621679279984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFeatureTransformationResponse
+</span><a href="#local-6989586621679279985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureTransformation:DescribeFeatureTransformationResponse' :: Maybe FeatureTransformation
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#%24sel%3AfeatureTransformation%3ADescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-var">featureTransformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureTransformation
+</span><a href="#local-6989586621679279984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#describeFeatureTransformationResponse_httpStatus"><span class="hs-identifier hs-type">describeFeatureTransformationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span id="describeFeatureTransformationResponse_httpStatus"><span class="annot"><span class="annottext">describeFeatureTransformationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeFeatureTransformationResponse
+-&gt; f DescribeFeatureTransformationResponse
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#describeFeatureTransformationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeFeatureTransformationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFeatureTransformationResponse -&gt; Int)
+-&gt; (DescribeFeatureTransformationResponse
+    -&gt; Int -&gt; DescribeFeatureTransformationResponse)
+-&gt; Lens
+     DescribeFeatureTransformationResponse
+     DescribeFeatureTransformationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279983"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeFeatureTransformationResponse' :: DescribeFeatureTransformationResponse -&gt; Int
+</span><a href="#local-6989586621679279983"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279983"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279982"><span class="annot"><span class="annottext">s :: DescribeFeatureTransformationResponse
+</span><a href="#local-6989586621679279982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279981"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFeatureTransformationResponse
+</span><a href="#local-6989586621679279982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFeatureTransformationResponse' :: Int
+</span><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#%24sel%3AhttpStatus%3ADescribeFeatureTransformationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679279979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.DescribeFeatureTransformation.html#DescribeFeatureTransformationResponse"><span class="hs-identifier hs-type">DescribeFeatureTransformationResponse</span></a></span></span><span>
+</span><span id="line-179"></span></pre></body></html>

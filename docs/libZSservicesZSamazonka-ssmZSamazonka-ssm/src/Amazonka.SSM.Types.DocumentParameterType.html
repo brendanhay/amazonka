@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.DocumentParameterType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.DocumentParameterType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType"><span class="hs-identifier">DocumentParameterType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType_String"><span class="hs-identifier">DocumentParameterType_String</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType_StringList"><span class="hs-identifier">DocumentParameterType_StringList</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679793197"><span id="local-6989586621679793198"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentParameterType"><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType"><span class="hs-identifier hs-var">DocumentParameterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentParameterType%27"><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType%27"><span class="hs-identifier hs-var">DocumentParameterType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentParameterType"><span class="annot"><span class="annottext">DocumentParameterType -&gt; Text
+</span><a href="Amazonka.SSM.Types.DocumentParameterType.html#fromDocumentParameterType"><span class="hs-identifier hs-var hs-var">fromDocumentParameterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793189"><span id="local-6989586621679793191"><span id="local-6989586621679793193"><span class="annot"><span class="annottext">Int -&gt; DocumentParameterType -&gt; ShowS
+[DocumentParameterType] -&gt; ShowS
+DocumentParameterType -&gt; String
+(Int -&gt; DocumentParameterType -&gt; ShowS)
+-&gt; (DocumentParameterType -&gt; String)
+-&gt; ([DocumentParameterType] -&gt; ShowS)
+-&gt; Show DocumentParameterType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DocumentParameterType] -&gt; ShowS
+$cshowList :: [DocumentParameterType] -&gt; ShowS
+show :: DocumentParameterType -&gt; String
+$cshow :: DocumentParameterType -&gt; String
+showsPrec :: Int -&gt; DocumentParameterType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DocumentParameterType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679793180"><span id="local-6989586621679793182"><span id="local-6989586621679793184"><span id="local-6989586621679793186"><span class="annot"><span class="annottext">ReadPrec [DocumentParameterType]
+ReadPrec DocumentParameterType
+Int -&gt; ReadS DocumentParameterType
+ReadS [DocumentParameterType]
+(Int -&gt; ReadS DocumentParameterType)
+-&gt; ReadS [DocumentParameterType]
+-&gt; ReadPrec DocumentParameterType
+-&gt; ReadPrec [DocumentParameterType]
+-&gt; Read DocumentParameterType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DocumentParameterType]
+$creadListPrec :: ReadPrec [DocumentParameterType]
+readPrec :: ReadPrec DocumentParameterType
+$creadPrec :: ReadPrec DocumentParameterType
+readList :: ReadS [DocumentParameterType]
+$creadList :: ReadS [DocumentParameterType]
+readsPrec :: Int -&gt; ReadS DocumentParameterType
+$creadsPrec :: Int -&gt; ReadS DocumentParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679793175"><span id="local-6989586621679793177"><span class="annot"><span class="annottext">DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+(DocumentParameterType -&gt; DocumentParameterType -&gt; Bool)
+-&gt; (DocumentParameterType -&gt; DocumentParameterType -&gt; Bool)
+-&gt; Eq DocumentParameterType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+$c/= :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+== :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+$c== :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679793159"><span id="local-6989586621679793161"><span id="local-6989586621679793163"><span id="local-6989586621679793165"><span id="local-6989586621679793167"><span id="local-6989586621679793169"><span id="local-6989586621679793171"><span class="annot"><span class="annottext">Eq DocumentParameterType
+Eq DocumentParameterType
+-&gt; (DocumentParameterType -&gt; DocumentParameterType -&gt; Ordering)
+-&gt; (DocumentParameterType -&gt; DocumentParameterType -&gt; Bool)
+-&gt; (DocumentParameterType -&gt; DocumentParameterType -&gt; Bool)
+-&gt; (DocumentParameterType -&gt; DocumentParameterType -&gt; Bool)
+-&gt; (DocumentParameterType -&gt; DocumentParameterType -&gt; Bool)
+-&gt; (DocumentParameterType
+    -&gt; DocumentParameterType -&gt; DocumentParameterType)
+-&gt; (DocumentParameterType
+    -&gt; DocumentParameterType -&gt; DocumentParameterType)
+-&gt; Ord DocumentParameterType
+DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+DocumentParameterType -&gt; DocumentParameterType -&gt; Ordering
+DocumentParameterType
+-&gt; DocumentParameterType -&gt; DocumentParameterType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DocumentParameterType
+-&gt; DocumentParameterType -&gt; DocumentParameterType
+$cmin :: DocumentParameterType
+-&gt; DocumentParameterType -&gt; DocumentParameterType
+max :: DocumentParameterType
+-&gt; DocumentParameterType -&gt; DocumentParameterType
+$cmax :: DocumentParameterType
+-&gt; DocumentParameterType -&gt; DocumentParameterType
+&gt;= :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+$c&gt;= :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+&gt; :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+$c&gt; :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+&lt;= :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+$c&lt;= :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+&lt; :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+$c&lt; :: DocumentParameterType -&gt; DocumentParameterType -&gt; Bool
+compare :: DocumentParameterType -&gt; DocumentParameterType -&gt; Ordering
+$ccompare :: DocumentParameterType -&gt; DocumentParameterType -&gt; Ordering
+$cp1Ord :: Eq DocumentParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DocumentParameterType -&gt; Rep DocumentParameterType x)
+-&gt; (forall x. Rep DocumentParameterType x -&gt; DocumentParameterType)
+-&gt; Generic DocumentParameterType
+forall x. Rep DocumentParameterType x -&gt; DocumentParameterType
+forall x. DocumentParameterType -&gt; Rep DocumentParameterType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DocumentParameterType x -&gt; DocumentParameterType
+$cfrom :: forall x. DocumentParameterType -&gt; Rep DocumentParameterType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793151"><span id="local-6989586621679793153"><span class="annot"><span class="annottext">Int -&gt; DocumentParameterType -&gt; Int
+DocumentParameterType -&gt; Int
+(Int -&gt; DocumentParameterType -&gt; Int)
+-&gt; (DocumentParameterType -&gt; Int) -&gt; Hashable DocumentParameterType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DocumentParameterType -&gt; Int
+$chash :: DocumentParameterType -&gt; Int
+hashWithSalt :: Int -&gt; DocumentParameterType -&gt; Int
+$chashWithSalt :: Int -&gt; DocumentParameterType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679793148"><span class="annot"><span class="annottext">DocumentParameterType -&gt; ()
+(DocumentParameterType -&gt; ()) -&gt; NFData DocumentParameterType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DocumentParameterType -&gt; ()
+$crnf :: DocumentParameterType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679793145"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentParameterType
+(Text -&gt; Either String DocumentParameterType)
+-&gt; FromText DocumentParameterType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DocumentParameterType
+$cfromText :: Text -&gt; Either String DocumentParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679793142"><span class="annot"><span class="annottext">DocumentParameterType -&gt; Text
+(DocumentParameterType -&gt; Text) -&gt; ToText DocumentParameterType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DocumentParameterType -&gt; Text
+$ctoText :: DocumentParameterType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679793139"><span class="annot"><span class="annottext">DocumentParameterType -&gt; ByteString
+(DocumentParameterType -&gt; ByteString)
+-&gt; ToByteString DocumentParameterType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DocumentParameterType -&gt; ByteString
+$ctoBS :: DocumentParameterType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679793136"><span class="annot"><span class="annottext">DocumentParameterType -&gt; ByteStringBuilder
+(DocumentParameterType -&gt; ByteStringBuilder)
+-&gt; ToLog DocumentParameterType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DocumentParameterType -&gt; ByteStringBuilder
+$cbuild :: DocumentParameterType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679793133"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentParameterType -&gt; [Header]
+(HeaderName -&gt; DocumentParameterType -&gt; [Header])
+-&gt; ToHeader DocumentParameterType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DocumentParameterType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DocumentParameterType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679793130"><span class="annot"><span class="annottext">DocumentParameterType -&gt; QueryString
+(DocumentParameterType -&gt; QueryString)
+-&gt; ToQuery DocumentParameterType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DocumentParameterType -&gt; QueryString
+$ctoQuery :: DocumentParameterType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679793125"><span id="local-6989586621679793127"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentParameterType]
+Value -&gt; Parser DocumentParameterType
+(Value -&gt; Parser DocumentParameterType)
+-&gt; (Value -&gt; Parser [DocumentParameterType])
+-&gt; FromJSON DocumentParameterType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DocumentParameterType]
+$cparseJSONList :: Value -&gt; Parser [DocumentParameterType]
+parseJSON :: Value -&gt; Parser DocumentParameterType
+$cparseJSON :: Value -&gt; Parser DocumentParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679793120"><span id="local-6989586621679793122"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentParameterType]
+FromJSONKeyFunction DocumentParameterType
+FromJSONKeyFunction DocumentParameterType
+-&gt; FromJSONKeyFunction [DocumentParameterType]
+-&gt; FromJSONKey DocumentParameterType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DocumentParameterType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DocumentParameterType]
+fromJSONKey :: FromJSONKeyFunction DocumentParameterType
+$cfromJSONKey :: FromJSONKeyFunction DocumentParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679793111"><span id="local-6989586621679793113"><span id="local-6989586621679793115"><span id="local-6989586621679793117"><span class="annot"><span class="annottext">[DocumentParameterType] -&gt; Encoding
+[DocumentParameterType] -&gt; Value
+DocumentParameterType -&gt; Encoding
+DocumentParameterType -&gt; Value
+(DocumentParameterType -&gt; Value)
+-&gt; (DocumentParameterType -&gt; Encoding)
+-&gt; ([DocumentParameterType] -&gt; Value)
+-&gt; ([DocumentParameterType] -&gt; Encoding)
+-&gt; ToJSON DocumentParameterType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DocumentParameterType] -&gt; Encoding
+$ctoEncodingList :: [DocumentParameterType] -&gt; Encoding
+toJSONList :: [DocumentParameterType] -&gt; Value
+$ctoJSONList :: [DocumentParameterType] -&gt; Value
+toEncoding :: DocumentParameterType -&gt; Encoding
+$ctoEncoding :: DocumentParameterType -&gt; Encoding
+toJSON :: DocumentParameterType -&gt; Value
+$ctoJSON :: DocumentParameterType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679793106"><span id="local-6989586621679793108"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentParameterType]
+ToJSONKeyFunction DocumentParameterType
+ToJSONKeyFunction DocumentParameterType
+-&gt; ToJSONKeyFunction [DocumentParameterType]
+-&gt; ToJSONKey DocumentParameterType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DocumentParameterType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DocumentParameterType]
+toJSONKey :: ToJSONKeyFunction DocumentParameterType
+$ctoJSONKey :: ToJSONKeyFunction DocumentParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679793103"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentParameterType
+([Node] -&gt; Either String DocumentParameterType)
+-&gt; FromXML DocumentParameterType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DocumentParameterType
+$cparseXML :: [Node] -&gt; Either String DocumentParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679793100"><span class="annot"><span class="annottext">DocumentParameterType -&gt; XML
+(DocumentParameterType -&gt; XML) -&gt; ToXML DocumentParameterType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DocumentParameterType -&gt; XML
+$ctoXML :: DocumentParameterType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType_String"><span class="hs-identifier hs-type">DocumentParameterType_String</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType"><span class="hs-identifier hs-type">DocumentParameterType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDocumentParameterType_String"><span id="%24mDocumentParameterType_String"><span id="DocumentParameterType_String"><span class="annot"><span class="annottext">$bDocumentParameterType_String :: DocumentParameterType
+$mDocumentParameterType_String :: forall r.
+DocumentParameterType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.DocumentParameterType.html#%24bDocumentParameterType_String"><span class="hs-identifier hs-var hs-var hs-var">DocumentParameterType_String</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType%27"><span class="hs-identifier hs-type">DocumentParameterType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;String&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType_StringList"><span class="hs-identifier hs-type">DocumentParameterType_StringList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType"><span class="hs-identifier hs-type">DocumentParameterType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDocumentParameterType_StringList"><span id="%24mDocumentParameterType_StringList"><span id="DocumentParameterType_StringList"><span class="annot"><span class="annottext">$bDocumentParameterType_StringList :: DocumentParameterType
+$mDocumentParameterType_StringList :: forall r.
+DocumentParameterType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.DocumentParameterType.html#%24bDocumentParameterType_StringList"><span class="hs-identifier hs-var hs-var hs-var">DocumentParameterType_StringList</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType%27"><span class="hs-identifier hs-type">DocumentParameterType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;StringList&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType_String"><span class="hs-pragma hs-type">DocumentParameterType_String</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType_StringList"><span class="hs-pragma hs-type">DocumentParameterType_StringList</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.DocumentParameterType.html#DocumentParameterType%27"><span class="hs-pragma hs-type">DocumentParameterType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

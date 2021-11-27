@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WAF.DeletePermissionPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This is __AWS WAF Classic__ documentation. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- With the latest version, AWS WAF has a single set of endpoints for</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- regional and global use.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Permanently deletes an IAM policy from the specified RuleGroup.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- The user making the request must be the owner of the RuleGroup.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WAF.DeletePermissionPolicy</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier">DeletePermissionPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#newDeletePermissionPolicy"><span class="hs-identifier">newDeletePermissionPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#deletePermissionPolicy_resourceArn"><span class="hs-identifier">deletePermissionPolicy_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse"><span class="hs-identifier">DeletePermissionPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#newDeletePermissionPolicyResponse"><span class="hs-identifier">newDeletePermissionPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#deletePermissionPolicyResponse_httpStatus"><span class="hs-identifier">deletePermissionPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.html"><span class="hs-identifier">Amazonka.WAF.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDeletePermissionPolicy' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679319993"><span id="local-6989586621679319994"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePermissionPolicy"><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-var">DeletePermissionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePermissionPolicy%27"><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy%27"><span class="hs-identifier hs-var">DeletePermissionPolicy'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the RuleGroup from which you want to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- delete the policy.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- The user making the request must be the owner of the RuleGroup.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AresourceArn%3ADeletePermissionPolicy%27"><span class="annot"><span class="annottext">DeletePermissionPolicy -&gt; Text
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#%24sel%3AresourceArn%3ADeletePermissionPolicy%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319987"><span id="local-6989586621679319989"><span class="annot"><span class="annottext">DeletePermissionPolicy -&gt; DeletePermissionPolicy -&gt; Bool
+(DeletePermissionPolicy -&gt; DeletePermissionPolicy -&gt; Bool)
+-&gt; (DeletePermissionPolicy -&gt; DeletePermissionPolicy -&gt; Bool)
+-&gt; Eq DeletePermissionPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePermissionPolicy -&gt; DeletePermissionPolicy -&gt; Bool
+$c/= :: DeletePermissionPolicy -&gt; DeletePermissionPolicy -&gt; Bool
+== :: DeletePermissionPolicy -&gt; DeletePermissionPolicy -&gt; Bool
+$c== :: DeletePermissionPolicy -&gt; DeletePermissionPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319978"><span id="local-6989586621679319980"><span id="local-6989586621679319982"><span id="local-6989586621679319984"><span class="annot"><span class="annottext">ReadPrec [DeletePermissionPolicy]
+ReadPrec DeletePermissionPolicy
+Int -&gt; ReadS DeletePermissionPolicy
+ReadS [DeletePermissionPolicy]
+(Int -&gt; ReadS DeletePermissionPolicy)
+-&gt; ReadS [DeletePermissionPolicy]
+-&gt; ReadPrec DeletePermissionPolicy
+-&gt; ReadPrec [DeletePermissionPolicy]
+-&gt; Read DeletePermissionPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePermissionPolicy]
+$creadListPrec :: ReadPrec [DeletePermissionPolicy]
+readPrec :: ReadPrec DeletePermissionPolicy
+$creadPrec :: ReadPrec DeletePermissionPolicy
+readList :: ReadS [DeletePermissionPolicy]
+$creadList :: ReadS [DeletePermissionPolicy]
+readsPrec :: Int -&gt; ReadS DeletePermissionPolicy
+$creadsPrec :: Int -&gt; ReadS DeletePermissionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319971"><span id="local-6989586621679319973"><span id="local-6989586621679319975"><span class="annot"><span class="annottext">Int -&gt; DeletePermissionPolicy -&gt; ShowS
+[DeletePermissionPolicy] -&gt; ShowS
+DeletePermissionPolicy -&gt; String
+(Int -&gt; DeletePermissionPolicy -&gt; ShowS)
+-&gt; (DeletePermissionPolicy -&gt; String)
+-&gt; ([DeletePermissionPolicy] -&gt; ShowS)
+-&gt; Show DeletePermissionPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePermissionPolicy] -&gt; ShowS
+$cshowList :: [DeletePermissionPolicy] -&gt; ShowS
+show :: DeletePermissionPolicy -&gt; String
+$cshow :: DeletePermissionPolicy -&gt; String
+showsPrec :: Int -&gt; DeletePermissionPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePermissionPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeletePermissionPolicy -&gt; Rep DeletePermissionPolicy x)
+-&gt; (forall x.
+    Rep DeletePermissionPolicy x -&gt; DeletePermissionPolicy)
+-&gt; Generic DeletePermissionPolicy
+forall x. Rep DeletePermissionPolicy x -&gt; DeletePermissionPolicy
+forall x. DeletePermissionPolicy -&gt; Rep DeletePermissionPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeletePermissionPolicy x -&gt; DeletePermissionPolicy
+$cfrom :: forall x. DeletePermissionPolicy -&gt; Rep DeletePermissionPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DeletePermissionPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'resourceArn', 'deletePermissionPolicy_resourceArn' - The Amazon Resource Name (ARN) of the RuleGroup from which you want to</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- delete the policy.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The user making the request must be the owner of the RuleGroup.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#newDeletePermissionPolicy"><span class="hs-identifier hs-type">newDeletePermissionPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span><span>
+</span><span id="line-85"></span><span id="newDeletePermissionPolicy"><span class="annot"><span class="annottext">newDeletePermissionPolicy :: Text -&gt; DeletePermissionPolicy
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#newDeletePermissionPolicy"><span class="hs-identifier hs-var hs-var">newDeletePermissionPolicy</span></a></span></span><span> </span><span id="local-6989586621679319966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319966"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DeletePermissionPolicy' :: Text -&gt; DeletePermissionPolicy
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy%27"><span class="hs-identifier hs-type">DeletePermissionPolicy'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:DeletePermissionPolicy' :: Text
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#%24sel%3AresourceArn%3ADeletePermissionPolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319966"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the RuleGroup from which you want to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- delete the policy.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- The user making the request must be the owner of the RuleGroup.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#deletePermissionPolicy_resourceArn"><span class="hs-identifier hs-type">deletePermissionPolicy_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="deletePermissionPolicy_resourceArn"><span class="annot"><span class="annottext">deletePermissionPolicy_resourceArn :: (Text -&gt; f Text)
+-&gt; DeletePermissionPolicy -&gt; f DeletePermissionPolicy
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#deletePermissionPolicy_resourceArn"><span class="hs-identifier hs-var hs-var">deletePermissionPolicy_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePermissionPolicy -&gt; Text)
+-&gt; (DeletePermissionPolicy -&gt; Text -&gt; DeletePermissionPolicy)
+-&gt; Lens DeletePermissionPolicy DeletePermissionPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy%27"><span class="hs-identifier hs-type">DeletePermissionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319963"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:DeletePermissionPolicy' :: DeletePermissionPolicy -&gt; Text
+</span><a href="#local-6989586621679319963"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319963"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319962"><span class="annot"><span class="annottext">s :: DeletePermissionPolicy
+</span><a href="#local-6989586621679319962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy%27"><span class="hs-identifier hs-type">DeletePermissionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePermissionPolicy
+</span><a href="#local-6989586621679319962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:DeletePermissionPolicy' :: Text
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#%24sel%3AresourceArn%3ADeletePermissionPolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse"><span class="hs-identifier hs-type">DeletePermissionPolicyResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679319957"><span class="annot"><span class="annottext">request :: DeletePermissionPolicy -&gt; Request DeletePermissionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePermissionPolicy -&gt; Request DeletePermissionPolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WAF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679319953"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeletePermissionPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeletePermissionPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeletePermissionPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeletePermissionPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeletePermissionPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679319950"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319950"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679319949"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679319949"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679319948"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679319948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeletePermissionPolicyResponse
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse%27"><span class="hs-identifier hs-var">DeletePermissionPolicyResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeletePermissionPolicyResponse)
+-&gt; Either String Int
+-&gt; Either String DeletePermissionPolicyResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319950"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319941"><span id="local-6989586621679319943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679319934"><span class="annot"><span class="annottext">toHeaders :: DeletePermissionPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeletePermissionPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSWAF_20150824.DeletePermissionPolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319924"><span id="local-6989586621679319926"><span id="local-6989586621679319928"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679319922"><span class="annot"><span class="annottext">toJSON :: DeletePermissionPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy%27"><span class="hs-identifier hs-type">DeletePermissionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319920"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:DeletePermissionPolicy' :: DeletePermissionPolicy -&gt; Text
+</span><a href="#local-6989586621679319920"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319920"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679319914"><span class="annot"><span class="annottext">toPath :: DeletePermissionPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeletePermissionPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicy"><span class="hs-identifier hs-type">DeletePermissionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679319910"><span class="annot"><span class="annottext">toQuery :: DeletePermissionPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePermissionPolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newDeletePermissionPolicyResponse' smart constructor.</span><span>
+</span><span id="line-143"></span><span id="local-6989586621679319907"><span id="local-6989586621679319908"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePermissionPolicyResponse"><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse"><span class="hs-identifier hs-var">DeletePermissionPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePermissionPolicyResponse%27"><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse%27"><span class="hs-identifier hs-var">DeletePermissionPolicyResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeletePermissionPolicyResponse%27"><span class="annot"><span class="annottext">DeletePermissionPolicyResponse -&gt; Int
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#%24sel%3AhttpStatus%3ADeletePermissionPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319902"><span id="local-6989586621679319904"><span class="annot"><span class="annottext">DeletePermissionPolicyResponse
+-&gt; DeletePermissionPolicyResponse -&gt; Bool
+(DeletePermissionPolicyResponse
+ -&gt; DeletePermissionPolicyResponse -&gt; Bool)
+-&gt; (DeletePermissionPolicyResponse
+    -&gt; DeletePermissionPolicyResponse -&gt; Bool)
+-&gt; Eq DeletePermissionPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePermissionPolicyResponse
+-&gt; DeletePermissionPolicyResponse -&gt; Bool
+$c/= :: DeletePermissionPolicyResponse
+-&gt; DeletePermissionPolicyResponse -&gt; Bool
+== :: DeletePermissionPolicyResponse
+-&gt; DeletePermissionPolicyResponse -&gt; Bool
+$c== :: DeletePermissionPolicyResponse
+-&gt; DeletePermissionPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319894"><span id="local-6989586621679319896"><span id="local-6989586621679319898"><span id="local-6989586621679319900"><span class="annot"><span class="annottext">ReadPrec [DeletePermissionPolicyResponse]
+ReadPrec DeletePermissionPolicyResponse
+Int -&gt; ReadS DeletePermissionPolicyResponse
+ReadS [DeletePermissionPolicyResponse]
+(Int -&gt; ReadS DeletePermissionPolicyResponse)
+-&gt; ReadS [DeletePermissionPolicyResponse]
+-&gt; ReadPrec DeletePermissionPolicyResponse
+-&gt; ReadPrec [DeletePermissionPolicyResponse]
+-&gt; Read DeletePermissionPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePermissionPolicyResponse]
+$creadListPrec :: ReadPrec [DeletePermissionPolicyResponse]
+readPrec :: ReadPrec DeletePermissionPolicyResponse
+$creadPrec :: ReadPrec DeletePermissionPolicyResponse
+readList :: ReadS [DeletePermissionPolicyResponse]
+$creadList :: ReadS [DeletePermissionPolicyResponse]
+readsPrec :: Int -&gt; ReadS DeletePermissionPolicyResponse
+$creadsPrec :: Int -&gt; ReadS DeletePermissionPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319888"><span id="local-6989586621679319890"><span id="local-6989586621679319892"><span class="annot"><span class="annottext">Int -&gt; DeletePermissionPolicyResponse -&gt; ShowS
+[DeletePermissionPolicyResponse] -&gt; ShowS
+DeletePermissionPolicyResponse -&gt; String
+(Int -&gt; DeletePermissionPolicyResponse -&gt; ShowS)
+-&gt; (DeletePermissionPolicyResponse -&gt; String)
+-&gt; ([DeletePermissionPolicyResponse] -&gt; ShowS)
+-&gt; Show DeletePermissionPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePermissionPolicyResponse] -&gt; ShowS
+$cshowList :: [DeletePermissionPolicyResponse] -&gt; ShowS
+show :: DeletePermissionPolicyResponse -&gt; String
+$cshow :: DeletePermissionPolicyResponse -&gt; String
+showsPrec :: Int -&gt; DeletePermissionPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePermissionPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeletePermissionPolicyResponse
+ -&gt; Rep DeletePermissionPolicyResponse x)
+-&gt; (forall x.
+    Rep DeletePermissionPolicyResponse x
+    -&gt; DeletePermissionPolicyResponse)
+-&gt; Generic DeletePermissionPolicyResponse
+forall x.
+Rep DeletePermissionPolicyResponse x
+-&gt; DeletePermissionPolicyResponse
+forall x.
+DeletePermissionPolicyResponse
+-&gt; Rep DeletePermissionPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeletePermissionPolicyResponse x
+-&gt; DeletePermissionPolicyResponse
+$cfrom :: forall x.
+DeletePermissionPolicyResponse
+-&gt; Rep DeletePermissionPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'DeletePermissionPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'deletePermissionPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#newDeletePermissionPolicyResponse"><span class="hs-identifier hs-type">newDeletePermissionPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse"><span class="hs-identifier hs-type">DeletePermissionPolicyResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newDeletePermissionPolicyResponse"><span class="annot"><span class="annottext">newDeletePermissionPolicyResponse :: Int -&gt; DeletePermissionPolicyResponse
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#newDeletePermissionPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeletePermissionPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679319885"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319885"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">DeletePermissionPolicyResponse' :: Int -&gt; DeletePermissionPolicyResponse
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse%27"><span class="hs-identifier hs-type">DeletePermissionPolicyResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePermissionPolicyResponse' :: Int
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#%24sel%3AhttpStatus%3ADeletePermissionPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319885"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#deletePermissionPolicyResponse_httpStatus"><span class="hs-identifier hs-type">deletePermissionPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse"><span class="hs-identifier hs-type">DeletePermissionPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="deletePermissionPolicyResponse_httpStatus"><span class="annot"><span class="annottext">deletePermissionPolicyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeletePermissionPolicyResponse
+-&gt; f DeletePermissionPolicyResponse
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#deletePermissionPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deletePermissionPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePermissionPolicyResponse -&gt; Int)
+-&gt; (DeletePermissionPolicyResponse
+    -&gt; Int -&gt; DeletePermissionPolicyResponse)
+-&gt; Lens
+     DeletePermissionPolicyResponse
+     DeletePermissionPolicyResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse%27"><span class="hs-identifier hs-type">DeletePermissionPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319884"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeletePermissionPolicyResponse' :: DeletePermissionPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679319884"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319884"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319883"><span class="annot"><span class="annottext">s :: DeletePermissionPolicyResponse
+</span><a href="#local-6989586621679319883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse%27"><span class="hs-identifier hs-type">DeletePermissionPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319882"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePermissionPolicyResponse
+</span><a href="#local-6989586621679319883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePermissionPolicyResponse' :: Int
+</span><a href="Amazonka.WAF.DeletePermissionPolicy.html#%24sel%3AhttpStatus%3ADeletePermissionPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse"><span class="hs-identifier hs-type">DeletePermissionPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679319880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.WAF.DeletePermissionPolicy.html#DeletePermissionPolicyResponse"><span class="hs-identifier hs-type">DeletePermissionPolicyResponse</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

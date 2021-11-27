@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.TransitionStorageClass</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.TransitionStorageClass</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier">TransitionStorageClass</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_DEEP_ARCHIVE"><span class="hs-identifier">TransitionStorageClass_DEEP_ARCHIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_GLACIER"><span class="hs-identifier">TransitionStorageClass_GLACIER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_INTELLIGENT_TIERING"><span class="hs-identifier">TransitionStorageClass_INTELLIGENT_TIERING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_ONEZONE_IA"><span class="hs-identifier">TransitionStorageClass_ONEZONE_IA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_STANDARD_IA"><span class="hs-identifier">TransitionStorageClass_STANDARD_IA</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679557808"><span id="local-6989586621679557809"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransitionStorageClass"><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-var">TransitionStorageClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitionStorageClass%27"><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass%27"><span class="hs-identifier hs-var">TransitionStorageClass'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransitionStorageClass"><span class="annot"><span class="annottext">TransitionStorageClass -&gt; Text
+</span><a href="Amazonka.S3.Types.TransitionStorageClass.html#fromTransitionStorageClass"><span class="hs-identifier hs-var hs-var">fromTransitionStorageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557800"><span id="local-6989586621679557802"><span id="local-6989586621679557804"><span class="annot"><span class="annottext">Int -&gt; TransitionStorageClass -&gt; ShowS
+[TransitionStorageClass] -&gt; ShowS
+TransitionStorageClass -&gt; String
+(Int -&gt; TransitionStorageClass -&gt; ShowS)
+-&gt; (TransitionStorageClass -&gt; String)
+-&gt; ([TransitionStorageClass] -&gt; ShowS)
+-&gt; Show TransitionStorageClass
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransitionStorageClass] -&gt; ShowS
+$cshowList :: [TransitionStorageClass] -&gt; ShowS
+show :: TransitionStorageClass -&gt; String
+$cshow :: TransitionStorageClass -&gt; String
+showsPrec :: Int -&gt; TransitionStorageClass -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransitionStorageClass -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679557791"><span id="local-6989586621679557793"><span id="local-6989586621679557795"><span id="local-6989586621679557797"><span class="annot"><span class="annottext">ReadPrec [TransitionStorageClass]
+ReadPrec TransitionStorageClass
+Int -&gt; ReadS TransitionStorageClass
+ReadS [TransitionStorageClass]
+(Int -&gt; ReadS TransitionStorageClass)
+-&gt; ReadS [TransitionStorageClass]
+-&gt; ReadPrec TransitionStorageClass
+-&gt; ReadPrec [TransitionStorageClass]
+-&gt; Read TransitionStorageClass
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransitionStorageClass]
+$creadListPrec :: ReadPrec [TransitionStorageClass]
+readPrec :: ReadPrec TransitionStorageClass
+$creadPrec :: ReadPrec TransitionStorageClass
+readList :: ReadS [TransitionStorageClass]
+$creadList :: ReadS [TransitionStorageClass]
+readsPrec :: Int -&gt; ReadS TransitionStorageClass
+$creadsPrec :: Int -&gt; ReadS TransitionStorageClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679557786"><span id="local-6989586621679557788"><span class="annot"><span class="annottext">TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+(TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool)
+-&gt; (TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool)
+-&gt; Eq TransitionStorageClass
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+$c/= :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+== :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+$c== :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679557770"><span id="local-6989586621679557772"><span id="local-6989586621679557774"><span id="local-6989586621679557776"><span id="local-6989586621679557778"><span id="local-6989586621679557780"><span id="local-6989586621679557782"><span class="annot"><span class="annottext">Eq TransitionStorageClass
+Eq TransitionStorageClass
+-&gt; (TransitionStorageClass -&gt; TransitionStorageClass -&gt; Ordering)
+-&gt; (TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool)
+-&gt; (TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool)
+-&gt; (TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool)
+-&gt; (TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool)
+-&gt; (TransitionStorageClass
+    -&gt; TransitionStorageClass -&gt; TransitionStorageClass)
+-&gt; (TransitionStorageClass
+    -&gt; TransitionStorageClass -&gt; TransitionStorageClass)
+-&gt; Ord TransitionStorageClass
+TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+TransitionStorageClass -&gt; TransitionStorageClass -&gt; Ordering
+TransitionStorageClass
+-&gt; TransitionStorageClass -&gt; TransitionStorageClass
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TransitionStorageClass
+-&gt; TransitionStorageClass -&gt; TransitionStorageClass
+$cmin :: TransitionStorageClass
+-&gt; TransitionStorageClass -&gt; TransitionStorageClass
+max :: TransitionStorageClass
+-&gt; TransitionStorageClass -&gt; TransitionStorageClass
+$cmax :: TransitionStorageClass
+-&gt; TransitionStorageClass -&gt; TransitionStorageClass
+&gt;= :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+$c&gt;= :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+&gt; :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+$c&gt; :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+&lt;= :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+$c&lt;= :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+&lt; :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+$c&lt; :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Bool
+compare :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Ordering
+$ccompare :: TransitionStorageClass -&gt; TransitionStorageClass -&gt; Ordering
+$cp1Ord :: Eq TransitionStorageClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TransitionStorageClass -&gt; Rep TransitionStorageClass x)
+-&gt; (forall x.
+    Rep TransitionStorageClass x -&gt; TransitionStorageClass)
+-&gt; Generic TransitionStorageClass
+forall x. Rep TransitionStorageClass x -&gt; TransitionStorageClass
+forall x. TransitionStorageClass -&gt; Rep TransitionStorageClass x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TransitionStorageClass x -&gt; TransitionStorageClass
+$cfrom :: forall x. TransitionStorageClass -&gt; Rep TransitionStorageClass x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557762"><span id="local-6989586621679557764"><span class="annot"><span class="annottext">Int -&gt; TransitionStorageClass -&gt; Int
+TransitionStorageClass -&gt; Int
+(Int -&gt; TransitionStorageClass -&gt; Int)
+-&gt; (TransitionStorageClass -&gt; Int)
+-&gt; Hashable TransitionStorageClass
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TransitionStorageClass -&gt; Int
+$chash :: TransitionStorageClass -&gt; Int
+hashWithSalt :: Int -&gt; TransitionStorageClass -&gt; Int
+$chashWithSalt :: Int -&gt; TransitionStorageClass -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679557759"><span class="annot"><span class="annottext">TransitionStorageClass -&gt; ()
+(TransitionStorageClass -&gt; ()) -&gt; NFData TransitionStorageClass
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TransitionStorageClass -&gt; ()
+$crnf :: TransitionStorageClass -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679557756"><span class="annot"><span class="annottext">Text -&gt; Either String TransitionStorageClass
+(Text -&gt; Either String TransitionStorageClass)
+-&gt; FromText TransitionStorageClass
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TransitionStorageClass
+$cfromText :: Text -&gt; Either String TransitionStorageClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679557753"><span class="annot"><span class="annottext">TransitionStorageClass -&gt; Text
+(TransitionStorageClass -&gt; Text) -&gt; ToText TransitionStorageClass
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TransitionStorageClass -&gt; Text
+$ctoText :: TransitionStorageClass -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679557750"><span class="annot"><span class="annottext">TransitionStorageClass -&gt; ByteString
+(TransitionStorageClass -&gt; ByteString)
+-&gt; ToByteString TransitionStorageClass
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TransitionStorageClass -&gt; ByteString
+$ctoBS :: TransitionStorageClass -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679557747"><span class="annot"><span class="annottext">TransitionStorageClass -&gt; ByteStringBuilder
+(TransitionStorageClass -&gt; ByteStringBuilder)
+-&gt; ToLog TransitionStorageClass
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TransitionStorageClass -&gt; ByteStringBuilder
+$cbuild :: TransitionStorageClass -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679557744"><span class="annot"><span class="annottext">HeaderName -&gt; TransitionStorageClass -&gt; [Header]
+(HeaderName -&gt; TransitionStorageClass -&gt; [Header])
+-&gt; ToHeader TransitionStorageClass
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TransitionStorageClass -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TransitionStorageClass -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679557741"><span class="annot"><span class="annottext">TransitionStorageClass -&gt; QueryString
+(TransitionStorageClass -&gt; QueryString)
+-&gt; ToQuery TransitionStorageClass
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TransitionStorageClass -&gt; QueryString
+$ctoQuery :: TransitionStorageClass -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679557736"><span id="local-6989586621679557738"><span class="annot"><span class="annottext">Value -&gt; Parser [TransitionStorageClass]
+Value -&gt; Parser TransitionStorageClass
+(Value -&gt; Parser TransitionStorageClass)
+-&gt; (Value -&gt; Parser [TransitionStorageClass])
+-&gt; FromJSON TransitionStorageClass
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TransitionStorageClass]
+$cparseJSONList :: Value -&gt; Parser [TransitionStorageClass]
+parseJSON :: Value -&gt; Parser TransitionStorageClass
+$cparseJSON :: Value -&gt; Parser TransitionStorageClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679557731"><span id="local-6989586621679557733"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransitionStorageClass]
+FromJSONKeyFunction TransitionStorageClass
+FromJSONKeyFunction TransitionStorageClass
+-&gt; FromJSONKeyFunction [TransitionStorageClass]
+-&gt; FromJSONKey TransitionStorageClass
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TransitionStorageClass]
+$cfromJSONKeyList :: FromJSONKeyFunction [TransitionStorageClass]
+fromJSONKey :: FromJSONKeyFunction TransitionStorageClass
+$cfromJSONKey :: FromJSONKeyFunction TransitionStorageClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679557722"><span id="local-6989586621679557724"><span id="local-6989586621679557726"><span id="local-6989586621679557728"><span class="annot"><span class="annottext">[TransitionStorageClass] -&gt; Encoding
+[TransitionStorageClass] -&gt; Value
+TransitionStorageClass -&gt; Encoding
+TransitionStorageClass -&gt; Value
+(TransitionStorageClass -&gt; Value)
+-&gt; (TransitionStorageClass -&gt; Encoding)
+-&gt; ([TransitionStorageClass] -&gt; Value)
+-&gt; ([TransitionStorageClass] -&gt; Encoding)
+-&gt; ToJSON TransitionStorageClass
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TransitionStorageClass] -&gt; Encoding
+$ctoEncodingList :: [TransitionStorageClass] -&gt; Encoding
+toJSONList :: [TransitionStorageClass] -&gt; Value
+$ctoJSONList :: [TransitionStorageClass] -&gt; Value
+toEncoding :: TransitionStorageClass -&gt; Encoding
+$ctoEncoding :: TransitionStorageClass -&gt; Encoding
+toJSON :: TransitionStorageClass -&gt; Value
+$ctoJSON :: TransitionStorageClass -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679557717"><span id="local-6989586621679557719"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransitionStorageClass]
+ToJSONKeyFunction TransitionStorageClass
+ToJSONKeyFunction TransitionStorageClass
+-&gt; ToJSONKeyFunction [TransitionStorageClass]
+-&gt; ToJSONKey TransitionStorageClass
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TransitionStorageClass]
+$ctoJSONKeyList :: ToJSONKeyFunction [TransitionStorageClass]
+toJSONKey :: ToJSONKeyFunction TransitionStorageClass
+$ctoJSONKey :: ToJSONKeyFunction TransitionStorageClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679557714"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransitionStorageClass
+([Node] -&gt; Either String TransitionStorageClass)
+-&gt; FromXML TransitionStorageClass
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TransitionStorageClass
+$cparseXML :: [Node] -&gt; Either String TransitionStorageClass
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679557711"><span class="annot"><span class="annottext">TransitionStorageClass -&gt; XML
+(TransitionStorageClass -&gt; XML) -&gt; ToXML TransitionStorageClass
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TransitionStorageClass -&gt; XML
+$ctoXML :: TransitionStorageClass -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_DEEP_ARCHIVE"><span class="hs-identifier hs-type">TransitionStorageClass_DEEP_ARCHIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitionStorageClass_DEEP_ARCHIVE"><span id="%24mTransitionStorageClass_DEEP_ARCHIVE"><span id="TransitionStorageClass_DEEP_ARCHIVE"><span class="annot"><span class="annottext">$bTransitionStorageClass_DEEP_ARCHIVE :: TransitionStorageClass
+$mTransitionStorageClass_DEEP_ARCHIVE :: forall r.
+TransitionStorageClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.TransitionStorageClass.html#%24bTransitionStorageClass_DEEP_ARCHIVE"><span class="hs-identifier hs-var hs-var hs-var">TransitionStorageClass_DEEP_ARCHIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass%27"><span class="hs-identifier hs-type">TransitionStorageClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEEP_ARCHIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_GLACIER"><span class="hs-identifier hs-type">TransitionStorageClass_GLACIER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitionStorageClass_GLACIER"><span id="%24mTransitionStorageClass_GLACIER"><span id="TransitionStorageClass_GLACIER"><span class="annot"><span class="annottext">$bTransitionStorageClass_GLACIER :: TransitionStorageClass
+$mTransitionStorageClass_GLACIER :: forall r.
+TransitionStorageClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.TransitionStorageClass.html#%24bTransitionStorageClass_GLACIER"><span class="hs-identifier hs-var hs-var hs-var">TransitionStorageClass_GLACIER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass%27"><span class="hs-identifier hs-type">TransitionStorageClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GLACIER&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_INTELLIGENT_TIERING"><span class="hs-identifier hs-type">TransitionStorageClass_INTELLIGENT_TIERING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitionStorageClass_INTELLIGENT_TIERING"><span id="%24mTransitionStorageClass_INTELLIGENT_TIERING"><span id="TransitionStorageClass_INTELLIGENT_TIERING"><span class="annot"><span class="annottext">$bTransitionStorageClass_INTELLIGENT_TIERING :: TransitionStorageClass
+$mTransitionStorageClass_INTELLIGENT_TIERING :: forall r.
+TransitionStorageClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.TransitionStorageClass.html#%24bTransitionStorageClass_INTELLIGENT_TIERING"><span class="hs-identifier hs-var hs-var hs-var">TransitionStorageClass_INTELLIGENT_TIERING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass%27"><span class="hs-identifier hs-type">TransitionStorageClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTELLIGENT_TIERING&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_ONEZONE_IA"><span class="hs-identifier hs-type">TransitionStorageClass_ONEZONE_IA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitionStorageClass_ONEZONE_IA"><span id="%24mTransitionStorageClass_ONEZONE_IA"><span id="TransitionStorageClass_ONEZONE_IA"><span class="annot"><span class="annottext">$bTransitionStorageClass_ONEZONE_IA :: TransitionStorageClass
+$mTransitionStorageClass_ONEZONE_IA :: forall r.
+TransitionStorageClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.TransitionStorageClass.html#%24bTransitionStorageClass_ONEZONE_IA"><span class="hs-identifier hs-var hs-var hs-var">TransitionStorageClass_ONEZONE_IA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass%27"><span class="hs-identifier hs-type">TransitionStorageClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ONEZONE_IA&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_STANDARD_IA"><span class="hs-identifier hs-type">TransitionStorageClass_STANDARD_IA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitionStorageClass_STANDARD_IA"><span id="%24mTransitionStorageClass_STANDARD_IA"><span id="TransitionStorageClass_STANDARD_IA"><span class="annot"><span class="annottext">$bTransitionStorageClass_STANDARD_IA :: TransitionStorageClass
+$mTransitionStorageClass_STANDARD_IA :: forall r.
+TransitionStorageClass -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.TransitionStorageClass.html#%24bTransitionStorageClass_STANDARD_IA"><span class="hs-identifier hs-var hs-var hs-var">TransitionStorageClass_STANDARD_IA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass%27"><span class="hs-identifier hs-type">TransitionStorageClass'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STANDARD_IA&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_DEEP_ARCHIVE"><span class="hs-pragma hs-type">TransitionStorageClass_DEEP_ARCHIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_GLACIER"><span class="hs-pragma hs-type">TransitionStorageClass_GLACIER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_INTELLIGENT_TIERING"><span class="hs-pragma hs-type">TransitionStorageClass_INTELLIGENT_TIERING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_ONEZONE_IA"><span class="hs-pragma hs-type">TransitionStorageClass_ONEZONE_IA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass_STANDARD_IA"><span class="hs-pragma hs-type">TransitionStorageClass_STANDARD_IA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass%27"><span class="hs-pragma hs-type">TransitionStorageClass'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

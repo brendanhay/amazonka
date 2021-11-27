@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Kinesis.RemoveTagsFromStream</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes tags from the specified Kinesis data stream. Removed tags are</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- deleted and cannot be recovered after this operation successfully</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- completes.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- If you specify a tag that does not exist, it is ignored.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- RemoveTagsFromStream has a limit of five transactions per second per</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kinesis.RemoveTagsFromStream</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier">RemoveTagsFromStream</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#newRemoveTagsFromStream"><span class="hs-identifier">newRemoveTagsFromStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#removeTagsFromStream_streamName"><span class="hs-identifier">removeTagsFromStream_streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#removeTagsFromStream_tagKeys"><span class="hs-identifier">removeTagsFromStream_tagKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStreamResponse"><span class="hs-identifier">RemoveTagsFromStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#newRemoveTagsFromStreamResponse"><span class="hs-identifier">newRemoveTagsFromStreamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.html"><span class="hs-identifier">Amazonka.Kinesis.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Represents the input for @RemoveTagsFromStream@.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newRemoveTagsFromStream' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679200554"><span id="local-6989586621679200555"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromStream"><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-var">RemoveTagsFromStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromStream%27"><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream%27"><span class="hs-identifier hs-var">RemoveTagsFromStream'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the stream.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AstreamName%3ARemoveTagsFromStream%27"><span class="annot"><span class="annottext">RemoveTagsFromStream -&gt; Text
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#%24sel%3AstreamName%3ARemoveTagsFromStream%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A list of tag keys. Each corresponding tag is removed from the stream.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtagKeys%3ARemoveTagsFromStream%27"><span class="annot"><span class="annottext">RemoveTagsFromStream -&gt; NonEmpty Text
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#%24sel%3AtagKeys%3ARemoveTagsFromStream%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200547"><span id="local-6989586621679200549"><span class="annot"><span class="annottext">RemoveTagsFromStream -&gt; RemoveTagsFromStream -&gt; Bool
+(RemoveTagsFromStream -&gt; RemoveTagsFromStream -&gt; Bool)
+-&gt; (RemoveTagsFromStream -&gt; RemoveTagsFromStream -&gt; Bool)
+-&gt; Eq RemoveTagsFromStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveTagsFromStream -&gt; RemoveTagsFromStream -&gt; Bool
+$c/= :: RemoveTagsFromStream -&gt; RemoveTagsFromStream -&gt; Bool
+== :: RemoveTagsFromStream -&gt; RemoveTagsFromStream -&gt; Bool
+$c== :: RemoveTagsFromStream -&gt; RemoveTagsFromStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200538"><span id="local-6989586621679200540"><span id="local-6989586621679200542"><span id="local-6989586621679200544"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromStream]
+ReadPrec RemoveTagsFromStream
+Int -&gt; ReadS RemoveTagsFromStream
+ReadS [RemoveTagsFromStream]
+(Int -&gt; ReadS RemoveTagsFromStream)
+-&gt; ReadS [RemoveTagsFromStream]
+-&gt; ReadPrec RemoveTagsFromStream
+-&gt; ReadPrec [RemoveTagsFromStream]
+-&gt; Read RemoveTagsFromStream
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveTagsFromStream]
+$creadListPrec :: ReadPrec [RemoveTagsFromStream]
+readPrec :: ReadPrec RemoveTagsFromStream
+$creadPrec :: ReadPrec RemoveTagsFromStream
+readList :: ReadS [RemoveTagsFromStream]
+$creadList :: ReadS [RemoveTagsFromStream]
+readsPrec :: Int -&gt; ReadS RemoveTagsFromStream
+$creadsPrec :: Int -&gt; ReadS RemoveTagsFromStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200531"><span id="local-6989586621679200533"><span id="local-6989586621679200535"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromStream -&gt; ShowS
+[RemoveTagsFromStream] -&gt; ShowS
+RemoveTagsFromStream -&gt; String
+(Int -&gt; RemoveTagsFromStream -&gt; ShowS)
+-&gt; (RemoveTagsFromStream -&gt; String)
+-&gt; ([RemoveTagsFromStream] -&gt; ShowS)
+-&gt; Show RemoveTagsFromStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveTagsFromStream] -&gt; ShowS
+$cshowList :: [RemoveTagsFromStream] -&gt; ShowS
+show :: RemoveTagsFromStream -&gt; String
+$cshow :: RemoveTagsFromStream -&gt; String
+showsPrec :: Int -&gt; RemoveTagsFromStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveTagsFromStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RemoveTagsFromStream -&gt; Rep RemoveTagsFromStream x)
+-&gt; (forall x. Rep RemoveTagsFromStream x -&gt; RemoveTagsFromStream)
+-&gt; Generic RemoveTagsFromStream
+forall x. Rep RemoveTagsFromStream x -&gt; RemoveTagsFromStream
+forall x. RemoveTagsFromStream -&gt; Rep RemoveTagsFromStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RemoveTagsFromStream x -&gt; RemoveTagsFromStream
+$cfrom :: forall x. RemoveTagsFromStream -&gt; Rep RemoveTagsFromStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'RemoveTagsFromStream' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'streamName', 'removeTagsFromStream_streamName' - The name of the stream.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'tagKeys', 'removeTagsFromStream_tagKeys' - A list of tag keys. Each corresponding tag is removed from the stream.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#newRemoveTagsFromStream"><span class="hs-identifier hs-type">newRemoveTagsFromStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'streamName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'tagKeys'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span>
+</span><span id="line-81"></span><span id="newRemoveTagsFromStream"><span class="annot"><span class="annottext">newRemoveTagsFromStream :: Text -&gt; NonEmpty Text -&gt; RemoveTagsFromStream
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#newRemoveTagsFromStream"><span class="hs-identifier hs-var hs-var">newRemoveTagsFromStream</span></a></span></span><span> </span><span id="local-6989586621679200526"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200526"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span id="local-6989586621679200525"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679200525"><span class="hs-identifier hs-var">pTagKeys_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">RemoveTagsFromStream' :: Text -&gt; NonEmpty Text -&gt; RemoveTagsFromStream
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream%27"><span class="hs-identifier hs-type">RemoveTagsFromStream'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamName:RemoveTagsFromStream' :: Text
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#%24sel%3AstreamName%3ARemoveTagsFromStream%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200526"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:RemoveTagsFromStream' :: NonEmpty Text
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#%24sel%3AtagKeys%3ARemoveTagsFromStream%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679200525"><span class="hs-identifier hs-var">pTagKeys_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The name of the stream.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#removeTagsFromStream_streamName"><span class="hs-identifier hs-type">removeTagsFromStream_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="removeTagsFromStream_streamName"><span class="annot"><span class="annottext">removeTagsFromStream_streamName :: (Text -&gt; f Text) -&gt; RemoveTagsFromStream -&gt; f RemoveTagsFromStream
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#removeTagsFromStream_streamName"><span class="hs-identifier hs-var hs-var">removeTagsFromStream_streamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveTagsFromStream -&gt; Text)
+-&gt; (RemoveTagsFromStream -&gt; Text -&gt; RemoveTagsFromStream)
+-&gt; Lens RemoveTagsFromStream RemoveTagsFromStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream%27"><span class="hs-identifier hs-type">RemoveTagsFromStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200520"><span class="annot"><span class="annottext">Text
+streamName :: Text
+$sel:streamName:RemoveTagsFromStream' :: RemoveTagsFromStream -&gt; Text
+</span><a href="#local-6989586621679200520"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200520"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200519"><span class="annot"><span class="annottext">s :: RemoveTagsFromStream
+</span><a href="#local-6989586621679200519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream%27"><span class="hs-identifier hs-type">RemoveTagsFromStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200518"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromStream
+</span><a href="#local-6989586621679200519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:RemoveTagsFromStream' :: Text
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#%24sel%3AstreamName%3ARemoveTagsFromStream%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | A list of tag keys. Each corresponding tag is removed from the stream.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#removeTagsFromStream_tagKeys"><span class="hs-identifier hs-type">removeTagsFromStream_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="removeTagsFromStream_tagKeys"><span class="annot"><span class="annottext">removeTagsFromStream_tagKeys :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; RemoveTagsFromStream -&gt; f RemoveTagsFromStream
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#removeTagsFromStream_tagKeys"><span class="hs-identifier hs-var hs-var">removeTagsFromStream_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveTagsFromStream -&gt; NonEmpty Text)
+-&gt; (RemoveTagsFromStream -&gt; NonEmpty Text -&gt; RemoveTagsFromStream)
+-&gt; Lens
+     RemoveTagsFromStream
+     RemoveTagsFromStream
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream%27"><span class="hs-identifier hs-type">RemoveTagsFromStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200517"><span class="annot"><span class="annottext">NonEmpty Text
+tagKeys :: NonEmpty Text
+$sel:tagKeys:RemoveTagsFromStream' :: RemoveTagsFromStream -&gt; NonEmpty Text
+</span><a href="#local-6989586621679200517"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679200517"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200516"><span class="annot"><span class="annottext">s :: RemoveTagsFromStream
+</span><a href="#local-6989586621679200516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream%27"><span class="hs-identifier hs-type">RemoveTagsFromStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200515"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679200515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromStream
+</span><a href="#local-6989586621679200516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:RemoveTagsFromStream' :: NonEmpty Text
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#%24sel%3AtagKeys%3ARemoveTagsFromStream%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679200515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; RemoveTagsFromStream -&gt; f RemoveTagsFromStream)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; RemoveTagsFromStream
+-&gt; f RemoveTagsFromStream
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStreamResponse"><span class="hs-identifier hs-type">RemoveTagsFromStreamResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679200510"><span class="annot"><span class="annottext">request :: RemoveTagsFromStream -&gt; Request RemoveTagsFromStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemoveTagsFromStream -&gt; Request RemoveTagsFromStream
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679200506"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RemoveTagsFromStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveTagsFromStream)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse RemoveTagsFromStream
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RemoveTagsFromStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveTagsFromStream)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse RemoveTagsFromStream
+RemoveTagsFromStreamResponse
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStreamResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromStreamResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200499"><span id="local-6989586621679200501"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679200492"><span class="annot"><span class="annottext">toHeaders :: RemoveTagsFromStream -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RemoveTagsFromStream -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Kinesis_20131202.RemoveTagsFromStream&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200482"><span id="local-6989586621679200484"><span id="local-6989586621679200486"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679200480"><span class="annot"><span class="annottext">toJSON :: RemoveTagsFromStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream%27"><span class="hs-identifier hs-type">RemoveTagsFromStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200477"><span id="local-6989586621679200478"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+tagKeys :: NonEmpty Text
+streamName :: Text
+$sel:tagKeys:RemoveTagsFromStream' :: RemoveTagsFromStream -&gt; NonEmpty Text
+$sel:streamName:RemoveTagsFromStream' :: RemoveTagsFromStream -&gt; Text
+</span><a href="#local-6989586621679200477"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200478"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679200477"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679200471"><span class="annot"><span class="annottext">toPath :: RemoveTagsFromStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveTagsFromStream -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStream"><span class="hs-identifier hs-type">RemoveTagsFromStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679200467"><span class="annot"><span class="annottext">toQuery :: RemoveTagsFromStream -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveTagsFromStream -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newRemoveTagsFromStreamResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679200464"><span id="local-6989586621679200465"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromStreamResponse"><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStreamResponse"><span class="hs-identifier hs-var">RemoveTagsFromStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromStreamResponse%27"><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStreamResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromStreamResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200460"><span id="local-6989586621679200462"><span class="annot"><span class="annottext">RemoveTagsFromStreamResponse
+-&gt; RemoveTagsFromStreamResponse -&gt; Bool
+(RemoveTagsFromStreamResponse
+ -&gt; RemoveTagsFromStreamResponse -&gt; Bool)
+-&gt; (RemoveTagsFromStreamResponse
+    -&gt; RemoveTagsFromStreamResponse -&gt; Bool)
+-&gt; Eq RemoveTagsFromStreamResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveTagsFromStreamResponse
+-&gt; RemoveTagsFromStreamResponse -&gt; Bool
+$c/= :: RemoveTagsFromStreamResponse
+-&gt; RemoveTagsFromStreamResponse -&gt; Bool
+== :: RemoveTagsFromStreamResponse
+-&gt; RemoveTagsFromStreamResponse -&gt; Bool
+$c== :: RemoveTagsFromStreamResponse
+-&gt; RemoveTagsFromStreamResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200452"><span id="local-6989586621679200454"><span id="local-6989586621679200456"><span id="local-6989586621679200458"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromStreamResponse]
+ReadPrec RemoveTagsFromStreamResponse
+Int -&gt; ReadS RemoveTagsFromStreamResponse
+ReadS [RemoveTagsFromStreamResponse]
+(Int -&gt; ReadS RemoveTagsFromStreamResponse)
+-&gt; ReadS [RemoveTagsFromStreamResponse]
+-&gt; ReadPrec RemoveTagsFromStreamResponse
+-&gt; ReadPrec [RemoveTagsFromStreamResponse]
+-&gt; Read RemoveTagsFromStreamResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveTagsFromStreamResponse]
+$creadListPrec :: ReadPrec [RemoveTagsFromStreamResponse]
+readPrec :: ReadPrec RemoveTagsFromStreamResponse
+$creadPrec :: ReadPrec RemoveTagsFromStreamResponse
+readList :: ReadS [RemoveTagsFromStreamResponse]
+$creadList :: ReadS [RemoveTagsFromStreamResponse]
+readsPrec :: Int -&gt; ReadS RemoveTagsFromStreamResponse
+$creadsPrec :: Int -&gt; ReadS RemoveTagsFromStreamResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200446"><span id="local-6989586621679200448"><span id="local-6989586621679200450"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromStreamResponse -&gt; ShowS
+[RemoveTagsFromStreamResponse] -&gt; ShowS
+RemoveTagsFromStreamResponse -&gt; String
+(Int -&gt; RemoveTagsFromStreamResponse -&gt; ShowS)
+-&gt; (RemoveTagsFromStreamResponse -&gt; String)
+-&gt; ([RemoveTagsFromStreamResponse] -&gt; ShowS)
+-&gt; Show RemoveTagsFromStreamResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveTagsFromStreamResponse] -&gt; ShowS
+$cshowList :: [RemoveTagsFromStreamResponse] -&gt; ShowS
+show :: RemoveTagsFromStreamResponse -&gt; String
+$cshow :: RemoveTagsFromStreamResponse -&gt; String
+showsPrec :: Int -&gt; RemoveTagsFromStreamResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveTagsFromStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveTagsFromStreamResponse -&gt; Rep RemoveTagsFromStreamResponse x)
+-&gt; (forall x.
+    Rep RemoveTagsFromStreamResponse x -&gt; RemoveTagsFromStreamResponse)
+-&gt; Generic RemoveTagsFromStreamResponse
+forall x.
+Rep RemoveTagsFromStreamResponse x -&gt; RemoveTagsFromStreamResponse
+forall x.
+RemoveTagsFromStreamResponse -&gt; Rep RemoveTagsFromStreamResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveTagsFromStreamResponse x -&gt; RemoveTagsFromStreamResponse
+$cfrom :: forall x.
+RemoveTagsFromStreamResponse -&gt; Rep RemoveTagsFromStreamResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'RemoveTagsFromStreamResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#newRemoveTagsFromStreamResponse"><span class="hs-identifier hs-type">newRemoveTagsFromStreamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStreamResponse"><span class="hs-identifier hs-type">RemoveTagsFromStreamResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newRemoveTagsFromStreamResponse"><span class="annot"><span class="annottext">newRemoveTagsFromStreamResponse :: RemoveTagsFromStreamResponse
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#newRemoveTagsFromStreamResponse"><span class="hs-identifier hs-var hs-var">newRemoveTagsFromStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">RemoveTagsFromStreamResponse
+</span><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStreamResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromStreamResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.RemoveTagsFromStream.html#RemoveTagsFromStreamResponse"><span class="hs-identifier hs-type">RemoveTagsFromStreamResponse</span></a></span></span><span>
+</span><span id="line-153"></span></pre></body></html>

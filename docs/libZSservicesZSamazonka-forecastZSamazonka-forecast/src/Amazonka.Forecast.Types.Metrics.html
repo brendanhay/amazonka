@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Forecast.Types.Metrics</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Forecast.Types.Metrics</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ErrorMetric.html"><span class="hs-identifier">Amazonka.Forecast.Types.ErrorMetric</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.WeightedQuantileLoss.html"><span class="hs-identifier">Amazonka.Forecast.Types.WeightedQuantileLoss</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Provides metrics that are used to evaluate the performance of a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- predictor. This object is part of the WindowSummary object.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMetrics' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679250645"><span id="local-6989586621679250646"></span></span><span class="hs-keyword">data</span><span> </span><span id="Metrics"><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-var">Metrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Metrics%27"><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-var">Metrics'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides detailed error metrics for each forecast type. Metrics include</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- root-mean square-error (RMSE), mean absolute percentage error (MAPE),</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- mean absolute scaled error (MASE), and weighted average percentage error</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- (WAPE).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AerrorMetrics%3AMetrics%27"><span class="annot"><span class="annottext">Metrics -&gt; Maybe [ErrorMetric]
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3AerrorMetrics%3AMetrics%27"><span class="hs-identifier hs-var hs-var">errorMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Forecast.Types.ErrorMetric.html#ErrorMetric"><span class="hs-identifier hs-type">ErrorMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The root-mean-square error (RMSE).</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Armse%3AMetrics%27"><span class="annot"><span class="annottext">Metrics -&gt; Maybe Double
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3Armse%3AMetrics%27"><span class="hs-identifier hs-var hs-var">rmse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | An array of weighted quantile losses. Quantiles divide a probability</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- distribution into regions of equal probability. The distribution in this</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- case is the loss function.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AweightedQuantileLosses%3AMetrics%27"><span class="annot"><span class="annottext">Metrics -&gt; Maybe [WeightedQuantileLoss]
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3AweightedQuantileLosses%3AMetrics%27"><span class="hs-identifier hs-var hs-var">weightedQuantileLosses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Forecast.Types.WeightedQuantileLoss.html#WeightedQuantileLoss"><span class="hs-identifier hs-type">WeightedQuantileLoss</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The average value of all weighted quantile losses.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AaverageWeightedQuantileLoss%3AMetrics%27"><span class="annot"><span class="annottext">Metrics -&gt; Maybe Double
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3AaverageWeightedQuantileLoss%3AMetrics%27"><span class="hs-identifier hs-var hs-var">averageWeightedQuantileLoss</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250636"><span id="local-6989586621679250638"><span class="annot"><span class="annottext">Metrics -&gt; Metrics -&gt; Bool
+(Metrics -&gt; Metrics -&gt; Bool)
+-&gt; (Metrics -&gt; Metrics -&gt; Bool) -&gt; Eq Metrics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Metrics -&gt; Metrics -&gt; Bool
+$c/= :: Metrics -&gt; Metrics -&gt; Bool
+== :: Metrics -&gt; Metrics -&gt; Bool
+$c== :: Metrics -&gt; Metrics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250627"><span id="local-6989586621679250629"><span id="local-6989586621679250631"><span id="local-6989586621679250633"><span class="annot"><span class="annottext">ReadPrec [Metrics]
+ReadPrec Metrics
+Int -&gt; ReadS Metrics
+ReadS [Metrics]
+(Int -&gt; ReadS Metrics)
+-&gt; ReadS [Metrics]
+-&gt; ReadPrec Metrics
+-&gt; ReadPrec [Metrics]
+-&gt; Read Metrics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Metrics]
+$creadListPrec :: ReadPrec [Metrics]
+readPrec :: ReadPrec Metrics
+$creadPrec :: ReadPrec Metrics
+readList :: ReadS [Metrics]
+$creadList :: ReadS [Metrics]
+readsPrec :: Int -&gt; ReadS Metrics
+$creadsPrec :: Int -&gt; ReadS Metrics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250620"><span id="local-6989586621679250622"><span id="local-6989586621679250624"><span class="annot"><span class="annottext">Int -&gt; Metrics -&gt; ShowS
+[Metrics] -&gt; ShowS
+Metrics -&gt; String
+(Int -&gt; Metrics -&gt; ShowS)
+-&gt; (Metrics -&gt; String) -&gt; ([Metrics] -&gt; ShowS) -&gt; Show Metrics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Metrics] -&gt; ShowS
+$cshowList :: [Metrics] -&gt; ShowS
+show :: Metrics -&gt; String
+$cshow :: Metrics -&gt; String
+showsPrec :: Int -&gt; Metrics -&gt; ShowS
+$cshowsPrec :: Int -&gt; Metrics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Metrics -&gt; Rep Metrics x)
+-&gt; (forall x. Rep Metrics x -&gt; Metrics) -&gt; Generic Metrics
+forall x. Rep Metrics x -&gt; Metrics
+forall x. Metrics -&gt; Rep Metrics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Metrics x -&gt; Metrics
+$cfrom :: forall x. Metrics -&gt; Rep Metrics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'Metrics' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'errorMetrics', 'metrics_errorMetrics' - Provides detailed error metrics for each forecast type. Metrics include</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- root-mean square-error (RMSE), mean absolute percentage error (MAPE),</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- mean absolute scaled error (MASE), and weighted average percentage error</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- (WAPE).</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'rmse', 'metrics_rmse' - The root-mean-square error (RMSE).</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'weightedQuantileLosses', 'metrics_weightedQuantileLosses' - An array of weighted quantile losses. Quantiles divide a probability</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- distribution into regions of equal probability. The distribution in this</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- case is the loss function.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'averageWeightedQuantileLoss', 'metrics_averageWeightedQuantileLoss' - The average value of all weighted quantile losses.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#newMetrics"><span class="hs-identifier hs-type">newMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span>
+</span><span id="line-71"></span><span id="newMetrics"><span class="annot"><span class="annottext">newMetrics :: Metrics
+</span><a href="Amazonka.Forecast.Types.Metrics.html#newMetrics"><span class="hs-identifier hs-var hs-var">newMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">Metrics' :: Maybe [ErrorMetric]
+-&gt; Maybe Double
+-&gt; Maybe [WeightedQuantileLoss]
+-&gt; Maybe Double
+-&gt; Metrics
+</span><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-type">Metrics'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorMetrics:Metrics' :: Maybe [ErrorMetric]
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3AerrorMetrics%3AMetrics%27"><span class="hs-identifier hs-var">errorMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorMetric]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:rmse:Metrics' :: Maybe Double
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3Armse%3AMetrics%27"><span class="hs-identifier hs-var">rmse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:weightedQuantileLosses:Metrics' :: Maybe [WeightedQuantileLoss]
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3AweightedQuantileLosses%3AMetrics%27"><span class="hs-identifier hs-var">weightedQuantileLosses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [WeightedQuantileLoss]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:averageWeightedQuantileLoss:Metrics' :: Maybe Double
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3AaverageWeightedQuantileLoss%3AMetrics%27"><span class="hs-identifier hs-var">averageWeightedQuantileLoss</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Provides detailed error metrics for each forecast type. Metrics include</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- root-mean square-error (RMSE), mean absolute percentage error (MAPE),</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- mean absolute scaled error (MASE), and weighted average percentage error</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- (WAPE).</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#metrics_errorMetrics"><span class="hs-identifier hs-type">metrics_errorMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Forecast.Types.ErrorMetric.html#ErrorMetric"><span class="hs-identifier hs-type">ErrorMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="metrics_errorMetrics"><span class="annot"><span class="annottext">metrics_errorMetrics :: (Maybe [ErrorMetric] -&gt; f (Maybe [ErrorMetric]))
+-&gt; Metrics -&gt; f Metrics
+</span><a href="Amazonka.Forecast.Types.Metrics.html#metrics_errorMetrics"><span class="hs-identifier hs-var hs-var">metrics_errorMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Metrics -&gt; Maybe [ErrorMetric])
+-&gt; (Metrics -&gt; Maybe [ErrorMetric] -&gt; Metrics)
+-&gt; Lens Metrics Metrics (Maybe [ErrorMetric]) (Maybe [ErrorMetric])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-type">Metrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250611"><span class="annot"><span class="annottext">Maybe [ErrorMetric]
+errorMetrics :: Maybe [ErrorMetric]
+$sel:errorMetrics:Metrics' :: Metrics -&gt; Maybe [ErrorMetric]
+</span><a href="#local-6989586621679250611"><span class="hs-identifier hs-var hs-var">errorMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorMetric]
+</span><a href="#local-6989586621679250611"><span class="hs-identifier hs-var">errorMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250610"><span class="annot"><span class="annottext">s :: Metrics
+</span><a href="#local-6989586621679250610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-type">Metrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250609"><span class="annot"><span class="annottext">Maybe [ErrorMetric]
+</span><a href="#local-6989586621679250609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metrics
+</span><a href="#local-6989586621679250610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMetrics:Metrics' :: Maybe [ErrorMetric]
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3AerrorMetrics%3AMetrics%27"><span class="hs-identifier hs-var">errorMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorMetric]
+</span><a href="#local-6989586621679250609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ErrorMetric] -&gt; f (Maybe [ErrorMetric]))
+ -&gt; Metrics -&gt; f Metrics)
+-&gt; ((Maybe [ErrorMetric] -&gt; f (Maybe [ErrorMetric]))
+    -&gt; Maybe [ErrorMetric] -&gt; f (Maybe [ErrorMetric]))
+-&gt; (Maybe [ErrorMetric] -&gt; f (Maybe [ErrorMetric]))
+-&gt; Metrics
+-&gt; f Metrics
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ErrorMetric] [ErrorMetric] [ErrorMetric] [ErrorMetric]
+-&gt; Iso
+     (Maybe [ErrorMetric])
+     (Maybe [ErrorMetric])
+     (Maybe [ErrorMetric])
+     (Maybe [ErrorMetric])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ErrorMetric] [ErrorMetric] [ErrorMetric] [ErrorMetric]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The root-mean-square error (RMSE).</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#metrics_rmse"><span class="hs-identifier hs-type">metrics_rmse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="metrics_rmse"><span class="annot"><span class="annottext">metrics_rmse :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Metrics -&gt; f Metrics
+</span><a href="Amazonka.Forecast.Types.Metrics.html#metrics_rmse"><span class="hs-identifier hs-var hs-var">metrics_rmse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Metrics -&gt; Maybe Double)
+-&gt; (Metrics -&gt; Maybe Double -&gt; Metrics)
+-&gt; Lens Metrics Metrics (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-type">Metrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250604"><span class="annot"><span class="annottext">Maybe Double
+rmse :: Maybe Double
+$sel:rmse:Metrics' :: Metrics -&gt; Maybe Double
+</span><a href="#local-6989586621679250604"><span class="hs-identifier hs-var hs-var">rmse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679250604"><span class="hs-identifier hs-var">rmse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250603"><span class="annot"><span class="annottext">s :: Metrics
+</span><a href="#local-6989586621679250603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-type">Metrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250602"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679250602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metrics
+</span><a href="#local-6989586621679250603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rmse:Metrics' :: Maybe Double
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3Armse%3AMetrics%27"><span class="hs-identifier hs-var">rmse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679250602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | An array of weighted quantile losses. Quantiles divide a probability</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- distribution into regions of equal probability. The distribution in this</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- case is the loss function.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#metrics_weightedQuantileLosses"><span class="hs-identifier hs-type">metrics_weightedQuantileLosses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Forecast.Types.WeightedQuantileLoss.html#WeightedQuantileLoss"><span class="hs-identifier hs-type">WeightedQuantileLoss</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="metrics_weightedQuantileLosses"><span class="annot"><span class="annottext">metrics_weightedQuantileLosses :: (Maybe [WeightedQuantileLoss] -&gt; f (Maybe [WeightedQuantileLoss]))
+-&gt; Metrics -&gt; f Metrics
+</span><a href="Amazonka.Forecast.Types.Metrics.html#metrics_weightedQuantileLosses"><span class="hs-identifier hs-var hs-var">metrics_weightedQuantileLosses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Metrics -&gt; Maybe [WeightedQuantileLoss])
+-&gt; (Metrics -&gt; Maybe [WeightedQuantileLoss] -&gt; Metrics)
+-&gt; Lens
+     Metrics
+     Metrics
+     (Maybe [WeightedQuantileLoss])
+     (Maybe [WeightedQuantileLoss])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-type">Metrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250600"><span class="annot"><span class="annottext">Maybe [WeightedQuantileLoss]
+weightedQuantileLosses :: Maybe [WeightedQuantileLoss]
+$sel:weightedQuantileLosses:Metrics' :: Metrics -&gt; Maybe [WeightedQuantileLoss]
+</span><a href="#local-6989586621679250600"><span class="hs-identifier hs-var hs-var">weightedQuantileLosses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [WeightedQuantileLoss]
+</span><a href="#local-6989586621679250600"><span class="hs-identifier hs-var">weightedQuantileLosses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250599"><span class="annot"><span class="annottext">s :: Metrics
+</span><a href="#local-6989586621679250599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-type">Metrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250598"><span class="annot"><span class="annottext">Maybe [WeightedQuantileLoss]
+</span><a href="#local-6989586621679250598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metrics
+</span><a href="#local-6989586621679250599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weightedQuantileLosses:Metrics' :: Maybe [WeightedQuantileLoss]
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3AweightedQuantileLosses%3AMetrics%27"><span class="hs-identifier hs-var">weightedQuantileLosses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [WeightedQuantileLoss]
+</span><a href="#local-6989586621679250598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [WeightedQuantileLoss] -&gt; f (Maybe [WeightedQuantileLoss]))
+ -&gt; Metrics -&gt; f Metrics)
+-&gt; ((Maybe [WeightedQuantileLoss]
+     -&gt; f (Maybe [WeightedQuantileLoss]))
+    -&gt; Maybe [WeightedQuantileLoss]
+    -&gt; f (Maybe [WeightedQuantileLoss]))
+-&gt; (Maybe [WeightedQuantileLoss]
+    -&gt; f (Maybe [WeightedQuantileLoss]))
+-&gt; Metrics
+-&gt; f Metrics
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [WeightedQuantileLoss]
+  [WeightedQuantileLoss]
+  [WeightedQuantileLoss]
+  [WeightedQuantileLoss]
+-&gt; Iso
+     (Maybe [WeightedQuantileLoss])
+     (Maybe [WeightedQuantileLoss])
+     (Maybe [WeightedQuantileLoss])
+     (Maybe [WeightedQuantileLoss])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [WeightedQuantileLoss]
+  [WeightedQuantileLoss]
+  [WeightedQuantileLoss]
+  [WeightedQuantileLoss]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The average value of all weighted quantile losses.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#metrics_averageWeightedQuantileLoss"><span class="hs-identifier hs-type">metrics_averageWeightedQuantileLoss</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="metrics_averageWeightedQuantileLoss"><span class="annot"><span class="annottext">metrics_averageWeightedQuantileLoss :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Metrics -&gt; f Metrics
+</span><a href="Amazonka.Forecast.Types.Metrics.html#metrics_averageWeightedQuantileLoss"><span class="hs-identifier hs-var hs-var">metrics_averageWeightedQuantileLoss</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Metrics -&gt; Maybe Double)
+-&gt; (Metrics -&gt; Maybe Double -&gt; Metrics)
+-&gt; Lens Metrics Metrics (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-type">Metrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250596"><span class="annot"><span class="annottext">Maybe Double
+averageWeightedQuantileLoss :: Maybe Double
+$sel:averageWeightedQuantileLoss:Metrics' :: Metrics -&gt; Maybe Double
+</span><a href="#local-6989586621679250596"><span class="hs-identifier hs-var hs-var">averageWeightedQuantileLoss</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679250596"><span class="hs-identifier hs-var">averageWeightedQuantileLoss</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250595"><span class="annot"><span class="annottext">s :: Metrics
+</span><a href="#local-6989586621679250595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-type">Metrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250594"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679250594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metrics
+</span><a href="#local-6989586621679250595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:averageWeightedQuantileLoss:Metrics' :: Maybe Double
+</span><a href="Amazonka.Forecast.Types.Metrics.html#%24sel%3AaverageWeightedQuantileLoss%3AMetrics%27"><span class="hs-identifier hs-var">averageWeightedQuantileLoss</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679250594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250591"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679250589"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Metrics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Metrics) -&gt; Value -&gt; Parser Metrics
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Metrics&quot;</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250586"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ErrorMetric]
+-&gt; Maybe Double
+-&gt; Maybe [WeightedQuantileLoss]
+-&gt; Maybe Double
+-&gt; Metrics
+</span><a href="Amazonka.Forecast.Types.Metrics.html#Metrics%27"><span class="hs-identifier hs-var">Metrics'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ErrorMetric]
+ -&gt; Maybe Double
+ -&gt; Maybe [WeightedQuantileLoss]
+ -&gt; Maybe Double
+ -&gt; Metrics)
+-&gt; Parser (Maybe [ErrorMetric])
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe [WeightedQuantileLoss] -&gt; Maybe Double -&gt; Metrics)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ErrorMetric]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorMetrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ErrorMetric]))
+-&gt; Maybe [ErrorMetric] -&gt; Parser (Maybe [ErrorMetric])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorMetric]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe [WeightedQuantileLoss] -&gt; Maybe Double -&gt; Metrics)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe [WeightedQuantileLoss] -&gt; Maybe Double -&gt; Metrics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RMSE&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [WeightedQuantileLoss] -&gt; Maybe Double -&gt; Metrics)
+-&gt; Parser (Maybe [WeightedQuantileLoss])
+-&gt; Parser (Maybe Double -&gt; Metrics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [WeightedQuantileLoss]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WeightedQuantileLosses&quot;</span></span><span>
+</span><span id="line-109"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [WeightedQuantileLoss]))
+-&gt; Maybe [WeightedQuantileLoss]
+-&gt; Parser (Maybe [WeightedQuantileLoss])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [WeightedQuantileLoss]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-110"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Metrics)
+-&gt; Parser (Maybe Double) -&gt; Parser Metrics
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AverageWeightedQuantileLoss&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250579"><span id="local-6989586621679250581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

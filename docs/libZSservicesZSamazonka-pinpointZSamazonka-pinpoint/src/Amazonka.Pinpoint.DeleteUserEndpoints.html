@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.DeleteUserEndpoints</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes all the endpoints that are associated with a specific user ID.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.DeleteUserEndpoints</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier">DeleteUserEndpoints</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#newDeleteUserEndpoints"><span class="hs-identifier">newDeleteUserEndpoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpoints_applicationId"><span class="hs-identifier">deleteUserEndpoints_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpoints_userId"><span class="hs-identifier">deleteUserEndpoints_userId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse"><span class="hs-identifier">DeleteUserEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#newDeleteUserEndpointsResponse"><span class="hs-identifier">newDeleteUserEndpointsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpointsResponse_httpStatus"><span class="hs-identifier">deleteUserEndpointsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpointsResponse_endpointsResponse"><span class="hs-identifier">deleteUserEndpointsResponse_endpointsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.html"><span class="hs-identifier">Amazonka.Pinpoint.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteUserEndpoints' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679635354"><span id="local-6989586621679635355"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserEndpoints"><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-var">DeleteUserEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserEndpoints%27"><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints%27"><span class="hs-identifier hs-var">DeleteUserEndpoints'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AapplicationId%3ADeleteUserEndpoints%27"><span class="annot"><span class="annottext">DeleteUserEndpoints -&gt; Text
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AapplicationId%3ADeleteUserEndpoints%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the user.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AuserId%3ADeleteUserEndpoints%27"><span class="annot"><span class="annottext">DeleteUserEndpoints -&gt; Text
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AuserId%3ADeleteUserEndpoints%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679635347"><span id="local-6989586621679635349"><span class="annot"><span class="annottext">DeleteUserEndpoints -&gt; DeleteUserEndpoints -&gt; Bool
+(DeleteUserEndpoints -&gt; DeleteUserEndpoints -&gt; Bool)
+-&gt; (DeleteUserEndpoints -&gt; DeleteUserEndpoints -&gt; Bool)
+-&gt; Eq DeleteUserEndpoints
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteUserEndpoints -&gt; DeleteUserEndpoints -&gt; Bool
+$c/= :: DeleteUserEndpoints -&gt; DeleteUserEndpoints -&gt; Bool
+== :: DeleteUserEndpoints -&gt; DeleteUserEndpoints -&gt; Bool
+$c== :: DeleteUserEndpoints -&gt; DeleteUserEndpoints -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679635338"><span id="local-6989586621679635340"><span id="local-6989586621679635342"><span id="local-6989586621679635344"><span class="annot"><span class="annottext">ReadPrec [DeleteUserEndpoints]
+ReadPrec DeleteUserEndpoints
+Int -&gt; ReadS DeleteUserEndpoints
+ReadS [DeleteUserEndpoints]
+(Int -&gt; ReadS DeleteUserEndpoints)
+-&gt; ReadS [DeleteUserEndpoints]
+-&gt; ReadPrec DeleteUserEndpoints
+-&gt; ReadPrec [DeleteUserEndpoints]
+-&gt; Read DeleteUserEndpoints
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteUserEndpoints]
+$creadListPrec :: ReadPrec [DeleteUserEndpoints]
+readPrec :: ReadPrec DeleteUserEndpoints
+$creadPrec :: ReadPrec DeleteUserEndpoints
+readList :: ReadS [DeleteUserEndpoints]
+$creadList :: ReadS [DeleteUserEndpoints]
+readsPrec :: Int -&gt; ReadS DeleteUserEndpoints
+$creadsPrec :: Int -&gt; ReadS DeleteUserEndpoints
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679635331"><span id="local-6989586621679635333"><span id="local-6989586621679635335"><span class="annot"><span class="annottext">Int -&gt; DeleteUserEndpoints -&gt; ShowS
+[DeleteUserEndpoints] -&gt; ShowS
+DeleteUserEndpoints -&gt; String
+(Int -&gt; DeleteUserEndpoints -&gt; ShowS)
+-&gt; (DeleteUserEndpoints -&gt; String)
+-&gt; ([DeleteUserEndpoints] -&gt; ShowS)
+-&gt; Show DeleteUserEndpoints
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteUserEndpoints] -&gt; ShowS
+$cshowList :: [DeleteUserEndpoints] -&gt; ShowS
+show :: DeleteUserEndpoints -&gt; String
+$cshow :: DeleteUserEndpoints -&gt; String
+showsPrec :: Int -&gt; DeleteUserEndpoints -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteUserEndpoints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteUserEndpoints -&gt; Rep DeleteUserEndpoints x)
+-&gt; (forall x. Rep DeleteUserEndpoints x -&gt; DeleteUserEndpoints)
+-&gt; Generic DeleteUserEndpoints
+forall x. Rep DeleteUserEndpoints x -&gt; DeleteUserEndpoints
+forall x. DeleteUserEndpoints -&gt; Rep DeleteUserEndpoints x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteUserEndpoints x -&gt; DeleteUserEndpoints
+$cfrom :: forall x. DeleteUserEndpoints -&gt; Rep DeleteUserEndpoints x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DeleteUserEndpoints' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'applicationId', 'deleteUserEndpoints_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'userId', 'deleteUserEndpoints_userId' - The unique identifier for the user.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#newDeleteUserEndpoints"><span class="hs-identifier hs-type">newDeleteUserEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'userId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span>
+</span><span id="line-78"></span><span id="newDeleteUserEndpoints"><span class="annot"><span class="annottext">newDeleteUserEndpoints :: Text -&gt; Text -&gt; DeleteUserEndpoints
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#newDeleteUserEndpoints"><span class="hs-identifier hs-var hs-var">newDeleteUserEndpoints</span></a></span></span><span> </span><span id="local-6989586621679635326"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635326"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span id="local-6989586621679635325"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635325"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteUserEndpoints' :: Text -&gt; Text -&gt; DeleteUserEndpoints
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints%27"><span class="hs-identifier hs-type">DeleteUserEndpoints'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:DeleteUserEndpoints' :: Text
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AapplicationId%3ADeleteUserEndpoints%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635326"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:DeleteUserEndpoints' :: Text
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AuserId%3ADeleteUserEndpoints%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635325"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpoints_applicationId"><span class="hs-identifier hs-type">deleteUserEndpoints_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="deleteUserEndpoints_applicationId"><span class="annot"><span class="annottext">deleteUserEndpoints_applicationId :: (Text -&gt; f Text) -&gt; DeleteUserEndpoints -&gt; f DeleteUserEndpoints
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpoints_applicationId"><span class="hs-identifier hs-var hs-var">deleteUserEndpoints_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUserEndpoints -&gt; Text)
+-&gt; (DeleteUserEndpoints -&gt; Text -&gt; DeleteUserEndpoints)
+-&gt; Lens DeleteUserEndpoints DeleteUserEndpoints Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints%27"><span class="hs-identifier hs-type">DeleteUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679635322"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:DeleteUserEndpoints' :: DeleteUserEndpoints -&gt; Text
+</span><a href="#local-6989586621679635322"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635322"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679635321"><span class="annot"><span class="annottext">s :: DeleteUserEndpoints
+</span><a href="#local-6989586621679635321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints%27"><span class="hs-identifier hs-type">DeleteUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679635320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserEndpoints
+</span><a href="#local-6989586621679635321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteUserEndpoints' :: Text
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AapplicationId%3ADeleteUserEndpoints%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The unique identifier for the user.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpoints_userId"><span class="hs-identifier hs-type">deleteUserEndpoints_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="deleteUserEndpoints_userId"><span class="annot"><span class="annottext">deleteUserEndpoints_userId :: (Text -&gt; f Text) -&gt; DeleteUserEndpoints -&gt; f DeleteUserEndpoints
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpoints_userId"><span class="hs-identifier hs-var hs-var">deleteUserEndpoints_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUserEndpoints -&gt; Text)
+-&gt; (DeleteUserEndpoints -&gt; Text -&gt; DeleteUserEndpoints)
+-&gt; Lens DeleteUserEndpoints DeleteUserEndpoints Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints%27"><span class="hs-identifier hs-type">DeleteUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679635319"><span class="annot"><span class="annottext">Text
+userId :: Text
+$sel:userId:DeleteUserEndpoints' :: DeleteUserEndpoints -&gt; Text
+</span><a href="#local-6989586621679635319"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635319"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679635318"><span class="annot"><span class="annottext">s :: DeleteUserEndpoints
+</span><a href="#local-6989586621679635318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints%27"><span class="hs-identifier hs-type">DeleteUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679635317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserEndpoints
+</span><a href="#local-6989586621679635318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:DeleteUserEndpoints' :: Text
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AuserId%3ADeleteUserEndpoints%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679635313"><span class="annot"><span class="annottext">request :: DeleteUserEndpoints -&gt; Request DeleteUserEndpoints
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUserEndpoints -&gt; Request DeleteUserEndpoints
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679635309"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteUserEndpoints
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteUserEndpoints)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteUserEndpoints))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteUserEndpoints
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteUserEndpoints)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679635306"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679635306"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679635305"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679635305"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679635304"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679635304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; EndpointsResponse -&gt; DeleteUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse%27"><span class="hs-identifier hs-var">DeleteUserEndpointsResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; EndpointsResponse -&gt; DeleteUserEndpointsResponse)
+-&gt; Either String Int
+-&gt; Either String (EndpointsResponse -&gt; DeleteUserEndpointsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679635306"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (EndpointsResponse -&gt; DeleteUserEndpointsResponse)
+-&gt; Either String EndpointsResponse
+-&gt; Either String DeleteUserEndpointsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String EndpointsResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679635304"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679635296"><span id="local-6989586621679635298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679635293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679635289"><span class="annot"><span class="annottext">toHeaders :: DeleteUserEndpoints -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteUserEndpoints -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679635283"><span class="annot"><span class="annottext">toPath :: DeleteUserEndpoints -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints%27"><span class="hs-identifier hs-type">DeleteUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679635280"><span id="local-6989586621679635281"><span class="annot"><span class="annottext">Text
+userId :: Text
+applicationId :: Text
+$sel:userId:DeleteUserEndpoints' :: DeleteUserEndpoints -&gt; Text
+$sel:applicationId:DeleteUserEndpoints' :: DeleteUserEndpoints -&gt; Text
+</span><a href="#local-6989586621679635280"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635281"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/users/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679635280"><span class="hs-identifier hs-var">userId</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpoints"><span class="hs-identifier hs-type">DeleteUserEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679635276"><span class="annot"><span class="annottext">toQuery :: DeleteUserEndpoints -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUserEndpoints -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDeleteUserEndpointsResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679635273"><span id="local-6989586621679635274"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserEndpointsResponse"><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse"><span class="hs-identifier hs-var">DeleteUserEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserEndpointsResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse%27"><span class="hs-identifier hs-var">DeleteUserEndpointsResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteUserEndpointsResponse%27"><span class="annot"><span class="annottext">DeleteUserEndpointsResponse -&gt; Int
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AhttpStatus%3ADeleteUserEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AendpointsResponse%3ADeleteUserEndpointsResponse%27"><span class="annot"><span class="annottext">DeleteUserEndpointsResponse -&gt; EndpointsResponse
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AendpointsResponse%3ADeleteUserEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">endpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EndpointsResponse.html#EndpointsResponse"><span class="hs-identifier hs-type">EndpointsResponse</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679635267"><span id="local-6989586621679635269"><span class="annot"><span class="annottext">DeleteUserEndpointsResponse -&gt; DeleteUserEndpointsResponse -&gt; Bool
+(DeleteUserEndpointsResponse
+ -&gt; DeleteUserEndpointsResponse -&gt; Bool)
+-&gt; (DeleteUserEndpointsResponse
+    -&gt; DeleteUserEndpointsResponse -&gt; Bool)
+-&gt; Eq DeleteUserEndpointsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteUserEndpointsResponse -&gt; DeleteUserEndpointsResponse -&gt; Bool
+$c/= :: DeleteUserEndpointsResponse -&gt; DeleteUserEndpointsResponse -&gt; Bool
+== :: DeleteUserEndpointsResponse -&gt; DeleteUserEndpointsResponse -&gt; Bool
+$c== :: DeleteUserEndpointsResponse -&gt; DeleteUserEndpointsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679635259"><span id="local-6989586621679635261"><span id="local-6989586621679635263"><span id="local-6989586621679635265"><span class="annot"><span class="annottext">ReadPrec [DeleteUserEndpointsResponse]
+ReadPrec DeleteUserEndpointsResponse
+Int -&gt; ReadS DeleteUserEndpointsResponse
+ReadS [DeleteUserEndpointsResponse]
+(Int -&gt; ReadS DeleteUserEndpointsResponse)
+-&gt; ReadS [DeleteUserEndpointsResponse]
+-&gt; ReadPrec DeleteUserEndpointsResponse
+-&gt; ReadPrec [DeleteUserEndpointsResponse]
+-&gt; Read DeleteUserEndpointsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteUserEndpointsResponse]
+$creadListPrec :: ReadPrec [DeleteUserEndpointsResponse]
+readPrec :: ReadPrec DeleteUserEndpointsResponse
+$creadPrec :: ReadPrec DeleteUserEndpointsResponse
+readList :: ReadS [DeleteUserEndpointsResponse]
+$creadList :: ReadS [DeleteUserEndpointsResponse]
+readsPrec :: Int -&gt; ReadS DeleteUserEndpointsResponse
+$creadsPrec :: Int -&gt; ReadS DeleteUserEndpointsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679635253"><span id="local-6989586621679635255"><span id="local-6989586621679635257"><span class="annot"><span class="annottext">Int -&gt; DeleteUserEndpointsResponse -&gt; ShowS
+[DeleteUserEndpointsResponse] -&gt; ShowS
+DeleteUserEndpointsResponse -&gt; String
+(Int -&gt; DeleteUserEndpointsResponse -&gt; ShowS)
+-&gt; (DeleteUserEndpointsResponse -&gt; String)
+-&gt; ([DeleteUserEndpointsResponse] -&gt; ShowS)
+-&gt; Show DeleteUserEndpointsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteUserEndpointsResponse] -&gt; ShowS
+$cshowList :: [DeleteUserEndpointsResponse] -&gt; ShowS
+show :: DeleteUserEndpointsResponse -&gt; String
+$cshow :: DeleteUserEndpointsResponse -&gt; String
+showsPrec :: Int -&gt; DeleteUserEndpointsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteUserEndpointsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteUserEndpointsResponse -&gt; Rep DeleteUserEndpointsResponse x)
+-&gt; (forall x.
+    Rep DeleteUserEndpointsResponse x -&gt; DeleteUserEndpointsResponse)
+-&gt; Generic DeleteUserEndpointsResponse
+forall x.
+Rep DeleteUserEndpointsResponse x -&gt; DeleteUserEndpointsResponse
+forall x.
+DeleteUserEndpointsResponse -&gt; Rep DeleteUserEndpointsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteUserEndpointsResponse x -&gt; DeleteUserEndpointsResponse
+$cfrom :: forall x.
+DeleteUserEndpointsResponse -&gt; Rep DeleteUserEndpointsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'DeleteUserEndpointsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'deleteUserEndpointsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'endpointsResponse', 'deleteUserEndpointsResponse_endpointsResponse' - Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#newDeleteUserEndpointsResponse"><span class="hs-identifier hs-type">newDeleteUserEndpointsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'endpointsResponse'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EndpointsResponse.html#EndpointsResponse"><span class="hs-identifier hs-type">EndpointsResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newDeleteUserEndpointsResponse"><span class="annot"><span class="annottext">newDeleteUserEndpointsResponse :: Int -&gt; EndpointsResponse -&gt; DeleteUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#newDeleteUserEndpointsResponse"><span class="hs-identifier hs-var hs-var">newDeleteUserEndpointsResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679635250"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679635250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679635249"><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679635249"><span class="hs-identifier hs-var">pEndpointsResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">DeleteUserEndpointsResponse' :: Int -&gt; EndpointsResponse -&gt; DeleteUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse%27"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserEndpointsResponse' :: Int
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AhttpStatus%3ADeleteUserEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679635250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpointsResponse:DeleteUserEndpointsResponse' :: EndpointsResponse
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AendpointsResponse%3ADeleteUserEndpointsResponse%27"><span class="hs-identifier hs-var">endpointsResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679635249"><span class="hs-identifier hs-var">pEndpointsResponse_</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpointsResponse_httpStatus"><span class="hs-identifier hs-type">deleteUserEndpointsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="deleteUserEndpointsResponse_httpStatus"><span class="annot"><span class="annottext">deleteUserEndpointsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteUserEndpointsResponse -&gt; f DeleteUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpointsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteUserEndpointsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUserEndpointsResponse -&gt; Int)
+-&gt; (DeleteUserEndpointsResponse
+    -&gt; Int -&gt; DeleteUserEndpointsResponse)
+-&gt; Lens
+     DeleteUserEndpointsResponse DeleteUserEndpointsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse%27"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679635248"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteUserEndpointsResponse' :: DeleteUserEndpointsResponse -&gt; Int
+</span><a href="#local-6989586621679635248"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679635248"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679635247"><span class="annot"><span class="annottext">s :: DeleteUserEndpointsResponse
+</span><a href="#local-6989586621679635247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse%27"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679635246"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679635246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserEndpointsResponse
+</span><a href="#local-6989586621679635247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserEndpointsResponse' :: Int
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AhttpStatus%3ADeleteUserEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679635246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpointsResponse_endpointsResponse"><span class="hs-identifier hs-type">deleteUserEndpointsResponse_endpointsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EndpointsResponse.html#EndpointsResponse"><span class="hs-identifier hs-type">EndpointsResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="deleteUserEndpointsResponse_endpointsResponse"><span class="annot"><span class="annottext">deleteUserEndpointsResponse_endpointsResponse :: (EndpointsResponse -&gt; f EndpointsResponse)
+-&gt; DeleteUserEndpointsResponse -&gt; f DeleteUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#deleteUserEndpointsResponse_endpointsResponse"><span class="hs-identifier hs-var hs-var">deleteUserEndpointsResponse_endpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUserEndpointsResponse -&gt; EndpointsResponse)
+-&gt; (DeleteUserEndpointsResponse
+    -&gt; EndpointsResponse -&gt; DeleteUserEndpointsResponse)
+-&gt; Lens
+     DeleteUserEndpointsResponse
+     DeleteUserEndpointsResponse
+     EndpointsResponse
+     EndpointsResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse%27"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679635245"><span class="annot"><span class="annottext">EndpointsResponse
+endpointsResponse :: EndpointsResponse
+$sel:endpointsResponse:DeleteUserEndpointsResponse' :: DeleteUserEndpointsResponse -&gt; EndpointsResponse
+</span><a href="#local-6989586621679635245"><span class="hs-identifier hs-var hs-var">endpointsResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679635245"><span class="hs-identifier hs-var">endpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679635244"><span class="annot"><span class="annottext">s :: DeleteUserEndpointsResponse
+</span><a href="#local-6989586621679635244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse%27"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679635243"><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679635243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserEndpointsResponse
+</span><a href="#local-6989586621679635244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointsResponse:DeleteUserEndpointsResponse' :: EndpointsResponse
+</span><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#%24sel%3AendpointsResponse%3ADeleteUserEndpointsResponse%27"><span class="hs-identifier hs-var">endpointsResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679635243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679635241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteUserEndpoints.html#DeleteUserEndpointsResponse"><span class="hs-identifier hs-type">DeleteUserEndpointsResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

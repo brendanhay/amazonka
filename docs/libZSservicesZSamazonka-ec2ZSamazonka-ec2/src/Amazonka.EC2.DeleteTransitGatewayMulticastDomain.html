@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DeleteTransitGatewayMulticastDomain</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified transit gateway multicast domain.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DeleteTransitGatewayMulticastDomain</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier">DeleteTransitGatewayMulticastDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#newDeleteTransitGatewayMulticastDomain"><span class="hs-identifier">newDeleteTransitGatewayMulticastDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomain_dryRun"><span class="hs-identifier">deleteTransitGatewayMulticastDomain_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId"><span class="hs-identifier">deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier">DeleteTransitGatewayMulticastDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#newDeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier">newDeleteTransitGatewayMulticastDomainResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain"><span class="hs-identifier">deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomainResponse_httpStatus"><span class="hs-identifier">deleteTransitGatewayMulticastDomainResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteTransitGatewayMulticastDomain' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621681276547"><span id="local-6989586621681276548"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTransitGatewayMulticastDomain"><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-var">DeleteTransitGatewayMulticastDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTransitGatewayMulticastDomain%27"><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-var">DeleteTransitGatewayMulticastDomain'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdryRun%3ADeleteTransitGatewayMulticastDomain%27"><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomain -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AdryRun%3ADeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtransitGatewayMulticastDomainId%3ADeleteTransitGatewayMulticastDomain%27"><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomain -&gt; Text
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AtransitGatewayMulticastDomainId%3ADeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681276540"><span id="local-6989586621681276542"><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomain
+-&gt; DeleteTransitGatewayMulticastDomain -&gt; Bool
+(DeleteTransitGatewayMulticastDomain
+ -&gt; DeleteTransitGatewayMulticastDomain -&gt; Bool)
+-&gt; (DeleteTransitGatewayMulticastDomain
+    -&gt; DeleteTransitGatewayMulticastDomain -&gt; Bool)
+-&gt; Eq DeleteTransitGatewayMulticastDomain
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteTransitGatewayMulticastDomain
+-&gt; DeleteTransitGatewayMulticastDomain -&gt; Bool
+$c/= :: DeleteTransitGatewayMulticastDomain
+-&gt; DeleteTransitGatewayMulticastDomain -&gt; Bool
+== :: DeleteTransitGatewayMulticastDomain
+-&gt; DeleteTransitGatewayMulticastDomain -&gt; Bool
+$c== :: DeleteTransitGatewayMulticastDomain
+-&gt; DeleteTransitGatewayMulticastDomain -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681276531"><span id="local-6989586621681276533"><span id="local-6989586621681276535"><span id="local-6989586621681276537"><span class="annot"><span class="annottext">ReadPrec [DeleteTransitGatewayMulticastDomain]
+ReadPrec DeleteTransitGatewayMulticastDomain
+Int -&gt; ReadS DeleteTransitGatewayMulticastDomain
+ReadS [DeleteTransitGatewayMulticastDomain]
+(Int -&gt; ReadS DeleteTransitGatewayMulticastDomain)
+-&gt; ReadS [DeleteTransitGatewayMulticastDomain]
+-&gt; ReadPrec DeleteTransitGatewayMulticastDomain
+-&gt; ReadPrec [DeleteTransitGatewayMulticastDomain]
+-&gt; Read DeleteTransitGatewayMulticastDomain
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteTransitGatewayMulticastDomain]
+$creadListPrec :: ReadPrec [DeleteTransitGatewayMulticastDomain]
+readPrec :: ReadPrec DeleteTransitGatewayMulticastDomain
+$creadPrec :: ReadPrec DeleteTransitGatewayMulticastDomain
+readList :: ReadS [DeleteTransitGatewayMulticastDomain]
+$creadList :: ReadS [DeleteTransitGatewayMulticastDomain]
+readsPrec :: Int -&gt; ReadS DeleteTransitGatewayMulticastDomain
+$creadsPrec :: Int -&gt; ReadS DeleteTransitGatewayMulticastDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681276524"><span id="local-6989586621681276526"><span id="local-6989586621681276528"><span class="annot"><span class="annottext">Int -&gt; DeleteTransitGatewayMulticastDomain -&gt; ShowS
+[DeleteTransitGatewayMulticastDomain] -&gt; ShowS
+DeleteTransitGatewayMulticastDomain -&gt; String
+(Int -&gt; DeleteTransitGatewayMulticastDomain -&gt; ShowS)
+-&gt; (DeleteTransitGatewayMulticastDomain -&gt; String)
+-&gt; ([DeleteTransitGatewayMulticastDomain] -&gt; ShowS)
+-&gt; Show DeleteTransitGatewayMulticastDomain
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteTransitGatewayMulticastDomain] -&gt; ShowS
+$cshowList :: [DeleteTransitGatewayMulticastDomain] -&gt; ShowS
+show :: DeleteTransitGatewayMulticastDomain -&gt; String
+$cshow :: DeleteTransitGatewayMulticastDomain -&gt; String
+showsPrec :: Int -&gt; DeleteTransitGatewayMulticastDomain -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteTransitGatewayMulticastDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteTransitGatewayMulticastDomain
+ -&gt; Rep DeleteTransitGatewayMulticastDomain x)
+-&gt; (forall x.
+    Rep DeleteTransitGatewayMulticastDomain x
+    -&gt; DeleteTransitGatewayMulticastDomain)
+-&gt; Generic DeleteTransitGatewayMulticastDomain
+forall x.
+Rep DeleteTransitGatewayMulticastDomain x
+-&gt; DeleteTransitGatewayMulticastDomain
+forall x.
+DeleteTransitGatewayMulticastDomain
+-&gt; Rep DeleteTransitGatewayMulticastDomain x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteTransitGatewayMulticastDomain x
+-&gt; DeleteTransitGatewayMulticastDomain
+$cfrom :: forall x.
+DeleteTransitGatewayMulticastDomain
+-&gt; Rep DeleteTransitGatewayMulticastDomain x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DeleteTransitGatewayMulticastDomain' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'dryRun', 'deleteTransitGatewayMulticastDomain_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'transitGatewayMulticastDomainId', 'deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#newDeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">newDeleteTransitGatewayMulticastDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'transitGatewayMulticastDomainId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span>
+</span><span id="line-80"></span><span id="newDeleteTransitGatewayMulticastDomain"><span class="annot"><span class="annottext">newDeleteTransitGatewayMulticastDomain :: Text -&gt; DeleteTransitGatewayMulticastDomain
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#newDeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-var hs-var">newDeleteTransitGatewayMulticastDomain</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621681276519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681276519"><span class="hs-identifier hs-var">pTransitGatewayMulticastDomainId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomain' :: Maybe Bool -&gt; Text -&gt; DeleteTransitGatewayMulticastDomain
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain'</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DeleteTransitGatewayMulticastDomain' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AdryRun%3ADeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:DeleteTransitGatewayMulticastDomain' :: Text
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AtransitGatewayMulticastDomainId%3ADeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681276519"><span class="hs-identifier hs-var">pTransitGatewayMulticastDomainId_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomain_dryRun"><span class="hs-identifier hs-type">deleteTransitGatewayMulticastDomain_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="deleteTransitGatewayMulticastDomain_dryRun"><span class="annot"><span class="annottext">deleteTransitGatewayMulticastDomain_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeleteTransitGatewayMulticastDomain
+-&gt; f DeleteTransitGatewayMulticastDomain
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomain_dryRun"><span class="hs-identifier hs-var hs-var">deleteTransitGatewayMulticastDomain_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTransitGatewayMulticastDomain -&gt; Maybe Bool)
+-&gt; (DeleteTransitGatewayMulticastDomain
+    -&gt; Maybe Bool -&gt; DeleteTransitGatewayMulticastDomain)
+-&gt; Lens
+     DeleteTransitGatewayMulticastDomain
+     DeleteTransitGatewayMulticastDomain
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681276516"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DeleteTransitGatewayMulticastDomain' :: DeleteTransitGatewayMulticastDomain -&gt; Maybe Bool
+</span><a href="#local-6989586621681276516"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681276516"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681276515"><span class="annot"><span class="annottext">s :: DeleteTransitGatewayMulticastDomain
+</span><a href="#local-6989586621681276515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681276514"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681276514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomain
+</span><a href="#local-6989586621681276515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteTransitGatewayMulticastDomain' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AdryRun%3ADeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681276514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId"><span class="hs-identifier hs-type">deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId"><span class="annot"><span class="annottext">deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId :: (Text -&gt; f Text)
+-&gt; DeleteTransitGatewayMulticastDomain
+-&gt; f DeleteTransitGatewayMulticastDomain
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId"><span class="hs-identifier hs-var hs-var">deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTransitGatewayMulticastDomain -&gt; Text)
+-&gt; (DeleteTransitGatewayMulticastDomain
+    -&gt; Text -&gt; DeleteTransitGatewayMulticastDomain)
+-&gt; Lens
+     DeleteTransitGatewayMulticastDomain
+     DeleteTransitGatewayMulticastDomain
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681276513"><span class="annot"><span class="annottext">Text
+transitGatewayMulticastDomainId :: Text
+$sel:transitGatewayMulticastDomainId:DeleteTransitGatewayMulticastDomain' :: DeleteTransitGatewayMulticastDomain -&gt; Text
+</span><a href="#local-6989586621681276513"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681276513"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681276512"><span class="annot"><span class="annottext">s :: DeleteTransitGatewayMulticastDomain
+</span><a href="#local-6989586621681276512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681276511"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681276511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomain
+</span><a href="#local-6989586621681276512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:DeleteTransitGatewayMulticastDomain' :: Text
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AtransitGatewayMulticastDomainId%3ADeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681276511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621681276507"><span class="annot"><span class="annottext">request :: DeleteTransitGatewayMulticastDomain
+-&gt; Request DeleteTransitGatewayMulticastDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteTransitGatewayMulticastDomain
+-&gt; Request DeleteTransitGatewayMulticastDomain
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621681276503"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteTransitGatewayMulticastDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeleteTransitGatewayMulticastDomain)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DeleteTransitGatewayMulticastDomain))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteTransitGatewayMulticastDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeleteTransitGatewayMulticastDomain)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681276500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681276500"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681276499"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681276499"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681276498"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681276498"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomain
+-&gt; Int -&gt; DeleteTransitGatewayMulticastDomainResponse
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-var">DeleteTransitGatewayMulticastDomainResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitGatewayMulticastDomain
+ -&gt; Int -&gt; DeleteTransitGatewayMulticastDomainResponse)
+-&gt; Either String (Maybe TransitGatewayMulticastDomain)
+-&gt; Either
+     String (Int -&gt; DeleteTransitGatewayMulticastDomainResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681276498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe TransitGatewayMulticastDomain)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayMulticastDomain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteTransitGatewayMulticastDomainResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteTransitGatewayMulticastDomainResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681276500"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681276490"><span id="local-6989586621681276492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621681276487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621681276483"><span class="annot"><span class="annottext">toHeaders :: DeleteTransitGatewayMulticastDomain -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DeleteTransitGatewayMulticastDomain -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621681276478"><span class="annot"><span class="annottext">toPath :: DeleteTransitGatewayMulticastDomain -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTransitGatewayMulticastDomain -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621681276474"><span class="annot"><span class="annottext">toQuery :: DeleteTransitGatewayMulticastDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomain%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681276471"><span id="local-6989586621681276472"><span class="annot"><span class="annottext">Maybe Bool
+Text
+transitGatewayMulticastDomainId :: Text
+dryRun :: Maybe Bool
+$sel:transitGatewayMulticastDomainId:DeleteTransitGatewayMulticastDomain' :: DeleteTransitGatewayMulticastDomain -&gt; Text
+$sel:dryRun:DeleteTransitGatewayMulticastDomain' :: DeleteTransitGatewayMulticastDomain -&gt; Maybe Bool
+</span><a href="#local-6989586621681276471"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteTransitGatewayMulticastDomain&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-145"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681276472"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayMulticastDomainId&quot;</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681276471"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newDeleteTransitGatewayMulticastDomainResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621681276468"><span id="local-6989586621681276469"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTransitGatewayMulticastDomainResponse"><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-var">DeleteTransitGatewayMulticastDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTransitGatewayMulticastDomainResponse%27"><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-var">DeleteTransitGatewayMulticastDomainResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the deleted transit gateway multicast domain.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AtransitGatewayMulticastDomain%3ADeleteTransitGatewayMulticastDomainResponse%27"><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomainResponse
+-&gt; Maybe TransitGatewayMulticastDomain
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AtransitGatewayMulticastDomain%3ADeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulticastDomain.html#TransitGatewayMulticastDomain"><span class="hs-identifier hs-type">TransitGatewayMulticastDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTransitGatewayMulticastDomainResponse%27"><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomainResponse -&gt; Int
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AhttpStatus%3ADeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681276462"><span id="local-6989586621681276464"><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomainResponse
+-&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; Bool
+(DeleteTransitGatewayMulticastDomainResponse
+ -&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; Bool)
+-&gt; (DeleteTransitGatewayMulticastDomainResponse
+    -&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; Bool)
+-&gt; Eq DeleteTransitGatewayMulticastDomainResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteTransitGatewayMulticastDomainResponse
+-&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; Bool
+$c/= :: DeleteTransitGatewayMulticastDomainResponse
+-&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; Bool
+== :: DeleteTransitGatewayMulticastDomainResponse
+-&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; Bool
+$c== :: DeleteTransitGatewayMulticastDomainResponse
+-&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681276454"><span id="local-6989586621681276456"><span id="local-6989586621681276458"><span id="local-6989586621681276460"><span class="annot"><span class="annottext">ReadPrec [DeleteTransitGatewayMulticastDomainResponse]
+ReadPrec DeleteTransitGatewayMulticastDomainResponse
+Int -&gt; ReadS DeleteTransitGatewayMulticastDomainResponse
+ReadS [DeleteTransitGatewayMulticastDomainResponse]
+(Int -&gt; ReadS DeleteTransitGatewayMulticastDomainResponse)
+-&gt; ReadS [DeleteTransitGatewayMulticastDomainResponse]
+-&gt; ReadPrec DeleteTransitGatewayMulticastDomainResponse
+-&gt; ReadPrec [DeleteTransitGatewayMulticastDomainResponse]
+-&gt; Read DeleteTransitGatewayMulticastDomainResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteTransitGatewayMulticastDomainResponse]
+$creadListPrec :: ReadPrec [DeleteTransitGatewayMulticastDomainResponse]
+readPrec :: ReadPrec DeleteTransitGatewayMulticastDomainResponse
+$creadPrec :: ReadPrec DeleteTransitGatewayMulticastDomainResponse
+readList :: ReadS [DeleteTransitGatewayMulticastDomainResponse]
+$creadList :: ReadS [DeleteTransitGatewayMulticastDomainResponse]
+readsPrec :: Int -&gt; ReadS DeleteTransitGatewayMulticastDomainResponse
+$creadsPrec :: Int -&gt; ReadS DeleteTransitGatewayMulticastDomainResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681276448"><span id="local-6989586621681276450"><span id="local-6989586621681276452"><span class="annot"><span class="annottext">Int -&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; ShowS
+[DeleteTransitGatewayMulticastDomainResponse] -&gt; ShowS
+DeleteTransitGatewayMulticastDomainResponse -&gt; String
+(Int -&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; ShowS)
+-&gt; (DeleteTransitGatewayMulticastDomainResponse -&gt; String)
+-&gt; ([DeleteTransitGatewayMulticastDomainResponse] -&gt; ShowS)
+-&gt; Show DeleteTransitGatewayMulticastDomainResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteTransitGatewayMulticastDomainResponse] -&gt; ShowS
+$cshowList :: [DeleteTransitGatewayMulticastDomainResponse] -&gt; ShowS
+show :: DeleteTransitGatewayMulticastDomainResponse -&gt; String
+$cshow :: DeleteTransitGatewayMulticastDomainResponse -&gt; String
+showsPrec :: Int -&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteTransitGatewayMulticastDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteTransitGatewayMulticastDomainResponse
+ -&gt; Rep DeleteTransitGatewayMulticastDomainResponse x)
+-&gt; (forall x.
+    Rep DeleteTransitGatewayMulticastDomainResponse x
+    -&gt; DeleteTransitGatewayMulticastDomainResponse)
+-&gt; Generic DeleteTransitGatewayMulticastDomainResponse
+forall x.
+Rep DeleteTransitGatewayMulticastDomainResponse x
+-&gt; DeleteTransitGatewayMulticastDomainResponse
+forall x.
+DeleteTransitGatewayMulticastDomainResponse
+-&gt; Rep DeleteTransitGatewayMulticastDomainResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteTransitGatewayMulticastDomainResponse x
+-&gt; DeleteTransitGatewayMulticastDomainResponse
+$cfrom :: forall x.
+DeleteTransitGatewayMulticastDomainResponse
+-&gt; Rep DeleteTransitGatewayMulticastDomainResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'DeleteTransitGatewayMulticastDomainResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'transitGatewayMulticastDomain', 'deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain' - Information about the deleted transit gateway multicast domain.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'httpStatus', 'deleteTransitGatewayMulticastDomainResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#newDeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-type">newDeleteTransitGatewayMulticastDomainResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse</span></a></span><span>
+</span><span id="line-177"></span><span id="newDeleteTransitGatewayMulticastDomainResponse"><span class="annot"><span class="annottext">newDeleteTransitGatewayMulticastDomainResponse :: Int -&gt; DeleteTransitGatewayMulticastDomainResponse
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#newDeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-var hs-var">newDeleteTransitGatewayMulticastDomainResponse</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621681276445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681276445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomainResponse' :: Maybe TransitGatewayMulticastDomain
+-&gt; Int -&gt; DeleteTransitGatewayMulticastDomainResponse
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse'</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomain:DeleteTransitGatewayMulticastDomainResponse' :: Maybe TransitGatewayMulticastDomain
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AtransitGatewayMulticastDomain%3ADeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomain
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTransitGatewayMulticastDomainResponse' :: Int
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AhttpStatus%3ADeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681276445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | Information about the deleted transit gateway multicast domain.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain"><span class="hs-identifier hs-type">deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulticastDomain.html#TransitGatewayMulticastDomain"><span class="hs-identifier hs-type">TransitGatewayMulticastDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain"><span class="annot"><span class="annottext">deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain :: (Maybe TransitGatewayMulticastDomain
+ -&gt; f (Maybe TransitGatewayMulticastDomain))
+-&gt; DeleteTransitGatewayMulticastDomainResponse
+-&gt; f DeleteTransitGatewayMulticastDomainResponse
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain"><span class="hs-identifier hs-var hs-var">deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTransitGatewayMulticastDomainResponse
+ -&gt; Maybe TransitGatewayMulticastDomain)
+-&gt; (DeleteTransitGatewayMulticastDomainResponse
+    -&gt; Maybe TransitGatewayMulticastDomain
+    -&gt; DeleteTransitGatewayMulticastDomainResponse)
+-&gt; Lens
+     DeleteTransitGatewayMulticastDomainResponse
+     DeleteTransitGatewayMulticastDomainResponse
+     (Maybe TransitGatewayMulticastDomain)
+     (Maybe TransitGatewayMulticastDomain)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681276444"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomain
+transitGatewayMulticastDomain :: Maybe TransitGatewayMulticastDomain
+$sel:transitGatewayMulticastDomain:DeleteTransitGatewayMulticastDomainResponse' :: DeleteTransitGatewayMulticastDomainResponse
+-&gt; Maybe TransitGatewayMulticastDomain
+</span><a href="#local-6989586621681276444"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomain
+</span><a href="#local-6989586621681276444"><span class="hs-identifier hs-var">transitGatewayMulticastDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681276443"><span class="annot"><span class="annottext">s :: DeleteTransitGatewayMulticastDomainResponse
+</span><a href="#local-6989586621681276443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681276442"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomain
+</span><a href="#local-6989586621681276442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomainResponse
+</span><a href="#local-6989586621681276443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomain:DeleteTransitGatewayMulticastDomainResponse' :: Maybe TransitGatewayMulticastDomain
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AtransitGatewayMulticastDomain%3ADeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomain
+</span><a href="#local-6989586621681276442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomainResponse_httpStatus"><span class="hs-identifier hs-type">deleteTransitGatewayMulticastDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span id="deleteTransitGatewayMulticastDomainResponse_httpStatus"><span class="annot"><span class="annottext">deleteTransitGatewayMulticastDomainResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteTransitGatewayMulticastDomainResponse
+-&gt; f DeleteTransitGatewayMulticastDomainResponse
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#deleteTransitGatewayMulticastDomainResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteTransitGatewayMulticastDomainResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTransitGatewayMulticastDomainResponse -&gt; Int)
+-&gt; (DeleteTransitGatewayMulticastDomainResponse
+    -&gt; Int -&gt; DeleteTransitGatewayMulticastDomainResponse)
+-&gt; Lens
+     DeleteTransitGatewayMulticastDomainResponse
+     DeleteTransitGatewayMulticastDomainResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681276441"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteTransitGatewayMulticastDomainResponse' :: DeleteTransitGatewayMulticastDomainResponse -&gt; Int
+</span><a href="#local-6989586621681276441"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681276441"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681276440"><span class="annot"><span class="annottext">s :: DeleteTransitGatewayMulticastDomainResponse
+</span><a href="#local-6989586621681276440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681276439"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681276439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTransitGatewayMulticastDomainResponse
+</span><a href="#local-6989586621681276440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTransitGatewayMulticastDomainResponse' :: Int
+</span><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#%24sel%3AhttpStatus%3ADeleteTransitGatewayMulticastDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681276439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621681276437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteTransitGatewayMulticastDomain.html#DeleteTransitGatewayMulticastDomainResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayMulticastDomainResponse</span></a></span></span><span>
+</span><span id="line-196"></span></pre></body></html>

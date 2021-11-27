@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.S3.PutBucketInventoryConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This implementation of the @PUT@ action adds an inventory configuration</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (identified by the inventory ID) to the bucket. You can have up to 1,000</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- inventory configurations per bucket.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Amazon S3 inventory generates inventories of the objects in the bucket</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- on a daily or weekly basis, and the results are published to a flat</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- file. The bucket that is inventoried is called the /source/ bucket, and</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the bucket where the inventory flat file is stored is called the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /destination/ bucket. The /destination/ bucket must be in the same</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Amazon Web Services Region as the /source/ bucket.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- When you configure an inventory for a /source/ bucket, you specify the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /destination/ bucket where you want the inventory to be stored, and</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- whether to generate the inventory daily or weekly. You can also</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- configure what object metadata to include and whether to inventory all</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- object versions or only current versions. For more information, see</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html Amazon S3 Inventory&gt;</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- in the Amazon S3 User Guide.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- You must create a bucket policy on the /destination/ bucket to grant</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- permissions to Amazon S3 to write objects to the bucket in the defined</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- location. For an example policy, see</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9 Granting Permissions for Amazon S3 Inventory and Storage Class Analysis&gt;.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- To use this operation, you must have permissions to perform the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- @s3:PutInventoryConfiguration@ action. The bucket owner has this</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- permission by default and can grant this permission to others. For more</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- information about permissions, see</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations&gt;</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources&gt;</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- in the Amazon S3 User Guide.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- __Special Errors__</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- -   __HTTP 400 Bad Request Error__</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--     -   /Code:/ InvalidArgument</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--     -   /Cause:/ Invalid Argument</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- -   __HTTP 400 Bad Request Error__</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--     -   /Code:/ TooManyConfigurations</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--     -   /Cause:/ You are attempting to create a new configuration but</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--         have already reached the 1,000-configuration limit.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -   __HTTP 403 Forbidden Error__</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--     -   /Code:/ AccessDenied</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--     -   /Cause:/ You are not the owner of the specified bucket, or you</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--         do not have the @s3:PutInventoryConfiguration@ bucket permission</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--         to set the configuration on the bucket.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- __Related Resources__</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html GetBucketInventoryConfiguration&gt;</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html DeleteBucketInventoryConfiguration&gt;</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html ListBucketInventoryConfigurations&gt;</span><span>
+</span><span id="line-86"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.PutBucketInventoryConfiguration</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfiguration"><span class="hs-identifier">newPutBucketInventoryConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_expectedBucketOwner"><span class="hs-identifier">putBucketInventoryConfiguration_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_bucket"><span class="hs-identifier">putBucketInventoryConfiguration_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_id"><span class="hs-identifier">putBucketInventoryConfiguration_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_inventoryConfiguration"><span class="hs-identifier">putBucketInventoryConfiguration_inventoryConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier">PutBucketInventoryConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfigurationResponse"><span class="hs-identifier">newPutBucketInventoryConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.html"><span class="hs-identifier">Amazonka.S3.Types</span></a></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newPutBucketInventoryConfiguration' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621679566417"><span id="local-6989586621679566418"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketInventoryConfiguration"><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-var">PutBucketInventoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketInventoryConfiguration%27"><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">PutBucketInventoryConfiguration'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3APutBucketInventoryConfiguration%27"><span class="annot"><span class="annottext">PutBucketInventoryConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3AexpectedBucketOwner%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The name of the bucket where the inventory configuration will be stored.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3Abucket%3APutBucketInventoryConfiguration%27"><span class="annot"><span class="annottext">PutBucketInventoryConfiguration -&gt; BucketName
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3Abucket%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The ID used to identify the inventory configuration.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3Aid%3APutBucketInventoryConfiguration%27"><span class="annot"><span class="annottext">PutBucketInventoryConfiguration -&gt; Text
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3Aid%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | Specifies the inventory configuration.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AinventoryConfiguration%3APutBucketInventoryConfiguration%27"><span class="annot"><span class="annottext">PutBucketInventoryConfiguration -&gt; InventoryConfiguration
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3AinventoryConfiguration%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var hs-var">inventoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566408"><span id="local-6989586621679566410"><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+-&gt; PutBucketInventoryConfiguration -&gt; Bool
+(PutBucketInventoryConfiguration
+ -&gt; PutBucketInventoryConfiguration -&gt; Bool)
+-&gt; (PutBucketInventoryConfiguration
+    -&gt; PutBucketInventoryConfiguration -&gt; Bool)
+-&gt; Eq PutBucketInventoryConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketInventoryConfiguration
+-&gt; PutBucketInventoryConfiguration -&gt; Bool
+$c/= :: PutBucketInventoryConfiguration
+-&gt; PutBucketInventoryConfiguration -&gt; Bool
+== :: PutBucketInventoryConfiguration
+-&gt; PutBucketInventoryConfiguration -&gt; Bool
+$c== :: PutBucketInventoryConfiguration
+-&gt; PutBucketInventoryConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566401"><span id="local-6989586621679566403"><span id="local-6989586621679566405"><span class="annot"><span class="annottext">Int -&gt; PutBucketInventoryConfiguration -&gt; ShowS
+[PutBucketInventoryConfiguration] -&gt; ShowS
+PutBucketInventoryConfiguration -&gt; String
+(Int -&gt; PutBucketInventoryConfiguration -&gt; ShowS)
+-&gt; (PutBucketInventoryConfiguration -&gt; String)
+-&gt; ([PutBucketInventoryConfiguration] -&gt; ShowS)
+-&gt; Show PutBucketInventoryConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketInventoryConfiguration] -&gt; ShowS
+$cshowList :: [PutBucketInventoryConfiguration] -&gt; ShowS
+show :: PutBucketInventoryConfiguration -&gt; String
+$cshow :: PutBucketInventoryConfiguration -&gt; String
+showsPrec :: Int -&gt; PutBucketInventoryConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketInventoryConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutBucketInventoryConfiguration
+ -&gt; Rep PutBucketInventoryConfiguration x)
+-&gt; (forall x.
+    Rep PutBucketInventoryConfiguration x
+    -&gt; PutBucketInventoryConfiguration)
+-&gt; Generic PutBucketInventoryConfiguration
+forall x.
+Rep PutBucketInventoryConfiguration x
+-&gt; PutBucketInventoryConfiguration
+forall x.
+PutBucketInventoryConfiguration
+-&gt; Rep PutBucketInventoryConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutBucketInventoryConfiguration x
+-&gt; PutBucketInventoryConfiguration
+$cfrom :: forall x.
+PutBucketInventoryConfiguration
+-&gt; Rep PutBucketInventoryConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Create a value of 'PutBucketInventoryConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'expectedBucketOwner', 'putBucketInventoryConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'bucket', 'putBucketInventoryConfiguration_bucket' - The name of the bucket where the inventory configuration will be stored.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'id', 'putBucketInventoryConfiguration_id' - The ID used to identify the inventory configuration.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'inventoryConfiguration', 'putBucketInventoryConfiguration_inventoryConfiguration' - Specifies the inventory configuration.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfiguration"><span class="hs-identifier hs-type">newPutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'inventoryConfiguration'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span>
+</span><span id="line-150"></span><span id="newPutBucketInventoryConfiguration"><span class="annot"><span class="annottext">newPutBucketInventoryConfiguration :: BucketName
+-&gt; Text
+-&gt; InventoryConfiguration
+-&gt; PutBucketInventoryConfiguration
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfiguration"><span class="hs-identifier hs-var hs-var">newPutBucketInventoryConfiguration</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679566396"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566396"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679566395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679566395"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679566394"><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566394"><span class="hs-identifier hs-var">pInventoryConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration' :: Maybe Text
+-&gt; BucketName
+-&gt; Text
+-&gt; InventoryConfiguration
+-&gt; PutBucketInventoryConfiguration
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3AexpectedBucketOwner%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:PutBucketInventoryConfiguration' :: BucketName
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3Abucket%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566396"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:PutBucketInventoryConfiguration' :: Text
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3Aid%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679566395"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: InventoryConfiguration
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3AinventoryConfiguration%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566394"><span class="hs-identifier hs-var">pInventoryConfiguration_</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_expectedBucketOwner"><span class="hs-identifier hs-type">putBucketInventoryConfiguration_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="putBucketInventoryConfiguration_expectedBucketOwner"><span class="annot"><span class="annottext">putBucketInventoryConfiguration_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutBucketInventoryConfiguration
+-&gt; f PutBucketInventoryConfiguration
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">putBucketInventoryConfiguration_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketInventoryConfiguration -&gt; Maybe Text)
+-&gt; (PutBucketInventoryConfiguration
+    -&gt; Maybe Text -&gt; PutBucketInventoryConfiguration)
+-&gt; Lens
+     PutBucketInventoryConfiguration
+     PutBucketInventoryConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566391"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679566391"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566391"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566390"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566389"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: Maybe Text
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3AexpectedBucketOwner%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The name of the bucket where the inventory configuration will be stored.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_bucket"><span class="hs-identifier hs-type">putBucketInventoryConfiguration_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-171"></span><span id="putBucketInventoryConfiguration_bucket"><span class="annot"><span class="annottext">putBucketInventoryConfiguration_bucket :: (BucketName -&gt; f BucketName)
+-&gt; PutBucketInventoryConfiguration
+-&gt; f PutBucketInventoryConfiguration
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_bucket"><span class="hs-identifier hs-var hs-var">putBucketInventoryConfiguration_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketInventoryConfiguration -&gt; BucketName)
+-&gt; (PutBucketInventoryConfiguration
+    -&gt; BucketName -&gt; PutBucketInventoryConfiguration)
+-&gt; Lens
+     PutBucketInventoryConfiguration
+     PutBucketInventoryConfiguration
+     BucketName
+     BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566388"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
+</span><a href="#local-6989586621679566388"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566388"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566387"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566386"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketInventoryConfiguration' :: BucketName
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3Abucket%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The ID used to identify the inventory configuration.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_id"><span class="hs-identifier hs-type">putBucketInventoryConfiguration_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-175"></span><span id="putBucketInventoryConfiguration_id"><span class="annot"><span class="annottext">putBucketInventoryConfiguration_id :: (Text -&gt; f Text)
+-&gt; PutBucketInventoryConfiguration
+-&gt; f PutBucketInventoryConfiguration
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_id"><span class="hs-identifier hs-var hs-var">putBucketInventoryConfiguration_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketInventoryConfiguration -&gt; Text)
+-&gt; (PutBucketInventoryConfiguration
+    -&gt; Text -&gt; PutBucketInventoryConfiguration)
+-&gt; Lens
+     PutBucketInventoryConfiguration
+     PutBucketInventoryConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566385"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
+</span><a href="#local-6989586621679566385"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679566385"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566384"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566383"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679566383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PutBucketInventoryConfiguration' :: Text
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3Aid%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679566383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Specifies the inventory configuration.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_inventoryConfiguration"><span class="hs-identifier hs-type">putBucketInventoryConfiguration_inventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span>
+</span><span id="line-179"></span><span id="putBucketInventoryConfiguration_inventoryConfiguration"><span class="annot"><span class="annottext">putBucketInventoryConfiguration_inventoryConfiguration :: (InventoryConfiguration -&gt; f InventoryConfiguration)
+-&gt; PutBucketInventoryConfiguration
+-&gt; f PutBucketInventoryConfiguration
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_inventoryConfiguration"><span class="hs-identifier hs-var hs-var">putBucketInventoryConfiguration_inventoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketInventoryConfiguration -&gt; InventoryConfiguration)
+-&gt; (PutBucketInventoryConfiguration
+    -&gt; InventoryConfiguration -&gt; PutBucketInventoryConfiguration)
+-&gt; Lens
+     PutBucketInventoryConfiguration
+     PutBucketInventoryConfiguration
+     InventoryConfiguration
+     InventoryConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566382"><span class="annot"><span class="annottext">InventoryConfiguration
+inventoryConfiguration :: InventoryConfiguration
+$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; InventoryConfiguration
+</span><a href="#local-6989586621679566382"><span class="hs-identifier hs-var hs-var">inventoryConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566382"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566381"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566380"><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: InventoryConfiguration
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#%24sel%3AinventoryConfiguration%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-186"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">PutBucketInventoryConfigurationResponse</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679566376"><span class="annot"><span class="annottext">request :: PutBucketInventoryConfiguration
+-&gt; Request PutBucketInventoryConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">Request PutBucketInventoryConfiguration
+-&gt; Request PutBucketInventoryConfiguration
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">(Request PutBucketInventoryConfiguration
+ -&gt; Request PutBucketInventoryConfiguration)
+-&gt; (PutBucketInventoryConfiguration
+    -&gt; Request PutBucketInventoryConfiguration)
+-&gt; PutBucketInventoryConfiguration
+-&gt; Request PutBucketInventoryConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutBucketInventoryConfiguration
+-&gt; Request PutBucketInventoryConfiguration
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679566370"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutBucketInventoryConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PutBucketInventoryConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBucketInventoryConfiguration
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutBucketInventoryConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PutBucketInventoryConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse PutBucketInventoryConfiguration
+PutBucketInventoryConfigurationResponse
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse'</span></a></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679566363"><span id="local-6989586621679566365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679566360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679566356"><span class="annot"><span class="annottext">toElement :: PutBucketInventoryConfiguration -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566351"><span id="local-6989586621679566352"><span id="local-6989586621679566353"><span id="local-6989586621679566354"><span class="annot"><span class="annottext">Maybe Text
+Text
+BucketName
+InventoryConfiguration
+inventoryConfiguration :: InventoryConfiguration
+id :: Text
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; InventoryConfiguration
+$sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
+$sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679566351"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; InventoryConfiguration -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}InventoryConfiguration&quot;</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566351"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679566347"><span class="annot"><span class="annottext">toHeaders :: PutBucketInventoryConfiguration -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566342"><span id="local-6989586621679566343"><span id="local-6989586621679566344"><span id="local-6989586621679566345"><span class="annot"><span class="annottext">Maybe Text
+Text
+BucketName
+InventoryConfiguration
+inventoryConfiguration :: InventoryConfiguration
+id :: Text
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; InventoryConfiguration
+$sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
+$sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679566342"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-219"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566345"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679566338"><span class="annot"><span class="annottext">toPath :: PutBucketInventoryConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566333"><span id="local-6989586621679566334"><span id="local-6989586621679566335"><span id="local-6989586621679566336"><span class="annot"><span class="annottext">Maybe Text
+Text
+BucketName
+InventoryConfiguration
+inventoryConfiguration :: InventoryConfiguration
+id :: Text
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; InventoryConfiguration
+$sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
+$sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679566333"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566335"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679566329"><span class="annot"><span class="annottext">toQuery :: PutBucketInventoryConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566324"><span id="local-6989586621679566325"><span id="local-6989586621679566326"><span id="local-6989586621679566327"><span class="annot"><span class="annottext">Maybe Text
+Text
+BucketName
+InventoryConfiguration
+inventoryConfiguration :: InventoryConfiguration
+id :: Text
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; InventoryConfiguration
+$sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
+$sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679566324"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679566325"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;inventory&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | /See:/ 'newPutBucketInventoryConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-231"></span><span id="local-6989586621679566321"><span id="local-6989586621679566322"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketInventoryConfigurationResponse"><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketInventoryConfigurationResponse%27"><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566317"><span id="local-6989586621679566319"><span class="annot"><span class="annottext">PutBucketInventoryConfigurationResponse
+-&gt; PutBucketInventoryConfigurationResponse -&gt; Bool
+(PutBucketInventoryConfigurationResponse
+ -&gt; PutBucketInventoryConfigurationResponse -&gt; Bool)
+-&gt; (PutBucketInventoryConfigurationResponse
+    -&gt; PutBucketInventoryConfigurationResponse -&gt; Bool)
+-&gt; Eq PutBucketInventoryConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketInventoryConfigurationResponse
+-&gt; PutBucketInventoryConfigurationResponse -&gt; Bool
+$c/= :: PutBucketInventoryConfigurationResponse
+-&gt; PutBucketInventoryConfigurationResponse -&gt; Bool
+== :: PutBucketInventoryConfigurationResponse
+-&gt; PutBucketInventoryConfigurationResponse -&gt; Bool
+$c== :: PutBucketInventoryConfigurationResponse
+-&gt; PutBucketInventoryConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566309"><span id="local-6989586621679566311"><span id="local-6989586621679566313"><span id="local-6989586621679566315"><span class="annot"><span class="annottext">ReadPrec [PutBucketInventoryConfigurationResponse]
+ReadPrec PutBucketInventoryConfigurationResponse
+Int -&gt; ReadS PutBucketInventoryConfigurationResponse
+ReadS [PutBucketInventoryConfigurationResponse]
+(Int -&gt; ReadS PutBucketInventoryConfigurationResponse)
+-&gt; ReadS [PutBucketInventoryConfigurationResponse]
+-&gt; ReadPrec PutBucketInventoryConfigurationResponse
+-&gt; ReadPrec [PutBucketInventoryConfigurationResponse]
+-&gt; Read PutBucketInventoryConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBucketInventoryConfigurationResponse]
+$creadListPrec :: ReadPrec [PutBucketInventoryConfigurationResponse]
+readPrec :: ReadPrec PutBucketInventoryConfigurationResponse
+$creadPrec :: ReadPrec PutBucketInventoryConfigurationResponse
+readList :: ReadS [PutBucketInventoryConfigurationResponse]
+$creadList :: ReadS [PutBucketInventoryConfigurationResponse]
+readsPrec :: Int -&gt; ReadS PutBucketInventoryConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS PutBucketInventoryConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566302"><span id="local-6989586621679566304"><span id="local-6989586621679566306"><span class="annot"><span class="annottext">Int -&gt; PutBucketInventoryConfigurationResponse -&gt; ShowS
+[PutBucketInventoryConfigurationResponse] -&gt; ShowS
+PutBucketInventoryConfigurationResponse -&gt; String
+(Int -&gt; PutBucketInventoryConfigurationResponse -&gt; ShowS)
+-&gt; (PutBucketInventoryConfigurationResponse -&gt; String)
+-&gt; ([PutBucketInventoryConfigurationResponse] -&gt; ShowS)
+-&gt; Show PutBucketInventoryConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketInventoryConfigurationResponse] -&gt; ShowS
+$cshowList :: [PutBucketInventoryConfigurationResponse] -&gt; ShowS
+show :: PutBucketInventoryConfigurationResponse -&gt; String
+$cshow :: PutBucketInventoryConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; PutBucketInventoryConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketInventoryConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutBucketInventoryConfigurationResponse
+ -&gt; Rep PutBucketInventoryConfigurationResponse x)
+-&gt; (forall x.
+    Rep PutBucketInventoryConfigurationResponse x
+    -&gt; PutBucketInventoryConfigurationResponse)
+-&gt; Generic PutBucketInventoryConfigurationResponse
+forall x.
+Rep PutBucketInventoryConfigurationResponse x
+-&gt; PutBucketInventoryConfigurationResponse
+forall x.
+PutBucketInventoryConfigurationResponse
+-&gt; Rep PutBucketInventoryConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutBucketInventoryConfigurationResponse x
+-&gt; PutBucketInventoryConfigurationResponse
+$cfrom :: forall x.
+PutBucketInventoryConfigurationResponse
+-&gt; Rep PutBucketInventoryConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Create a value of 'PutBucketInventoryConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">newPutBucketInventoryConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">PutBucketInventoryConfigurationResponse</span></a></span><span>
+</span><span id="line-242"></span><span id="newPutBucketInventoryConfigurationResponse"><span class="annot"><span class="annottext">newPutBucketInventoryConfigurationResponse :: PutBucketInventoryConfigurationResponse
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutBucketInventoryConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="annottext">PutBucketInventoryConfigurationResponse
+</span><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse'</span></a></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679566298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">PutBucketInventoryConfigurationResponse</span></a></span></span><span>
+</span><span id="line-248"></span></pre></body></html>

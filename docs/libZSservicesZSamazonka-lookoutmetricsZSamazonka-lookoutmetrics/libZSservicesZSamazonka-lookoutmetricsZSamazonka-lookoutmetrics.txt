@@ -5,88 +5,88 @@
 @version 2.0
 
 
-module Network.AWS.LookoutMetrics.Types.AggregationFunction
+module Amazonka.LookoutMetrics.Types.AggregationFunction
 newtype AggregationFunction
 AggregationFunction' :: Text -> AggregationFunction
 [fromAggregationFunction] :: AggregationFunction -> Text
 pattern AggregationFunction_AVG :: AggregationFunction
 pattern AggregationFunction_SUM :: AggregationFunction
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance GHC.Classes.Ord Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Amazonka.Data.Text.ToText Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Amazonka.Data.Text.FromText Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance GHC.Classes.Ord Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AggregationFunction.AggregationFunction
 
 
-module Network.AWS.LookoutMetrics.Types.AlertStatus
+module Amazonka.LookoutMetrics.Types.AlertStatus
 newtype AlertStatus
 AlertStatus' :: Text -> AlertStatus
 [fromAlertStatus] :: AlertStatus -> Text
 pattern AlertStatus_ACTIVE :: AlertStatus
 pattern AlertStatus_INACTIVE :: AlertStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance GHC.Classes.Ord Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance GHC.Classes.Ord Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AlertStatus.AlertStatus
 
 
-module Network.AWS.LookoutMetrics.Types.AlertType
+module Amazonka.LookoutMetrics.Types.AlertType
 newtype AlertType
 AlertType' :: Text -> AlertType
 [fromAlertType] :: AlertType -> Text
 pattern AlertType_LAMBDA :: AlertType
 pattern AlertType_SNS :: AlertType
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance GHC.Classes.Ord Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AlertType.AlertType
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AlertType.AlertType
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Amazonka.Data.Text.ToText Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Amazonka.Data.Text.FromText Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance GHC.Classes.Ord Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AlertType.AlertType
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AlertType.AlertType
 
 
-module Network.AWS.LookoutMetrics.Types.AlertSummary
+module Amazonka.LookoutMetrics.Types.AlertSummary
 
 -- | Provides a summary of an alert's configuration.
 --   
@@ -188,16 +188,16 @@ alertSummary_tags :: Lens' AlertSummary (Maybe (HashMap Text Text))
 
 -- | The time at which the alert was last modified.
 alertSummary_lastModificationTime :: Lens' AlertSummary (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AlertSummary.AlertSummary
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AlertSummary.AlertSummary
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AlertSummary.AlertSummary
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AlertSummary.AlertSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AlertSummary.AlertSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AlertSummary.AlertSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AlertSummary.AlertSummary
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AlertSummary.AlertSummary
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AlertSummary.AlertSummary
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AlertSummary.AlertSummary
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AlertSummary.AlertSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AlertSummary.AlertSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AlertSummary.AlertSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AlertSummary.AlertSummary
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus
+module Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus
 newtype AnomalyDetectionTaskStatus
 AnomalyDetectionTaskStatus' :: Text -> AnomalyDetectionTaskStatus
 [fromAnomalyDetectionTaskStatus] :: AnomalyDetectionTaskStatus -> Text
@@ -206,28 +206,28 @@ pattern AnomalyDetectionTaskStatus_FAILED :: AnomalyDetectionTaskStatus
 pattern AnomalyDetectionTaskStatus_FAILED_TO_SCHEDULE :: AnomalyDetectionTaskStatus
 pattern AnomalyDetectionTaskStatus_IN_PROGRESS :: AnomalyDetectionTaskStatus
 pattern AnomalyDetectionTaskStatus_PENDING :: AnomalyDetectionTaskStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance GHC.Classes.Ord Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance GHC.Classes.Ord Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus.AnomalyDetectionTaskStatus
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus
+module Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus
 newtype AnomalyDetectorStatus
 AnomalyDetectorStatus' :: Text -> AnomalyDetectorStatus
 [fromAnomalyDetectorStatus] :: AnomalyDetectorStatus -> Text
@@ -240,28 +240,28 @@ pattern AnomalyDetectorStatus_DELETING :: AnomalyDetectorStatus
 pattern AnomalyDetectorStatus_FAILED :: AnomalyDetectorStatus
 pattern AnomalyDetectorStatus_INACTIVE :: AnomalyDetectorStatus
 pattern AnomalyDetectorStatus_LEARNING :: AnomalyDetectorStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance GHC.Classes.Ord Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance GHC.Classes.Ord Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus.AnomalyDetectorStatus
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary
+module Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary
 
 -- | Contains information about an an anomaly detector.
 --   
@@ -346,16 +346,16 @@ anomalyDetectorSummary_tags :: Lens' AnomalyDetectorSummary (Maybe (HashMap Text
 
 -- | The time at which the detector was last modified.
 anomalyDetectorSummary_lastModificationTime :: Lens' AnomalyDetectorSummary (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary.AnomalyDetectorSummary
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary
+module Amazonka.LookoutMetrics.Types.AnomalyGroupSummary
 
 -- | Details about a group of anomalous metrics.
 --   
@@ -420,16 +420,16 @@ anomalyGroupSummary_primaryMetricName :: Lens' AnomalyGroupSummary (Maybe Text)
 
 -- | The end time for the group.
 anomalyGroupSummary_endTime :: Lens' AnomalyGroupSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyGroupSummary.AnomalyGroupSummary
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries
+module Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries
 
 -- | An anomalous metric in an anomaly group.
 --   
@@ -465,16 +465,16 @@ anomalyGroupTimeSeries_timeSeriesId :: Lens' AnomalyGroupTimeSeries (Maybe Text)
 
 -- | The ID of the anomaly group.
 anomalyGroupTimeSeries_anomalyGroupId :: Lens' AnomalyGroupTimeSeries Text
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries.AnomalyGroupTimeSeries
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
+module Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
 
 -- | Feedback for an anomalous metric.
 --   
@@ -522,16 +522,16 @@ anomalyGroupTimeSeriesFeedback_timeSeriesId :: Lens' AnomalyGroupTimeSeriesFeedb
 
 -- | Feedback on whether the metric is a legitimate anomaly.
 anomalyGroupTimeSeriesFeedback_isAnomaly :: Lens' AnomalyGroupTimeSeriesFeedback Bool
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.AnomalyGroupTimeSeriesFeedback
 
 
-module Network.AWS.LookoutMetrics.Types.AppFlowConfig
+module Amazonka.LookoutMetrics.Types.AppFlowConfig
 
 -- | Details about an Amazon AppFlow flow datasource.
 --   
@@ -569,44 +569,44 @@ appFlowConfig_roleArn :: Lens' AppFlowConfig Text
 
 -- | name of the flow.
 appFlowConfig_flowName :: Lens' AppFlowConfig Text
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.AppFlowConfig.AppFlowConfig
 
 
-module Network.AWS.LookoutMetrics.Types.CSVFileCompression
+module Amazonka.LookoutMetrics.Types.CSVFileCompression
 newtype CSVFileCompression
 CSVFileCompression' :: Text -> CSVFileCompression
 [fromCSVFileCompression] :: CSVFileCompression -> Text
 pattern CSVFileCompression_GZIP :: CSVFileCompression
 pattern CSVFileCompression_NONE :: CSVFileCompression
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance GHC.Classes.Ord Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Amazonka.Data.Text.ToText Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Amazonka.Data.Text.FromText Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance GHC.Classes.Ord Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.CSVFileCompression.CSVFileCompression
 
 
-module Network.AWS.LookoutMetrics.Types.CloudWatchConfig
+module Amazonka.LookoutMetrics.Types.CloudWatchConfig
 
 -- | Details about an Amazon CloudWatch datasource.
 --   
@@ -635,17 +635,17 @@ newCloudWatchConfig :: Text -> CloudWatchConfig
 -- | An IAM role that gives Amazon Lookout for Metrics permission to access
 --   data in Amazon CloudWatch.
 cloudWatchConfig_roleArn :: Lens' CloudWatchConfig Text
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.CloudWatchConfig.CloudWatchConfig
 
 
-module Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor
+module Amazonka.LookoutMetrics.Types.CsvFormatDescriptor
 
 -- | Contains information about how a source CSV data file should be
 --   analyzed.
@@ -723,17 +723,17 @@ csvFormatDescriptor_fileCompression :: Lens' CsvFormatDescriptor (Maybe CSVFileC
 
 -- | The character used to delimit the source CSV file.
 csvFormatDescriptor_delimiter :: Lens' CsvFormatDescriptor (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.CsvFormatDescriptor
 
 
-module Network.AWS.LookoutMetrics.Types.DimensionNameValue
+module Amazonka.LookoutMetrics.Types.DimensionNameValue
 
 -- | A dimension name and value.
 --   
@@ -768,16 +768,16 @@ dimensionNameValue_dimensionName :: Lens' DimensionNameValue Text
 
 -- | The value of the dimension.
 dimensionNameValue_dimensionValue :: Lens' DimensionNameValue Text
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.DimensionNameValue.DimensionNameValue
 
 
-module Network.AWS.LookoutMetrics.Types.DimensionValueContribution
+module Amazonka.LookoutMetrics.Types.DimensionValueContribution
 
 -- | The severity of a value of a dimension that contributed to an anomaly.
 --   
@@ -814,16 +814,16 @@ dimensionValueContribution_dimensionValue :: Lens' DimensionValueContribution (M
 
 -- | The severity score of the value.
 dimensionValueContribution_contributionScore :: Lens' DimensionValueContribution (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.DimensionValueContribution.DimensionValueContribution
 
 
-module Network.AWS.LookoutMetrics.Types.DimensionContribution
+module Amazonka.LookoutMetrics.Types.DimensionContribution
 
 -- | Details about a dimension that contributed to an anomaly.
 --   
@@ -860,16 +860,16 @@ dimensionContribution_dimensionValueContributionList :: Lens' DimensionContribut
 
 -- | The name of the dimension.
 dimensionContribution_dimensionName :: Lens' DimensionContribution (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.DimensionContribution.DimensionContribution
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.DimensionContribution.DimensionContribution
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.DimensionContribution.DimensionContribution
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.DimensionContribution.DimensionContribution
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.DimensionContribution.DimensionContribution
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.DimensionContribution.DimensionContribution
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.DimensionContribution.DimensionContribution
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.DimensionContribution.DimensionContribution
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.DimensionContribution.DimensionContribution
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.DimensionContribution.DimensionContribution
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.DimensionContribution.DimensionContribution
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.DimensionContribution.DimensionContribution
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.DimensionContribution.DimensionContribution
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.DimensionContribution.DimensionContribution
 
 
-module Network.AWS.LookoutMetrics.Types.ContributionMatrix
+module Amazonka.LookoutMetrics.Types.ContributionMatrix
 
 -- | Details about dimensions that contributed to an anomaly.
 --   
@@ -896,16 +896,16 @@ newContributionMatrix :: ContributionMatrix
 
 -- | A list of contributing dimensions.
 contributionMatrix_dimensionContributionList :: Lens' ContributionMatrix (Maybe [DimensionContribution])
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.ContributionMatrix.ContributionMatrix
 
 
-module Network.AWS.LookoutMetrics.Types.ExecutionStatus
+module Amazonka.LookoutMetrics.Types.ExecutionStatus
 
 -- | The status of an anomaly detector run.
 --   
@@ -950,16 +950,16 @@ executionStatus_failureReason :: Lens' ExecutionStatus (Maybe Text)
 
 -- | The run's timestamp.
 executionStatus_timestamp :: Lens' ExecutionStatus (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.ExecutionStatus.ExecutionStatus
 
 
-module Network.AWS.LookoutMetrics.Types.Frequency
+module Amazonka.LookoutMetrics.Types.Frequency
 newtype Frequency
 Frequency' :: Text -> Frequency
 [fromFrequency] :: Frequency -> Text
@@ -967,28 +967,28 @@ pattern Frequency_P1D :: Frequency
 pattern Frequency_PT10M :: Frequency
 pattern Frequency_PT1H :: Frequency
 pattern Frequency_PT5M :: Frequency
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance GHC.Classes.Ord Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.Frequency.Frequency
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.Frequency.Frequency
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Amazonka.Data.Text.ToText Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Amazonka.Data.Text.FromText Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance GHC.Classes.Ord Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.Frequency.Frequency
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.Frequency.Frequency
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary
+module Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary
 
 -- | Contains information about a detector's configuration.
 --   
@@ -1015,16 +1015,16 @@ newAnomalyDetectorConfigSummary :: AnomalyDetectorConfigSummary
 
 -- | The interval at which the detector analyzes its source data.
 anomalyDetectorConfigSummary_anomalyDetectorFrequency :: Lens' AnomalyDetectorConfigSummary (Maybe Frequency)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary.AnomalyDetectorConfigSummary
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig
+module Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig
 
 -- | Contains information about a detector's configuration.
 --   
@@ -1051,16 +1051,16 @@ newAnomalyDetectorConfig :: AnomalyDetectorConfig
 
 -- | The frequency at which the detector analyzes its source data.
 anomalyDetectorConfig_anomalyDetectorFrequency :: Lens' AnomalyDetectorConfig (Maybe Frequency)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig.AnomalyDetectorConfig
 
 
-module Network.AWS.LookoutMetrics.Types.ItemizedMetricStats
+module Amazonka.LookoutMetrics.Types.ItemizedMetricStats
 
 -- | Aggregated statistics about a measure affected by an anomaly.
 --   
@@ -1096,16 +1096,16 @@ itemizedMetricStats_metricName :: Lens' ItemizedMetricStats (Maybe Text)
 
 -- | The number of times that the measure appears.
 itemizedMetricStats_occurrenceCount :: Lens' ItemizedMetricStats (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.ItemizedMetricStats.ItemizedMetricStats
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics
+module Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics
 
 -- | Aggregated statistics for a group of anomalous metrics.
 --   
@@ -1151,43 +1151,43 @@ anomalyGroupStatistics_evaluationStartDate :: Lens' AnomalyGroupStatistics (Mayb
 
 -- | The number of groups found.
 anomalyGroupStatistics_totalCount :: Lens' AnomalyGroupStatistics (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics.AnomalyGroupStatistics
 
 
-module Network.AWS.LookoutMetrics.Types.JsonFileCompression
+module Amazonka.LookoutMetrics.Types.JsonFileCompression
 newtype JsonFileCompression
 JsonFileCompression' :: Text -> JsonFileCompression
 [fromJsonFileCompression] :: JsonFileCompression -> Text
 pattern JsonFileCompression_GZIP :: JsonFileCompression
 pattern JsonFileCompression_NONE :: JsonFileCompression
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance GHC.Classes.Ord Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Amazonka.Data.Text.ToText Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Amazonka.Data.Text.FromText Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance GHC.Classes.Ord Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.JsonFileCompression.JsonFileCompression
 
 
-module Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor
+module Amazonka.LookoutMetrics.Types.JsonFormatDescriptor
 
 -- | Contains information about how a source JSON data file should be
 --   analyzed.
@@ -1225,17 +1225,17 @@ jsonFormatDescriptor_charset :: Lens' JsonFormatDescriptor (Maybe Text)
 
 -- | The level of compression of the source CSV file.
 jsonFormatDescriptor_fileCompression :: Lens' JsonFormatDescriptor (Maybe JsonFileCompression)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.JsonFormatDescriptor.JsonFormatDescriptor
 
 
-module Network.AWS.LookoutMetrics.Types.FileFormatDescriptor
+module Amazonka.LookoutMetrics.Types.FileFormatDescriptor
 
 -- | Contains information about a source file's formatting.
 --   
@@ -1276,17 +1276,17 @@ fileFormatDescriptor_jsonFormatDescriptor :: Lens' FileFormatDescriptor (Maybe J
 -- | Contains information about how a source CSV data file should be
 --   analyzed.
 fileFormatDescriptor_csvFormatDescriptor :: Lens' FileFormatDescriptor (Maybe CsvFormatDescriptor)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.FileFormatDescriptor.FileFormatDescriptor
 
 
-module Network.AWS.LookoutMetrics.Types.LambdaConfiguration
+module Amazonka.LookoutMetrics.Types.LambdaConfiguration
 
 -- | Contains information about a Lambda configuration.
 --   
@@ -1324,17 +1324,17 @@ lambdaConfiguration_roleArn :: Lens' LambdaConfiguration Text
 
 -- | The ARN of the Lambda function.
 lambdaConfiguration_lambdaArn :: Lens' LambdaConfiguration Text
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.LambdaConfiguration.LambdaConfiguration
 
 
-module Network.AWS.LookoutMetrics.Types.Metric
+module Amazonka.LookoutMetrics.Types.Metric
 
 -- | A calculation made by contrasting a measure and a dimension from your
 --   source data.
@@ -1379,17 +1379,17 @@ metric_metricName :: Lens' Metric Text
 
 -- | The function with which the metric is calculated.
 metric_aggregationFunction :: Lens' Metric AggregationFunction
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.Metric.Metric
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.Metric.Metric
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.Metric.Metric
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.Metric.Metric
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.Metric.Metric
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.Metric.Metric
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.Metric.Metric
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.Metric.Metric
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.Metric.Metric
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.Metric.Metric
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.Metric.Metric
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.Metric.Metric
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.Metric.Metric
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.Metric.Metric
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.Metric.Metric
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.Metric.Metric
 
 
-module Network.AWS.LookoutMetrics.Types.MetricLevelImpact
+module Amazonka.LookoutMetrics.Types.MetricLevelImpact
 
 -- | Details about a measure affected by an anomaly.
 --   
@@ -1435,16 +1435,16 @@ metricLevelImpact_metricName :: Lens' MetricLevelImpact (Maybe Text)
 
 -- | The number of anomalous metrics for the measure.
 metricLevelImpact_numTimeSeries :: Lens' MetricLevelImpact (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.MetricLevelImpact.MetricLevelImpact
 
 
-module Network.AWS.LookoutMetrics.Types.AnomalyGroup
+module Amazonka.LookoutMetrics.Types.AnomalyGroup
 
 -- | A group of anomalous metrics
 --   
@@ -1518,16 +1518,16 @@ anomalyGroup_primaryMetricName :: Lens' AnomalyGroup (Maybe Text)
 
 -- | The end time for the group.
 anomalyGroup_endTime :: Lens' AnomalyGroup (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.AnomalyGroup.AnomalyGroup
 
 
-module Network.AWS.LookoutMetrics.Types.MetricSetSummary
+module Amazonka.LookoutMetrics.Types.MetricSetSummary
 
 -- | Contains information about a dataset.
 --   
@@ -1611,16 +1611,16 @@ metricSetSummary_tags :: Lens' MetricSetSummary (Maybe (HashMap Text Text))
 
 -- | The time at which the dataset was last modified.
 metricSetSummary_lastModificationTime :: Lens' MetricSetSummary (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.MetricSetSummary.MetricSetSummary
 
 
-module Network.AWS.LookoutMetrics.Types.S3SourceConfig
+module Amazonka.LookoutMetrics.Types.S3SourceConfig
 
 -- | Contains information about the configuration of the S3 bucket that
 --   contains source files.
@@ -1680,17 +1680,17 @@ s3SourceConfig_fileFormatDescriptor :: Lens' S3SourceConfig (Maybe FileFormatDes
 -- | The ARN of an IAM role that has read and write access permissions to
 --   the source S3 bucket.
 s3SourceConfig_roleArn :: Lens' S3SourceConfig Text
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.S3SourceConfig.S3SourceConfig
 
 
-module Network.AWS.LookoutMetrics.Types.SNSConfiguration
+module Amazonka.LookoutMetrics.Types.SNSConfiguration
 
 -- | Contains information about the SNS topic to which you want to send
 --   your alerts and the IAM role that has access to that topic.
@@ -1726,17 +1726,17 @@ sNSConfiguration_roleArn :: Lens' SNSConfiguration Text
 
 -- | The ARN of the target SNS topic.
 sNSConfiguration_snsTopicArn :: Lens' SNSConfiguration Text
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.SNSConfiguration.SNSConfiguration
 
 
-module Network.AWS.LookoutMetrics.Types.Action
+module Amazonka.LookoutMetrics.Types.Action
 
 -- | A configuration that specifies the action to perform when anomalies
 --   are detected.
@@ -1772,17 +1772,17 @@ action_lambdaConfiguration :: Lens' Action (Maybe LambdaConfiguration)
 
 -- | A configuration for an Amazon SNS channel.
 action_sNSConfiguration :: Lens' Action (Maybe SNSConfiguration)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.Action.Action
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.Action.Action
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.Action.Action
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.Action.Action
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.Action.Action
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.Action.Action
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.Action.Action
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.Action.Action
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.Action.Action
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.Action.Action
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.Action.Action
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.Action.Action
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.Action.Action
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.Action.Action
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.Action.Action
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.Action.Action
 
 
-module Network.AWS.LookoutMetrics.Types.Alert
+module Amazonka.LookoutMetrics.Types.Alert
 
 -- | A configuration for Amazon SNS-integrated notifications.
 --   
@@ -1890,16 +1890,16 @@ alert_alertType :: Lens' Alert (Maybe AlertType)
 
 -- | The time at which the alert was last modified.
 alert_lastModificationTime :: Lens' Alert (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.Alert.Alert
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.Alert.Alert
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.Alert.Alert
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.Alert.Alert
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.Alert.Alert
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.Alert.Alert
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.Alert.Alert
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.Alert.Alert
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.Alert.Alert
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.Alert.Alert
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.Alert.Alert
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.Alert.Alert
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.Alert.Alert
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.Alert.Alert
 
 
-module Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig
+module Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig
 
 -- | Contains information about the source configuration in Amazon S3.
 --   
@@ -1954,16 +1954,16 @@ sampleDataS3SourceConfig_roleArn :: Lens' SampleDataS3SourceConfig Text
 
 -- | Undocumented member.
 sampleDataS3SourceConfig_fileFormatDescriptor :: Lens' SampleDataS3SourceConfig FileFormatDescriptor
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig.SampleDataS3SourceConfig
 
 
-module Network.AWS.LookoutMetrics.Types.TimeSeries
+module Amazonka.LookoutMetrics.Types.TimeSeries
 
 -- | Details about a metric. A metric is an aggregation of the values of a
 --   measure for a dimension value, such as <i>availability</i> in the
@@ -2008,16 +2008,16 @@ timeSeries_dimensionList :: Lens' TimeSeries [DimensionNameValue]
 
 -- | The values for the metric.
 timeSeries_metricValueList :: Lens' TimeSeries [Double]
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.TimeSeries.TimeSeries
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.TimeSeries.TimeSeries
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.TimeSeries.TimeSeries
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.TimeSeries.TimeSeries
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.TimeSeries.TimeSeries
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.TimeSeries.TimeSeries
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.TimeSeries.TimeSeries
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.TimeSeries.TimeSeries
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.TimeSeries.TimeSeries
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.TimeSeries.TimeSeries
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.TimeSeries.TimeSeries
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.TimeSeries.TimeSeries
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.TimeSeries.TimeSeries
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.TimeSeries.TimeSeries
 
 
-module Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback
+module Amazonka.LookoutMetrics.Types.TimeSeriesFeedback
 
 -- | Details about feedback submitted for an anomalous metric.
 --   
@@ -2053,16 +2053,16 @@ timeSeriesFeedback_isAnomaly :: Lens' TimeSeriesFeedback (Maybe Bool)
 
 -- | The ID of the metric.
 timeSeriesFeedback_timeSeriesId :: Lens' TimeSeriesFeedback (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.TimeSeriesFeedback.TimeSeriesFeedback
 
 
-module Network.AWS.LookoutMetrics.Types.TimestampColumn
+module Amazonka.LookoutMetrics.Types.TimestampColumn
 
 -- | Contains information about the column used to track time in a source
 --   data file.
@@ -2099,17 +2099,17 @@ timestampColumn_columnFormat :: Lens' TimestampColumn (Maybe Text)
 
 -- | The name of the timestamp column.
 timestampColumn_columnName :: Lens' TimestampColumn (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.TimestampColumn.TimestampColumn
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.TimestampColumn.TimestampColumn
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.TimestampColumn.TimestampColumn
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.TimestampColumn.TimestampColumn
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.TimestampColumn.TimestampColumn
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.TimestampColumn.TimestampColumn
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.TimestampColumn.TimestampColumn
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.TimestampColumn.TimestampColumn
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.TimestampColumn.TimestampColumn
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.TimestampColumn.TimestampColumn
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.TimestampColumn.TimestampColumn
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.TimestampColumn.TimestampColumn
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.TimestampColumn.TimestampColumn
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.TimestampColumn.TimestampColumn
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.TimestampColumn.TimestampColumn
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.TimestampColumn.TimestampColumn
 
 
-module Network.AWS.LookoutMetrics.Types.VpcConfiguration
+module Amazonka.LookoutMetrics.Types.VpcConfiguration
 
 -- | Contains configuration information about the Amazon Virtual Private
 --   Cloud (VPC).
@@ -2149,17 +2149,17 @@ vpcConfiguration_subnetIdList :: Lens' VpcConfiguration [Text]
 
 -- | An array of strings containing the list of security groups.
 vpcConfiguration_securityGroupIdList :: Lens' VpcConfiguration [Text]
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.VpcConfiguration.VpcConfiguration
 
 
-module Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig
+module Amazonka.LookoutMetrics.Types.RedshiftSourceConfig
 
 -- | Provides information about the Amazon Redshift database configuration.
 --   
@@ -2259,17 +2259,17 @@ redshiftSourceConfig_roleArn :: Lens' RedshiftSourceConfig Text
 -- | Contains information about the Amazon Virtual Private Cloud (VPC)
 --   configuration.
 redshiftSourceConfig_vpcConfiguration :: Lens' RedshiftSourceConfig VpcConfiguration
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.RedshiftSourceConfig.RedshiftSourceConfig
 
 
-module Network.AWS.LookoutMetrics.Types.RDSSourceConfig
+module Amazonka.LookoutMetrics.Types.RDSSourceConfig
 
 -- | Contains information about the Amazon Relational Database Service
 --   (RDS) configuration.
@@ -2367,17 +2367,17 @@ rDSSourceConfig_roleArn :: Lens' RDSSourceConfig Text
 -- | An object containing information about the Amazon Virtual Private
 --   Cloud (VPC) configuration.
 rDSSourceConfig_vpcConfiguration :: Lens' RDSSourceConfig VpcConfiguration
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.RDSSourceConfig.RDSSourceConfig
 
 
-module Network.AWS.LookoutMetrics.Types.MetricSource
+module Amazonka.LookoutMetrics.Types.MetricSource
 
 -- | Contains information about source data used to generate a metric.
 --   
@@ -2447,17 +2447,17 @@ metricSource_appFlowConfig :: Lens' MetricSource (Maybe AppFlowConfig)
 -- | An object containing information about the Amazon CloudWatch
 --   monitoring configuration.
 metricSource_cloudWatchConfig :: Lens' MetricSource (Maybe CloudWatchConfig)
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.Types.MetricSource.MetricSource
-instance GHC.Show.Show Network.AWS.LookoutMetrics.Types.MetricSource.MetricSource
-instance GHC.Read.Read Network.AWS.LookoutMetrics.Types.MetricSource.MetricSource
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.Types.MetricSource.MetricSource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutMetrics.Types.MetricSource.MetricSource
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.Types.MetricSource.MetricSource
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.Types.MetricSource.MetricSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.Types.MetricSource.MetricSource
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.Types.MetricSource.MetricSource
+instance GHC.Show.Show Amazonka.LookoutMetrics.Types.MetricSource.MetricSource
+instance GHC.Read.Read Amazonka.LookoutMetrics.Types.MetricSource.MetricSource
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.Types.MetricSource.MetricSource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutMetrics.Types.MetricSource.MetricSource
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.Types.MetricSource.MetricSource
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.Types.MetricSource.MetricSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.Types.MetricSource.MetricSource
 
 
-module Network.AWS.LookoutMetrics.Types
+module Amazonka.LookoutMetrics.Types
 
 -- | API version <tt>2017-07-25</tt> of the Amazon Lookout for Metrics SDK
 --   configuration.
@@ -4392,7 +4392,7 @@ vpcConfiguration_securityGroupIdList :: Lens' VpcConfiguration [Text]
 
 
 -- | Adds <a>tags</a> to a detector, dataset, or alert.
-module Network.AWS.LookoutMetrics.TagResource
+module Amazonka.LookoutMetrics.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -4451,26 +4451,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.LookoutMetrics.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.LookoutMetrics.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.TagResource.TagResource
+instance GHC.Show.Show Amazonka.LookoutMetrics.TagResource.TagResource
+instance GHC.Read.Read Amazonka.LookoutMetrics.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.TagResource.TagResource
 
 
 -- | Add feedback for an anomalous metric.
-module Network.AWS.LookoutMetrics.PutFeedback
+module Amazonka.LookoutMetrics.PutFeedback
 
 -- | <i>See:</i> <a>newPutFeedback</a> smart constructor.
 data PutFeedback
@@ -4528,26 +4528,26 @@ newPutFeedbackResponse :: Int -> PutFeedbackResponse
 
 -- | The response's http status code.
 putFeedbackResponse_httpStatus :: Lens' PutFeedbackResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance GHC.Show.Show Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance GHC.Read.Read Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.PutFeedback.PutFeedbackResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.PutFeedback.PutFeedbackResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.PutFeedback.PutFeedbackResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.PutFeedback.PutFeedbackResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.PutFeedback.PutFeedbackResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.PutFeedback.PutFeedback
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance GHC.Show.Show Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance GHC.Read.Read Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.PutFeedback.PutFeedbackResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.PutFeedback.PutFeedbackResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.PutFeedback.PutFeedbackResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.PutFeedback.PutFeedbackResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.PutFeedback.PutFeedbackResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.PutFeedback.PutFeedback
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.PutFeedback.PutFeedback
 
 
 -- | Gets a list of <a>tags</a> for a detector, dataset, or alert.
-module Network.AWS.LookoutMetrics.ListTagsForResource
+module Amazonka.LookoutMetrics.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -4605,21 +4605,21 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the datasets in the current AWS Region.
@@ -4628,7 +4628,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ListTagsForRe
 --   you do a read operation on a resource immediately after creating or
 --   modifying it, use retries to allow time for the write operation to
 --   complete.
-module Network.AWS.LookoutMetrics.ListMetricSets
+module Amazonka.LookoutMetrics.ListMetricSets
 
 -- | <i>See:</i> <a>newListMetricSets</a> smart constructor.
 data ListMetricSets
@@ -4729,26 +4729,26 @@ listMetricSetsResponse_metricSetSummaryList :: Lens' ListMetricSetsResponse (May
 
 -- | The response's http status code.
 listMetricSetsResponse_httpStatus :: Lens' ListMetricSetsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ListMetricSets.ListMetricSets
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListMetricSets.ListMetricSetsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.ListMetricSets.ListMetricSets
 
 
 -- | Gets a list of anomalous metrics for a measure in an anomaly group.
-module Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries
+module Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries
 
 -- | <i>See:</i> <a>newListAnomalyGroupTimeSeries</a> smart constructor.
 data ListAnomalyGroupTimeSeries
@@ -4891,26 +4891,26 @@ listAnomalyGroupTimeSeriesResponse_nextToken :: Lens' ListAnomalyGroupTimeSeries
 
 -- | The response's http status code.
 listAnomalyGroupTimeSeriesResponse_httpStatus :: Lens' ListAnomalyGroupTimeSeriesResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeriesResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries.ListAnomalyGroupTimeSeries
 
 
 -- | Returns a list of anomaly groups.
-module Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries
+module Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
 
 -- | <i>See:</i> <a>newListAnomalyGroupSummaries</a> smart constructor.
 data ListAnomalyGroupSummaries
@@ -5024,22 +5024,22 @@ listAnomalyGroupSummariesResponse_anomalyGroupSummaryList :: Lens' ListAnomalyGr
 
 -- | The response's http status code.
 listAnomalyGroupSummariesResponse_httpStatus :: Lens' ListAnomalyGroupSummariesResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummariesResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.ListAnomalyGroupSummaries.ListAnomalyGroupSummaries
 
 
 -- | Lists the detectors in the current AWS Region.
@@ -5048,7 +5048,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ListAnomalyGr
 --   you do a read operation on a resource immediately after creating or
 --   modifying it, use retries to allow time for the write operation to
 --   complete.
-module Network.AWS.LookoutMetrics.ListAnomalyDetectors
+module Amazonka.LookoutMetrics.ListAnomalyDetectors
 
 -- | <i>See:</i> <a>newListAnomalyDetectors</a> smart constructor.
 data ListAnomalyDetectors
@@ -5136,22 +5136,22 @@ listAnomalyDetectorsResponse_anomalyDetectorSummaryList :: Lens' ListAnomalyDete
 
 -- | The response's http status code.
 listAnomalyDetectorsResponse_httpStatus :: Lens' ListAnomalyDetectorsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectorsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.ListAnomalyDetectors.ListAnomalyDetectors
 
 
 -- | Lists the alerts attached to a detector.
@@ -5160,7 +5160,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ListAnomalyDe
 --   you do a read operation on a resource immediately after creating or
 --   modifying it, use retries to allow time for the write operation to
 --   complete.
-module Network.AWS.LookoutMetrics.ListAlerts
+module Amazonka.LookoutMetrics.ListAlerts
 
 -- | <i>See:</i> <a>newListAlerts</a> smart constructor.
 data ListAlerts
@@ -5254,26 +5254,26 @@ listAlertsResponse_alertSummaryList :: Lens' ListAlertsResponse (Maybe [AlertSum
 
 -- | The response's http status code.
 listAlertsResponse_httpStatus :: Lens' ListAlertsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ListAlerts.ListAlertsResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ListAlerts.ListAlertsResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ListAlerts.ListAlertsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ListAlerts.ListAlertsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListAlerts.ListAlertsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ListAlerts.ListAlerts
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ListAlerts.ListAlertsResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.ListAlerts.ListAlertsResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.ListAlerts.ListAlertsResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ListAlerts.ListAlertsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListAlerts.ListAlertsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.ListAlerts.ListAlerts
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.ListAlerts.ListAlerts
 
 
 -- | Returns a selection of sample records from an Amazon S3 datasource.
-module Network.AWS.LookoutMetrics.GetSampleData
+module Amazonka.LookoutMetrics.GetSampleData
 
 -- | <i>See:</i> <a>newGetSampleData</a> smart constructor.
 data GetSampleData
@@ -5341,26 +5341,26 @@ getSampleDataResponse_headerValues :: Lens' GetSampleDataResponse (Maybe [Text])
 
 -- | The response's http status code.
 getSampleDataResponse_httpStatus :: Lens' GetSampleDataResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance GHC.Show.Show Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance GHC.Read.Read Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.GetSampleData.GetSampleDataResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.GetSampleData.GetSampleDataResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.GetSampleData.GetSampleDataResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.GetSampleData.GetSampleDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.GetSampleData.GetSampleDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.GetSampleData.GetSampleData
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance GHC.Show.Show Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance GHC.Read.Read Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.GetSampleData.GetSampleDataResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.GetSampleData.GetSampleDataResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.GetSampleData.GetSampleDataResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.GetSampleData.GetSampleDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.GetSampleData.GetSampleDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.GetSampleData.GetSampleData
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.GetSampleData.GetSampleData
 
 
 -- | Get feedback for an anomaly group.
-module Network.AWS.LookoutMetrics.GetFeedback
+module Amazonka.LookoutMetrics.GetFeedback
 
 -- | <i>See:</i> <a>newGetFeedback</a> smart constructor.
 data GetFeedback
@@ -5459,26 +5459,26 @@ getFeedbackResponse_nextToken :: Lens' GetFeedbackResponse (Maybe Text)
 
 -- | The response's http status code.
 getFeedbackResponse_httpStatus :: Lens' GetFeedbackResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance GHC.Show.Show Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance GHC.Read.Read Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.GetFeedback.GetFeedbackResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.GetFeedback.GetFeedbackResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.GetFeedback.GetFeedbackResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.GetFeedback.GetFeedbackResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.GetFeedback.GetFeedbackResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.GetFeedback.GetFeedback
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance GHC.Show.Show Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance GHC.Read.Read Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.GetFeedback.GetFeedbackResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.GetFeedback.GetFeedbackResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.GetFeedback.GetFeedbackResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.GetFeedback.GetFeedbackResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.GetFeedback.GetFeedbackResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.GetFeedback.GetFeedback
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.GetFeedback.GetFeedback
 
 
 -- | Returns details about a group of anomalous metrics.
-module Network.AWS.LookoutMetrics.GetAnomalyGroup
+module Amazonka.LookoutMetrics.GetAnomalyGroup
 
 -- | <i>See:</i> <a>newGetAnomalyGroup</a> smart constructor.
 data GetAnomalyGroup
@@ -5546,22 +5546,22 @@ getAnomalyGroupResponse_anomalyGroup :: Lens' GetAnomalyGroupResponse (Maybe Ano
 
 -- | The response's http status code.
 getAnomalyGroupResponse_httpStatus :: Lens' GetAnomalyGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance GHC.Show.Show Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance GHC.Read.Read Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance GHC.Show.Show Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance GHC.Read.Read Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.GetAnomalyGroup.GetAnomalyGroup
 
 
 -- | Describes a dataset.
@@ -5570,7 +5570,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.GetAnomalyGro
 --   you do a read operation on a resource immediately after creating or
 --   modifying it, use retries to allow time for the write operation to
 --   complete.
-module Network.AWS.LookoutMetrics.DescribeMetricSet
+module Amazonka.LookoutMetrics.DescribeMetricSet
 
 -- | <i>See:</i> <a>newDescribeMetricSet</a> smart constructor.
 data DescribeMetricSet
@@ -5751,22 +5751,22 @@ describeMetricSetResponse_lastModificationTime :: Lens' DescribeMetricSetRespons
 
 -- | The response's http status code.
 describeMetricSetResponse_httpStatus :: Lens' DescribeMetricSetResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance GHC.Show.Show Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance GHC.Read.Read Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.DescribeMetricSet.DescribeMetricSet
 
 
 -- | Describes a detector.
@@ -5775,7 +5775,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.DescribeMetri
 --   you do a read operation on a resource immediately after creating or
 --   modifying it, use retries to allow time for the write operation to
 --   complete.
-module Network.AWS.LookoutMetrics.DescribeAnomalyDetector
+module Amazonka.LookoutMetrics.DescribeAnomalyDetector
 
 -- | <i>See:</i> <a>newDescribeAnomalyDetector</a> smart constructor.
 data DescribeAnomalyDetector
@@ -5916,27 +5916,27 @@ describeAnomalyDetectorResponse_lastModificationTime :: Lens' DescribeAnomalyDet
 
 -- | The response's http status code.
 describeAnomalyDetectorResponse_httpStatus :: Lens' DescribeAnomalyDetectorResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance GHC.Show.Show Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance GHC.Read.Read Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.DescribeAnomalyDetector.DescribeAnomalyDetector
 
 
 -- | Returns information about the status of the specified anomaly
 --   detection jobs.
-module Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions
+module Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions
 
 -- | <i>See:</i> <a>newDescribeAnomalyDetectionExecutions</a> smart
 --   constructor.
@@ -6040,22 +6040,22 @@ describeAnomalyDetectionExecutionsResponse_executionList :: Lens' DescribeAnomal
 
 -- | The response's http status code.
 describeAnomalyDetectionExecutionsResponse_httpStatus :: Lens' DescribeAnomalyDetectionExecutionsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance GHC.Show.Show Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance GHC.Read.Read Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions.DescribeAnomalyDetectionExecutions
 
 
 -- | Describes an alert.
@@ -6064,7 +6064,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.DescribeAnoma
 --   you do a read operation on a resource immediately after creating or
 --   modifying it, use retries to allow time for the write operation to
 --   complete.
-module Network.AWS.LookoutMetrics.DescribeAlert
+module Amazonka.LookoutMetrics.DescribeAlert
 
 -- | <i>See:</i> <a>newDescribeAlert</a> smart constructor.
 data DescribeAlert
@@ -6122,28 +6122,28 @@ describeAlertResponse_alert :: Lens' DescribeAlertResponse (Maybe Alert)
 
 -- | The response's http status code.
 describeAlertResponse_httpStatus :: Lens' DescribeAlertResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlertResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlertResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlertResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlertResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlertResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.DescribeAlert.DescribeAlert
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance GHC.Show.Show Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance GHC.Read.Read Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DescribeAlert.DescribeAlertResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.DescribeAlert.DescribeAlertResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.DescribeAlert.DescribeAlertResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DescribeAlert.DescribeAlertResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DescribeAlert.DescribeAlertResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.DescribeAlert.DescribeAlert
 
 
 -- | Deletes a detector. Deleting an anomaly detector will delete all of
 --   its corresponding resources including any configured datasets and
 --   alerts.
-module Network.AWS.LookoutMetrics.DeleteAnomalyDetector
+module Amazonka.LookoutMetrics.DeleteAnomalyDetector
 
 -- | <i>See:</i> <a>newDeleteAnomalyDetector</a> smart constructor.
 data DeleteAnomalyDetector
@@ -6192,26 +6192,26 @@ newDeleteAnomalyDetectorResponse :: Int -> DeleteAnomalyDetectorResponse
 
 -- | The response's http status code.
 deleteAnomalyDetectorResponse_httpStatus :: Lens' DeleteAnomalyDetectorResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance GHC.Show.Show Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance GHC.Read.Read Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.DeleteAnomalyDetector.DeleteAnomalyDetector
 
 
 -- | Deletes an alert.
-module Network.AWS.LookoutMetrics.DeleteAlert
+module Amazonka.LookoutMetrics.DeleteAlert
 
 -- | <i>See:</i> <a>newDeleteAlert</a> smart constructor.
 data DeleteAlert
@@ -6258,26 +6258,26 @@ newDeleteAlertResponse :: Int -> DeleteAlertResponse
 
 -- | The response's http status code.
 deleteAlertResponse_httpStatus :: Lens' DeleteAlertResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlertResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlertResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlertResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlertResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlertResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.DeleteAlert.DeleteAlert
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance GHC.Show.Show Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance GHC.Read.Read Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.DeleteAlert.DeleteAlertResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.DeleteAlert.DeleteAlertResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.DeleteAlert.DeleteAlertResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.DeleteAlert.DeleteAlertResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DeleteAlert.DeleteAlertResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.DeleteAlert.DeleteAlert
 
 
 -- | Creates a dataset.
-module Network.AWS.LookoutMetrics.CreateMetricSet
+module Amazonka.LookoutMetrics.CreateMetricSet
 
 -- | <i>See:</i> <a>newCreateMetricSet</a> smart constructor.
 data CreateMetricSet
@@ -6441,26 +6441,26 @@ createMetricSetResponse_metricSetArn :: Lens' CreateMetricSetResponse (Maybe Tex
 
 -- | The response's http status code.
 createMetricSetResponse_httpStatus :: Lens' CreateMetricSetResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance GHC.Show.Show Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance GHC.Read.Read Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance GHC.Show.Show Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance GHC.Read.Read Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.CreateMetricSet.CreateMetricSet
 
 
 -- | Creates an anomaly detector.
-module Network.AWS.LookoutMetrics.CreateAnomalyDetector
+module Amazonka.LookoutMetrics.CreateAnomalyDetector
 
 -- | <i>See:</i> <a>newCreateAnomalyDetector</a> smart constructor.
 data CreateAnomalyDetector
@@ -6559,26 +6559,26 @@ createAnomalyDetectorResponse_anomalyDetectorArn :: Lens' CreateAnomalyDetectorR
 
 -- | The response's http status code.
 createAnomalyDetectorResponse_httpStatus :: Lens' CreateAnomalyDetectorResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance GHC.Show.Show Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance GHC.Read.Read Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance GHC.Show.Show Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance GHC.Read.Read Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.CreateAnomalyDetector.CreateAnomalyDetector
 
 
 -- | Creates an alert for an anomaly detector.
-module Network.AWS.LookoutMetrics.CreateAlert
+module Amazonka.LookoutMetrics.CreateAlert
 
 -- | <i>See:</i> <a>newCreateAlert</a> smart constructor.
 data CreateAlert
@@ -6681,26 +6681,26 @@ createAlertResponse_alertArn :: Lens' CreateAlertResponse (Maybe Text)
 
 -- | The response's http status code.
 createAlertResponse_httpStatus :: Lens' CreateAlertResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance GHC.Show.Show Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance GHC.Read.Read Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.CreateAlert.CreateAlertResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.CreateAlert.CreateAlertResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.CreateAlert.CreateAlertResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.CreateAlert.CreateAlertResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.CreateAlert.CreateAlertResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.CreateAlert.CreateAlert
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance GHC.Show.Show Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance GHC.Read.Read Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.CreateAlert.CreateAlertResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.CreateAlert.CreateAlertResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.CreateAlert.CreateAlertResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.CreateAlert.CreateAlertResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.CreateAlert.CreateAlertResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.CreateAlert.CreateAlert
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.CreateAlert.CreateAlert
 
 
 -- | Runs a backtest for anomaly detection for the specified resource.
-module Network.AWS.LookoutMetrics.BackTestAnomalyDetector
+module Amazonka.LookoutMetrics.BackTestAnomalyDetector
 
 -- | <i>See:</i> <a>newBackTestAnomalyDetector</a> smart constructor.
 data BackTestAnomalyDetector
@@ -6750,26 +6750,26 @@ newBackTestAnomalyDetectorResponse :: Int -> BackTestAnomalyDetectorResponse
 
 -- | The response's http status code.
 backTestAnomalyDetectorResponse_httpStatus :: Lens' BackTestAnomalyDetectorResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance GHC.Show.Show Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance GHC.Read.Read Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance GHC.Show.Show Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance GHC.Read.Read Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.BackTestAnomalyDetector.BackTestAnomalyDetector
 
 
 -- | Activates an anomaly detector.
-module Network.AWS.LookoutMetrics.ActivateAnomalyDetector
+module Amazonka.LookoutMetrics.ActivateAnomalyDetector
 
 -- | <i>See:</i> <a>newActivateAnomalyDetector</a> smart constructor.
 data ActivateAnomalyDetector
@@ -6819,26 +6819,26 @@ newActivateAnomalyDetectorResponse :: Int -> ActivateAnomalyDetectorResponse
 
 -- | The response's http status code.
 activateAnomalyDetectorResponse_httpStatus :: Lens' ActivateAnomalyDetectorResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance GHC.Show.Show Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance GHC.Read.Read Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.ActivateAnomalyDetector.ActivateAnomalyDetector
 
 
 -- | Removes <a>tags</a> from a detector, dataset, or alert.
-module Network.AWS.LookoutMetrics.UntagResource
+module Amazonka.LookoutMetrics.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6896,26 +6896,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.LookoutMetrics.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.LookoutMetrics.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.LookoutMetrics.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.LookoutMetrics.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.UntagResource.UntagResource
 
 
 -- | Updates a detector. After activation, you can only change a detector's
 --   ingestion delay and description.
-module Network.AWS.LookoutMetrics.UpdateAnomalyDetector
+module Amazonka.LookoutMetrics.UpdateAnomalyDetector
 
 -- | <i>See:</i> <a>newUpdateAnomalyDetector</a> smart constructor.
 data UpdateAnomalyDetector
@@ -7007,26 +7007,26 @@ updateAnomalyDetectorResponse_anomalyDetectorArn :: Lens' UpdateAnomalyDetectorR
 
 -- | The response's http status code.
 updateAnomalyDetectorResponse_httpStatus :: Lens' UpdateAnomalyDetectorResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance GHC.Show.Show Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance GHC.Read.Read Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance GHC.Show.Show Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance GHC.Read.Read Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.UpdateAnomalyDetector.UpdateAnomalyDetector
 
 
 -- | Updates a dataset.
-module Network.AWS.LookoutMetrics.UpdateMetricSet
+module Amazonka.LookoutMetrics.UpdateMetricSet
 
 -- | <i>See:</i> <a>newUpdateMetricSet</a> smart constructor.
 data UpdateMetricSet
@@ -7152,25 +7152,25 @@ updateMetricSetResponse_metricSetArn :: Lens' UpdateMetricSetResponse (Maybe Tex
 
 -- | The response's http status code.
 updateMetricSetResponse_httpStatus :: Lens' UpdateMetricSetResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance GHC.Show.Show Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance GHC.Read.Read Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance GHC.Generics.Generic Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
-instance GHC.Show.Show Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
-instance GHC.Read.Read Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
-instance GHC.Classes.Eq Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance Control.DeepSeq.NFData Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance GHC.Show.Show Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance GHC.Read.Read Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance GHC.Generics.Generic Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
+instance GHC.Show.Show Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
+instance GHC.Read.Read Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
+instance GHC.Classes.Eq Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance Control.DeepSeq.NFData Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutMetrics.UpdateMetricSet.UpdateMetricSet
 
 
-module Network.AWS.LookoutMetrics.Lens
+module Amazonka.LookoutMetrics.Lens
 
 -- | Specify the pagination token that's returned by a previous request to
 --   retrieve the next page of results.
@@ -8050,7 +8050,7 @@ vpcConfiguration_subnetIdList :: Lens' VpcConfiguration [Text]
 vpcConfiguration_securityGroupIdList :: Lens' VpcConfiguration [Text]
 
 
-module Network.AWS.LookoutMetrics.Waiters
+module Amazonka.LookoutMetrics.Waiters
 
 
 -- | Derived from API version <tt>2017-07-25</tt> of the AWS service
@@ -8059,7 +8059,7 @@ module Network.AWS.LookoutMetrics.Waiters
 --   This is the <i>Amazon Lookout for Metrics API Reference</i>. For an
 --   introduction to the service with tutorials for getting started, visit
 --   <a>Amazon Lookout for Metrics Developer Guide</a>.
-module Network.AWS.LookoutMetrics
+module Amazonka.LookoutMetrics
 
 -- | API version <tt>2017-07-25</tt> of the Amazon Lookout for Metrics SDK
 --   configuration.

@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTAnalytics.ListDatasets</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about datasets.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTAnalytics.ListDatasets</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier">ListDatasets</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#newListDatasets"><span class="hs-identifier">newListDatasets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasets_nextToken"><span class="hs-identifier">listDatasets_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasets_maxResults"><span class="hs-identifier">listDatasets_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier">ListDatasetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#newListDatasetsResponse"><span class="hs-identifier">newListDatasetsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_nextToken"><span class="hs-identifier">listDatasetsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_datasetSummaries"><span class="hs-identifier">listDatasetsResponse_datasetSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_httpStatus"><span class="hs-identifier">listDatasetsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.html"><span class="hs-identifier">Amazonka.IoTAnalytics.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListDatasets' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679265601"><span id="local-6989586621679265602"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatasets"><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-var">ListDatasets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatasets%27"><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-var">ListDatasets'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListDatasets%27"><span class="annot"><span class="annottext">ListDatasets -&gt; Maybe Text
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AnextToken%3AListDatasets%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in this request.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- The default value is 100.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDatasets%27"><span class="annot"><span class="annottext">ListDatasets -&gt; Maybe Natural
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AmaxResults%3AListDatasets%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265594"><span id="local-6989586621679265596"><span class="annot"><span class="annottext">ListDatasets -&gt; ListDatasets -&gt; Bool
+(ListDatasets -&gt; ListDatasets -&gt; Bool)
+-&gt; (ListDatasets -&gt; ListDatasets -&gt; Bool) -&gt; Eq ListDatasets
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDatasets -&gt; ListDatasets -&gt; Bool
+$c/= :: ListDatasets -&gt; ListDatasets -&gt; Bool
+== :: ListDatasets -&gt; ListDatasets -&gt; Bool
+$c== :: ListDatasets -&gt; ListDatasets -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265585"><span id="local-6989586621679265587"><span id="local-6989586621679265589"><span id="local-6989586621679265591"><span class="annot"><span class="annottext">ReadPrec [ListDatasets]
+ReadPrec ListDatasets
+Int -&gt; ReadS ListDatasets
+ReadS [ListDatasets]
+(Int -&gt; ReadS ListDatasets)
+-&gt; ReadS [ListDatasets]
+-&gt; ReadPrec ListDatasets
+-&gt; ReadPrec [ListDatasets]
+-&gt; Read ListDatasets
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDatasets]
+$creadListPrec :: ReadPrec [ListDatasets]
+readPrec :: ReadPrec ListDatasets
+$creadPrec :: ReadPrec ListDatasets
+readList :: ReadS [ListDatasets]
+$creadList :: ReadS [ListDatasets]
+readsPrec :: Int -&gt; ReadS ListDatasets
+$creadsPrec :: Int -&gt; ReadS ListDatasets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265578"><span id="local-6989586621679265580"><span id="local-6989586621679265582"><span class="annot"><span class="annottext">Int -&gt; ListDatasets -&gt; ShowS
+[ListDatasets] -&gt; ShowS
+ListDatasets -&gt; String
+(Int -&gt; ListDatasets -&gt; ShowS)
+-&gt; (ListDatasets -&gt; String)
+-&gt; ([ListDatasets] -&gt; ShowS)
+-&gt; Show ListDatasets
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDatasets] -&gt; ShowS
+$cshowList :: [ListDatasets] -&gt; ShowS
+show :: ListDatasets -&gt; String
+$cshow :: ListDatasets -&gt; String
+showsPrec :: Int -&gt; ListDatasets -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDatasets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDatasets -&gt; Rep ListDatasets x)
+-&gt; (forall x. Rep ListDatasets x -&gt; ListDatasets)
+-&gt; Generic ListDatasets
+forall x. Rep ListDatasets x -&gt; ListDatasets
+forall x. ListDatasets -&gt; Rep ListDatasets x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDatasets x -&gt; ListDatasets
+$cfrom :: forall x. ListDatasets -&gt; Rep ListDatasets x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ListDatasets' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'nextToken', 'listDatasets_nextToken' - The token for the next set of results.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'maxResults', 'listDatasets_maxResults' - The maximum number of results to return in this request.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The default value is 100.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#newListDatasets"><span class="hs-identifier hs-type">newListDatasets</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span>
+</span><span id="line-79"></span><span id="newListDatasets"><span class="annot"><span class="annottext">newListDatasets :: ListDatasets
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#newListDatasets"><span class="hs-identifier hs-var hs-var">newListDatasets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListDatasets' :: Maybe Text -&gt; Maybe Natural -&gt; ListDatasets
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDatasets' :: Maybe Text
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AnextToken%3AListDatasets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListDatasets' :: Maybe Natural
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AmaxResults%3AListDatasets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The token for the next set of results.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasets_nextToken"><span class="hs-identifier hs-type">listDatasets_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="listDatasets_nextToken"><span class="annot"><span class="annottext">listDatasets_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListDatasets -&gt; f ListDatasets
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasets_nextToken"><span class="hs-identifier hs-var hs-var">listDatasets_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDatasets -&gt; Maybe Text)
+-&gt; (ListDatasets -&gt; Maybe Text -&gt; ListDatasets)
+-&gt; Lens ListDatasets ListDatasets (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265572"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDatasets' :: ListDatasets -&gt; Maybe Text
+</span><a href="#local-6989586621679265572"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265572"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265571"><span class="annot"><span class="annottext">s :: ListDatasets
+</span><a href="#local-6989586621679265571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
+</span><a href="#local-6989586621679265571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatasets' :: Maybe Text
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AnextToken%3AListDatasets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The maximum number of results to return in this request.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The default value is 100.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasets_maxResults"><span class="hs-identifier hs-type">listDatasets_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listDatasets_maxResults"><span class="annot"><span class="annottext">listDatasets_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListDatasets -&gt; f ListDatasets
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasets_maxResults"><span class="hs-identifier hs-var hs-var">listDatasets_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDatasets -&gt; Maybe Natural)
+-&gt; (ListDatasets -&gt; Maybe Natural -&gt; ListDatasets)
+-&gt; Lens ListDatasets ListDatasets (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265569"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListDatasets' :: ListDatasets -&gt; Maybe Natural
+</span><a href="#local-6989586621679265569"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265569"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265568"><span class="annot"><span class="annottext">s :: ListDatasets
+</span><a href="#local-6989586621679265568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265567"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
+</span><a href="#local-6989586621679265568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDatasets' :: Maybe Natural
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AmaxResults%3AListDatasets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679265563"><span class="annot"><span class="annottext">page :: ListDatasets -&gt; AWSResponse ListDatasets -&gt; Maybe ListDatasets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679265561"><span class="annot"><span class="annottext">ListDatasets
+</span><a href="#local-6989586621679265561"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679265560"><span class="annot"><span class="annottext">AWSResponse ListDatasets
+</span><a href="#local-6989586621679265560"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDatasets
+ListDatasetsResponse
+</span><a href="#local-6989586621679265560"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListDatasetsResponse
+-&gt; Getting (First Text) ListDatasetsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDatasetsResponse -&gt; Const (First Text) ListDatasetsResponse
+Lens' ListDatasetsResponse (Maybe Text)
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_nextToken"><span class="hs-identifier hs-var">listDatasetsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDatasetsResponse -&gt; Const (First Text) ListDatasetsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDatasetsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-100"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDatasets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-103"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDatasets
+ListDatasetsResponse
+</span><a href="#local-6989586621679265560"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">ListDatasetsResponse
+-&gt; Getting
+     (First [DatasetSummary]) ListDatasetsResponse [DatasetSummary]
+-&gt; Maybe [DatasetSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [DatasetSummary]
+ -&gt; Const (First [DatasetSummary]) (Maybe [DatasetSummary]))
+-&gt; ListDatasetsResponse
+-&gt; Const (First [DatasetSummary]) ListDatasetsResponse
+Lens' ListDatasetsResponse (Maybe [DatasetSummary])
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_datasetSummaries"><span class="hs-identifier hs-var">listDatasetsResponse_datasetSummaries</span></a></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [DatasetSummary]
+  -&gt; Const (First [DatasetSummary]) (Maybe [DatasetSummary]))
+ -&gt; ListDatasetsResponse
+ -&gt; Const (First [DatasetSummary]) ListDatasetsResponse)
+-&gt; (([DatasetSummary]
+     -&gt; Const (First [DatasetSummary]) [DatasetSummary])
+    -&gt; Maybe [DatasetSummary]
+    -&gt; Const (First [DatasetSummary]) (Maybe [DatasetSummary]))
+-&gt; Getting
+     (First [DatasetSummary]) ListDatasetsResponse [DatasetSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DatasetSummary]
+ -&gt; Const (First [DatasetSummary]) [DatasetSummary])
+-&gt; Maybe [DatasetSummary]
+-&gt; Const (First [DatasetSummary]) (Maybe [DatasetSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-106"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDatasets
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">ListDatasets -&gt; Maybe ListDatasets
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListDatasets -&gt; Maybe ListDatasets)
+-&gt; ListDatasets -&gt; Maybe ListDatasets
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">ListDatasets
+</span><a href="#local-6989586621679265561"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ListDatasets -&gt; (ListDatasets -&gt; ListDatasets) -&gt; ListDatasets
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListDatasets -&gt; Identity ListDatasets
+Lens ListDatasets ListDatasets (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasets_nextToken"><span class="hs-identifier hs-var">listDatasets_nextToken</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListDatasets -&gt; Identity ListDatasets)
+-&gt; Maybe Text -&gt; ListDatasets -&gt; ListDatasets
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDatasets
+ListDatasetsResponse
+</span><a href="#local-6989586621679265560"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">ListDatasetsResponse
+-&gt; Getting (First Text) ListDatasetsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDatasetsResponse -&gt; Const (First Text) ListDatasetsResponse
+Lens' ListDatasetsResponse (Maybe Text)
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_nextToken"><span class="hs-identifier hs-var">listDatasetsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDatasetsResponse -&gt; Const (First Text) ListDatasetsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDatasetsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679265550"><span class="annot"><span class="annottext">request :: ListDatasets -&gt; Request ListDatasets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDatasets -&gt; Request ListDatasets
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679265546"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListDatasets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListDatasets)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListDatasets))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListDatasets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListDatasets)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265543"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265543"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679265542"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679265542"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679265541"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265541"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [DatasetSummary] -&gt; Int -&gt; ListDatasetsResponse
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-var">ListDatasetsResponse'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [DatasetSummary] -&gt; Int -&gt; ListDatasetsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [DatasetSummary] -&gt; Int -&gt; ListDatasetsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [DatasetSummary] -&gt; Int -&gt; ListDatasetsResponse)
+-&gt; Either String (Maybe [DatasetSummary])
+-&gt; Either String (Int -&gt; ListDatasetsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DatasetSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetSummaries&quot;</span></span><span>
+</span><span id="line-124"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DatasetSummary]))
+-&gt; Maybe [DatasetSummary] -&gt; Either String (Maybe [DatasetSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListDatasetsResponse)
+-&gt; Either String Int -&gt; Either String ListDatasetsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265543"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265532"><span id="local-6989586621679265534"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679265525"><span class="annot"><span class="annottext">toHeaders :: ListDatasets -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDatasets -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679265520"><span class="annot"><span class="annottext">toPath :: ListDatasets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDatasets -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/datasets&quot;</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679265516"><span class="annot"><span class="annottext">toQuery :: ListDatasets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265513"><span id="local-6989586621679265514"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListDatasets' :: ListDatasets -&gt; Maybe Natural
+$sel:nextToken:ListDatasets' :: ListDatasets -&gt; Maybe Text
+</span><a href="#local-6989586621679265513"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265514"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265513"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newListDatasetsResponse' smart constructor.</span><span>
+</span><span id="line-147"></span><span id="local-6989586621679265510"><span id="local-6989586621679265511"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatasetsResponse"><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-var">ListDatasetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatasetsResponse%27"><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-var">ListDatasetsResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to retrieve the next set of results, or @null@ if there are no</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- more results.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AnextToken%3AListDatasetsResponse%27"><span class="annot"><span class="annottext">ListDatasetsResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AnextToken%3AListDatasetsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | A list of @DatasetSummary@ objects.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AdatasetSummaries%3AListDatasetsResponse%27"><span class="annot"><span class="annottext">ListDatasetsResponse -&gt; Maybe [DatasetSummary]
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AdatasetSummaries%3AListDatasetsResponse%27"><span class="hs-identifier hs-var hs-var">datasetSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatasetSummary.html#DatasetSummary"><span class="hs-identifier hs-type">DatasetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDatasetsResponse%27"><span class="annot"><span class="annottext">ListDatasetsResponse -&gt; Int
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AhttpStatus%3AListDatasetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265503"><span id="local-6989586621679265505"><span class="annot"><span class="annottext">ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
+(ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool)
+-&gt; (ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool)
+-&gt; Eq ListDatasetsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
+$c/= :: ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
+== :: ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
+$c== :: ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265495"><span id="local-6989586621679265497"><span id="local-6989586621679265499"><span id="local-6989586621679265501"><span class="annot"><span class="annottext">ReadPrec [ListDatasetsResponse]
+ReadPrec ListDatasetsResponse
+Int -&gt; ReadS ListDatasetsResponse
+ReadS [ListDatasetsResponse]
+(Int -&gt; ReadS ListDatasetsResponse)
+-&gt; ReadS [ListDatasetsResponse]
+-&gt; ReadPrec ListDatasetsResponse
+-&gt; ReadPrec [ListDatasetsResponse]
+-&gt; Read ListDatasetsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDatasetsResponse]
+$creadListPrec :: ReadPrec [ListDatasetsResponse]
+readPrec :: ReadPrec ListDatasetsResponse
+$creadPrec :: ReadPrec ListDatasetsResponse
+readList :: ReadS [ListDatasetsResponse]
+$creadList :: ReadS [ListDatasetsResponse]
+readsPrec :: Int -&gt; ReadS ListDatasetsResponse
+$creadsPrec :: Int -&gt; ReadS ListDatasetsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265489"><span id="local-6989586621679265491"><span id="local-6989586621679265493"><span class="annot"><span class="annottext">Int -&gt; ListDatasetsResponse -&gt; ShowS
+[ListDatasetsResponse] -&gt; ShowS
+ListDatasetsResponse -&gt; String
+(Int -&gt; ListDatasetsResponse -&gt; ShowS)
+-&gt; (ListDatasetsResponse -&gt; String)
+-&gt; ([ListDatasetsResponse] -&gt; ShowS)
+-&gt; Show ListDatasetsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDatasetsResponse] -&gt; ShowS
+$cshowList :: [ListDatasetsResponse] -&gt; ShowS
+show :: ListDatasetsResponse -&gt; String
+$cshow :: ListDatasetsResponse -&gt; String
+showsPrec :: Int -&gt; ListDatasetsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDatasetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDatasetsResponse -&gt; Rep ListDatasetsResponse x)
+-&gt; (forall x. Rep ListDatasetsResponse x -&gt; ListDatasetsResponse)
+-&gt; Generic ListDatasetsResponse
+forall x. Rep ListDatasetsResponse x -&gt; ListDatasetsResponse
+forall x. ListDatasetsResponse -&gt; Rep ListDatasetsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDatasetsResponse x -&gt; ListDatasetsResponse
+$cfrom :: forall x. ListDatasetsResponse -&gt; Rep ListDatasetsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'ListDatasetsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'nextToken', 'listDatasetsResponse_nextToken' - The token to retrieve the next set of results, or @null@ if there are no</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- more results.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'datasetSummaries', 'listDatasetsResponse_datasetSummaries' - A list of @DatasetSummary@ objects.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'listDatasetsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#newListDatasetsResponse"><span class="hs-identifier hs-type">newListDatasetsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newListDatasetsResponse"><span class="annot"><span class="annottext">newListDatasetsResponse :: Int -&gt; ListDatasetsResponse
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#newListDatasetsResponse"><span class="hs-identifier hs-var hs-var">newListDatasetsResponse</span></a></span></span><span> </span><span id="local-6989586621679265486"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListDatasetsResponse' :: Maybe Text -&gt; Maybe [DatasetSummary] -&gt; Int -&gt; ListDatasetsResponse
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDatasetsResponse' :: Maybe Text
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AnextToken%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetSummaries:ListDatasetsResponse' :: Maybe [DatasetSummary]
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AdatasetSummaries%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">datasetSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDatasetsResponse' :: Int
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AhttpStatus%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The token to retrieve the next set of results, or @null@ if there are no</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- more results.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_nextToken"><span class="hs-identifier hs-type">listDatasetsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listDatasetsResponse_nextToken"><span class="annot"><span class="annottext">listDatasetsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDatasetsResponse -&gt; f ListDatasetsResponse
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listDatasetsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDatasetsResponse -&gt; Maybe Text)
+-&gt; (ListDatasetsResponse -&gt; Maybe Text -&gt; ListDatasetsResponse)
+-&gt; Lens' ListDatasetsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265485"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDatasetsResponse' :: ListDatasetsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679265485"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265485"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265484"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
+</span><a href="#local-6989586621679265484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
+</span><a href="#local-6989586621679265484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatasetsResponse' :: Maybe Text
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AnextToken%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | A list of @DatasetSummary@ objects.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_datasetSummaries"><span class="hs-identifier hs-type">listDatasetsResponse_datasetSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatasetSummary.html#DatasetSummary"><span class="hs-identifier hs-type">DatasetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listDatasetsResponse_datasetSummaries"><span class="annot"><span class="annottext">listDatasetsResponse_datasetSummaries :: (Maybe [DatasetSummary] -&gt; f (Maybe [DatasetSummary]))
+-&gt; ListDatasetsResponse -&gt; f ListDatasetsResponse
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_datasetSummaries"><span class="hs-identifier hs-var hs-var">listDatasetsResponse_datasetSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDatasetsResponse -&gt; Maybe [DatasetSummary])
+-&gt; (ListDatasetsResponse
+    -&gt; Maybe [DatasetSummary] -&gt; ListDatasetsResponse)
+-&gt; Lens' ListDatasetsResponse (Maybe [DatasetSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265482"><span class="annot"><span class="annottext">Maybe [DatasetSummary]
+datasetSummaries :: Maybe [DatasetSummary]
+$sel:datasetSummaries:ListDatasetsResponse' :: ListDatasetsResponse -&gt; Maybe [DatasetSummary]
+</span><a href="#local-6989586621679265482"><span class="hs-identifier hs-var hs-var">datasetSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSummary]
+</span><a href="#local-6989586621679265482"><span class="hs-identifier hs-var">datasetSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265481"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
+</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265480"><span class="annot"><span class="annottext">Maybe [DatasetSummary]
+</span><a href="#local-6989586621679265480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
+</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetSummaries:ListDatasetsResponse' :: Maybe [DatasetSummary]
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AdatasetSummaries%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">datasetSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSummary]
+</span><a href="#local-6989586621679265480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatasetSummary] -&gt; f (Maybe [DatasetSummary]))
+ -&gt; ListDatasetsResponse -&gt; f ListDatasetsResponse)
+-&gt; ((Maybe [DatasetSummary] -&gt; f (Maybe [DatasetSummary]))
+    -&gt; Maybe [DatasetSummary] -&gt; f (Maybe [DatasetSummary]))
+-&gt; (Maybe [DatasetSummary] -&gt; f (Maybe [DatasetSummary]))
+-&gt; ListDatasetsResponse
+-&gt; f ListDatasetsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DatasetSummary] [DatasetSummary] [DatasetSummary] [DatasetSummary]
+-&gt; Iso
+     (Maybe [DatasetSummary])
+     (Maybe [DatasetSummary])
+     (Maybe [DatasetSummary])
+     (Maybe [DatasetSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DatasetSummary] [DatasetSummary] [DatasetSummary] [DatasetSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_httpStatus"><span class="hs-identifier hs-type">listDatasetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="listDatasetsResponse_httpStatus"><span class="annot"><span class="annottext">listDatasetsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListDatasetsResponse -&gt; f ListDatasetsResponse
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#listDatasetsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listDatasetsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDatasetsResponse -&gt; Int)
+-&gt; (ListDatasetsResponse -&gt; Int -&gt; ListDatasetsResponse)
+-&gt; Lens ListDatasetsResponse ListDatasetsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265477"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListDatasetsResponse' :: ListDatasetsResponse -&gt; Int
+</span><a href="#local-6989586621679265477"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265477"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265476"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
+</span><a href="#local-6989586621679265476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265475"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
+</span><a href="#local-6989586621679265476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDatasetsResponse' :: Int
+</span><a href="Amazonka.IoTAnalytics.ListDatasets.html#%24sel%3AhttpStatus%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CustomerProfiles.AddProfileKey</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates a new key value with a specific profile, such as a Contact</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Trace Record (CTR) ContactId.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- A profile object can have a single unique key and any number of</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- additional keys that can be used to identify the profile that it belongs</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CustomerProfiles.AddProfileKey</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier">AddProfileKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#newAddProfileKey"><span class="hs-identifier">newAddProfileKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_profileId"><span class="hs-identifier">addProfileKey_profileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_keyName"><span class="hs-identifier">addProfileKey_keyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_values"><span class="hs-identifier">addProfileKey_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_domainName"><span class="hs-identifier">addProfileKey_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier">AddProfileKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#newAddProfileKeyResponse"><span class="hs-identifier">newAddProfileKeyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKeyResponse_values"><span class="hs-identifier">addProfileKeyResponse_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKeyResponse_keyName"><span class="hs-identifier">addProfileKeyResponse_keyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKeyResponse_httpStatus"><span class="hs-identifier">addProfileKeyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.html"><span class="hs-identifier">Amazonka.CustomerProfiles.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newAddProfileKey' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679279311"><span id="local-6989586621679279312"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddProfileKey"><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-var">AddProfileKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddProfileKey%27"><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-var">AddProfileKey'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of a customer profile.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AprofileId%3AAddProfileKey%27"><span class="annot"><span class="annottext">AddProfileKey -&gt; Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AprofileId%3AAddProfileKey%27"><span class="hs-identifier hs-var hs-var">profileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A searchable identifier of a customer profile.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AkeyName%3AAddProfileKey%27"><span class="annot"><span class="annottext">AddProfileKey -&gt; Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AkeyName%3AAddProfileKey%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A list of key values.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Avalues%3AAddProfileKey%27"><span class="annot"><span class="annottext">AddProfileKey -&gt; [Text]
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3Avalues%3AAddProfileKey%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The unique name of the domain.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AdomainName%3AAddProfileKey%27"><span class="annot"><span class="annottext">AddProfileKey -&gt; Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AdomainName%3AAddProfileKey%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279302"><span id="local-6989586621679279304"><span class="annot"><span class="annottext">AddProfileKey -&gt; AddProfileKey -&gt; Bool
+(AddProfileKey -&gt; AddProfileKey -&gt; Bool)
+-&gt; (AddProfileKey -&gt; AddProfileKey -&gt; Bool) -&gt; Eq AddProfileKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddProfileKey -&gt; AddProfileKey -&gt; Bool
+$c/= :: AddProfileKey -&gt; AddProfileKey -&gt; Bool
+== :: AddProfileKey -&gt; AddProfileKey -&gt; Bool
+$c== :: AddProfileKey -&gt; AddProfileKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279293"><span id="local-6989586621679279295"><span id="local-6989586621679279297"><span id="local-6989586621679279299"><span class="annot"><span class="annottext">ReadPrec [AddProfileKey]
+ReadPrec AddProfileKey
+Int -&gt; ReadS AddProfileKey
+ReadS [AddProfileKey]
+(Int -&gt; ReadS AddProfileKey)
+-&gt; ReadS [AddProfileKey]
+-&gt; ReadPrec AddProfileKey
+-&gt; ReadPrec [AddProfileKey]
+-&gt; Read AddProfileKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddProfileKey]
+$creadListPrec :: ReadPrec [AddProfileKey]
+readPrec :: ReadPrec AddProfileKey
+$creadPrec :: ReadPrec AddProfileKey
+readList :: ReadS [AddProfileKey]
+$creadList :: ReadS [AddProfileKey]
+readsPrec :: Int -&gt; ReadS AddProfileKey
+$creadsPrec :: Int -&gt; ReadS AddProfileKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279286"><span id="local-6989586621679279288"><span id="local-6989586621679279290"><span class="annot"><span class="annottext">Int -&gt; AddProfileKey -&gt; ShowS
+[AddProfileKey] -&gt; ShowS
+AddProfileKey -&gt; String
+(Int -&gt; AddProfileKey -&gt; ShowS)
+-&gt; (AddProfileKey -&gt; String)
+-&gt; ([AddProfileKey] -&gt; ShowS)
+-&gt; Show AddProfileKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddProfileKey] -&gt; ShowS
+$cshowList :: [AddProfileKey] -&gt; ShowS
+show :: AddProfileKey -&gt; String
+$cshow :: AddProfileKey -&gt; String
+showsPrec :: Int -&gt; AddProfileKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddProfileKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddProfileKey -&gt; Rep AddProfileKey x)
+-&gt; (forall x. Rep AddProfileKey x -&gt; AddProfileKey)
+-&gt; Generic AddProfileKey
+forall x. Rep AddProfileKey x -&gt; AddProfileKey
+forall x. AddProfileKey -&gt; Rep AddProfileKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddProfileKey x -&gt; AddProfileKey
+$cfrom :: forall x. AddProfileKey -&gt; Rep AddProfileKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'AddProfileKey' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'profileId', 'addProfileKey_profileId' - The unique identifier of a customer profile.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'keyName', 'addProfileKey_keyName' - A searchable identifier of a customer profile.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'values', 'addProfileKey_values' - A list of key values.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'domainName', 'addProfileKey_domainName' - The unique name of the domain.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#newAddProfileKey"><span class="hs-identifier hs-type">newAddProfileKey</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'profileId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'keyName'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span>
+</span><span id="line-94"></span><span id="newAddProfileKey"><span class="annot"><span class="annottext">newAddProfileKey :: Text -&gt; Text -&gt; Text -&gt; AddProfileKey
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#newAddProfileKey"><span class="hs-identifier hs-var hs-var">newAddProfileKey</span></a></span></span><span> </span><span id="local-6989586621679279281"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279281"><span class="hs-identifier hs-var">pProfileId_</span></a></span></span><span> </span><span id="local-6989586621679279280"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279280"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span> </span><span id="local-6989586621679279279"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279279"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">AddProfileKey' :: Text -&gt; Text -&gt; [Text] -&gt; Text -&gt; AddProfileKey
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:profileId:AddProfileKey' :: Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AprofileId%3AAddProfileKey%27"><span class="hs-identifier hs-var">profileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279281"><span class="hs-identifier hs-var">pProfileId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:AddProfileKey' :: Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AkeyName%3AAddProfileKey%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279280"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:AddProfileKey' :: [Text]
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3Avalues%3AAddProfileKey%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:AddProfileKey' :: Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AdomainName%3AAddProfileKey%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279279"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The unique identifier of a customer profile.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_profileId"><span class="hs-identifier hs-type">addProfileKey_profileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="addProfileKey_profileId"><span class="annot"><span class="annottext">addProfileKey_profileId :: (Text -&gt; f Text) -&gt; AddProfileKey -&gt; f AddProfileKey
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_profileId"><span class="hs-identifier hs-var hs-var">addProfileKey_profileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddProfileKey -&gt; Text)
+-&gt; (AddProfileKey -&gt; Text -&gt; AddProfileKey)
+-&gt; Lens AddProfileKey AddProfileKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279276"><span class="annot"><span class="annottext">Text
+profileId :: Text
+$sel:profileId:AddProfileKey' :: AddProfileKey -&gt; Text
+</span><a href="#local-6989586621679279276"><span class="hs-identifier hs-var hs-var">profileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279276"><span class="hs-identifier hs-var">profileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279275"><span class="annot"><span class="annottext">s :: AddProfileKey
+</span><a href="#local-6989586621679279275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279274"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddProfileKey
+</span><a href="#local-6989586621679279275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileId:AddProfileKey' :: Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AprofileId%3AAddProfileKey%27"><span class="hs-identifier hs-var">profileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | A searchable identifier of a customer profile.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_keyName"><span class="hs-identifier hs-type">addProfileKey_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="addProfileKey_keyName"><span class="annot"><span class="annottext">addProfileKey_keyName :: (Text -&gt; f Text) -&gt; AddProfileKey -&gt; f AddProfileKey
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_keyName"><span class="hs-identifier hs-var hs-var">addProfileKey_keyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddProfileKey -&gt; Text)
+-&gt; (AddProfileKey -&gt; Text -&gt; AddProfileKey)
+-&gt; Lens AddProfileKey AddProfileKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279273"><span class="annot"><span class="annottext">Text
+keyName :: Text
+$sel:keyName:AddProfileKey' :: AddProfileKey -&gt; Text
+</span><a href="#local-6989586621679279273"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279273"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279272"><span class="annot"><span class="annottext">s :: AddProfileKey
+</span><a href="#local-6989586621679279272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279271"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddProfileKey
+</span><a href="#local-6989586621679279272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:AddProfileKey' :: Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AkeyName%3AAddProfileKey%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | A list of key values.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_values"><span class="hs-identifier hs-type">addProfileKey_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span id="addProfileKey_values"><span class="annot"><span class="annottext">addProfileKey_values :: ([Text] -&gt; f [Text]) -&gt; AddProfileKey -&gt; f AddProfileKey
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_values"><span class="hs-identifier hs-var hs-var">addProfileKey_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddProfileKey -&gt; [Text])
+-&gt; (AddProfileKey -&gt; [Text] -&gt; AddProfileKey)
+-&gt; Lens AddProfileKey AddProfileKey [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279270"><span class="annot"><span class="annottext">[Text]
+values :: [Text]
+$sel:values:AddProfileKey' :: AddProfileKey -&gt; [Text]
+</span><a href="#local-6989586621679279270"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679279270"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279269"><span class="annot"><span class="annottext">s :: AddProfileKey
+</span><a href="#local-6989586621679279269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279268"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679279268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddProfileKey
+</span><a href="#local-6989586621679279269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:AddProfileKey' :: [Text]
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3Avalues%3AAddProfileKey%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679279268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AddProfileKey -&gt; f AddProfileKey)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; AddProfileKey
+-&gt; f AddProfileKey
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The unique name of the domain.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_domainName"><span class="hs-identifier hs-type">addProfileKey_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="addProfileKey_domainName"><span class="annot"><span class="annottext">addProfileKey_domainName :: (Text -&gt; f Text) -&gt; AddProfileKey -&gt; f AddProfileKey
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKey_domainName"><span class="hs-identifier hs-var hs-var">addProfileKey_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddProfileKey -&gt; Text)
+-&gt; (AddProfileKey -&gt; Text -&gt; AddProfileKey)
+-&gt; Lens AddProfileKey AddProfileKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279265"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:AddProfileKey' :: AddProfileKey -&gt; Text
+</span><a href="#local-6989586621679279265"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279265"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279264"><span class="annot"><span class="annottext">s :: AddProfileKey
+</span><a href="#local-6989586621679279264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279263"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddProfileKey
+</span><a href="#local-6989586621679279264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:AddProfileKey' :: Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AdomainName%3AAddProfileKey%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-type">AddProfileKeyResponse</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679279259"><span class="annot"><span class="annottext">request :: AddProfileKey -&gt; Request AddProfileKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddProfileKey -&gt; Request AddProfileKey
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679279255"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddProfileKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AddProfileKey)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AddProfileKey))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddProfileKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AddProfileKey)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279252"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279251"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279251"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279250"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279250"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; AddProfileKeyResponse
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse%27"><span class="hs-identifier hs-var">AddProfileKeyResponse'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; AddProfileKeyResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; AddProfileKeyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; AddProfileKeyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; AddProfileKeyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AddProfileKeyResponse)
+-&gt; Either String Int -&gt; Either String AddProfileKeyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279252"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279241"><span id="local-6989586621679279243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679279234"><span class="annot"><span class="annottext">toHeaders :: AddProfileKey -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddProfileKey -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279224"><span id="local-6989586621679279226"><span id="local-6989586621679279228"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679279222"><span class="annot"><span class="annottext">toJSON :: AddProfileKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279217"><span id="local-6989586621679279218"><span id="local-6989586621679279219"><span id="local-6989586621679279220"><span class="annot"><span class="annottext">[Text]
+Text
+domainName :: Text
+values :: [Text]
+keyName :: Text
+profileId :: Text
+$sel:domainName:AddProfileKey' :: AddProfileKey -&gt; Text
+$sel:values:AddProfileKey' :: AddProfileKey -&gt; [Text]
+$sel:keyName:AddProfileKey' :: AddProfileKey -&gt; Text
+$sel:profileId:AddProfileKey' :: AddProfileKey -&gt; Text
+</span><a href="#local-6989586621679279217"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProfileId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279220"><span class="hs-identifier hs-var">profileId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279219"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679279218"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679279211"><span class="annot"><span class="annottext">toPath :: AddProfileKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey%27"><span class="hs-identifier hs-type">AddProfileKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279206"><span id="local-6989586621679279207"><span id="local-6989586621679279208"><span id="local-6989586621679279209"><span class="annot"><span class="annottext">[Text]
+Text
+domainName :: Text
+values :: [Text]
+keyName :: Text
+profileId :: Text
+$sel:domainName:AddProfileKey' :: AddProfileKey -&gt; Text
+$sel:values:AddProfileKey' :: AddProfileKey -&gt; [Text]
+$sel:keyName:AddProfileKey' :: AddProfileKey -&gt; Text
+$sel:profileId:AddProfileKey' :: AddProfileKey -&gt; Text
+</span><a href="#local-6989586621679279206"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/domains/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279206"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/profiles/keys&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKey"><span class="hs-identifier hs-type">AddProfileKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679279202"><span class="annot"><span class="annottext">toQuery :: AddProfileKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddProfileKey -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newAddProfileKeyResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679279199"><span id="local-6989586621679279200"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddProfileKeyResponse"><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-var">AddProfileKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddProfileKeyResponse%27"><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse%27"><span class="hs-identifier hs-var">AddProfileKeyResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of key values.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Avalues%3AAddProfileKeyResponse%27"><span class="annot"><span class="annottext">AddProfileKeyResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3Avalues%3AAddProfileKeyResponse%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | A searchable identifier of a customer profile.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AkeyName%3AAddProfileKeyResponse%27"><span class="annot"><span class="annottext">AddProfileKeyResponse -&gt; Maybe Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AkeyName%3AAddProfileKeyResponse%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddProfileKeyResponse%27"><span class="annot"><span class="annottext">AddProfileKeyResponse -&gt; Int
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AhttpStatus%3AAddProfileKeyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279192"><span id="local-6989586621679279194"><span class="annot"><span class="annottext">AddProfileKeyResponse -&gt; AddProfileKeyResponse -&gt; Bool
+(AddProfileKeyResponse -&gt; AddProfileKeyResponse -&gt; Bool)
+-&gt; (AddProfileKeyResponse -&gt; AddProfileKeyResponse -&gt; Bool)
+-&gt; Eq AddProfileKeyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddProfileKeyResponse -&gt; AddProfileKeyResponse -&gt; Bool
+$c/= :: AddProfileKeyResponse -&gt; AddProfileKeyResponse -&gt; Bool
+== :: AddProfileKeyResponse -&gt; AddProfileKeyResponse -&gt; Bool
+$c== :: AddProfileKeyResponse -&gt; AddProfileKeyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279184"><span id="local-6989586621679279186"><span id="local-6989586621679279188"><span id="local-6989586621679279190"><span class="annot"><span class="annottext">ReadPrec [AddProfileKeyResponse]
+ReadPrec AddProfileKeyResponse
+Int -&gt; ReadS AddProfileKeyResponse
+ReadS [AddProfileKeyResponse]
+(Int -&gt; ReadS AddProfileKeyResponse)
+-&gt; ReadS [AddProfileKeyResponse]
+-&gt; ReadPrec AddProfileKeyResponse
+-&gt; ReadPrec [AddProfileKeyResponse]
+-&gt; Read AddProfileKeyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddProfileKeyResponse]
+$creadListPrec :: ReadPrec [AddProfileKeyResponse]
+readPrec :: ReadPrec AddProfileKeyResponse
+$creadPrec :: ReadPrec AddProfileKeyResponse
+readList :: ReadS [AddProfileKeyResponse]
+$creadList :: ReadS [AddProfileKeyResponse]
+readsPrec :: Int -&gt; ReadS AddProfileKeyResponse
+$creadsPrec :: Int -&gt; ReadS AddProfileKeyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279178"><span id="local-6989586621679279180"><span id="local-6989586621679279182"><span class="annot"><span class="annottext">Int -&gt; AddProfileKeyResponse -&gt; ShowS
+[AddProfileKeyResponse] -&gt; ShowS
+AddProfileKeyResponse -&gt; String
+(Int -&gt; AddProfileKeyResponse -&gt; ShowS)
+-&gt; (AddProfileKeyResponse -&gt; String)
+-&gt; ([AddProfileKeyResponse] -&gt; ShowS)
+-&gt; Show AddProfileKeyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddProfileKeyResponse] -&gt; ShowS
+$cshowList :: [AddProfileKeyResponse] -&gt; ShowS
+show :: AddProfileKeyResponse -&gt; String
+$cshow :: AddProfileKeyResponse -&gt; String
+showsPrec :: Int -&gt; AddProfileKeyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddProfileKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddProfileKeyResponse -&gt; Rep AddProfileKeyResponse x)
+-&gt; (forall x. Rep AddProfileKeyResponse x -&gt; AddProfileKeyResponse)
+-&gt; Generic AddProfileKeyResponse
+forall x. Rep AddProfileKeyResponse x -&gt; AddProfileKeyResponse
+forall x. AddProfileKeyResponse -&gt; Rep AddProfileKeyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddProfileKeyResponse x -&gt; AddProfileKeyResponse
+$cfrom :: forall x. AddProfileKeyResponse -&gt; Rep AddProfileKeyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'AddProfileKeyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'values', 'addProfileKeyResponse_values' - A list of key values.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'keyName', 'addProfileKeyResponse_keyName' - A searchable identifier of a customer profile.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'addProfileKeyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#newAddProfileKeyResponse"><span class="hs-identifier hs-type">newAddProfileKeyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-type">AddProfileKeyResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newAddProfileKeyResponse"><span class="annot"><span class="annottext">newAddProfileKeyResponse :: Int -&gt; AddProfileKeyResponse
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#newAddProfileKeyResponse"><span class="hs-identifier hs-var hs-var">newAddProfileKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679279175"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279175"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">AddProfileKeyResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; AddProfileKeyResponse
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse%27"><span class="hs-identifier hs-type">AddProfileKeyResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:AddProfileKeyResponse' :: Maybe [Text]
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3Avalues%3AAddProfileKeyResponse%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:AddProfileKeyResponse' :: Maybe Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AkeyName%3AAddProfileKeyResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddProfileKeyResponse' :: Int
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AhttpStatus%3AAddProfileKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279175"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | A list of key values.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKeyResponse_values"><span class="hs-identifier hs-type">addProfileKeyResponse_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-type">AddProfileKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="addProfileKeyResponse_values"><span class="annot"><span class="annottext">addProfileKeyResponse_values :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AddProfileKeyResponse -&gt; f AddProfileKeyResponse
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKeyResponse_values"><span class="hs-identifier hs-var hs-var">addProfileKeyResponse_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddProfileKeyResponse -&gt; Maybe [Text])
+-&gt; (AddProfileKeyResponse -&gt; Maybe [Text] -&gt; AddProfileKeyResponse)
+-&gt; Lens
+     AddProfileKeyResponse
+     AddProfileKeyResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse%27"><span class="hs-identifier hs-type">AddProfileKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279174"><span class="annot"><span class="annottext">Maybe [Text]
+values :: Maybe [Text]
+$sel:values:AddProfileKeyResponse' :: AddProfileKeyResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679279174"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679279174"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279173"><span class="annot"><span class="annottext">s :: AddProfileKeyResponse
+</span><a href="#local-6989586621679279173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse%27"><span class="hs-identifier hs-type">AddProfileKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279172"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679279172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddProfileKeyResponse
+</span><a href="#local-6989586621679279173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:AddProfileKeyResponse' :: Maybe [Text]
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3Avalues%3AAddProfileKeyResponse%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679279172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-type">AddProfileKeyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AddProfileKeyResponse -&gt; f AddProfileKeyResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AddProfileKeyResponse
+-&gt; f AddProfileKeyResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | A searchable identifier of a customer profile.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKeyResponse_keyName"><span class="hs-identifier hs-type">addProfileKeyResponse_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-type">AddProfileKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="addProfileKeyResponse_keyName"><span class="annot"><span class="annottext">addProfileKeyResponse_keyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddProfileKeyResponse -&gt; f AddProfileKeyResponse
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKeyResponse_keyName"><span class="hs-identifier hs-var hs-var">addProfileKeyResponse_keyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddProfileKeyResponse -&gt; Maybe Text)
+-&gt; (AddProfileKeyResponse -&gt; Maybe Text -&gt; AddProfileKeyResponse)
+-&gt; Lens
+     AddProfileKeyResponse
+     AddProfileKeyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse%27"><span class="hs-identifier hs-type">AddProfileKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279170"><span class="annot"><span class="annottext">Maybe Text
+keyName :: Maybe Text
+$sel:keyName:AddProfileKeyResponse' :: AddProfileKeyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679279170"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279170"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279169"><span class="annot"><span class="annottext">s :: AddProfileKeyResponse
+</span><a href="#local-6989586621679279169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse%27"><span class="hs-identifier hs-type">AddProfileKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279168"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddProfileKeyResponse
+</span><a href="#local-6989586621679279169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:AddProfileKeyResponse' :: Maybe Text
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AkeyName%3AAddProfileKeyResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-type">AddProfileKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKeyResponse_httpStatus"><span class="hs-identifier hs-type">addProfileKeyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-type">AddProfileKeyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span id="addProfileKeyResponse_httpStatus"><span class="annot"><span class="annottext">addProfileKeyResponse_httpStatus :: (Int -&gt; f Int) -&gt; AddProfileKeyResponse -&gt; f AddProfileKeyResponse
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#addProfileKeyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">addProfileKeyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddProfileKeyResponse -&gt; Int)
+-&gt; (AddProfileKeyResponse -&gt; Int -&gt; AddProfileKeyResponse)
+-&gt; Lens AddProfileKeyResponse AddProfileKeyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse%27"><span class="hs-identifier hs-type">AddProfileKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279167"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AddProfileKeyResponse' :: AddProfileKeyResponse -&gt; Int
+</span><a href="#local-6989586621679279167"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279167"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279166"><span class="annot"><span class="annottext">s :: AddProfileKeyResponse
+</span><a href="#local-6989586621679279166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse%27"><span class="hs-identifier hs-type">AddProfileKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddProfileKeyResponse
+</span><a href="#local-6989586621679279166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddProfileKeyResponse' :: Int
+</span><a href="Amazonka.CustomerProfiles.AddProfileKey.html#%24sel%3AhttpStatus%3AAddProfileKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-type">AddProfileKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.AddProfileKey.html#AddProfileKeyResponse"><span class="hs-identifier hs-type">AddProfileKeyResponse</span></a></span></span><span>
+</span><span id="line-213"></span></pre></body></html>

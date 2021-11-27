@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ApiGatewayV2.GetModelTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a model template.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApiGatewayV2.GetModelTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier">GetModelTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#newGetModelTemplate"><span class="hs-identifier">newGetModelTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplate_modelId"><span class="hs-identifier">getModelTemplate_modelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplate_apiId"><span class="hs-identifier">getModelTemplate_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse"><span class="hs-identifier">GetModelTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#newGetModelTemplateResponse"><span class="hs-identifier">newGetModelTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplateResponse_value"><span class="hs-identifier">getModelTemplateResponse_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplateResponse_httpStatus"><span class="hs-identifier">getModelTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.Types.html"><span class="hs-identifier">Amazonka.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetModelTemplate' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679415174"><span id="local-6989586621679415175"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetModelTemplate"><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-var">GetModelTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetModelTemplate%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate%27"><span class="hs-identifier hs-var">GetModelTemplate'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The model ID.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AmodelId%3AGetModelTemplate%27"><span class="annot"><span class="annottext">GetModelTemplate -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3AmodelId%3AGetModelTemplate%27"><span class="hs-identifier hs-var hs-var">modelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AapiId%3AGetModelTemplate%27"><span class="annot"><span class="annottext">GetModelTemplate -&gt; Text
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3AapiId%3AGetModelTemplate%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415167"><span id="local-6989586621679415169"><span class="annot"><span class="annottext">GetModelTemplate -&gt; GetModelTemplate -&gt; Bool
+(GetModelTemplate -&gt; GetModelTemplate -&gt; Bool)
+-&gt; (GetModelTemplate -&gt; GetModelTemplate -&gt; Bool)
+-&gt; Eq GetModelTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetModelTemplate -&gt; GetModelTemplate -&gt; Bool
+$c/= :: GetModelTemplate -&gt; GetModelTemplate -&gt; Bool
+== :: GetModelTemplate -&gt; GetModelTemplate -&gt; Bool
+$c== :: GetModelTemplate -&gt; GetModelTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415158"><span id="local-6989586621679415160"><span id="local-6989586621679415162"><span id="local-6989586621679415164"><span class="annot"><span class="annottext">ReadPrec [GetModelTemplate]
+ReadPrec GetModelTemplate
+Int -&gt; ReadS GetModelTemplate
+ReadS [GetModelTemplate]
+(Int -&gt; ReadS GetModelTemplate)
+-&gt; ReadS [GetModelTemplate]
+-&gt; ReadPrec GetModelTemplate
+-&gt; ReadPrec [GetModelTemplate]
+-&gt; Read GetModelTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetModelTemplate]
+$creadListPrec :: ReadPrec [GetModelTemplate]
+readPrec :: ReadPrec GetModelTemplate
+$creadPrec :: ReadPrec GetModelTemplate
+readList :: ReadS [GetModelTemplate]
+$creadList :: ReadS [GetModelTemplate]
+readsPrec :: Int -&gt; ReadS GetModelTemplate
+$creadsPrec :: Int -&gt; ReadS GetModelTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415151"><span id="local-6989586621679415153"><span id="local-6989586621679415155"><span class="annot"><span class="annottext">Int -&gt; GetModelTemplate -&gt; ShowS
+[GetModelTemplate] -&gt; ShowS
+GetModelTemplate -&gt; String
+(Int -&gt; GetModelTemplate -&gt; ShowS)
+-&gt; (GetModelTemplate -&gt; String)
+-&gt; ([GetModelTemplate] -&gt; ShowS)
+-&gt; Show GetModelTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetModelTemplate] -&gt; ShowS
+$cshowList :: [GetModelTemplate] -&gt; ShowS
+show :: GetModelTemplate -&gt; String
+$cshow :: GetModelTemplate -&gt; String
+showsPrec :: Int -&gt; GetModelTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetModelTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetModelTemplate -&gt; Rep GetModelTemplate x)
+-&gt; (forall x. Rep GetModelTemplate x -&gt; GetModelTemplate)
+-&gt; Generic GetModelTemplate
+forall x. Rep GetModelTemplate x -&gt; GetModelTemplate
+forall x. GetModelTemplate -&gt; Rep GetModelTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetModelTemplate x -&gt; GetModelTemplate
+$cfrom :: forall x. GetModelTemplate -&gt; Rep GetModelTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetModelTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'modelId', 'getModelTemplate_modelId' - The model ID.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'apiId', 'getModelTemplate_apiId' - The API identifier.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#newGetModelTemplate"><span class="hs-identifier hs-type">newGetModelTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'modelId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span>
+</span><span id="line-76"></span><span id="newGetModelTemplate"><span class="annot"><span class="annottext">newGetModelTemplate :: Text -&gt; Text -&gt; GetModelTemplate
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#newGetModelTemplate"><span class="hs-identifier hs-var hs-var">newGetModelTemplate</span></a></span></span><span> </span><span id="local-6989586621679415146"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415146"><span class="hs-identifier hs-var">pModelId_</span></a></span></span><span> </span><span id="local-6989586621679415145"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415145"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetModelTemplate' :: Text -&gt; Text -&gt; GetModelTemplate
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate%27"><span class="hs-identifier hs-type">GetModelTemplate'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelId:GetModelTemplate' :: Text
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3AmodelId%3AGetModelTemplate%27"><span class="hs-identifier hs-var">modelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415146"><span class="hs-identifier hs-var">pModelId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:GetModelTemplate' :: Text
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3AapiId%3AGetModelTemplate%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415145"><span class="hs-identifier hs-var">pApiId_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The model ID.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplate_modelId"><span class="hs-identifier hs-type">getModelTemplate_modelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="getModelTemplate_modelId"><span class="annot"><span class="annottext">getModelTemplate_modelId :: (Text -&gt; f Text) -&gt; GetModelTemplate -&gt; f GetModelTemplate
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplate_modelId"><span class="hs-identifier hs-var hs-var">getModelTemplate_modelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModelTemplate -&gt; Text)
+-&gt; (GetModelTemplate -&gt; Text -&gt; GetModelTemplate)
+-&gt; Lens GetModelTemplate GetModelTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate%27"><span class="hs-identifier hs-type">GetModelTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415142"><span class="annot"><span class="annottext">Text
+modelId :: Text
+$sel:modelId:GetModelTemplate' :: GetModelTemplate -&gt; Text
+</span><a href="#local-6989586621679415142"><span class="hs-identifier hs-var hs-var">modelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415142"><span class="hs-identifier hs-var">modelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415141"><span class="annot"><span class="annottext">s :: GetModelTemplate
+</span><a href="#local-6989586621679415141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate%27"><span class="hs-identifier hs-type">GetModelTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415140"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModelTemplate
+</span><a href="#local-6989586621679415141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelId:GetModelTemplate' :: Text
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3AmodelId%3AGetModelTemplate%27"><span class="hs-identifier hs-var">modelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplate_apiId"><span class="hs-identifier hs-type">getModelTemplate_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="getModelTemplate_apiId"><span class="annot"><span class="annottext">getModelTemplate_apiId :: (Text -&gt; f Text) -&gt; GetModelTemplate -&gt; f GetModelTemplate
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplate_apiId"><span class="hs-identifier hs-var hs-var">getModelTemplate_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModelTemplate -&gt; Text)
+-&gt; (GetModelTemplate -&gt; Text -&gt; GetModelTemplate)
+-&gt; Lens GetModelTemplate GetModelTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate%27"><span class="hs-identifier hs-type">GetModelTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415139"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:GetModelTemplate' :: GetModelTemplate -&gt; Text
+</span><a href="#local-6989586621679415139"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415139"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415138"><span class="annot"><span class="annottext">s :: GetModelTemplate
+</span><a href="#local-6989586621679415138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate%27"><span class="hs-identifier hs-type">GetModelTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415137"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModelTemplate
+</span><a href="#local-6989586621679415138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:GetModelTemplate' :: Text
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3AapiId%3AGetModelTemplate%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse"><span class="hs-identifier hs-type">GetModelTemplateResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679415133"><span class="annot"><span class="annottext">request :: GetModelTemplate -&gt; Request GetModelTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetModelTemplate -&gt; Request GetModelTemplate
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679415129"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetModelTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetModelTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetModelTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetModelTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetModelTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415126"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415126"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415125"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415125"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415124"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415124"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetModelTemplateResponse
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse%27"><span class="hs-identifier hs-var">GetModelTemplateResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetModelTemplateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetModelTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetModelTemplateResponse)
+-&gt; Either String Int -&gt; Either String GetModelTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415126"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415116"><span id="local-6989586621679415118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679415109"><span class="annot"><span class="annottext">toHeaders :: GetModelTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetModelTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679415103"><span class="annot"><span class="annottext">toPath :: GetModelTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate%27"><span class="hs-identifier hs-type">GetModelTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415100"><span id="local-6989586621679415101"><span class="annot"><span class="annottext">Text
+apiId :: Text
+modelId :: Text
+$sel:apiId:GetModelTemplate' :: GetModelTemplate -&gt; Text
+$sel:modelId:GetModelTemplate' :: GetModelTemplate -&gt; Text
+</span><a href="#local-6989586621679415100"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/apis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415100"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/models/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415101"><span class="hs-identifier hs-var">modelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/template&quot;</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplate"><span class="hs-identifier hs-type">GetModelTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679415096"><span class="annot"><span class="annottext">toQuery :: GetModelTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetModelTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newGetModelTemplateResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621679415093"><span id="local-6989586621679415094"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetModelTemplateResponse"><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse"><span class="hs-identifier hs-var">GetModelTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetModelTemplateResponse%27"><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse%27"><span class="hs-identifier hs-var">GetModelTemplateResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The template value.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3Avalue%3AGetModelTemplateResponse%27"><span class="annot"><span class="annottext">GetModelTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3Avalue%3AGetModelTemplateResponse%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetModelTemplateResponse%27"><span class="annot"><span class="annottext">GetModelTemplateResponse -&gt; Int
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3AhttpStatus%3AGetModelTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415087"><span id="local-6989586621679415089"><span class="annot"><span class="annottext">GetModelTemplateResponse -&gt; GetModelTemplateResponse -&gt; Bool
+(GetModelTemplateResponse -&gt; GetModelTemplateResponse -&gt; Bool)
+-&gt; (GetModelTemplateResponse -&gt; GetModelTemplateResponse -&gt; Bool)
+-&gt; Eq GetModelTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetModelTemplateResponse -&gt; GetModelTemplateResponse -&gt; Bool
+$c/= :: GetModelTemplateResponse -&gt; GetModelTemplateResponse -&gt; Bool
+== :: GetModelTemplateResponse -&gt; GetModelTemplateResponse -&gt; Bool
+$c== :: GetModelTemplateResponse -&gt; GetModelTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415079"><span id="local-6989586621679415081"><span id="local-6989586621679415083"><span id="local-6989586621679415085"><span class="annot"><span class="annottext">ReadPrec [GetModelTemplateResponse]
+ReadPrec GetModelTemplateResponse
+Int -&gt; ReadS GetModelTemplateResponse
+ReadS [GetModelTemplateResponse]
+(Int -&gt; ReadS GetModelTemplateResponse)
+-&gt; ReadS [GetModelTemplateResponse]
+-&gt; ReadPrec GetModelTemplateResponse
+-&gt; ReadPrec [GetModelTemplateResponse]
+-&gt; Read GetModelTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetModelTemplateResponse]
+$creadListPrec :: ReadPrec [GetModelTemplateResponse]
+readPrec :: ReadPrec GetModelTemplateResponse
+$creadPrec :: ReadPrec GetModelTemplateResponse
+readList :: ReadS [GetModelTemplateResponse]
+$creadList :: ReadS [GetModelTemplateResponse]
+readsPrec :: Int -&gt; ReadS GetModelTemplateResponse
+$creadsPrec :: Int -&gt; ReadS GetModelTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415073"><span id="local-6989586621679415075"><span id="local-6989586621679415077"><span class="annot"><span class="annottext">Int -&gt; GetModelTemplateResponse -&gt; ShowS
+[GetModelTemplateResponse] -&gt; ShowS
+GetModelTemplateResponse -&gt; String
+(Int -&gt; GetModelTemplateResponse -&gt; ShowS)
+-&gt; (GetModelTemplateResponse -&gt; String)
+-&gt; ([GetModelTemplateResponse] -&gt; ShowS)
+-&gt; Show GetModelTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetModelTemplateResponse] -&gt; ShowS
+$cshowList :: [GetModelTemplateResponse] -&gt; ShowS
+show :: GetModelTemplateResponse -&gt; String
+$cshow :: GetModelTemplateResponse -&gt; String
+showsPrec :: Int -&gt; GetModelTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetModelTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetModelTemplateResponse -&gt; Rep GetModelTemplateResponse x)
+-&gt; (forall x.
+    Rep GetModelTemplateResponse x -&gt; GetModelTemplateResponse)
+-&gt; Generic GetModelTemplateResponse
+forall x.
+Rep GetModelTemplateResponse x -&gt; GetModelTemplateResponse
+forall x.
+GetModelTemplateResponse -&gt; Rep GetModelTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetModelTemplateResponse x -&gt; GetModelTemplateResponse
+$cfrom :: forall x.
+GetModelTemplateResponse -&gt; Rep GetModelTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'GetModelTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'value', 'getModelTemplateResponse_value' - The template value.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'getModelTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#newGetModelTemplateResponse"><span class="hs-identifier hs-type">newGetModelTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse"><span class="hs-identifier hs-type">GetModelTemplateResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newGetModelTemplateResponse"><span class="annot"><span class="annottext">newGetModelTemplateResponse :: Int -&gt; GetModelTemplateResponse
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#newGetModelTemplateResponse"><span class="hs-identifier hs-var hs-var">newGetModelTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679415070"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415070"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">GetModelTemplateResponse' :: Maybe Text -&gt; Int -&gt; GetModelTemplateResponse
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse%27"><span class="hs-identifier hs-type">GetModelTemplateResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:GetModelTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3Avalue%3AGetModelTemplateResponse%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetModelTemplateResponse' :: Int
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3AhttpStatus%3AGetModelTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415070"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The template value.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplateResponse_value"><span class="hs-identifier hs-type">getModelTemplateResponse_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse"><span class="hs-identifier hs-type">GetModelTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="getModelTemplateResponse_value"><span class="annot"><span class="annottext">getModelTemplateResponse_value :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetModelTemplateResponse -&gt; f GetModelTemplateResponse
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplateResponse_value"><span class="hs-identifier hs-var hs-var">getModelTemplateResponse_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModelTemplateResponse -&gt; Maybe Text)
+-&gt; (GetModelTemplateResponse
+    -&gt; Maybe Text -&gt; GetModelTemplateResponse)
+-&gt; Lens
+     GetModelTemplateResponse
+     GetModelTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse%27"><span class="hs-identifier hs-type">GetModelTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415069"><span class="annot"><span class="annottext">Maybe Text
+value :: Maybe Text
+$sel:value:GetModelTemplateResponse' :: GetModelTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679415069"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415069"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415068"><span class="annot"><span class="annottext">s :: GetModelTemplateResponse
+</span><a href="#local-6989586621679415068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse%27"><span class="hs-identifier hs-type">GetModelTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModelTemplateResponse
+</span><a href="#local-6989586621679415068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:GetModelTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3Avalue%3AGetModelTemplateResponse%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse"><span class="hs-identifier hs-type">GetModelTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplateResponse_httpStatus"><span class="hs-identifier hs-type">getModelTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse"><span class="hs-identifier hs-type">GetModelTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="getModelTemplateResponse_httpStatus"><span class="annot"><span class="annottext">getModelTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetModelTemplateResponse -&gt; f GetModelTemplateResponse
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#getModelTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getModelTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetModelTemplateResponse -&gt; Int)
+-&gt; (GetModelTemplateResponse -&gt; Int -&gt; GetModelTemplateResponse)
+-&gt; Lens GetModelTemplateResponse GetModelTemplateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse%27"><span class="hs-identifier hs-type">GetModelTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415066"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetModelTemplateResponse' :: GetModelTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679415066"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415066"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415065"><span class="annot"><span class="annottext">s :: GetModelTemplateResponse
+</span><a href="#local-6989586621679415065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse%27"><span class="hs-identifier hs-type">GetModelTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415064"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetModelTemplateResponse
+</span><a href="#local-6989586621679415065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetModelTemplateResponse' :: Int
+</span><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#%24sel%3AhttpStatus%3AGetModelTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse"><span class="hs-identifier hs-type">GetModelTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApiGatewayV2.GetModelTemplate.html#GetModelTemplateResponse"><span class="hs-identifier hs-type">GetModelTemplateResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

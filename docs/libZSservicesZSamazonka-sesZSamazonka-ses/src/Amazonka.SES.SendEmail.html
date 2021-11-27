@@ -1,0 +1,973 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SES.SendEmail</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Composes an email message and immediately queues it for sending. In</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- order to send email using the @SendEmail@ operation, your message must</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- meet the following requirements:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   The message must be sent from a verified email address or domain. If</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--     you attempt to send email using a non-verified address or domain,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--     the operation will result in an \&quot;Email address not verified\&quot;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     error.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   If your account is still in the Amazon SES sandbox, you may only</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     send to verified addresses or domains, or to email addresses</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     associated with the Amazon SES Mailbox Simulator. For more</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Verifying Email Addresses and Domains&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     in the /Amazon SES Developer Guide./</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- -   The maximum message size is 10 MB.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   The message must include at least one recipient email address. The</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     recipient address can be a To: address, a CC: address, or a BCC:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     address. If a recipient email address is invalid (that is, it is not</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     in the format /UserName\@[SubDomain.]Domain.TopLevelDomain/), the</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     entire message will be rejected, even if the message contains other</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     recipients that are valid.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- -   The message may not include more than 50 recipients, across the To:,</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     CC: and BCC: fields. If you need to send an email message to a</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     larger audience, you can divide your recipient list into groups of</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     50 or fewer, and then call the @SendEmail@ operation several times</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     to send the message to each group.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- For every message that you send, the total number of recipients</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- (including each recipient in the To:, CC: and BCC: fields) is counted</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- against the maximum number of emails you can send in a 24-hour period</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- (your /sending quota/). For more information about sending quotas in</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Amazon SES, see</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Managing Your Amazon SES Sending Limits&gt;</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- in the /Amazon SES Developer Guide./</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.SendEmail</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier">SendEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#newSendEmail"><span class="hs-identifier">newSendEmail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_returnPath"><span class="hs-identifier">sendEmail_returnPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_configurationSetName"><span class="hs-identifier">sendEmail_configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_sourceArn"><span class="hs-identifier">sendEmail_sourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_returnPathArn"><span class="hs-identifier">sendEmail_returnPathArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_tags"><span class="hs-identifier">sendEmail_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_replyToAddresses"><span class="hs-identifier">sendEmail_replyToAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_source"><span class="hs-identifier">sendEmail_source</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_destination"><span class="hs-identifier">sendEmail_destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_message"><span class="hs-identifier">sendEmail_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier">SendEmailResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#newSendEmailResponse"><span class="hs-identifier">newSendEmailResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmailResponse_httpStatus"><span class="hs-identifier">sendEmailResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmailResponse_messageId"><span class="hs-identifier">sendEmailResponse_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.html"><span class="hs-identifier">Amazonka.SES.Types</span></a></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Represents a request to send a single formatted email using Amazon SES.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- For more information, see the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- /See:/ 'newSendEmail' smart constructor.</span><span>
+</span><span id="line-99"></span><span id="local-6989586621679279703"><span id="local-6989586621679279704"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendEmail"><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-var">SendEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendEmail%27"><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-var">SendEmail'</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email address that bounces and complaints will be forwarded to when</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- feedback forwarding is enabled. If the message cannot be delivered to</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- the recipient, then an error message will be returned from the</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- recipient\'s ISP; this message will then be forwarded to the email</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- address specified by the @ReturnPath@ parameter. The @ReturnPath@</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- parameter is never overwritten. This email address must be either</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- individually verified with Amazon SES, or from a domain that has been</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- verified with Amazon SES.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AreturnPath%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AreturnPath%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">returnPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The name of the configuration set to use when you send an email using</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- @SendEmail@.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AconfigurationSetName%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AconfigurationSetName%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- that permits you to send for the email address specified in the @Source@</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- For example, if the owner of @example.com@ (which has ARN</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- policy to it that authorizes you to send from @user\@example.com@, then</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- you would specify the @SourceArn@ to be</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- @Source@ to be @user\@example.com@.</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AsourceArn%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AsourceArn%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- that permits you to use the email address specified in the @ReturnPath@</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- For example, if the owner of @example.com@ (which has ARN</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- policy to it that authorizes you to use @feedback\@example.com@, then</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- you would specify the @ReturnPathArn@ to be</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- @ReturnPath@ to be @feedback\@example.com@.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AreturnPathArn%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AreturnPathArn%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">returnPathArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | A list of tags, in the form of name\/value pairs, to apply to an email</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- that you send using @SendEmail@. Tags correspond to characteristics of</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- the email that you define, so that you can publish email sending events.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3Atags%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Maybe [MessageTag]
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Atags%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The reply-to email address(es) for the message. If the recipient replies</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- to the message, each reply-to address will receive the reply.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AreplyToAddresses%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Maybe [Text]
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AreplyToAddresses%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">replyToAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The email address that is sending the email. This email address must be</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- either individually verified with Amazon SES, or from a domain that has</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- been verified with Amazon SES. For information about verifying</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- identities, see the</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- If you are sending on behalf of another user and have been permitted to</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- do so by a sending authorization policy, then you must also specify the</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- @SourceArn@ parameter. For more information about sending authorization,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- see the</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- Amazon SES does not support the SMTPUTF8 extension, as described in</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc6531 RFC6531&gt;. For this reason, the</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- /local part/ of a source email address (the part of the email address</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- that precedes the \@ sign) may only contain</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/Email_address#Local-part 7-bit ASCII characters&gt;.</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- If the /domain part/ of an address (the part after the \@ sign) contains</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- non-ASCII characters, they must be encoded using Punycode, as described</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- in &lt;https://tools.ietf.org/html/rfc3492.html RFC3492&gt;. The sender name</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- (also known as the /friendly name/) may contain non-ASCII characters.</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- These characters must be encoded using MIME encoded-word syntax, as</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- described in &lt;https://tools.ietf.org/html/rfc2047 RFC 2047&gt;. MIME</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- encoded-word syntax uses the following form:</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- @=?charset?encoding?encoded-text?=@.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3Asource%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Asource%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The destination for this email, composed of To:, CC:, and BCC: fields.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Adestination%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Destination
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Adestination%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The message to be sent.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3Amessage%3ASendEmail%27"><span class="annot"><span class="annottext">SendEmail -&gt; Message
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Amessage%3ASendEmail%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279689"><span id="local-6989586621679279691"><span class="annot"><span class="annottext">SendEmail -&gt; SendEmail -&gt; Bool
+(SendEmail -&gt; SendEmail -&gt; Bool)
+-&gt; (SendEmail -&gt; SendEmail -&gt; Bool) -&gt; Eq SendEmail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendEmail -&gt; SendEmail -&gt; Bool
+$c/= :: SendEmail -&gt; SendEmail -&gt; Bool
+== :: SendEmail -&gt; SendEmail -&gt; Bool
+$c== :: SendEmail -&gt; SendEmail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279680"><span id="local-6989586621679279682"><span id="local-6989586621679279684"><span id="local-6989586621679279686"><span class="annot"><span class="annottext">ReadPrec [SendEmail]
+ReadPrec SendEmail
+Int -&gt; ReadS SendEmail
+ReadS [SendEmail]
+(Int -&gt; ReadS SendEmail)
+-&gt; ReadS [SendEmail]
+-&gt; ReadPrec SendEmail
+-&gt; ReadPrec [SendEmail]
+-&gt; Read SendEmail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendEmail]
+$creadListPrec :: ReadPrec [SendEmail]
+readPrec :: ReadPrec SendEmail
+$creadPrec :: ReadPrec SendEmail
+readList :: ReadS [SendEmail]
+$creadList :: ReadS [SendEmail]
+readsPrec :: Int -&gt; ReadS SendEmail
+$creadsPrec :: Int -&gt; ReadS SendEmail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279673"><span id="local-6989586621679279675"><span id="local-6989586621679279677"><span class="annot"><span class="annottext">Int -&gt; SendEmail -&gt; ShowS
+[SendEmail] -&gt; ShowS
+SendEmail -&gt; String
+(Int -&gt; SendEmail -&gt; ShowS)
+-&gt; (SendEmail -&gt; String)
+-&gt; ([SendEmail] -&gt; ShowS)
+-&gt; Show SendEmail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendEmail] -&gt; ShowS
+$cshowList :: [SendEmail] -&gt; ShowS
+show :: SendEmail -&gt; String
+$cshow :: SendEmail -&gt; String
+showsPrec :: Int -&gt; SendEmail -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendEmail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SendEmail -&gt; Rep SendEmail x)
+-&gt; (forall x. Rep SendEmail x -&gt; SendEmail) -&gt; Generic SendEmail
+forall x. Rep SendEmail x -&gt; SendEmail
+forall x. SendEmail -&gt; Rep SendEmail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SendEmail x -&gt; SendEmail
+$cfrom :: forall x. SendEmail -&gt; Rep SendEmail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'SendEmail' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'returnPath', 'sendEmail_returnPath' - The email address that bounces and complaints will be forwarded to when</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- feedback forwarding is enabled. If the message cannot be delivered to</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- the recipient, then an error message will be returned from the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- recipient\'s ISP; this message will then be forwarded to the email</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- address specified by the @ReturnPath@ parameter. The @ReturnPath@</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- parameter is never overwritten. This email address must be either</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- individually verified with Amazon SES, or from a domain that has been</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- verified with Amazon SES.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'configurationSetName', 'sendEmail_configurationSetName' - The name of the configuration set to use when you send an email using</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- @SendEmail@.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'sourceArn', 'sendEmail_sourceArn' - This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- that permits you to send for the email address specified in the @Source@</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- For example, if the owner of @example.com@ (which has ARN</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- policy to it that authorizes you to send from @user\@example.com@, then</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- you would specify the @SourceArn@ to be</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @Source@ to be @user\@example.com@.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'returnPathArn', 'sendEmail_returnPathArn' - This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- that permits you to use the email address specified in the @ReturnPath@</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- For example, if the owner of @example.com@ (which has ARN</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- policy to it that authorizes you to use @feedback\@example.com@, then</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- you would specify the @ReturnPathArn@ to be</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- @ReturnPath@ to be @feedback\@example.com@.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'tags', 'sendEmail_tags' - A list of tags, in the form of name\/value pairs, to apply to an email</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- that you send using @SendEmail@. Tags correspond to characteristics of</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- the email that you define, so that you can publish email sending events.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'replyToAddresses', 'sendEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- to the message, each reply-to address will receive the reply.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'source', 'sendEmail_source' - The email address that is sending the email. This email address must be</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- either individually verified with Amazon SES, or from a domain that has</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- been verified with Amazon SES. For information about verifying</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- identities, see the</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- If you are sending on behalf of another user and have been permitted to</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- do so by a sending authorization policy, then you must also specify the</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- @SourceArn@ parameter. For more information about sending authorization,</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- see the</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- Amazon SES does not support the SMTPUTF8 extension, as described in</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc6531 RFC6531&gt;. For this reason, the</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- /local part/ of a source email address (the part of the email address</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- that precedes the \@ sign) may only contain</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/Email_address#Local-part 7-bit ASCII characters&gt;.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- If the /domain part/ of an address (the part after the \@ sign) contains</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- non-ASCII characters, they must be encoded using Punycode, as described</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- in &lt;https://tools.ietf.org/html/rfc3492.html RFC3492&gt;. The sender name</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- (also known as the /friendly name/) may contain non-ASCII characters.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- These characters must be encoded using MIME encoded-word syntax, as</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- described in &lt;https://tools.ietf.org/html/rfc2047 RFC 2047&gt;. MIME</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- encoded-word syntax uses the following form:</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- @=?charset?encoding?encoded-text?=@.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'destination', 'sendEmail_destination' - The destination for this email, composed of To:, CC:, and BCC: fields.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'message', 'sendEmail_message' - The message to be sent.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#newSendEmail"><span class="hs-identifier hs-type">newSendEmail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-comment">-- | 'source'</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-comment">-- | 'destination'</span><span>
+</span><span id="line-272"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-comment">-- | 'message'</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-275"></span><span>  </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span>
+</span><span id="line-276"></span><span id="newSendEmail"><span class="annot"><span class="annottext">newSendEmail :: Text -&gt; Destination -&gt; Message -&gt; SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#newSendEmail"><span class="hs-identifier hs-var hs-var">newSendEmail</span></a></span></span><span> </span><span id="local-6989586621679279668"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279668"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span id="local-6989586621679279667"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679279667"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span id="local-6989586621679279666"><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679279666"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>  </span><span class="annot"><span class="annottext">SendEmail' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [MessageTag]
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; Destination
+-&gt; Message
+-&gt; SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:returnPath:SendEmail' :: Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AreturnPath%3ASendEmail%27"><span class="hs-identifier hs-var">returnPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationSetName:SendEmail' :: Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AconfigurationSetName%3ASendEmail%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceArn:SendEmail' :: Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AsourceArn%3ASendEmail%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:returnPathArn:SendEmail' :: Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AreturnPathArn%3ASendEmail%27"><span class="hs-identifier hs-var">returnPathArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:SendEmail' :: Maybe [MessageTag]
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Atags%3ASendEmail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">$sel:replyToAddresses:SendEmail' :: Maybe [Text]
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AreplyToAddresses%3ASendEmail%27"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:SendEmail' :: Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Asource%3ASendEmail%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279668"><span class="hs-identifier hs-var">pSource_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:SendEmail' :: Destination
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Adestination%3ASendEmail%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679279667"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:SendEmail' :: Message
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Amessage%3ASendEmail%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679279666"><span class="hs-identifier hs-var">pMessage_</span></a></span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The email address that bounces and complaints will be forwarded to when</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- feedback forwarding is enabled. If the message cannot be delivered to</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- the recipient, then an error message will be returned from the</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- recipient\'s ISP; this message will then be forwarded to the email</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- address specified by the @ReturnPath@ parameter. The @ReturnPath@</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- parameter is never overwritten. This email address must be either</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- individually verified with Amazon SES, or from a domain that has been</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- verified with Amazon SES.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_returnPath"><span class="hs-identifier hs-type">sendEmail_returnPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="sendEmail_returnPath"><span class="annot"><span class="annottext">sendEmail_returnPath :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendEmail -&gt; f SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#sendEmail_returnPath"><span class="hs-identifier hs-var hs-var">sendEmail_returnPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmail -&gt; Maybe Text)
+-&gt; (SendEmail -&gt; Maybe Text -&gt; SendEmail)
+-&gt; Lens SendEmail SendEmail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279663"><span class="annot"><span class="annottext">Maybe Text
+returnPath :: Maybe Text
+$sel:returnPath:SendEmail' :: SendEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679279663"><span class="hs-identifier hs-var hs-var">returnPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279663"><span class="hs-identifier hs-var">returnPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279662"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279661"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnPath:SendEmail' :: Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AreturnPath%3ASendEmail%27"><span class="hs-identifier hs-var">returnPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | The name of the configuration set to use when you send an email using</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- @SendEmail@.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_configurationSetName"><span class="hs-identifier hs-type">sendEmail_configurationSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="sendEmail_configurationSetName"><span class="annot"><span class="annottext">sendEmail_configurationSetName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendEmail -&gt; f SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#sendEmail_configurationSetName"><span class="hs-identifier hs-var hs-var">sendEmail_configurationSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmail -&gt; Maybe Text)
+-&gt; (SendEmail -&gt; Maybe Text -&gt; SendEmail)
+-&gt; Lens SendEmail SendEmail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279660"><span class="annot"><span class="annottext">Maybe Text
+configurationSetName :: Maybe Text
+$sel:configurationSetName:SendEmail' :: SendEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679279660"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279660"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279659"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:SendEmail' :: Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AconfigurationSetName%3ASendEmail%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- that permits you to send for the email address specified in the @Source@</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- For example, if the owner of @example.com@ (which has ARN</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- policy to it that authorizes you to send from @user\@example.com@, then</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- you would specify the @SourceArn@ to be</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- @Source@ to be @user\@example.com@.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_sourceArn"><span class="hs-identifier hs-type">sendEmail_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span id="sendEmail_sourceArn"><span class="annot"><span class="annottext">sendEmail_sourceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendEmail -&gt; f SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#sendEmail_sourceArn"><span class="hs-identifier hs-var hs-var">sendEmail_sourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmail -&gt; Maybe Text)
+-&gt; (SendEmail -&gt; Maybe Text -&gt; SendEmail)
+-&gt; Lens SendEmail SendEmail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279657"><span class="annot"><span class="annottext">Maybe Text
+sourceArn :: Maybe Text
+$sel:sourceArn:SendEmail' :: SendEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679279657"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279657"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279656"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279655"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:SendEmail' :: Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AsourceArn%3ASendEmail%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- that permits you to use the email address specified in the @ReturnPath@</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- For example, if the owner of @example.com@ (which has ARN</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- policy to it that authorizes you to use @feedback\@example.com@, then</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- you would specify the @ReturnPathArn@ to be</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- @ReturnPath@ to be @feedback\@example.com@.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_returnPathArn"><span class="hs-identifier hs-type">sendEmail_returnPathArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span id="sendEmail_returnPathArn"><span class="annot"><span class="annottext">sendEmail_returnPathArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendEmail -&gt; f SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#sendEmail_returnPathArn"><span class="hs-identifier hs-var hs-var">sendEmail_returnPathArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmail -&gt; Maybe Text)
+-&gt; (SendEmail -&gt; Maybe Text -&gt; SendEmail)
+-&gt; Lens SendEmail SendEmail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279654"><span class="annot"><span class="annottext">Maybe Text
+returnPathArn :: Maybe Text
+$sel:returnPathArn:SendEmail' :: SendEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679279654"><span class="hs-identifier hs-var hs-var">returnPathArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279654"><span class="hs-identifier hs-var">returnPathArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279653"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279652"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnPathArn:SendEmail' :: Maybe Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AreturnPathArn%3ASendEmail%27"><span class="hs-identifier hs-var">returnPathArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | A list of tags, in the form of name\/value pairs, to apply to an email</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- that you send using @SendEmail@. Tags correspond to characteristics of</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- the email that you define, so that you can publish email sending events.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_tags"><span class="hs-identifier hs-type">sendEmail_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span id="sendEmail_tags"><span class="annot"><span class="annottext">sendEmail_tags :: (Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+-&gt; SendEmail -&gt; f SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#sendEmail_tags"><span class="hs-identifier hs-var hs-var">sendEmail_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmail -&gt; Maybe [MessageTag])
+-&gt; (SendEmail -&gt; Maybe [MessageTag] -&gt; SendEmail)
+-&gt; Lens
+     SendEmail SendEmail (Maybe [MessageTag]) (Maybe [MessageTag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279651"><span class="annot"><span class="annottext">Maybe [MessageTag]
+tags :: Maybe [MessageTag]
+$sel:tags:SendEmail' :: SendEmail -&gt; Maybe [MessageTag]
+</span><a href="#local-6989586621679279651"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679279651"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279650"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279649"><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679279649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SendEmail' :: Maybe [MessageTag]
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Atags%3ASendEmail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679279649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+ -&gt; SendEmail -&gt; f SendEmail)
+-&gt; ((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+    -&gt; Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+-&gt; (Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+-&gt; SendEmail
+-&gt; f SendEmail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MessageTag] [MessageTag] [MessageTag] [MessageTag]
+-&gt; Iso
+     (Maybe [MessageTag])
+     (Maybe [MessageTag])
+     (Maybe [MessageTag])
+     (Maybe [MessageTag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MessageTag] [MessageTag] [MessageTag] [MessageTag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- | The reply-to email address(es) for the message. If the recipient replies</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- to the message, each reply-to address will receive the reply.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_replyToAddresses"><span class="hs-identifier hs-type">sendEmail_replyToAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="sendEmail_replyToAddresses"><span class="annot"><span class="annottext">sendEmail_replyToAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SendEmail -&gt; f SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#sendEmail_replyToAddresses"><span class="hs-identifier hs-var hs-var">sendEmail_replyToAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmail -&gt; Maybe [Text])
+-&gt; (SendEmail -&gt; Maybe [Text] -&gt; SendEmail)
+-&gt; Lens SendEmail SendEmail (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279645"><span class="annot"><span class="annottext">Maybe [Text]
+replyToAddresses :: Maybe [Text]
+$sel:replyToAddresses:SendEmail' :: SendEmail -&gt; Maybe [Text]
+</span><a href="#local-6989586621679279645"><span class="hs-identifier hs-var hs-var">replyToAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679279645"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279644"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279643"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679279643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replyToAddresses:SendEmail' :: Maybe [Text]
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AreplyToAddresses%3ASendEmail%27"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679279643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; SendEmail -&gt; f SendEmail)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SendEmail
+-&gt; f SendEmail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | The email address that is sending the email. This email address must be</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- either individually verified with Amazon SES, or from a domain that has</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- been verified with Amazon SES. For information about verifying</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- identities, see the</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- If you are sending on behalf of another user and have been permitted to</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- do so by a sending authorization policy, then you must also specify the</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- @SourceArn@ parameter. For more information about sending authorization,</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- see the</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- Amazon SES does not support the SMTPUTF8 extension, as described in</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc6531 RFC6531&gt;. For this reason, the</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- /local part/ of a source email address (the part of the email address</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- that precedes the \@ sign) may only contain</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/Email_address#Local-part 7-bit ASCII characters&gt;.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- If the /domain part/ of an address (the part after the \@ sign) contains</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- non-ASCII characters, they must be encoded using Punycode, as described</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- in &lt;https://tools.ietf.org/html/rfc3492.html RFC3492&gt;. The sender name</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- (also known as the /friendly name/) may contain non-ASCII characters.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- These characters must be encoded using MIME encoded-word syntax, as</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- described in &lt;https://tools.ietf.org/html/rfc2047 RFC 2047&gt;. MIME</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- encoded-word syntax uses the following form:</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- @=?charset?encoding?encoded-text?=@.</span><span>
+</span><span id="line-375"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_source"><span class="hs-identifier hs-type">sendEmail_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-376"></span><span id="sendEmail_source"><span class="annot"><span class="annottext">sendEmail_source :: (Text -&gt; f Text) -&gt; SendEmail -&gt; f SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#sendEmail_source"><span class="hs-identifier hs-var hs-var">sendEmail_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmail -&gt; Text)
+-&gt; (SendEmail -&gt; Text -&gt; SendEmail)
+-&gt; Lens SendEmail SendEmail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279642"><span class="annot"><span class="annottext">Text
+source :: Text
+$sel:source:SendEmail' :: SendEmail -&gt; Text
+</span><a href="#local-6989586621679279642"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279642"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279641"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279640"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:SendEmail' :: Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Asource%3ASendEmail%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- | The destination for this email, composed of To:, CC:, and BCC: fields.</span><span>
+</span><span id="line-379"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_destination"><span class="hs-identifier hs-type">sendEmail_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span>
+</span><span id="line-380"></span><span id="sendEmail_destination"><span class="annot"><span class="annottext">sendEmail_destination :: (Destination -&gt; f Destination) -&gt; SendEmail -&gt; f SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#sendEmail_destination"><span class="hs-identifier hs-var hs-var">sendEmail_destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmail -&gt; Destination)
+-&gt; (SendEmail -&gt; Destination -&gt; SendEmail)
+-&gt; Lens SendEmail SendEmail Destination Destination
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279639"><span class="annot"><span class="annottext">Destination
+destination :: Destination
+$sel:destination:SendEmail' :: SendEmail -&gt; Destination
+</span><a href="#local-6989586621679279639"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679279639"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279638"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279637"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679279637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:SendEmail' :: Destination
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Adestination%3ASendEmail%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679279637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- | The message to be sent.</span><span>
+</span><span id="line-383"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmail_message"><span class="hs-identifier hs-type">sendEmail_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span>
+</span><span id="line-384"></span><span id="sendEmail_message"><span class="annot"><span class="annottext">sendEmail_message :: (Message -&gt; f Message) -&gt; SendEmail -&gt; f SendEmail
+</span><a href="Amazonka.SES.SendEmail.html#sendEmail_message"><span class="hs-identifier hs-var hs-var">sendEmail_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmail -&gt; Message)
+-&gt; (SendEmail -&gt; Message -&gt; SendEmail)
+-&gt; Lens SendEmail SendEmail Message Message
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279636"><span class="annot"><span class="annottext">Message
+message :: Message
+$sel:message:SendEmail' :: SendEmail -&gt; Message
+</span><a href="#local-6989586621679279636"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679279636"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279635"><span class="annot"><span class="annottext">s :: SendEmail
+</span><a href="#local-6989586621679279635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279634"><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679279634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmail
+</span><a href="#local-6989586621679279635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:SendEmail' :: Message
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3Amessage%3ASendEmail%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679279634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span>
+</span><span id="line-386"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-387"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span>
+</span><span id="line-388"></span><span>  </span><span id="local-6989586621679279630"><span class="annot"><span class="annottext">request :: SendEmail -&gt; Request SendEmail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SendEmail -&gt; Request SendEmail
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-389"></span><span>  </span><span id="local-6989586621679279626"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SendEmail
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SendEmail)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-390"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse SendEmail))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SendEmail
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SendEmail)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-391"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SendEmailResult&quot;</span></span><span>
+</span><span id="line-392"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279623"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279623"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279622"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279622"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279621"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679279621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-393"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; SendEmailResponse
+</span><a href="Amazonka.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-var">SendEmailResponse'</span></a></span><span>
+</span><span id="line-394"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; SendEmailResponse)
+-&gt; Either String Int -&gt; Either String (Text -&gt; SendEmailResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279623"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; SendEmailResponse)
+-&gt; Either String Text -&gt; Either String SendEmailResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679279621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MessageId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279613"><span id="local-6989586621679279615"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span></span></span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279610"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span></span><span>
+</span><span id="line-401"></span><span>
+</span><span id="line-402"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-403"></span><span>  </span><span id="local-6989586621679279606"><span class="annot"><span class="annottext">toHeaders :: SendEmail -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendEmail -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-404"></span><span>
+</span><span id="line-405"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-406"></span><span>  </span><span id="local-6989586621679279601"><span class="annot"><span class="annottext">toPath :: SendEmail -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SendEmail -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail"><span class="hs-identifier hs-type">SendEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-409"></span><span>  </span><span id="local-6989586621679279597"><span class="annot"><span class="annottext">toQuery :: SendEmail -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmail%27"><span class="hs-identifier hs-type">SendEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279587"><span id="local-6989586621679279588"><span id="local-6989586621679279589"><span id="local-6989586621679279590"><span id="local-6989586621679279591"><span id="local-6989586621679279592"><span id="local-6989586621679279593"><span id="local-6989586621679279594"><span id="local-6989586621679279595"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe [MessageTag]
+Maybe Text
+Text
+Destination
+Message
+message :: Message
+destination :: Destination
+source :: Text
+replyToAddresses :: Maybe [Text]
+tags :: Maybe [MessageTag]
+returnPathArn :: Maybe Text
+sourceArn :: Maybe Text
+configurationSetName :: Maybe Text
+returnPath :: Maybe Text
+$sel:message:SendEmail' :: SendEmail -&gt; Message
+$sel:destination:SendEmail' :: SendEmail -&gt; Destination
+$sel:source:SendEmail' :: SendEmail -&gt; Text
+$sel:replyToAddresses:SendEmail' :: SendEmail -&gt; Maybe [Text]
+$sel:tags:SendEmail' :: SendEmail -&gt; Maybe [MessageTag]
+$sel:returnPathArn:SendEmail' :: SendEmail -&gt; Maybe Text
+$sel:sourceArn:SendEmail' :: SendEmail -&gt; Maybe Text
+$sel:configurationSetName:SendEmail' :: SendEmail -&gt; Maybe Text
+$sel:returnPath:SendEmail' :: SendEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679279587"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-410"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-411"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-412"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SendEmail&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-413"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-414"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReturnPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279595"><span class="hs-identifier hs-var">returnPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ConfigurationSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279594"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-417"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279593"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-418"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReturnPathArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279592"><span class="hs-identifier hs-var">returnPathArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-419"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-420"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-421"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [MessageTag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([MessageTag] -&gt; QueryString)
+-&gt; Maybe [MessageTag] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679279591"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-422"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReplyToAddresses&quot;</span></span><span>
+</span><span id="line-423"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-424"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-425"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679279590"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span>
+</span><span id="line-426"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-427"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279589"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Destination -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679279588"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-429"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Message&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Message -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679279587"><span class="hs-identifier hs-var">message</span></a></span><span>
+</span><span id="line-430"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-431"></span><span>
+</span><span id="line-432"></span><span class="hs-comment">-- | Represents a unique message ID.</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- /See:/ 'newSendEmailResponse' smart constructor.</span><span>
+</span><span id="line-435"></span><span id="local-6989586621679279583"><span id="local-6989586621679279584"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendEmailResponse"><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-var">SendEmailResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendEmailResponse%27"><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-var">SendEmailResponse'</span></a></span></span><span>
+</span><span id="line-436"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-437"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendEmailResponse%27"><span class="annot"><span class="annottext">SendEmailResponse -&gt; Int
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AhttpStatus%3ASendEmailResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-438"></span><span>    </span><span class="hs-comment">-- | The unique message identifier returned from the @SendEmail@ action.</span><span>
+</span><span id="line-439"></span><span>    </span><span id="%24sel%3AmessageId%3ASendEmailResponse%27"><span class="annot"><span class="annottext">SendEmailResponse -&gt; Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AmessageId%3ASendEmailResponse%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-440"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-441"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279577"><span id="local-6989586621679279579"><span class="annot"><span class="annottext">SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
+(SendEmailResponse -&gt; SendEmailResponse -&gt; Bool)
+-&gt; (SendEmailResponse -&gt; SendEmailResponse -&gt; Bool)
+-&gt; Eq SendEmailResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
+$c/= :: SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
+== :: SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
+$c== :: SendEmailResponse -&gt; SendEmailResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279569"><span id="local-6989586621679279571"><span id="local-6989586621679279573"><span id="local-6989586621679279575"><span class="annot"><span class="annottext">ReadPrec [SendEmailResponse]
+ReadPrec SendEmailResponse
+Int -&gt; ReadS SendEmailResponse
+ReadS [SendEmailResponse]
+(Int -&gt; ReadS SendEmailResponse)
+-&gt; ReadS [SendEmailResponse]
+-&gt; ReadPrec SendEmailResponse
+-&gt; ReadPrec [SendEmailResponse]
+-&gt; Read SendEmailResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendEmailResponse]
+$creadListPrec :: ReadPrec [SendEmailResponse]
+readPrec :: ReadPrec SendEmailResponse
+$creadPrec :: ReadPrec SendEmailResponse
+readList :: ReadS [SendEmailResponse]
+$creadList :: ReadS [SendEmailResponse]
+readsPrec :: Int -&gt; ReadS SendEmailResponse
+$creadsPrec :: Int -&gt; ReadS SendEmailResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279563"><span id="local-6989586621679279565"><span id="local-6989586621679279567"><span class="annot"><span class="annottext">Int -&gt; SendEmailResponse -&gt; ShowS
+[SendEmailResponse] -&gt; ShowS
+SendEmailResponse -&gt; String
+(Int -&gt; SendEmailResponse -&gt; ShowS)
+-&gt; (SendEmailResponse -&gt; String)
+-&gt; ([SendEmailResponse] -&gt; ShowS)
+-&gt; Show SendEmailResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendEmailResponse] -&gt; ShowS
+$cshowList :: [SendEmailResponse] -&gt; ShowS
+show :: SendEmailResponse -&gt; String
+$cshow :: SendEmailResponse -&gt; String
+showsPrec :: Int -&gt; SendEmailResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendEmailResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SendEmailResponse -&gt; Rep SendEmailResponse x)
+-&gt; (forall x. Rep SendEmailResponse x -&gt; SendEmailResponse)
+-&gt; Generic SendEmailResponse
+forall x. Rep SendEmailResponse x -&gt; SendEmailResponse
+forall x. SendEmailResponse -&gt; Rep SendEmailResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SendEmailResponse x -&gt; SendEmailResponse
+$cfrom :: forall x. SendEmailResponse -&gt; Rep SendEmailResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-442"></span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- Create a value of 'SendEmailResponse' with all optional fields omitted.</span><span>
+</span><span id="line-445"></span><span class="hs-comment">--</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-450"></span><span class="hs-comment">--</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- 'httpStatus', 'sendEmailResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-452"></span><span class="hs-comment">--</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- 'messageId', 'sendEmailResponse_messageId' - The unique message identifier returned from the @SendEmail@ action.</span><span>
+</span><span id="line-454"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#newSendEmailResponse"><span class="hs-identifier hs-type">newSendEmailResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-455"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-456"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-457"></span><span>  </span><span class="hs-comment">-- | 'messageId'</span><span>
+</span><span id="line-458"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-459"></span><span>  </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span>
+</span><span id="line-460"></span><span id="newSendEmailResponse"><span class="annot"><span class="annottext">newSendEmailResponse :: Int -&gt; Text -&gt; SendEmailResponse
+</span><a href="Amazonka.SES.SendEmail.html#newSendEmailResponse"><span class="hs-identifier hs-var hs-var">newSendEmailResponse</span></a></span></span><span> </span><span id="local-6989586621679279560"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279560"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679279559"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279559"><span class="hs-identifier hs-var">pMessageId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-461"></span><span>  </span><span class="annot"><span class="annottext">SendEmailResponse' :: Int -&gt; Text -&gt; SendEmailResponse
+</span><a href="Amazonka.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span>
+</span><span id="line-462"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SendEmailResponse' :: Int
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AhttpStatus%3ASendEmailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279560"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-463"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageId:SendEmailResponse' :: Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AmessageId%3ASendEmailResponse%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279559"><span class="hs-identifier hs-var">pMessageId_</span></a></span><span>
+</span><span id="line-464"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-465"></span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-467"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmailResponse_httpStatus"><span class="hs-identifier hs-type">sendEmailResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-468"></span><span id="sendEmailResponse_httpStatus"><span class="annot"><span class="annottext">sendEmailResponse_httpStatus :: (Int -&gt; f Int) -&gt; SendEmailResponse -&gt; f SendEmailResponse
+</span><a href="Amazonka.SES.SendEmail.html#sendEmailResponse_httpStatus"><span class="hs-identifier hs-var hs-var">sendEmailResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmailResponse -&gt; Int)
+-&gt; (SendEmailResponse -&gt; Int -&gt; SendEmailResponse)
+-&gt; Lens SendEmailResponse SendEmailResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279558"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SendEmailResponse' :: SendEmailResponse -&gt; Int
+</span><a href="#local-6989586621679279558"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279558"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279557"><span class="annot"><span class="annottext">s :: SendEmailResponse
+</span><a href="#local-6989586621679279557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279556"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmailResponse
+</span><a href="#local-6989586621679279557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendEmailResponse' :: Int
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AhttpStatus%3ASendEmailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- | The unique message identifier returned from the @SendEmail@ action.</span><span>
+</span><span id="line-471"></span><span class="annot"><a href="Amazonka.SES.SendEmail.html#sendEmailResponse_messageId"><span class="hs-identifier hs-type">sendEmailResponse_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-472"></span><span id="sendEmailResponse_messageId"><span class="annot"><span class="annottext">sendEmailResponse_messageId :: (Text -&gt; f Text) -&gt; SendEmailResponse -&gt; f SendEmailResponse
+</span><a href="Amazonka.SES.SendEmail.html#sendEmailResponse_messageId"><span class="hs-identifier hs-var hs-var">sendEmailResponse_messageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendEmailResponse -&gt; Text)
+-&gt; (SendEmailResponse -&gt; Text -&gt; SendEmailResponse)
+-&gt; Lens SendEmailResponse SendEmailResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279555"><span class="annot"><span class="annottext">Text
+messageId :: Text
+$sel:messageId:SendEmailResponse' :: SendEmailResponse -&gt; Text
+</span><a href="#local-6989586621679279555"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279555"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279554"><span class="annot"><span class="annottext">s :: SendEmailResponse
+</span><a href="#local-6989586621679279554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse%27"><span class="hs-identifier hs-type">SendEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279553"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendEmailResponse
+</span><a href="#local-6989586621679279554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:SendEmailResponse' :: Text
+</span><a href="Amazonka.SES.SendEmail.html#%24sel%3AmessageId%3ASendEmailResponse%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-473"></span><span>
+</span><span id="line-474"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendEmail.html#SendEmailResponse"><span class="hs-identifier hs-type">SendEmailResponse</span></a></span></span><span>
+</span><span id="line-475"></span></pre></body></html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ImageBuilder.GetInfrastructureConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets an infrastructure configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ImageBuilder.GetInfrastructureConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier">GetInfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#newGetInfrastructureConfiguration"><span class="hs-identifier">newGetInfrastructureConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfiguration_infrastructureConfigurationArn"><span class="hs-identifier">getInfrastructureConfiguration_infrastructureConfigurationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier">GetInfrastructureConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#newGetInfrastructureConfigurationResponse"><span class="hs-identifier">newGetInfrastructureConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfigurationResponse_requestId"><span class="hs-identifier">getInfrastructureConfigurationResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfigurationResponse_infrastructureConfiguration"><span class="hs-identifier">getInfrastructureConfigurationResponse_infrastructureConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfigurationResponse_httpStatus"><span class="hs-identifier">getInfrastructureConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.html"><span class="hs-identifier">Amazonka.ImageBuilder.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | GetInfrastructureConfiguration request object.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newGetInfrastructureConfiguration' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679325351"><span id="local-6989586621679325352"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInfrastructureConfiguration"><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-var">GetInfrastructureConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInfrastructureConfiguration%27"><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration%27"><span class="hs-identifier hs-var">GetInfrastructureConfiguration'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the infrastructure configuration that</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- you want to retrieve.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AinfrastructureConfigurationArn%3AGetInfrastructureConfiguration%27"><span class="annot"><span class="annottext">GetInfrastructureConfiguration -&gt; Text
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3AinfrastructureConfigurationArn%3AGetInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">infrastructureConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325345"><span id="local-6989586621679325347"><span class="annot"><span class="annottext">GetInfrastructureConfiguration
+-&gt; GetInfrastructureConfiguration -&gt; Bool
+(GetInfrastructureConfiguration
+ -&gt; GetInfrastructureConfiguration -&gt; Bool)
+-&gt; (GetInfrastructureConfiguration
+    -&gt; GetInfrastructureConfiguration -&gt; Bool)
+-&gt; Eq GetInfrastructureConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInfrastructureConfiguration
+-&gt; GetInfrastructureConfiguration -&gt; Bool
+$c/= :: GetInfrastructureConfiguration
+-&gt; GetInfrastructureConfiguration -&gt; Bool
+== :: GetInfrastructureConfiguration
+-&gt; GetInfrastructureConfiguration -&gt; Bool
+$c== :: GetInfrastructureConfiguration
+-&gt; GetInfrastructureConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325336"><span id="local-6989586621679325338"><span id="local-6989586621679325340"><span id="local-6989586621679325342"><span class="annot"><span class="annottext">ReadPrec [GetInfrastructureConfiguration]
+ReadPrec GetInfrastructureConfiguration
+Int -&gt; ReadS GetInfrastructureConfiguration
+ReadS [GetInfrastructureConfiguration]
+(Int -&gt; ReadS GetInfrastructureConfiguration)
+-&gt; ReadS [GetInfrastructureConfiguration]
+-&gt; ReadPrec GetInfrastructureConfiguration
+-&gt; ReadPrec [GetInfrastructureConfiguration]
+-&gt; Read GetInfrastructureConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInfrastructureConfiguration]
+$creadListPrec :: ReadPrec [GetInfrastructureConfiguration]
+readPrec :: ReadPrec GetInfrastructureConfiguration
+$creadPrec :: ReadPrec GetInfrastructureConfiguration
+readList :: ReadS [GetInfrastructureConfiguration]
+$creadList :: ReadS [GetInfrastructureConfiguration]
+readsPrec :: Int -&gt; ReadS GetInfrastructureConfiguration
+$creadsPrec :: Int -&gt; ReadS GetInfrastructureConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325329"><span id="local-6989586621679325331"><span id="local-6989586621679325333"><span class="annot"><span class="annottext">Int -&gt; GetInfrastructureConfiguration -&gt; ShowS
+[GetInfrastructureConfiguration] -&gt; ShowS
+GetInfrastructureConfiguration -&gt; String
+(Int -&gt; GetInfrastructureConfiguration -&gt; ShowS)
+-&gt; (GetInfrastructureConfiguration -&gt; String)
+-&gt; ([GetInfrastructureConfiguration] -&gt; ShowS)
+-&gt; Show GetInfrastructureConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInfrastructureConfiguration] -&gt; ShowS
+$cshowList :: [GetInfrastructureConfiguration] -&gt; ShowS
+show :: GetInfrastructureConfiguration -&gt; String
+$cshow :: GetInfrastructureConfiguration -&gt; String
+showsPrec :: Int -&gt; GetInfrastructureConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInfrastructureConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetInfrastructureConfiguration
+ -&gt; Rep GetInfrastructureConfiguration x)
+-&gt; (forall x.
+    Rep GetInfrastructureConfiguration x
+    -&gt; GetInfrastructureConfiguration)
+-&gt; Generic GetInfrastructureConfiguration
+forall x.
+Rep GetInfrastructureConfiguration x
+-&gt; GetInfrastructureConfiguration
+forall x.
+GetInfrastructureConfiguration
+-&gt; Rep GetInfrastructureConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetInfrastructureConfiguration x
+-&gt; GetInfrastructureConfiguration
+$cfrom :: forall x.
+GetInfrastructureConfiguration
+-&gt; Rep GetInfrastructureConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetInfrastructureConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'infrastructureConfigurationArn', 'getInfrastructureConfiguration_infrastructureConfigurationArn' - The Amazon Resource Name (ARN) of the infrastructure configuration that</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- you want to retrieve.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#newGetInfrastructureConfiguration"><span class="hs-identifier hs-type">newGetInfrastructureConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'infrastructureConfigurationArn'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span><span>
+</span><span id="line-74"></span><span id="newGetInfrastructureConfiguration"><span class="annot"><span class="annottext">newGetInfrastructureConfiguration :: Text -&gt; GetInfrastructureConfiguration
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#newGetInfrastructureConfiguration"><span class="hs-identifier hs-var hs-var">newGetInfrastructureConfiguration</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679325324"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325324"><span class="hs-identifier hs-var">pInfrastructureConfigurationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">GetInfrastructureConfiguration' :: Text -&gt; GetInfrastructureConfiguration
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration%27"><span class="hs-identifier hs-type">GetInfrastructureConfiguration'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:infrastructureConfigurationArn:GetInfrastructureConfiguration' :: Text
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3AinfrastructureConfigurationArn%3AGetInfrastructureConfiguration%27"><span class="hs-identifier hs-var">infrastructureConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325324"><span class="hs-identifier hs-var">pInfrastructureConfigurationArn_</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the infrastructure configuration that</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- you want to retrieve.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfiguration_infrastructureConfigurationArn"><span class="hs-identifier hs-type">getInfrastructureConfiguration_infrastructureConfigurationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="getInfrastructureConfiguration_infrastructureConfigurationArn"><span class="annot"><span class="annottext">getInfrastructureConfiguration_infrastructureConfigurationArn :: (Text -&gt; f Text)
+-&gt; GetInfrastructureConfiguration
+-&gt; f GetInfrastructureConfiguration
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfiguration_infrastructureConfigurationArn"><span class="hs-identifier hs-var hs-var">getInfrastructureConfiguration_infrastructureConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInfrastructureConfiguration -&gt; Text)
+-&gt; (GetInfrastructureConfiguration
+    -&gt; Text -&gt; GetInfrastructureConfiguration)
+-&gt; Lens
+     GetInfrastructureConfiguration
+     GetInfrastructureConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration%27"><span class="hs-identifier hs-type">GetInfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325321"><span class="annot"><span class="annottext">Text
+infrastructureConfigurationArn :: Text
+$sel:infrastructureConfigurationArn:GetInfrastructureConfiguration' :: GetInfrastructureConfiguration -&gt; Text
+</span><a href="#local-6989586621679325321"><span class="hs-identifier hs-var hs-var">infrastructureConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325321"><span class="hs-identifier hs-var">infrastructureConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325320"><span class="annot"><span class="annottext">s :: GetInfrastructureConfiguration
+</span><a href="#local-6989586621679325320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration%27"><span class="hs-identifier hs-type">GetInfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325319"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInfrastructureConfiguration
+</span><a href="#local-6989586621679325320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:infrastructureConfigurationArn:GetInfrastructureConfiguration' :: Text
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3AinfrastructureConfigurationArn%3AGetInfrastructureConfiguration%27"><span class="hs-identifier hs-var">infrastructureConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679325315"><span class="annot"><span class="annottext">request :: GetInfrastructureConfiguration
+-&gt; Request GetInfrastructureConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetInfrastructureConfiguration
+-&gt; Request GetInfrastructureConfiguration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ImageBuilder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679325311"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetInfrastructureConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetInfrastructureConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetInfrastructureConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetInfrastructureConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetInfrastructureConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325308"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679325308"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679325307"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679325307"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679325306"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe InfrastructureConfiguration
+-&gt; Int
+-&gt; GetInfrastructureConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var">GetInfrastructureConfigurationResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe InfrastructureConfiguration
+ -&gt; Int
+ -&gt; GetInfrastructureConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe InfrastructureConfiguration
+      -&gt; Int -&gt; GetInfrastructureConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InfrastructureConfiguration
+   -&gt; Int -&gt; GetInfrastructureConfigurationResponse)
+-&gt; Either String (Maybe InfrastructureConfiguration)
+-&gt; Either String (Int -&gt; GetInfrastructureConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InfrastructureConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;infrastructureConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetInfrastructureConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String GetInfrastructureConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679325308"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679325298"><span id="local-6989586621679325300"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679325295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679325291"><span class="annot"><span class="annottext">toHeaders :: GetInfrastructureConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetInfrastructureConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679325285"><span class="annot"><span class="annottext">toPath :: GetInfrastructureConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; GetInfrastructureConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/GetInfrastructureConfiguration&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration"><span class="hs-identifier hs-type">GetInfrastructureConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679325281"><span class="annot"><span class="annottext">toQuery :: GetInfrastructureConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfiguration%27"><span class="hs-identifier hs-type">GetInfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325279"><span class="annot"><span class="annottext">Text
+infrastructureConfigurationArn :: Text
+$sel:infrastructureConfigurationArn:GetInfrastructureConfiguration' :: GetInfrastructureConfiguration -&gt; Text
+</span><a href="#local-6989586621679325279"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;infrastructureConfigurationArn&quot;</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325279"><span class="hs-identifier hs-var">infrastructureConfigurationArn</span></a></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | GetInfrastructureConfiguration response object.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- /See:/ 'newGetInfrastructureConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679325276"><span id="local-6989586621679325277"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInfrastructureConfigurationResponse"><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-var">GetInfrastructureConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInfrastructureConfigurationResponse%27"><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var">GetInfrastructureConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3ArequestId%3AGetInfrastructureConfigurationResponse%27"><span class="annot"><span class="annottext">GetInfrastructureConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3ArequestId%3AGetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The infrastructure configuration object.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AinfrastructureConfiguration%3AGetInfrastructureConfigurationResponse%27"><span class="annot"><span class="annottext">GetInfrastructureConfigurationResponse
+-&gt; Maybe InfrastructureConfiguration
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3AinfrastructureConfiguration%3AGetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInfrastructureConfigurationResponse%27"><span class="annot"><span class="annottext">GetInfrastructureConfigurationResponse -&gt; Int
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3AhttpStatus%3AGetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325269"><span id="local-6989586621679325271"><span class="annot"><span class="annottext">GetInfrastructureConfigurationResponse
+-&gt; GetInfrastructureConfigurationResponse -&gt; Bool
+(GetInfrastructureConfigurationResponse
+ -&gt; GetInfrastructureConfigurationResponse -&gt; Bool)
+-&gt; (GetInfrastructureConfigurationResponse
+    -&gt; GetInfrastructureConfigurationResponse -&gt; Bool)
+-&gt; Eq GetInfrastructureConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInfrastructureConfigurationResponse
+-&gt; GetInfrastructureConfigurationResponse -&gt; Bool
+$c/= :: GetInfrastructureConfigurationResponse
+-&gt; GetInfrastructureConfigurationResponse -&gt; Bool
+== :: GetInfrastructureConfigurationResponse
+-&gt; GetInfrastructureConfigurationResponse -&gt; Bool
+$c== :: GetInfrastructureConfigurationResponse
+-&gt; GetInfrastructureConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325261"><span id="local-6989586621679325263"><span id="local-6989586621679325265"><span id="local-6989586621679325267"><span class="annot"><span class="annottext">ReadPrec [GetInfrastructureConfigurationResponse]
+ReadPrec GetInfrastructureConfigurationResponse
+Int -&gt; ReadS GetInfrastructureConfigurationResponse
+ReadS [GetInfrastructureConfigurationResponse]
+(Int -&gt; ReadS GetInfrastructureConfigurationResponse)
+-&gt; ReadS [GetInfrastructureConfigurationResponse]
+-&gt; ReadPrec GetInfrastructureConfigurationResponse
+-&gt; ReadPrec [GetInfrastructureConfigurationResponse]
+-&gt; Read GetInfrastructureConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInfrastructureConfigurationResponse]
+$creadListPrec :: ReadPrec [GetInfrastructureConfigurationResponse]
+readPrec :: ReadPrec GetInfrastructureConfigurationResponse
+$creadPrec :: ReadPrec GetInfrastructureConfigurationResponse
+readList :: ReadS [GetInfrastructureConfigurationResponse]
+$creadList :: ReadS [GetInfrastructureConfigurationResponse]
+readsPrec :: Int -&gt; ReadS GetInfrastructureConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS GetInfrastructureConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325255"><span id="local-6989586621679325257"><span id="local-6989586621679325259"><span class="annot"><span class="annottext">Int -&gt; GetInfrastructureConfigurationResponse -&gt; ShowS
+[GetInfrastructureConfigurationResponse] -&gt; ShowS
+GetInfrastructureConfigurationResponse -&gt; String
+(Int -&gt; GetInfrastructureConfigurationResponse -&gt; ShowS)
+-&gt; (GetInfrastructureConfigurationResponse -&gt; String)
+-&gt; ([GetInfrastructureConfigurationResponse] -&gt; ShowS)
+-&gt; Show GetInfrastructureConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInfrastructureConfigurationResponse] -&gt; ShowS
+$cshowList :: [GetInfrastructureConfigurationResponse] -&gt; ShowS
+show :: GetInfrastructureConfigurationResponse -&gt; String
+$cshow :: GetInfrastructureConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; GetInfrastructureConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInfrastructureConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetInfrastructureConfigurationResponse
+ -&gt; Rep GetInfrastructureConfigurationResponse x)
+-&gt; (forall x.
+    Rep GetInfrastructureConfigurationResponse x
+    -&gt; GetInfrastructureConfigurationResponse)
+-&gt; Generic GetInfrastructureConfigurationResponse
+forall x.
+Rep GetInfrastructureConfigurationResponse x
+-&gt; GetInfrastructureConfigurationResponse
+forall x.
+GetInfrastructureConfigurationResponse
+-&gt; Rep GetInfrastructureConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetInfrastructureConfigurationResponse x
+-&gt; GetInfrastructureConfigurationResponse
+$cfrom :: forall x.
+GetInfrastructureConfigurationResponse
+-&gt; Rep GetInfrastructureConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'GetInfrastructureConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'requestId', 'getInfrastructureConfigurationResponse_requestId' - The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'infrastructureConfiguration', 'getInfrastructureConfigurationResponse_infrastructureConfiguration' - The infrastructure configuration object.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'httpStatus', 'getInfrastructureConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#newGetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">newGetInfrastructureConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse</span></a></span><span>
+</span><span id="line-166"></span><span id="newGetInfrastructureConfigurationResponse"><span class="annot"><span class="annottext">newGetInfrastructureConfigurationResponse :: Int -&gt; GetInfrastructureConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#newGetInfrastructureConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetInfrastructureConfigurationResponse</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679325252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679325252"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">GetInfrastructureConfigurationResponse' :: Maybe Text
+-&gt; Maybe InfrastructureConfiguration
+-&gt; Int
+-&gt; GetInfrastructureConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:GetInfrastructureConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3ArequestId%3AGetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:infrastructureConfiguration:GetInfrastructureConfigurationResponse' :: Maybe InfrastructureConfiguration
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3AinfrastructureConfiguration%3AGetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var">infrastructureConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe InfrastructureConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInfrastructureConfigurationResponse' :: Int
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3AhttpStatus%3AGetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679325252"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfigurationResponse_requestId"><span class="hs-identifier hs-type">getInfrastructureConfigurationResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="getInfrastructureConfigurationResponse_requestId"><span class="annot"><span class="annottext">getInfrastructureConfigurationResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetInfrastructureConfigurationResponse
+-&gt; f GetInfrastructureConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfigurationResponse_requestId"><span class="hs-identifier hs-var hs-var">getInfrastructureConfigurationResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInfrastructureConfigurationResponse -&gt; Maybe Text)
+-&gt; (GetInfrastructureConfigurationResponse
+    -&gt; Maybe Text -&gt; GetInfrastructureConfigurationResponse)
+-&gt; Lens
+     GetInfrastructureConfigurationResponse
+     GetInfrastructureConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325251"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:GetInfrastructureConfigurationResponse' :: GetInfrastructureConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679325251"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325251"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325250"><span class="annot"><span class="annottext">s :: GetInfrastructureConfigurationResponse
+</span><a href="#local-6989586621679325250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInfrastructureConfigurationResponse
+</span><a href="#local-6989586621679325250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:GetInfrastructureConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3ArequestId%3AGetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The infrastructure configuration object.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfigurationResponse_infrastructureConfiguration"><span class="hs-identifier hs-type">getInfrastructureConfigurationResponse_infrastructureConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="getInfrastructureConfigurationResponse_infrastructureConfiguration"><span class="annot"><span class="annottext">getInfrastructureConfigurationResponse_infrastructureConfiguration :: (Maybe InfrastructureConfiguration
+ -&gt; f (Maybe InfrastructureConfiguration))
+-&gt; GetInfrastructureConfigurationResponse
+-&gt; f GetInfrastructureConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfigurationResponse_infrastructureConfiguration"><span class="hs-identifier hs-var hs-var">getInfrastructureConfigurationResponse_infrastructureConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInfrastructureConfigurationResponse
+ -&gt; Maybe InfrastructureConfiguration)
+-&gt; (GetInfrastructureConfigurationResponse
+    -&gt; Maybe InfrastructureConfiguration
+    -&gt; GetInfrastructureConfigurationResponse)
+-&gt; Lens
+     GetInfrastructureConfigurationResponse
+     GetInfrastructureConfigurationResponse
+     (Maybe InfrastructureConfiguration)
+     (Maybe InfrastructureConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325248"><span class="annot"><span class="annottext">Maybe InfrastructureConfiguration
+infrastructureConfiguration :: Maybe InfrastructureConfiguration
+$sel:infrastructureConfiguration:GetInfrastructureConfigurationResponse' :: GetInfrastructureConfigurationResponse
+-&gt; Maybe InfrastructureConfiguration
+</span><a href="#local-6989586621679325248"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InfrastructureConfiguration
+</span><a href="#local-6989586621679325248"><span class="hs-identifier hs-var">infrastructureConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325247"><span class="annot"><span class="annottext">s :: GetInfrastructureConfigurationResponse
+</span><a href="#local-6989586621679325247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325246"><span class="annot"><span class="annottext">Maybe InfrastructureConfiguration
+</span><a href="#local-6989586621679325246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInfrastructureConfigurationResponse
+</span><a href="#local-6989586621679325247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:infrastructureConfiguration:GetInfrastructureConfigurationResponse' :: Maybe InfrastructureConfiguration
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3AinfrastructureConfiguration%3AGetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var">infrastructureConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InfrastructureConfiguration
+</span><a href="#local-6989586621679325246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">getInfrastructureConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span id="getInfrastructureConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">getInfrastructureConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetInfrastructureConfigurationResponse
+-&gt; f GetInfrastructureConfigurationResponse
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#getInfrastructureConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getInfrastructureConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInfrastructureConfigurationResponse -&gt; Int)
+-&gt; (GetInfrastructureConfigurationResponse
+    -&gt; Int -&gt; GetInfrastructureConfigurationResponse)
+-&gt; Lens
+     GetInfrastructureConfigurationResponse
+     GetInfrastructureConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325245"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetInfrastructureConfigurationResponse' :: GetInfrastructureConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679325245"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679325245"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325244"><span class="annot"><span class="annottext">s :: GetInfrastructureConfigurationResponse
+</span><a href="#local-6989586621679325244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325243"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679325243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInfrastructureConfigurationResponse
+</span><a href="#local-6989586621679325244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInfrastructureConfigurationResponse' :: Int
+</span><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#%24sel%3AhttpStatus%3AGetInfrastructureConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679325243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679325241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.ImageBuilder.GetInfrastructureConfiguration.html#GetInfrastructureConfigurationResponse"><span class="hs-identifier hs-type">GetInfrastructureConfigurationResponse</span></a></span></span><span>
+</span><span id="line-191"></span></pre></body></html>

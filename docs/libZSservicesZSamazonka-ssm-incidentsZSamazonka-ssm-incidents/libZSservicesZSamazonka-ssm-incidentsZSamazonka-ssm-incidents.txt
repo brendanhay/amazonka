@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SSMIncidents.Types.AddRegionAction
+module Amazonka.SSMIncidents.Types.AddRegionAction
 
 -- | Defines the Region and KMS key to add to the replication set.
 --   
@@ -42,16 +42,16 @@ addRegionAction_sseKmsKeyId :: Lens' AddRegionAction (Maybe Text)
 
 -- | The Region name to add to the replication set.
 addRegionAction_regionName :: Lens' AddRegionAction Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.AddRegionAction.AddRegionAction
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.AddRegionAction.AddRegionAction
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.AddRegionAction.AddRegionAction
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.AddRegionAction.AddRegionAction
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.AddRegionAction.AddRegionAction
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.AddRegionAction.AddRegionAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.AddRegionAction.AddRegionAction
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.AddRegionAction.AddRegionAction
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.AddRegionAction.AddRegionAction
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.AddRegionAction.AddRegionAction
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.AddRegionAction.AddRegionAction
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.AddRegionAction.AddRegionAction
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.AddRegionAction.AddRegionAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.AddRegionAction.AddRegionAction
 
 
-module Network.AWS.SSMIncidents.Types.AttributeValueList
+module Amazonka.SSMIncidents.Types.AttributeValueList
 
 -- | Use the AttributeValueList to filter by string or integer values.
 --   
@@ -88,16 +88,16 @@ attributeValueList_stringValues :: Lens' AttributeValueList (Maybe [Text])
 
 -- | The list of integer values that the filter matches.
 attributeValueList_integerValues :: Lens' AttributeValueList (Maybe [Int])
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.AttributeValueList.AttributeValueList
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.AttributeValueList.AttributeValueList
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.AttributeValueList.AttributeValueList
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.AttributeValueList.AttributeValueList
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.AttributeValueList.AttributeValueList
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.AttributeValueList.AttributeValueList
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.AttributeValueList.AttributeValueList
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.AttributeValueList.AttributeValueList
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.AttributeValueList.AttributeValueList
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.AttributeValueList.AttributeValueList
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.AttributeValueList.AttributeValueList
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.AttributeValueList.AttributeValueList
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.AttributeValueList.AttributeValueList
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.AttributeValueList.AttributeValueList
 
 
-module Network.AWS.SSMIncidents.Types.AutomationExecution
+module Amazonka.SSMIncidents.Types.AutomationExecution
 
 -- | The Systems Manager automation document process to start as the
 --   runbook at the beginning of the incident.
@@ -125,16 +125,16 @@ newAutomationExecution :: AutomationExecution
 
 -- | The Amazon Resource Name (ARN) of the automation process.
 automationExecution_ssmExecutionArn :: Lens' AutomationExecution (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.AutomationExecution.AutomationExecution
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.AutomationExecution.AutomationExecution
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.AutomationExecution.AutomationExecution
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.AutomationExecution.AutomationExecution
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.AutomationExecution.AutomationExecution
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.AutomationExecution.AutomationExecution
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.AutomationExecution.AutomationExecution
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.AutomationExecution.AutomationExecution
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.AutomationExecution.AutomationExecution
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.AutomationExecution.AutomationExecution
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.AutomationExecution.AutomationExecution
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.AutomationExecution.AutomationExecution
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.AutomationExecution.AutomationExecution
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.AutomationExecution.AutomationExecution
 
 
-module Network.AWS.SSMIncidents.Types.Condition
+module Amazonka.SSMIncidents.Types.Condition
 
 -- | A conditional statement with which to compare a value, after a
 --   timestamp, before a timestamp, or equal to a string or integer. If
@@ -181,16 +181,16 @@ condition_equals :: Lens' Condition (Maybe AttributeValueList)
 
 -- | Before the specified timestamp
 condition_before :: Lens' Condition (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.Condition.Condition
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.Condition.Condition
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.Condition.Condition
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.Condition.Condition
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.Condition.Condition
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.Condition.Condition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.Condition.Condition
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.Condition.Condition
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.Condition.Condition
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.Condition.Condition
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.Condition.Condition
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.Condition.Condition
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.Condition.Condition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.Condition.Condition
 
 
-module Network.AWS.SSMIncidents.Types.DeleteRegionAction
+module Amazonka.SSMIncidents.Types.DeleteRegionAction
 
 -- | Defines the information about the Region you're deleting from your
 --   replication set.
@@ -218,16 +218,16 @@ newDeleteRegionAction :: Text -> DeleteRegionAction
 
 -- | The name of the Region you're deleting from the replication set.
 deleteRegionAction_regionName :: Lens' DeleteRegionAction Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.DeleteRegionAction.DeleteRegionAction
 
 
-module Network.AWS.SSMIncidents.Types.EmptyChatChannel
+module Amazonka.SSMIncidents.Types.EmptyChatChannel
 
 -- | Used to remove the chat channel from an incident record or response
 --   plan.
@@ -242,17 +242,17 @@ EmptyChatChannel' :: EmptyChatChannel
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newEmptyChatChannel :: EmptyChatChannel
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.EmptyChatChannel.EmptyChatChannel
 
 
-module Network.AWS.SSMIncidents.Types.ChatChannel
+module Amazonka.SSMIncidents.Types.ChatChannel
 
 -- | The AWS Chatbot chat channel used for collaboration during an
 --   incident.
@@ -295,17 +295,17 @@ chatChannel_empty :: Lens' ChatChannel (Maybe EmptyChatChannel)
 --   updates to an incident. You can also make updates to the incident
 --   through the chat channel by using the SNS topics.
 chatChannel_chatbotSns :: Lens' ChatChannel (Maybe (NonEmpty Text))
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.ChatChannel.ChatChannel
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.ChatChannel.ChatChannel
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.ChatChannel.ChatChannel
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.ChatChannel.ChatChannel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.ChatChannel.ChatChannel
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.ChatChannel.ChatChannel
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.ChatChannel.ChatChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.ChatChannel.ChatChannel
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.ChatChannel.ChatChannel
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.ChatChannel.ChatChannel
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.ChatChannel.ChatChannel
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.ChatChannel.ChatChannel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.ChatChannel.ChatChannel
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.ChatChannel.ChatChannel
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.ChatChannel.ChatChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.ChatChannel.ChatChannel
 
 
-module Network.AWS.SSMIncidents.Types.EventSummary
+module Amazonka.SSMIncidents.Types.EventSummary
 
 -- | Details about a timeline event during an incident.
 --   
@@ -371,16 +371,16 @@ eventSummary_eventUpdatedTime :: Lens' EventSummary UTCTime
 -- | The Amazon Resource Name (ARN) of the incident that the event happened
 --   during.
 eventSummary_incidentRecordArn :: Lens' EventSummary Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.EventSummary.EventSummary
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.EventSummary.EventSummary
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.EventSummary.EventSummary
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.EventSummary.EventSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.EventSummary.EventSummary
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.EventSummary.EventSummary
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.EventSummary.EventSummary
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.EventSummary.EventSummary
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.EventSummary.EventSummary
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.EventSummary.EventSummary
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.EventSummary.EventSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.EventSummary.EventSummary
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.EventSummary.EventSummary
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.EventSummary.EventSummary
 
 
-module Network.AWS.SSMIncidents.Types.Filter
+module Amazonka.SSMIncidents.Types.Filter
 
 -- | Filter the selection by using a condition.
 --   
@@ -417,16 +417,16 @@ filter_condition :: Lens' Filter Condition
 
 -- | The key that you're filtering on.
 filter_key :: Lens' Filter Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.Filter.Filter
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.Filter.Filter
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.Filter.Filter
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.Filter.Filter
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.Filter.Filter
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.Filter.Filter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.Filter.Filter
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.Filter.Filter
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.Filter.Filter
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.Filter.Filter
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.Filter.Filter
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.Filter.Filter
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.Filter.Filter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.Filter.Filter
 
 
-module Network.AWS.SSMIncidents.Types.IncidentRecordSource
+module Amazonka.SSMIncidents.Types.IncidentRecordSource
 
 -- | Details about how the incident record was created and when.
 --   
@@ -491,43 +491,43 @@ incidentRecordSource_createdBy :: Lens' IncidentRecordSource Text
 --   from Incident Manager, automatically created using an AWS CloudWatch
 --   alarm, or Amazon EventBridge event.
 incidentRecordSource_source :: Lens' IncidentRecordSource Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.IncidentRecordSource.IncidentRecordSource
 
 
-module Network.AWS.SSMIncidents.Types.IncidentRecordStatus
+module Amazonka.SSMIncidents.Types.IncidentRecordStatus
 newtype IncidentRecordStatus
 IncidentRecordStatus' :: Text -> IncidentRecordStatus
 [fromIncidentRecordStatus] :: IncidentRecordStatus -> Text
 pattern IncidentRecordStatus_OPEN :: IncidentRecordStatus
 pattern IncidentRecordStatus_RESOLVED :: IncidentRecordStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance GHC.Classes.Ord Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Amazonka.Data.XML.ToXML Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Amazonka.Data.XML.FromXML Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Amazonka.Data.Log.ToLog Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Amazonka.Data.Text.ToText Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Amazonka.Data.Text.FromText Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance GHC.Classes.Ord Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.IncidentRecordStatus.IncidentRecordStatus
 
 
-module Network.AWS.SSMIncidents.Types.IncidentRecordSummary
+module Amazonka.SSMIncidents.Types.IncidentRecordSummary
 
 -- | Details describing an incident record.
 --   
@@ -617,16 +617,16 @@ incidentRecordSummary_status :: Lens' IncidentRecordSummary IncidentRecordStatus
 -- | The title of the incident. This value is either provided by the
 --   response plan or overwritten on creation.
 incidentRecordSummary_title :: Lens' IncidentRecordSummary Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.IncidentRecordSummary.IncidentRecordSummary
 
 
-module Network.AWS.SSMIncidents.Types.ItemType
+module Amazonka.SSMIncidents.Types.ItemType
 newtype ItemType
 ItemType' :: Text -> ItemType
 [fromItemType] :: ItemType -> Text
@@ -636,28 +636,28 @@ pattern ItemType_INCIDENT :: ItemType
 pattern ItemType_METRIC :: ItemType
 pattern ItemType_OTHER :: ItemType
 pattern ItemType_PARENT :: ItemType
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Network.AWS.Data.Text.ToText Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Network.AWS.Data.Text.FromText Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance GHC.Classes.Ord Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.ItemType.ItemType
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.ItemType.ItemType
+instance Amazonka.Data.XML.ToXML Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Amazonka.Data.XML.FromXML Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Amazonka.Data.Log.ToLog Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Amazonka.Data.Text.ToText Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Amazonka.Data.Text.FromText Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance GHC.Classes.Ord Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.ItemType.ItemType
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.ItemType.ItemType
 
 
-module Network.AWS.SSMIncidents.Types.ItemValue
+module Amazonka.SSMIncidents.Types.ItemValue
 
 -- | Describes a related item.
 --   
@@ -704,17 +704,17 @@ itemValue_url :: Lens' ItemValue (Maybe Text)
 
 -- | The metric definition, if the related item is a metric in CloudWatch.
 itemValue_metricDefinition :: Lens' ItemValue (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.ItemValue.ItemValue
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.ItemValue.ItemValue
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.ItemValue.ItemValue
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.ItemValue.ItemValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.ItemValue.ItemValue
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.ItemValue.ItemValue
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.ItemValue.ItemValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.ItemValue.ItemValue
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.ItemValue.ItemValue
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.ItemValue.ItemValue
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.ItemValue.ItemValue
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.ItemValue.ItemValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.ItemValue.ItemValue
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.ItemValue.ItemValue
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.ItemValue.ItemValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.ItemValue.ItemValue
 
 
-module Network.AWS.SSMIncidents.Types.ItemIdentifier
+module Amazonka.SSMIncidents.Types.ItemIdentifier
 
 -- | Details and type of a related item.
 --   
@@ -778,17 +778,17 @@ itemIdentifier_type :: Lens' ItemIdentifier ItemType
 
 -- | Details about the related item.
 itemIdentifier_value :: Lens' ItemIdentifier ItemValue
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.ItemIdentifier.ItemIdentifier
 
 
-module Network.AWS.SSMIncidents.Types.NotificationTargetItem
+module Amazonka.SSMIncidents.Types.NotificationTargetItem
 
 -- | The SNS targets that are notified when updates are made to an
 --   incident.
@@ -816,17 +816,17 @@ newNotificationTargetItem :: NotificationTargetItem
 
 -- | The Amazon Resource Name (ARN) of the SNS topic.
 notificationTargetItem_snsTopicArn :: Lens' NotificationTargetItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.NotificationTargetItem.NotificationTargetItem
 
 
-module Network.AWS.SSMIncidents.Types.IncidentTemplate
+module Amazonka.SSMIncidents.Types.IncidentTemplate
 
 -- | Basic details used in creating a response plan. The response plan is
 --   then used to create an incident record.
@@ -898,17 +898,17 @@ incidentTemplate_impact :: Lens' IncidentTemplate Natural
 
 -- | The title of the incident.
 incidentTemplate_title :: Lens' IncidentTemplate Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.IncidentTemplate.IncidentTemplate
 
 
-module Network.AWS.SSMIncidents.Types.IncidentRecord
+module Amazonka.SSMIncidents.Types.IncidentRecord
 
 -- | The record of the incident that's created when an incident occurs.
 --   
@@ -1072,16 +1072,16 @@ incidentRecord_status :: Lens' IncidentRecord IncidentRecordStatus
 
 -- | The title of the incident.
 incidentRecord_title :: Lens' IncidentRecord Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.IncidentRecord.IncidentRecord
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.IncidentRecord.IncidentRecord
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.IncidentRecord.IncidentRecord
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.IncidentRecord.IncidentRecord
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.IncidentRecord.IncidentRecord
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.IncidentRecord.IncidentRecord
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.IncidentRecord.IncidentRecord
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.IncidentRecord.IncidentRecord
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.IncidentRecord.IncidentRecord
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.IncidentRecord.IncidentRecord
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.IncidentRecord.IncidentRecord
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.IncidentRecord.IncidentRecord
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.IncidentRecord.IncidentRecord
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.IncidentRecord.IncidentRecord
 
 
-module Network.AWS.SSMIncidents.Types.RegionMapInputValue
+module Amazonka.SSMIncidents.Types.RegionMapInputValue
 
 -- | The mapping between a Region and the key that's used to encrypt the
 --   data.
@@ -1109,16 +1109,16 @@ newRegionMapInputValue :: RegionMapInputValue
 
 -- | The KMS key used to encrypt the data in your replication set.
 regionMapInputValue_sseKmsKeyId :: Lens' RegionMapInputValue (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.RegionMapInputValue.RegionMapInputValue
 
 
-module Network.AWS.SSMIncidents.Types.RegionStatus
+module Amazonka.SSMIncidents.Types.RegionStatus
 newtype RegionStatus
 RegionStatus' :: Text -> RegionStatus
 [fromRegionStatus] :: RegionStatus -> Text
@@ -1126,28 +1126,28 @@ pattern RegionStatus_ACTIVE :: RegionStatus
 pattern RegionStatus_CREATING :: RegionStatus
 pattern RegionStatus_DELETING :: RegionStatus
 pattern RegionStatus_FAILED :: RegionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance GHC.Classes.Ord Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Amazonka.Data.Text.ToText Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Amazonka.Data.Text.FromText Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance GHC.Classes.Ord Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.RegionStatus.RegionStatus
 
 
-module Network.AWS.SSMIncidents.Types.RegionInfo
+module Amazonka.SSMIncidents.Types.RegionInfo
 
 -- | Information about a Region in your replication set.
 --   
@@ -1200,16 +1200,16 @@ regionInfo_status :: Lens' RegionInfo RegionStatus
 
 -- | The most recent date and time that the Region's status was updated.
 regionInfo_statusUpdateDateTime :: Lens' RegionInfo UTCTime
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.RegionInfo.RegionInfo
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.RegionInfo.RegionInfo
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.RegionInfo.RegionInfo
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.RegionInfo.RegionInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.RegionInfo.RegionInfo
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.RegionInfo.RegionInfo
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.RegionInfo.RegionInfo
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.RegionInfo.RegionInfo
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.RegionInfo.RegionInfo
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.RegionInfo.RegionInfo
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.RegionInfo.RegionInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.RegionInfo.RegionInfo
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.RegionInfo.RegionInfo
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.RegionInfo.RegionInfo
 
 
-module Network.AWS.SSMIncidents.Types.RelatedItem
+module Amazonka.SSMIncidents.Types.RelatedItem
 
 -- | Resources that responders use to triage and mitigate the incident.
 --   
@@ -1243,17 +1243,17 @@ relatedItem_title :: Lens' RelatedItem (Maybe Text)
 
 -- | Details about the related item.
 relatedItem_identifier :: Lens' RelatedItem ItemIdentifier
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.RelatedItem.RelatedItem
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.RelatedItem.RelatedItem
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.RelatedItem.RelatedItem
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.RelatedItem.RelatedItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.RelatedItem.RelatedItem
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.RelatedItem.RelatedItem
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.RelatedItem.RelatedItem
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.RelatedItem.RelatedItem
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.RelatedItem.RelatedItem
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.RelatedItem.RelatedItem
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.RelatedItem.RelatedItem
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.RelatedItem.RelatedItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.RelatedItem.RelatedItem
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.RelatedItem.RelatedItem
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.RelatedItem.RelatedItem
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.RelatedItem.RelatedItem
 
 
-module Network.AWS.SSMIncidents.Types.RelatedItemsUpdate
+module Amazonka.SSMIncidents.Types.RelatedItemsUpdate
 
 -- | Details about the related item you're adding.
 --   
@@ -1290,16 +1290,16 @@ relatedItemsUpdate_itemToRemove :: Lens' RelatedItemsUpdate (Maybe ItemIdentifie
 
 -- | Details about the related item you're adding.
 relatedItemsUpdate_itemToAdd :: Lens' RelatedItemsUpdate (Maybe RelatedItem)
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.RelatedItemsUpdate.RelatedItemsUpdate
 
 
-module Network.AWS.SSMIncidents.Types.ReplicationSetStatus
+module Amazonka.SSMIncidents.Types.ReplicationSetStatus
 newtype ReplicationSetStatus
 ReplicationSetStatus' :: Text -> ReplicationSetStatus
 [fromReplicationSetStatus] :: ReplicationSetStatus -> Text
@@ -1308,28 +1308,28 @@ pattern ReplicationSetStatus_CREATING :: ReplicationSetStatus
 pattern ReplicationSetStatus_DELETING :: ReplicationSetStatus
 pattern ReplicationSetStatus_FAILED :: ReplicationSetStatus
 pattern ReplicationSetStatus_UPDATING :: ReplicationSetStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance GHC.Classes.Ord Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Amazonka.Data.XML.ToXML Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Amazonka.Data.XML.FromXML Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Amazonka.Data.Log.ToLog Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Amazonka.Data.Text.ToText Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Amazonka.Data.Text.FromText Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance GHC.Classes.Ord Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.ReplicationSetStatus.ReplicationSetStatus
 
 
-module Network.AWS.SSMIncidents.Types.ReplicationSet
+module Amazonka.SSMIncidents.Types.ReplicationSet
 
 -- | The set of Regions that your Incident Manager data will be replicated
 --   to and the KMS key used to encrypt the data.
@@ -1435,16 +1435,16 @@ replicationSet_regionMap :: Lens' ReplicationSet (HashMap Text RegionInfo)
 -- | The status of the replication set. If the replication set is still
 --   pending, you can't use Incident Manager functionality.
 replicationSet_status :: Lens' ReplicationSet ReplicationSetStatus
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.ReplicationSet.ReplicationSet
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.ReplicationSet.ReplicationSet
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.ReplicationSet.ReplicationSet
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.ReplicationSet.ReplicationSet
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.ReplicationSet.ReplicationSet
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.ReplicationSet.ReplicationSet
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.ReplicationSet.ReplicationSet
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.ReplicationSet.ReplicationSet
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.ReplicationSet.ReplicationSet
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.ReplicationSet.ReplicationSet
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.ReplicationSet.ReplicationSet
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.ReplicationSet.ReplicationSet
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.ReplicationSet.ReplicationSet
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.ReplicationSet.ReplicationSet
 
 
-module Network.AWS.SSMIncidents.Types.ResourcePolicy
+module Amazonka.SSMIncidents.Types.ResourcePolicy
 
 -- | The resource policy that allows Incident Manager to perform actions on
 --   resources on your behalf.
@@ -1491,16 +1491,16 @@ resourcePolicy_policyId :: Lens' ResourcePolicy Text
 
 -- | The Region that policy allows resources to be used in.
 resourcePolicy_ramResourceShareRegion :: Lens' ResourcePolicy Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.ResourcePolicy.ResourcePolicy
 
 
-module Network.AWS.SSMIncidents.Types.ResponsePlanSummary
+module Amazonka.SSMIncidents.Types.ResponsePlanSummary
 
 -- | Details of the response plan that are used when creating an incident.
 --   
@@ -1545,70 +1545,70 @@ responsePlanSummary_arn :: Lens' ResponsePlanSummary Text
 
 -- | The name of the response plan. This can't include spaces.
 responsePlanSummary_name :: Lens' ResponsePlanSummary Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.ResponsePlanSummary.ResponsePlanSummary
 
 
-module Network.AWS.SSMIncidents.Types.SortOrder
+module Amazonka.SSMIncidents.Types.SortOrder
 newtype SortOrder
 SortOrder' :: Text -> SortOrder
 [fromSortOrder] :: SortOrder -> Text
 pattern SortOrder_ASCENDING :: SortOrder
 pattern SortOrder_DESCENDING :: SortOrder
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Text.ToText Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Text.FromText Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance GHC.Classes.Ord Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.SortOrder.SortOrder
+instance Amazonka.Data.XML.ToXML Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Amazonka.Data.XML.FromXML Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Amazonka.Data.Log.ToLog Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Amazonka.Data.Text.ToText Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Amazonka.Data.Text.FromText Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance GHC.Classes.Ord Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.SortOrder.SortOrder
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.SortOrder.SortOrder
 
 
-module Network.AWS.SSMIncidents.Types.SsmTargetAccount
+module Amazonka.SSMIncidents.Types.SsmTargetAccount
 newtype SsmTargetAccount
 SsmTargetAccount' :: Text -> SsmTargetAccount
 [fromSsmTargetAccount] :: SsmTargetAccount -> Text
 pattern SsmTargetAccount_IMPACTED_ACCOUNT :: SsmTargetAccount
 pattern SsmTargetAccount_RESPONSE_PLAN_OWNER_ACCOUNT :: SsmTargetAccount
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Network.AWS.Data.Text.ToText Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Network.AWS.Data.Text.FromText Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance GHC.Classes.Ord Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Amazonka.Data.XML.ToXML Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Amazonka.Data.XML.FromXML Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Amazonka.Data.Log.ToLog Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Amazonka.Data.Text.ToText Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Amazonka.Data.Text.FromText Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance GHC.Classes.Ord Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.SsmTargetAccount.SsmTargetAccount
 
 
-module Network.AWS.SSMIncidents.Types.SsmAutomation
+module Amazonka.SSMIncidents.Types.SsmAutomation
 
 -- | Details about the Systems Manager automation document that will be
 --   used as a runbook during an incident.
@@ -1682,17 +1682,17 @@ ssmAutomation_documentName :: Lens' SsmAutomation Text
 -- | The Amazon Resource Name (ARN) of the role that the automation
 --   document will assume when running commands.
 ssmAutomation_roleArn :: Lens' SsmAutomation Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.SsmAutomation.SsmAutomation
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.SsmAutomation.SsmAutomation
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.SsmAutomation.SsmAutomation
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.SsmAutomation.SsmAutomation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.SsmAutomation.SsmAutomation
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.SsmAutomation.SsmAutomation
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.SsmAutomation.SsmAutomation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.SsmAutomation.SsmAutomation
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.SsmAutomation.SsmAutomation
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.SsmAutomation.SsmAutomation
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.SsmAutomation.SsmAutomation
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.SsmAutomation.SsmAutomation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.SsmAutomation.SsmAutomation
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.SsmAutomation.SsmAutomation
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.SsmAutomation.SsmAutomation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.SsmAutomation.SsmAutomation
 
 
-module Network.AWS.SSMIncidents.Types.Action
+module Amazonka.SSMIncidents.Types.Action
 
 -- | The action that starts at the beginning of an incident. The response
 --   plan defines the action.
@@ -1721,17 +1721,17 @@ newAction :: Action
 -- | The Systems Manager automation document to start as the runbook at the
 --   beginning of the incident.
 action_ssmAutomation :: Lens' Action (Maybe SsmAutomation)
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.Action.Action
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.Action.Action
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.Action.Action
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.Action.Action
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.Action.Action
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.Action.Action
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.Action.Action
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.Action.Action
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.Action.Action
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.Action.Action
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.Action.Action
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.Action.Action
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.Action.Action
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.Action.Action
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.Action.Action
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.Action.Action
 
 
-module Network.AWS.SSMIncidents.Types.TimelineEvent
+module Amazonka.SSMIncidents.Types.TimelineEvent
 
 -- | A significant event that happened during the incident.
 --   
@@ -1809,42 +1809,42 @@ timelineEvent_eventUpdatedTime :: Lens' TimelineEvent UTCTime
 -- | The Amazon Resource Name (ARN) of the incident that the event occurred
 --   during.
 timelineEvent_incidentRecordArn :: Lens' TimelineEvent Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.TimelineEvent.TimelineEvent
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.TimelineEvent.TimelineEvent
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.TimelineEvent.TimelineEvent
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.TimelineEvent.TimelineEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.TimelineEvent.TimelineEvent
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.TimelineEvent.TimelineEvent
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.TimelineEvent.TimelineEvent
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.TimelineEvent.TimelineEvent
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.TimelineEvent.TimelineEvent
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.TimelineEvent.TimelineEvent
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.TimelineEvent.TimelineEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.TimelineEvent.TimelineEvent
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.TimelineEvent.TimelineEvent
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.TimelineEvent.TimelineEvent
 
 
-module Network.AWS.SSMIncidents.Types.TimelineEventSort
+module Amazonka.SSMIncidents.Types.TimelineEventSort
 newtype TimelineEventSort
 TimelineEventSort' :: Text -> TimelineEventSort
 [fromTimelineEventSort] :: TimelineEventSort -> Text
 pattern TimelineEventSort_EVENT_TIME :: TimelineEventSort
-instance Network.AWS.Data.XML.ToXML Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Network.AWS.Data.XML.FromXML Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Network.AWS.Data.Log.ToLog Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Network.AWS.Data.Text.ToText Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Network.AWS.Data.Text.FromText Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance GHC.Classes.Ord Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Amazonka.Data.XML.ToXML Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Amazonka.Data.XML.FromXML Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Amazonka.Data.Headers.ToHeader Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Amazonka.Data.Log.ToLog Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Amazonka.Data.Text.ToText Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Amazonka.Data.Text.FromText Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance GHC.Classes.Ord Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.TimelineEventSort.TimelineEventSort
 
 
-module Network.AWS.SSMIncidents.Types.TriggerDetails
+module Amazonka.SSMIncidents.Types.TriggerDetails
 
 -- | Details about what caused the incident to be created in Incident
 --   Manager.
@@ -1911,16 +1911,16 @@ triggerDetails_source :: Lens' TriggerDetails Text
 
 -- | The time that the incident was detected.
 triggerDetails_timestamp :: Lens' TriggerDetails UTCTime
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.TriggerDetails.TriggerDetails
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.TriggerDetails.TriggerDetails
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.TriggerDetails.TriggerDetails
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.TriggerDetails.TriggerDetails
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.TriggerDetails.TriggerDetails
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.TriggerDetails.TriggerDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.TriggerDetails.TriggerDetails
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.TriggerDetails.TriggerDetails
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.TriggerDetails.TriggerDetails
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.TriggerDetails.TriggerDetails
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.TriggerDetails.TriggerDetails
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.TriggerDetails.TriggerDetails
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.TriggerDetails.TriggerDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.TriggerDetails.TriggerDetails
 
 
-module Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction
+module Amazonka.SSMIncidents.Types.UpdateReplicationSetAction
 
 -- | Details used when updating the replication set.
 --   
@@ -1957,16 +1957,16 @@ updateReplicationSetAction_addRegionAction :: Lens' UpdateReplicationSetAction (
 
 -- | Details about the Region that you're deleting to the replication set.
 updateReplicationSetAction_deleteRegionAction :: Lens' UpdateReplicationSetAction (Maybe DeleteRegionAction)
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
-instance GHC.Show.Show Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
-instance GHC.Read.Read Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
+instance GHC.Generics.Generic Amazonka.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
+instance GHC.Show.Show Amazonka.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
+instance GHC.Read.Read Amazonka.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
+instance GHC.Classes.Eq Amazonka.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.Types.UpdateReplicationSetAction.UpdateReplicationSetAction
 
 
-module Network.AWS.SSMIncidents.Types
+module Amazonka.SSMIncidents.Types
 
 -- | API version <tt>2018-05-10</tt> of the Amazon Systems Manager Incident
 --   Manager SDK configuration.
@@ -3515,7 +3515,7 @@ updateReplicationSetAction_deleteRegionAction :: Lens' UpdateReplicationSetActio
 
 
 -- | Adds a tag to a response plan.
-module Network.AWS.SSMIncidents.TagResource
+module Amazonka.SSMIncidents.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -3574,27 +3574,27 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.SSMIncidents.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.SSMIncidents.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SSMIncidents.TagResource.TagResource
+instance GHC.Show.Show Amazonka.SSMIncidents.TagResource.TagResource
+instance GHC.Read.Read Amazonka.SSMIncidents.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.SSMIncidents.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SSMIncidents.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.TagResource.TagResource
 
 
 -- | Used to start an incident from CloudWatch alarms, EventBridge events,
 --   or manually.
-module Network.AWS.SSMIncidents.StartIncident
+module Amazonka.SSMIncidents.StartIncident
 
 -- | <i>See:</i> <a>newStartIncident</a> smart constructor.
 data StartIncident
@@ -3764,26 +3764,26 @@ startIncidentResponse_httpStatus :: Lens' StartIncidentResponse Int
 
 -- | The ARN of the newly created incident record.
 startIncidentResponse_incidentRecordArn :: Lens' StartIncidentResponse Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance GHC.Show.Show Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance GHC.Read.Read Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.StartIncident.StartIncidentResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.StartIncident.StartIncidentResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.StartIncident.StartIncidentResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.StartIncident.StartIncidentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.StartIncident.StartIncidentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.StartIncident.StartIncident
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.StartIncident.StartIncident
+instance GHC.Generics.Generic Amazonka.SSMIncidents.StartIncident.StartIncident
+instance GHC.Show.Show Amazonka.SSMIncidents.StartIncident.StartIncident
+instance GHC.Read.Read Amazonka.SSMIncidents.StartIncident.StartIncident
+instance GHC.Classes.Eq Amazonka.SSMIncidents.StartIncident.StartIncident
+instance GHC.Generics.Generic Amazonka.SSMIncidents.StartIncident.StartIncidentResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.StartIncident.StartIncidentResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.StartIncident.StartIncidentResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.StartIncident.StartIncidentResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.StartIncident.StartIncident
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.StartIncident.StartIncidentResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.StartIncident.StartIncident
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.StartIncident.StartIncident
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.StartIncident.StartIncident
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.StartIncident.StartIncident
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.StartIncident.StartIncident
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.StartIncident.StartIncident
 
 
 -- | Adds a resource policy to the specified response plan.
-module Network.AWS.SSMIncidents.PutResourcePolicy
+module Amazonka.SSMIncidents.PutResourcePolicy
 
 -- | <i>See:</i> <a>newPutResourcePolicy</a> smart constructor.
 data PutResourcePolicy
@@ -3853,28 +3853,28 @@ putResourcePolicyResponse_httpStatus :: Lens' PutResourcePolicyResponse Int
 
 -- | The ID of the resource policy.
 putResourcePolicyResponse_policyId :: Lens' PutResourcePolicyResponse Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance GHC.Show.Show Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance GHC.Read.Read Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance GHC.Generics.Generic Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance GHC.Show.Show Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance GHC.Read.Read Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance GHC.Classes.Eq Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance GHC.Generics.Generic Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.PutResourcePolicy.PutResourcePolicy
 
 
 -- | Lists timeline events of the specified incident record.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSMIncidents.ListTimelineEvents
+module Amazonka.SSMIncidents.ListTimelineEvents
 
 -- | <i>See:</i> <a>newListTimelineEvents</a> smart constructor.
 data ListTimelineEvents
@@ -4015,27 +4015,27 @@ listTimelineEventsResponse_httpStatus :: Lens' ListTimelineEventsResponse Int
 
 -- | Details about each event that occurred during the incident.
 listTimelineEventsResponse_eventSummaries :: Lens' ListTimelineEventsResponse [EventSummary]
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance GHC.Show.Show Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance GHC.Read.Read Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEventsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.ListTimelineEvents.ListTimelineEvents
 
 
 -- | Lists the tags that are attached to the specified response plan.
-module Network.AWS.SSMIncidents.ListTagsForResource
+module Amazonka.SSMIncidents.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -4094,27 +4094,27 @@ listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
 
 -- | A list of tags for the response plan.
 listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (HashMap Text Text)
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists all response plans in your account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSMIncidents.ListResponsePlans
+module Amazonka.SSMIncidents.ListResponsePlans
 
 -- | <i>See:</i> <a>newListResponsePlans</a> smart constructor.
 data ListResponsePlans
@@ -4193,29 +4193,29 @@ listResponsePlansResponse_httpStatus :: Lens' ListResponsePlansResponse Int
 
 -- | Details of each response plan.
 listResponsePlansResponse_responsePlanSummaries :: Lens' ListResponsePlansResponse [ResponsePlanSummary]
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance GHC.Show.Show Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance GHC.Read.Read Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlansResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.ListResponsePlans.ListResponsePlans
 
 
 -- | Lists details about the replication set configured in your account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSMIncidents.ListReplicationSets
+module Amazonka.SSMIncidents.ListReplicationSets
 
 -- | <i>See:</i> <a>newListReplicationSets</a> smart constructor.
 data ListReplicationSets
@@ -4294,29 +4294,29 @@ listReplicationSetsResponse_httpStatus :: Lens' ListReplicationSetsResponse Int
 
 -- | The Amazon Resource Name (ARN) of the list replication set.
 listReplicationSetsResponse_replicationSetArns :: Lens' ListReplicationSetsResponse [Text]
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance GHC.Show.Show Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance GHC.Read.Read Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.ListReplicationSets.ListReplicationSets
 
 
 -- | List all related items for an incident record.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSMIncidents.ListRelatedItems
+module Amazonka.SSMIncidents.ListRelatedItems
 
 -- | <i>See:</i> <a>newListRelatedItems</a> smart constructor.
 data ListRelatedItems
@@ -4407,23 +4407,23 @@ listRelatedItemsResponse_httpStatus :: Lens' ListRelatedItemsResponse Int
 
 -- | Details about each related item.
 listRelatedItemsResponse_relatedItems :: Lens' ListRelatedItemsResponse [RelatedItem]
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance GHC.Show.Show Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance GHC.Read.Read Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItemsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.ListRelatedItems.ListRelatedItems
 
 
 -- | Lists all incident records in your account. Use this command to
@@ -4431,7 +4431,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.ListRelatedItem
 --   want to update.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSMIncidents.ListIncidentRecords
+module Amazonka.SSMIncidents.ListIncidentRecords
 
 -- | <i>See:</i> <a>newListIncidentRecords</a> smart constructor.
 data ListIncidentRecords
@@ -4544,27 +4544,27 @@ listIncidentRecordsResponse_httpStatus :: Lens' ListIncidentRecordsResponse Int
 
 -- | The details of each listed incident record.
 listIncidentRecordsResponse_incidentRecordSummaries :: Lens' ListIncidentRecordsResponse [IncidentRecordSummary]
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance GHC.Show.Show Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance GHC.Read.Read Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance GHC.Generics.Generic Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecordsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.ListIncidentRecords.ListIncidentRecords
 
 
 -- | Retrieves a timeline event based on its ID and incident record.
-module Network.AWS.SSMIncidents.GetTimelineEvent
+module Amazonka.SSMIncidents.GetTimelineEvent
 
 -- | <i>See:</i> <a>newGetTimelineEvent</a> smart constructor.
 data GetTimelineEvent
@@ -4637,25 +4637,25 @@ getTimelineEventResponse_httpStatus :: Lens' GetTimelineEventResponse Int
 
 -- | Details about the timeline event.
 getTimelineEventResponse_event :: Lens' GetTimelineEventResponse TimelineEvent
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance GHC.Show.Show Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance GHC.Read.Read Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEventResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.GetTimelineEvent.GetTimelineEvent
 
 
 -- | Retrieves the details of the specified response plan.
-module Network.AWS.SSMIncidents.GetResponsePlan
+module Amazonka.SSMIncidents.GetResponsePlan
 
 -- | <i>See:</i> <a>newGetResponsePlan</a> smart constructor.
 data GetResponsePlan
@@ -4778,28 +4778,28 @@ getResponsePlanResponse_incidentTemplate :: Lens' GetResponsePlanResponse Incide
 
 -- | The short format name of the response plan. Can't contain spaces.
 getResponsePlanResponse_name :: Lens' GetResponsePlanResponse Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance GHC.Show.Show Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance GHC.Read.Read Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlanResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.GetResponsePlan.GetResponsePlan
 
 
 -- | Retrieves the resource policies attached to the specified response
 --   plan.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSMIncidents.GetResourcePolicies
+module Amazonka.SSMIncidents.GetResourcePolicies
 
 -- | <i>See:</i> <a>newGetResourcePolicies</a> smart constructor.
 data GetResourcePolicies
@@ -4892,27 +4892,27 @@ getResourcePoliciesResponse_httpStatus :: Lens' GetResourcePoliciesResponse Int
 
 -- | Details about the resource policy attached to the response plan.
 getResourcePoliciesResponse_resourcePolicies :: Lens' GetResourcePoliciesResponse [ResourcePolicy]
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance GHC.Show.Show Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance GHC.Read.Read Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePoliciesResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.GetResourcePolicies.GetResourcePolicies
 
 
 -- | Retrieve your Incident Manager replication set.
-module Network.AWS.SSMIncidents.GetReplicationSet
+module Amazonka.SSMIncidents.GetReplicationSet
 
 -- | <i>See:</i> <a>newGetReplicationSet</a> smart constructor.
 data GetReplicationSet
@@ -4973,25 +4973,25 @@ getReplicationSetResponse_httpStatus :: Lens' GetReplicationSetResponse Int
 
 -- | Details of the replication set.
 getReplicationSetResponse_replicationSet :: Lens' GetReplicationSetResponse ReplicationSet
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance GHC.Show.Show Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance GHC.Read.Read Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.GetReplicationSet.GetReplicationSet
 
 
 -- | Returns the details of the specified incident record.
-module Network.AWS.SSMIncidents.GetIncidentRecord
+module Amazonka.SSMIncidents.GetIncidentRecord
 
 -- | <i>See:</i> <a>newGetIncidentRecord</a> smart constructor.
 data GetIncidentRecord
@@ -5049,25 +5049,25 @@ getIncidentRecordResponse_httpStatus :: Lens' GetIncidentRecordResponse Int
 
 -- | Details structure of the incident record.
 getIncidentRecordResponse_incidentRecord :: Lens' GetIncidentRecordResponse IncidentRecord
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance GHC.Show.Show Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance GHC.Read.Read Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance GHC.Generics.Generic Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecordResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.GetIncidentRecord.GetIncidentRecord
 
 
 -- | Deletes a timeline event from an incident.
-module Network.AWS.SSMIncidents.DeleteTimelineEvent
+module Amazonka.SSMIncidents.DeleteTimelineEvent
 
 -- | <i>See:</i> <a>newDeleteTimelineEvent</a> smart constructor.
 data DeleteTimelineEvent
@@ -5130,28 +5130,28 @@ newDeleteTimelineEventResponse :: Int -> DeleteTimelineEventResponse
 
 -- | The response's http status code.
 deleteTimelineEventResponse_httpStatus :: Lens' DeleteTimelineEventResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEventResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.DeleteTimelineEvent.DeleteTimelineEvent
 
 
 -- | Deletes the specified response plan. Deleting a response plan stops
 --   all linked CloudWatch alarms and EventBridge events from creating an
 --   incident with this response plan.
-module Network.AWS.SSMIncidents.DeleteResponsePlan
+module Amazonka.SSMIncidents.DeleteResponsePlan
 
 -- | <i>See:</i> <a>newDeleteResponsePlan</a> smart constructor.
 data DeleteResponsePlan
@@ -5199,27 +5199,27 @@ newDeleteResponsePlanResponse :: Int -> DeleteResponsePlanResponse
 
 -- | The response's http status code.
 deleteResponsePlanResponse_httpStatus :: Lens' DeleteResponsePlanResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlanResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.DeleteResponsePlan.DeleteResponsePlan
 
 
 -- | Deletes the resource policy that AWS Resource Access Manager uses to
 --   share your Incident Manager resource.
-module Network.AWS.SSMIncidents.DeleteResourcePolicy
+module Amazonka.SSMIncidents.DeleteResourcePolicy
 
 -- | <i>See:</i> <a>newDeleteResourcePolicy</a> smart constructor.
 data DeleteResourcePolicy
@@ -5280,27 +5280,27 @@ newDeleteResourcePolicyResponse :: Int -> DeleteResourcePolicyResponse
 
 -- | The response's http status code.
 deleteResourcePolicyResponse_httpStatus :: Lens' DeleteResourcePolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.DeleteResourcePolicy.DeleteResourcePolicy
 
 
 -- | Deletes all Regions in your replication set. Deleting the replication
 --   set deletes all Incident Manager data.
-module Network.AWS.SSMIncidents.DeleteReplicationSet
+module Amazonka.SSMIncidents.DeleteReplicationSet
 
 -- | <i>See:</i> <a>newDeleteReplicationSet</a> smart constructor.
 data DeleteReplicationSet
@@ -5349,26 +5349,26 @@ newDeleteReplicationSetResponse :: Int -> DeleteReplicationSetResponse
 
 -- | The response's http status code.
 deleteReplicationSetResponse_httpStatus :: Lens' DeleteReplicationSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.DeleteReplicationSet.DeleteReplicationSet
 
 
 -- | Delete an incident record from Incident Manager.
-module Network.AWS.SSMIncidents.DeleteIncidentRecord
+module Amazonka.SSMIncidents.DeleteIncidentRecord
 
 -- | <i>See:</i> <a>newDeleteIncidentRecord</a> smart constructor.
 data DeleteIncidentRecord
@@ -5419,22 +5419,22 @@ newDeleteIncidentRecordResponse :: Int -> DeleteIncidentRecordResponse
 
 -- | The response's http status code.
 deleteIncidentRecordResponse_httpStatus :: Lens' DeleteIncidentRecordResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance GHC.Generics.Generic Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecordResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.DeleteIncidentRecord.DeleteIncidentRecord
 
 
 -- | Creates a custom timeline event on the incident details page of an
@@ -5442,7 +5442,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.DeleteIncidentR
 --   Manager, marking key moment during an incident. You can create custom
 --   timeline events to mark important events that are automatically
 --   detected by Incident Manager.
-module Network.AWS.SSMIncidents.CreateTimelineEvent
+module Amazonka.SSMIncidents.CreateTimelineEvent
 
 -- | <i>See:</i> <a>newCreateTimelineEvent</a> smart constructor.
 data CreateTimelineEvent
@@ -5559,28 +5559,28 @@ createTimelineEventResponse_eventId :: Lens' CreateTimelineEventResponse Text
 
 -- | The ARN of the incident record that you added the event to.
 createTimelineEventResponse_incidentRecordArn :: Lens' CreateTimelineEventResponse Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance GHC.Show.Show Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance GHC.Read.Read Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance GHC.Generics.Generic Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance GHC.Show.Show Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance GHC.Read.Read Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance GHC.Classes.Eq Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance GHC.Generics.Generic Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEventResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.CreateTimelineEvent.CreateTimelineEvent
 
 
 -- | Creates a response plan that automates the initial response to
 --   incidents. A response plan engages contacts, starts chat channel
 --   collaboration, and initiates runbooks at the beginning of an incident.
-module Network.AWS.SSMIncidents.CreateResponsePlan
+module Amazonka.SSMIncidents.CreateResponsePlan
 
 -- | <i>See:</i> <a>newCreateResponsePlan</a> smart constructor.
 data CreateResponsePlan
@@ -5717,27 +5717,27 @@ createResponsePlanResponse_httpStatus :: Lens' CreateResponsePlanResponse Int
 
 -- | The Amazon Resource Name (ARN) of the response plan.
 createResponsePlanResponse_arn :: Lens' CreateResponsePlanResponse Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance GHC.Show.Show Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance GHC.Read.Read Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance GHC.Generics.Generic Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance GHC.Show.Show Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance GHC.Read.Read Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance GHC.Classes.Eq Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance GHC.Generics.Generic Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlanResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.CreateResponsePlan.CreateResponsePlan
 
 
 -- | A replication set replicates and encrypts your data to the provided
 --   Regions with the provided KMS key.
-module Network.AWS.SSMIncidents.CreateReplicationSet
+module Amazonka.SSMIncidents.CreateReplicationSet
 
 -- | <i>See:</i> <a>newCreateReplicationSet</a> smart constructor.
 data CreateReplicationSet
@@ -5811,26 +5811,26 @@ createReplicationSetResponse_httpStatus :: Lens' CreateReplicationSetResponse In
 
 -- | The Amazon Resource Name (ARN) of the replication set.
 createReplicationSetResponse_arn :: Lens' CreateReplicationSetResponse Text
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance GHC.Show.Show Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance GHC.Read.Read Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance GHC.Generics.Generic Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance GHC.Show.Show Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance GHC.Read.Read Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance GHC.Classes.Eq Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance GHC.Generics.Generic Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.CreateReplicationSet.CreateReplicationSet
 
 
 -- | Removes a tag from a resource.
-module Network.AWS.SSMIncidents.UntagResource
+module Amazonka.SSMIncidents.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -5890,26 +5890,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.SSMIncidents.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.SSMIncidents.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.SSMIncidents.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.SSMIncidents.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.UntagResource.UntagResource
 
 
 -- | Update deletion protection to either allow or deny deletion of the
 --   final Region in a replication set.
-module Network.AWS.SSMIncidents.UpdateDeletionProtection
+module Amazonka.SSMIncidents.UpdateDeletionProtection
 
 -- | <i>See:</i> <a>newUpdateDeletionProtection</a> smart constructor.
 data UpdateDeletionProtection
@@ -5981,29 +5981,29 @@ newUpdateDeletionProtectionResponse :: Int -> UpdateDeletionProtectionResponse
 
 -- | The response's http status code.
 updateDeletionProtectionResponse_httpStatus :: Lens' UpdateDeletionProtectionResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.UpdateDeletionProtection.UpdateDeletionProtection
 
 
 -- | Update the details of an incident record. You can use this action to
 --   update an incident record from the defined chat channel. For more
 --   information about using actions in chat channels, see <a>Interacting
 --   through chat</a>.
-module Network.AWS.SSMIncidents.UpdateIncidentRecord
+module Amazonka.SSMIncidents.UpdateIncidentRecord
 
 -- | <i>See:</i> <a>newUpdateIncidentRecord</a> smart constructor.
 data UpdateIncidentRecord
@@ -6187,27 +6187,27 @@ newUpdateIncidentRecordResponse :: Int -> UpdateIncidentRecordResponse
 
 -- | The response's http status code.
 updateIncidentRecordResponse_httpStatus :: Lens' UpdateIncidentRecordResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecordResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.UpdateIncidentRecord.UpdateIncidentRecord
 
 
 -- | Add or remove related items from the related items tab of an incident
 --   record.
-module Network.AWS.SSMIncidents.UpdateRelatedItems
+module Amazonka.SSMIncidents.UpdateRelatedItems
 
 -- | <i>See:</i> <a>newUpdateRelatedItems</a> smart constructor.
 data UpdateRelatedItems
@@ -6280,26 +6280,26 @@ newUpdateRelatedItemsResponse :: Int -> UpdateRelatedItemsResponse
 
 -- | The response's http status code.
 updateRelatedItemsResponse_httpStatus :: Lens' UpdateRelatedItemsResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItemsResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.UpdateRelatedItems.UpdateRelatedItems
 
 
 -- | Add or delete Regions from your replication set.
-module Network.AWS.SSMIncidents.UpdateReplicationSet
+module Amazonka.SSMIncidents.UpdateReplicationSet
 
 -- | <i>See:</i> <a>newUpdateReplicationSet</a> smart constructor.
 data UpdateReplicationSet
@@ -6370,26 +6370,26 @@ newUpdateReplicationSetResponse :: Int -> UpdateReplicationSetResponse
 
 -- | The response's http status code.
 updateReplicationSetResponse_httpStatus :: Lens' UpdateReplicationSetResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.UpdateReplicationSet.UpdateReplicationSet
 
 
 -- | Updates the specified response plan.
-module Network.AWS.SSMIncidents.UpdateResponsePlan
+module Amazonka.SSMIncidents.UpdateResponsePlan
 
 -- | <i>See:</i> <a>newUpdateResponsePlan</a> smart constructor.
 data UpdateResponsePlan
@@ -6592,27 +6592,27 @@ newUpdateResponsePlanResponse :: Int -> UpdateResponsePlanResponse
 
 -- | The response's http status code.
 updateResponsePlanResponse_httpStatus :: Lens' UpdateResponsePlanResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlanResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.UpdateResponsePlan.UpdateResponsePlan
 
 
 -- | Updates a timeline event. You can update events of type <tt>Custom
 --   Event</tt>.
-module Network.AWS.SSMIncidents.UpdateTimelineEvent
+module Amazonka.SSMIncidents.UpdateTimelineEvent
 
 -- | <i>See:</i> <a>newUpdateTimelineEvent</a> smart constructor.
 data UpdateTimelineEvent
@@ -6719,25 +6719,25 @@ newUpdateTimelineEventResponse :: Int -> UpdateTimelineEventResponse
 
 -- | The response's http status code.
 updateTimelineEventResponse_httpStatus :: Lens' UpdateTimelineEventResponse Int
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance GHC.Generics.Generic Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
-instance GHC.Show.Show Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
-instance GHC.Read.Read Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
-instance GHC.Classes.Eq Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance Control.DeepSeq.NFData Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance GHC.Generics.Generic Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
+instance GHC.Show.Show Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
+instance GHC.Read.Read Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
+instance GHC.Classes.Eq Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEventResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance Control.DeepSeq.NFData Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance Amazonka.Data.Path.ToPath Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
+instance Amazonka.Data.Query.ToQuery Amazonka.SSMIncidents.UpdateTimelineEvent.UpdateTimelineEvent
 
 
-module Network.AWS.SSMIncidents.Lens
+module Amazonka.SSMIncidents.Lens
 
 -- | The Amazon Resource Name (ARN) of the replication set you're deleting.
 deleteReplicationSet_arn :: Lens' DeleteReplicationSet Text
@@ -7636,7 +7636,7 @@ updateReplicationSetAction_addRegionAction :: Lens' UpdateReplicationSetAction (
 updateReplicationSetAction_deleteRegionAction :: Lens' UpdateReplicationSetAction (Maybe DeleteRegionAction)
 
 
-module Network.AWS.SSMIncidents.Waiters
+module Amazonka.SSMIncidents.Waiters
 
 -- | Polls <a>GetReplicationSet</a> every 30 seconds until a successful
 --   state is reached. An error is returned after 5 failed checks.
@@ -7661,7 +7661,7 @@ newWaitForReplicationSetDeleted :: Wait GetReplicationSet
 --   the primary goal of reducing the time-to-resolution of critical
 --   incidents, Incident Manager automates response plans and enables
 --   responder team escalation.
-module Network.AWS.SSMIncidents
+module Amazonka.SSMIncidents
 
 -- | API version <tt>2018-05-10</tt> of the Amazon Systems Manager Incident
 --   Manager SDK configuration.

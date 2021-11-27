@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECS.Types.PlatformDevice</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.Types.PlatformDevice</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDeviceType.html"><span class="hs-identifier">Amazonka.ECS.Types.PlatformDeviceType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The devices that are available on the container instance. The only</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- supported device type is a GPU.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPlatformDevice' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679458000"><span id="local-6989586621679458001"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlatformDevice"><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice"><span class="hs-identifier hs-var">PlatformDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformDevice%27"><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice%27"><span class="hs-identifier hs-var">PlatformDevice'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID for the GPU(s) on the container instance. The available GPU IDs</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- can also be obtained on the container instance in the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @\/var\/lib\/ecs\/gpu\/nvidia_gpu_info.json@ file.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aid%3APlatformDevice%27"><span class="annot"><span class="annottext">PlatformDevice -&gt; Text
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#%24sel%3Aid%3APlatformDevice%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of device that is available on the container instance. The only</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- supported value is @GPU@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atype%27%3APlatformDevice%27"><span class="annot"><span class="annottext">PlatformDevice -&gt; PlatformDeviceType
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#%24sel%3Atype%27%3APlatformDevice%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDeviceType.html#PlatformDeviceType"><span class="hs-identifier hs-type">PlatformDeviceType</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679457993"><span id="local-6989586621679457995"><span class="annot"><span class="annottext">PlatformDevice -&gt; PlatformDevice -&gt; Bool
+(PlatformDevice -&gt; PlatformDevice -&gt; Bool)
+-&gt; (PlatformDevice -&gt; PlatformDevice -&gt; Bool) -&gt; Eq PlatformDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PlatformDevice -&gt; PlatformDevice -&gt; Bool
+$c/= :: PlatformDevice -&gt; PlatformDevice -&gt; Bool
+== :: PlatformDevice -&gt; PlatformDevice -&gt; Bool
+$c== :: PlatformDevice -&gt; PlatformDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457984"><span id="local-6989586621679457986"><span id="local-6989586621679457988"><span id="local-6989586621679457990"><span class="annot"><span class="annottext">ReadPrec [PlatformDevice]
+ReadPrec PlatformDevice
+Int -&gt; ReadS PlatformDevice
+ReadS [PlatformDevice]
+(Int -&gt; ReadS PlatformDevice)
+-&gt; ReadS [PlatformDevice]
+-&gt; ReadPrec PlatformDevice
+-&gt; ReadPrec [PlatformDevice]
+-&gt; Read PlatformDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PlatformDevice]
+$creadListPrec :: ReadPrec [PlatformDevice]
+readPrec :: ReadPrec PlatformDevice
+$creadPrec :: ReadPrec PlatformDevice
+readList :: ReadS [PlatformDevice]
+$creadList :: ReadS [PlatformDevice]
+readsPrec :: Int -&gt; ReadS PlatformDevice
+$creadsPrec :: Int -&gt; ReadS PlatformDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457977"><span id="local-6989586621679457979"><span id="local-6989586621679457981"><span class="annot"><span class="annottext">Int -&gt; PlatformDevice -&gt; ShowS
+[PlatformDevice] -&gt; ShowS
+PlatformDevice -&gt; String
+(Int -&gt; PlatformDevice -&gt; ShowS)
+-&gt; (PlatformDevice -&gt; String)
+-&gt; ([PlatformDevice] -&gt; ShowS)
+-&gt; Show PlatformDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PlatformDevice] -&gt; ShowS
+$cshowList :: [PlatformDevice] -&gt; ShowS
+show :: PlatformDevice -&gt; String
+$cshow :: PlatformDevice -&gt; String
+showsPrec :: Int -&gt; PlatformDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; PlatformDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PlatformDevice -&gt; Rep PlatformDevice x)
+-&gt; (forall x. Rep PlatformDevice x -&gt; PlatformDevice)
+-&gt; Generic PlatformDevice
+forall x. Rep PlatformDevice x -&gt; PlatformDevice
+forall x. PlatformDevice -&gt; Rep PlatformDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PlatformDevice x -&gt; PlatformDevice
+$cfrom :: forall x. PlatformDevice -&gt; Rep PlatformDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'PlatformDevice' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'id', 'platformDevice_id' - The ID for the GPU(s) on the container instance. The available GPU IDs</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- can also be obtained on the container instance in the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- @\/var\/lib\/ecs\/gpu\/nvidia_gpu_info.json@ file.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'type'', 'platformDevice_type' - The type of device that is available on the container instance. The only</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- supported value is @GPU@.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#newPlatformDevice"><span class="hs-identifier hs-type">newPlatformDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDeviceType.html#PlatformDeviceType"><span class="hs-identifier hs-type">PlatformDeviceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice"><span class="hs-identifier hs-type">PlatformDevice</span></a></span><span>
+</span><span id="line-62"></span><span id="newPlatformDevice"><span class="annot"><span class="annottext">newPlatformDevice :: Text -&gt; PlatformDeviceType -&gt; PlatformDevice
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#newPlatformDevice"><span class="hs-identifier hs-var hs-var">newPlatformDevice</span></a></span></span><span> </span><span id="local-6989586621679457971"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457971"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679457970"><span class="annot"><span class="annottext">PlatformDeviceType
+</span><a href="#local-6989586621679457970"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">PlatformDevice' :: Text -&gt; PlatformDeviceType -&gt; PlatformDevice
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice%27"><span class="hs-identifier hs-type">PlatformDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PlatformDevice' :: Text
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#%24sel%3Aid%3APlatformDevice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457971"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':PlatformDevice' :: PlatformDeviceType
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#%24sel%3Atype%27%3APlatformDevice%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PlatformDeviceType
+</span><a href="#local-6989586621679457970"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The ID for the GPU(s) on the container instance. The available GPU IDs</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- can also be obtained on the container instance in the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- @\/var\/lib\/ecs\/gpu\/nvidia_gpu_info.json@ file.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#platformDevice_id"><span class="hs-identifier hs-type">platformDevice_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice"><span class="hs-identifier hs-type">PlatformDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span id="platformDevice_id"><span class="annot"><span class="annottext">platformDevice_id :: (Text -&gt; f Text) -&gt; PlatformDevice -&gt; f PlatformDevice
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#platformDevice_id"><span class="hs-identifier hs-var hs-var">platformDevice_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlatformDevice -&gt; Text)
+-&gt; (PlatformDevice -&gt; Text -&gt; PlatformDevice)
+-&gt; Lens PlatformDevice PlatformDevice Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice%27"><span class="hs-identifier hs-type">PlatformDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457966"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:PlatformDevice' :: PlatformDevice -&gt; Text
+</span><a href="#local-6989586621679457966"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457966"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457965"><span class="annot"><span class="annottext">s :: PlatformDevice
+</span><a href="#local-6989586621679457965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice%27"><span class="hs-identifier hs-type">PlatformDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457964"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlatformDevice
+</span><a href="#local-6989586621679457965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PlatformDevice' :: Text
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#%24sel%3Aid%3APlatformDevice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice"><span class="hs-identifier hs-type">PlatformDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The type of device that is available on the container instance. The only</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- supported value is @GPU@.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#platformDevice_type"><span class="hs-identifier hs-type">platformDevice_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice"><span class="hs-identifier hs-type">PlatformDevice</span></a></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDeviceType.html#PlatformDeviceType"><span class="hs-identifier hs-type">PlatformDeviceType</span></a></span><span>
+</span><span id="line-74"></span><span id="platformDevice_type"><span class="annot"><span class="annottext">platformDevice_type :: (PlatformDeviceType -&gt; f PlatformDeviceType)
+-&gt; PlatformDevice -&gt; f PlatformDevice
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#platformDevice_type"><span class="hs-identifier hs-var hs-var">platformDevice_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlatformDevice -&gt; PlatformDeviceType)
+-&gt; (PlatformDevice -&gt; PlatformDeviceType -&gt; PlatformDevice)
+-&gt; Lens
+     PlatformDevice PlatformDevice PlatformDeviceType PlatformDeviceType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice%27"><span class="hs-identifier hs-type">PlatformDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457962"><span class="annot"><span class="annottext">PlatformDeviceType
+type' :: PlatformDeviceType
+$sel:type':PlatformDevice' :: PlatformDevice -&gt; PlatformDeviceType
+</span><a href="#local-6989586621679457962"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlatformDeviceType
+</span><a href="#local-6989586621679457962"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457961"><span class="annot"><span class="annottext">s :: PlatformDevice
+</span><a href="#local-6989586621679457961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice%27"><span class="hs-identifier hs-type">PlatformDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457960"><span class="annot"><span class="annottext">PlatformDeviceType
+</span><a href="#local-6989586621679457960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlatformDevice
+</span><a href="#local-6989586621679457961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':PlatformDevice' :: PlatformDeviceType
+</span><a href="Amazonka.ECS.Types.PlatformDevice.html#%24sel%3Atype%27%3APlatformDevice%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PlatformDeviceType
+</span><a href="#local-6989586621679457960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice"><span class="hs-identifier hs-type">PlatformDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457956"><span id="local-6989586621679457958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice"><span class="hs-identifier hs-type">PlatformDevice</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice"><span class="hs-identifier hs-type">PlatformDevice</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457945"><span id="local-6989586621679457947"><span id="local-6989586621679457949"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice"><span class="hs-identifier hs-type">PlatformDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679457943"><span class="annot"><span class="annottext">toJSON :: PlatformDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlatformDevice.html#PlatformDevice%27"><span class="hs-identifier hs-type">PlatformDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457940"><span id="local-6989586621679457941"><span class="annot"><span class="annottext">Text
+PlatformDeviceType
+type' :: PlatformDeviceType
+id :: Text
+$sel:type':PlatformDevice' :: PlatformDevice -&gt; PlatformDeviceType
+$sel:id:PlatformDevice' :: PlatformDevice -&gt; Text
+</span><a href="#local-6989586621679457940"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457941"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PlatformDeviceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PlatformDeviceType
+</span><a href="#local-6989586621679457940"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span></pre></body></html>

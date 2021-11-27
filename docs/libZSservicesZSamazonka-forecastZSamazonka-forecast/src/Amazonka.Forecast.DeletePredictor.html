@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Forecast.DeletePredictor</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a predictor created using the CreatePredictor operation. You can</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- delete only predictor that have a status of @ACTIVE@ or @CREATE_FAILED@.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- To get the status, use the DescribePredictor operation.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Forecast.DeletePredictor</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier">DeletePredictor</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#newDeletePredictor"><span class="hs-identifier">newDeletePredictor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#deletePredictor_predictorArn"><span class="hs-identifier">deletePredictor_predictorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictorResponse"><span class="hs-identifier">DeletePredictorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#newDeletePredictorResponse"><span class="hs-identifier">newDeletePredictorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.html"><span class="hs-identifier">Amazonka.Forecast.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newDeletePredictor' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679256813"><span id="local-6989586621679256814"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePredictor"><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-var">DeletePredictor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePredictor%27"><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor%27"><span class="hs-identifier hs-var">DeletePredictor'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the predictor to delete.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ApredictorArn%3ADeletePredictor%27"><span class="annot"><span class="annottext">DeletePredictor -&gt; Text
+</span><a href="Amazonka.Forecast.DeletePredictor.html#%24sel%3ApredictorArn%3ADeletePredictor%27"><span class="hs-identifier hs-var hs-var">predictorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256807"><span id="local-6989586621679256809"><span class="annot"><span class="annottext">DeletePredictor -&gt; DeletePredictor -&gt; Bool
+(DeletePredictor -&gt; DeletePredictor -&gt; Bool)
+-&gt; (DeletePredictor -&gt; DeletePredictor -&gt; Bool)
+-&gt; Eq DeletePredictor
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePredictor -&gt; DeletePredictor -&gt; Bool
+$c/= :: DeletePredictor -&gt; DeletePredictor -&gt; Bool
+== :: DeletePredictor -&gt; DeletePredictor -&gt; Bool
+$c== :: DeletePredictor -&gt; DeletePredictor -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256798"><span id="local-6989586621679256800"><span id="local-6989586621679256802"><span id="local-6989586621679256804"><span class="annot"><span class="annottext">ReadPrec [DeletePredictor]
+ReadPrec DeletePredictor
+Int -&gt; ReadS DeletePredictor
+ReadS [DeletePredictor]
+(Int -&gt; ReadS DeletePredictor)
+-&gt; ReadS [DeletePredictor]
+-&gt; ReadPrec DeletePredictor
+-&gt; ReadPrec [DeletePredictor]
+-&gt; Read DeletePredictor
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePredictor]
+$creadListPrec :: ReadPrec [DeletePredictor]
+readPrec :: ReadPrec DeletePredictor
+$creadPrec :: ReadPrec DeletePredictor
+readList :: ReadS [DeletePredictor]
+$creadList :: ReadS [DeletePredictor]
+readsPrec :: Int -&gt; ReadS DeletePredictor
+$creadsPrec :: Int -&gt; ReadS DeletePredictor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256791"><span id="local-6989586621679256793"><span id="local-6989586621679256795"><span class="annot"><span class="annottext">Int -&gt; DeletePredictor -&gt; ShowS
+[DeletePredictor] -&gt; ShowS
+DeletePredictor -&gt; String
+(Int -&gt; DeletePredictor -&gt; ShowS)
+-&gt; (DeletePredictor -&gt; String)
+-&gt; ([DeletePredictor] -&gt; ShowS)
+-&gt; Show DeletePredictor
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePredictor] -&gt; ShowS
+$cshowList :: [DeletePredictor] -&gt; ShowS
+show :: DeletePredictor -&gt; String
+$cshow :: DeletePredictor -&gt; String
+showsPrec :: Int -&gt; DeletePredictor -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePredictor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeletePredictor -&gt; Rep DeletePredictor x)
+-&gt; (forall x. Rep DeletePredictor x -&gt; DeletePredictor)
+-&gt; Generic DeletePredictor
+forall x. Rep DeletePredictor x -&gt; DeletePredictor
+forall x. DeletePredictor -&gt; Rep DeletePredictor x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeletePredictor x -&gt; DeletePredictor
+$cfrom :: forall x. DeletePredictor -&gt; Rep DeletePredictor x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'DeletePredictor' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'predictorArn', 'deletePredictor_predictorArn' - The Amazon Resource Name (ARN) of the predictor to delete.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#newDeletePredictor"><span class="hs-identifier hs-type">newDeletePredictor</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'predictorArn'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span><span>
+</span><span id="line-67"></span><span id="newDeletePredictor"><span class="annot"><span class="annottext">newDeletePredictor :: Text -&gt; DeletePredictor
+</span><a href="Amazonka.Forecast.DeletePredictor.html#newDeletePredictor"><span class="hs-identifier hs-var hs-var">newDeletePredictor</span></a></span></span><span> </span><span id="local-6989586621679256786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256786"><span class="hs-identifier hs-var">pPredictorArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">DeletePredictor' :: Text -&gt; DeletePredictor
+</span><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor%27"><span class="hs-identifier hs-type">DeletePredictor'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predictorArn:DeletePredictor' :: Text
+</span><a href="Amazonka.Forecast.DeletePredictor.html#%24sel%3ApredictorArn%3ADeletePredictor%27"><span class="hs-identifier hs-var">predictorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256786"><span class="hs-identifier hs-var">pPredictorArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the predictor to delete.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#deletePredictor_predictorArn"><span class="hs-identifier hs-type">deletePredictor_predictorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span id="deletePredictor_predictorArn"><span class="annot"><span class="annottext">deletePredictor_predictorArn :: (Text -&gt; f Text) -&gt; DeletePredictor -&gt; f DeletePredictor
+</span><a href="Amazonka.Forecast.DeletePredictor.html#deletePredictor_predictorArn"><span class="hs-identifier hs-var hs-var">deletePredictor_predictorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePredictor -&gt; Text)
+-&gt; (DeletePredictor -&gt; Text -&gt; DeletePredictor)
+-&gt; Lens DeletePredictor DeletePredictor Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor%27"><span class="hs-identifier hs-type">DeletePredictor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256783"><span class="annot"><span class="annottext">Text
+predictorArn :: Text
+$sel:predictorArn:DeletePredictor' :: DeletePredictor -&gt; Text
+</span><a href="#local-6989586621679256783"><span class="hs-identifier hs-var hs-var">predictorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256783"><span class="hs-identifier hs-var">predictorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256782"><span class="annot"><span class="annottext">s :: DeletePredictor
+</span><a href="#local-6989586621679256782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor%27"><span class="hs-identifier hs-type">DeletePredictor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256781"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePredictor
+</span><a href="#local-6989586621679256782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predictorArn:DeletePredictor' :: Text
+</span><a href="Amazonka.Forecast.DeletePredictor.html#%24sel%3ApredictorArn%3ADeletePredictor%27"><span class="hs-identifier hs-var">predictorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-76"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictorResponse"><span class="hs-identifier hs-type">DeletePredictorResponse</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679256777"><span class="annot"><span class="annottext">request :: DeletePredictor -&gt; Request DeletePredictor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePredictor -&gt; Request DeletePredictor
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Forecast.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679256773"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeletePredictor
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeletePredictor)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeletePredictor
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeletePredictor
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeletePredictor)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeletePredictor
+DeletePredictorResponse
+</span><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictorResponse%27"><span class="hs-identifier hs-var">DeletePredictorResponse'</span></a></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256766"><span id="local-6989586621679256768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679256759"><span class="annot"><span class="annottext">toHeaders :: DeletePredictor -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeletePredictor -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-90"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-91"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonForecast.DeletePredictor&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-93"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-97"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256749"><span id="local-6989586621679256751"><span id="local-6989586621679256753"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679256747"><span class="annot"><span class="annottext">toJSON :: DeletePredictor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor%27"><span class="hs-identifier hs-type">DeletePredictor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256745"><span class="annot"><span class="annottext">Text
+predictorArn :: Text
+$sel:predictorArn:DeletePredictor' :: DeletePredictor -&gt; Text
+</span><a href="#local-6989586621679256745"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PredictorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256745"><span class="hs-identifier hs-var">predictorArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679256739"><span class="annot"><span class="annottext">toPath :: DeletePredictor -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeletePredictor -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictor"><span class="hs-identifier hs-type">DeletePredictor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679256735"><span class="annot"><span class="annottext">toQuery :: DeletePredictor -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePredictor -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newDeletePredictorResponse' smart constructor.</span><span>
+</span><span id="line-115"></span><span id="local-6989586621679256732"><span id="local-6989586621679256733"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePredictorResponse"><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictorResponse"><span class="hs-identifier hs-var">DeletePredictorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePredictorResponse%27"><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictorResponse%27"><span class="hs-identifier hs-var">DeletePredictorResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256728"><span id="local-6989586621679256730"><span class="annot"><span class="annottext">DeletePredictorResponse -&gt; DeletePredictorResponse -&gt; Bool
+(DeletePredictorResponse -&gt; DeletePredictorResponse -&gt; Bool)
+-&gt; (DeletePredictorResponse -&gt; DeletePredictorResponse -&gt; Bool)
+-&gt; Eq DeletePredictorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePredictorResponse -&gt; DeletePredictorResponse -&gt; Bool
+$c/= :: DeletePredictorResponse -&gt; DeletePredictorResponse -&gt; Bool
+== :: DeletePredictorResponse -&gt; DeletePredictorResponse -&gt; Bool
+$c== :: DeletePredictorResponse -&gt; DeletePredictorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256720"><span id="local-6989586621679256722"><span id="local-6989586621679256724"><span id="local-6989586621679256726"><span class="annot"><span class="annottext">ReadPrec [DeletePredictorResponse]
+ReadPrec DeletePredictorResponse
+Int -&gt; ReadS DeletePredictorResponse
+ReadS [DeletePredictorResponse]
+(Int -&gt; ReadS DeletePredictorResponse)
+-&gt; ReadS [DeletePredictorResponse]
+-&gt; ReadPrec DeletePredictorResponse
+-&gt; ReadPrec [DeletePredictorResponse]
+-&gt; Read DeletePredictorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePredictorResponse]
+$creadListPrec :: ReadPrec [DeletePredictorResponse]
+readPrec :: ReadPrec DeletePredictorResponse
+$creadPrec :: ReadPrec DeletePredictorResponse
+readList :: ReadS [DeletePredictorResponse]
+$creadList :: ReadS [DeletePredictorResponse]
+readsPrec :: Int -&gt; ReadS DeletePredictorResponse
+$creadsPrec :: Int -&gt; ReadS DeletePredictorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256714"><span id="local-6989586621679256716"><span id="local-6989586621679256718"><span class="annot"><span class="annottext">Int -&gt; DeletePredictorResponse -&gt; ShowS
+[DeletePredictorResponse] -&gt; ShowS
+DeletePredictorResponse -&gt; String
+(Int -&gt; DeletePredictorResponse -&gt; ShowS)
+-&gt; (DeletePredictorResponse -&gt; String)
+-&gt; ([DeletePredictorResponse] -&gt; ShowS)
+-&gt; Show DeletePredictorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePredictorResponse] -&gt; ShowS
+$cshowList :: [DeletePredictorResponse] -&gt; ShowS
+show :: DeletePredictorResponse -&gt; String
+$cshow :: DeletePredictorResponse -&gt; String
+showsPrec :: Int -&gt; DeletePredictorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePredictorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeletePredictorResponse -&gt; Rep DeletePredictorResponse x)
+-&gt; (forall x.
+    Rep DeletePredictorResponse x -&gt; DeletePredictorResponse)
+-&gt; Generic DeletePredictorResponse
+forall x. Rep DeletePredictorResponse x -&gt; DeletePredictorResponse
+forall x. DeletePredictorResponse -&gt; Rep DeletePredictorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeletePredictorResponse x -&gt; DeletePredictorResponse
+$cfrom :: forall x. DeletePredictorResponse -&gt; Rep DeletePredictorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'DeletePredictorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#newDeletePredictorResponse"><span class="hs-identifier hs-type">newDeletePredictorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictorResponse"><span class="hs-identifier hs-type">DeletePredictorResponse</span></a></span><span>
+</span><span id="line-126"></span><span id="newDeletePredictorResponse"><span class="annot"><span class="annottext">newDeletePredictorResponse :: DeletePredictorResponse
+</span><a href="Amazonka.Forecast.DeletePredictor.html#newDeletePredictorResponse"><span class="hs-identifier hs-var hs-var">newDeletePredictorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeletePredictorResponse
+</span><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictorResponse%27"><span class="hs-identifier hs-var">DeletePredictorResponse'</span></a></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.DeletePredictor.html#DeletePredictorResponse"><span class="hs-identifier hs-type">DeletePredictorResponse</span></a></span></span><span>
+</span><span id="line-129"></span></pre></body></html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.HoneyCode.Types.Cell</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.HoneyCode.Types.Cell</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Format.html"><span class="hs-identifier">Amazonka.HoneyCode.Types.Format</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object that represents a single cell in a table.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCell' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679178578"><span id="local-6989586621679178579"></span></span><span class="hs-keyword">data</span><span> </span><span id="Cell"><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-var">Cell</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Cell%27"><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-var">Cell'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The raw value of the data contained in the cell. The raw value depends</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- on the format of the data in the cell. However the attribute in the API</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- return value is always a string containing the raw value.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Cells with format DATE, DATE_TIME or TIME have the raw value as a</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- floating point number where the whole number represents the number of</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- days since 1\/1\/1900 and the fractional part represents the fraction of</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the day since midnight. For example, a cell with date 11\/3\/2020 has</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the raw value \&quot;44138\&quot;. A cell with the time 9:00 AM has the raw value</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- \&quot;0.375\&quot; and a cell with date\/time value of 11\/3\/2020 9:00 AM has</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the raw value \&quot;44138.375\&quot;. Notice that even though the raw value is a</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- number in all three cases, it is still represented as a string.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Cells with format NUMBER, CURRENCY, PERCENTAGE and ACCOUNTING have the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- raw value of the data as the number representing the data being</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- displayed. For example, the number 1.325 with two decimal places in the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- format will have it\'s raw value as \&quot;1.325\&quot; and formatted value as</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- \&quot;1.33\&quot;. A currency value for $10 will have the raw value as \&quot;10\&quot; and</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- formatted value as \&quot;$10.00\&quot;. A value representing 20% with two decimal</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- places in the format will have its raw value as \&quot;0.2\&quot; and the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- formatted value as \&quot;20.00%\&quot;. An accounting value of -$25 will have</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- \&quot;-25\&quot; as the raw value and \&quot;$ (25.00)\&quot; as the formatted value.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Cells with format TEXT will have the raw text as the raw value. For</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- example, a cell with text \&quot;John Smith\&quot; will have \&quot;John Smith\&quot; as</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- both the raw value and the formatted value.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Cells with format CONTACT will have the name of the contact as a</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- formatted value and the email address of the contact as the raw value.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- For example, a contact for John Smith will have \&quot;John Smith\&quot; as the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- formatted value and \&quot;john.smith\@example.com\&quot; as the raw value.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Cells with format ROWLINK (aka picklist) will have the first column of</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the linked row as the formatted value and the row id of the linked row</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- as the raw value. For example, a cell containing a picklist to a table</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- that displays task status might have \&quot;Completed\&quot; as the formatted</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- value and</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- \&quot;row:dfcefaee-5b37-4355-8f28-40c3e4ff5dd4\/ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\&quot;</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- as the raw value.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Cells with format AUTO or cells without any format that are</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- auto-detected as one of the formats above will contain the raw and</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- formatted values as mentioned above, based on the auto-detected formats.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- If there is no auto-detected format, the raw and formatted values will</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- be the same as the data in the cell.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3ArawValue%3ACell%27"><span class="annot"><span class="annottext">Cell -&gt; Maybe Text
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3ArawValue%3ACell%27"><span class="hs-identifier hs-var hs-var">rawValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The format of the cell. If this field is empty, then the format is</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- either not specified in the workbook or the format is set to AUTO.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aformat%3ACell%27"><span class="annot"><span class="annottext">Cell -&gt; Maybe Format
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3Aformat%3ACell%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The formula contained in the cell. This field is empty if a cell does</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- not have a formula.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Aformula%3ACell%27"><span class="annot"><span class="annottext">Cell -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3Aformula%3ACell%27"><span class="hs-identifier hs-var hs-var">formula</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The formatted value of the cell. This is the value that you see</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- displayed in the cell in the UI.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Note that the formatted value of a cell is always represented as a</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- string irrespective of the data that is stored in the cell. For example,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- if a cell contains a date, the formatted value of the cell is the string</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- representation of the formatted date being shown in the cell in the UI.</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- See details in the rawValue field below for how cells of different</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- formats will have different raw and formatted values.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AformattedValue%3ACell%27"><span class="annot"><span class="annottext">Cell -&gt; Maybe Text
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3AformattedValue%3ACell%27"><span class="hs-identifier hs-var hs-var">formattedValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178569"><span id="local-6989586621679178571"><span class="annot"><span class="annottext">Cell -&gt; Cell -&gt; Bool
+(Cell -&gt; Cell -&gt; Bool) -&gt; (Cell -&gt; Cell -&gt; Bool) -&gt; Eq Cell
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Cell -&gt; Cell -&gt; Bool
+$c/= :: Cell -&gt; Cell -&gt; Bool
+== :: Cell -&gt; Cell -&gt; Bool
+$c== :: Cell -&gt; Cell -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178562"><span id="local-6989586621679178564"><span id="local-6989586621679178566"><span class="annot"><span class="annottext">Int -&gt; Cell -&gt; ShowS
+[Cell] -&gt; ShowS
+Cell -&gt; String
+(Int -&gt; Cell -&gt; ShowS)
+-&gt; (Cell -&gt; String) -&gt; ([Cell] -&gt; ShowS) -&gt; Show Cell
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Cell] -&gt; ShowS
+$cshowList :: [Cell] -&gt; ShowS
+show :: Cell -&gt; String
+$cshow :: Cell -&gt; String
+showsPrec :: Int -&gt; Cell -&gt; ShowS
+$cshowsPrec :: Int -&gt; Cell -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Cell -&gt; Rep Cell x)
+-&gt; (forall x. Rep Cell x -&gt; Cell) -&gt; Generic Cell
+forall x. Rep Cell x -&gt; Cell
+forall x. Cell -&gt; Rep Cell x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Cell x -&gt; Cell
+$cfrom :: forall x. Cell -&gt; Rep Cell x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'Cell' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'rawValue', 'cell_rawValue' - The raw value of the data contained in the cell. The raw value depends</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- on the format of the data in the cell. However the attribute in the API</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- return value is always a string containing the raw value.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Cells with format DATE, DATE_TIME or TIME have the raw value as a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- floating point number where the whole number represents the number of</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- days since 1\/1\/1900 and the fractional part represents the fraction of</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the day since midnight. For example, a cell with date 11\/3\/2020 has</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the raw value \&quot;44138\&quot;. A cell with the time 9:00 AM has the raw value</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- \&quot;0.375\&quot; and a cell with date\/time value of 11\/3\/2020 9:00 AM has</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the raw value \&quot;44138.375\&quot;. Notice that even though the raw value is a</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- number in all three cases, it is still represented as a string.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Cells with format NUMBER, CURRENCY, PERCENTAGE and ACCOUNTING have the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- raw value of the data as the number representing the data being</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- displayed. For example, the number 1.325 with two decimal places in the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- format will have it\'s raw value as \&quot;1.325\&quot; and formatted value as</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- \&quot;1.33\&quot;. A currency value for $10 will have the raw value as \&quot;10\&quot; and</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- formatted value as \&quot;$10.00\&quot;. A value representing 20% with two decimal</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- places in the format will have its raw value as \&quot;0.2\&quot; and the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- formatted value as \&quot;20.00%\&quot;. An accounting value of -$25 will have</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- \&quot;-25\&quot; as the raw value and \&quot;$ (25.00)\&quot; as the formatted value.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Cells with format TEXT will have the raw text as the raw value. For</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- example, a cell with text \&quot;John Smith\&quot; will have \&quot;John Smith\&quot; as</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- both the raw value and the formatted value.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Cells with format CONTACT will have the name of the contact as a</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- formatted value and the email address of the contact as the raw value.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- For example, a contact for John Smith will have \&quot;John Smith\&quot; as the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- formatted value and \&quot;john.smith\@example.com\&quot; as the raw value.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Cells with format ROWLINK (aka picklist) will have the first column of</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- the linked row as the formatted value and the row id of the linked row</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- as the raw value. For example, a cell containing a picklist to a table</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- that displays task status might have \&quot;Completed\&quot; as the formatted</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- value and</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- \&quot;row:dfcefaee-5b37-4355-8f28-40c3e4ff5dd4\/ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\&quot;</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- as the raw value.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Cells with format AUTO or cells without any format that are</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- auto-detected as one of the formats above will contain the raw and</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- formatted values as mentioned above, based on the auto-detected formats.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- If there is no auto-detected format, the raw and formatted values will</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- be the same as the data in the cell.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'format', 'cell_format' - The format of the cell. If this field is empty, then the format is</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- either not specified in the workbook or the format is set to AUTO.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'formula', 'cell_formula' - The formula contained in the cell. This field is empty if a cell does</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- not have a formula.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'formattedValue', 'cell_formattedValue' - The formatted value of the cell. This is the value that you see</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- displayed in the cell in the UI.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Note that the formatted value of a cell is always represented as a</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- string irrespective of the data that is stored in the cell. For example,</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- if a cell contains a date, the formatted value of the cell is the string</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- representation of the formatted date being shown in the cell in the UI.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- See details in the rawValue field below for how cells of different</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- formats will have different raw and formatted values.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#newCell"><span class="hs-identifier hs-type">newCell</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span>
+</span><span id="line-167"></span><span id="newCell"><span class="annot"><span class="annottext">newCell :: Cell
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#newCell"><span class="hs-identifier hs-var hs-var">newCell</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">Cell' :: Maybe Text
+-&gt; Maybe Format -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Cell
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-type">Cell'</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rawValue:Cell' :: Maybe Text
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3ArawValue%3ACell%27"><span class="hs-identifier hs-var">rawValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:format:Cell' :: Maybe Format
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3Aformat%3ACell%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Format
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:formula:Cell' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3Aformula%3ACell%27"><span class="hs-identifier hs-var">formula</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:formattedValue:Cell' :: Maybe Text
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3AformattedValue%3ACell%27"><span class="hs-identifier hs-var">formattedValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The raw value of the data contained in the cell. The raw value depends</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- on the format of the data in the cell. However the attribute in the API</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- return value is always a string containing the raw value.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Cells with format DATE, DATE_TIME or TIME have the raw value as a</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- floating point number where the whole number represents the number of</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- days since 1\/1\/1900 and the fractional part represents the fraction of</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- the day since midnight. For example, a cell with date 11\/3\/2020 has</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- the raw value \&quot;44138\&quot;. A cell with the time 9:00 AM has the raw value</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- \&quot;0.375\&quot; and a cell with date\/time value of 11\/3\/2020 9:00 AM has</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- the raw value \&quot;44138.375\&quot;. Notice that even though the raw value is a</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- number in all three cases, it is still represented as a string.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Cells with format NUMBER, CURRENCY, PERCENTAGE and ACCOUNTING have the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- raw value of the data as the number representing the data being</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- displayed. For example, the number 1.325 with two decimal places in the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- format will have it\'s raw value as \&quot;1.325\&quot; and formatted value as</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- \&quot;1.33\&quot;. A currency value for $10 will have the raw value as \&quot;10\&quot; and</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- formatted value as \&quot;$10.00\&quot;. A value representing 20% with two decimal</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- places in the format will have its raw value as \&quot;0.2\&quot; and the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- formatted value as \&quot;20.00%\&quot;. An accounting value of -$25 will have</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- \&quot;-25\&quot; as the raw value and \&quot;$ (25.00)\&quot; as the formatted value.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Cells with format TEXT will have the raw text as the raw value. For</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- example, a cell with text \&quot;John Smith\&quot; will have \&quot;John Smith\&quot; as</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- both the raw value and the formatted value.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Cells with format CONTACT will have the name of the contact as a</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- formatted value and the email address of the contact as the raw value.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- For example, a contact for John Smith will have \&quot;John Smith\&quot; as the</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- formatted value and \&quot;john.smith\@example.com\&quot; as the raw value.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Cells with format ROWLINK (aka picklist) will have the first column of</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- the linked row as the formatted value and the row id of the linked row</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- as the raw value. For example, a cell containing a picklist to a table</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- that displays task status might have \&quot;Completed\&quot; as the formatted</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- value and</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- \&quot;row:dfcefaee-5b37-4355-8f28-40c3e4ff5dd4\/ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\&quot;</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- as the raw value.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Cells with format AUTO or cells without any format that are</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- auto-detected as one of the formats above will contain the raw and</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- formatted values as mentioned above, based on the auto-detected formats.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- If there is no auto-detected format, the raw and formatted values will</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- be the same as the data in the cell.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#cell_rawValue"><span class="hs-identifier hs-type">cell_rawValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="cell_rawValue"><span class="annot"><span class="annottext">cell_rawValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cell -&gt; f Cell
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#cell_rawValue"><span class="hs-identifier hs-var hs-var">cell_rawValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cell -&gt; Maybe Text)
+-&gt; (Cell -&gt; Maybe Text -&gt; Cell)
+-&gt; Lens Cell Cell (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-type">Cell'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178553"><span class="annot"><span class="annottext">Maybe Text
+rawValue :: Maybe Text
+$sel:rawValue:Cell' :: Cell -&gt; Maybe Text
+</span><a href="#local-6989586621679178553"><span class="hs-identifier hs-var hs-var">rawValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178553"><span class="hs-identifier hs-var">rawValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178552"><span class="annot"><span class="annottext">s :: Cell
+</span><a href="#local-6989586621679178552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-type">Cell'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178551"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cell
+</span><a href="#local-6989586621679178552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rawValue:Cell' :: Maybe Text
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3ArawValue%3ACell%27"><span class="hs-identifier hs-var">rawValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The format of the cell. If this field is empty, then the format is</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- either not specified in the workbook or the format is set to AUTO.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#cell_format"><span class="hs-identifier hs-type">cell_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="cell_format"><span class="annot"><span class="annottext">cell_format :: (Maybe Format -&gt; f (Maybe Format)) -&gt; Cell -&gt; f Cell
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#cell_format"><span class="hs-identifier hs-var hs-var">cell_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cell -&gt; Maybe Format)
+-&gt; (Cell -&gt; Maybe Format -&gt; Cell)
+-&gt; Lens Cell Cell (Maybe Format) (Maybe Format)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-type">Cell'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178549"><span class="annot"><span class="annottext">Maybe Format
+format :: Maybe Format
+$sel:format:Cell' :: Cell -&gt; Maybe Format
+</span><a href="#local-6989586621679178549"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Format
+</span><a href="#local-6989586621679178549"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178548"><span class="annot"><span class="annottext">s :: Cell
+</span><a href="#local-6989586621679178548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-type">Cell'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178547"><span class="annot"><span class="annottext">Maybe Format
+</span><a href="#local-6989586621679178547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cell
+</span><a href="#local-6989586621679178548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:Cell' :: Maybe Format
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3Aformat%3ACell%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Format
+</span><a href="#local-6989586621679178547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The formula contained in the cell. This field is empty if a cell does</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- not have a formula.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#cell_formula"><span class="hs-identifier hs-type">cell_formula</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="cell_formula"><span class="annot"><span class="annottext">cell_formula :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cell -&gt; f Cell
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#cell_formula"><span class="hs-identifier hs-var hs-var">cell_formula</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cell -&gt; Maybe (Sensitive Text))
+-&gt; (Cell -&gt; Maybe (Sensitive Text) -&gt; Cell)
+-&gt; Lens Cell Cell (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-type">Cell'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178545"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+formula :: Maybe (Sensitive Text)
+$sel:formula:Cell' :: Cell -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178545"><span class="hs-identifier hs-var hs-var">formula</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178545"><span class="hs-identifier hs-var">formula</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178544"><span class="annot"><span class="annottext">s :: Cell
+</span><a href="#local-6989586621679178544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-type">Cell'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178543"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cell
+</span><a href="#local-6989586621679178544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formula:Cell' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3Aformula%3ACell%27"><span class="hs-identifier hs-var">formula</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; Cell -&gt; f Cell)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; Cell
+-&gt; f Cell
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The formatted value of the cell. This is the value that you see</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- displayed in the cell in the UI.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Note that the formatted value of a cell is always represented as a</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- string irrespective of the data that is stored in the cell. For example,</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- if a cell contains a date, the formatted value of the cell is the string</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- representation of the formatted date being shown in the cell in the UI.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- See details in the rawValue field below for how cells of different</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- formats will have different raw and formatted values.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#cell_formattedValue"><span class="hs-identifier hs-type">cell_formattedValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="cell_formattedValue"><span class="annot"><span class="annottext">cell_formattedValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cell -&gt; f Cell
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#cell_formattedValue"><span class="hs-identifier hs-var hs-var">cell_formattedValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cell -&gt; Maybe Text)
+-&gt; (Cell -&gt; Maybe Text -&gt; Cell)
+-&gt; Lens Cell Cell (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-type">Cell'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178538"><span class="annot"><span class="annottext">Maybe Text
+formattedValue :: Maybe Text
+$sel:formattedValue:Cell' :: Cell -&gt; Maybe Text
+</span><a href="#local-6989586621679178538"><span class="hs-identifier hs-var hs-var">formattedValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178538"><span class="hs-identifier hs-var">formattedValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178537"><span class="annot"><span class="annottext">s :: Cell
+</span><a href="#local-6989586621679178537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-type">Cell'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178536"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cell
+</span><a href="#local-6989586621679178537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formattedValue:Cell' :: Maybe Text
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#%24sel%3AformattedValue%3ACell%27"><span class="hs-identifier hs-var">formattedValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178533"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679178531"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Cell
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Cell) -&gt; Value -&gt; Parser Cell
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Cell&quot;</span></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178528"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178528"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Format -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Cell
+</span><a href="Amazonka.HoneyCode.Types.Cell.html#Cell%27"><span class="hs-identifier hs-var">Cell'</span></a></span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Format -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Cell)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Format -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Cell)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rawValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Format -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Cell)
+-&gt; Parser (Maybe Format)
+-&gt; Parser (Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Cell)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Format)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;format&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Cell)
+-&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser (Maybe Text -&gt; Cell)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;formula&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Cell) -&gt; Parser (Maybe Text) -&gt; Parser Cell
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;formattedValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178522"><span id="local-6989586621679178524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span></span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span></span><span>
+</span><span id="line-260"></span></pre></body></html>

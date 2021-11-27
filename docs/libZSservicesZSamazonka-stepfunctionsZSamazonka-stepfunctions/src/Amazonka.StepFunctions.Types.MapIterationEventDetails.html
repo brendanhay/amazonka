@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StepFunctions.Types.MapIterationEventDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StepFunctions.Types.MapIterationEventDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains details about an iteration of a Map state.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMapIterationEventDetails' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679225839"><span id="local-6989586621679225840"></span></span><span class="hs-keyword">data</span><span> </span><span id="MapIterationEventDetails"><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier hs-var">MapIterationEventDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MapIterationEventDetails%27"><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails%27"><span class="hs-identifier hs-var">MapIterationEventDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the iteration&#8217;s parent Map state.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AMapIterationEventDetails%27"><span class="annot"><span class="annottext">MapIterationEventDetails -&gt; Maybe Text
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#%24sel%3Aname%3AMapIterationEventDetails%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The index of the array belonging to the Map state iteration.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aindex%3AMapIterationEventDetails%27"><span class="annot"><span class="annottext">MapIterationEventDetails -&gt; Maybe Natural
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#%24sel%3Aindex%3AMapIterationEventDetails%27"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225832"><span id="local-6989586621679225834"><span class="annot"><span class="annottext">MapIterationEventDetails -&gt; MapIterationEventDetails -&gt; Bool
+(MapIterationEventDetails -&gt; MapIterationEventDetails -&gt; Bool)
+-&gt; (MapIterationEventDetails -&gt; MapIterationEventDetails -&gt; Bool)
+-&gt; Eq MapIterationEventDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MapIterationEventDetails -&gt; MapIterationEventDetails -&gt; Bool
+$c/= :: MapIterationEventDetails -&gt; MapIterationEventDetails -&gt; Bool
+== :: MapIterationEventDetails -&gt; MapIterationEventDetails -&gt; Bool
+$c== :: MapIterationEventDetails -&gt; MapIterationEventDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225823"><span id="local-6989586621679225825"><span id="local-6989586621679225827"><span id="local-6989586621679225829"><span class="annot"><span class="annottext">ReadPrec [MapIterationEventDetails]
+ReadPrec MapIterationEventDetails
+Int -&gt; ReadS MapIterationEventDetails
+ReadS [MapIterationEventDetails]
+(Int -&gt; ReadS MapIterationEventDetails)
+-&gt; ReadS [MapIterationEventDetails]
+-&gt; ReadPrec MapIterationEventDetails
+-&gt; ReadPrec [MapIterationEventDetails]
+-&gt; Read MapIterationEventDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MapIterationEventDetails]
+$creadListPrec :: ReadPrec [MapIterationEventDetails]
+readPrec :: ReadPrec MapIterationEventDetails
+$creadPrec :: ReadPrec MapIterationEventDetails
+readList :: ReadS [MapIterationEventDetails]
+$creadList :: ReadS [MapIterationEventDetails]
+readsPrec :: Int -&gt; ReadS MapIterationEventDetails
+$creadsPrec :: Int -&gt; ReadS MapIterationEventDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225816"><span id="local-6989586621679225818"><span id="local-6989586621679225820"><span class="annot"><span class="annottext">Int -&gt; MapIterationEventDetails -&gt; ShowS
+[MapIterationEventDetails] -&gt; ShowS
+MapIterationEventDetails -&gt; String
+(Int -&gt; MapIterationEventDetails -&gt; ShowS)
+-&gt; (MapIterationEventDetails -&gt; String)
+-&gt; ([MapIterationEventDetails] -&gt; ShowS)
+-&gt; Show MapIterationEventDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MapIterationEventDetails] -&gt; ShowS
+$cshowList :: [MapIterationEventDetails] -&gt; ShowS
+show :: MapIterationEventDetails -&gt; String
+$cshow :: MapIterationEventDetails -&gt; String
+showsPrec :: Int -&gt; MapIterationEventDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; MapIterationEventDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ MapIterationEventDetails -&gt; Rep MapIterationEventDetails x)
+-&gt; (forall x.
+    Rep MapIterationEventDetails x -&gt; MapIterationEventDetails)
+-&gt; Generic MapIterationEventDetails
+forall x.
+Rep MapIterationEventDetails x -&gt; MapIterationEventDetails
+forall x.
+MapIterationEventDetails -&gt; Rep MapIterationEventDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MapIterationEventDetails x -&gt; MapIterationEventDetails
+$cfrom :: forall x.
+MapIterationEventDetails -&gt; Rep MapIterationEventDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'MapIterationEventDetails' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'name', 'mapIterationEventDetails_name' - The name of the iteration&#8217;s parent Map state.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'index', 'mapIterationEventDetails_index' - The index of the array belonging to the Map state iteration.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#newMapIterationEventDetails"><span class="hs-identifier hs-type">newMapIterationEventDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier hs-type">MapIterationEventDetails</span></a></span><span>
+</span><span id="line-50"></span><span id="newMapIterationEventDetails"><span class="annot"><span class="annottext">newMapIterationEventDetails :: MapIterationEventDetails
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#newMapIterationEventDetails"><span class="hs-identifier hs-var hs-var">newMapIterationEventDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">MapIterationEventDetails' :: Maybe Text -&gt; Maybe Natural -&gt; MapIterationEventDetails
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails%27"><span class="hs-identifier hs-type">MapIterationEventDetails'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:MapIterationEventDetails' :: Maybe Text
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#%24sel%3Aname%3AMapIterationEventDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:index:MapIterationEventDetails' :: Maybe Natural
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#%24sel%3Aindex%3AMapIterationEventDetails%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | The name of the iteration&#8217;s parent Map state.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#mapIterationEventDetails_name"><span class="hs-identifier hs-type">mapIterationEventDetails_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier hs-type">MapIterationEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="mapIterationEventDetails_name"><span class="annot"><span class="annottext">mapIterationEventDetails_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MapIterationEventDetails -&gt; f MapIterationEventDetails
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#mapIterationEventDetails_name"><span class="hs-identifier hs-var hs-var">mapIterationEventDetails_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MapIterationEventDetails -&gt; Maybe Text)
+-&gt; (MapIterationEventDetails
+    -&gt; Maybe Text -&gt; MapIterationEventDetails)
+-&gt; Lens
+     MapIterationEventDetails
+     MapIterationEventDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails%27"><span class="hs-identifier hs-type">MapIterationEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225807"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:MapIterationEventDetails' :: MapIterationEventDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679225807"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225807"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225806"><span class="annot"><span class="annottext">s :: MapIterationEventDetails
+</span><a href="#local-6989586621679225806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails%27"><span class="hs-identifier hs-type">MapIterationEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225805"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MapIterationEventDetails
+</span><a href="#local-6989586621679225806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MapIterationEventDetails' :: Maybe Text
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#%24sel%3Aname%3AMapIterationEventDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier hs-type">MapIterationEventDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The index of the array belonging to the Map state iteration.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#mapIterationEventDetails_index"><span class="hs-identifier hs-type">mapIterationEventDetails_index</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier hs-type">MapIterationEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="mapIterationEventDetails_index"><span class="annot"><span class="annottext">mapIterationEventDetails_index :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; MapIterationEventDetails -&gt; f MapIterationEventDetails
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#mapIterationEventDetails_index"><span class="hs-identifier hs-var hs-var">mapIterationEventDetails_index</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MapIterationEventDetails -&gt; Maybe Natural)
+-&gt; (MapIterationEventDetails
+    -&gt; Maybe Natural -&gt; MapIterationEventDetails)
+-&gt; Lens
+     MapIterationEventDetails
+     MapIterationEventDetails
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails%27"><span class="hs-identifier hs-type">MapIterationEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225803"><span class="annot"><span class="annottext">Maybe Natural
+index :: Maybe Natural
+$sel:index:MapIterationEventDetails' :: MapIterationEventDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679225803"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679225803"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225802"><span class="annot"><span class="annottext">s :: MapIterationEventDetails
+</span><a href="#local-6989586621679225802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails%27"><span class="hs-identifier hs-type">MapIterationEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225801"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679225801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MapIterationEventDetails
+</span><a href="#local-6989586621679225802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:MapIterationEventDetails' :: Maybe Natural
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#%24sel%3Aindex%3AMapIterationEventDetails%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679225801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier hs-type">MapIterationEventDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225798"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier hs-type">MapIterationEventDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679225796"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MapIterationEventDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MapIterationEventDetails)
+-&gt; Value
+-&gt; Parser MapIterationEventDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MapIterationEventDetails&quot;</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225793"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Natural -&gt; MapIterationEventDetails
+</span><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails%27"><span class="hs-identifier hs-var">MapIterationEventDetails'</span></a></span><span>
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Natural -&gt; MapIterationEventDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural -&gt; MapIterationEventDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; MapIterationEventDetails)
+-&gt; Parser (Maybe Natural) -&gt; Parser MapIterationEventDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;index&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225787"><span id="local-6989586621679225789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier hs-type">MapIterationEventDetails</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.MapIterationEventDetails.html#MapIterationEventDetails"><span class="hs-identifier hs-type">MapIterationEventDetails</span></a></span></span><span>
+</span><span id="line-76"></span></pre></body></html>

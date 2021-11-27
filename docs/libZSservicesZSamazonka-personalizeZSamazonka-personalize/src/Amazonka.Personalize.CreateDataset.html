@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Personalize.CreateDataset</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an empty dataset and adds it to the specified dataset group. Use</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- CreateDatasetImportJob to import your training data to a dataset.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- There are three types of datasets:</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- -   Interactions</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   Items</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   Users</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Each dataset type has an associated schema with required field types.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Only the @Interactions@ dataset is required in order to train a model</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- (also referred to as creating a solution).</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- A dataset can be in one of the following states:</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   DELETE PENDING &gt; DELETE IN_PROGRESS</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- To get the status of the dataset, call DescribeDataset.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- __Related APIs__</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- -   CreateDatasetGroup</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- -   ListDatasets</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- -   DescribeDataset</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- -   DeleteDataset</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Personalize.CreateDataset</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier">CreateDataset</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#newCreateDataset"><span class="hs-identifier">newCreateDataset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDataset_name"><span class="hs-identifier">createDataset_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDataset_schemaArn"><span class="hs-identifier">createDataset_schemaArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDataset_datasetGroupArn"><span class="hs-identifier">createDataset_datasetGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDataset_datasetType"><span class="hs-identifier">createDataset_datasetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse"><span class="hs-identifier">CreateDatasetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#newCreateDatasetResponse"><span class="hs-identifier">newCreateDatasetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDatasetResponse_datasetArn"><span class="hs-identifier">createDatasetResponse_datasetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDatasetResponse_httpStatus"><span class="hs-identifier">createDatasetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.html"><span class="hs-identifier">Amazonka.Personalize.Types</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newCreateDataset' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621679285050"><span id="local-6989586621679285051"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataset"><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-var">CreateDataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataset%27"><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-var">CreateDataset'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name for the dataset.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Aname%3ACreateDataset%27"><span class="annot"><span class="annottext">CreateDataset -&gt; Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3Aname%3ACreateDataset%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The ARN of the schema to associate with the dataset. The schema defines</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- the dataset fields.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AschemaArn%3ACreateDataset%27"><span class="annot"><span class="annottext">CreateDataset -&gt; Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AschemaArn%3ACreateDataset%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset group to add the dataset</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AdatasetGroupArn%3ACreateDataset%27"><span class="annot"><span class="annottext">CreateDataset -&gt; Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AdatasetGroupArn%3ACreateDataset%27"><span class="hs-identifier hs-var hs-var">datasetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The type of dataset.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- One of the following (case insensitive) values:</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   Interactions</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   Items</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   Users</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AdatasetType%3ACreateDataset%27"><span class="annot"><span class="annottext">CreateDataset -&gt; Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AdatasetType%3ACreateDataset%27"><span class="hs-identifier hs-var hs-var">datasetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285041"><span id="local-6989586621679285043"><span class="annot"><span class="annottext">CreateDataset -&gt; CreateDataset -&gt; Bool
+(CreateDataset -&gt; CreateDataset -&gt; Bool)
+-&gt; (CreateDataset -&gt; CreateDataset -&gt; Bool) -&gt; Eq CreateDataset
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDataset -&gt; CreateDataset -&gt; Bool
+$c/= :: CreateDataset -&gt; CreateDataset -&gt; Bool
+== :: CreateDataset -&gt; CreateDataset -&gt; Bool
+$c== :: CreateDataset -&gt; CreateDataset -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285032"><span id="local-6989586621679285034"><span id="local-6989586621679285036"><span id="local-6989586621679285038"><span class="annot"><span class="annottext">ReadPrec [CreateDataset]
+ReadPrec CreateDataset
+Int -&gt; ReadS CreateDataset
+ReadS [CreateDataset]
+(Int -&gt; ReadS CreateDataset)
+-&gt; ReadS [CreateDataset]
+-&gt; ReadPrec CreateDataset
+-&gt; ReadPrec [CreateDataset]
+-&gt; Read CreateDataset
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDataset]
+$creadListPrec :: ReadPrec [CreateDataset]
+readPrec :: ReadPrec CreateDataset
+$creadPrec :: ReadPrec CreateDataset
+readList :: ReadS [CreateDataset]
+$creadList :: ReadS [CreateDataset]
+readsPrec :: Int -&gt; ReadS CreateDataset
+$creadsPrec :: Int -&gt; ReadS CreateDataset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285025"><span id="local-6989586621679285027"><span id="local-6989586621679285029"><span class="annot"><span class="annottext">Int -&gt; CreateDataset -&gt; ShowS
+[CreateDataset] -&gt; ShowS
+CreateDataset -&gt; String
+(Int -&gt; CreateDataset -&gt; ShowS)
+-&gt; (CreateDataset -&gt; String)
+-&gt; ([CreateDataset] -&gt; ShowS)
+-&gt; Show CreateDataset
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDataset] -&gt; ShowS
+$cshowList :: [CreateDataset] -&gt; ShowS
+show :: CreateDataset -&gt; String
+$cshow :: CreateDataset -&gt; String
+showsPrec :: Int -&gt; CreateDataset -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDataset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDataset -&gt; Rep CreateDataset x)
+-&gt; (forall x. Rep CreateDataset x -&gt; CreateDataset)
+-&gt; Generic CreateDataset
+forall x. Rep CreateDataset x -&gt; CreateDataset
+forall x. CreateDataset -&gt; Rep CreateDataset x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDataset x -&gt; CreateDataset
+$cfrom :: forall x. CreateDataset -&gt; Rep CreateDataset x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'CreateDataset' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'name', 'createDataset_name' - The name for the dataset.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'schemaArn', 'createDataset_schemaArn' - The ARN of the schema to associate with the dataset. The schema defines</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the dataset fields.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'datasetGroupArn', 'createDataset_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group to add the dataset</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'datasetType', 'createDataset_datasetType' - The type of dataset.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- One of the following (case insensitive) values:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   Interactions</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   Items</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   Users</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#newCreateDataset"><span class="hs-identifier hs-type">newCreateDataset</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'schemaArn'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'datasetGroupArn'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'datasetType'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span>
+</span><span id="line-141"></span><span id="newCreateDataset"><span class="annot"><span class="annottext">newCreateDataset :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateDataset
+</span><a href="Amazonka.Personalize.CreateDataset.html#newCreateDataset"><span class="hs-identifier hs-var hs-var">newCreateDataset</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679285020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285020"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679285019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285019"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679285018"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285018"><span class="hs-identifier hs-var">pDatasetGroupArn_</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679285017"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285017"><span class="hs-identifier hs-var">pDatasetType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">CreateDataset' :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateDataset
+</span><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CreateDataset' :: Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3Aname%3ACreateDataset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285020"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:schemaArn:CreateDataset' :: Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AschemaArn%3ACreateDataset%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285019"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:datasetGroupArn:CreateDataset' :: Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AdatasetGroupArn%3ACreateDataset%27"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285018"><span class="hs-identifier hs-var">pDatasetGroupArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:datasetType:CreateDataset' :: Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AdatasetType%3ACreateDataset%27"><span class="hs-identifier hs-var">datasetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285017"><span class="hs-identifier hs-var">pDatasetType_</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The name for the dataset.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDataset_name"><span class="hs-identifier hs-type">createDataset_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span id="createDataset_name"><span class="annot"><span class="annottext">createDataset_name :: (Text -&gt; f Text) -&gt; CreateDataset -&gt; f CreateDataset
+</span><a href="Amazonka.Personalize.CreateDataset.html#createDataset_name"><span class="hs-identifier hs-var hs-var">createDataset_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataset -&gt; Text)
+-&gt; (CreateDataset -&gt; Text -&gt; CreateDataset)
+-&gt; Lens CreateDataset CreateDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285014"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateDataset' :: CreateDataset -&gt; Text
+</span><a href="#local-6989586621679285014"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285014"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285013"><span class="annot"><span class="annottext">s :: CreateDataset
+</span><a href="#local-6989586621679285013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285012"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataset
+</span><a href="#local-6989586621679285013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDataset' :: Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3Aname%3ACreateDataset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The ARN of the schema to associate with the dataset. The schema defines</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- the dataset fields.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDataset_schemaArn"><span class="hs-identifier hs-type">createDataset_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-160"></span><span id="createDataset_schemaArn"><span class="annot"><span class="annottext">createDataset_schemaArn :: (Text -&gt; f Text) -&gt; CreateDataset -&gt; f CreateDataset
+</span><a href="Amazonka.Personalize.CreateDataset.html#createDataset_schemaArn"><span class="hs-identifier hs-var hs-var">createDataset_schemaArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataset -&gt; Text)
+-&gt; (CreateDataset -&gt; Text -&gt; CreateDataset)
+-&gt; Lens CreateDataset CreateDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285011"><span class="annot"><span class="annottext">Text
+schemaArn :: Text
+$sel:schemaArn:CreateDataset' :: CreateDataset -&gt; Text
+</span><a href="#local-6989586621679285011"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285011"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285010"><span class="annot"><span class="annottext">s :: CreateDataset
+</span><a href="#local-6989586621679285010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285009"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataset
+</span><a href="#local-6989586621679285010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:CreateDataset' :: Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AschemaArn%3ACreateDataset%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset group to add the dataset</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDataset_datasetGroupArn"><span class="hs-identifier hs-type">createDataset_datasetGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-165"></span><span id="createDataset_datasetGroupArn"><span class="annot"><span class="annottext">createDataset_datasetGroupArn :: (Text -&gt; f Text) -&gt; CreateDataset -&gt; f CreateDataset
+</span><a href="Amazonka.Personalize.CreateDataset.html#createDataset_datasetGroupArn"><span class="hs-identifier hs-var hs-var">createDataset_datasetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataset -&gt; Text)
+-&gt; (CreateDataset -&gt; Text -&gt; CreateDataset)
+-&gt; Lens CreateDataset CreateDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285008"><span class="annot"><span class="annottext">Text
+datasetGroupArn :: Text
+$sel:datasetGroupArn:CreateDataset' :: CreateDataset -&gt; Text
+</span><a href="#local-6989586621679285008"><span class="hs-identifier hs-var hs-var">datasetGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285008"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285007"><span class="annot"><span class="annottext">s :: CreateDataset
+</span><a href="#local-6989586621679285007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285006"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataset
+</span><a href="#local-6989586621679285007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetGroupArn:CreateDataset' :: Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AdatasetGroupArn%3ACreateDataset%27"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The type of dataset.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- One of the following (case insensitive) values:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   Interactions</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- -   Items</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- -   Users</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDataset_datasetType"><span class="hs-identifier hs-type">createDataset_datasetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-177"></span><span id="createDataset_datasetType"><span class="annot"><span class="annottext">createDataset_datasetType :: (Text -&gt; f Text) -&gt; CreateDataset -&gt; f CreateDataset
+</span><a href="Amazonka.Personalize.CreateDataset.html#createDataset_datasetType"><span class="hs-identifier hs-var hs-var">createDataset_datasetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataset -&gt; Text)
+-&gt; (CreateDataset -&gt; Text -&gt; CreateDataset)
+-&gt; Lens CreateDataset CreateDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285005"><span class="annot"><span class="annottext">Text
+datasetType :: Text
+$sel:datasetType:CreateDataset' :: CreateDataset -&gt; Text
+</span><a href="#local-6989586621679285005"><span class="hs-identifier hs-var hs-var">datasetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285005"><span class="hs-identifier hs-var">datasetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285004"><span class="annot"><span class="annottext">s :: CreateDataset
+</span><a href="#local-6989586621679285004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285003"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataset
+</span><a href="#local-6989586621679285004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetType:CreateDataset' :: Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AdatasetType%3ACreateDataset%27"><span class="hs-identifier hs-var">datasetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse"><span class="hs-identifier hs-type">CreateDatasetResponse</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679284999"><span class="annot"><span class="annottext">request :: CreateDataset -&gt; Request CreateDataset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDataset -&gt; Request CreateDataset
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Personalize.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679284995"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDataset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateDataset)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDataset))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDataset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateDataset)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284992"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284992"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284991"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284991"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284990"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284990"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateDatasetResponse
+</span><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse%27"><span class="hs-identifier hs-var">CreateDatasetResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateDatasetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateDatasetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDatasetResponse)
+-&gt; Either String Int -&gt; Either String CreateDatasetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284992"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284982"><span id="local-6989586621679284984"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span></span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679284975"><span class="annot"><span class="annottext">toHeaders :: CreateDataset -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDataset -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonPersonalize.CreateDataset&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-203"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-206"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-207"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284965"><span id="local-6989586621679284967"><span id="local-6989586621679284969"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679284963"><span class="annot"><span class="annottext">toJSON :: CreateDataset -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset%27"><span class="hs-identifier hs-type">CreateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284958"><span id="local-6989586621679284959"><span id="local-6989586621679284960"><span id="local-6989586621679284961"><span class="annot"><span class="annottext">Text
+datasetType :: Text
+datasetGroupArn :: Text
+schemaArn :: Text
+name :: Text
+$sel:datasetType:CreateDataset' :: CreateDataset -&gt; Text
+$sel:datasetGroupArn:CreateDataset' :: CreateDataset -&gt; Text
+$sel:schemaArn:CreateDataset' :: CreateDataset -&gt; Text
+$sel:name:CreateDataset' :: CreateDataset -&gt; Text
+</span><a href="#local-6989586621679284958"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284961"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;schemaArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284960"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-218"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284959"><span class="hs-identifier hs-var">datasetGroupArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284958"><span class="hs-identifier hs-var">datasetType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679284952"><span class="annot"><span class="annottext">toPath :: CreateDataset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDataset -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDataset"><span class="hs-identifier hs-type">CreateDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679284948"><span class="annot"><span class="annottext">toQuery :: CreateDataset -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDataset -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | /See:/ 'newCreateDatasetResponse' smart constructor.</span><span>
+</span><span id="line-230"></span><span id="local-6989586621679284945"><span id="local-6989586621679284946"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDatasetResponse"><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse"><span class="hs-identifier hs-var">CreateDatasetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDatasetResponse%27"><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse%27"><span class="hs-identifier hs-var">CreateDatasetResponse'</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the dataset.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3AdatasetArn%3ACreateDatasetResponse%27"><span class="annot"><span class="annottext">CreateDatasetResponse -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AdatasetArn%3ACreateDatasetResponse%27"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDatasetResponse%27"><span class="annot"><span class="annottext">CreateDatasetResponse -&gt; Int
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AhttpStatus%3ACreateDatasetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284939"><span id="local-6989586621679284941"><span class="annot"><span class="annottext">CreateDatasetResponse -&gt; CreateDatasetResponse -&gt; Bool
+(CreateDatasetResponse -&gt; CreateDatasetResponse -&gt; Bool)
+-&gt; (CreateDatasetResponse -&gt; CreateDatasetResponse -&gt; Bool)
+-&gt; Eq CreateDatasetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDatasetResponse -&gt; CreateDatasetResponse -&gt; Bool
+$c/= :: CreateDatasetResponse -&gt; CreateDatasetResponse -&gt; Bool
+== :: CreateDatasetResponse -&gt; CreateDatasetResponse -&gt; Bool
+$c== :: CreateDatasetResponse -&gt; CreateDatasetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284931"><span id="local-6989586621679284933"><span id="local-6989586621679284935"><span id="local-6989586621679284937"><span class="annot"><span class="annottext">ReadPrec [CreateDatasetResponse]
+ReadPrec CreateDatasetResponse
+Int -&gt; ReadS CreateDatasetResponse
+ReadS [CreateDatasetResponse]
+(Int -&gt; ReadS CreateDatasetResponse)
+-&gt; ReadS [CreateDatasetResponse]
+-&gt; ReadPrec CreateDatasetResponse
+-&gt; ReadPrec [CreateDatasetResponse]
+-&gt; Read CreateDatasetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDatasetResponse]
+$creadListPrec :: ReadPrec [CreateDatasetResponse]
+readPrec :: ReadPrec CreateDatasetResponse
+$creadPrec :: ReadPrec CreateDatasetResponse
+readList :: ReadS [CreateDatasetResponse]
+$creadList :: ReadS [CreateDatasetResponse]
+readsPrec :: Int -&gt; ReadS CreateDatasetResponse
+$creadsPrec :: Int -&gt; ReadS CreateDatasetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284925"><span id="local-6989586621679284927"><span id="local-6989586621679284929"><span class="annot"><span class="annottext">Int -&gt; CreateDatasetResponse -&gt; ShowS
+[CreateDatasetResponse] -&gt; ShowS
+CreateDatasetResponse -&gt; String
+(Int -&gt; CreateDatasetResponse -&gt; ShowS)
+-&gt; (CreateDatasetResponse -&gt; String)
+-&gt; ([CreateDatasetResponse] -&gt; ShowS)
+-&gt; Show CreateDatasetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDatasetResponse] -&gt; ShowS
+$cshowList :: [CreateDatasetResponse] -&gt; ShowS
+show :: CreateDatasetResponse -&gt; String
+$cshow :: CreateDatasetResponse -&gt; String
+showsPrec :: Int -&gt; CreateDatasetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDatasetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDatasetResponse -&gt; Rep CreateDatasetResponse x)
+-&gt; (forall x. Rep CreateDatasetResponse x -&gt; CreateDatasetResponse)
+-&gt; Generic CreateDatasetResponse
+forall x. Rep CreateDatasetResponse x -&gt; CreateDatasetResponse
+forall x. CreateDatasetResponse -&gt; Rep CreateDatasetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDatasetResponse x -&gt; CreateDatasetResponse
+$cfrom :: forall x. CreateDatasetResponse -&gt; Rep CreateDatasetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Create a value of 'CreateDatasetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'datasetArn', 'createDatasetResponse_datasetArn' - The ARN of the dataset.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'httpStatus', 'createDatasetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#newCreateDatasetResponse"><span class="hs-identifier hs-type">newCreateDatasetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse"><span class="hs-identifier hs-type">CreateDatasetResponse</span></a></span><span>
+</span><span id="line-253"></span><span id="newCreateDatasetResponse"><span class="annot"><span class="annottext">newCreateDatasetResponse :: Int -&gt; CreateDatasetResponse
+</span><a href="Amazonka.Personalize.CreateDataset.html#newCreateDatasetResponse"><span class="hs-identifier hs-var hs-var">newCreateDatasetResponse</span></a></span></span><span> </span><span id="local-6989586621679284922"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284922"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><span class="annottext">CreateDatasetResponse' :: Maybe Text -&gt; Int -&gt; CreateDatasetResponse
+</span><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse%27"><span class="hs-identifier hs-type">CreateDatasetResponse'</span></a></span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:datasetArn:CreateDatasetResponse' :: Maybe Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AdatasetArn%3ACreateDatasetResponse%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDatasetResponse' :: Int
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AhttpStatus%3ACreateDatasetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284922"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The ARN of the dataset.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDatasetResponse_datasetArn"><span class="hs-identifier hs-type">createDatasetResponse_datasetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse"><span class="hs-identifier hs-type">CreateDatasetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="createDatasetResponse_datasetArn"><span class="annot"><span class="annottext">createDatasetResponse_datasetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDatasetResponse -&gt; f CreateDatasetResponse
+</span><a href="Amazonka.Personalize.CreateDataset.html#createDatasetResponse_datasetArn"><span class="hs-identifier hs-var hs-var">createDatasetResponse_datasetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDatasetResponse -&gt; Maybe Text)
+-&gt; (CreateDatasetResponse -&gt; Maybe Text -&gt; CreateDatasetResponse)
+-&gt; Lens
+     CreateDatasetResponse
+     CreateDatasetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse%27"><span class="hs-identifier hs-type">CreateDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284921"><span class="annot"><span class="annottext">Maybe Text
+datasetArn :: Maybe Text
+$sel:datasetArn:CreateDatasetResponse' :: CreateDatasetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679284921"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284921"><span class="hs-identifier hs-var">datasetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284920"><span class="annot"><span class="annottext">s :: CreateDatasetResponse
+</span><a href="#local-6989586621679284920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse%27"><span class="hs-identifier hs-type">CreateDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284919"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDatasetResponse
+</span><a href="#local-6989586621679284920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetArn:CreateDatasetResponse' :: Maybe Text
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AdatasetArn%3ACreateDatasetResponse%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse"><span class="hs-identifier hs-type">CreateDatasetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#createDatasetResponse_httpStatus"><span class="hs-identifier hs-type">createDatasetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse"><span class="hs-identifier hs-type">CreateDatasetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-266"></span><span id="createDatasetResponse_httpStatus"><span class="annot"><span class="annottext">createDatasetResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateDatasetResponse -&gt; f CreateDatasetResponse
+</span><a href="Amazonka.Personalize.CreateDataset.html#createDatasetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDatasetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDatasetResponse -&gt; Int)
+-&gt; (CreateDatasetResponse -&gt; Int -&gt; CreateDatasetResponse)
+-&gt; Lens CreateDatasetResponse CreateDatasetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse%27"><span class="hs-identifier hs-type">CreateDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284918"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDatasetResponse' :: CreateDatasetResponse -&gt; Int
+</span><a href="#local-6989586621679284918"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284918"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284917"><span class="annot"><span class="annottext">s :: CreateDatasetResponse
+</span><a href="#local-6989586621679284917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse%27"><span class="hs-identifier hs-type">CreateDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284916"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDatasetResponse
+</span><a href="#local-6989586621679284917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDatasetResponse' :: Int
+</span><a href="Amazonka.Personalize.CreateDataset.html#%24sel%3AhttpStatus%3ACreateDatasetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse"><span class="hs-identifier hs-type">CreateDatasetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284914"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.CreateDataset.html#CreateDatasetResponse"><span class="hs-identifier hs-type">CreateDatasetResponse</span></a></span></span><span>
+</span><span id="line-269"></span></pre></body></html>

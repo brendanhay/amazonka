@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.PatchProperty</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.PatchProperty</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier">PatchProperty</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_CLASSIFICATION"><span class="hs-identifier">PatchProperty_CLASSIFICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_MSRC_SEVERITY"><span class="hs-identifier">PatchProperty_MSRC_SEVERITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_PRIORITY"><span class="hs-identifier">PatchProperty_PRIORITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_PRODUCT"><span class="hs-identifier">PatchProperty_PRODUCT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_PRODUCT_FAMILY"><span class="hs-identifier">PatchProperty_PRODUCT_FAMILY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_SEVERITY"><span class="hs-identifier">PatchProperty_SEVERITY</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679809185"><span id="local-6989586621679809186"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchProperty"><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier hs-var">PatchProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchProperty%27"><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-identifier hs-var">PatchProperty'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPatchProperty"><span class="annot"><span class="annottext">PatchProperty -&gt; Text
+</span><a href="Amazonka.SSM.Types.PatchProperty.html#fromPatchProperty"><span class="hs-identifier hs-var hs-var">fromPatchProperty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679809177"><span id="local-6989586621679809179"><span id="local-6989586621679809181"><span class="annot"><span class="annottext">Int -&gt; PatchProperty -&gt; ShowS
+[PatchProperty] -&gt; ShowS
+PatchProperty -&gt; String
+(Int -&gt; PatchProperty -&gt; ShowS)
+-&gt; (PatchProperty -&gt; String)
+-&gt; ([PatchProperty] -&gt; ShowS)
+-&gt; Show PatchProperty
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PatchProperty] -&gt; ShowS
+$cshowList :: [PatchProperty] -&gt; ShowS
+show :: PatchProperty -&gt; String
+$cshow :: PatchProperty -&gt; String
+showsPrec :: Int -&gt; PatchProperty -&gt; ShowS
+$cshowsPrec :: Int -&gt; PatchProperty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679809168"><span id="local-6989586621679809170"><span id="local-6989586621679809172"><span id="local-6989586621679809174"><span class="annot"><span class="annottext">ReadPrec [PatchProperty]
+ReadPrec PatchProperty
+Int -&gt; ReadS PatchProperty
+ReadS [PatchProperty]
+(Int -&gt; ReadS PatchProperty)
+-&gt; ReadS [PatchProperty]
+-&gt; ReadPrec PatchProperty
+-&gt; ReadPrec [PatchProperty]
+-&gt; Read PatchProperty
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PatchProperty]
+$creadListPrec :: ReadPrec [PatchProperty]
+readPrec :: ReadPrec PatchProperty
+$creadPrec :: ReadPrec PatchProperty
+readList :: ReadS [PatchProperty]
+$creadList :: ReadS [PatchProperty]
+readsPrec :: Int -&gt; ReadS PatchProperty
+$creadsPrec :: Int -&gt; ReadS PatchProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679809163"><span id="local-6989586621679809165"><span class="annot"><span class="annottext">PatchProperty -&gt; PatchProperty -&gt; Bool
+(PatchProperty -&gt; PatchProperty -&gt; Bool)
+-&gt; (PatchProperty -&gt; PatchProperty -&gt; Bool) -&gt; Eq PatchProperty
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PatchProperty -&gt; PatchProperty -&gt; Bool
+$c/= :: PatchProperty -&gt; PatchProperty -&gt; Bool
+== :: PatchProperty -&gt; PatchProperty -&gt; Bool
+$c== :: PatchProperty -&gt; PatchProperty -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679809147"><span id="local-6989586621679809149"><span id="local-6989586621679809151"><span id="local-6989586621679809153"><span id="local-6989586621679809155"><span id="local-6989586621679809157"><span id="local-6989586621679809159"><span class="annot"><span class="annottext">Eq PatchProperty
+Eq PatchProperty
+-&gt; (PatchProperty -&gt; PatchProperty -&gt; Ordering)
+-&gt; (PatchProperty -&gt; PatchProperty -&gt; Bool)
+-&gt; (PatchProperty -&gt; PatchProperty -&gt; Bool)
+-&gt; (PatchProperty -&gt; PatchProperty -&gt; Bool)
+-&gt; (PatchProperty -&gt; PatchProperty -&gt; Bool)
+-&gt; (PatchProperty -&gt; PatchProperty -&gt; PatchProperty)
+-&gt; (PatchProperty -&gt; PatchProperty -&gt; PatchProperty)
+-&gt; Ord PatchProperty
+PatchProperty -&gt; PatchProperty -&gt; Bool
+PatchProperty -&gt; PatchProperty -&gt; Ordering
+PatchProperty -&gt; PatchProperty -&gt; PatchProperty
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PatchProperty -&gt; PatchProperty -&gt; PatchProperty
+$cmin :: PatchProperty -&gt; PatchProperty -&gt; PatchProperty
+max :: PatchProperty -&gt; PatchProperty -&gt; PatchProperty
+$cmax :: PatchProperty -&gt; PatchProperty -&gt; PatchProperty
+&gt;= :: PatchProperty -&gt; PatchProperty -&gt; Bool
+$c&gt;= :: PatchProperty -&gt; PatchProperty -&gt; Bool
+&gt; :: PatchProperty -&gt; PatchProperty -&gt; Bool
+$c&gt; :: PatchProperty -&gt; PatchProperty -&gt; Bool
+&lt;= :: PatchProperty -&gt; PatchProperty -&gt; Bool
+$c&lt;= :: PatchProperty -&gt; PatchProperty -&gt; Bool
+&lt; :: PatchProperty -&gt; PatchProperty -&gt; Bool
+$c&lt; :: PatchProperty -&gt; PatchProperty -&gt; Bool
+compare :: PatchProperty -&gt; PatchProperty -&gt; Ordering
+$ccompare :: PatchProperty -&gt; PatchProperty -&gt; Ordering
+$cp1Ord :: Eq PatchProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PatchProperty -&gt; Rep PatchProperty x)
+-&gt; (forall x. Rep PatchProperty x -&gt; PatchProperty)
+-&gt; Generic PatchProperty
+forall x. Rep PatchProperty x -&gt; PatchProperty
+forall x. PatchProperty -&gt; Rep PatchProperty x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PatchProperty x -&gt; PatchProperty
+$cfrom :: forall x. PatchProperty -&gt; Rep PatchProperty x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679809139"><span id="local-6989586621679809141"><span class="annot"><span class="annottext">Int -&gt; PatchProperty -&gt; Int
+PatchProperty -&gt; Int
+(Int -&gt; PatchProperty -&gt; Int)
+-&gt; (PatchProperty -&gt; Int) -&gt; Hashable PatchProperty
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PatchProperty -&gt; Int
+$chash :: PatchProperty -&gt; Int
+hashWithSalt :: Int -&gt; PatchProperty -&gt; Int
+$chashWithSalt :: Int -&gt; PatchProperty -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679809136"><span class="annot"><span class="annottext">PatchProperty -&gt; ()
+(PatchProperty -&gt; ()) -&gt; NFData PatchProperty
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PatchProperty -&gt; ()
+$crnf :: PatchProperty -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679809133"><span class="annot"><span class="annottext">Text -&gt; Either String PatchProperty
+(Text -&gt; Either String PatchProperty) -&gt; FromText PatchProperty
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PatchProperty
+$cfromText :: Text -&gt; Either String PatchProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679809130"><span class="annot"><span class="annottext">PatchProperty -&gt; Text
+(PatchProperty -&gt; Text) -&gt; ToText PatchProperty
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PatchProperty -&gt; Text
+$ctoText :: PatchProperty -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679809127"><span class="annot"><span class="annottext">PatchProperty -&gt; ByteString
+(PatchProperty -&gt; ByteString) -&gt; ToByteString PatchProperty
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PatchProperty -&gt; ByteString
+$ctoBS :: PatchProperty -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679809124"><span class="annot"><span class="annottext">PatchProperty -&gt; ByteStringBuilder
+(PatchProperty -&gt; ByteStringBuilder) -&gt; ToLog PatchProperty
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PatchProperty -&gt; ByteStringBuilder
+$cbuild :: PatchProperty -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679809121"><span class="annot"><span class="annottext">HeaderName -&gt; PatchProperty -&gt; [Header]
+(HeaderName -&gt; PatchProperty -&gt; [Header]) -&gt; ToHeader PatchProperty
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PatchProperty -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PatchProperty -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679809118"><span class="annot"><span class="annottext">PatchProperty -&gt; QueryString
+(PatchProperty -&gt; QueryString) -&gt; ToQuery PatchProperty
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PatchProperty -&gt; QueryString
+$ctoQuery :: PatchProperty -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679809113"><span id="local-6989586621679809115"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchProperty]
+Value -&gt; Parser PatchProperty
+(Value -&gt; Parser PatchProperty)
+-&gt; (Value -&gt; Parser [PatchProperty]) -&gt; FromJSON PatchProperty
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PatchProperty]
+$cparseJSONList :: Value -&gt; Parser [PatchProperty]
+parseJSON :: Value -&gt; Parser PatchProperty
+$cparseJSON :: Value -&gt; Parser PatchProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679809108"><span id="local-6989586621679809110"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchProperty]
+FromJSONKeyFunction PatchProperty
+FromJSONKeyFunction PatchProperty
+-&gt; FromJSONKeyFunction [PatchProperty] -&gt; FromJSONKey PatchProperty
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PatchProperty]
+$cfromJSONKeyList :: FromJSONKeyFunction [PatchProperty]
+fromJSONKey :: FromJSONKeyFunction PatchProperty
+$cfromJSONKey :: FromJSONKeyFunction PatchProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679809099"><span id="local-6989586621679809101"><span id="local-6989586621679809103"><span id="local-6989586621679809105"><span class="annot"><span class="annottext">[PatchProperty] -&gt; Encoding
+[PatchProperty] -&gt; Value
+PatchProperty -&gt; Encoding
+PatchProperty -&gt; Value
+(PatchProperty -&gt; Value)
+-&gt; (PatchProperty -&gt; Encoding)
+-&gt; ([PatchProperty] -&gt; Value)
+-&gt; ([PatchProperty] -&gt; Encoding)
+-&gt; ToJSON PatchProperty
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PatchProperty] -&gt; Encoding
+$ctoEncodingList :: [PatchProperty] -&gt; Encoding
+toJSONList :: [PatchProperty] -&gt; Value
+$ctoJSONList :: [PatchProperty] -&gt; Value
+toEncoding :: PatchProperty -&gt; Encoding
+$ctoEncoding :: PatchProperty -&gt; Encoding
+toJSON :: PatchProperty -&gt; Value
+$ctoJSON :: PatchProperty -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679809094"><span id="local-6989586621679809096"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchProperty]
+ToJSONKeyFunction PatchProperty
+ToJSONKeyFunction PatchProperty
+-&gt; ToJSONKeyFunction [PatchProperty] -&gt; ToJSONKey PatchProperty
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PatchProperty]
+$ctoJSONKeyList :: ToJSONKeyFunction [PatchProperty]
+toJSONKey :: ToJSONKeyFunction PatchProperty
+$ctoJSONKey :: ToJSONKeyFunction PatchProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679809091"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchProperty
+([Node] -&gt; Either String PatchProperty) -&gt; FromXML PatchProperty
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PatchProperty
+$cparseXML :: [Node] -&gt; Either String PatchProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679809088"><span class="annot"><span class="annottext">PatchProperty -&gt; XML
+(PatchProperty -&gt; XML) -&gt; ToXML PatchProperty
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PatchProperty -&gt; XML
+$ctoXML :: PatchProperty -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_CLASSIFICATION"><span class="hs-identifier hs-type">PatchProperty_CLASSIFICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier hs-type">PatchProperty</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchProperty_CLASSIFICATION"><span id="%24mPatchProperty_CLASSIFICATION"><span id="PatchProperty_CLASSIFICATION"><span class="annot"><span class="annottext">$bPatchProperty_CLASSIFICATION :: PatchProperty
+$mPatchProperty_CLASSIFICATION :: forall r. PatchProperty -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchProperty.html#%24bPatchProperty_CLASSIFICATION"><span class="hs-identifier hs-var hs-var hs-var">PatchProperty_CLASSIFICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-identifier hs-type">PatchProperty'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLASSIFICATION&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_MSRC_SEVERITY"><span class="hs-identifier hs-type">PatchProperty_MSRC_SEVERITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier hs-type">PatchProperty</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchProperty_MSRC_SEVERITY"><span id="%24mPatchProperty_MSRC_SEVERITY"><span id="PatchProperty_MSRC_SEVERITY"><span class="annot"><span class="annottext">$bPatchProperty_MSRC_SEVERITY :: PatchProperty
+$mPatchProperty_MSRC_SEVERITY :: forall r. PatchProperty -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchProperty.html#%24bPatchProperty_MSRC_SEVERITY"><span class="hs-identifier hs-var hs-var hs-var">PatchProperty_MSRC_SEVERITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-identifier hs-type">PatchProperty'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MSRC_SEVERITY&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_PRIORITY"><span class="hs-identifier hs-type">PatchProperty_PRIORITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier hs-type">PatchProperty</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchProperty_PRIORITY"><span id="%24mPatchProperty_PRIORITY"><span id="PatchProperty_PRIORITY"><span class="annot"><span class="annottext">$bPatchProperty_PRIORITY :: PatchProperty
+$mPatchProperty_PRIORITY :: forall r. PatchProperty -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchProperty.html#%24bPatchProperty_PRIORITY"><span class="hs-identifier hs-var hs-var hs-var">PatchProperty_PRIORITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-identifier hs-type">PatchProperty'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRIORITY&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_PRODUCT"><span class="hs-identifier hs-type">PatchProperty_PRODUCT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier hs-type">PatchProperty</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchProperty_PRODUCT"><span id="%24mPatchProperty_PRODUCT"><span id="PatchProperty_PRODUCT"><span class="annot"><span class="annottext">$bPatchProperty_PRODUCT :: PatchProperty
+$mPatchProperty_PRODUCT :: forall r. PatchProperty -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchProperty.html#%24bPatchProperty_PRODUCT"><span class="hs-identifier hs-var hs-var hs-var">PatchProperty_PRODUCT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-identifier hs-type">PatchProperty'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRODUCT&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_PRODUCT_FAMILY"><span class="hs-identifier hs-type">PatchProperty_PRODUCT_FAMILY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier hs-type">PatchProperty</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchProperty_PRODUCT_FAMILY"><span id="%24mPatchProperty_PRODUCT_FAMILY"><span id="PatchProperty_PRODUCT_FAMILY"><span class="annot"><span class="annottext">$bPatchProperty_PRODUCT_FAMILY :: PatchProperty
+$mPatchProperty_PRODUCT_FAMILY :: forall r. PatchProperty -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchProperty.html#%24bPatchProperty_PRODUCT_FAMILY"><span class="hs-identifier hs-var hs-var hs-var">PatchProperty_PRODUCT_FAMILY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-identifier hs-type">PatchProperty'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRODUCT_FAMILY&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_SEVERITY"><span class="hs-identifier hs-type">PatchProperty_SEVERITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier hs-type">PatchProperty</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchProperty_SEVERITY"><span id="%24mPatchProperty_SEVERITY"><span id="PatchProperty_SEVERITY"><span class="annot"><span class="annottext">$bPatchProperty_SEVERITY :: PatchProperty
+$mPatchProperty_SEVERITY :: forall r. PatchProperty -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchProperty.html#%24bPatchProperty_SEVERITY"><span class="hs-identifier hs-var hs-var hs-var">PatchProperty_SEVERITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-identifier hs-type">PatchProperty'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SEVERITY&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_CLASSIFICATION"><span class="hs-pragma hs-type">PatchProperty_CLASSIFICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_MSRC_SEVERITY"><span class="hs-pragma hs-type">PatchProperty_MSRC_SEVERITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_PRIORITY"><span class="hs-pragma hs-type">PatchProperty_PRIORITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_PRODUCT"><span class="hs-pragma hs-type">PatchProperty_PRODUCT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_PRODUCT_FAMILY"><span class="hs-pragma hs-type">PatchProperty_PRODUCT_FAMILY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty_SEVERITY"><span class="hs-pragma hs-type">PatchProperty_SEVERITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-pragma hs-type">PatchProperty'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

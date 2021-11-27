@@ -1,0 +1,841 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MQ.UpdateConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MQ.UpdateConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier">UpdateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#newUpdateConfiguration"><span class="hs-identifier">newUpdateConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfiguration_description"><span class="hs-identifier">updateConfiguration_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfiguration_configurationId"><span class="hs-identifier">updateConfiguration_configurationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfiguration_data"><span class="hs-identifier">updateConfiguration_data</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier">UpdateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#newUpdateConfigurationResponse"><span class="hs-identifier">newUpdateConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_arn"><span class="hs-identifier">updateConfigurationResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_latestRevision"><span class="hs-identifier">updateConfigurationResponse_latestRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_created"><span class="hs-identifier">updateConfigurationResponse_created</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_warnings"><span class="hs-identifier">updateConfigurationResponse_warnings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_name"><span class="hs-identifier">updateConfigurationResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_id"><span class="hs-identifier">updateConfigurationResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_httpStatus"><span class="hs-identifier">updateConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.html"><span class="hs-identifier">Amazonka.MQ.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Updates the specified configuration.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newUpdateConfiguration' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679230653"><span id="local-6989586621679230654"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConfiguration"><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-var">UpdateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConfiguration%27"><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-var">UpdateConfiguration'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the configuration.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateConfiguration%27"><span class="annot"><span class="annottext">UpdateConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Adescription%3AUpdateConfiguration%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the configuration.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AconfigurationId%3AUpdateConfiguration%27"><span class="annot"><span class="annottext">UpdateConfiguration -&gt; Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3AconfigurationId%3AUpdateConfiguration%27"><span class="hs-identifier hs-var hs-var">configurationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Required. The base64-encoded XML configuration.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Adata%27%3AUpdateConfiguration%27"><span class="annot"><span class="annottext">UpdateConfiguration -&gt; Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Adata%27%3AUpdateConfiguration%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230645"><span id="local-6989586621679230647"><span class="annot"><span class="annottext">UpdateConfiguration -&gt; UpdateConfiguration -&gt; Bool
+(UpdateConfiguration -&gt; UpdateConfiguration -&gt; Bool)
+-&gt; (UpdateConfiguration -&gt; UpdateConfiguration -&gt; Bool)
+-&gt; Eq UpdateConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateConfiguration -&gt; UpdateConfiguration -&gt; Bool
+$c/= :: UpdateConfiguration -&gt; UpdateConfiguration -&gt; Bool
+== :: UpdateConfiguration -&gt; UpdateConfiguration -&gt; Bool
+$c== :: UpdateConfiguration -&gt; UpdateConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230636"><span id="local-6989586621679230638"><span id="local-6989586621679230640"><span id="local-6989586621679230642"><span class="annot"><span class="annottext">ReadPrec [UpdateConfiguration]
+ReadPrec UpdateConfiguration
+Int -&gt; ReadS UpdateConfiguration
+ReadS [UpdateConfiguration]
+(Int -&gt; ReadS UpdateConfiguration)
+-&gt; ReadS [UpdateConfiguration]
+-&gt; ReadPrec UpdateConfiguration
+-&gt; ReadPrec [UpdateConfiguration]
+-&gt; Read UpdateConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateConfiguration]
+$creadListPrec :: ReadPrec [UpdateConfiguration]
+readPrec :: ReadPrec UpdateConfiguration
+$creadPrec :: ReadPrec UpdateConfiguration
+readList :: ReadS [UpdateConfiguration]
+$creadList :: ReadS [UpdateConfiguration]
+readsPrec :: Int -&gt; ReadS UpdateConfiguration
+$creadsPrec :: Int -&gt; ReadS UpdateConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230629"><span id="local-6989586621679230631"><span id="local-6989586621679230633"><span class="annot"><span class="annottext">Int -&gt; UpdateConfiguration -&gt; ShowS
+[UpdateConfiguration] -&gt; ShowS
+UpdateConfiguration -&gt; String
+(Int -&gt; UpdateConfiguration -&gt; ShowS)
+-&gt; (UpdateConfiguration -&gt; String)
+-&gt; ([UpdateConfiguration] -&gt; ShowS)
+-&gt; Show UpdateConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateConfiguration] -&gt; ShowS
+$cshowList :: [UpdateConfiguration] -&gt; ShowS
+show :: UpdateConfiguration -&gt; String
+$cshow :: UpdateConfiguration -&gt; String
+showsPrec :: Int -&gt; UpdateConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateConfiguration -&gt; Rep UpdateConfiguration x)
+-&gt; (forall x. Rep UpdateConfiguration x -&gt; UpdateConfiguration)
+-&gt; Generic UpdateConfiguration
+forall x. Rep UpdateConfiguration x -&gt; UpdateConfiguration
+forall x. UpdateConfiguration -&gt; Rep UpdateConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateConfiguration x -&gt; UpdateConfiguration
+$cfrom :: forall x. UpdateConfiguration -&gt; Rep UpdateConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'UpdateConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'description', 'updateConfiguration_description' - The description of the configuration.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'configurationId', 'updateConfiguration_configurationId' - The unique ID that Amazon MQ generates for the configuration.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'data'', 'updateConfiguration_data' - Required. The base64-encoded XML configuration.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#newUpdateConfiguration"><span class="hs-identifier hs-type">newUpdateConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'configurationId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'data''</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span>
+</span><span id="line-88"></span><span id="newUpdateConfiguration"><span class="annot"><span class="annottext">newUpdateConfiguration :: Text -&gt; Text -&gt; UpdateConfiguration
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#newUpdateConfiguration"><span class="hs-identifier hs-var hs-var">newUpdateConfiguration</span></a></span></span><span> </span><span id="local-6989586621679230624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230624"><span class="hs-identifier hs-var">pConfigurationId_</span></a></span></span><span> </span><span id="local-6989586621679230623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230623"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">UpdateConfiguration' :: Maybe Text -&gt; Text -&gt; Text -&gt; UpdateConfiguration
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-type">UpdateConfiguration'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:UpdateConfiguration' :: Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Adescription%3AUpdateConfiguration%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationId:UpdateConfiguration' :: Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3AconfigurationId%3AUpdateConfiguration%27"><span class="hs-identifier hs-var">configurationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230624"><span class="hs-identifier hs-var">pConfigurationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:data':UpdateConfiguration' :: Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Adata%27%3AUpdateConfiguration%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230623"><span class="hs-identifier hs-var">pData_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The description of the configuration.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfiguration_description"><span class="hs-identifier hs-type">updateConfiguration_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="updateConfiguration_description"><span class="annot"><span class="annottext">updateConfiguration_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateConfiguration -&gt; f UpdateConfiguration
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfiguration_description"><span class="hs-identifier hs-var hs-var">updateConfiguration_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfiguration -&gt; Maybe Text)
+-&gt; (UpdateConfiguration -&gt; Maybe Text -&gt; UpdateConfiguration)
+-&gt; Lens
+     UpdateConfiguration UpdateConfiguration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-type">UpdateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230620"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateConfiguration' :: UpdateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679230620"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230620"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230619"><span class="annot"><span class="annottext">s :: UpdateConfiguration
+</span><a href="#local-6989586621679230619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-type">UpdateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230618"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfiguration
+</span><a href="#local-6989586621679230619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateConfiguration' :: Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Adescription%3AUpdateConfiguration%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the configuration.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfiguration_configurationId"><span class="hs-identifier hs-type">updateConfiguration_configurationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="updateConfiguration_configurationId"><span class="annot"><span class="annottext">updateConfiguration_configurationId :: (Text -&gt; f Text) -&gt; UpdateConfiguration -&gt; f UpdateConfiguration
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfiguration_configurationId"><span class="hs-identifier hs-var hs-var">updateConfiguration_configurationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfiguration -&gt; Text)
+-&gt; (UpdateConfiguration -&gt; Text -&gt; UpdateConfiguration)
+-&gt; Lens UpdateConfiguration UpdateConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-type">UpdateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230617"><span class="annot"><span class="annottext">Text
+configurationId :: Text
+$sel:configurationId:UpdateConfiguration' :: UpdateConfiguration -&gt; Text
+</span><a href="#local-6989586621679230617"><span class="hs-identifier hs-var hs-var">configurationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230617"><span class="hs-identifier hs-var">configurationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230616"><span class="annot"><span class="annottext">s :: UpdateConfiguration
+</span><a href="#local-6989586621679230616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-type">UpdateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230615"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfiguration
+</span><a href="#local-6989586621679230616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationId:UpdateConfiguration' :: Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3AconfigurationId%3AUpdateConfiguration%27"><span class="hs-identifier hs-var">configurationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Required. The base64-encoded XML configuration.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfiguration_data"><span class="hs-identifier hs-type">updateConfiguration_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="updateConfiguration_data"><span class="annot"><span class="annottext">updateConfiguration_data :: (Text -&gt; f Text) -&gt; UpdateConfiguration -&gt; f UpdateConfiguration
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfiguration_data"><span class="hs-identifier hs-var hs-var">updateConfiguration_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfiguration -&gt; Text)
+-&gt; (UpdateConfiguration -&gt; Text -&gt; UpdateConfiguration)
+-&gt; Lens UpdateConfiguration UpdateConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-type">UpdateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230614"><span class="annot"><span class="annottext">Text
+data' :: Text
+$sel:data':UpdateConfiguration' :: UpdateConfiguration -&gt; Text
+</span><a href="#local-6989586621679230614"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230614"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230613"><span class="annot"><span class="annottext">s :: UpdateConfiguration
+</span><a href="#local-6989586621679230613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-type">UpdateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230612"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfiguration
+</span><a href="#local-6989586621679230613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':UpdateConfiguration' :: Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Adata%27%3AUpdateConfiguration%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679230608"><span class="annot"><span class="annottext">request :: UpdateConfiguration -&gt; Request UpdateConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateConfiguration -&gt; Request UpdateConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679230604"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230601"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230601"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230600"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679230600"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230599"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230599"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ConfigurationRevision
+-&gt; Maybe POSIX
+-&gt; Maybe [SanitizationWarning]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateConfigurationResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ConfigurationRevision
+ -&gt; Maybe POSIX
+ -&gt; Maybe [SanitizationWarning]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ConfigurationRevision
+      -&gt; Maybe POSIX
+      -&gt; Maybe [SanitizationWarning]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ConfigurationRevision
+   -&gt; Maybe POSIX
+   -&gt; Maybe [SanitizationWarning]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateConfigurationResponse)
+-&gt; Either String (Maybe ConfigurationRevision)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe [SanitizationWarning]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConfigurationRevision)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;latestRevision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe [SanitizationWarning]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateConfigurationResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe [SanitizationWarning]
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [SanitizationWarning]
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateConfigurationResponse)
+-&gt; Either String (Maybe [SanitizationWarning])
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [SanitizationWarning]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;warnings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SanitizationWarning]))
+-&gt; Maybe [SanitizationWarning]
+-&gt; Either String (Maybe [SanitizationWarning])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SanitizationWarning]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateConfigurationResponse)
+-&gt; Either String Int -&gt; Either String UpdateConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230601"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230590"><span id="local-6989586621679230592"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679230583"><span class="annot"><span class="annottext">toHeaders :: UpdateConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230573"><span id="local-6989586621679230575"><span id="local-6989586621679230577"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679230571"><span class="annot"><span class="annottext">toJSON :: UpdateConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-type">UpdateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230567"><span id="local-6989586621679230568"><span id="local-6989586621679230569"><span class="annot"><span class="annottext">Maybe Text
+Text
+data' :: Text
+configurationId :: Text
+description :: Maybe Text
+$sel:data':UpdateConfiguration' :: UpdateConfiguration -&gt; Text
+$sel:configurationId:UpdateConfiguration' :: UpdateConfiguration -&gt; Text
+$sel:description:UpdateConfiguration' :: UpdateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679230567"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230569"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230567"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679230561"><span class="annot"><span class="annottext">toPath :: UpdateConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration%27"><span class="hs-identifier hs-type">UpdateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230557"><span id="local-6989586621679230558"><span id="local-6989586621679230559"><span class="annot"><span class="annottext">Maybe Text
+Text
+data' :: Text
+configurationId :: Text
+description :: Maybe Text
+$sel:data':UpdateConfiguration' :: UpdateConfiguration -&gt; Text
+$sel:configurationId:UpdateConfiguration' :: UpdateConfiguration -&gt; Text
+$sel:description:UpdateConfiguration' :: UpdateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679230557"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/configurations/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230558"><span class="hs-identifier hs-var">configurationId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfiguration"><span class="hs-identifier hs-type">UpdateConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679230553"><span class="annot"><span class="annottext">toQuery :: UpdateConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newUpdateConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679230550"><span id="local-6989586621679230551"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConfigurationResponse"><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-var">UpdateConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConfigurationResponse%27"><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Required. The Amazon Resource Name (ARN) of the configuration.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Aarn%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The latest revision of the configuration.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AlatestRevision%3AUpdateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateConfigurationResponse -&gt; Maybe ConfigurationRevision
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3AlatestRevision%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | Required. The date and time of the configuration.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Acreated%3AUpdateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateConfigurationResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Acreated%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The list of the first 20 warnings about the configuration XML elements</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- or attributes that were sanitized.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3Awarnings%3AUpdateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateConfigurationResponse -&gt; Maybe [SanitizationWarning]
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Awarnings%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | Required. The name of the configuration. This value can contain only</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- ~). This value must be 1-150 characters long.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Aname%3AUpdateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Aname%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the configuration.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3Aid%3AUpdateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Aid%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateConfigurationResponse -&gt; Int
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3AhttpStatus%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230539"><span id="local-6989586621679230541"><span class="annot"><span class="annottext">UpdateConfigurationResponse -&gt; UpdateConfigurationResponse -&gt; Bool
+(UpdateConfigurationResponse
+ -&gt; UpdateConfigurationResponse -&gt; Bool)
+-&gt; (UpdateConfigurationResponse
+    -&gt; UpdateConfigurationResponse -&gt; Bool)
+-&gt; Eq UpdateConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateConfigurationResponse -&gt; UpdateConfigurationResponse -&gt; Bool
+$c/= :: UpdateConfigurationResponse -&gt; UpdateConfigurationResponse -&gt; Bool
+== :: UpdateConfigurationResponse -&gt; UpdateConfigurationResponse -&gt; Bool
+$c== :: UpdateConfigurationResponse -&gt; UpdateConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230531"><span id="local-6989586621679230533"><span id="local-6989586621679230535"><span id="local-6989586621679230537"><span class="annot"><span class="annottext">ReadPrec [UpdateConfigurationResponse]
+ReadPrec UpdateConfigurationResponse
+Int -&gt; ReadS UpdateConfigurationResponse
+ReadS [UpdateConfigurationResponse]
+(Int -&gt; ReadS UpdateConfigurationResponse)
+-&gt; ReadS [UpdateConfigurationResponse]
+-&gt; ReadPrec UpdateConfigurationResponse
+-&gt; ReadPrec [UpdateConfigurationResponse]
+-&gt; Read UpdateConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateConfigurationResponse]
+$creadListPrec :: ReadPrec [UpdateConfigurationResponse]
+readPrec :: ReadPrec UpdateConfigurationResponse
+$creadPrec :: ReadPrec UpdateConfigurationResponse
+readList :: ReadS [UpdateConfigurationResponse]
+$creadList :: ReadS [UpdateConfigurationResponse]
+readsPrec :: Int -&gt; ReadS UpdateConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS UpdateConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230525"><span id="local-6989586621679230527"><span id="local-6989586621679230529"><span class="annot"><span class="annottext">Int -&gt; UpdateConfigurationResponse -&gt; ShowS
+[UpdateConfigurationResponse] -&gt; ShowS
+UpdateConfigurationResponse -&gt; String
+(Int -&gt; UpdateConfigurationResponse -&gt; ShowS)
+-&gt; (UpdateConfigurationResponse -&gt; String)
+-&gt; ([UpdateConfigurationResponse] -&gt; ShowS)
+-&gt; Show UpdateConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateConfigurationResponse] -&gt; ShowS
+$cshowList :: [UpdateConfigurationResponse] -&gt; ShowS
+show :: UpdateConfigurationResponse -&gt; String
+$cshow :: UpdateConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; UpdateConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateConfigurationResponse -&gt; Rep UpdateConfigurationResponse x)
+-&gt; (forall x.
+    Rep UpdateConfigurationResponse x -&gt; UpdateConfigurationResponse)
+-&gt; Generic UpdateConfigurationResponse
+forall x.
+Rep UpdateConfigurationResponse x -&gt; UpdateConfigurationResponse
+forall x.
+UpdateConfigurationResponse -&gt; Rep UpdateConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateConfigurationResponse x -&gt; UpdateConfigurationResponse
+$cfrom :: forall x.
+UpdateConfigurationResponse -&gt; Rep UpdateConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Create a value of 'UpdateConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'arn', 'updateConfigurationResponse_arn' - Required. The Amazon Resource Name (ARN) of the configuration.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'latestRevision', 'updateConfigurationResponse_latestRevision' - The latest revision of the configuration.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'created', 'updateConfigurationResponse_created' - Required. The date and time of the configuration.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'warnings', 'updateConfigurationResponse_warnings' - The list of the first 20 warnings about the configuration XML elements</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- or attributes that were sanitized.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'name', 'updateConfigurationResponse_name' - Required. The name of the configuration. This value can contain only</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- ~). This value must be 1-150 characters long.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'id', 'updateConfigurationResponse_id' - Required. The unique ID that Amazon MQ generates for the configuration.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'httpStatus', 'updateConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#newUpdateConfigurationResponse"><span class="hs-identifier hs-type">newUpdateConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span>
+</span><span id="line-207"></span><span id="newUpdateConfigurationResponse"><span class="annot"><span class="annottext">newUpdateConfigurationResponse :: Int -&gt; UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#newUpdateConfigurationResponse"><span class="hs-identifier hs-var hs-var">newUpdateConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679230522"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">UpdateConfigurationResponse' :: Maybe Text
+-&gt; Maybe ConfigurationRevision
+-&gt; Maybe POSIX
+-&gt; Maybe [SanitizationWarning]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:UpdateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Aarn%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestRevision:UpdateConfigurationResponse' :: Maybe ConfigurationRevision
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3AlatestRevision%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:UpdateConfigurationResponse' :: Maybe POSIX
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Acreated%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:warnings:UpdateConfigurationResponse' :: Maybe [SanitizationWarning]
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Awarnings%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SanitizationWarning]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Aname%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:UpdateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Aid%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConfigurationResponse' :: Int
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3AhttpStatus%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | Required. The Amazon Resource Name (ARN) of the configuration.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_arn"><span class="hs-identifier hs-type">updateConfigurationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="updateConfigurationResponse_arn"><span class="annot"><span class="annottext">updateConfigurationResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateConfigurationResponse -&gt; f UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_arn"><span class="hs-identifier hs-var hs-var">updateConfigurationResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfigurationResponse -&gt; Maybe Text)
+-&gt; (UpdateConfigurationResponse
+    -&gt; Maybe Text -&gt; UpdateConfigurationResponse)
+-&gt; Lens
+     UpdateConfigurationResponse
+     UpdateConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230521"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:UpdateConfigurationResponse' :: UpdateConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679230521"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230521"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230520"><span class="annot"><span class="annottext">s :: UpdateConfigurationResponse
+</span><a href="#local-6989586621679230520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationResponse
+</span><a href="#local-6989586621679230520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Aarn%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The latest revision of the configuration.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_latestRevision"><span class="hs-identifier hs-type">updateConfigurationResponse_latestRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="updateConfigurationResponse_latestRevision"><span class="annot"><span class="annottext">updateConfigurationResponse_latestRevision :: (Maybe ConfigurationRevision -&gt; f (Maybe ConfigurationRevision))
+-&gt; UpdateConfigurationResponse -&gt; f UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_latestRevision"><span class="hs-identifier hs-var hs-var">updateConfigurationResponse_latestRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfigurationResponse -&gt; Maybe ConfigurationRevision)
+-&gt; (UpdateConfigurationResponse
+    -&gt; Maybe ConfigurationRevision -&gt; UpdateConfigurationResponse)
+-&gt; Lens
+     UpdateConfigurationResponse
+     UpdateConfigurationResponse
+     (Maybe ConfigurationRevision)
+     (Maybe ConfigurationRevision)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230518"><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+latestRevision :: Maybe ConfigurationRevision
+$sel:latestRevision:UpdateConfigurationResponse' :: UpdateConfigurationResponse -&gt; Maybe ConfigurationRevision
+</span><a href="#local-6989586621679230518"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+</span><a href="#local-6989586621679230518"><span class="hs-identifier hs-var">latestRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230517"><span class="annot"><span class="annottext">s :: UpdateConfigurationResponse
+</span><a href="#local-6989586621679230517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230516"><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+</span><a href="#local-6989586621679230516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationResponse
+</span><a href="#local-6989586621679230517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestRevision:UpdateConfigurationResponse' :: Maybe ConfigurationRevision
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3AlatestRevision%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+</span><a href="#local-6989586621679230516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Required. The date and time of the configuration.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_created"><span class="hs-identifier hs-type">updateConfigurationResponse_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="updateConfigurationResponse_created"><span class="annot"><span class="annottext">updateConfigurationResponse_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateConfigurationResponse -&gt; f UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_created"><span class="hs-identifier hs-var hs-var">updateConfigurationResponse_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfigurationResponse -&gt; Maybe POSIX)
+-&gt; (UpdateConfigurationResponse
+    -&gt; Maybe POSIX -&gt; UpdateConfigurationResponse)
+-&gt; Lens
+     UpdateConfigurationResponse
+     UpdateConfigurationResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230515"><span class="annot"><span class="annottext">Maybe POSIX
+created :: Maybe POSIX
+$sel:created:UpdateConfigurationResponse' :: UpdateConfigurationResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679230515"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679230515"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230514"><span class="annot"><span class="annottext">s :: UpdateConfigurationResponse
+</span><a href="#local-6989586621679230514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230513"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679230513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationResponse
+</span><a href="#local-6989586621679230514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:UpdateConfigurationResponse' :: Maybe POSIX
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Acreated%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679230513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateConfigurationResponse -&gt; f UpdateConfigurationResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateConfigurationResponse
+-&gt; f UpdateConfigurationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The list of the first 20 warnings about the configuration XML elements</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- or attributes that were sanitized.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_warnings"><span class="hs-identifier hs-type">updateConfigurationResponse_warnings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="updateConfigurationResponse_warnings"><span class="annot"><span class="annottext">updateConfigurationResponse_warnings :: (Maybe [SanitizationWarning] -&gt; f (Maybe [SanitizationWarning]))
+-&gt; UpdateConfigurationResponse -&gt; f UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_warnings"><span class="hs-identifier hs-var hs-var">updateConfigurationResponse_warnings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfigurationResponse -&gt; Maybe [SanitizationWarning])
+-&gt; (UpdateConfigurationResponse
+    -&gt; Maybe [SanitizationWarning] -&gt; UpdateConfigurationResponse)
+-&gt; Lens
+     UpdateConfigurationResponse
+     UpdateConfigurationResponse
+     (Maybe [SanitizationWarning])
+     (Maybe [SanitizationWarning])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230509"><span class="annot"><span class="annottext">Maybe [SanitizationWarning]
+warnings :: Maybe [SanitizationWarning]
+$sel:warnings:UpdateConfigurationResponse' :: UpdateConfigurationResponse -&gt; Maybe [SanitizationWarning]
+</span><a href="#local-6989586621679230509"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SanitizationWarning]
+</span><a href="#local-6989586621679230509"><span class="hs-identifier hs-var">warnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230508"><span class="annot"><span class="annottext">s :: UpdateConfigurationResponse
+</span><a href="#local-6989586621679230508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230507"><span class="annot"><span class="annottext">Maybe [SanitizationWarning]
+</span><a href="#local-6989586621679230507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationResponse
+</span><a href="#local-6989586621679230508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warnings:UpdateConfigurationResponse' :: Maybe [SanitizationWarning]
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Awarnings%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SanitizationWarning]
+</span><a href="#local-6989586621679230507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SanitizationWarning] -&gt; f (Maybe [SanitizationWarning]))
+ -&gt; UpdateConfigurationResponse -&gt; f UpdateConfigurationResponse)
+-&gt; ((Maybe [SanitizationWarning]
+     -&gt; f (Maybe [SanitizationWarning]))
+    -&gt; Maybe [SanitizationWarning] -&gt; f (Maybe [SanitizationWarning]))
+-&gt; (Maybe [SanitizationWarning] -&gt; f (Maybe [SanitizationWarning]))
+-&gt; UpdateConfigurationResponse
+-&gt; f UpdateConfigurationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SanitizationWarning]
+  [SanitizationWarning]
+  [SanitizationWarning]
+  [SanitizationWarning]
+-&gt; Iso
+     (Maybe [SanitizationWarning])
+     (Maybe [SanitizationWarning])
+     (Maybe [SanitizationWarning])
+     (Maybe [SanitizationWarning])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SanitizationWarning]
+  [SanitizationWarning]
+  [SanitizationWarning]
+  [SanitizationWarning]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | Required. The name of the configuration. This value can contain only</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- ~). This value must be 1-150 characters long.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_name"><span class="hs-identifier hs-type">updateConfigurationResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="updateConfigurationResponse_name"><span class="annot"><span class="annottext">updateConfigurationResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateConfigurationResponse -&gt; f UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_name"><span class="hs-identifier hs-var hs-var">updateConfigurationResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfigurationResponse -&gt; Maybe Text)
+-&gt; (UpdateConfigurationResponse
+    -&gt; Maybe Text -&gt; UpdateConfigurationResponse)
+-&gt; Lens
+     UpdateConfigurationResponse
+     UpdateConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230505"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateConfigurationResponse' :: UpdateConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679230505"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230505"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230504"><span class="annot"><span class="annottext">s :: UpdateConfigurationResponse
+</span><a href="#local-6989586621679230504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230503"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationResponse
+</span><a href="#local-6989586621679230504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Aname%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the configuration.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_id"><span class="hs-identifier hs-type">updateConfigurationResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="updateConfigurationResponse_id"><span class="annot"><span class="annottext">updateConfigurationResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateConfigurationResponse -&gt; f UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_id"><span class="hs-identifier hs-var hs-var">updateConfigurationResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfigurationResponse -&gt; Maybe Text)
+-&gt; (UpdateConfigurationResponse
+    -&gt; Maybe Text -&gt; UpdateConfigurationResponse)
+-&gt; Lens
+     UpdateConfigurationResponse
+     UpdateConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230502"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:UpdateConfigurationResponse' :: UpdateConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679230502"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230502"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230501"><span class="annot"><span class="annottext">s :: UpdateConfigurationResponse
+</span><a href="#local-6989586621679230501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230500"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationResponse
+</span><a href="#local-6989586621679230501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3Aid%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">updateConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-247"></span><span id="updateConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">updateConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateConfigurationResponse -&gt; f UpdateConfigurationResponse
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#updateConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConfigurationResponse -&gt; Int)
+-&gt; (UpdateConfigurationResponse
+    -&gt; Int -&gt; UpdateConfigurationResponse)
+-&gt; Lens
+     UpdateConfigurationResponse UpdateConfigurationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230499"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateConfigurationResponse' :: UpdateConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679230499"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230499"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230498"><span class="annot"><span class="annottext">s :: UpdateConfigurationResponse
+</span><a href="#local-6989586621679230498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230497"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationResponse
+</span><a href="#local-6989586621679230498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConfigurationResponse' :: Int
+</span><a href="Amazonka.MQ.UpdateConfiguration.html#%24sel%3AhttpStatus%3AUpdateConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.UpdateConfiguration.html#UpdateConfigurationResponse"><span class="hs-identifier hs-type">UpdateConfigurationResponse</span></a></span></span><span>
+</span><span id="line-250"></span></pre></body></html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.DeleteGlobalCluster</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a global database cluster. The primary and secondary clusters</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- must already be detached or destroyed first.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This action only applies to Aurora DB clusters.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.DeleteGlobalCluster</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier">DeleteGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#newDeleteGlobalCluster"><span class="hs-identifier">newDeleteGlobalCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#deleteGlobalCluster_globalClusterIdentifier"><span class="hs-identifier">deleteGlobalCluster_globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse"><span class="hs-identifier">DeleteGlobalClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#newDeleteGlobalClusterResponse"><span class="hs-identifier">newDeleteGlobalClusterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#deleteGlobalClusterResponse_globalCluster"><span class="hs-identifier">deleteGlobalClusterResponse_globalCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#deleteGlobalClusterResponse_httpStatus"><span class="hs-identifier">deleteGlobalClusterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteGlobalCluster' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679797194"><span id="local-6989586621679797195"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGlobalCluster"><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-var">DeleteGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGlobalCluster%27"><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster%27"><span class="hs-identifier hs-var">DeleteGlobalCluster'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cluster identifier of the global database cluster being deleted.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AglobalClusterIdentifier%3ADeleteGlobalCluster%27"><span class="annot"><span class="annottext">DeleteGlobalCluster -&gt; Text
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3ADeleteGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797188"><span id="local-6989586621679797190"><span class="annot"><span class="annottext">DeleteGlobalCluster -&gt; DeleteGlobalCluster -&gt; Bool
+(DeleteGlobalCluster -&gt; DeleteGlobalCluster -&gt; Bool)
+-&gt; (DeleteGlobalCluster -&gt; DeleteGlobalCluster -&gt; Bool)
+-&gt; Eq DeleteGlobalCluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGlobalCluster -&gt; DeleteGlobalCluster -&gt; Bool
+$c/= :: DeleteGlobalCluster -&gt; DeleteGlobalCluster -&gt; Bool
+== :: DeleteGlobalCluster -&gt; DeleteGlobalCluster -&gt; Bool
+$c== :: DeleteGlobalCluster -&gt; DeleteGlobalCluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797179"><span id="local-6989586621679797181"><span id="local-6989586621679797183"><span id="local-6989586621679797185"><span class="annot"><span class="annottext">ReadPrec [DeleteGlobalCluster]
+ReadPrec DeleteGlobalCluster
+Int -&gt; ReadS DeleteGlobalCluster
+ReadS [DeleteGlobalCluster]
+(Int -&gt; ReadS DeleteGlobalCluster)
+-&gt; ReadS [DeleteGlobalCluster]
+-&gt; ReadPrec DeleteGlobalCluster
+-&gt; ReadPrec [DeleteGlobalCluster]
+-&gt; Read DeleteGlobalCluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGlobalCluster]
+$creadListPrec :: ReadPrec [DeleteGlobalCluster]
+readPrec :: ReadPrec DeleteGlobalCluster
+$creadPrec :: ReadPrec DeleteGlobalCluster
+readList :: ReadS [DeleteGlobalCluster]
+$creadList :: ReadS [DeleteGlobalCluster]
+readsPrec :: Int -&gt; ReadS DeleteGlobalCluster
+$creadsPrec :: Int -&gt; ReadS DeleteGlobalCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797172"><span id="local-6989586621679797174"><span id="local-6989586621679797176"><span class="annot"><span class="annottext">Int -&gt; DeleteGlobalCluster -&gt; ShowS
+[DeleteGlobalCluster] -&gt; ShowS
+DeleteGlobalCluster -&gt; String
+(Int -&gt; DeleteGlobalCluster -&gt; ShowS)
+-&gt; (DeleteGlobalCluster -&gt; String)
+-&gt; ([DeleteGlobalCluster] -&gt; ShowS)
+-&gt; Show DeleteGlobalCluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGlobalCluster] -&gt; ShowS
+$cshowList :: [DeleteGlobalCluster] -&gt; ShowS
+show :: DeleteGlobalCluster -&gt; String
+$cshow :: DeleteGlobalCluster -&gt; String
+showsPrec :: Int -&gt; DeleteGlobalCluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGlobalCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteGlobalCluster -&gt; Rep DeleteGlobalCluster x)
+-&gt; (forall x. Rep DeleteGlobalCluster x -&gt; DeleteGlobalCluster)
+-&gt; Generic DeleteGlobalCluster
+forall x. Rep DeleteGlobalCluster x -&gt; DeleteGlobalCluster
+forall x. DeleteGlobalCluster -&gt; Rep DeleteGlobalCluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteGlobalCluster x -&gt; DeleteGlobalCluster
+$cfrom :: forall x. DeleteGlobalCluster -&gt; Rep DeleteGlobalCluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeleteGlobalCluster' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'globalClusterIdentifier', 'deleteGlobalCluster_globalClusterIdentifier' - The cluster identifier of the global database cluster being deleted.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#newDeleteGlobalCluster"><span class="hs-identifier hs-type">newDeleteGlobalCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'globalClusterIdentifier'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span><span>
+</span><span id="line-72"></span><span id="newDeleteGlobalCluster"><span class="annot"><span class="annottext">newDeleteGlobalCluster :: Text -&gt; DeleteGlobalCluster
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#newDeleteGlobalCluster"><span class="hs-identifier hs-var hs-var">newDeleteGlobalCluster</span></a></span></span><span> </span><span id="local-6989586621679797167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797167"><span class="hs-identifier hs-var">pGlobalClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteGlobalCluster' :: Text -&gt; DeleteGlobalCluster
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster%27"><span class="hs-identifier hs-type">DeleteGlobalCluster'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:DeleteGlobalCluster' :: Text
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3ADeleteGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797167"><span class="hs-identifier hs-var">pGlobalClusterIdentifier_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The cluster identifier of the global database cluster being deleted.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#deleteGlobalCluster_globalClusterIdentifier"><span class="hs-identifier hs-type">deleteGlobalCluster_globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="deleteGlobalCluster_globalClusterIdentifier"><span class="annot"><span class="annottext">deleteGlobalCluster_globalClusterIdentifier :: (Text -&gt; f Text) -&gt; DeleteGlobalCluster -&gt; f DeleteGlobalCluster
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#deleteGlobalCluster_globalClusterIdentifier"><span class="hs-identifier hs-var hs-var">deleteGlobalCluster_globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGlobalCluster -&gt; Text)
+-&gt; (DeleteGlobalCluster -&gt; Text -&gt; DeleteGlobalCluster)
+-&gt; Lens DeleteGlobalCluster DeleteGlobalCluster Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster%27"><span class="hs-identifier hs-type">DeleteGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797164"><span class="annot"><span class="annottext">Text
+globalClusterIdentifier :: Text
+$sel:globalClusterIdentifier:DeleteGlobalCluster' :: DeleteGlobalCluster -&gt; Text
+</span><a href="#local-6989586621679797164"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797164"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797163"><span class="annot"><span class="annottext">s :: DeleteGlobalCluster
+</span><a href="#local-6989586621679797163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster%27"><span class="hs-identifier hs-type">DeleteGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797162"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGlobalCluster
+</span><a href="#local-6989586621679797163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:DeleteGlobalCluster' :: Text
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3ADeleteGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679797158"><span class="annot"><span class="annottext">request :: DeleteGlobalCluster -&gt; Request DeleteGlobalCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGlobalCluster -&gt; Request DeleteGlobalCluster
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679797154"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteGlobalCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteGlobalCluster)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DeleteGlobalCluster))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteGlobalCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteGlobalCluster)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteGlobalClusterResult&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797151"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797151"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679797150"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679797150"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679797149"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679797149"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalCluster -&gt; Int -&gt; DeleteGlobalClusterResponse
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse%27"><span class="hs-identifier hs-var">DeleteGlobalClusterResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GlobalCluster -&gt; Int -&gt; DeleteGlobalClusterResponse)
+-&gt; Either String (Maybe GlobalCluster)
+-&gt; Either String (Int -&gt; DeleteGlobalClusterResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679797149"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalCluster)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalCluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteGlobalClusterResponse)
+-&gt; Either String Int -&gt; Either String DeleteGlobalClusterResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797151"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797141"><span id="local-6989586621679797143"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797138"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679797134"><span class="annot"><span class="annottext">toHeaders :: DeleteGlobalCluster -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteGlobalCluster -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679797129"><span class="annot"><span class="annottext">toPath :: DeleteGlobalCluster -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteGlobalCluster -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster"><span class="hs-identifier hs-type">DeleteGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679797125"><span class="annot"><span class="annottext">toQuery :: DeleteGlobalCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalCluster%27"><span class="hs-identifier hs-type">DeleteGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797123"><span class="annot"><span class="annottext">Text
+globalClusterIdentifier :: Text
+$sel:globalClusterIdentifier:DeleteGlobalCluster' :: DeleteGlobalCluster -&gt; Text
+</span><a href="#local-6989586621679797123"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteGlobalCluster&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalClusterIdentifier&quot;</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797123"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDeleteGlobalClusterResponse' smart constructor.</span><span>
+</span><span id="line-118"></span><span id="local-6989586621679797120"><span id="local-6989586621679797121"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGlobalClusterResponse"><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse"><span class="hs-identifier hs-var">DeleteGlobalClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGlobalClusterResponse%27"><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse%27"><span class="hs-identifier hs-var">DeleteGlobalClusterResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AglobalCluster%3ADeleteGlobalClusterResponse%27"><span class="annot"><span class="annottext">DeleteGlobalClusterResponse -&gt; Maybe GlobalCluster
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#%24sel%3AglobalCluster%3ADeleteGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteGlobalClusterResponse%27"><span class="annot"><span class="annottext">DeleteGlobalClusterResponse -&gt; Int
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#%24sel%3AhttpStatus%3ADeleteGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797114"><span id="local-6989586621679797116"><span class="annot"><span class="annottext">DeleteGlobalClusterResponse -&gt; DeleteGlobalClusterResponse -&gt; Bool
+(DeleteGlobalClusterResponse
+ -&gt; DeleteGlobalClusterResponse -&gt; Bool)
+-&gt; (DeleteGlobalClusterResponse
+    -&gt; DeleteGlobalClusterResponse -&gt; Bool)
+-&gt; Eq DeleteGlobalClusterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGlobalClusterResponse -&gt; DeleteGlobalClusterResponse -&gt; Bool
+$c/= :: DeleteGlobalClusterResponse -&gt; DeleteGlobalClusterResponse -&gt; Bool
+== :: DeleteGlobalClusterResponse -&gt; DeleteGlobalClusterResponse -&gt; Bool
+$c== :: DeleteGlobalClusterResponse -&gt; DeleteGlobalClusterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797106"><span id="local-6989586621679797108"><span id="local-6989586621679797110"><span id="local-6989586621679797112"><span class="annot"><span class="annottext">ReadPrec [DeleteGlobalClusterResponse]
+ReadPrec DeleteGlobalClusterResponse
+Int -&gt; ReadS DeleteGlobalClusterResponse
+ReadS [DeleteGlobalClusterResponse]
+(Int -&gt; ReadS DeleteGlobalClusterResponse)
+-&gt; ReadS [DeleteGlobalClusterResponse]
+-&gt; ReadPrec DeleteGlobalClusterResponse
+-&gt; ReadPrec [DeleteGlobalClusterResponse]
+-&gt; Read DeleteGlobalClusterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGlobalClusterResponse]
+$creadListPrec :: ReadPrec [DeleteGlobalClusterResponse]
+readPrec :: ReadPrec DeleteGlobalClusterResponse
+$creadPrec :: ReadPrec DeleteGlobalClusterResponse
+readList :: ReadS [DeleteGlobalClusterResponse]
+$creadList :: ReadS [DeleteGlobalClusterResponse]
+readsPrec :: Int -&gt; ReadS DeleteGlobalClusterResponse
+$creadsPrec :: Int -&gt; ReadS DeleteGlobalClusterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797100"><span id="local-6989586621679797102"><span id="local-6989586621679797104"><span class="annot"><span class="annottext">Int -&gt; DeleteGlobalClusterResponse -&gt; ShowS
+[DeleteGlobalClusterResponse] -&gt; ShowS
+DeleteGlobalClusterResponse -&gt; String
+(Int -&gt; DeleteGlobalClusterResponse -&gt; ShowS)
+-&gt; (DeleteGlobalClusterResponse -&gt; String)
+-&gt; ([DeleteGlobalClusterResponse] -&gt; ShowS)
+-&gt; Show DeleteGlobalClusterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGlobalClusterResponse] -&gt; ShowS
+$cshowList :: [DeleteGlobalClusterResponse] -&gt; ShowS
+show :: DeleteGlobalClusterResponse -&gt; String
+$cshow :: DeleteGlobalClusterResponse -&gt; String
+showsPrec :: Int -&gt; DeleteGlobalClusterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGlobalClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteGlobalClusterResponse -&gt; Rep DeleteGlobalClusterResponse x)
+-&gt; (forall x.
+    Rep DeleteGlobalClusterResponse x -&gt; DeleteGlobalClusterResponse)
+-&gt; Generic DeleteGlobalClusterResponse
+forall x.
+Rep DeleteGlobalClusterResponse x -&gt; DeleteGlobalClusterResponse
+forall x.
+DeleteGlobalClusterResponse -&gt; Rep DeleteGlobalClusterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteGlobalClusterResponse x -&gt; DeleteGlobalClusterResponse
+$cfrom :: forall x.
+DeleteGlobalClusterResponse -&gt; Rep DeleteGlobalClusterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Create a value of 'DeleteGlobalClusterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'globalCluster', 'deleteGlobalClusterResponse_globalCluster' - Undocumented member.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'httpStatus', 'deleteGlobalClusterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#newDeleteGlobalClusterResponse"><span class="hs-identifier hs-type">newDeleteGlobalClusterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse</span></a></span><span>
+</span><span id="line-140"></span><span id="newDeleteGlobalClusterResponse"><span class="annot"><span class="annottext">newDeleteGlobalClusterResponse :: Int -&gt; DeleteGlobalClusterResponse
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#newDeleteGlobalClusterResponse"><span class="hs-identifier hs-var hs-var">newDeleteGlobalClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679797097"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797097"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">DeleteGlobalClusterResponse' :: Maybe GlobalCluster -&gt; Int -&gt; DeleteGlobalClusterResponse
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse%27"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalCluster:DeleteGlobalClusterResponse' :: Maybe GlobalCluster
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#%24sel%3AglobalCluster%3ADeleteGlobalClusterResponse%27"><span class="hs-identifier hs-var">globalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGlobalClusterResponse' :: Int
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#%24sel%3AhttpStatus%3ADeleteGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797097"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#deleteGlobalClusterResponse_globalCluster"><span class="hs-identifier hs-type">deleteGlobalClusterResponse_globalCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="deleteGlobalClusterResponse_globalCluster"><span class="annot"><span class="annottext">deleteGlobalClusterResponse_globalCluster :: (Maybe GlobalCluster -&gt; f (Maybe GlobalCluster))
+-&gt; DeleteGlobalClusterResponse -&gt; f DeleteGlobalClusterResponse
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#deleteGlobalClusterResponse_globalCluster"><span class="hs-identifier hs-var hs-var">deleteGlobalClusterResponse_globalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGlobalClusterResponse -&gt; Maybe GlobalCluster)
+-&gt; (DeleteGlobalClusterResponse
+    -&gt; Maybe GlobalCluster -&gt; DeleteGlobalClusterResponse)
+-&gt; Lens
+     DeleteGlobalClusterResponse
+     DeleteGlobalClusterResponse
+     (Maybe GlobalCluster)
+     (Maybe GlobalCluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse%27"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797096"><span class="annot"><span class="annottext">Maybe GlobalCluster
+globalCluster :: Maybe GlobalCluster
+$sel:globalCluster:DeleteGlobalClusterResponse' :: DeleteGlobalClusterResponse -&gt; Maybe GlobalCluster
+</span><a href="#local-6989586621679797096"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679797096"><span class="hs-identifier hs-var">globalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797095"><span class="annot"><span class="annottext">s :: DeleteGlobalClusterResponse
+</span><a href="#local-6989586621679797095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse%27"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797094"><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679797094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGlobalClusterResponse
+</span><a href="#local-6989586621679797095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalCluster:DeleteGlobalClusterResponse' :: Maybe GlobalCluster
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#%24sel%3AglobalCluster%3ADeleteGlobalClusterResponse%27"><span class="hs-identifier hs-var">globalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679797094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#deleteGlobalClusterResponse_httpStatus"><span class="hs-identifier hs-type">deleteGlobalClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-153"></span><span id="deleteGlobalClusterResponse_httpStatus"><span class="annot"><span class="annottext">deleteGlobalClusterResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteGlobalClusterResponse -&gt; f DeleteGlobalClusterResponse
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#deleteGlobalClusterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteGlobalClusterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGlobalClusterResponse -&gt; Int)
+-&gt; (DeleteGlobalClusterResponse
+    -&gt; Int -&gt; DeleteGlobalClusterResponse)
+-&gt; Lens
+     DeleteGlobalClusterResponse DeleteGlobalClusterResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse%27"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797093"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteGlobalClusterResponse' :: DeleteGlobalClusterResponse -&gt; Int
+</span><a href="#local-6989586621679797093"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797093"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797092"><span class="annot"><span class="annottext">s :: DeleteGlobalClusterResponse
+</span><a href="#local-6989586621679797092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse%27"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797091"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGlobalClusterResponse
+</span><a href="#local-6989586621679797092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGlobalClusterResponse' :: Int
+</span><a href="Amazonka.RDS.DeleteGlobalCluster.html#%24sel%3AhttpStatus%3ADeleteGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteGlobalCluster.html#DeleteGlobalClusterResponse"><span class="hs-identifier hs-type">DeleteGlobalClusterResponse</span></a></span></span><span>
+</span><span id="line-156"></span></pre></body></html>

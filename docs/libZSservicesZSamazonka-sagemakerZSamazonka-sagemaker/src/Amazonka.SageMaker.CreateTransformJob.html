@@ -1,0 +1,1192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.CreateTransformJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts a transform job. A transform job uses a trained model to get</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- inferences on a dataset and saves these results to an Amazon S3 location</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- that you specify.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- To perform batch transformations, you create a transform job and use the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- data that you have readily available.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- In the request body, you provide the following:</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   @TransformJobName@ - Identifies the transform job. The name must be</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     unique within an Amazon Web Services Region in an Amazon Web</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     Services account.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   @ModelName@ - Identifies the model to use. @ModelName@ must be the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     name of an existing Amazon SageMaker model in the same Amazon Web</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     Services Region and Amazon Web Services account. For information on</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     creating a model, see CreateModel.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   @TransformInput@ - Describes the dataset to be transformed and the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     Amazon S3 location where it is stored.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- -   @TransformOutput@ - Identifies the Amazon S3 location where you want</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     Amazon SageMaker to save the results from the transform job.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- -   @TransformResources@ - Identifies the ML compute instances for the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     transform job.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- For more information about how batch transformation works, see</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html Batch Transform&gt;.</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.CreateTransformJob</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier">CreateTransformJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#newCreateTransformJob"><span class="hs-identifier">newCreateTransformJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_modelClientConfig"><span class="hs-identifier">createTransformJob_modelClientConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_batchStrategy"><span class="hs-identifier">createTransformJob_batchStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_maxPayloadInMB"><span class="hs-identifier">createTransformJob_maxPayloadInMB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_environment"><span class="hs-identifier">createTransformJob_environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_experimentConfig"><span class="hs-identifier">createTransformJob_experimentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_maxConcurrentTransforms"><span class="hs-identifier">createTransformJob_maxConcurrentTransforms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_dataProcessing"><span class="hs-identifier">createTransformJob_dataProcessing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_tags"><span class="hs-identifier">createTransformJob_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformJobName"><span class="hs-identifier">createTransformJob_transformJobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_modelName"><span class="hs-identifier">createTransformJob_modelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformInput"><span class="hs-identifier">createTransformJob_transformInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformOutput"><span class="hs-identifier">createTransformJob_transformOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformResources"><span class="hs-identifier">createTransformJob_transformResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse"><span class="hs-identifier">CreateTransformJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#newCreateTransformJobResponse"><span class="hs-identifier">newCreateTransformJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJobResponse_httpStatus"><span class="hs-identifier">createTransformJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJobResponse_transformJobArn"><span class="hs-identifier">createTransformJobResponse_transformJobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | /See:/ 'newCreateTransformJob' smart constructor.</span><span>
+</span><span id="line-90"></span><span id="local-6989586621680413252"><span id="local-6989586621680413253"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTransformJob"><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-var">CreateTransformJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTransformJob%27"><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-var">CreateTransformJob'</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configures the timeout and maximum number of retries for processing a</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- transform job invocation.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AmodelClientConfig%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Maybe ModelClientConfig
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmodelClientConfig%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">modelClientConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | Specifies the number of records to include in a mini-batch for an HTTP</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- inference request. A /record/ // is a single unit of input data that</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- inference can be made on. For example, a single line in a CSV file is a</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- To enable the batch strategy, you must set the @SplitType@ property to</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- @Line@, @RecordIO@, or @TFRecord@.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- To use only one record when making an HTTP invocation request to a</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- container, set @BatchStrategy@ to @SingleRecord@ and @SplitType@ to</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- @Line@.</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- To fit as many records in a mini-batch as can fit within the</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- @MaxPayloadInMB@ limit, set @BatchStrategy@ to @MultiRecord@ and</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- @SplitType@ to @Line@.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AbatchStrategy%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Maybe BatchStrategy
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AbatchStrategy%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">batchStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.BatchStrategy.html#BatchStrategy"><span class="hs-identifier hs-type">BatchStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The maximum allowed size of the payload, in MB. A /payload/ is the data</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- portion of a record (without metadata). The value in @MaxPayloadInMB@</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- must be greater than, or equal to, the size of a single record. To</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- estimate the size of a record in MB, divide the size of your dataset by</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- the number of records. To ensure that the records fit within the maximum</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- payload size, we recommend using a slightly larger value. The default</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- value is @6@ MB.</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- For cases where the payload might be arbitrarily large and is</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- transmitted using HTTP chunked encoding, set the value to @0@. This</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- feature works only in supported algorithms. Currently, Amazon SageMaker</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- built-in algorithms do not support HTTP chunked encoding.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AmaxPayloadInMB%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Maybe Natural
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmaxPayloadInMB%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">maxPayloadInMB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The environment variables to set in the Docker container. We support up</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- to 16 key and values entries in the map.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3Aenvironment%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3Aenvironment%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AexperimentConfig%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Maybe ExperimentConfig
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AexperimentConfig%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">experimentConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ExperimentConfig.html#ExperimentConfig"><span class="hs-identifier hs-type">ExperimentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The maximum number of parallel requests that can be sent to each</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- instance in a transform job. If @MaxConcurrentTransforms@ is set to @0@</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- or left unset, Amazon SageMaker checks the optional execution-parameters</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- to determine the settings for your chosen algorithm. If the</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- execution-parameters endpoint is not enabled, the default value is @1@.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- For more information on execution-parameters, see</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests How Containers Serve Requests&gt;.</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- For built-in algorithms, you don\'t need to set a value for</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- @MaxConcurrentTransforms@.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AmaxConcurrentTransforms%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Maybe Natural
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmaxConcurrentTransforms%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">maxConcurrentTransforms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The data structure used to specify the data to be used for inference in</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- a batch transform job and to associate the data that is relevant to the</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- prediction results in the output. The input filter provided allows you</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- to exclude input data that is not needed for inference in a batch</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- transform job. The output filter provided allows you to include input</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- data relevant to interpreting the predictions in the output from the</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- job. For more information, see</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html Associate Prediction Results with their Corresponding Input Records&gt;.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AdataProcessing%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Maybe DataProcessing
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AdataProcessing%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">dataProcessing</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3Atags%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3Atags%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The name of the transform job. The name must be unique within an Amazon</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- Web Services Region in an Amazon Web Services account.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AtransformJobName%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformJobName%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">transformJobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The name of the model that you want to use for the transform job.</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- @ModelName@ must be the name of an existing Amazon SageMaker model</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- within an Amazon Web Services Region in an Amazon Web Services account.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AmodelName%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmodelName%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | Describes the input source and the way the transform job consumes it.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AtransformInput%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; TransformInput
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformInput%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">transformInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformInput.html#TransformInput"><span class="hs-identifier hs-type">TransformInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | Describes the results of the transform job.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AtransformOutput%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; TransformOutput
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformOutput%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">transformOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | Describes the resources, including ML instance types and ML instance</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- count, to use for the transform job.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AtransformResources%3ACreateTransformJob%27"><span class="annot"><span class="annottext">CreateTransformJob -&gt; TransformResources
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformResources%3ACreateTransformJob%27"><span class="hs-identifier hs-var hs-var">transformResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformResources.html#TransformResources"><span class="hs-identifier hs-type">TransformResources</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680413234"><span id="local-6989586621680413236"><span class="annot"><span class="annottext">CreateTransformJob -&gt; CreateTransformJob -&gt; Bool
+(CreateTransformJob -&gt; CreateTransformJob -&gt; Bool)
+-&gt; (CreateTransformJob -&gt; CreateTransformJob -&gt; Bool)
+-&gt; Eq CreateTransformJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTransformJob -&gt; CreateTransformJob -&gt; Bool
+$c/= :: CreateTransformJob -&gt; CreateTransformJob -&gt; Bool
+== :: CreateTransformJob -&gt; CreateTransformJob -&gt; Bool
+$c== :: CreateTransformJob -&gt; CreateTransformJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680413225"><span id="local-6989586621680413227"><span id="local-6989586621680413229"><span id="local-6989586621680413231"><span class="annot"><span class="annottext">ReadPrec [CreateTransformJob]
+ReadPrec CreateTransformJob
+Int -&gt; ReadS CreateTransformJob
+ReadS [CreateTransformJob]
+(Int -&gt; ReadS CreateTransformJob)
+-&gt; ReadS [CreateTransformJob]
+-&gt; ReadPrec CreateTransformJob
+-&gt; ReadPrec [CreateTransformJob]
+-&gt; Read CreateTransformJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTransformJob]
+$creadListPrec :: ReadPrec [CreateTransformJob]
+readPrec :: ReadPrec CreateTransformJob
+$creadPrec :: ReadPrec CreateTransformJob
+readList :: ReadS [CreateTransformJob]
+$creadList :: ReadS [CreateTransformJob]
+readsPrec :: Int -&gt; ReadS CreateTransformJob
+$creadsPrec :: Int -&gt; ReadS CreateTransformJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680413218"><span id="local-6989586621680413220"><span id="local-6989586621680413222"><span class="annot"><span class="annottext">Int -&gt; CreateTransformJob -&gt; ShowS
+[CreateTransformJob] -&gt; ShowS
+CreateTransformJob -&gt; String
+(Int -&gt; CreateTransformJob -&gt; ShowS)
+-&gt; (CreateTransformJob -&gt; String)
+-&gt; ([CreateTransformJob] -&gt; ShowS)
+-&gt; Show CreateTransformJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTransformJob] -&gt; ShowS
+$cshowList :: [CreateTransformJob] -&gt; ShowS
+show :: CreateTransformJob -&gt; String
+$cshow :: CreateTransformJob -&gt; String
+showsPrec :: Int -&gt; CreateTransformJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTransformJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateTransformJob -&gt; Rep CreateTransformJob x)
+-&gt; (forall x. Rep CreateTransformJob x -&gt; CreateTransformJob)
+-&gt; Generic CreateTransformJob
+forall x. Rep CreateTransformJob x -&gt; CreateTransformJob
+forall x. CreateTransformJob -&gt; Rep CreateTransformJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateTransformJob x -&gt; CreateTransformJob
+$cfrom :: forall x. CreateTransformJob -&gt; Rep CreateTransformJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'CreateTransformJob' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'modelClientConfig', 'createTransformJob_modelClientConfig' - Configures the timeout and maximum number of retries for processing a</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- transform job invocation.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'batchStrategy', 'createTransformJob_batchStrategy' - Specifies the number of records to include in a mini-batch for an HTTP</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- inference request. A /record/ // is a single unit of input data that</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- inference can be made on. For example, a single line in a CSV file is a</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- To enable the batch strategy, you must set the @SplitType@ property to</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- @Line@, @RecordIO@, or @TFRecord@.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- To use only one record when making an HTTP invocation request to a</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- container, set @BatchStrategy@ to @SingleRecord@ and @SplitType@ to</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- @Line@.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- To fit as many records in a mini-batch as can fit within the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- @MaxPayloadInMB@ limit, set @BatchStrategy@ to @MultiRecord@ and</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- @SplitType@ to @Line@.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'maxPayloadInMB', 'createTransformJob_maxPayloadInMB' - The maximum allowed size of the payload, in MB. A /payload/ is the data</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- portion of a record (without metadata). The value in @MaxPayloadInMB@</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- must be greater than, or equal to, the size of a single record. To</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- estimate the size of a record in MB, divide the size of your dataset by</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- the number of records. To ensure that the records fit within the maximum</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- payload size, we recommend using a slightly larger value. The default</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- value is @6@ MB.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- For cases where the payload might be arbitrarily large and is</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- transmitted using HTTP chunked encoding, set the value to @0@. This</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- feature works only in supported algorithms. Currently, Amazon SageMaker</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- built-in algorithms do not support HTTP chunked encoding.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'environment', 'createTransformJob_environment' - The environment variables to set in the Docker container. We support up</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- to 16 key and values entries in the map.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'experimentConfig', 'createTransformJob_experimentConfig' - Undocumented member.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'maxConcurrentTransforms', 'createTransformJob_maxConcurrentTransforms' - The maximum number of parallel requests that can be sent to each</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- instance in a transform job. If @MaxConcurrentTransforms@ is set to @0@</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- or left unset, Amazon SageMaker checks the optional execution-parameters</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- to determine the settings for your chosen algorithm. If the</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- execution-parameters endpoint is not enabled, the default value is @1@.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- For more information on execution-parameters, see</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests How Containers Serve Requests&gt;.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- For built-in algorithms, you don\'t need to set a value for</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- @MaxConcurrentTransforms@.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'dataProcessing', 'createTransformJob_dataProcessing' - The data structure used to specify the data to be used for inference in</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- a batch transform job and to associate the data that is relevant to the</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- prediction results in the output. The input filter provided allows you</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- to exclude input data that is not needed for inference in a batch</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- transform job. The output filter provided allows you to include input</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- data relevant to interpreting the predictions in the output from the</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- job. For more information, see</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html Associate Prediction Results with their Corresponding Input Records&gt;.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'tags', 'createTransformJob_tags' - (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'transformJobName', 'createTransformJob_transformJobName' - The name of the transform job. The name must be unique within an Amazon</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Web Services Region in an Amazon Web Services account.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'modelName', 'createTransformJob_modelName' - The name of the model that you want to use for the transform job.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- @ModelName@ must be the name of an existing Amazon SageMaker model</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- within an Amazon Web Services Region in an Amazon Web Services account.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'transformInput', 'createTransformJob_transformInput' - Describes the input source and the way the transform job consumes it.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'transformOutput', 'createTransformJob_transformOutput' - Describes the results of the transform job.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'transformResources', 'createTransformJob_transformResources' - Describes the resources, including ML instance types and ML instance</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- count, to use for the transform job.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#newCreateTransformJob"><span class="hs-identifier hs-type">newCreateTransformJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-comment">-- | 'transformJobName'</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-comment">-- | 'modelName'</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-comment">-- | 'transformInput'</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformInput.html#TransformInput"><span class="hs-identifier hs-type">TransformInput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-comment">-- | 'transformOutput'</span><span>
+</span><span id="line-256"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-comment">-- | 'transformResources'</span><span>
+</span><span id="line-258"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformResources.html#TransformResources"><span class="hs-identifier hs-type">TransformResources</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-259"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span>
+</span><span id="line-260"></span><span id="newCreateTransformJob"><span class="annot"><span class="annottext">newCreateTransformJob :: Text
+-&gt; Text
+-&gt; TransformInput
+-&gt; TransformOutput
+-&gt; TransformResources
+-&gt; CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#newCreateTransformJob"><span class="hs-identifier hs-var hs-var">newCreateTransformJob</span></a></span></span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621680413213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413213"><span class="hs-identifier hs-var">pTransformJobName_</span></a></span></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621680413212"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413212"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621680413211"><span class="annot"><span class="annottext">TransformInput
+</span><a href="#local-6989586621680413211"><span class="hs-identifier hs-var">pTransformInput_</span></a></span></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621680413210"><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680413210"><span class="hs-identifier hs-var">pTransformOutput_</span></a></span></span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621680413209"><span class="annot"><span class="annottext">TransformResources
+</span><a href="#local-6989586621680413209"><span class="hs-identifier hs-var">pTransformResources_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><span class="annottext">CreateTransformJob' :: Maybe ModelClientConfig
+-&gt; Maybe BatchStrategy
+-&gt; Maybe Natural
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe ExperimentConfig
+-&gt; Maybe Natural
+-&gt; Maybe DataProcessing
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; Text
+-&gt; TransformInput
+-&gt; TransformOutput
+-&gt; TransformResources
+-&gt; CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelClientConfig:CreateTransformJob' :: Maybe ModelClientConfig
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmodelClientConfig%3ACreateTransformJob%27"><span class="hs-identifier hs-var">modelClientConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModelClientConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">$sel:batchStrategy:CreateTransformJob' :: Maybe BatchStrategy
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AbatchStrategy%3ACreateTransformJob%27"><span class="hs-identifier hs-var">batchStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxPayloadInMB:CreateTransformJob' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmaxPayloadInMB%3ACreateTransformJob%27"><span class="hs-identifier hs-var">maxPayloadInMB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">$sel:environment:CreateTransformJob' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3Aenvironment%3ACreateTransformJob%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">$sel:experimentConfig:CreateTransformJob' :: Maybe ExperimentConfig
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AexperimentConfig%3ACreateTransformJob%27"><span class="hs-identifier hs-var">experimentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxConcurrentTransforms:CreateTransformJob' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmaxConcurrentTransforms%3ACreateTransformJob%27"><span class="hs-identifier hs-var">maxConcurrentTransforms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataProcessing:CreateTransformJob' :: Maybe DataProcessing
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AdataProcessing%3ACreateTransformJob%27"><span class="hs-identifier hs-var">dataProcessing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataProcessing
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateTransformJob' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3Atags%3ACreateTransformJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">$sel:transformJobName:CreateTransformJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformJobName%3ACreateTransformJob%27"><span class="hs-identifier hs-var">transformJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413213"><span class="hs-identifier hs-var">pTransformJobName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelName:CreateTransformJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmodelName%3ACreateTransformJob%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413212"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">$sel:transformInput:CreateTransformJob' :: TransformInput
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformInput%3ACreateTransformJob%27"><span class="hs-identifier hs-var">transformInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformInput
+</span><a href="#local-6989586621680413211"><span class="hs-identifier hs-var">pTransformInput_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">$sel:transformOutput:CreateTransformJob' :: TransformOutput
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformOutput%3ACreateTransformJob%27"><span class="hs-identifier hs-var">transformOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680413210"><span class="hs-identifier hs-var">pTransformOutput_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">$sel:transformResources:CreateTransformJob' :: TransformResources
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformResources%3ACreateTransformJob%27"><span class="hs-identifier hs-var">transformResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformResources
+</span><a href="#local-6989586621680413209"><span class="hs-identifier hs-var">pTransformResources_</span></a></span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | Configures the timeout and maximum number of retries for processing a</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- transform job invocation.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_modelClientConfig"><span class="hs-identifier hs-type">createTransformJob_modelClientConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelClientConfig.html#ModelClientConfig"><span class="hs-identifier hs-type">ModelClientConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="createTransformJob_modelClientConfig"><span class="annot"><span class="annottext">createTransformJob_modelClientConfig :: (Maybe ModelClientConfig -&gt; f (Maybe ModelClientConfig))
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_modelClientConfig"><span class="hs-identifier hs-var hs-var">createTransformJob_modelClientConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Maybe ModelClientConfig)
+-&gt; (CreateTransformJob
+    -&gt; Maybe ModelClientConfig -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob
+     CreateTransformJob
+     (Maybe ModelClientConfig)
+     (Maybe ModelClientConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413206"><span class="annot"><span class="annottext">Maybe ModelClientConfig
+modelClientConfig :: Maybe ModelClientConfig
+$sel:modelClientConfig:CreateTransformJob' :: CreateTransformJob -&gt; Maybe ModelClientConfig
+</span><a href="#local-6989586621680413206"><span class="hs-identifier hs-var hs-var">modelClientConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelClientConfig
+</span><a href="#local-6989586621680413206"><span class="hs-identifier hs-var">modelClientConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413205"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413204"><span class="annot"><span class="annottext">Maybe ModelClientConfig
+</span><a href="#local-6989586621680413204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelClientConfig:CreateTransformJob' :: Maybe ModelClientConfig
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmodelClientConfig%3ACreateTransformJob%27"><span class="hs-identifier hs-var">modelClientConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelClientConfig
+</span><a href="#local-6989586621680413204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | Specifies the number of records to include in a mini-batch for an HTTP</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- inference request. A /record/ // is a single unit of input data that</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- inference can be made on. For example, a single line in a CSV file is a</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- To enable the batch strategy, you must set the @SplitType@ property to</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- @Line@, @RecordIO@, or @TFRecord@.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- To use only one record when making an HTTP invocation request to a</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- container, set @BatchStrategy@ to @SingleRecord@ and @SplitType@ to</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- @Line@.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- To fit as many records in a mini-batch as can fit within the</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- @MaxPayloadInMB@ limit, set @BatchStrategy@ to @MultiRecord@ and</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- @SplitType@ to @Line@.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_batchStrategy"><span class="hs-identifier hs-type">createTransformJob_batchStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.BatchStrategy.html#BatchStrategy"><span class="hs-identifier hs-type">BatchStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="createTransformJob_batchStrategy"><span class="annot"><span class="annottext">createTransformJob_batchStrategy :: (Maybe BatchStrategy -&gt; f (Maybe BatchStrategy))
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_batchStrategy"><span class="hs-identifier hs-var hs-var">createTransformJob_batchStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Maybe BatchStrategy)
+-&gt; (CreateTransformJob
+    -&gt; Maybe BatchStrategy -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob
+     CreateTransformJob
+     (Maybe BatchStrategy)
+     (Maybe BatchStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413203"><span class="annot"><span class="annottext">Maybe BatchStrategy
+batchStrategy :: Maybe BatchStrategy
+$sel:batchStrategy:CreateTransformJob' :: CreateTransformJob -&gt; Maybe BatchStrategy
+</span><a href="#local-6989586621680413203"><span class="hs-identifier hs-var hs-var">batchStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchStrategy
+</span><a href="#local-6989586621680413203"><span class="hs-identifier hs-var">batchStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413202"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413201"><span class="annot"><span class="annottext">Maybe BatchStrategy
+</span><a href="#local-6989586621680413201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchStrategy:CreateTransformJob' :: Maybe BatchStrategy
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AbatchStrategy%3ACreateTransformJob%27"><span class="hs-identifier hs-var">batchStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchStrategy
+</span><a href="#local-6989586621680413201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The maximum allowed size of the payload, in MB. A /payload/ is the data</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- portion of a record (without metadata). The value in @MaxPayloadInMB@</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- must be greater than, or equal to, the size of a single record. To</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- estimate the size of a record in MB, divide the size of your dataset by</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- the number of records. To ensure that the records fit within the maximum</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- payload size, we recommend using a slightly larger value. The default</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- value is @6@ MB.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- For cases where the payload might be arbitrarily large and is</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- transmitted using HTTP chunked encoding, set the value to @0@. This</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- feature works only in supported algorithms. Currently, Amazon SageMaker</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- built-in algorithms do not support HTTP chunked encoding.</span><span>
+</span><span id="line-318"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_maxPayloadInMB"><span class="hs-identifier hs-type">createTransformJob_maxPayloadInMB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span id="createTransformJob_maxPayloadInMB"><span class="annot"><span class="annottext">createTransformJob_maxPayloadInMB :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_maxPayloadInMB"><span class="hs-identifier hs-var hs-var">createTransformJob_maxPayloadInMB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Maybe Natural)
+-&gt; (CreateTransformJob -&gt; Maybe Natural -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob
+     CreateTransformJob
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413200"><span class="annot"><span class="annottext">Maybe Natural
+maxPayloadInMB :: Maybe Natural
+$sel:maxPayloadInMB:CreateTransformJob' :: CreateTransformJob -&gt; Maybe Natural
+</span><a href="#local-6989586621680413200"><span class="hs-identifier hs-var hs-var">maxPayloadInMB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680413200"><span class="hs-identifier hs-var">maxPayloadInMB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413199"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413198"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680413198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxPayloadInMB:CreateTransformJob' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmaxPayloadInMB%3ACreateTransformJob%27"><span class="hs-identifier hs-var">maxPayloadInMB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680413198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- | The environment variables to set in the Docker container. We support up</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- to 16 key and values entries in the map.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_environment"><span class="hs-identifier hs-type">createTransformJob_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span id="createTransformJob_environment"><span class="annot"><span class="annottext">createTransformJob_environment :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_environment"><span class="hs-identifier hs-var hs-var">createTransformJob_environment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateTransformJob
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob
+     CreateTransformJob
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413197"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+environment :: Maybe (HashMap Text Text)
+$sel:environment:CreateTransformJob' :: CreateTransformJob -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680413197"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680413197"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413196"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413195"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680413195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:CreateTransformJob' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3Aenvironment%3ACreateTransformJob%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680413195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateTransformJob -&gt; f CreateTransformJob)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateTransformJob
+-&gt; f CreateTransformJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_experimentConfig"><span class="hs-identifier hs-type">createTransformJob_experimentConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ExperimentConfig.html#ExperimentConfig"><span class="hs-identifier hs-type">ExperimentConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span id="createTransformJob_experimentConfig"><span class="annot"><span class="annottext">createTransformJob_experimentConfig :: (Maybe ExperimentConfig -&gt; f (Maybe ExperimentConfig))
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_experimentConfig"><span class="hs-identifier hs-var hs-var">createTransformJob_experimentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Maybe ExperimentConfig)
+-&gt; (CreateTransformJob
+    -&gt; Maybe ExperimentConfig -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob
+     CreateTransformJob
+     (Maybe ExperimentConfig)
+     (Maybe ExperimentConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413191"><span class="annot"><span class="annottext">Maybe ExperimentConfig
+experimentConfig :: Maybe ExperimentConfig
+$sel:experimentConfig:CreateTransformJob' :: CreateTransformJob -&gt; Maybe ExperimentConfig
+</span><a href="#local-6989586621680413191"><span class="hs-identifier hs-var hs-var">experimentConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentConfig
+</span><a href="#local-6989586621680413191"><span class="hs-identifier hs-var">experimentConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413190"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413189"><span class="annot"><span class="annottext">Maybe ExperimentConfig
+</span><a href="#local-6989586621680413189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentConfig:CreateTransformJob' :: Maybe ExperimentConfig
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AexperimentConfig%3ACreateTransformJob%27"><span class="hs-identifier hs-var">experimentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentConfig
+</span><a href="#local-6989586621680413189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- | The maximum number of parallel requests that can be sent to each</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- instance in a transform job. If @MaxConcurrentTransforms@ is set to @0@</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- or left unset, Amazon SageMaker checks the optional execution-parameters</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- to determine the settings for your chosen algorithm. If the</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- execution-parameters endpoint is not enabled, the default value is @1@.</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- For more information on execution-parameters, see</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests How Containers Serve Requests&gt;.</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- For built-in algorithms, you don\'t need to set a value for</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- @MaxConcurrentTransforms@.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_maxConcurrentTransforms"><span class="hs-identifier hs-type">createTransformJob_maxConcurrentTransforms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span id="createTransformJob_maxConcurrentTransforms"><span class="annot"><span class="annottext">createTransformJob_maxConcurrentTransforms :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_maxConcurrentTransforms"><span class="hs-identifier hs-var hs-var">createTransformJob_maxConcurrentTransforms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Maybe Natural)
+-&gt; (CreateTransformJob -&gt; Maybe Natural -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob
+     CreateTransformJob
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413188"><span class="annot"><span class="annottext">Maybe Natural
+maxConcurrentTransforms :: Maybe Natural
+$sel:maxConcurrentTransforms:CreateTransformJob' :: CreateTransformJob -&gt; Maybe Natural
+</span><a href="#local-6989586621680413188"><span class="hs-identifier hs-var hs-var">maxConcurrentTransforms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680413188"><span class="hs-identifier hs-var">maxConcurrentTransforms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413187"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413186"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680413186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxConcurrentTransforms:CreateTransformJob' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmaxConcurrentTransforms%3ACreateTransformJob%27"><span class="hs-identifier hs-var">maxConcurrentTransforms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680413186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- | The data structure used to specify the data to be used for inference in</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- a batch transform job and to associate the data that is relevant to the</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- prediction results in the output. The input filter provided allows you</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- to exclude input data that is not needed for inference in a batch</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- transform job. The output filter provided allows you to include input</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- data relevant to interpreting the predictions in the output from the</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- job. For more information, see</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html Associate Prediction Results with their Corresponding Input Records&gt;.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_dataProcessing"><span class="hs-identifier hs-type">createTransformJob_dataProcessing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.DataProcessing.html#DataProcessing"><span class="hs-identifier hs-type">DataProcessing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span id="createTransformJob_dataProcessing"><span class="annot"><span class="annottext">createTransformJob_dataProcessing :: (Maybe DataProcessing -&gt; f (Maybe DataProcessing))
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_dataProcessing"><span class="hs-identifier hs-var hs-var">createTransformJob_dataProcessing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Maybe DataProcessing)
+-&gt; (CreateTransformJob
+    -&gt; Maybe DataProcessing -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob
+     CreateTransformJob
+     (Maybe DataProcessing)
+     (Maybe DataProcessing)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413185"><span class="annot"><span class="annottext">Maybe DataProcessing
+dataProcessing :: Maybe DataProcessing
+$sel:dataProcessing:CreateTransformJob' :: CreateTransformJob -&gt; Maybe DataProcessing
+</span><a href="#local-6989586621680413185"><span class="hs-identifier hs-var hs-var">dataProcessing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataProcessing
+</span><a href="#local-6989586621680413185"><span class="hs-identifier hs-var">dataProcessing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413184"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413183"><span class="annot"><span class="annottext">Maybe DataProcessing
+</span><a href="#local-6989586621680413183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataProcessing:CreateTransformJob' :: Maybe DataProcessing
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AdataProcessing%3ACreateTransformJob%27"><span class="hs-identifier hs-var">dataProcessing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataProcessing
+</span><a href="#local-6989586621680413183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-356"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_tags"><span class="hs-identifier hs-type">createTransformJob_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span id="createTransformJob_tags"><span class="annot"><span class="annottext">createTransformJob_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_tags"><span class="hs-identifier hs-var hs-var">createTransformJob_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Maybe [Tag])
+-&gt; (CreateTransformJob -&gt; Maybe [Tag] -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob CreateTransformJob (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413182"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateTransformJob' :: CreateTransformJob -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680413182"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680413182"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413181"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413180"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680413180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateTransformJob' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3Atags%3ACreateTransformJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680413180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateTransformJob -&gt; f CreateTransformJob)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateTransformJob
+-&gt; f CreateTransformJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-358"></span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- | The name of the transform job. The name must be unique within an Amazon</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- Web Services Region in an Amazon Web Services account.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformJobName"><span class="hs-identifier hs-type">createTransformJob_transformJobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-362"></span><span id="createTransformJob_transformJobName"><span class="annot"><span class="annottext">createTransformJob_transformJobName :: (Text -&gt; f Text) -&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformJobName"><span class="hs-identifier hs-var hs-var">createTransformJob_transformJobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Text)
+-&gt; (CreateTransformJob -&gt; Text -&gt; CreateTransformJob)
+-&gt; Lens CreateTransformJob CreateTransformJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413179"><span class="annot"><span class="annottext">Text
+transformJobName :: Text
+$sel:transformJobName:CreateTransformJob' :: CreateTransformJob -&gt; Text
+</span><a href="#local-6989586621680413179"><span class="hs-identifier hs-var hs-var">transformJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413179"><span class="hs-identifier hs-var">transformJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413178"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413177"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformJobName:CreateTransformJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformJobName%3ACreateTransformJob%27"><span class="hs-identifier hs-var">transformJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- | The name of the model that you want to use for the transform job.</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- @ModelName@ must be the name of an existing Amazon SageMaker model</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- within an Amazon Web Services Region in an Amazon Web Services account.</span><span>
+</span><span id="line-367"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_modelName"><span class="hs-identifier hs-type">createTransformJob_modelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-368"></span><span id="createTransformJob_modelName"><span class="annot"><span class="annottext">createTransformJob_modelName :: (Text -&gt; f Text) -&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_modelName"><span class="hs-identifier hs-var hs-var">createTransformJob_modelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; Text)
+-&gt; (CreateTransformJob -&gt; Text -&gt; CreateTransformJob)
+-&gt; Lens CreateTransformJob CreateTransformJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413176"><span class="annot"><span class="annottext">Text
+modelName :: Text
+$sel:modelName:CreateTransformJob' :: CreateTransformJob -&gt; Text
+</span><a href="#local-6989586621680413176"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413176"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413175"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413174"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:CreateTransformJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AmodelName%3ACreateTransformJob%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- | Describes the input source and the way the transform job consumes it.</span><span>
+</span><span id="line-371"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformInput"><span class="hs-identifier hs-type">createTransformJob_transformInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformInput.html#TransformInput"><span class="hs-identifier hs-type">TransformInput</span></a></span><span>
+</span><span id="line-372"></span><span id="createTransformJob_transformInput"><span class="annot"><span class="annottext">createTransformJob_transformInput :: (TransformInput -&gt; f TransformInput)
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformInput"><span class="hs-identifier hs-var hs-var">createTransformJob_transformInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; TransformInput)
+-&gt; (CreateTransformJob -&gt; TransformInput -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob CreateTransformJob TransformInput TransformInput
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413173"><span class="annot"><span class="annottext">TransformInput
+transformInput :: TransformInput
+$sel:transformInput:CreateTransformJob' :: CreateTransformJob -&gt; TransformInput
+</span><a href="#local-6989586621680413173"><span class="hs-identifier hs-var hs-var">transformInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformInput
+</span><a href="#local-6989586621680413173"><span class="hs-identifier hs-var">transformInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413172"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413171"><span class="annot"><span class="annottext">TransformInput
+</span><a href="#local-6989586621680413171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformInput:CreateTransformJob' :: TransformInput
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformInput%3ACreateTransformJob%27"><span class="hs-identifier hs-var">transformInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformInput
+</span><a href="#local-6989586621680413171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- | Describes the results of the transform job.</span><span>
+</span><span id="line-375"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformOutput"><span class="hs-identifier hs-type">createTransformJob_transformOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span>
+</span><span id="line-376"></span><span id="createTransformJob_transformOutput"><span class="annot"><span class="annottext">createTransformJob_transformOutput :: (TransformOutput -&gt; f TransformOutput)
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformOutput"><span class="hs-identifier hs-var hs-var">createTransformJob_transformOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; TransformOutput)
+-&gt; (CreateTransformJob -&gt; TransformOutput -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob
+     CreateTransformJob
+     TransformOutput
+     TransformOutput
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413170"><span class="annot"><span class="annottext">TransformOutput
+transformOutput :: TransformOutput
+$sel:transformOutput:CreateTransformJob' :: CreateTransformJob -&gt; TransformOutput
+</span><a href="#local-6989586621680413170"><span class="hs-identifier hs-var hs-var">transformOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680413170"><span class="hs-identifier hs-var">transformOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413169"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413168"><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680413168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformOutput:CreateTransformJob' :: TransformOutput
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformOutput%3ACreateTransformJob%27"><span class="hs-identifier hs-var">transformOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680413168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- | Describes the resources, including ML instance types and ML instance</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- count, to use for the transform job.</span><span>
+</span><span id="line-380"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformResources"><span class="hs-identifier hs-type">createTransformJob_transformResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformResources.html#TransformResources"><span class="hs-identifier hs-type">TransformResources</span></a></span><span>
+</span><span id="line-381"></span><span id="createTransformJob_transformResources"><span class="annot"><span class="annottext">createTransformJob_transformResources :: (TransformResources -&gt; f TransformResources)
+-&gt; CreateTransformJob -&gt; f CreateTransformJob
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJob_transformResources"><span class="hs-identifier hs-var hs-var">createTransformJob_transformResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJob -&gt; TransformResources)
+-&gt; (CreateTransformJob -&gt; TransformResources -&gt; CreateTransformJob)
+-&gt; Lens
+     CreateTransformJob
+     CreateTransformJob
+     TransformResources
+     TransformResources
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413167"><span class="annot"><span class="annottext">TransformResources
+transformResources :: TransformResources
+$sel:transformResources:CreateTransformJob' :: CreateTransformJob -&gt; TransformResources
+</span><a href="#local-6989586621680413167"><span class="hs-identifier hs-var hs-var">transformResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformResources
+</span><a href="#local-6989586621680413167"><span class="hs-identifier hs-var">transformResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413166"><span class="annot"><span class="annottext">s :: CreateTransformJob
+</span><a href="#local-6989586621680413166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413165"><span class="annot"><span class="annottext">TransformResources
+</span><a href="#local-6989586621680413165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJob
+</span><a href="#local-6989586621680413166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformResources:CreateTransformJob' :: TransformResources
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformResources%3ACreateTransformJob%27"><span class="hs-identifier hs-var">transformResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformResources
+</span><a href="#local-6989586621680413165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-384"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-385"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-386"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse"><span class="hs-identifier hs-type">CreateTransformJobResponse</span></a></span><span>
+</span><span id="line-387"></span><span>  </span><span id="local-6989586621680413161"><span class="annot"><span class="annottext">request :: CreateTransformJob -&gt; Request CreateTransformJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateTransformJob -&gt; Request CreateTransformJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-388"></span><span>  </span><span id="local-6989586621680413157"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateTransformJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateTransformJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-389"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateTransformJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateTransformJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateTransformJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-390"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680413154"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413154"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680413153"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680413153"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680413152"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680413152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-391"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateTransformJobResponse
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse%27"><span class="hs-identifier hs-var">CreateTransformJobResponse'</span></a></span><span>
+</span><span id="line-392"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateTransformJobResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateTransformJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413154"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateTransformJobResponse)
+-&gt; Either String Text -&gt; Either String CreateTransformJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680413152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680413144"><span id="local-6989586621680413146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span></span></span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680413141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span></span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-401"></span><span>  </span><span id="local-6989586621680413137"><span class="annot"><span class="annottext">toHeaders :: CreateTransformJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-402"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTransformJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-403"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-404"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-405"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.CreateTransformJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-406"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-407"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-409"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-410"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-411"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-412"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-413"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-414"></span><span>
+</span><span id="line-415"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680413127"><span id="local-6989586621680413129"><span id="local-6989586621680413131"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-416"></span><span>  </span><span id="local-6989586621680413125"><span class="annot"><span class="annottext">toJSON :: CreateTransformJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob%27"><span class="hs-identifier hs-type">CreateTransformJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413111"><span id="local-6989586621680413112"><span id="local-6989586621680413113"><span id="local-6989586621680413114"><span id="local-6989586621680413115"><span id="local-6989586621680413116"><span id="local-6989586621680413117"><span id="local-6989586621680413118"><span id="local-6989586621680413119"><span id="local-6989586621680413120"><span id="local-6989586621680413121"><span id="local-6989586621680413122"><span id="local-6989586621680413123"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Tag]
+Maybe (HashMap Text Text)
+Maybe BatchStrategy
+Maybe ExperimentConfig
+Maybe DataProcessing
+Maybe ModelClientConfig
+Text
+TransformOutput
+TransformResources
+TransformInput
+transformResources :: TransformResources
+transformOutput :: TransformOutput
+transformInput :: TransformInput
+modelName :: Text
+transformJobName :: Text
+tags :: Maybe [Tag]
+dataProcessing :: Maybe DataProcessing
+maxConcurrentTransforms :: Maybe Natural
+experimentConfig :: Maybe ExperimentConfig
+environment :: Maybe (HashMap Text Text)
+maxPayloadInMB :: Maybe Natural
+batchStrategy :: Maybe BatchStrategy
+modelClientConfig :: Maybe ModelClientConfig
+$sel:transformResources:CreateTransformJob' :: CreateTransformJob -&gt; TransformResources
+$sel:transformOutput:CreateTransformJob' :: CreateTransformJob -&gt; TransformOutput
+$sel:transformInput:CreateTransformJob' :: CreateTransformJob -&gt; TransformInput
+$sel:modelName:CreateTransformJob' :: CreateTransformJob -&gt; Text
+$sel:transformJobName:CreateTransformJob' :: CreateTransformJob -&gt; Text
+$sel:tags:CreateTransformJob' :: CreateTransformJob -&gt; Maybe [Tag]
+$sel:dataProcessing:CreateTransformJob' :: CreateTransformJob -&gt; Maybe DataProcessing
+$sel:maxConcurrentTransforms:CreateTransformJob' :: CreateTransformJob -&gt; Maybe Natural
+$sel:experimentConfig:CreateTransformJob' :: CreateTransformJob -&gt; Maybe ExperimentConfig
+$sel:environment:CreateTransformJob' :: CreateTransformJob -&gt; Maybe (HashMap Text Text)
+$sel:maxPayloadInMB:CreateTransformJob' :: CreateTransformJob -&gt; Maybe Natural
+$sel:batchStrategy:CreateTransformJob' :: CreateTransformJob -&gt; Maybe BatchStrategy
+$sel:modelClientConfig:CreateTransformJob' :: CreateTransformJob -&gt; Maybe ModelClientConfig
+</span><a href="#local-6989586621680413111"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-417"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-418"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-419"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelClientConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelClientConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span>              </span><span class="annot"><span class="annottext">(ModelClientConfig -&gt; Pair)
+-&gt; Maybe ModelClientConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelClientConfig
+</span><a href="#local-6989586621680413123"><span class="hs-identifier hs-var">modelClientConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-421"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BatchStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BatchStrategy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BatchStrategy -&gt; Pair) -&gt; Maybe BatchStrategy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BatchStrategy
+</span><a href="#local-6989586621680413122"><span class="hs-identifier hs-var">batchStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-422"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxPayloadInMB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680413121"><span class="hs-identifier hs-var">maxPayloadInMB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680413120"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-425"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExperimentConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExperimentConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-426"></span><span>              </span><span class="annot"><span class="annottext">(ExperimentConfig -&gt; Pair) -&gt; Maybe ExperimentConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentConfig
+</span><a href="#local-6989586621680413119"><span class="hs-identifier hs-var">experimentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-427"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxConcurrentTransforms&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-428"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680413118"><span class="hs-identifier hs-var">maxConcurrentTransforms</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-429"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataProcessing&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataProcessing -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span>              </span><span class="annot"><span class="annottext">(DataProcessing -&gt; Pair) -&gt; Maybe DataProcessing -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataProcessing
+</span><a href="#local-6989586621680413117"><span class="hs-identifier hs-var">dataProcessing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680413116"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-433"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformJobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413115"><span class="hs-identifier hs-var">transformJobName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413114"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-436"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TransformInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TransformInput
+</span><a href="#local-6989586621680413113"><span class="hs-identifier hs-var">transformInput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-438"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformOutput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TransformOutput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680413112"><span class="hs-identifier hs-var">transformOutput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-439"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-440"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TransformResources -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TransformResources
+</span><a href="#local-6989586621680413111"><span class="hs-identifier hs-var">transformResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-441"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-442"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-443"></span><span>
+</span><span id="line-444"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-445"></span><span>  </span><span id="local-6989586621680413105"><span class="annot"><span class="annottext">toPath :: CreateTransformJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTransformJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-446"></span><span>
+</span><span id="line-447"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJob"><span class="hs-identifier hs-type">CreateTransformJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-448"></span><span>  </span><span id="local-6989586621680413101"><span class="annot"><span class="annottext">toQuery :: CreateTransformJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateTransformJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-449"></span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- | /See:/ 'newCreateTransformJobResponse' smart constructor.</span><span>
+</span><span id="line-451"></span><span id="local-6989586621680413098"><span id="local-6989586621680413099"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTransformJobResponse"><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse"><span class="hs-identifier hs-var">CreateTransformJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTransformJobResponse%27"><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse%27"><span class="hs-identifier hs-var">CreateTransformJobResponse'</span></a></span></span><span>
+</span><span id="line-452"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-453"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTransformJobResponse%27"><span class="annot"><span class="annottext">CreateTransformJobResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AhttpStatus%3ACreateTransformJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-454"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transform job.</span><span>
+</span><span id="line-455"></span><span>    </span><span id="%24sel%3AtransformJobArn%3ACreateTransformJobResponse%27"><span class="annot"><span class="annottext">CreateTransformJobResponse -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformJobArn%3ACreateTransformJobResponse%27"><span class="hs-identifier hs-var hs-var">transformJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-456"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-457"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680413092"><span id="local-6989586621680413094"><span class="annot"><span class="annottext">CreateTransformJobResponse -&gt; CreateTransformJobResponse -&gt; Bool
+(CreateTransformJobResponse -&gt; CreateTransformJobResponse -&gt; Bool)
+-&gt; (CreateTransformJobResponse
+    -&gt; CreateTransformJobResponse -&gt; Bool)
+-&gt; Eq CreateTransformJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTransformJobResponse -&gt; CreateTransformJobResponse -&gt; Bool
+$c/= :: CreateTransformJobResponse -&gt; CreateTransformJobResponse -&gt; Bool
+== :: CreateTransformJobResponse -&gt; CreateTransformJobResponse -&gt; Bool
+$c== :: CreateTransformJobResponse -&gt; CreateTransformJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680413084"><span id="local-6989586621680413086"><span id="local-6989586621680413088"><span id="local-6989586621680413090"><span class="annot"><span class="annottext">ReadPrec [CreateTransformJobResponse]
+ReadPrec CreateTransformJobResponse
+Int -&gt; ReadS CreateTransformJobResponse
+ReadS [CreateTransformJobResponse]
+(Int -&gt; ReadS CreateTransformJobResponse)
+-&gt; ReadS [CreateTransformJobResponse]
+-&gt; ReadPrec CreateTransformJobResponse
+-&gt; ReadPrec [CreateTransformJobResponse]
+-&gt; Read CreateTransformJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTransformJobResponse]
+$creadListPrec :: ReadPrec [CreateTransformJobResponse]
+readPrec :: ReadPrec CreateTransformJobResponse
+$creadPrec :: ReadPrec CreateTransformJobResponse
+readList :: ReadS [CreateTransformJobResponse]
+$creadList :: ReadS [CreateTransformJobResponse]
+readsPrec :: Int -&gt; ReadS CreateTransformJobResponse
+$creadsPrec :: Int -&gt; ReadS CreateTransformJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680413078"><span id="local-6989586621680413080"><span id="local-6989586621680413082"><span class="annot"><span class="annottext">Int -&gt; CreateTransformJobResponse -&gt; ShowS
+[CreateTransformJobResponse] -&gt; ShowS
+CreateTransformJobResponse -&gt; String
+(Int -&gt; CreateTransformJobResponse -&gt; ShowS)
+-&gt; (CreateTransformJobResponse -&gt; String)
+-&gt; ([CreateTransformJobResponse] -&gt; ShowS)
+-&gt; Show CreateTransformJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTransformJobResponse] -&gt; ShowS
+$cshowList :: [CreateTransformJobResponse] -&gt; ShowS
+show :: CreateTransformJobResponse -&gt; String
+$cshow :: CreateTransformJobResponse -&gt; String
+showsPrec :: Int -&gt; CreateTransformJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTransformJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTransformJobResponse -&gt; Rep CreateTransformJobResponse x)
+-&gt; (forall x.
+    Rep CreateTransformJobResponse x -&gt; CreateTransformJobResponse)
+-&gt; Generic CreateTransformJobResponse
+forall x.
+Rep CreateTransformJobResponse x -&gt; CreateTransformJobResponse
+forall x.
+CreateTransformJobResponse -&gt; Rep CreateTransformJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTransformJobResponse x -&gt; CreateTransformJobResponse
+$cfrom :: forall x.
+CreateTransformJobResponse -&gt; Rep CreateTransformJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-458"></span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- Create a value of 'CreateTransformJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-463"></span><span class="hs-comment">--</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-466"></span><span class="hs-comment">--</span><span>
+</span><span id="line-467"></span><span class="hs-comment">-- 'httpStatus', 'createTransformJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-468"></span><span class="hs-comment">--</span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- 'transformJobArn', 'createTransformJobResponse_transformJobArn' - The Amazon Resource Name (ARN) of the transform job.</span><span>
+</span><span id="line-470"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#newCreateTransformJobResponse"><span class="hs-identifier hs-type">newCreateTransformJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-471"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-472"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-473"></span><span>  </span><span class="hs-comment">-- | 'transformJobArn'</span><span>
+</span><span id="line-474"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-475"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse"><span class="hs-identifier hs-type">CreateTransformJobResponse</span></a></span><span>
+</span><span id="line-476"></span><span id="newCreateTransformJobResponse"><span class="annot"><span class="annottext">newCreateTransformJobResponse :: Int -&gt; Text -&gt; CreateTransformJobResponse
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#newCreateTransformJobResponse"><span class="hs-identifier hs-var hs-var">newCreateTransformJobResponse</span></a></span></span><span>
+</span><span id="line-477"></span><span>  </span><span id="local-6989586621680413075"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-478"></span><span>  </span><span id="local-6989586621680413074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413074"><span class="hs-identifier hs-var">pTransformJobArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-479"></span><span>    </span><span class="annot"><span class="annottext">CreateTransformJobResponse' :: Int -&gt; Text -&gt; CreateTransformJobResponse
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse%27"><span class="hs-identifier hs-type">CreateTransformJobResponse'</span></a></span><span>
+</span><span id="line-480"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTransformJobResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AhttpStatus%3ACreateTransformJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-481"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-482"></span><span>        </span><span class="annot"><span class="annottext">$sel:transformJobArn:CreateTransformJobResponse' :: Text
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformJobArn%3ACreateTransformJobResponse%27"><span class="hs-identifier hs-var">transformJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413074"><span class="hs-identifier hs-var">pTransformJobArn_</span></a></span><span>
+</span><span id="line-483"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-484"></span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-486"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJobResponse_httpStatus"><span class="hs-identifier hs-type">createTransformJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse"><span class="hs-identifier hs-type">CreateTransformJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-487"></span><span id="createTransformJobResponse_httpStatus"><span class="annot"><span class="annottext">createTransformJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateTransformJobResponse -&gt; f CreateTransformJobResponse
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createTransformJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJobResponse -&gt; Int)
+-&gt; (CreateTransformJobResponse
+    -&gt; Int -&gt; CreateTransformJobResponse)
+-&gt; Lens
+     CreateTransformJobResponse CreateTransformJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse%27"><span class="hs-identifier hs-type">CreateTransformJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413073"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateTransformJobResponse' :: CreateTransformJobResponse -&gt; Int
+</span><a href="#local-6989586621680413073"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413073"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413072"><span class="annot"><span class="annottext">s :: CreateTransformJobResponse
+</span><a href="#local-6989586621680413072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse%27"><span class="hs-identifier hs-type">CreateTransformJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413071"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJobResponse
+</span><a href="#local-6989586621680413072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTransformJobResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AhttpStatus%3ACreateTransformJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse"><span class="hs-identifier hs-type">CreateTransformJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-488"></span><span>
+</span><span id="line-489"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transform job.</span><span>
+</span><span id="line-490"></span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJobResponse_transformJobArn"><span class="hs-identifier hs-type">createTransformJobResponse_transformJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse"><span class="hs-identifier hs-type">CreateTransformJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-491"></span><span id="createTransformJobResponse_transformJobArn"><span class="annot"><span class="annottext">createTransformJobResponse_transformJobArn :: (Text -&gt; f Text)
+-&gt; CreateTransformJobResponse -&gt; f CreateTransformJobResponse
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#createTransformJobResponse_transformJobArn"><span class="hs-identifier hs-var hs-var">createTransformJobResponse_transformJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransformJobResponse -&gt; Text)
+-&gt; (CreateTransformJobResponse
+    -&gt; Text -&gt; CreateTransformJobResponse)
+-&gt; Lens
+     CreateTransformJobResponse CreateTransformJobResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse%27"><span class="hs-identifier hs-type">CreateTransformJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413070"><span class="annot"><span class="annottext">Text
+transformJobArn :: Text
+$sel:transformJobArn:CreateTransformJobResponse' :: CreateTransformJobResponse -&gt; Text
+</span><a href="#local-6989586621680413070"><span class="hs-identifier hs-var hs-var">transformJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413070"><span class="hs-identifier hs-var">transformJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413069"><span class="annot"><span class="annottext">s :: CreateTransformJobResponse
+</span><a href="#local-6989586621680413069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse%27"><span class="hs-identifier hs-type">CreateTransformJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413068"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransformJobResponse
+</span><a href="#local-6989586621680413069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformJobArn:CreateTransformJobResponse' :: Text
+</span><a href="Amazonka.SageMaker.CreateTransformJob.html#%24sel%3AtransformJobArn%3ACreateTransformJobResponse%27"><span class="hs-identifier hs-var">transformJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse"><span class="hs-identifier hs-type">CreateTransformJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-492"></span><span>
+</span><span id="line-493"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680413066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateTransformJob.html#CreateTransformJobResponse"><span class="hs-identifier hs-type">CreateTransformJobResponse</span></a></span></span><span>
+</span><span id="line-494"></span></pre></body></html>

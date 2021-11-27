@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.Types.GameProperty</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.Types.GameProperty</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Set of key-value pairs that contain information about a game session.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- When included in a game session request, these properties communicate</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- details to be used when setting up the new game session. For example, a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- game property might specify a game mode, level, or map. Game properties</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- are passed to the game server process when initiating a new game</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- session. For more information, see the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create GameLift Developer Guide&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newGameProperty' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679431094"><span id="local-6989586621679431095"></span></span><span class="hs-keyword">data</span><span> </span><span id="GameProperty"><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-var">GameProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameProperty%27"><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty%27"><span class="hs-identifier hs-var">GameProperty'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The game property identifier.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Akey%3AGameProperty%27"><span class="annot"><span class="annottext">GameProperty -&gt; Text
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#%24sel%3Akey%3AGameProperty%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The game property value.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Avalue%3AGameProperty%27"><span class="annot"><span class="annottext">GameProperty -&gt; Text
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#%24sel%3Avalue%3AGameProperty%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431087"><span id="local-6989586621679431089"><span class="annot"><span class="annottext">GameProperty -&gt; GameProperty -&gt; Bool
+(GameProperty -&gt; GameProperty -&gt; Bool)
+-&gt; (GameProperty -&gt; GameProperty -&gt; Bool) -&gt; Eq GameProperty
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GameProperty -&gt; GameProperty -&gt; Bool
+$c/= :: GameProperty -&gt; GameProperty -&gt; Bool
+== :: GameProperty -&gt; GameProperty -&gt; Bool
+$c== :: GameProperty -&gt; GameProperty -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431078"><span id="local-6989586621679431080"><span id="local-6989586621679431082"><span id="local-6989586621679431084"><span class="annot"><span class="annottext">ReadPrec [GameProperty]
+ReadPrec GameProperty
+Int -&gt; ReadS GameProperty
+ReadS [GameProperty]
+(Int -&gt; ReadS GameProperty)
+-&gt; ReadS [GameProperty]
+-&gt; ReadPrec GameProperty
+-&gt; ReadPrec [GameProperty]
+-&gt; Read GameProperty
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GameProperty]
+$creadListPrec :: ReadPrec [GameProperty]
+readPrec :: ReadPrec GameProperty
+$creadPrec :: ReadPrec GameProperty
+readList :: ReadS [GameProperty]
+$creadList :: ReadS [GameProperty]
+readsPrec :: Int -&gt; ReadS GameProperty
+$creadsPrec :: Int -&gt; ReadS GameProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431071"><span id="local-6989586621679431073"><span id="local-6989586621679431075"><span class="annot"><span class="annottext">Int -&gt; GameProperty -&gt; ShowS
+[GameProperty] -&gt; ShowS
+GameProperty -&gt; String
+(Int -&gt; GameProperty -&gt; ShowS)
+-&gt; (GameProperty -&gt; String)
+-&gt; ([GameProperty] -&gt; ShowS)
+-&gt; Show GameProperty
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GameProperty] -&gt; ShowS
+$cshowList :: [GameProperty] -&gt; ShowS
+show :: GameProperty -&gt; String
+$cshow :: GameProperty -&gt; String
+showsPrec :: Int -&gt; GameProperty -&gt; ShowS
+$cshowsPrec :: Int -&gt; GameProperty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GameProperty -&gt; Rep GameProperty x)
+-&gt; (forall x. Rep GameProperty x -&gt; GameProperty)
+-&gt; Generic GameProperty
+forall x. Rep GameProperty x -&gt; GameProperty
+forall x. GameProperty -&gt; Rep GameProperty x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GameProperty x -&gt; GameProperty
+$cfrom :: forall x. GameProperty -&gt; Rep GameProperty x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'GameProperty' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'key', 'gameProperty_key' - The game property identifier.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'value', 'gameProperty_value' - The game property value.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#newGameProperty"><span class="hs-identifier hs-type">newGameProperty</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'value'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span><span>
+</span><span id="line-60"></span><span id="newGameProperty"><span class="annot"><span class="annottext">newGameProperty :: Text -&gt; Text -&gt; GameProperty
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#newGameProperty"><span class="hs-identifier hs-var hs-var">newGameProperty</span></a></span></span><span> </span><span id="local-6989586621679431065"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431065"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679431064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431064"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">GameProperty' :: Text -&gt; Text -&gt; GameProperty
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty%27"><span class="hs-identifier hs-type">GameProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:GameProperty' :: Text
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#%24sel%3Akey%3AGameProperty%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431065"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:GameProperty' :: Text
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#%24sel%3Avalue%3AGameProperty%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431064"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The game property identifier.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#gameProperty_key"><span class="hs-identifier hs-type">gameProperty_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span id="gameProperty_key"><span class="annot"><span class="annottext">gameProperty_key :: (Text -&gt; f Text) -&gt; GameProperty -&gt; f GameProperty
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#gameProperty_key"><span class="hs-identifier hs-var hs-var">gameProperty_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameProperty -&gt; Text)
+-&gt; (GameProperty -&gt; Text -&gt; GameProperty)
+-&gt; Lens GameProperty GameProperty Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty%27"><span class="hs-identifier hs-type">GameProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431060"><span class="annot"><span class="annottext">Text
+key :: Text
+$sel:key:GameProperty' :: GameProperty -&gt; Text
+</span><a href="#local-6989586621679431060"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431060"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431059"><span class="annot"><span class="annottext">s :: GameProperty
+</span><a href="#local-6989586621679431059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty%27"><span class="hs-identifier hs-type">GameProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431058"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameProperty
+</span><a href="#local-6989586621679431059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:GameProperty' :: Text
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#%24sel%3Akey%3AGameProperty%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The game property value.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#gameProperty_value"><span class="hs-identifier hs-type">gameProperty_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span id="gameProperty_value"><span class="annot"><span class="annottext">gameProperty_value :: (Text -&gt; f Text) -&gt; GameProperty -&gt; f GameProperty
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#gameProperty_value"><span class="hs-identifier hs-var hs-var">gameProperty_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameProperty -&gt; Text)
+-&gt; (GameProperty -&gt; Text -&gt; GameProperty)
+-&gt; Lens GameProperty GameProperty Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty%27"><span class="hs-identifier hs-type">GameProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431056"><span class="annot"><span class="annottext">Text
+value :: Text
+$sel:value:GameProperty' :: GameProperty -&gt; Text
+</span><a href="#local-6989586621679431056"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431056"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431055"><span class="annot"><span class="annottext">s :: GameProperty
+</span><a href="#local-6989586621679431055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty%27"><span class="hs-identifier hs-type">GameProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431054"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameProperty
+</span><a href="#local-6989586621679431055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:GameProperty' :: Text
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#%24sel%3Avalue%3AGameProperty%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431051"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679431049"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GameProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GameProperty) -&gt; Value -&gt; Parser GameProperty
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GameProperty&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679431046"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; GameProperty
+</span><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty%27"><span class="hs-identifier hs-var">GameProperty'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; GameProperty)
+-&gt; Parser Text -&gt; Parser (Text -&gt; GameProperty)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; GameProperty) -&gt; Parser Text -&gt; Parser GameProperty
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431040"><span id="local-6989586621679431042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431029"><span id="local-6989586621679431031"><span id="local-6989586621679431033"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679431027"><span class="annot"><span class="annottext">toJSON :: GameProperty -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameProperty.html#GameProperty%27"><span class="hs-identifier hs-type">GameProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431024"><span id="local-6989586621679431025"><span class="annot"><span class="annottext">Text
+value :: Text
+key :: Text
+$sel:value:GameProperty' :: GameProperty -&gt; Text
+$sel:key:GameProperty' :: GameProperty -&gt; Text
+</span><a href="#local-6989586621679431024"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431025"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431024"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span></pre></body></html>

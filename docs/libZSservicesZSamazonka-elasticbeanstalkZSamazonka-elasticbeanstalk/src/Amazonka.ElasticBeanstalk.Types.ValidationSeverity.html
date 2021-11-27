@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticBeanstalk.Types.ValidationSeverity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.ValidationSeverity</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity"><span class="hs-identifier">ValidationSeverity</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity_Error"><span class="hs-identifier">ValidationSeverity_Error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity_Warning"><span class="hs-identifier">ValidationSeverity_Warning</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679308278"><span id="local-6989586621679308279"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ValidationSeverity"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity"><span class="hs-identifier hs-var">ValidationSeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidationSeverity%27"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity%27"><span class="hs-identifier hs-var">ValidationSeverity'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromValidationSeverity"><span class="annot"><span class="annottext">ValidationSeverity -&gt; Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#fromValidationSeverity"><span class="hs-identifier hs-var hs-var">fromValidationSeverity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308270"><span id="local-6989586621679308272"><span id="local-6989586621679308274"><span class="annot"><span class="annottext">Int -&gt; ValidationSeverity -&gt; ShowS
+[ValidationSeverity] -&gt; ShowS
+ValidationSeverity -&gt; String
+(Int -&gt; ValidationSeverity -&gt; ShowS)
+-&gt; (ValidationSeverity -&gt; String)
+-&gt; ([ValidationSeverity] -&gt; ShowS)
+-&gt; Show ValidationSeverity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ValidationSeverity] -&gt; ShowS
+$cshowList :: [ValidationSeverity] -&gt; ShowS
+show :: ValidationSeverity -&gt; String
+$cshow :: ValidationSeverity -&gt; String
+showsPrec :: Int -&gt; ValidationSeverity -&gt; ShowS
+$cshowsPrec :: Int -&gt; ValidationSeverity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679308261"><span id="local-6989586621679308263"><span id="local-6989586621679308265"><span id="local-6989586621679308267"><span class="annot"><span class="annottext">ReadPrec [ValidationSeverity]
+ReadPrec ValidationSeverity
+Int -&gt; ReadS ValidationSeverity
+ReadS [ValidationSeverity]
+(Int -&gt; ReadS ValidationSeverity)
+-&gt; ReadS [ValidationSeverity]
+-&gt; ReadPrec ValidationSeverity
+-&gt; ReadPrec [ValidationSeverity]
+-&gt; Read ValidationSeverity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ValidationSeverity]
+$creadListPrec :: ReadPrec [ValidationSeverity]
+readPrec :: ReadPrec ValidationSeverity
+$creadPrec :: ReadPrec ValidationSeverity
+readList :: ReadS [ValidationSeverity]
+$creadList :: ReadS [ValidationSeverity]
+readsPrec :: Int -&gt; ReadS ValidationSeverity
+$creadsPrec :: Int -&gt; ReadS ValidationSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679308256"><span id="local-6989586621679308258"><span class="annot"><span class="annottext">ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+(ValidationSeverity -&gt; ValidationSeverity -&gt; Bool)
+-&gt; (ValidationSeverity -&gt; ValidationSeverity -&gt; Bool)
+-&gt; Eq ValidationSeverity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+$c/= :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+== :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+$c== :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679308240"><span id="local-6989586621679308242"><span id="local-6989586621679308244"><span id="local-6989586621679308246"><span id="local-6989586621679308248"><span id="local-6989586621679308250"><span id="local-6989586621679308252"><span class="annot"><span class="annottext">Eq ValidationSeverity
+Eq ValidationSeverity
+-&gt; (ValidationSeverity -&gt; ValidationSeverity -&gt; Ordering)
+-&gt; (ValidationSeverity -&gt; ValidationSeverity -&gt; Bool)
+-&gt; (ValidationSeverity -&gt; ValidationSeverity -&gt; Bool)
+-&gt; (ValidationSeverity -&gt; ValidationSeverity -&gt; Bool)
+-&gt; (ValidationSeverity -&gt; ValidationSeverity -&gt; Bool)
+-&gt; (ValidationSeverity -&gt; ValidationSeverity -&gt; ValidationSeverity)
+-&gt; (ValidationSeverity -&gt; ValidationSeverity -&gt; ValidationSeverity)
+-&gt; Ord ValidationSeverity
+ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+ValidationSeverity -&gt; ValidationSeverity -&gt; Ordering
+ValidationSeverity -&gt; ValidationSeverity -&gt; ValidationSeverity
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ValidationSeverity -&gt; ValidationSeverity -&gt; ValidationSeverity
+$cmin :: ValidationSeverity -&gt; ValidationSeverity -&gt; ValidationSeverity
+max :: ValidationSeverity -&gt; ValidationSeverity -&gt; ValidationSeverity
+$cmax :: ValidationSeverity -&gt; ValidationSeverity -&gt; ValidationSeverity
+&gt;= :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+$c&gt;= :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+&gt; :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+$c&gt; :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+&lt;= :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+$c&lt;= :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+&lt; :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+$c&lt; :: ValidationSeverity -&gt; ValidationSeverity -&gt; Bool
+compare :: ValidationSeverity -&gt; ValidationSeverity -&gt; Ordering
+$ccompare :: ValidationSeverity -&gt; ValidationSeverity -&gt; Ordering
+$cp1Ord :: Eq ValidationSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ValidationSeverity -&gt; Rep ValidationSeverity x)
+-&gt; (forall x. Rep ValidationSeverity x -&gt; ValidationSeverity)
+-&gt; Generic ValidationSeverity
+forall x. Rep ValidationSeverity x -&gt; ValidationSeverity
+forall x. ValidationSeverity -&gt; Rep ValidationSeverity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ValidationSeverity x -&gt; ValidationSeverity
+$cfrom :: forall x. ValidationSeverity -&gt; Rep ValidationSeverity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308232"><span id="local-6989586621679308234"><span class="annot"><span class="annottext">Int -&gt; ValidationSeverity -&gt; Int
+ValidationSeverity -&gt; Int
+(Int -&gt; ValidationSeverity -&gt; Int)
+-&gt; (ValidationSeverity -&gt; Int) -&gt; Hashable ValidationSeverity
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ValidationSeverity -&gt; Int
+$chash :: ValidationSeverity -&gt; Int
+hashWithSalt :: Int -&gt; ValidationSeverity -&gt; Int
+$chashWithSalt :: Int -&gt; ValidationSeverity -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679308229"><span class="annot"><span class="annottext">ValidationSeverity -&gt; ()
+(ValidationSeverity -&gt; ()) -&gt; NFData ValidationSeverity
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ValidationSeverity -&gt; ()
+$crnf :: ValidationSeverity -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679308226"><span class="annot"><span class="annottext">Text -&gt; Either String ValidationSeverity
+(Text -&gt; Either String ValidationSeverity)
+-&gt; FromText ValidationSeverity
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ValidationSeverity
+$cfromText :: Text -&gt; Either String ValidationSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679308223"><span class="annot"><span class="annottext">ValidationSeverity -&gt; Text
+(ValidationSeverity -&gt; Text) -&gt; ToText ValidationSeverity
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ValidationSeverity -&gt; Text
+$ctoText :: ValidationSeverity -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679308220"><span class="annot"><span class="annottext">ValidationSeverity -&gt; ByteString
+(ValidationSeverity -&gt; ByteString)
+-&gt; ToByteString ValidationSeverity
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ValidationSeverity -&gt; ByteString
+$ctoBS :: ValidationSeverity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679308217"><span class="annot"><span class="annottext">ValidationSeverity -&gt; ByteStringBuilder
+(ValidationSeverity -&gt; ByteStringBuilder)
+-&gt; ToLog ValidationSeverity
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ValidationSeverity -&gt; ByteStringBuilder
+$cbuild :: ValidationSeverity -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679308214"><span class="annot"><span class="annottext">HeaderName -&gt; ValidationSeverity -&gt; [Header]
+(HeaderName -&gt; ValidationSeverity -&gt; [Header])
+-&gt; ToHeader ValidationSeverity
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ValidationSeverity -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ValidationSeverity -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679308211"><span class="annot"><span class="annottext">ValidationSeverity -&gt; QueryString
+(ValidationSeverity -&gt; QueryString) -&gt; ToQuery ValidationSeverity
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ValidationSeverity -&gt; QueryString
+$ctoQuery :: ValidationSeverity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679308206"><span id="local-6989586621679308208"><span class="annot"><span class="annottext">Value -&gt; Parser [ValidationSeverity]
+Value -&gt; Parser ValidationSeverity
+(Value -&gt; Parser ValidationSeverity)
+-&gt; (Value -&gt; Parser [ValidationSeverity])
+-&gt; FromJSON ValidationSeverity
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ValidationSeverity]
+$cparseJSONList :: Value -&gt; Parser [ValidationSeverity]
+parseJSON :: Value -&gt; Parser ValidationSeverity
+$cparseJSON :: Value -&gt; Parser ValidationSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679308201"><span id="local-6989586621679308203"><span class="annot"><span class="annottext">FromJSONKeyFunction [ValidationSeverity]
+FromJSONKeyFunction ValidationSeverity
+FromJSONKeyFunction ValidationSeverity
+-&gt; FromJSONKeyFunction [ValidationSeverity]
+-&gt; FromJSONKey ValidationSeverity
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ValidationSeverity]
+$cfromJSONKeyList :: FromJSONKeyFunction [ValidationSeverity]
+fromJSONKey :: FromJSONKeyFunction ValidationSeverity
+$cfromJSONKey :: FromJSONKeyFunction ValidationSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679308192"><span id="local-6989586621679308194"><span id="local-6989586621679308196"><span id="local-6989586621679308198"><span class="annot"><span class="annottext">[ValidationSeverity] -&gt; Encoding
+[ValidationSeverity] -&gt; Value
+ValidationSeverity -&gt; Encoding
+ValidationSeverity -&gt; Value
+(ValidationSeverity -&gt; Value)
+-&gt; (ValidationSeverity -&gt; Encoding)
+-&gt; ([ValidationSeverity] -&gt; Value)
+-&gt; ([ValidationSeverity] -&gt; Encoding)
+-&gt; ToJSON ValidationSeverity
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ValidationSeverity] -&gt; Encoding
+$ctoEncodingList :: [ValidationSeverity] -&gt; Encoding
+toJSONList :: [ValidationSeverity] -&gt; Value
+$ctoJSONList :: [ValidationSeverity] -&gt; Value
+toEncoding :: ValidationSeverity -&gt; Encoding
+$ctoEncoding :: ValidationSeverity -&gt; Encoding
+toJSON :: ValidationSeverity -&gt; Value
+$ctoJSON :: ValidationSeverity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679308187"><span id="local-6989586621679308189"><span class="annot"><span class="annottext">ToJSONKeyFunction [ValidationSeverity]
+ToJSONKeyFunction ValidationSeverity
+ToJSONKeyFunction ValidationSeverity
+-&gt; ToJSONKeyFunction [ValidationSeverity]
+-&gt; ToJSONKey ValidationSeverity
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ValidationSeverity]
+$ctoJSONKeyList :: ToJSONKeyFunction [ValidationSeverity]
+toJSONKey :: ToJSONKeyFunction ValidationSeverity
+$ctoJSONKey :: ToJSONKeyFunction ValidationSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679308184"><span class="annot"><span class="annottext">[Node] -&gt; Either String ValidationSeverity
+([Node] -&gt; Either String ValidationSeverity)
+-&gt; FromXML ValidationSeverity
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ValidationSeverity
+$cparseXML :: [Node] -&gt; Either String ValidationSeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679308181"><span class="annot"><span class="annottext">ValidationSeverity -&gt; XML
+(ValidationSeverity -&gt; XML) -&gt; ToXML ValidationSeverity
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ValidationSeverity -&gt; XML
+$ctoXML :: ValidationSeverity -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity_Error"><span class="hs-identifier hs-type">ValidationSeverity_Error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity"><span class="hs-identifier hs-type">ValidationSeverity</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidationSeverity_Error"><span id="%24mValidationSeverity_Error"><span id="ValidationSeverity_Error"><span class="annot"><span class="annottext">$bValidationSeverity_Error :: ValidationSeverity
+$mValidationSeverity_Error :: forall r. ValidationSeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#%24bValidationSeverity_Error"><span class="hs-identifier hs-var hs-var hs-var">ValidationSeverity_Error</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity%27"><span class="hs-identifier hs-type">ValidationSeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;error&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity_Warning"><span class="hs-identifier hs-type">ValidationSeverity_Warning</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity"><span class="hs-identifier hs-type">ValidationSeverity</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidationSeverity_Warning"><span id="%24mValidationSeverity_Warning"><span id="ValidationSeverity_Warning"><span class="annot"><span class="annottext">$bValidationSeverity_Warning :: ValidationSeverity
+$mValidationSeverity_Warning :: forall r. ValidationSeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#%24bValidationSeverity_Warning"><span class="hs-identifier hs-var hs-var hs-var">ValidationSeverity_Warning</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity%27"><span class="hs-identifier hs-type">ValidationSeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;warning&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity_Error"><span class="hs-pragma hs-type">ValidationSeverity_Error</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity_Warning"><span class="hs-pragma hs-type">ValidationSeverity_Warning</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ValidationSeverity.html#ValidationSeverity%27"><span class="hs-pragma hs-type">ValidationSeverity'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

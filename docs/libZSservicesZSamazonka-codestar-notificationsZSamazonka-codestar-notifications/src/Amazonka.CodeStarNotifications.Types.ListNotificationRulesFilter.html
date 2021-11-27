@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.html"><span class="hs-identifier">Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about a filter to apply to the list of returned notification</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- rules. You can filter by event type, owner, resource, or target.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newListNotificationRulesFilter' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679166709"><span id="local-6989586621679166710"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListNotificationRulesFilter"><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier hs-var">ListNotificationRulesFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListNotificationRulesFilter%27"><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter%27"><span class="hs-identifier hs-var">ListNotificationRulesFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the attribute you want to use to filter the returned</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- notification rules.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AListNotificationRulesFilter%27"><span class="annot"><span class="annottext">ListNotificationRulesFilter -&gt; ListNotificationRulesFilterName
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#%24sel%3Aname%3AListNotificationRulesFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.html#ListNotificationRulesFilterName"><span class="hs-identifier hs-type">ListNotificationRulesFilterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The value of the attribute you want to use to filter the returned</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- notification rules. For example, if you specify filtering by /RESOURCE/</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- in Name, you might specify the ARN of a pipeline in AWS CodePipeline for</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the value.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Avalue%3AListNotificationRulesFilter%27"><span class="annot"><span class="annottext">ListNotificationRulesFilter -&gt; Text
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#%24sel%3Avalue%3AListNotificationRulesFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679166702"><span id="local-6989586621679166704"><span class="annot"><span class="annottext">ListNotificationRulesFilter -&gt; ListNotificationRulesFilter -&gt; Bool
+(ListNotificationRulesFilter
+ -&gt; ListNotificationRulesFilter -&gt; Bool)
+-&gt; (ListNotificationRulesFilter
+    -&gt; ListNotificationRulesFilter -&gt; Bool)
+-&gt; Eq ListNotificationRulesFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListNotificationRulesFilter -&gt; ListNotificationRulesFilter -&gt; Bool
+$c/= :: ListNotificationRulesFilter -&gt; ListNotificationRulesFilter -&gt; Bool
+== :: ListNotificationRulesFilter -&gt; ListNotificationRulesFilter -&gt; Bool
+$c== :: ListNotificationRulesFilter -&gt; ListNotificationRulesFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166693"><span id="local-6989586621679166695"><span id="local-6989586621679166697"><span id="local-6989586621679166699"><span class="annot"><span class="annottext">ReadPrec [ListNotificationRulesFilter]
+ReadPrec ListNotificationRulesFilter
+Int -&gt; ReadS ListNotificationRulesFilter
+ReadS [ListNotificationRulesFilter]
+(Int -&gt; ReadS ListNotificationRulesFilter)
+-&gt; ReadS [ListNotificationRulesFilter]
+-&gt; ReadPrec ListNotificationRulesFilter
+-&gt; ReadPrec [ListNotificationRulesFilter]
+-&gt; Read ListNotificationRulesFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListNotificationRulesFilter]
+$creadListPrec :: ReadPrec [ListNotificationRulesFilter]
+readPrec :: ReadPrec ListNotificationRulesFilter
+$creadPrec :: ReadPrec ListNotificationRulesFilter
+readList :: ReadS [ListNotificationRulesFilter]
+$creadList :: ReadS [ListNotificationRulesFilter]
+readsPrec :: Int -&gt; ReadS ListNotificationRulesFilter
+$creadsPrec :: Int -&gt; ReadS ListNotificationRulesFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166686"><span id="local-6989586621679166688"><span id="local-6989586621679166690"><span class="annot"><span class="annottext">Int -&gt; ListNotificationRulesFilter -&gt; ShowS
+[ListNotificationRulesFilter] -&gt; ShowS
+ListNotificationRulesFilter -&gt; String
+(Int -&gt; ListNotificationRulesFilter -&gt; ShowS)
+-&gt; (ListNotificationRulesFilter -&gt; String)
+-&gt; ([ListNotificationRulesFilter] -&gt; ShowS)
+-&gt; Show ListNotificationRulesFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListNotificationRulesFilter] -&gt; ShowS
+$cshowList :: [ListNotificationRulesFilter] -&gt; ShowS
+show :: ListNotificationRulesFilter -&gt; String
+$cshow :: ListNotificationRulesFilter -&gt; String
+showsPrec :: Int -&gt; ListNotificationRulesFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListNotificationRulesFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListNotificationRulesFilter -&gt; Rep ListNotificationRulesFilter x)
+-&gt; (forall x.
+    Rep ListNotificationRulesFilter x -&gt; ListNotificationRulesFilter)
+-&gt; Generic ListNotificationRulesFilter
+forall x.
+Rep ListNotificationRulesFilter x -&gt; ListNotificationRulesFilter
+forall x.
+ListNotificationRulesFilter -&gt; Rep ListNotificationRulesFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListNotificationRulesFilter x -&gt; ListNotificationRulesFilter
+$cfrom :: forall x.
+ListNotificationRulesFilter -&gt; Rep ListNotificationRulesFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'ListNotificationRulesFilter' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'name', 'listNotificationRulesFilter_name' - The name of the attribute you want to use to filter the returned</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- notification rules.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'value', 'listNotificationRulesFilter_value' - The value of the attribute you want to use to filter the returned</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- notification rules. For example, if you specify filtering by /RESOURCE/</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- in Name, you might specify the ARN of a pipeline in AWS CodePipeline for</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- the value.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#newListNotificationRulesFilter"><span class="hs-identifier hs-type">newListNotificationRulesFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.html#ListNotificationRulesFilterName"><span class="hs-identifier hs-type">ListNotificationRulesFilterName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'value'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier hs-type">ListNotificationRulesFilter</span></a></span><span>
+</span><span id="line-64"></span><span id="newListNotificationRulesFilter"><span class="annot"><span class="annottext">newListNotificationRulesFilter :: ListNotificationRulesFilterName
+-&gt; Text -&gt; ListNotificationRulesFilter
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#newListNotificationRulesFilter"><span class="hs-identifier hs-var hs-var">newListNotificationRulesFilter</span></a></span></span><span> </span><span id="local-6989586621679166680"><span class="annot"><span class="annottext">ListNotificationRulesFilterName
+</span><a href="#local-6989586621679166680"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679166679"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679166679"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">ListNotificationRulesFilter' :: ListNotificationRulesFilterName
+-&gt; Text -&gt; ListNotificationRulesFilter
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter%27"><span class="hs-identifier hs-type">ListNotificationRulesFilter'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:ListNotificationRulesFilter' :: ListNotificationRulesFilterName
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#%24sel%3Aname%3AListNotificationRulesFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ListNotificationRulesFilterName
+</span><a href="#local-6989586621679166680"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ListNotificationRulesFilter' :: Text
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#%24sel%3Avalue%3AListNotificationRulesFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679166679"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The name of the attribute you want to use to filter the returned</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- notification rules.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#listNotificationRulesFilter_name"><span class="hs-identifier hs-type">listNotificationRulesFilter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier hs-type">ListNotificationRulesFilter</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName.html#ListNotificationRulesFilterName"><span class="hs-identifier hs-type">ListNotificationRulesFilterName</span></a></span><span>
+</span><span id="line-73"></span><span id="listNotificationRulesFilter_name"><span class="annot"><span class="annottext">listNotificationRulesFilter_name :: (ListNotificationRulesFilterName
+ -&gt; f ListNotificationRulesFilterName)
+-&gt; ListNotificationRulesFilter -&gt; f ListNotificationRulesFilter
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#listNotificationRulesFilter_name"><span class="hs-identifier hs-var hs-var">listNotificationRulesFilter_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNotificationRulesFilter -&gt; ListNotificationRulesFilterName)
+-&gt; (ListNotificationRulesFilter
+    -&gt; ListNotificationRulesFilterName -&gt; ListNotificationRulesFilter)
+-&gt; Lens
+     ListNotificationRulesFilter
+     ListNotificationRulesFilter
+     ListNotificationRulesFilterName
+     ListNotificationRulesFilterName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter%27"><span class="hs-identifier hs-type">ListNotificationRulesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166675"><span class="annot"><span class="annottext">ListNotificationRulesFilterName
+name :: ListNotificationRulesFilterName
+$sel:name:ListNotificationRulesFilter' :: ListNotificationRulesFilter -&gt; ListNotificationRulesFilterName
+</span><a href="#local-6989586621679166675"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNotificationRulesFilterName
+</span><a href="#local-6989586621679166675"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679166674"><span class="annot"><span class="annottext">s :: ListNotificationRulesFilter
+</span><a href="#local-6989586621679166674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter%27"><span class="hs-identifier hs-type">ListNotificationRulesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679166673"><span class="annot"><span class="annottext">ListNotificationRulesFilterName
+</span><a href="#local-6989586621679166673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNotificationRulesFilter
+</span><a href="#local-6989586621679166674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ListNotificationRulesFilter' :: ListNotificationRulesFilterName
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#%24sel%3Aname%3AListNotificationRulesFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ListNotificationRulesFilterName
+</span><a href="#local-6989586621679166673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier hs-type">ListNotificationRulesFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The value of the attribute you want to use to filter the returned</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- notification rules. For example, if you specify filtering by /RESOURCE/</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- in Name, you might specify the ARN of a pipeline in AWS CodePipeline for</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the value.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#listNotificationRulesFilter_value"><span class="hs-identifier hs-type">listNotificationRulesFilter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier hs-type">ListNotificationRulesFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="listNotificationRulesFilter_value"><span class="annot"><span class="annottext">listNotificationRulesFilter_value :: (Text -&gt; f Text)
+-&gt; ListNotificationRulesFilter -&gt; f ListNotificationRulesFilter
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#listNotificationRulesFilter_value"><span class="hs-identifier hs-var hs-var">listNotificationRulesFilter_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNotificationRulesFilter -&gt; Text)
+-&gt; (ListNotificationRulesFilter
+    -&gt; Text -&gt; ListNotificationRulesFilter)
+-&gt; Lens
+     ListNotificationRulesFilter ListNotificationRulesFilter Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter%27"><span class="hs-identifier hs-type">ListNotificationRulesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166671"><span class="annot"><span class="annottext">Text
+value :: Text
+$sel:value:ListNotificationRulesFilter' :: ListNotificationRulesFilter -&gt; Text
+</span><a href="#local-6989586621679166671"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679166671"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679166670"><span class="annot"><span class="annottext">s :: ListNotificationRulesFilter
+</span><a href="#local-6989586621679166670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter%27"><span class="hs-identifier hs-type">ListNotificationRulesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679166669"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679166669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNotificationRulesFilter
+</span><a href="#local-6989586621679166670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ListNotificationRulesFilter' :: Text
+</span><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#%24sel%3Avalue%3AListNotificationRulesFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679166669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier hs-type">ListNotificationRulesFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166665"><span id="local-6989586621679166667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier hs-type">ListNotificationRulesFilter</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier hs-type">ListNotificationRulesFilter</span></a></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166654"><span id="local-6989586621679166656"><span id="local-6989586621679166658"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier hs-type">ListNotificationRulesFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679166652"><span class="annot"><span class="annottext">toJSON :: ListNotificationRulesFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter%27"><span class="hs-identifier hs-type">ListNotificationRulesFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166649"><span id="local-6989586621679166650"><span class="annot"><span class="annottext">Text
+ListNotificationRulesFilterName
+value :: Text
+name :: ListNotificationRulesFilterName
+$sel:value:ListNotificationRulesFilter' :: ListNotificationRulesFilter -&gt; Text
+$sel:name:ListNotificationRulesFilter' :: ListNotificationRulesFilter -&gt; ListNotificationRulesFilterName
+</span><a href="#local-6989586621679166649"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-90"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ListNotificationRulesFilterName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ListNotificationRulesFilterName
+</span><a href="#local-6989586621679166650"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679166649"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span></pre></body></html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lambda.ListFunctionsByCodeSigningConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- List the functions that use the specified code signing configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- You can use this method prior to deleting a code signing configuration,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- to verify that no functions are using it.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lambda.ListFunctionsByCodeSigningConfig</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier">ListFunctionsByCodeSigningConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#newListFunctionsByCodeSigningConfig"><span class="hs-identifier">newListFunctionsByCodeSigningConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_marker"><span class="hs-identifier">listFunctionsByCodeSigningConfig_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_maxItems"><span class="hs-identifier">listFunctionsByCodeSigningConfig_maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_codeSigningConfigArn"><span class="hs-identifier">listFunctionsByCodeSigningConfig_codeSigningConfigArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier">ListFunctionsByCodeSigningConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#newListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier">newListFunctionsByCodeSigningConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_functionArns"><span class="hs-identifier">listFunctionsByCodeSigningConfigResponse_functionArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_nextMarker"><span class="hs-identifier">listFunctionsByCodeSigningConfigResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_httpStatus"><span class="hs-identifier">listFunctionsByCodeSigningConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.html"><span class="hs-identifier">Amazonka.Lambda.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListFunctionsByCodeSigningConfig' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679304611"><span id="local-6989586621679304612"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFunctionsByCodeSigningConfig"><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-var">ListFunctionsByCodeSigningConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFunctionsByCodeSigningConfig%27"><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var">ListFunctionsByCodeSigningConfig'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- retrieve the next page of results.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Amarker%3AListFunctionsByCodeSigningConfig%27"><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3Amarker%3AListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Maximum number of items to return.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxItems%3AListFunctionsByCodeSigningConfig%27"><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig -&gt; Maybe Natural
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AmaxItems%3AListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The The Amazon Resource Name (ARN) of the code signing configuration.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AcodeSigningConfigArn%3AListFunctionsByCodeSigningConfig%27"><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig -&gt; Text
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3AListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304603"><span id="local-6989586621679304605"><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig
+-&gt; ListFunctionsByCodeSigningConfig -&gt; Bool
+(ListFunctionsByCodeSigningConfig
+ -&gt; ListFunctionsByCodeSigningConfig -&gt; Bool)
+-&gt; (ListFunctionsByCodeSigningConfig
+    -&gt; ListFunctionsByCodeSigningConfig -&gt; Bool)
+-&gt; Eq ListFunctionsByCodeSigningConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListFunctionsByCodeSigningConfig
+-&gt; ListFunctionsByCodeSigningConfig -&gt; Bool
+$c/= :: ListFunctionsByCodeSigningConfig
+-&gt; ListFunctionsByCodeSigningConfig -&gt; Bool
+== :: ListFunctionsByCodeSigningConfig
+-&gt; ListFunctionsByCodeSigningConfig -&gt; Bool
+$c== :: ListFunctionsByCodeSigningConfig
+-&gt; ListFunctionsByCodeSigningConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304594"><span id="local-6989586621679304596"><span id="local-6989586621679304598"><span id="local-6989586621679304600"><span class="annot"><span class="annottext">ReadPrec [ListFunctionsByCodeSigningConfig]
+ReadPrec ListFunctionsByCodeSigningConfig
+Int -&gt; ReadS ListFunctionsByCodeSigningConfig
+ReadS [ListFunctionsByCodeSigningConfig]
+(Int -&gt; ReadS ListFunctionsByCodeSigningConfig)
+-&gt; ReadS [ListFunctionsByCodeSigningConfig]
+-&gt; ReadPrec ListFunctionsByCodeSigningConfig
+-&gt; ReadPrec [ListFunctionsByCodeSigningConfig]
+-&gt; Read ListFunctionsByCodeSigningConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListFunctionsByCodeSigningConfig]
+$creadListPrec :: ReadPrec [ListFunctionsByCodeSigningConfig]
+readPrec :: ReadPrec ListFunctionsByCodeSigningConfig
+$creadPrec :: ReadPrec ListFunctionsByCodeSigningConfig
+readList :: ReadS [ListFunctionsByCodeSigningConfig]
+$creadList :: ReadS [ListFunctionsByCodeSigningConfig]
+readsPrec :: Int -&gt; ReadS ListFunctionsByCodeSigningConfig
+$creadsPrec :: Int -&gt; ReadS ListFunctionsByCodeSigningConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304587"><span id="local-6989586621679304589"><span id="local-6989586621679304591"><span class="annot"><span class="annottext">Int -&gt; ListFunctionsByCodeSigningConfig -&gt; ShowS
+[ListFunctionsByCodeSigningConfig] -&gt; ShowS
+ListFunctionsByCodeSigningConfig -&gt; String
+(Int -&gt; ListFunctionsByCodeSigningConfig -&gt; ShowS)
+-&gt; (ListFunctionsByCodeSigningConfig -&gt; String)
+-&gt; ([ListFunctionsByCodeSigningConfig] -&gt; ShowS)
+-&gt; Show ListFunctionsByCodeSigningConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListFunctionsByCodeSigningConfig] -&gt; ShowS
+$cshowList :: [ListFunctionsByCodeSigningConfig] -&gt; ShowS
+show :: ListFunctionsByCodeSigningConfig -&gt; String
+$cshow :: ListFunctionsByCodeSigningConfig -&gt; String
+showsPrec :: Int -&gt; ListFunctionsByCodeSigningConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListFunctionsByCodeSigningConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListFunctionsByCodeSigningConfig
+ -&gt; Rep ListFunctionsByCodeSigningConfig x)
+-&gt; (forall x.
+    Rep ListFunctionsByCodeSigningConfig x
+    -&gt; ListFunctionsByCodeSigningConfig)
+-&gt; Generic ListFunctionsByCodeSigningConfig
+forall x.
+Rep ListFunctionsByCodeSigningConfig x
+-&gt; ListFunctionsByCodeSigningConfig
+forall x.
+ListFunctionsByCodeSigningConfig
+-&gt; Rep ListFunctionsByCodeSigningConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListFunctionsByCodeSigningConfig x
+-&gt; ListFunctionsByCodeSigningConfig
+$cfrom :: forall x.
+ListFunctionsByCodeSigningConfig
+-&gt; Rep ListFunctionsByCodeSigningConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListFunctionsByCodeSigningConfig' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'marker', 'listFunctionsByCodeSigningConfig_marker' - Specify the pagination token that\'s returned by a previous request to</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- retrieve the next page of results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxItems', 'listFunctionsByCodeSigningConfig_maxItems' - Maximum number of items to return.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'codeSigningConfigArn', 'listFunctionsByCodeSigningConfig_codeSigningConfigArn' - The The Amazon Resource Name (ARN) of the code signing configuration.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#newListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">newListFunctionsByCodeSigningConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'codeSigningConfigArn'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span>
+</span><span id="line-86"></span><span id="newListFunctionsByCodeSigningConfig"><span class="annot"><span class="annottext">newListFunctionsByCodeSigningConfig :: Text -&gt; ListFunctionsByCodeSigningConfig
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#newListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-var hs-var">newListFunctionsByCodeSigningConfig</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679304582"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304582"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; ListFunctionsByCodeSigningConfig
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig'</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListFunctionsByCodeSigningConfig' :: Maybe Text
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3Amarker%3AListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxItems:ListFunctionsByCodeSigningConfig' :: Maybe Natural
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AmaxItems%3AListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:ListFunctionsByCodeSigningConfig' :: Text
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3AListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304582"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- retrieve the next page of results.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_marker"><span class="hs-identifier hs-type">listFunctionsByCodeSigningConfig_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="listFunctionsByCodeSigningConfig_marker"><span class="annot"><span class="annottext">listFunctionsByCodeSigningConfig_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListFunctionsByCodeSigningConfig
+-&gt; f ListFunctionsByCodeSigningConfig
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_marker"><span class="hs-identifier hs-var hs-var">listFunctionsByCodeSigningConfig_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsByCodeSigningConfig -&gt; Maybe Text)
+-&gt; (ListFunctionsByCodeSigningConfig
+    -&gt; Maybe Text -&gt; ListFunctionsByCodeSigningConfig)
+-&gt; Lens
+     ListFunctionsByCodeSigningConfig
+     ListFunctionsByCodeSigningConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304580"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListFunctionsByCodeSigningConfig' :: ListFunctionsByCodeSigningConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679304580"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304580"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304579"><span class="annot"><span class="annottext">s :: ListFunctionsByCodeSigningConfig
+</span><a href="#local-6989586621679304579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304578"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig
+</span><a href="#local-6989586621679304579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListFunctionsByCodeSigningConfig' :: Maybe Text
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3Amarker%3AListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Maximum number of items to return.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_maxItems"><span class="hs-identifier hs-type">listFunctionsByCodeSigningConfig_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listFunctionsByCodeSigningConfig_maxItems"><span class="annot"><span class="annottext">listFunctionsByCodeSigningConfig_maxItems :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListFunctionsByCodeSigningConfig
+-&gt; f ListFunctionsByCodeSigningConfig
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_maxItems"><span class="hs-identifier hs-var hs-var">listFunctionsByCodeSigningConfig_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsByCodeSigningConfig -&gt; Maybe Natural)
+-&gt; (ListFunctionsByCodeSigningConfig
+    -&gt; Maybe Natural -&gt; ListFunctionsByCodeSigningConfig)
+-&gt; Lens
+     ListFunctionsByCodeSigningConfig
+     ListFunctionsByCodeSigningConfig
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304577"><span class="annot"><span class="annottext">Maybe Natural
+maxItems :: Maybe Natural
+$sel:maxItems:ListFunctionsByCodeSigningConfig' :: ListFunctionsByCodeSigningConfig -&gt; Maybe Natural
+</span><a href="#local-6989586621679304577"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304577"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304576"><span class="annot"><span class="annottext">s :: ListFunctionsByCodeSigningConfig
+</span><a href="#local-6989586621679304576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304575"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig
+</span><a href="#local-6989586621679304576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListFunctionsByCodeSigningConfig' :: Maybe Natural
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AmaxItems%3AListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The The Amazon Resource Name (ARN) of the code signing configuration.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_codeSigningConfigArn"><span class="hs-identifier hs-type">listFunctionsByCodeSigningConfig_codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="listFunctionsByCodeSigningConfig_codeSigningConfigArn"><span class="annot"><span class="annottext">listFunctionsByCodeSigningConfig_codeSigningConfigArn :: (Text -&gt; f Text)
+-&gt; ListFunctionsByCodeSigningConfig
+-&gt; f ListFunctionsByCodeSigningConfig
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_codeSigningConfigArn"><span class="hs-identifier hs-var hs-var">listFunctionsByCodeSigningConfig_codeSigningConfigArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsByCodeSigningConfig -&gt; Text)
+-&gt; (ListFunctionsByCodeSigningConfig
+    -&gt; Text -&gt; ListFunctionsByCodeSigningConfig)
+-&gt; Lens
+     ListFunctionsByCodeSigningConfig
+     ListFunctionsByCodeSigningConfig
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304574"><span class="annot"><span class="annottext">Text
+codeSigningConfigArn :: Text
+$sel:codeSigningConfigArn:ListFunctionsByCodeSigningConfig' :: ListFunctionsByCodeSigningConfig -&gt; Text
+</span><a href="#local-6989586621679304574"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304574"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304573"><span class="annot"><span class="annottext">s :: ListFunctionsByCodeSigningConfig
+</span><a href="#local-6989586621679304573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304572"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig
+</span><a href="#local-6989586621679304573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:ListFunctionsByCodeSigningConfig' :: Text
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3AListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679304568"><span class="annot"><span class="annottext">page :: ListFunctionsByCodeSigningConfig
+-&gt; AWSResponse ListFunctionsByCodeSigningConfig
+-&gt; Maybe ListFunctionsByCodeSigningConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679304566"><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig
+</span><a href="#local-6989586621679304566"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679304565"><span class="annot"><span class="annottext">AWSResponse ListFunctionsByCodeSigningConfig
+</span><a href="#local-6989586621679304565"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFunctionsByCodeSigningConfig
+ListFunctionsByCodeSigningConfigResponse
+</span><a href="#local-6989586621679304565"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse
+-&gt; Getting
+     (First Text) ListFunctionsByCodeSigningConfigResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListFunctionsByCodeSigningConfigResponse
+-&gt; Const (First Text) ListFunctionsByCodeSigningConfigResponse
+Lens' ListFunctionsByCodeSigningConfigResponse (Maybe Text)
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_nextMarker"><span class="hs-identifier hs-var">listFunctionsByCodeSigningConfigResponse_nextMarker</span></a></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListFunctionsByCodeSigningConfigResponse
+ -&gt; Const (First Text) ListFunctionsByCodeSigningConfigResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) ListFunctionsByCodeSigningConfigResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListFunctionsByCodeSigningConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFunctionsByCodeSigningConfig
+ListFunctionsByCodeSigningConfigResponse
+</span><a href="#local-6989586621679304565"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse
+-&gt; Getting
+     (First [Text]) ListFunctionsByCodeSigningConfigResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListFunctionsByCodeSigningConfigResponse
+-&gt; Const (First [Text]) ListFunctionsByCodeSigningConfigResponse
+Lens' ListFunctionsByCodeSigningConfigResponse (Maybe [Text])
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_functionArns"><span class="hs-identifier hs-var">listFunctionsByCodeSigningConfigResponse_functionArns</span></a></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListFunctionsByCodeSigningConfigResponse
+ -&gt; Const (First [Text]) ListFunctionsByCodeSigningConfigResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting
+     (First [Text]) ListFunctionsByCodeSigningConfigResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListFunctionsByCodeSigningConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig
+-&gt; Maybe ListFunctionsByCodeSigningConfig
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListFunctionsByCodeSigningConfig
+ -&gt; Maybe ListFunctionsByCodeSigningConfig)
+-&gt; ListFunctionsByCodeSigningConfig
+-&gt; Maybe ListFunctionsByCodeSigningConfig
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig
+</span><a href="#local-6989586621679304566"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfig
+-&gt; (ListFunctionsByCodeSigningConfig
+    -&gt; ListFunctionsByCodeSigningConfig)
+-&gt; ListFunctionsByCodeSigningConfig
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListFunctionsByCodeSigningConfig
+-&gt; Identity ListFunctionsByCodeSigningConfig
+Lens
+  ListFunctionsByCodeSigningConfig
+  ListFunctionsByCodeSigningConfig
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfig_marker"><span class="hs-identifier hs-var">listFunctionsByCodeSigningConfig_marker</span></a></span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListFunctionsByCodeSigningConfig
+ -&gt; Identity ListFunctionsByCodeSigningConfig)
+-&gt; Maybe Text
+-&gt; ListFunctionsByCodeSigningConfig
+-&gt; ListFunctionsByCodeSigningConfig
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFunctionsByCodeSigningConfig
+ListFunctionsByCodeSigningConfigResponse
+</span><a href="#local-6989586621679304565"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse
+-&gt; Getting
+     (First Text) ListFunctionsByCodeSigningConfigResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListFunctionsByCodeSigningConfigResponse
+-&gt; Const (First Text) ListFunctionsByCodeSigningConfigResponse
+Lens' ListFunctionsByCodeSigningConfigResponse (Maybe Text)
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_nextMarker"><span class="hs-identifier hs-var">listFunctionsByCodeSigningConfigResponse_nextMarker</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListFunctionsByCodeSigningConfigResponse
+ -&gt; Const (First Text) ListFunctionsByCodeSigningConfigResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) ListFunctionsByCodeSigningConfigResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679304555"><span class="annot"><span class="annottext">request :: ListFunctionsByCodeSigningConfig
+-&gt; Request ListFunctionsByCodeSigningConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListFunctionsByCodeSigningConfig
+-&gt; Request ListFunctionsByCodeSigningConfig
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679304551"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListFunctionsByCodeSigningConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListFunctionsByCodeSigningConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListFunctionsByCodeSigningConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListFunctionsByCodeSigningConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListFunctionsByCodeSigningConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304548"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304548"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304547"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304547"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304546"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304546"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text -&gt; Int -&gt; ListFunctionsByCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">ListFunctionsByCodeSigningConfigResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text -&gt; Int -&gt; ListFunctionsByCodeSigningConfigResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; ListFunctionsByCodeSigningConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FunctionArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; ListFunctionsByCodeSigningConfigResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListFunctionsByCodeSigningConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListFunctionsByCodeSigningConfigResponse)
+-&gt; Either String Int
+-&gt; Either String ListFunctionsByCodeSigningConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304548"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679304537"><span id="local-6989586621679304539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679304534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679304530"><span class="annot"><span class="annottext">toHeaders :: ListFunctionsByCodeSigningConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListFunctionsByCodeSigningConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679304525"><span class="annot"><span class="annottext">toPath :: ListFunctionsByCodeSigningConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304521"><span id="local-6989586621679304522"><span id="local-6989586621679304523"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+codeSigningConfigArn :: Text
+maxItems :: Maybe Natural
+marker :: Maybe Text
+$sel:codeSigningConfigArn:ListFunctionsByCodeSigningConfig' :: ListFunctionsByCodeSigningConfig -&gt; Text
+$sel:maxItems:ListFunctionsByCodeSigningConfig' :: ListFunctionsByCodeSigningConfig -&gt; Maybe Natural
+$sel:marker:ListFunctionsByCodeSigningConfig' :: ListFunctionsByCodeSigningConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679304521"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-04-22/code-signing-configs/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304521"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/functions&quot;</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679304517"><span class="annot"><span class="annottext">toQuery :: ListFunctionsByCodeSigningConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfig%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304513"><span id="local-6989586621679304514"><span id="local-6989586621679304515"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+codeSigningConfigArn :: Text
+maxItems :: Maybe Natural
+marker :: Maybe Text
+$sel:codeSigningConfigArn:ListFunctionsByCodeSigningConfig' :: ListFunctionsByCodeSigningConfig -&gt; Text
+$sel:maxItems:ListFunctionsByCodeSigningConfig' :: ListFunctionsByCodeSigningConfig -&gt; Maybe Natural
+$sel:marker:ListFunctionsByCodeSigningConfig' :: ListFunctionsByCodeSigningConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679304513"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304515"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304514"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newListFunctionsByCodeSigningConfigResponse' smart constructor.</span><span>
+</span><span id="line-184"></span><span id="local-6989586621679304510"><span id="local-6989586621679304511"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFunctionsByCodeSigningConfigResponse"><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-var">ListFunctionsByCodeSigningConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFunctionsByCodeSigningConfigResponse%27"><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">ListFunctionsByCodeSigningConfigResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The function ARNs.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AfunctionArns%3AListFunctionsByCodeSigningConfigResponse%27"><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AfunctionArns%3AListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var hs-var">functionArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AnextMarker%3AListFunctionsByCodeSigningConfigResponse%27"><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AnextMarker%3AListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListFunctionsByCodeSigningConfigResponse%27"><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse -&gt; Int
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AhttpStatus%3AListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304503"><span id="local-6989586621679304505"><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse
+-&gt; ListFunctionsByCodeSigningConfigResponse -&gt; Bool
+(ListFunctionsByCodeSigningConfigResponse
+ -&gt; ListFunctionsByCodeSigningConfigResponse -&gt; Bool)
+-&gt; (ListFunctionsByCodeSigningConfigResponse
+    -&gt; ListFunctionsByCodeSigningConfigResponse -&gt; Bool)
+-&gt; Eq ListFunctionsByCodeSigningConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListFunctionsByCodeSigningConfigResponse
+-&gt; ListFunctionsByCodeSigningConfigResponse -&gt; Bool
+$c/= :: ListFunctionsByCodeSigningConfigResponse
+-&gt; ListFunctionsByCodeSigningConfigResponse -&gt; Bool
+== :: ListFunctionsByCodeSigningConfigResponse
+-&gt; ListFunctionsByCodeSigningConfigResponse -&gt; Bool
+$c== :: ListFunctionsByCodeSigningConfigResponse
+-&gt; ListFunctionsByCodeSigningConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304495"><span id="local-6989586621679304497"><span id="local-6989586621679304499"><span id="local-6989586621679304501"><span class="annot"><span class="annottext">ReadPrec [ListFunctionsByCodeSigningConfigResponse]
+ReadPrec ListFunctionsByCodeSigningConfigResponse
+Int -&gt; ReadS ListFunctionsByCodeSigningConfigResponse
+ReadS [ListFunctionsByCodeSigningConfigResponse]
+(Int -&gt; ReadS ListFunctionsByCodeSigningConfigResponse)
+-&gt; ReadS [ListFunctionsByCodeSigningConfigResponse]
+-&gt; ReadPrec ListFunctionsByCodeSigningConfigResponse
+-&gt; ReadPrec [ListFunctionsByCodeSigningConfigResponse]
+-&gt; Read ListFunctionsByCodeSigningConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListFunctionsByCodeSigningConfigResponse]
+$creadListPrec :: ReadPrec [ListFunctionsByCodeSigningConfigResponse]
+readPrec :: ReadPrec ListFunctionsByCodeSigningConfigResponse
+$creadPrec :: ReadPrec ListFunctionsByCodeSigningConfigResponse
+readList :: ReadS [ListFunctionsByCodeSigningConfigResponse]
+$creadList :: ReadS [ListFunctionsByCodeSigningConfigResponse]
+readsPrec :: Int -&gt; ReadS ListFunctionsByCodeSigningConfigResponse
+$creadsPrec :: Int -&gt; ReadS ListFunctionsByCodeSigningConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304489"><span id="local-6989586621679304491"><span id="local-6989586621679304493"><span class="annot"><span class="annottext">Int -&gt; ListFunctionsByCodeSigningConfigResponse -&gt; ShowS
+[ListFunctionsByCodeSigningConfigResponse] -&gt; ShowS
+ListFunctionsByCodeSigningConfigResponse -&gt; String
+(Int -&gt; ListFunctionsByCodeSigningConfigResponse -&gt; ShowS)
+-&gt; (ListFunctionsByCodeSigningConfigResponse -&gt; String)
+-&gt; ([ListFunctionsByCodeSigningConfigResponse] -&gt; ShowS)
+-&gt; Show ListFunctionsByCodeSigningConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListFunctionsByCodeSigningConfigResponse] -&gt; ShowS
+$cshowList :: [ListFunctionsByCodeSigningConfigResponse] -&gt; ShowS
+show :: ListFunctionsByCodeSigningConfigResponse -&gt; String
+$cshow :: ListFunctionsByCodeSigningConfigResponse -&gt; String
+showsPrec :: Int -&gt; ListFunctionsByCodeSigningConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListFunctionsByCodeSigningConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListFunctionsByCodeSigningConfigResponse
+ -&gt; Rep ListFunctionsByCodeSigningConfigResponse x)
+-&gt; (forall x.
+    Rep ListFunctionsByCodeSigningConfigResponse x
+    -&gt; ListFunctionsByCodeSigningConfigResponse)
+-&gt; Generic ListFunctionsByCodeSigningConfigResponse
+forall x.
+Rep ListFunctionsByCodeSigningConfigResponse x
+-&gt; ListFunctionsByCodeSigningConfigResponse
+forall x.
+ListFunctionsByCodeSigningConfigResponse
+-&gt; Rep ListFunctionsByCodeSigningConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListFunctionsByCodeSigningConfigResponse x
+-&gt; ListFunctionsByCodeSigningConfigResponse
+$cfrom :: forall x.
+ListFunctionsByCodeSigningConfigResponse
+-&gt; Rep ListFunctionsByCodeSigningConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Create a value of 'ListFunctionsByCodeSigningConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'functionArns', 'listFunctionsByCodeSigningConfigResponse_functionArns' - The function ARNs.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'nextMarker', 'listFunctionsByCodeSigningConfigResponse_nextMarker' - The pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'httpStatus', 'listFunctionsByCodeSigningConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#newListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">newListFunctionsByCodeSigningConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse</span></a></span><span>
+</span><span id="line-211"></span><span id="newListFunctionsByCodeSigningConfigResponse"><span class="annot"><span class="annottext">newListFunctionsByCodeSigningConfigResponse :: Int -&gt; ListFunctionsByCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#newListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-var hs-var">newListFunctionsByCodeSigningConfigResponse</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679304486"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse' :: Maybe [Text]
+-&gt; Maybe Text -&gt; Int -&gt; ListFunctionsByCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse'</span></a></span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functionArns:ListFunctionsByCodeSigningConfigResponse' :: Maybe [Text]
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AfunctionArns%3AListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">functionArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextMarker:ListFunctionsByCodeSigningConfigResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AnextMarker%3AListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListFunctionsByCodeSigningConfigResponse' :: Int
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AhttpStatus%3AListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The function ARNs.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_functionArns"><span class="hs-identifier hs-type">listFunctionsByCodeSigningConfigResponse_functionArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="listFunctionsByCodeSigningConfigResponse_functionArns"><span class="annot"><span class="annottext">listFunctionsByCodeSigningConfigResponse_functionArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListFunctionsByCodeSigningConfigResponse
+-&gt; f ListFunctionsByCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_functionArns"><span class="hs-identifier hs-var hs-var">listFunctionsByCodeSigningConfigResponse_functionArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsByCodeSigningConfigResponse -&gt; Maybe [Text])
+-&gt; (ListFunctionsByCodeSigningConfigResponse
+    -&gt; Maybe [Text] -&gt; ListFunctionsByCodeSigningConfigResponse)
+-&gt; Lens' ListFunctionsByCodeSigningConfigResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304485"><span class="annot"><span class="annottext">Maybe [Text]
+functionArns :: Maybe [Text]
+$sel:functionArns:ListFunctionsByCodeSigningConfigResponse' :: ListFunctionsByCodeSigningConfigResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679304485"><span class="hs-identifier hs-var hs-var">functionArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304485"><span class="hs-identifier hs-var">functionArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304484"><span class="annot"><span class="annottext">s :: ListFunctionsByCodeSigningConfigResponse
+</span><a href="#local-6989586621679304484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304483"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse
+</span><a href="#local-6989586621679304484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionArns:ListFunctionsByCodeSigningConfigResponse' :: Maybe [Text]
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AfunctionArns%3AListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">functionArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListFunctionsByCodeSigningConfigResponse
+ -&gt; f ListFunctionsByCodeSigningConfigResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListFunctionsByCodeSigningConfigResponse
+-&gt; f ListFunctionsByCodeSigningConfigResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_nextMarker"><span class="hs-identifier hs-type">listFunctionsByCodeSigningConfigResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="listFunctionsByCodeSigningConfigResponse_nextMarker"><span class="annot"><span class="annottext">listFunctionsByCodeSigningConfigResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListFunctionsByCodeSigningConfigResponse
+-&gt; f ListFunctionsByCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listFunctionsByCodeSigningConfigResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsByCodeSigningConfigResponse -&gt; Maybe Text)
+-&gt; (ListFunctionsByCodeSigningConfigResponse
+    -&gt; Maybe Text -&gt; ListFunctionsByCodeSigningConfigResponse)
+-&gt; Lens' ListFunctionsByCodeSigningConfigResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304480"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:ListFunctionsByCodeSigningConfigResponse' :: ListFunctionsByCodeSigningConfigResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679304480"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304480"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304479"><span class="annot"><span class="annottext">s :: ListFunctionsByCodeSigningConfigResponse
+</span><a href="#local-6989586621679304479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304478"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse
+</span><a href="#local-6989586621679304479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListFunctionsByCodeSigningConfigResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AnextMarker%3AListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_httpStatus"><span class="hs-identifier hs-type">listFunctionsByCodeSigningConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-230"></span><span id="listFunctionsByCodeSigningConfigResponse_httpStatus"><span class="annot"><span class="annottext">listFunctionsByCodeSigningConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListFunctionsByCodeSigningConfigResponse
+-&gt; f ListFunctionsByCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#listFunctionsByCodeSigningConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listFunctionsByCodeSigningConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsByCodeSigningConfigResponse -&gt; Int)
+-&gt; (ListFunctionsByCodeSigningConfigResponse
+    -&gt; Int -&gt; ListFunctionsByCodeSigningConfigResponse)
+-&gt; Lens
+     ListFunctionsByCodeSigningConfigResponse
+     ListFunctionsByCodeSigningConfigResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304477"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListFunctionsByCodeSigningConfigResponse' :: ListFunctionsByCodeSigningConfigResponse -&gt; Int
+</span><a href="#local-6989586621679304477"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304477"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304476"><span class="annot"><span class="annottext">s :: ListFunctionsByCodeSigningConfigResponse
+</span><a href="#local-6989586621679304476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304475"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsByCodeSigningConfigResponse
+</span><a href="#local-6989586621679304476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFunctionsByCodeSigningConfigResponse' :: Int
+</span><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#%24sel%3AhttpStatus%3AListFunctionsByCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679304473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.ListFunctionsByCodeSigningConfig.html#ListFunctionsByCodeSigningConfigResponse"><span class="hs-identifier hs-type">ListFunctionsByCodeSigningConfigResponse</span></a></span></span><span>
+</span><span id="line-235"></span></pre></body></html>

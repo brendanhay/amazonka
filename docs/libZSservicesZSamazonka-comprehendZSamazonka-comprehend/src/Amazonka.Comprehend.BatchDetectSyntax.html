@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Comprehend.BatchDetectSyntax</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Inspects the text of a batch of documents for the syntax and part of</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- speech of the words in the document and returns information about them.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For more information, see how-syntax.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Comprehend.BatchDetectSyntax</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier">BatchDetectSyntax</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#newBatchDetectSyntax"><span class="hs-identifier">newBatchDetectSyntax</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntax_textList"><span class="hs-identifier">batchDetectSyntax_textList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntax_languageCode"><span class="hs-identifier">batchDetectSyntax_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier">BatchDetectSyntaxResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#newBatchDetectSyntaxResponse"><span class="hs-identifier">newBatchDetectSyntaxResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntaxResponse_httpStatus"><span class="hs-identifier">batchDetectSyntaxResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntaxResponse_resultList"><span class="hs-identifier">batchDetectSyntaxResponse_resultList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntaxResponse_errorList"><span class="hs-identifier">batchDetectSyntaxResponse_errorList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.html"><span class="hs-identifier">Amazonka.Comprehend.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newBatchDetectSyntax' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679365999"><span id="local-6989586621679366000"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectSyntax"><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-var">BatchDetectSyntax</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectSyntax%27"><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax%27"><span class="hs-identifier hs-var">BatchDetectSyntax'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list containing the text of the input documents. The list can contain</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- a maximum of 25 documents. Each document must contain fewer that 5,000</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- bytes of UTF-8 encoded characters.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtextList%3ABatchDetectSyntax%27"><span class="annot"><span class="annottext">BatchDetectSyntax -&gt; Sensitive [Sensitive Text]
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AtextList%3ABatchDetectSyntax%27"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The language of the input documents. You can specify any of the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- following languages supported by Amazon Comprehend: German (\&quot;de\&quot;),</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- English (\&quot;en\&quot;), Spanish (\&quot;es\&quot;), French (\&quot;fr\&quot;), Italian (\&quot;it\&quot;),</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- or Portuguese (\&quot;pt\&quot;). All documents must be in the same language.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AlanguageCode%3ABatchDetectSyntax%27"><span class="annot"><span class="annottext">BatchDetectSyntax -&gt; SyntaxLanguageCode
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AlanguageCode%3ABatchDetectSyntax%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.SyntaxLanguageCode.html#SyntaxLanguageCode"><span class="hs-identifier hs-type">SyntaxLanguageCode</span></a></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365992"><span id="local-6989586621679365994"><span class="annot"><span class="annottext">BatchDetectSyntax -&gt; BatchDetectSyntax -&gt; Bool
+(BatchDetectSyntax -&gt; BatchDetectSyntax -&gt; Bool)
+-&gt; (BatchDetectSyntax -&gt; BatchDetectSyntax -&gt; Bool)
+-&gt; Eq BatchDetectSyntax
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDetectSyntax -&gt; BatchDetectSyntax -&gt; Bool
+$c/= :: BatchDetectSyntax -&gt; BatchDetectSyntax -&gt; Bool
+== :: BatchDetectSyntax -&gt; BatchDetectSyntax -&gt; Bool
+$c== :: BatchDetectSyntax -&gt; BatchDetectSyntax -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365985"><span id="local-6989586621679365987"><span id="local-6989586621679365989"><span class="annot"><span class="annottext">Int -&gt; BatchDetectSyntax -&gt; ShowS
+[BatchDetectSyntax] -&gt; ShowS
+BatchDetectSyntax -&gt; String
+(Int -&gt; BatchDetectSyntax -&gt; ShowS)
+-&gt; (BatchDetectSyntax -&gt; String)
+-&gt; ([BatchDetectSyntax] -&gt; ShowS)
+-&gt; Show BatchDetectSyntax
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDetectSyntax] -&gt; ShowS
+$cshowList :: [BatchDetectSyntax] -&gt; ShowS
+show :: BatchDetectSyntax -&gt; String
+$cshow :: BatchDetectSyntax -&gt; String
+showsPrec :: Int -&gt; BatchDetectSyntax -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDetectSyntax -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchDetectSyntax -&gt; Rep BatchDetectSyntax x)
+-&gt; (forall x. Rep BatchDetectSyntax x -&gt; BatchDetectSyntax)
+-&gt; Generic BatchDetectSyntax
+forall x. Rep BatchDetectSyntax x -&gt; BatchDetectSyntax
+forall x. BatchDetectSyntax -&gt; Rep BatchDetectSyntax x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchDetectSyntax x -&gt; BatchDetectSyntax
+$cfrom :: forall x. BatchDetectSyntax -&gt; Rep BatchDetectSyntax x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'BatchDetectSyntax' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'textList', 'batchDetectSyntax_textList' - A list containing the text of the input documents. The list can contain</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- a maximum of 25 documents. Each document must contain fewer that 5,000</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- bytes of UTF-8 encoded characters.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'languageCode', 'batchDetectSyntax_languageCode' - The language of the input documents. You can specify any of the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- following languages supported by Amazon Comprehend: German (\&quot;de\&quot;),</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- English (\&quot;en\&quot;), Spanish (\&quot;es\&quot;), French (\&quot;fr\&quot;), Italian (\&quot;it\&quot;),</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- or Portuguese (\&quot;pt\&quot;). All documents must be in the same language.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#newBatchDetectSyntax"><span class="hs-identifier hs-type">newBatchDetectSyntax</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.Types.SyntaxLanguageCode.html#SyntaxLanguageCode"><span class="hs-identifier hs-type">SyntaxLanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span>
+</span><span id="line-87"></span><span id="newBatchDetectSyntax"><span class="annot"><span class="annottext">newBatchDetectSyntax :: SyntaxLanguageCode -&gt; BatchDetectSyntax
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#newBatchDetectSyntax"><span class="hs-identifier hs-var hs-var">newBatchDetectSyntax</span></a></span></span><span> </span><span id="local-6989586621679365980"><span class="annot"><span class="annottext">SyntaxLanguageCode
+</span><a href="#local-6989586621679365980"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">BatchDetectSyntax' :: Sensitive [Sensitive Text]
+-&gt; SyntaxLanguageCode -&gt; BatchDetectSyntax
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax%27"><span class="hs-identifier hs-type">BatchDetectSyntax'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:textList:BatchDetectSyntax' :: Sensitive [Sensitive Text]
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AtextList%3ABatchDetectSyntax%27"><span class="hs-identifier hs-var">textList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:BatchDetectSyntax' :: SyntaxLanguageCode
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AlanguageCode%3ABatchDetectSyntax%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SyntaxLanguageCode
+</span><a href="#local-6989586621679365980"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A list containing the text of the input documents. The list can contain</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- a maximum of 25 documents. Each document must contain fewer that 5,000</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- bytes of UTF-8 encoded characters.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntax_textList"><span class="hs-identifier hs-type">batchDetectSyntax_textList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-97"></span><span id="batchDetectSyntax_textList"><span class="annot"><span class="annottext">batchDetectSyntax_textList :: ([Text] -&gt; f [Text]) -&gt; BatchDetectSyntax -&gt; f BatchDetectSyntax
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntax_textList"><span class="hs-identifier hs-var hs-var">batchDetectSyntax_textList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectSyntax -&gt; Sensitive [Sensitive Text])
+-&gt; (BatchDetectSyntax
+    -&gt; Sensitive [Sensitive Text] -&gt; BatchDetectSyntax)
+-&gt; Lens
+     BatchDetectSyntax
+     BatchDetectSyntax
+     (Sensitive [Sensitive Text])
+     (Sensitive [Sensitive Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax%27"><span class="hs-identifier hs-type">BatchDetectSyntax'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365977"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+textList :: Sensitive [Sensitive Text]
+$sel:textList:BatchDetectSyntax' :: BatchDetectSyntax -&gt; Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679365977"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679365977"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365976"><span class="annot"><span class="annottext">s :: BatchDetectSyntax
+</span><a href="#local-6989586621679365976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax%27"><span class="hs-identifier hs-type">BatchDetectSyntax'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365975"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679365975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectSyntax
+</span><a href="#local-6989586621679365976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textList:BatchDetectSyntax' :: Sensitive [Sensitive Text]
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AtextList%3ABatchDetectSyntax%27"><span class="hs-identifier hs-var">textList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679365975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
+ -&gt; BatchDetectSyntax -&gt; f BatchDetectSyntax)
+-&gt; (([Text] -&gt; f [Text])
+    -&gt; Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
+-&gt; ([Text] -&gt; f [Text])
+-&gt; BatchDetectSyntax
+-&gt; f BatchDetectSyntax
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Sensitive Text] -&gt; f [Sensitive Text])
+-&gt; Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text])
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(([Sensitive Text] -&gt; f [Sensitive Text])
+ -&gt; Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; Sensitive [Sensitive Text]
+-&gt; f (Sensitive [Sensitive Text])
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The language of the input documents. You can specify any of the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- following languages supported by Amazon Comprehend: German (\&quot;de\&quot;),</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- English (\&quot;en\&quot;), Spanish (\&quot;es\&quot;), French (\&quot;fr\&quot;), Italian (\&quot;it\&quot;),</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- or Portuguese (\&quot;pt\&quot;). All documents must be in the same language.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntax_languageCode"><span class="hs-identifier hs-type">batchDetectSyntax_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.SyntaxLanguageCode.html#SyntaxLanguageCode"><span class="hs-identifier hs-type">SyntaxLanguageCode</span></a></span><span>
+</span><span id="line-104"></span><span id="batchDetectSyntax_languageCode"><span class="annot"><span class="annottext">batchDetectSyntax_languageCode :: (SyntaxLanguageCode -&gt; f SyntaxLanguageCode)
+-&gt; BatchDetectSyntax -&gt; f BatchDetectSyntax
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntax_languageCode"><span class="hs-identifier hs-var hs-var">batchDetectSyntax_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectSyntax -&gt; SyntaxLanguageCode)
+-&gt; (BatchDetectSyntax -&gt; SyntaxLanguageCode -&gt; BatchDetectSyntax)
+-&gt; Lens
+     BatchDetectSyntax
+     BatchDetectSyntax
+     SyntaxLanguageCode
+     SyntaxLanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax%27"><span class="hs-identifier hs-type">BatchDetectSyntax'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365971"><span class="annot"><span class="annottext">SyntaxLanguageCode
+languageCode :: SyntaxLanguageCode
+$sel:languageCode:BatchDetectSyntax' :: BatchDetectSyntax -&gt; SyntaxLanguageCode
+</span><a href="#local-6989586621679365971"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SyntaxLanguageCode
+</span><a href="#local-6989586621679365971"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365970"><span class="annot"><span class="annottext">s :: BatchDetectSyntax
+</span><a href="#local-6989586621679365970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax%27"><span class="hs-identifier hs-type">BatchDetectSyntax'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365969"><span class="annot"><span class="annottext">SyntaxLanguageCode
+</span><a href="#local-6989586621679365969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectSyntax
+</span><a href="#local-6989586621679365970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:BatchDetectSyntax' :: SyntaxLanguageCode
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AlanguageCode%3ABatchDetectSyntax%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SyntaxLanguageCode
+</span><a href="#local-6989586621679365969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679365965"><span class="annot"><span class="annottext">request :: BatchDetectSyntax -&gt; Request BatchDetectSyntax
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchDetectSyntax -&gt; Request BatchDetectSyntax
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679365961"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchDetectSyntax
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchDetectSyntax)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchDetectSyntax))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchDetectSyntax
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchDetectSyntax)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365958"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365958"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679365957"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679365957"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679365956"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365956"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; [BatchDetectSyntaxItemResult]
+-&gt; [BatchItemError]
+-&gt; BatchDetectSyntaxResponse
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var">BatchDetectSyntaxResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; [BatchDetectSyntaxItemResult]
+ -&gt; [BatchItemError]
+ -&gt; BatchDetectSyntaxResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     ([BatchDetectSyntaxItemResult]
+      -&gt; [BatchItemError] -&gt; BatchDetectSyntaxResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365958"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([BatchDetectSyntaxItemResult]
+   -&gt; [BatchItemError] -&gt; BatchDetectSyntaxResponse)
+-&gt; Either String [BatchDetectSyntaxItemResult]
+-&gt; Either String ([BatchItemError] -&gt; BatchDetectSyntaxResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe [BatchDetectSyntaxItemResult])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [BatchDetectSyntaxItemResult])
+-&gt; [BatchDetectSyntaxItemResult]
+-&gt; Either String [BatchDetectSyntaxItemResult]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[BatchDetectSyntaxItemResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either String ([BatchItemError] -&gt; BatchDetectSyntaxResponse)
+-&gt; Either String [BatchItemError]
+-&gt; Either String BatchDetectSyntaxResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [BatchItemError])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [BatchItemError])
+-&gt; [BatchItemError] -&gt; Either String [BatchItemError]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365947"><span id="local-6989586621679365949"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365944"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679365940"><span class="annot"><span class="annottext">toHeaders :: BatchDetectSyntax -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDetectSyntax -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Comprehend_20171127.BatchDetectSyntax&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365930"><span id="local-6989586621679365932"><span id="local-6989586621679365934"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679365928"><span class="annot"><span class="annottext">toJSON :: BatchDetectSyntax -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax%27"><span class="hs-identifier hs-type">BatchDetectSyntax'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365925"><span id="local-6989586621679365926"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+SyntaxLanguageCode
+languageCode :: SyntaxLanguageCode
+textList :: Sensitive [Sensitive Text]
+$sel:languageCode:BatchDetectSyntax' :: BatchDetectSyntax -&gt; SyntaxLanguageCode
+$sel:textList:BatchDetectSyntax' :: BatchDetectSyntax -&gt; Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679365925"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TextList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive [Sensitive Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679365926"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SyntaxLanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SyntaxLanguageCode
+</span><a href="#local-6989586621679365925"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679365919"><span class="annot"><span class="annottext">toPath :: BatchDetectSyntax -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDetectSyntax -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntax"><span class="hs-identifier hs-type">BatchDetectSyntax</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679365915"><span class="annot"><span class="annottext">toQuery :: BatchDetectSyntax -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDetectSyntax -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newBatchDetectSyntaxResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621679365912"><span id="local-6989586621679365913"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectSyntaxResponse"><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-var">BatchDetectSyntaxResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectSyntaxResponse%27"><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var">BatchDetectSyntaxResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDetectSyntaxResponse%27"><span class="annot"><span class="annottext">BatchDetectSyntaxResponse -&gt; Int
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AhttpStatus%3ABatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | A list of objects containing the results of the operation. The results</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- are sorted in ascending order by the @Index@ field and match the order</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- of the documents in the input list. If all of the documents contain an</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- error, the @ResultList@ is empty.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AresultList%3ABatchDetectSyntaxResponse%27"><span class="annot"><span class="annottext">BatchDetectSyntaxResponse -&gt; [BatchDetectSyntaxItemResult]
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AresultList%3ABatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var hs-var">resultList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult.html#BatchDetectSyntaxItemResult"><span class="hs-identifier hs-type">BatchDetectSyntaxItemResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | A list containing one object for each document that contained an error.</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- The results are sorted in ascending order by the @Index@ field and match</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- the order of the documents in the input list. If there are no errors in</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- the batch, the @ErrorList@ is empty.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AerrorList%3ABatchDetectSyntaxResponse%27"><span class="annot"><span class="annottext">BatchDetectSyntaxResponse -&gt; [BatchItemError]
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AerrorList%3ABatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365905"><span id="local-6989586621679365907"><span class="annot"><span class="annottext">BatchDetectSyntaxResponse -&gt; BatchDetectSyntaxResponse -&gt; Bool
+(BatchDetectSyntaxResponse -&gt; BatchDetectSyntaxResponse -&gt; Bool)
+-&gt; (BatchDetectSyntaxResponse -&gt; BatchDetectSyntaxResponse -&gt; Bool)
+-&gt; Eq BatchDetectSyntaxResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDetectSyntaxResponse -&gt; BatchDetectSyntaxResponse -&gt; Bool
+$c/= :: BatchDetectSyntaxResponse -&gt; BatchDetectSyntaxResponse -&gt; Bool
+== :: BatchDetectSyntaxResponse -&gt; BatchDetectSyntaxResponse -&gt; Bool
+$c== :: BatchDetectSyntaxResponse -&gt; BatchDetectSyntaxResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365899"><span id="local-6989586621679365901"><span id="local-6989586621679365903"><span class="annot"><span class="annottext">Int -&gt; BatchDetectSyntaxResponse -&gt; ShowS
+[BatchDetectSyntaxResponse] -&gt; ShowS
+BatchDetectSyntaxResponse -&gt; String
+(Int -&gt; BatchDetectSyntaxResponse -&gt; ShowS)
+-&gt; (BatchDetectSyntaxResponse -&gt; String)
+-&gt; ([BatchDetectSyntaxResponse] -&gt; ShowS)
+-&gt; Show BatchDetectSyntaxResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDetectSyntaxResponse] -&gt; ShowS
+$cshowList :: [BatchDetectSyntaxResponse] -&gt; ShowS
+show :: BatchDetectSyntaxResponse -&gt; String
+$cshow :: BatchDetectSyntaxResponse -&gt; String
+showsPrec :: Int -&gt; BatchDetectSyntaxResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDetectSyntaxResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchDetectSyntaxResponse -&gt; Rep BatchDetectSyntaxResponse x)
+-&gt; (forall x.
+    Rep BatchDetectSyntaxResponse x -&gt; BatchDetectSyntaxResponse)
+-&gt; Generic BatchDetectSyntaxResponse
+forall x.
+Rep BatchDetectSyntaxResponse x -&gt; BatchDetectSyntaxResponse
+forall x.
+BatchDetectSyntaxResponse -&gt; Rep BatchDetectSyntaxResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchDetectSyntaxResponse x -&gt; BatchDetectSyntaxResponse
+$cfrom :: forall x.
+BatchDetectSyntaxResponse -&gt; Rep BatchDetectSyntaxResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'BatchDetectSyntaxResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'httpStatus', 'batchDetectSyntaxResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'resultList', 'batchDetectSyntaxResponse_resultList' - A list of objects containing the results of the operation. The results</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- are sorted in ascending order by the @Index@ field and match the order</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- of the documents in the input list. If all of the documents contain an</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- error, the @ResultList@ is empty.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'errorList', 'batchDetectSyntaxResponse_errorList' - A list containing one object for each document that contained an error.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The results are sorted in ascending order by the @Index@ field and match</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- the order of the documents in the input list. If there are no errors in</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- the batch, the @ErrorList@ is empty.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#newBatchDetectSyntaxResponse"><span class="hs-identifier hs-type">newBatchDetectSyntaxResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse</span></a></span><span>
+</span><span id="line-194"></span><span id="newBatchDetectSyntaxResponse"><span class="annot"><span class="annottext">newBatchDetectSyntaxResponse :: Int -&gt; BatchDetectSyntaxResponse
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#newBatchDetectSyntaxResponse"><span class="hs-identifier hs-var hs-var">newBatchDetectSyntaxResponse</span></a></span></span><span> </span><span id="local-6989586621679365896"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365896"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">BatchDetectSyntaxResponse' :: Int
+-&gt; [BatchDetectSyntaxItemResult]
+-&gt; [BatchItemError]
+-&gt; BatchDetectSyntaxResponse
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse%27"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectSyntaxResponse' :: Int
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AhttpStatus%3ABatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365896"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectSyntaxResponse' :: [BatchDetectSyntaxItemResult]
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AresultList%3ABatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var">resultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchDetectSyntaxItemResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorList:BatchDetectSyntaxResponse' :: [BatchItemError]
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AerrorList%3ABatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var">errorList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntaxResponse_httpStatus"><span class="hs-identifier hs-type">batchDetectSyntaxResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="batchDetectSyntaxResponse_httpStatus"><span class="annot"><span class="annottext">batchDetectSyntaxResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchDetectSyntaxResponse -&gt; f BatchDetectSyntaxResponse
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntaxResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchDetectSyntaxResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectSyntaxResponse -&gt; Int)
+-&gt; (BatchDetectSyntaxResponse -&gt; Int -&gt; BatchDetectSyntaxResponse)
+-&gt; Lens BatchDetectSyntaxResponse BatchDetectSyntaxResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse%27"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365895"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchDetectSyntaxResponse' :: BatchDetectSyntaxResponse -&gt; Int
+</span><a href="#local-6989586621679365895"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365895"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365894"><span class="annot"><span class="annottext">s :: BatchDetectSyntaxResponse
+</span><a href="#local-6989586621679365894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse%27"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365893"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectSyntaxResponse
+</span><a href="#local-6989586621679365894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectSyntaxResponse' :: Int
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AhttpStatus%3ABatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | A list of objects containing the results of the operation. The results</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- are sorted in ascending order by the @Index@ field and match the order</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- of the documents in the input list. If all of the documents contain an</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- error, the @ResultList@ is empty.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntaxResponse_resultList"><span class="hs-identifier hs-type">batchDetectSyntaxResponse_resultList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult.html#BatchDetectSyntaxItemResult"><span class="hs-identifier hs-type">BatchDetectSyntaxItemResult</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span id="batchDetectSyntaxResponse_resultList"><span class="annot"><span class="annottext">batchDetectSyntaxResponse_resultList :: ([BatchDetectSyntaxItemResult] -&gt; f [BatchDetectSyntaxItemResult])
+-&gt; BatchDetectSyntaxResponse -&gt; f BatchDetectSyntaxResponse
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntaxResponse_resultList"><span class="hs-identifier hs-var hs-var">batchDetectSyntaxResponse_resultList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectSyntaxResponse -&gt; [BatchDetectSyntaxItemResult])
+-&gt; (BatchDetectSyntaxResponse
+    -&gt; [BatchDetectSyntaxItemResult] -&gt; BatchDetectSyntaxResponse)
+-&gt; Lens
+     BatchDetectSyntaxResponse
+     BatchDetectSyntaxResponse
+     [BatchDetectSyntaxItemResult]
+     [BatchDetectSyntaxItemResult]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse%27"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365892"><span class="annot"><span class="annottext">[BatchDetectSyntaxItemResult]
+resultList :: [BatchDetectSyntaxItemResult]
+$sel:resultList:BatchDetectSyntaxResponse' :: BatchDetectSyntaxResponse -&gt; [BatchDetectSyntaxItemResult]
+</span><a href="#local-6989586621679365892"><span class="hs-identifier hs-var hs-var">resultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchDetectSyntaxItemResult]
+</span><a href="#local-6989586621679365892"><span class="hs-identifier hs-var">resultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365891"><span class="annot"><span class="annottext">s :: BatchDetectSyntaxResponse
+</span><a href="#local-6989586621679365891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse%27"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365890"><span class="annot"><span class="annottext">[BatchDetectSyntaxItemResult]
+</span><a href="#local-6989586621679365890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectSyntaxResponse
+</span><a href="#local-6989586621679365891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectSyntaxResponse' :: [BatchDetectSyntaxItemResult]
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AresultList%3ABatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var">resultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchDetectSyntaxItemResult]
+</span><a href="#local-6989586621679365890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchDetectSyntaxItemResult] -&gt; f [BatchDetectSyntaxItemResult])
+ -&gt; BatchDetectSyntaxResponse -&gt; f BatchDetectSyntaxResponse)
+-&gt; (([BatchDetectSyntaxItemResult]
+     -&gt; f [BatchDetectSyntaxItemResult])
+    -&gt; [BatchDetectSyntaxItemResult]
+    -&gt; f [BatchDetectSyntaxItemResult])
+-&gt; ([BatchDetectSyntaxItemResult]
+    -&gt; f [BatchDetectSyntaxItemResult])
+-&gt; BatchDetectSyntaxResponse
+-&gt; f BatchDetectSyntaxResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchDetectSyntaxItemResult] -&gt; f [BatchDetectSyntaxItemResult])
+-&gt; [BatchDetectSyntaxItemResult] -&gt; f [BatchDetectSyntaxItemResult]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | A list containing one object for each document that contained an error.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- The results are sorted in ascending order by the @Index@ field and match</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- the order of the documents in the input list. If there are no errors in</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- the batch, the @ErrorList@ is empty.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntaxResponse_errorList"><span class="hs-identifier hs-type">batchDetectSyntaxResponse_errorList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-218"></span><span id="batchDetectSyntaxResponse_errorList"><span class="annot"><span class="annottext">batchDetectSyntaxResponse_errorList :: ([BatchItemError] -&gt; f [BatchItemError])
+-&gt; BatchDetectSyntaxResponse -&gt; f BatchDetectSyntaxResponse
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#batchDetectSyntaxResponse_errorList"><span class="hs-identifier hs-var hs-var">batchDetectSyntaxResponse_errorList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectSyntaxResponse -&gt; [BatchItemError])
+-&gt; (BatchDetectSyntaxResponse
+    -&gt; [BatchItemError] -&gt; BatchDetectSyntaxResponse)
+-&gt; Lens
+     BatchDetectSyntaxResponse
+     BatchDetectSyntaxResponse
+     [BatchItemError]
+     [BatchItemError]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse%27"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365889"><span class="annot"><span class="annottext">[BatchItemError]
+errorList :: [BatchItemError]
+$sel:errorList:BatchDetectSyntaxResponse' :: BatchDetectSyntaxResponse -&gt; [BatchItemError]
+</span><a href="#local-6989586621679365889"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679365889"><span class="hs-identifier hs-var">errorList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365888"><span class="annot"><span class="annottext">s :: BatchDetectSyntaxResponse
+</span><a href="#local-6989586621679365888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse%27"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365887"><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679365887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectSyntaxResponse
+</span><a href="#local-6989586621679365888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorList:BatchDetectSyntaxResponse' :: [BatchItemError]
+</span><a href="Amazonka.Comprehend.BatchDetectSyntax.html#%24sel%3AerrorList%3ABatchDetectSyntaxResponse%27"><span class="hs-identifier hs-var">errorList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679365887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchItemError] -&gt; f [BatchItemError])
+ -&gt; BatchDetectSyntaxResponse -&gt; f BatchDetectSyntaxResponse)
+-&gt; (([BatchItemError] -&gt; f [BatchItemError])
+    -&gt; [BatchItemError] -&gt; f [BatchItemError])
+-&gt; ([BatchItemError] -&gt; f [BatchItemError])
+-&gt; BatchDetectSyntaxResponse
+-&gt; f BatchDetectSyntaxResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchItemError] -&gt; f [BatchItemError])
+-&gt; [BatchItemError] -&gt; f [BatchItemError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.BatchDetectSyntax.html#BatchDetectSyntaxResponse"><span class="hs-identifier hs-type">BatchDetectSyntaxResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.ApplicationMetrics</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.Deployment.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.Deployment</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SystemStatus.html"><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.SystemStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Detailed health information about an Amazon EC2 instance in your Elastic</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Beanstalk environment.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSingleInstanceHealth' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679307745"><span id="local-6989586621679307746"></span></span><span class="hs-keyword">data</span><span> </span><span id="SingleInstanceHealth"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-var">SingleInstanceHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SingleInstanceHealth%27"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-var">SingleInstanceHealth'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon EC2 instance.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinstanceId%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AinstanceId%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Represents the causes, which provide more information about the current</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- health status.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Acauses%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe [Text]
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Acauses%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">causes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Operating system metrics from the instance.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Asystem%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe SystemStatus
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Asystem%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">system</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Request metrics from your application.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AapplicationMetrics%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AapplicationMetrics%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">applicationMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Represents the color indicator that gives you information about the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- health of the EC2 instance. For more information, see</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses&gt;.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Acolor%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Acolor%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">color</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The instance\'s type.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AinstanceType%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AinstanceType%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The availability zone in which the instance runs.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AavailabilityZone%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AavailabilityZone%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Returns the health status of the specified instance. For more</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses&gt;.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AhealthStatus%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AhealthStatus%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Information about the most recent deployment to an instance.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Adeployment%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe Deployment
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Adeployment%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">deployment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The time at which the EC2 instance was launched.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AlaunchedAt%3ASingleInstanceHealth%27"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AlaunchedAt%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var hs-var">launchedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307730"><span id="local-6989586621679307732"><span class="annot"><span class="annottext">SingleInstanceHealth -&gt; SingleInstanceHealth -&gt; Bool
+(SingleInstanceHealth -&gt; SingleInstanceHealth -&gt; Bool)
+-&gt; (SingleInstanceHealth -&gt; SingleInstanceHealth -&gt; Bool)
+-&gt; Eq SingleInstanceHealth
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SingleInstanceHealth -&gt; SingleInstanceHealth -&gt; Bool
+$c/= :: SingleInstanceHealth -&gt; SingleInstanceHealth -&gt; Bool
+== :: SingleInstanceHealth -&gt; SingleInstanceHealth -&gt; Bool
+$c== :: SingleInstanceHealth -&gt; SingleInstanceHealth -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307721"><span id="local-6989586621679307723"><span id="local-6989586621679307725"><span id="local-6989586621679307727"><span class="annot"><span class="annottext">ReadPrec [SingleInstanceHealth]
+ReadPrec SingleInstanceHealth
+Int -&gt; ReadS SingleInstanceHealth
+ReadS [SingleInstanceHealth]
+(Int -&gt; ReadS SingleInstanceHealth)
+-&gt; ReadS [SingleInstanceHealth]
+-&gt; ReadPrec SingleInstanceHealth
+-&gt; ReadPrec [SingleInstanceHealth]
+-&gt; Read SingleInstanceHealth
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SingleInstanceHealth]
+$creadListPrec :: ReadPrec [SingleInstanceHealth]
+readPrec :: ReadPrec SingleInstanceHealth
+$creadPrec :: ReadPrec SingleInstanceHealth
+readList :: ReadS [SingleInstanceHealth]
+$creadList :: ReadS [SingleInstanceHealth]
+readsPrec :: Int -&gt; ReadS SingleInstanceHealth
+$creadsPrec :: Int -&gt; ReadS SingleInstanceHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307714"><span id="local-6989586621679307716"><span id="local-6989586621679307718"><span class="annot"><span class="annottext">Int -&gt; SingleInstanceHealth -&gt; ShowS
+[SingleInstanceHealth] -&gt; ShowS
+SingleInstanceHealth -&gt; String
+(Int -&gt; SingleInstanceHealth -&gt; ShowS)
+-&gt; (SingleInstanceHealth -&gt; String)
+-&gt; ([SingleInstanceHealth] -&gt; ShowS)
+-&gt; Show SingleInstanceHealth
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SingleInstanceHealth] -&gt; ShowS
+$cshowList :: [SingleInstanceHealth] -&gt; ShowS
+show :: SingleInstanceHealth -&gt; String
+$cshow :: SingleInstanceHealth -&gt; String
+showsPrec :: Int -&gt; SingleInstanceHealth -&gt; ShowS
+$cshowsPrec :: Int -&gt; SingleInstanceHealth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SingleInstanceHealth -&gt; Rep SingleInstanceHealth x)
+-&gt; (forall x. Rep SingleInstanceHealth x -&gt; SingleInstanceHealth)
+-&gt; Generic SingleInstanceHealth
+forall x. Rep SingleInstanceHealth x -&gt; SingleInstanceHealth
+forall x. SingleInstanceHealth -&gt; Rep SingleInstanceHealth x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SingleInstanceHealth x -&gt; SingleInstanceHealth
+$cfrom :: forall x. SingleInstanceHealth -&gt; Rep SingleInstanceHealth x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'SingleInstanceHealth' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'instanceId', 'singleInstanceHealth_instanceId' - The ID of the Amazon EC2 instance.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'causes', 'singleInstanceHealth_causes' - Represents the causes, which provide more information about the current</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- health status.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'system', 'singleInstanceHealth_system' - Operating system metrics from the instance.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'applicationMetrics', 'singleInstanceHealth_applicationMetrics' - Request metrics from your application.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'color', 'singleInstanceHealth_color' - Represents the color indicator that gives you information about the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- health of the EC2 instance. For more information, see</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses&gt;.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'instanceType', 'singleInstanceHealth_instanceType' - The instance\'s type.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'availabilityZone', 'singleInstanceHealth_availabilityZone' - The availability zone in which the instance runs.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'healthStatus', 'singleInstanceHealth_healthStatus' - Returns the health status of the specified instance. For more</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses&gt;.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'deployment', 'singleInstanceHealth_deployment' - Information about the most recent deployment to an instance.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'launchedAt', 'singleInstanceHealth_launchedAt' - The time at which the EC2 instance was launched.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#newSingleInstanceHealth"><span class="hs-identifier hs-type">newSingleInstanceHealth</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span>
+</span><span id="line-96"></span><span id="newSingleInstanceHealth"><span class="annot"><span class="annottext">newSingleInstanceHealth :: SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#newSingleInstanceHealth"><span class="hs-identifier hs-var hs-var">newSingleInstanceHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">SingleInstanceHealth' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe SystemStatus
+-&gt; Maybe ApplicationMetrics
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Deployment
+-&gt; Maybe ISO8601
+-&gt; SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AinstanceId%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:causes:SingleInstanceHealth' :: Maybe [Text]
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Acauses%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">causes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:system:SingleInstanceHealth' :: Maybe SystemStatus
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Asystem%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">system</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SystemStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationMetrics:SingleInstanceHealth' :: Maybe ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AapplicationMetrics%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">applicationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:color:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Acolor%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">color</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AinstanceType%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AavailabilityZone%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthStatus:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AhealthStatus%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:deployment:SingleInstanceHealth' :: Maybe Deployment
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Adeployment%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">deployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Deployment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchedAt:SingleInstanceHealth' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AlaunchedAt%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">launchedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The ID of the Amazon EC2 instance.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_instanceId"><span class="hs-identifier hs-type">singleInstanceHealth_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="singleInstanceHealth_instanceId"><span class="annot"><span class="annottext">singleInstanceHealth_instanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_instanceId"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe Text)
+-&gt; (SingleInstanceHealth -&gt; Maybe Text -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth SingleInstanceHealth (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307705"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe Text
+</span><a href="#local-6989586621679307705"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307705"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307704"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307703"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AinstanceId%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Represents the causes, which provide more information about the current</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- health status.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_causes"><span class="hs-identifier hs-type">singleInstanceHealth_causes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="singleInstanceHealth_causes"><span class="annot"><span class="annottext">singleInstanceHealth_causes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_causes"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_causes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe [Text])
+-&gt; (SingleInstanceHealth -&gt; Maybe [Text] -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth
+     SingleInstanceHealth
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307701"><span class="annot"><span class="annottext">Maybe [Text]
+causes :: Maybe [Text]
+$sel:causes:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe [Text]
+</span><a href="#local-6989586621679307701"><span class="hs-identifier hs-var hs-var">causes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679307701"><span class="hs-identifier hs-var">causes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307700"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307699"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679307699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:causes:SingleInstanceHealth' :: Maybe [Text]
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Acauses%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">causes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679307699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SingleInstanceHealth
+-&gt; f SingleInstanceHealth
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Operating system metrics from the instance.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_system"><span class="hs-identifier hs-type">singleInstanceHealth_system</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SystemStatus.html#SystemStatus"><span class="hs-identifier hs-type">SystemStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="singleInstanceHealth_system"><span class="annot"><span class="annottext">singleInstanceHealth_system :: (Maybe SystemStatus -&gt; f (Maybe SystemStatus))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_system"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_system</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe SystemStatus)
+-&gt; (SingleInstanceHealth
+    -&gt; Maybe SystemStatus -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth
+     SingleInstanceHealth
+     (Maybe SystemStatus)
+     (Maybe SystemStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307694"><span class="annot"><span class="annottext">Maybe SystemStatus
+system :: Maybe SystemStatus
+$sel:system:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe SystemStatus
+</span><a href="#local-6989586621679307694"><span class="hs-identifier hs-var hs-var">system</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SystemStatus
+</span><a href="#local-6989586621679307694"><span class="hs-identifier hs-var">system</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307693"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307692"><span class="annot"><span class="annottext">Maybe SystemStatus
+</span><a href="#local-6989586621679307692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:system:SingleInstanceHealth' :: Maybe SystemStatus
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Asystem%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">system</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SystemStatus
+</span><a href="#local-6989586621679307692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Request metrics from your application.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_applicationMetrics"><span class="hs-identifier hs-type">singleInstanceHealth_applicationMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ApplicationMetrics.html#ApplicationMetrics"><span class="hs-identifier hs-type">ApplicationMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="singleInstanceHealth_applicationMetrics"><span class="annot"><span class="annottext">singleInstanceHealth_applicationMetrics :: (Maybe ApplicationMetrics -&gt; f (Maybe ApplicationMetrics))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_applicationMetrics"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_applicationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe ApplicationMetrics)
+-&gt; (SingleInstanceHealth
+    -&gt; Maybe ApplicationMetrics -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth
+     SingleInstanceHealth
+     (Maybe ApplicationMetrics)
+     (Maybe ApplicationMetrics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307690"><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+applicationMetrics :: Maybe ApplicationMetrics
+$sel:applicationMetrics:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe ApplicationMetrics
+</span><a href="#local-6989586621679307690"><span class="hs-identifier hs-var hs-var">applicationMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+</span><a href="#local-6989586621679307690"><span class="hs-identifier hs-var">applicationMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307689"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307688"><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+</span><a href="#local-6989586621679307688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationMetrics:SingleInstanceHealth' :: Maybe ApplicationMetrics
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AapplicationMetrics%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">applicationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationMetrics
+</span><a href="#local-6989586621679307688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Represents the color indicator that gives you information about the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- health of the EC2 instance. For more information, see</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses&gt;.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_color"><span class="hs-identifier hs-type">singleInstanceHealth_color</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="singleInstanceHealth_color"><span class="annot"><span class="annottext">singleInstanceHealth_color :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_color"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_color</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe Text)
+-&gt; (SingleInstanceHealth -&gt; Maybe Text -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth SingleInstanceHealth (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307686"><span class="annot"><span class="annottext">Maybe Text
+color :: Maybe Text
+$sel:color:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe Text
+</span><a href="#local-6989586621679307686"><span class="hs-identifier hs-var hs-var">color</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307686"><span class="hs-identifier hs-var">color</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307685"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307684"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:color:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Acolor%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">color</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The instance\'s type.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_instanceType"><span class="hs-identifier hs-type">singleInstanceHealth_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="singleInstanceHealth_instanceType"><span class="annot"><span class="annottext">singleInstanceHealth_instanceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_instanceType"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe Text)
+-&gt; (SingleInstanceHealth -&gt; Maybe Text -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth SingleInstanceHealth (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307682"><span class="annot"><span class="annottext">Maybe Text
+instanceType :: Maybe Text
+$sel:instanceType:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe Text
+</span><a href="#local-6989586621679307682"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307682"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307681"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307680"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AinstanceType%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The availability zone in which the instance runs.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_availabilityZone"><span class="hs-identifier hs-type">singleInstanceHealth_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="singleInstanceHealth_availabilityZone"><span class="annot"><span class="annottext">singleInstanceHealth_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_availabilityZone"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe Text)
+-&gt; (SingleInstanceHealth -&gt; Maybe Text -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth SingleInstanceHealth (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307678"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe Text
+</span><a href="#local-6989586621679307678"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307678"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307677"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307676"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AavailabilityZone%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Returns the health status of the specified instance. For more</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses&gt;.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_healthStatus"><span class="hs-identifier hs-type">singleInstanceHealth_healthStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="singleInstanceHealth_healthStatus"><span class="annot"><span class="annottext">singleInstanceHealth_healthStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_healthStatus"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_healthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe Text)
+-&gt; (SingleInstanceHealth -&gt; Maybe Text -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth SingleInstanceHealth (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307674"><span class="annot"><span class="annottext">Maybe Text
+healthStatus :: Maybe Text
+$sel:healthStatus:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe Text
+</span><a href="#local-6989586621679307674"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307674"><span class="hs-identifier hs-var">healthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307673"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307672"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthStatus:SingleInstanceHealth' :: Maybe Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AhealthStatus%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Information about the most recent deployment to an instance.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_deployment"><span class="hs-identifier hs-type">singleInstanceHealth_deployment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="singleInstanceHealth_deployment"><span class="annot"><span class="annottext">singleInstanceHealth_deployment :: (Maybe Deployment -&gt; f (Maybe Deployment))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_deployment"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_deployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe Deployment)
+-&gt; (SingleInstanceHealth
+    -&gt; Maybe Deployment -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth
+     SingleInstanceHealth
+     (Maybe Deployment)
+     (Maybe Deployment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307670"><span class="annot"><span class="annottext">Maybe Deployment
+deployment :: Maybe Deployment
+$sel:deployment:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe Deployment
+</span><a href="#local-6989586621679307670"><span class="hs-identifier hs-var hs-var">deployment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Deployment
+</span><a href="#local-6989586621679307670"><span class="hs-identifier hs-var">deployment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307669"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307668"><span class="annot"><span class="annottext">Maybe Deployment
+</span><a href="#local-6989586621679307668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deployment:SingleInstanceHealth' :: Maybe Deployment
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3Adeployment%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">deployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Deployment
+</span><a href="#local-6989586621679307668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The time at which the EC2 instance was launched.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_launchedAt"><span class="hs-identifier hs-type">singleInstanceHealth_launchedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="singleInstanceHealth_launchedAt"><span class="annot"><span class="annottext">singleInstanceHealth_launchedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#singleInstanceHealth_launchedAt"><span class="hs-identifier hs-var hs-var">singleInstanceHealth_launchedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SingleInstanceHealth -&gt; Maybe ISO8601)
+-&gt; (SingleInstanceHealth -&gt; Maybe ISO8601 -&gt; SingleInstanceHealth)
+-&gt; Lens
+     SingleInstanceHealth
+     SingleInstanceHealth
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307666"><span class="annot"><span class="annottext">Maybe ISO8601
+launchedAt :: Maybe ISO8601
+$sel:launchedAt:SingleInstanceHealth' :: SingleInstanceHealth -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679307666"><span class="hs-identifier hs-var hs-var">launchedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679307666"><span class="hs-identifier hs-var">launchedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307665"><span class="annot"><span class="annottext">s :: SingleInstanceHealth
+</span><a href="#local-6989586621679307665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-type">SingleInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307664"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679307664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SingleInstanceHealth
+</span><a href="#local-6989586621679307665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchedAt:SingleInstanceHealth' :: Maybe ISO8601
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#%24sel%3AlaunchedAt%3ASingleInstanceHealth%27"><span class="hs-identifier hs-var">launchedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679307664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; SingleInstanceHealth -&gt; f SingleInstanceHealth)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SingleInstanceHealth
+-&gt; f SingleInstanceHealth
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679307660"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SingleInstanceHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307658"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe SystemStatus
+-&gt; Maybe ApplicationMetrics
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Deployment
+-&gt; Maybe ISO8601
+-&gt; SingleInstanceHealth
+</span><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth%27"><span class="hs-identifier hs-var">SingleInstanceHealth'</span></a></span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe SystemStatus
+ -&gt; Maybe ApplicationMetrics
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Deployment
+ -&gt; Maybe ISO8601
+ -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe SystemStatus
+      -&gt; Maybe ApplicationMetrics
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Deployment
+      -&gt; Maybe ISO8601
+      -&gt; SingleInstanceHealth)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe SystemStatus
+   -&gt; Maybe ApplicationMetrics
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Deployment
+   -&gt; Maybe ISO8601
+   -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe SystemStatus
+      -&gt; Maybe ApplicationMetrics
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Deployment
+      -&gt; Maybe ISO8601
+      -&gt; SingleInstanceHealth)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Causes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-160"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe SystemStatus
+   -&gt; Maybe ApplicationMetrics
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Deployment
+   -&gt; Maybe ISO8601
+   -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe SystemStatus)
+-&gt; Either
+     String
+     (Maybe ApplicationMetrics
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Deployment
+      -&gt; Maybe ISO8601
+      -&gt; SingleInstanceHealth)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SystemStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;System&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ApplicationMetrics
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Deployment
+   -&gt; Maybe ISO8601
+   -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe ApplicationMetrics)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Deployment
+      -&gt; Maybe ISO8601
+      -&gt; SingleInstanceHealth)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ApplicationMetrics)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationMetrics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Deployment
+   -&gt; Maybe ISO8601
+   -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Deployment
+      -&gt; Maybe ISO8601
+      -&gt; SingleInstanceHealth)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Color&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Deployment
+   -&gt; Maybe ISO8601
+   -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Deployment
+      -&gt; Maybe ISO8601
+      -&gt; SingleInstanceHealth)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Deployment
+   -&gt; Maybe ISO8601
+   -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Deployment -&gt; Maybe ISO8601 -&gt; SingleInstanceHealth)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Deployment -&gt; Maybe ISO8601 -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Deployment -&gt; Maybe ISO8601 -&gt; SingleInstanceHealth)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Deployment -&gt; Maybe ISO8601 -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe Deployment)
+-&gt; Either String (Maybe ISO8601 -&gt; SingleInstanceHealth)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Deployment)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Deployment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; SingleInstanceHealth)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String SingleInstanceHealth
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LaunchedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307649"><span id="local-6989586621679307651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth.html#SingleInstanceHealth"><span class="hs-identifier hs-type">SingleInstanceHealth</span></a></span></span><span>
+</span><span id="line-174"></span></pre></body></html>

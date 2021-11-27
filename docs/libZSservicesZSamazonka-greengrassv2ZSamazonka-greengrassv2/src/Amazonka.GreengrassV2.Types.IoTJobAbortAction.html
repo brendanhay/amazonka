@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.Types.IoTJobAbortAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.Types.IoTJobAbortAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#IoTJobAbortAction"><span class="hs-identifier">IoTJobAbortAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#IoTJobAbortAction_CANCEL"><span class="hs-identifier">IoTJobAbortAction_CANCEL</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679229791"><span id="local-6989586621679229792"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IoTJobAbortAction"><span class="annot"><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#IoTJobAbortAction"><span class="hs-identifier hs-var">IoTJobAbortAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IoTJobAbortAction%27"><span class="annot"><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#IoTJobAbortAction%27"><span class="hs-identifier hs-var">IoTJobAbortAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIoTJobAbortAction"><span class="annot"><span class="annottext">IoTJobAbortAction -&gt; Text
+</span><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#fromIoTJobAbortAction"><span class="hs-identifier hs-var hs-var">fromIoTJobAbortAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679229783"><span id="local-6989586621679229785"><span id="local-6989586621679229787"><span class="annot"><span class="annottext">Int -&gt; IoTJobAbortAction -&gt; ShowS
+[IoTJobAbortAction] -&gt; ShowS
+IoTJobAbortAction -&gt; String
+(Int -&gt; IoTJobAbortAction -&gt; ShowS)
+-&gt; (IoTJobAbortAction -&gt; String)
+-&gt; ([IoTJobAbortAction] -&gt; ShowS)
+-&gt; Show IoTJobAbortAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IoTJobAbortAction] -&gt; ShowS
+$cshowList :: [IoTJobAbortAction] -&gt; ShowS
+show :: IoTJobAbortAction -&gt; String
+$cshow :: IoTJobAbortAction -&gt; String
+showsPrec :: Int -&gt; IoTJobAbortAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; IoTJobAbortAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679229774"><span id="local-6989586621679229776"><span id="local-6989586621679229778"><span id="local-6989586621679229780"><span class="annot"><span class="annottext">ReadPrec [IoTJobAbortAction]
+ReadPrec IoTJobAbortAction
+Int -&gt; ReadS IoTJobAbortAction
+ReadS [IoTJobAbortAction]
+(Int -&gt; ReadS IoTJobAbortAction)
+-&gt; ReadS [IoTJobAbortAction]
+-&gt; ReadPrec IoTJobAbortAction
+-&gt; ReadPrec [IoTJobAbortAction]
+-&gt; Read IoTJobAbortAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IoTJobAbortAction]
+$creadListPrec :: ReadPrec [IoTJobAbortAction]
+readPrec :: ReadPrec IoTJobAbortAction
+$creadPrec :: ReadPrec IoTJobAbortAction
+readList :: ReadS [IoTJobAbortAction]
+$creadList :: ReadS [IoTJobAbortAction]
+readsPrec :: Int -&gt; ReadS IoTJobAbortAction
+$creadsPrec :: Int -&gt; ReadS IoTJobAbortAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679229769"><span id="local-6989586621679229771"><span class="annot"><span class="annottext">IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+(IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool)
+-&gt; (IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool)
+-&gt; Eq IoTJobAbortAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+$c/= :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+== :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+$c== :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679229753"><span id="local-6989586621679229755"><span id="local-6989586621679229757"><span id="local-6989586621679229759"><span id="local-6989586621679229761"><span id="local-6989586621679229763"><span id="local-6989586621679229765"><span class="annot"><span class="annottext">Eq IoTJobAbortAction
+Eq IoTJobAbortAction
+-&gt; (IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Ordering)
+-&gt; (IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool)
+-&gt; (IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool)
+-&gt; (IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool)
+-&gt; (IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool)
+-&gt; (IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; IoTJobAbortAction)
+-&gt; (IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; IoTJobAbortAction)
+-&gt; Ord IoTJobAbortAction
+IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Ordering
+IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; IoTJobAbortAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; IoTJobAbortAction
+$cmin :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; IoTJobAbortAction
+max :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; IoTJobAbortAction
+$cmax :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; IoTJobAbortAction
+&gt;= :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+$c&gt;= :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+&gt; :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+$c&gt; :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+&lt;= :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+$c&lt;= :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+&lt; :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+$c&lt; :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Bool
+compare :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Ordering
+$ccompare :: IoTJobAbortAction -&gt; IoTJobAbortAction -&gt; Ordering
+$cp1Ord :: Eq IoTJobAbortAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. IoTJobAbortAction -&gt; Rep IoTJobAbortAction x)
+-&gt; (forall x. Rep IoTJobAbortAction x -&gt; IoTJobAbortAction)
+-&gt; Generic IoTJobAbortAction
+forall x. Rep IoTJobAbortAction x -&gt; IoTJobAbortAction
+forall x. IoTJobAbortAction -&gt; Rep IoTJobAbortAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IoTJobAbortAction x -&gt; IoTJobAbortAction
+$cfrom :: forall x. IoTJobAbortAction -&gt; Rep IoTJobAbortAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679229745"><span id="local-6989586621679229747"><span class="annot"><span class="annottext">Int -&gt; IoTJobAbortAction -&gt; Int
+IoTJobAbortAction -&gt; Int
+(Int -&gt; IoTJobAbortAction -&gt; Int)
+-&gt; (IoTJobAbortAction -&gt; Int) -&gt; Hashable IoTJobAbortAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: IoTJobAbortAction -&gt; Int
+$chash :: IoTJobAbortAction -&gt; Int
+hashWithSalt :: Int -&gt; IoTJobAbortAction -&gt; Int
+$chashWithSalt :: Int -&gt; IoTJobAbortAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679229742"><span class="annot"><span class="annottext">IoTJobAbortAction -&gt; ()
+(IoTJobAbortAction -&gt; ()) -&gt; NFData IoTJobAbortAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: IoTJobAbortAction -&gt; ()
+$crnf :: IoTJobAbortAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679229739"><span class="annot"><span class="annottext">Text -&gt; Either String IoTJobAbortAction
+(Text -&gt; Either String IoTJobAbortAction)
+-&gt; FromText IoTJobAbortAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String IoTJobAbortAction
+$cfromText :: Text -&gt; Either String IoTJobAbortAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679229736"><span class="annot"><span class="annottext">IoTJobAbortAction -&gt; Text
+(IoTJobAbortAction -&gt; Text) -&gt; ToText IoTJobAbortAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: IoTJobAbortAction -&gt; Text
+$ctoText :: IoTJobAbortAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679229733"><span class="annot"><span class="annottext">IoTJobAbortAction -&gt; ByteString
+(IoTJobAbortAction -&gt; ByteString) -&gt; ToByteString IoTJobAbortAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: IoTJobAbortAction -&gt; ByteString
+$ctoBS :: IoTJobAbortAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679229730"><span class="annot"><span class="annottext">IoTJobAbortAction -&gt; ByteStringBuilder
+(IoTJobAbortAction -&gt; ByteStringBuilder) -&gt; ToLog IoTJobAbortAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: IoTJobAbortAction -&gt; ByteStringBuilder
+$cbuild :: IoTJobAbortAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679229727"><span class="annot"><span class="annottext">HeaderName -&gt; IoTJobAbortAction -&gt; [Header]
+(HeaderName -&gt; IoTJobAbortAction -&gt; [Header])
+-&gt; ToHeader IoTJobAbortAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; IoTJobAbortAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; IoTJobAbortAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679229724"><span class="annot"><span class="annottext">IoTJobAbortAction -&gt; QueryString
+(IoTJobAbortAction -&gt; QueryString) -&gt; ToQuery IoTJobAbortAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: IoTJobAbortAction -&gt; QueryString
+$ctoQuery :: IoTJobAbortAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679229719"><span id="local-6989586621679229721"><span class="annot"><span class="annottext">Value -&gt; Parser [IoTJobAbortAction]
+Value -&gt; Parser IoTJobAbortAction
+(Value -&gt; Parser IoTJobAbortAction)
+-&gt; (Value -&gt; Parser [IoTJobAbortAction])
+-&gt; FromJSON IoTJobAbortAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [IoTJobAbortAction]
+$cparseJSONList :: Value -&gt; Parser [IoTJobAbortAction]
+parseJSON :: Value -&gt; Parser IoTJobAbortAction
+$cparseJSON :: Value -&gt; Parser IoTJobAbortAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679229714"><span id="local-6989586621679229716"><span class="annot"><span class="annottext">FromJSONKeyFunction [IoTJobAbortAction]
+FromJSONKeyFunction IoTJobAbortAction
+FromJSONKeyFunction IoTJobAbortAction
+-&gt; FromJSONKeyFunction [IoTJobAbortAction]
+-&gt; FromJSONKey IoTJobAbortAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [IoTJobAbortAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [IoTJobAbortAction]
+fromJSONKey :: FromJSONKeyFunction IoTJobAbortAction
+$cfromJSONKey :: FromJSONKeyFunction IoTJobAbortAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679229705"><span id="local-6989586621679229707"><span id="local-6989586621679229709"><span id="local-6989586621679229711"><span class="annot"><span class="annottext">[IoTJobAbortAction] -&gt; Encoding
+[IoTJobAbortAction] -&gt; Value
+IoTJobAbortAction -&gt; Encoding
+IoTJobAbortAction -&gt; Value
+(IoTJobAbortAction -&gt; Value)
+-&gt; (IoTJobAbortAction -&gt; Encoding)
+-&gt; ([IoTJobAbortAction] -&gt; Value)
+-&gt; ([IoTJobAbortAction] -&gt; Encoding)
+-&gt; ToJSON IoTJobAbortAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [IoTJobAbortAction] -&gt; Encoding
+$ctoEncodingList :: [IoTJobAbortAction] -&gt; Encoding
+toJSONList :: [IoTJobAbortAction] -&gt; Value
+$ctoJSONList :: [IoTJobAbortAction] -&gt; Value
+toEncoding :: IoTJobAbortAction -&gt; Encoding
+$ctoEncoding :: IoTJobAbortAction -&gt; Encoding
+toJSON :: IoTJobAbortAction -&gt; Value
+$ctoJSON :: IoTJobAbortAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679229700"><span id="local-6989586621679229702"><span class="annot"><span class="annottext">ToJSONKeyFunction [IoTJobAbortAction]
+ToJSONKeyFunction IoTJobAbortAction
+ToJSONKeyFunction IoTJobAbortAction
+-&gt; ToJSONKeyFunction [IoTJobAbortAction]
+-&gt; ToJSONKey IoTJobAbortAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [IoTJobAbortAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [IoTJobAbortAction]
+toJSONKey :: ToJSONKeyFunction IoTJobAbortAction
+$ctoJSONKey :: ToJSONKeyFunction IoTJobAbortAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679229697"><span class="annot"><span class="annottext">[Node] -&gt; Either String IoTJobAbortAction
+([Node] -&gt; Either String IoTJobAbortAction)
+-&gt; FromXML IoTJobAbortAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String IoTJobAbortAction
+$cparseXML :: [Node] -&gt; Either String IoTJobAbortAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679229694"><span class="annot"><span class="annottext">IoTJobAbortAction -&gt; XML
+(IoTJobAbortAction -&gt; XML) -&gt; ToXML IoTJobAbortAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: IoTJobAbortAction -&gt; XML
+$ctoXML :: IoTJobAbortAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#IoTJobAbortAction_CANCEL"><span class="hs-identifier hs-type">IoTJobAbortAction_CANCEL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#IoTJobAbortAction"><span class="hs-identifier hs-type">IoTJobAbortAction</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIoTJobAbortAction_CANCEL"><span id="%24mIoTJobAbortAction_CANCEL"><span id="IoTJobAbortAction_CANCEL"><span class="annot"><span class="annottext">$bIoTJobAbortAction_CANCEL :: IoTJobAbortAction
+$mIoTJobAbortAction_CANCEL :: forall r. IoTJobAbortAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#%24bIoTJobAbortAction_CANCEL"><span class="hs-identifier hs-var hs-var hs-var">IoTJobAbortAction_CANCEL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#IoTJobAbortAction%27"><span class="hs-identifier hs-type">IoTJobAbortAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCEL&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#IoTJobAbortAction_CANCEL"><span class="hs-pragma hs-type">IoTJobAbortAction_CANCEL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.IoTJobAbortAction.html#IoTJobAbortAction%27"><span class="hs-pragma hs-type">IoTJobAbortAction'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

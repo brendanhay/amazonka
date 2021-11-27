@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Transcribe.Types.BaseModelName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transcribe.Types.BaseModelName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier">BaseModelName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName_NarrowBand"><span class="hs-identifier">BaseModelName_NarrowBand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName_WideBand"><span class="hs-identifier">BaseModelName_WideBand</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679270881"><span id="local-6989586621679270882"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BaseModelName"><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-var">BaseModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BaseModelName%27"><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName%27"><span class="hs-identifier hs-var">BaseModelName'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBaseModelName"><span class="annot"><span class="annottext">BaseModelName -&gt; Text
+</span><a href="Amazonka.Transcribe.Types.BaseModelName.html#fromBaseModelName"><span class="hs-identifier hs-var hs-var">fromBaseModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270873"><span id="local-6989586621679270875"><span id="local-6989586621679270877"><span class="annot"><span class="annottext">Int -&gt; BaseModelName -&gt; ShowS
+[BaseModelName] -&gt; ShowS
+BaseModelName -&gt; String
+(Int -&gt; BaseModelName -&gt; ShowS)
+-&gt; (BaseModelName -&gt; String)
+-&gt; ([BaseModelName] -&gt; ShowS)
+-&gt; Show BaseModelName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BaseModelName] -&gt; ShowS
+$cshowList :: [BaseModelName] -&gt; ShowS
+show :: BaseModelName -&gt; String
+$cshow :: BaseModelName -&gt; String
+showsPrec :: Int -&gt; BaseModelName -&gt; ShowS
+$cshowsPrec :: Int -&gt; BaseModelName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679270864"><span id="local-6989586621679270866"><span id="local-6989586621679270868"><span id="local-6989586621679270870"><span class="annot"><span class="annottext">ReadPrec [BaseModelName]
+ReadPrec BaseModelName
+Int -&gt; ReadS BaseModelName
+ReadS [BaseModelName]
+(Int -&gt; ReadS BaseModelName)
+-&gt; ReadS [BaseModelName]
+-&gt; ReadPrec BaseModelName
+-&gt; ReadPrec [BaseModelName]
+-&gt; Read BaseModelName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BaseModelName]
+$creadListPrec :: ReadPrec [BaseModelName]
+readPrec :: ReadPrec BaseModelName
+$creadPrec :: ReadPrec BaseModelName
+readList :: ReadS [BaseModelName]
+$creadList :: ReadS [BaseModelName]
+readsPrec :: Int -&gt; ReadS BaseModelName
+$creadsPrec :: Int -&gt; ReadS BaseModelName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679270859"><span id="local-6989586621679270861"><span class="annot"><span class="annottext">BaseModelName -&gt; BaseModelName -&gt; Bool
+(BaseModelName -&gt; BaseModelName -&gt; Bool)
+-&gt; (BaseModelName -&gt; BaseModelName -&gt; Bool) -&gt; Eq BaseModelName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BaseModelName -&gt; BaseModelName -&gt; Bool
+$c/= :: BaseModelName -&gt; BaseModelName -&gt; Bool
+== :: BaseModelName -&gt; BaseModelName -&gt; Bool
+$c== :: BaseModelName -&gt; BaseModelName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679270843"><span id="local-6989586621679270845"><span id="local-6989586621679270847"><span id="local-6989586621679270849"><span id="local-6989586621679270851"><span id="local-6989586621679270853"><span id="local-6989586621679270855"><span class="annot"><span class="annottext">Eq BaseModelName
+Eq BaseModelName
+-&gt; (BaseModelName -&gt; BaseModelName -&gt; Ordering)
+-&gt; (BaseModelName -&gt; BaseModelName -&gt; Bool)
+-&gt; (BaseModelName -&gt; BaseModelName -&gt; Bool)
+-&gt; (BaseModelName -&gt; BaseModelName -&gt; Bool)
+-&gt; (BaseModelName -&gt; BaseModelName -&gt; Bool)
+-&gt; (BaseModelName -&gt; BaseModelName -&gt; BaseModelName)
+-&gt; (BaseModelName -&gt; BaseModelName -&gt; BaseModelName)
+-&gt; Ord BaseModelName
+BaseModelName -&gt; BaseModelName -&gt; Bool
+BaseModelName -&gt; BaseModelName -&gt; Ordering
+BaseModelName -&gt; BaseModelName -&gt; BaseModelName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BaseModelName -&gt; BaseModelName -&gt; BaseModelName
+$cmin :: BaseModelName -&gt; BaseModelName -&gt; BaseModelName
+max :: BaseModelName -&gt; BaseModelName -&gt; BaseModelName
+$cmax :: BaseModelName -&gt; BaseModelName -&gt; BaseModelName
+&gt;= :: BaseModelName -&gt; BaseModelName -&gt; Bool
+$c&gt;= :: BaseModelName -&gt; BaseModelName -&gt; Bool
+&gt; :: BaseModelName -&gt; BaseModelName -&gt; Bool
+$c&gt; :: BaseModelName -&gt; BaseModelName -&gt; Bool
+&lt;= :: BaseModelName -&gt; BaseModelName -&gt; Bool
+$c&lt;= :: BaseModelName -&gt; BaseModelName -&gt; Bool
+&lt; :: BaseModelName -&gt; BaseModelName -&gt; Bool
+$c&lt; :: BaseModelName -&gt; BaseModelName -&gt; Bool
+compare :: BaseModelName -&gt; BaseModelName -&gt; Ordering
+$ccompare :: BaseModelName -&gt; BaseModelName -&gt; Ordering
+$cp1Ord :: Eq BaseModelName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BaseModelName -&gt; Rep BaseModelName x)
+-&gt; (forall x. Rep BaseModelName x -&gt; BaseModelName)
+-&gt; Generic BaseModelName
+forall x. Rep BaseModelName x -&gt; BaseModelName
+forall x. BaseModelName -&gt; Rep BaseModelName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BaseModelName x -&gt; BaseModelName
+$cfrom :: forall x. BaseModelName -&gt; Rep BaseModelName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270835"><span id="local-6989586621679270837"><span class="annot"><span class="annottext">Int -&gt; BaseModelName -&gt; Int
+BaseModelName -&gt; Int
+(Int -&gt; BaseModelName -&gt; Int)
+-&gt; (BaseModelName -&gt; Int) -&gt; Hashable BaseModelName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BaseModelName -&gt; Int
+$chash :: BaseModelName -&gt; Int
+hashWithSalt :: Int -&gt; BaseModelName -&gt; Int
+$chashWithSalt :: Int -&gt; BaseModelName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679270832"><span class="annot"><span class="annottext">BaseModelName -&gt; ()
+(BaseModelName -&gt; ()) -&gt; NFData BaseModelName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BaseModelName -&gt; ()
+$crnf :: BaseModelName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679270829"><span class="annot"><span class="annottext">Text -&gt; Either String BaseModelName
+(Text -&gt; Either String BaseModelName) -&gt; FromText BaseModelName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BaseModelName
+$cfromText :: Text -&gt; Either String BaseModelName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679270826"><span class="annot"><span class="annottext">BaseModelName -&gt; Text
+(BaseModelName -&gt; Text) -&gt; ToText BaseModelName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BaseModelName -&gt; Text
+$ctoText :: BaseModelName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679270823"><span class="annot"><span class="annottext">BaseModelName -&gt; ByteString
+(BaseModelName -&gt; ByteString) -&gt; ToByteString BaseModelName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BaseModelName -&gt; ByteString
+$ctoBS :: BaseModelName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679270820"><span class="annot"><span class="annottext">BaseModelName -&gt; ByteStringBuilder
+(BaseModelName -&gt; ByteStringBuilder) -&gt; ToLog BaseModelName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BaseModelName -&gt; ByteStringBuilder
+$cbuild :: BaseModelName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679270817"><span class="annot"><span class="annottext">HeaderName -&gt; BaseModelName -&gt; [Header]
+(HeaderName -&gt; BaseModelName -&gt; [Header]) -&gt; ToHeader BaseModelName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BaseModelName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BaseModelName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270814"><span class="annot"><span class="annottext">BaseModelName -&gt; QueryString
+(BaseModelName -&gt; QueryString) -&gt; ToQuery BaseModelName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BaseModelName -&gt; QueryString
+$ctoQuery :: BaseModelName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270809"><span id="local-6989586621679270811"><span class="annot"><span class="annottext">Value -&gt; Parser [BaseModelName]
+Value -&gt; Parser BaseModelName
+(Value -&gt; Parser BaseModelName)
+-&gt; (Value -&gt; Parser [BaseModelName]) -&gt; FromJSON BaseModelName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BaseModelName]
+$cparseJSONList :: Value -&gt; Parser [BaseModelName]
+parseJSON :: Value -&gt; Parser BaseModelName
+$cparseJSON :: Value -&gt; Parser BaseModelName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679270804"><span id="local-6989586621679270806"><span class="annot"><span class="annottext">FromJSONKeyFunction [BaseModelName]
+FromJSONKeyFunction BaseModelName
+FromJSONKeyFunction BaseModelName
+-&gt; FromJSONKeyFunction [BaseModelName] -&gt; FromJSONKey BaseModelName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BaseModelName]
+$cfromJSONKeyList :: FromJSONKeyFunction [BaseModelName]
+fromJSONKey :: FromJSONKeyFunction BaseModelName
+$cfromJSONKey :: FromJSONKeyFunction BaseModelName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679270795"><span id="local-6989586621679270797"><span id="local-6989586621679270799"><span id="local-6989586621679270801"><span class="annot"><span class="annottext">[BaseModelName] -&gt; Encoding
+[BaseModelName] -&gt; Value
+BaseModelName -&gt; Encoding
+BaseModelName -&gt; Value
+(BaseModelName -&gt; Value)
+-&gt; (BaseModelName -&gt; Encoding)
+-&gt; ([BaseModelName] -&gt; Value)
+-&gt; ([BaseModelName] -&gt; Encoding)
+-&gt; ToJSON BaseModelName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BaseModelName] -&gt; Encoding
+$ctoEncodingList :: [BaseModelName] -&gt; Encoding
+toJSONList :: [BaseModelName] -&gt; Value
+$ctoJSONList :: [BaseModelName] -&gt; Value
+toEncoding :: BaseModelName -&gt; Encoding
+$ctoEncoding :: BaseModelName -&gt; Encoding
+toJSON :: BaseModelName -&gt; Value
+$ctoJSON :: BaseModelName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679270790"><span id="local-6989586621679270792"><span class="annot"><span class="annottext">ToJSONKeyFunction [BaseModelName]
+ToJSONKeyFunction BaseModelName
+ToJSONKeyFunction BaseModelName
+-&gt; ToJSONKeyFunction [BaseModelName] -&gt; ToJSONKey BaseModelName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BaseModelName]
+$ctoJSONKeyList :: ToJSONKeyFunction [BaseModelName]
+toJSONKey :: ToJSONKeyFunction BaseModelName
+$ctoJSONKey :: ToJSONKeyFunction BaseModelName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679270787"><span class="annot"><span class="annottext">[Node] -&gt; Either String BaseModelName
+([Node] -&gt; Either String BaseModelName) -&gt; FromXML BaseModelName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BaseModelName
+$cparseXML :: [Node] -&gt; Either String BaseModelName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270784"><span class="annot"><span class="annottext">BaseModelName -&gt; XML
+(BaseModelName -&gt; XML) -&gt; ToXML BaseModelName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BaseModelName -&gt; XML
+$ctoXML :: BaseModelName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName_NarrowBand"><span class="hs-identifier hs-type">BaseModelName_NarrowBand</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-type">BaseModelName</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBaseModelName_NarrowBand"><span id="%24mBaseModelName_NarrowBand"><span id="BaseModelName_NarrowBand"><span class="annot"><span class="annottext">$bBaseModelName_NarrowBand :: BaseModelName
+$mBaseModelName_NarrowBand :: forall r. BaseModelName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transcribe.Types.BaseModelName.html#%24bBaseModelName_NarrowBand"><span class="hs-identifier hs-var hs-var hs-var">BaseModelName_NarrowBand</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName%27"><span class="hs-identifier hs-type">BaseModelName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NarrowBand&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName_WideBand"><span class="hs-identifier hs-type">BaseModelName_WideBand</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName"><span class="hs-identifier hs-type">BaseModelName</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBaseModelName_WideBand"><span id="%24mBaseModelName_WideBand"><span id="BaseModelName_WideBand"><span class="annot"><span class="annottext">$bBaseModelName_WideBand :: BaseModelName
+$mBaseModelName_WideBand :: forall r. BaseModelName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transcribe.Types.BaseModelName.html#%24bBaseModelName_WideBand"><span class="hs-identifier hs-var hs-var hs-var">BaseModelName_WideBand</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName%27"><span class="hs-identifier hs-type">BaseModelName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WideBand&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName_NarrowBand"><span class="hs-pragma hs-type">BaseModelName_NarrowBand</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName_WideBand"><span class="hs-pragma hs-type">BaseModelName_WideBand</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.BaseModelName.html#BaseModelName%27"><span class="hs-pragma hs-type">BaseModelName'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

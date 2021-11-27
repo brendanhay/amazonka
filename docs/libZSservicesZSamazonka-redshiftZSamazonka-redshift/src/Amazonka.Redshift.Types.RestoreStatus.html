@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Redshift.Types.RestoreStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Redshift.Types.RestoreStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Internal.html"><span class="hs-identifier">Amazonka.Redshift.Internal</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes the status of a cluster restore action. Returns null if the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- cluster was not created by restoring a snapshot.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRestoreStatus' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679495893"><span id="local-6989586621679495894"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreStatus"><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-var">RestoreStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreStatus%27"><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-var">RestoreStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the restore action. Returns starting, restoring,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- completed, or failed.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3ARestoreStatus%27"><span class="annot"><span class="annottext">RestoreStatus -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3Astatus%3ARestoreStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The estimate of the time remaining before the restore will complete.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Returns 0 for a completed restore. This field is only updated when you</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AestimatedTimeToCompletionInSeconds%3ARestoreStatus%27"><span class="annot"><span class="annottext">RestoreStatus -&gt; Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AestimatedTimeToCompletionInSeconds%3ARestoreStatus%27"><span class="hs-identifier hs-var hs-var">estimatedTimeToCompletionInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The number of megabytes per second being transferred from the backup</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- storage. Returns the average rate for a completed backup. This field is</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- only updated when you restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcurrentRestoreRateInMegaBytesPerSecond%3ARestoreStatus%27"><span class="annot"><span class="annottext">RestoreStatus -&gt; Maybe Double
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AcurrentRestoreRateInMegaBytesPerSecond%3ARestoreStatus%27"><span class="hs-identifier hs-var hs-var">currentRestoreRateInMegaBytesPerSecond</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of megabytes that have been transferred from snapshot</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- storage. This field is only updated when you restore to DC2 and DS2 node</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- types.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AprogressInMegaBytes%3ARestoreStatus%27"><span class="annot"><span class="annottext">RestoreStatus -&gt; Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AprogressInMegaBytes%3ARestoreStatus%27"><span class="hs-identifier hs-var hs-var">progressInMegaBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The amount of time an in-progress restore has been running, or the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- amount of time it took a completed restore to finish. This field is only</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- updated when you restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AelapsedTimeInSeconds%3ARestoreStatus%27"><span class="annot"><span class="annottext">RestoreStatus -&gt; Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AelapsedTimeInSeconds%3ARestoreStatus%27"><span class="hs-identifier hs-var hs-var">elapsedTimeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The size of the set of snapshot data used to restore the cluster. This</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- field is only updated when you restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsnapshotSizeInMegaBytes%3ARestoreStatus%27"><span class="annot"><span class="annottext">RestoreStatus -&gt; Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AsnapshotSizeInMegaBytes%3ARestoreStatus%27"><span class="hs-identifier hs-var hs-var">snapshotSizeInMegaBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679495882"><span id="local-6989586621679495884"><span class="annot"><span class="annottext">RestoreStatus -&gt; RestoreStatus -&gt; Bool
+(RestoreStatus -&gt; RestoreStatus -&gt; Bool)
+-&gt; (RestoreStatus -&gt; RestoreStatus -&gt; Bool) -&gt; Eq RestoreStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RestoreStatus -&gt; RestoreStatus -&gt; Bool
+$c/= :: RestoreStatus -&gt; RestoreStatus -&gt; Bool
+== :: RestoreStatus -&gt; RestoreStatus -&gt; Bool
+$c== :: RestoreStatus -&gt; RestoreStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679495873"><span id="local-6989586621679495875"><span id="local-6989586621679495877"><span id="local-6989586621679495879"><span class="annot"><span class="annottext">ReadPrec [RestoreStatus]
+ReadPrec RestoreStatus
+Int -&gt; ReadS RestoreStatus
+ReadS [RestoreStatus]
+(Int -&gt; ReadS RestoreStatus)
+-&gt; ReadS [RestoreStatus]
+-&gt; ReadPrec RestoreStatus
+-&gt; ReadPrec [RestoreStatus]
+-&gt; Read RestoreStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RestoreStatus]
+$creadListPrec :: ReadPrec [RestoreStatus]
+readPrec :: ReadPrec RestoreStatus
+$creadPrec :: ReadPrec RestoreStatus
+readList :: ReadS [RestoreStatus]
+$creadList :: ReadS [RestoreStatus]
+readsPrec :: Int -&gt; ReadS RestoreStatus
+$creadsPrec :: Int -&gt; ReadS RestoreStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679495866"><span id="local-6989586621679495868"><span id="local-6989586621679495870"><span class="annot"><span class="annottext">Int -&gt; RestoreStatus -&gt; ShowS
+[RestoreStatus] -&gt; ShowS
+RestoreStatus -&gt; String
+(Int -&gt; RestoreStatus -&gt; ShowS)
+-&gt; (RestoreStatus -&gt; String)
+-&gt; ([RestoreStatus] -&gt; ShowS)
+-&gt; Show RestoreStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RestoreStatus] -&gt; ShowS
+$cshowList :: [RestoreStatus] -&gt; ShowS
+show :: RestoreStatus -&gt; String
+$cshow :: RestoreStatus -&gt; String
+showsPrec :: Int -&gt; RestoreStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; RestoreStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RestoreStatus -&gt; Rep RestoreStatus x)
+-&gt; (forall x. Rep RestoreStatus x -&gt; RestoreStatus)
+-&gt; Generic RestoreStatus
+forall x. Rep RestoreStatus x -&gt; RestoreStatus
+forall x. RestoreStatus -&gt; Rep RestoreStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RestoreStatus x -&gt; RestoreStatus
+$cfrom :: forall x. RestoreStatus -&gt; Rep RestoreStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'RestoreStatus' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'status', 'restoreStatus_status' - The status of the restore action. Returns starting, restoring,</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- completed, or failed.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'estimatedTimeToCompletionInSeconds', 'restoreStatus_estimatedTimeToCompletionInSeconds' - The estimate of the time remaining before the restore will complete.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Returns 0 for a completed restore. This field is only updated when you</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'currentRestoreRateInMegaBytesPerSecond', 'restoreStatus_currentRestoreRateInMegaBytesPerSecond' - The number of megabytes per second being transferred from the backup</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- storage. Returns the average rate for a completed backup. This field is</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- only updated when you restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'progressInMegaBytes', 'restoreStatus_progressInMegaBytes' - The number of megabytes that have been transferred from snapshot</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- storage. This field is only updated when you restore to DC2 and DS2 node</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- types.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'elapsedTimeInSeconds', 'restoreStatus_elapsedTimeInSeconds' - The amount of time an in-progress restore has been running, or the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- amount of time it took a completed restore to finish. This field is only</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- updated when you restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'snapshotSizeInMegaBytes', 'restoreStatus_snapshotSizeInMegaBytes' - The size of the set of snapshot data used to restore the cluster. This</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- field is only updated when you restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#newRestoreStatus"><span class="hs-identifier hs-type">newRestoreStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span>
+</span><span id="line-88"></span><span id="newRestoreStatus"><span class="annot"><span class="annottext">newRestoreStatus :: RestoreStatus
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#newRestoreStatus"><span class="hs-identifier hs-var hs-var">newRestoreStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">RestoreStatus' :: Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Double
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; RestoreStatus
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:RestoreStatus' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3Astatus%3ARestoreStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:estimatedTimeToCompletionInSeconds:RestoreStatus' :: Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AestimatedTimeToCompletionInSeconds%3ARestoreStatus%27"><span class="hs-identifier hs-var">estimatedTimeToCompletionInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentRestoreRateInMegaBytesPerSecond:RestoreStatus' :: Maybe Double
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AcurrentRestoreRateInMegaBytesPerSecond%3ARestoreStatus%27"><span class="hs-identifier hs-var">currentRestoreRateInMegaBytesPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:progressInMegaBytes:RestoreStatus' :: Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AprogressInMegaBytes%3ARestoreStatus%27"><span class="hs-identifier hs-var">progressInMegaBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:elapsedTimeInSeconds:RestoreStatus' :: Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AelapsedTimeInSeconds%3ARestoreStatus%27"><span class="hs-identifier hs-var">elapsedTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotSizeInMegaBytes:RestoreStatus' :: Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AsnapshotSizeInMegaBytes%3ARestoreStatus%27"><span class="hs-identifier hs-var">snapshotSizeInMegaBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The status of the restore action. Returns starting, restoring,</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- completed, or failed.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_status"><span class="hs-identifier hs-type">restoreStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="restoreStatus_status"><span class="annot"><span class="annottext">restoreStatus_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RestoreStatus -&gt; f RestoreStatus
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_status"><span class="hs-identifier hs-var hs-var">restoreStatus_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreStatus -&gt; Maybe Text)
+-&gt; (RestoreStatus -&gt; Maybe Text -&gt; RestoreStatus)
+-&gt; Lens RestoreStatus RestoreStatus (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495857"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:RestoreStatus' :: RestoreStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679495857"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495857"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495856"><span class="annot"><span class="annottext">s :: RestoreStatus
+</span><a href="#local-6989586621679495856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495855"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreStatus
+</span><a href="#local-6989586621679495856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RestoreStatus' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3Astatus%3ARestoreStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The estimate of the time remaining before the restore will complete.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Returns 0 for a completed restore. This field is only updated when you</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_estimatedTimeToCompletionInSeconds"><span class="hs-identifier hs-type">restoreStatus_estimatedTimeToCompletionInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="restoreStatus_estimatedTimeToCompletionInSeconds"><span class="annot"><span class="annottext">restoreStatus_estimatedTimeToCompletionInSeconds :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; RestoreStatus -&gt; f RestoreStatus
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_estimatedTimeToCompletionInSeconds"><span class="hs-identifier hs-var hs-var">restoreStatus_estimatedTimeToCompletionInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreStatus -&gt; Maybe Integer)
+-&gt; (RestoreStatus -&gt; Maybe Integer -&gt; RestoreStatus)
+-&gt; Lens RestoreStatus RestoreStatus (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495853"><span class="annot"><span class="annottext">Maybe Integer
+estimatedTimeToCompletionInSeconds :: Maybe Integer
+$sel:estimatedTimeToCompletionInSeconds:RestoreStatus' :: RestoreStatus -&gt; Maybe Integer
+</span><a href="#local-6989586621679495853"><span class="hs-identifier hs-var hs-var">estimatedTimeToCompletionInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495853"><span class="hs-identifier hs-var">estimatedTimeToCompletionInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495852"><span class="annot"><span class="annottext">s :: RestoreStatus
+</span><a href="#local-6989586621679495852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495851"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreStatus
+</span><a href="#local-6989586621679495852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:estimatedTimeToCompletionInSeconds:RestoreStatus' :: Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AestimatedTimeToCompletionInSeconds%3ARestoreStatus%27"><span class="hs-identifier hs-var">estimatedTimeToCompletionInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The number of megabytes per second being transferred from the backup</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- storage. Returns the average rate for a completed backup. This field is</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- only updated when you restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_currentRestoreRateInMegaBytesPerSecond"><span class="hs-identifier hs-type">restoreStatus_currentRestoreRateInMegaBytesPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="restoreStatus_currentRestoreRateInMegaBytesPerSecond"><span class="annot"><span class="annottext">restoreStatus_currentRestoreRateInMegaBytesPerSecond :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; RestoreStatus -&gt; f RestoreStatus
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_currentRestoreRateInMegaBytesPerSecond"><span class="hs-identifier hs-var hs-var">restoreStatus_currentRestoreRateInMegaBytesPerSecond</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreStatus -&gt; Maybe Double)
+-&gt; (RestoreStatus -&gt; Maybe Double -&gt; RestoreStatus)
+-&gt; Lens RestoreStatus RestoreStatus (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495849"><span class="annot"><span class="annottext">Maybe Double
+currentRestoreRateInMegaBytesPerSecond :: Maybe Double
+$sel:currentRestoreRateInMegaBytesPerSecond:RestoreStatus' :: RestoreStatus -&gt; Maybe Double
+</span><a href="#local-6989586621679495849"><span class="hs-identifier hs-var hs-var">currentRestoreRateInMegaBytesPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679495849"><span class="hs-identifier hs-var">currentRestoreRateInMegaBytesPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495848"><span class="annot"><span class="annottext">s :: RestoreStatus
+</span><a href="#local-6989586621679495848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495847"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679495847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreStatus
+</span><a href="#local-6989586621679495848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentRestoreRateInMegaBytesPerSecond:RestoreStatus' :: Maybe Double
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AcurrentRestoreRateInMegaBytesPerSecond%3ARestoreStatus%27"><span class="hs-identifier hs-var">currentRestoreRateInMegaBytesPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679495847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The number of megabytes that have been transferred from snapshot</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- storage. This field is only updated when you restore to DC2 and DS2 node</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- types.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_progressInMegaBytes"><span class="hs-identifier hs-type">restoreStatus_progressInMegaBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="restoreStatus_progressInMegaBytes"><span class="annot"><span class="annottext">restoreStatus_progressInMegaBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; RestoreStatus -&gt; f RestoreStatus
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_progressInMegaBytes"><span class="hs-identifier hs-var hs-var">restoreStatus_progressInMegaBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreStatus -&gt; Maybe Integer)
+-&gt; (RestoreStatus -&gt; Maybe Integer -&gt; RestoreStatus)
+-&gt; Lens RestoreStatus RestoreStatus (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495845"><span class="annot"><span class="annottext">Maybe Integer
+progressInMegaBytes :: Maybe Integer
+$sel:progressInMegaBytes:RestoreStatus' :: RestoreStatus -&gt; Maybe Integer
+</span><a href="#local-6989586621679495845"><span class="hs-identifier hs-var hs-var">progressInMegaBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495845"><span class="hs-identifier hs-var">progressInMegaBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495844"><span class="annot"><span class="annottext">s :: RestoreStatus
+</span><a href="#local-6989586621679495844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495843"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreStatus
+</span><a href="#local-6989586621679495844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressInMegaBytes:RestoreStatus' :: Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AprogressInMegaBytes%3ARestoreStatus%27"><span class="hs-identifier hs-var">progressInMegaBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The amount of time an in-progress restore has been running, or the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- amount of time it took a completed restore to finish. This field is only</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- updated when you restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_elapsedTimeInSeconds"><span class="hs-identifier hs-type">restoreStatus_elapsedTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="restoreStatus_elapsedTimeInSeconds"><span class="annot"><span class="annottext">restoreStatus_elapsedTimeInSeconds :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; RestoreStatus -&gt; f RestoreStatus
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_elapsedTimeInSeconds"><span class="hs-identifier hs-var hs-var">restoreStatus_elapsedTimeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreStatus -&gt; Maybe Integer)
+-&gt; (RestoreStatus -&gt; Maybe Integer -&gt; RestoreStatus)
+-&gt; Lens RestoreStatus RestoreStatus (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495841"><span class="annot"><span class="annottext">Maybe Integer
+elapsedTimeInSeconds :: Maybe Integer
+$sel:elapsedTimeInSeconds:RestoreStatus' :: RestoreStatus -&gt; Maybe Integer
+</span><a href="#local-6989586621679495841"><span class="hs-identifier hs-var hs-var">elapsedTimeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495841"><span class="hs-identifier hs-var">elapsedTimeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495840"><span class="annot"><span class="annottext">s :: RestoreStatus
+</span><a href="#local-6989586621679495840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495839"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreStatus
+</span><a href="#local-6989586621679495840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elapsedTimeInSeconds:RestoreStatus' :: Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AelapsedTimeInSeconds%3ARestoreStatus%27"><span class="hs-identifier hs-var">elapsedTimeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The size of the set of snapshot data used to restore the cluster. This</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- field is only updated when you restore to DC2 and DS2 node types.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_snapshotSizeInMegaBytes"><span class="hs-identifier hs-type">restoreStatus_snapshotSizeInMegaBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="restoreStatus_snapshotSizeInMegaBytes"><span class="annot"><span class="annottext">restoreStatus_snapshotSizeInMegaBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; RestoreStatus -&gt; f RestoreStatus
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#restoreStatus_snapshotSizeInMegaBytes"><span class="hs-identifier hs-var hs-var">restoreStatus_snapshotSizeInMegaBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreStatus -&gt; Maybe Integer)
+-&gt; (RestoreStatus -&gt; Maybe Integer -&gt; RestoreStatus)
+-&gt; Lens RestoreStatus RestoreStatus (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495837"><span class="annot"><span class="annottext">Maybe Integer
+snapshotSizeInMegaBytes :: Maybe Integer
+$sel:snapshotSizeInMegaBytes:RestoreStatus' :: RestoreStatus -&gt; Maybe Integer
+</span><a href="#local-6989586621679495837"><span class="hs-identifier hs-var hs-var">snapshotSizeInMegaBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495837"><span class="hs-identifier hs-var">snapshotSizeInMegaBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495836"><span class="annot"><span class="annottext">s :: RestoreStatus
+</span><a href="#local-6989586621679495836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-type">RestoreStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495835"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreStatus
+</span><a href="#local-6989586621679495836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotSizeInMegaBytes:RestoreStatus' :: Maybe Integer
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#%24sel%3AsnapshotSizeInMegaBytes%3ARestoreStatus%27"><span class="hs-identifier hs-var">snapshotSizeInMegaBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679495835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679495832"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RestoreStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679495830"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495830"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Double
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; RestoreStatus
+</span><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus%27"><span class="hs-identifier hs-var">RestoreStatus'</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Double
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; RestoreStatus)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; RestoreStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; RestoreStatus)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe Double
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; RestoreStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EstimatedTimeToCompletionInSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Double
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; RestoreStatus)
+-&gt; Either String (Maybe Double)
+-&gt; Either
+     String
+     (Maybe Integer -&gt; Maybe Integer -&gt; Maybe Integer -&gt; RestoreStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentRestoreRateInMegaBytesPerSecond&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer -&gt; Maybe Integer -&gt; Maybe Integer -&gt; RestoreStatus)
+-&gt; Either String (Maybe Integer)
+-&gt; Either String (Maybe Integer -&gt; Maybe Integer -&gt; RestoreStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgressInMegaBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; Maybe Integer -&gt; RestoreStatus)
+-&gt; Either String (Maybe Integer)
+-&gt; Either String (Maybe Integer -&gt; RestoreStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ElapsedTimeInSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; RestoreStatus)
+-&gt; Either String (Maybe Integer) -&gt; Either String RestoreStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnapshotSizeInMegaBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679495824"><span id="local-6989586621679495826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679495821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.RestoreStatus.html#RestoreStatus"><span class="hs-identifier hs-type">RestoreStatus</span></a></span></span><span>
+</span><span id="line-146"></span></pre></body></html>

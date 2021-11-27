@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter.html"><span class="hs-identifier">Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter.html"><span class="hs-identifier">Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter.html"><span class="hs-identifier">Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A filter used by @ListInsights@ to specify which insights to return.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newListInsightsStatusFilter' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679238435"><span id="local-6989586621679238436"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInsightsStatusFilter"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-var">ListInsightsStatusFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInsightsStatusFilter%27"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter%27"><span class="hs-identifier hs-var">ListInsightsStatusFilter'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @ListInsightsClosedStatusFilter@ that specifies closed insights that</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- are either @REACTIVE@ or @PROACTIVE@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aclosed%3AListInsightsStatusFilter%27"><span class="annot"><span class="annottext">ListInsightsStatusFilter -&gt; Maybe ListInsightsClosedStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#%24sel%3Aclosed%3AListInsightsStatusFilter%27"><span class="hs-identifier hs-var hs-var">closed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter.html#ListInsightsClosedStatusFilter"><span class="hs-identifier hs-type">ListInsightsClosedStatusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A @ListInsightsAnyStatusFilter@ that specifies ongoing insights that are</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- either @REACTIVE@ or @PROACTIVE@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aongoing%3AListInsightsStatusFilter%27"><span class="annot"><span class="annottext">ListInsightsStatusFilter -&gt; Maybe ListInsightsOngoingStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#%24sel%3Aongoing%3AListInsightsStatusFilter%27"><span class="hs-identifier hs-var hs-var">ongoing</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter.html#ListInsightsOngoingStatusFilter"><span class="hs-identifier hs-type">ListInsightsOngoingStatusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A @ListInsightsAnyStatusFilter@ that specifies insights of any status</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- that are either @REACTIVE@ or @PROACTIVE@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aany%3AListInsightsStatusFilter%27"><span class="annot"><span class="annottext">ListInsightsStatusFilter -&gt; Maybe ListInsightsAnyStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#%24sel%3Aany%3AListInsightsStatusFilter%27"><span class="hs-identifier hs-var hs-var">any</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter.html#ListInsightsAnyStatusFilter"><span class="hs-identifier hs-type">ListInsightsAnyStatusFilter</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238427"><span id="local-6989586621679238429"><span class="annot"><span class="annottext">ListInsightsStatusFilter -&gt; ListInsightsStatusFilter -&gt; Bool
+(ListInsightsStatusFilter -&gt; ListInsightsStatusFilter -&gt; Bool)
+-&gt; (ListInsightsStatusFilter -&gt; ListInsightsStatusFilter -&gt; Bool)
+-&gt; Eq ListInsightsStatusFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListInsightsStatusFilter -&gt; ListInsightsStatusFilter -&gt; Bool
+$c/= :: ListInsightsStatusFilter -&gt; ListInsightsStatusFilter -&gt; Bool
+== :: ListInsightsStatusFilter -&gt; ListInsightsStatusFilter -&gt; Bool
+$c== :: ListInsightsStatusFilter -&gt; ListInsightsStatusFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238418"><span id="local-6989586621679238420"><span id="local-6989586621679238422"><span id="local-6989586621679238424"><span class="annot"><span class="annottext">ReadPrec [ListInsightsStatusFilter]
+ReadPrec ListInsightsStatusFilter
+Int -&gt; ReadS ListInsightsStatusFilter
+ReadS [ListInsightsStatusFilter]
+(Int -&gt; ReadS ListInsightsStatusFilter)
+-&gt; ReadS [ListInsightsStatusFilter]
+-&gt; ReadPrec ListInsightsStatusFilter
+-&gt; ReadPrec [ListInsightsStatusFilter]
+-&gt; Read ListInsightsStatusFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListInsightsStatusFilter]
+$creadListPrec :: ReadPrec [ListInsightsStatusFilter]
+readPrec :: ReadPrec ListInsightsStatusFilter
+$creadPrec :: ReadPrec ListInsightsStatusFilter
+readList :: ReadS [ListInsightsStatusFilter]
+$creadList :: ReadS [ListInsightsStatusFilter]
+readsPrec :: Int -&gt; ReadS ListInsightsStatusFilter
+$creadsPrec :: Int -&gt; ReadS ListInsightsStatusFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238411"><span id="local-6989586621679238413"><span id="local-6989586621679238415"><span class="annot"><span class="annottext">Int -&gt; ListInsightsStatusFilter -&gt; ShowS
+[ListInsightsStatusFilter] -&gt; ShowS
+ListInsightsStatusFilter -&gt; String
+(Int -&gt; ListInsightsStatusFilter -&gt; ShowS)
+-&gt; (ListInsightsStatusFilter -&gt; String)
+-&gt; ([ListInsightsStatusFilter] -&gt; ShowS)
+-&gt; Show ListInsightsStatusFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListInsightsStatusFilter] -&gt; ShowS
+$cshowList :: [ListInsightsStatusFilter] -&gt; ShowS
+show :: ListInsightsStatusFilter -&gt; String
+$cshow :: ListInsightsStatusFilter -&gt; String
+showsPrec :: Int -&gt; ListInsightsStatusFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListInsightsStatusFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListInsightsStatusFilter -&gt; Rep ListInsightsStatusFilter x)
+-&gt; (forall x.
+    Rep ListInsightsStatusFilter x -&gt; ListInsightsStatusFilter)
+-&gt; Generic ListInsightsStatusFilter
+forall x.
+Rep ListInsightsStatusFilter x -&gt; ListInsightsStatusFilter
+forall x.
+ListInsightsStatusFilter -&gt; Rep ListInsightsStatusFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListInsightsStatusFilter x -&gt; ListInsightsStatusFilter
+$cfrom :: forall x.
+ListInsightsStatusFilter -&gt; Rep ListInsightsStatusFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'ListInsightsStatusFilter' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'closed', 'listInsightsStatusFilter_closed' - A @ListInsightsClosedStatusFilter@ that specifies closed insights that</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- are either @REACTIVE@ or @PROACTIVE@.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'ongoing', 'listInsightsStatusFilter_ongoing' - A @ListInsightsAnyStatusFilter@ that specifies ongoing insights that are</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- either @REACTIVE@ or @PROACTIVE@.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'any', 'listInsightsStatusFilter_any' - A @ListInsightsAnyStatusFilter@ that specifies insights of any status</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- that are either @REACTIVE@ or @PROACTIVE@.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#newListInsightsStatusFilter"><span class="hs-identifier hs-type">newListInsightsStatusFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span><span>
+</span><span id="line-63"></span><span id="newListInsightsStatusFilter"><span class="annot"><span class="annottext">newListInsightsStatusFilter :: ListInsightsStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#newListInsightsStatusFilter"><span class="hs-identifier hs-var hs-var">newListInsightsStatusFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">ListInsightsStatusFilter' :: Maybe ListInsightsClosedStatusFilter
+-&gt; Maybe ListInsightsOngoingStatusFilter
+-&gt; Maybe ListInsightsAnyStatusFilter
+-&gt; ListInsightsStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter%27"><span class="hs-identifier hs-type">ListInsightsStatusFilter'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:closed:ListInsightsStatusFilter' :: Maybe ListInsightsClosedStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#%24sel%3Aclosed%3AListInsightsStatusFilter%27"><span class="hs-identifier hs-var">closed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsClosedStatusFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:ongoing:ListInsightsStatusFilter' :: Maybe ListInsightsOngoingStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#%24sel%3Aongoing%3AListInsightsStatusFilter%27"><span class="hs-identifier hs-var">ongoing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsOngoingStatusFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:any:ListInsightsStatusFilter' :: Maybe ListInsightsAnyStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#%24sel%3Aany%3AListInsightsStatusFilter%27"><span class="hs-identifier hs-var">any</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsAnyStatusFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | A @ListInsightsClosedStatusFilter@ that specifies closed insights that</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- are either @REACTIVE@ or @PROACTIVE@.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#listInsightsStatusFilter_closed"><span class="hs-identifier hs-type">listInsightsStatusFilter_closed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter.html#ListInsightsClosedStatusFilter"><span class="hs-identifier hs-type">ListInsightsClosedStatusFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="listInsightsStatusFilter_closed"><span class="annot"><span class="annottext">listInsightsStatusFilter_closed :: (Maybe ListInsightsClosedStatusFilter
+ -&gt; f (Maybe ListInsightsClosedStatusFilter))
+-&gt; ListInsightsStatusFilter -&gt; f ListInsightsStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#listInsightsStatusFilter_closed"><span class="hs-identifier hs-var hs-var">listInsightsStatusFilter_closed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInsightsStatusFilter -&gt; Maybe ListInsightsClosedStatusFilter)
+-&gt; (ListInsightsStatusFilter
+    -&gt; Maybe ListInsightsClosedStatusFilter
+    -&gt; ListInsightsStatusFilter)
+-&gt; Lens
+     ListInsightsStatusFilter
+     ListInsightsStatusFilter
+     (Maybe ListInsightsClosedStatusFilter)
+     (Maybe ListInsightsClosedStatusFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter%27"><span class="hs-identifier hs-type">ListInsightsStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238402"><span class="annot"><span class="annottext">Maybe ListInsightsClosedStatusFilter
+closed :: Maybe ListInsightsClosedStatusFilter
+$sel:closed:ListInsightsStatusFilter' :: ListInsightsStatusFilter -&gt; Maybe ListInsightsClosedStatusFilter
+</span><a href="#local-6989586621679238402"><span class="hs-identifier hs-var hs-var">closed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsClosedStatusFilter
+</span><a href="#local-6989586621679238402"><span class="hs-identifier hs-var">closed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238401"><span class="annot"><span class="annottext">s :: ListInsightsStatusFilter
+</span><a href="#local-6989586621679238401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter%27"><span class="hs-identifier hs-type">ListInsightsStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238400"><span class="annot"><span class="annottext">Maybe ListInsightsClosedStatusFilter
+</span><a href="#local-6989586621679238400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInsightsStatusFilter
+</span><a href="#local-6989586621679238401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:closed:ListInsightsStatusFilter' :: Maybe ListInsightsClosedStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#%24sel%3Aclosed%3AListInsightsStatusFilter%27"><span class="hs-identifier hs-var">closed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsClosedStatusFilter
+</span><a href="#local-6989586621679238400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | A @ListInsightsAnyStatusFilter@ that specifies ongoing insights that are</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- either @REACTIVE@ or @PROACTIVE@.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#listInsightsStatusFilter_ongoing"><span class="hs-identifier hs-type">listInsightsStatusFilter_ongoing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter.html#ListInsightsOngoingStatusFilter"><span class="hs-identifier hs-type">ListInsightsOngoingStatusFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="listInsightsStatusFilter_ongoing"><span class="annot"><span class="annottext">listInsightsStatusFilter_ongoing :: (Maybe ListInsightsOngoingStatusFilter
+ -&gt; f (Maybe ListInsightsOngoingStatusFilter))
+-&gt; ListInsightsStatusFilter -&gt; f ListInsightsStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#listInsightsStatusFilter_ongoing"><span class="hs-identifier hs-var hs-var">listInsightsStatusFilter_ongoing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInsightsStatusFilter -&gt; Maybe ListInsightsOngoingStatusFilter)
+-&gt; (ListInsightsStatusFilter
+    -&gt; Maybe ListInsightsOngoingStatusFilter
+    -&gt; ListInsightsStatusFilter)
+-&gt; Lens
+     ListInsightsStatusFilter
+     ListInsightsStatusFilter
+     (Maybe ListInsightsOngoingStatusFilter)
+     (Maybe ListInsightsOngoingStatusFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter%27"><span class="hs-identifier hs-type">ListInsightsStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238398"><span class="annot"><span class="annottext">Maybe ListInsightsOngoingStatusFilter
+ongoing :: Maybe ListInsightsOngoingStatusFilter
+$sel:ongoing:ListInsightsStatusFilter' :: ListInsightsStatusFilter -&gt; Maybe ListInsightsOngoingStatusFilter
+</span><a href="#local-6989586621679238398"><span class="hs-identifier hs-var hs-var">ongoing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsOngoingStatusFilter
+</span><a href="#local-6989586621679238398"><span class="hs-identifier hs-var">ongoing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238397"><span class="annot"><span class="annottext">s :: ListInsightsStatusFilter
+</span><a href="#local-6989586621679238397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter%27"><span class="hs-identifier hs-type">ListInsightsStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238396"><span class="annot"><span class="annottext">Maybe ListInsightsOngoingStatusFilter
+</span><a href="#local-6989586621679238396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInsightsStatusFilter
+</span><a href="#local-6989586621679238397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ongoing:ListInsightsStatusFilter' :: Maybe ListInsightsOngoingStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#%24sel%3Aongoing%3AListInsightsStatusFilter%27"><span class="hs-identifier hs-var">ongoing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsOngoingStatusFilter
+</span><a href="#local-6989586621679238396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | A @ListInsightsAnyStatusFilter@ that specifies insights of any status</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- that are either @REACTIVE@ or @PROACTIVE@.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#listInsightsStatusFilter_any"><span class="hs-identifier hs-type">listInsightsStatusFilter_any</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter.html#ListInsightsAnyStatusFilter"><span class="hs-identifier hs-type">ListInsightsAnyStatusFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="listInsightsStatusFilter_any"><span class="annot"><span class="annottext">listInsightsStatusFilter_any :: (Maybe ListInsightsAnyStatusFilter
+ -&gt; f (Maybe ListInsightsAnyStatusFilter))
+-&gt; ListInsightsStatusFilter -&gt; f ListInsightsStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#listInsightsStatusFilter_any"><span class="hs-identifier hs-var hs-var">listInsightsStatusFilter_any</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInsightsStatusFilter -&gt; Maybe ListInsightsAnyStatusFilter)
+-&gt; (ListInsightsStatusFilter
+    -&gt; Maybe ListInsightsAnyStatusFilter -&gt; ListInsightsStatusFilter)
+-&gt; Lens
+     ListInsightsStatusFilter
+     ListInsightsStatusFilter
+     (Maybe ListInsightsAnyStatusFilter)
+     (Maybe ListInsightsAnyStatusFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter%27"><span class="hs-identifier hs-type">ListInsightsStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238394"><span class="annot"><span class="annottext">Maybe ListInsightsAnyStatusFilter
+any :: Maybe ListInsightsAnyStatusFilter
+$sel:any:ListInsightsStatusFilter' :: ListInsightsStatusFilter -&gt; Maybe ListInsightsAnyStatusFilter
+</span><a href="#local-6989586621679238394"><span class="hs-identifier hs-var hs-var">any</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsAnyStatusFilter
+</span><a href="#local-6989586621679238394"><span class="hs-identifier hs-var">any</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238393"><span class="annot"><span class="annottext">s :: ListInsightsStatusFilter
+</span><a href="#local-6989586621679238393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter%27"><span class="hs-identifier hs-type">ListInsightsStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238392"><span class="annot"><span class="annottext">Maybe ListInsightsAnyStatusFilter
+</span><a href="#local-6989586621679238392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInsightsStatusFilter
+</span><a href="#local-6989586621679238393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:any:ListInsightsStatusFilter' :: Maybe ListInsightsAnyStatusFilter
+</span><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#%24sel%3Aany%3AListInsightsStatusFilter%27"><span class="hs-identifier hs-var">any</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsAnyStatusFilter
+</span><a href="#local-6989586621679238392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238388"><span id="local-6989586621679238390"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238377"><span id="local-6989586621679238379"><span id="local-6989586621679238381"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter"><span class="hs-identifier hs-type">ListInsightsStatusFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679238375"><span class="annot"><span class="annottext">toJSON :: ListInsightsStatusFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter.html#ListInsightsStatusFilter%27"><span class="hs-identifier hs-type">ListInsightsStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238371"><span id="local-6989586621679238372"><span id="local-6989586621679238373"><span class="annot"><span class="annottext">Maybe ListInsightsClosedStatusFilter
+Maybe ListInsightsOngoingStatusFilter
+Maybe ListInsightsAnyStatusFilter
+any :: Maybe ListInsightsAnyStatusFilter
+ongoing :: Maybe ListInsightsOngoingStatusFilter
+closed :: Maybe ListInsightsClosedStatusFilter
+$sel:any:ListInsightsStatusFilter' :: ListInsightsStatusFilter -&gt; Maybe ListInsightsAnyStatusFilter
+$sel:ongoing:ListInsightsStatusFilter' :: ListInsightsStatusFilter -&gt; Maybe ListInsightsOngoingStatusFilter
+$sel:closed:ListInsightsStatusFilter' :: ListInsightsStatusFilter -&gt; Maybe ListInsightsClosedStatusFilter
+</span><a href="#local-6989586621679238371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Closed&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ListInsightsClosedStatusFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ListInsightsClosedStatusFilter -&gt; Pair)
+-&gt; Maybe ListInsightsClosedStatusFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsClosedStatusFilter
+</span><a href="#local-6989586621679238373"><span class="hs-identifier hs-var">closed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ongoing&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ListInsightsOngoingStatusFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ListInsightsOngoingStatusFilter -&gt; Pair)
+-&gt; Maybe ListInsightsOngoingStatusFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsOngoingStatusFilter
+</span><a href="#local-6989586621679238372"><span class="hs-identifier hs-var">ongoing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Any&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ListInsightsAnyStatusFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ListInsightsAnyStatusFilter -&gt; Pair)
+-&gt; Maybe ListInsightsAnyStatusFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ListInsightsAnyStatusFilter
+</span><a href="#local-6989586621679238371"><span class="hs-identifier hs-var">any</span></a></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span></pre></body></html>

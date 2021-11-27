@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.CertificateSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.CertificateSource</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource"><span class="hs-identifier">CertificateSource</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource_Acm"><span class="hs-identifier">CertificateSource_Acm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource_Cloudfront"><span class="hs-identifier">CertificateSource_Cloudfront</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource_Iam"><span class="hs-identifier">CertificateSource_Iam</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679387636"><span id="local-6989586621679387637"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CertificateSource"><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource"><span class="hs-identifier hs-var">CertificateSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateSource%27"><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource%27"><span class="hs-identifier hs-var">CertificateSource'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCertificateSource"><span class="annot"><span class="annottext">CertificateSource -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.CertificateSource.html#fromCertificateSource"><span class="hs-identifier hs-var hs-var">fromCertificateSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387628"><span id="local-6989586621679387630"><span id="local-6989586621679387632"><span class="annot"><span class="annottext">Int -&gt; CertificateSource -&gt; ShowS
+[CertificateSource] -&gt; ShowS
+CertificateSource -&gt; String
+(Int -&gt; CertificateSource -&gt; ShowS)
+-&gt; (CertificateSource -&gt; String)
+-&gt; ([CertificateSource] -&gt; ShowS)
+-&gt; Show CertificateSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CertificateSource] -&gt; ShowS
+$cshowList :: [CertificateSource] -&gt; ShowS
+show :: CertificateSource -&gt; String
+$cshow :: CertificateSource -&gt; String
+showsPrec :: Int -&gt; CertificateSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; CertificateSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679387619"><span id="local-6989586621679387621"><span id="local-6989586621679387623"><span id="local-6989586621679387625"><span class="annot"><span class="annottext">ReadPrec [CertificateSource]
+ReadPrec CertificateSource
+Int -&gt; ReadS CertificateSource
+ReadS [CertificateSource]
+(Int -&gt; ReadS CertificateSource)
+-&gt; ReadS [CertificateSource]
+-&gt; ReadPrec CertificateSource
+-&gt; ReadPrec [CertificateSource]
+-&gt; Read CertificateSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CertificateSource]
+$creadListPrec :: ReadPrec [CertificateSource]
+readPrec :: ReadPrec CertificateSource
+$creadPrec :: ReadPrec CertificateSource
+readList :: ReadS [CertificateSource]
+$creadList :: ReadS [CertificateSource]
+readsPrec :: Int -&gt; ReadS CertificateSource
+$creadsPrec :: Int -&gt; ReadS CertificateSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679387614"><span id="local-6989586621679387616"><span class="annot"><span class="annottext">CertificateSource -&gt; CertificateSource -&gt; Bool
+(CertificateSource -&gt; CertificateSource -&gt; Bool)
+-&gt; (CertificateSource -&gt; CertificateSource -&gt; Bool)
+-&gt; Eq CertificateSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CertificateSource -&gt; CertificateSource -&gt; Bool
+$c/= :: CertificateSource -&gt; CertificateSource -&gt; Bool
+== :: CertificateSource -&gt; CertificateSource -&gt; Bool
+$c== :: CertificateSource -&gt; CertificateSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679387598"><span id="local-6989586621679387600"><span id="local-6989586621679387602"><span id="local-6989586621679387604"><span id="local-6989586621679387606"><span id="local-6989586621679387608"><span id="local-6989586621679387610"><span class="annot"><span class="annottext">Eq CertificateSource
+Eq CertificateSource
+-&gt; (CertificateSource -&gt; CertificateSource -&gt; Ordering)
+-&gt; (CertificateSource -&gt; CertificateSource -&gt; Bool)
+-&gt; (CertificateSource -&gt; CertificateSource -&gt; Bool)
+-&gt; (CertificateSource -&gt; CertificateSource -&gt; Bool)
+-&gt; (CertificateSource -&gt; CertificateSource -&gt; Bool)
+-&gt; (CertificateSource -&gt; CertificateSource -&gt; CertificateSource)
+-&gt; (CertificateSource -&gt; CertificateSource -&gt; CertificateSource)
+-&gt; Ord CertificateSource
+CertificateSource -&gt; CertificateSource -&gt; Bool
+CertificateSource -&gt; CertificateSource -&gt; Ordering
+CertificateSource -&gt; CertificateSource -&gt; CertificateSource
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CertificateSource -&gt; CertificateSource -&gt; CertificateSource
+$cmin :: CertificateSource -&gt; CertificateSource -&gt; CertificateSource
+max :: CertificateSource -&gt; CertificateSource -&gt; CertificateSource
+$cmax :: CertificateSource -&gt; CertificateSource -&gt; CertificateSource
+&gt;= :: CertificateSource -&gt; CertificateSource -&gt; Bool
+$c&gt;= :: CertificateSource -&gt; CertificateSource -&gt; Bool
+&gt; :: CertificateSource -&gt; CertificateSource -&gt; Bool
+$c&gt; :: CertificateSource -&gt; CertificateSource -&gt; Bool
+&lt;= :: CertificateSource -&gt; CertificateSource -&gt; Bool
+$c&lt;= :: CertificateSource -&gt; CertificateSource -&gt; Bool
+&lt; :: CertificateSource -&gt; CertificateSource -&gt; Bool
+$c&lt; :: CertificateSource -&gt; CertificateSource -&gt; Bool
+compare :: CertificateSource -&gt; CertificateSource -&gt; Ordering
+$ccompare :: CertificateSource -&gt; CertificateSource -&gt; Ordering
+$cp1Ord :: Eq CertificateSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CertificateSource -&gt; Rep CertificateSource x)
+-&gt; (forall x. Rep CertificateSource x -&gt; CertificateSource)
+-&gt; Generic CertificateSource
+forall x. Rep CertificateSource x -&gt; CertificateSource
+forall x. CertificateSource -&gt; Rep CertificateSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CertificateSource x -&gt; CertificateSource
+$cfrom :: forall x. CertificateSource -&gt; Rep CertificateSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387590"><span id="local-6989586621679387592"><span class="annot"><span class="annottext">Int -&gt; CertificateSource -&gt; Int
+CertificateSource -&gt; Int
+(Int -&gt; CertificateSource -&gt; Int)
+-&gt; (CertificateSource -&gt; Int) -&gt; Hashable CertificateSource
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CertificateSource -&gt; Int
+$chash :: CertificateSource -&gt; Int
+hashWithSalt :: Int -&gt; CertificateSource -&gt; Int
+$chashWithSalt :: Int -&gt; CertificateSource -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679387587"><span class="annot"><span class="annottext">CertificateSource -&gt; ()
+(CertificateSource -&gt; ()) -&gt; NFData CertificateSource
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CertificateSource -&gt; ()
+$crnf :: CertificateSource -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679387584"><span class="annot"><span class="annottext">Text -&gt; Either String CertificateSource
+(Text -&gt; Either String CertificateSource)
+-&gt; FromText CertificateSource
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CertificateSource
+$cfromText :: Text -&gt; Either String CertificateSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679387581"><span class="annot"><span class="annottext">CertificateSource -&gt; Text
+(CertificateSource -&gt; Text) -&gt; ToText CertificateSource
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CertificateSource -&gt; Text
+$ctoText :: CertificateSource -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679387578"><span class="annot"><span class="annottext">CertificateSource -&gt; ByteString
+(CertificateSource -&gt; ByteString) -&gt; ToByteString CertificateSource
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CertificateSource -&gt; ByteString
+$ctoBS :: CertificateSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679387575"><span class="annot"><span class="annottext">CertificateSource -&gt; ByteStringBuilder
+(CertificateSource -&gt; ByteStringBuilder) -&gt; ToLog CertificateSource
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CertificateSource -&gt; ByteStringBuilder
+$cbuild :: CertificateSource -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679387572"><span class="annot"><span class="annottext">HeaderName -&gt; CertificateSource -&gt; [Header]
+(HeaderName -&gt; CertificateSource -&gt; [Header])
+-&gt; ToHeader CertificateSource
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CertificateSource -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CertificateSource -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679387569"><span class="annot"><span class="annottext">CertificateSource -&gt; QueryString
+(CertificateSource -&gt; QueryString) -&gt; ToQuery CertificateSource
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CertificateSource -&gt; QueryString
+$ctoQuery :: CertificateSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679387564"><span id="local-6989586621679387566"><span class="annot"><span class="annottext">Value -&gt; Parser [CertificateSource]
+Value -&gt; Parser CertificateSource
+(Value -&gt; Parser CertificateSource)
+-&gt; (Value -&gt; Parser [CertificateSource])
+-&gt; FromJSON CertificateSource
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CertificateSource]
+$cparseJSONList :: Value -&gt; Parser [CertificateSource]
+parseJSON :: Value -&gt; Parser CertificateSource
+$cparseJSON :: Value -&gt; Parser CertificateSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679387559"><span id="local-6989586621679387561"><span class="annot"><span class="annottext">FromJSONKeyFunction [CertificateSource]
+FromJSONKeyFunction CertificateSource
+FromJSONKeyFunction CertificateSource
+-&gt; FromJSONKeyFunction [CertificateSource]
+-&gt; FromJSONKey CertificateSource
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CertificateSource]
+$cfromJSONKeyList :: FromJSONKeyFunction [CertificateSource]
+fromJSONKey :: FromJSONKeyFunction CertificateSource
+$cfromJSONKey :: FromJSONKeyFunction CertificateSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679387550"><span id="local-6989586621679387552"><span id="local-6989586621679387554"><span id="local-6989586621679387556"><span class="annot"><span class="annottext">[CertificateSource] -&gt; Encoding
+[CertificateSource] -&gt; Value
+CertificateSource -&gt; Encoding
+CertificateSource -&gt; Value
+(CertificateSource -&gt; Value)
+-&gt; (CertificateSource -&gt; Encoding)
+-&gt; ([CertificateSource] -&gt; Value)
+-&gt; ([CertificateSource] -&gt; Encoding)
+-&gt; ToJSON CertificateSource
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CertificateSource] -&gt; Encoding
+$ctoEncodingList :: [CertificateSource] -&gt; Encoding
+toJSONList :: [CertificateSource] -&gt; Value
+$ctoJSONList :: [CertificateSource] -&gt; Value
+toEncoding :: CertificateSource -&gt; Encoding
+$ctoEncoding :: CertificateSource -&gt; Encoding
+toJSON :: CertificateSource -&gt; Value
+$ctoJSON :: CertificateSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679387545"><span id="local-6989586621679387547"><span class="annot"><span class="annottext">ToJSONKeyFunction [CertificateSource]
+ToJSONKeyFunction CertificateSource
+ToJSONKeyFunction CertificateSource
+-&gt; ToJSONKeyFunction [CertificateSource]
+-&gt; ToJSONKey CertificateSource
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CertificateSource]
+$ctoJSONKeyList :: ToJSONKeyFunction [CertificateSource]
+toJSONKey :: ToJSONKeyFunction CertificateSource
+$ctoJSONKey :: ToJSONKeyFunction CertificateSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679387542"><span class="annot"><span class="annottext">[Node] -&gt; Either String CertificateSource
+([Node] -&gt; Either String CertificateSource)
+-&gt; FromXML CertificateSource
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CertificateSource
+$cparseXML :: [Node] -&gt; Either String CertificateSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679387539"><span class="annot"><span class="annottext">CertificateSource -&gt; XML
+(CertificateSource -&gt; XML) -&gt; ToXML CertificateSource
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CertificateSource -&gt; XML
+$ctoXML :: CertificateSource -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource_Acm"><span class="hs-identifier hs-type">CertificateSource_Acm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource"><span class="hs-identifier hs-type">CertificateSource</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCertificateSource_Acm"><span id="%24mCertificateSource_Acm"><span id="CertificateSource_Acm"><span class="annot"><span class="annottext">$bCertificateSource_Acm :: CertificateSource
+$mCertificateSource_Acm :: forall r. CertificateSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.CertificateSource.html#%24bCertificateSource_Acm"><span class="hs-identifier hs-var hs-var hs-var">CertificateSource_Acm</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource%27"><span class="hs-identifier hs-type">CertificateSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;acm&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource_Cloudfront"><span class="hs-identifier hs-type">CertificateSource_Cloudfront</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource"><span class="hs-identifier hs-type">CertificateSource</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCertificateSource_Cloudfront"><span id="%24mCertificateSource_Cloudfront"><span id="CertificateSource_Cloudfront"><span class="annot"><span class="annottext">$bCertificateSource_Cloudfront :: CertificateSource
+$mCertificateSource_Cloudfront :: forall r. CertificateSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.CertificateSource.html#%24bCertificateSource_Cloudfront"><span class="hs-identifier hs-var hs-var hs-var">CertificateSource_Cloudfront</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource%27"><span class="hs-identifier hs-type">CertificateSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cloudfront&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource_Iam"><span class="hs-identifier hs-type">CertificateSource_Iam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource"><span class="hs-identifier hs-type">CertificateSource</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCertificateSource_Iam"><span id="%24mCertificateSource_Iam"><span id="CertificateSource_Iam"><span class="annot"><span class="annottext">$bCertificateSource_Iam :: CertificateSource
+$mCertificateSource_Iam :: forall r. CertificateSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.CertificateSource.html#%24bCertificateSource_Iam"><span class="hs-identifier hs-var hs-var hs-var">CertificateSource_Iam</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource%27"><span class="hs-identifier hs-type">CertificateSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;iam&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource_Acm"><span class="hs-pragma hs-type">CertificateSource_Acm</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource_Cloudfront"><span class="hs-pragma hs-type">CertificateSource_Cloudfront</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource_Iam"><span class="hs-pragma hs-type">CertificateSource_Iam</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CertificateSource.html#CertificateSource%27"><span class="hs-pragma hs-type">CertificateSource'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

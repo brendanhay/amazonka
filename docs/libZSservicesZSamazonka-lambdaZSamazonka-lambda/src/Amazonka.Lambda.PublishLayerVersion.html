@@ -1,0 +1,1250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lambda.PublishLayerVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- from a ZIP archive. Each time you call @PublishLayerVersion@ with the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- same layer name, a new version is created.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Add layers to your function with CreateFunction or</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- UpdateFunctionConfiguration.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lambda.PublishLayerVersion</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier">PublishLayerVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#newPublishLayerVersion"><span class="hs-identifier">newPublishLayerVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_licenseInfo"><span class="hs-identifier">publishLayerVersion_licenseInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_compatibleArchitectures"><span class="hs-identifier">publishLayerVersion_compatibleArchitectures</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_description"><span class="hs-identifier">publishLayerVersion_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_compatibleRuntimes"><span class="hs-identifier">publishLayerVersion_compatibleRuntimes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_layerName"><span class="hs-identifier">publishLayerVersion_layerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_content"><span class="hs-identifier">publishLayerVersion_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#newPublishLayerVersionResponse"><span class="hs-identifier">newPublishLayerVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_layerVersionArn"><span class="hs-identifier">publishLayerVersionResponse_layerVersionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_content"><span class="hs-identifier">publishLayerVersionResponse_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_createdDate"><span class="hs-identifier">publishLayerVersionResponse_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_version"><span class="hs-identifier">publishLayerVersionResponse_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_licenseInfo"><span class="hs-identifier">publishLayerVersionResponse_licenseInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_compatibleArchitectures"><span class="hs-identifier">publishLayerVersionResponse_compatibleArchitectures</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_layerArn"><span class="hs-identifier">publishLayerVersionResponse_layerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_description"><span class="hs-identifier">publishLayerVersionResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_compatibleRuntimes"><span class="hs-identifier">publishLayerVersionResponse_compatibleRuntimes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_httpStatus"><span class="hs-identifier">publishLayerVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.html"><span class="hs-identifier">Amazonka.Lambda.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newPublishLayerVersion' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679303056"><span id="local-6989586621679303057"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublishLayerVersion"><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-var">PublishLayerVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublishLayerVersion%27"><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-var">PublishLayerVersion'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The layer\'s software license. It can be any of the following:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   An &lt;https://spdx.org/licenses/ SPDX license identifier&gt;. For</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     example, @MIT@.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   The URL of a license hosted on the internet. For example,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     @https:\/\/opensource.org\/licenses\/MIT@.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   The full text of the license.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AlicenseInfo%3APublishLayerVersion%27"><span class="annot"><span class="annottext">PublishLayerVersion -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlicenseInfo%3APublishLayerVersion%27"><span class="hs-identifier hs-var hs-var">licenseInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | A list of compatible</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures&gt;.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AcompatibleArchitectures%3APublishLayerVersion%27"><span class="annot"><span class="annottext">PublishLayerVersion -&gt; Maybe [Architecture]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleArchitectures%3APublishLayerVersion%27"><span class="hs-identifier hs-var hs-var">compatibleArchitectures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lambda.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The description of the version.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Adescription%3APublishLayerVersion%27"><span class="annot"><span class="annottext">PublishLayerVersion -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Adescription%3APublishLayerVersion%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | A list of compatible</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes&gt;.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Used for filtering with ListLayers and ListLayerVersions.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AcompatibleRuntimes%3APublishLayerVersion%27"><span class="annot"><span class="annottext">PublishLayerVersion -&gt; Maybe [Runtime]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleRuntimes%3APublishLayerVersion%27"><span class="hs-identifier hs-var hs-var">compatibleRuntimes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-type">Runtime</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the layer.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AlayerName%3APublishLayerVersion%27"><span class="annot"><span class="annottext">PublishLayerVersion -&gt; Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlayerName%3APublishLayerVersion%27"><span class="hs-identifier hs-var hs-var">layerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The function layer archive.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Acontent%3APublishLayerVersion%27"><span class="annot"><span class="annottext">PublishLayerVersion -&gt; LayerVersionContentInput
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Acontent%3APublishLayerVersion%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.LayerVersionContentInput.html#LayerVersionContentInput"><span class="hs-identifier hs-type">LayerVersionContentInput</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303045"><span id="local-6989586621679303047"><span class="annot"><span class="annottext">PublishLayerVersion -&gt; PublishLayerVersion -&gt; Bool
+(PublishLayerVersion -&gt; PublishLayerVersion -&gt; Bool)
+-&gt; (PublishLayerVersion -&gt; PublishLayerVersion -&gt; Bool)
+-&gt; Eq PublishLayerVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PublishLayerVersion -&gt; PublishLayerVersion -&gt; Bool
+$c/= :: PublishLayerVersion -&gt; PublishLayerVersion -&gt; Bool
+== :: PublishLayerVersion -&gt; PublishLayerVersion -&gt; Bool
+$c== :: PublishLayerVersion -&gt; PublishLayerVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303038"><span id="local-6989586621679303040"><span id="local-6989586621679303042"><span class="annot"><span class="annottext">Int -&gt; PublishLayerVersion -&gt; ShowS
+[PublishLayerVersion] -&gt; ShowS
+PublishLayerVersion -&gt; String
+(Int -&gt; PublishLayerVersion -&gt; ShowS)
+-&gt; (PublishLayerVersion -&gt; String)
+-&gt; ([PublishLayerVersion] -&gt; ShowS)
+-&gt; Show PublishLayerVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PublishLayerVersion] -&gt; ShowS
+$cshowList :: [PublishLayerVersion] -&gt; ShowS
+show :: PublishLayerVersion -&gt; String
+$cshow :: PublishLayerVersion -&gt; String
+showsPrec :: Int -&gt; PublishLayerVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; PublishLayerVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PublishLayerVersion -&gt; Rep PublishLayerVersion x)
+-&gt; (forall x. Rep PublishLayerVersion x -&gt; PublishLayerVersion)
+-&gt; Generic PublishLayerVersion
+forall x. Rep PublishLayerVersion x -&gt; PublishLayerVersion
+forall x. PublishLayerVersion -&gt; Rep PublishLayerVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PublishLayerVersion x -&gt; PublishLayerVersion
+$cfrom :: forall x. PublishLayerVersion -&gt; Rep PublishLayerVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'PublishLayerVersion' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'licenseInfo', 'publishLayerVersion_licenseInfo' - The layer\'s software license. It can be any of the following:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   An &lt;https://spdx.org/licenses/ SPDX license identifier&gt;. For</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     example, @MIT@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   The URL of a license hosted on the internet. For example,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     @https:\/\/opensource.org\/licenses\/MIT@.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   The full text of the license.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'compatibleArchitectures', 'publishLayerVersion_compatibleArchitectures' - A list of compatible</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures&gt;.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'description', 'publishLayerVersion_description' - The description of the version.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'compatibleRuntimes', 'publishLayerVersion_compatibleRuntimes' - A list of compatible</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes&gt;.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Used for filtering with ListLayers and ListLayerVersions.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'layerName', 'publishLayerVersion_layerName' - The name or Amazon Resource Name (ARN) of the layer.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'content', 'publishLayerVersion_content' - The function layer archive.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#newPublishLayerVersion"><span class="hs-identifier hs-type">newPublishLayerVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'layerName'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'content'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.Types.LayerVersionContentInput.html#LayerVersionContentInput"><span class="hs-identifier hs-type">LayerVersionContentInput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span>
+</span><span id="line-132"></span><span id="newPublishLayerVersion"><span class="annot"><span class="annottext">newPublishLayerVersion :: Text -&gt; LayerVersionContentInput -&gt; PublishLayerVersion
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#newPublishLayerVersion"><span class="hs-identifier hs-var hs-var">newPublishLayerVersion</span></a></span></span><span> </span><span id="local-6989586621679303033"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303033"><span class="hs-identifier hs-var">pLayerName_</span></a></span></span><span> </span><span id="local-6989586621679303032"><span class="annot"><span class="annottext">LayerVersionContentInput
+</span><a href="#local-6989586621679303032"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">PublishLayerVersion' :: Maybe Text
+-&gt; Maybe [Architecture]
+-&gt; Maybe Text
+-&gt; Maybe [Runtime]
+-&gt; Text
+-&gt; LayerVersionContentInput
+-&gt; PublishLayerVersion
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:licenseInfo:PublishLayerVersion' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlicenseInfo%3APublishLayerVersion%27"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:compatibleArchitectures:PublishLayerVersion' :: Maybe [Architecture]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleArchitectures%3APublishLayerVersion%27"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:PublishLayerVersion' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Adescription%3APublishLayerVersion%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:compatibleRuntimes:PublishLayerVersion' :: Maybe [Runtime]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleRuntimes%3APublishLayerVersion%27"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:layerName:PublishLayerVersion' :: Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlayerName%3APublishLayerVersion%27"><span class="hs-identifier hs-var">layerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303033"><span class="hs-identifier hs-var">pLayerName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:PublishLayerVersion' :: LayerVersionContentInput
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Acontent%3APublishLayerVersion%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LayerVersionContentInput
+</span><a href="#local-6989586621679303032"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The layer\'s software license. It can be any of the following:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   An &lt;https://spdx.org/licenses/ SPDX license identifier&gt;. For</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     example, @MIT@.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   The URL of a license hosted on the internet. For example,</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--     @https:\/\/opensource.org\/licenses\/MIT@.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- -   The full text of the license.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_licenseInfo"><span class="hs-identifier hs-type">publishLayerVersion_licenseInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="publishLayerVersion_licenseInfo"><span class="annot"><span class="annottext">publishLayerVersion_licenseInfo :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PublishLayerVersion -&gt; f PublishLayerVersion
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_licenseInfo"><span class="hs-identifier hs-var hs-var">publishLayerVersion_licenseInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersion -&gt; Maybe Text)
+-&gt; (PublishLayerVersion -&gt; Maybe Text -&gt; PublishLayerVersion)
+-&gt; Lens
+     PublishLayerVersion PublishLayerVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303029"><span class="annot"><span class="annottext">Maybe Text
+licenseInfo :: Maybe Text
+$sel:licenseInfo:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679303029"><span class="hs-identifier hs-var hs-var">licenseInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303029"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303028"><span class="annot"><span class="annottext">s :: PublishLayerVersion
+</span><a href="#local-6989586621679303028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303027"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersion
+</span><a href="#local-6989586621679303028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseInfo:PublishLayerVersion' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlicenseInfo%3APublishLayerVersion%27"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | A list of compatible</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures&gt;.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_compatibleArchitectures"><span class="hs-identifier hs-type">publishLayerVersion_compatibleArchitectures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lambda.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="publishLayerVersion_compatibleArchitectures"><span class="annot"><span class="annottext">publishLayerVersion_compatibleArchitectures :: (Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+-&gt; PublishLayerVersion -&gt; f PublishLayerVersion
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_compatibleArchitectures"><span class="hs-identifier hs-var hs-var">publishLayerVersion_compatibleArchitectures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersion -&gt; Maybe [Architecture])
+-&gt; (PublishLayerVersion
+    -&gt; Maybe [Architecture] -&gt; PublishLayerVersion)
+-&gt; Lens
+     PublishLayerVersion
+     PublishLayerVersion
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303026"><span class="annot"><span class="annottext">Maybe [Architecture]
+compatibleArchitectures :: Maybe [Architecture]
+$sel:compatibleArchitectures:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe [Architecture]
+</span><a href="#local-6989586621679303026"><span class="hs-identifier hs-var hs-var">compatibleArchitectures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679303026"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303025"><span class="annot"><span class="annottext">s :: PublishLayerVersion
+</span><a href="#local-6989586621679303025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303024"><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679303024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersion
+</span><a href="#local-6989586621679303025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibleArchitectures:PublishLayerVersion' :: Maybe [Architecture]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleArchitectures%3APublishLayerVersion%27"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679303024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+ -&gt; PublishLayerVersion -&gt; f PublishLayerVersion)
+-&gt; ((Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+    -&gt; Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+-&gt; (Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+-&gt; PublishLayerVersion
+-&gt; f PublishLayerVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Architecture] [Architecture] [Architecture] [Architecture]
+-&gt; Iso
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Architecture] [Architecture] [Architecture] [Architecture]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The description of the version.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_description"><span class="hs-identifier hs-type">publishLayerVersion_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="publishLayerVersion_description"><span class="annot"><span class="annottext">publishLayerVersion_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PublishLayerVersion -&gt; f PublishLayerVersion
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_description"><span class="hs-identifier hs-var hs-var">publishLayerVersion_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersion -&gt; Maybe Text)
+-&gt; (PublishLayerVersion -&gt; Maybe Text -&gt; PublishLayerVersion)
+-&gt; Lens
+     PublishLayerVersion PublishLayerVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303020"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679303020"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303020"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303019"><span class="annot"><span class="annottext">s :: PublishLayerVersion
+</span><a href="#local-6989586621679303019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303018"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersion
+</span><a href="#local-6989586621679303019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PublishLayerVersion' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Adescription%3APublishLayerVersion%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | A list of compatible</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes&gt;.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Used for filtering with ListLayers and ListLayerVersions.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_compatibleRuntimes"><span class="hs-identifier hs-type">publishLayerVersion_compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-type">Runtime</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="publishLayerVersion_compatibleRuntimes"><span class="annot"><span class="annottext">publishLayerVersion_compatibleRuntimes :: (Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+-&gt; PublishLayerVersion -&gt; f PublishLayerVersion
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_compatibleRuntimes"><span class="hs-identifier hs-var hs-var">publishLayerVersion_compatibleRuntimes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersion -&gt; Maybe [Runtime])
+-&gt; (PublishLayerVersion -&gt; Maybe [Runtime] -&gt; PublishLayerVersion)
+-&gt; Lens
+     PublishLayerVersion
+     PublishLayerVersion
+     (Maybe [Runtime])
+     (Maybe [Runtime])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303017"><span class="annot"><span class="annottext">Maybe [Runtime]
+compatibleRuntimes :: Maybe [Runtime]
+$sel:compatibleRuntimes:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe [Runtime]
+</span><a href="#local-6989586621679303017"><span class="hs-identifier hs-var hs-var">compatibleRuntimes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><a href="#local-6989586621679303017"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303016"><span class="annot"><span class="annottext">s :: PublishLayerVersion
+</span><a href="#local-6989586621679303016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303015"><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><a href="#local-6989586621679303015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersion
+</span><a href="#local-6989586621679303016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibleRuntimes:PublishLayerVersion' :: Maybe [Runtime]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleRuntimes%3APublishLayerVersion%27"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><a href="#local-6989586621679303015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+ -&gt; PublishLayerVersion -&gt; f PublishLayerVersion)
+-&gt; ((Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+    -&gt; Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+-&gt; (Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+-&gt; PublishLayerVersion
+-&gt; f PublishLayerVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Runtime] [Runtime] [Runtime] [Runtime]
+-&gt; Iso
+     (Maybe [Runtime])
+     (Maybe [Runtime])
+     (Maybe [Runtime])
+     (Maybe [Runtime])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Runtime] [Runtime] [Runtime] [Runtime]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the layer.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_layerName"><span class="hs-identifier hs-type">publishLayerVersion_layerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-171"></span><span id="publishLayerVersion_layerName"><span class="annot"><span class="annottext">publishLayerVersion_layerName :: (Text -&gt; f Text) -&gt; PublishLayerVersion -&gt; f PublishLayerVersion
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_layerName"><span class="hs-identifier hs-var hs-var">publishLayerVersion_layerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersion -&gt; Text)
+-&gt; (PublishLayerVersion -&gt; Text -&gt; PublishLayerVersion)
+-&gt; Lens PublishLayerVersion PublishLayerVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303014"><span class="annot"><span class="annottext">Text
+layerName :: Text
+$sel:layerName:PublishLayerVersion' :: PublishLayerVersion -&gt; Text
+</span><a href="#local-6989586621679303014"><span class="hs-identifier hs-var hs-var">layerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303014"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303013"><span class="annot"><span class="annottext">s :: PublishLayerVersion
+</span><a href="#local-6989586621679303013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303012"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersion
+</span><a href="#local-6989586621679303013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerName:PublishLayerVersion' :: Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlayerName%3APublishLayerVersion%27"><span class="hs-identifier hs-var">layerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The function layer archive.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_content"><span class="hs-identifier hs-type">publishLayerVersion_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.LayerVersionContentInput.html#LayerVersionContentInput"><span class="hs-identifier hs-type">LayerVersionContentInput</span></a></span><span>
+</span><span id="line-175"></span><span id="publishLayerVersion_content"><span class="annot"><span class="annottext">publishLayerVersion_content :: (LayerVersionContentInput -&gt; f LayerVersionContentInput)
+-&gt; PublishLayerVersion -&gt; f PublishLayerVersion
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersion_content"><span class="hs-identifier hs-var hs-var">publishLayerVersion_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersion -&gt; LayerVersionContentInput)
+-&gt; (PublishLayerVersion
+    -&gt; LayerVersionContentInput -&gt; PublishLayerVersion)
+-&gt; Lens
+     PublishLayerVersion
+     PublishLayerVersion
+     LayerVersionContentInput
+     LayerVersionContentInput
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303011"><span class="annot"><span class="annottext">LayerVersionContentInput
+content :: LayerVersionContentInput
+$sel:content:PublishLayerVersion' :: PublishLayerVersion -&gt; LayerVersionContentInput
+</span><a href="#local-6989586621679303011"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionContentInput
+</span><a href="#local-6989586621679303011"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303010"><span class="annot"><span class="annottext">s :: PublishLayerVersion
+</span><a href="#local-6989586621679303010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303009"><span class="annot"><span class="annottext">LayerVersionContentInput
+</span><a href="#local-6989586621679303009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersion
+</span><a href="#local-6989586621679303010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:PublishLayerVersion' :: LayerVersionContentInput
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Acontent%3APublishLayerVersion%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LayerVersionContentInput
+</span><a href="#local-6989586621679303009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679303005"><span class="annot"><span class="annottext">request :: PublishLayerVersion -&gt; Request PublishLayerVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PublishLayerVersion -&gt; Request PublishLayerVersion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679303001"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PublishLayerVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PublishLayerVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PublishLayerVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PublishLayerVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PublishLayerVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302998"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302997"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302997"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302996"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe LayerVersionContentOutput
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe [Architecture]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Runtime]
+-&gt; Int
+-&gt; PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-var">PublishLayerVersionResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe LayerVersionContentOutput
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe [Architecture]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Runtime]
+ -&gt; Int
+ -&gt; PublishLayerVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe LayerVersionContentOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe [Architecture]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Runtime]
+      -&gt; Int
+      -&gt; PublishLayerVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LayerVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LayerVersionContentOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe [Architecture]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Runtime]
+   -&gt; Int
+   -&gt; PublishLayerVersionResponse)
+-&gt; Either String (Maybe LayerVersionContentOutput)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe [Architecture]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Runtime]
+      -&gt; Int
+      -&gt; PublishLayerVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LayerVersionContentOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe [Architecture]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Runtime]
+   -&gt; Int
+   -&gt; PublishLayerVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe [Architecture]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Runtime]
+      -&gt; Int
+      -&gt; PublishLayerVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe [Architecture]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Runtime]
+   -&gt; Int
+   -&gt; PublishLayerVersionResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Architecture]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Runtime]
+      -&gt; Int
+      -&gt; PublishLayerVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Architecture]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Runtime]
+   -&gt; Int
+   -&gt; PublishLayerVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Architecture]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Runtime]
+      -&gt; Int
+      -&gt; PublishLayerVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Architecture]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Runtime]
+   -&gt; Int
+   -&gt; PublishLayerVersionResponse)
+-&gt; Either String (Maybe [Architecture])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Runtime]
+      -&gt; Int
+      -&gt; PublishLayerVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Architecture]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompatibleArchitectures&quot;</span></span><span>
+</span><span id="line-192"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Architecture]))
+-&gt; Maybe [Architecture] -&gt; Either String (Maybe [Architecture])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-193"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Runtime]
+   -&gt; Int
+   -&gt; PublishLayerVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Runtime] -&gt; Int -&gt; PublishLayerVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LayerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Runtime] -&gt; Int -&gt; PublishLayerVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Runtime] -&gt; Int -&gt; PublishLayerVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Runtime] -&gt; Int -&gt; PublishLayerVersionResponse)
+-&gt; Either String (Maybe [Runtime])
+-&gt; Either String (Int -&gt; PublishLayerVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Runtime]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompatibleRuntimes&quot;</span></span><span>
+</span><span id="line-197"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Runtime]))
+-&gt; Maybe [Runtime] -&gt; Either String (Maybe [Runtime])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-198"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PublishLayerVersionResponse)
+-&gt; Either String Int -&gt; Either String PublishLayerVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302998"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302987"><span id="local-6989586621679302989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679302980"><span class="annot"><span class="annottext">toHeaders :: PublishLayerVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PublishLayerVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302971"><span id="local-6989586621679302973"><span id="local-6989586621679302975"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679302969"><span class="annot"><span class="annottext">toJSON :: PublishLayerVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302962"><span id="local-6989586621679302963"><span id="local-6989586621679302964"><span id="local-6989586621679302965"><span id="local-6989586621679302966"><span id="local-6989586621679302967"><span class="annot"><span class="annottext">Maybe [Architecture]
+Maybe [Runtime]
+Maybe Text
+Text
+LayerVersionContentInput
+content :: LayerVersionContentInput
+layerName :: Text
+compatibleRuntimes :: Maybe [Runtime]
+description :: Maybe Text
+compatibleArchitectures :: Maybe [Architecture]
+licenseInfo :: Maybe Text
+$sel:content:PublishLayerVersion' :: PublishLayerVersion -&gt; LayerVersionContentInput
+$sel:layerName:PublishLayerVersion' :: PublishLayerVersion -&gt; Text
+$sel:compatibleRuntimes:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe [Runtime]
+$sel:description:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe Text
+$sel:compatibleArchitectures:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe [Architecture]
+$sel:licenseInfo:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679302962"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-213"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302967"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompatibleArchitectures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Architecture] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">([Architecture] -&gt; Pair) -&gt; Maybe [Architecture] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679302966"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302965"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompatibleRuntimes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Runtime] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">([Runtime] -&gt; Pair) -&gt; Maybe [Runtime] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><a href="#local-6989586621679302964"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LayerVersionContentInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LayerVersionContentInput
+</span><a href="#local-6989586621679302962"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679302956"><span class="annot"><span class="annottext">toPath :: PublishLayerVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion%27"><span class="hs-identifier hs-type">PublishLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302949"><span id="local-6989586621679302950"><span id="local-6989586621679302951"><span id="local-6989586621679302952"><span id="local-6989586621679302953"><span id="local-6989586621679302954"><span class="annot"><span class="annottext">Maybe [Architecture]
+Maybe [Runtime]
+Maybe Text
+Text
+LayerVersionContentInput
+content :: LayerVersionContentInput
+layerName :: Text
+compatibleRuntimes :: Maybe [Runtime]
+description :: Maybe Text
+compatibleArchitectures :: Maybe [Architecture]
+licenseInfo :: Maybe Text
+$sel:content:PublishLayerVersion' :: PublishLayerVersion -&gt; LayerVersionContentInput
+$sel:layerName:PublishLayerVersion' :: PublishLayerVersion -&gt; Text
+$sel:compatibleRuntimes:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe [Runtime]
+$sel:description:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe Text
+$sel:compatibleArchitectures:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe [Architecture]
+$sel:licenseInfo:PublishLayerVersion' :: PublishLayerVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679302949"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2018-10-31/layers/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302950"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions&quot;</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersion"><span class="hs-identifier hs-type">PublishLayerVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679302945"><span class="annot"><span class="annottext">toQuery :: PublishLayerVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PublishLayerVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | /See:/ 'newPublishLayerVersionResponse' smart constructor.</span><span>
+</span><span id="line-235"></span><span id="local-6989586621679302942"><span id="local-6989586621679302943"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublishLayerVersionResponse"><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-var">PublishLayerVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublishLayerVersionResponse%27"><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-var">PublishLayerVersionResponse'</span></a></span></span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the layer version.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3AlayerVersionArn%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlayerVersionArn%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">layerVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | Details about the layer version.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3Acontent%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Maybe LayerVersionContentOutput
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Acontent%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.LayerVersionContentOutput.html#LayerVersionContentOutput"><span class="hs-identifier hs-type">LayerVersionContentOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The date that the layer version was created, in</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- &lt;https://www.w3.org/TR/NOTE-datetime ISO-8601 format&gt;</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- (YYYY-MM-DDThh:mm:ss.sTZD).</span><span>
+</span><span id="line-243"></span><span>    </span><span id="%24sel%3AcreatedDate%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcreatedDate%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- | The version number.</span><span>
+</span><span id="line-245"></span><span>    </span><span id="%24sel%3Aversion%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Maybe Integer
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Aversion%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">-- | The layer\'s software license.</span><span>
+</span><span id="line-247"></span><span>    </span><span id="%24sel%3AlicenseInfo%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlicenseInfo%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">licenseInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- | A list of compatible</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures&gt;.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3AcompatibleArchitectures%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Maybe [Architecture]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleArchitectures%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">compatibleArchitectures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lambda.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- | The ARN of the layer.</span><span>
+</span><span id="line-252"></span><span>    </span><span id="%24sel%3AlayerArn%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlayerArn%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">layerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- | The description of the version.</span><span>
+</span><span id="line-254"></span><span>    </span><span id="%24sel%3Adescription%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Adescription%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">-- | The layer\'s compatible runtimes.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3AcompatibleRuntimes%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Maybe [Runtime]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleRuntimes%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">compatibleRuntimes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-type">Runtime</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span>    </span><span id="%24sel%3AhttpStatus%3APublishLayerVersionResponse%27"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; Int
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AhttpStatus%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302928"><span id="local-6989586621679302930"><span class="annot"><span class="annottext">PublishLayerVersionResponse -&gt; PublishLayerVersionResponse -&gt; Bool
+(PublishLayerVersionResponse
+ -&gt; PublishLayerVersionResponse -&gt; Bool)
+-&gt; (PublishLayerVersionResponse
+    -&gt; PublishLayerVersionResponse -&gt; Bool)
+-&gt; Eq PublishLayerVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PublishLayerVersionResponse -&gt; PublishLayerVersionResponse -&gt; Bool
+$c/= :: PublishLayerVersionResponse -&gt; PublishLayerVersionResponse -&gt; Bool
+== :: PublishLayerVersionResponse -&gt; PublishLayerVersionResponse -&gt; Bool
+$c== :: PublishLayerVersionResponse -&gt; PublishLayerVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302920"><span id="local-6989586621679302922"><span id="local-6989586621679302924"><span id="local-6989586621679302926"><span class="annot"><span class="annottext">ReadPrec [PublishLayerVersionResponse]
+ReadPrec PublishLayerVersionResponse
+Int -&gt; ReadS PublishLayerVersionResponse
+ReadS [PublishLayerVersionResponse]
+(Int -&gt; ReadS PublishLayerVersionResponse)
+-&gt; ReadS [PublishLayerVersionResponse]
+-&gt; ReadPrec PublishLayerVersionResponse
+-&gt; ReadPrec [PublishLayerVersionResponse]
+-&gt; Read PublishLayerVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PublishLayerVersionResponse]
+$creadListPrec :: ReadPrec [PublishLayerVersionResponse]
+readPrec :: ReadPrec PublishLayerVersionResponse
+$creadPrec :: ReadPrec PublishLayerVersionResponse
+readList :: ReadS [PublishLayerVersionResponse]
+$creadList :: ReadS [PublishLayerVersionResponse]
+readsPrec :: Int -&gt; ReadS PublishLayerVersionResponse
+$creadsPrec :: Int -&gt; ReadS PublishLayerVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302913"><span id="local-6989586621679302915"><span id="local-6989586621679302917"><span class="annot"><span class="annottext">Int -&gt; PublishLayerVersionResponse -&gt; ShowS
+[PublishLayerVersionResponse] -&gt; ShowS
+PublishLayerVersionResponse -&gt; String
+(Int -&gt; PublishLayerVersionResponse -&gt; ShowS)
+-&gt; (PublishLayerVersionResponse -&gt; String)
+-&gt; ([PublishLayerVersionResponse] -&gt; ShowS)
+-&gt; Show PublishLayerVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PublishLayerVersionResponse] -&gt; ShowS
+$cshowList :: [PublishLayerVersionResponse] -&gt; ShowS
+show :: PublishLayerVersionResponse -&gt; String
+$cshow :: PublishLayerVersionResponse -&gt; String
+showsPrec :: Int -&gt; PublishLayerVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PublishLayerVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PublishLayerVersionResponse -&gt; Rep PublishLayerVersionResponse x)
+-&gt; (forall x.
+    Rep PublishLayerVersionResponse x -&gt; PublishLayerVersionResponse)
+-&gt; Generic PublishLayerVersionResponse
+forall x.
+Rep PublishLayerVersionResponse x -&gt; PublishLayerVersionResponse
+forall x.
+PublishLayerVersionResponse -&gt; Rep PublishLayerVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PublishLayerVersionResponse x -&gt; PublishLayerVersionResponse
+$cfrom :: forall x.
+PublishLayerVersionResponse -&gt; Rep PublishLayerVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Create a value of 'PublishLayerVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'layerVersionArn', 'publishLayerVersionResponse_layerVersionArn' - The ARN of the layer version.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'content', 'publishLayerVersionResponse_content' - Details about the layer version.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'createdDate', 'publishLayerVersionResponse_createdDate' - The date that the layer version was created, in</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- &lt;https://www.w3.org/TR/NOTE-datetime ISO-8601 format&gt;</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- (YYYY-MM-DDThh:mm:ss.sTZD).</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'version', 'publishLayerVersionResponse_version' - The version number.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'licenseInfo', 'publishLayerVersionResponse_licenseInfo' - The layer\'s software license.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- 'compatibleArchitectures', 'publishLayerVersionResponse_compatibleArchitectures' - A list of compatible</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures&gt;.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'layerArn', 'publishLayerVersionResponse_layerArn' - The ARN of the layer.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- 'description', 'publishLayerVersionResponse_description' - The description of the version.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- 'compatibleRuntimes', 'publishLayerVersionResponse_compatibleRuntimes' - The layer\'s compatible runtimes.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 'httpStatus', 'publishLayerVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#newPublishLayerVersionResponse"><span class="hs-identifier hs-type">newPublishLayerVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-293"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-294"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-295"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span>
+</span><span id="line-296"></span><span id="newPublishLayerVersionResponse"><span class="annot"><span class="annottext">newPublishLayerVersionResponse :: Int -&gt; PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#newPublishLayerVersionResponse"><span class="hs-identifier hs-var hs-var">newPublishLayerVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679302910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><span class="annottext">PublishLayerVersionResponse' :: Maybe Text
+-&gt; Maybe LayerVersionContentOutput
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe [Architecture]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Runtime]
+-&gt; Int
+-&gt; PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span>
+</span><span id="line-298"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:layerVersionArn:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlayerVersionArn%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">layerVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-299"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:PublishLayerVersionResponse' :: Maybe LayerVersionContentOutput
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Acontent%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LayerVersionContentOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcreatedDate%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:PublishLayerVersionResponse' :: Maybe Integer
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Aversion%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseInfo:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlicenseInfo%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:compatibleArchitectures:PublishLayerVersionResponse' :: Maybe [Architecture]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleArchitectures%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:layerArn:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlayerArn%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">layerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Adescription%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>      </span><span class="annot"><span class="annottext">$sel:compatibleRuntimes:PublishLayerVersionResponse' :: Maybe [Runtime]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleRuntimes%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PublishLayerVersionResponse' :: Int
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AhttpStatus%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-309"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | The ARN of the layer version.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_layerVersionArn"><span class="hs-identifier hs-type">publishLayerVersionResponse_layerVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="publishLayerVersionResponse_layerVersionArn"><span class="annot"><span class="annottext">publishLayerVersionResponse_layerVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_layerVersionArn"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_layerVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Maybe Text)
+-&gt; (PublishLayerVersionResponse
+    -&gt; Maybe Text -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse
+     PublishLayerVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302909"><span class="annot"><span class="annottext">Maybe Text
+layerVersionArn :: Maybe Text
+$sel:layerVersionArn:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679302909"><span class="hs-identifier hs-var hs-var">layerVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302909"><span class="hs-identifier hs-var">layerVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302908"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302907"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerVersionArn:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlayerVersionArn%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">layerVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | Details about the layer version.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_content"><span class="hs-identifier hs-type">publishLayerVersionResponse_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.LayerVersionContentOutput.html#LayerVersionContentOutput"><span class="hs-identifier hs-type">LayerVersionContentOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="publishLayerVersionResponse_content"><span class="annot"><span class="annottext">publishLayerVersionResponse_content :: (Maybe LayerVersionContentOutput
+ -&gt; f (Maybe LayerVersionContentOutput))
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_content"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Maybe LayerVersionContentOutput)
+-&gt; (PublishLayerVersionResponse
+    -&gt; Maybe LayerVersionContentOutput -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse
+     PublishLayerVersionResponse
+     (Maybe LayerVersionContentOutput)
+     (Maybe LayerVersionContentOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302906"><span class="annot"><span class="annottext">Maybe LayerVersionContentOutput
+content :: Maybe LayerVersionContentOutput
+$sel:content:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Maybe LayerVersionContentOutput
+</span><a href="#local-6989586621679302906"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LayerVersionContentOutput
+</span><a href="#local-6989586621679302906"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302905"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302904"><span class="annot"><span class="annottext">Maybe LayerVersionContentOutput
+</span><a href="#local-6989586621679302904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:PublishLayerVersionResponse' :: Maybe LayerVersionContentOutput
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Acontent%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LayerVersionContentOutput
+</span><a href="#local-6989586621679302904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | The date that the layer version was created, in</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- &lt;https://www.w3.org/TR/NOTE-datetime ISO-8601 format&gt;</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- (YYYY-MM-DDThh:mm:ss.sTZD).</span><span>
+</span><span id="line-322"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_createdDate"><span class="hs-identifier hs-type">publishLayerVersionResponse_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span id="publishLayerVersionResponse_createdDate"><span class="annot"><span class="annottext">publishLayerVersionResponse_createdDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_createdDate"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Maybe Text)
+-&gt; (PublishLayerVersionResponse
+    -&gt; Maybe Text -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse
+     PublishLayerVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302903"><span class="annot"><span class="annottext">Maybe Text
+createdDate :: Maybe Text
+$sel:createdDate:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302902"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcreatedDate%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- | The version number.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_version"><span class="hs-identifier hs-type">publishLayerVersionResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span id="publishLayerVersionResponse_version"><span class="annot"><span class="annottext">publishLayerVersionResponse_version :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_version"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Maybe Integer)
+-&gt; (PublishLayerVersionResponse
+    -&gt; Maybe Integer -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse
+     PublishLayerVersionResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302900"><span class="annot"><span class="annottext">Maybe Integer
+version :: Maybe Integer
+$sel:version:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679302900"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679302900"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302899"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302898"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679302898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:PublishLayerVersionResponse' :: Maybe Integer
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Aversion%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679302898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | The layer\'s software license.</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_licenseInfo"><span class="hs-identifier hs-type">publishLayerVersionResponse_licenseInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span id="publishLayerVersionResponse_licenseInfo"><span class="annot"><span class="annottext">publishLayerVersionResponse_licenseInfo :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_licenseInfo"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_licenseInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Maybe Text)
+-&gt; (PublishLayerVersionResponse
+    -&gt; Maybe Text -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse
+     PublishLayerVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302897"><span class="annot"><span class="annottext">Maybe Text
+licenseInfo :: Maybe Text
+$sel:licenseInfo:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679302897"><span class="hs-identifier hs-var hs-var">licenseInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302897"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302896"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseInfo:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlicenseInfo%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- | A list of compatible</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures&gt;.</span><span>
+</span><span id="line-335"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_compatibleArchitectures"><span class="hs-identifier hs-type">publishLayerVersionResponse_compatibleArchitectures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lambda.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span id="publishLayerVersionResponse_compatibleArchitectures"><span class="annot"><span class="annottext">publishLayerVersionResponse_compatibleArchitectures :: (Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_compatibleArchitectures"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_compatibleArchitectures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Maybe [Architecture])
+-&gt; (PublishLayerVersionResponse
+    -&gt; Maybe [Architecture] -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse
+     PublishLayerVersionResponse
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302894"><span class="annot"><span class="annottext">Maybe [Architecture]
+compatibleArchitectures :: Maybe [Architecture]
+$sel:compatibleArchitectures:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Maybe [Architecture]
+</span><a href="#local-6989586621679302894"><span class="hs-identifier hs-var hs-var">compatibleArchitectures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679302894"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302893"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302892"><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679302892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibleArchitectures:PublishLayerVersionResponse' :: Maybe [Architecture]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleArchitectures%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679302892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+ -&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse)
+-&gt; ((Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+    -&gt; Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+-&gt; (Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+-&gt; PublishLayerVersionResponse
+-&gt; f PublishLayerVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Architecture] [Architecture] [Architecture] [Architecture]
+-&gt; Iso
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Architecture] [Architecture] [Architecture] [Architecture]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- | The ARN of the layer.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_layerArn"><span class="hs-identifier hs-type">publishLayerVersionResponse_layerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span id="publishLayerVersionResponse_layerArn"><span class="annot"><span class="annottext">publishLayerVersionResponse_layerArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_layerArn"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_layerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Maybe Text)
+-&gt; (PublishLayerVersionResponse
+    -&gt; Maybe Text -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse
+     PublishLayerVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302891"><span class="annot"><span class="annottext">Maybe Text
+layerArn :: Maybe Text
+$sel:layerArn:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679302891"><span class="hs-identifier hs-var hs-var">layerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302891"><span class="hs-identifier hs-var">layerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302890"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerArn:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AlayerArn%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">layerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- | The description of the version.</span><span>
+</span><span id="line-343"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_description"><span class="hs-identifier hs-type">publishLayerVersionResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span id="publishLayerVersionResponse_description"><span class="annot"><span class="annottext">publishLayerVersionResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_description"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Maybe Text)
+-&gt; (PublishLayerVersionResponse
+    -&gt; Maybe Text -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse
+     PublishLayerVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302888"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302887"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302886"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PublishLayerVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3Adescription%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- | The layer\'s compatible runtimes.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_compatibleRuntimes"><span class="hs-identifier hs-type">publishLayerVersionResponse_compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-type">Runtime</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="publishLayerVersionResponse_compatibleRuntimes"><span class="annot"><span class="annottext">publishLayerVersionResponse_compatibleRuntimes :: (Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_compatibleRuntimes"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_compatibleRuntimes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Maybe [Runtime])
+-&gt; (PublishLayerVersionResponse
+    -&gt; Maybe [Runtime] -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse
+     PublishLayerVersionResponse
+     (Maybe [Runtime])
+     (Maybe [Runtime])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302885"><span class="annot"><span class="annottext">Maybe [Runtime]
+compatibleRuntimes :: Maybe [Runtime]
+$sel:compatibleRuntimes:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Maybe [Runtime]
+</span><a href="#local-6989586621679302885"><span class="hs-identifier hs-var hs-var">compatibleRuntimes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><a href="#local-6989586621679302885"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302884"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302883"><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><a href="#local-6989586621679302883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibleRuntimes:PublishLayerVersionResponse' :: Maybe [Runtime]
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AcompatibleRuntimes%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><a href="#local-6989586621679302883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+ -&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse)
+-&gt; ((Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+    -&gt; Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+-&gt; (Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+-&gt; PublishLayerVersionResponse
+-&gt; f PublishLayerVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Runtime] [Runtime] [Runtime] [Runtime]
+-&gt; Iso
+     (Maybe [Runtime])
+     (Maybe [Runtime])
+     (Maybe [Runtime])
+     (Maybe [Runtime])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Runtime] [Runtime] [Runtime] [Runtime]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_httpStatus"><span class="hs-identifier hs-type">publishLayerVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-352"></span><span id="publishLayerVersionResponse_httpStatus"><span class="annot"><span class="annottext">publishLayerVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PublishLayerVersionResponse -&gt; f PublishLayerVersionResponse
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#publishLayerVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">publishLayerVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishLayerVersionResponse -&gt; Int)
+-&gt; (PublishLayerVersionResponse
+    -&gt; Int -&gt; PublishLayerVersionResponse)
+-&gt; Lens
+     PublishLayerVersionResponse PublishLayerVersionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302882"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PublishLayerVersionResponse' :: PublishLayerVersionResponse -&gt; Int
+</span><a href="#local-6989586621679302882"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302882"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302881"><span class="annot"><span class="annottext">s :: PublishLayerVersionResponse
+</span><a href="#local-6989586621679302881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse%27"><span class="hs-identifier hs-type">PublishLayerVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302880"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishLayerVersionResponse
+</span><a href="#local-6989586621679302881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PublishLayerVersionResponse' :: Int
+</span><a href="Amazonka.Lambda.PublishLayerVersion.html#%24sel%3AhttpStatus%3APublishLayerVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PublishLayerVersion.html#PublishLayerVersionResponse"><span class="hs-identifier hs-type">PublishLayerVersionResponse</span></a></span></span><span>
+</span><span id="line-355"></span></pre></body></html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-4"></span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Module      : Amazonka.Outposts.Lens</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-14"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Outposts.Lens</span><span>
+</span><span id="line-15"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-16"></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteOutpost</span></span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.DeleteOutpost.html#deleteOutpost_outpostId"><span class="hs-identifier">deleteOutpost_outpostId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.DeleteOutpost.html#deleteOutpostResponse_httpStatus"><span class="hs-identifier">deleteOutpostResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteSite</span></span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.DeleteSite.html#deleteSite_siteId"><span class="hs-identifier">deleteSite_siteId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.DeleteSite.html#deleteSiteResponse_httpStatus"><span class="hs-identifier">deleteSiteResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListTagsForResource</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListTagsForResource.html#listTagsForResource_resourceArn"><span class="hs-identifier">listTagsForResource_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListTagsForResource.html#listTagsForResourceResponse_tags"><span class="hs-identifier">listTagsForResourceResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListTagsForResource.html#listTagsForResourceResponse_httpStatus"><span class="hs-identifier">listTagsForResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListOutposts</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListOutposts.html#listOutposts_availabilityZoneFilter"><span class="hs-identifier">listOutposts_availabilityZoneFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListOutposts.html#listOutposts_lifeCycleStatusFilter"><span class="hs-identifier">listOutposts_lifeCycleStatusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListOutposts.html#listOutposts_nextToken"><span class="hs-identifier">listOutposts_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListOutposts.html#listOutposts_availabilityZoneIdFilter"><span class="hs-identifier">listOutposts_availabilityZoneIdFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListOutposts.html#listOutposts_maxResults"><span class="hs-identifier">listOutposts_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListOutposts.html#listOutpostsResponse_nextToken"><span class="hs-identifier">listOutpostsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListOutposts.html#listOutpostsResponse_outposts"><span class="hs-identifier">listOutpostsResponse_outposts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListOutposts.html#listOutpostsResponse_httpStatus"><span class="hs-identifier">listOutpostsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListSites</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListSites.html#listSites_nextToken"><span class="hs-identifier">listSites_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListSites.html#listSites_maxResults"><span class="hs-identifier">listSites_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListSites.html#listSitesResponse_nextToken"><span class="hs-identifier">listSitesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListSites.html#listSitesResponse_sites"><span class="hs-identifier">listSitesResponse_sites</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.ListSites.html#listSitesResponse_httpStatus"><span class="hs-identifier">listSitesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateOrder</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOrder.html#createOrder_paymentTerm"><span class="hs-identifier">createOrder_paymentTerm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOrder.html#createOrder_outpostIdentifier"><span class="hs-identifier">createOrder_outpostIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOrder.html#createOrder_lineItems"><span class="hs-identifier">createOrder_lineItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOrder.html#createOrder_paymentOption"><span class="hs-identifier">createOrder_paymentOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOrder.html#createOrderResponse_order"><span class="hs-identifier">createOrderResponse_order</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOrder.html#createOrderResponse_httpStatus"><span class="hs-identifier">createOrderResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetOutpostInstanceTypes</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpostInstanceTypes.html#getOutpostInstanceTypes_nextToken"><span class="hs-identifier">getOutpostInstanceTypes_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpostInstanceTypes.html#getOutpostInstanceTypes_maxResults"><span class="hs-identifier">getOutpostInstanceTypes_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpostInstanceTypes.html#getOutpostInstanceTypes_outpostId"><span class="hs-identifier">getOutpostInstanceTypes_outpostId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpostInstanceTypes.html#getOutpostInstanceTypesResponse_instanceTypes"><span class="hs-identifier">getOutpostInstanceTypesResponse_instanceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpostInstanceTypes.html#getOutpostInstanceTypesResponse_outpostArn"><span class="hs-identifier">getOutpostInstanceTypesResponse_outpostArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpostInstanceTypes.html#getOutpostInstanceTypesResponse_nextToken"><span class="hs-identifier">getOutpostInstanceTypesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpostInstanceTypes.html#getOutpostInstanceTypesResponse_outpostId"><span class="hs-identifier">getOutpostInstanceTypesResponse_outpostId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpostInstanceTypes.html#getOutpostInstanceTypesResponse_httpStatus"><span class="hs-identifier">getOutpostInstanceTypesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateOutpost</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOutpost.html#createOutpost_availabilityZoneId"><span class="hs-identifier">createOutpost_availabilityZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOutpost.html#createOutpost_availabilityZone"><span class="hs-identifier">createOutpost_availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOutpost.html#createOutpost_description"><span class="hs-identifier">createOutpost_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOutpost.html#createOutpost_tags"><span class="hs-identifier">createOutpost_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOutpost.html#createOutpost_name"><span class="hs-identifier">createOutpost_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOutpost.html#createOutpost_siteId"><span class="hs-identifier">createOutpost_siteId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOutpost.html#createOutpostResponse_outpost"><span class="hs-identifier">createOutpostResponse_outpost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.CreateOutpost.html#createOutpostResponse_httpStatus"><span class="hs-identifier">createOutpostResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetOutpost</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpost.html#getOutpost_outpostId"><span class="hs-identifier">getOutpost_outpostId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpost.html#getOutpostResponse_outpost"><span class="hs-identifier">getOutpostResponse_outpost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.GetOutpost.html#getOutpostResponse_httpStatus"><span class="hs-identifier">getOutpostResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TagResource</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.TagResource.html#tagResource_resourceArn"><span class="hs-identifier">tagResource_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.TagResource.html#tagResource_tags"><span class="hs-identifier">tagResource_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.TagResource.html#tagResourceResponse_httpStatus"><span class="hs-identifier">tagResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UntagResource</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.UntagResource.html#untagResource_resourceArn"><span class="hs-identifier">untagResource_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.UntagResource.html#untagResource_tagKeys"><span class="hs-identifier">untagResource_tagKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.UntagResource.html#untagResourceResponse_httpStatus"><span class="hs-identifier">untagResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InstanceTypeItem</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.InstanceTypeItem.html#instanceTypeItem_instanceType"><span class="hs-identifier">instanceTypeItem_instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LineItem</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_status"><span class="hs-identifier">lineItem_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_quantity"><span class="hs-identifier">lineItem_quantity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_catalogItemId"><span class="hs-identifier">lineItem_catalogItemId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html#lineItem_lineItemId"><span class="hs-identifier">lineItem_lineItemId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LineItemRequest</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItemRequest.html#lineItemRequest_quantity"><span class="hs-identifier">lineItemRequest_quantity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItemRequest.html#lineItemRequest_catalogItemId"><span class="hs-identifier">lineItemRequest_catalogItemId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Order</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Order.html#order_status"><span class="hs-identifier">order_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Order.html#order_orderSubmissionDate"><span class="hs-identifier">order_orderSubmissionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Order.html#order_lineItems"><span class="hs-identifier">order_lineItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Order.html#order_orderFulfilledDate"><span class="hs-identifier">order_orderFulfilledDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Order.html#order_orderId"><span class="hs-identifier">order_orderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Order.html#order_outpostId"><span class="hs-identifier">order_outpostId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Order.html#order_paymentOption"><span class="hs-identifier">order_paymentOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Outpost</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_availabilityZoneId"><span class="hs-identifier">outpost_availabilityZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_outpostArn"><span class="hs-identifier">outpost_outpostArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_ownerId"><span class="hs-identifier">outpost_ownerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_availabilityZone"><span class="hs-identifier">outpost_availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_name"><span class="hs-identifier">outpost_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_lifeCycleStatus"><span class="hs-identifier">outpost_lifeCycleStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_outpostId"><span class="hs-identifier">outpost_outpostId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_siteId"><span class="hs-identifier">outpost_siteId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_siteArn"><span class="hs-identifier">outpost_siteArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_description"><span class="hs-identifier">outpost_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html#outpost_tags"><span class="hs-identifier">outpost_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Site</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Site.html#site_accountId"><span class="hs-identifier">site_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Site.html#site_name"><span class="hs-identifier">site_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Site.html#site_siteId"><span class="hs-identifier">site_siteId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Site.html#site_siteArn"><span class="hs-identifier">site_siteArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Site.html#site_description"><span class="hs-identifier">site_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.Outposts.Types.Site.html#site_tags"><span class="hs-identifier">site_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.CreateOrder.html"><span class="hs-identifier">Amazonka.Outposts.CreateOrder</span></a></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.CreateOutpost.html"><span class="hs-identifier">Amazonka.Outposts.CreateOutpost</span></a></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.DeleteOutpost.html"><span class="hs-identifier">Amazonka.Outposts.DeleteOutpost</span></a></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.DeleteSite.html"><span class="hs-identifier">Amazonka.Outposts.DeleteSite</span></a></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.GetOutpost.html"><span class="hs-identifier">Amazonka.Outposts.GetOutpost</span></a></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.GetOutpostInstanceTypes.html"><span class="hs-identifier">Amazonka.Outposts.GetOutpostInstanceTypes</span></a></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.ListOutposts.html"><span class="hs-identifier">Amazonka.Outposts.ListOutposts</span></a></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.ListSites.html"><span class="hs-identifier">Amazonka.Outposts.ListSites</span></a></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.ListTagsForResource.html"><span class="hs-identifier">Amazonka.Outposts.ListTagsForResource</span></a></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.TagResource.html"><span class="hs-identifier">Amazonka.Outposts.TagResource</span></a></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.InstanceTypeItem.html"><span class="hs-identifier">Amazonka.Outposts.Types.InstanceTypeItem</span></a></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItem.html"><span class="hs-identifier">Amazonka.Outposts.Types.LineItem</span></a></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.LineItemRequest.html"><span class="hs-identifier">Amazonka.Outposts.Types.LineItemRequest</span></a></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.Order.html"><span class="hs-identifier">Amazonka.Outposts.Types.Order</span></a></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.Outpost.html"><span class="hs-identifier">Amazonka.Outposts.Types.Outpost</span></a></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.Types.Site.html"><span class="hs-identifier">Amazonka.Outposts.Types.Site</span></a></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Outposts.UntagResource.html"><span class="hs-identifier">Amazonka.Outposts.UntagResource</span></a></span><span>
+</span><span id="line-154"></span></pre></body></html>

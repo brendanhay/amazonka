@@ -5,16 +5,16 @@
 @version 2.0
 
 
-module Network.AWS.S3.Encryption.Body
+module Amazonka.S3.Encryption.Body
 class ToChunkedBody a
 toChunked :: ToChunkedBody a => a -> ChunkedBody
 enforceChunks :: Integral a => a -> ConduitT () ByteString (ResourceT IO) () -> ChunkedBody
-instance Network.AWS.S3.Encryption.Body.ToChunkedBody Network.AWS.Data.Body.ChunkedBody
-instance Network.AWS.S3.Encryption.Body.ToChunkedBody Network.AWS.Data.Body.HashedBody
-instance Network.AWS.S3.Encryption.Body.ToChunkedBody Network.AWS.Data.Body.RequestBody
+instance Amazonka.S3.Encryption.Body.ToChunkedBody Amazonka.Data.Body.ChunkedBody
+instance Amazonka.S3.Encryption.Body.ToChunkedBody Amazonka.Data.Body.HashedBody
+instance Amazonka.S3.Encryption.Body.ToChunkedBody Amazonka.Data.Body.RequestBody
 
 
-module Network.AWS.S3.Encryption.Types
+module Amazonka.S3.Encryption.Types
 
 -- | An error thrown when performing encryption or decryption.
 data EncryptionError
@@ -36,14 +36,14 @@ EnvelopeInvalid :: CI Text -> String -> EncryptionError
 
 -- | KMS error when retrieving decrypted plaintext.
 PlaintextUnavailable :: EncryptionError
-class AsEncryptionError r_anBL
-_EncryptionError :: AsEncryptionError r_anBL => Prism' r_anBL EncryptionError
-_CipherFailure :: AsEncryptionError r_anBL => Prism' r_anBL CryptoError
-_PubKeyFailure :: AsEncryptionError r_anBL => Prism' r_anBL Error
-_IVInvalid :: AsEncryptionError r_anBL => Prism' r_anBL ByteString
-_EnvelopeMissing :: AsEncryptionError r_anBL => Prism' r_anBL (CI Text)
-_EnvelopeInvalid :: AsEncryptionError r_anBL => Prism' r_anBL (CI Text, String)
-_PlaintextUnavailable :: AsEncryptionError r_anBL => Prism' r_anBL ()
+class AsEncryptionError r_anJa
+_EncryptionError :: AsEncryptionError r_anJa => Prism' r_anJa EncryptionError
+_CipherFailure :: AsEncryptionError r_anJa => Prism' r_anJa CryptoError
+_PubKeyFailure :: AsEncryptionError r_anJa => Prism' r_anJa Error
+_IVInvalid :: AsEncryptionError r_anJa => Prism' r_anJa ByteString
+_EnvelopeMissing :: AsEncryptionError r_anJa => Prism' r_anJa (CI Text)
+_EnvelopeInvalid :: AsEncryptionError r_anJa => Prism' r_anJa (CI Text, String)
+_PlaintextUnavailable :: AsEncryptionError r_anJa => Prism' r_anJa ()
 data ContentAlgorithm
 
 -- | AES<i>CBC</i>PKCS5Padding
@@ -82,30 +82,30 @@ KMS :: Text -> Description -> Key
 --   
 --   <i>See:</i> <a>Description</a>.
 description :: Lens' Key Description
-instance GHC.Classes.Eq Network.AWS.S3.Encryption.Types.Location
-instance Data.String.IsString Network.AWS.S3.Encryption.Types.Ext
-instance GHC.Show.Show Network.AWS.S3.Encryption.Types.Ext
-instance GHC.Classes.Eq Network.AWS.S3.Encryption.Types.Ext
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.S3.Encryption.Types.Description
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.S3.Encryption.Types.Description
-instance GHC.Base.Monoid Network.AWS.S3.Encryption.Types.Description
-instance GHC.Base.Semigroup Network.AWS.S3.Encryption.Types.Description
-instance GHC.Show.Show Network.AWS.S3.Encryption.Types.Description
-instance GHC.Classes.Eq Network.AWS.S3.Encryption.Types.Description
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.S3.Encryption.Types.Description
-instance Network.AWS.Data.Text.FromText Network.AWS.S3.Encryption.Types.Description
-instance Network.AWS.Data.Text.FromText Network.AWS.S3.Encryption.Types.WrappingAlgorithm
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.S3.Encryption.Types.WrappingAlgorithm
-instance Network.AWS.Data.Text.FromText Network.AWS.S3.Encryption.Types.ContentAlgorithm
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.S3.Encryption.Types.ContentAlgorithm
-instance Network.AWS.S3.Encryption.Types.AsEncryptionError Network.AWS.S3.Encryption.Types.EncryptionError
-instance Network.AWS.S3.Encryption.Types.AsEncryptionError GHC.Exception.Type.SomeException
-instance GHC.Show.Show Network.AWS.S3.Encryption.Types.EncryptionError
-instance GHC.Classes.Eq Network.AWS.S3.Encryption.Types.EncryptionError
-instance GHC.Exception.Type.Exception Network.AWS.S3.Encryption.Types.EncryptionError
+instance GHC.Classes.Eq Amazonka.S3.Encryption.Types.Location
+instance Data.String.IsString Amazonka.S3.Encryption.Types.Ext
+instance GHC.Show.Show Amazonka.S3.Encryption.Types.Ext
+instance GHC.Classes.Eq Amazonka.S3.Encryption.Types.Ext
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.S3.Encryption.Types.Description
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.S3.Encryption.Types.Description
+instance GHC.Base.Monoid Amazonka.S3.Encryption.Types.Description
+instance GHC.Base.Semigroup Amazonka.S3.Encryption.Types.Description
+instance GHC.Show.Show Amazonka.S3.Encryption.Types.Description
+instance GHC.Classes.Eq Amazonka.S3.Encryption.Types.Description
+instance Amazonka.Data.ByteString.ToByteString Amazonka.S3.Encryption.Types.Description
+instance Amazonka.Data.Text.FromText Amazonka.S3.Encryption.Types.Description
+instance Amazonka.Data.Text.FromText Amazonka.S3.Encryption.Types.WrappingAlgorithm
+instance Amazonka.Data.ByteString.ToByteString Amazonka.S3.Encryption.Types.WrappingAlgorithm
+instance Amazonka.Data.Text.FromText Amazonka.S3.Encryption.Types.ContentAlgorithm
+instance Amazonka.Data.ByteString.ToByteString Amazonka.S3.Encryption.Types.ContentAlgorithm
+instance Amazonka.S3.Encryption.Types.AsEncryptionError Amazonka.S3.Encryption.Types.EncryptionError
+instance Amazonka.S3.Encryption.Types.AsEncryptionError GHC.Exception.Type.SomeException
+instance GHC.Show.Show Amazonka.S3.Encryption.Types.EncryptionError
+instance GHC.Classes.Eq Amazonka.S3.Encryption.Types.EncryptionError
+instance GHC.Exception.Type.Exception Amazonka.S3.Encryption.Types.EncryptionError
 
 
-module Network.AWS.S3.Encryption.Envelope
+module Amazonka.S3.Encryption.Envelope
 data V1Envelope
 V1Envelope :: !ByteString -> !IV AES256 -> !Description -> V1Envelope
 
@@ -179,12 +179,12 @@ plaintext :: MonadIO m => DecryptResponse -> m ByteString
 (.&) :: (MonadIO m, FromText a) => [(CI Text, Text)] -> CI Text -> m a
 hoistEither :: MonadIO m => Either EncryptionError a -> m a
 throwIO :: MonadIO m => EncryptionError -> m a
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.S3.Encryption.Envelope.Envelope
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.S3.Encryption.Envelope.Envelope
-instance Network.AWS.Data.Body.ToBody Network.AWS.S3.Encryption.Envelope.Envelope
+instance Amazonka.Data.Headers.ToHeaders Amazonka.S3.Encryption.Envelope.Envelope
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.S3.Encryption.Envelope.Envelope
+instance Amazonka.Data.Body.ToBody Amazonka.S3.Encryption.Envelope.Envelope
 
 
-module Network.AWS.S3.Encryption.Instructions
+module Amazonka.S3.Encryption.Instructions
 newtype Instructions
 Instructions :: (forall m. MonadResource m => Key -> Env -> m Envelope) -> Instructions
 [runInstructions] :: Instructions -> forall m. MonadResource m => Key -> Env -> m Envelope
@@ -214,21 +214,21 @@ DeleteInstructions :: Ext -> DeleteObject -> DeleteInstructions
 [_diDelete] :: DeleteInstructions -> DeleteObject
 deleteInstructions :: RemoveInstructions a => a -> DeleteInstructions
 diExtension :: Lens' DeleteInstructions Ext
-instance GHC.Show.Show Network.AWS.S3.Encryption.Instructions.PutInstructions
-instance GHC.Show.Show Network.AWS.S3.Encryption.Instructions.GetInstructions
-instance GHC.Show.Show Network.AWS.S3.Encryption.Instructions.DeleteInstructions
-instance Network.AWS.Types.AWSRequest Network.AWS.S3.Encryption.Instructions.DeleteInstructions
-instance Network.AWS.S3.Encryption.Instructions.RemoveInstructions Network.AWS.S3.AbortMultipartUpload.AbortMultipartUpload
-instance Network.AWS.S3.Encryption.Instructions.RemoveInstructions Network.AWS.S3.DeleteObject.DeleteObject
-instance Network.AWS.Types.AWSRequest Network.AWS.S3.Encryption.Instructions.GetInstructions
-instance Network.AWS.Types.AWSRequest Network.AWS.S3.Encryption.Instructions.PutInstructions
-instance Network.AWS.S3.Encryption.Instructions.AddInstructions Network.AWS.S3.PutObject.PutObject
-instance Network.AWS.S3.Encryption.Instructions.AddInstructions Network.AWS.S3.GetObject.GetObject
-instance Network.AWS.S3.Encryption.Instructions.AddInstructions Network.AWS.S3.CreateMultipartUpload.CreateMultipartUpload
-instance Network.AWS.S3.Encryption.Instructions.AddInstructions Network.AWS.S3.UploadPart.UploadPart
+instance GHC.Show.Show Amazonka.S3.Encryption.Instructions.PutInstructions
+instance GHC.Show.Show Amazonka.S3.Encryption.Instructions.GetInstructions
+instance GHC.Show.Show Amazonka.S3.Encryption.Instructions.DeleteInstructions
+instance Amazonka.Types.AWSRequest Amazonka.S3.Encryption.Instructions.DeleteInstructions
+instance Amazonka.S3.Encryption.Instructions.RemoveInstructions Amazonka.S3.AbortMultipartUpload.AbortMultipartUpload
+instance Amazonka.S3.Encryption.Instructions.RemoveInstructions Amazonka.S3.DeleteObject.DeleteObject
+instance Amazonka.Types.AWSRequest Amazonka.S3.Encryption.Instructions.GetInstructions
+instance Amazonka.Types.AWSRequest Amazonka.S3.Encryption.Instructions.PutInstructions
+instance Amazonka.S3.Encryption.Instructions.AddInstructions Amazonka.S3.PutObject.PutObject
+instance Amazonka.S3.Encryption.Instructions.AddInstructions Amazonka.S3.GetObject.GetObject
+instance Amazonka.S3.Encryption.Instructions.AddInstructions Amazonka.S3.CreateMultipartUpload.CreateMultipartUpload
+instance Amazonka.S3.Encryption.Instructions.AddInstructions Amazonka.S3.UploadPart.UploadPart
 
 
-module Network.AWS.S3.Encryption.Encrypt
+module Amazonka.S3.Encryption.Encrypt
 
 -- | Note about how it doesn't attach metadata by default. You can re-set
 --   the location and then discard the PutInstructions request.
@@ -247,13 +247,13 @@ class AddInstructions a => ToEncrypted a
 
 -- | Create an encryption context.
 encryptWith :: ToEncrypted a => a -> Location -> Envelope -> Encrypted a
-instance Network.AWS.S3.Encryption.Encrypt.ToEncrypted Network.AWS.S3.CreateMultipartUpload.CreateMultipartUpload
-instance Network.AWS.S3.Encryption.Encrypt.ToEncrypted Network.AWS.S3.PutObject.PutObject
-instance Network.AWS.S3.Encryption.Encrypt.ToEncrypted Network.AWS.S3.UploadPart.UploadPart
-instance Network.AWS.Types.AWSRequest a => Network.AWS.Types.AWSRequest (Network.AWS.S3.Encryption.Encrypt.Encrypted a)
+instance Amazonka.S3.Encryption.Encrypt.ToEncrypted Amazonka.S3.CreateMultipartUpload.CreateMultipartUpload
+instance Amazonka.S3.Encryption.Encrypt.ToEncrypted Amazonka.S3.PutObject.PutObject
+instance Amazonka.S3.Encryption.Encrypt.ToEncrypted Amazonka.S3.UploadPart.UploadPart
+instance Amazonka.Types.AWSRequest a => Amazonka.Types.AWSRequest (Amazonka.S3.Encryption.Encrypt.Encrypted a)
 
 
-module Network.AWS.S3.Encryption.Decrypt
+module Amazonka.S3.Encryption.Decrypt
 decrypted :: GetObject -> (Decrypt GetObject, GetInstructions)
 newtype Decrypt a
 Decrypt :: a -> Decrypt a
@@ -261,7 +261,7 @@ newtype Decrypted a
 Decrypted :: (forall m. MonadResource m => Key -> Env -> Maybe Envelope -> m a) -> Decrypted a
 [runDecrypted] :: Decrypted a -> forall m. MonadResource m => Key -> Env -> Maybe Envelope -> m a
 proxy :: forall a. Proxy (Decrypt a) -> Proxy a
-instance Network.AWS.Types.AWSRequest (Network.AWS.S3.Encryption.Decrypt.Decrypt Network.AWS.S3.GetObject.GetObject)
+instance Amazonka.Types.AWSRequest (Amazonka.S3.Encryption.Decrypt.Decrypt Amazonka.S3.GetObject.GetObject)
 
 
 -- | Addons for <a>amazonka-s3</a> to support client-side encryption.
@@ -307,7 +307,7 @@ instance Network.AWS.Types.AWSRequest (Network.AWS.S3.Encryption.Decrypt.Decrypt
 --   set of the possible encryption options are supported. Therefore
 --   assuming defaults, objects stored with this library should be
 --   retrievable by any of the other official SDKs, and vice versa.
-module Network.AWS.S3.Encryption
+module Amazonka.S3.Encryption
 
 -- | The key used for encryption and decryption.
 data Key
@@ -432,11 +432,11 @@ EnvelopeInvalid :: CI Text -> String -> EncryptionError
 
 -- | KMS error when retrieving decrypted plaintext.
 PlaintextUnavailable :: EncryptionError
-class AsEncryptionError r_anBL
-_EncryptionError :: AsEncryptionError r_anBL => Prism' r_anBL EncryptionError
-_CipherFailure :: AsEncryptionError r_anBL => Prism' r_anBL CryptoError
-_PubKeyFailure :: AsEncryptionError r_anBL => Prism' r_anBL Error
-_IVInvalid :: AsEncryptionError r_anBL => Prism' r_anBL ByteString
-_EnvelopeMissing :: AsEncryptionError r_anBL => Prism' r_anBL (CI Text)
-_EnvelopeInvalid :: AsEncryptionError r_anBL => Prism' r_anBL (CI Text, String)
-_PlaintextUnavailable :: AsEncryptionError r_anBL => Prism' r_anBL ()
+class AsEncryptionError r_anJa
+_EncryptionError :: AsEncryptionError r_anJa => Prism' r_anJa EncryptionError
+_CipherFailure :: AsEncryptionError r_anJa => Prism' r_anJa CryptoError
+_PubKeyFailure :: AsEncryptionError r_anJa => Prism' r_anJa Error
+_IVInvalid :: AsEncryptionError r_anJa => Prism' r_anJa ByteString
+_EnvelopeMissing :: AsEncryptionError r_anJa => Prism' r_anJa (CI Text)
+_EnvelopeInvalid :: AsEncryptionError r_anJa => Prism' r_anJa (CI Text, String)
+_PlaintextUnavailable :: AsEncryptionError r_anJa => Prism' r_anJa ()

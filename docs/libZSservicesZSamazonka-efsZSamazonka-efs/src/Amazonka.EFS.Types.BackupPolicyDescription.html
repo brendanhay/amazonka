@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EFS.Types.BackupPolicyDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EFS.Types.BackupPolicyDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicy.html"><span class="hs-identifier">Amazonka.EFS.Types.BackupPolicy</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newBackupPolicyDescription' smart constructor.</span><span>
+</span><span id="line-28"></span><span id="local-6989586621679185521"><span id="local-6989586621679185522"></span></span><span class="hs-keyword">data</span><span> </span><span id="BackupPolicyDescription"><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription"><span class="hs-identifier hs-var">BackupPolicyDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BackupPolicyDescription%27"><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription%27"><span class="hs-identifier hs-var">BackupPolicyDescription'</span></a></span></span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the file system\'s backup policy, indicating whether automatic</span><span>
+</span><span id="line-30"></span><span>    </span><span class="hs-comment">-- backups are turned on or off..</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AbackupPolicy%3ABackupPolicyDescription%27"><span class="annot"><span class="annottext">BackupPolicyDescription -&gt; Maybe BackupPolicy
+</span><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#%24sel%3AbackupPolicy%3ABackupPolicyDescription%27"><span class="hs-identifier hs-var hs-var">backupPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicy.html#BackupPolicy"><span class="hs-identifier hs-type">BackupPolicy</span></a></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185515"><span id="local-6989586621679185517"><span class="annot"><span class="annottext">BackupPolicyDescription -&gt; BackupPolicyDescription -&gt; Bool
+(BackupPolicyDescription -&gt; BackupPolicyDescription -&gt; Bool)
+-&gt; (BackupPolicyDescription -&gt; BackupPolicyDescription -&gt; Bool)
+-&gt; Eq BackupPolicyDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BackupPolicyDescription -&gt; BackupPolicyDescription -&gt; Bool
+$c/= :: BackupPolicyDescription -&gt; BackupPolicyDescription -&gt; Bool
+== :: BackupPolicyDescription -&gt; BackupPolicyDescription -&gt; Bool
+$c== :: BackupPolicyDescription -&gt; BackupPolicyDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185506"><span id="local-6989586621679185508"><span id="local-6989586621679185510"><span id="local-6989586621679185512"><span class="annot"><span class="annottext">ReadPrec [BackupPolicyDescription]
+ReadPrec BackupPolicyDescription
+Int -&gt; ReadS BackupPolicyDescription
+ReadS [BackupPolicyDescription]
+(Int -&gt; ReadS BackupPolicyDescription)
+-&gt; ReadS [BackupPolicyDescription]
+-&gt; ReadPrec BackupPolicyDescription
+-&gt; ReadPrec [BackupPolicyDescription]
+-&gt; Read BackupPolicyDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BackupPolicyDescription]
+$creadListPrec :: ReadPrec [BackupPolicyDescription]
+readPrec :: ReadPrec BackupPolicyDescription
+$creadPrec :: ReadPrec BackupPolicyDescription
+readList :: ReadS [BackupPolicyDescription]
+$creadList :: ReadS [BackupPolicyDescription]
+readsPrec :: Int -&gt; ReadS BackupPolicyDescription
+$creadsPrec :: Int -&gt; ReadS BackupPolicyDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185499"><span id="local-6989586621679185501"><span id="local-6989586621679185503"><span class="annot"><span class="annottext">Int -&gt; BackupPolicyDescription -&gt; ShowS
+[BackupPolicyDescription] -&gt; ShowS
+BackupPolicyDescription -&gt; String
+(Int -&gt; BackupPolicyDescription -&gt; ShowS)
+-&gt; (BackupPolicyDescription -&gt; String)
+-&gt; ([BackupPolicyDescription] -&gt; ShowS)
+-&gt; Show BackupPolicyDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BackupPolicyDescription] -&gt; ShowS
+$cshowList :: [BackupPolicyDescription] -&gt; ShowS
+show :: BackupPolicyDescription -&gt; String
+$cshow :: BackupPolicyDescription -&gt; String
+showsPrec :: Int -&gt; BackupPolicyDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; BackupPolicyDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BackupPolicyDescription -&gt; Rep BackupPolicyDescription x)
+-&gt; (forall x.
+    Rep BackupPolicyDescription x -&gt; BackupPolicyDescription)
+-&gt; Generic BackupPolicyDescription
+forall x. Rep BackupPolicyDescription x -&gt; BackupPolicyDescription
+forall x. BackupPolicyDescription -&gt; Rep BackupPolicyDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BackupPolicyDescription x -&gt; BackupPolicyDescription
+$cfrom :: forall x. BackupPolicyDescription -&gt; Rep BackupPolicyDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Create a value of 'BackupPolicyDescription' with all optional fields omitted.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- 'backupPolicy', 'backupPolicyDescription_backupPolicy' - Describes the file system\'s backup policy, indicating whether automatic</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- backups are turned on or off..</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#newBackupPolicyDescription"><span class="hs-identifier hs-type">newBackupPolicyDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription"><span class="hs-identifier hs-type">BackupPolicyDescription</span></a></span><span>
+</span><span id="line-47"></span><span id="newBackupPolicyDescription"><span class="annot"><span class="annottext">newBackupPolicyDescription :: BackupPolicyDescription
+</span><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#newBackupPolicyDescription"><span class="hs-identifier hs-var hs-var">newBackupPolicyDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">BackupPolicyDescription' :: Maybe BackupPolicy -&gt; BackupPolicyDescription
+</span><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription%27"><span class="hs-identifier hs-type">BackupPolicyDescription'</span></a></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupPolicy:BackupPolicyDescription' :: Maybe BackupPolicy
+</span><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#%24sel%3AbackupPolicy%3ABackupPolicyDescription%27"><span class="hs-identifier hs-var">backupPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><span class="annottext">Maybe BackupPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Describes the file system\'s backup policy, indicating whether automatic</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- backups are turned on or off..</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#backupPolicyDescription_backupPolicy"><span class="hs-identifier hs-type">backupPolicyDescription_backupPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription"><span class="hs-identifier hs-type">BackupPolicyDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicy.html#BackupPolicy"><span class="hs-identifier hs-type">BackupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span id="backupPolicyDescription_backupPolicy"><span class="annot"><span class="annottext">backupPolicyDescription_backupPolicy :: (Maybe BackupPolicy -&gt; f (Maybe BackupPolicy))
+-&gt; BackupPolicyDescription -&gt; f BackupPolicyDescription
+</span><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#backupPolicyDescription_backupPolicy"><span class="hs-identifier hs-var hs-var">backupPolicyDescription_backupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackupPolicyDescription -&gt; Maybe BackupPolicy)
+-&gt; (BackupPolicyDescription
+    -&gt; Maybe BackupPolicy -&gt; BackupPolicyDescription)
+-&gt; Lens
+     BackupPolicyDescription
+     BackupPolicyDescription
+     (Maybe BackupPolicy)
+     (Maybe BackupPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription%27"><span class="hs-identifier hs-type">BackupPolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185490"><span class="annot"><span class="annottext">Maybe BackupPolicy
+backupPolicy :: Maybe BackupPolicy
+$sel:backupPolicy:BackupPolicyDescription' :: BackupPolicyDescription -&gt; Maybe BackupPolicy
+</span><a href="#local-6989586621679185490"><span class="hs-identifier hs-var hs-var">backupPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackupPolicy
+</span><a href="#local-6989586621679185490"><span class="hs-identifier hs-var">backupPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185489"><span class="annot"><span class="annottext">s :: BackupPolicyDescription
+</span><a href="#local-6989586621679185489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription%27"><span class="hs-identifier hs-type">BackupPolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185488"><span class="annot"><span class="annottext">Maybe BackupPolicy
+</span><a href="#local-6989586621679185488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupPolicyDescription
+</span><a href="#local-6989586621679185489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupPolicy:BackupPolicyDescription' :: Maybe BackupPolicy
+</span><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#%24sel%3AbackupPolicy%3ABackupPolicyDescription%27"><span class="hs-identifier hs-var">backupPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupPolicy
+</span><a href="#local-6989586621679185488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription"><span class="hs-identifier hs-type">BackupPolicyDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185485"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription"><span class="hs-identifier hs-type">BackupPolicyDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679185483"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BackupPolicyDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BackupPolicyDescription)
+-&gt; Value
+-&gt; Parser BackupPolicyDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BackupPolicyDescription&quot;</span></span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185480"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185480"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe BackupPolicy -&gt; BackupPolicyDescription
+</span><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription%27"><span class="hs-identifier hs-var">BackupPolicyDescription'</span></a></span><span>
+</span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BackupPolicy -&gt; BackupPolicyDescription)
+-&gt; Parser (Maybe BackupPolicy) -&gt; Parser BackupPolicyDescription
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BackupPolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185474"><span id="local-6989586621679185476"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription"><span class="hs-identifier hs-type">BackupPolicyDescription</span></a></span></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EFS.Types.BackupPolicyDescription.html#BackupPolicyDescription"><span class="hs-identifier hs-type">BackupPolicyDescription</span></a></span></span><span>
+</span><span id="line-70"></span></pre></body></html>

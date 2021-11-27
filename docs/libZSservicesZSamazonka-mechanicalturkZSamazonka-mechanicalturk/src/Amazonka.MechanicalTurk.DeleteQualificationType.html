@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MechanicalTurk.DeleteQualificationType</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The @DeleteQualificationType@ deletes a Qualification type and deletes</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- any HIT types that are associated with the Qualification type.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation does not revoke Qualifications already assigned to</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Workers because the Qualifications might be needed for active HITs. If</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- there are any pending requests for the Qualification type, Amazon</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Mechanical Turk rejects those requests. After you delete a Qualification</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- type, you can no longer use it to create HITs or HIT types.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- DeleteQualificationType must wait for all the HITs that use the deleted</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Qualification type to be deleted before completing. It may take up to 48</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- hours before DeleteQualificationType completes and the unique name of</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- the Qualification type is available for reuse with</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- CreateQualificationType.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MechanicalTurk.DeleteQualificationType</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier">DeleteQualificationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#newDeleteQualificationType"><span class="hs-identifier">newDeleteQualificationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#deleteQualificationType_qualificationTypeId"><span class="hs-identifier">deleteQualificationType_qualificationTypeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse"><span class="hs-identifier">DeleteQualificationTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#newDeleteQualificationTypeResponse"><span class="hs-identifier">newDeleteQualificationTypeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#deleteQualificationTypeResponse_httpStatus"><span class="hs-identifier">deleteQualificationTypeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.Types.html"><span class="hs-identifier">Amazonka.MechanicalTurk.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDeleteQualificationType' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679252654"><span id="local-6989586621679252655"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQualificationType"><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-var">DeleteQualificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQualificationType%27"><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType%27"><span class="hs-identifier hs-var">DeleteQualificationType'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the QualificationType to dispose.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AqualificationTypeId%3ADeleteQualificationType%27"><span class="annot"><span class="annottext">DeleteQualificationType -&gt; Text
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#%24sel%3AqualificationTypeId%3ADeleteQualificationType%27"><span class="hs-identifier hs-var hs-var">qualificationTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252648"><span id="local-6989586621679252650"><span class="annot"><span class="annottext">DeleteQualificationType -&gt; DeleteQualificationType -&gt; Bool
+(DeleteQualificationType -&gt; DeleteQualificationType -&gt; Bool)
+-&gt; (DeleteQualificationType -&gt; DeleteQualificationType -&gt; Bool)
+-&gt; Eq DeleteQualificationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteQualificationType -&gt; DeleteQualificationType -&gt; Bool
+$c/= :: DeleteQualificationType -&gt; DeleteQualificationType -&gt; Bool
+== :: DeleteQualificationType -&gt; DeleteQualificationType -&gt; Bool
+$c== :: DeleteQualificationType -&gt; DeleteQualificationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252639"><span id="local-6989586621679252641"><span id="local-6989586621679252643"><span id="local-6989586621679252645"><span class="annot"><span class="annottext">ReadPrec [DeleteQualificationType]
+ReadPrec DeleteQualificationType
+Int -&gt; ReadS DeleteQualificationType
+ReadS [DeleteQualificationType]
+(Int -&gt; ReadS DeleteQualificationType)
+-&gt; ReadS [DeleteQualificationType]
+-&gt; ReadPrec DeleteQualificationType
+-&gt; ReadPrec [DeleteQualificationType]
+-&gt; Read DeleteQualificationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteQualificationType]
+$creadListPrec :: ReadPrec [DeleteQualificationType]
+readPrec :: ReadPrec DeleteQualificationType
+$creadPrec :: ReadPrec DeleteQualificationType
+readList :: ReadS [DeleteQualificationType]
+$creadList :: ReadS [DeleteQualificationType]
+readsPrec :: Int -&gt; ReadS DeleteQualificationType
+$creadsPrec :: Int -&gt; ReadS DeleteQualificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252632"><span id="local-6989586621679252634"><span id="local-6989586621679252636"><span class="annot"><span class="annottext">Int -&gt; DeleteQualificationType -&gt; ShowS
+[DeleteQualificationType] -&gt; ShowS
+DeleteQualificationType -&gt; String
+(Int -&gt; DeleteQualificationType -&gt; ShowS)
+-&gt; (DeleteQualificationType -&gt; String)
+-&gt; ([DeleteQualificationType] -&gt; ShowS)
+-&gt; Show DeleteQualificationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteQualificationType] -&gt; ShowS
+$cshowList :: [DeleteQualificationType] -&gt; ShowS
+show :: DeleteQualificationType -&gt; String
+$cshow :: DeleteQualificationType -&gt; String
+showsPrec :: Int -&gt; DeleteQualificationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteQualificationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteQualificationType -&gt; Rep DeleteQualificationType x)
+-&gt; (forall x.
+    Rep DeleteQualificationType x -&gt; DeleteQualificationType)
+-&gt; Generic DeleteQualificationType
+forall x. Rep DeleteQualificationType x -&gt; DeleteQualificationType
+forall x. DeleteQualificationType -&gt; Rep DeleteQualificationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteQualificationType x -&gt; DeleteQualificationType
+$cfrom :: forall x. DeleteQualificationType -&gt; Rep DeleteQualificationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DeleteQualificationType' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'qualificationTypeId', 'deleteQualificationType_qualificationTypeId' - The ID of the QualificationType to dispose.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#newDeleteQualificationType"><span class="hs-identifier hs-type">newDeleteQualificationType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'qualificationTypeId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span><span>
+</span><span id="line-81"></span><span id="newDeleteQualificationType"><span class="annot"><span class="annottext">newDeleteQualificationType :: Text -&gt; DeleteQualificationType
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#newDeleteQualificationType"><span class="hs-identifier hs-var hs-var">newDeleteQualificationType</span></a></span></span><span> </span><span id="local-6989586621679252627"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252627"><span class="hs-identifier hs-var">pQualificationTypeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteQualificationType' :: Text -&gt; DeleteQualificationType
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType%27"><span class="hs-identifier hs-type">DeleteQualificationType'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qualificationTypeId:DeleteQualificationType' :: Text
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#%24sel%3AqualificationTypeId%3ADeleteQualificationType%27"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252627"><span class="hs-identifier hs-var">pQualificationTypeId_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The ID of the QualificationType to dispose.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#deleteQualificationType_qualificationTypeId"><span class="hs-identifier hs-type">deleteQualificationType_qualificationTypeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="deleteQualificationType_qualificationTypeId"><span class="annot"><span class="annottext">deleteQualificationType_qualificationTypeId :: (Text -&gt; f Text)
+-&gt; DeleteQualificationType -&gt; f DeleteQualificationType
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#deleteQualificationType_qualificationTypeId"><span class="hs-identifier hs-var hs-var">deleteQualificationType_qualificationTypeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteQualificationType -&gt; Text)
+-&gt; (DeleteQualificationType -&gt; Text -&gt; DeleteQualificationType)
+-&gt; Lens DeleteQualificationType DeleteQualificationType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType%27"><span class="hs-identifier hs-type">DeleteQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252624"><span class="annot"><span class="annottext">Text
+qualificationTypeId :: Text
+$sel:qualificationTypeId:DeleteQualificationType' :: DeleteQualificationType -&gt; Text
+</span><a href="#local-6989586621679252624"><span class="hs-identifier hs-var hs-var">qualificationTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252624"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252623"><span class="annot"><span class="annottext">s :: DeleteQualificationType
+</span><a href="#local-6989586621679252623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType%27"><span class="hs-identifier hs-type">DeleteQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252622"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQualificationType
+</span><a href="#local-6989586621679252623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationTypeId:DeleteQualificationType' :: Text
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#%24sel%3AqualificationTypeId%3ADeleteQualificationType%27"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse"><span class="hs-identifier hs-type">DeleteQualificationTypeResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679252618"><span class="annot"><span class="annottext">request :: DeleteQualificationType -&gt; Request DeleteQualificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteQualificationType -&gt; Request DeleteQualificationType
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679252614"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteQualificationType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteQualificationType)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteQualificationType))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteQualificationType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteQualificationType)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252611"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252611"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679252610"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679252610"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679252609"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679252609"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse%27"><span class="hs-identifier hs-var">DeleteQualificationTypeResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteQualificationTypeResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteQualificationTypeResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252611"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252602"><span id="local-6989586621679252604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679252595"><span class="annot"><span class="annottext">toHeaders :: DeleteQualificationType -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteQualificationType -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MTurkRequesterServiceV20170117.DeleteQualificationType&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252585"><span id="local-6989586621679252587"><span id="local-6989586621679252589"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679252583"><span class="annot"><span class="annottext">toJSON :: DeleteQualificationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType%27"><span class="hs-identifier hs-type">DeleteQualificationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252581"><span class="annot"><span class="annottext">Text
+qualificationTypeId :: Text
+$sel:qualificationTypeId:DeleteQualificationType' :: DeleteQualificationType -&gt; Text
+</span><a href="#local-6989586621679252581"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QualificationTypeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252581"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679252575"><span class="annot"><span class="annottext">toPath :: DeleteQualificationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteQualificationType -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationType"><span class="hs-identifier hs-type">DeleteQualificationType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679252571"><span class="annot"><span class="annottext">toQuery :: DeleteQualificationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteQualificationType -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newDeleteQualificationTypeResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679252568"><span id="local-6989586621679252569"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQualificationTypeResponse"><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse"><span class="hs-identifier hs-var">DeleteQualificationTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQualificationTypeResponse%27"><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse%27"><span class="hs-identifier hs-var">DeleteQualificationTypeResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteQualificationTypeResponse%27"><span class="annot"><span class="annottext">DeleteQualificationTypeResponse -&gt; Int
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#%24sel%3AhttpStatus%3ADeleteQualificationTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252563"><span id="local-6989586621679252565"><span class="annot"><span class="annottext">DeleteQualificationTypeResponse
+-&gt; DeleteQualificationTypeResponse -&gt; Bool
+(DeleteQualificationTypeResponse
+ -&gt; DeleteQualificationTypeResponse -&gt; Bool)
+-&gt; (DeleteQualificationTypeResponse
+    -&gt; DeleteQualificationTypeResponse -&gt; Bool)
+-&gt; Eq DeleteQualificationTypeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteQualificationTypeResponse
+-&gt; DeleteQualificationTypeResponse -&gt; Bool
+$c/= :: DeleteQualificationTypeResponse
+-&gt; DeleteQualificationTypeResponse -&gt; Bool
+== :: DeleteQualificationTypeResponse
+-&gt; DeleteQualificationTypeResponse -&gt; Bool
+$c== :: DeleteQualificationTypeResponse
+-&gt; DeleteQualificationTypeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252555"><span id="local-6989586621679252557"><span id="local-6989586621679252559"><span id="local-6989586621679252561"><span class="annot"><span class="annottext">ReadPrec [DeleteQualificationTypeResponse]
+ReadPrec DeleteQualificationTypeResponse
+Int -&gt; ReadS DeleteQualificationTypeResponse
+ReadS [DeleteQualificationTypeResponse]
+(Int -&gt; ReadS DeleteQualificationTypeResponse)
+-&gt; ReadS [DeleteQualificationTypeResponse]
+-&gt; ReadPrec DeleteQualificationTypeResponse
+-&gt; ReadPrec [DeleteQualificationTypeResponse]
+-&gt; Read DeleteQualificationTypeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteQualificationTypeResponse]
+$creadListPrec :: ReadPrec [DeleteQualificationTypeResponse]
+readPrec :: ReadPrec DeleteQualificationTypeResponse
+$creadPrec :: ReadPrec DeleteQualificationTypeResponse
+readList :: ReadS [DeleteQualificationTypeResponse]
+$creadList :: ReadS [DeleteQualificationTypeResponse]
+readsPrec :: Int -&gt; ReadS DeleteQualificationTypeResponse
+$creadsPrec :: Int -&gt; ReadS DeleteQualificationTypeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252549"><span id="local-6989586621679252551"><span id="local-6989586621679252553"><span class="annot"><span class="annottext">Int -&gt; DeleteQualificationTypeResponse -&gt; ShowS
+[DeleteQualificationTypeResponse] -&gt; ShowS
+DeleteQualificationTypeResponse -&gt; String
+(Int -&gt; DeleteQualificationTypeResponse -&gt; ShowS)
+-&gt; (DeleteQualificationTypeResponse -&gt; String)
+-&gt; ([DeleteQualificationTypeResponse] -&gt; ShowS)
+-&gt; Show DeleteQualificationTypeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteQualificationTypeResponse] -&gt; ShowS
+$cshowList :: [DeleteQualificationTypeResponse] -&gt; ShowS
+show :: DeleteQualificationTypeResponse -&gt; String
+$cshow :: DeleteQualificationTypeResponse -&gt; String
+showsPrec :: Int -&gt; DeleteQualificationTypeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteQualificationTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteQualificationTypeResponse
+ -&gt; Rep DeleteQualificationTypeResponse x)
+-&gt; (forall x.
+    Rep DeleteQualificationTypeResponse x
+    -&gt; DeleteQualificationTypeResponse)
+-&gt; Generic DeleteQualificationTypeResponse
+forall x.
+Rep DeleteQualificationTypeResponse x
+-&gt; DeleteQualificationTypeResponse
+forall x.
+DeleteQualificationTypeResponse
+-&gt; Rep DeleteQualificationTypeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteQualificationTypeResponse x
+-&gt; DeleteQualificationTypeResponse
+$cfrom :: forall x.
+DeleteQualificationTypeResponse
+-&gt; Rep DeleteQualificationTypeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'DeleteQualificationTypeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'deleteQualificationTypeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#newDeleteQualificationTypeResponse"><span class="hs-identifier hs-type">newDeleteQualificationTypeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse"><span class="hs-identifier hs-type">DeleteQualificationTypeResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newDeleteQualificationTypeResponse"><span class="annot"><span class="annottext">newDeleteQualificationTypeResponse :: Int -&gt; DeleteQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#newDeleteQualificationTypeResponse"><span class="hs-identifier hs-var hs-var">newDeleteQualificationTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679252546"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252546"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">DeleteQualificationTypeResponse' :: Int -&gt; DeleteQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse%27"><span class="hs-identifier hs-type">DeleteQualificationTypeResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteQualificationTypeResponse' :: Int
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#%24sel%3AhttpStatus%3ADeleteQualificationTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252546"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#deleteQualificationTypeResponse_httpStatus"><span class="hs-identifier hs-type">deleteQualificationTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse"><span class="hs-identifier hs-type">DeleteQualificationTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="deleteQualificationTypeResponse_httpStatus"><span class="annot"><span class="annottext">deleteQualificationTypeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteQualificationTypeResponse
+-&gt; f DeleteQualificationTypeResponse
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#deleteQualificationTypeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteQualificationTypeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteQualificationTypeResponse -&gt; Int)
+-&gt; (DeleteQualificationTypeResponse
+    -&gt; Int -&gt; DeleteQualificationTypeResponse)
+-&gt; Lens
+     DeleteQualificationTypeResponse
+     DeleteQualificationTypeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse%27"><span class="hs-identifier hs-type">DeleteQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252545"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteQualificationTypeResponse' :: DeleteQualificationTypeResponse -&gt; Int
+</span><a href="#local-6989586621679252545"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252545"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252544"><span class="annot"><span class="annottext">s :: DeleteQualificationTypeResponse
+</span><a href="#local-6989586621679252544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse%27"><span class="hs-identifier hs-type">DeleteQualificationTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252543"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQualificationTypeResponse
+</span><a href="#local-6989586621679252544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteQualificationTypeResponse' :: Int
+</span><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#%24sel%3AhttpStatus%3ADeleteQualificationTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse"><span class="hs-identifier hs-type">DeleteQualificationTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679252541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.MechanicalTurk.DeleteQualificationType.html#DeleteQualificationTypeResponse"><span class="hs-identifier hs-type">DeleteQualificationTypeResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

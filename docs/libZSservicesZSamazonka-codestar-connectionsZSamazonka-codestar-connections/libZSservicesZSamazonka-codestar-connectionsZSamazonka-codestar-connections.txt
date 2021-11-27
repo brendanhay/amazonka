@@ -5,63 +5,63 @@
 @version 2.0
 
 
-module Network.AWS.CodeStarConnections.Types.ConnectionStatus
+module Amazonka.CodeStarConnections.Types.ConnectionStatus
 newtype ConnectionStatus
 ConnectionStatus' :: Text -> ConnectionStatus
 [fromConnectionStatus] :: ConnectionStatus -> Text
 pattern ConnectionStatus_AVAILABLE :: ConnectionStatus
 pattern ConnectionStatus_ERROR :: ConnectionStatus
 pattern ConnectionStatus_PENDING :: ConnectionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Classes.Ord Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Read.Read Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Show.Show Network.AWS.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Text.ToText Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Text.FromText Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Classes.Ord Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Read.Read Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Show.Show Amazonka.CodeStarConnections.Types.ConnectionStatus.ConnectionStatus
 
 
-module Network.AWS.CodeStarConnections.Types.ProviderType
+module Amazonka.CodeStarConnections.Types.ProviderType
 newtype ProviderType
 ProviderType' :: Text -> ProviderType
 [fromProviderType] :: ProviderType -> Text
 pattern ProviderType_Bitbucket :: ProviderType
 pattern ProviderType_GitHub :: ProviderType
 pattern ProviderType_GitHubEnterpriseServer :: ProviderType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance GHC.Classes.Ord Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance GHC.Read.Read Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
-instance GHC.Show.Show Network.AWS.CodeStarConnections.Types.ProviderType.ProviderType
+instance Amazonka.Data.XML.ToXML Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Amazonka.Data.XML.FromXML Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Amazonka.Data.Log.ToLog Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Amazonka.Data.Text.ToText Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Amazonka.Data.Text.FromText Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance GHC.Classes.Ord Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance GHC.Read.Read Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
+instance GHC.Show.Show Amazonka.CodeStarConnections.Types.ProviderType.ProviderType
 
 
-module Network.AWS.CodeStarConnections.Types.Connection
+module Amazonka.CodeStarConnections.Types.Connection
 
 -- | A resource that is used to connect third-party source providers with
 --   services like AWS CodePipeline.
@@ -164,16 +164,16 @@ connection_hostArn :: Lens' Connection (Maybe Text)
 --   
 --   The ARN is never reused if the connection is deleted.
 connection_connectionArn :: Lens' Connection (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.Types.Connection.Connection
-instance GHC.Show.Show Network.AWS.CodeStarConnections.Types.Connection.Connection
-instance GHC.Read.Read Network.AWS.CodeStarConnections.Types.Connection.Connection
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.Types.Connection.Connection
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarConnections.Types.Connection.Connection
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.Types.Connection.Connection
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.Types.Connection.Connection
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.Types.Connection.Connection
+instance GHC.Show.Show Amazonka.CodeStarConnections.Types.Connection.Connection
+instance GHC.Read.Read Amazonka.CodeStarConnections.Types.Connection.Connection
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.Types.Connection.Connection
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarConnections.Types.Connection.Connection
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.Types.Connection.Connection
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.Types.Connection.Connection
 
 
-module Network.AWS.CodeStarConnections.Types.Tag
+module Amazonka.CodeStarConnections.Types.Tag
 
 -- | A tag is a key-value pair that is used to manage the resource.
 --   
@@ -207,17 +207,17 @@ tag_key :: Lens' Tag Text
 
 -- | The tag's value.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.CodeStarConnections.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.CodeStarConnections.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarConnections.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.CodeStarConnections.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.CodeStarConnections.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarConnections.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.Types.Tag.Tag
 
 
-module Network.AWS.CodeStarConnections.Types.VpcConfiguration
+module Amazonka.CodeStarConnections.Types.VpcConfiguration
 
 -- | The VPC configuration provisioned for the host.
 --   
@@ -287,17 +287,17 @@ vpcConfiguration_subnetIds :: Lens' VpcConfiguration (NonEmpty Text)
 --   Amazon VPC connected to the infrastructure where your provider type is
 --   installed.
 vpcConfiguration_securityGroupIds :: Lens' VpcConfiguration (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
-instance GHC.Show.Show Network.AWS.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
-instance GHC.Read.Read Network.AWS.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
+instance GHC.Show.Show Amazonka.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
+instance GHC.Read.Read Amazonka.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.Types.VpcConfiguration.VpcConfiguration
 
 
-module Network.AWS.CodeStarConnections.Types.Host
+module Amazonka.CodeStarConnections.Types.Host
 
 -- | A resource that represents the infrastructure where a third-party
 --   provider is installed. The host is used when you create connections to
@@ -397,16 +397,16 @@ host_hostArn :: Lens' Host (Maybe Text)
 
 -- | The VPC configuration provisioned for the host.
 host_vpcConfiguration :: Lens' Host (Maybe VpcConfiguration)
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.Types.Host.Host
-instance GHC.Show.Show Network.AWS.CodeStarConnections.Types.Host.Host
-instance GHC.Read.Read Network.AWS.CodeStarConnections.Types.Host.Host
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.Types.Host.Host
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStarConnections.Types.Host.Host
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.Types.Host.Host
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.Types.Host.Host
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.Types.Host.Host
+instance GHC.Show.Show Amazonka.CodeStarConnections.Types.Host.Host
+instance GHC.Read.Read Amazonka.CodeStarConnections.Types.Host.Host
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.Types.Host.Host
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStarConnections.Types.Host.Host
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.Types.Host.Host
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.Types.Host.Host
 
 
-module Network.AWS.CodeStarConnections.Types
+module Amazonka.CodeStarConnections.Types
 
 -- | API version <tt>2019-12-01</tt> of the Amazon CodeStar connections SDK
 --   configuration.
@@ -747,7 +747,7 @@ vpcConfiguration_securityGroupIds :: Lens' VpcConfiguration (NonEmpty Text)
 
 -- | Adds to or modifies the tags of the given resource. Tags are metadata
 --   that can be used to manage a resource.
-module Network.AWS.CodeStarConnections.TagResource
+module Amazonka.CodeStarConnections.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -806,27 +806,27 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.CodeStarConnections.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.CodeStarConnections.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.TagResource.TagResource
+instance GHC.Show.Show Amazonka.CodeStarConnections.TagResource.TagResource
+instance GHC.Read.Read Amazonka.CodeStarConnections.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.TagResource.TagResource
 
 
 -- | Gets the set of key-value pairs (metadata) that are used to manage the
 --   resource.
-module Network.AWS.CodeStarConnections.ListTagsForResource
+module Amazonka.CodeStarConnections.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -890,26 +890,26 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the hosts associated with your account.
-module Network.AWS.CodeStarConnections.ListHosts
+module Amazonka.CodeStarConnections.ListHosts
 
 -- | <i>See:</i> <a>newListHosts</a> smart constructor.
 data ListHosts
@@ -1000,26 +1000,26 @@ listHostsResponse_nextToken :: Lens' ListHostsResponse (Maybe Text)
 
 -- | The response's http status code.
 listHostsResponse_httpStatus :: Lens' ListHostsResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance GHC.Show.Show Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance GHC.Read.Read Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.ListHosts.ListHostsResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.ListHosts.ListHostsResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.ListHosts.ListHostsResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.ListHosts.ListHostsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.ListHosts.ListHostsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.ListHosts.ListHosts
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.ListHosts.ListHosts
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance GHC.Show.Show Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance GHC.Read.Read Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.ListHosts.ListHostsResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.ListHosts.ListHostsResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.ListHosts.ListHostsResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.ListHosts.ListHostsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.ListHosts.ListHostsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.ListHosts.ListHosts
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.ListHosts.ListHosts
 
 
 -- | Lists the connections associated with your account.
-module Network.AWS.CodeStarConnections.ListConnections
+module Amazonka.CodeStarConnections.ListConnections
 
 -- | <i>See:</i> <a>newListConnections</a> smart constructor.
 data ListConnections
@@ -1142,27 +1142,27 @@ listConnectionsResponse_nextToken :: Lens' ListConnectionsResponse (Maybe Text)
 
 -- | The response's http status code.
 listConnectionsResponse_httpStatus :: Lens' ListConnectionsResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance GHC.Show.Show Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance GHC.Read.Read Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.ListConnections.ListConnectionsResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.ListConnections.ListConnectionsResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.ListConnections.ListConnectionsResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.ListConnections.ListConnectionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.ListConnections.ListConnectionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.ListConnections.ListConnections
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.ListConnections.ListConnections
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance GHC.Show.Show Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance GHC.Read.Read Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.ListConnections.ListConnectionsResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.ListConnections.ListConnectionsResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.ListConnections.ListConnectionsResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.ListConnections.ListConnectionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.ListConnections.ListConnectionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.ListConnections.ListConnections
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.ListConnections.ListConnections
 
 
 -- | Returns the host ARN and details such as status, provider type,
 --   endpoint, and, if applicable, the VPC configuration.
-module Network.AWS.CodeStarConnections.GetHost
+module Amazonka.CodeStarConnections.GetHost
 
 -- | <i>See:</i> <a>newGetHost</a> smart constructor.
 data GetHost
@@ -1258,27 +1258,27 @@ getHostResponse_vpcConfiguration :: Lens' GetHostResponse (Maybe VpcConfiguratio
 
 -- | The response's http status code.
 getHostResponse_httpStatus :: Lens' GetHostResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.GetHost.GetHost
-instance GHC.Show.Show Network.AWS.CodeStarConnections.GetHost.GetHost
-instance GHC.Read.Read Network.AWS.CodeStarConnections.GetHost.GetHost
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.GetHost.GetHost
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.GetHost.GetHostResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.GetHost.GetHostResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.GetHost.GetHostResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.GetHost.GetHostResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.GetHost.GetHost
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.GetHost.GetHostResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.GetHost.GetHost
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.GetHost.GetHost
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.GetHost.GetHost
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.GetHost.GetHost
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.GetHost.GetHost
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.GetHost.GetHost
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.GetHost.GetHost
+instance GHC.Show.Show Amazonka.CodeStarConnections.GetHost.GetHost
+instance GHC.Read.Read Amazonka.CodeStarConnections.GetHost.GetHost
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.GetHost.GetHost
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.GetHost.GetHostResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.GetHost.GetHostResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.GetHost.GetHostResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.GetHost.GetHostResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.GetHost.GetHost
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.GetHost.GetHostResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.GetHost.GetHost
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.GetHost.GetHost
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.GetHost.GetHost
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.GetHost.GetHost
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.GetHost.GetHost
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.GetHost.GetHost
 
 
 -- | Returns the connection ARN and details such as status, owner, and
 --   provider type.
-module Network.AWS.CodeStarConnections.GetConnection
+module Amazonka.CodeStarConnections.GetConnection
 
 -- | <i>See:</i> <a>newGetConnection</a> smart constructor.
 data GetConnection
@@ -1337,22 +1337,22 @@ getConnectionResponse_connection :: Lens' GetConnectionResponse (Maybe Connectio
 
 -- | The response's http status code.
 getConnectionResponse_httpStatus :: Lens' GetConnectionResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance GHC.Show.Show Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance GHC.Read.Read Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.GetConnection.GetConnectionResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.GetConnection.GetConnectionResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.GetConnection.GetConnectionResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.GetConnection.GetConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.GetConnection.GetConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.GetConnection.GetConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.GetConnection.GetConnection
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance GHC.Show.Show Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance GHC.Read.Read Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.GetConnection.GetConnectionResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.GetConnection.GetConnectionResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.GetConnection.GetConnectionResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.GetConnection.GetConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.GetConnection.GetConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.GetConnection.GetConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.GetConnection.GetConnection
 
 
 -- | The host to be deleted. Before you delete a host, all connections
@@ -1360,7 +1360,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.GetConne
 --   
 --   A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or
 --   VPC_CONFIG_DELETING state.
-module Network.AWS.CodeStarConnections.DeleteHost
+module Amazonka.CodeStarConnections.DeleteHost
 
 -- | <i>See:</i> <a>newDeleteHost</a> smart constructor.
 data DeleteHost
@@ -1407,26 +1407,26 @@ newDeleteHostResponse :: Int -> DeleteHostResponse
 
 -- | The response's http status code.
 deleteHostResponse_httpStatus :: Lens' DeleteHostResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance GHC.Show.Show Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance GHC.Read.Read Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.DeleteHost.DeleteHostResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.DeleteHost.DeleteHostResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.DeleteHost.DeleteHostResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.DeleteHost.DeleteHostResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.DeleteHost.DeleteHostResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.DeleteHost.DeleteHost
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance GHC.Show.Show Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance GHC.Read.Read Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.DeleteHost.DeleteHostResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.DeleteHost.DeleteHostResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.DeleteHost.DeleteHostResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.DeleteHost.DeleteHostResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.DeleteHost.DeleteHostResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.DeleteHost.DeleteHost
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.DeleteHost.DeleteHost
 
 
 -- | The connection to be deleted.
-module Network.AWS.CodeStarConnections.DeleteConnection
+module Amazonka.CodeStarConnections.DeleteConnection
 
 -- | <i>See:</i> <a>newDeleteConnection</a> smart constructor.
 data DeleteConnection
@@ -1481,22 +1481,22 @@ newDeleteConnectionResponse :: Int -> DeleteConnectionResponse
 
 -- | The response's http status code.
 deleteConnectionResponse_httpStatus :: Lens' DeleteConnectionResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance GHC.Show.Show Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance GHC.Read.Read Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.DeleteConnection.DeleteConnection
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance GHC.Show.Show Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance GHC.Read.Read Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.DeleteConnection.DeleteConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.DeleteConnection.DeleteConnection
 
 
 -- | Creates a resource that represents the infrastructure where a
@@ -1508,7 +1508,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.DeleteCo
 --   A host created through the CLI or the SDK is in `PENDING` status by
 --   default. You can make its status `AVAILABLE` by setting up the host in
 --   the console.
-module Network.AWS.CodeStarConnections.CreateHost
+module Amazonka.CodeStarConnections.CreateHost
 
 -- | <i>See:</i> <a>newCreateHost</a> smart constructor.
 data CreateHost
@@ -1628,29 +1628,29 @@ createHostResponse_tags :: Lens' CreateHostResponse (Maybe [Tag])
 
 -- | The response's http status code.
 createHostResponse_httpStatus :: Lens' CreateHostResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance GHC.Show.Show Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance GHC.Read.Read Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.CreateHost.CreateHostResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.CreateHost.CreateHostResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.CreateHost.CreateHostResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.CreateHost.CreateHostResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.CreateHost.CreateHostResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.CreateHost.CreateHost
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.CreateHost.CreateHost
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance GHC.Show.Show Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance GHC.Read.Read Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.CreateHost.CreateHostResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.CreateHost.CreateHostResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.CreateHost.CreateHostResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.CreateHost.CreateHostResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.CreateHost.CreateHostResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.CreateHost.CreateHost
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.CreateHost.CreateHost
 
 
 -- | Creates a connection that can then be given to other AWS services like
 --   CodePipeline so that it can access third-party code repositories. The
 --   connection is in pending status until the third-party connection
 --   handshake is completed from the console.
-module Network.AWS.CodeStarConnections.CreateConnection
+module Amazonka.CodeStarConnections.CreateConnection
 
 -- | <i>See:</i> <a>newCreateConnection</a> smart constructor.
 data CreateConnection
@@ -1766,26 +1766,26 @@ createConnectionResponse_httpStatus :: Lens' CreateConnectionResponse Int
 --   
 --   The ARN is never reused if the connection is deleted.
 createConnectionResponse_connectionArn :: Lens' CreateConnectionResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance GHC.Show.Show Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance GHC.Read.Read Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.CreateConnection.CreateConnectionResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.CreateConnection.CreateConnectionResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.CreateConnection.CreateConnectionResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.CreateConnection.CreateConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.CreateConnection.CreateConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.CreateConnection.CreateConnection
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance GHC.Show.Show Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance GHC.Read.Read Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.CreateConnection.CreateConnectionResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.CreateConnection.CreateConnectionResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.CreateConnection.CreateConnectionResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.CreateConnection.CreateConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.CreateConnection.CreateConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.CreateConnection.CreateConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.CreateConnection.CreateConnection
 
 
 -- | Removes tags from an AWS resource.
-module Network.AWS.CodeStarConnections.UntagResource
+module Amazonka.CodeStarConnections.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -1843,26 +1843,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.UntagResource.UntagResource
 
 
 -- | Updates a specified host with the provided configurations.
-module Network.AWS.CodeStarConnections.UpdateHost
+module Amazonka.CodeStarConnections.UpdateHost
 
 -- | <i>See:</i> <a>newUpdateHost</a> smart constructor.
 data UpdateHost
@@ -1934,25 +1934,25 @@ newUpdateHostResponse :: Int -> UpdateHostResponse
 
 -- | The response's http status code.
 updateHostResponse_httpStatus :: Lens' UpdateHostResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance GHC.Show.Show Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance GHC.Read.Read Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance GHC.Generics.Generic Network.AWS.CodeStarConnections.UpdateHost.UpdateHostResponse
-instance GHC.Show.Show Network.AWS.CodeStarConnections.UpdateHost.UpdateHostResponse
-instance GHC.Read.Read Network.AWS.CodeStarConnections.UpdateHost.UpdateHostResponse
-instance GHC.Classes.Eq Network.AWS.CodeStarConnections.UpdateHost.UpdateHostResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.UpdateHost.UpdateHostResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance Control.DeepSeq.NFData Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStarConnections.UpdateHost.UpdateHost
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance GHC.Show.Show Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance GHC.Read.Read Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance GHC.Generics.Generic Amazonka.CodeStarConnections.UpdateHost.UpdateHostResponse
+instance GHC.Show.Show Amazonka.CodeStarConnections.UpdateHost.UpdateHostResponse
+instance GHC.Read.Read Amazonka.CodeStarConnections.UpdateHost.UpdateHostResponse
+instance GHC.Classes.Eq Amazonka.CodeStarConnections.UpdateHost.UpdateHostResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.UpdateHost.UpdateHostResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance Control.DeepSeq.NFData Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStarConnections.UpdateHost.UpdateHost
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStarConnections.UpdateHost.UpdateHost
 
 
-module Network.AWS.CodeStarConnections.Lens
+module Amazonka.CodeStarConnections.Lens
 
 -- | The VPC configuration to be provisioned for the host. A VPC must be
 --   configured and the infrastructure to be represented by the host must
@@ -2231,7 +2231,7 @@ vpcConfiguration_subnetIds :: Lens' VpcConfiguration (NonEmpty Text)
 vpcConfiguration_securityGroupIds :: Lens' VpcConfiguration (NonEmpty Text)
 
 
-module Network.AWS.CodeStarConnections.Waiters
+module Amazonka.CodeStarConnections.Waiters
 
 
 -- | Derived from API version <tt>2019-12-01</tt> of the AWS service
@@ -2301,7 +2301,7 @@ module Network.AWS.CodeStarConnections.Waiters
 --   
 --   For information about how to use AWS CodeStar Connections, see the
 --   <a>Developer Tools User Guide</a>.
-module Network.AWS.CodeStarConnections
+module Amazonka.CodeStarConnections
 
 -- | API version <tt>2019-12-01</tt> of the Amazon CodeStar connections SDK
 --   configuration.

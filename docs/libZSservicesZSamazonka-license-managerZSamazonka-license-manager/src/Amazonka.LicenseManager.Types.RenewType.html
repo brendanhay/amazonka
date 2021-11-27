@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LicenseManager.Types.RenewType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LicenseManager.Types.RenewType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType"><span class="hs-identifier">RenewType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType_Monthly"><span class="hs-identifier">RenewType_Monthly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType_None"><span class="hs-identifier">RenewType_None</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType_Weekly"><span class="hs-identifier">RenewType_Weekly</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679300107"><span id="local-6989586621679300108"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RenewType"><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType"><span class="hs-identifier hs-var">RenewType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewType%27"><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType%27"><span class="hs-identifier hs-var">RenewType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRenewType"><span class="annot"><span class="annottext">RenewType -&gt; Text
+</span><a href="Amazonka.LicenseManager.Types.RenewType.html#fromRenewType"><span class="hs-identifier hs-var hs-var">fromRenewType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300099"><span id="local-6989586621679300101"><span id="local-6989586621679300103"><span class="annot"><span class="annottext">Int -&gt; RenewType -&gt; ShowS
+[RenewType] -&gt; ShowS
+RenewType -&gt; String
+(Int -&gt; RenewType -&gt; ShowS)
+-&gt; (RenewType -&gt; String)
+-&gt; ([RenewType] -&gt; ShowS)
+-&gt; Show RenewType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RenewType] -&gt; ShowS
+$cshowList :: [RenewType] -&gt; ShowS
+show :: RenewType -&gt; String
+$cshow :: RenewType -&gt; String
+showsPrec :: Int -&gt; RenewType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RenewType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679300090"><span id="local-6989586621679300092"><span id="local-6989586621679300094"><span id="local-6989586621679300096"><span class="annot"><span class="annottext">ReadPrec [RenewType]
+ReadPrec RenewType
+Int -&gt; ReadS RenewType
+ReadS [RenewType]
+(Int -&gt; ReadS RenewType)
+-&gt; ReadS [RenewType]
+-&gt; ReadPrec RenewType
+-&gt; ReadPrec [RenewType]
+-&gt; Read RenewType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RenewType]
+$creadListPrec :: ReadPrec [RenewType]
+readPrec :: ReadPrec RenewType
+$creadPrec :: ReadPrec RenewType
+readList :: ReadS [RenewType]
+$creadList :: ReadS [RenewType]
+readsPrec :: Int -&gt; ReadS RenewType
+$creadsPrec :: Int -&gt; ReadS RenewType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679300085"><span id="local-6989586621679300087"><span class="annot"><span class="annottext">RenewType -&gt; RenewType -&gt; Bool
+(RenewType -&gt; RenewType -&gt; Bool)
+-&gt; (RenewType -&gt; RenewType -&gt; Bool) -&gt; Eq RenewType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RenewType -&gt; RenewType -&gt; Bool
+$c/= :: RenewType -&gt; RenewType -&gt; Bool
+== :: RenewType -&gt; RenewType -&gt; Bool
+$c== :: RenewType -&gt; RenewType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679300069"><span id="local-6989586621679300071"><span id="local-6989586621679300073"><span id="local-6989586621679300075"><span id="local-6989586621679300077"><span id="local-6989586621679300079"><span id="local-6989586621679300081"><span class="annot"><span class="annottext">Eq RenewType
+Eq RenewType
+-&gt; (RenewType -&gt; RenewType -&gt; Ordering)
+-&gt; (RenewType -&gt; RenewType -&gt; Bool)
+-&gt; (RenewType -&gt; RenewType -&gt; Bool)
+-&gt; (RenewType -&gt; RenewType -&gt; Bool)
+-&gt; (RenewType -&gt; RenewType -&gt; Bool)
+-&gt; (RenewType -&gt; RenewType -&gt; RenewType)
+-&gt; (RenewType -&gt; RenewType -&gt; RenewType)
+-&gt; Ord RenewType
+RenewType -&gt; RenewType -&gt; Bool
+RenewType -&gt; RenewType -&gt; Ordering
+RenewType -&gt; RenewType -&gt; RenewType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RenewType -&gt; RenewType -&gt; RenewType
+$cmin :: RenewType -&gt; RenewType -&gt; RenewType
+max :: RenewType -&gt; RenewType -&gt; RenewType
+$cmax :: RenewType -&gt; RenewType -&gt; RenewType
+&gt;= :: RenewType -&gt; RenewType -&gt; Bool
+$c&gt;= :: RenewType -&gt; RenewType -&gt; Bool
+&gt; :: RenewType -&gt; RenewType -&gt; Bool
+$c&gt; :: RenewType -&gt; RenewType -&gt; Bool
+&lt;= :: RenewType -&gt; RenewType -&gt; Bool
+$c&lt;= :: RenewType -&gt; RenewType -&gt; Bool
+&lt; :: RenewType -&gt; RenewType -&gt; Bool
+$c&lt; :: RenewType -&gt; RenewType -&gt; Bool
+compare :: RenewType -&gt; RenewType -&gt; Ordering
+$ccompare :: RenewType -&gt; RenewType -&gt; Ordering
+$cp1Ord :: Eq RenewType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RenewType -&gt; Rep RenewType x)
+-&gt; (forall x. Rep RenewType x -&gt; RenewType) -&gt; Generic RenewType
+forall x. Rep RenewType x -&gt; RenewType
+forall x. RenewType -&gt; Rep RenewType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RenewType x -&gt; RenewType
+$cfrom :: forall x. RenewType -&gt; Rep RenewType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300061"><span id="local-6989586621679300063"><span class="annot"><span class="annottext">Int -&gt; RenewType -&gt; Int
+RenewType -&gt; Int
+(Int -&gt; RenewType -&gt; Int)
+-&gt; (RenewType -&gt; Int) -&gt; Hashable RenewType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RenewType -&gt; Int
+$chash :: RenewType -&gt; Int
+hashWithSalt :: Int -&gt; RenewType -&gt; Int
+$chashWithSalt :: Int -&gt; RenewType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679300058"><span class="annot"><span class="annottext">RenewType -&gt; ()
+(RenewType -&gt; ()) -&gt; NFData RenewType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RenewType -&gt; ()
+$crnf :: RenewType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679300055"><span class="annot"><span class="annottext">Text -&gt; Either String RenewType
+(Text -&gt; Either String RenewType) -&gt; FromText RenewType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RenewType
+$cfromText :: Text -&gt; Either String RenewType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679300052"><span class="annot"><span class="annottext">RenewType -&gt; Text
+(RenewType -&gt; Text) -&gt; ToText RenewType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RenewType -&gt; Text
+$ctoText :: RenewType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679300049"><span class="annot"><span class="annottext">RenewType -&gt; ByteString
+(RenewType -&gt; ByteString) -&gt; ToByteString RenewType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RenewType -&gt; ByteString
+$ctoBS :: RenewType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679300046"><span class="annot"><span class="annottext">RenewType -&gt; ByteStringBuilder
+(RenewType -&gt; ByteStringBuilder) -&gt; ToLog RenewType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RenewType -&gt; ByteStringBuilder
+$cbuild :: RenewType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679300043"><span class="annot"><span class="annottext">HeaderName -&gt; RenewType -&gt; [Header]
+(HeaderName -&gt; RenewType -&gt; [Header]) -&gt; ToHeader RenewType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RenewType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RenewType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679300040"><span class="annot"><span class="annottext">RenewType -&gt; QueryString
+(RenewType -&gt; QueryString) -&gt; ToQuery RenewType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RenewType -&gt; QueryString
+$ctoQuery :: RenewType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679300035"><span id="local-6989586621679300037"><span class="annot"><span class="annottext">Value -&gt; Parser [RenewType]
+Value -&gt; Parser RenewType
+(Value -&gt; Parser RenewType)
+-&gt; (Value -&gt; Parser [RenewType]) -&gt; FromJSON RenewType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RenewType]
+$cparseJSONList :: Value -&gt; Parser [RenewType]
+parseJSON :: Value -&gt; Parser RenewType
+$cparseJSON :: Value -&gt; Parser RenewType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679300030"><span id="local-6989586621679300032"><span class="annot"><span class="annottext">FromJSONKeyFunction [RenewType]
+FromJSONKeyFunction RenewType
+FromJSONKeyFunction RenewType
+-&gt; FromJSONKeyFunction [RenewType] -&gt; FromJSONKey RenewType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RenewType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RenewType]
+fromJSONKey :: FromJSONKeyFunction RenewType
+$cfromJSONKey :: FromJSONKeyFunction RenewType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679300021"><span id="local-6989586621679300023"><span id="local-6989586621679300025"><span id="local-6989586621679300027"><span class="annot"><span class="annottext">[RenewType] -&gt; Encoding
+[RenewType] -&gt; Value
+RenewType -&gt; Encoding
+RenewType -&gt; Value
+(RenewType -&gt; Value)
+-&gt; (RenewType -&gt; Encoding)
+-&gt; ([RenewType] -&gt; Value)
+-&gt; ([RenewType] -&gt; Encoding)
+-&gt; ToJSON RenewType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RenewType] -&gt; Encoding
+$ctoEncodingList :: [RenewType] -&gt; Encoding
+toJSONList :: [RenewType] -&gt; Value
+$ctoJSONList :: [RenewType] -&gt; Value
+toEncoding :: RenewType -&gt; Encoding
+$ctoEncoding :: RenewType -&gt; Encoding
+toJSON :: RenewType -&gt; Value
+$ctoJSON :: RenewType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679300016"><span id="local-6989586621679300018"><span class="annot"><span class="annottext">ToJSONKeyFunction [RenewType]
+ToJSONKeyFunction RenewType
+ToJSONKeyFunction RenewType
+-&gt; ToJSONKeyFunction [RenewType] -&gt; ToJSONKey RenewType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RenewType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RenewType]
+toJSONKey :: ToJSONKeyFunction RenewType
+$ctoJSONKey :: ToJSONKeyFunction RenewType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300013"><span class="annot"><span class="annottext">[Node] -&gt; Either String RenewType
+([Node] -&gt; Either String RenewType) -&gt; FromXML RenewType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RenewType
+$cparseXML :: [Node] -&gt; Either String RenewType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679300010"><span class="annot"><span class="annottext">RenewType -&gt; XML
+(RenewType -&gt; XML) -&gt; ToXML RenewType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RenewType -&gt; XML
+$ctoXML :: RenewType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType_Monthly"><span class="hs-identifier hs-type">RenewType_Monthly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType"><span class="hs-identifier hs-type">RenewType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRenewType_Monthly"><span id="%24mRenewType_Monthly"><span id="RenewType_Monthly"><span class="annot"><span class="annottext">$bRenewType_Monthly :: RenewType
+$mRenewType_Monthly :: forall r. RenewType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.RenewType.html#%24bRenewType_Monthly"><span class="hs-identifier hs-var hs-var hs-var">RenewType_Monthly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType%27"><span class="hs-identifier hs-type">RenewType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Monthly&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType_None"><span class="hs-identifier hs-type">RenewType_None</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType"><span class="hs-identifier hs-type">RenewType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRenewType_None"><span id="%24mRenewType_None"><span id="RenewType_None"><span class="annot"><span class="annottext">$bRenewType_None :: RenewType
+$mRenewType_None :: forall r. RenewType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.RenewType.html#%24bRenewType_None"><span class="hs-identifier hs-var hs-var hs-var">RenewType_None</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType%27"><span class="hs-identifier hs-type">RenewType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;None&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType_Weekly"><span class="hs-identifier hs-type">RenewType_Weekly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType"><span class="hs-identifier hs-type">RenewType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRenewType_Weekly"><span id="%24mRenewType_Weekly"><span id="RenewType_Weekly"><span class="annot"><span class="annottext">$bRenewType_Weekly :: RenewType
+$mRenewType_Weekly :: forall r. RenewType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.RenewType.html#%24bRenewType_Weekly"><span class="hs-identifier hs-var hs-var hs-var">RenewType_Weekly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType%27"><span class="hs-identifier hs-type">RenewType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Weekly&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType_Monthly"><span class="hs-pragma hs-type">RenewType_Monthly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType_None"><span class="hs-pragma hs-type">RenewType_None</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType_Weekly"><span class="hs-pragma hs-type">RenewType_Weekly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.RenewType.html#RenewType%27"><span class="hs-pragma hs-type">RenewType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

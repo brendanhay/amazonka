@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GuardDuty.Types.DetectorStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GuardDuty.Types.DetectorStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus"><span class="hs-identifier">DetectorStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus_DISABLED"><span class="hs-identifier">DetectorStatus_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus_ENABLED"><span class="hs-identifier">DetectorStatus_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295213"><span id="local-6989586621679295214"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DetectorStatus"><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus"><span class="hs-identifier hs-var">DetectorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectorStatus%27"><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus%27"><span class="hs-identifier hs-var">DetectorStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDetectorStatus"><span class="annot"><span class="annottext">DetectorStatus -&gt; Text
+</span><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#fromDetectorStatus"><span class="hs-identifier hs-var hs-var">fromDetectorStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295205"><span id="local-6989586621679295207"><span id="local-6989586621679295209"><span class="annot"><span class="annottext">Int -&gt; DetectorStatus -&gt; ShowS
+[DetectorStatus] -&gt; ShowS
+DetectorStatus -&gt; String
+(Int -&gt; DetectorStatus -&gt; ShowS)
+-&gt; (DetectorStatus -&gt; String)
+-&gt; ([DetectorStatus] -&gt; ShowS)
+-&gt; Show DetectorStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectorStatus] -&gt; ShowS
+$cshowList :: [DetectorStatus] -&gt; ShowS
+show :: DetectorStatus -&gt; String
+$cshow :: DetectorStatus -&gt; String
+showsPrec :: Int -&gt; DetectorStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectorStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295196"><span id="local-6989586621679295198"><span id="local-6989586621679295200"><span id="local-6989586621679295202"><span class="annot"><span class="annottext">ReadPrec [DetectorStatus]
+ReadPrec DetectorStatus
+Int -&gt; ReadS DetectorStatus
+ReadS [DetectorStatus]
+(Int -&gt; ReadS DetectorStatus)
+-&gt; ReadS [DetectorStatus]
+-&gt; ReadPrec DetectorStatus
+-&gt; ReadPrec [DetectorStatus]
+-&gt; Read DetectorStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DetectorStatus]
+$creadListPrec :: ReadPrec [DetectorStatus]
+readPrec :: ReadPrec DetectorStatus
+$creadPrec :: ReadPrec DetectorStatus
+readList :: ReadS [DetectorStatus]
+$creadList :: ReadS [DetectorStatus]
+readsPrec :: Int -&gt; ReadS DetectorStatus
+$creadsPrec :: Int -&gt; ReadS DetectorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295191"><span id="local-6989586621679295193"><span class="annot"><span class="annottext">DetectorStatus -&gt; DetectorStatus -&gt; Bool
+(DetectorStatus -&gt; DetectorStatus -&gt; Bool)
+-&gt; (DetectorStatus -&gt; DetectorStatus -&gt; Bool) -&gt; Eq DetectorStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+$c/= :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+== :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+$c== :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295175"><span id="local-6989586621679295177"><span id="local-6989586621679295179"><span id="local-6989586621679295181"><span id="local-6989586621679295183"><span id="local-6989586621679295185"><span id="local-6989586621679295187"><span class="annot"><span class="annottext">Eq DetectorStatus
+Eq DetectorStatus
+-&gt; (DetectorStatus -&gt; DetectorStatus -&gt; Ordering)
+-&gt; (DetectorStatus -&gt; DetectorStatus -&gt; Bool)
+-&gt; (DetectorStatus -&gt; DetectorStatus -&gt; Bool)
+-&gt; (DetectorStatus -&gt; DetectorStatus -&gt; Bool)
+-&gt; (DetectorStatus -&gt; DetectorStatus -&gt; Bool)
+-&gt; (DetectorStatus -&gt; DetectorStatus -&gt; DetectorStatus)
+-&gt; (DetectorStatus -&gt; DetectorStatus -&gt; DetectorStatus)
+-&gt; Ord DetectorStatus
+DetectorStatus -&gt; DetectorStatus -&gt; Bool
+DetectorStatus -&gt; DetectorStatus -&gt; Ordering
+DetectorStatus -&gt; DetectorStatus -&gt; DetectorStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DetectorStatus -&gt; DetectorStatus -&gt; DetectorStatus
+$cmin :: DetectorStatus -&gt; DetectorStatus -&gt; DetectorStatus
+max :: DetectorStatus -&gt; DetectorStatus -&gt; DetectorStatus
+$cmax :: DetectorStatus -&gt; DetectorStatus -&gt; DetectorStatus
+&gt;= :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+$c&gt;= :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+&gt; :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+$c&gt; :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+&lt;= :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+$c&lt;= :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+&lt; :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+$c&lt; :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
+compare :: DetectorStatus -&gt; DetectorStatus -&gt; Ordering
+$ccompare :: DetectorStatus -&gt; DetectorStatus -&gt; Ordering
+$cp1Ord :: Eq DetectorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DetectorStatus -&gt; Rep DetectorStatus x)
+-&gt; (forall x. Rep DetectorStatus x -&gt; DetectorStatus)
+-&gt; Generic DetectorStatus
+forall x. Rep DetectorStatus x -&gt; DetectorStatus
+forall x. DetectorStatus -&gt; Rep DetectorStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DetectorStatus x -&gt; DetectorStatus
+$cfrom :: forall x. DetectorStatus -&gt; Rep DetectorStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295167"><span id="local-6989586621679295169"><span class="annot"><span class="annottext">Int -&gt; DetectorStatus -&gt; Int
+DetectorStatus -&gt; Int
+(Int -&gt; DetectorStatus -&gt; Int)
+-&gt; (DetectorStatus -&gt; Int) -&gt; Hashable DetectorStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DetectorStatus -&gt; Int
+$chash :: DetectorStatus -&gt; Int
+hashWithSalt :: Int -&gt; DetectorStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DetectorStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295164"><span class="annot"><span class="annottext">DetectorStatus -&gt; ()
+(DetectorStatus -&gt; ()) -&gt; NFData DetectorStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DetectorStatus -&gt; ()
+$crnf :: DetectorStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295161"><span class="annot"><span class="annottext">Text -&gt; Either String DetectorStatus
+(Text -&gt; Either String DetectorStatus) -&gt; FromText DetectorStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DetectorStatus
+$cfromText :: Text -&gt; Either String DetectorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295158"><span class="annot"><span class="annottext">DetectorStatus -&gt; Text
+(DetectorStatus -&gt; Text) -&gt; ToText DetectorStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DetectorStatus -&gt; Text
+$ctoText :: DetectorStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295155"><span class="annot"><span class="annottext">DetectorStatus -&gt; ByteString
+(DetectorStatus -&gt; ByteString) -&gt; ToByteString DetectorStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DetectorStatus -&gt; ByteString
+$ctoBS :: DetectorStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295152"><span class="annot"><span class="annottext">DetectorStatus -&gt; ByteStringBuilder
+(DetectorStatus -&gt; ByteStringBuilder) -&gt; ToLog DetectorStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DetectorStatus -&gt; ByteStringBuilder
+$cbuild :: DetectorStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295149"><span class="annot"><span class="annottext">HeaderName -&gt; DetectorStatus -&gt; [Header]
+(HeaderName -&gt; DetectorStatus -&gt; [Header])
+-&gt; ToHeader DetectorStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DetectorStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DetectorStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295146"><span class="annot"><span class="annottext">DetectorStatus -&gt; QueryString
+(DetectorStatus -&gt; QueryString) -&gt; ToQuery DetectorStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DetectorStatus -&gt; QueryString
+$ctoQuery :: DetectorStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295141"><span id="local-6989586621679295143"><span class="annot"><span class="annottext">Value -&gt; Parser [DetectorStatus]
+Value -&gt; Parser DetectorStatus
+(Value -&gt; Parser DetectorStatus)
+-&gt; (Value -&gt; Parser [DetectorStatus]) -&gt; FromJSON DetectorStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DetectorStatus]
+$cparseJSONList :: Value -&gt; Parser [DetectorStatus]
+parseJSON :: Value -&gt; Parser DetectorStatus
+$cparseJSON :: Value -&gt; Parser DetectorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295136"><span id="local-6989586621679295138"><span class="annot"><span class="annottext">FromJSONKeyFunction [DetectorStatus]
+FromJSONKeyFunction DetectorStatus
+FromJSONKeyFunction DetectorStatus
+-&gt; FromJSONKeyFunction [DetectorStatus]
+-&gt; FromJSONKey DetectorStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DetectorStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DetectorStatus]
+fromJSONKey :: FromJSONKeyFunction DetectorStatus
+$cfromJSONKey :: FromJSONKeyFunction DetectorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295127"><span id="local-6989586621679295129"><span id="local-6989586621679295131"><span id="local-6989586621679295133"><span class="annot"><span class="annottext">[DetectorStatus] -&gt; Encoding
+[DetectorStatus] -&gt; Value
+DetectorStatus -&gt; Encoding
+DetectorStatus -&gt; Value
+(DetectorStatus -&gt; Value)
+-&gt; (DetectorStatus -&gt; Encoding)
+-&gt; ([DetectorStatus] -&gt; Value)
+-&gt; ([DetectorStatus] -&gt; Encoding)
+-&gt; ToJSON DetectorStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DetectorStatus] -&gt; Encoding
+$ctoEncodingList :: [DetectorStatus] -&gt; Encoding
+toJSONList :: [DetectorStatus] -&gt; Value
+$ctoJSONList :: [DetectorStatus] -&gt; Value
+toEncoding :: DetectorStatus -&gt; Encoding
+$ctoEncoding :: DetectorStatus -&gt; Encoding
+toJSON :: DetectorStatus -&gt; Value
+$ctoJSON :: DetectorStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295122"><span id="local-6989586621679295124"><span class="annot"><span class="annottext">ToJSONKeyFunction [DetectorStatus]
+ToJSONKeyFunction DetectorStatus
+ToJSONKeyFunction DetectorStatus
+-&gt; ToJSONKeyFunction [DetectorStatus] -&gt; ToJSONKey DetectorStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DetectorStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DetectorStatus]
+toJSONKey :: ToJSONKeyFunction DetectorStatus
+$ctoJSONKey :: ToJSONKeyFunction DetectorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295119"><span class="annot"><span class="annottext">[Node] -&gt; Either String DetectorStatus
+([Node] -&gt; Either String DetectorStatus) -&gt; FromXML DetectorStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DetectorStatus
+$cparseXML :: [Node] -&gt; Either String DetectorStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295116"><span class="annot"><span class="annottext">DetectorStatus -&gt; XML
+(DetectorStatus -&gt; XML) -&gt; ToXML DetectorStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DetectorStatus -&gt; XML
+$ctoXML :: DetectorStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus_DISABLED"><span class="hs-identifier hs-type">DetectorStatus_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus"><span class="hs-identifier hs-type">DetectorStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorStatus_DISABLED"><span id="%24mDetectorStatus_DISABLED"><span id="DetectorStatus_DISABLED"><span class="annot"><span class="annottext">$bDetectorStatus_DISABLED :: DetectorStatus
+$mDetectorStatus_DISABLED :: forall r. DetectorStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#%24bDetectorStatus_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">DetectorStatus_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus%27"><span class="hs-identifier hs-type">DetectorStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus_ENABLED"><span class="hs-identifier hs-type">DetectorStatus_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus"><span class="hs-identifier hs-type">DetectorStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorStatus_ENABLED"><span id="%24mDetectorStatus_ENABLED"><span id="DetectorStatus_ENABLED"><span class="annot"><span class="annottext">$bDetectorStatus_ENABLED :: DetectorStatus
+$mDetectorStatus_ENABLED :: forall r. DetectorStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#%24bDetectorStatus_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">DetectorStatus_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus%27"><span class="hs-identifier hs-type">DetectorStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus_DISABLED"><span class="hs-pragma hs-type">DetectorStatus_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus_ENABLED"><span class="hs-pragma hs-type">DetectorStatus_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.DetectorStatus.html#DetectorStatus%27"><span class="hs-pragma hs-type">DetectorStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

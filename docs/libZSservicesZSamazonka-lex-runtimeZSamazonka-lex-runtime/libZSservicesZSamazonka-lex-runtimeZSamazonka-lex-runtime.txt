@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.LexRuntime.Types.ActiveContextTimeToLive
+module Amazonka.LexRuntime.Types.ActiveContextTimeToLive
 
 -- | The length of time or number of turns that a context remains active.
 --   
@@ -54,17 +54,17 @@ activeContextTimeToLive_turnsToLive :: Lens' ActiveContextTimeToLive (Maybe Natu
 --   first sent in a <tt>PostContent</tt> or <tt>PostText</tt> response.
 --   You can set the value between 5 and 86,400 seconds (24 hours).
 activeContextTimeToLive_timeToLiveInSeconds :: Lens' ActiveContextTimeToLive (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
+instance GHC.Show.Show Amazonka.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
+instance GHC.Read.Read Amazonka.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.ActiveContextTimeToLive.ActiveContextTimeToLive
 
 
-module Network.AWS.LexRuntime.Types.ActiveContext
+module Amazonka.LexRuntime.Types.ActiveContext
 
 -- | A context is a variable that contains information about the current
 --   state of the conversation between a user and Amazon Lex. Context can
@@ -115,16 +115,16 @@ activeContext_timeToLive :: Lens' ActiveContext ActiveContextTimeToLive
 -- | State variables for the current context. You can use these values as
 --   default values for slots in subsequent events.
 activeContext_parameters :: Lens' ActiveContext (HashMap Text Text)
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.ActiveContext.ActiveContext
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.ActiveContext.ActiveContext
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.ActiveContext.ActiveContext
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.ActiveContext.ActiveContext
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.ActiveContext.ActiveContext
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.ActiveContext.ActiveContext
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.ActiveContext.ActiveContext
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.ActiveContext.ActiveContext
+instance GHC.Show.Show Amazonka.LexRuntime.Types.ActiveContext.ActiveContext
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.ActiveContext.ActiveContext
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.ActiveContext.ActiveContext
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.ActiveContext.ActiveContext
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.ActiveContext.ActiveContext
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.ActiveContext.ActiveContext
 
 
-module Network.AWS.LexRuntime.Types.Button
+module Amazonka.LexRuntime.Types.Button
 
 -- | Represents an option to be shown on the client platform (Facebook,
 --   Slack, etc.)
@@ -165,70 +165,70 @@ button_text :: Lens' Button Text
 --   example, consider button text "NYC." When the user chooses the button,
 --   the value sent can be "New York City."
 button_value :: Lens' Button Text
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.Button.Button
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.Button.Button
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.Button.Button
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.Button.Button
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.Button.Button
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.Button.Button
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.Button.Button
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.Button.Button
+instance GHC.Show.Show Amazonka.LexRuntime.Types.Button.Button
+instance GHC.Read.Read Amazonka.LexRuntime.Types.Button.Button
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.Button.Button
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.Button.Button
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.Button.Button
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.Button.Button
 
 
-module Network.AWS.LexRuntime.Types.ConfirmationStatus
+module Amazonka.LexRuntime.Types.ConfirmationStatus
 newtype ConfirmationStatus
 ConfirmationStatus' :: Text -> ConfirmationStatus
 [fromConfirmationStatus] :: ConfirmationStatus -> Text
 pattern ConfirmationStatus_Confirmed :: ConfirmationStatus
 pattern ConfirmationStatus_Denied :: ConfirmationStatus
 pattern ConfirmationStatus_None :: ConfirmationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance GHC.Classes.Ord Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Amazonka.Data.Text.ToText Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Amazonka.Data.Text.FromText Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance GHC.Classes.Ord Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance GHC.Read.Read Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
+instance GHC.Show.Show Amazonka.LexRuntime.Types.ConfirmationStatus.ConfirmationStatus
 
 
-module Network.AWS.LexRuntime.Types.ContentType
+module Amazonka.LexRuntime.Types.ContentType
 newtype ContentType
 ContentType' :: Text -> ContentType
 [fromContentType] :: ContentType -> Text
 pattern ContentType_Application_vnd_amazonaws_card_generic :: ContentType
-instance Network.AWS.Data.XML.ToXML Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Network.AWS.Data.XML.FromXML Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Network.AWS.Data.Log.ToLog Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Network.AWS.Data.Text.ToText Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Network.AWS.Data.Text.FromText Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance GHC.Classes.Ord Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.ContentType.ContentType
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.ContentType.ContentType
+instance Amazonka.Data.XML.ToXML Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Amazonka.Data.XML.FromXML Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Amazonka.Data.Headers.ToHeader Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Amazonka.Data.Log.ToLog Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Amazonka.Data.Text.ToText Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Amazonka.Data.Text.FromText Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.ContentType.ContentType
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.ContentType.ContentType
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.ContentType.ContentType
+instance GHC.Classes.Ord Amazonka.LexRuntime.Types.ContentType.ContentType
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.ContentType.ContentType
+instance GHC.Read.Read Amazonka.LexRuntime.Types.ContentType.ContentType
+instance GHC.Show.Show Amazonka.LexRuntime.Types.ContentType.ContentType
 
 
-module Network.AWS.LexRuntime.Types.DialogActionType
+module Amazonka.LexRuntime.Types.DialogActionType
 newtype DialogActionType
 DialogActionType' :: Text -> DialogActionType
 [fromDialogActionType] :: DialogActionType -> Text
@@ -237,28 +237,28 @@ pattern DialogActionType_ConfirmIntent :: DialogActionType
 pattern DialogActionType_Delegate :: DialogActionType
 pattern DialogActionType_ElicitIntent :: DialogActionType
 pattern DialogActionType_ElicitSlot :: DialogActionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Network.AWS.Data.Text.ToText Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Network.AWS.Data.Text.FromText Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance GHC.Classes.Ord Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.DialogActionType.DialogActionType
+instance Amazonka.Data.XML.ToXML Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Amazonka.Data.XML.FromXML Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Amazonka.Data.Log.ToLog Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Amazonka.Data.Text.ToText Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Amazonka.Data.Text.FromText Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance GHC.Classes.Ord Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance GHC.Read.Read Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
+instance GHC.Show.Show Amazonka.LexRuntime.Types.DialogActionType.DialogActionType
 
 
-module Network.AWS.LexRuntime.Types.DialogState
+module Amazonka.LexRuntime.Types.DialogState
 newtype DialogState
 DialogState' :: Text -> DialogState
 [fromDialogState] :: DialogState -> Text
@@ -268,56 +268,56 @@ pattern DialogState_ElicitSlot :: DialogState
 pattern DialogState_Failed :: DialogState
 pattern DialogState_Fulfilled :: DialogState
 pattern DialogState_ReadyForFulfillment :: DialogState
-instance Network.AWS.Data.XML.ToXML Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Network.AWS.Data.XML.FromXML Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Network.AWS.Data.Log.ToLog Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Network.AWS.Data.Text.ToText Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Network.AWS.Data.Text.FromText Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance GHC.Classes.Ord Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.DialogState.DialogState
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.DialogState.DialogState
+instance Amazonka.Data.XML.ToXML Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Amazonka.Data.XML.FromXML Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Amazonka.Data.Headers.ToHeader Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Amazonka.Data.Log.ToLog Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Amazonka.Data.Text.ToText Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Amazonka.Data.Text.FromText Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.DialogState.DialogState
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.DialogState.DialogState
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.DialogState.DialogState
+instance GHC.Classes.Ord Amazonka.LexRuntime.Types.DialogState.DialogState
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.DialogState.DialogState
+instance GHC.Read.Read Amazonka.LexRuntime.Types.DialogState.DialogState
+instance GHC.Show.Show Amazonka.LexRuntime.Types.DialogState.DialogState
 
 
-module Network.AWS.LexRuntime.Types.FulfillmentState
+module Amazonka.LexRuntime.Types.FulfillmentState
 newtype FulfillmentState
 FulfillmentState' :: Text -> FulfillmentState
 [fromFulfillmentState] :: FulfillmentState -> Text
 pattern FulfillmentState_Failed :: FulfillmentState
 pattern FulfillmentState_Fulfilled :: FulfillmentState
 pattern FulfillmentState_ReadyForFulfillment :: FulfillmentState
-instance Network.AWS.Data.XML.ToXML Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Network.AWS.Data.XML.FromXML Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Network.AWS.Data.Log.ToLog Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Network.AWS.Data.Text.ToText Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Network.AWS.Data.Text.FromText Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance GHC.Classes.Ord Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Amazonka.Data.XML.ToXML Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Amazonka.Data.XML.FromXML Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Amazonka.Data.Headers.ToHeader Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Amazonka.Data.Log.ToLog Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Amazonka.Data.Text.ToText Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Amazonka.Data.Text.FromText Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance GHC.Classes.Ord Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance GHC.Read.Read Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
+instance GHC.Show.Show Amazonka.LexRuntime.Types.FulfillmentState.FulfillmentState
 
 
-module Network.AWS.LexRuntime.Types.GenericAttachment
+module Amazonka.LexRuntime.Types.GenericAttachment
 
 -- | Represents an option rendered to the user when a prompt is shown. It
 --   could be an image, a button, a link, or text.
@@ -384,16 +384,16 @@ genericAttachment_attachmentLinkUrl :: Lens' GenericAttachment (Maybe Text)
 
 -- | The title of the option.
 genericAttachment_title :: Lens' GenericAttachment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.GenericAttachment.GenericAttachment
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.GenericAttachment.GenericAttachment
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.GenericAttachment.GenericAttachment
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.GenericAttachment.GenericAttachment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.GenericAttachment.GenericAttachment
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.GenericAttachment.GenericAttachment
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.GenericAttachment.GenericAttachment
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.GenericAttachment.GenericAttachment
+instance GHC.Show.Show Amazonka.LexRuntime.Types.GenericAttachment.GenericAttachment
+instance GHC.Read.Read Amazonka.LexRuntime.Types.GenericAttachment.GenericAttachment
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.GenericAttachment.GenericAttachment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.GenericAttachment.GenericAttachment
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.GenericAttachment.GenericAttachment
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.GenericAttachment.GenericAttachment
 
 
-module Network.AWS.LexRuntime.Types.IntentConfidence
+module Amazonka.LexRuntime.Types.IntentConfidence
 
 -- | Provides a score that indicates the confidence that Amazon Lex has
 --   that an intent is the one that satisfies the user's intent.
@@ -426,16 +426,16 @@ newIntentConfidence :: IntentConfidence
 --   satisfies the user's intent. Ranges between 0.00 and 1.00. Higher
 --   scores indicate higher confidence.
 intentConfidence_score :: Lens' IntentConfidence (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.IntentConfidence.IntentConfidence
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.IntentConfidence.IntentConfidence
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.IntentConfidence.IntentConfidence
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.IntentConfidence.IntentConfidence
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.IntentConfidence.IntentConfidence
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.IntentConfidence.IntentConfidence
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.IntentConfidence.IntentConfidence
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.IntentConfidence.IntentConfidence
+instance GHC.Show.Show Amazonka.LexRuntime.Types.IntentConfidence.IntentConfidence
+instance GHC.Read.Read Amazonka.LexRuntime.Types.IntentConfidence.IntentConfidence
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.IntentConfidence.IntentConfidence
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.IntentConfidence.IntentConfidence
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.IntentConfidence.IntentConfidence
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.IntentConfidence.IntentConfidence
 
 
-module Network.AWS.LexRuntime.Types.IntentSummary
+module Amazonka.LexRuntime.Types.IntentSummary
 
 -- | Provides information about the state of an intent. You can use this
 --   information to get the current state of an intent so that you can
@@ -650,16 +650,16 @@ intentSummary_slotToElicit :: Lens' IntentSummary (Maybe Text)
 --   from the user.</li>
 --   </ul>
 intentSummary_dialogActionType :: Lens' IntentSummary DialogActionType
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.IntentSummary.IntentSummary
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.IntentSummary.IntentSummary
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.IntentSummary.IntentSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.IntentSummary.IntentSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.IntentSummary.IntentSummary
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.IntentSummary.IntentSummary
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.IntentSummary.IntentSummary
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.IntentSummary.IntentSummary
+instance GHC.Show.Show Amazonka.LexRuntime.Types.IntentSummary.IntentSummary
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.IntentSummary.IntentSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.IntentSummary.IntentSummary
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.IntentSummary.IntentSummary
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.IntentSummary.IntentSummary
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.IntentSummary.IntentSummary
 
 
-module Network.AWS.LexRuntime.Types.MessageFormatType
+module Amazonka.LexRuntime.Types.MessageFormatType
 newtype MessageFormatType
 MessageFormatType' :: Text -> MessageFormatType
 [fromMessageFormatType] :: MessageFormatType -> Text
@@ -667,28 +667,28 @@ pattern MessageFormatType_Composite :: MessageFormatType
 pattern MessageFormatType_CustomPayload :: MessageFormatType
 pattern MessageFormatType_PlainText :: MessageFormatType
 pattern MessageFormatType_SSML :: MessageFormatType
-instance Network.AWS.Data.XML.ToXML Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Network.AWS.Data.XML.FromXML Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Network.AWS.Data.Log.ToLog Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Network.AWS.Data.Text.ToText Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Network.AWS.Data.Text.FromText Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance GHC.Classes.Ord Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Amazonka.Data.XML.ToXML Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Amazonka.Data.XML.FromXML Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Amazonka.Data.Headers.ToHeader Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Amazonka.Data.Log.ToLog Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Amazonka.Data.Text.ToText Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Amazonka.Data.Text.FromText Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance GHC.Classes.Ord Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance GHC.Read.Read Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
+instance GHC.Show.Show Amazonka.LexRuntime.Types.MessageFormatType.MessageFormatType
 
 
-module Network.AWS.LexRuntime.Types.DialogAction
+module Amazonka.LexRuntime.Types.DialogAction
 
 -- | Describes the next action that the bot should take in its interaction
 --   with the user and provides information about the context in which the
@@ -884,16 +884,16 @@ dialogAction_slotToElicit :: Lens' DialogAction (Maybe Text)
 --   from the user.</li>
 --   </ul>
 dialogAction_type :: Lens' DialogAction DialogActionType
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.DialogAction.DialogAction
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.DialogAction.DialogAction
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.DialogAction.DialogAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.DialogAction.DialogAction
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.DialogAction.DialogAction
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.DialogAction.DialogAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.Types.DialogAction.DialogAction
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.DialogAction.DialogAction
+instance GHC.Show.Show Amazonka.LexRuntime.Types.DialogAction.DialogAction
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.DialogAction.DialogAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.DialogAction.DialogAction
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.DialogAction.DialogAction
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.DialogAction.DialogAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.Types.DialogAction.DialogAction
 
 
-module Network.AWS.LexRuntime.Types.PredictedIntent
+module Amazonka.LexRuntime.Types.PredictedIntent
 
 -- | An intent that Amazon Lex suggests satisfies the user's intent.
 --   Includes the name of the intent, the confidence that Amazon Lex has
@@ -946,15 +946,15 @@ predictedIntent_slots :: Lens' PredictedIntent (Maybe (HashMap Text Text))
 -- | The name of the intent that Amazon Lex suggests satisfies the user's
 --   intent.
 predictedIntent_intentName :: Lens' PredictedIntent (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.PredictedIntent.PredictedIntent
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.PredictedIntent.PredictedIntent
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.PredictedIntent.PredictedIntent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.PredictedIntent.PredictedIntent
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.PredictedIntent.PredictedIntent
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.PredictedIntent.PredictedIntent
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.PredictedIntent.PredictedIntent
+instance GHC.Show.Show Amazonka.LexRuntime.Types.PredictedIntent.PredictedIntent
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.PredictedIntent.PredictedIntent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.PredictedIntent.PredictedIntent
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.PredictedIntent.PredictedIntent
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.PredictedIntent.PredictedIntent
 
 
-module Network.AWS.LexRuntime.Types.ResponseCard
+module Amazonka.LexRuntime.Types.ResponseCard
 
 -- | If you configure a response card when creating your bots, Amazon Lex
 --   substitutes the session attributes and slot values that are available,
@@ -1003,16 +1003,16 @@ responseCard_version :: Lens' ResponseCard (Maybe Text)
 
 -- | The content type of the response.
 responseCard_contentType :: Lens' ResponseCard (Maybe ContentType)
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.ResponseCard.ResponseCard
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.ResponseCard.ResponseCard
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.ResponseCard.ResponseCard
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.ResponseCard.ResponseCard
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.ResponseCard.ResponseCard
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.ResponseCard.ResponseCard
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.ResponseCard.ResponseCard
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.ResponseCard.ResponseCard
+instance GHC.Show.Show Amazonka.LexRuntime.Types.ResponseCard.ResponseCard
+instance GHC.Read.Read Amazonka.LexRuntime.Types.ResponseCard.ResponseCard
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.ResponseCard.ResponseCard
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.ResponseCard.ResponseCard
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.ResponseCard.ResponseCard
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.ResponseCard.ResponseCard
 
 
-module Network.AWS.LexRuntime.Types.SentimentResponse
+module Amazonka.LexRuntime.Types.SentimentResponse
 
 -- | The sentiment expressed in an utterance.
 --   
@@ -1055,16 +1055,16 @@ sentimentResponse_sentimentScore :: Lens' SentimentResponse (Maybe Text)
 -- | The inferred sentiment that Amazon Comprehend has the highest
 --   confidence in.
 sentimentResponse_sentimentLabel :: Lens' SentimentResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LexRuntime.Types.SentimentResponse.SentimentResponse
-instance GHC.Show.Show Network.AWS.LexRuntime.Types.SentimentResponse.SentimentResponse
-instance GHC.Read.Read Network.AWS.LexRuntime.Types.SentimentResponse.SentimentResponse
-instance GHC.Classes.Eq Network.AWS.LexRuntime.Types.SentimentResponse.SentimentResponse
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LexRuntime.Types.SentimentResponse.SentimentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.Types.SentimentResponse.SentimentResponse
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.Types.SentimentResponse.SentimentResponse
+instance GHC.Generics.Generic Amazonka.LexRuntime.Types.SentimentResponse.SentimentResponse
+instance GHC.Show.Show Amazonka.LexRuntime.Types.SentimentResponse.SentimentResponse
+instance GHC.Read.Read Amazonka.LexRuntime.Types.SentimentResponse.SentimentResponse
+instance GHC.Classes.Eq Amazonka.LexRuntime.Types.SentimentResponse.SentimentResponse
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LexRuntime.Types.SentimentResponse.SentimentResponse
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.Types.SentimentResponse.SentimentResponse
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.Types.SentimentResponse.SentimentResponse
 
 
-module Network.AWS.LexRuntime.Types
+module Amazonka.LexRuntime.Types
 
 -- | API version <tt>2016-11-28</tt> of the Amazon Lex Runtime Service SDK
 --   configuration.
@@ -1952,7 +1952,7 @@ sentimentResponse_sentimentLabel :: Lens' SentimentResponse (Maybe Text)
 --   state of the bot.
 --   
 --   For more information, see <a>Managing Sessions</a>.
-module Network.AWS.LexRuntime.PutSession
+module Amazonka.LexRuntime.PutSession
 
 -- | <i>See:</i> <a>newPutSession</a> smart constructor.
 data PutSession
@@ -2471,18 +2471,18 @@ putSessionResponse_httpStatus :: Lens' PutSessionResponse Int
 
 -- | The audio version of the message to convey to the user.
 putSessionResponse_audioStream :: Lens' PutSessionResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.LexRuntime.PutSession.PutSession
-instance GHC.Show.Show Network.AWS.LexRuntime.PutSession.PutSession
-instance GHC.Classes.Eq Network.AWS.LexRuntime.PutSession.PutSession
-instance GHC.Generics.Generic Network.AWS.LexRuntime.PutSession.PutSessionResponse
-instance GHC.Show.Show Network.AWS.LexRuntime.PutSession.PutSessionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LexRuntime.PutSession.PutSession
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.PutSession.PutSession
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.PutSession.PutSession
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LexRuntime.PutSession.PutSession
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.PutSession.PutSession
-instance Network.AWS.Data.Path.ToPath Network.AWS.LexRuntime.PutSession.PutSession
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.PutSession.PutSession
+instance GHC.Generics.Generic Amazonka.LexRuntime.PutSession.PutSession
+instance GHC.Show.Show Amazonka.LexRuntime.PutSession.PutSession
+instance GHC.Classes.Eq Amazonka.LexRuntime.PutSession.PutSession
+instance GHC.Generics.Generic Amazonka.LexRuntime.PutSession.PutSessionResponse
+instance GHC.Show.Show Amazonka.LexRuntime.PutSession.PutSessionResponse
+instance Amazonka.Types.AWSRequest Amazonka.LexRuntime.PutSession.PutSession
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.PutSession.PutSession
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.PutSession.PutSession
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LexRuntime.PutSession.PutSession
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.PutSession.PutSession
+instance Amazonka.Data.Path.ToPath Amazonka.LexRuntime.PutSession.PutSession
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.PutSession.PutSession
 
 
 -- | Sends user input to Amazon Lex. Client applications can use this API
@@ -2534,7 +2534,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.PutSession.PutSes
 --   In addition, Amazon Lex also returns your application-specific
 --   <tt>sessionAttributes</tt>. For more information, see <a>Managing
 --   Conversation Context</a>.
-module Network.AWS.LexRuntime.PostText
+module Amazonka.LexRuntime.PostText
 
 -- | <i>See:</i> <a>newPostText</a> smart constructor.
 data PostText
@@ -3190,20 +3190,20 @@ postTextResponse_sessionAttributes :: Lens' PostTextResponse (Maybe (HashMap Tex
 
 -- | The response's http status code.
 postTextResponse_httpStatus :: Lens' PostTextResponse Int
-instance GHC.Generics.Generic Network.AWS.LexRuntime.PostText.PostText
-instance GHC.Show.Show Network.AWS.LexRuntime.PostText.PostText
-instance GHC.Classes.Eq Network.AWS.LexRuntime.PostText.PostText
-instance GHC.Generics.Generic Network.AWS.LexRuntime.PostText.PostTextResponse
-instance GHC.Show.Show Network.AWS.LexRuntime.PostText.PostTextResponse
-instance GHC.Classes.Eq Network.AWS.LexRuntime.PostText.PostTextResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LexRuntime.PostText.PostText
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.PostText.PostTextResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.PostText.PostText
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.PostText.PostText
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LexRuntime.PostText.PostText
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LexRuntime.PostText.PostText
-instance Network.AWS.Data.Path.ToPath Network.AWS.LexRuntime.PostText.PostText
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.PostText.PostText
+instance GHC.Generics.Generic Amazonka.LexRuntime.PostText.PostText
+instance GHC.Show.Show Amazonka.LexRuntime.PostText.PostText
+instance GHC.Classes.Eq Amazonka.LexRuntime.PostText.PostText
+instance GHC.Generics.Generic Amazonka.LexRuntime.PostText.PostTextResponse
+instance GHC.Show.Show Amazonka.LexRuntime.PostText.PostTextResponse
+instance GHC.Classes.Eq Amazonka.LexRuntime.PostText.PostTextResponse
+instance Amazonka.Types.AWSRequest Amazonka.LexRuntime.PostText.PostText
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.PostText.PostTextResponse
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.PostText.PostText
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.PostText.PostText
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LexRuntime.PostText.PostText
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LexRuntime.PostText.PostText
+instance Amazonka.Data.Path.ToPath Amazonka.LexRuntime.PostText.PostText
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.PostText.PostText
 
 
 -- | Sends user input (text or speech) to Amazon Lex. Clients use this API
@@ -3261,7 +3261,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.PostText.PostText
 --   In addition, Amazon Lex also returns your application-specific
 --   <tt>sessionAttributes</tt>. For more information, see <a>Managing
 --   Conversation Context</a>.
-module Network.AWS.LexRuntime.PostContent
+module Amazonka.LexRuntime.PostContent
 
 -- | <i>See:</i> <a>newPostContent</a> smart constructor.
 data PostContent
@@ -4287,19 +4287,19 @@ postContentResponse_httpStatus :: Lens' PostContentResponse Int
 --   convey to the user. Then Amazon Lex sends that message in the
 --   response.
 postContentResponse_audioStream :: Lens' PostContentResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.LexRuntime.PostContent.PostContent
-instance GHC.Show.Show Network.AWS.LexRuntime.PostContent.PostContent
-instance GHC.Generics.Generic Network.AWS.LexRuntime.PostContent.PostContentResponse
-instance GHC.Show.Show Network.AWS.LexRuntime.PostContent.PostContentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LexRuntime.PostContent.PostContent
-instance Network.AWS.Data.Body.ToBody Network.AWS.LexRuntime.PostContent.PostContent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LexRuntime.PostContent.PostContent
-instance Network.AWS.Data.Path.ToPath Network.AWS.LexRuntime.PostContent.PostContent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.PostContent.PostContent
+instance GHC.Generics.Generic Amazonka.LexRuntime.PostContent.PostContent
+instance GHC.Show.Show Amazonka.LexRuntime.PostContent.PostContent
+instance GHC.Generics.Generic Amazonka.LexRuntime.PostContent.PostContentResponse
+instance GHC.Show.Show Amazonka.LexRuntime.PostContent.PostContentResponse
+instance Amazonka.Types.AWSRequest Amazonka.LexRuntime.PostContent.PostContent
+instance Amazonka.Data.Body.ToBody Amazonka.LexRuntime.PostContent.PostContent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LexRuntime.PostContent.PostContent
+instance Amazonka.Data.Path.ToPath Amazonka.LexRuntime.PostContent.PostContent
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.PostContent.PostContent
 
 
 -- | Returns session information for a specified bot, alias, and user ID.
-module Network.AWS.LexRuntime.GetSession
+module Amazonka.LexRuntime.GetSession
 
 -- | <i>See:</i> <a>newGetSession</a> smart constructor.
 data GetSession
@@ -4477,24 +4477,24 @@ getSessionResponse_sessionAttributes :: Lens' GetSessionResponse (Maybe (HashMap
 
 -- | The response's http status code.
 getSessionResponse_httpStatus :: Lens' GetSessionResponse Int
-instance GHC.Generics.Generic Network.AWS.LexRuntime.GetSession.GetSession
-instance GHC.Show.Show Network.AWS.LexRuntime.GetSession.GetSession
-instance GHC.Read.Read Network.AWS.LexRuntime.GetSession.GetSession
-instance GHC.Classes.Eq Network.AWS.LexRuntime.GetSession.GetSession
-instance GHC.Generics.Generic Network.AWS.LexRuntime.GetSession.GetSessionResponse
-instance GHC.Show.Show Network.AWS.LexRuntime.GetSession.GetSessionResponse
-instance GHC.Classes.Eq Network.AWS.LexRuntime.GetSession.GetSessionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LexRuntime.GetSession.GetSession
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.GetSession.GetSessionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.GetSession.GetSession
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.GetSession.GetSession
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LexRuntime.GetSession.GetSession
-instance Network.AWS.Data.Path.ToPath Network.AWS.LexRuntime.GetSession.GetSession
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.GetSession.GetSession
+instance GHC.Generics.Generic Amazonka.LexRuntime.GetSession.GetSession
+instance GHC.Show.Show Amazonka.LexRuntime.GetSession.GetSession
+instance GHC.Read.Read Amazonka.LexRuntime.GetSession.GetSession
+instance GHC.Classes.Eq Amazonka.LexRuntime.GetSession.GetSession
+instance GHC.Generics.Generic Amazonka.LexRuntime.GetSession.GetSessionResponse
+instance GHC.Show.Show Amazonka.LexRuntime.GetSession.GetSessionResponse
+instance GHC.Classes.Eq Amazonka.LexRuntime.GetSession.GetSessionResponse
+instance Amazonka.Types.AWSRequest Amazonka.LexRuntime.GetSession.GetSession
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.GetSession.GetSessionResponse
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.GetSession.GetSession
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.GetSession.GetSession
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LexRuntime.GetSession.GetSession
+instance Amazonka.Data.Path.ToPath Amazonka.LexRuntime.GetSession.GetSession
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.GetSession.GetSession
 
 
 -- | Removes session information for a specified bot, alias, and user ID.
-module Network.AWS.LexRuntime.DeleteSession
+module Amazonka.LexRuntime.DeleteSession
 
 -- | <i>See:</i> <a>newDeleteSession</a> smart constructor.
 data DeleteSession
@@ -4599,24 +4599,24 @@ deleteSessionResponse_sessionId :: Lens' DeleteSessionResponse (Maybe Text)
 
 -- | The response's http status code.
 deleteSessionResponse_httpStatus :: Lens' DeleteSessionResponse Int
-instance GHC.Generics.Generic Network.AWS.LexRuntime.DeleteSession.DeleteSession
-instance GHC.Show.Show Network.AWS.LexRuntime.DeleteSession.DeleteSession
-instance GHC.Read.Read Network.AWS.LexRuntime.DeleteSession.DeleteSession
-instance GHC.Classes.Eq Network.AWS.LexRuntime.DeleteSession.DeleteSession
-instance GHC.Generics.Generic Network.AWS.LexRuntime.DeleteSession.DeleteSessionResponse
-instance GHC.Show.Show Network.AWS.LexRuntime.DeleteSession.DeleteSessionResponse
-instance GHC.Read.Read Network.AWS.LexRuntime.DeleteSession.DeleteSessionResponse
-instance GHC.Classes.Eq Network.AWS.LexRuntime.DeleteSession.DeleteSessionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LexRuntime.DeleteSession.DeleteSession
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.DeleteSession.DeleteSessionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LexRuntime.DeleteSession.DeleteSession
-instance Control.DeepSeq.NFData Network.AWS.LexRuntime.DeleteSession.DeleteSession
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LexRuntime.DeleteSession.DeleteSession
-instance Network.AWS.Data.Path.ToPath Network.AWS.LexRuntime.DeleteSession.DeleteSession
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LexRuntime.DeleteSession.DeleteSession
+instance GHC.Generics.Generic Amazonka.LexRuntime.DeleteSession.DeleteSession
+instance GHC.Show.Show Amazonka.LexRuntime.DeleteSession.DeleteSession
+instance GHC.Read.Read Amazonka.LexRuntime.DeleteSession.DeleteSession
+instance GHC.Classes.Eq Amazonka.LexRuntime.DeleteSession.DeleteSession
+instance GHC.Generics.Generic Amazonka.LexRuntime.DeleteSession.DeleteSessionResponse
+instance GHC.Show.Show Amazonka.LexRuntime.DeleteSession.DeleteSessionResponse
+instance GHC.Read.Read Amazonka.LexRuntime.DeleteSession.DeleteSessionResponse
+instance GHC.Classes.Eq Amazonka.LexRuntime.DeleteSession.DeleteSessionResponse
+instance Amazonka.Types.AWSRequest Amazonka.LexRuntime.DeleteSession.DeleteSession
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.DeleteSession.DeleteSessionResponse
+instance Data.Hashable.Class.Hashable Amazonka.LexRuntime.DeleteSession.DeleteSession
+instance Control.DeepSeq.NFData Amazonka.LexRuntime.DeleteSession.DeleteSession
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LexRuntime.DeleteSession.DeleteSession
+instance Amazonka.Data.Path.ToPath Amazonka.LexRuntime.DeleteSession.DeleteSession
+instance Amazonka.Data.Query.ToQuery Amazonka.LexRuntime.DeleteSession.DeleteSession
 
 
-module Network.AWS.LexRuntime.Lens
+module Amazonka.LexRuntime.Lens
 
 -- | The message that Amazon Lex returns in the response can be either text
 --   or speech based depending on the value of this field.
@@ -5583,7 +5583,7 @@ sentimentResponse_sentimentScore :: Lens' SentimentResponse (Maybe Text)
 sentimentResponse_sentimentLabel :: Lens' SentimentResponse (Maybe Text)
 
 
-module Network.AWS.LexRuntime.Waiters
+module Amazonka.LexRuntime.Waiters
 
 
 -- | Derived from API version <tt>2016-11-28</tt> of the AWS service
@@ -5601,7 +5601,7 @@ module Network.AWS.LexRuntime.Waiters
 --   (that you configured when you created the bot). You use the build-time
 --   API to create and manage your Amazon Lex bot. For a list of build-time
 --   operations, see the build-time API, .
-module Network.AWS.LexRuntime
+module Amazonka.LexRuntime
 
 -- | API version <tt>2016-11-28</tt> of the Amazon Lex Runtime Service SDK
 --   configuration.

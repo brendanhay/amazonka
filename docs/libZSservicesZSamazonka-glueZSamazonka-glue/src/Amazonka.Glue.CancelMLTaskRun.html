@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Glue.CancelMLTaskRun</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels (stops) a task run. Machine learning task runs are asynchronous</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- tasks that Glue runs on your behalf as part of various machine learning</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- workflows. You can cancel a machine learning task run at any time by</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- calling @CancelMLTaskRun@ with a task run\'s parent transform\'s</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @TransformID@ and the task run\'s @TaskRunId@.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.CancelMLTaskRun</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier">CancelMLTaskRun</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#newCancelMLTaskRun"><span class="hs-identifier">newCancelMLTaskRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRun_transformId"><span class="hs-identifier">cancelMLTaskRun_transformId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRun_taskRunId"><span class="hs-identifier">cancelMLTaskRun_taskRunId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier">CancelMLTaskRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#newCancelMLTaskRunResponse"><span class="hs-identifier">newCancelMLTaskRunResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_status"><span class="hs-identifier">cancelMLTaskRunResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_transformId"><span class="hs-identifier">cancelMLTaskRunResponse_transformId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_taskRunId"><span class="hs-identifier">cancelMLTaskRunResponse_taskRunId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_httpStatus"><span class="hs-identifier">cancelMLTaskRunResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.html"><span class="hs-identifier">Amazonka.Glue.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newCancelMLTaskRun' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679742429"><span id="local-6989586621679742430"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelMLTaskRun"><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-var">CancelMLTaskRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelMLTaskRun%27"><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-var">CancelMLTaskRun'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AtransformId%3ACancelMLTaskRun%27"><span class="annot"><span class="annottext">CancelMLTaskRun -&gt; Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the task run.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AtaskRunId%3ACancelMLTaskRun%27"><span class="annot"><span class="annottext">CancelMLTaskRun -&gt; Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742422"><span id="local-6989586621679742424"><span class="annot"><span class="annottext">CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
+(CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool)
+-&gt; (CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool)
+-&gt; Eq CancelMLTaskRun
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
+$c/= :: CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
+== :: CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
+$c== :: CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742413"><span id="local-6989586621679742415"><span id="local-6989586621679742417"><span id="local-6989586621679742419"><span class="annot"><span class="annottext">ReadPrec [CancelMLTaskRun]
+ReadPrec CancelMLTaskRun
+Int -&gt; ReadS CancelMLTaskRun
+ReadS [CancelMLTaskRun]
+(Int -&gt; ReadS CancelMLTaskRun)
+-&gt; ReadS [CancelMLTaskRun]
+-&gt; ReadPrec CancelMLTaskRun
+-&gt; ReadPrec [CancelMLTaskRun]
+-&gt; Read CancelMLTaskRun
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelMLTaskRun]
+$creadListPrec :: ReadPrec [CancelMLTaskRun]
+readPrec :: ReadPrec CancelMLTaskRun
+$creadPrec :: ReadPrec CancelMLTaskRun
+readList :: ReadS [CancelMLTaskRun]
+$creadList :: ReadS [CancelMLTaskRun]
+readsPrec :: Int -&gt; ReadS CancelMLTaskRun
+$creadsPrec :: Int -&gt; ReadS CancelMLTaskRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742406"><span id="local-6989586621679742408"><span id="local-6989586621679742410"><span class="annot"><span class="annottext">Int -&gt; CancelMLTaskRun -&gt; ShowS
+[CancelMLTaskRun] -&gt; ShowS
+CancelMLTaskRun -&gt; String
+(Int -&gt; CancelMLTaskRun -&gt; ShowS)
+-&gt; (CancelMLTaskRun -&gt; String)
+-&gt; ([CancelMLTaskRun] -&gt; ShowS)
+-&gt; Show CancelMLTaskRun
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelMLTaskRun] -&gt; ShowS
+$cshowList :: [CancelMLTaskRun] -&gt; ShowS
+show :: CancelMLTaskRun -&gt; String
+$cshow :: CancelMLTaskRun -&gt; String
+showsPrec :: Int -&gt; CancelMLTaskRun -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelMLTaskRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CancelMLTaskRun -&gt; Rep CancelMLTaskRun x)
+-&gt; (forall x. Rep CancelMLTaskRun x -&gt; CancelMLTaskRun)
+-&gt; Generic CancelMLTaskRun
+forall x. Rep CancelMLTaskRun x -&gt; CancelMLTaskRun
+forall x. CancelMLTaskRun -&gt; Rep CancelMLTaskRun x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelMLTaskRun x -&gt; CancelMLTaskRun
+$cfrom :: forall x. CancelMLTaskRun -&gt; Rep CancelMLTaskRun x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'CancelMLTaskRun' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'transformId', 'cancelMLTaskRun_transformId' - The unique identifier of the machine learning transform.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'taskRunId', 'cancelMLTaskRun_taskRunId' - A unique identifier for the task run.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#newCancelMLTaskRun"><span class="hs-identifier hs-type">newCancelMLTaskRun</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'transformId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'taskRunId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span>
+</span><span id="line-82"></span><span id="newCancelMLTaskRun"><span class="annot"><span class="annottext">newCancelMLTaskRun :: Text -&gt; Text -&gt; CancelMLTaskRun
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#newCancelMLTaskRun"><span class="hs-identifier hs-var hs-var">newCancelMLTaskRun</span></a></span></span><span> </span><span id="local-6989586621679742401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742401"><span class="hs-identifier hs-var">pTransformId_</span></a></span></span><span> </span><span id="local-6989586621679742400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742400"><span class="hs-identifier hs-var">pTaskRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">CancelMLTaskRun' :: Text -&gt; Text -&gt; CancelMLTaskRun
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transformId:CancelMLTaskRun' :: Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742401"><span class="hs-identifier hs-var">pTransformId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskRunId:CancelMLTaskRun' :: Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var">taskRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742400"><span class="hs-identifier hs-var">pTaskRunId_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRun_transformId"><span class="hs-identifier hs-type">cancelMLTaskRun_transformId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="cancelMLTaskRun_transformId"><span class="annot"><span class="annottext">cancelMLTaskRun_transformId :: (Text -&gt; f Text) -&gt; CancelMLTaskRun -&gt; f CancelMLTaskRun
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRun_transformId"><span class="hs-identifier hs-var hs-var">cancelMLTaskRun_transformId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelMLTaskRun -&gt; Text)
+-&gt; (CancelMLTaskRun -&gt; Text -&gt; CancelMLTaskRun)
+-&gt; Lens CancelMLTaskRun CancelMLTaskRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742397"><span class="annot"><span class="annottext">Text
+transformId :: Text
+$sel:transformId:CancelMLTaskRun' :: CancelMLTaskRun -&gt; Text
+</span><a href="#local-6989586621679742397"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742397"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742396"><span class="annot"><span class="annottext">s :: CancelMLTaskRun
+</span><a href="#local-6989586621679742396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRun
+</span><a href="#local-6989586621679742396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformId:CancelMLTaskRun' :: Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A unique identifier for the task run.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRun_taskRunId"><span class="hs-identifier hs-type">cancelMLTaskRun_taskRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="cancelMLTaskRun_taskRunId"><span class="annot"><span class="annottext">cancelMLTaskRun_taskRunId :: (Text -&gt; f Text) -&gt; CancelMLTaskRun -&gt; f CancelMLTaskRun
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRun_taskRunId"><span class="hs-identifier hs-var hs-var">cancelMLTaskRun_taskRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelMLTaskRun -&gt; Text)
+-&gt; (CancelMLTaskRun -&gt; Text -&gt; CancelMLTaskRun)
+-&gt; Lens CancelMLTaskRun CancelMLTaskRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742394"><span class="annot"><span class="annottext">Text
+taskRunId :: Text
+$sel:taskRunId:CancelMLTaskRun' :: CancelMLTaskRun -&gt; Text
+</span><a href="#local-6989586621679742394"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742394"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742393"><span class="annot"><span class="annottext">s :: CancelMLTaskRun
+</span><a href="#local-6989586621679742393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742392"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRun
+</span><a href="#local-6989586621679742393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRunId:CancelMLTaskRun' :: Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var">taskRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679742388"><span class="annot"><span class="annottext">request :: CancelMLTaskRun -&gt; Request CancelMLTaskRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelMLTaskRun -&gt; Request CancelMLTaskRun
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679742384"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CancelMLTaskRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CancelMLTaskRun)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CancelMLTaskRun))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CancelMLTaskRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CancelMLTaskRun)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679742381"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742381"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679742380"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679742380"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679742379"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679742379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe TaskStatusType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">CancelMLTaskRunResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TaskStatusType
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse)
+-&gt; Either String (Maybe TaskStatusType)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679742379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskStatusType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679742379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CancelMLTaskRunResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679742379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskRunId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CancelMLTaskRunResponse)
+-&gt; Either String Int -&gt; Either String CancelMLTaskRunResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742381"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742371"><span id="local-6989586621679742373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679742364"><span class="annot"><span class="annottext">toHeaders :: CancelMLTaskRun -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelMLTaskRun -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.CancelMLTaskRun&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742354"><span id="local-6989586621679742356"><span id="local-6989586621679742358"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679742352"><span class="annot"><span class="annottext">toJSON :: CancelMLTaskRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742349"><span id="local-6989586621679742350"><span class="annot"><span class="annottext">Text
+taskRunId :: Text
+transformId :: Text
+$sel:taskRunId:CancelMLTaskRun' :: CancelMLTaskRun -&gt; Text
+$sel:transformId:CancelMLTaskRun' :: CancelMLTaskRun -&gt; Text
+</span><a href="#local-6989586621679742349"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742350"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskRunId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742349"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679742343"><span class="annot"><span class="annottext">toPath :: CancelMLTaskRun -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelMLTaskRun -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679742339"><span class="annot"><span class="annottext">toQuery :: CancelMLTaskRun -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelMLTaskRun -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newCancelMLTaskRunResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679742336"><span id="local-6989586621679742337"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelMLTaskRunResponse"><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-var">CancelMLTaskRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelMLTaskRunResponse%27"><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">CancelMLTaskRunResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status for this run.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3Astatus%3ACancelMLTaskRunResponse%27"><span class="annot"><span class="annottext">CancelMLTaskRunResponse -&gt; Maybe TaskStatusType
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3Astatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TaskStatusType.html#TaskStatusType"><span class="hs-identifier hs-type">TaskStatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AtransformId%3ACancelMLTaskRunResponse%27"><span class="annot"><span class="annottext">CancelMLTaskRunResponse -&gt; Maybe Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the task run.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AtaskRunId%3ACancelMLTaskRunResponse%27"><span class="annot"><span class="annottext">CancelMLTaskRunResponse -&gt; Maybe Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelMLTaskRunResponse%27"><span class="annot"><span class="annottext">CancelMLTaskRunResponse -&gt; Int
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AhttpStatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742328"><span id="local-6989586621679742330"><span class="annot"><span class="annottext">CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
+(CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool)
+-&gt; (CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool)
+-&gt; Eq CancelMLTaskRunResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
+$c/= :: CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
+== :: CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
+$c== :: CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742320"><span id="local-6989586621679742322"><span id="local-6989586621679742324"><span id="local-6989586621679742326"><span class="annot"><span class="annottext">ReadPrec [CancelMLTaskRunResponse]
+ReadPrec CancelMLTaskRunResponse
+Int -&gt; ReadS CancelMLTaskRunResponse
+ReadS [CancelMLTaskRunResponse]
+(Int -&gt; ReadS CancelMLTaskRunResponse)
+-&gt; ReadS [CancelMLTaskRunResponse]
+-&gt; ReadPrec CancelMLTaskRunResponse
+-&gt; ReadPrec [CancelMLTaskRunResponse]
+-&gt; Read CancelMLTaskRunResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelMLTaskRunResponse]
+$creadListPrec :: ReadPrec [CancelMLTaskRunResponse]
+readPrec :: ReadPrec CancelMLTaskRunResponse
+$creadPrec :: ReadPrec CancelMLTaskRunResponse
+readList :: ReadS [CancelMLTaskRunResponse]
+$creadList :: ReadS [CancelMLTaskRunResponse]
+readsPrec :: Int -&gt; ReadS CancelMLTaskRunResponse
+$creadsPrec :: Int -&gt; ReadS CancelMLTaskRunResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742314"><span id="local-6989586621679742316"><span id="local-6989586621679742318"><span class="annot"><span class="annottext">Int -&gt; CancelMLTaskRunResponse -&gt; ShowS
+[CancelMLTaskRunResponse] -&gt; ShowS
+CancelMLTaskRunResponse -&gt; String
+(Int -&gt; CancelMLTaskRunResponse -&gt; ShowS)
+-&gt; (CancelMLTaskRunResponse -&gt; String)
+-&gt; ([CancelMLTaskRunResponse] -&gt; ShowS)
+-&gt; Show CancelMLTaskRunResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelMLTaskRunResponse] -&gt; ShowS
+$cshowList :: [CancelMLTaskRunResponse] -&gt; ShowS
+show :: CancelMLTaskRunResponse -&gt; String
+$cshow :: CancelMLTaskRunResponse -&gt; String
+showsPrec :: Int -&gt; CancelMLTaskRunResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelMLTaskRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CancelMLTaskRunResponse -&gt; Rep CancelMLTaskRunResponse x)
+-&gt; (forall x.
+    Rep CancelMLTaskRunResponse x -&gt; CancelMLTaskRunResponse)
+-&gt; Generic CancelMLTaskRunResponse
+forall x. Rep CancelMLTaskRunResponse x -&gt; CancelMLTaskRunResponse
+forall x. CancelMLTaskRunResponse -&gt; Rep CancelMLTaskRunResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelMLTaskRunResponse x -&gt; CancelMLTaskRunResponse
+$cfrom :: forall x. CancelMLTaskRunResponse -&gt; Rep CancelMLTaskRunResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Create a value of 'CancelMLTaskRunResponse' with all optional fields omitted.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'status', 'cancelMLTaskRunResponse_status' - The status for this run.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'transformId', 'cancelMLTaskRunResponse_transformId' - The unique identifier of the machine learning transform.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'taskRunId', 'cancelMLTaskRunResponse_taskRunId' - The unique identifier for the task run.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'cancelMLTaskRunResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#newCancelMLTaskRunResponse"><span class="hs-identifier hs-type">newCancelMLTaskRunResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newCancelMLTaskRunResponse"><span class="annot"><span class="annottext">newCancelMLTaskRunResponse :: Int -&gt; CancelMLTaskRunResponse
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#newCancelMLTaskRunResponse"><span class="hs-identifier hs-var hs-var">newCancelMLTaskRunResponse</span></a></span></span><span> </span><span id="local-6989586621679742311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742311"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse' :: Maybe TaskStatusType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:CancelMLTaskRunResponse' :: Maybe TaskStatusType
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3Astatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatusType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:transformId:CancelMLTaskRunResponse' :: Maybe Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskRunId:CancelMLTaskRunResponse' :: Maybe Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">taskRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CancelMLTaskRunResponse' :: Int
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AhttpStatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742311"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The status for this run.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_status"><span class="hs-identifier hs-type">cancelMLTaskRunResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.TaskStatusType.html#TaskStatusType"><span class="hs-identifier hs-type">TaskStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="cancelMLTaskRunResponse_status"><span class="annot"><span class="annottext">cancelMLTaskRunResponse_status :: (Maybe TaskStatusType -&gt; f (Maybe TaskStatusType))
+-&gt; CancelMLTaskRunResponse -&gt; f CancelMLTaskRunResponse
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_status"><span class="hs-identifier hs-var hs-var">cancelMLTaskRunResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelMLTaskRunResponse -&gt; Maybe TaskStatusType)
+-&gt; (CancelMLTaskRunResponse
+    -&gt; Maybe TaskStatusType -&gt; CancelMLTaskRunResponse)
+-&gt; Lens
+     CancelMLTaskRunResponse
+     CancelMLTaskRunResponse
+     (Maybe TaskStatusType)
+     (Maybe TaskStatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742310"><span class="annot"><span class="annottext">Maybe TaskStatusType
+status :: Maybe TaskStatusType
+$sel:status:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Maybe TaskStatusType
+</span><a href="#local-6989586621679742310"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatusType
+</span><a href="#local-6989586621679742310"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742309"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742308"><span class="annot"><span class="annottext">Maybe TaskStatusType
+</span><a href="#local-6989586621679742308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CancelMLTaskRunResponse' :: Maybe TaskStatusType
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3Astatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatusType
+</span><a href="#local-6989586621679742308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_transformId"><span class="hs-identifier hs-type">cancelMLTaskRunResponse_transformId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="cancelMLTaskRunResponse_transformId"><span class="annot"><span class="annottext">cancelMLTaskRunResponse_transformId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelMLTaskRunResponse -&gt; f CancelMLTaskRunResponse
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_transformId"><span class="hs-identifier hs-var hs-var">cancelMLTaskRunResponse_transformId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelMLTaskRunResponse -&gt; Maybe Text)
+-&gt; (CancelMLTaskRunResponse
+    -&gt; Maybe Text -&gt; CancelMLTaskRunResponse)
+-&gt; Lens
+     CancelMLTaskRunResponse
+     CancelMLTaskRunResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742307"><span class="annot"><span class="annottext">Maybe Text
+transformId :: Maybe Text
+$sel:transformId:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679742307"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742307"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742306"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformId:CancelMLTaskRunResponse' :: Maybe Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The unique identifier for the task run.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_taskRunId"><span class="hs-identifier hs-type">cancelMLTaskRunResponse_taskRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="cancelMLTaskRunResponse_taskRunId"><span class="annot"><span class="annottext">cancelMLTaskRunResponse_taskRunId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelMLTaskRunResponse -&gt; f CancelMLTaskRunResponse
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_taskRunId"><span class="hs-identifier hs-var hs-var">cancelMLTaskRunResponse_taskRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelMLTaskRunResponse -&gt; Maybe Text)
+-&gt; (CancelMLTaskRunResponse
+    -&gt; Maybe Text -&gt; CancelMLTaskRunResponse)
+-&gt; Lens
+     CancelMLTaskRunResponse
+     CancelMLTaskRunResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742304"><span class="annot"><span class="annottext">Maybe Text
+taskRunId :: Maybe Text
+$sel:taskRunId:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679742304"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742304"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742303"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742302"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRunId:CancelMLTaskRunResponse' :: Maybe Text
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">taskRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_httpStatus"><span class="hs-identifier hs-type">cancelMLTaskRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-197"></span><span id="cancelMLTaskRunResponse_httpStatus"><span class="annot"><span class="annottext">cancelMLTaskRunResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CancelMLTaskRunResponse -&gt; f CancelMLTaskRunResponse
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_httpStatus"><span class="hs-identifier hs-var hs-var">cancelMLTaskRunResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelMLTaskRunResponse -&gt; Int)
+-&gt; (CancelMLTaskRunResponse -&gt; Int -&gt; CancelMLTaskRunResponse)
+-&gt; Lens CancelMLTaskRunResponse CancelMLTaskRunResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742301"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Int
+</span><a href="#local-6989586621679742301"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742301"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742300"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742299"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelMLTaskRunResponse' :: Int
+</span><a href="Amazonka.Glue.CancelMLTaskRun.html#%24sel%3AhttpStatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

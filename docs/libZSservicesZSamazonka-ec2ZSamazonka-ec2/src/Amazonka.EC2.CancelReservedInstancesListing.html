@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.CancelReservedInstancesListing</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels the specified Reserved Instance listing in the Reserved Instance</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Marketplace.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.CancelReservedInstancesListing</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier">CancelReservedInstancesListing</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#newCancelReservedInstancesListing"><span class="hs-identifier">newCancelReservedInstancesListing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#cancelReservedInstancesListing_reservedInstancesListingId"><span class="hs-identifier">cancelReservedInstancesListing_reservedInstancesListingId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse"><span class="hs-identifier">CancelReservedInstancesListingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#newCancelReservedInstancesListingResponse"><span class="hs-identifier">newCancelReservedInstancesListingResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#cancelReservedInstancesListingResponse_reservedInstancesListings"><span class="hs-identifier">cancelReservedInstancesListingResponse_reservedInstancesListings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#cancelReservedInstancesListingResponse_httpStatus"><span class="hs-identifier">cancelReservedInstancesListingResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | Contains the parameters for CancelReservedInstancesListing.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newCancelReservedInstancesListing' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621681301664"><span id="local-6989586621681301665"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelReservedInstancesListing"><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-var">CancelReservedInstancesListing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelReservedInstancesListing%27"><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing%27"><span class="hs-identifier hs-var">CancelReservedInstancesListing'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Reserved Instance listing.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AreservedInstancesListingId%3ACancelReservedInstancesListing%27"><span class="annot"><span class="annottext">CancelReservedInstancesListing -&gt; Text
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#%24sel%3AreservedInstancesListingId%3ACancelReservedInstancesListing%27"><span class="hs-identifier hs-var hs-var">reservedInstancesListingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681301658"><span id="local-6989586621681301660"><span class="annot"><span class="annottext">CancelReservedInstancesListing
+-&gt; CancelReservedInstancesListing -&gt; Bool
+(CancelReservedInstancesListing
+ -&gt; CancelReservedInstancesListing -&gt; Bool)
+-&gt; (CancelReservedInstancesListing
+    -&gt; CancelReservedInstancesListing -&gt; Bool)
+-&gt; Eq CancelReservedInstancesListing
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelReservedInstancesListing
+-&gt; CancelReservedInstancesListing -&gt; Bool
+$c/= :: CancelReservedInstancesListing
+-&gt; CancelReservedInstancesListing -&gt; Bool
+== :: CancelReservedInstancesListing
+-&gt; CancelReservedInstancesListing -&gt; Bool
+$c== :: CancelReservedInstancesListing
+-&gt; CancelReservedInstancesListing -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301649"><span id="local-6989586621681301651"><span id="local-6989586621681301653"><span id="local-6989586621681301655"><span class="annot"><span class="annottext">ReadPrec [CancelReservedInstancesListing]
+ReadPrec CancelReservedInstancesListing
+Int -&gt; ReadS CancelReservedInstancesListing
+ReadS [CancelReservedInstancesListing]
+(Int -&gt; ReadS CancelReservedInstancesListing)
+-&gt; ReadS [CancelReservedInstancesListing]
+-&gt; ReadPrec CancelReservedInstancesListing
+-&gt; ReadPrec [CancelReservedInstancesListing]
+-&gt; Read CancelReservedInstancesListing
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelReservedInstancesListing]
+$creadListPrec :: ReadPrec [CancelReservedInstancesListing]
+readPrec :: ReadPrec CancelReservedInstancesListing
+$creadPrec :: ReadPrec CancelReservedInstancesListing
+readList :: ReadS [CancelReservedInstancesListing]
+$creadList :: ReadS [CancelReservedInstancesListing]
+readsPrec :: Int -&gt; ReadS CancelReservedInstancesListing
+$creadsPrec :: Int -&gt; ReadS CancelReservedInstancesListing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301642"><span id="local-6989586621681301644"><span id="local-6989586621681301646"><span class="annot"><span class="annottext">Int -&gt; CancelReservedInstancesListing -&gt; ShowS
+[CancelReservedInstancesListing] -&gt; ShowS
+CancelReservedInstancesListing -&gt; String
+(Int -&gt; CancelReservedInstancesListing -&gt; ShowS)
+-&gt; (CancelReservedInstancesListing -&gt; String)
+-&gt; ([CancelReservedInstancesListing] -&gt; ShowS)
+-&gt; Show CancelReservedInstancesListing
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelReservedInstancesListing] -&gt; ShowS
+$cshowList :: [CancelReservedInstancesListing] -&gt; ShowS
+show :: CancelReservedInstancesListing -&gt; String
+$cshow :: CancelReservedInstancesListing -&gt; String
+showsPrec :: Int -&gt; CancelReservedInstancesListing -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelReservedInstancesListing -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CancelReservedInstancesListing
+ -&gt; Rep CancelReservedInstancesListing x)
+-&gt; (forall x.
+    Rep CancelReservedInstancesListing x
+    -&gt; CancelReservedInstancesListing)
+-&gt; Generic CancelReservedInstancesListing
+forall x.
+Rep CancelReservedInstancesListing x
+-&gt; CancelReservedInstancesListing
+forall x.
+CancelReservedInstancesListing
+-&gt; Rep CancelReservedInstancesListing x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CancelReservedInstancesListing x
+-&gt; CancelReservedInstancesListing
+$cfrom :: forall x.
+CancelReservedInstancesListing
+-&gt; Rep CancelReservedInstancesListing x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'CancelReservedInstancesListing' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'reservedInstancesListingId', 'cancelReservedInstancesListing_reservedInstancesListingId' - The ID of the Reserved Instance listing.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#newCancelReservedInstancesListing"><span class="hs-identifier hs-type">newCancelReservedInstancesListing</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'reservedInstancesListingId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span><span>
+</span><span id="line-76"></span><span id="newCancelReservedInstancesListing"><span class="annot"><span class="annottext">newCancelReservedInstancesListing :: Text -&gt; CancelReservedInstancesListing
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#newCancelReservedInstancesListing"><span class="hs-identifier hs-var hs-var">newCancelReservedInstancesListing</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621681301637"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301637"><span class="hs-identifier hs-var">pReservedInstancesListingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">CancelReservedInstancesListing' :: Text -&gt; CancelReservedInstancesListing
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing%27"><span class="hs-identifier hs-type">CancelReservedInstancesListing'</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reservedInstancesListingId:CancelReservedInstancesListing' :: Text
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#%24sel%3AreservedInstancesListingId%3ACancelReservedInstancesListing%27"><span class="hs-identifier hs-var">reservedInstancesListingId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301637"><span class="hs-identifier hs-var">pReservedInstancesListingId_</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The ID of the Reserved Instance listing.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#cancelReservedInstancesListing_reservedInstancesListingId"><span class="hs-identifier hs-type">cancelReservedInstancesListing_reservedInstancesListingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="cancelReservedInstancesListing_reservedInstancesListingId"><span class="annot"><span class="annottext">cancelReservedInstancesListing_reservedInstancesListingId :: (Text -&gt; f Text)
+-&gt; CancelReservedInstancesListing
+-&gt; f CancelReservedInstancesListing
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#cancelReservedInstancesListing_reservedInstancesListingId"><span class="hs-identifier hs-var hs-var">cancelReservedInstancesListing_reservedInstancesListingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelReservedInstancesListing -&gt; Text)
+-&gt; (CancelReservedInstancesListing
+    -&gt; Text -&gt; CancelReservedInstancesListing)
+-&gt; Lens
+     CancelReservedInstancesListing
+     CancelReservedInstancesListing
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing%27"><span class="hs-identifier hs-type">CancelReservedInstancesListing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301634"><span class="annot"><span class="annottext">Text
+reservedInstancesListingId :: Text
+$sel:reservedInstancesListingId:CancelReservedInstancesListing' :: CancelReservedInstancesListing -&gt; Text
+</span><a href="#local-6989586621681301634"><span class="hs-identifier hs-var hs-var">reservedInstancesListingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301634"><span class="hs-identifier hs-var">reservedInstancesListingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301633"><span class="annot"><span class="annottext">s :: CancelReservedInstancesListing
+</span><a href="#local-6989586621681301633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing%27"><span class="hs-identifier hs-type">CancelReservedInstancesListing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301632"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelReservedInstancesListing
+</span><a href="#local-6989586621681301633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesListingId:CancelReservedInstancesListing' :: Text
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#%24sel%3AreservedInstancesListingId%3ACancelReservedInstancesListing%27"><span class="hs-identifier hs-var">reservedInstancesListingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621681301628"><span class="annot"><span class="annottext">request :: CancelReservedInstancesListing
+-&gt; Request CancelReservedInstancesListing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CancelReservedInstancesListing
+-&gt; Request CancelReservedInstancesListing
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681301624"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CancelReservedInstancesListing
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CancelReservedInstancesListing)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CancelReservedInstancesListing))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CancelReservedInstancesListing
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CancelReservedInstancesListing)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681301621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301621"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681301620"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681301620"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681301619"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681301619"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReservedInstancesListing]
+-&gt; Int -&gt; CancelReservedInstancesListingResponse
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-var">CancelReservedInstancesListingResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ReservedInstancesListing]
+ -&gt; Int -&gt; CancelReservedInstancesListingResponse)
+-&gt; Either String (Maybe [ReservedInstancesListing])
+-&gt; Either String (Int -&gt; CancelReservedInstancesListingResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681301619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reservedInstancesListingsSet&quot;</span></span><span>
+</span><span id="line-100"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-101"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ReservedInstancesListing]))
+-&gt; Either String (Maybe [ReservedInstancesListing])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ReservedInstancesListing])
+-&gt; [Node] -&gt; Either String (Maybe [ReservedInstancesListing])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ReservedInstancesListing]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CancelReservedInstancesListingResponse)
+-&gt; Either String Int
+-&gt; Either String CancelReservedInstancesListingResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301621"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621681301608"><span id="local-6989586621681301610"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621681301605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681301601"><span class="annot"><span class="annottext">toHeaders :: CancelReservedInstancesListing -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CancelReservedInstancesListing -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621681301596"><span class="annot"><span class="annottext">toPath :: CancelReservedInstancesListing -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelReservedInstancesListing -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing"><span class="hs-identifier hs-type">CancelReservedInstancesListing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621681301592"><span class="annot"><span class="annottext">toQuery :: CancelReservedInstancesListing -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListing%27"><span class="hs-identifier hs-type">CancelReservedInstancesListing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301590"><span class="annot"><span class="annottext">Text
+reservedInstancesListingId :: Text
+$sel:reservedInstancesListingId:CancelReservedInstancesListing' :: CancelReservedInstancesListing -&gt; Text
+</span><a href="#local-6989586621681301590"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CancelReservedInstancesListing&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReservedInstancesListingId&quot;</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301590"><span class="hs-identifier hs-var">reservedInstancesListingId</span></a></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Contains the output of CancelReservedInstancesListing.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- /See:/ 'newCancelReservedInstancesListingResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621681301587"><span id="local-6989586621681301588"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelReservedInstancesListingResponse"><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse"><span class="hs-identifier hs-var">CancelReservedInstancesListingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelReservedInstancesListingResponse%27"><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-var">CancelReservedInstancesListingResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Reserved Instance listing.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AreservedInstancesListings%3ACancelReservedInstancesListingResponse%27"><span class="annot"><span class="annottext">CancelReservedInstancesListingResponse
+-&gt; Maybe [ReservedInstancesListing]
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#%24sel%3AreservedInstancesListings%3ACancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-var hs-var">reservedInstancesListings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ReservedInstancesListing.html#ReservedInstancesListing"><span class="hs-identifier hs-type">ReservedInstancesListing</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelReservedInstancesListingResponse%27"><span class="annot"><span class="annottext">CancelReservedInstancesListingResponse -&gt; Int
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#%24sel%3AhttpStatus%3ACancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681301581"><span id="local-6989586621681301583"><span class="annot"><span class="annottext">CancelReservedInstancesListingResponse
+-&gt; CancelReservedInstancesListingResponse -&gt; Bool
+(CancelReservedInstancesListingResponse
+ -&gt; CancelReservedInstancesListingResponse -&gt; Bool)
+-&gt; (CancelReservedInstancesListingResponse
+    -&gt; CancelReservedInstancesListingResponse -&gt; Bool)
+-&gt; Eq CancelReservedInstancesListingResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelReservedInstancesListingResponse
+-&gt; CancelReservedInstancesListingResponse -&gt; Bool
+$c/= :: CancelReservedInstancesListingResponse
+-&gt; CancelReservedInstancesListingResponse -&gt; Bool
+== :: CancelReservedInstancesListingResponse
+-&gt; CancelReservedInstancesListingResponse -&gt; Bool
+$c== :: CancelReservedInstancesListingResponse
+-&gt; CancelReservedInstancesListingResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301573"><span id="local-6989586621681301575"><span id="local-6989586621681301577"><span id="local-6989586621681301579"><span class="annot"><span class="annottext">ReadPrec [CancelReservedInstancesListingResponse]
+ReadPrec CancelReservedInstancesListingResponse
+Int -&gt; ReadS CancelReservedInstancesListingResponse
+ReadS [CancelReservedInstancesListingResponse]
+(Int -&gt; ReadS CancelReservedInstancesListingResponse)
+-&gt; ReadS [CancelReservedInstancesListingResponse]
+-&gt; ReadPrec CancelReservedInstancesListingResponse
+-&gt; ReadPrec [CancelReservedInstancesListingResponse]
+-&gt; Read CancelReservedInstancesListingResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelReservedInstancesListingResponse]
+$creadListPrec :: ReadPrec [CancelReservedInstancesListingResponse]
+readPrec :: ReadPrec CancelReservedInstancesListingResponse
+$creadPrec :: ReadPrec CancelReservedInstancesListingResponse
+readList :: ReadS [CancelReservedInstancesListingResponse]
+$creadList :: ReadS [CancelReservedInstancesListingResponse]
+readsPrec :: Int -&gt; ReadS CancelReservedInstancesListingResponse
+$creadsPrec :: Int -&gt; ReadS CancelReservedInstancesListingResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301567"><span id="local-6989586621681301569"><span id="local-6989586621681301571"><span class="annot"><span class="annottext">Int -&gt; CancelReservedInstancesListingResponse -&gt; ShowS
+[CancelReservedInstancesListingResponse] -&gt; ShowS
+CancelReservedInstancesListingResponse -&gt; String
+(Int -&gt; CancelReservedInstancesListingResponse -&gt; ShowS)
+-&gt; (CancelReservedInstancesListingResponse -&gt; String)
+-&gt; ([CancelReservedInstancesListingResponse] -&gt; ShowS)
+-&gt; Show CancelReservedInstancesListingResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelReservedInstancesListingResponse] -&gt; ShowS
+$cshowList :: [CancelReservedInstancesListingResponse] -&gt; ShowS
+show :: CancelReservedInstancesListingResponse -&gt; String
+$cshow :: CancelReservedInstancesListingResponse -&gt; String
+showsPrec :: Int -&gt; CancelReservedInstancesListingResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelReservedInstancesListingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CancelReservedInstancesListingResponse
+ -&gt; Rep CancelReservedInstancesListingResponse x)
+-&gt; (forall x.
+    Rep CancelReservedInstancesListingResponse x
+    -&gt; CancelReservedInstancesListingResponse)
+-&gt; Generic CancelReservedInstancesListingResponse
+forall x.
+Rep CancelReservedInstancesListingResponse x
+-&gt; CancelReservedInstancesListingResponse
+forall x.
+CancelReservedInstancesListingResponse
+-&gt; Rep CancelReservedInstancesListingResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CancelReservedInstancesListingResponse x
+-&gt; CancelReservedInstancesListingResponse
+$cfrom :: forall x.
+CancelReservedInstancesListingResponse
+-&gt; Rep CancelReservedInstancesListingResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Create a value of 'CancelReservedInstancesListingResponse' with all optional fields omitted.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'reservedInstancesListings', 'cancelReservedInstancesListingResponse_reservedInstancesListings' - The Reserved Instance listing.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'cancelReservedInstancesListingResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#newCancelReservedInstancesListingResponse"><span class="hs-identifier hs-type">newCancelReservedInstancesListingResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newCancelReservedInstancesListingResponse"><span class="annot"><span class="annottext">newCancelReservedInstancesListingResponse :: Int -&gt; CancelReservedInstancesListingResponse
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#newCancelReservedInstancesListingResponse"><span class="hs-identifier hs-var hs-var">newCancelReservedInstancesListingResponse</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621681301564"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301564"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">CancelReservedInstancesListingResponse' :: Maybe [ReservedInstancesListing]
+-&gt; Int -&gt; CancelReservedInstancesListingResponse
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reservedInstancesListings:CancelReservedInstancesListingResponse' :: Maybe [ReservedInstancesListing]
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#%24sel%3AreservedInstancesListings%3ACancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-var">reservedInstancesListings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReservedInstancesListing]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CancelReservedInstancesListingResponse' :: Int
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#%24sel%3AhttpStatus%3ACancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301564"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The Reserved Instance listing.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#cancelReservedInstancesListingResponse_reservedInstancesListings"><span class="hs-identifier hs-type">cancelReservedInstancesListingResponse_reservedInstancesListings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ReservedInstancesListing.html#ReservedInstancesListing"><span class="hs-identifier hs-type">ReservedInstancesListing</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="cancelReservedInstancesListingResponse_reservedInstancesListings"><span class="annot"><span class="annottext">cancelReservedInstancesListingResponse_reservedInstancesListings :: (Maybe [ReservedInstancesListing]
+ -&gt; f (Maybe [ReservedInstancesListing]))
+-&gt; CancelReservedInstancesListingResponse
+-&gt; f CancelReservedInstancesListingResponse
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#cancelReservedInstancesListingResponse_reservedInstancesListings"><span class="hs-identifier hs-var hs-var">cancelReservedInstancesListingResponse_reservedInstancesListings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelReservedInstancesListingResponse
+ -&gt; Maybe [ReservedInstancesListing])
+-&gt; (CancelReservedInstancesListingResponse
+    -&gt; Maybe [ReservedInstancesListing]
+    -&gt; CancelReservedInstancesListingResponse)
+-&gt; Lens
+     CancelReservedInstancesListingResponse
+     CancelReservedInstancesListingResponse
+     (Maybe [ReservedInstancesListing])
+     (Maybe [ReservedInstancesListing])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301563"><span class="annot"><span class="annottext">Maybe [ReservedInstancesListing]
+reservedInstancesListings :: Maybe [ReservedInstancesListing]
+$sel:reservedInstancesListings:CancelReservedInstancesListingResponse' :: CancelReservedInstancesListingResponse
+-&gt; Maybe [ReservedInstancesListing]
+</span><a href="#local-6989586621681301563"><span class="hs-identifier hs-var hs-var">reservedInstancesListings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservedInstancesListing]
+</span><a href="#local-6989586621681301563"><span class="hs-identifier hs-var">reservedInstancesListings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301562"><span class="annot"><span class="annottext">s :: CancelReservedInstancesListingResponse
+</span><a href="#local-6989586621681301562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301561"><span class="annot"><span class="annottext">Maybe [ReservedInstancesListing]
+</span><a href="#local-6989586621681301561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelReservedInstancesListingResponse
+</span><a href="#local-6989586621681301562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesListings:CancelReservedInstancesListingResponse' :: Maybe [ReservedInstancesListing]
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#%24sel%3AreservedInstancesListings%3ACancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-var">reservedInstancesListings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservedInstancesListing]
+</span><a href="#local-6989586621681301561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReservedInstancesListing]
+  -&gt; f (Maybe [ReservedInstancesListing]))
+ -&gt; CancelReservedInstancesListingResponse
+ -&gt; f CancelReservedInstancesListingResponse)
+-&gt; ((Maybe [ReservedInstancesListing]
+     -&gt; f (Maybe [ReservedInstancesListing]))
+    -&gt; Maybe [ReservedInstancesListing]
+    -&gt; f (Maybe [ReservedInstancesListing]))
+-&gt; (Maybe [ReservedInstancesListing]
+    -&gt; f (Maybe [ReservedInstancesListing]))
+-&gt; CancelReservedInstancesListingResponse
+-&gt; f CancelReservedInstancesListingResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReservedInstancesListing]
+  [ReservedInstancesListing]
+  [ReservedInstancesListing]
+  [ReservedInstancesListing]
+-&gt; Iso
+     (Maybe [ReservedInstancesListing])
+     (Maybe [ReservedInstancesListing])
+     (Maybe [ReservedInstancesListing])
+     (Maybe [ReservedInstancesListing])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReservedInstancesListing]
+  [ReservedInstancesListing]
+  [ReservedInstancesListing]
+  [ReservedInstancesListing]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#cancelReservedInstancesListingResponse_httpStatus"><span class="hs-identifier hs-type">cancelReservedInstancesListingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span id="cancelReservedInstancesListingResponse_httpStatus"><span class="annot"><span class="annottext">cancelReservedInstancesListingResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CancelReservedInstancesListingResponse
+-&gt; f CancelReservedInstancesListingResponse
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#cancelReservedInstancesListingResponse_httpStatus"><span class="hs-identifier hs-var hs-var">cancelReservedInstancesListingResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelReservedInstancesListingResponse -&gt; Int)
+-&gt; (CancelReservedInstancesListingResponse
+    -&gt; Int -&gt; CancelReservedInstancesListingResponse)
+-&gt; Lens
+     CancelReservedInstancesListingResponse
+     CancelReservedInstancesListingResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301557"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CancelReservedInstancesListingResponse' :: CancelReservedInstancesListingResponse -&gt; Int
+</span><a href="#local-6989586621681301557"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301557"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301556"><span class="annot"><span class="annottext">s :: CancelReservedInstancesListingResponse
+</span><a href="#local-6989586621681301556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelReservedInstancesListingResponse
+</span><a href="#local-6989586621681301556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelReservedInstancesListingResponse' :: Int
+</span><a href="Amazonka.EC2.CancelReservedInstancesListing.html#%24sel%3AhttpStatus%3ACancelReservedInstancesListingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621681301553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelReservedInstancesListing.html#CancelReservedInstancesListingResponse"><span class="hs-identifier hs-type">CancelReservedInstancesListingResponse</span></a></span></span><span>
+</span><span id="line-181"></span></pre></body></html>

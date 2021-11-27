@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.RouteRef</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.RouteRef</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object that represents a route returned by a list operation.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRouteRef' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679331404"><span id="local-6989586621679331405"></span></span><span class="hs-keyword">data</span><span> </span><span id="RouteRef"><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-var">RouteRef</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteRef%27"><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-var">RouteRef'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) for the route.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aarn%3ARouteRef%27"><span class="annot"><span class="annottext">RouteRef -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3Aarn%3ARouteRef%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the resource was created.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreatedAt%3ARouteRef%27"><span class="annot"><span class="annottext">RouteRef -&gt; POSIX
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AcreatedAt%3ARouteRef%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the resource was last</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3ARouteRef%27"><span class="annot"><span class="annottext">RouteRef -&gt; POSIX
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AlastUpdatedAt%3ARouteRef%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the service mesh that the route resides in.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmeshName%3ARouteRef%27"><span class="annot"><span class="annottext">RouteRef -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AmeshName%3ARouteRef%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmeshOwner%3ARouteRef%27"><span class="annot"><span class="annottext">RouteRef -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AmeshOwner%3ARouteRef%27"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The AWS IAM account ID of the resource owner. If the account ID is not</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- your own, then it\'s the ID of the mesh owner or of another account that</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- the mesh is shared with. For more information about mesh sharing, see</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AresourceOwner%3ARouteRef%27"><span class="annot"><span class="annottext">RouteRef -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AresourceOwner%3ARouteRef%27"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The name of the route.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ArouteName%3ARouteRef%27"><span class="annot"><span class="annottext">RouteRef -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3ArouteName%3ARouteRef%27"><span class="hs-identifier hs-var hs-var">routeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The version of the resource. Resources are created at version 1, and</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- this version is incremented each time that they\'re updated.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aversion%3ARouteRef%27"><span class="annot"><span class="annottext">RouteRef -&gt; Integer
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3Aversion%3ARouteRef%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The virtual router that the route is associated with.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AvirtualRouterName%3ARouteRef%27"><span class="annot"><span class="annottext">RouteRef -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AvirtualRouterName%3ARouteRef%27"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331390"><span id="local-6989586621679331392"><span class="annot"><span class="annottext">RouteRef -&gt; RouteRef -&gt; Bool
+(RouteRef -&gt; RouteRef -&gt; Bool)
+-&gt; (RouteRef -&gt; RouteRef -&gt; Bool) -&gt; Eq RouteRef
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RouteRef -&gt; RouteRef -&gt; Bool
+$c/= :: RouteRef -&gt; RouteRef -&gt; Bool
+== :: RouteRef -&gt; RouteRef -&gt; Bool
+$c== :: RouteRef -&gt; RouteRef -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331381"><span id="local-6989586621679331383"><span id="local-6989586621679331385"><span id="local-6989586621679331387"><span class="annot"><span class="annottext">ReadPrec [RouteRef]
+ReadPrec RouteRef
+Int -&gt; ReadS RouteRef
+ReadS [RouteRef]
+(Int -&gt; ReadS RouteRef)
+-&gt; ReadS [RouteRef]
+-&gt; ReadPrec RouteRef
+-&gt; ReadPrec [RouteRef]
+-&gt; Read RouteRef
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RouteRef]
+$creadListPrec :: ReadPrec [RouteRef]
+readPrec :: ReadPrec RouteRef
+$creadPrec :: ReadPrec RouteRef
+readList :: ReadS [RouteRef]
+$creadList :: ReadS [RouteRef]
+readsPrec :: Int -&gt; ReadS RouteRef
+$creadsPrec :: Int -&gt; ReadS RouteRef
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331374"><span id="local-6989586621679331376"><span id="local-6989586621679331378"><span class="annot"><span class="annottext">Int -&gt; RouteRef -&gt; ShowS
+[RouteRef] -&gt; ShowS
+RouteRef -&gt; String
+(Int -&gt; RouteRef -&gt; ShowS)
+-&gt; (RouteRef -&gt; String) -&gt; ([RouteRef] -&gt; ShowS) -&gt; Show RouteRef
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RouteRef] -&gt; ShowS
+$cshowList :: [RouteRef] -&gt; ShowS
+show :: RouteRef -&gt; String
+$cshow :: RouteRef -&gt; String
+showsPrec :: Int -&gt; RouteRef -&gt; ShowS
+$cshowsPrec :: Int -&gt; RouteRef -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RouteRef -&gt; Rep RouteRef x)
+-&gt; (forall x. Rep RouteRef x -&gt; RouteRef) -&gt; Generic RouteRef
+forall x. Rep RouteRef x -&gt; RouteRef
+forall x. RouteRef -&gt; Rep RouteRef x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RouteRef x -&gt; RouteRef
+$cfrom :: forall x. RouteRef -&gt; Rep RouteRef x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'RouteRef' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'arn', 'routeRef_arn' - The full Amazon Resource Name (ARN) for the route.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'createdAt', 'routeRef_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'lastUpdatedAt', 'routeRef_lastUpdatedAt' - The Unix epoch timestamp in seconds for when the resource was last</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'meshName', 'routeRef_meshName' - The name of the service mesh that the route resides in.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'meshOwner', 'routeRef_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'resourceOwner', 'routeRef_resourceOwner' - The AWS IAM account ID of the resource owner. If the account ID is not</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- your own, then it\'s the ID of the mesh owner or of another account that</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- the mesh is shared with. For more information about mesh sharing, see</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'routeName', 'routeRef_routeName' - The name of the route.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'version', 'routeRef_version' - The version of the resource. Resources are created at version 1, and</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- this version is incremented each time that they\'re updated.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'virtualRouterName', 'routeRef_virtualRouterName' - The virtual router that the route is associated with.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#newRouteRef"><span class="hs-identifier hs-type">newRouteRef</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'lastUpdatedAt'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'meshOwner'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'resourceOwner'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'routeName'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'version'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'virtualRouterName'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span>
+</span><span id="line-112"></span><span id="newRouteRef"><span class="annot"><span class="annottext">newRouteRef :: Text
+-&gt; UTCTime
+-&gt; UTCTime
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; Text
+-&gt; RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#newRouteRef"><span class="hs-identifier hs-var hs-var">newRouteRef</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679331368"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331368"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679331367"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679331367"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679331366"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679331366"><span class="hs-identifier hs-var">pLastUpdatedAt_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679331365"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331365"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679331364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331364"><span class="hs-identifier hs-var">pMeshOwner_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679331363"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331363"><span class="hs-identifier hs-var">pResourceOwner_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679331362"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331362"><span class="hs-identifier hs-var">pRouteName_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679331361"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679331361"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679331360"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331360"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">RouteRef' :: Text
+-&gt; POSIX
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; Text
+-&gt; RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3Aarn%3ARouteRef%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331368"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:RouteRef' :: POSIX
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AcreatedAt%3ARouteRef%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679331367"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:RouteRef' :: POSIX
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AlastUpdatedAt%3ARouteRef%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679331366"><span class="hs-identifier hs-var">pLastUpdatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshName:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AmeshName%3ARouteRef%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331365"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshOwner:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AmeshOwner%3ARouteRef%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331364"><span class="hs-identifier hs-var">pMeshOwner_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceOwner:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AresourceOwner%3ARouteRef%27"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331363"><span class="hs-identifier hs-var">pResourceOwner_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:routeName:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3ArouteName%3ARouteRef%27"><span class="hs-identifier hs-var">routeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331362"><span class="hs-identifier hs-var">pRouteName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:RouteRef' :: Integer
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3Aversion%3ARouteRef%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679331361"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualRouterName:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AvirtualRouterName%3ARouteRef%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331360"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) for the route.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_arn"><span class="hs-identifier hs-type">routeRef_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="routeRef_arn"><span class="annot"><span class="annottext">routeRef_arn :: (Text -&gt; f Text) -&gt; RouteRef -&gt; f RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_arn"><span class="hs-identifier hs-var hs-var">routeRef_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteRef -&gt; Text)
+-&gt; (RouteRef -&gt; Text -&gt; RouteRef)
+-&gt; Lens RouteRef RouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331354"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:RouteRef' :: RouteRef -&gt; Text
+</span><a href="#local-6989586621679331354"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331354"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331353"><span class="annot"><span class="annottext">s :: RouteRef
+</span><a href="#local-6989586621679331353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331352"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteRef
+</span><a href="#local-6989586621679331353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3Aarn%3ARouteRef%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the resource was created.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_createdAt"><span class="hs-identifier hs-type">routeRef_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-140"></span><span id="routeRef_createdAt"><span class="annot"><span class="annottext">routeRef_createdAt :: (UTCTime -&gt; f UTCTime) -&gt; RouteRef -&gt; f RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_createdAt"><span class="hs-identifier hs-var hs-var">routeRef_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteRef -&gt; POSIX)
+-&gt; (RouteRef -&gt; POSIX -&gt; RouteRef)
+-&gt; Lens RouteRef RouteRef POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331350"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:RouteRef' :: RouteRef -&gt; POSIX
+</span><a href="#local-6989586621679331350"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679331350"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331349"><span class="annot"><span class="annottext">s :: RouteRef
+</span><a href="#local-6989586621679331349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331348"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679331348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteRef
+</span><a href="#local-6989586621679331349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:RouteRef' :: POSIX
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AcreatedAt%3ARouteRef%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679331348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; RouteRef -&gt; f RouteRef)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; RouteRef
+-&gt; f RouteRef
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the resource was last</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_lastUpdatedAt"><span class="hs-identifier hs-type">routeRef_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-145"></span><span id="routeRef_lastUpdatedAt"><span class="annot"><span class="annottext">routeRef_lastUpdatedAt :: (UTCTime -&gt; f UTCTime) -&gt; RouteRef -&gt; f RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">routeRef_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteRef -&gt; POSIX)
+-&gt; (RouteRef -&gt; POSIX -&gt; RouteRef)
+-&gt; Lens RouteRef RouteRef POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331345"><span class="annot"><span class="annottext">POSIX
+lastUpdatedAt :: POSIX
+$sel:lastUpdatedAt:RouteRef' :: RouteRef -&gt; POSIX
+</span><a href="#local-6989586621679331345"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679331345"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331344"><span class="annot"><span class="annottext">s :: RouteRef
+</span><a href="#local-6989586621679331344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331343"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679331343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteRef
+</span><a href="#local-6989586621679331344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:RouteRef' :: POSIX
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AlastUpdatedAt%3ARouteRef%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679331343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; RouteRef -&gt; f RouteRef)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; RouteRef
+-&gt; f RouteRef
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The name of the service mesh that the route resides in.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_meshName"><span class="hs-identifier hs-type">routeRef_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="routeRef_meshName"><span class="annot"><span class="annottext">routeRef_meshName :: (Text -&gt; f Text) -&gt; RouteRef -&gt; f RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_meshName"><span class="hs-identifier hs-var hs-var">routeRef_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteRef -&gt; Text)
+-&gt; (RouteRef -&gt; Text -&gt; RouteRef)
+-&gt; Lens RouteRef RouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331341"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:RouteRef' :: RouteRef -&gt; Text
+</span><a href="#local-6989586621679331341"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331341"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331340"><span class="annot"><span class="annottext">s :: RouteRef
+</span><a href="#local-6989586621679331340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331339"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteRef
+</span><a href="#local-6989586621679331340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AmeshName%3ARouteRef%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_meshOwner"><span class="hs-identifier hs-type">routeRef_meshOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="routeRef_meshOwner"><span class="annot"><span class="annottext">routeRef_meshOwner :: (Text -&gt; f Text) -&gt; RouteRef -&gt; f RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_meshOwner"><span class="hs-identifier hs-var hs-var">routeRef_meshOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteRef -&gt; Text)
+-&gt; (RouteRef -&gt; Text -&gt; RouteRef)
+-&gt; Lens RouteRef RouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331337"><span class="annot"><span class="annottext">Text
+meshOwner :: Text
+$sel:meshOwner:RouteRef' :: RouteRef -&gt; Text
+</span><a href="#local-6989586621679331337"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331337"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331336"><span class="annot"><span class="annottext">s :: RouteRef
+</span><a href="#local-6989586621679331336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteRef
+</span><a href="#local-6989586621679331336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshOwner:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AmeshOwner%3ARouteRef%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The AWS IAM account ID of the resource owner. If the account ID is not</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- your own, then it\'s the ID of the mesh owner or of another account that</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- the mesh is shared with. For more information about mesh sharing, see</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_resourceOwner"><span class="hs-identifier hs-type">routeRef_resourceOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-163"></span><span id="routeRef_resourceOwner"><span class="annot"><span class="annottext">routeRef_resourceOwner :: (Text -&gt; f Text) -&gt; RouteRef -&gt; f RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_resourceOwner"><span class="hs-identifier hs-var hs-var">routeRef_resourceOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteRef -&gt; Text)
+-&gt; (RouteRef -&gt; Text -&gt; RouteRef)
+-&gt; Lens RouteRef RouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331333"><span class="annot"><span class="annottext">Text
+resourceOwner :: Text
+$sel:resourceOwner:RouteRef' :: RouteRef -&gt; Text
+</span><a href="#local-6989586621679331333"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331333"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331332"><span class="annot"><span class="annottext">s :: RouteRef
+</span><a href="#local-6989586621679331332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteRef
+</span><a href="#local-6989586621679331332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceOwner:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AresourceOwner%3ARouteRef%27"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The name of the route.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_routeName"><span class="hs-identifier hs-type">routeRef_routeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-167"></span><span id="routeRef_routeName"><span class="annot"><span class="annottext">routeRef_routeName :: (Text -&gt; f Text) -&gt; RouteRef -&gt; f RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_routeName"><span class="hs-identifier hs-var hs-var">routeRef_routeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteRef -&gt; Text)
+-&gt; (RouteRef -&gt; Text -&gt; RouteRef)
+-&gt; Lens RouteRef RouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331329"><span class="annot"><span class="annottext">Text
+routeName :: Text
+$sel:routeName:RouteRef' :: RouteRef -&gt; Text
+</span><a href="#local-6989586621679331329"><span class="hs-identifier hs-var hs-var">routeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331329"><span class="hs-identifier hs-var">routeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331328"><span class="annot"><span class="annottext">s :: RouteRef
+</span><a href="#local-6989586621679331328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteRef
+</span><a href="#local-6989586621679331328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeName:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3ArouteName%3ARouteRef%27"><span class="hs-identifier hs-var">routeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The version of the resource. Resources are created at version 1, and</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- this version is incremented each time that they\'re updated.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_version"><span class="hs-identifier hs-type">routeRef_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-172"></span><span id="routeRef_version"><span class="annot"><span class="annottext">routeRef_version :: (Integer -&gt; f Integer) -&gt; RouteRef -&gt; f RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_version"><span class="hs-identifier hs-var hs-var">routeRef_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteRef -&gt; Integer)
+-&gt; (RouteRef -&gt; Integer -&gt; RouteRef)
+-&gt; Lens RouteRef RouteRef Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331325"><span class="annot"><span class="annottext">Integer
+version :: Integer
+$sel:version:RouteRef' :: RouteRef -&gt; Integer
+</span><a href="#local-6989586621679331325"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679331325"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331324"><span class="annot"><span class="annottext">s :: RouteRef
+</span><a href="#local-6989586621679331324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331323"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679331323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteRef
+</span><a href="#local-6989586621679331324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:RouteRef' :: Integer
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3Aversion%3ARouteRef%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679331323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The virtual router that the route is associated with.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_virtualRouterName"><span class="hs-identifier hs-type">routeRef_virtualRouterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span id="routeRef_virtualRouterName"><span class="annot"><span class="annottext">routeRef_virtualRouterName :: (Text -&gt; f Text) -&gt; RouteRef -&gt; f RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#routeRef_virtualRouterName"><span class="hs-identifier hs-var hs-var">routeRef_virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteRef -&gt; Text)
+-&gt; (RouteRef -&gt; Text -&gt; RouteRef)
+-&gt; Lens RouteRef RouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331321"><span class="annot"><span class="annottext">Text
+virtualRouterName :: Text
+$sel:virtualRouterName:RouteRef' :: RouteRef -&gt; Text
+</span><a href="#local-6989586621679331321"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331321"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331320"><span class="annot"><span class="annottext">s :: RouteRef
+</span><a href="#local-6989586621679331320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-type">RouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331319"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteRef
+</span><a href="#local-6989586621679331320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualRouterName:RouteRef' :: Text
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#%24sel%3AvirtualRouterName%3ARouteRef%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331316"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679331314"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RouteRef
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser RouteRef) -&gt; Value -&gt; Parser RouteRef
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RouteRef&quot;</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331311"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; POSIX
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; Text
+-&gt; RouteRef
+</span><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef%27"><span class="hs-identifier hs-var">RouteRef'</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; POSIX
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Integer
+ -&gt; Text
+ -&gt; RouteRef)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; Text
+      -&gt; RouteRef)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; Text
+   -&gt; RouteRef)
+-&gt; Parser POSIX
+-&gt; Parser
+     (POSIX
+      -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+-&gt; Parser POSIX
+-&gt; Parser
+     (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;meshName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;meshOwner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceOwner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Integer -&gt; Text -&gt; RouteRef)
+-&gt; Parser Text -&gt; Parser (Integer -&gt; Text -&gt; RouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;routeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; Text -&gt; RouteRef)
+-&gt; Parser Integer -&gt; Parser (Text -&gt; RouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; RouteRef) -&gt; Parser Text -&gt; Parser RouteRef
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualRouterName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331305"><span id="local-6989586621679331307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteRef.html#RouteRef"><span class="hs-identifier hs-type">RouteRef</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

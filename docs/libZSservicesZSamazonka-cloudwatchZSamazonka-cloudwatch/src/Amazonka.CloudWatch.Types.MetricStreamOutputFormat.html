@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatch.Types.MetricStreamOutputFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatch.Types.MetricStreamOutputFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier">MetricStreamOutputFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat_Json"><span class="hs-identifier">MetricStreamOutputFormat_Json</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat_Opentelemetry0_7"><span class="hs-identifier">MetricStreamOutputFormat_Opentelemetry0_7</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679255077"><span id="local-6989586621679255078"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricStreamOutputFormat"><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-var">MetricStreamOutputFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStreamOutputFormat%27"><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat%27"><span class="hs-identifier hs-var">MetricStreamOutputFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMetricStreamOutputFormat"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; Text
+</span><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#fromMetricStreamOutputFormat"><span class="hs-identifier hs-var hs-var">fromMetricStreamOutputFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255069"><span id="local-6989586621679255071"><span id="local-6989586621679255073"><span class="annot"><span class="annottext">Int -&gt; MetricStreamOutputFormat -&gt; ShowS
+[MetricStreamOutputFormat] -&gt; ShowS
+MetricStreamOutputFormat -&gt; String
+(Int -&gt; MetricStreamOutputFormat -&gt; ShowS)
+-&gt; (MetricStreamOutputFormat -&gt; String)
+-&gt; ([MetricStreamOutputFormat] -&gt; ShowS)
+-&gt; Show MetricStreamOutputFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricStreamOutputFormat] -&gt; ShowS
+$cshowList :: [MetricStreamOutputFormat] -&gt; ShowS
+show :: MetricStreamOutputFormat -&gt; String
+$cshow :: MetricStreamOutputFormat -&gt; String
+showsPrec :: Int -&gt; MetricStreamOutputFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricStreamOutputFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679255060"><span id="local-6989586621679255062"><span id="local-6989586621679255064"><span id="local-6989586621679255066"><span class="annot"><span class="annottext">ReadPrec [MetricStreamOutputFormat]
+ReadPrec MetricStreamOutputFormat
+Int -&gt; ReadS MetricStreamOutputFormat
+ReadS [MetricStreamOutputFormat]
+(Int -&gt; ReadS MetricStreamOutputFormat)
+-&gt; ReadS [MetricStreamOutputFormat]
+-&gt; ReadPrec MetricStreamOutputFormat
+-&gt; ReadPrec [MetricStreamOutputFormat]
+-&gt; Read MetricStreamOutputFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricStreamOutputFormat]
+$creadListPrec :: ReadPrec [MetricStreamOutputFormat]
+readPrec :: ReadPrec MetricStreamOutputFormat
+$creadPrec :: ReadPrec MetricStreamOutputFormat
+readList :: ReadS [MetricStreamOutputFormat]
+$creadList :: ReadS [MetricStreamOutputFormat]
+readsPrec :: Int -&gt; ReadS MetricStreamOutputFormat
+$creadsPrec :: Int -&gt; ReadS MetricStreamOutputFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679255055"><span id="local-6989586621679255057"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+(MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool)
+-&gt; (MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool)
+-&gt; Eq MetricStreamOutputFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+$c/= :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+== :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+$c== :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679255039"><span id="local-6989586621679255041"><span id="local-6989586621679255043"><span id="local-6989586621679255045"><span id="local-6989586621679255047"><span id="local-6989586621679255049"><span id="local-6989586621679255051"><span class="annot"><span class="annottext">Eq MetricStreamOutputFormat
+Eq MetricStreamOutputFormat
+-&gt; (MetricStreamOutputFormat
+    -&gt; MetricStreamOutputFormat -&gt; Ordering)
+-&gt; (MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool)
+-&gt; (MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool)
+-&gt; (MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool)
+-&gt; (MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool)
+-&gt; (MetricStreamOutputFormat
+    -&gt; MetricStreamOutputFormat -&gt; MetricStreamOutputFormat)
+-&gt; (MetricStreamOutputFormat
+    -&gt; MetricStreamOutputFormat -&gt; MetricStreamOutputFormat)
+-&gt; Ord MetricStreamOutputFormat
+MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Ordering
+MetricStreamOutputFormat
+-&gt; MetricStreamOutputFormat -&gt; MetricStreamOutputFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MetricStreamOutputFormat
+-&gt; MetricStreamOutputFormat -&gt; MetricStreamOutputFormat
+$cmin :: MetricStreamOutputFormat
+-&gt; MetricStreamOutputFormat -&gt; MetricStreamOutputFormat
+max :: MetricStreamOutputFormat
+-&gt; MetricStreamOutputFormat -&gt; MetricStreamOutputFormat
+$cmax :: MetricStreamOutputFormat
+-&gt; MetricStreamOutputFormat -&gt; MetricStreamOutputFormat
+&gt;= :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+$c&gt;= :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+&gt; :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+$c&gt; :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+&lt;= :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+$c&lt;= :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+&lt; :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+$c&lt; :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+compare :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Ordering
+$ccompare :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Ordering
+$cp1Ord :: Eq MetricStreamOutputFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ MetricStreamOutputFormat -&gt; Rep MetricStreamOutputFormat x)
+-&gt; (forall x.
+    Rep MetricStreamOutputFormat x -&gt; MetricStreamOutputFormat)
+-&gt; Generic MetricStreamOutputFormat
+forall x.
+Rep MetricStreamOutputFormat x -&gt; MetricStreamOutputFormat
+forall x.
+MetricStreamOutputFormat -&gt; Rep MetricStreamOutputFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MetricStreamOutputFormat x -&gt; MetricStreamOutputFormat
+$cfrom :: forall x.
+MetricStreamOutputFormat -&gt; Rep MetricStreamOutputFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255031"><span id="local-6989586621679255033"><span class="annot"><span class="annottext">Int -&gt; MetricStreamOutputFormat -&gt; Int
+MetricStreamOutputFormat -&gt; Int
+(Int -&gt; MetricStreamOutputFormat -&gt; Int)
+-&gt; (MetricStreamOutputFormat -&gt; Int)
+-&gt; Hashable MetricStreamOutputFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MetricStreamOutputFormat -&gt; Int
+$chash :: MetricStreamOutputFormat -&gt; Int
+hashWithSalt :: Int -&gt; MetricStreamOutputFormat -&gt; Int
+$chashWithSalt :: Int -&gt; MetricStreamOutputFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679255028"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; ()
+(MetricStreamOutputFormat -&gt; ()) -&gt; NFData MetricStreamOutputFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MetricStreamOutputFormat -&gt; ()
+$crnf :: MetricStreamOutputFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679255025"><span class="annot"><span class="annottext">Text -&gt; Either String MetricStreamOutputFormat
+(Text -&gt; Either String MetricStreamOutputFormat)
+-&gt; FromText MetricStreamOutputFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MetricStreamOutputFormat
+$cfromText :: Text -&gt; Either String MetricStreamOutputFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679255022"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; Text
+(MetricStreamOutputFormat -&gt; Text)
+-&gt; ToText MetricStreamOutputFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MetricStreamOutputFormat -&gt; Text
+$ctoText :: MetricStreamOutputFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679255019"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; ByteString
+(MetricStreamOutputFormat -&gt; ByteString)
+-&gt; ToByteString MetricStreamOutputFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MetricStreamOutputFormat -&gt; ByteString
+$ctoBS :: MetricStreamOutputFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679255016"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; ByteStringBuilder
+(MetricStreamOutputFormat -&gt; ByteStringBuilder)
+-&gt; ToLog MetricStreamOutputFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MetricStreamOutputFormat -&gt; ByteStringBuilder
+$cbuild :: MetricStreamOutputFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679255013"><span class="annot"><span class="annottext">HeaderName -&gt; MetricStreamOutputFormat -&gt; [Header]
+(HeaderName -&gt; MetricStreamOutputFormat -&gt; [Header])
+-&gt; ToHeader MetricStreamOutputFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MetricStreamOutputFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MetricStreamOutputFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679255010"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; QueryString
+(MetricStreamOutputFormat -&gt; QueryString)
+-&gt; ToQuery MetricStreamOutputFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MetricStreamOutputFormat -&gt; QueryString
+$ctoQuery :: MetricStreamOutputFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679255005"><span id="local-6989586621679255007"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricStreamOutputFormat]
+Value -&gt; Parser MetricStreamOutputFormat
+(Value -&gt; Parser MetricStreamOutputFormat)
+-&gt; (Value -&gt; Parser [MetricStreamOutputFormat])
+-&gt; FromJSON MetricStreamOutputFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MetricStreamOutputFormat]
+$cparseJSONList :: Value -&gt; Parser [MetricStreamOutputFormat]
+parseJSON :: Value -&gt; Parser MetricStreamOutputFormat
+$cparseJSON :: Value -&gt; Parser MetricStreamOutputFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679255000"><span id="local-6989586621679255002"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricStreamOutputFormat]
+FromJSONKeyFunction MetricStreamOutputFormat
+FromJSONKeyFunction MetricStreamOutputFormat
+-&gt; FromJSONKeyFunction [MetricStreamOutputFormat]
+-&gt; FromJSONKey MetricStreamOutputFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MetricStreamOutputFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [MetricStreamOutputFormat]
+fromJSONKey :: FromJSONKeyFunction MetricStreamOutputFormat
+$cfromJSONKey :: FromJSONKeyFunction MetricStreamOutputFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679254991"><span id="local-6989586621679254993"><span id="local-6989586621679254995"><span id="local-6989586621679254997"><span class="annot"><span class="annottext">[MetricStreamOutputFormat] -&gt; Encoding
+[MetricStreamOutputFormat] -&gt; Value
+MetricStreamOutputFormat -&gt; Encoding
+MetricStreamOutputFormat -&gt; Value
+(MetricStreamOutputFormat -&gt; Value)
+-&gt; (MetricStreamOutputFormat -&gt; Encoding)
+-&gt; ([MetricStreamOutputFormat] -&gt; Value)
+-&gt; ([MetricStreamOutputFormat] -&gt; Encoding)
+-&gt; ToJSON MetricStreamOutputFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MetricStreamOutputFormat] -&gt; Encoding
+$ctoEncodingList :: [MetricStreamOutputFormat] -&gt; Encoding
+toJSONList :: [MetricStreamOutputFormat] -&gt; Value
+$ctoJSONList :: [MetricStreamOutputFormat] -&gt; Value
+toEncoding :: MetricStreamOutputFormat -&gt; Encoding
+$ctoEncoding :: MetricStreamOutputFormat -&gt; Encoding
+toJSON :: MetricStreamOutputFormat -&gt; Value
+$ctoJSON :: MetricStreamOutputFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679254986"><span id="local-6989586621679254988"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricStreamOutputFormat]
+ToJSONKeyFunction MetricStreamOutputFormat
+ToJSONKeyFunction MetricStreamOutputFormat
+-&gt; ToJSONKeyFunction [MetricStreamOutputFormat]
+-&gt; ToJSONKey MetricStreamOutputFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MetricStreamOutputFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [MetricStreamOutputFormat]
+toJSONKey :: ToJSONKeyFunction MetricStreamOutputFormat
+$ctoJSONKey :: ToJSONKeyFunction MetricStreamOutputFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679254983"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricStreamOutputFormat
+([Node] -&gt; Either String MetricStreamOutputFormat)
+-&gt; FromXML MetricStreamOutputFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MetricStreamOutputFormat
+$cparseXML :: [Node] -&gt; Either String MetricStreamOutputFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679254980"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; XML
+(MetricStreamOutputFormat -&gt; XML) -&gt; ToXML MetricStreamOutputFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MetricStreamOutputFormat -&gt; XML
+$ctoXML :: MetricStreamOutputFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat_Json"><span class="hs-identifier hs-type">MetricStreamOutputFormat_Json</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-type">MetricStreamOutputFormat</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricStreamOutputFormat_Json"><span id="%24mMetricStreamOutputFormat_Json"><span id="MetricStreamOutputFormat_Json"><span class="annot"><span class="annottext">$bMetricStreamOutputFormat_Json :: MetricStreamOutputFormat
+$mMetricStreamOutputFormat_Json :: forall r.
+MetricStreamOutputFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#%24bMetricStreamOutputFormat_Json"><span class="hs-identifier hs-var hs-var hs-var">MetricStreamOutputFormat_Json</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat%27"><span class="hs-identifier hs-type">MetricStreamOutputFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;json&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat_Opentelemetry0_7"><span class="hs-identifier hs-type">MetricStreamOutputFormat_Opentelemetry0_7</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-type">MetricStreamOutputFormat</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMetricStreamOutputFormat_Opentelemetry0_7"><span id="%24mMetricStreamOutputFormat_Opentelemetry0_7"><span id="MetricStreamOutputFormat_Opentelemetry0_7"><span class="annot"><span class="annottext">$bMetricStreamOutputFormat_Opentelemetry0_7 :: MetricStreamOutputFormat
+$mMetricStreamOutputFormat_Opentelemetry0_7 :: forall r.
+MetricStreamOutputFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#%24bMetricStreamOutputFormat_Opentelemetry0_7"><span class="hs-identifier hs-var hs-var hs-var">MetricStreamOutputFormat_Opentelemetry0_7</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat%27"><span class="hs-identifier hs-type">MetricStreamOutputFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;opentelemetry0.7&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat_Json"><span class="hs-pragma hs-type">MetricStreamOutputFormat_Json</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat_Opentelemetry0_7"><span class="hs-pragma hs-type">MetricStreamOutputFormat_Opentelemetry0_7</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat%27"><span class="hs-pragma hs-type">MetricStreamOutputFormat'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

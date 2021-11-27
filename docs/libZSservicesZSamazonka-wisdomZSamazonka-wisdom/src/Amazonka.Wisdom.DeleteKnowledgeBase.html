@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Wisdom.DeleteKnowledgeBase</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the knowledge base.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- When you use this API to delete an external knowledge base such as</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Salesforce or ServiceNow, you must also delete the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html Amazon AppIntegrations&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- DataIntegration. This is because you can\'t reuse the DataIntegration</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- after it\'s been associated with an external knowledge base. However,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- you can delete and recreate it. See</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html DeleteDataIntegration&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html CreateDataIntegration&gt;</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- in the /Amazon AppIntegrations API Reference/.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Wisdom.DeleteKnowledgeBase</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier">DeleteKnowledgeBase</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#newDeleteKnowledgeBase"><span class="hs-identifier">newDeleteKnowledgeBase</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#deleteKnowledgeBase_knowledgeBaseId"><span class="hs-identifier">deleteKnowledgeBase_knowledgeBaseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse"><span class="hs-identifier">DeleteKnowledgeBaseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#newDeleteKnowledgeBaseResponse"><span class="hs-identifier">newDeleteKnowledgeBaseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#deleteKnowledgeBaseResponse_httpStatus"><span class="hs-identifier">deleteKnowledgeBaseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.html"><span class="hs-identifier">Amazonka.Wisdom.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDeleteKnowledgeBase' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679228381"><span id="local-6989586621679228382"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKnowledgeBase"><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-var">DeleteKnowledgeBase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKnowledgeBase%27"><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase%27"><span class="hs-identifier hs-var">DeleteKnowledgeBase'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The knowledge base to delete content from. Can be either the ID or the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- ARN. URLs cannot contain the ARN.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AknowledgeBaseId%3ADeleteKnowledgeBase%27"><span class="annot"><span class="annottext">DeleteKnowledgeBase -&gt; Text
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#%24sel%3AknowledgeBaseId%3ADeleteKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">knowledgeBaseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228375"><span id="local-6989586621679228377"><span class="annot"><span class="annottext">DeleteKnowledgeBase -&gt; DeleteKnowledgeBase -&gt; Bool
+(DeleteKnowledgeBase -&gt; DeleteKnowledgeBase -&gt; Bool)
+-&gt; (DeleteKnowledgeBase -&gt; DeleteKnowledgeBase -&gt; Bool)
+-&gt; Eq DeleteKnowledgeBase
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteKnowledgeBase -&gt; DeleteKnowledgeBase -&gt; Bool
+$c/= :: DeleteKnowledgeBase -&gt; DeleteKnowledgeBase -&gt; Bool
+== :: DeleteKnowledgeBase -&gt; DeleteKnowledgeBase -&gt; Bool
+$c== :: DeleteKnowledgeBase -&gt; DeleteKnowledgeBase -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228366"><span id="local-6989586621679228368"><span id="local-6989586621679228370"><span id="local-6989586621679228372"><span class="annot"><span class="annottext">ReadPrec [DeleteKnowledgeBase]
+ReadPrec DeleteKnowledgeBase
+Int -&gt; ReadS DeleteKnowledgeBase
+ReadS [DeleteKnowledgeBase]
+(Int -&gt; ReadS DeleteKnowledgeBase)
+-&gt; ReadS [DeleteKnowledgeBase]
+-&gt; ReadPrec DeleteKnowledgeBase
+-&gt; ReadPrec [DeleteKnowledgeBase]
+-&gt; Read DeleteKnowledgeBase
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteKnowledgeBase]
+$creadListPrec :: ReadPrec [DeleteKnowledgeBase]
+readPrec :: ReadPrec DeleteKnowledgeBase
+$creadPrec :: ReadPrec DeleteKnowledgeBase
+readList :: ReadS [DeleteKnowledgeBase]
+$creadList :: ReadS [DeleteKnowledgeBase]
+readsPrec :: Int -&gt; ReadS DeleteKnowledgeBase
+$creadsPrec :: Int -&gt; ReadS DeleteKnowledgeBase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228359"><span id="local-6989586621679228361"><span id="local-6989586621679228363"><span class="annot"><span class="annottext">Int -&gt; DeleteKnowledgeBase -&gt; ShowS
+[DeleteKnowledgeBase] -&gt; ShowS
+DeleteKnowledgeBase -&gt; String
+(Int -&gt; DeleteKnowledgeBase -&gt; ShowS)
+-&gt; (DeleteKnowledgeBase -&gt; String)
+-&gt; ([DeleteKnowledgeBase] -&gt; ShowS)
+-&gt; Show DeleteKnowledgeBase
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteKnowledgeBase] -&gt; ShowS
+$cshowList :: [DeleteKnowledgeBase] -&gt; ShowS
+show :: DeleteKnowledgeBase -&gt; String
+$cshow :: DeleteKnowledgeBase -&gt; String
+showsPrec :: Int -&gt; DeleteKnowledgeBase -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteKnowledgeBase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteKnowledgeBase -&gt; Rep DeleteKnowledgeBase x)
+-&gt; (forall x. Rep DeleteKnowledgeBase x -&gt; DeleteKnowledgeBase)
+-&gt; Generic DeleteKnowledgeBase
+forall x. Rep DeleteKnowledgeBase x -&gt; DeleteKnowledgeBase
+forall x. DeleteKnowledgeBase -&gt; Rep DeleteKnowledgeBase x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteKnowledgeBase x -&gt; DeleteKnowledgeBase
+$cfrom :: forall x. DeleteKnowledgeBase -&gt; Rep DeleteKnowledgeBase x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DeleteKnowledgeBase' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'knowledgeBaseId', 'deleteKnowledgeBase_knowledgeBaseId' - The knowledge base to delete content from. Can be either the ID or the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- ARN. URLs cannot contain the ARN.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#newDeleteKnowledgeBase"><span class="hs-identifier hs-type">newDeleteKnowledgeBase</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'knowledgeBaseId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span><span>
+</span><span id="line-81"></span><span id="newDeleteKnowledgeBase"><span class="annot"><span class="annottext">newDeleteKnowledgeBase :: Text -&gt; DeleteKnowledgeBase
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#newDeleteKnowledgeBase"><span class="hs-identifier hs-var hs-var">newDeleteKnowledgeBase</span></a></span></span><span> </span><span id="local-6989586621679228354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228354"><span class="hs-identifier hs-var">pKnowledgeBaseId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteKnowledgeBase' :: Text -&gt; DeleteKnowledgeBase
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase%27"><span class="hs-identifier hs-type">DeleteKnowledgeBase'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:knowledgeBaseId:DeleteKnowledgeBase' :: Text
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#%24sel%3AknowledgeBaseId%3ADeleteKnowledgeBase%27"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228354"><span class="hs-identifier hs-var">pKnowledgeBaseId_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The knowledge base to delete content from. Can be either the ID or the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- ARN. URLs cannot contain the ARN.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#deleteKnowledgeBase_knowledgeBaseId"><span class="hs-identifier hs-type">deleteKnowledgeBase_knowledgeBaseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="deleteKnowledgeBase_knowledgeBaseId"><span class="annot"><span class="annottext">deleteKnowledgeBase_knowledgeBaseId :: (Text -&gt; f Text) -&gt; DeleteKnowledgeBase -&gt; f DeleteKnowledgeBase
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#deleteKnowledgeBase_knowledgeBaseId"><span class="hs-identifier hs-var hs-var">deleteKnowledgeBase_knowledgeBaseId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteKnowledgeBase -&gt; Text)
+-&gt; (DeleteKnowledgeBase -&gt; Text -&gt; DeleteKnowledgeBase)
+-&gt; Lens DeleteKnowledgeBase DeleteKnowledgeBase Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase%27"><span class="hs-identifier hs-type">DeleteKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228351"><span class="annot"><span class="annottext">Text
+knowledgeBaseId :: Text
+$sel:knowledgeBaseId:DeleteKnowledgeBase' :: DeleteKnowledgeBase -&gt; Text
+</span><a href="#local-6989586621679228351"><span class="hs-identifier hs-var hs-var">knowledgeBaseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228351"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228350"><span class="annot"><span class="annottext">s :: DeleteKnowledgeBase
+</span><a href="#local-6989586621679228350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase%27"><span class="hs-identifier hs-type">DeleteKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKnowledgeBase
+</span><a href="#local-6989586621679228350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:knowledgeBaseId:DeleteKnowledgeBase' :: Text
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#%24sel%3AknowledgeBaseId%3ADeleteKnowledgeBase%27"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse"><span class="hs-identifier hs-type">DeleteKnowledgeBaseResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679228345"><span class="annot"><span class="annottext">request :: DeleteKnowledgeBase -&gt; Request DeleteKnowledgeBase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteKnowledgeBase -&gt; Request DeleteKnowledgeBase
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679228341"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteKnowledgeBase
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteKnowledgeBase)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteKnowledgeBase))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteKnowledgeBase
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteKnowledgeBase)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228338"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228338"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228337"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679228337"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228336"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679228336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteKnowledgeBaseResponse
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">DeleteKnowledgeBaseResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteKnowledgeBaseResponse)
+-&gt; Either String Int -&gt; Either String DeleteKnowledgeBaseResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228338"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228329"><span id="local-6989586621679228331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679228322"><span class="annot"><span class="annottext">toHeaders :: DeleteKnowledgeBase -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteKnowledgeBase -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679228316"><span class="annot"><span class="annottext">toPath :: DeleteKnowledgeBase -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase%27"><span class="hs-identifier hs-type">DeleteKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228314"><span class="annot"><span class="annottext">Text
+knowledgeBaseId :: Text
+$sel:knowledgeBaseId:DeleteKnowledgeBase' :: DeleteKnowledgeBase -&gt; Text
+</span><a href="#local-6989586621679228314"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/knowledgeBases/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228314"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBase"><span class="hs-identifier hs-type">DeleteKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679228310"><span class="annot"><span class="annottext">toQuery :: DeleteKnowledgeBase -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteKnowledgeBase -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDeleteKnowledgeBaseResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679228307"><span id="local-6989586621679228308"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKnowledgeBaseResponse"><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse"><span class="hs-identifier hs-var">DeleteKnowledgeBaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKnowledgeBaseResponse%27"><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">DeleteKnowledgeBaseResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteKnowledgeBaseResponse%27"><span class="annot"><span class="annottext">DeleteKnowledgeBaseResponse -&gt; Int
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#%24sel%3AhttpStatus%3ADeleteKnowledgeBaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228302"><span id="local-6989586621679228304"><span class="annot"><span class="annottext">DeleteKnowledgeBaseResponse -&gt; DeleteKnowledgeBaseResponse -&gt; Bool
+(DeleteKnowledgeBaseResponse
+ -&gt; DeleteKnowledgeBaseResponse -&gt; Bool)
+-&gt; (DeleteKnowledgeBaseResponse
+    -&gt; DeleteKnowledgeBaseResponse -&gt; Bool)
+-&gt; Eq DeleteKnowledgeBaseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteKnowledgeBaseResponse -&gt; DeleteKnowledgeBaseResponse -&gt; Bool
+$c/= :: DeleteKnowledgeBaseResponse -&gt; DeleteKnowledgeBaseResponse -&gt; Bool
+== :: DeleteKnowledgeBaseResponse -&gt; DeleteKnowledgeBaseResponse -&gt; Bool
+$c== :: DeleteKnowledgeBaseResponse -&gt; DeleteKnowledgeBaseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228294"><span id="local-6989586621679228296"><span id="local-6989586621679228298"><span id="local-6989586621679228300"><span class="annot"><span class="annottext">ReadPrec [DeleteKnowledgeBaseResponse]
+ReadPrec DeleteKnowledgeBaseResponse
+Int -&gt; ReadS DeleteKnowledgeBaseResponse
+ReadS [DeleteKnowledgeBaseResponse]
+(Int -&gt; ReadS DeleteKnowledgeBaseResponse)
+-&gt; ReadS [DeleteKnowledgeBaseResponse]
+-&gt; ReadPrec DeleteKnowledgeBaseResponse
+-&gt; ReadPrec [DeleteKnowledgeBaseResponse]
+-&gt; Read DeleteKnowledgeBaseResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteKnowledgeBaseResponse]
+$creadListPrec :: ReadPrec [DeleteKnowledgeBaseResponse]
+readPrec :: ReadPrec DeleteKnowledgeBaseResponse
+$creadPrec :: ReadPrec DeleteKnowledgeBaseResponse
+readList :: ReadS [DeleteKnowledgeBaseResponse]
+$creadList :: ReadS [DeleteKnowledgeBaseResponse]
+readsPrec :: Int -&gt; ReadS DeleteKnowledgeBaseResponse
+$creadsPrec :: Int -&gt; ReadS DeleteKnowledgeBaseResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228288"><span id="local-6989586621679228290"><span id="local-6989586621679228292"><span class="annot"><span class="annottext">Int -&gt; DeleteKnowledgeBaseResponse -&gt; ShowS
+[DeleteKnowledgeBaseResponse] -&gt; ShowS
+DeleteKnowledgeBaseResponse -&gt; String
+(Int -&gt; DeleteKnowledgeBaseResponse -&gt; ShowS)
+-&gt; (DeleteKnowledgeBaseResponse -&gt; String)
+-&gt; ([DeleteKnowledgeBaseResponse] -&gt; ShowS)
+-&gt; Show DeleteKnowledgeBaseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteKnowledgeBaseResponse] -&gt; ShowS
+$cshowList :: [DeleteKnowledgeBaseResponse] -&gt; ShowS
+show :: DeleteKnowledgeBaseResponse -&gt; String
+$cshow :: DeleteKnowledgeBaseResponse -&gt; String
+showsPrec :: Int -&gt; DeleteKnowledgeBaseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteKnowledgeBaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteKnowledgeBaseResponse -&gt; Rep DeleteKnowledgeBaseResponse x)
+-&gt; (forall x.
+    Rep DeleteKnowledgeBaseResponse x -&gt; DeleteKnowledgeBaseResponse)
+-&gt; Generic DeleteKnowledgeBaseResponse
+forall x.
+Rep DeleteKnowledgeBaseResponse x -&gt; DeleteKnowledgeBaseResponse
+forall x.
+DeleteKnowledgeBaseResponse -&gt; Rep DeleteKnowledgeBaseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteKnowledgeBaseResponse x -&gt; DeleteKnowledgeBaseResponse
+$cfrom :: forall x.
+DeleteKnowledgeBaseResponse -&gt; Rep DeleteKnowledgeBaseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'DeleteKnowledgeBaseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'httpStatus', 'deleteKnowledgeBaseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#newDeleteKnowledgeBaseResponse"><span class="hs-identifier hs-type">newDeleteKnowledgeBaseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse"><span class="hs-identifier hs-type">DeleteKnowledgeBaseResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newDeleteKnowledgeBaseResponse"><span class="annot"><span class="annottext">newDeleteKnowledgeBaseResponse :: Int -&gt; DeleteKnowledgeBaseResponse
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#newDeleteKnowledgeBaseResponse"><span class="hs-identifier hs-var hs-var">newDeleteKnowledgeBaseResponse</span></a></span></span><span> </span><span id="local-6989586621679228285"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228285"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">DeleteKnowledgeBaseResponse' :: Int -&gt; DeleteKnowledgeBaseResponse
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">DeleteKnowledgeBaseResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteKnowledgeBaseResponse' :: Int
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#%24sel%3AhttpStatus%3ADeleteKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228285"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#deleteKnowledgeBaseResponse_httpStatus"><span class="hs-identifier hs-type">deleteKnowledgeBaseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse"><span class="hs-identifier hs-type">DeleteKnowledgeBaseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span id="deleteKnowledgeBaseResponse_httpStatus"><span class="annot"><span class="annottext">deleteKnowledgeBaseResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteKnowledgeBaseResponse -&gt; f DeleteKnowledgeBaseResponse
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#deleteKnowledgeBaseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteKnowledgeBaseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteKnowledgeBaseResponse -&gt; Int)
+-&gt; (DeleteKnowledgeBaseResponse
+    -&gt; Int -&gt; DeleteKnowledgeBaseResponse)
+-&gt; Lens
+     DeleteKnowledgeBaseResponse DeleteKnowledgeBaseResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">DeleteKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228284"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteKnowledgeBaseResponse' :: DeleteKnowledgeBaseResponse -&gt; Int
+</span><a href="#local-6989586621679228284"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228284"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228283"><span class="annot"><span class="annottext">s :: DeleteKnowledgeBaseResponse
+</span><a href="#local-6989586621679228283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">DeleteKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228282"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKnowledgeBaseResponse
+</span><a href="#local-6989586621679228283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteKnowledgeBaseResponse' :: Int
+</span><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#%24sel%3AhttpStatus%3ADeleteKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse"><span class="hs-identifier hs-type">DeleteKnowledgeBaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228280"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.DeleteKnowledgeBase.html#DeleteKnowledgeBaseResponse"><span class="hs-identifier hs-type">DeleteKnowledgeBaseResponse</span></a></span></span><span>
+</span><span id="line-158"></span></pre></body></html>

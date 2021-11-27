@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkSpaces.StartWorkspaces</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts the specified WorkSpaces.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You cannot start a WorkSpace unless it has a running mode of @AutoStop@</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- and a state of @STOPPED@.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkSpaces.StartWorkspaces</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier">StartWorkspaces</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#newStartWorkspaces"><span class="hs-identifier">newStartWorkspaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#startWorkspaces_startWorkspaceRequests"><span class="hs-identifier">startWorkspaces_startWorkspaceRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse"><span class="hs-identifier">StartWorkspacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#newStartWorkspacesResponse"><span class="hs-identifier">newStartWorkspacesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#startWorkspacesResponse_failedRequests"><span class="hs-identifier">startWorkspacesResponse_failedRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#startWorkspacesResponse_httpStatus"><span class="hs-identifier">startWorkspacesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.html"><span class="hs-identifier">Amazonka.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newStartWorkspaces' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679278418"><span id="local-6989586621679278419"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartWorkspaces"><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-var">StartWorkspaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartWorkspaces%27"><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces%27"><span class="hs-identifier hs-var">StartWorkspaces'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The WorkSpaces to start. You can specify up to 25 WorkSpaces.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AstartWorkspaceRequests%3AStartWorkspaces%27"><span class="annot"><span class="annottext">StartWorkspaces -&gt; NonEmpty StartRequest
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#%24sel%3AstartWorkspaceRequests%3AStartWorkspaces%27"><span class="hs-identifier hs-var hs-var">startWorkspaceRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.StartRequest.html#StartRequest"><span class="hs-identifier hs-type">StartRequest</span></a></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278412"><span id="local-6989586621679278414"><span class="annot"><span class="annottext">StartWorkspaces -&gt; StartWorkspaces -&gt; Bool
+(StartWorkspaces -&gt; StartWorkspaces -&gt; Bool)
+-&gt; (StartWorkspaces -&gt; StartWorkspaces -&gt; Bool)
+-&gt; Eq StartWorkspaces
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartWorkspaces -&gt; StartWorkspaces -&gt; Bool
+$c/= :: StartWorkspaces -&gt; StartWorkspaces -&gt; Bool
+== :: StartWorkspaces -&gt; StartWorkspaces -&gt; Bool
+$c== :: StartWorkspaces -&gt; StartWorkspaces -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278403"><span id="local-6989586621679278405"><span id="local-6989586621679278407"><span id="local-6989586621679278409"><span class="annot"><span class="annottext">ReadPrec [StartWorkspaces]
+ReadPrec StartWorkspaces
+Int -&gt; ReadS StartWorkspaces
+ReadS [StartWorkspaces]
+(Int -&gt; ReadS StartWorkspaces)
+-&gt; ReadS [StartWorkspaces]
+-&gt; ReadPrec StartWorkspaces
+-&gt; ReadPrec [StartWorkspaces]
+-&gt; Read StartWorkspaces
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartWorkspaces]
+$creadListPrec :: ReadPrec [StartWorkspaces]
+readPrec :: ReadPrec StartWorkspaces
+$creadPrec :: ReadPrec StartWorkspaces
+readList :: ReadS [StartWorkspaces]
+$creadList :: ReadS [StartWorkspaces]
+readsPrec :: Int -&gt; ReadS StartWorkspaces
+$creadsPrec :: Int -&gt; ReadS StartWorkspaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278396"><span id="local-6989586621679278398"><span id="local-6989586621679278400"><span class="annot"><span class="annottext">Int -&gt; StartWorkspaces -&gt; ShowS
+[StartWorkspaces] -&gt; ShowS
+StartWorkspaces -&gt; String
+(Int -&gt; StartWorkspaces -&gt; ShowS)
+-&gt; (StartWorkspaces -&gt; String)
+-&gt; ([StartWorkspaces] -&gt; ShowS)
+-&gt; Show StartWorkspaces
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartWorkspaces] -&gt; ShowS
+$cshowList :: [StartWorkspaces] -&gt; ShowS
+show :: StartWorkspaces -&gt; String
+$cshow :: StartWorkspaces -&gt; String
+showsPrec :: Int -&gt; StartWorkspaces -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartWorkspaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartWorkspaces -&gt; Rep StartWorkspaces x)
+-&gt; (forall x. Rep StartWorkspaces x -&gt; StartWorkspaces)
+-&gt; Generic StartWorkspaces
+forall x. Rep StartWorkspaces x -&gt; StartWorkspaces
+forall x. StartWorkspaces -&gt; Rep StartWorkspaces x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartWorkspaces x -&gt; StartWorkspaces
+$cfrom :: forall x. StartWorkspaces -&gt; Rep StartWorkspaces x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'StartWorkspaces' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'startWorkspaceRequests', 'startWorkspaces_startWorkspaceRequests' - The WorkSpaces to start. You can specify up to 25 WorkSpaces.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#newStartWorkspaces"><span class="hs-identifier hs-type">newStartWorkspaces</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'startWorkspaceRequests'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.StartRequest.html#StartRequest"><span class="hs-identifier hs-type">StartRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span><span>
+</span><span id="line-72"></span><span id="newStartWorkspaces"><span class="annot"><span class="annottext">newStartWorkspaces :: NonEmpty StartRequest -&gt; StartWorkspaces
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#newStartWorkspaces"><span class="hs-identifier hs-var hs-var">newStartWorkspaces</span></a></span></span><span> </span><span id="local-6989586621679278391"><span class="annot"><span class="annottext">NonEmpty StartRequest
+</span><a href="#local-6989586621679278391"><span class="hs-identifier hs-var">pStartWorkspaceRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">StartWorkspaces' :: NonEmpty StartRequest -&gt; StartWorkspaces
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces%27"><span class="hs-identifier hs-type">StartWorkspaces'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startWorkspaceRequests:StartWorkspaces' :: NonEmpty StartRequest
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#%24sel%3AstartWorkspaceRequests%3AStartWorkspaces%27"><span class="hs-identifier hs-var">startWorkspaceRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty StartRequest) (Identity (NonEmpty StartRequest))
+-&gt; Tagged
+     (NonEmpty StartRequest) (Identity (NonEmpty StartRequest))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty StartRequest) (Identity (NonEmpty StartRequest))
+ -&gt; Tagged
+      (NonEmpty StartRequest) (Identity (NonEmpty StartRequest)))
+-&gt; NonEmpty StartRequest -&gt; NonEmpty StartRequest
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty StartRequest
+</span><a href="#local-6989586621679278391"><span class="hs-identifier hs-var">pStartWorkspaceRequests_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The WorkSpaces to start. You can specify up to 25 WorkSpaces.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#startWorkspaces_startWorkspaceRequests"><span class="hs-identifier hs-type">startWorkspaces_startWorkspaceRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.StartRequest.html#StartRequest"><span class="hs-identifier hs-type">StartRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="startWorkspaces_startWorkspaceRequests"><span class="annot"><span class="annottext">startWorkspaces_startWorkspaceRequests :: (NonEmpty StartRequest -&gt; f (NonEmpty StartRequest))
+-&gt; StartWorkspaces -&gt; f StartWorkspaces
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#startWorkspaces_startWorkspaceRequests"><span class="hs-identifier hs-var hs-var">startWorkspaces_startWorkspaceRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkspaces -&gt; NonEmpty StartRequest)
+-&gt; (StartWorkspaces -&gt; NonEmpty StartRequest -&gt; StartWorkspaces)
+-&gt; Lens
+     StartWorkspaces
+     StartWorkspaces
+     (NonEmpty StartRequest)
+     (NonEmpty StartRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces%27"><span class="hs-identifier hs-type">StartWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278386"><span class="annot"><span class="annottext">NonEmpty StartRequest
+startWorkspaceRequests :: NonEmpty StartRequest
+$sel:startWorkspaceRequests:StartWorkspaces' :: StartWorkspaces -&gt; NonEmpty StartRequest
+</span><a href="#local-6989586621679278386"><span class="hs-identifier hs-var hs-var">startWorkspaceRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty StartRequest
+</span><a href="#local-6989586621679278386"><span class="hs-identifier hs-var">startWorkspaceRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278385"><span class="annot"><span class="annottext">s :: StartWorkspaces
+</span><a href="#local-6989586621679278385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces%27"><span class="hs-identifier hs-type">StartWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278384"><span class="annot"><span class="annottext">NonEmpty StartRequest
+</span><a href="#local-6989586621679278384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkspaces
+</span><a href="#local-6989586621679278385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startWorkspaceRequests:StartWorkspaces' :: NonEmpty StartRequest
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#%24sel%3AstartWorkspaceRequests%3AStartWorkspaces%27"><span class="hs-identifier hs-var">startWorkspaceRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty StartRequest
+</span><a href="#local-6989586621679278384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty StartRequest -&gt; f (NonEmpty StartRequest))
+ -&gt; StartWorkspaces -&gt; f StartWorkspaces)
+-&gt; ((NonEmpty StartRequest -&gt; f (NonEmpty StartRequest))
+    -&gt; NonEmpty StartRequest -&gt; f (NonEmpty StartRequest))
+-&gt; (NonEmpty StartRequest -&gt; f (NonEmpty StartRequest))
+-&gt; StartWorkspaces
+-&gt; f StartWorkspaces
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty StartRequest -&gt; f (NonEmpty StartRequest))
+-&gt; NonEmpty StartRequest -&gt; f (NonEmpty StartRequest)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse"><span class="hs-identifier hs-type">StartWorkspacesResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679278379"><span class="annot"><span class="annottext">request :: StartWorkspaces -&gt; Request StartWorkspaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartWorkspaces -&gt; Request StartWorkspaces
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679278375"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartWorkspaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartWorkspaces)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartWorkspaces))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartWorkspaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StartWorkspaces)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278372"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278372"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278371"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679278371"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278370"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+-&gt; Int -&gt; StartWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse%27"><span class="hs-identifier hs-var">StartWorkspacesResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [FailedWorkspaceChangeRequest]
+ -&gt; Int -&gt; StartWorkspacesResponse)
+-&gt; Either String (Maybe [FailedWorkspaceChangeRequest])
+-&gt; Either String (Int -&gt; StartWorkspacesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key
+-&gt; Either String (Maybe (Maybe [FailedWorkspaceChangeRequest]))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;FailedRequests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FailedWorkspaceChangeRequest]))
+-&gt; Maybe [FailedWorkspaceChangeRequest]
+-&gt; Either String (Maybe [FailedWorkspaceChangeRequest])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartWorkspacesResponse)
+-&gt; Either String Int -&gt; Either String StartWorkspacesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278372"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278361"><span id="local-6989586621679278363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679278354"><span class="annot"><span class="annottext">toHeaders :: StartWorkspaces -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartWorkspaces -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkspacesService.StartWorkspaces&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278344"><span id="local-6989586621679278346"><span id="local-6989586621679278348"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679278342"><span class="annot"><span class="annottext">toJSON :: StartWorkspaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces%27"><span class="hs-identifier hs-type">StartWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278340"><span class="annot"><span class="annottext">NonEmpty StartRequest
+startWorkspaceRequests :: NonEmpty StartRequest
+$sel:startWorkspaceRequests:StartWorkspaces' :: StartWorkspaces -&gt; NonEmpty StartRequest
+</span><a href="#local-6989586621679278340"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;StartWorkspaceRequests&quot;</span></span><span>
+</span><span id="line-120"></span><span>                  </span><span class="annot"><span class="annottext">Key -&gt; NonEmpty StartRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty StartRequest
+</span><a href="#local-6989586621679278340"><span class="hs-identifier hs-var">startWorkspaceRequests</span></a></span><span>
+</span><span id="line-121"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679278334"><span class="annot"><span class="annottext">toPath :: StartWorkspaces -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartWorkspaces -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspaces"><span class="hs-identifier hs-type">StartWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679278330"><span class="annot"><span class="annottext">toQuery :: StartWorkspaces -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartWorkspaces -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newStartWorkspacesResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621679278327"><span id="local-6989586621679278328"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartWorkspacesResponse"><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse"><span class="hs-identifier hs-var">StartWorkspacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartWorkspacesResponse%27"><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse%27"><span class="hs-identifier hs-var">StartWorkspacesResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the WorkSpaces that could not be started.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AfailedRequests%3AStartWorkspacesResponse%27"><span class="annot"><span class="annottext">StartWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest]
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#%24sel%3AfailedRequests%3AStartWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartWorkspacesResponse%27"><span class="annot"><span class="annottext">StartWorkspacesResponse -&gt; Int
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#%24sel%3AhttpStatus%3AStartWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278321"><span id="local-6989586621679278323"><span class="annot"><span class="annottext">StartWorkspacesResponse -&gt; StartWorkspacesResponse -&gt; Bool
+(StartWorkspacesResponse -&gt; StartWorkspacesResponse -&gt; Bool)
+-&gt; (StartWorkspacesResponse -&gt; StartWorkspacesResponse -&gt; Bool)
+-&gt; Eq StartWorkspacesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartWorkspacesResponse -&gt; StartWorkspacesResponse -&gt; Bool
+$c/= :: StartWorkspacesResponse -&gt; StartWorkspacesResponse -&gt; Bool
+== :: StartWorkspacesResponse -&gt; StartWorkspacesResponse -&gt; Bool
+$c== :: StartWorkspacesResponse -&gt; StartWorkspacesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278313"><span id="local-6989586621679278315"><span id="local-6989586621679278317"><span id="local-6989586621679278319"><span class="annot"><span class="annottext">ReadPrec [StartWorkspacesResponse]
+ReadPrec StartWorkspacesResponse
+Int -&gt; ReadS StartWorkspacesResponse
+ReadS [StartWorkspacesResponse]
+(Int -&gt; ReadS StartWorkspacesResponse)
+-&gt; ReadS [StartWorkspacesResponse]
+-&gt; ReadPrec StartWorkspacesResponse
+-&gt; ReadPrec [StartWorkspacesResponse]
+-&gt; Read StartWorkspacesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartWorkspacesResponse]
+$creadListPrec :: ReadPrec [StartWorkspacesResponse]
+readPrec :: ReadPrec StartWorkspacesResponse
+$creadPrec :: ReadPrec StartWorkspacesResponse
+readList :: ReadS [StartWorkspacesResponse]
+$creadList :: ReadS [StartWorkspacesResponse]
+readsPrec :: Int -&gt; ReadS StartWorkspacesResponse
+$creadsPrec :: Int -&gt; ReadS StartWorkspacesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278307"><span id="local-6989586621679278309"><span id="local-6989586621679278311"><span class="annot"><span class="annottext">Int -&gt; StartWorkspacesResponse -&gt; ShowS
+[StartWorkspacesResponse] -&gt; ShowS
+StartWorkspacesResponse -&gt; String
+(Int -&gt; StartWorkspacesResponse -&gt; ShowS)
+-&gt; (StartWorkspacesResponse -&gt; String)
+-&gt; ([StartWorkspacesResponse] -&gt; ShowS)
+-&gt; Show StartWorkspacesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartWorkspacesResponse] -&gt; ShowS
+$cshowList :: [StartWorkspacesResponse] -&gt; ShowS
+show :: StartWorkspacesResponse -&gt; String
+$cshow :: StartWorkspacesResponse -&gt; String
+showsPrec :: Int -&gt; StartWorkspacesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartWorkspacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartWorkspacesResponse -&gt; Rep StartWorkspacesResponse x)
+-&gt; (forall x.
+    Rep StartWorkspacesResponse x -&gt; StartWorkspacesResponse)
+-&gt; Generic StartWorkspacesResponse
+forall x. Rep StartWorkspacesResponse x -&gt; StartWorkspacesResponse
+forall x. StartWorkspacesResponse -&gt; Rep StartWorkspacesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartWorkspacesResponse x -&gt; StartWorkspacesResponse
+$cfrom :: forall x. StartWorkspacesResponse -&gt; Rep StartWorkspacesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'StartWorkspacesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'failedRequests', 'startWorkspacesResponse_failedRequests' - Information about the WorkSpaces that could not be started.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'startWorkspacesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#newStartWorkspacesResponse"><span class="hs-identifier hs-type">newStartWorkspacesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse"><span class="hs-identifier hs-type">StartWorkspacesResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newStartWorkspacesResponse"><span class="annot"><span class="annottext">newStartWorkspacesResponse :: Int -&gt; StartWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#newStartWorkspacesResponse"><span class="hs-identifier hs-var hs-var">newStartWorkspacesResponse</span></a></span></span><span> </span><span id="local-6989586621679278304"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278304"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">StartWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
+-&gt; Int -&gt; StartWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse%27"><span class="hs-identifier hs-type">StartWorkspacesResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failedRequests:StartWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#%24sel%3AfailedRequests%3AStartWorkspacesResponse%27"><span class="hs-identifier hs-var">failedRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartWorkspacesResponse' :: Int
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#%24sel%3AhttpStatus%3AStartWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278304"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Information about the WorkSpaces that could not be started.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#startWorkspacesResponse_failedRequests"><span class="hs-identifier hs-type">startWorkspacesResponse_failedRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse"><span class="hs-identifier hs-type">StartWorkspacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="startWorkspacesResponse_failedRequests"><span class="annot"><span class="annottext">startWorkspacesResponse_failedRequests :: (Maybe [FailedWorkspaceChangeRequest]
+ -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+-&gt; StartWorkspacesResponse -&gt; f StartWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#startWorkspacesResponse_failedRequests"><span class="hs-identifier hs-var hs-var">startWorkspacesResponse_failedRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest])
+-&gt; (StartWorkspacesResponse
+    -&gt; Maybe [FailedWorkspaceChangeRequest] -&gt; StartWorkspacesResponse)
+-&gt; Lens
+     StartWorkspacesResponse
+     StartWorkspacesResponse
+     (Maybe [FailedWorkspaceChangeRequest])
+     (Maybe [FailedWorkspaceChangeRequest])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse%27"><span class="hs-identifier hs-type">StartWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278303"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+failedRequests :: Maybe [FailedWorkspaceChangeRequest]
+$sel:failedRequests:StartWorkspacesResponse' :: StartWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679278303"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679278303"><span class="hs-identifier hs-var">failedRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278302"><span class="annot"><span class="annottext">s :: StartWorkspacesResponse
+</span><a href="#local-6989586621679278302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse%27"><span class="hs-identifier hs-type">StartWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278301"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679278301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkspacesResponse
+</span><a href="#local-6989586621679278302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedRequests:StartWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#%24sel%3AfailedRequests%3AStartWorkspacesResponse%27"><span class="hs-identifier hs-var">failedRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679278301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse"><span class="hs-identifier hs-type">StartWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedWorkspaceChangeRequest]
+  -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+ -&gt; StartWorkspacesResponse -&gt; f StartWorkspacesResponse)
+-&gt; ((Maybe [FailedWorkspaceChangeRequest]
+     -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+    -&gt; Maybe [FailedWorkspaceChangeRequest]
+    -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+-&gt; (Maybe [FailedWorkspaceChangeRequest]
+    -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+-&gt; StartWorkspacesResponse
+-&gt; f StartWorkspacesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+-&gt; Iso
+     (Maybe [FailedWorkspaceChangeRequest])
+     (Maybe [FailedWorkspaceChangeRequest])
+     (Maybe [FailedWorkspaceChangeRequest])
+     (Maybe [FailedWorkspaceChangeRequest])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#startWorkspacesResponse_httpStatus"><span class="hs-identifier hs-type">startWorkspacesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse"><span class="hs-identifier hs-type">StartWorkspacesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span id="startWorkspacesResponse_httpStatus"><span class="annot"><span class="annottext">startWorkspacesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartWorkspacesResponse -&gt; f StartWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#startWorkspacesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startWorkspacesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartWorkspacesResponse -&gt; Int)
+-&gt; (StartWorkspacesResponse -&gt; Int -&gt; StartWorkspacesResponse)
+-&gt; Lens StartWorkspacesResponse StartWorkspacesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse%27"><span class="hs-identifier hs-type">StartWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278299"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartWorkspacesResponse' :: StartWorkspacesResponse -&gt; Int
+</span><a href="#local-6989586621679278299"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278299"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278298"><span class="annot"><span class="annottext">s :: StartWorkspacesResponse
+</span><a href="#local-6989586621679278298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse%27"><span class="hs-identifier hs-type">StartWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartWorkspacesResponse
+</span><a href="#local-6989586621679278298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartWorkspacesResponse' :: Int
+</span><a href="Amazonka.WorkSpaces.StartWorkspaces.html#%24sel%3AhttpStatus%3AStartWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse"><span class="hs-identifier hs-type">StartWorkspacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.StartWorkspaces.html#StartWorkspacesResponse"><span class="hs-identifier hs-type">StartWorkspacesResponse</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

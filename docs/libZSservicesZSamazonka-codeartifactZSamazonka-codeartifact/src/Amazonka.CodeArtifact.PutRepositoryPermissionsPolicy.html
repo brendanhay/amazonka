@@ -1,0 +1,708 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the resource policy on a repository that specifies permissions to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- access it.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- When you call @PutRepositoryPermissionsPolicy@, the resource policy on</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the repository is ignored when evaluting permissions. This ensures that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the owner of a repository cannot lock themselves out of the repository,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- which would prevent them from being able to update the resource policy.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier">PutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#newPutRepositoryPermissionsPolicy"><span class="hs-identifier">newPutRepositoryPermissionsPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_policyRevision"><span class="hs-identifier">putRepositoryPermissionsPolicy_policyRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_domainOwner"><span class="hs-identifier">putRepositoryPermissionsPolicy_domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_domain"><span class="hs-identifier">putRepositoryPermissionsPolicy_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_repository"><span class="hs-identifier">putRepositoryPermissionsPolicy_repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_policyDocument"><span class="hs-identifier">putRepositoryPermissionsPolicy_policyDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse"><span class="hs-identifier">PutRepositoryPermissionsPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#newPutRepositoryPermissionsPolicyResponse"><span class="hs-identifier">newPutRepositoryPermissionsPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicyResponse_policy"><span class="hs-identifier">putRepositoryPermissionsPolicyResponse_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicyResponse_httpStatus"><span class="hs-identifier">putRepositoryPermissionsPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.html"><span class="hs-identifier">Amazonka.CodeArtifact.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newPutRepositoryPermissionsPolicy' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679233019"><span id="local-6989586621679233020"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRepositoryPermissionsPolicy"><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-var">PutRepositoryPermissionsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRepositoryPermissionsPolicy%27"><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">PutRepositoryPermissionsPolicy'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Sets the revision of the resource policy that specifies permissions to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- access the repository. This revision is used for optimistic locking,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- which prevents others from overwriting your changes to the repository\'s</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- resource policy.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3ApolicyRevision%3APutRepositoryPermissionsPolicy%27"><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3ApolicyRevision%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var hs-var">policyRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdomainOwner%3APutRepositoryPermissionsPolicy%27"><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3AdomainOwner%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the domain containing the repository to set the resource</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- policy on.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Adomain%3APutRepositoryPermissionsPolicy%27"><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy -&gt; Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3Adomain%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the repository to set the resource policy on.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Arepository%3APutRepositoryPermissionsPolicy%27"><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy -&gt; Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3Arepository%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | A valid displayable JSON Aspen policy string to be set as the access</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- control resource policy on the provided repository.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3ApolicyDocument%3APutRepositoryPermissionsPolicy%27"><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy -&gt; Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3ApolicyDocument%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233009"><span id="local-6989586621679233011"><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy
+-&gt; PutRepositoryPermissionsPolicy -&gt; Bool
+(PutRepositoryPermissionsPolicy
+ -&gt; PutRepositoryPermissionsPolicy -&gt; Bool)
+-&gt; (PutRepositoryPermissionsPolicy
+    -&gt; PutRepositoryPermissionsPolicy -&gt; Bool)
+-&gt; Eq PutRepositoryPermissionsPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRepositoryPermissionsPolicy
+-&gt; PutRepositoryPermissionsPolicy -&gt; Bool
+$c/= :: PutRepositoryPermissionsPolicy
+-&gt; PutRepositoryPermissionsPolicy -&gt; Bool
+== :: PutRepositoryPermissionsPolicy
+-&gt; PutRepositoryPermissionsPolicy -&gt; Bool
+$c== :: PutRepositoryPermissionsPolicy
+-&gt; PutRepositoryPermissionsPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233000"><span id="local-6989586621679233002"><span id="local-6989586621679233004"><span id="local-6989586621679233006"><span class="annot"><span class="annottext">ReadPrec [PutRepositoryPermissionsPolicy]
+ReadPrec PutRepositoryPermissionsPolicy
+Int -&gt; ReadS PutRepositoryPermissionsPolicy
+ReadS [PutRepositoryPermissionsPolicy]
+(Int -&gt; ReadS PutRepositoryPermissionsPolicy)
+-&gt; ReadS [PutRepositoryPermissionsPolicy]
+-&gt; ReadPrec PutRepositoryPermissionsPolicy
+-&gt; ReadPrec [PutRepositoryPermissionsPolicy]
+-&gt; Read PutRepositoryPermissionsPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRepositoryPermissionsPolicy]
+$creadListPrec :: ReadPrec [PutRepositoryPermissionsPolicy]
+readPrec :: ReadPrec PutRepositoryPermissionsPolicy
+$creadPrec :: ReadPrec PutRepositoryPermissionsPolicy
+readList :: ReadS [PutRepositoryPermissionsPolicy]
+$creadList :: ReadS [PutRepositoryPermissionsPolicy]
+readsPrec :: Int -&gt; ReadS PutRepositoryPermissionsPolicy
+$creadsPrec :: Int -&gt; ReadS PutRepositoryPermissionsPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232993"><span id="local-6989586621679232995"><span id="local-6989586621679232997"><span class="annot"><span class="annottext">Int -&gt; PutRepositoryPermissionsPolicy -&gt; ShowS
+[PutRepositoryPermissionsPolicy] -&gt; ShowS
+PutRepositoryPermissionsPolicy -&gt; String
+(Int -&gt; PutRepositoryPermissionsPolicy -&gt; ShowS)
+-&gt; (PutRepositoryPermissionsPolicy -&gt; String)
+-&gt; ([PutRepositoryPermissionsPolicy] -&gt; ShowS)
+-&gt; Show PutRepositoryPermissionsPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRepositoryPermissionsPolicy] -&gt; ShowS
+$cshowList :: [PutRepositoryPermissionsPolicy] -&gt; ShowS
+show :: PutRepositoryPermissionsPolicy -&gt; String
+$cshow :: PutRepositoryPermissionsPolicy -&gt; String
+showsPrec :: Int -&gt; PutRepositoryPermissionsPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRepositoryPermissionsPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutRepositoryPermissionsPolicy
+ -&gt; Rep PutRepositoryPermissionsPolicy x)
+-&gt; (forall x.
+    Rep PutRepositoryPermissionsPolicy x
+    -&gt; PutRepositoryPermissionsPolicy)
+-&gt; Generic PutRepositoryPermissionsPolicy
+forall x.
+Rep PutRepositoryPermissionsPolicy x
+-&gt; PutRepositoryPermissionsPolicy
+forall x.
+PutRepositoryPermissionsPolicy
+-&gt; Rep PutRepositoryPermissionsPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutRepositoryPermissionsPolicy x
+-&gt; PutRepositoryPermissionsPolicy
+$cfrom :: forall x.
+PutRepositoryPermissionsPolicy
+-&gt; Rep PutRepositoryPermissionsPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'PutRepositoryPermissionsPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'policyRevision', 'putRepositoryPermissionsPolicy_policyRevision' - Sets the revision of the resource policy that specifies permissions to</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- access the repository. This revision is used for optimistic locking,</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- which prevents others from overwriting your changes to the repository\'s</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- resource policy.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'domainOwner', 'putRepositoryPermissionsPolicy_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'domain', 'putRepositoryPermissionsPolicy_domain' - The name of the domain containing the repository to set the resource</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- policy on.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'repository', 'putRepositoryPermissionsPolicy_repository' - The name of the repository to set the resource policy on.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'policyDocument', 'putRepositoryPermissionsPolicy_policyDocument' - A valid displayable JSON Aspen policy string to be set as the access</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- control resource policy on the provided repository.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#newPutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">newPutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'repository'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'policyDocument'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span>
+</span><span id="line-111"></span><span id="newPutRepositoryPermissionsPolicy"><span class="annot"><span class="annottext">newPutRepositoryPermissionsPolicy :: Text -&gt; Text -&gt; Text -&gt; PutRepositoryPermissionsPolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#newPutRepositoryPermissionsPolicy"><span class="hs-identifier hs-var hs-var">newPutRepositoryPermissionsPolicy</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679232988"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232988"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679232987"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232987"><span class="hs-identifier hs-var">pRepository_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679232986"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232986"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PutRepositoryPermissionsPolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyRevision:PutRepositoryPermissionsPolicy' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3ApolicyRevision%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">policyRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainOwner:PutRepositoryPermissionsPolicy' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3AdomainOwner%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:domain:PutRepositoryPermissionsPolicy' :: Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3Adomain%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232988"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:repository:PutRepositoryPermissionsPolicy' :: Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3Arepository%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232987"><span class="hs-identifier hs-var">pRepository_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyDocument:PutRepositoryPermissionsPolicy' :: Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3ApolicyDocument%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232986"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Sets the revision of the resource policy that specifies permissions to</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- access the repository. This revision is used for optimistic locking,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- which prevents others from overwriting your changes to the repository\'s</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- resource policy.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_policyRevision"><span class="hs-identifier hs-type">putRepositoryPermissionsPolicy_policyRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="putRepositoryPermissionsPolicy_policyRevision"><span class="annot"><span class="annottext">putRepositoryPermissionsPolicy_policyRevision :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutRepositoryPermissionsPolicy
+-&gt; f PutRepositoryPermissionsPolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_policyRevision"><span class="hs-identifier hs-var hs-var">putRepositoryPermissionsPolicy_policyRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRepositoryPermissionsPolicy -&gt; Maybe Text)
+-&gt; (PutRepositoryPermissionsPolicy
+    -&gt; Maybe Text -&gt; PutRepositoryPermissionsPolicy)
+-&gt; Lens
+     PutRepositoryPermissionsPolicy
+     PutRepositoryPermissionsPolicy
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232983"><span class="annot"><span class="annottext">Maybe Text
+policyRevision :: Maybe Text
+$sel:policyRevision:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679232983"><span class="hs-identifier hs-var hs-var">policyRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232983"><span class="hs-identifier hs-var">policyRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232982"><span class="annot"><span class="annottext">s :: PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232981"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyRevision:PutRepositoryPermissionsPolicy' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3ApolicyRevision%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">policyRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_domainOwner"><span class="hs-identifier hs-type">putRepositoryPermissionsPolicy_domainOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="putRepositoryPermissionsPolicy_domainOwner"><span class="annot"><span class="annottext">putRepositoryPermissionsPolicy_domainOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutRepositoryPermissionsPolicy
+-&gt; f PutRepositoryPermissionsPolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_domainOwner"><span class="hs-identifier hs-var hs-var">putRepositoryPermissionsPolicy_domainOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRepositoryPermissionsPolicy -&gt; Maybe Text)
+-&gt; (PutRepositoryPermissionsPolicy
+    -&gt; Maybe Text -&gt; PutRepositoryPermissionsPolicy)
+-&gt; Lens
+     PutRepositoryPermissionsPolicy
+     PutRepositoryPermissionsPolicy
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232980"><span class="annot"><span class="annottext">Maybe Text
+domainOwner :: Maybe Text
+$sel:domainOwner:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679232980"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232980"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232979"><span class="annot"><span class="annottext">s :: PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232978"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainOwner:PutRepositoryPermissionsPolicy' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3AdomainOwner%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The name of the domain containing the repository to set the resource</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- policy on.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_domain"><span class="hs-identifier hs-type">putRepositoryPermissionsPolicy_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="putRepositoryPermissionsPolicy_domain"><span class="annot"><span class="annottext">putRepositoryPermissionsPolicy_domain :: (Text -&gt; f Text)
+-&gt; PutRepositoryPermissionsPolicy
+-&gt; f PutRepositoryPermissionsPolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_domain"><span class="hs-identifier hs-var hs-var">putRepositoryPermissionsPolicy_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRepositoryPermissionsPolicy -&gt; Text)
+-&gt; (PutRepositoryPermissionsPolicy
+    -&gt; Text -&gt; PutRepositoryPermissionsPolicy)
+-&gt; Lens
+     PutRepositoryPermissionsPolicy
+     PutRepositoryPermissionsPolicy
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232977"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Text
+</span><a href="#local-6989586621679232977"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232977"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232976"><span class="annot"><span class="annottext">s :: PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232975"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:PutRepositoryPermissionsPolicy' :: Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3Adomain%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The name of the repository to set the resource policy on.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_repository"><span class="hs-identifier hs-type">putRepositoryPermissionsPolicy_repository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="putRepositoryPermissionsPolicy_repository"><span class="annot"><span class="annottext">putRepositoryPermissionsPolicy_repository :: (Text -&gt; f Text)
+-&gt; PutRepositoryPermissionsPolicy
+-&gt; f PutRepositoryPermissionsPolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_repository"><span class="hs-identifier hs-var hs-var">putRepositoryPermissionsPolicy_repository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRepositoryPermissionsPolicy -&gt; Text)
+-&gt; (PutRepositoryPermissionsPolicy
+    -&gt; Text -&gt; PutRepositoryPermissionsPolicy)
+-&gt; Lens
+     PutRepositoryPermissionsPolicy
+     PutRepositoryPermissionsPolicy
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232974"><span class="annot"><span class="annottext">Text
+repository :: Text
+$sel:repository:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Text
+</span><a href="#local-6989586621679232974"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232974"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232973"><span class="annot"><span class="annottext">s :: PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232972"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:PutRepositoryPermissionsPolicy' :: Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3Arepository%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | A valid displayable JSON Aspen policy string to be set as the access</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- control resource policy on the provided repository.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_policyDocument"><span class="hs-identifier hs-type">putRepositoryPermissionsPolicy_policyDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="putRepositoryPermissionsPolicy_policyDocument"><span class="annot"><span class="annottext">putRepositoryPermissionsPolicy_policyDocument :: (Text -&gt; f Text)
+-&gt; PutRepositoryPermissionsPolicy
+-&gt; f PutRepositoryPermissionsPolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicy_policyDocument"><span class="hs-identifier hs-var hs-var">putRepositoryPermissionsPolicy_policyDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRepositoryPermissionsPolicy -&gt; Text)
+-&gt; (PutRepositoryPermissionsPolicy
+    -&gt; Text -&gt; PutRepositoryPermissionsPolicy)
+-&gt; Lens
+     PutRepositoryPermissionsPolicy
+     PutRepositoryPermissionsPolicy
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232971"><span class="annot"><span class="annottext">Text
+policyDocument :: Text
+$sel:policyDocument:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Text
+</span><a href="#local-6989586621679232971"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232971"><span class="hs-identifier hs-var">policyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232970"><span class="annot"><span class="annottext">s :: PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232969"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicy
+</span><a href="#local-6989586621679232970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyDocument:PutRepositoryPermissionsPolicy' :: Text
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3ApolicyDocument%3APutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-155"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse</span></a></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679232965"><span class="annot"><span class="annottext">request :: PutRepositoryPermissionsPolicy
+-&gt; Request PutRepositoryPermissionsPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutRepositoryPermissionsPolicy
+-&gt; Request PutRepositoryPermissionsPolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeArtifact.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679232961"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutRepositoryPermissionsPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PutRepositoryPermissionsPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutRepositoryPermissionsPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutRepositoryPermissionsPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PutRepositoryPermissionsPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232958"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232958"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679232957"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679232957"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679232956"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232956"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourcePolicy
+-&gt; Int -&gt; PutRepositoryPermissionsPolicyResponse
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-var">PutRepositoryPermissionsPolicyResponse'</span></a></span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourcePolicy
+ -&gt; Int -&gt; PutRepositoryPermissionsPolicyResponse)
+-&gt; Either String (Maybe ResourcePolicy)
+-&gt; Either String (Int -&gt; PutRepositoryPermissionsPolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResourcePolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutRepositoryPermissionsPolicyResponse)
+-&gt; Either String Int
+-&gt; Either String PutRepositoryPermissionsPolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232958"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679232948"><span id="local-6989586621679232950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679232945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679232941"><span class="annot"><span class="annottext">toHeaders :: PutRepositoryPermissionsPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; PutRepositoryPermissionsPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-184"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232931"><span id="local-6989586621679232933"><span id="local-6989586621679232935"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679232929"><span class="annot"><span class="annottext">toJSON :: PutRepositoryPermissionsPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232923"><span id="local-6989586621679232924"><span id="local-6989586621679232925"><span id="local-6989586621679232926"><span id="local-6989586621679232927"><span class="annot"><span class="annottext">Maybe Text
+Text
+policyDocument :: Text
+repository :: Text
+domain :: Text
+domainOwner :: Maybe Text
+policyRevision :: Maybe Text
+$sel:policyDocument:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Text
+$sel:repository:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Text
+$sel:domain:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Text
+$sel:domainOwner:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Maybe Text
+$sel:policyRevision:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679232923"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policyRevision&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232927"><span class="hs-identifier hs-var">policyRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-195"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policyDocument&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232923"><span class="hs-identifier hs-var">policyDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679232917"><span class="annot"><span class="annottext">toPath :: PutRepositoryPermissionsPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; PutRepositoryPermissionsPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/repository/permissions/policy&quot;</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679232913"><span class="annot"><span class="annottext">toQuery :: PutRepositoryPermissionsPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicy%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232907"><span id="local-6989586621679232908"><span id="local-6989586621679232909"><span id="local-6989586621679232910"><span id="local-6989586621679232911"><span class="annot"><span class="annottext">Maybe Text
+Text
+policyDocument :: Text
+repository :: Text
+domain :: Text
+domainOwner :: Maybe Text
+policyRevision :: Maybe Text
+$sel:policyDocument:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Text
+$sel:repository:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Text
+$sel:domain:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Text
+$sel:domainOwner:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Maybe Text
+$sel:policyRevision:PutRepositoryPermissionsPolicy' :: PutRepositoryPermissionsPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679232907"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain-owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232910"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232909"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;repository&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232908"><span class="hs-identifier hs-var">repository</span></a></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | /See:/ 'newPutRepositoryPermissionsPolicyResponse' smart constructor.</span><span>
+</span><span id="line-212"></span><span id="local-6989586621679232904"><span id="local-6989586621679232905"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRepositoryPermissionsPolicyResponse"><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-var">PutRepositoryPermissionsPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRepositoryPermissionsPolicyResponse%27"><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-var">PutRepositoryPermissionsPolicyResponse'</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource policy that was set after processing the request.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3Apolicy%3APutRepositoryPermissionsPolicyResponse%27"><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicyResponse -&gt; Maybe ResourcePolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3Apolicy%3APutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.ResourcePolicy.html#ResourcePolicy"><span class="hs-identifier hs-type">ResourcePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutRepositoryPermissionsPolicyResponse%27"><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicyResponse -&gt; Int
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3AhttpStatus%3APutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232898"><span id="local-6989586621679232900"><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicyResponse
+-&gt; PutRepositoryPermissionsPolicyResponse -&gt; Bool
+(PutRepositoryPermissionsPolicyResponse
+ -&gt; PutRepositoryPermissionsPolicyResponse -&gt; Bool)
+-&gt; (PutRepositoryPermissionsPolicyResponse
+    -&gt; PutRepositoryPermissionsPolicyResponse -&gt; Bool)
+-&gt; Eq PutRepositoryPermissionsPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRepositoryPermissionsPolicyResponse
+-&gt; PutRepositoryPermissionsPolicyResponse -&gt; Bool
+$c/= :: PutRepositoryPermissionsPolicyResponse
+-&gt; PutRepositoryPermissionsPolicyResponse -&gt; Bool
+== :: PutRepositoryPermissionsPolicyResponse
+-&gt; PutRepositoryPermissionsPolicyResponse -&gt; Bool
+$c== :: PutRepositoryPermissionsPolicyResponse
+-&gt; PutRepositoryPermissionsPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232890"><span id="local-6989586621679232892"><span id="local-6989586621679232894"><span id="local-6989586621679232896"><span class="annot"><span class="annottext">ReadPrec [PutRepositoryPermissionsPolicyResponse]
+ReadPrec PutRepositoryPermissionsPolicyResponse
+Int -&gt; ReadS PutRepositoryPermissionsPolicyResponse
+ReadS [PutRepositoryPermissionsPolicyResponse]
+(Int -&gt; ReadS PutRepositoryPermissionsPolicyResponse)
+-&gt; ReadS [PutRepositoryPermissionsPolicyResponse]
+-&gt; ReadPrec PutRepositoryPermissionsPolicyResponse
+-&gt; ReadPrec [PutRepositoryPermissionsPolicyResponse]
+-&gt; Read PutRepositoryPermissionsPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRepositoryPermissionsPolicyResponse]
+$creadListPrec :: ReadPrec [PutRepositoryPermissionsPolicyResponse]
+readPrec :: ReadPrec PutRepositoryPermissionsPolicyResponse
+$creadPrec :: ReadPrec PutRepositoryPermissionsPolicyResponse
+readList :: ReadS [PutRepositoryPermissionsPolicyResponse]
+$creadList :: ReadS [PutRepositoryPermissionsPolicyResponse]
+readsPrec :: Int -&gt; ReadS PutRepositoryPermissionsPolicyResponse
+$creadsPrec :: Int -&gt; ReadS PutRepositoryPermissionsPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232884"><span id="local-6989586621679232886"><span id="local-6989586621679232888"><span class="annot"><span class="annottext">Int -&gt; PutRepositoryPermissionsPolicyResponse -&gt; ShowS
+[PutRepositoryPermissionsPolicyResponse] -&gt; ShowS
+PutRepositoryPermissionsPolicyResponse -&gt; String
+(Int -&gt; PutRepositoryPermissionsPolicyResponse -&gt; ShowS)
+-&gt; (PutRepositoryPermissionsPolicyResponse -&gt; String)
+-&gt; ([PutRepositoryPermissionsPolicyResponse] -&gt; ShowS)
+-&gt; Show PutRepositoryPermissionsPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRepositoryPermissionsPolicyResponse] -&gt; ShowS
+$cshowList :: [PutRepositoryPermissionsPolicyResponse] -&gt; ShowS
+show :: PutRepositoryPermissionsPolicyResponse -&gt; String
+$cshow :: PutRepositoryPermissionsPolicyResponse -&gt; String
+showsPrec :: Int -&gt; PutRepositoryPermissionsPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRepositoryPermissionsPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutRepositoryPermissionsPolicyResponse
+ -&gt; Rep PutRepositoryPermissionsPolicyResponse x)
+-&gt; (forall x.
+    Rep PutRepositoryPermissionsPolicyResponse x
+    -&gt; PutRepositoryPermissionsPolicyResponse)
+-&gt; Generic PutRepositoryPermissionsPolicyResponse
+forall x.
+Rep PutRepositoryPermissionsPolicyResponse x
+-&gt; PutRepositoryPermissionsPolicyResponse
+forall x.
+PutRepositoryPermissionsPolicyResponse
+-&gt; Rep PutRepositoryPermissionsPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutRepositoryPermissionsPolicyResponse x
+-&gt; PutRepositoryPermissionsPolicyResponse
+$cfrom :: forall x.
+PutRepositoryPermissionsPolicyResponse
+-&gt; Rep PutRepositoryPermissionsPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Create a value of 'PutRepositoryPermissionsPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'policy', 'putRepositoryPermissionsPolicyResponse_policy' - The resource policy that was set after processing the request.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'httpStatus', 'putRepositoryPermissionsPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#newPutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-type">newPutRepositoryPermissionsPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse</span></a></span><span>
+</span><span id="line-235"></span><span id="newPutRepositoryPermissionsPolicyResponse"><span class="annot"><span class="annottext">newPutRepositoryPermissionsPolicyResponse :: Int -&gt; PutRepositoryPermissionsPolicyResponse
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#newPutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutRepositoryPermissionsPolicyResponse</span></a></span></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679232881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232881"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicyResponse' :: Maybe ResourcePolicy
+-&gt; Int -&gt; PutRepositoryPermissionsPolicyResponse
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse'</span></a></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:PutRepositoryPermissionsPolicyResponse' :: Maybe ResourcePolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3Apolicy%3APutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourcePolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:PutRepositoryPermissionsPolicyResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3AhttpStatus%3APutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232881"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The resource policy that was set after processing the request.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicyResponse_policy"><span class="hs-identifier hs-type">putRepositoryPermissionsPolicyResponse_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.ResourcePolicy.html#ResourcePolicy"><span class="hs-identifier hs-type">ResourcePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="putRepositoryPermissionsPolicyResponse_policy"><span class="annot"><span class="annottext">putRepositoryPermissionsPolicyResponse_policy :: (Maybe ResourcePolicy -&gt; f (Maybe ResourcePolicy))
+-&gt; PutRepositoryPermissionsPolicyResponse
+-&gt; f PutRepositoryPermissionsPolicyResponse
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicyResponse_policy"><span class="hs-identifier hs-var hs-var">putRepositoryPermissionsPolicyResponse_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRepositoryPermissionsPolicyResponse -&gt; Maybe ResourcePolicy)
+-&gt; (PutRepositoryPermissionsPolicyResponse
+    -&gt; Maybe ResourcePolicy -&gt; PutRepositoryPermissionsPolicyResponse)
+-&gt; Lens
+     PutRepositoryPermissionsPolicyResponse
+     PutRepositoryPermissionsPolicyResponse
+     (Maybe ResourcePolicy)
+     (Maybe ResourcePolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232880"><span class="annot"><span class="annottext">Maybe ResourcePolicy
+policy :: Maybe ResourcePolicy
+$sel:policy:PutRepositoryPermissionsPolicyResponse' :: PutRepositoryPermissionsPolicyResponse -&gt; Maybe ResourcePolicy
+</span><a href="#local-6989586621679232880"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourcePolicy
+</span><a href="#local-6989586621679232880"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232879"><span class="annot"><span class="annottext">s :: PutRepositoryPermissionsPolicyResponse
+</span><a href="#local-6989586621679232879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232878"><span class="annot"><span class="annottext">Maybe ResourcePolicy
+</span><a href="#local-6989586621679232878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicyResponse
+</span><a href="#local-6989586621679232879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutRepositoryPermissionsPolicyResponse' :: Maybe ResourcePolicy
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3Apolicy%3APutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourcePolicy
+</span><a href="#local-6989586621679232878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicyResponse_httpStatus"><span class="hs-identifier hs-type">putRepositoryPermissionsPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-249"></span><span id="putRepositoryPermissionsPolicyResponse_httpStatus"><span class="annot"><span class="annottext">putRepositoryPermissionsPolicyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutRepositoryPermissionsPolicyResponse
+-&gt; f PutRepositoryPermissionsPolicyResponse
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#putRepositoryPermissionsPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putRepositoryPermissionsPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRepositoryPermissionsPolicyResponse -&gt; Int)
+-&gt; (PutRepositoryPermissionsPolicyResponse
+    -&gt; Int -&gt; PutRepositoryPermissionsPolicyResponse)
+-&gt; Lens
+     PutRepositoryPermissionsPolicyResponse
+     PutRepositoryPermissionsPolicyResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232877"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutRepositoryPermissionsPolicyResponse' :: PutRepositoryPermissionsPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679232877"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232877"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232876"><span class="annot"><span class="annottext">s :: PutRepositoryPermissionsPolicyResponse
+</span><a href="#local-6989586621679232876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232875"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryPermissionsPolicyResponse
+</span><a href="#local-6989586621679232876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRepositoryPermissionsPolicyResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#%24sel%3AhttpStatus%3APutRepositoryPermissionsPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679232873"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy.html#PutRepositoryPermissionsPolicyResponse"><span class="hs-identifier hs-type">PutRepositoryPermissionsPolicyResponse</span></a></span></span><span>
+</span><span id="line-254"></span></pre></body></html>

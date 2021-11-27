@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Transfer.DeleteUser</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the user belonging to a file transfer protocol-enabled server</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- you specify.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- No response returns from this operation.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- When you delete a user from a server, the user\'s information is lost.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transfer.DeleteUser</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier">DeleteUser</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#newDeleteUser"><span class="hs-identifier">newDeleteUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#deleteUser_serverId"><span class="hs-identifier">deleteUser_serverId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#deleteUser_userName"><span class="hs-identifier">deleteUser_userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier">DeleteUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#newDeleteUserResponse"><span class="hs-identifier">newDeleteUserResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.html"><span class="hs-identifier">Amazonka.Transfer.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteUser' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679247419"><span id="local-6989586621679247420"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUser"><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-var">DeleteUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUser%27"><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-var">DeleteUser'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A system-assigned unique identifier for a server instance that has the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- user assigned to it.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AserverId%3ADeleteUser%27"><span class="annot"><span class="annottext">DeleteUser -&gt; Text
+</span><a href="Amazonka.Transfer.DeleteUser.html#%24sel%3AserverId%3ADeleteUser%27"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A unique string that identifies a user that is being deleted from a</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- server.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AuserName%3ADeleteUser%27"><span class="annot"><span class="annottext">DeleteUser -&gt; Text
+</span><a href="Amazonka.Transfer.DeleteUser.html#%24sel%3AuserName%3ADeleteUser%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247412"><span id="local-6989586621679247414"><span class="annot"><span class="annottext">DeleteUser -&gt; DeleteUser -&gt; Bool
+(DeleteUser -&gt; DeleteUser -&gt; Bool)
+-&gt; (DeleteUser -&gt; DeleteUser -&gt; Bool) -&gt; Eq DeleteUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteUser -&gt; DeleteUser -&gt; Bool
+$c/= :: DeleteUser -&gt; DeleteUser -&gt; Bool
+== :: DeleteUser -&gt; DeleteUser -&gt; Bool
+$c== :: DeleteUser -&gt; DeleteUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247403"><span id="local-6989586621679247405"><span id="local-6989586621679247407"><span id="local-6989586621679247409"><span class="annot"><span class="annottext">ReadPrec [DeleteUser]
+ReadPrec DeleteUser
+Int -&gt; ReadS DeleteUser
+ReadS [DeleteUser]
+(Int -&gt; ReadS DeleteUser)
+-&gt; ReadS [DeleteUser]
+-&gt; ReadPrec DeleteUser
+-&gt; ReadPrec [DeleteUser]
+-&gt; Read DeleteUser
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteUser]
+$creadListPrec :: ReadPrec [DeleteUser]
+readPrec :: ReadPrec DeleteUser
+$creadPrec :: ReadPrec DeleteUser
+readList :: ReadS [DeleteUser]
+$creadList :: ReadS [DeleteUser]
+readsPrec :: Int -&gt; ReadS DeleteUser
+$creadsPrec :: Int -&gt; ReadS DeleteUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247396"><span id="local-6989586621679247398"><span id="local-6989586621679247400"><span class="annot"><span class="annottext">Int -&gt; DeleteUser -&gt; ShowS
+[DeleteUser] -&gt; ShowS
+DeleteUser -&gt; String
+(Int -&gt; DeleteUser -&gt; ShowS)
+-&gt; (DeleteUser -&gt; String)
+-&gt; ([DeleteUser] -&gt; ShowS)
+-&gt; Show DeleteUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteUser] -&gt; ShowS
+$cshowList :: [DeleteUser] -&gt; ShowS
+show :: DeleteUser -&gt; String
+$cshow :: DeleteUser -&gt; String
+showsPrec :: Int -&gt; DeleteUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteUser -&gt; Rep DeleteUser x)
+-&gt; (forall x. Rep DeleteUser x -&gt; DeleteUser) -&gt; Generic DeleteUser
+forall x. Rep DeleteUser x -&gt; DeleteUser
+forall x. DeleteUser -&gt; Rep DeleteUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteUser x -&gt; DeleteUser
+$cfrom :: forall x. DeleteUser -&gt; Rep DeleteUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DeleteUser' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'serverId', 'deleteUser_serverId' - A system-assigned unique identifier for a server instance that has the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- user assigned to it.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'userName', 'deleteUser_userName' - A unique string that identifies a user that is being deleted from a</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- server.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#newDeleteUser"><span class="hs-identifier hs-type">newDeleteUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'serverId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'userName'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span>
+</span><span id="line-81"></span><span id="newDeleteUser"><span class="annot"><span class="annottext">newDeleteUser :: Text -&gt; Text -&gt; DeleteUser
+</span><a href="Amazonka.Transfer.DeleteUser.html#newDeleteUser"><span class="hs-identifier hs-var hs-var">newDeleteUser</span></a></span></span><span> </span><span id="local-6989586621679247391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247391"><span class="hs-identifier hs-var">pServerId_</span></a></span></span><span> </span><span id="local-6989586621679247390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247390"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteUser' :: Text -&gt; Text -&gt; DeleteUser
+</span><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serverId:DeleteUser' :: Text
+</span><a href="Amazonka.Transfer.DeleteUser.html#%24sel%3AserverId%3ADeleteUser%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247391"><span class="hs-identifier hs-var">pServerId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:DeleteUser' :: Text
+</span><a href="Amazonka.Transfer.DeleteUser.html#%24sel%3AuserName%3ADeleteUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247390"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A system-assigned unique identifier for a server instance that has the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- user assigned to it.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#deleteUser_serverId"><span class="hs-identifier hs-type">deleteUser_serverId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="deleteUser_serverId"><span class="annot"><span class="annottext">deleteUser_serverId :: (Text -&gt; f Text) -&gt; DeleteUser -&gt; f DeleteUser
+</span><a href="Amazonka.Transfer.DeleteUser.html#deleteUser_serverId"><span class="hs-identifier hs-var hs-var">deleteUser_serverId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUser -&gt; Text)
+-&gt; (DeleteUser -&gt; Text -&gt; DeleteUser)
+-&gt; Lens DeleteUser DeleteUser Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247387"><span class="annot"><span class="annottext">Text
+serverId :: Text
+$sel:serverId:DeleteUser' :: DeleteUser -&gt; Text
+</span><a href="#local-6989586621679247387"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247387"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247386"><span class="annot"><span class="annottext">s :: DeleteUser
+</span><a href="#local-6989586621679247386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
+</span><a href="#local-6989586621679247386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:DeleteUser' :: Text
+</span><a href="Amazonka.Transfer.DeleteUser.html#%24sel%3AserverId%3ADeleteUser%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A unique string that identifies a user that is being deleted from a</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- server.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#deleteUser_userName"><span class="hs-identifier hs-type">deleteUser_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="deleteUser_userName"><span class="annot"><span class="annottext">deleteUser_userName :: (Text -&gt; f Text) -&gt; DeleteUser -&gt; f DeleteUser
+</span><a href="Amazonka.Transfer.DeleteUser.html#deleteUser_userName"><span class="hs-identifier hs-var hs-var">deleteUser_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUser -&gt; Text)
+-&gt; (DeleteUser -&gt; Text -&gt; DeleteUser)
+-&gt; Lens DeleteUser DeleteUser Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247384"><span class="annot"><span class="annottext">Text
+userName :: Text
+$sel:userName:DeleteUser' :: DeleteUser -&gt; Text
+</span><a href="#local-6989586621679247384"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247384"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247383"><span class="annot"><span class="annottext">s :: DeleteUser
+</span><a href="#local-6989586621679247383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
+</span><a href="#local-6989586621679247383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:DeleteUser' :: Text
+</span><a href="Amazonka.Transfer.DeleteUser.html#%24sel%3AuserName%3ADeleteUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679247378"><span class="annot"><span class="annottext">request :: DeleteUser -&gt; Request DeleteUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUser -&gt; Request DeleteUser
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Transfer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679247374"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteUser)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteUser
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteUser)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteUser
+DeleteUserResponse
+</span><a href="Amazonka.Transfer.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247367"><span id="local-6989586621679247369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679247360"><span class="annot"><span class="annottext">toHeaders :: DeleteUser -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteUser -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransferService.DeleteUser&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247350"><span id="local-6989586621679247352"><span id="local-6989586621679247354"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679247348"><span class="annot"><span class="annottext">toJSON :: DeleteUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247345"><span id="local-6989586621679247346"><span class="annot"><span class="annottext">Text
+userName :: Text
+serverId :: Text
+$sel:userName:DeleteUser' :: DeleteUser -&gt; Text
+$sel:serverId:DeleteUser' :: DeleteUser -&gt; Text
+</span><a href="#local-6989586621679247345"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247346"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247345"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679247339"><span class="annot"><span class="annottext">toPath :: DeleteUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteUser -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679247335"><span class="annot"><span class="annottext">toQuery :: DeleteUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUser -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDeleteUserResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679247332"><span id="local-6989586621679247333"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserResponse"><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-var">DeleteUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserResponse%27"><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247328"><span id="local-6989586621679247330"><span class="annot"><span class="annottext">DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
+(DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool)
+-&gt; (DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool)
+-&gt; Eq DeleteUserResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
+$c/= :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
+== :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
+$c== :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247320"><span id="local-6989586621679247322"><span id="local-6989586621679247324"><span id="local-6989586621679247326"><span class="annot"><span class="annottext">ReadPrec [DeleteUserResponse]
+ReadPrec DeleteUserResponse
+Int -&gt; ReadS DeleteUserResponse
+ReadS [DeleteUserResponse]
+(Int -&gt; ReadS DeleteUserResponse)
+-&gt; ReadS [DeleteUserResponse]
+-&gt; ReadPrec DeleteUserResponse
+-&gt; ReadPrec [DeleteUserResponse]
+-&gt; Read DeleteUserResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteUserResponse]
+$creadListPrec :: ReadPrec [DeleteUserResponse]
+readPrec :: ReadPrec DeleteUserResponse
+$creadPrec :: ReadPrec DeleteUserResponse
+readList :: ReadS [DeleteUserResponse]
+$creadList :: ReadS [DeleteUserResponse]
+readsPrec :: Int -&gt; ReadS DeleteUserResponse
+$creadsPrec :: Int -&gt; ReadS DeleteUserResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247314"><span id="local-6989586621679247316"><span id="local-6989586621679247318"><span class="annot"><span class="annottext">Int -&gt; DeleteUserResponse -&gt; ShowS
+[DeleteUserResponse] -&gt; ShowS
+DeleteUserResponse -&gt; String
+(Int -&gt; DeleteUserResponse -&gt; ShowS)
+-&gt; (DeleteUserResponse -&gt; String)
+-&gt; ([DeleteUserResponse] -&gt; ShowS)
+-&gt; Show DeleteUserResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteUserResponse] -&gt; ShowS
+$cshowList :: [DeleteUserResponse] -&gt; ShowS
+show :: DeleteUserResponse -&gt; String
+$cshow :: DeleteUserResponse -&gt; String
+showsPrec :: Int -&gt; DeleteUserResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteUserResponse -&gt; Rep DeleteUserResponse x)
+-&gt; (forall x. Rep DeleteUserResponse x -&gt; DeleteUserResponse)
+-&gt; Generic DeleteUserResponse
+forall x. Rep DeleteUserResponse x -&gt; DeleteUserResponse
+forall x. DeleteUserResponse -&gt; Rep DeleteUserResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteUserResponse x -&gt; DeleteUserResponse
+$cfrom :: forall x. DeleteUserResponse -&gt; Rep DeleteUserResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'DeleteUserResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#newDeleteUserResponse"><span class="hs-identifier hs-type">newDeleteUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span>
+</span><span id="line-146"></span><span id="newDeleteUserResponse"><span class="annot"><span class="annottext">newDeleteUserResponse :: DeleteUserResponse
+</span><a href="Amazonka.Transfer.DeleteUser.html#newDeleteUserResponse"><span class="hs-identifier hs-var hs-var">newDeleteUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteUserResponse
+</span><a href="Amazonka.Transfer.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span></span><span>
+</span><span id="line-149"></span></pre></body></html>

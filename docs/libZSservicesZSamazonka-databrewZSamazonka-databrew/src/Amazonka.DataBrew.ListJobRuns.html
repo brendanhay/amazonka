@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DataBrew.ListJobRuns</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all of the previous runs of a particular DataBrew job.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataBrew.ListJobRuns</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier">ListJobRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#newListJobRuns"><span class="hs-identifier">newListJobRuns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_nextToken"><span class="hs-identifier">listJobRuns_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_maxResults"><span class="hs-identifier">listJobRuns_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_name"><span class="hs-identifier">listJobRuns_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier">ListJobRunsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#newListJobRunsResponse"><span class="hs-identifier">newListJobRunsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_nextToken"><span class="hs-identifier">listJobRunsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_httpStatus"><span class="hs-identifier">listJobRunsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_jobRuns"><span class="hs-identifier">listJobRunsResponse_jobRuns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.html"><span class="hs-identifier">Amazonka.DataBrew.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListJobRuns' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679304269"><span id="local-6989586621679304270"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobRuns"><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-var">ListJobRuns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobRuns%27"><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-var">ListJobRuns'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListJobRuns%27"><span class="annot"><span class="annottext">ListJobRuns -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AnextToken%3AListJobRuns%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in this request.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListJobRuns%27"><span class="annot"><span class="annottext">ListJobRuns -&gt; Maybe Natural
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AmaxResults%3AListJobRuns%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the job.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aname%3AListJobRuns%27"><span class="annot"><span class="annottext">ListJobRuns -&gt; Text
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3Aname%3AListJobRuns%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304261"><span id="local-6989586621679304263"><span class="annot"><span class="annottext">ListJobRuns -&gt; ListJobRuns -&gt; Bool
+(ListJobRuns -&gt; ListJobRuns -&gt; Bool)
+-&gt; (ListJobRuns -&gt; ListJobRuns -&gt; Bool) -&gt; Eq ListJobRuns
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListJobRuns -&gt; ListJobRuns -&gt; Bool
+$c/= :: ListJobRuns -&gt; ListJobRuns -&gt; Bool
+== :: ListJobRuns -&gt; ListJobRuns -&gt; Bool
+$c== :: ListJobRuns -&gt; ListJobRuns -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304252"><span id="local-6989586621679304254"><span id="local-6989586621679304256"><span id="local-6989586621679304258"><span class="annot"><span class="annottext">ReadPrec [ListJobRuns]
+ReadPrec ListJobRuns
+Int -&gt; ReadS ListJobRuns
+ReadS [ListJobRuns]
+(Int -&gt; ReadS ListJobRuns)
+-&gt; ReadS [ListJobRuns]
+-&gt; ReadPrec ListJobRuns
+-&gt; ReadPrec [ListJobRuns]
+-&gt; Read ListJobRuns
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListJobRuns]
+$creadListPrec :: ReadPrec [ListJobRuns]
+readPrec :: ReadPrec ListJobRuns
+$creadPrec :: ReadPrec ListJobRuns
+readList :: ReadS [ListJobRuns]
+$creadList :: ReadS [ListJobRuns]
+readsPrec :: Int -&gt; ReadS ListJobRuns
+$creadsPrec :: Int -&gt; ReadS ListJobRuns
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304245"><span id="local-6989586621679304247"><span id="local-6989586621679304249"><span class="annot"><span class="annottext">Int -&gt; ListJobRuns -&gt; ShowS
+[ListJobRuns] -&gt; ShowS
+ListJobRuns -&gt; String
+(Int -&gt; ListJobRuns -&gt; ShowS)
+-&gt; (ListJobRuns -&gt; String)
+-&gt; ([ListJobRuns] -&gt; ShowS)
+-&gt; Show ListJobRuns
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListJobRuns] -&gt; ShowS
+$cshowList :: [ListJobRuns] -&gt; ShowS
+show :: ListJobRuns -&gt; String
+$cshow :: ListJobRuns -&gt; String
+showsPrec :: Int -&gt; ListJobRuns -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListJobRuns -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListJobRuns -&gt; Rep ListJobRuns x)
+-&gt; (forall x. Rep ListJobRuns x -&gt; ListJobRuns)
+-&gt; Generic ListJobRuns
+forall x. Rep ListJobRuns x -&gt; ListJobRuns
+forall x. ListJobRuns -&gt; Rep ListJobRuns x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListJobRuns x -&gt; ListJobRuns
+$cfrom :: forall x. ListJobRuns -&gt; Rep ListJobRuns x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'ListJobRuns' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'listJobRuns_nextToken' - The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'maxResults', 'listJobRuns_maxResults' - The maximum number of results to return in this request.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'name', 'listJobRuns_name' - The name of the job.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#newListJobRuns"><span class="hs-identifier hs-type">newListJobRuns</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span>
+</span><span id="line-84"></span><span id="newListJobRuns"><span class="annot"><span class="annottext">newListJobRuns :: Text -&gt; ListJobRuns
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#newListJobRuns"><span class="hs-identifier hs-var hs-var">newListJobRuns</span></a></span></span><span> </span><span id="local-6989586621679304240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304240"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListJobRuns' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListJobRuns
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-type">ListJobRuns'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListJobRuns' :: Maybe Text
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AnextToken%3AListJobRuns%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListJobRuns' :: Maybe Natural
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AmaxResults%3AListJobRuns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ListJobRuns' :: Text
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3Aname%3AListJobRuns%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304240"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_nextToken"><span class="hs-identifier hs-type">listJobRuns_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="listJobRuns_nextToken"><span class="annot"><span class="annottext">listJobRuns_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListJobRuns -&gt; f ListJobRuns
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_nextToken"><span class="hs-identifier hs-var hs-var">listJobRuns_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobRuns -&gt; Maybe Text)
+-&gt; (ListJobRuns -&gt; Maybe Text -&gt; ListJobRuns)
+-&gt; Lens ListJobRuns ListJobRuns (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-type">ListJobRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304238"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListJobRuns' :: ListJobRuns -&gt; Maybe Text
+</span><a href="#local-6989586621679304238"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304238"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304237"><span class="annot"><span class="annottext">s :: ListJobRuns
+</span><a href="#local-6989586621679304237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-type">ListJobRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304236"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobRuns
+</span><a href="#local-6989586621679304237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobRuns' :: Maybe Text
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AnextToken%3AListJobRuns%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The maximum number of results to return in this request.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_maxResults"><span class="hs-identifier hs-type">listJobRuns_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listJobRuns_maxResults"><span class="annot"><span class="annottext">listJobRuns_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListJobRuns -&gt; f ListJobRuns
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_maxResults"><span class="hs-identifier hs-var hs-var">listJobRuns_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobRuns -&gt; Maybe Natural)
+-&gt; (ListJobRuns -&gt; Maybe Natural -&gt; ListJobRuns)
+-&gt; Lens ListJobRuns ListJobRuns (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-type">ListJobRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304235"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListJobRuns' :: ListJobRuns -&gt; Maybe Natural
+</span><a href="#local-6989586621679304235"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304235"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304234"><span class="annot"><span class="annottext">s :: ListJobRuns
+</span><a href="#local-6989586621679304234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-type">ListJobRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304233"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobRuns
+</span><a href="#local-6989586621679304234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJobRuns' :: Maybe Natural
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AmaxResults%3AListJobRuns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The name of the job.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_name"><span class="hs-identifier hs-type">listJobRuns_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="listJobRuns_name"><span class="annot"><span class="annottext">listJobRuns_name :: (Text -&gt; f Text) -&gt; ListJobRuns -&gt; f ListJobRuns
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_name"><span class="hs-identifier hs-var hs-var">listJobRuns_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobRuns -&gt; Text)
+-&gt; (ListJobRuns -&gt; Text -&gt; ListJobRuns)
+-&gt; Lens ListJobRuns ListJobRuns Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-type">ListJobRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304232"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:ListJobRuns' :: ListJobRuns -&gt; Text
+</span><a href="#local-6989586621679304232"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304232"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304231"><span class="annot"><span class="annottext">s :: ListJobRuns
+</span><a href="#local-6989586621679304231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-type">ListJobRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobRuns
+</span><a href="#local-6989586621679304231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ListJobRuns' :: Text
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3Aname%3AListJobRuns%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679304226"><span class="annot"><span class="annottext">page :: ListJobRuns -&gt; AWSResponse ListJobRuns -&gt; Maybe ListJobRuns
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679304224"><span class="annot"><span class="annottext">ListJobRuns
+</span><a href="#local-6989586621679304224"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679304223"><span class="annot"><span class="annottext">AWSResponse ListJobRuns
+</span><a href="#local-6989586621679304223"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobRuns
+ListJobRunsResponse
+</span><a href="#local-6989586621679304223"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListJobRunsResponse
+-&gt; Getting (First Text) ListJobRunsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListJobRunsResponse -&gt; Const (First Text) ListJobRunsResponse
+Lens' ListJobRunsResponse (Maybe Text)
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_nextToken"><span class="hs-identifier hs-var">listJobRunsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListJobRunsResponse -&gt; Const (First Text) ListJobRunsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListJobRunsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListJobRuns
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[JobRun] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListJobRuns
+ListJobRunsResponse
+</span><a href="#local-6989586621679304223"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListJobRunsResponse
+-&gt; Getting [JobRun] ListJobRunsResponse [JobRun] -&gt; [JobRun]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting [JobRun] ListJobRunsResponse [JobRun]
+Lens' ListJobRunsResponse [JobRun]
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_jobRuns"><span class="hs-identifier hs-var">listJobRunsResponse_jobRuns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListJobRuns
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">ListJobRuns -&gt; Maybe ListJobRuns
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListJobRuns -&gt; Maybe ListJobRuns)
+-&gt; ListJobRuns -&gt; Maybe ListJobRuns
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ListJobRuns
+</span><a href="#local-6989586621679304224"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ListJobRuns -&gt; (ListJobRuns -&gt; ListJobRuns) -&gt; ListJobRuns
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListJobRuns -&gt; Identity ListJobRuns
+Lens ListJobRuns ListJobRuns (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRuns_nextToken"><span class="hs-identifier hs-var">listJobRuns_nextToken</span></a></span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListJobRuns -&gt; Identity ListJobRuns)
+-&gt; Maybe Text -&gt; ListJobRuns -&gt; ListJobRuns
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobRuns
+ListJobRunsResponse
+</span><a href="#local-6989586621679304223"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListJobRunsResponse
+-&gt; Getting (First Text) ListJobRunsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListJobRunsResponse -&gt; Const (First Text) ListJobRunsResponse
+Lens' ListJobRunsResponse (Maybe Text)
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_nextToken"><span class="hs-identifier hs-var">listJobRunsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListJobRunsResponse -&gt; Const (First Text) ListJobRunsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListJobRunsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-type">ListJobRunsResponse</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679304212"><span class="annot"><span class="annottext">request :: ListJobRuns -&gt; Request ListJobRuns
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListJobRuns -&gt; Request ListJobRuns
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataBrew.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679304208"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListJobRuns
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListJobRuns)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListJobRuns))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListJobRuns
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListJobRuns)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304205"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304205"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304204"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304204"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304203"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304203"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [JobRun] -&gt; ListJobRunsResponse
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse%27"><span class="hs-identifier hs-var">ListJobRunsResponse'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [JobRun] -&gt; ListJobRunsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; [JobRun] -&gt; ListJobRunsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [JobRun] -&gt; ListJobRunsResponse)
+-&gt; Either String Int
+-&gt; Either String ([JobRun] -&gt; ListJobRunsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304205"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String ([JobRun] -&gt; ListJobRunsResponse)
+-&gt; Either String [JobRun] -&gt; Either String ListJobRunsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [JobRun])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobRuns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [JobRun])
+-&gt; [JobRun] -&gt; Either String [JobRun]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[JobRun]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304194"><span id="local-6989586621679304196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679304187"><span class="annot"><span class="annottext">toHeaders :: ListJobRuns -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListJobRuns -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679304181"><span class="annot"><span class="annottext">toPath :: ListJobRuns -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-type">ListJobRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304177"><span id="local-6989586621679304178"><span id="local-6989586621679304179"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+name :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:name:ListJobRuns' :: ListJobRuns -&gt; Text
+$sel:maxResults:ListJobRuns' :: ListJobRuns -&gt; Maybe Natural
+$sel:nextToken:ListJobRuns' :: ListJobRuns -&gt; Maybe Text
+</span><a href="#local-6989586621679304177"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304177"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/jobRuns&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns"><span class="hs-identifier hs-type">ListJobRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679304173"><span class="annot"><span class="annottext">toQuery :: ListJobRuns -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRuns%27"><span class="hs-identifier hs-type">ListJobRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304169"><span id="local-6989586621679304170"><span id="local-6989586621679304171"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+name :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:name:ListJobRuns' :: ListJobRuns -&gt; Text
+$sel:maxResults:ListJobRuns' :: ListJobRuns -&gt; Maybe Natural
+$sel:nextToken:ListJobRuns' :: ListJobRuns -&gt; Maybe Text
+</span><a href="#local-6989586621679304169"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304171"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304170"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newListJobRunsResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679304166"><span id="local-6989586621679304167"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobRunsResponse"><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-var">ListJobRunsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobRunsResponse%27"><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse%27"><span class="hs-identifier hs-var">ListJobRunsResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token that you can use in a subsequent call to retrieve the next set</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- of results.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AnextToken%3AListJobRunsResponse%27"><span class="annot"><span class="annottext">ListJobRunsResponse -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AnextToken%3AListJobRunsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJobRunsResponse%27"><span class="annot"><span class="annottext">ListJobRunsResponse -&gt; Int
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AhttpStatus%3AListJobRunsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | A list of job runs that have occurred for the specified job.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AjobRuns%3AListJobRunsResponse%27"><span class="annot"><span class="annottext">ListJobRunsResponse -&gt; [JobRun]
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AjobRuns%3AListJobRunsResponse%27"><span class="hs-identifier hs-var hs-var">jobRuns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataBrew.Types.JobRun.html#JobRun"><span class="hs-identifier hs-type">JobRun</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304159"><span id="local-6989586621679304161"><span class="annot"><span class="annottext">ListJobRunsResponse -&gt; ListJobRunsResponse -&gt; Bool
+(ListJobRunsResponse -&gt; ListJobRunsResponse -&gt; Bool)
+-&gt; (ListJobRunsResponse -&gt; ListJobRunsResponse -&gt; Bool)
+-&gt; Eq ListJobRunsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListJobRunsResponse -&gt; ListJobRunsResponse -&gt; Bool
+$c/= :: ListJobRunsResponse -&gt; ListJobRunsResponse -&gt; Bool
+== :: ListJobRunsResponse -&gt; ListJobRunsResponse -&gt; Bool
+$c== :: ListJobRunsResponse -&gt; ListJobRunsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304151"><span id="local-6989586621679304153"><span id="local-6989586621679304155"><span id="local-6989586621679304157"><span class="annot"><span class="annottext">ReadPrec [ListJobRunsResponse]
+ReadPrec ListJobRunsResponse
+Int -&gt; ReadS ListJobRunsResponse
+ReadS [ListJobRunsResponse]
+(Int -&gt; ReadS ListJobRunsResponse)
+-&gt; ReadS [ListJobRunsResponse]
+-&gt; ReadPrec ListJobRunsResponse
+-&gt; ReadPrec [ListJobRunsResponse]
+-&gt; Read ListJobRunsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListJobRunsResponse]
+$creadListPrec :: ReadPrec [ListJobRunsResponse]
+readPrec :: ReadPrec ListJobRunsResponse
+$creadPrec :: ReadPrec ListJobRunsResponse
+readList :: ReadS [ListJobRunsResponse]
+$creadList :: ReadS [ListJobRunsResponse]
+readsPrec :: Int -&gt; ReadS ListJobRunsResponse
+$creadsPrec :: Int -&gt; ReadS ListJobRunsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304145"><span id="local-6989586621679304147"><span id="local-6989586621679304149"><span class="annot"><span class="annottext">Int -&gt; ListJobRunsResponse -&gt; ShowS
+[ListJobRunsResponse] -&gt; ShowS
+ListJobRunsResponse -&gt; String
+(Int -&gt; ListJobRunsResponse -&gt; ShowS)
+-&gt; (ListJobRunsResponse -&gt; String)
+-&gt; ([ListJobRunsResponse] -&gt; ShowS)
+-&gt; Show ListJobRunsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListJobRunsResponse] -&gt; ShowS
+$cshowList :: [ListJobRunsResponse] -&gt; ShowS
+show :: ListJobRunsResponse -&gt; String
+$cshow :: ListJobRunsResponse -&gt; String
+showsPrec :: Int -&gt; ListJobRunsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListJobRunsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListJobRunsResponse -&gt; Rep ListJobRunsResponse x)
+-&gt; (forall x. Rep ListJobRunsResponse x -&gt; ListJobRunsResponse)
+-&gt; Generic ListJobRunsResponse
+forall x. Rep ListJobRunsResponse x -&gt; ListJobRunsResponse
+forall x. ListJobRunsResponse -&gt; Rep ListJobRunsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListJobRunsResponse x -&gt; ListJobRunsResponse
+$cfrom :: forall x. ListJobRunsResponse -&gt; Rep ListJobRunsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'ListJobRunsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'nextToken', 'listJobRunsResponse_nextToken' - A token that you can use in a subsequent call to retrieve the next set</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- of results.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'listJobRunsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'jobRuns', 'listJobRunsResponse_jobRuns' - A list of job runs that have occurred for the specified job.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#newListJobRunsResponse"><span class="hs-identifier hs-type">newListJobRunsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-type">ListJobRunsResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newListJobRunsResponse"><span class="annot"><span class="annottext">newListJobRunsResponse :: Int -&gt; ListJobRunsResponse
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#newListJobRunsResponse"><span class="hs-identifier hs-var hs-var">newListJobRunsResponse</span></a></span></span><span> </span><span id="local-6989586621679304142"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304142"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">ListJobRunsResponse' :: Maybe Text -&gt; Int -&gt; [JobRun] -&gt; ListJobRunsResponse
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse%27"><span class="hs-identifier hs-type">ListJobRunsResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListJobRunsResponse' :: Maybe Text
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AnextToken%3AListJobRunsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobRunsResponse' :: Int
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AhttpStatus%3AListJobRunsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304142"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobRuns:ListJobRunsResponse' :: [JobRun]
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AjobRuns%3AListJobRunsResponse%27"><span class="hs-identifier hs-var">jobRuns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[JobRun]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | A token that you can use in a subsequent call to retrieve the next set</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- of results.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_nextToken"><span class="hs-identifier hs-type">listJobRunsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-type">ListJobRunsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="listJobRunsResponse_nextToken"><span class="annot"><span class="annottext">listJobRunsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListJobRunsResponse -&gt; f ListJobRunsResponse
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listJobRunsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobRunsResponse -&gt; Maybe Text)
+-&gt; (ListJobRunsResponse -&gt; Maybe Text -&gt; ListJobRunsResponse)
+-&gt; Lens' ListJobRunsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse%27"><span class="hs-identifier hs-type">ListJobRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304141"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListJobRunsResponse' :: ListJobRunsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679304141"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304141"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304140"><span class="annot"><span class="annottext">s :: ListJobRunsResponse
+</span><a href="#local-6989586621679304140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse%27"><span class="hs-identifier hs-type">ListJobRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobRunsResponse
+</span><a href="#local-6989586621679304140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobRunsResponse' :: Maybe Text
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AnextToken%3AListJobRunsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-type">ListJobRunsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_httpStatus"><span class="hs-identifier hs-type">listJobRunsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-type">ListJobRunsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-203"></span><span id="listJobRunsResponse_httpStatus"><span class="annot"><span class="annottext">listJobRunsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListJobRunsResponse -&gt; f ListJobRunsResponse
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listJobRunsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobRunsResponse -&gt; Int)
+-&gt; (ListJobRunsResponse -&gt; Int -&gt; ListJobRunsResponse)
+-&gt; Lens ListJobRunsResponse ListJobRunsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse%27"><span class="hs-identifier hs-type">ListJobRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304138"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListJobRunsResponse' :: ListJobRunsResponse -&gt; Int
+</span><a href="#local-6989586621679304138"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304138"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304137"><span class="annot"><span class="annottext">s :: ListJobRunsResponse
+</span><a href="#local-6989586621679304137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse%27"><span class="hs-identifier hs-type">ListJobRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304136"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobRunsResponse
+</span><a href="#local-6989586621679304137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobRunsResponse' :: Int
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AhttpStatus%3AListJobRunsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-type">ListJobRunsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | A list of job runs that have occurred for the specified job.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_jobRuns"><span class="hs-identifier hs-type">listJobRunsResponse_jobRuns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-type">ListJobRunsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataBrew.Types.JobRun.html#JobRun"><span class="hs-identifier hs-type">JobRun</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-207"></span><span id="listJobRunsResponse_jobRuns"><span class="annot"><span class="annottext">listJobRunsResponse_jobRuns :: ([JobRun] -&gt; f [JobRun])
+-&gt; ListJobRunsResponse -&gt; f ListJobRunsResponse
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#listJobRunsResponse_jobRuns"><span class="hs-identifier hs-var hs-var">listJobRunsResponse_jobRuns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobRunsResponse -&gt; [JobRun])
+-&gt; (ListJobRunsResponse -&gt; [JobRun] -&gt; ListJobRunsResponse)
+-&gt; Lens' ListJobRunsResponse [JobRun]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse%27"><span class="hs-identifier hs-type">ListJobRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304135"><span class="annot"><span class="annottext">[JobRun]
+jobRuns :: [JobRun]
+$sel:jobRuns:ListJobRunsResponse' :: ListJobRunsResponse -&gt; [JobRun]
+</span><a href="#local-6989586621679304135"><span class="hs-identifier hs-var hs-var">jobRuns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[JobRun]
+</span><a href="#local-6989586621679304135"><span class="hs-identifier hs-var">jobRuns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304134"><span class="annot"><span class="annottext">s :: ListJobRunsResponse
+</span><a href="#local-6989586621679304134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse%27"><span class="hs-identifier hs-type">ListJobRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304133"><span class="annot"><span class="annottext">[JobRun]
+</span><a href="#local-6989586621679304133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobRunsResponse
+</span><a href="#local-6989586621679304134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobRuns:ListJobRunsResponse' :: [JobRun]
+</span><a href="Amazonka.DataBrew.ListJobRuns.html#%24sel%3AjobRuns%3AListJobRunsResponse%27"><span class="hs-identifier hs-var">jobRuns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[JobRun]
+</span><a href="#local-6989586621679304133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-type">ListJobRunsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([JobRun] -&gt; f [JobRun])
+ -&gt; ListJobRunsResponse -&gt; f ListJobRunsResponse)
+-&gt; (([JobRun] -&gt; f [JobRun]) -&gt; [JobRun] -&gt; f [JobRun])
+-&gt; ([JobRun] -&gt; f [JobRun])
+-&gt; ListJobRunsResponse
+-&gt; f ListJobRunsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([JobRun] -&gt; f [JobRun]) -&gt; [JobRun] -&gt; f [JobRun]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.ListJobRuns.html#ListJobRunsResponse"><span class="hs-identifier hs-type">ListJobRunsResponse</span></a></span></span><span>
+</span><span id="line-210"></span></pre></body></html>

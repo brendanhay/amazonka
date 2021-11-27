@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.AutoMLChannel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.AutoMLChannel</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLDataSource.html"><span class="hs-identifier">Amazonka.SageMaker.Types.AutoMLDataSource</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CompressionType.html"><span class="hs-identifier">Amazonka.SageMaker.Types.CompressionType</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A channel is a named input source that training algorithms can consume.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For more information, see .</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAutoMLChannel' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621680298378"><span id="local-6989586621680298379"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoMLChannel"><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-var">AutoMLChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLChannel%27"><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-var">AutoMLChannel'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can use @Gzip@ or @None@. The default value is @None@.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcompressionType%3AAutoMLChannel%27"><span class="annot"><span class="annottext">AutoMLChannel -&gt; Maybe CompressionType
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#%24sel%3AcompressionType%3AAutoMLChannel%27"><span class="hs-identifier hs-var hs-var">compressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CompressionType.html#CompressionType"><span class="hs-identifier hs-type">CompressionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The data source for an AutoML channel.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdataSource%3AAutoMLChannel%27"><span class="annot"><span class="annottext">AutoMLChannel -&gt; AutoMLDataSource
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#%24sel%3AdataSource%3AAutoMLChannel%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the target variable in supervised learning, usually</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- represented by \'y\'.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtargetAttributeName%3AAutoMLChannel%27"><span class="annot"><span class="annottext">AutoMLChannel -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#%24sel%3AtargetAttributeName%3AAutoMLChannel%27"><span class="hs-identifier hs-var hs-var">targetAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680298370"><span id="local-6989586621680298372"><span class="annot"><span class="annottext">AutoMLChannel -&gt; AutoMLChannel -&gt; Bool
+(AutoMLChannel -&gt; AutoMLChannel -&gt; Bool)
+-&gt; (AutoMLChannel -&gt; AutoMLChannel -&gt; Bool) -&gt; Eq AutoMLChannel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoMLChannel -&gt; AutoMLChannel -&gt; Bool
+$c/= :: AutoMLChannel -&gt; AutoMLChannel -&gt; Bool
+== :: AutoMLChannel -&gt; AutoMLChannel -&gt; Bool
+$c== :: AutoMLChannel -&gt; AutoMLChannel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680298361"><span id="local-6989586621680298363"><span id="local-6989586621680298365"><span id="local-6989586621680298367"><span class="annot"><span class="annottext">ReadPrec [AutoMLChannel]
+ReadPrec AutoMLChannel
+Int -&gt; ReadS AutoMLChannel
+ReadS [AutoMLChannel]
+(Int -&gt; ReadS AutoMLChannel)
+-&gt; ReadS [AutoMLChannel]
+-&gt; ReadPrec AutoMLChannel
+-&gt; ReadPrec [AutoMLChannel]
+-&gt; Read AutoMLChannel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoMLChannel]
+$creadListPrec :: ReadPrec [AutoMLChannel]
+readPrec :: ReadPrec AutoMLChannel
+$creadPrec :: ReadPrec AutoMLChannel
+readList :: ReadS [AutoMLChannel]
+$creadList :: ReadS [AutoMLChannel]
+readsPrec :: Int -&gt; ReadS AutoMLChannel
+$creadsPrec :: Int -&gt; ReadS AutoMLChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680298354"><span id="local-6989586621680298356"><span id="local-6989586621680298358"><span class="annot"><span class="annottext">Int -&gt; AutoMLChannel -&gt; ShowS
+[AutoMLChannel] -&gt; ShowS
+AutoMLChannel -&gt; String
+(Int -&gt; AutoMLChannel -&gt; ShowS)
+-&gt; (AutoMLChannel -&gt; String)
+-&gt; ([AutoMLChannel] -&gt; ShowS)
+-&gt; Show AutoMLChannel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoMLChannel] -&gt; ShowS
+$cshowList :: [AutoMLChannel] -&gt; ShowS
+show :: AutoMLChannel -&gt; String
+$cshow :: AutoMLChannel -&gt; String
+showsPrec :: Int -&gt; AutoMLChannel -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoMLChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AutoMLChannel -&gt; Rep AutoMLChannel x)
+-&gt; (forall x. Rep AutoMLChannel x -&gt; AutoMLChannel)
+-&gt; Generic AutoMLChannel
+forall x. Rep AutoMLChannel x -&gt; AutoMLChannel
+forall x. AutoMLChannel -&gt; Rep AutoMLChannel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AutoMLChannel x -&gt; AutoMLChannel
+$cfrom :: forall x. AutoMLChannel -&gt; Rep AutoMLChannel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'AutoMLChannel' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'compressionType', 'autoMLChannel_compressionType' - You can use @Gzip@ or @None@. The default value is @None@.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'dataSource', 'autoMLChannel_dataSource' - The data source for an AutoML channel.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'targetAttributeName', 'autoMLChannel_targetAttributeName' - The name of the target variable in supervised learning, usually</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- represented by \'y\'.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#newAutoMLChannel"><span class="hs-identifier hs-type">newAutoMLChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'dataSource'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'targetAttributeName'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span>
+</span><span id="line-63"></span><span id="newAutoMLChannel"><span class="annot"><span class="annottext">newAutoMLChannel :: AutoMLDataSource -&gt; Text -&gt; AutoMLChannel
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#newAutoMLChannel"><span class="hs-identifier hs-var hs-var">newAutoMLChannel</span></a></span></span><span> </span><span id="local-6989586621680298348"><span class="annot"><span class="annottext">AutoMLDataSource
+</span><a href="#local-6989586621680298348"><span class="hs-identifier hs-var">pDataSource_</span></a></span></span><span> </span><span id="local-6989586621680298347"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680298347"><span class="hs-identifier hs-var">pTargetAttributeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">AutoMLChannel' :: Maybe CompressionType -&gt; AutoMLDataSource -&gt; Text -&gt; AutoMLChannel
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-type">AutoMLChannel'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:compressionType:AutoMLChannel' :: Maybe CompressionType
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#%24sel%3AcompressionType%3AAutoMLChannel%27"><span class="hs-identifier hs-var">compressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSource:AutoMLChannel' :: AutoMLDataSource
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#%24sel%3AdataSource%3AAutoMLChannel%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLDataSource
+</span><a href="#local-6989586621680298348"><span class="hs-identifier hs-var">pDataSource_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetAttributeName:AutoMLChannel' :: Text
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#%24sel%3AtargetAttributeName%3AAutoMLChannel%27"><span class="hs-identifier hs-var">targetAttributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680298347"><span class="hs-identifier hs-var">pTargetAttributeName_</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | You can use @Gzip@ or @None@. The default value is @None@.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#autoMLChannel_compressionType"><span class="hs-identifier hs-type">autoMLChannel_compressionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CompressionType.html#CompressionType"><span class="hs-identifier hs-type">CompressionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="autoMLChannel_compressionType"><span class="annot"><span class="annottext">autoMLChannel_compressionType :: (Maybe CompressionType -&gt; f (Maybe CompressionType))
+-&gt; AutoMLChannel -&gt; f AutoMLChannel
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#autoMLChannel_compressionType"><span class="hs-identifier hs-var hs-var">autoMLChannel_compressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoMLChannel -&gt; Maybe CompressionType)
+-&gt; (AutoMLChannel -&gt; Maybe CompressionType -&gt; AutoMLChannel)
+-&gt; Lens
+     AutoMLChannel
+     AutoMLChannel
+     (Maybe CompressionType)
+     (Maybe CompressionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-type">AutoMLChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298343"><span class="annot"><span class="annottext">Maybe CompressionType
+compressionType :: Maybe CompressionType
+$sel:compressionType:AutoMLChannel' :: AutoMLChannel -&gt; Maybe CompressionType
+</span><a href="#local-6989586621680298343"><span class="hs-identifier hs-var hs-var">compressionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionType
+</span><a href="#local-6989586621680298343"><span class="hs-identifier hs-var">compressionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680298342"><span class="annot"><span class="annottext">s :: AutoMLChannel
+</span><a href="#local-6989586621680298342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-type">AutoMLChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680298341"><span class="annot"><span class="annottext">Maybe CompressionType
+</span><a href="#local-6989586621680298341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLChannel
+</span><a href="#local-6989586621680298342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compressionType:AutoMLChannel' :: Maybe CompressionType
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#%24sel%3AcompressionType%3AAutoMLChannel%27"><span class="hs-identifier hs-var">compressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionType
+</span><a href="#local-6989586621680298341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The data source for an AutoML channel.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#autoMLChannel_dataSource"><span class="hs-identifier hs-type">autoMLChannel_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span><span>
+</span><span id="line-76"></span><span id="autoMLChannel_dataSource"><span class="annot"><span class="annottext">autoMLChannel_dataSource :: (AutoMLDataSource -&gt; f AutoMLDataSource)
+-&gt; AutoMLChannel -&gt; f AutoMLChannel
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#autoMLChannel_dataSource"><span class="hs-identifier hs-var hs-var">autoMLChannel_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoMLChannel -&gt; AutoMLDataSource)
+-&gt; (AutoMLChannel -&gt; AutoMLDataSource -&gt; AutoMLChannel)
+-&gt; Lens
+     AutoMLChannel AutoMLChannel AutoMLDataSource AutoMLDataSource
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-type">AutoMLChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298339"><span class="annot"><span class="annottext">AutoMLDataSource
+dataSource :: AutoMLDataSource
+$sel:dataSource:AutoMLChannel' :: AutoMLChannel -&gt; AutoMLDataSource
+</span><a href="#local-6989586621680298339"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLDataSource
+</span><a href="#local-6989586621680298339"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680298338"><span class="annot"><span class="annottext">s :: AutoMLChannel
+</span><a href="#local-6989586621680298338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-type">AutoMLChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680298337"><span class="annot"><span class="annottext">AutoMLDataSource
+</span><a href="#local-6989586621680298337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLChannel
+</span><a href="#local-6989586621680298338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:AutoMLChannel' :: AutoMLDataSource
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#%24sel%3AdataSource%3AAutoMLChannel%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLDataSource
+</span><a href="#local-6989586621680298337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The name of the target variable in supervised learning, usually</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- represented by \'y\'.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#autoMLChannel_targetAttributeName"><span class="hs-identifier hs-type">autoMLChannel_targetAttributeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="autoMLChannel_targetAttributeName"><span class="annot"><span class="annottext">autoMLChannel_targetAttributeName :: (Text -&gt; f Text) -&gt; AutoMLChannel -&gt; f AutoMLChannel
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#autoMLChannel_targetAttributeName"><span class="hs-identifier hs-var hs-var">autoMLChannel_targetAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoMLChannel -&gt; Text)
+-&gt; (AutoMLChannel -&gt; Text -&gt; AutoMLChannel)
+-&gt; Lens AutoMLChannel AutoMLChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-type">AutoMLChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298335"><span class="annot"><span class="annottext">Text
+targetAttributeName :: Text
+$sel:targetAttributeName:AutoMLChannel' :: AutoMLChannel -&gt; Text
+</span><a href="#local-6989586621680298335"><span class="hs-identifier hs-var hs-var">targetAttributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680298335"><span class="hs-identifier hs-var">targetAttributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680298334"><span class="annot"><span class="annottext">s :: AutoMLChannel
+</span><a href="#local-6989586621680298334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-type">AutoMLChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680298333"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680298333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLChannel
+</span><a href="#local-6989586621680298334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetAttributeName:AutoMLChannel' :: Text
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#%24sel%3AtargetAttributeName%3AAutoMLChannel%27"><span class="hs-identifier hs-var">targetAttributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680298333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680298330"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621680298328"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoMLChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AutoMLChannel)
+-&gt; Value
+-&gt; Parser AutoMLChannel
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AutoMLChannel&quot;</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680298325"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680298325"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe CompressionType -&gt; AutoMLDataSource -&gt; Text -&gt; AutoMLChannel
+</span><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-var">AutoMLChannel'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CompressionType
+ -&gt; AutoMLDataSource -&gt; Text -&gt; AutoMLChannel)
+-&gt; Parser (Maybe CompressionType)
+-&gt; Parser (AutoMLDataSource -&gt; Text -&gt; AutoMLChannel)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680298325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CompressionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompressionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (AutoMLDataSource -&gt; Text -&gt; AutoMLChannel)
+-&gt; Parser AutoMLDataSource -&gt; Parser (Text -&gt; AutoMLChannel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680298325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoMLDataSource
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; AutoMLChannel)
+-&gt; Parser Text -&gt; Parser AutoMLChannel
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680298325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetAttributeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680298318"><span id="local-6989586621680298320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680298315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680298307"><span id="local-6989586621680298309"><span id="local-6989586621680298311"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680298305"><span class="annot"><span class="annottext">toJSON :: AutoMLChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel%27"><span class="hs-identifier hs-type">AutoMLChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298301"><span id="local-6989586621680298302"><span id="local-6989586621680298303"><span class="annot"><span class="annottext">Maybe CompressionType
+Text
+AutoMLDataSource
+targetAttributeName :: Text
+dataSource :: AutoMLDataSource
+compressionType :: Maybe CompressionType
+$sel:targetAttributeName:AutoMLChannel' :: AutoMLChannel -&gt; Text
+$sel:dataSource:AutoMLChannel' :: AutoMLChannel -&gt; AutoMLDataSource
+$sel:compressionType:AutoMLChannel' :: AutoMLChannel -&gt; Maybe CompressionType
+</span><a href="#local-6989586621680298301"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompressionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CompressionType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(CompressionType -&gt; Pair) -&gt; Maybe CompressionType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CompressionType
+</span><a href="#local-6989586621680298303"><span class="hs-identifier hs-var">compressionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutoMLDataSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AutoMLDataSource
+</span><a href="#local-6989586621680298302"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetAttributeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680298301"><span class="hs-identifier hs-var">targetAttributeName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span></pre></body></html>

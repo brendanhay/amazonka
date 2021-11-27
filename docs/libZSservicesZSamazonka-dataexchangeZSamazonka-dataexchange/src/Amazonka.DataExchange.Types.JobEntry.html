@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataExchange.Types.JobEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataExchange.Types.JobEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html"><span class="hs-identifier">Amazonka.DataExchange.Types.JobError</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ResponseDetails</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html"><span class="hs-identifier">Amazonka.DataExchange.Types.State</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Type.html"><span class="hs-identifier">Amazonka.DataExchange.Types.Type</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | AWS Data Exchange Jobs are asynchronous import or export operations used</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- to create or copy assets. A data set owner can both import and export as</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- they see fit. Someone with an entitlement to a data set can only export.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Jobs are deleted 90 days after they are created.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newJobEntry' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679239608"><span id="local-6989586621679239609"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobEntry"><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-var">JobEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobEntry%27"><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-var">JobEntry'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Errors for jobs.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aerrors%3AJobEntry%27"><span class="annot"><span class="annottext">JobEntry -&gt; Maybe [JobError]
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Aerrors%3AJobEntry%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The job type.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atype%27%3AJobEntry%27"><span class="annot"><span class="annottext">JobEntry -&gt; Type
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Atype%27%3AJobEntry%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Details of the operation to be performed by the job, such as export</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- destination details or import source details.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adetails%3AJobEntry%27"><span class="annot"><span class="annottext">JobEntry -&gt; ResponseDetails
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Adetails%3AJobEntry%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#ResponseDetails"><span class="hs-identifier hs-type">ResponseDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The state of the job.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Astate%3AJobEntry%27"><span class="annot"><span class="annottext">JobEntry -&gt; State
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Astate%3AJobEntry%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The date and time that the job was created, in ISO 8601 format.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcreatedAt%3AJobEntry%27"><span class="annot"><span class="annottext">JobEntry -&gt; POSIX
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3AcreatedAt%3AJobEntry%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the job.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aid%3AJobEntry%27"><span class="annot"><span class="annottext">JobEntry -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Aid%3AJobEntry%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The ARN for the job.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aarn%3AJobEntry%27"><span class="annot"><span class="annottext">JobEntry -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Aarn%3AJobEntry%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The date and time that the job was last updated, in ISO 8601 format.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AupdatedAt%3AJobEntry%27"><span class="annot"><span class="annottext">JobEntry -&gt; POSIX
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3AupdatedAt%3AJobEntry%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239595"><span id="local-6989586621679239597"><span class="annot"><span class="annottext">JobEntry -&gt; JobEntry -&gt; Bool
+(JobEntry -&gt; JobEntry -&gt; Bool)
+-&gt; (JobEntry -&gt; JobEntry -&gt; Bool) -&gt; Eq JobEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobEntry -&gt; JobEntry -&gt; Bool
+$c/= :: JobEntry -&gt; JobEntry -&gt; Bool
+== :: JobEntry -&gt; JobEntry -&gt; Bool
+$c== :: JobEntry -&gt; JobEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239586"><span id="local-6989586621679239588"><span id="local-6989586621679239590"><span id="local-6989586621679239592"><span class="annot"><span class="annottext">ReadPrec [JobEntry]
+ReadPrec JobEntry
+Int -&gt; ReadS JobEntry
+ReadS [JobEntry]
+(Int -&gt; ReadS JobEntry)
+-&gt; ReadS [JobEntry]
+-&gt; ReadPrec JobEntry
+-&gt; ReadPrec [JobEntry]
+-&gt; Read JobEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobEntry]
+$creadListPrec :: ReadPrec [JobEntry]
+readPrec :: ReadPrec JobEntry
+$creadPrec :: ReadPrec JobEntry
+readList :: ReadS [JobEntry]
+$creadList :: ReadS [JobEntry]
+readsPrec :: Int -&gt; ReadS JobEntry
+$creadsPrec :: Int -&gt; ReadS JobEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239579"><span id="local-6989586621679239581"><span id="local-6989586621679239583"><span class="annot"><span class="annottext">Int -&gt; JobEntry -&gt; ShowS
+[JobEntry] -&gt; ShowS
+JobEntry -&gt; String
+(Int -&gt; JobEntry -&gt; ShowS)
+-&gt; (JobEntry -&gt; String) -&gt; ([JobEntry] -&gt; ShowS) -&gt; Show JobEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobEntry] -&gt; ShowS
+$cshowList :: [JobEntry] -&gt; ShowS
+show :: JobEntry -&gt; String
+$cshow :: JobEntry -&gt; String
+showsPrec :: Int -&gt; JobEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. JobEntry -&gt; Rep JobEntry x)
+-&gt; (forall x. Rep JobEntry x -&gt; JobEntry) -&gt; Generic JobEntry
+forall x. Rep JobEntry x -&gt; JobEntry
+forall x. JobEntry -&gt; Rep JobEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobEntry x -&gt; JobEntry
+$cfrom :: forall x. JobEntry -&gt; Rep JobEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'JobEntry' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'errors', 'jobEntry_errors' - Errors for jobs.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'type'', 'jobEntry_type' - The job type.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'details', 'jobEntry_details' - Details of the operation to be performed by the job, such as export</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- destination details or import source details.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'state', 'jobEntry_state' - The state of the job.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'createdAt', 'jobEntry_createdAt' - The date and time that the job was created, in ISO 8601 format.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'id', 'jobEntry_id' - The unique identifier for the job.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'arn', 'jobEntry_arn' - The ARN for the job.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'updatedAt', 'jobEntry_updatedAt' - The date and time that the job was last updated, in ISO 8601 format.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#newJobEntry"><span class="hs-identifier hs-type">newJobEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'details'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#ResponseDetails"><span class="hs-identifier hs-type">ResponseDetails</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'state'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'updatedAt'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span>
+</span><span id="line-97"></span><span id="newJobEntry"><span class="annot"><span class="annottext">newJobEntry :: Type
+-&gt; ResponseDetails
+-&gt; State
+-&gt; UTCTime
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#newJobEntry"><span class="hs-identifier hs-var hs-var">newJobEntry</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679239573"><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679239573"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679239572"><span class="annot"><span class="annottext">ResponseDetails
+</span><a href="#local-6989586621679239572"><span class="hs-identifier hs-var">pDetails_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679239571"><span class="annot"><span class="annottext">State
+</span><a href="#local-6989586621679239571"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679239570"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679239570"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679239569"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239569"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679239568"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239568"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679239567"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679239567"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">JobEntry' :: Maybe [JobError]
+-&gt; Type
+-&gt; ResponseDetails
+-&gt; State
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errors:JobEntry' :: Maybe [JobError]
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Aerrors%3AJobEntry%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':JobEntry' :: Type
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Atype%27%3AJobEntry%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679239573"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:details:JobEntry' :: ResponseDetails
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Adetails%3AJobEntry%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseDetails
+</span><a href="#local-6989586621679239572"><span class="hs-identifier hs-var">pDetails_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:state:JobEntry' :: State
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Astate%3AJobEntry%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">State
+</span><a href="#local-6989586621679239571"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:JobEntry' :: POSIX
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3AcreatedAt%3AJobEntry%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679239570"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:JobEntry' :: Text
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Aid%3AJobEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239569"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:JobEntry' :: Text
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Aarn%3AJobEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239568"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:updatedAt:JobEntry' :: POSIX
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3AupdatedAt%3AJobEntry%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679239567"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Errors for jobs.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_errors"><span class="hs-identifier hs-type">jobEntry_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="jobEntry_errors"><span class="annot"><span class="annottext">jobEntry_errors :: (Maybe [JobError] -&gt; f (Maybe [JobError]))
+-&gt; JobEntry -&gt; f JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_errors"><span class="hs-identifier hs-var hs-var">jobEntry_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobEntry -&gt; Maybe [JobError])
+-&gt; (JobEntry -&gt; Maybe [JobError] -&gt; JobEntry)
+-&gt; Lens JobEntry JobEntry (Maybe [JobError]) (Maybe [JobError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239561"><span class="annot"><span class="annottext">Maybe [JobError]
+errors :: Maybe [JobError]
+$sel:errors:JobEntry' :: JobEntry -&gt; Maybe [JobError]
+</span><a href="#local-6989586621679239561"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobError]
+</span><a href="#local-6989586621679239561"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239560"><span class="annot"><span class="annottext">s :: JobEntry
+</span><a href="#local-6989586621679239560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239559"><span class="annot"><span class="annottext">Maybe [JobError]
+</span><a href="#local-6989586621679239559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobEntry
+</span><a href="#local-6989586621679239560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:JobEntry' :: Maybe [JobError]
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Aerrors%3AJobEntry%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobError]
+</span><a href="#local-6989586621679239559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobError] -&gt; f (Maybe [JobError]))
+ -&gt; JobEntry -&gt; f JobEntry)
+-&gt; ((Maybe [JobError] -&gt; f (Maybe [JobError]))
+    -&gt; Maybe [JobError] -&gt; f (Maybe [JobError]))
+-&gt; (Maybe [JobError] -&gt; f (Maybe [JobError]))
+-&gt; JobEntry
+-&gt; f JobEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobError] [JobError] [JobError] [JobError]
+-&gt; Iso
+     (Maybe [JobError])
+     (Maybe [JobError])
+     (Maybe [JobError])
+     (Maybe [JobError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobError] [JobError] [JobError] [JobError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The job type.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_type"><span class="hs-identifier hs-type">jobEntry_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span>
+</span><span id="line-122"></span><span id="jobEntry_type"><span class="annot"><span class="annottext">jobEntry_type :: (Type -&gt; f Type) -&gt; JobEntry -&gt; f JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_type"><span class="hs-identifier hs-var hs-var">jobEntry_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobEntry -&gt; Type)
+-&gt; (JobEntry -&gt; Type -&gt; JobEntry)
+-&gt; Lens JobEntry JobEntry Type Type
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239554"><span class="annot"><span class="annottext">Type
+type' :: Type
+$sel:type':JobEntry' :: JobEntry -&gt; Type
+</span><a href="#local-6989586621679239554"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679239554"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239553"><span class="annot"><span class="annottext">s :: JobEntry
+</span><a href="#local-6989586621679239553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239552"><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679239552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobEntry
+</span><a href="#local-6989586621679239553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':JobEntry' :: Type
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Atype%27%3AJobEntry%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679239552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Details of the operation to be performed by the job, such as export</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- destination details or import source details.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_details"><span class="hs-identifier hs-type">jobEntry_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#ResponseDetails"><span class="hs-identifier hs-type">ResponseDetails</span></a></span><span>
+</span><span id="line-127"></span><span id="jobEntry_details"><span class="annot"><span class="annottext">jobEntry_details :: (ResponseDetails -&gt; f ResponseDetails) -&gt; JobEntry -&gt; f JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_details"><span class="hs-identifier hs-var hs-var">jobEntry_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobEntry -&gt; ResponseDetails)
+-&gt; (JobEntry -&gt; ResponseDetails -&gt; JobEntry)
+-&gt; Lens JobEntry JobEntry ResponseDetails ResponseDetails
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239550"><span class="annot"><span class="annottext">ResponseDetails
+details :: ResponseDetails
+$sel:details:JobEntry' :: JobEntry -&gt; ResponseDetails
+</span><a href="#local-6989586621679239550"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseDetails
+</span><a href="#local-6989586621679239550"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239549"><span class="annot"><span class="annottext">s :: JobEntry
+</span><a href="#local-6989586621679239549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239548"><span class="annot"><span class="annottext">ResponseDetails
+</span><a href="#local-6989586621679239548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobEntry
+</span><a href="#local-6989586621679239549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:JobEntry' :: ResponseDetails
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Adetails%3AJobEntry%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseDetails
+</span><a href="#local-6989586621679239548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The state of the job.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_state"><span class="hs-identifier hs-type">jobEntry_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-131"></span><span id="jobEntry_state"><span class="annot"><span class="annottext">jobEntry_state :: (State -&gt; f State) -&gt; JobEntry -&gt; f JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_state"><span class="hs-identifier hs-var hs-var">jobEntry_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobEntry -&gt; State)
+-&gt; (JobEntry -&gt; State -&gt; JobEntry)
+-&gt; Lens JobEntry JobEntry State State
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239546"><span class="annot"><span class="annottext">State
+state :: State
+$sel:state:JobEntry' :: JobEntry -&gt; State
+</span><a href="#local-6989586621679239546"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">State
+</span><a href="#local-6989586621679239546"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239545"><span class="annot"><span class="annottext">s :: JobEntry
+</span><a href="#local-6989586621679239545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239544"><span class="annot"><span class="annottext">State
+</span><a href="#local-6989586621679239544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobEntry
+</span><a href="#local-6989586621679239545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:JobEntry' :: State
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Astate%3AJobEntry%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">State
+</span><a href="#local-6989586621679239544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The date and time that the job was created, in ISO 8601 format.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_createdAt"><span class="hs-identifier hs-type">jobEntry_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-135"></span><span id="jobEntry_createdAt"><span class="annot"><span class="annottext">jobEntry_createdAt :: (UTCTime -&gt; f UTCTime) -&gt; JobEntry -&gt; f JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_createdAt"><span class="hs-identifier hs-var hs-var">jobEntry_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobEntry -&gt; POSIX)
+-&gt; (JobEntry -&gt; POSIX -&gt; JobEntry)
+-&gt; Lens JobEntry JobEntry POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239542"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:JobEntry' :: JobEntry -&gt; POSIX
+</span><a href="#local-6989586621679239542"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239542"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239541"><span class="annot"><span class="annottext">s :: JobEntry
+</span><a href="#local-6989586621679239541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239540"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobEntry
+</span><a href="#local-6989586621679239541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:JobEntry' :: POSIX
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3AcreatedAt%3AJobEntry%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; JobEntry -&gt; f JobEntry)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; JobEntry
+-&gt; f JobEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The unique identifier for the job.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_id"><span class="hs-identifier hs-type">jobEntry_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="jobEntry_id"><span class="annot"><span class="annottext">jobEntry_id :: (Text -&gt; f Text) -&gt; JobEntry -&gt; f JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_id"><span class="hs-identifier hs-var hs-var">jobEntry_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobEntry -&gt; Text)
+-&gt; (JobEntry -&gt; Text -&gt; JobEntry)
+-&gt; Lens JobEntry JobEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239538"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:JobEntry' :: JobEntry -&gt; Text
+</span><a href="#local-6989586621679239538"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239538"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239537"><span class="annot"><span class="annottext">s :: JobEntry
+</span><a href="#local-6989586621679239537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239536"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobEntry
+</span><a href="#local-6989586621679239537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:JobEntry' :: Text
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Aid%3AJobEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The ARN for the job.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_arn"><span class="hs-identifier hs-type">jobEntry_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="jobEntry_arn"><span class="annot"><span class="annottext">jobEntry_arn :: (Text -&gt; f Text) -&gt; JobEntry -&gt; f JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_arn"><span class="hs-identifier hs-var hs-var">jobEntry_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobEntry -&gt; Text)
+-&gt; (JobEntry -&gt; Text -&gt; JobEntry)
+-&gt; Lens JobEntry JobEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239534"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:JobEntry' :: JobEntry -&gt; Text
+</span><a href="#local-6989586621679239534"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239534"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239533"><span class="annot"><span class="annottext">s :: JobEntry
+</span><a href="#local-6989586621679239533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239532"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobEntry
+</span><a href="#local-6989586621679239533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:JobEntry' :: Text
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3Aarn%3AJobEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The date and time that the job was last updated, in ISO 8601 format.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_updatedAt"><span class="hs-identifier hs-type">jobEntry_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-147"></span><span id="jobEntry_updatedAt"><span class="annot"><span class="annottext">jobEntry_updatedAt :: (UTCTime -&gt; f UTCTime) -&gt; JobEntry -&gt; f JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_updatedAt"><span class="hs-identifier hs-var hs-var">jobEntry_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobEntry -&gt; POSIX)
+-&gt; (JobEntry -&gt; POSIX -&gt; JobEntry)
+-&gt; Lens JobEntry JobEntry POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239530"><span class="annot"><span class="annottext">POSIX
+updatedAt :: POSIX
+$sel:updatedAt:JobEntry' :: JobEntry -&gt; POSIX
+</span><a href="#local-6989586621679239530"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239530"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239529"><span class="annot"><span class="annottext">s :: JobEntry
+</span><a href="#local-6989586621679239529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-type">JobEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239528"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobEntry
+</span><a href="#local-6989586621679239529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:JobEntry' :: POSIX
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#%24sel%3AupdatedAt%3AJobEntry%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679239528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; JobEntry -&gt; f JobEntry)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; JobEntry
+-&gt; f JobEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239525"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679239523"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser JobEntry) -&gt; Value -&gt; Parser JobEntry
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JobEntry&quot;</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239520"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe [JobError]
+-&gt; Type
+-&gt; ResponseDetails
+-&gt; State
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; JobEntry
+</span><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry%27"><span class="hs-identifier hs-var">JobEntry'</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [JobError]
+ -&gt; Type
+ -&gt; ResponseDetails
+ -&gt; State
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; JobEntry)
+-&gt; Parser (Maybe [JobError])
+-&gt; Parser
+     (Type
+      -&gt; ResponseDetails
+      -&gt; State
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; JobEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [JobError]))
+-&gt; Maybe [JobError] -&gt; Parser (Maybe [JobError])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Type
+   -&gt; ResponseDetails
+   -&gt; State
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; JobEntry)
+-&gt; Parser Type
+-&gt; Parser
+     (ResponseDetails
+      -&gt; State -&gt; POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; JobEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Type
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ResponseDetails
+   -&gt; State -&gt; POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; JobEntry)
+-&gt; Parser ResponseDetails
+-&gt; Parser (State -&gt; POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; JobEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResponseDetails
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser (State -&gt; POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; JobEntry)
+-&gt; Parser State
+-&gt; Parser (POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; JobEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser State
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; JobEntry)
+-&gt; Parser POSIX -&gt; Parser (Text -&gt; Text -&gt; POSIX -&gt; JobEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; POSIX -&gt; JobEntry)
+-&gt; Parser Text -&gt; Parser (Text -&gt; POSIX -&gt; JobEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; JobEntry)
+-&gt; Parser Text -&gt; Parser (POSIX -&gt; JobEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; JobEntry) -&gt; Parser POSIX -&gt; Parser JobEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239512"><span id="local-6989586621679239514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier hs-type">JobEntry</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

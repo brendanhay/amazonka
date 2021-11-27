@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WellArchitected.Types.LensSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WellArchitected.Types.LensSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A lens summary of a lens.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLensSummary' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679241635"><span id="local-6989586621679241636"></span></span><span class="hs-keyword">data</span><span> </span><span id="LensSummary"><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-var">LensSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LensSummary%27"><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-var">LensSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AlensAlias%3ALensSummary%27"><span class="annot"><span class="annottext">LensSummary -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3AlensAlias%3ALensSummary%27"><span class="hs-identifier hs-var hs-var">lensAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AlensName%3ALensSummary%27"><span class="annot"><span class="annottext">LensSummary -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3AlensName%3ALensSummary%27"><span class="hs-identifier hs-var hs-var">lensName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The version of the lens.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlensVersion%3ALensSummary%27"><span class="annot"><span class="annottext">LensSummary -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3AlensVersion%3ALensSummary%27"><span class="hs-identifier hs-var hs-var">lensVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Adescription%3ALensSummary%27"><span class="annot"><span class="annottext">LensSummary -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3Adescription%3ALensSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241626"><span id="local-6989586621679241628"><span class="annot"><span class="annottext">LensSummary -&gt; LensSummary -&gt; Bool
+(LensSummary -&gt; LensSummary -&gt; Bool)
+-&gt; (LensSummary -&gt; LensSummary -&gt; Bool) -&gt; Eq LensSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LensSummary -&gt; LensSummary -&gt; Bool
+$c/= :: LensSummary -&gt; LensSummary -&gt; Bool
+== :: LensSummary -&gt; LensSummary -&gt; Bool
+$c== :: LensSummary -&gt; LensSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241617"><span id="local-6989586621679241619"><span id="local-6989586621679241621"><span id="local-6989586621679241623"><span class="annot"><span class="annottext">ReadPrec [LensSummary]
+ReadPrec LensSummary
+Int -&gt; ReadS LensSummary
+ReadS [LensSummary]
+(Int -&gt; ReadS LensSummary)
+-&gt; ReadS [LensSummary]
+-&gt; ReadPrec LensSummary
+-&gt; ReadPrec [LensSummary]
+-&gt; Read LensSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LensSummary]
+$creadListPrec :: ReadPrec [LensSummary]
+readPrec :: ReadPrec LensSummary
+$creadPrec :: ReadPrec LensSummary
+readList :: ReadS [LensSummary]
+$creadList :: ReadS [LensSummary]
+readsPrec :: Int -&gt; ReadS LensSummary
+$creadsPrec :: Int -&gt; ReadS LensSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241610"><span id="local-6989586621679241612"><span id="local-6989586621679241614"><span class="annot"><span class="annottext">Int -&gt; LensSummary -&gt; ShowS
+[LensSummary] -&gt; ShowS
+LensSummary -&gt; String
+(Int -&gt; LensSummary -&gt; ShowS)
+-&gt; (LensSummary -&gt; String)
+-&gt; ([LensSummary] -&gt; ShowS)
+-&gt; Show LensSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LensSummary] -&gt; ShowS
+$cshowList :: [LensSummary] -&gt; ShowS
+show :: LensSummary -&gt; String
+$cshow :: LensSummary -&gt; String
+showsPrec :: Int -&gt; LensSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; LensSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LensSummary -&gt; Rep LensSummary x)
+-&gt; (forall x. Rep LensSummary x -&gt; LensSummary)
+-&gt; Generic LensSummary
+forall x. Rep LensSummary x -&gt; LensSummary
+forall x. LensSummary -&gt; Rep LensSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LensSummary x -&gt; LensSummary
+$cfrom :: forall x. LensSummary -&gt; Rep LensSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'LensSummary' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'lensAlias', 'lensSummary_lensAlias' - Undocumented member.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'lensName', 'lensSummary_lensName' - Undocumented member.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'lensVersion', 'lensSummary_lensVersion' - The version of the lens.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'description', 'lensSummary_description' - Undocumented member.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#newLensSummary"><span class="hs-identifier hs-type">newLensSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span><span>
+</span><span id="line-55"></span><span id="newLensSummary"><span class="annot"><span class="annottext">newLensSummary :: LensSummary
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#newLensSummary"><span class="hs-identifier hs-var hs-var">newLensSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">LensSummary' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LensSummary
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-type">LensSummary'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lensAlias:LensSummary' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3AlensAlias%3ALensSummary%27"><span class="hs-identifier hs-var">lensAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:lensName:LensSummary' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3AlensName%3ALensSummary%27"><span class="hs-identifier hs-var">lensName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:lensVersion:LensSummary' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3AlensVersion%3ALensSummary%27"><span class="hs-identifier hs-var">lensVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:LensSummary' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3Adescription%3ALensSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#lensSummary_lensAlias"><span class="hs-identifier hs-type">lensSummary_lensAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="lensSummary_lensAlias"><span class="annot"><span class="annottext">lensSummary_lensAlias :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LensSummary -&gt; f LensSummary
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#lensSummary_lensAlias"><span class="hs-identifier hs-var hs-var">lensSummary_lensAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LensSummary -&gt; Maybe Text)
+-&gt; (LensSummary -&gt; Maybe Text -&gt; LensSummary)
+-&gt; Lens LensSummary LensSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-type">LensSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241601"><span class="annot"><span class="annottext">Maybe Text
+lensAlias :: Maybe Text
+$sel:lensAlias:LensSummary' :: LensSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679241601"><span class="hs-identifier hs-var hs-var">lensAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241601"><span class="hs-identifier hs-var">lensAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241600"><span class="annot"><span class="annottext">s :: LensSummary
+</span><a href="#local-6989586621679241600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-type">LensSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241599"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LensSummary
+</span><a href="#local-6989586621679241600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lensAlias:LensSummary' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3AlensAlias%3ALensSummary%27"><span class="hs-identifier hs-var">lensAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#lensSummary_lensName"><span class="hs-identifier hs-type">lensSummary_lensName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="lensSummary_lensName"><span class="annot"><span class="annottext">lensSummary_lensName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LensSummary -&gt; f LensSummary
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#lensSummary_lensName"><span class="hs-identifier hs-var hs-var">lensSummary_lensName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LensSummary -&gt; Maybe Text)
+-&gt; (LensSummary -&gt; Maybe Text -&gt; LensSummary)
+-&gt; Lens LensSummary LensSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-type">LensSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241597"><span class="annot"><span class="annottext">Maybe Text
+lensName :: Maybe Text
+$sel:lensName:LensSummary' :: LensSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679241597"><span class="hs-identifier hs-var hs-var">lensName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241597"><span class="hs-identifier hs-var">lensName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241596"><span class="annot"><span class="annottext">s :: LensSummary
+</span><a href="#local-6989586621679241596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-type">LensSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241595"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LensSummary
+</span><a href="#local-6989586621679241596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lensName:LensSummary' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3AlensName%3ALensSummary%27"><span class="hs-identifier hs-var">lensName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The version of the lens.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#lensSummary_lensVersion"><span class="hs-identifier hs-type">lensSummary_lensVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="lensSummary_lensVersion"><span class="annot"><span class="annottext">lensSummary_lensVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LensSummary -&gt; f LensSummary
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#lensSummary_lensVersion"><span class="hs-identifier hs-var hs-var">lensSummary_lensVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LensSummary -&gt; Maybe Text)
+-&gt; (LensSummary -&gt; Maybe Text -&gt; LensSummary)
+-&gt; Lens LensSummary LensSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-type">LensSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241593"><span class="annot"><span class="annottext">Maybe Text
+lensVersion :: Maybe Text
+$sel:lensVersion:LensSummary' :: LensSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679241593"><span class="hs-identifier hs-var hs-var">lensVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241593"><span class="hs-identifier hs-var">lensVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241592"><span class="annot"><span class="annottext">s :: LensSummary
+</span><a href="#local-6989586621679241592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-type">LensSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241591"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LensSummary
+</span><a href="#local-6989586621679241592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lensVersion:LensSummary' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3AlensVersion%3ALensSummary%27"><span class="hs-identifier hs-var">lensVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#lensSummary_description"><span class="hs-identifier hs-type">lensSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="lensSummary_description"><span class="annot"><span class="annottext">lensSummary_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LensSummary -&gt; f LensSummary
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#lensSummary_description"><span class="hs-identifier hs-var hs-var">lensSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LensSummary -&gt; Maybe Text)
+-&gt; (LensSummary -&gt; Maybe Text -&gt; LensSummary)
+-&gt; Lens LensSummary LensSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-type">LensSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241589"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:LensSummary' :: LensSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679241589"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241589"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241588"><span class="annot"><span class="annottext">s :: LensSummary
+</span><a href="#local-6989586621679241588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-type">LensSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LensSummary
+</span><a href="#local-6989586621679241588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:LensSummary' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#%24sel%3Adescription%3ALensSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241584"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679241582"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LensSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LensSummary) -&gt; Value -&gt; Parser LensSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LensSummary&quot;</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241579"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241579"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LensSummary
+</span><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary%27"><span class="hs-identifier hs-var">LensSummary'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LensSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LensSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LensAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LensSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; LensSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LensName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; LensSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; LensSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LensVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LensSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser LensSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241573"><span id="local-6989586621679241575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.LensSummary.html#LensSummary"><span class="hs-identifier hs-type">LensSummary</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

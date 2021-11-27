@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KafkaConnect.Types.WorkerLogDelivery</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KafkaConnect.Types.WorkerLogDelivery</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.html"><span class="hs-identifier">Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.FirehoseLogDelivery.html"><span class="hs-identifier">Amazonka.KafkaConnect.Types.FirehoseLogDelivery</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.S3LogDelivery.html"><span class="hs-identifier">Amazonka.KafkaConnect.Types.S3LogDelivery</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Workers can send worker logs to different destination types. This</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- configuration specifies the details of these destinations.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newWorkerLogDelivery' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679206002"><span id="local-6989586621679206003"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkerLogDelivery"><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-var">WorkerLogDelivery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkerLogDelivery%27"><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery%27"><span class="hs-identifier hs-var">WorkerLogDelivery'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about delivering logs to Amazon CloudWatch Logs.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcloudWatchLogs%3AWorkerLogDelivery%27"><span class="annot"><span class="annottext">WorkerLogDelivery -&gt; Maybe CloudWatchLogsLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#%24sel%3AcloudWatchLogs%3AWorkerLogDelivery%27"><span class="hs-identifier hs-var hs-var">cloudWatchLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.html#CloudWatchLogsLogDelivery"><span class="hs-identifier hs-type">CloudWatchLogsLogDelivery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Details about delivering logs to Amazon Kinesis Data Firehose.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Afirehose%3AWorkerLogDelivery%27"><span class="annot"><span class="annottext">WorkerLogDelivery -&gt; Maybe FirehoseLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#%24sel%3Afirehose%3AWorkerLogDelivery%27"><span class="hs-identifier hs-var hs-var">firehose</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.FirehoseLogDelivery.html#FirehoseLogDelivery"><span class="hs-identifier hs-type">FirehoseLogDelivery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Details about delivering logs to Amazon S3.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3As3%3AWorkerLogDelivery%27"><span class="annot"><span class="annottext">WorkerLogDelivery -&gt; Maybe S3LogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#%24sel%3As3%3AWorkerLogDelivery%27"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.S3LogDelivery.html#S3LogDelivery"><span class="hs-identifier hs-type">S3LogDelivery</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205994"><span id="local-6989586621679205996"><span class="annot"><span class="annottext">WorkerLogDelivery -&gt; WorkerLogDelivery -&gt; Bool
+(WorkerLogDelivery -&gt; WorkerLogDelivery -&gt; Bool)
+-&gt; (WorkerLogDelivery -&gt; WorkerLogDelivery -&gt; Bool)
+-&gt; Eq WorkerLogDelivery
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkerLogDelivery -&gt; WorkerLogDelivery -&gt; Bool
+$c/= :: WorkerLogDelivery -&gt; WorkerLogDelivery -&gt; Bool
+== :: WorkerLogDelivery -&gt; WorkerLogDelivery -&gt; Bool
+$c== :: WorkerLogDelivery -&gt; WorkerLogDelivery -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205985"><span id="local-6989586621679205987"><span id="local-6989586621679205989"><span id="local-6989586621679205991"><span class="annot"><span class="annottext">ReadPrec [WorkerLogDelivery]
+ReadPrec WorkerLogDelivery
+Int -&gt; ReadS WorkerLogDelivery
+ReadS [WorkerLogDelivery]
+(Int -&gt; ReadS WorkerLogDelivery)
+-&gt; ReadS [WorkerLogDelivery]
+-&gt; ReadPrec WorkerLogDelivery
+-&gt; ReadPrec [WorkerLogDelivery]
+-&gt; Read WorkerLogDelivery
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkerLogDelivery]
+$creadListPrec :: ReadPrec [WorkerLogDelivery]
+readPrec :: ReadPrec WorkerLogDelivery
+$creadPrec :: ReadPrec WorkerLogDelivery
+readList :: ReadS [WorkerLogDelivery]
+$creadList :: ReadS [WorkerLogDelivery]
+readsPrec :: Int -&gt; ReadS WorkerLogDelivery
+$creadsPrec :: Int -&gt; ReadS WorkerLogDelivery
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205978"><span id="local-6989586621679205980"><span id="local-6989586621679205982"><span class="annot"><span class="annottext">Int -&gt; WorkerLogDelivery -&gt; ShowS
+[WorkerLogDelivery] -&gt; ShowS
+WorkerLogDelivery -&gt; String
+(Int -&gt; WorkerLogDelivery -&gt; ShowS)
+-&gt; (WorkerLogDelivery -&gt; String)
+-&gt; ([WorkerLogDelivery] -&gt; ShowS)
+-&gt; Show WorkerLogDelivery
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkerLogDelivery] -&gt; ShowS
+$cshowList :: [WorkerLogDelivery] -&gt; ShowS
+show :: WorkerLogDelivery -&gt; String
+$cshow :: WorkerLogDelivery -&gt; String
+showsPrec :: Int -&gt; WorkerLogDelivery -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkerLogDelivery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WorkerLogDelivery -&gt; Rep WorkerLogDelivery x)
+-&gt; (forall x. Rep WorkerLogDelivery x -&gt; WorkerLogDelivery)
+-&gt; Generic WorkerLogDelivery
+forall x. Rep WorkerLogDelivery x -&gt; WorkerLogDelivery
+forall x. WorkerLogDelivery -&gt; Rep WorkerLogDelivery x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkerLogDelivery x -&gt; WorkerLogDelivery
+$cfrom :: forall x. WorkerLogDelivery -&gt; Rep WorkerLogDelivery x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'WorkerLogDelivery' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'cloudWatchLogs', 'workerLogDelivery_cloudWatchLogs' - Details about delivering logs to Amazon CloudWatch Logs.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'firehose', 'workerLogDelivery_firehose' - Details about delivering logs to Amazon Kinesis Data Firehose.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 's3', 'workerLogDelivery_s3' - Details about delivering logs to Amazon S3.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#newWorkerLogDelivery"><span class="hs-identifier hs-type">newWorkerLogDelivery</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span><span>
+</span><span id="line-58"></span><span id="newWorkerLogDelivery"><span class="annot"><span class="annottext">newWorkerLogDelivery :: WorkerLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#newWorkerLogDelivery"><span class="hs-identifier hs-var hs-var">newWorkerLogDelivery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">WorkerLogDelivery' :: Maybe CloudWatchLogsLogDelivery
+-&gt; Maybe FirehoseLogDelivery
+-&gt; Maybe S3LogDelivery
+-&gt; WorkerLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery%27"><span class="hs-identifier hs-type">WorkerLogDelivery'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cloudWatchLogs:WorkerLogDelivery' :: Maybe CloudWatchLogsLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#%24sel%3AcloudWatchLogs%3AWorkerLogDelivery%27"><span class="hs-identifier hs-var">cloudWatchLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsLogDelivery
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:firehose:WorkerLogDelivery' :: Maybe FirehoseLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#%24sel%3Afirehose%3AWorkerLogDelivery%27"><span class="hs-identifier hs-var">firehose</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseLogDelivery
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3:WorkerLogDelivery' :: Maybe S3LogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#%24sel%3As3%3AWorkerLogDelivery%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3LogDelivery
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Details about delivering logs to Amazon CloudWatch Logs.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#workerLogDelivery_cloudWatchLogs"><span class="hs-identifier hs-type">workerLogDelivery_cloudWatchLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.html#CloudWatchLogsLogDelivery"><span class="hs-identifier hs-type">CloudWatchLogsLogDelivery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="workerLogDelivery_cloudWatchLogs"><span class="annot"><span class="annottext">workerLogDelivery_cloudWatchLogs :: (Maybe CloudWatchLogsLogDelivery
+ -&gt; f (Maybe CloudWatchLogsLogDelivery))
+-&gt; WorkerLogDelivery -&gt; f WorkerLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#workerLogDelivery_cloudWatchLogs"><span class="hs-identifier hs-var hs-var">workerLogDelivery_cloudWatchLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkerLogDelivery -&gt; Maybe CloudWatchLogsLogDelivery)
+-&gt; (WorkerLogDelivery
+    -&gt; Maybe CloudWatchLogsLogDelivery -&gt; WorkerLogDelivery)
+-&gt; Lens
+     WorkerLogDelivery
+     WorkerLogDelivery
+     (Maybe CloudWatchLogsLogDelivery)
+     (Maybe CloudWatchLogsLogDelivery)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery%27"><span class="hs-identifier hs-type">WorkerLogDelivery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205969"><span class="annot"><span class="annottext">Maybe CloudWatchLogsLogDelivery
+cloudWatchLogs :: Maybe CloudWatchLogsLogDelivery
+$sel:cloudWatchLogs:WorkerLogDelivery' :: WorkerLogDelivery -&gt; Maybe CloudWatchLogsLogDelivery
+</span><a href="#local-6989586621679205969"><span class="hs-identifier hs-var hs-var">cloudWatchLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsLogDelivery
+</span><a href="#local-6989586621679205969"><span class="hs-identifier hs-var">cloudWatchLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205968"><span class="annot"><span class="annottext">s :: WorkerLogDelivery
+</span><a href="#local-6989586621679205968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery%27"><span class="hs-identifier hs-type">WorkerLogDelivery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205967"><span class="annot"><span class="annottext">Maybe CloudWatchLogsLogDelivery
+</span><a href="#local-6989586621679205967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkerLogDelivery
+</span><a href="#local-6989586621679205968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogs:WorkerLogDelivery' :: Maybe CloudWatchLogsLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#%24sel%3AcloudWatchLogs%3AWorkerLogDelivery%27"><span class="hs-identifier hs-var">cloudWatchLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsLogDelivery
+</span><a href="#local-6989586621679205967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Details about delivering logs to Amazon Kinesis Data Firehose.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#workerLogDelivery_firehose"><span class="hs-identifier hs-type">workerLogDelivery_firehose</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.FirehoseLogDelivery.html#FirehoseLogDelivery"><span class="hs-identifier hs-type">FirehoseLogDelivery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="workerLogDelivery_firehose"><span class="annot"><span class="annottext">workerLogDelivery_firehose :: (Maybe FirehoseLogDelivery -&gt; f (Maybe FirehoseLogDelivery))
+-&gt; WorkerLogDelivery -&gt; f WorkerLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#workerLogDelivery_firehose"><span class="hs-identifier hs-var hs-var">workerLogDelivery_firehose</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkerLogDelivery -&gt; Maybe FirehoseLogDelivery)
+-&gt; (WorkerLogDelivery
+    -&gt; Maybe FirehoseLogDelivery -&gt; WorkerLogDelivery)
+-&gt; Lens
+     WorkerLogDelivery
+     WorkerLogDelivery
+     (Maybe FirehoseLogDelivery)
+     (Maybe FirehoseLogDelivery)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery%27"><span class="hs-identifier hs-type">WorkerLogDelivery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205965"><span class="annot"><span class="annottext">Maybe FirehoseLogDelivery
+firehose :: Maybe FirehoseLogDelivery
+$sel:firehose:WorkerLogDelivery' :: WorkerLogDelivery -&gt; Maybe FirehoseLogDelivery
+</span><a href="#local-6989586621679205965"><span class="hs-identifier hs-var hs-var">firehose</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseLogDelivery
+</span><a href="#local-6989586621679205965"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205964"><span class="annot"><span class="annottext">s :: WorkerLogDelivery
+</span><a href="#local-6989586621679205964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery%27"><span class="hs-identifier hs-type">WorkerLogDelivery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205963"><span class="annot"><span class="annottext">Maybe FirehoseLogDelivery
+</span><a href="#local-6989586621679205963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkerLogDelivery
+</span><a href="#local-6989586621679205964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firehose:WorkerLogDelivery' :: Maybe FirehoseLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#%24sel%3Afirehose%3AWorkerLogDelivery%27"><span class="hs-identifier hs-var">firehose</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseLogDelivery
+</span><a href="#local-6989586621679205963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Details about delivering logs to Amazon S3.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#workerLogDelivery_s3"><span class="hs-identifier hs-type">workerLogDelivery_s3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.S3LogDelivery.html#S3LogDelivery"><span class="hs-identifier hs-type">S3LogDelivery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="workerLogDelivery_s3"><span class="annot"><span class="annottext">workerLogDelivery_s3 :: (Maybe S3LogDelivery -&gt; f (Maybe S3LogDelivery))
+-&gt; WorkerLogDelivery -&gt; f WorkerLogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#workerLogDelivery_s3"><span class="hs-identifier hs-var hs-var">workerLogDelivery_s3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkerLogDelivery -&gt; Maybe S3LogDelivery)
+-&gt; (WorkerLogDelivery -&gt; Maybe S3LogDelivery -&gt; WorkerLogDelivery)
+-&gt; Lens
+     WorkerLogDelivery
+     WorkerLogDelivery
+     (Maybe S3LogDelivery)
+     (Maybe S3LogDelivery)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery%27"><span class="hs-identifier hs-type">WorkerLogDelivery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205961"><span class="annot"><span class="annottext">Maybe S3LogDelivery
+s3 :: Maybe S3LogDelivery
+$sel:s3:WorkerLogDelivery' :: WorkerLogDelivery -&gt; Maybe S3LogDelivery
+</span><a href="#local-6989586621679205961"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3LogDelivery
+</span><a href="#local-6989586621679205961"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205960"><span class="annot"><span class="annottext">s :: WorkerLogDelivery
+</span><a href="#local-6989586621679205960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery%27"><span class="hs-identifier hs-type">WorkerLogDelivery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205959"><span class="annot"><span class="annottext">Maybe S3LogDelivery
+</span><a href="#local-6989586621679205959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkerLogDelivery
+</span><a href="#local-6989586621679205960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:WorkerLogDelivery' :: Maybe S3LogDelivery
+</span><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#%24sel%3As3%3AWorkerLogDelivery%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3LogDelivery
+</span><a href="#local-6989586621679205959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205955"><span id="local-6989586621679205957"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205944"><span id="local-6989586621679205946"><span id="local-6989586621679205948"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery"><span class="hs-identifier hs-type">WorkerLogDelivery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679205942"><span class="annot"><span class="annottext">toJSON :: WorkerLogDelivery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.WorkerLogDelivery.html#WorkerLogDelivery%27"><span class="hs-identifier hs-type">WorkerLogDelivery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205938"><span id="local-6989586621679205939"><span id="local-6989586621679205940"><span class="annot"><span class="annottext">Maybe CloudWatchLogsLogDelivery
+Maybe FirehoseLogDelivery
+Maybe S3LogDelivery
+s3 :: Maybe S3LogDelivery
+firehose :: Maybe FirehoseLogDelivery
+cloudWatchLogs :: Maybe CloudWatchLogsLogDelivery
+$sel:s3:WorkerLogDelivery' :: WorkerLogDelivery -&gt; Maybe S3LogDelivery
+$sel:firehose:WorkerLogDelivery' :: WorkerLogDelivery -&gt; Maybe FirehoseLogDelivery
+$sel:cloudWatchLogs:WorkerLogDelivery' :: WorkerLogDelivery -&gt; Maybe CloudWatchLogsLogDelivery
+</span><a href="#local-6989586621679205938"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cloudWatchLogs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLogsLogDelivery -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">(CloudWatchLogsLogDelivery -&gt; Pair)
+-&gt; Maybe CloudWatchLogsLogDelivery -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsLogDelivery
+</span><a href="#local-6989586621679205940"><span class="hs-identifier hs-var">cloudWatchLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;firehose&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FirehoseLogDelivery -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FirehoseLogDelivery -&gt; Pair)
+-&gt; Maybe FirehoseLogDelivery -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseLogDelivery
+</span><a href="#local-6989586621679205939"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3LogDelivery -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3LogDelivery -&gt; Pair) -&gt; Maybe S3LogDelivery -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3LogDelivery
+</span><a href="#local-6989586621679205938"><span class="hs-identifier hs-var">s3</span></a></span><span>
+</span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span></pre></body></html>

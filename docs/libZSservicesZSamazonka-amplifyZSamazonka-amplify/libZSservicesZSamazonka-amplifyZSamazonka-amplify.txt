@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Amplify.Types.Artifact
+module Amazonka.Amplify.Types.Artifact
 
 -- | Describes an artifact.
 --   
@@ -39,16 +39,16 @@ artifact_artifactFileName :: Lens' Artifact Text
 
 -- | The unique ID for the artifact.
 artifact_artifactId :: Lens' Artifact Text
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.Artifact.Artifact
-instance GHC.Show.Show Network.AWS.Amplify.Types.Artifact.Artifact
-instance GHC.Read.Read Network.AWS.Amplify.Types.Artifact.Artifact
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.Artifact.Artifact
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.Artifact.Artifact
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.Artifact.Artifact
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.Artifact.Artifact
+instance GHC.Generics.Generic Amazonka.Amplify.Types.Artifact.Artifact
+instance GHC.Show.Show Amazonka.Amplify.Types.Artifact.Artifact
+instance GHC.Read.Read Amazonka.Amplify.Types.Artifact.Artifact
+instance GHC.Classes.Eq Amazonka.Amplify.Types.Artifact.Artifact
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.Artifact.Artifact
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.Artifact.Artifact
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.Artifact.Artifact
 
 
-module Network.AWS.Amplify.Types.BackendEnvironment
+module Amazonka.Amplify.Types.BackendEnvironment
 
 -- | Describes the backend environment for an Amplify app.
 --   
@@ -131,16 +131,16 @@ backendEnvironment_createTime :: Lens' BackendEnvironment UTCTime
 -- | The last updated date and time for a backend environment that is part
 --   of an Amplify app.
 backendEnvironment_updateTime :: Lens' BackendEnvironment UTCTime
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.BackendEnvironment.BackendEnvironment
-instance GHC.Show.Show Network.AWS.Amplify.Types.BackendEnvironment.BackendEnvironment
-instance GHC.Read.Read Network.AWS.Amplify.Types.BackendEnvironment.BackendEnvironment
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.BackendEnvironment.BackendEnvironment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.BackendEnvironment.BackendEnvironment
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.BackendEnvironment.BackendEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.BackendEnvironment.BackendEnvironment
+instance GHC.Generics.Generic Amazonka.Amplify.Types.BackendEnvironment.BackendEnvironment
+instance GHC.Show.Show Amazonka.Amplify.Types.BackendEnvironment.BackendEnvironment
+instance GHC.Read.Read Amazonka.Amplify.Types.BackendEnvironment.BackendEnvironment
+instance GHC.Classes.Eq Amazonka.Amplify.Types.BackendEnvironment.BackendEnvironment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.BackendEnvironment.BackendEnvironment
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.BackendEnvironment.BackendEnvironment
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.BackendEnvironment.BackendEnvironment
 
 
-module Network.AWS.Amplify.Types.CustomRule
+module Amazonka.Amplify.Types.CustomRule
 
 -- | Describes a custom rewrite or redirect rule.
 --   
@@ -221,17 +221,17 @@ customRule_source :: Lens' CustomRule Text
 
 -- | The target pattern for a URL rewrite or redirect rule.
 customRule_target :: Lens' CustomRule Text
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.CustomRule.CustomRule
-instance GHC.Show.Show Network.AWS.Amplify.Types.CustomRule.CustomRule
-instance GHC.Read.Read Network.AWS.Amplify.Types.CustomRule.CustomRule
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.CustomRule.CustomRule
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.CustomRule.CustomRule
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.CustomRule.CustomRule
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.CustomRule.CustomRule
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.Types.CustomRule.CustomRule
+instance GHC.Generics.Generic Amazonka.Amplify.Types.CustomRule.CustomRule
+instance GHC.Show.Show Amazonka.Amplify.Types.CustomRule.CustomRule
+instance GHC.Read.Read Amazonka.Amplify.Types.CustomRule.CustomRule
+instance GHC.Classes.Eq Amazonka.Amplify.Types.CustomRule.CustomRule
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.CustomRule.CustomRule
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.CustomRule.CustomRule
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.CustomRule.CustomRule
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.Types.CustomRule.CustomRule
 
 
-module Network.AWS.Amplify.Types.DomainStatus
+module Amazonka.Amplify.Types.DomainStatus
 newtype DomainStatus
 DomainStatus' :: Text -> DomainStatus
 [fromDomainStatus] :: DomainStatus -> Text
@@ -243,28 +243,28 @@ pattern DomainStatus_PENDING_DEPLOYMENT :: DomainStatus
 pattern DomainStatus_PENDING_VERIFICATION :: DomainStatus
 pattern DomainStatus_REQUESTING_CERTIFICATE :: DomainStatus
 pattern DomainStatus_UPDATING :: DomainStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance GHC.Classes.Ord Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance GHC.Read.Read Network.AWS.Amplify.Types.DomainStatus.DomainStatus
-instance GHC.Show.Show Network.AWS.Amplify.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Text.ToText Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Text.FromText Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance GHC.Generics.Generic Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance GHC.Classes.Ord Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance GHC.Classes.Eq Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance GHC.Read.Read Amazonka.Amplify.Types.DomainStatus.DomainStatus
+instance GHC.Show.Show Amazonka.Amplify.Types.DomainStatus.DomainStatus
 
 
-module Network.AWS.Amplify.Types.JobStatus
+module Amazonka.Amplify.Types.JobStatus
 newtype JobStatus
 JobStatus' :: Text -> JobStatus
 [fromJobStatus] :: JobStatus -> Text
@@ -275,28 +275,28 @@ pattern JobStatus_PENDING :: JobStatus
 pattern JobStatus_PROVISIONING :: JobStatus
 pattern JobStatus_RUNNING :: JobStatus
 pattern JobStatus_SUCCEED :: JobStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance GHC.Classes.Ord Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance GHC.Read.Read Network.AWS.Amplify.Types.JobStatus.JobStatus
-instance GHC.Show.Show Network.AWS.Amplify.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.ToText Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.FromText Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.JobStatus.JobStatus
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.JobStatus.JobStatus
+instance GHC.Generics.Generic Amazonka.Amplify.Types.JobStatus.JobStatus
+instance GHC.Classes.Ord Amazonka.Amplify.Types.JobStatus.JobStatus
+instance GHC.Classes.Eq Amazonka.Amplify.Types.JobStatus.JobStatus
+instance GHC.Read.Read Amazonka.Amplify.Types.JobStatus.JobStatus
+instance GHC.Show.Show Amazonka.Amplify.Types.JobStatus.JobStatus
 
 
-module Network.AWS.Amplify.Types.JobType
+module Amazonka.Amplify.Types.JobType
 newtype JobType
 JobType' :: Text -> JobType
 [fromJobType] :: JobType -> Text
@@ -304,28 +304,28 @@ pattern JobType_MANUAL :: JobType
 pattern JobType_RELEASE :: JobType
 pattern JobType_RETRY :: JobType
 pattern JobType_WEB_HOOK :: JobType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Amplify.Types.JobType.JobType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Amplify.Types.JobType.JobType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Amplify.Types.JobType.JobType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.Types.JobType.JobType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Amplify.Types.JobType.JobType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.JobType.JobType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.Types.JobType.JobType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Amplify.Types.JobType.JobType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Amplify.Types.JobType.JobType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Amplify.Types.JobType.JobType
-instance Network.AWS.Data.Text.ToText Network.AWS.Amplify.Types.JobType.JobType
-instance Network.AWS.Data.Text.FromText Network.AWS.Amplify.Types.JobType.JobType
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.JobType.JobType
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.JobType.JobType
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.JobType.JobType
-instance GHC.Classes.Ord Network.AWS.Amplify.Types.JobType.JobType
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.JobType.JobType
-instance GHC.Read.Read Network.AWS.Amplify.Types.JobType.JobType
-instance GHC.Show.Show Network.AWS.Amplify.Types.JobType.JobType
+instance Amazonka.Data.XML.ToXML Amazonka.Amplify.Types.JobType.JobType
+instance Amazonka.Data.XML.FromXML Amazonka.Amplify.Types.JobType.JobType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Amplify.Types.JobType.JobType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.Types.JobType.JobType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Amplify.Types.JobType.JobType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.JobType.JobType
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.Types.JobType.JobType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Amplify.Types.JobType.JobType
+instance Amazonka.Data.Log.ToLog Amazonka.Amplify.Types.JobType.JobType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Amplify.Types.JobType.JobType
+instance Amazonka.Data.Text.ToText Amazonka.Amplify.Types.JobType.JobType
+instance Amazonka.Data.Text.FromText Amazonka.Amplify.Types.JobType.JobType
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.JobType.JobType
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.JobType.JobType
+instance GHC.Generics.Generic Amazonka.Amplify.Types.JobType.JobType
+instance GHC.Classes.Ord Amazonka.Amplify.Types.JobType.JobType
+instance GHC.Classes.Eq Amazonka.Amplify.Types.JobType.JobType
+instance GHC.Read.Read Amazonka.Amplify.Types.JobType.JobType
+instance GHC.Show.Show Amazonka.Amplify.Types.JobType.JobType
 
 
-module Network.AWS.Amplify.Types.JobSummary
+module Amazonka.Amplify.Types.JobSummary
 
 -- | Describes the summary for an execution job for an Amplify app.
 --   
@@ -435,42 +435,42 @@ jobSummary_status :: Lens' JobSummary JobStatus
 --   <tt>StartJob</tt> API. If the value is <tt>WEB_HOOK</tt>, the job was
 --   automatically triggered by webhooks.
 jobSummary_jobType :: Lens' JobSummary JobType
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.JobSummary.JobSummary
-instance GHC.Show.Show Network.AWS.Amplify.Types.JobSummary.JobSummary
-instance GHC.Read.Read Network.AWS.Amplify.Types.JobSummary.JobSummary
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.JobSummary.JobSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.JobSummary.JobSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.JobSummary.JobSummary
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.JobSummary.JobSummary
+instance GHC.Generics.Generic Amazonka.Amplify.Types.JobSummary.JobSummary
+instance GHC.Show.Show Amazonka.Amplify.Types.JobSummary.JobSummary
+instance GHC.Read.Read Amazonka.Amplify.Types.JobSummary.JobSummary
+instance GHC.Classes.Eq Amazonka.Amplify.Types.JobSummary.JobSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.JobSummary.JobSummary
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.JobSummary.JobSummary
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.JobSummary.JobSummary
 
 
-module Network.AWS.Amplify.Types.Platform
+module Amazonka.Amplify.Types.Platform
 newtype Platform
 Platform' :: Text -> Platform
 [fromPlatform] :: Platform -> Text
 pattern Platform_WEB :: Platform
-instance Network.AWS.Data.XML.ToXML Network.AWS.Amplify.Types.Platform.Platform
-instance Network.AWS.Data.XML.FromXML Network.AWS.Amplify.Types.Platform.Platform
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Amplify.Types.Platform.Platform
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.Types.Platform.Platform
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Amplify.Types.Platform.Platform
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.Platform.Platform
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.Types.Platform.Platform
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Amplify.Types.Platform.Platform
-instance Network.AWS.Data.Log.ToLog Network.AWS.Amplify.Types.Platform.Platform
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Amplify.Types.Platform.Platform
-instance Network.AWS.Data.Text.ToText Network.AWS.Amplify.Types.Platform.Platform
-instance Network.AWS.Data.Text.FromText Network.AWS.Amplify.Types.Platform.Platform
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.Platform.Platform
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.Platform.Platform
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.Platform.Platform
-instance GHC.Classes.Ord Network.AWS.Amplify.Types.Platform.Platform
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.Platform.Platform
-instance GHC.Read.Read Network.AWS.Amplify.Types.Platform.Platform
-instance GHC.Show.Show Network.AWS.Amplify.Types.Platform.Platform
+instance Amazonka.Data.XML.ToXML Amazonka.Amplify.Types.Platform.Platform
+instance Amazonka.Data.XML.FromXML Amazonka.Amplify.Types.Platform.Platform
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Amplify.Types.Platform.Platform
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.Types.Platform.Platform
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Amplify.Types.Platform.Platform
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.Platform.Platform
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.Types.Platform.Platform
+instance Amazonka.Data.Headers.ToHeader Amazonka.Amplify.Types.Platform.Platform
+instance Amazonka.Data.Log.ToLog Amazonka.Amplify.Types.Platform.Platform
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Amplify.Types.Platform.Platform
+instance Amazonka.Data.Text.ToText Amazonka.Amplify.Types.Platform.Platform
+instance Amazonka.Data.Text.FromText Amazonka.Amplify.Types.Platform.Platform
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.Platform.Platform
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.Platform.Platform
+instance GHC.Generics.Generic Amazonka.Amplify.Types.Platform.Platform
+instance GHC.Classes.Ord Amazonka.Amplify.Types.Platform.Platform
+instance GHC.Classes.Eq Amazonka.Amplify.Types.Platform.Platform
+instance GHC.Read.Read Amazonka.Amplify.Types.Platform.Platform
+instance GHC.Show.Show Amazonka.Amplify.Types.Platform.Platform
 
 
-module Network.AWS.Amplify.Types.ProductionBranch
+module Amazonka.Amplify.Types.ProductionBranch
 
 -- | Describes the information about a production branch for an Amplify
 --   app.
@@ -527,16 +527,16 @@ productionBranch_thumbnailUrl :: Lens' ProductionBranch (Maybe Text)
 
 -- | The branch name for the production branch.
 productionBranch_branchName :: Lens' ProductionBranch (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.ProductionBranch.ProductionBranch
-instance GHC.Show.Show Network.AWS.Amplify.Types.ProductionBranch.ProductionBranch
-instance GHC.Read.Read Network.AWS.Amplify.Types.ProductionBranch.ProductionBranch
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.ProductionBranch.ProductionBranch
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.ProductionBranch.ProductionBranch
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.ProductionBranch.ProductionBranch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.ProductionBranch.ProductionBranch
+instance GHC.Generics.Generic Amazonka.Amplify.Types.ProductionBranch.ProductionBranch
+instance GHC.Show.Show Amazonka.Amplify.Types.ProductionBranch.ProductionBranch
+instance GHC.Read.Read Amazonka.Amplify.Types.ProductionBranch.ProductionBranch
+instance GHC.Classes.Eq Amazonka.Amplify.Types.ProductionBranch.ProductionBranch
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.ProductionBranch.ProductionBranch
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.ProductionBranch.ProductionBranch
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.ProductionBranch.ProductionBranch
 
 
-module Network.AWS.Amplify.Types.Stage
+module Amazonka.Amplify.Types.Stage
 newtype Stage
 Stage' :: Text -> Stage
 [fromStage] :: Stage -> Text
@@ -545,28 +545,28 @@ pattern Stage_DEVELOPMENT :: Stage
 pattern Stage_EXPERIMENTAL :: Stage
 pattern Stage_PRODUCTION :: Stage
 pattern Stage_PULL_REQUEST :: Stage
-instance Network.AWS.Data.XML.ToXML Network.AWS.Amplify.Types.Stage.Stage
-instance Network.AWS.Data.XML.FromXML Network.AWS.Amplify.Types.Stage.Stage
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Amplify.Types.Stage.Stage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.Types.Stage.Stage
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Amplify.Types.Stage.Stage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.Stage.Stage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.Types.Stage.Stage
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Amplify.Types.Stage.Stage
-instance Network.AWS.Data.Log.ToLog Network.AWS.Amplify.Types.Stage.Stage
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Amplify.Types.Stage.Stage
-instance Network.AWS.Data.Text.ToText Network.AWS.Amplify.Types.Stage.Stage
-instance Network.AWS.Data.Text.FromText Network.AWS.Amplify.Types.Stage.Stage
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.Stage.Stage
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.Stage.Stage
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.Stage.Stage
-instance GHC.Classes.Ord Network.AWS.Amplify.Types.Stage.Stage
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.Stage.Stage
-instance GHC.Read.Read Network.AWS.Amplify.Types.Stage.Stage
-instance GHC.Show.Show Network.AWS.Amplify.Types.Stage.Stage
+instance Amazonka.Data.XML.ToXML Amazonka.Amplify.Types.Stage.Stage
+instance Amazonka.Data.XML.FromXML Amazonka.Amplify.Types.Stage.Stage
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Amplify.Types.Stage.Stage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.Types.Stage.Stage
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Amplify.Types.Stage.Stage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.Stage.Stage
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.Types.Stage.Stage
+instance Amazonka.Data.Headers.ToHeader Amazonka.Amplify.Types.Stage.Stage
+instance Amazonka.Data.Log.ToLog Amazonka.Amplify.Types.Stage.Stage
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Amplify.Types.Stage.Stage
+instance Amazonka.Data.Text.ToText Amazonka.Amplify.Types.Stage.Stage
+instance Amazonka.Data.Text.FromText Amazonka.Amplify.Types.Stage.Stage
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.Stage.Stage
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.Stage.Stage
+instance GHC.Generics.Generic Amazonka.Amplify.Types.Stage.Stage
+instance GHC.Classes.Ord Amazonka.Amplify.Types.Stage.Stage
+instance GHC.Classes.Eq Amazonka.Amplify.Types.Stage.Stage
+instance GHC.Read.Read Amazonka.Amplify.Types.Stage.Stage
+instance GHC.Show.Show Amazonka.Amplify.Types.Stage.Stage
 
 
-module Network.AWS.Amplify.Types.Branch
+module Amazonka.Amplify.Types.Branch
 
 -- | The branch for an Amplify app, which maps to a third-party repository
 --   branch.
@@ -862,15 +862,15 @@ branch_ttl :: Lens' Branch Text
 
 -- | Enables pull request previews for the branch.
 branch_enablePullRequestPreview :: Lens' Branch Bool
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.Branch.Branch
-instance GHC.Show.Show Network.AWS.Amplify.Types.Branch.Branch
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.Branch.Branch
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.Branch.Branch
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.Branch.Branch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.Branch.Branch
+instance GHC.Generics.Generic Amazonka.Amplify.Types.Branch.Branch
+instance GHC.Show.Show Amazonka.Amplify.Types.Branch.Branch
+instance GHC.Classes.Eq Amazonka.Amplify.Types.Branch.Branch
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.Branch.Branch
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.Branch.Branch
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.Branch.Branch
 
 
-module Network.AWS.Amplify.Types.AutoBranchCreationConfig
+module Amazonka.Amplify.Types.AutoBranchCreationConfig
 
 -- | Describes the automated branch creation configuration.
 --   
@@ -1002,16 +1002,16 @@ autoBranchCreationConfig_enableBasicAuth :: Lens' AutoBranchCreationConfig (Mayb
 
 -- | The Amplify environment name for the pull request.
 autoBranchCreationConfig_pullRequestEnvironmentName :: Lens' AutoBranchCreationConfig (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
-instance GHC.Show.Show Network.AWS.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
+instance GHC.Generics.Generic Amazonka.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
+instance GHC.Show.Show Amazonka.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
+instance GHC.Classes.Eq Amazonka.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.Types.AutoBranchCreationConfig.AutoBranchCreationConfig
 
 
-module Network.AWS.Amplify.Types.App
+module Amazonka.Amplify.Types.App
 
 -- | Represents the different branches of a repository for building,
 --   deploying, and hosting an Amplify app.
@@ -1254,15 +1254,15 @@ app_enableBranchAutoBuild :: Lens' App Bool
 
 -- | Enables basic authorization for the Amplify app's branches.
 app_enableBasicAuth :: Lens' App Bool
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.App.App
-instance GHC.Show.Show Network.AWS.Amplify.Types.App.App
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.App.App
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.App.App
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.App.App
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.App.App
+instance GHC.Generics.Generic Amazonka.Amplify.Types.App.App
+instance GHC.Show.Show Amazonka.Amplify.Types.App.App
+instance GHC.Classes.Eq Amazonka.Amplify.Types.App.App
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.App.App
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.App.App
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.App.App
 
 
-module Network.AWS.Amplify.Types.Step
+module Amazonka.Amplify.Types.Step
 
 -- | Describes an execution step, for an execution job, for an Amplify app.
 --   
@@ -1379,16 +1379,16 @@ step_status :: Lens' Step JobStatus
 
 -- | The end date and time of the execution step.
 step_endTime :: Lens' Step UTCTime
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.Step.Step
-instance GHC.Show.Show Network.AWS.Amplify.Types.Step.Step
-instance GHC.Read.Read Network.AWS.Amplify.Types.Step.Step
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.Step.Step
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.Step.Step
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.Step.Step
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.Step.Step
+instance GHC.Generics.Generic Amazonka.Amplify.Types.Step.Step
+instance GHC.Show.Show Amazonka.Amplify.Types.Step.Step
+instance GHC.Read.Read Amazonka.Amplify.Types.Step.Step
+instance GHC.Classes.Eq Amazonka.Amplify.Types.Step.Step
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.Step.Step
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.Step.Step
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.Step.Step
 
 
-module Network.AWS.Amplify.Types.Job
+module Amazonka.Amplify.Types.Job
 
 -- | Describes an execution job for an Amplify app.
 --   
@@ -1422,16 +1422,16 @@ job_summary :: Lens' Job JobSummary
 
 -- | The execution steps for an execution job, for an Amplify app.
 job_steps :: Lens' Job [Step]
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.Job.Job
-instance GHC.Show.Show Network.AWS.Amplify.Types.Job.Job
-instance GHC.Read.Read Network.AWS.Amplify.Types.Job.Job
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.Job.Job
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.Job.Job
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.Job.Job
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.Job.Job
+instance GHC.Generics.Generic Amazonka.Amplify.Types.Job.Job
+instance GHC.Show.Show Amazonka.Amplify.Types.Job.Job
+instance GHC.Read.Read Amazonka.Amplify.Types.Job.Job
+instance GHC.Classes.Eq Amazonka.Amplify.Types.Job.Job
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.Job.Job
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.Job.Job
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.Job.Job
 
 
-module Network.AWS.Amplify.Types.SubDomainSetting
+module Amazonka.Amplify.Types.SubDomainSetting
 
 -- | Describes the settings for the subdomain.
 --   
@@ -1467,17 +1467,17 @@ subDomainSetting_prefix :: Lens' SubDomainSetting Text
 
 -- | The branch name setting for the subdomain.
 subDomainSetting_branchName :: Lens' SubDomainSetting Text
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.SubDomainSetting.SubDomainSetting
-instance GHC.Show.Show Network.AWS.Amplify.Types.SubDomainSetting.SubDomainSetting
-instance GHC.Read.Read Network.AWS.Amplify.Types.SubDomainSetting.SubDomainSetting
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.SubDomainSetting.SubDomainSetting
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.SubDomainSetting.SubDomainSetting
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.SubDomainSetting.SubDomainSetting
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.SubDomainSetting.SubDomainSetting
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.Types.SubDomainSetting.SubDomainSetting
+instance GHC.Generics.Generic Amazonka.Amplify.Types.SubDomainSetting.SubDomainSetting
+instance GHC.Show.Show Amazonka.Amplify.Types.SubDomainSetting.SubDomainSetting
+instance GHC.Read.Read Amazonka.Amplify.Types.SubDomainSetting.SubDomainSetting
+instance GHC.Classes.Eq Amazonka.Amplify.Types.SubDomainSetting.SubDomainSetting
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.SubDomainSetting.SubDomainSetting
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.SubDomainSetting.SubDomainSetting
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.SubDomainSetting.SubDomainSetting
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.Types.SubDomainSetting.SubDomainSetting
 
 
-module Network.AWS.Amplify.Types.SubDomain
+module Amazonka.Amplify.Types.SubDomain
 
 -- | The subdomain for the domain association.
 --   
@@ -1521,16 +1521,16 @@ subDomain_verified :: Lens' SubDomain Bool
 
 -- | The DNS record for the subdomain.
 subDomain_dnsRecord :: Lens' SubDomain Text
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.SubDomain.SubDomain
-instance GHC.Show.Show Network.AWS.Amplify.Types.SubDomain.SubDomain
-instance GHC.Read.Read Network.AWS.Amplify.Types.SubDomain.SubDomain
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.SubDomain.SubDomain
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.SubDomain.SubDomain
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.SubDomain.SubDomain
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.SubDomain.SubDomain
+instance GHC.Generics.Generic Amazonka.Amplify.Types.SubDomain.SubDomain
+instance GHC.Show.Show Amazonka.Amplify.Types.SubDomain.SubDomain
+instance GHC.Read.Read Amazonka.Amplify.Types.SubDomain.SubDomain
+instance GHC.Classes.Eq Amazonka.Amplify.Types.SubDomain.SubDomain
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.SubDomain.SubDomain
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.SubDomain.SubDomain
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.SubDomain.SubDomain
 
 
-module Network.AWS.Amplify.Types.DomainAssociation
+module Amazonka.Amplify.Types.DomainAssociation
 
 -- | Describes a domain association that associates a custom domain with an
 --   Amplify app.
@@ -1640,16 +1640,16 @@ domainAssociation_statusReason :: Lens' DomainAssociation Text
 
 -- | The subdomains for the domain association.
 domainAssociation_subDomains :: Lens' DomainAssociation [SubDomain]
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.DomainAssociation.DomainAssociation
-instance GHC.Show.Show Network.AWS.Amplify.Types.DomainAssociation.DomainAssociation
-instance GHC.Read.Read Network.AWS.Amplify.Types.DomainAssociation.DomainAssociation
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.DomainAssociation.DomainAssociation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.DomainAssociation.DomainAssociation
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.DomainAssociation.DomainAssociation
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.DomainAssociation.DomainAssociation
+instance GHC.Generics.Generic Amazonka.Amplify.Types.DomainAssociation.DomainAssociation
+instance GHC.Show.Show Amazonka.Amplify.Types.DomainAssociation.DomainAssociation
+instance GHC.Read.Read Amazonka.Amplify.Types.DomainAssociation.DomainAssociation
+instance GHC.Classes.Eq Amazonka.Amplify.Types.DomainAssociation.DomainAssociation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.DomainAssociation.DomainAssociation
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.DomainAssociation.DomainAssociation
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.DomainAssociation.DomainAssociation
 
 
-module Network.AWS.Amplify.Types.Webhook
+module Amazonka.Amplify.Types.Webhook
 
 -- | Describes a webhook that connects repository events to an Amplify app.
 --   
@@ -1728,16 +1728,16 @@ webhook_createTime :: Lens' Webhook UTCTime
 
 -- | Updates the date and time for a webhook.
 webhook_updateTime :: Lens' Webhook UTCTime
-instance GHC.Generics.Generic Network.AWS.Amplify.Types.Webhook.Webhook
-instance GHC.Show.Show Network.AWS.Amplify.Types.Webhook.Webhook
-instance GHC.Read.Read Network.AWS.Amplify.Types.Webhook.Webhook
-instance GHC.Classes.Eq Network.AWS.Amplify.Types.Webhook.Webhook
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Amplify.Types.Webhook.Webhook
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.Types.Webhook.Webhook
-instance Control.DeepSeq.NFData Network.AWS.Amplify.Types.Webhook.Webhook
+instance GHC.Generics.Generic Amazonka.Amplify.Types.Webhook.Webhook
+instance GHC.Show.Show Amazonka.Amplify.Types.Webhook.Webhook
+instance GHC.Read.Read Amazonka.Amplify.Types.Webhook.Webhook
+instance GHC.Classes.Eq Amazonka.Amplify.Types.Webhook.Webhook
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Amplify.Types.Webhook.Webhook
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.Types.Webhook.Webhook
+instance Control.DeepSeq.NFData Amazonka.Amplify.Types.Webhook.Webhook
 
 
-module Network.AWS.Amplify.Types
+module Amazonka.Amplify.Types
 
 -- | API version <tt>2017-07-25</tt> of the Amazon Amplify SDK
 --   configuration.
@@ -3248,7 +3248,7 @@ webhook_updateTime :: Lens' Webhook UTCTime
 
 
 -- | Tags the resource with a tag key and value.
-module Network.AWS.Amplify.TagResource
+module Amazonka.Amplify.TagResource
 
 -- | The request structure to tag a resource with a tag key and value.
 --   
@@ -3308,26 +3308,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Amplify.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Amplify.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.Amplify.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Amplify.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Amplify.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Amplify.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Amplify.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Amplify.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Amplify.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Amplify.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Amplify.TagResource.TagResource
+instance GHC.Read.Read Amazonka.Amplify.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Amplify.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Amplify.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Amplify.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Amplify.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Amplify.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Amplify.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Amplify.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.TagResource.TagResource
 
 
 -- | Stops a job that is in progress for a branch of an Amplify app.
-module Network.AWS.Amplify.StopJob
+module Amazonka.Amplify.StopJob
 
 -- | The request structure for the stop job request.
 --   
@@ -3404,25 +3404,25 @@ stopJobResponse_httpStatus :: Lens' StopJobResponse Int
 
 -- | The summary for the job.
 stopJobResponse_jobSummary :: Lens' StopJobResponse JobSummary
-instance GHC.Generics.Generic Network.AWS.Amplify.StopJob.StopJob
-instance GHC.Show.Show Network.AWS.Amplify.StopJob.StopJob
-instance GHC.Read.Read Network.AWS.Amplify.StopJob.StopJob
-instance GHC.Classes.Eq Network.AWS.Amplify.StopJob.StopJob
-instance GHC.Generics.Generic Network.AWS.Amplify.StopJob.StopJobResponse
-instance GHC.Show.Show Network.AWS.Amplify.StopJob.StopJobResponse
-instance GHC.Read.Read Network.AWS.Amplify.StopJob.StopJobResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.StopJob.StopJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.StopJob.StopJob
-instance Control.DeepSeq.NFData Network.AWS.Amplify.StopJob.StopJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.StopJob.StopJob
-instance Control.DeepSeq.NFData Network.AWS.Amplify.StopJob.StopJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.StopJob.StopJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.StopJob.StopJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.StopJob.StopJob
+instance GHC.Generics.Generic Amazonka.Amplify.StopJob.StopJob
+instance GHC.Show.Show Amazonka.Amplify.StopJob.StopJob
+instance GHC.Read.Read Amazonka.Amplify.StopJob.StopJob
+instance GHC.Classes.Eq Amazonka.Amplify.StopJob.StopJob
+instance GHC.Generics.Generic Amazonka.Amplify.StopJob.StopJobResponse
+instance GHC.Show.Show Amazonka.Amplify.StopJob.StopJobResponse
+instance GHC.Read.Read Amazonka.Amplify.StopJob.StopJobResponse
+instance GHC.Classes.Eq Amazonka.Amplify.StopJob.StopJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.StopJob.StopJob
+instance Control.DeepSeq.NFData Amazonka.Amplify.StopJob.StopJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.StopJob.StopJob
+instance Control.DeepSeq.NFData Amazonka.Amplify.StopJob.StopJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.StopJob.StopJob
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.StopJob.StopJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.StopJob.StopJob
 
 
 -- | Starts a new job for a branch of an Amplify app.
-module Network.AWS.Amplify.StartJob
+module Amazonka.Amplify.StartJob
 
 -- | The request structure for the start job request.
 --   
@@ -3559,27 +3559,27 @@ startJobResponse_httpStatus :: Lens' StartJobResponse Int
 
 -- | The summary for the job.
 startJobResponse_jobSummary :: Lens' StartJobResponse JobSummary
-instance GHC.Generics.Generic Network.AWS.Amplify.StartJob.StartJob
-instance GHC.Show.Show Network.AWS.Amplify.StartJob.StartJob
-instance GHC.Read.Read Network.AWS.Amplify.StartJob.StartJob
-instance GHC.Classes.Eq Network.AWS.Amplify.StartJob.StartJob
-instance GHC.Generics.Generic Network.AWS.Amplify.StartJob.StartJobResponse
-instance GHC.Show.Show Network.AWS.Amplify.StartJob.StartJobResponse
-instance GHC.Read.Read Network.AWS.Amplify.StartJob.StartJobResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.StartJob.StartJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.StartJob.StartJob
-instance Control.DeepSeq.NFData Network.AWS.Amplify.StartJob.StartJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.StartJob.StartJob
-instance Control.DeepSeq.NFData Network.AWS.Amplify.StartJob.StartJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.StartJob.StartJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.StartJob.StartJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.StartJob.StartJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.StartJob.StartJob
+instance GHC.Generics.Generic Amazonka.Amplify.StartJob.StartJob
+instance GHC.Show.Show Amazonka.Amplify.StartJob.StartJob
+instance GHC.Read.Read Amazonka.Amplify.StartJob.StartJob
+instance GHC.Classes.Eq Amazonka.Amplify.StartJob.StartJob
+instance GHC.Generics.Generic Amazonka.Amplify.StartJob.StartJobResponse
+instance GHC.Show.Show Amazonka.Amplify.StartJob.StartJobResponse
+instance GHC.Read.Read Amazonka.Amplify.StartJob.StartJobResponse
+instance GHC.Classes.Eq Amazonka.Amplify.StartJob.StartJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.StartJob.StartJob
+instance Control.DeepSeq.NFData Amazonka.Amplify.StartJob.StartJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.StartJob.StartJob
+instance Control.DeepSeq.NFData Amazonka.Amplify.StartJob.StartJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.StartJob.StartJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.StartJob.StartJob
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.StartJob.StartJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.StartJob.StartJob
 
 
 -- | Starts a deployment for a manually deployed app. Manually deployed
 --   apps are not connected to a repository.
-module Network.AWS.Amplify.StartDeployment
+module Amazonka.Amplify.StartDeployment
 
 -- | The request structure for the start a deployment request.
 --   
@@ -3678,26 +3678,26 @@ startDeploymentResponse_httpStatus :: Lens' StartDeploymentResponse Int
 
 -- | The summary for the job.
 startDeploymentResponse_jobSummary :: Lens' StartDeploymentResponse JobSummary
-instance GHC.Generics.Generic Network.AWS.Amplify.StartDeployment.StartDeployment
-instance GHC.Show.Show Network.AWS.Amplify.StartDeployment.StartDeployment
-instance GHC.Read.Read Network.AWS.Amplify.StartDeployment.StartDeployment
-instance GHC.Classes.Eq Network.AWS.Amplify.StartDeployment.StartDeployment
-instance GHC.Generics.Generic Network.AWS.Amplify.StartDeployment.StartDeploymentResponse
-instance GHC.Show.Show Network.AWS.Amplify.StartDeployment.StartDeploymentResponse
-instance GHC.Read.Read Network.AWS.Amplify.StartDeployment.StartDeploymentResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.StartDeployment.StartDeploymentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.StartDeployment.StartDeployment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.StartDeployment.StartDeploymentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.StartDeployment.StartDeployment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.StartDeployment.StartDeployment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.StartDeployment.StartDeployment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.StartDeployment.StartDeployment
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.StartDeployment.StartDeployment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.StartDeployment.StartDeployment
+instance GHC.Generics.Generic Amazonka.Amplify.StartDeployment.StartDeployment
+instance GHC.Show.Show Amazonka.Amplify.StartDeployment.StartDeployment
+instance GHC.Read.Read Amazonka.Amplify.StartDeployment.StartDeployment
+instance GHC.Classes.Eq Amazonka.Amplify.StartDeployment.StartDeployment
+instance GHC.Generics.Generic Amazonka.Amplify.StartDeployment.StartDeploymentResponse
+instance GHC.Show.Show Amazonka.Amplify.StartDeployment.StartDeploymentResponse
+instance GHC.Read.Read Amazonka.Amplify.StartDeployment.StartDeploymentResponse
+instance GHC.Classes.Eq Amazonka.Amplify.StartDeployment.StartDeploymentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.StartDeployment.StartDeployment
+instance Control.DeepSeq.NFData Amazonka.Amplify.StartDeployment.StartDeploymentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.StartDeployment.StartDeployment
+instance Control.DeepSeq.NFData Amazonka.Amplify.StartDeployment.StartDeployment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.StartDeployment.StartDeployment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.StartDeployment.StartDeployment
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.StartDeployment.StartDeployment
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.StartDeployment.StartDeployment
 
 
 -- | Returns a list of webhooks for an Amplify app.
-module Network.AWS.Amplify.ListWebhooks
+module Amazonka.Amplify.ListWebhooks
 
 -- | The request structure for the list webhooks request.
 --   
@@ -3795,25 +3795,25 @@ listWebhooksResponse_httpStatus :: Lens' ListWebhooksResponse Int
 
 -- | A list of webhooks.
 listWebhooksResponse_webhooks :: Lens' ListWebhooksResponse [Webhook]
-instance GHC.Generics.Generic Network.AWS.Amplify.ListWebhooks.ListWebhooks
-instance GHC.Show.Show Network.AWS.Amplify.ListWebhooks.ListWebhooks
-instance GHC.Read.Read Network.AWS.Amplify.ListWebhooks.ListWebhooks
-instance GHC.Classes.Eq Network.AWS.Amplify.ListWebhooks.ListWebhooks
-instance GHC.Generics.Generic Network.AWS.Amplify.ListWebhooks.ListWebhooksResponse
-instance GHC.Show.Show Network.AWS.Amplify.ListWebhooks.ListWebhooksResponse
-instance GHC.Read.Read Network.AWS.Amplify.ListWebhooks.ListWebhooksResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.ListWebhooks.ListWebhooksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.ListWebhooks.ListWebhooks
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListWebhooks.ListWebhooksResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.ListWebhooks.ListWebhooks
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListWebhooks.ListWebhooks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.ListWebhooks.ListWebhooks
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.ListWebhooks.ListWebhooks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.ListWebhooks.ListWebhooks
+instance GHC.Generics.Generic Amazonka.Amplify.ListWebhooks.ListWebhooks
+instance GHC.Show.Show Amazonka.Amplify.ListWebhooks.ListWebhooks
+instance GHC.Read.Read Amazonka.Amplify.ListWebhooks.ListWebhooks
+instance GHC.Classes.Eq Amazonka.Amplify.ListWebhooks.ListWebhooks
+instance GHC.Generics.Generic Amazonka.Amplify.ListWebhooks.ListWebhooksResponse
+instance GHC.Show.Show Amazonka.Amplify.ListWebhooks.ListWebhooksResponse
+instance GHC.Read.Read Amazonka.Amplify.ListWebhooks.ListWebhooksResponse
+instance GHC.Classes.Eq Amazonka.Amplify.ListWebhooks.ListWebhooksResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.ListWebhooks.ListWebhooks
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListWebhooks.ListWebhooksResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.ListWebhooks.ListWebhooks
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListWebhooks.ListWebhooks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.ListWebhooks.ListWebhooks
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.ListWebhooks.ListWebhooks
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.ListWebhooks.ListWebhooks
 
 
 -- | Returns a list of tags for a specified Amazon Resource Name (ARN).
-module Network.AWS.Amplify.ListTagsForResource
+module Amazonka.Amplify.ListTagsForResource
 
 -- | The request structure to use to list tags for a resource.
 --   
@@ -3876,27 +3876,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.Amplify.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.Amplify.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.Amplify.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Amplify.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.Amplify.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.Amplify.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.Amplify.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Amplify.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.Amplify.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.Amplify.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.Amplify.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the jobs for a branch of an Amplify app.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Amplify.ListJobs
+module Amazonka.Amplify.ListJobs
 
 -- | The request structure for the list jobs request.
 --   
@@ -4001,28 +4001,28 @@ listJobsResponse_httpStatus :: Lens' ListJobsResponse Int
 
 -- | The result structure for the list job result request.
 listJobsResponse_jobSummaries :: Lens' ListJobsResponse [JobSummary]
-instance GHC.Generics.Generic Network.AWS.Amplify.ListJobs.ListJobs
-instance GHC.Show.Show Network.AWS.Amplify.ListJobs.ListJobs
-instance GHC.Read.Read Network.AWS.Amplify.ListJobs.ListJobs
-instance GHC.Classes.Eq Network.AWS.Amplify.ListJobs.ListJobs
-instance GHC.Generics.Generic Network.AWS.Amplify.ListJobs.ListJobsResponse
-instance GHC.Show.Show Network.AWS.Amplify.ListJobs.ListJobsResponse
-instance GHC.Read.Read Network.AWS.Amplify.ListJobs.ListJobsResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.ListJobs.ListJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListJobs.ListJobsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Amplify.ListJobs.ListJobs
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListJobs.ListJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.ListJobs.ListJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.ListJobs.ListJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.Amplify.ListJobs.ListJobs
+instance GHC.Show.Show Amazonka.Amplify.ListJobs.ListJobs
+instance GHC.Read.Read Amazonka.Amplify.ListJobs.ListJobs
+instance GHC.Classes.Eq Amazonka.Amplify.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.Amplify.ListJobs.ListJobsResponse
+instance GHC.Show.Show Amazonka.Amplify.ListJobs.ListJobsResponse
+instance GHC.Read.Read Amazonka.Amplify.ListJobs.ListJobsResponse
+instance GHC.Classes.Eq Amazonka.Amplify.ListJobs.ListJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListJobs.ListJobsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Amplify.ListJobs.ListJobs
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListJobs.ListJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.ListJobs.ListJobs
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.ListJobs.ListJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.ListJobs.ListJobs
 
 
 -- | Returns the domain associations for an Amplify app.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Amplify.ListDomainAssociations
+module Amazonka.Amplify.ListDomainAssociations
 
 -- | The request structure for the list domain associations request.
 --   
@@ -4125,28 +4125,28 @@ listDomainAssociationsResponse_httpStatus :: Lens' ListDomainAssociationsRespons
 
 -- | A list of domain associations.
 listDomainAssociationsResponse_domainAssociations :: Lens' ListDomainAssociationsResponse [DomainAssociation]
-instance GHC.Generics.Generic Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance GHC.Show.Show Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance GHC.Read.Read Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance GHC.Classes.Eq Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance GHC.Generics.Generic Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
-instance GHC.Show.Show Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
-instance GHC.Read.Read Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.ListDomainAssociations.ListDomainAssociations
+instance GHC.Generics.Generic Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance GHC.Show.Show Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance GHC.Read.Read Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance GHC.Classes.Eq Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance GHC.Generics.Generic Amazonka.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
+instance GHC.Show.Show Amazonka.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
+instance GHC.Read.Read Amazonka.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
+instance GHC.Classes.Eq Amazonka.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListDomainAssociations.ListDomainAssociationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.ListDomainAssociations.ListDomainAssociations
 
 
 -- | Lists the branches of an Amplify app.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Amplify.ListBranches
+module Amazonka.Amplify.ListBranches
 
 -- | The request structure for the list branches request.
 --   
@@ -4245,25 +4245,25 @@ listBranchesResponse_httpStatus :: Lens' ListBranchesResponse Int
 
 -- | A list of branches for an Amplify app.
 listBranchesResponse_branches :: Lens' ListBranchesResponse [Branch]
-instance GHC.Generics.Generic Network.AWS.Amplify.ListBranches.ListBranches
-instance GHC.Show.Show Network.AWS.Amplify.ListBranches.ListBranches
-instance GHC.Read.Read Network.AWS.Amplify.ListBranches.ListBranches
-instance GHC.Classes.Eq Network.AWS.Amplify.ListBranches.ListBranches
-instance GHC.Generics.Generic Network.AWS.Amplify.ListBranches.ListBranchesResponse
-instance GHC.Show.Show Network.AWS.Amplify.ListBranches.ListBranchesResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.ListBranches.ListBranchesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.ListBranches.ListBranches
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListBranches.ListBranchesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Amplify.ListBranches.ListBranches
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.ListBranches.ListBranches
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListBranches.ListBranches
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.ListBranches.ListBranches
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.ListBranches.ListBranches
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.ListBranches.ListBranches
+instance GHC.Generics.Generic Amazonka.Amplify.ListBranches.ListBranches
+instance GHC.Show.Show Amazonka.Amplify.ListBranches.ListBranches
+instance GHC.Read.Read Amazonka.Amplify.ListBranches.ListBranches
+instance GHC.Classes.Eq Amazonka.Amplify.ListBranches.ListBranches
+instance GHC.Generics.Generic Amazonka.Amplify.ListBranches.ListBranchesResponse
+instance GHC.Show.Show Amazonka.Amplify.ListBranches.ListBranchesResponse
+instance GHC.Classes.Eq Amazonka.Amplify.ListBranches.ListBranchesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.ListBranches.ListBranches
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListBranches.ListBranchesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Amplify.ListBranches.ListBranches
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.ListBranches.ListBranches
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListBranches.ListBranches
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.ListBranches.ListBranches
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.ListBranches.ListBranches
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.ListBranches.ListBranches
 
 
 -- | Lists the backend environments for an Amplify app.
-module Network.AWS.Amplify.ListBackendEnvironments
+module Amazonka.Amplify.ListBackendEnvironments
 
 -- | The request structure for the list backend environments request.
 --   
@@ -4376,25 +4376,25 @@ listBackendEnvironmentsResponse_httpStatus :: Lens' ListBackendEnvironmentsRespo
 
 -- | The list of backend environments for an Amplify app.
 listBackendEnvironmentsResponse_backendEnvironments :: Lens' ListBackendEnvironmentsResponse [BackendEnvironment]
-instance GHC.Generics.Generic Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
-instance GHC.Show.Show Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
-instance GHC.Read.Read Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
-instance GHC.Classes.Eq Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
-instance GHC.Generics.Generic Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
-instance GHC.Show.Show Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
-instance GHC.Read.Read Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance GHC.Generics.Generic Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance GHC.Show.Show Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance GHC.Read.Read Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance GHC.Classes.Eq Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance GHC.Generics.Generic Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
+instance GHC.Show.Show Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
+instance GHC.Read.Read Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
+instance GHC.Classes.Eq Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironmentsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.ListBackendEnvironments.ListBackendEnvironments
 
 
 -- | Returns a list of artifacts for a specified app, branch, and job.
-module Network.AWS.Amplify.ListArtifacts
+module Amazonka.Amplify.ListArtifacts
 
 -- | Describes the request structure for the list artifacts request.
 --   
@@ -4510,27 +4510,27 @@ listArtifactsResponse_httpStatus :: Lens' ListArtifactsResponse Int
 
 -- | A list of artifacts.
 listArtifactsResponse_artifacts :: Lens' ListArtifactsResponse [Artifact]
-instance GHC.Generics.Generic Network.AWS.Amplify.ListArtifacts.ListArtifacts
-instance GHC.Show.Show Network.AWS.Amplify.ListArtifacts.ListArtifacts
-instance GHC.Read.Read Network.AWS.Amplify.ListArtifacts.ListArtifacts
-instance GHC.Classes.Eq Network.AWS.Amplify.ListArtifacts.ListArtifacts
-instance GHC.Generics.Generic Network.AWS.Amplify.ListArtifacts.ListArtifactsResponse
-instance GHC.Show.Show Network.AWS.Amplify.ListArtifacts.ListArtifactsResponse
-instance GHC.Read.Read Network.AWS.Amplify.ListArtifacts.ListArtifactsResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.ListArtifacts.ListArtifactsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.ListArtifacts.ListArtifacts
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListArtifacts.ListArtifactsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.ListArtifacts.ListArtifacts
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListArtifacts.ListArtifacts
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.ListArtifacts.ListArtifacts
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.ListArtifacts.ListArtifacts
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.ListArtifacts.ListArtifacts
+instance GHC.Generics.Generic Amazonka.Amplify.ListArtifacts.ListArtifacts
+instance GHC.Show.Show Amazonka.Amplify.ListArtifacts.ListArtifacts
+instance GHC.Read.Read Amazonka.Amplify.ListArtifacts.ListArtifacts
+instance GHC.Classes.Eq Amazonka.Amplify.ListArtifacts.ListArtifacts
+instance GHC.Generics.Generic Amazonka.Amplify.ListArtifacts.ListArtifactsResponse
+instance GHC.Show.Show Amazonka.Amplify.ListArtifacts.ListArtifactsResponse
+instance GHC.Read.Read Amazonka.Amplify.ListArtifacts.ListArtifactsResponse
+instance GHC.Classes.Eq Amazonka.Amplify.ListArtifacts.ListArtifactsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.ListArtifacts.ListArtifacts
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListArtifacts.ListArtifactsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.ListArtifacts.ListArtifacts
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListArtifacts.ListArtifacts
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.ListArtifacts.ListArtifacts
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.ListArtifacts.ListArtifacts
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.ListArtifacts.ListArtifacts
 
 
 -- | Returns a list of the existing Amplify apps.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Amplify.ListApps
+module Amazonka.Amplify.ListApps
 
 -- | The request structure for the list apps request.
 --   
@@ -4616,26 +4616,26 @@ listAppsResponse_httpStatus :: Lens' ListAppsResponse Int
 
 -- | A list of Amplify apps.
 listAppsResponse_apps :: Lens' ListAppsResponse [App]
-instance GHC.Generics.Generic Network.AWS.Amplify.ListApps.ListApps
-instance GHC.Show.Show Network.AWS.Amplify.ListApps.ListApps
-instance GHC.Read.Read Network.AWS.Amplify.ListApps.ListApps
-instance GHC.Classes.Eq Network.AWS.Amplify.ListApps.ListApps
-instance GHC.Generics.Generic Network.AWS.Amplify.ListApps.ListAppsResponse
-instance GHC.Show.Show Network.AWS.Amplify.ListApps.ListAppsResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.ListApps.ListAppsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.ListApps.ListApps
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListApps.ListAppsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Amplify.ListApps.ListApps
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.ListApps.ListApps
-instance Control.DeepSeq.NFData Network.AWS.Amplify.ListApps.ListApps
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.ListApps.ListApps
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.ListApps.ListApps
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.ListApps.ListApps
+instance GHC.Generics.Generic Amazonka.Amplify.ListApps.ListApps
+instance GHC.Show.Show Amazonka.Amplify.ListApps.ListApps
+instance GHC.Read.Read Amazonka.Amplify.ListApps.ListApps
+instance GHC.Classes.Eq Amazonka.Amplify.ListApps.ListApps
+instance GHC.Generics.Generic Amazonka.Amplify.ListApps.ListAppsResponse
+instance GHC.Show.Show Amazonka.Amplify.ListApps.ListAppsResponse
+instance GHC.Classes.Eq Amazonka.Amplify.ListApps.ListAppsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.ListApps.ListApps
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListApps.ListAppsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Amplify.ListApps.ListApps
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.ListApps.ListApps
+instance Control.DeepSeq.NFData Amazonka.Amplify.ListApps.ListApps
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.ListApps.ListApps
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.ListApps.ListApps
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.ListApps.ListApps
 
 
 -- | Returns the webhook information that corresponds to a specified
 --   webhook ID.
-module Network.AWS.Amplify.GetWebhook
+module Amazonka.Amplify.GetWebhook
 
 -- | The request structure for the get webhook request.
 --   
@@ -4696,25 +4696,25 @@ getWebhookResponse_httpStatus :: Lens' GetWebhookResponse Int
 
 -- | Describes the structure of a webhook.
 getWebhookResponse_webhook :: Lens' GetWebhookResponse Webhook
-instance GHC.Generics.Generic Network.AWS.Amplify.GetWebhook.GetWebhook
-instance GHC.Show.Show Network.AWS.Amplify.GetWebhook.GetWebhook
-instance GHC.Read.Read Network.AWS.Amplify.GetWebhook.GetWebhook
-instance GHC.Classes.Eq Network.AWS.Amplify.GetWebhook.GetWebhook
-instance GHC.Generics.Generic Network.AWS.Amplify.GetWebhook.GetWebhookResponse
-instance GHC.Show.Show Network.AWS.Amplify.GetWebhook.GetWebhookResponse
-instance GHC.Read.Read Network.AWS.Amplify.GetWebhook.GetWebhookResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.GetWebhook.GetWebhookResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.GetWebhook.GetWebhook
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetWebhook.GetWebhookResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.GetWebhook.GetWebhook
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetWebhook.GetWebhook
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.GetWebhook.GetWebhook
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.GetWebhook.GetWebhook
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.GetWebhook.GetWebhook
+instance GHC.Generics.Generic Amazonka.Amplify.GetWebhook.GetWebhook
+instance GHC.Show.Show Amazonka.Amplify.GetWebhook.GetWebhook
+instance GHC.Read.Read Amazonka.Amplify.GetWebhook.GetWebhook
+instance GHC.Classes.Eq Amazonka.Amplify.GetWebhook.GetWebhook
+instance GHC.Generics.Generic Amazonka.Amplify.GetWebhook.GetWebhookResponse
+instance GHC.Show.Show Amazonka.Amplify.GetWebhook.GetWebhookResponse
+instance GHC.Read.Read Amazonka.Amplify.GetWebhook.GetWebhookResponse
+instance GHC.Classes.Eq Amazonka.Amplify.GetWebhook.GetWebhookResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.GetWebhook.GetWebhook
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetWebhook.GetWebhookResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.GetWebhook.GetWebhook
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetWebhook.GetWebhook
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.GetWebhook.GetWebhook
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.GetWebhook.GetWebhook
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.GetWebhook.GetWebhook
 
 
 -- | Returns a job for a branch of an Amplify app.
-module Network.AWS.Amplify.GetJob
+module Amazonka.Amplify.GetJob
 
 -- | The request structure for the get job request.
 --   
@@ -4787,25 +4787,25 @@ getJobResponse_httpStatus :: Lens' GetJobResponse Int
 
 -- | Undocumented member.
 getJobResponse_job :: Lens' GetJobResponse Job
-instance GHC.Generics.Generic Network.AWS.Amplify.GetJob.GetJob
-instance GHC.Show.Show Network.AWS.Amplify.GetJob.GetJob
-instance GHC.Read.Read Network.AWS.Amplify.GetJob.GetJob
-instance GHC.Classes.Eq Network.AWS.Amplify.GetJob.GetJob
-instance GHC.Generics.Generic Network.AWS.Amplify.GetJob.GetJobResponse
-instance GHC.Show.Show Network.AWS.Amplify.GetJob.GetJobResponse
-instance GHC.Read.Read Network.AWS.Amplify.GetJob.GetJobResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.GetJob.GetJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.GetJob.GetJob
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetJob.GetJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.GetJob.GetJob
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetJob.GetJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.GetJob.GetJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.GetJob.GetJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.GetJob.GetJob
+instance GHC.Generics.Generic Amazonka.Amplify.GetJob.GetJob
+instance GHC.Show.Show Amazonka.Amplify.GetJob.GetJob
+instance GHC.Read.Read Amazonka.Amplify.GetJob.GetJob
+instance GHC.Classes.Eq Amazonka.Amplify.GetJob.GetJob
+instance GHC.Generics.Generic Amazonka.Amplify.GetJob.GetJobResponse
+instance GHC.Show.Show Amazonka.Amplify.GetJob.GetJobResponse
+instance GHC.Read.Read Amazonka.Amplify.GetJob.GetJobResponse
+instance GHC.Classes.Eq Amazonka.Amplify.GetJob.GetJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.GetJob.GetJob
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetJob.GetJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.GetJob.GetJob
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetJob.GetJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.GetJob.GetJob
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.GetJob.GetJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.GetJob.GetJob
 
 
 -- | Returns the domain information for an Amplify app.
-module Network.AWS.Amplify.GetDomainAssociation
+module Amazonka.Amplify.GetDomainAssociation
 
 -- | The request structure for the get domain association request.
 --   
@@ -4879,25 +4879,25 @@ getDomainAssociationResponse_httpStatus :: Lens' GetDomainAssociationResponse In
 -- | Describes the structure of a domain association, which associates a
 --   custom domain with an Amplify app.
 getDomainAssociationResponse_domainAssociation :: Lens' GetDomainAssociationResponse DomainAssociation
-instance GHC.Generics.Generic Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
-instance GHC.Show.Show Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
-instance GHC.Read.Read Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
-instance GHC.Classes.Eq Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
-instance GHC.Generics.Generic Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociationResponse
-instance GHC.Show.Show Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociationResponse
-instance GHC.Read.Read Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociationResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.GetDomainAssociation.GetDomainAssociation
+instance GHC.Generics.Generic Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
+instance GHC.Show.Show Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
+instance GHC.Read.Read Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
+instance GHC.Classes.Eq Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
+instance GHC.Generics.Generic Amazonka.Amplify.GetDomainAssociation.GetDomainAssociationResponse
+instance GHC.Show.Show Amazonka.Amplify.GetDomainAssociation.GetDomainAssociationResponse
+instance GHC.Read.Read Amazonka.Amplify.GetDomainAssociation.GetDomainAssociationResponse
+instance GHC.Classes.Eq Amazonka.Amplify.GetDomainAssociation.GetDomainAssociationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetDomainAssociation.GetDomainAssociationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.GetDomainAssociation.GetDomainAssociation
 
 
 -- | Returns a branch for an Amplify app.
-module Network.AWS.Amplify.GetBranch
+module Amazonka.Amplify.GetBranch
 
 -- | The request structure for the get branch request.
 --   
@@ -4961,24 +4961,24 @@ getBranchResponse_httpStatus :: Lens' GetBranchResponse Int
 
 -- | Undocumented member.
 getBranchResponse_branch :: Lens' GetBranchResponse Branch
-instance GHC.Generics.Generic Network.AWS.Amplify.GetBranch.GetBranch
-instance GHC.Show.Show Network.AWS.Amplify.GetBranch.GetBranch
-instance GHC.Read.Read Network.AWS.Amplify.GetBranch.GetBranch
-instance GHC.Classes.Eq Network.AWS.Amplify.GetBranch.GetBranch
-instance GHC.Generics.Generic Network.AWS.Amplify.GetBranch.GetBranchResponse
-instance GHC.Show.Show Network.AWS.Amplify.GetBranch.GetBranchResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.GetBranch.GetBranchResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.GetBranch.GetBranch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetBranch.GetBranchResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.GetBranch.GetBranch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetBranch.GetBranch
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.GetBranch.GetBranch
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.GetBranch.GetBranch
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.GetBranch.GetBranch
+instance GHC.Generics.Generic Amazonka.Amplify.GetBranch.GetBranch
+instance GHC.Show.Show Amazonka.Amplify.GetBranch.GetBranch
+instance GHC.Read.Read Amazonka.Amplify.GetBranch.GetBranch
+instance GHC.Classes.Eq Amazonka.Amplify.GetBranch.GetBranch
+instance GHC.Generics.Generic Amazonka.Amplify.GetBranch.GetBranchResponse
+instance GHC.Show.Show Amazonka.Amplify.GetBranch.GetBranchResponse
+instance GHC.Classes.Eq Amazonka.Amplify.GetBranch.GetBranchResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.GetBranch.GetBranch
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetBranch.GetBranchResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.GetBranch.GetBranch
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetBranch.GetBranch
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.GetBranch.GetBranch
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.GetBranch.GetBranch
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.GetBranch.GetBranch
 
 
 -- | Returns a backend environment for an Amplify app.
-module Network.AWS.Amplify.GetBackendEnvironment
+module Amazonka.Amplify.GetBackendEnvironment
 
 -- | The request structure for the get backend environment request.
 --   
@@ -5050,25 +5050,25 @@ getBackendEnvironmentResponse_httpStatus :: Lens' GetBackendEnvironmentResponse 
 
 -- | Describes the backend environment for an Amplify app.
 getBackendEnvironmentResponse_backendEnvironment :: Lens' GetBackendEnvironmentResponse BackendEnvironment
-instance GHC.Generics.Generic Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
-instance GHC.Show.Show Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
-instance GHC.Read.Read Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
-instance GHC.Classes.Eq Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
-instance GHC.Generics.Generic Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
-instance GHC.Show.Show Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
-instance GHC.Read.Read Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance GHC.Generics.Generic Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance GHC.Show.Show Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance GHC.Read.Read Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance GHC.Classes.Eq Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance GHC.Generics.Generic Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
+instance GHC.Show.Show Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
+instance GHC.Read.Read Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.GetBackendEnvironment.GetBackendEnvironment
 
 
 -- | Returns the artifact info that corresponds to an artifact id.
-module Network.AWS.Amplify.GetArtifactUrl
+module Amazonka.Amplify.GetArtifactUrl
 
 -- | Returns the request structure for the get artifact request.
 --   
@@ -5140,25 +5140,25 @@ getArtifactUrlResponse_artifactId :: Lens' GetArtifactUrlResponse Text
 
 -- | The presigned URL for the artifact.
 getArtifactUrlResponse_artifactUrl :: Lens' GetArtifactUrlResponse Text
-instance GHC.Generics.Generic Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
-instance GHC.Show.Show Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
-instance GHC.Read.Read Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
-instance GHC.Classes.Eq Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
-instance GHC.Generics.Generic Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrlResponse
-instance GHC.Show.Show Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrlResponse
-instance GHC.Read.Read Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrlResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrlResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrlResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.GetArtifactUrl.GetArtifactUrl
+instance GHC.Generics.Generic Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
+instance GHC.Show.Show Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
+instance GHC.Read.Read Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
+instance GHC.Classes.Eq Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
+instance GHC.Generics.Generic Amazonka.Amplify.GetArtifactUrl.GetArtifactUrlResponse
+instance GHC.Show.Show Amazonka.Amplify.GetArtifactUrl.GetArtifactUrlResponse
+instance GHC.Read.Read Amazonka.Amplify.GetArtifactUrl.GetArtifactUrlResponse
+instance GHC.Classes.Eq Amazonka.Amplify.GetArtifactUrl.GetArtifactUrlResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetArtifactUrl.GetArtifactUrlResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.GetArtifactUrl.GetArtifactUrl
 
 
 -- | Returns an existing Amplify app by appID.
-module Network.AWS.Amplify.GetApp
+module Amazonka.Amplify.GetApp
 
 -- | The request structure for the get app request.
 --   
@@ -5213,25 +5213,25 @@ getAppResponse_httpStatus :: Lens' GetAppResponse Int
 
 -- | Undocumented member.
 getAppResponse_app :: Lens' GetAppResponse App
-instance GHC.Generics.Generic Network.AWS.Amplify.GetApp.GetApp
-instance GHC.Show.Show Network.AWS.Amplify.GetApp.GetApp
-instance GHC.Read.Read Network.AWS.Amplify.GetApp.GetApp
-instance GHC.Classes.Eq Network.AWS.Amplify.GetApp.GetApp
-instance GHC.Generics.Generic Network.AWS.Amplify.GetApp.GetAppResponse
-instance GHC.Show.Show Network.AWS.Amplify.GetApp.GetAppResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.GetApp.GetAppResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.GetApp.GetApp
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetApp.GetAppResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.GetApp.GetApp
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GetApp.GetApp
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.GetApp.GetApp
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.GetApp.GetApp
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.GetApp.GetApp
+instance GHC.Generics.Generic Amazonka.Amplify.GetApp.GetApp
+instance GHC.Show.Show Amazonka.Amplify.GetApp.GetApp
+instance GHC.Read.Read Amazonka.Amplify.GetApp.GetApp
+instance GHC.Classes.Eq Amazonka.Amplify.GetApp.GetApp
+instance GHC.Generics.Generic Amazonka.Amplify.GetApp.GetAppResponse
+instance GHC.Show.Show Amazonka.Amplify.GetApp.GetAppResponse
+instance GHC.Classes.Eq Amazonka.Amplify.GetApp.GetAppResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.GetApp.GetApp
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetApp.GetAppResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.GetApp.GetApp
+instance Control.DeepSeq.NFData Amazonka.Amplify.GetApp.GetApp
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.GetApp.GetApp
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.GetApp.GetApp
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.GetApp.GetApp
 
 
 -- | Returns the website access logs for a specific time range using a
 --   presigned URL.
-module Network.AWS.Amplify.GenerateAccessLogs
+module Amazonka.Amplify.GenerateAccessLogs
 
 -- | The request structure for the generate access logs request.
 --   
@@ -5326,26 +5326,26 @@ generateAccessLogsResponse_logUrl :: Lens' GenerateAccessLogsResponse (Maybe Tex
 
 -- | The response's http status code.
 generateAccessLogsResponse_httpStatus :: Lens' GenerateAccessLogsResponse Int
-instance GHC.Generics.Generic Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance GHC.Show.Show Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance GHC.Read.Read Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance GHC.Classes.Eq Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance GHC.Generics.Generic Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
-instance GHC.Show.Show Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
-instance GHC.Read.Read Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance Control.DeepSeq.NFData Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance GHC.Generics.Generic Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance GHC.Show.Show Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance GHC.Read.Read Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance GHC.Classes.Eq Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance GHC.Generics.Generic Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
+instance GHC.Show.Show Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
+instance GHC.Read.Read Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
+instance GHC.Classes.Eq Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance Control.DeepSeq.NFData Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance Control.DeepSeq.NFData Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.GenerateAccessLogs.GenerateAccessLogs
 
 
 -- | Deletes a webhook.
-module Network.AWS.Amplify.DeleteWebhook
+module Amazonka.Amplify.DeleteWebhook
 
 -- | The request structure for the delete webhook request.
 --   
@@ -5407,25 +5407,25 @@ deleteWebhookResponse_httpStatus :: Lens' DeleteWebhookResponse Int
 
 -- | Describes a webhook that connects repository events to an Amplify app.
 deleteWebhookResponse_webhook :: Lens' DeleteWebhookResponse Webhook
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
-instance GHC.Show.Show Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
-instance GHC.Read.Read Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteWebhook.DeleteWebhookResponse
-instance GHC.Show.Show Network.AWS.Amplify.DeleteWebhook.DeleteWebhookResponse
-instance GHC.Read.Read Network.AWS.Amplify.DeleteWebhook.DeleteWebhookResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteWebhook.DeleteWebhookResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteWebhook.DeleteWebhookResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.DeleteWebhook.DeleteWebhook
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteWebhook.DeleteWebhook
+instance GHC.Show.Show Amazonka.Amplify.DeleteWebhook.DeleteWebhook
+instance GHC.Read.Read Amazonka.Amplify.DeleteWebhook.DeleteWebhook
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteWebhook.DeleteWebhook
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteWebhook.DeleteWebhookResponse
+instance GHC.Show.Show Amazonka.Amplify.DeleteWebhook.DeleteWebhookResponse
+instance GHC.Read.Read Amazonka.Amplify.DeleteWebhook.DeleteWebhookResponse
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteWebhook.DeleteWebhookResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.DeleteWebhook.DeleteWebhook
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteWebhook.DeleteWebhookResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.DeleteWebhook.DeleteWebhook
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteWebhook.DeleteWebhook
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.DeleteWebhook.DeleteWebhook
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.DeleteWebhook.DeleteWebhook
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.DeleteWebhook.DeleteWebhook
 
 
 -- | Deletes a job for a branch of an Amplify app.
-module Network.AWS.Amplify.DeleteJob
+module Amazonka.Amplify.DeleteJob
 
 -- | The request structure for the delete job request.
 --   
@@ -5500,25 +5500,25 @@ deleteJobResponse_httpStatus :: Lens' DeleteJobResponse Int
 
 -- | Undocumented member.
 deleteJobResponse_jobSummary :: Lens' DeleteJobResponse JobSummary
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteJob.DeleteJob
-instance GHC.Show.Show Network.AWS.Amplify.DeleteJob.DeleteJob
-instance GHC.Read.Read Network.AWS.Amplify.DeleteJob.DeleteJob
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteJob.DeleteJob
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteJob.DeleteJobResponse
-instance GHC.Show.Show Network.AWS.Amplify.DeleteJob.DeleteJobResponse
-instance GHC.Read.Read Network.AWS.Amplify.DeleteJob.DeleteJobResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteJob.DeleteJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.DeleteJob.DeleteJob
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteJob.DeleteJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.DeleteJob.DeleteJob
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteJob.DeleteJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.DeleteJob.DeleteJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.DeleteJob.DeleteJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.DeleteJob.DeleteJob
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteJob.DeleteJob
+instance GHC.Show.Show Amazonka.Amplify.DeleteJob.DeleteJob
+instance GHC.Read.Read Amazonka.Amplify.DeleteJob.DeleteJob
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteJob.DeleteJob
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteJob.DeleteJobResponse
+instance GHC.Show.Show Amazonka.Amplify.DeleteJob.DeleteJobResponse
+instance GHC.Read.Read Amazonka.Amplify.DeleteJob.DeleteJobResponse
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteJob.DeleteJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.DeleteJob.DeleteJob
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteJob.DeleteJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.DeleteJob.DeleteJob
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteJob.DeleteJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.DeleteJob.DeleteJob
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.DeleteJob.DeleteJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.DeleteJob.DeleteJob
 
 
 -- | Deletes a domain association for an Amplify app.
-module Network.AWS.Amplify.DeleteDomainAssociation
+module Amazonka.Amplify.DeleteDomainAssociation
 
 -- | The request structure for the delete domain association request.
 --   
@@ -5587,25 +5587,25 @@ deleteDomainAssociationResponse_httpStatus :: Lens' DeleteDomainAssociationRespo
 
 -- | Undocumented member.
 deleteDomainAssociationResponse_domainAssociation :: Lens' DeleteDomainAssociationResponse DomainAssociation
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
-instance GHC.Show.Show Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
-instance GHC.Read.Read Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
-instance GHC.Show.Show Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
-instance GHC.Read.Read Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance GHC.Show.Show Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance GHC.Read.Read Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
+instance GHC.Show.Show Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
+instance GHC.Read.Read Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.DeleteDomainAssociation.DeleteDomainAssociation
 
 
 -- | Deletes a branch for an Amplify app.
-module Network.AWS.Amplify.DeleteBranch
+module Amazonka.Amplify.DeleteBranch
 
 -- | The request structure for the delete branch request.
 --   
@@ -5678,24 +5678,24 @@ deleteBranchResponse_httpStatus :: Lens' DeleteBranchResponse Int
 -- | The branch for an Amplify app, which maps to a third-party repository
 --   branch.
 deleteBranchResponse_branch :: Lens' DeleteBranchResponse Branch
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteBranch.DeleteBranch
-instance GHC.Show.Show Network.AWS.Amplify.DeleteBranch.DeleteBranch
-instance GHC.Read.Read Network.AWS.Amplify.DeleteBranch.DeleteBranch
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteBranch.DeleteBranch
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteBranch.DeleteBranchResponse
-instance GHC.Show.Show Network.AWS.Amplify.DeleteBranch.DeleteBranchResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteBranch.DeleteBranchResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.DeleteBranch.DeleteBranch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteBranch.DeleteBranchResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.DeleteBranch.DeleteBranch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteBranch.DeleteBranch
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.DeleteBranch.DeleteBranch
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.DeleteBranch.DeleteBranch
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.DeleteBranch.DeleteBranch
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteBranch.DeleteBranch
+instance GHC.Show.Show Amazonka.Amplify.DeleteBranch.DeleteBranch
+instance GHC.Read.Read Amazonka.Amplify.DeleteBranch.DeleteBranch
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteBranch.DeleteBranch
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteBranch.DeleteBranchResponse
+instance GHC.Show.Show Amazonka.Amplify.DeleteBranch.DeleteBranchResponse
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteBranch.DeleteBranchResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.DeleteBranch.DeleteBranch
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteBranch.DeleteBranchResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.DeleteBranch.DeleteBranch
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteBranch.DeleteBranch
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.DeleteBranch.DeleteBranch
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.DeleteBranch.DeleteBranch
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.DeleteBranch.DeleteBranch
 
 
 -- | Deletes a backend environment for an Amplify app.
-module Network.AWS.Amplify.DeleteBackendEnvironment
+module Amazonka.Amplify.DeleteBackendEnvironment
 
 -- | The request structure for the delete backend environment request.
 --   
@@ -5769,25 +5769,25 @@ deleteBackendEnvironmentResponse_httpStatus :: Lens' DeleteBackendEnvironmentRes
 
 -- | Describes the backend environment for an Amplify app.
 deleteBackendEnvironmentResponse_backendEnvironment :: Lens' DeleteBackendEnvironmentResponse BackendEnvironment
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
-instance GHC.Show.Show Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
-instance GHC.Read.Read Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
-instance GHC.Show.Show Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
-instance GHC.Read.Read Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance GHC.Show.Show Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance GHC.Read.Read Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
+instance GHC.Show.Show Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
+instance GHC.Read.Read Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.DeleteBackendEnvironment.DeleteBackendEnvironment
 
 
 -- | Deletes an existing Amplify app specified by an app ID.
-module Network.AWS.Amplify.DeleteApp
+module Amazonka.Amplify.DeleteApp
 
 -- | Describes the request structure for the delete app request.
 --   
@@ -5844,24 +5844,24 @@ deleteAppResponse_httpStatus :: Lens' DeleteAppResponse Int
 
 -- | Undocumented member.
 deleteAppResponse_app :: Lens' DeleteAppResponse App
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteApp.DeleteApp
-instance GHC.Show.Show Network.AWS.Amplify.DeleteApp.DeleteApp
-instance GHC.Read.Read Network.AWS.Amplify.DeleteApp.DeleteApp
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteApp.DeleteApp
-instance GHC.Generics.Generic Network.AWS.Amplify.DeleteApp.DeleteAppResponse
-instance GHC.Show.Show Network.AWS.Amplify.DeleteApp.DeleteAppResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.DeleteApp.DeleteAppResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.DeleteApp.DeleteApp
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteApp.DeleteAppResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.DeleteApp.DeleteApp
-instance Control.DeepSeq.NFData Network.AWS.Amplify.DeleteApp.DeleteApp
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.DeleteApp.DeleteApp
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.DeleteApp.DeleteApp
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.DeleteApp.DeleteApp
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteApp.DeleteApp
+instance GHC.Show.Show Amazonka.Amplify.DeleteApp.DeleteApp
+instance GHC.Read.Read Amazonka.Amplify.DeleteApp.DeleteApp
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteApp.DeleteApp
+instance GHC.Generics.Generic Amazonka.Amplify.DeleteApp.DeleteAppResponse
+instance GHC.Show.Show Amazonka.Amplify.DeleteApp.DeleteAppResponse
+instance GHC.Classes.Eq Amazonka.Amplify.DeleteApp.DeleteAppResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.DeleteApp.DeleteApp
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteApp.DeleteAppResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.DeleteApp.DeleteApp
+instance Control.DeepSeq.NFData Amazonka.Amplify.DeleteApp.DeleteApp
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.DeleteApp.DeleteApp
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.DeleteApp.DeleteApp
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.DeleteApp.DeleteApp
 
 
 -- | Creates a new webhook on an Amplify app.
-module Network.AWS.Amplify.CreateWebhook
+module Amazonka.Amplify.CreateWebhook
 
 -- | The request structure for the create webhook request.
 --   
@@ -5941,27 +5941,27 @@ createWebhookResponse_httpStatus :: Lens' CreateWebhookResponse Int
 
 -- | Describes a webhook that connects repository events to an Amplify app.
 createWebhookResponse_webhook :: Lens' CreateWebhookResponse Webhook
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance GHC.Show.Show Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance GHC.Read.Read Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateWebhook.CreateWebhookResponse
-instance GHC.Show.Show Network.AWS.Amplify.CreateWebhook.CreateWebhookResponse
-instance GHC.Read.Read Network.AWS.Amplify.CreateWebhook.CreateWebhookResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateWebhook.CreateWebhookResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateWebhook.CreateWebhookResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.CreateWebhook.CreateWebhook
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.CreateWebhook.CreateWebhook
+instance GHC.Generics.Generic Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance GHC.Show.Show Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance GHC.Read.Read Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance GHC.Classes.Eq Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance GHC.Generics.Generic Amazonka.Amplify.CreateWebhook.CreateWebhookResponse
+instance GHC.Show.Show Amazonka.Amplify.CreateWebhook.CreateWebhookResponse
+instance GHC.Read.Read Amazonka.Amplify.CreateWebhook.CreateWebhookResponse
+instance GHC.Classes.Eq Amazonka.Amplify.CreateWebhook.CreateWebhookResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateWebhook.CreateWebhookResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.CreateWebhook.CreateWebhook
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.CreateWebhook.CreateWebhook
 
 
 -- | Creates a new domain association for an Amplify app. This action
 --   associates a custom domain with the Amplify app
-module Network.AWS.Amplify.CreateDomainAssociation
+module Amazonka.Amplify.CreateDomainAssociation
 
 -- | The request structure for the create domain association request.
 --   
@@ -6081,27 +6081,27 @@ createDomainAssociationResponse_httpStatus :: Lens' CreateDomainAssociationRespo
 -- | Describes the structure of a domain association, which associates a
 --   custom domain with an Amplify app.
 createDomainAssociationResponse_domainAssociation :: Lens' CreateDomainAssociationResponse DomainAssociation
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance GHC.Show.Show Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance GHC.Read.Read Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
-instance GHC.Show.Show Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
-instance GHC.Read.Read Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance GHC.Generics.Generic Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance GHC.Show.Show Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance GHC.Read.Read Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance GHC.Classes.Eq Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance GHC.Generics.Generic Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
+instance GHC.Show.Show Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
+instance GHC.Read.Read Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
+instance GHC.Classes.Eq Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.CreateDomainAssociation.CreateDomainAssociation
 
 
 -- | Creates a deployment for a manually deployed Amplify app. Manually
 --   deployed apps are not connected to a repository.
-module Network.AWS.Amplify.CreateDeployment
+module Amazonka.Amplify.CreateDeployment
 
 -- | The request structure for the create a new deployment request.
 --   
@@ -6220,26 +6220,26 @@ createDeploymentResponse_fileUploadUrls :: Lens' CreateDeploymentResponse (HashM
 -- | When the <tt>fileMap</tt> argument is not provided in the request,
 --   this <tt>zipUploadUrl</tt> is returned.
 createDeploymentResponse_zipUploadUrl :: Lens' CreateDeploymentResponse Text
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance GHC.Show.Show Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance GHC.Read.Read Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateDeployment.CreateDeploymentResponse
-instance GHC.Show.Show Network.AWS.Amplify.CreateDeployment.CreateDeploymentResponse
-instance GHC.Read.Read Network.AWS.Amplify.CreateDeployment.CreateDeploymentResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateDeployment.CreateDeploymentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateDeployment.CreateDeploymentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.CreateDeployment.CreateDeployment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.CreateDeployment.CreateDeployment
+instance GHC.Generics.Generic Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance GHC.Show.Show Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance GHC.Read.Read Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance GHC.Classes.Eq Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance GHC.Generics.Generic Amazonka.Amplify.CreateDeployment.CreateDeploymentResponse
+instance GHC.Show.Show Amazonka.Amplify.CreateDeployment.CreateDeploymentResponse
+instance GHC.Read.Read Amazonka.Amplify.CreateDeployment.CreateDeploymentResponse
+instance GHC.Classes.Eq Amazonka.Amplify.CreateDeployment.CreateDeploymentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateDeployment.CreateDeploymentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.CreateDeployment.CreateDeployment
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.CreateDeployment.CreateDeployment
 
 
 -- | Creates a new branch for an Amplify app.
-module Network.AWS.Amplify.CreateBranch
+module Amazonka.Amplify.CreateBranch
 
 -- | The request structure for the create branch request.
 --   
@@ -6485,24 +6485,24 @@ createBranchResponse_httpStatus :: Lens' CreateBranchResponse Int
 -- | Describes the branch for an Amplify app, which maps to a third-party
 --   repository branch.
 createBranchResponse_branch :: Lens' CreateBranchResponse Branch
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateBranch.CreateBranch
-instance GHC.Show.Show Network.AWS.Amplify.CreateBranch.CreateBranch
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateBranch.CreateBranch
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateBranch.CreateBranchResponse
-instance GHC.Show.Show Network.AWS.Amplify.CreateBranch.CreateBranchResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateBranch.CreateBranchResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.CreateBranch.CreateBranch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateBranch.CreateBranchResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.CreateBranch.CreateBranch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateBranch.CreateBranch
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.CreateBranch.CreateBranch
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.CreateBranch.CreateBranch
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.CreateBranch.CreateBranch
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.CreateBranch.CreateBranch
+instance GHC.Generics.Generic Amazonka.Amplify.CreateBranch.CreateBranch
+instance GHC.Show.Show Amazonka.Amplify.CreateBranch.CreateBranch
+instance GHC.Classes.Eq Amazonka.Amplify.CreateBranch.CreateBranch
+instance GHC.Generics.Generic Amazonka.Amplify.CreateBranch.CreateBranchResponse
+instance GHC.Show.Show Amazonka.Amplify.CreateBranch.CreateBranchResponse
+instance GHC.Classes.Eq Amazonka.Amplify.CreateBranch.CreateBranchResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.CreateBranch.CreateBranch
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateBranch.CreateBranchResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.CreateBranch.CreateBranch
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateBranch.CreateBranch
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.CreateBranch.CreateBranch
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.CreateBranch.CreateBranch
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.CreateBranch.CreateBranch
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.CreateBranch.CreateBranch
 
 
 -- | Creates a new backend environment for an Amplify app.
-module Network.AWS.Amplify.CreateBackendEnvironment
+module Amazonka.Amplify.CreateBackendEnvironment
 
 -- | The request structure for the backend environment create request.
 --   
@@ -6596,26 +6596,26 @@ createBackendEnvironmentResponse_httpStatus :: Lens' CreateBackendEnvironmentRes
 
 -- | Describes the backend environment for an Amplify app.
 createBackendEnvironmentResponse_backendEnvironment :: Lens' CreateBackendEnvironmentResponse BackendEnvironment
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance GHC.Show.Show Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance GHC.Read.Read Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
-instance GHC.Show.Show Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
-instance GHC.Read.Read Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance GHC.Generics.Generic Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance GHC.Show.Show Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance GHC.Read.Read Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance GHC.Classes.Eq Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance GHC.Generics.Generic Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
+instance GHC.Show.Show Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
+instance GHC.Read.Read Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.CreateBackendEnvironment.CreateBackendEnvironment
 
 
 -- | Creates a new Amplify app.
-module Network.AWS.Amplify.CreateApp
+module Amazonka.Amplify.CreateApp
 
 -- | The request structure used to create apps in Amplify.
 --   
@@ -6861,24 +6861,24 @@ createAppResponse_httpStatus :: Lens' CreateAppResponse Int
 
 -- | Undocumented member.
 createAppResponse_app :: Lens' CreateAppResponse App
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateApp.CreateApp
-instance GHC.Show.Show Network.AWS.Amplify.CreateApp.CreateApp
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateApp.CreateApp
-instance GHC.Generics.Generic Network.AWS.Amplify.CreateApp.CreateAppResponse
-instance GHC.Show.Show Network.AWS.Amplify.CreateApp.CreateAppResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.CreateApp.CreateAppResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.CreateApp.CreateApp
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateApp.CreateAppResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.CreateApp.CreateApp
-instance Control.DeepSeq.NFData Network.AWS.Amplify.CreateApp.CreateApp
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.CreateApp.CreateApp
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.CreateApp.CreateApp
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.CreateApp.CreateApp
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.CreateApp.CreateApp
+instance GHC.Generics.Generic Amazonka.Amplify.CreateApp.CreateApp
+instance GHC.Show.Show Amazonka.Amplify.CreateApp.CreateApp
+instance GHC.Classes.Eq Amazonka.Amplify.CreateApp.CreateApp
+instance GHC.Generics.Generic Amazonka.Amplify.CreateApp.CreateAppResponse
+instance GHC.Show.Show Amazonka.Amplify.CreateApp.CreateAppResponse
+instance GHC.Classes.Eq Amazonka.Amplify.CreateApp.CreateAppResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.CreateApp.CreateApp
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateApp.CreateAppResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.CreateApp.CreateApp
+instance Control.DeepSeq.NFData Amazonka.Amplify.CreateApp.CreateApp
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.CreateApp.CreateApp
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.CreateApp.CreateApp
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.CreateApp.CreateApp
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.CreateApp.CreateApp
 
 
 -- | Untags a resource with a specified Amazon Resource Name (ARN).
-module Network.AWS.Amplify.UntagResource
+module Amazonka.Amplify.UntagResource
 
 -- | The request structure for the untag resource request.
 --   
@@ -6940,25 +6940,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Amplify.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Amplify.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.Amplify.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Amplify.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Amplify.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Amplify.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Amplify.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Amplify.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Amplify.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.Amplify.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Amplify.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Amplify.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Amplify.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Amplify.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Amplify.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Amplify.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Amplify.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.UntagResource.UntagResource
 
 
 -- | Updates an existing Amplify app.
-module Network.AWS.Amplify.UpdateApp
+module Amazonka.Amplify.UpdateApp
 
 -- | The request structure for the update app request.
 --   
@@ -7207,24 +7207,24 @@ updateAppResponse_httpStatus :: Lens' UpdateAppResponse Int
 
 -- | Represents the updated Amplify app.
 updateAppResponse_app :: Lens' UpdateAppResponse App
-instance GHC.Generics.Generic Network.AWS.Amplify.UpdateApp.UpdateApp
-instance GHC.Show.Show Network.AWS.Amplify.UpdateApp.UpdateApp
-instance GHC.Classes.Eq Network.AWS.Amplify.UpdateApp.UpdateApp
-instance GHC.Generics.Generic Network.AWS.Amplify.UpdateApp.UpdateAppResponse
-instance GHC.Show.Show Network.AWS.Amplify.UpdateApp.UpdateAppResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.UpdateApp.UpdateAppResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.UpdateApp.UpdateApp
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UpdateApp.UpdateAppResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.UpdateApp.UpdateApp
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UpdateApp.UpdateApp
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.UpdateApp.UpdateApp
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.UpdateApp.UpdateApp
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.UpdateApp.UpdateApp
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.UpdateApp.UpdateApp
+instance GHC.Generics.Generic Amazonka.Amplify.UpdateApp.UpdateApp
+instance GHC.Show.Show Amazonka.Amplify.UpdateApp.UpdateApp
+instance GHC.Classes.Eq Amazonka.Amplify.UpdateApp.UpdateApp
+instance GHC.Generics.Generic Amazonka.Amplify.UpdateApp.UpdateAppResponse
+instance GHC.Show.Show Amazonka.Amplify.UpdateApp.UpdateAppResponse
+instance GHC.Classes.Eq Amazonka.Amplify.UpdateApp.UpdateAppResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.UpdateApp.UpdateApp
+instance Control.DeepSeq.NFData Amazonka.Amplify.UpdateApp.UpdateAppResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.UpdateApp.UpdateApp
+instance Control.DeepSeq.NFData Amazonka.Amplify.UpdateApp.UpdateApp
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.UpdateApp.UpdateApp
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.UpdateApp.UpdateApp
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.UpdateApp.UpdateApp
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.UpdateApp.UpdateApp
 
 
 -- | Updates a branch for an Amplify app.
-module Network.AWS.Amplify.UpdateBranch
+module Amazonka.Amplify.UpdateBranch
 
 -- | The request structure for the update branch request.
 --   
@@ -7461,24 +7461,24 @@ updateBranchResponse_httpStatus :: Lens' UpdateBranchResponse Int
 -- | The branch for an Amplify app, which maps to a third-party repository
 --   branch.
 updateBranchResponse_branch :: Lens' UpdateBranchResponse Branch
-instance GHC.Generics.Generic Network.AWS.Amplify.UpdateBranch.UpdateBranch
-instance GHC.Show.Show Network.AWS.Amplify.UpdateBranch.UpdateBranch
-instance GHC.Classes.Eq Network.AWS.Amplify.UpdateBranch.UpdateBranch
-instance GHC.Generics.Generic Network.AWS.Amplify.UpdateBranch.UpdateBranchResponse
-instance GHC.Show.Show Network.AWS.Amplify.UpdateBranch.UpdateBranchResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.UpdateBranch.UpdateBranchResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.UpdateBranch.UpdateBranch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UpdateBranch.UpdateBranchResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.UpdateBranch.UpdateBranch
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UpdateBranch.UpdateBranch
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.UpdateBranch.UpdateBranch
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.UpdateBranch.UpdateBranch
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.UpdateBranch.UpdateBranch
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.UpdateBranch.UpdateBranch
+instance GHC.Generics.Generic Amazonka.Amplify.UpdateBranch.UpdateBranch
+instance GHC.Show.Show Amazonka.Amplify.UpdateBranch.UpdateBranch
+instance GHC.Classes.Eq Amazonka.Amplify.UpdateBranch.UpdateBranch
+instance GHC.Generics.Generic Amazonka.Amplify.UpdateBranch.UpdateBranchResponse
+instance GHC.Show.Show Amazonka.Amplify.UpdateBranch.UpdateBranchResponse
+instance GHC.Classes.Eq Amazonka.Amplify.UpdateBranch.UpdateBranchResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.UpdateBranch.UpdateBranch
+instance Control.DeepSeq.NFData Amazonka.Amplify.UpdateBranch.UpdateBranchResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.UpdateBranch.UpdateBranch
+instance Control.DeepSeq.NFData Amazonka.Amplify.UpdateBranch.UpdateBranch
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.UpdateBranch.UpdateBranch
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.UpdateBranch.UpdateBranch
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.UpdateBranch.UpdateBranch
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.UpdateBranch.UpdateBranch
 
 
 -- | Creates a new domain association for an Amplify app.
-module Network.AWS.Amplify.UpdateDomainAssociation
+module Amazonka.Amplify.UpdateDomainAssociation
 
 -- | The request structure for the update domain association request.
 --   
@@ -7597,26 +7597,26 @@ updateDomainAssociationResponse_httpStatus :: Lens' UpdateDomainAssociationRespo
 -- | Describes a domain association, which associates a custom domain with
 --   an Amplify app.
 updateDomainAssociationResponse_domainAssociation :: Lens' UpdateDomainAssociationResponse DomainAssociation
-instance GHC.Generics.Generic Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance GHC.Show.Show Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance GHC.Read.Read Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance GHC.Classes.Eq Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance GHC.Generics.Generic Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
-instance GHC.Show.Show Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
-instance GHC.Read.Read Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance GHC.Generics.Generic Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance GHC.Show.Show Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance GHC.Read.Read Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance GHC.Classes.Eq Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance GHC.Generics.Generic Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
+instance GHC.Show.Show Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
+instance GHC.Read.Read Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
+instance GHC.Classes.Eq Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance Control.DeepSeq.NFData Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance Control.DeepSeq.NFData Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.UpdateDomainAssociation.UpdateDomainAssociation
 
 
 -- | Updates a webhook.
-module Network.AWS.Amplify.UpdateWebhook
+module Amazonka.Amplify.UpdateWebhook
 
 -- | The request structure for the update webhook request.
 --   
@@ -7696,25 +7696,25 @@ updateWebhookResponse_httpStatus :: Lens' UpdateWebhookResponse Int
 
 -- | Describes a webhook that connects repository events to an Amplify app.
 updateWebhookResponse_webhook :: Lens' UpdateWebhookResponse Webhook
-instance GHC.Generics.Generic Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance GHC.Show.Show Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance GHC.Read.Read Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance GHC.Classes.Eq Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance GHC.Generics.Generic Network.AWS.Amplify.UpdateWebhook.UpdateWebhookResponse
-instance GHC.Show.Show Network.AWS.Amplify.UpdateWebhook.UpdateWebhookResponse
-instance GHC.Read.Read Network.AWS.Amplify.UpdateWebhook.UpdateWebhookResponse
-instance GHC.Classes.Eq Network.AWS.Amplify.UpdateWebhook.UpdateWebhookResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UpdateWebhook.UpdateWebhookResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance Control.DeepSeq.NFData Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance Network.AWS.Data.Path.ToPath Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Amplify.UpdateWebhook.UpdateWebhook
+instance GHC.Generics.Generic Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance GHC.Show.Show Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance GHC.Read.Read Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance GHC.Classes.Eq Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance GHC.Generics.Generic Amazonka.Amplify.UpdateWebhook.UpdateWebhookResponse
+instance GHC.Show.Show Amazonka.Amplify.UpdateWebhook.UpdateWebhookResponse
+instance GHC.Read.Read Amazonka.Amplify.UpdateWebhook.UpdateWebhookResponse
+instance GHC.Classes.Eq Amazonka.Amplify.UpdateWebhook.UpdateWebhookResponse
+instance Amazonka.Types.AWSRequest Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance Control.DeepSeq.NFData Amazonka.Amplify.UpdateWebhook.UpdateWebhookResponse
+instance Data.Hashable.Class.Hashable Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance Control.DeepSeq.NFData Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance Amazonka.Data.Path.ToPath Amazonka.Amplify.UpdateWebhook.UpdateWebhook
+instance Amazonka.Data.Query.ToQuery Amazonka.Amplify.UpdateWebhook.UpdateWebhook
 
 
-module Network.AWS.Amplify.Lens
+module Amazonka.Amplify.Lens
 
 -- | The unique id for an Amplify app.
 getDomainAssociation_appId :: Lens' GetDomainAssociation Text
@@ -8941,7 +8941,7 @@ webhook_createTime :: Lens' Webhook UTCTime
 webhook_updateTime :: Lens' Webhook UTCTime
 
 
-module Network.AWS.Amplify.Waiters
+module Amazonka.Amplify.Waiters
 
 
 -- | Derived from API version <tt>2017-07-25</tt> of the AWS service
@@ -8954,7 +8954,7 @@ module Network.AWS.Amplify.Waiters
 --   comprehensive set of SDKs, libraries, tools, and documentation for
 --   client app development. For more information, see the <a>Amplify
 --   Framework.</a>
-module Network.AWS.Amplify
+module Amazonka.Amplify
 
 -- | API version <tt>2017-07-25</tt> of the Amazon Amplify SDK
 --   configuration.

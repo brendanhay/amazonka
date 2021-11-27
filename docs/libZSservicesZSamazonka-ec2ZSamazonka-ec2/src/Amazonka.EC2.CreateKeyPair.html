@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.CreateKeyPair</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an ED25519 or 2048-bit RSA key pair with the specified name.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon EC2 stores the public key and displays the private key for you to</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- save to a file. The private key is returned as an unencrypted PEM</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- encoded PKCS#1 private key. If a key with the specified name already</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- exists, Amazon EC2 returns an error.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- The key pair returned to you is available only in the Amazon Web</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Services Region in which you create it. If you prefer, you can create</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- your own key pair using a third-party tool and upload it to any Region</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- using ImportKeyPair.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- You can have up to 5,000 key pairs per Amazon Web Services Region.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 key pairs&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.CreateKeyPair</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier">CreateKeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#newCreateKeyPair"><span class="hs-identifier">newCreateKeyPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_keyType"><span class="hs-identifier">createKeyPair_keyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_tagSpecifications"><span class="hs-identifier">createKeyPair_tagSpecifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_dryRun"><span class="hs-identifier">createKeyPair_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_keyName"><span class="hs-identifier">createKeyPair_keyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier">CreateKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#newCreateKeyPairResponse"><span class="hs-identifier">newCreateKeyPairResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyPairId"><span class="hs-identifier">createKeyPairResponse_keyPairId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_tags"><span class="hs-identifier">createKeyPairResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_httpStatus"><span class="hs-identifier">createKeyPairResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyName"><span class="hs-identifier">createKeyPairResponse_keyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyFingerprint"><span class="hs-identifier">createKeyPairResponse_keyFingerprint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyMaterial"><span class="hs-identifier">createKeyPairResponse_keyMaterial</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newCreateKeyPair' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621681295651"><span id="local-6989586621681295652"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyPair"><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-var">CreateKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyPair%27"><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-var">CreateKeyPair'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of key pair. Note that ED25519 keys are not supported for</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Windows instances, EC2 Instance Connect, and EC2 Serial Console.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Default: @rsa@</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AkeyType%3ACreateKeyPair%27"><span class="annot"><span class="annottext">CreateKeyPair -&gt; Maybe KeyType
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyType%3ACreateKeyPair%27"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The tags to apply to the new key pair.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AtagSpecifications%3ACreateKeyPair%27"><span class="annot"><span class="annottext">CreateKeyPair -&gt; Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AtagSpecifications%3ACreateKeyPair%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AdryRun%3ACreateKeyPair%27"><span class="annot"><span class="annottext">CreateKeyPair -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AdryRun%3ACreateKeyPair%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | A unique name for the key pair.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Constraints: Up to 255 ASCII characters</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AkeyName%3ACreateKeyPair%27"><span class="annot"><span class="annottext">CreateKeyPair -&gt; Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPair%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681295642"><span id="local-6989586621681295644"><span class="annot"><span class="annottext">CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
+(CreateKeyPair -&gt; CreateKeyPair -&gt; Bool)
+-&gt; (CreateKeyPair -&gt; CreateKeyPair -&gt; Bool) -&gt; Eq CreateKeyPair
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
+$c/= :: CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
+== :: CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
+$c== :: CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681295633"><span id="local-6989586621681295635"><span id="local-6989586621681295637"><span id="local-6989586621681295639"><span class="annot"><span class="annottext">ReadPrec [CreateKeyPair]
+ReadPrec CreateKeyPair
+Int -&gt; ReadS CreateKeyPair
+ReadS [CreateKeyPair]
+(Int -&gt; ReadS CreateKeyPair)
+-&gt; ReadS [CreateKeyPair]
+-&gt; ReadPrec CreateKeyPair
+-&gt; ReadPrec [CreateKeyPair]
+-&gt; Read CreateKeyPair
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateKeyPair]
+$creadListPrec :: ReadPrec [CreateKeyPair]
+readPrec :: ReadPrec CreateKeyPair
+$creadPrec :: ReadPrec CreateKeyPair
+readList :: ReadS [CreateKeyPair]
+$creadList :: ReadS [CreateKeyPair]
+readsPrec :: Int -&gt; ReadS CreateKeyPair
+$creadsPrec :: Int -&gt; ReadS CreateKeyPair
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681295626"><span id="local-6989586621681295628"><span id="local-6989586621681295630"><span class="annot"><span class="annottext">Int -&gt; CreateKeyPair -&gt; ShowS
+[CreateKeyPair] -&gt; ShowS
+CreateKeyPair -&gt; String
+(Int -&gt; CreateKeyPair -&gt; ShowS)
+-&gt; (CreateKeyPair -&gt; String)
+-&gt; ([CreateKeyPair] -&gt; ShowS)
+-&gt; Show CreateKeyPair
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateKeyPair] -&gt; ShowS
+$cshowList :: [CreateKeyPair] -&gt; ShowS
+show :: CreateKeyPair -&gt; String
+$cshow :: CreateKeyPair -&gt; String
+showsPrec :: Int -&gt; CreateKeyPair -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateKeyPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateKeyPair -&gt; Rep CreateKeyPair x)
+-&gt; (forall x. Rep CreateKeyPair x -&gt; CreateKeyPair)
+-&gt; Generic CreateKeyPair
+forall x. Rep CreateKeyPair x -&gt; CreateKeyPair
+forall x. CreateKeyPair -&gt; Rep CreateKeyPair x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateKeyPair x -&gt; CreateKeyPair
+$cfrom :: forall x. CreateKeyPair -&gt; Rep CreateKeyPair x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'CreateKeyPair' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'keyType', 'createKeyPair_keyType' - The type of key pair. Note that ED25519 keys are not supported for</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Windows instances, EC2 Instance Connect, and EC2 Serial Console.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Default: @rsa@</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'tagSpecifications', 'createKeyPair_tagSpecifications' - The tags to apply to the new key pair.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'dryRun', 'createKeyPair_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'keyName', 'createKeyPair_keyName' - A unique name for the key pair.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Constraints: Up to 255 ASCII characters</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#newCreateKeyPair"><span class="hs-identifier hs-type">newCreateKeyPair</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'keyName'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span>
+</span><span id="line-119"></span><span id="newCreateKeyPair"><span class="annot"><span class="annottext">newCreateKeyPair :: Text -&gt; CreateKeyPair
+</span><a href="Amazonka.EC2.CreateKeyPair.html#newCreateKeyPair"><span class="hs-identifier hs-var hs-var">newCreateKeyPair</span></a></span></span><span> </span><span id="local-6989586621681295621"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295621"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">CreateKeyPair' :: Maybe KeyType
+-&gt; Maybe [TagSpecification] -&gt; Maybe Bool -&gt; Text -&gt; CreateKeyPair
+</span><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyType:CreateKeyPair' :: Maybe KeyType
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyType%3ACreateKeyPair%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateKeyPair' :: Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AtagSpecifications%3ACreateKeyPair%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:CreateKeyPair' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AdryRun%3ACreateKeyPair%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPair' :: Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPair%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295621"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The type of key pair. Note that ED25519 keys are not supported for</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Windows instances, EC2 Instance Connect, and EC2 Serial Console.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Default: @rsa@</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_keyType"><span class="hs-identifier hs-type">createKeyPair_keyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="createKeyPair_keyType"><span class="annot"><span class="annottext">createKeyPair_keyType :: (Maybe KeyType -&gt; f (Maybe KeyType))
+-&gt; CreateKeyPair -&gt; f CreateKeyPair
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_keyType"><span class="hs-identifier hs-var hs-var">createKeyPair_keyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPair -&gt; Maybe KeyType)
+-&gt; (CreateKeyPair -&gt; Maybe KeyType -&gt; CreateKeyPair)
+-&gt; Lens CreateKeyPair CreateKeyPair (Maybe KeyType) (Maybe KeyType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295618"><span class="annot"><span class="annottext">Maybe KeyType
+keyType :: Maybe KeyType
+$sel:keyType:CreateKeyPair' :: CreateKeyPair -&gt; Maybe KeyType
+</span><a href="#local-6989586621681295618"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621681295618"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295617"><span class="annot"><span class="annottext">s :: CreateKeyPair
+</span><a href="#local-6989586621681295617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295616"><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621681295616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
+</span><a href="#local-6989586621681295617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:CreateKeyPair' :: Maybe KeyType
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyType%3ACreateKeyPair%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621681295616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The tags to apply to the new key pair.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_tagSpecifications"><span class="hs-identifier hs-type">createKeyPair_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="createKeyPair_tagSpecifications"><span class="annot"><span class="annottext">createKeyPair_tagSpecifications :: (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; CreateKeyPair -&gt; f CreateKeyPair
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_tagSpecifications"><span class="hs-identifier hs-var hs-var">createKeyPair_tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPair -&gt; Maybe [TagSpecification])
+-&gt; (CreateKeyPair -&gt; Maybe [TagSpecification] -&gt; CreateKeyPair)
+-&gt; Lens
+     CreateKeyPair
+     CreateKeyPair
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295615"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+tagSpecifications :: Maybe [TagSpecification]
+$sel:tagSpecifications:CreateKeyPair' :: CreateKeyPair -&gt; Maybe [TagSpecification]
+</span><a href="#local-6989586621681295615"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681295615"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295614"><span class="annot"><span class="annottext">s :: CreateKeyPair
+</span><a href="#local-6989586621681295614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295613"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681295613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
+</span><a href="#local-6989586621681295614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateKeyPair' :: Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AtagSpecifications%3ACreateKeyPair%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681295613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+ -&gt; CreateKeyPair -&gt; f CreateKeyPair)
+-&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+    -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; CreateKeyPair
+-&gt; f CreateKeyPair
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+-&gt; Iso
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_dryRun"><span class="hs-identifier hs-type">createKeyPair_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="createKeyPair_dryRun"><span class="annot"><span class="annottext">createKeyPair_dryRun :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateKeyPair -&gt; f CreateKeyPair
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_dryRun"><span class="hs-identifier hs-var hs-var">createKeyPair_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPair -&gt; Maybe Bool)
+-&gt; (CreateKeyPair -&gt; Maybe Bool -&gt; CreateKeyPair)
+-&gt; Lens CreateKeyPair CreateKeyPair (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295609"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CreateKeyPair' :: CreateKeyPair -&gt; Maybe Bool
+</span><a href="#local-6989586621681295609"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681295609"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295608"><span class="annot"><span class="annottext">s :: CreateKeyPair
+</span><a href="#local-6989586621681295608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295607"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681295607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
+</span><a href="#local-6989586621681295608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateKeyPair' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AdryRun%3ACreateKeyPair%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681295607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | A unique name for the key pair.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Constraints: Up to 255 ASCII characters</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_keyName"><span class="hs-identifier hs-type">createKeyPair_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="createKeyPair_keyName"><span class="annot"><span class="annottext">createKeyPair_keyName :: (Text -&gt; f Text) -&gt; CreateKeyPair -&gt; f CreateKeyPair
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPair_keyName"><span class="hs-identifier hs-var hs-var">createKeyPair_keyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPair -&gt; Text)
+-&gt; (CreateKeyPair -&gt; Text -&gt; CreateKeyPair)
+-&gt; Lens CreateKeyPair CreateKeyPair Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295606"><span class="annot"><span class="annottext">Text
+keyName :: Text
+$sel:keyName:CreateKeyPair' :: CreateKeyPair -&gt; Text
+</span><a href="#local-6989586621681295606"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295606"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295605"><span class="annot"><span class="annottext">s :: CreateKeyPair
+</span><a href="#local-6989586621681295605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295604"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
+</span><a href="#local-6989586621681295605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPair' :: Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPair%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681295600"><span class="annot"><span class="annottext">request :: CreateKeyPair -&gt; Request CreateKeyPair
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateKeyPair -&gt; Request CreateKeyPair
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621681295596"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateKeyPair
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateKeyPair)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CreateKeyPair))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateKeyPair
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateKeyPair)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681295593"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295593"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681295592"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681295592"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681295591"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681295591"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; CreateKeyPairResponse
+</span><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-var">CreateKeyPairResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Tag]
+ -&gt; Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; Sensitive Text
+ -&gt; CreateKeyPairResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Tag]
+      -&gt; Int -&gt; Text -&gt; Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681295591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyPairId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Tag]
+   -&gt; Int -&gt; Text -&gt; Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either
+     String
+     (Int -&gt; Text -&gt; Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681295591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Tag]))
+-&gt; Either String (Maybe [Tag])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
+-&gt; [Node] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; Text -&gt; Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Text -&gt; Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295593"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681295591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
+-&gt; Either String Text
+-&gt; Either String (Sensitive Text -&gt; CreateKeyPairResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681295591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyFingerprint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either String (Sensitive Text -&gt; CreateKeyPairResponse)
+-&gt; Either String (Sensitive Text)
+-&gt; Either String CreateKeyPairResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681295591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Sensitive Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyMaterial&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681295579"><span id="local-6989586621681295581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681295576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621681295572"><span class="annot"><span class="annottext">toHeaders :: CreateKeyPair -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateKeyPair -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621681295567"><span class="annot"><span class="annottext">toPath :: CreateKeyPair -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateKeyPair -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621681295563"><span class="annot"><span class="annottext">toQuery :: CreateKeyPair -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295558"><span id="local-6989586621681295559"><span id="local-6989586621681295560"><span id="local-6989586621681295561"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [TagSpecification]
+Maybe KeyType
+Text
+keyName :: Text
+dryRun :: Maybe Bool
+tagSpecifications :: Maybe [TagSpecification]
+keyType :: Maybe KeyType
+$sel:keyName:CreateKeyPair' :: CreateKeyPair -&gt; Text
+$sel:dryRun:CreateKeyPair' :: CreateKeyPair -&gt; Maybe Bool
+$sel:tagSpecifications:CreateKeyPair' :: CreateKeyPair -&gt; Maybe [TagSpecification]
+$sel:keyType:CreateKeyPair' :: CreateKeyPair -&gt; Maybe KeyType
+</span><a href="#local-6989586621681295558"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateKeyPair&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KeyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe KeyType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621681295561"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TagSpecification] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagSpecification&quot;</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">([TagSpecification] -&gt; QueryString)
+-&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681295560"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681295559"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KeyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295558"><span class="hs-identifier hs-var">keyName</span></a></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Describes a key pair.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- /See:/ 'newCreateKeyPairResponse' smart constructor.</span><span>
+</span><span id="line-199"></span><span id="local-6989586621681295554"><span id="local-6989586621681295555"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyPairResponse"><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-var">CreateKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyPairResponse%27"><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-var">CreateKeyPairResponse'</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the key pair.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AkeyPairId%3ACreateKeyPairResponse%27"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyPairId%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | Any tags applied to the key pair.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3Atags%3ACreateKeyPairResponse%27"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; Maybe [Tag]
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3Atags%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateKeyPairResponse%27"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; Int
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AhttpStatus%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- | The name of the key pair.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AkeyName%3ACreateKeyPairResponse%27"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The SHA-1 digest of the DER encoded private key.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AkeyFingerprint%3ACreateKeyPairResponse%27"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyFingerprint%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | An unencrypted PEM encoded RSA or ED25519 private key.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AkeyMaterial%3ACreateKeyPairResponse%27"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; Sensitive Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyMaterial%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyMaterial</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681295544"><span id="local-6989586621681295546"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
+(CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool)
+-&gt; (CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool)
+-&gt; Eq CreateKeyPairResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
+$c/= :: CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
+== :: CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
+$c== :: CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681295538"><span id="local-6989586621681295540"><span id="local-6989586621681295542"><span class="annot"><span class="annottext">Int -&gt; CreateKeyPairResponse -&gt; ShowS
+[CreateKeyPairResponse] -&gt; ShowS
+CreateKeyPairResponse -&gt; String
+(Int -&gt; CreateKeyPairResponse -&gt; ShowS)
+-&gt; (CreateKeyPairResponse -&gt; String)
+-&gt; ([CreateKeyPairResponse] -&gt; ShowS)
+-&gt; Show CreateKeyPairResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateKeyPairResponse] -&gt; ShowS
+$cshowList :: [CreateKeyPairResponse] -&gt; ShowS
+show :: CreateKeyPairResponse -&gt; String
+$cshow :: CreateKeyPairResponse -&gt; String
+showsPrec :: Int -&gt; CreateKeyPairResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateKeyPairResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateKeyPairResponse -&gt; Rep CreateKeyPairResponse x)
+-&gt; (forall x. Rep CreateKeyPairResponse x -&gt; CreateKeyPairResponse)
+-&gt; Generic CreateKeyPairResponse
+forall x. Rep CreateKeyPairResponse x -&gt; CreateKeyPairResponse
+forall x. CreateKeyPairResponse -&gt; Rep CreateKeyPairResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateKeyPairResponse x -&gt; CreateKeyPairResponse
+$cfrom :: forall x. CreateKeyPairResponse -&gt; Rep CreateKeyPairResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Create a value of 'CreateKeyPairResponse' with all optional fields omitted.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'keyPairId', 'createKeyPairResponse_keyPairId' - The ID of the key pair.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'tags', 'createKeyPairResponse_tags' - Any tags applied to the key pair.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'createKeyPairResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'keyName', 'createKeyPairResponse_keyName' - The name of the key pair.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'keyFingerprint', 'createKeyPairResponse_keyFingerprint' - The SHA-1 digest of the DER encoded private key.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'keyMaterial', 'createKeyPairResponse_keyMaterial' - An unencrypted PEM encoded RSA or ED25519 private key.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#newCreateKeyPairResponse"><span class="hs-identifier hs-type">newCreateKeyPairResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-comment">-- | 'keyName'</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-comment">-- | 'keyFingerprint'</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-comment">-- | 'keyMaterial'</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span>
+</span><span id="line-244"></span><span id="newCreateKeyPairResponse"><span class="annot"><span class="annottext">newCreateKeyPairResponse :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; CreateKeyPairResponse
+</span><a href="Amazonka.EC2.CreateKeyPair.html#newCreateKeyPairResponse"><span class="hs-identifier hs-var hs-var">newCreateKeyPairResponse</span></a></span></span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621681295535"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295535"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621681295534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295534"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621681295533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295533"><span class="hs-identifier hs-var">pKeyFingerprint_</span></a></span></span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621681295532"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295532"><span class="hs-identifier hs-var">pKeyMaterial_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">CreateKeyPairResponse' :: Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; CreateKeyPairResponse
+</span><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyPairId:CreateKeyPairResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyPairId%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateKeyPairResponse' :: Maybe [Tag]
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3Atags%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyPairResponse' :: Int
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AhttpStatus%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295535"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPairResponse' :: Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295534"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyFingerprint:CreateKeyPairResponse' :: Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyFingerprint%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295533"><span class="hs-identifier hs-var">pKeyFingerprint_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyMaterial:CreateKeyPairResponse' :: Sensitive Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyMaterial%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295532"><span class="hs-identifier hs-var">pKeyMaterial_</span></a></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The ID of the key pair.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyPairId"><span class="hs-identifier hs-type">createKeyPairResponse_keyPairId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="createKeyPairResponse_keyPairId"><span class="annot"><span class="annottext">createKeyPairResponse_keyPairId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyPairId"><span class="hs-identifier hs-var hs-var">createKeyPairResponse_keyPairId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPairResponse -&gt; Maybe Text)
+-&gt; (CreateKeyPairResponse -&gt; Maybe Text -&gt; CreateKeyPairResponse)
+-&gt; Lens
+     CreateKeyPairResponse
+     CreateKeyPairResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295529"><span class="annot"><span class="annottext">Maybe Text
+keyPairId :: Maybe Text
+$sel:keyPairId:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681295529"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681295529"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295528"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295527"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681295527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairId:CreateKeyPairResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyPairId%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681295527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | Any tags applied to the key pair.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_tags"><span class="hs-identifier hs-type">createKeyPairResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="createKeyPairResponse_tags"><span class="annot"><span class="annottext">createKeyPairResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_tags"><span class="hs-identifier hs-var hs-var">createKeyPairResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPairResponse -&gt; Maybe [Tag])
+-&gt; (CreateKeyPairResponse -&gt; Maybe [Tag] -&gt; CreateKeyPairResponse)
+-&gt; Lens
+     CreateKeyPairResponse
+     CreateKeyPairResponse
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295526"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Maybe [Tag]
+</span><a href="#local-6989586621681295526"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681295526"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295525"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295524"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681295524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateKeyPairResponse' :: Maybe [Tag]
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3Atags%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681295524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateKeyPairResponse
+-&gt; f CreateKeyPairResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_httpStatus"><span class="hs-identifier hs-type">createKeyPairResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-268"></span><span id="createKeyPairResponse_httpStatus"><span class="annot"><span class="annottext">createKeyPairResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createKeyPairResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPairResponse -&gt; Int)
+-&gt; (CreateKeyPairResponse -&gt; Int -&gt; CreateKeyPairResponse)
+-&gt; Lens CreateKeyPairResponse CreateKeyPairResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295523"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Int
+</span><a href="#local-6989586621681295523"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295523"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295522"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295521"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyPairResponse' :: Int
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AhttpStatus%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The name of the key pair.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyName"><span class="hs-identifier hs-type">createKeyPairResponse_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-272"></span><span id="createKeyPairResponse_keyName"><span class="annot"><span class="annottext">createKeyPairResponse_keyName :: (Text -&gt; f Text)
+-&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyName"><span class="hs-identifier hs-var hs-var">createKeyPairResponse_keyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPairResponse -&gt; Text)
+-&gt; (CreateKeyPairResponse -&gt; Text -&gt; CreateKeyPairResponse)
+-&gt; Lens CreateKeyPairResponse CreateKeyPairResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295520"><span class="annot"><span class="annottext">Text
+keyName :: Text
+$sel:keyName:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Text
+</span><a href="#local-6989586621681295520"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295520"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295519"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295518"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPairResponse' :: Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The SHA-1 digest of the DER encoded private key.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyFingerprint"><span class="hs-identifier hs-type">createKeyPairResponse_keyFingerprint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-276"></span><span id="createKeyPairResponse_keyFingerprint"><span class="annot"><span class="annottext">createKeyPairResponse_keyFingerprint :: (Text -&gt; f Text)
+-&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyFingerprint"><span class="hs-identifier hs-var hs-var">createKeyPairResponse_keyFingerprint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPairResponse -&gt; Text)
+-&gt; (CreateKeyPairResponse -&gt; Text -&gt; CreateKeyPairResponse)
+-&gt; Lens CreateKeyPairResponse CreateKeyPairResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295517"><span class="annot"><span class="annottext">Text
+keyFingerprint :: Text
+$sel:keyFingerprint:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Text
+</span><a href="#local-6989586621681295517"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295517"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295516"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295515"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFingerprint:CreateKeyPairResponse' :: Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyFingerprint%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | An unencrypted PEM encoded RSA or ED25519 private key.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyMaterial"><span class="hs-identifier hs-type">createKeyPairResponse_keyMaterial</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-280"></span><span id="createKeyPairResponse_keyMaterial"><span class="annot"><span class="annottext">createKeyPairResponse_keyMaterial :: (Text -&gt; f Text)
+-&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse
+</span><a href="Amazonka.EC2.CreateKeyPair.html#createKeyPairResponse_keyMaterial"><span class="hs-identifier hs-var hs-var">createKeyPairResponse_keyMaterial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateKeyPairResponse -&gt; Sensitive Text)
+-&gt; (CreateKeyPairResponse
+    -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
+-&gt; Lens
+     CreateKeyPairResponse
+     CreateKeyPairResponse
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295514"><span class="annot"><span class="annottext">Sensitive Text
+keyMaterial :: Sensitive Text
+$sel:keyMaterial:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Sensitive Text
+</span><a href="#local-6989586621681295514"><span class="hs-identifier hs-var hs-var">keyMaterial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621681295514"><span class="hs-identifier hs-var">keyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295513"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295512"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621681295512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyMaterial:CreateKeyPairResponse' :: Sensitive Text
+</span><a href="Amazonka.EC2.CreateKeyPair.html#%24sel%3AkeyMaterial%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621681295512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; CreateKeyPairResponse
+-&gt; f CreateKeyPairResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681295510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span></span><span>
+</span><span id="line-283"></span></pre></body></html>

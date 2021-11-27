@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SNS.Types.Endpoint
+module Amazonka.SNS.Types.Endpoint
 
 -- | Endpoint for mobile app and device.
 --   
@@ -39,16 +39,16 @@ endpoint_attributes :: Lens' Endpoint (Maybe (HashMap Text Text))
 
 -- | EndpointArn for mobile app and device.
 endpoint_endpointArn :: Lens' Endpoint (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SNS.Types.Endpoint.Endpoint
-instance GHC.Show.Show Network.AWS.SNS.Types.Endpoint.Endpoint
-instance GHC.Read.Read Network.AWS.SNS.Types.Endpoint.Endpoint
-instance GHC.Classes.Eq Network.AWS.SNS.Types.Endpoint.Endpoint
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.Endpoint.Endpoint
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.Endpoint.Endpoint
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.Endpoint.Endpoint
+instance GHC.Generics.Generic Amazonka.SNS.Types.Endpoint.Endpoint
+instance GHC.Show.Show Amazonka.SNS.Types.Endpoint.Endpoint
+instance GHC.Read.Read Amazonka.SNS.Types.Endpoint.Endpoint
+instance GHC.Classes.Eq Amazonka.SNS.Types.Endpoint.Endpoint
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.Endpoint.Endpoint
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.Endpoint.Endpoint
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.Endpoint.Endpoint
 
 
-module Network.AWS.SNS.Types.LanguageCodeString
+module Amazonka.SNS.Types.LanguageCodeString
 
 -- | Supported language code for sending OTP message
 newtype LanguageCodeString
@@ -67,28 +67,28 @@ pattern LanguageCodeString_Kr_KR :: LanguageCodeString
 pattern LanguageCodeString_Pt_BR :: LanguageCodeString
 pattern LanguageCodeString_Zh_CN :: LanguageCodeString
 pattern LanguageCodeString_Zh_TW :: LanguageCodeString
-instance Network.AWS.Data.XML.ToXML Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Network.AWS.Data.Log.ToLog Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Network.AWS.Data.Text.ToText Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Network.AWS.Data.Text.FromText Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance GHC.Generics.Generic Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance GHC.Classes.Ord Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance GHC.Classes.Eq Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance GHC.Read.Read Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
-instance GHC.Show.Show Network.AWS.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Amazonka.Data.XML.ToXML Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Amazonka.Data.Headers.ToHeader Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Amazonka.Data.Log.ToLog Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Amazonka.Data.Text.ToText Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Amazonka.Data.Text.FromText Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance GHC.Generics.Generic Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance GHC.Classes.Ord Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance GHC.Classes.Eq Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance GHC.Read.Read Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
+instance GHC.Show.Show Amazonka.SNS.Types.LanguageCodeString.LanguageCodeString
 
 
-module Network.AWS.SNS.Types.MessageAttributeValue
+module Amazonka.SNS.Types.MessageAttributeValue
 
 -- | The user-specified message attribute value. For string data types, the
 --   value attribute has the same restrictions on the content as the
@@ -165,16 +165,16 @@ messageAttributeValue_stringValue :: Lens' MessageAttributeValue (Maybe Text)
 --   String.Array, Number, and Binary. For more information, see <a>Message
 --   Attribute Data Types</a>.
 messageAttributeValue_dataType :: Lens' MessageAttributeValue Text
-instance GHC.Generics.Generic Network.AWS.SNS.Types.MessageAttributeValue.MessageAttributeValue
-instance GHC.Show.Show Network.AWS.SNS.Types.MessageAttributeValue.MessageAttributeValue
-instance GHC.Read.Read Network.AWS.SNS.Types.MessageAttributeValue.MessageAttributeValue
-instance GHC.Classes.Eq Network.AWS.SNS.Types.MessageAttributeValue.MessageAttributeValue
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.MessageAttributeValue.MessageAttributeValue
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.MessageAttributeValue.MessageAttributeValue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.Types.MessageAttributeValue.MessageAttributeValue
+instance GHC.Generics.Generic Amazonka.SNS.Types.MessageAttributeValue.MessageAttributeValue
+instance GHC.Show.Show Amazonka.SNS.Types.MessageAttributeValue.MessageAttributeValue
+instance GHC.Read.Read Amazonka.SNS.Types.MessageAttributeValue.MessageAttributeValue
+instance GHC.Classes.Eq Amazonka.SNS.Types.MessageAttributeValue.MessageAttributeValue
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.MessageAttributeValue.MessageAttributeValue
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.MessageAttributeValue.MessageAttributeValue
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.Types.MessageAttributeValue.MessageAttributeValue
 
 
-module Network.AWS.SNS.Types.NumberCapability
+module Amazonka.SNS.Types.NumberCapability
 
 -- | Enum listing out all supported number capabilities.
 newtype NumberCapability
@@ -183,28 +183,28 @@ NumberCapability' :: Text -> NumberCapability
 pattern NumberCapability_MMS :: NumberCapability
 pattern NumberCapability_SMS :: NumberCapability
 pattern NumberCapability_VOICE :: NumberCapability
-instance Network.AWS.Data.XML.ToXML Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Network.AWS.Data.Log.ToLog Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Network.AWS.Data.Text.ToText Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Network.AWS.Data.Text.FromText Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance GHC.Generics.Generic Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance GHC.Classes.Ord Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance GHC.Classes.Eq Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance GHC.Read.Read Network.AWS.SNS.Types.NumberCapability.NumberCapability
-instance GHC.Show.Show Network.AWS.SNS.Types.NumberCapability.NumberCapability
+instance Amazonka.Data.XML.ToXML Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Amazonka.Data.Headers.ToHeader Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Amazonka.Data.Log.ToLog Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Amazonka.Data.Text.ToText Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Amazonka.Data.Text.FromText Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance GHC.Generics.Generic Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance GHC.Classes.Ord Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance GHC.Classes.Eq Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance GHC.Read.Read Amazonka.SNS.Types.NumberCapability.NumberCapability
+instance GHC.Show.Show Amazonka.SNS.Types.NumberCapability.NumberCapability
 
 
-module Network.AWS.SNS.Types.PlatformApplication
+module Amazonka.SNS.Types.PlatformApplication
 
 -- | Platform application object.
 --   
@@ -241,16 +241,16 @@ platformApplication_platformApplicationArn :: Lens' PlatformApplication (Maybe T
 
 -- | Attributes for platform application object.
 platformApplication_attributes :: Lens' PlatformApplication (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.SNS.Types.PlatformApplication.PlatformApplication
-instance GHC.Show.Show Network.AWS.SNS.Types.PlatformApplication.PlatformApplication
-instance GHC.Read.Read Network.AWS.SNS.Types.PlatformApplication.PlatformApplication
-instance GHC.Classes.Eq Network.AWS.SNS.Types.PlatformApplication.PlatformApplication
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.PlatformApplication.PlatformApplication
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.PlatformApplication.PlatformApplication
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.PlatformApplication.PlatformApplication
+instance GHC.Generics.Generic Amazonka.SNS.Types.PlatformApplication.PlatformApplication
+instance GHC.Show.Show Amazonka.SNS.Types.PlatformApplication.PlatformApplication
+instance GHC.Read.Read Amazonka.SNS.Types.PlatformApplication.PlatformApplication
+instance GHC.Classes.Eq Amazonka.SNS.Types.PlatformApplication.PlatformApplication
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.PlatformApplication.PlatformApplication
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.PlatformApplication.PlatformApplication
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.PlatformApplication.PlatformApplication
 
 
-module Network.AWS.SNS.Types.RouteType
+module Amazonka.SNS.Types.RouteType
 
 -- | Enum listing out all supported route types. The following enum values
 --   are supported. 1. Transactional : Non-marketing traffic 2. Promotional
@@ -262,28 +262,28 @@ RouteType' :: Text -> RouteType
 pattern RouteType_Premium :: RouteType
 pattern RouteType_Promotional :: RouteType
 pattern RouteType_Transactional :: RouteType
-instance Network.AWS.Data.XML.ToXML Network.AWS.SNS.Types.RouteType.RouteType
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.RouteType.RouteType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SNS.Types.RouteType.RouteType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SNS.Types.RouteType.RouteType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SNS.Types.RouteType.RouteType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SNS.Types.RouteType.RouteType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.Types.RouteType.RouteType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SNS.Types.RouteType.RouteType
-instance Network.AWS.Data.Log.ToLog Network.AWS.SNS.Types.RouteType.RouteType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SNS.Types.RouteType.RouteType
-instance Network.AWS.Data.Text.ToText Network.AWS.SNS.Types.RouteType.RouteType
-instance Network.AWS.Data.Text.FromText Network.AWS.SNS.Types.RouteType.RouteType
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.RouteType.RouteType
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.RouteType.RouteType
-instance GHC.Generics.Generic Network.AWS.SNS.Types.RouteType.RouteType
-instance GHC.Classes.Ord Network.AWS.SNS.Types.RouteType.RouteType
-instance GHC.Classes.Eq Network.AWS.SNS.Types.RouteType.RouteType
-instance GHC.Read.Read Network.AWS.SNS.Types.RouteType.RouteType
-instance GHC.Show.Show Network.AWS.SNS.Types.RouteType.RouteType
+instance Amazonka.Data.XML.ToXML Amazonka.SNS.Types.RouteType.RouteType
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.RouteType.RouteType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SNS.Types.RouteType.RouteType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SNS.Types.RouteType.RouteType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SNS.Types.RouteType.RouteType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SNS.Types.RouteType.RouteType
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.Types.RouteType.RouteType
+instance Amazonka.Data.Headers.ToHeader Amazonka.SNS.Types.RouteType.RouteType
+instance Amazonka.Data.Log.ToLog Amazonka.SNS.Types.RouteType.RouteType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SNS.Types.RouteType.RouteType
+instance Amazonka.Data.Text.ToText Amazonka.SNS.Types.RouteType.RouteType
+instance Amazonka.Data.Text.FromText Amazonka.SNS.Types.RouteType.RouteType
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.RouteType.RouteType
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.RouteType.RouteType
+instance GHC.Generics.Generic Amazonka.SNS.Types.RouteType.RouteType
+instance GHC.Classes.Ord Amazonka.SNS.Types.RouteType.RouteType
+instance GHC.Classes.Eq Amazonka.SNS.Types.RouteType.RouteType
+instance GHC.Read.Read Amazonka.SNS.Types.RouteType.RouteType
+instance GHC.Show.Show Amazonka.SNS.Types.RouteType.RouteType
 
 
-module Network.AWS.SNS.Types.PhoneNumberInformation
+module Amazonka.SNS.Types.PhoneNumberInformation
 
 -- | A list of phone numbers and their metadata.
 --   
@@ -360,16 +360,16 @@ phoneNumberInformation_numberCapabilities :: Lens' PhoneNumberInformation (Maybe
 
 -- | The list of supported routes.
 phoneNumberInformation_routeType :: Lens' PhoneNumberInformation (Maybe RouteType)
-instance GHC.Generics.Generic Network.AWS.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
-instance GHC.Show.Show Network.AWS.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
-instance GHC.Read.Read Network.AWS.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
-instance GHC.Classes.Eq Network.AWS.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
+instance GHC.Generics.Generic Amazonka.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
+instance GHC.Show.Show Amazonka.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
+instance GHC.Read.Read Amazonka.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
+instance GHC.Classes.Eq Amazonka.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.PhoneNumberInformation.PhoneNumberInformation
 
 
-module Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
+module Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
 
 -- | Enum listing out all supported destination phone number verification
 --   statuses. The following enum values are supported. 1. PENDING : The
@@ -380,28 +380,28 @@ SMSSandboxPhoneNumberVerificationStatus' :: Text -> SMSSandboxPhoneNumberVerific
 [fromSMSSandboxPhoneNumberVerificationStatus] :: SMSSandboxPhoneNumberVerificationStatus -> Text
 pattern SMSSandboxPhoneNumberVerificationStatus_Pending :: SMSSandboxPhoneNumberVerificationStatus
 pattern SMSSandboxPhoneNumberVerificationStatus_Verified :: SMSSandboxPhoneNumberVerificationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance GHC.Generics.Generic Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance GHC.Classes.Ord Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance GHC.Classes.Eq Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance GHC.Read.Read Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
-instance GHC.Show.Show Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Amazonka.Data.Text.ToText Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Amazonka.Data.Text.FromText Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance GHC.Generics.Generic Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance GHC.Classes.Ord Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance GHC.Classes.Eq Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance GHC.Read.Read Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
+instance GHC.Show.Show Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.SMSSandboxPhoneNumberVerificationStatus
 
 
-module Network.AWS.SNS.Types.SMSSandboxPhoneNumber
+module Amazonka.SNS.Types.SMSSandboxPhoneNumber
 
 -- | A verified or pending destination phone number in the SMS sandbox.
 --   
@@ -448,16 +448,16 @@ sMSSandboxPhoneNumber_status :: Lens' SMSSandboxPhoneNumber (Maybe SMSSandboxPho
 
 -- | The destination phone number.
 sMSSandboxPhoneNumber_phoneNumber :: Lens' SMSSandboxPhoneNumber (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
-instance GHC.Show.Show Network.AWS.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
-instance GHC.Read.Read Network.AWS.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
-instance GHC.Classes.Eq Network.AWS.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
+instance GHC.Generics.Generic Amazonka.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
+instance GHC.Show.Show Amazonka.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
+instance GHC.Read.Read Amazonka.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
+instance GHC.Classes.Eq Amazonka.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.SMSSandboxPhoneNumber.SMSSandboxPhoneNumber
 
 
-module Network.AWS.SNS.Types.Subscription
+module Amazonka.SNS.Types.Subscription
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 --   
@@ -519,16 +519,16 @@ subscription_endpoint :: Lens' Subscription (Maybe Text)
 
 -- | The subscription's ARN.
 subscription_subscriptionArn :: Lens' Subscription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SNS.Types.Subscription.Subscription
-instance GHC.Show.Show Network.AWS.SNS.Types.Subscription.Subscription
-instance GHC.Read.Read Network.AWS.SNS.Types.Subscription.Subscription
-instance GHC.Classes.Eq Network.AWS.SNS.Types.Subscription.Subscription
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.Subscription.Subscription
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.Subscription.Subscription
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.Subscription.Subscription
+instance GHC.Generics.Generic Amazonka.SNS.Types.Subscription.Subscription
+instance GHC.Show.Show Amazonka.SNS.Types.Subscription.Subscription
+instance GHC.Read.Read Amazonka.SNS.Types.Subscription.Subscription
+instance GHC.Classes.Eq Amazonka.SNS.Types.Subscription.Subscription
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.Subscription.Subscription
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.Subscription.Subscription
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.Subscription.Subscription
 
 
-module Network.AWS.SNS.Types.Tag
+module Amazonka.SNS.Types.Tag
 
 -- | The list of tags to be added to the specified topic.
 --   
@@ -562,17 +562,17 @@ tag_key :: Lens' Tag Text
 
 -- | The optional value portion of the tag.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.SNS.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.SNS.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.SNS.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.SNS.Types.Tag.Tag
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.Tag.Tag
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.SNS.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.SNS.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.SNS.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.SNS.Types.Tag.Tag
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.Tag.Tag
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.Types.Tag.Tag
 
 
-module Network.AWS.SNS.Types.Topic
+module Amazonka.SNS.Types.Topic
 
 -- | A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve
 --   a topic's attributes, use <tt>GetTopicAttributes</tt>.
@@ -597,16 +597,16 @@ newTopic :: Topic
 
 -- | The topic's ARN.
 topic_topicArn :: Lens' Topic (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SNS.Types.Topic.Topic
-instance GHC.Show.Show Network.AWS.SNS.Types.Topic.Topic
-instance GHC.Read.Read Network.AWS.SNS.Types.Topic.Topic
-instance GHC.Classes.Eq Network.AWS.SNS.Types.Topic.Topic
-instance Network.AWS.Data.XML.FromXML Network.AWS.SNS.Types.Topic.Topic
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Types.Topic.Topic
-instance Control.DeepSeq.NFData Network.AWS.SNS.Types.Topic.Topic
+instance GHC.Generics.Generic Amazonka.SNS.Types.Topic.Topic
+instance GHC.Show.Show Amazonka.SNS.Types.Topic.Topic
+instance GHC.Read.Read Amazonka.SNS.Types.Topic.Topic
+instance GHC.Classes.Eq Amazonka.SNS.Types.Topic.Topic
+instance Amazonka.Data.XML.FromXML Amazonka.SNS.Types.Topic.Topic
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Types.Topic.Topic
+instance Control.DeepSeq.NFData Amazonka.SNS.Types.Topic.Topic
 
 
-module Network.AWS.SNS.Types
+module Amazonka.SNS.Types
 
 -- | API version <tt>2010-03-31</tt> of the Amazon Simple Notification
 --   Service SDK configuration.
@@ -1168,7 +1168,7 @@ topic_topicArn :: Lens' Topic (Maybe Text)
 --   your application requires a higher throughput, file a <a>technical
 --   support request</a>.</li>
 --   </ul>
-module Network.AWS.SNS.TagResource
+module Amazonka.SNS.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1227,21 +1227,21 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.SNS.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.SNS.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.SNS.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.SNS.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.SNS.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.SNS.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SNS.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SNS.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SNS.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SNS.TagResource.TagResource
+instance GHC.Show.Show Amazonka.SNS.TagResource.TagResource
+instance GHC.Read.Read Amazonka.SNS.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.SNS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SNS.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.SNS.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.SNS.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.SNS.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SNS.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SNS.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.TagResource.TagResource
 
 
 -- | Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is
@@ -1254,7 +1254,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.TagResource.TagResource
 --   days.
 --   
 --   This action is throttled at 100 transactions per second (TPS).
-module Network.AWS.SNS.Subscribe
+module Amazonka.SNS.Subscribe
 
 -- | Input for Subscribe action.
 --   
@@ -1624,25 +1624,25 @@ subscribeResponse_subscriptionArn :: Lens' SubscribeResponse (Maybe Text)
 
 -- | The response's http status code.
 subscribeResponse_httpStatus :: Lens' SubscribeResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.Subscribe.Subscribe
-instance GHC.Show.Show Network.AWS.SNS.Subscribe.Subscribe
-instance GHC.Read.Read Network.AWS.SNS.Subscribe.Subscribe
-instance GHC.Classes.Eq Network.AWS.SNS.Subscribe.Subscribe
-instance GHC.Generics.Generic Network.AWS.SNS.Subscribe.SubscribeResponse
-instance GHC.Show.Show Network.AWS.SNS.Subscribe.SubscribeResponse
-instance GHC.Read.Read Network.AWS.SNS.Subscribe.SubscribeResponse
-instance GHC.Classes.Eq Network.AWS.SNS.Subscribe.SubscribeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.Subscribe.Subscribe
-instance Control.DeepSeq.NFData Network.AWS.SNS.Subscribe.SubscribeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Subscribe.Subscribe
-instance Control.DeepSeq.NFData Network.AWS.SNS.Subscribe.Subscribe
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.Subscribe.Subscribe
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.Subscribe.Subscribe
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.Subscribe.Subscribe
+instance GHC.Generics.Generic Amazonka.SNS.Subscribe.Subscribe
+instance GHC.Show.Show Amazonka.SNS.Subscribe.Subscribe
+instance GHC.Read.Read Amazonka.SNS.Subscribe.Subscribe
+instance GHC.Classes.Eq Amazonka.SNS.Subscribe.Subscribe
+instance GHC.Generics.Generic Amazonka.SNS.Subscribe.SubscribeResponse
+instance GHC.Show.Show Amazonka.SNS.Subscribe.SubscribeResponse
+instance GHC.Read.Read Amazonka.SNS.Subscribe.SubscribeResponse
+instance GHC.Classes.Eq Amazonka.SNS.Subscribe.SubscribeResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.Subscribe.Subscribe
+instance Control.DeepSeq.NFData Amazonka.SNS.Subscribe.SubscribeResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Subscribe.Subscribe
+instance Control.DeepSeq.NFData Amazonka.SNS.Subscribe.Subscribe
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.Subscribe.Subscribe
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.Subscribe.Subscribe
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.Subscribe.Subscribe
 
 
 -- | Allows a topic owner to set an attribute of the topic to a new value.
-module Network.AWS.SNS.SetTopicAttributes
+module Amazonka.SNS.SetTopicAttributes
 
 -- | Input for SetTopicAttributes action.
 --   
@@ -1816,26 +1816,26 @@ SetTopicAttributesResponse' :: SetTopicAttributesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetTopicAttributesResponse :: SetTopicAttributesResponse
-instance GHC.Generics.Generic Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
-instance GHC.Show.Show Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
-instance GHC.Read.Read Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.SetTopicAttributes.SetTopicAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.SetTopicAttributes.SetTopicAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.SetTopicAttributes.SetTopicAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.SetTopicAttributes.SetTopicAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetTopicAttributes.SetTopicAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.SetTopicAttributes.SetTopicAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
+instance GHC.Show.Show Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
+instance GHC.Read.Read Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
+instance GHC.Classes.Eq Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetTopicAttributes.SetTopicAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.SetTopicAttributes.SetTopicAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.SetTopicAttributes.SetTopicAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.SetTopicAttributes.SetTopicAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetTopicAttributes.SetTopicAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.SetTopicAttributes.SetTopicAttributes
 
 
 -- | Allows a subscription owner to set an attribute of the subscription to
 --   a new value.
-module Network.AWS.SNS.SetSubscriptionAttributes
+module Amazonka.SNS.SetSubscriptionAttributes
 
 -- | Input for SetSubscriptionAttributes action.
 --   
@@ -1999,21 +1999,21 @@ SetSubscriptionAttributesResponse' :: SetSubscriptionAttributesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
-instance GHC.Generics.Generic Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
-instance GHC.Show.Show Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
-instance GHC.Read.Read Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance GHC.Show.Show Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance GHC.Read.Read Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance GHC.Classes.Eq Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.SetSubscriptionAttributes.SetSubscriptionAttributes
 
 
 -- | Use this request to set the default settings for sending SMS messages
@@ -2028,7 +2028,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.SetSubscriptionAttribute
 --   To use this operation, you must grant the Amazon SNS service principal
 --   (<tt>sns.amazonaws.com</tt>) permission to perform the
 --   <tt>s3:ListBucket</tt> action.
-module Network.AWS.SNS.SetSMSAttributes
+module Amazonka.SNS.SetSMSAttributes
 
 -- | The input for the SetSMSAttributes action.
 --   
@@ -2300,21 +2300,21 @@ newSetSMSAttributesResponse :: Int -> SetSMSAttributesResponse
 
 -- | The response's http status code.
 setSMSAttributesResponse_httpStatus :: Lens' SetSMSAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
-instance GHC.Show.Show Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
-instance GHC.Read.Read Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.SetSMSAttributes.SetSMSAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.SetSMSAttributes.SetSMSAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.SetSMSAttributes.SetSMSAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.SetSMSAttributes.SetSMSAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetSMSAttributes.SetSMSAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.SetSMSAttributes.SetSMSAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
+instance GHC.Show.Show Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
+instance GHC.Read.Read Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
+instance GHC.Classes.Eq Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetSMSAttributes.SetSMSAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.SetSMSAttributes.SetSMSAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.SetSMSAttributes.SetSMSAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.SetSMSAttributes.SetSMSAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetSMSAttributes.SetSMSAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.SetSMSAttributes.SetSMSAttributes
 
 
 -- | Sets the attributes of the platform application object for the
@@ -2323,7 +2323,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.SetSMSAttributes.SetSMSA
 --   Push Notifications</a>. For information on configuring attributes for
 --   message delivery status, see <a>Using Amazon SNS Application
 --   Attributes for Message Delivery Status</a>.
-module Network.AWS.SNS.SetPlatformApplicationAttributes
+module Amazonka.SNS.SetPlatformApplicationAttributes
 
 -- | Input for SetPlatformApplicationAttributes action.
 --   
@@ -2469,28 +2469,28 @@ SetPlatformApplicationAttributesResponse' :: SetPlatformApplicationAttributesRes
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
-instance GHC.Generics.Generic Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
-instance GHC.Show.Show Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
-instance GHC.Read.Read Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance GHC.Show.Show Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance GHC.Read.Read Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance GHC.Classes.Eq Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.SetPlatformApplicationAttributes.SetPlatformApplicationAttributes
 
 
 -- | Sets the attributes for an endpoint for a device on one of the
 --   supported push notification services, such as GCM (Firebase Cloud
 --   Messaging) and APNS. For more information, see <a>Using Amazon SNS
 --   Mobile Push Notifications</a>.
-module Network.AWS.SNS.SetEndpointAttributes
+module Amazonka.SNS.SetEndpointAttributes
 
 -- | Input for SetEndpointAttributes action.
 --   
@@ -2582,25 +2582,25 @@ SetEndpointAttributesResponse' :: SetEndpointAttributesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetEndpointAttributesResponse :: SetEndpointAttributesResponse
-instance GHC.Generics.Generic Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
-instance GHC.Show.Show Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
-instance GHC.Read.Read Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance GHC.Show.Show Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance GHC.Read.Read Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance GHC.Classes.Eq Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance GHC.Generics.Generic Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.SetEndpointAttributes.SetEndpointAttributes
 
 
 -- | Removes a statement from a topic's access control policy.
-module Network.AWS.SNS.RemovePermission
+module Amazonka.SNS.RemovePermission
 
 -- | Input for RemovePermission action.
 --   
@@ -2647,21 +2647,21 @@ RemovePermissionResponse' :: RemovePermissionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newRemovePermissionResponse :: RemovePermissionResponse
-instance GHC.Generics.Generic Network.AWS.SNS.RemovePermission.RemovePermission
-instance GHC.Show.Show Network.AWS.SNS.RemovePermission.RemovePermission
-instance GHC.Read.Read Network.AWS.SNS.RemovePermission.RemovePermission
-instance GHC.Classes.Eq Network.AWS.SNS.RemovePermission.RemovePermission
-instance GHC.Generics.Generic Network.AWS.SNS.RemovePermission.RemovePermissionResponse
-instance GHC.Show.Show Network.AWS.SNS.RemovePermission.RemovePermissionResponse
-instance GHC.Read.Read Network.AWS.SNS.RemovePermission.RemovePermissionResponse
-instance GHC.Classes.Eq Network.AWS.SNS.RemovePermission.RemovePermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.RemovePermission.RemovePermission
-instance Control.DeepSeq.NFData Network.AWS.SNS.RemovePermission.RemovePermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.RemovePermission.RemovePermission
-instance Control.DeepSeq.NFData Network.AWS.SNS.RemovePermission.RemovePermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.RemovePermission.RemovePermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.RemovePermission.RemovePermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.RemovePermission.RemovePermission
+instance GHC.Generics.Generic Amazonka.SNS.RemovePermission.RemovePermission
+instance GHC.Show.Show Amazonka.SNS.RemovePermission.RemovePermission
+instance GHC.Read.Read Amazonka.SNS.RemovePermission.RemovePermission
+instance GHC.Classes.Eq Amazonka.SNS.RemovePermission.RemovePermission
+instance GHC.Generics.Generic Amazonka.SNS.RemovePermission.RemovePermissionResponse
+instance GHC.Show.Show Amazonka.SNS.RemovePermission.RemovePermissionResponse
+instance GHC.Read.Read Amazonka.SNS.RemovePermission.RemovePermissionResponse
+instance GHC.Classes.Eq Amazonka.SNS.RemovePermission.RemovePermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.RemovePermission.RemovePermission
+instance Control.DeepSeq.NFData Amazonka.SNS.RemovePermission.RemovePermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.RemovePermission.RemovePermission
+instance Control.DeepSeq.NFData Amazonka.SNS.RemovePermission.RemovePermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.RemovePermission.RemovePermission
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.RemovePermission.RemovePermission
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.RemovePermission.RemovePermission
 
 
 -- | Sends a message to an Amazon SNS topic, a text message (SMS message)
@@ -2687,7 +2687,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.RemovePermission.RemoveP
 --   
 --   You can publish messages only to topics and endpoints in the same
 --   Region.
-module Network.AWS.SNS.Publish
+module Amazonka.SNS.Publish
 
 -- | Input for Publish action.
 --   
@@ -3159,28 +3159,28 @@ publishResponse_messageId :: Lens' PublishResponse (Maybe Text)
 
 -- | The response's http status code.
 publishResponse_httpStatus :: Lens' PublishResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.Publish.Publish
-instance GHC.Show.Show Network.AWS.SNS.Publish.Publish
-instance GHC.Read.Read Network.AWS.SNS.Publish.Publish
-instance GHC.Classes.Eq Network.AWS.SNS.Publish.Publish
-instance GHC.Generics.Generic Network.AWS.SNS.Publish.PublishResponse
-instance GHC.Show.Show Network.AWS.SNS.Publish.PublishResponse
-instance GHC.Read.Read Network.AWS.SNS.Publish.PublishResponse
-instance GHC.Classes.Eq Network.AWS.SNS.Publish.PublishResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.Publish.Publish
-instance Control.DeepSeq.NFData Network.AWS.SNS.Publish.PublishResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Publish.Publish
-instance Control.DeepSeq.NFData Network.AWS.SNS.Publish.Publish
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.Publish.Publish
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.Publish.Publish
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.Publish.Publish
+instance GHC.Generics.Generic Amazonka.SNS.Publish.Publish
+instance GHC.Show.Show Amazonka.SNS.Publish.Publish
+instance GHC.Read.Read Amazonka.SNS.Publish.Publish
+instance GHC.Classes.Eq Amazonka.SNS.Publish.Publish
+instance GHC.Generics.Generic Amazonka.SNS.Publish.PublishResponse
+instance GHC.Show.Show Amazonka.SNS.Publish.PublishResponse
+instance GHC.Read.Read Amazonka.SNS.Publish.PublishResponse
+instance GHC.Classes.Eq Amazonka.SNS.Publish.PublishResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.Publish.Publish
+instance Control.DeepSeq.NFData Amazonka.SNS.Publish.PublishResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Publish.Publish
+instance Control.DeepSeq.NFData Amazonka.SNS.Publish.Publish
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.Publish.Publish
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.Publish.Publish
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.Publish.Publish
 
 
 -- | Use this request to opt in a phone number that is opted out, which
 --   enables you to resume sending SMS messages to the number.
 --   
 --   You can opt in a phone number only once every 30 days.
-module Network.AWS.SNS.OptInPhoneNumber
+module Amazonka.SNS.OptInPhoneNumber
 
 -- | Input for the OptInPhoneNumber action.
 --   
@@ -3233,21 +3233,21 @@ newOptInPhoneNumberResponse :: Int -> OptInPhoneNumberResponse
 
 -- | The response's http status code.
 optInPhoneNumberResponse_httpStatus :: Lens' OptInPhoneNumberResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
-instance GHC.Show.Show Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
-instance GHC.Read.Read Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
-instance GHC.Classes.Eq Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
-instance GHC.Generics.Generic Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
-instance GHC.Show.Show Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
-instance GHC.Read.Read Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
-instance GHC.Classes.Eq Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
-instance Control.DeepSeq.NFData Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
-instance Control.DeepSeq.NFData Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance GHC.Generics.Generic Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance GHC.Show.Show Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance GHC.Read.Read Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance GHC.Classes.Eq Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance GHC.Generics.Generic Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
+instance GHC.Show.Show Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
+instance GHC.Read.Read Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
+instance GHC.Classes.Eq Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance Control.DeepSeq.NFData Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumberResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance Control.DeepSeq.NFData Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.OptInPhoneNumber.OptInPhoneNumber
 
 
 -- | Returns a list of the requester's topics. Each call returns a limited
@@ -3258,7 +3258,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.OptInPhoneNumber.OptInPh
 --   This action is throttled at 30 transactions per second (TPS).
 --   
 --   This operation returns paginated results.
-module Network.AWS.SNS.ListTopics
+module Amazonka.SNS.ListTopics
 
 -- | <i>See:</i> <a>newListTopics</a> smart constructor.
 data ListTopics
@@ -3328,28 +3328,28 @@ listTopicsResponse_nextToken :: Lens' ListTopicsResponse (Maybe Text)
 
 -- | The response's http status code.
 listTopicsResponse_httpStatus :: Lens' ListTopicsResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.ListTopics.ListTopics
-instance GHC.Show.Show Network.AWS.SNS.ListTopics.ListTopics
-instance GHC.Read.Read Network.AWS.SNS.ListTopics.ListTopics
-instance GHC.Classes.Eq Network.AWS.SNS.ListTopics.ListTopics
-instance GHC.Generics.Generic Network.AWS.SNS.ListTopics.ListTopicsResponse
-instance GHC.Show.Show Network.AWS.SNS.ListTopics.ListTopicsResponse
-instance GHC.Read.Read Network.AWS.SNS.ListTopics.ListTopicsResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ListTopics.ListTopicsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ListTopics.ListTopics
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListTopics.ListTopicsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SNS.ListTopics.ListTopics
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ListTopics.ListTopics
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListTopics.ListTopics
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ListTopics.ListTopics
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ListTopics.ListTopics
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListTopics.ListTopics
+instance GHC.Generics.Generic Amazonka.SNS.ListTopics.ListTopics
+instance GHC.Show.Show Amazonka.SNS.ListTopics.ListTopics
+instance GHC.Read.Read Amazonka.SNS.ListTopics.ListTopics
+instance GHC.Classes.Eq Amazonka.SNS.ListTopics.ListTopics
+instance GHC.Generics.Generic Amazonka.SNS.ListTopics.ListTopicsResponse
+instance GHC.Show.Show Amazonka.SNS.ListTopics.ListTopicsResponse
+instance GHC.Read.Read Amazonka.SNS.ListTopics.ListTopicsResponse
+instance GHC.Classes.Eq Amazonka.SNS.ListTopics.ListTopicsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ListTopics.ListTopics
+instance Control.DeepSeq.NFData Amazonka.SNS.ListTopics.ListTopicsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SNS.ListTopics.ListTopics
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ListTopics.ListTopics
+instance Control.DeepSeq.NFData Amazonka.SNS.ListTopics.ListTopics
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ListTopics.ListTopics
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ListTopics.ListTopics
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ListTopics.ListTopics
 
 
 -- | List all tags added to the specified Amazon SNS topic. For an
 --   overview, see <a>Amazon SNS Tags</a> in the <i>Amazon Simple
 --   Notification Service Developer Guide</i>.
-module Network.AWS.SNS.ListTagsForResource
+module Amazonka.SNS.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3408,21 +3408,21 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.SNS.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.SNS.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.SNS.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.SNS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.SNS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.SNS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SNS.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.SNS.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.SNS.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.SNS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SNS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.SNS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.SNS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.SNS.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SNS.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SNS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns a list of the subscriptions to a specific topic. Each call
@@ -3434,7 +3434,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListTagsForResource.List
 --   This action is throttled at 30 transactions per second (TPS).
 --   
 --   This operation returns paginated results.
-module Network.AWS.SNS.ListSubscriptionsByTopic
+module Amazonka.SNS.ListSubscriptionsByTopic
 
 -- | Input for ListSubscriptionsByTopic action.
 --   
@@ -3525,22 +3525,22 @@ listSubscriptionsByTopicResponse_subscriptions :: Lens' ListSubscriptionsByTopic
 
 -- | The response's http status code.
 listSubscriptionsByTopicResponse_httpStatus :: Lens' ListSubscriptionsByTopicResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance GHC.Show.Show Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance GHC.Read.Read Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance GHC.Classes.Eq Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance GHC.Generics.Generic Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
-instance GHC.Show.Show Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
-instance GHC.Read.Read Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance GHC.Generics.Generic Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance GHC.Show.Show Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance GHC.Read.Read Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance GHC.Classes.Eq Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance GHC.Generics.Generic Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
+instance GHC.Show.Show Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
+instance GHC.Read.Read Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
+instance GHC.Classes.Eq Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance Control.DeepSeq.NFData Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopicResponse
+instance Amazonka.Pager.AWSPager Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance Control.DeepSeq.NFData Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ListSubscriptionsByTopic.ListSubscriptionsByTopic
 
 
 -- | Returns a list of the requester's subscriptions. Each call returns a
@@ -3552,7 +3552,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListSubscriptionsByTopic
 --   This action is throttled at 30 transactions per second (TPS).
 --   
 --   This operation returns paginated results.
-module Network.AWS.SNS.ListSubscriptions
+module Amazonka.SNS.ListSubscriptions
 
 -- | Input for ListSubscriptions action.
 --   
@@ -3628,22 +3628,22 @@ listSubscriptionsResponse_subscriptions :: Lens' ListSubscriptionsResponse (Mayb
 
 -- | The response's http status code.
 listSubscriptionsResponse_httpStatus :: Lens' ListSubscriptionsResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance GHC.Show.Show Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance GHC.Read.Read Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance GHC.Classes.Eq Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance GHC.Generics.Generic Network.AWS.SNS.ListSubscriptions.ListSubscriptionsResponse
-instance GHC.Show.Show Network.AWS.SNS.ListSubscriptions.ListSubscriptionsResponse
-instance GHC.Read.Read Network.AWS.SNS.ListSubscriptions.ListSubscriptionsResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ListSubscriptions.ListSubscriptionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListSubscriptions.ListSubscriptionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ListSubscriptions.ListSubscriptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListSubscriptions.ListSubscriptions
+instance GHC.Generics.Generic Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance GHC.Show.Show Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance GHC.Read.Read Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance GHC.Classes.Eq Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance GHC.Generics.Generic Amazonka.SNS.ListSubscriptions.ListSubscriptionsResponse
+instance GHC.Show.Show Amazonka.SNS.ListSubscriptions.ListSubscriptionsResponse
+instance GHC.Read.Read Amazonka.SNS.ListSubscriptions.ListSubscriptionsResponse
+instance GHC.Classes.Eq Amazonka.SNS.ListSubscriptions.ListSubscriptionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance Control.DeepSeq.NFData Amazonka.SNS.ListSubscriptions.ListSubscriptionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance Control.DeepSeq.NFData Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ListSubscriptions.ListSubscriptions
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ListSubscriptions.ListSubscriptions
 
 
 -- | Lists the calling account's current verified and pending destination
@@ -3660,7 +3660,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListSubscriptions.ListSu
 --   Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SNS.ListSMSSandboxPhoneNumbers
+module Amazonka.SNS.ListSMSSandboxPhoneNumbers
 
 -- | <i>See:</i> <a>newListSMSSandboxPhoneNumbers</a> smart constructor.
 data ListSMSSandboxPhoneNumbers
@@ -3748,22 +3748,22 @@ listSMSSandboxPhoneNumbersResponse_httpStatus :: Lens' ListSMSSandboxPhoneNumber
 
 -- | A list of the calling account's pending and verified phone numbers.
 listSMSSandboxPhoneNumbersResponse_phoneNumbers :: Lens' ListSMSSandboxPhoneNumbersResponse [SMSSandboxPhoneNumber]
-instance GHC.Generics.Generic Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance GHC.Show.Show Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance GHC.Read.Read Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance GHC.Classes.Eq Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance GHC.Generics.Generic Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
-instance GHC.Show.Show Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
-instance GHC.Read.Read Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance GHC.Generics.Generic Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance GHC.Show.Show Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance GHC.Read.Read Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance GHC.Classes.Eq Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance GHC.Generics.Generic Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
+instance GHC.Show.Show Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
+instance GHC.Read.Read Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
+instance GHC.Classes.Eq Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance Control.DeepSeq.NFData Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbersResponse
+instance Amazonka.Pager.AWSPager Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance Control.DeepSeq.NFData Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ListSMSSandboxPhoneNumbers.ListSMSSandboxPhoneNumbers
 
 
 -- | Lists the platform application objects for the supported push
@@ -3780,7 +3780,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListSMSSandboxPhoneNumbe
 --   This action is throttled at 15 transactions per second (TPS).
 --   
 --   This operation returns paginated results.
-module Network.AWS.SNS.ListPlatformApplications
+module Amazonka.SNS.ListPlatformApplications
 
 -- | Input for ListPlatformApplications action.
 --   
@@ -3867,22 +3867,22 @@ listPlatformApplicationsResponse_nextToken :: Lens' ListPlatformApplicationsResp
 
 -- | The response's http status code.
 listPlatformApplicationsResponse_httpStatus :: Lens' ListPlatformApplicationsResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance GHC.Show.Show Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance GHC.Read.Read Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance GHC.Classes.Eq Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance GHC.Generics.Generic Network.AWS.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
-instance GHC.Show.Show Network.AWS.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
-instance GHC.Read.Read Network.AWS.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListPlatformApplications.ListPlatformApplications
+instance GHC.Generics.Generic Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance GHC.Show.Show Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance GHC.Read.Read Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance GHC.Classes.Eq Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance GHC.Generics.Generic Amazonka.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
+instance GHC.Show.Show Amazonka.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
+instance GHC.Read.Read Amazonka.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
+instance GHC.Classes.Eq Amazonka.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance Control.DeepSeq.NFData Amazonka.SNS.ListPlatformApplications.ListPlatformApplicationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance Control.DeepSeq.NFData Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ListPlatformApplications.ListPlatformApplications
 
 
 -- | Returns a list of phone numbers that are opted out, meaning you cannot
@@ -3897,7 +3897,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListPlatformApplications
 --   are no more records to return, <tt>NextToken</tt> will be null.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SNS.ListPhoneNumbersOptedOut
+module Amazonka.SNS.ListPhoneNumbersOptedOut
 
 -- | The input for the <tt>ListPhoneNumbersOptedOut</tt> action.
 --   
@@ -3988,22 +3988,22 @@ listPhoneNumbersOptedOutResponse_nextToken :: Lens' ListPhoneNumbersOptedOutResp
 
 -- | The response's http status code.
 listPhoneNumbersOptedOutResponse_httpStatus :: Lens' ListPhoneNumbersOptedOutResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance GHC.Show.Show Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance GHC.Read.Read Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance GHC.Classes.Eq Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance GHC.Generics.Generic Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
-instance GHC.Show.Show Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
-instance GHC.Read.Read Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance GHC.Generics.Generic Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance GHC.Show.Show Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance GHC.Read.Read Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance GHC.Classes.Eq Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance GHC.Generics.Generic Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
+instance GHC.Show.Show Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
+instance GHC.Read.Read Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
+instance GHC.Classes.Eq Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance Control.DeepSeq.NFData Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOutResponse
+instance Amazonka.Pager.AWSPager Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance Control.DeepSeq.NFData Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ListPhoneNumbersOptedOut.ListPhoneNumbersOptedOut
 
 
 -- | Lists the calling account's dedicated origination numbers and their
@@ -4011,7 +4011,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListPhoneNumbersOptedOut
 --   <a>Origination numbers</a> in the <i>Amazon SNS Developer Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SNS.ListOriginationNumbers
+module Amazonka.SNS.ListOriginationNumbers
 
 -- | <i>See:</i> <a>newListOriginationNumbers</a> smart constructor.
 data ListOriginationNumbers
@@ -4100,22 +4100,22 @@ listOriginationNumbersResponse_phoneNumbers :: Lens' ListOriginationNumbersRespo
 
 -- | The response's http status code.
 listOriginationNumbersResponse_httpStatus :: Lens' ListOriginationNumbersResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance GHC.Show.Show Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance GHC.Read.Read Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance GHC.Classes.Eq Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance GHC.Generics.Generic Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
-instance GHC.Show.Show Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
-instance GHC.Read.Read Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance GHC.Generics.Generic Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance GHC.Show.Show Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance GHC.Read.Read Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance GHC.Classes.Eq Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance GHC.Generics.Generic Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
+instance GHC.Show.Show Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
+instance GHC.Read.Read Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
+instance GHC.Classes.Eq Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance Control.DeepSeq.NFData Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbersResponse
+instance Amazonka.Pager.AWSPager Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance Control.DeepSeq.NFData Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ListOriginationNumbers.ListOriginationNumbers
 
 
 -- | Lists the endpoints and endpoint attributes for devices in a supported
@@ -4132,7 +4132,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListOriginationNumbers.L
 --   This action is throttled at 30 transactions per second (TPS).
 --   
 --   This operation returns paginated results.
-module Network.AWS.SNS.ListEndpointsByPlatformApplication
+module Amazonka.SNS.ListEndpointsByPlatformApplication
 
 -- | Input for ListEndpointsByPlatformApplication action.
 --   
@@ -4233,27 +4233,27 @@ listEndpointsByPlatformApplicationResponse_endpoints :: Lens' ListEndpointsByPla
 
 -- | The response's http status code.
 listEndpointsByPlatformApplicationResponse_httpStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance GHC.Show.Show Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance GHC.Read.Read Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance GHC.Classes.Eq Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance GHC.Generics.Generic Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
-instance GHC.Show.Show Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
-instance GHC.Read.Read Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance Control.DeepSeq.NFData Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance GHC.Generics.Generic Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance GHC.Show.Show Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance GHC.Read.Read Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance GHC.Classes.Eq Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance GHC.Generics.Generic Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
+instance GHC.Show.Show Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
+instance GHC.Read.Read Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
+instance GHC.Classes.Eq Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance Control.DeepSeq.NFData Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplicationResponse
+instance Amazonka.Pager.AWSPager Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance Control.DeepSeq.NFData Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ListEndpointsByPlatformApplication.ListEndpointsByPlatformApplication
 
 
 -- | Returns all of the properties of a topic. Topic properties returned
 --   might differ based on the authorization of the user.
-module Network.AWS.SNS.GetTopicAttributes
+module Amazonka.SNS.GetTopicAttributes
 
 -- | Input for GetTopicAttributes action.
 --   
@@ -4462,25 +4462,25 @@ getTopicAttributesResponse_attributes :: Lens' GetTopicAttributesResponse (Maybe
 
 -- | The response's http status code.
 getTopicAttributesResponse_httpStatus :: Lens' GetTopicAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
-instance GHC.Show.Show Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
-instance GHC.Read.Read Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.GetTopicAttributes.GetTopicAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.GetTopicAttributes.GetTopicAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.GetTopicAttributes.GetTopicAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.GetTopicAttributes.GetTopicAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetTopicAttributes.GetTopicAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.GetTopicAttributes.GetTopicAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
+instance GHC.Show.Show Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
+instance GHC.Read.Read Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
+instance GHC.Classes.Eq Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetTopicAttributes.GetTopicAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.GetTopicAttributes.GetTopicAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.GetTopicAttributes.GetTopicAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.GetTopicAttributes.GetTopicAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetTopicAttributes.GetTopicAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.GetTopicAttributes.GetTopicAttributes
 
 
 -- | Returns all of the properties of a subscription.
-module Network.AWS.SNS.GetSubscriptionAttributes
+module Amazonka.SNS.GetSubscriptionAttributes
 
 -- | Input for GetSubscriptionAttributes.
 --   
@@ -4679,21 +4679,21 @@ getSubscriptionAttributesResponse_attributes :: Lens' GetSubscriptionAttributesR
 
 -- | The response's http status code.
 getSubscriptionAttributesResponse_httpStatus :: Lens' GetSubscriptionAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
-instance GHC.Show.Show Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
-instance GHC.Read.Read Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance GHC.Show.Show Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance GHC.Read.Read Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance GHC.Classes.Eq Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.GetSubscriptionAttributes.GetSubscriptionAttributes
 
 
 -- | Retrieves the SMS sandbox status for the calling account in the target
@@ -4708,7 +4708,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.GetSubscriptionAttribute
 --   including how to move out of the sandbox to send messages without
 --   restrictions, see <a>SMS sandbox</a> in the <i>Amazon SNS Developer
 --   Guide</i>.
-module Network.AWS.SNS.GetSMSSandboxAccountStatus
+module Amazonka.SNS.GetSMSSandboxAccountStatus
 
 -- | <i>See:</i> <a>newGetSMSSandboxAccountStatus</a> smart constructor.
 data GetSMSSandboxAccountStatus
@@ -4755,27 +4755,27 @@ getSMSSandboxAccountStatusResponse_httpStatus :: Lens' GetSMSSandboxAccountStatu
 
 -- | Indicates whether the calling account is in the SMS sandbox.
 getSMSSandboxAccountStatusResponse_isInSandbox :: Lens' GetSMSSandboxAccountStatusResponse Bool
-instance GHC.Generics.Generic Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
-instance GHC.Show.Show Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
-instance GHC.Read.Read Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
-instance GHC.Classes.Eq Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
-instance GHC.Generics.Generic Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
-instance GHC.Show.Show Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
-instance GHC.Read.Read Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
-instance GHC.Classes.Eq Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance GHC.Generics.Generic Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance GHC.Show.Show Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance GHC.Read.Read Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance GHC.Classes.Eq Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance GHC.Generics.Generic Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
+instance GHC.Show.Show Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
+instance GHC.Read.Read Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
+instance GHC.Classes.Eq Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance Control.DeepSeq.NFData Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance Control.DeepSeq.NFData Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.GetSMSSandboxAccountStatus.GetSMSSandboxAccountStatus
 
 
 -- | Returns the settings for sending SMS messages from your account.
 --   
 --   These settings are set with the <tt>SetSMSAttributes</tt> action.
-module Network.AWS.SNS.GetSMSAttributes
+module Amazonka.SNS.GetSMSAttributes
 
 -- | The input for the <tt>GetSMSAttributes</tt> request.
 --   
@@ -4856,28 +4856,28 @@ getSMSAttributesResponse_attributes :: Lens' GetSMSAttributesResponse (Maybe (Ha
 
 -- | The response's http status code.
 getSMSAttributesResponse_httpStatus :: Lens' GetSMSAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
-instance GHC.Show.Show Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
-instance GHC.Read.Read Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.GetSMSAttributes.GetSMSAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.GetSMSAttributes.GetSMSAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.GetSMSAttributes.GetSMSAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.GetSMSAttributes.GetSMSAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetSMSAttributes.GetSMSAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.GetSMSAttributes.GetSMSAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
+instance GHC.Show.Show Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
+instance GHC.Read.Read Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
+instance GHC.Classes.Eq Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetSMSAttributes.GetSMSAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.GetSMSAttributes.GetSMSAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.GetSMSAttributes.GetSMSAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.GetSMSAttributes.GetSMSAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetSMSAttributes.GetSMSAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.GetSMSAttributes.GetSMSAttributes
 
 
 -- | Retrieves the attributes of the platform application object for the
 --   supported push notification services, such as APNS and GCM (Firebase
 --   Cloud Messaging). For more information, see <a>Using Amazon SNS Mobile
 --   Push Notifications</a>.
-module Network.AWS.SNS.GetPlatformApplicationAttributes
+module Amazonka.SNS.GetPlatformApplicationAttributes
 
 -- | Input for GetPlatformApplicationAttributes action.
 --   
@@ -4978,28 +4978,28 @@ getPlatformApplicationAttributesResponse_attributes :: Lens' GetPlatformApplicat
 
 -- | The response's http status code.
 getPlatformApplicationAttributesResponse_httpStatus :: Lens' GetPlatformApplicationAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
-instance GHC.Show.Show Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
-instance GHC.Read.Read Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance GHC.Show.Show Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance GHC.Read.Read Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance GHC.Classes.Eq Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.GetPlatformApplicationAttributes.GetPlatformApplicationAttributes
 
 
 -- | Retrieves the endpoint attributes for a device on one of the supported
 --   push notification services, such as GCM (Firebase Cloud Messaging) and
 --   APNS. For more information, see <a>Using Amazon SNS Mobile Push
 --   Notifications</a>.
-module Network.AWS.SNS.GetEndpointAttributes
+module Amazonka.SNS.GetEndpointAttributes
 
 -- | Input for GetEndpointAttributes action.
 --   
@@ -5107,28 +5107,28 @@ getEndpointAttributesResponse_attributes :: Lens' GetEndpointAttributesResponse 
 
 -- | The response's http status code.
 getEndpointAttributesResponse_httpStatus :: Lens' GetEndpointAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
-instance GHC.Show.Show Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
-instance GHC.Read.Read Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
-instance GHC.Classes.Eq Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
-instance GHC.Generics.Generic Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
-instance GHC.Show.Show Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
-instance GHC.Read.Read Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
-instance GHC.Classes.Eq Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
-instance Control.DeepSeq.NFData Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance GHC.Show.Show Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance GHC.Read.Read Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance GHC.Classes.Eq Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance GHC.Generics.Generic Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
+instance GHC.Show.Show Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
+instance GHC.Read.Read Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
+instance GHC.Classes.Eq Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance Control.DeepSeq.NFData Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.GetEndpointAttributes.GetEndpointAttributes
 
 
 -- | Deletes a topic and all its subscriptions. Deleting a topic might
 --   prevent some messages previously sent to the topic from being
 --   delivered to subscribers. This action is idempotent, so deleting a
 --   topic that does not exist does not result in an error.
-module Network.AWS.SNS.DeleteTopic
+module Amazonka.SNS.DeleteTopic
 
 -- | <i>See:</i> <a>newDeleteTopic</a> smart constructor.
 data DeleteTopic
@@ -5162,21 +5162,21 @@ DeleteTopicResponse' :: DeleteTopicResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteTopicResponse :: DeleteTopicResponse
-instance GHC.Generics.Generic Network.AWS.SNS.DeleteTopic.DeleteTopic
-instance GHC.Show.Show Network.AWS.SNS.DeleteTopic.DeleteTopic
-instance GHC.Read.Read Network.AWS.SNS.DeleteTopic.DeleteTopic
-instance GHC.Classes.Eq Network.AWS.SNS.DeleteTopic.DeleteTopic
-instance GHC.Generics.Generic Network.AWS.SNS.DeleteTopic.DeleteTopicResponse
-instance GHC.Show.Show Network.AWS.SNS.DeleteTopic.DeleteTopicResponse
-instance GHC.Read.Read Network.AWS.SNS.DeleteTopic.DeleteTopicResponse
-instance GHC.Classes.Eq Network.AWS.SNS.DeleteTopic.DeleteTopicResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.DeleteTopic.DeleteTopic
-instance Control.DeepSeq.NFData Network.AWS.SNS.DeleteTopic.DeleteTopicResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.DeleteTopic.DeleteTopic
-instance Control.DeepSeq.NFData Network.AWS.SNS.DeleteTopic.DeleteTopic
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.DeleteTopic.DeleteTopic
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.DeleteTopic.DeleteTopic
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.DeleteTopic.DeleteTopic
+instance GHC.Generics.Generic Amazonka.SNS.DeleteTopic.DeleteTopic
+instance GHC.Show.Show Amazonka.SNS.DeleteTopic.DeleteTopic
+instance GHC.Read.Read Amazonka.SNS.DeleteTopic.DeleteTopic
+instance GHC.Classes.Eq Amazonka.SNS.DeleteTopic.DeleteTopic
+instance GHC.Generics.Generic Amazonka.SNS.DeleteTopic.DeleteTopicResponse
+instance GHC.Show.Show Amazonka.SNS.DeleteTopic.DeleteTopicResponse
+instance GHC.Read.Read Amazonka.SNS.DeleteTopic.DeleteTopicResponse
+instance GHC.Classes.Eq Amazonka.SNS.DeleteTopic.DeleteTopicResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.DeleteTopic.DeleteTopic
+instance Control.DeepSeq.NFData Amazonka.SNS.DeleteTopic.DeleteTopicResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.DeleteTopic.DeleteTopic
+instance Control.DeepSeq.NFData Amazonka.SNS.DeleteTopic.DeleteTopic
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.DeleteTopic.DeleteTopic
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.DeleteTopic.DeleteTopic
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.DeleteTopic.DeleteTopic
 
 
 -- | Deletes an account's verified or pending phone number from the SMS
@@ -5191,7 +5191,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.DeleteTopic.DeleteTopic
 --   including how to move out of the sandbox to send messages without
 --   restrictions, see <a>SMS sandbox</a> in the <i>Amazon SNS Developer
 --   Guide</i>.
-module Network.AWS.SNS.DeleteSMSSandboxPhoneNumber
+module Amazonka.SNS.DeleteSMSSandboxPhoneNumber
 
 -- | <i>See:</i> <a>newDeleteSMSSandboxPhoneNumber</a> smart constructor.
 data DeleteSMSSandboxPhoneNumber
@@ -5241,28 +5241,28 @@ newDeleteSMSSandboxPhoneNumberResponse :: Int -> DeleteSMSSandboxPhoneNumberResp
 
 -- | The response's http status code.
 deleteSMSSandboxPhoneNumberResponse_httpStatus :: Lens' DeleteSMSSandboxPhoneNumberResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
-instance GHC.Show.Show Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
-instance GHC.Read.Read Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
-instance GHC.Classes.Eq Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
-instance GHC.Generics.Generic Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
-instance GHC.Show.Show Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
-instance GHC.Read.Read Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
-instance GHC.Classes.Eq Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
-instance Control.DeepSeq.NFData Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
-instance Control.DeepSeq.NFData Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance GHC.Generics.Generic Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance GHC.Show.Show Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance GHC.Read.Read Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance GHC.Classes.Eq Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance GHC.Generics.Generic Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
+instance GHC.Show.Show Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
+instance GHC.Read.Read Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
+instance GHC.Classes.Eq Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance Control.DeepSeq.NFData Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumberResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance Control.DeepSeq.NFData Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.DeleteSMSSandboxPhoneNumber.DeleteSMSSandboxPhoneNumber
 
 
 -- | Deletes a platform application object for one of the supported push
 --   notification services, such as APNS and GCM (Firebase Cloud
 --   Messaging). For more information, see <a>Using Amazon SNS Mobile Push
 --   Notifications</a>.
-module Network.AWS.SNS.DeletePlatformApplication
+module Amazonka.SNS.DeletePlatformApplication
 
 -- | Input for DeletePlatformApplication action.
 --   
@@ -5301,21 +5301,21 @@ DeletePlatformApplicationResponse' :: DeletePlatformApplicationResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeletePlatformApplicationResponse :: DeletePlatformApplicationResponse
-instance GHC.Generics.Generic Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
-instance GHC.Show.Show Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
-instance GHC.Read.Read Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
-instance GHC.Classes.Eq Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
-instance GHC.Generics.Generic Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
-instance GHC.Show.Show Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
-instance GHC.Read.Read Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
-instance GHC.Classes.Eq Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
-instance Control.DeepSeq.NFData Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
-instance Control.DeepSeq.NFData Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance GHC.Generics.Generic Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance GHC.Show.Show Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance GHC.Read.Read Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance GHC.Classes.Eq Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance GHC.Generics.Generic Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
+instance GHC.Show.Show Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
+instance GHC.Read.Read Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
+instance GHC.Classes.Eq Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance Control.DeepSeq.NFData Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance Control.DeepSeq.NFData Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.DeletePlatformApplication.DeletePlatformApplication
 
 
 -- | Deletes the endpoint for a device and mobile app from Amazon SNS. This
@@ -5324,7 +5324,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.DeletePlatformApplicatio
 --   
 --   When you delete an endpoint that is also subscribed to a topic, then
 --   you must also unsubscribe the endpoint from the topic.
-module Network.AWS.SNS.DeleteEndpoint
+module Amazonka.SNS.DeleteEndpoint
 
 -- | Input for DeleteEndpoint action.
 --   
@@ -5361,21 +5361,21 @@ DeleteEndpointResponse' :: DeleteEndpointResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteEndpointResponse :: DeleteEndpointResponse
-instance GHC.Generics.Generic Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
-instance GHC.Show.Show Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
-instance GHC.Read.Read Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
-instance GHC.Classes.Eq Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
-instance GHC.Generics.Generic Network.AWS.SNS.DeleteEndpoint.DeleteEndpointResponse
-instance GHC.Show.Show Network.AWS.SNS.DeleteEndpoint.DeleteEndpointResponse
-instance GHC.Read.Read Network.AWS.SNS.DeleteEndpoint.DeleteEndpointResponse
-instance GHC.Classes.Eq Network.AWS.SNS.DeleteEndpoint.DeleteEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
-instance Control.DeepSeq.NFData Network.AWS.SNS.DeleteEndpoint.DeleteEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
-instance Control.DeepSeq.NFData Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.DeleteEndpoint.DeleteEndpoint
+instance GHC.Generics.Generic Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
+instance GHC.Show.Show Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
+instance GHC.Read.Read Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
+instance GHC.Classes.Eq Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
+instance GHC.Generics.Generic Amazonka.SNS.DeleteEndpoint.DeleteEndpointResponse
+instance GHC.Show.Show Amazonka.SNS.DeleteEndpoint.DeleteEndpointResponse
+instance GHC.Read.Read Amazonka.SNS.DeleteEndpoint.DeleteEndpointResponse
+instance GHC.Classes.Eq Amazonka.SNS.DeleteEndpoint.DeleteEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
+instance Control.DeepSeq.NFData Amazonka.SNS.DeleteEndpoint.DeleteEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
+instance Control.DeepSeq.NFData Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.DeleteEndpoint.DeleteEndpoint
 
 
 -- | Creates a topic to which notifications can be published. Users can
@@ -5384,7 +5384,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.DeleteEndpoint.DeleteEnd
 --   <i>Amazon SNS Developer Guide</i>. This action is idempotent, so if
 --   the requester already owns a topic with the specified name, that
 --   topic's ARN is returned without creating a new topic.
-module Network.AWS.SNS.CreateTopic
+module Amazonka.SNS.CreateTopic
 
 -- | Input for CreateTopic action.
 --   
@@ -5619,21 +5619,21 @@ createTopicResponse_topicArn :: Lens' CreateTopicResponse (Maybe Text)
 
 -- | The response's http status code.
 createTopicResponse_httpStatus :: Lens' CreateTopicResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.CreateTopic.CreateTopic
-instance GHC.Show.Show Network.AWS.SNS.CreateTopic.CreateTopic
-instance GHC.Read.Read Network.AWS.SNS.CreateTopic.CreateTopic
-instance GHC.Classes.Eq Network.AWS.SNS.CreateTopic.CreateTopic
-instance GHC.Generics.Generic Network.AWS.SNS.CreateTopic.CreateTopicResponse
-instance GHC.Show.Show Network.AWS.SNS.CreateTopic.CreateTopicResponse
-instance GHC.Read.Read Network.AWS.SNS.CreateTopic.CreateTopicResponse
-instance GHC.Classes.Eq Network.AWS.SNS.CreateTopic.CreateTopicResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.CreateTopic.CreateTopic
-instance Control.DeepSeq.NFData Network.AWS.SNS.CreateTopic.CreateTopicResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.CreateTopic.CreateTopic
-instance Control.DeepSeq.NFData Network.AWS.SNS.CreateTopic.CreateTopic
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.CreateTopic.CreateTopic
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.CreateTopic.CreateTopic
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.CreateTopic.CreateTopic
+instance GHC.Generics.Generic Amazonka.SNS.CreateTopic.CreateTopic
+instance GHC.Show.Show Amazonka.SNS.CreateTopic.CreateTopic
+instance GHC.Read.Read Amazonka.SNS.CreateTopic.CreateTopic
+instance GHC.Classes.Eq Amazonka.SNS.CreateTopic.CreateTopic
+instance GHC.Generics.Generic Amazonka.SNS.CreateTopic.CreateTopicResponse
+instance GHC.Show.Show Amazonka.SNS.CreateTopic.CreateTopicResponse
+instance GHC.Read.Read Amazonka.SNS.CreateTopic.CreateTopicResponse
+instance GHC.Classes.Eq Amazonka.SNS.CreateTopic.CreateTopicResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.CreateTopic.CreateTopic
+instance Control.DeepSeq.NFData Amazonka.SNS.CreateTopic.CreateTopicResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.CreateTopic.CreateTopic
+instance Control.DeepSeq.NFData Amazonka.SNS.CreateTopic.CreateTopic
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.CreateTopic.CreateTopic
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.CreateTopic.CreateTopic
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.CreateTopic.CreateTopic
 
 
 -- | Adds a destination phone number to an account in the SMS sandbox and
@@ -5648,7 +5648,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.CreateTopic.CreateTopic
 --   including how to move out of the sandbox to send messages without
 --   restrictions, see <a>SMS sandbox</a> in the <i>Amazon SNS Developer
 --   Guide</i>.
-module Network.AWS.SNS.CreateSMSSandboxPhoneNumber
+module Amazonka.SNS.CreateSMSSandboxPhoneNumber
 
 -- | <i>See:</i> <a>newCreateSMSSandboxPhoneNumber</a> smart constructor.
 data CreateSMSSandboxPhoneNumber
@@ -5716,21 +5716,21 @@ newCreateSMSSandboxPhoneNumberResponse :: Int -> CreateSMSSandboxPhoneNumberResp
 
 -- | The response's http status code.
 createSMSSandboxPhoneNumberResponse_httpStatus :: Lens' CreateSMSSandboxPhoneNumberResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
-instance GHC.Show.Show Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
-instance GHC.Read.Read Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
-instance GHC.Classes.Eq Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
-instance GHC.Generics.Generic Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
-instance GHC.Show.Show Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
-instance GHC.Read.Read Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
-instance GHC.Classes.Eq Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
-instance Control.DeepSeq.NFData Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
-instance Control.DeepSeq.NFData Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance GHC.Generics.Generic Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance GHC.Show.Show Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance GHC.Read.Read Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance GHC.Classes.Eq Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance GHC.Generics.Generic Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
+instance GHC.Show.Show Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
+instance GHC.Read.Read Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
+instance GHC.Classes.Eq Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance Control.DeepSeq.NFData Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumberResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance Control.DeepSeq.NFData Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.CreateSMSSandboxPhoneNumber.CreateSMSSandboxPhoneNumber
 
 
 -- | Creates an endpoint for a device and mobile app on one of the
@@ -5750,7 +5750,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.CreateSMSSandboxPhoneNum
 --   must be provided: ChannelId and UserId. The token field must also
 --   contain the ChannelId. For more information, see <a>Creating an Amazon
 --   SNS Endpoint for Baidu</a>.
-module Network.AWS.SNS.CreatePlatformEndpoint
+module Amazonka.SNS.CreatePlatformEndpoint
 
 -- | Input for CreatePlatformEndpoint action.
 --   
@@ -5865,21 +5865,21 @@ createPlatformEndpointResponse_endpointArn :: Lens' CreatePlatformEndpointRespon
 
 -- | The response's http status code.
 createPlatformEndpointResponse_httpStatus :: Lens' CreatePlatformEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
-instance GHC.Show.Show Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
-instance GHC.Read.Read Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
-instance GHC.Classes.Eq Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
-instance GHC.Generics.Generic Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
-instance GHC.Show.Show Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
-instance GHC.Read.Read Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
-instance GHC.Classes.Eq Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
-instance Control.DeepSeq.NFData Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
-instance Control.DeepSeq.NFData Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance GHC.Generics.Generic Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance GHC.Show.Show Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance GHC.Read.Read Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance GHC.Classes.Eq Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance GHC.Generics.Generic Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
+instance GHC.Show.Show Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
+instance GHC.Read.Read Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
+instance GHC.Classes.Eq Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance Control.DeepSeq.NFData Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance Control.DeepSeq.NFData Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.CreatePlatformEndpoint.CreatePlatformEndpoint
 
 
 -- | Creates a platform application object for one of the supported push
@@ -5912,7 +5912,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.CreatePlatformEndpoint.C
 --   
 --   You can use the returned <tt>PlatformApplicationArn</tt> as an
 --   attribute for the <tt>CreatePlatformEndpoint</tt> action.
-module Network.AWS.SNS.CreatePlatformApplication
+module Amazonka.SNS.CreatePlatformApplication
 
 -- | Input for CreatePlatformApplication action.
 --   
@@ -6008,21 +6008,21 @@ createPlatformApplicationResponse_platformApplicationArn :: Lens' CreatePlatform
 
 -- | The response's http status code.
 createPlatformApplicationResponse_httpStatus :: Lens' CreatePlatformApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
-instance GHC.Show.Show Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
-instance GHC.Read.Read Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
-instance GHC.Classes.Eq Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
-instance GHC.Generics.Generic Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
-instance GHC.Show.Show Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
-instance GHC.Read.Read Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
-instance GHC.Classes.Eq Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
-instance Control.DeepSeq.NFData Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
-instance Control.DeepSeq.NFData Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance GHC.Generics.Generic Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance GHC.Show.Show Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance GHC.Read.Read Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance GHC.Classes.Eq Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance GHC.Generics.Generic Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
+instance GHC.Show.Show Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
+instance GHC.Read.Read Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
+instance GHC.Classes.Eq Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance Control.DeepSeq.NFData Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance Control.DeepSeq.NFData Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.CreatePlatformApplication.CreatePlatformApplication
 
 
 -- | Verifies an endpoint owner's intent to receive messages by validating
@@ -6031,7 +6031,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.CreatePlatformApplicatio
 --   and returns its Amazon Resource Name (ARN). This call requires an AWS
 --   signature only when the <tt>AuthenticateOnUnsubscribe</tt> flag is set
 --   to "true".
-module Network.AWS.SNS.ConfirmSubscription
+module Amazonka.SNS.ConfirmSubscription
 
 -- | Input for ConfirmSubscription action.
 --   
@@ -6128,21 +6128,21 @@ confirmSubscriptionResponse_subscriptionArn :: Lens' ConfirmSubscriptionResponse
 
 -- | The response's http status code.
 confirmSubscriptionResponse_httpStatus :: Lens' ConfirmSubscriptionResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
-instance GHC.Show.Show Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
-instance GHC.Read.Read Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
-instance GHC.Classes.Eq Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
-instance GHC.Generics.Generic Network.AWS.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
-instance GHC.Show.Show Network.AWS.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
-instance GHC.Read.Read Network.AWS.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
-instance GHC.Classes.Eq Network.AWS.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
-instance Control.DeepSeq.NFData Network.AWS.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
-instance Control.DeepSeq.NFData Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ConfirmSubscription.ConfirmSubscription
+instance GHC.Generics.Generic Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
+instance GHC.Show.Show Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
+instance GHC.Read.Read Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
+instance GHC.Classes.Eq Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
+instance GHC.Generics.Generic Amazonka.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
+instance GHC.Show.Show Amazonka.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
+instance GHC.Read.Read Amazonka.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
+instance GHC.Classes.Eq Amazonka.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
+instance Control.DeepSeq.NFData Amazonka.SNS.ConfirmSubscription.ConfirmSubscriptionResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
+instance Control.DeepSeq.NFData Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.ConfirmSubscription.ConfirmSubscription
 
 
 -- | Accepts a phone number and indicates whether the phone holder has
@@ -6151,7 +6151,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.ConfirmSubscription.Conf
 --   
 --   To resume sending messages, you can opt in the number by using the
 --   <tt>OptInPhoneNumber</tt> action.
-module Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
+module Amazonka.SNS.CheckIfPhoneNumberIsOptedOut
 
 -- | The input for the <tt>CheckIfPhoneNumberIsOptedOut</tt> action.
 --   
@@ -6236,26 +6236,26 @@ checkIfPhoneNumberIsOptedOutResponse_isOptedOut :: Lens' CheckIfPhoneNumberIsOpt
 
 -- | The response's http status code.
 checkIfPhoneNumberIsOptedOutResponse_httpStatus :: Lens' CheckIfPhoneNumberIsOptedOutResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
-instance GHC.Show.Show Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
-instance GHC.Read.Read Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
-instance GHC.Classes.Eq Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
-instance GHC.Generics.Generic Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
-instance GHC.Show.Show Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
-instance GHC.Read.Read Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
-instance GHC.Classes.Eq Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
-instance Control.DeepSeq.NFData Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
-instance Control.DeepSeq.NFData Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance GHC.Generics.Generic Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance GHC.Show.Show Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance GHC.Read.Read Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance GHC.Classes.Eq Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance GHC.Generics.Generic Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
+instance GHC.Show.Show Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
+instance GHC.Read.Read Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
+instance GHC.Classes.Eq Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance Control.DeepSeq.NFData Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOutResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance Control.DeepSeq.NFData Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.CheckIfPhoneNumberIsOptedOut.CheckIfPhoneNumberIsOptedOut
 
 
 -- | Adds a statement to a topic's access control policy, granting access
 --   for the specified accounts to the specified actions.
-module Network.AWS.SNS.AddPermission
+module Amazonka.SNS.AddPermission
 
 -- | <i>See:</i> <a>newAddPermission</a> smart constructor.
 data AddPermission
@@ -6333,21 +6333,21 @@ AddPermissionResponse' :: AddPermissionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAddPermissionResponse :: AddPermissionResponse
-instance GHC.Generics.Generic Network.AWS.SNS.AddPermission.AddPermission
-instance GHC.Show.Show Network.AWS.SNS.AddPermission.AddPermission
-instance GHC.Read.Read Network.AWS.SNS.AddPermission.AddPermission
-instance GHC.Classes.Eq Network.AWS.SNS.AddPermission.AddPermission
-instance GHC.Generics.Generic Network.AWS.SNS.AddPermission.AddPermissionResponse
-instance GHC.Show.Show Network.AWS.SNS.AddPermission.AddPermissionResponse
-instance GHC.Read.Read Network.AWS.SNS.AddPermission.AddPermissionResponse
-instance GHC.Classes.Eq Network.AWS.SNS.AddPermission.AddPermissionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.AddPermission.AddPermission
-instance Control.DeepSeq.NFData Network.AWS.SNS.AddPermission.AddPermissionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.AddPermission.AddPermission
-instance Control.DeepSeq.NFData Network.AWS.SNS.AddPermission.AddPermission
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.AddPermission.AddPermission
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.AddPermission.AddPermission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.AddPermission.AddPermission
+instance GHC.Generics.Generic Amazonka.SNS.AddPermission.AddPermission
+instance GHC.Show.Show Amazonka.SNS.AddPermission.AddPermission
+instance GHC.Read.Read Amazonka.SNS.AddPermission.AddPermission
+instance GHC.Classes.Eq Amazonka.SNS.AddPermission.AddPermission
+instance GHC.Generics.Generic Amazonka.SNS.AddPermission.AddPermissionResponse
+instance GHC.Show.Show Amazonka.SNS.AddPermission.AddPermissionResponse
+instance GHC.Read.Read Amazonka.SNS.AddPermission.AddPermissionResponse
+instance GHC.Classes.Eq Amazonka.SNS.AddPermission.AddPermissionResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.AddPermission.AddPermission
+instance Control.DeepSeq.NFData Amazonka.SNS.AddPermission.AddPermissionResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.AddPermission.AddPermission
+instance Control.DeepSeq.NFData Amazonka.SNS.AddPermission.AddPermission
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.AddPermission.AddPermission
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.AddPermission.AddPermission
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.AddPermission.AddPermission
 
 
 -- | Deletes a subscription. If the subscription requires authentication
@@ -6360,7 +6360,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.AddPermission.AddPermiss
 --   unintended.
 --   
 --   This action is throttled at 100 transactions per second (TPS).
-module Network.AWS.SNS.Unsubscribe
+module Amazonka.SNS.Unsubscribe
 
 -- | Input for Unsubscribe action.
 --   
@@ -6397,26 +6397,26 @@ UnsubscribeResponse' :: UnsubscribeResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUnsubscribeResponse :: UnsubscribeResponse
-instance GHC.Generics.Generic Network.AWS.SNS.Unsubscribe.Unsubscribe
-instance GHC.Show.Show Network.AWS.SNS.Unsubscribe.Unsubscribe
-instance GHC.Read.Read Network.AWS.SNS.Unsubscribe.Unsubscribe
-instance GHC.Classes.Eq Network.AWS.SNS.Unsubscribe.Unsubscribe
-instance GHC.Generics.Generic Network.AWS.SNS.Unsubscribe.UnsubscribeResponse
-instance GHC.Show.Show Network.AWS.SNS.Unsubscribe.UnsubscribeResponse
-instance GHC.Read.Read Network.AWS.SNS.Unsubscribe.UnsubscribeResponse
-instance GHC.Classes.Eq Network.AWS.SNS.Unsubscribe.UnsubscribeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.Unsubscribe.Unsubscribe
-instance Control.DeepSeq.NFData Network.AWS.SNS.Unsubscribe.UnsubscribeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.Unsubscribe.Unsubscribe
-instance Control.DeepSeq.NFData Network.AWS.SNS.Unsubscribe.Unsubscribe
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.Unsubscribe.Unsubscribe
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.Unsubscribe.Unsubscribe
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.Unsubscribe.Unsubscribe
+instance GHC.Generics.Generic Amazonka.SNS.Unsubscribe.Unsubscribe
+instance GHC.Show.Show Amazonka.SNS.Unsubscribe.Unsubscribe
+instance GHC.Read.Read Amazonka.SNS.Unsubscribe.Unsubscribe
+instance GHC.Classes.Eq Amazonka.SNS.Unsubscribe.Unsubscribe
+instance GHC.Generics.Generic Amazonka.SNS.Unsubscribe.UnsubscribeResponse
+instance GHC.Show.Show Amazonka.SNS.Unsubscribe.UnsubscribeResponse
+instance GHC.Read.Read Amazonka.SNS.Unsubscribe.UnsubscribeResponse
+instance GHC.Classes.Eq Amazonka.SNS.Unsubscribe.UnsubscribeResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.Unsubscribe.Unsubscribe
+instance Control.DeepSeq.NFData Amazonka.SNS.Unsubscribe.UnsubscribeResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.Unsubscribe.Unsubscribe
+instance Control.DeepSeq.NFData Amazonka.SNS.Unsubscribe.Unsubscribe
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.Unsubscribe.Unsubscribe
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.Unsubscribe.Unsubscribe
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.Unsubscribe.Unsubscribe
 
 
 -- | Remove tags from the specified Amazon SNS topic. For an overview, see
 --   <a>Amazon SNS Tags</a> in the <i>Amazon SNS Developer Guide</i>.
-module Network.AWS.SNS.UntagResource
+module Amazonka.SNS.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6474,21 +6474,21 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.SNS.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.SNS.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.SNS.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.SNS.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.SNS.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.SNS.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SNS.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SNS.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SNS.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SNS.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.SNS.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.SNS.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.SNS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SNS.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.SNS.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.SNS.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.SNS.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SNS.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SNS.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.UntagResource.UntagResource
 
 
 -- | Verifies a destination phone number with a one-time password (OTP) for
@@ -6503,7 +6503,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.UntagResource.UntagResou
 --   including how to move out of the sandbox to send messages without
 --   restrictions, see <a>SMS sandbox</a> in the <i>Amazon SNS Developer
 --   Guide</i>.
-module Network.AWS.SNS.VerifySMSSandboxPhoneNumber
+module Amazonka.SNS.VerifySMSSandboxPhoneNumber
 
 -- | <i>See:</i> <a>newVerifySMSSandboxPhoneNumber</a> smart constructor.
 data VerifySMSSandboxPhoneNumber
@@ -6568,24 +6568,24 @@ newVerifySMSSandboxPhoneNumberResponse :: Int -> VerifySMSSandboxPhoneNumberResp
 
 -- | The response's http status code.
 verifySMSSandboxPhoneNumberResponse_httpStatus :: Lens' VerifySMSSandboxPhoneNumberResponse Int
-instance GHC.Generics.Generic Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
-instance GHC.Show.Show Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
-instance GHC.Read.Read Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
-instance GHC.Classes.Eq Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
-instance GHC.Generics.Generic Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
-instance GHC.Show.Show Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
-instance GHC.Read.Read Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
-instance GHC.Classes.Eq Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
-instance Control.DeepSeq.NFData Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
-instance Control.DeepSeq.NFData Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
-instance Network.AWS.Data.Path.ToPath Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance GHC.Generics.Generic Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance GHC.Show.Show Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance GHC.Read.Read Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance GHC.Classes.Eq Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance GHC.Generics.Generic Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
+instance GHC.Show.Show Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
+instance GHC.Read.Read Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
+instance GHC.Classes.Eq Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
+instance Amazonka.Types.AWSRequest Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance Control.DeepSeq.NFData Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumberResponse
+instance Data.Hashable.Class.Hashable Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance Control.DeepSeq.NFData Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance Amazonka.Data.Path.ToPath Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
+instance Amazonka.Data.Query.ToQuery Amazonka.SNS.VerifySMSSandboxPhoneNumber.VerifySMSSandboxPhoneNumber
 
 
-module Network.AWS.SNS.Lens
+module Amazonka.SNS.Lens
 
 -- | A <tt>NextToken</tt> string is used when you call the
 --   <tt>ListPhoneNumbersOptedOut</tt> action to retrieve additional
@@ -7713,7 +7713,7 @@ tag_value :: Lens' Tag Text
 topic_topicArn :: Lens' Topic (Maybe Text)
 
 
-module Network.AWS.SNS.Waiters
+module Amazonka.SNS.Waiters
 
 
 -- | Derived from API version <tt>2010-03-31</tt> of the AWS service
@@ -7739,7 +7739,7 @@ module Network.AWS.SNS.Waiters
 --   your service requests, retrying requests, and handling error
 --   responses. For a list of available SDKs, go to <a>Tools for Amazon Web
 --   Services</a>.
-module Network.AWS.SNS
+module Amazonka.SNS
 
 -- | API version <tt>2010-03-31</tt> of the Amazon Simple Notification
 --   Service SDK configuration.

@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.Types.EffectiveDeployment</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.Types.EffectiveDeployment</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus.html"><span class="hs-identifier">Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a deployment job that IoT Greengrass sends to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- a Greengrass core device.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEffectiveDeployment' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679229329"><span id="local-6989586621679229330"></span></span><span class="hs-keyword">data</span><span> </span><span id="EffectiveDeployment"><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-var">EffectiveDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EffectiveDeployment%27"><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-var">EffectiveDeployment'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the IoT job that applies the deployment to target devices.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AiotJobId%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AiotJobId%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">iotJobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- of the IoT job that applies the deployment to target devices.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AiotJobArn%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AiotJobArn%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">iotJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The reason code for the update, if the job was updated.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Areason%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3Areason%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The description of the deployment job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Adescription%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3Adescription%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ID of the deployment.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdeploymentId%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AdeploymentId%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the deployment.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdeploymentName%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AdeploymentName%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">deploymentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- of the target IoT thing or thing group.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AtargetArn%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AtargetArn%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The status of the deployment job on the Greengrass core device.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcoreDeviceExecutionStatus%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; EffectiveDeploymentExecutionStatus
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AcoreDeviceExecutionStatus%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">coreDeviceExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus.html#EffectiveDeploymentExecutionStatus"><span class="hs-identifier hs-type">EffectiveDeploymentExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The time at which the deployment was created, expressed in ISO 8601</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; POSIX
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AcreationTimestamp%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The time at which the deployment job was last modified, expressed in ISO</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- 8601 format.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmodifiedTimestamp%3AEffectiveDeployment%27"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; POSIX
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AmodifiedTimestamp%3AEffectiveDeployment%27"><span class="hs-identifier hs-var hs-var">modifiedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229314"><span id="local-6989586621679229316"><span class="annot"><span class="annottext">EffectiveDeployment -&gt; EffectiveDeployment -&gt; Bool
+(EffectiveDeployment -&gt; EffectiveDeployment -&gt; Bool)
+-&gt; (EffectiveDeployment -&gt; EffectiveDeployment -&gt; Bool)
+-&gt; Eq EffectiveDeployment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EffectiveDeployment -&gt; EffectiveDeployment -&gt; Bool
+$c/= :: EffectiveDeployment -&gt; EffectiveDeployment -&gt; Bool
+== :: EffectiveDeployment -&gt; EffectiveDeployment -&gt; Bool
+$c== :: EffectiveDeployment -&gt; EffectiveDeployment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229305"><span id="local-6989586621679229307"><span id="local-6989586621679229309"><span id="local-6989586621679229311"><span class="annot"><span class="annottext">ReadPrec [EffectiveDeployment]
+ReadPrec EffectiveDeployment
+Int -&gt; ReadS EffectiveDeployment
+ReadS [EffectiveDeployment]
+(Int -&gt; ReadS EffectiveDeployment)
+-&gt; ReadS [EffectiveDeployment]
+-&gt; ReadPrec EffectiveDeployment
+-&gt; ReadPrec [EffectiveDeployment]
+-&gt; Read EffectiveDeployment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EffectiveDeployment]
+$creadListPrec :: ReadPrec [EffectiveDeployment]
+readPrec :: ReadPrec EffectiveDeployment
+$creadPrec :: ReadPrec EffectiveDeployment
+readList :: ReadS [EffectiveDeployment]
+$creadList :: ReadS [EffectiveDeployment]
+readsPrec :: Int -&gt; ReadS EffectiveDeployment
+$creadsPrec :: Int -&gt; ReadS EffectiveDeployment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229298"><span id="local-6989586621679229300"><span id="local-6989586621679229302"><span class="annot"><span class="annottext">Int -&gt; EffectiveDeployment -&gt; ShowS
+[EffectiveDeployment] -&gt; ShowS
+EffectiveDeployment -&gt; String
+(Int -&gt; EffectiveDeployment -&gt; ShowS)
+-&gt; (EffectiveDeployment -&gt; String)
+-&gt; ([EffectiveDeployment] -&gt; ShowS)
+-&gt; Show EffectiveDeployment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EffectiveDeployment] -&gt; ShowS
+$cshowList :: [EffectiveDeployment] -&gt; ShowS
+show :: EffectiveDeployment -&gt; String
+$cshow :: EffectiveDeployment -&gt; String
+showsPrec :: Int -&gt; EffectiveDeployment -&gt; ShowS
+$cshowsPrec :: Int -&gt; EffectiveDeployment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EffectiveDeployment -&gt; Rep EffectiveDeployment x)
+-&gt; (forall x. Rep EffectiveDeployment x -&gt; EffectiveDeployment)
+-&gt; Generic EffectiveDeployment
+forall x. Rep EffectiveDeployment x -&gt; EffectiveDeployment
+forall x. EffectiveDeployment -&gt; Rep EffectiveDeployment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EffectiveDeployment x -&gt; EffectiveDeployment
+$cfrom :: forall x. EffectiveDeployment -&gt; Rep EffectiveDeployment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'EffectiveDeployment' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'iotJobId', 'effectiveDeployment_iotJobId' - The ID of the IoT job that applies the deployment to target devices.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'iotJobArn', 'effectiveDeployment_iotJobArn' - The</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- of the IoT job that applies the deployment to target devices.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'reason', 'effectiveDeployment_reason' - The reason code for the update, if the job was updated.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'description', 'effectiveDeployment_description' - The description of the deployment job.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'deploymentId', 'effectiveDeployment_deploymentId' - The ID of the deployment.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'deploymentName', 'effectiveDeployment_deploymentName' - The name of the deployment.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'targetArn', 'effectiveDeployment_targetArn' - The</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- of the target IoT thing or thing group.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'coreDeviceExecutionStatus', 'effectiveDeployment_coreDeviceExecutionStatus' - The status of the deployment job on the Greengrass core device.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'creationTimestamp', 'effectiveDeployment_creationTimestamp' - The time at which the deployment was created, expressed in ISO 8601</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'modifiedTimestamp', 'effectiveDeployment_modifiedTimestamp' - The time at which the deployment job was last modified, expressed in ISO</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 8601 format.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#newEffectiveDeployment"><span class="hs-identifier hs-type">newEffectiveDeployment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'deploymentId'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'deploymentName'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'targetArn'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'coreDeviceExecutionStatus'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus.html#EffectiveDeploymentExecutionStatus"><span class="hs-identifier hs-type">EffectiveDeploymentExecutionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'creationTimestamp'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'modifiedTimestamp'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span>
+</span><span id="line-108"></span><span id="newEffectiveDeployment"><span class="annot"><span class="annottext">newEffectiveDeployment :: Text
+-&gt; Text
+-&gt; Text
+-&gt; EffectiveDeploymentExecutionStatus
+-&gt; UTCTime
+-&gt; UTCTime
+-&gt; EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#newEffectiveDeployment"><span class="hs-identifier hs-var hs-var">newEffectiveDeployment</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679229292"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229292"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679229291"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229291"><span class="hs-identifier hs-var">pDeploymentName_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679229290"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229290"><span class="hs-identifier hs-var">pTargetArn_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679229289"><span class="annot"><span class="annottext">EffectiveDeploymentExecutionStatus
+</span><a href="#local-6989586621679229289"><span class="hs-identifier hs-var">pCoreDeviceExecutionStatus_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679229288"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679229288"><span class="hs-identifier hs-var">pCreationTimestamp_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679229287"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679229287"><span class="hs-identifier hs-var">pModifiedTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">EffectiveDeployment' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; EffectiveDeploymentExecutionStatus
+-&gt; POSIX
+-&gt; POSIX
+-&gt; EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iotJobId:EffectiveDeployment' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AiotJobId%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">iotJobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:iotJobArn:EffectiveDeployment' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AiotJobArn%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">iotJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:reason:EffectiveDeployment' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3Areason%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:EffectiveDeployment' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3Adescription%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:deploymentId:EffectiveDeployment' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AdeploymentId%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229292"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:deploymentName:EffectiveDeployment' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AdeploymentName%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">deploymentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229291"><span class="hs-identifier hs-var">pDeploymentName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetArn:EffectiveDeployment' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AtargetArn%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">targetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229290"><span class="hs-identifier hs-var">pTargetArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:coreDeviceExecutionStatus:EffectiveDeployment' :: EffectiveDeploymentExecutionStatus
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AcoreDeviceExecutionStatus%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">coreDeviceExecutionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">EffectiveDeploymentExecutionStatus
+</span><a href="#local-6989586621679229289"><span class="hs-identifier hs-var">pCoreDeviceExecutionStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTimestamp:EffectiveDeployment' :: POSIX
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AcreationTimestamp%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679229288"><span class="hs-identifier hs-var">pCreationTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:modifiedTimestamp:EffectiveDeployment' :: POSIX
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AmodifiedTimestamp%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">modifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679229287"><span class="hs-identifier hs-var">pModifiedTimestamp_</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The ID of the IoT job that applies the deployment to target devices.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_iotJobId"><span class="hs-identifier hs-type">effectiveDeployment_iotJobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="effectiveDeployment_iotJobId"><span class="annot"><span class="annottext">effectiveDeployment_iotJobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_iotJobId"><span class="hs-identifier hs-var hs-var">effectiveDeployment_iotJobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; Maybe Text)
+-&gt; (EffectiveDeployment -&gt; Maybe Text -&gt; EffectiveDeployment)
+-&gt; Lens
+     EffectiveDeployment EffectiveDeployment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229281"><span class="annot"><span class="annottext">Maybe Text
+iotJobId :: Maybe Text
+$sel:iotJobId:EffectiveDeployment' :: EffectiveDeployment -&gt; Maybe Text
+</span><a href="#local-6989586621679229281"><span class="hs-identifier hs-var hs-var">iotJobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229281"><span class="hs-identifier hs-var">iotJobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229280"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotJobId:EffectiveDeployment' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AiotJobId%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">iotJobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- of the IoT job that applies the deployment to target devices.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_iotJobArn"><span class="hs-identifier hs-type">effectiveDeployment_iotJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="effectiveDeployment_iotJobArn"><span class="annot"><span class="annottext">effectiveDeployment_iotJobArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_iotJobArn"><span class="hs-identifier hs-var hs-var">effectiveDeployment_iotJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; Maybe Text)
+-&gt; (EffectiveDeployment -&gt; Maybe Text -&gt; EffectiveDeployment)
+-&gt; Lens
+     EffectiveDeployment EffectiveDeployment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229277"><span class="annot"><span class="annottext">Maybe Text
+iotJobArn :: Maybe Text
+$sel:iotJobArn:EffectiveDeployment' :: EffectiveDeployment -&gt; Maybe Text
+</span><a href="#local-6989586621679229277"><span class="hs-identifier hs-var hs-var">iotJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229277"><span class="hs-identifier hs-var">iotJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229276"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229275"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotJobArn:EffectiveDeployment' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AiotJobArn%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">iotJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The reason code for the update, if the job was updated.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_reason"><span class="hs-identifier hs-type">effectiveDeployment_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="effectiveDeployment_reason"><span class="annot"><span class="annottext">effectiveDeployment_reason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_reason"><span class="hs-identifier hs-var hs-var">effectiveDeployment_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; Maybe Text)
+-&gt; (EffectiveDeployment -&gt; Maybe Text -&gt; EffectiveDeployment)
+-&gt; Lens
+     EffectiveDeployment EffectiveDeployment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229273"><span class="annot"><span class="annottext">Maybe Text
+reason :: Maybe Text
+$sel:reason:EffectiveDeployment' :: EffectiveDeployment -&gt; Maybe Text
+</span><a href="#local-6989586621679229273"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229273"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229272"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229271"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:EffectiveDeployment' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3Areason%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The description of the deployment job.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_description"><span class="hs-identifier hs-type">effectiveDeployment_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="effectiveDeployment_description"><span class="annot"><span class="annottext">effectiveDeployment_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_description"><span class="hs-identifier hs-var hs-var">effectiveDeployment_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; Maybe Text)
+-&gt; (EffectiveDeployment -&gt; Maybe Text -&gt; EffectiveDeployment)
+-&gt; Lens
+     EffectiveDeployment EffectiveDeployment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229269"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:EffectiveDeployment' :: EffectiveDeployment -&gt; Maybe Text
+</span><a href="#local-6989586621679229269"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229269"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229268"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229267"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:EffectiveDeployment' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3Adescription%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The ID of the deployment.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_deploymentId"><span class="hs-identifier hs-type">effectiveDeployment_deploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span id="effectiveDeployment_deploymentId"><span class="annot"><span class="annottext">effectiveDeployment_deploymentId :: (Text -&gt; f Text) -&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_deploymentId"><span class="hs-identifier hs-var hs-var">effectiveDeployment_deploymentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; Text)
+-&gt; (EffectiveDeployment -&gt; Text -&gt; EffectiveDeployment)
+-&gt; Lens EffectiveDeployment EffectiveDeployment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229265"><span class="annot"><span class="annottext">Text
+deploymentId :: Text
+$sel:deploymentId:EffectiveDeployment' :: EffectiveDeployment -&gt; Text
+</span><a href="#local-6989586621679229265"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229265"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229264"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229263"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:EffectiveDeployment' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AdeploymentId%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The name of the deployment.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_deploymentName"><span class="hs-identifier hs-type">effectiveDeployment_deploymentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span id="effectiveDeployment_deploymentName"><span class="annot"><span class="annottext">effectiveDeployment_deploymentName :: (Text -&gt; f Text) -&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_deploymentName"><span class="hs-identifier hs-var hs-var">effectiveDeployment_deploymentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; Text)
+-&gt; (EffectiveDeployment -&gt; Text -&gt; EffectiveDeployment)
+-&gt; Lens EffectiveDeployment EffectiveDeployment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229261"><span class="annot"><span class="annottext">Text
+deploymentName :: Text
+$sel:deploymentName:EffectiveDeployment' :: EffectiveDeployment -&gt; Text
+</span><a href="#local-6989586621679229261"><span class="hs-identifier hs-var hs-var">deploymentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229261"><span class="hs-identifier hs-var">deploymentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229260"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229259"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentName:EffectiveDeployment' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AdeploymentName%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">deploymentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- of the target IoT thing or thing group.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_targetArn"><span class="hs-identifier hs-type">effectiveDeployment_targetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-161"></span><span id="effectiveDeployment_targetArn"><span class="annot"><span class="annottext">effectiveDeployment_targetArn :: (Text -&gt; f Text) -&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_targetArn"><span class="hs-identifier hs-var hs-var">effectiveDeployment_targetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; Text)
+-&gt; (EffectiveDeployment -&gt; Text -&gt; EffectiveDeployment)
+-&gt; Lens EffectiveDeployment EffectiveDeployment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229257"><span class="annot"><span class="annottext">Text
+targetArn :: Text
+$sel:targetArn:EffectiveDeployment' :: EffectiveDeployment -&gt; Text
+</span><a href="#local-6989586621679229257"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229257"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229256"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229255"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArn:EffectiveDeployment' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AtargetArn%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">targetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The status of the deployment job on the Greengrass core device.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_coreDeviceExecutionStatus"><span class="hs-identifier hs-type">effectiveDeployment_coreDeviceExecutionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus.html#EffectiveDeploymentExecutionStatus"><span class="hs-identifier hs-type">EffectiveDeploymentExecutionStatus</span></a></span><span>
+</span><span id="line-165"></span><span id="effectiveDeployment_coreDeviceExecutionStatus"><span class="annot"><span class="annottext">effectiveDeployment_coreDeviceExecutionStatus :: (EffectiveDeploymentExecutionStatus
+ -&gt; f EffectiveDeploymentExecutionStatus)
+-&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_coreDeviceExecutionStatus"><span class="hs-identifier hs-var hs-var">effectiveDeployment_coreDeviceExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; EffectiveDeploymentExecutionStatus)
+-&gt; (EffectiveDeployment
+    -&gt; EffectiveDeploymentExecutionStatus -&gt; EffectiveDeployment)
+-&gt; Lens
+     EffectiveDeployment
+     EffectiveDeployment
+     EffectiveDeploymentExecutionStatus
+     EffectiveDeploymentExecutionStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229253"><span class="annot"><span class="annottext">EffectiveDeploymentExecutionStatus
+coreDeviceExecutionStatus :: EffectiveDeploymentExecutionStatus
+$sel:coreDeviceExecutionStatus:EffectiveDeployment' :: EffectiveDeployment -&gt; EffectiveDeploymentExecutionStatus
+</span><a href="#local-6989586621679229253"><span class="hs-identifier hs-var hs-var">coreDeviceExecutionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeploymentExecutionStatus
+</span><a href="#local-6989586621679229253"><span class="hs-identifier hs-var">coreDeviceExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229252"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229251"><span class="annot"><span class="annottext">EffectiveDeploymentExecutionStatus
+</span><a href="#local-6989586621679229251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreDeviceExecutionStatus:EffectiveDeployment' :: EffectiveDeploymentExecutionStatus
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AcoreDeviceExecutionStatus%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">coreDeviceExecutionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EffectiveDeploymentExecutionStatus
+</span><a href="#local-6989586621679229251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The time at which the deployment was created, expressed in ISO 8601</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_creationTimestamp"><span class="hs-identifier hs-type">effectiveDeployment_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-170"></span><span id="effectiveDeployment_creationTimestamp"><span class="annot"><span class="annottext">effectiveDeployment_creationTimestamp :: (UTCTime -&gt; f UTCTime)
+-&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_creationTimestamp"><span class="hs-identifier hs-var hs-var">effectiveDeployment_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; POSIX)
+-&gt; (EffectiveDeployment -&gt; POSIX -&gt; EffectiveDeployment)
+-&gt; Lens EffectiveDeployment EffectiveDeployment POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229249"><span class="annot"><span class="annottext">POSIX
+creationTimestamp :: POSIX
+$sel:creationTimestamp:EffectiveDeployment' :: EffectiveDeployment -&gt; POSIX
+</span><a href="#local-6989586621679229249"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679229249"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229248"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229247"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679229247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:EffectiveDeployment' :: POSIX
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AcreationTimestamp%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679229247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; EffectiveDeployment -&gt; f EffectiveDeployment)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; EffectiveDeployment
+-&gt; f EffectiveDeployment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The time at which the deployment job was last modified, expressed in ISO</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 8601 format.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_modifiedTimestamp"><span class="hs-identifier hs-type">effectiveDeployment_modifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-175"></span><span id="effectiveDeployment_modifiedTimestamp"><span class="annot"><span class="annottext">effectiveDeployment_modifiedTimestamp :: (UTCTime -&gt; f UTCTime)
+-&gt; EffectiveDeployment -&gt; f EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#effectiveDeployment_modifiedTimestamp"><span class="hs-identifier hs-var hs-var">effectiveDeployment_modifiedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EffectiveDeployment -&gt; POSIX)
+-&gt; (EffectiveDeployment -&gt; POSIX -&gt; EffectiveDeployment)
+-&gt; Lens EffectiveDeployment EffectiveDeployment POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229244"><span class="annot"><span class="annottext">POSIX
+modifiedTimestamp :: POSIX
+$sel:modifiedTimestamp:EffectiveDeployment' :: EffectiveDeployment -&gt; POSIX
+</span><a href="#local-6989586621679229244"><span class="hs-identifier hs-var hs-var">modifiedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679229244"><span class="hs-identifier hs-var">modifiedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229243"><span class="annot"><span class="annottext">s :: EffectiveDeployment
+</span><a href="#local-6989586621679229243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-type">EffectiveDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229242"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679229242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectiveDeployment
+</span><a href="#local-6989586621679229243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedTimestamp:EffectiveDeployment' :: POSIX
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#%24sel%3AmodifiedTimestamp%3AEffectiveDeployment%27"><span class="hs-identifier hs-var">modifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679229242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; EffectiveDeployment -&gt; f EffectiveDeployment)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; EffectiveDeployment
+-&gt; f EffectiveDeployment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229239"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679229237"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EffectiveDeployment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EffectiveDeployment)
+-&gt; Value
+-&gt; Parser EffectiveDeployment
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EffectiveDeployment&quot;</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229234"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; EffectiveDeploymentExecutionStatus
+-&gt; POSIX
+-&gt; POSIX
+-&gt; EffectiveDeployment
+</span><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment%27"><span class="hs-identifier hs-var">EffectiveDeployment'</span></a></span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; EffectiveDeploymentExecutionStatus
+ -&gt; POSIX
+ -&gt; POSIX
+ -&gt; EffectiveDeployment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EffectiveDeploymentExecutionStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; EffectiveDeployment)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotJobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EffectiveDeploymentExecutionStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; EffectiveDeployment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EffectiveDeploymentExecutionStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; EffectiveDeployment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EffectiveDeploymentExecutionStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; EffectiveDeployment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EffectiveDeploymentExecutionStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; EffectiveDeployment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EffectiveDeploymentExecutionStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; EffectiveDeployment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EffectiveDeploymentExecutionStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; EffectiveDeployment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EffectiveDeploymentExecutionStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; EffectiveDeployment)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; EffectiveDeploymentExecutionStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; EffectiveDeployment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; EffectiveDeploymentExecutionStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; EffectiveDeployment)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; EffectiveDeploymentExecutionStatus
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; EffectiveDeployment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; EffectiveDeploymentExecutionStatus
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; EffectiveDeployment)
+-&gt; Parser Text
+-&gt; Parser
+     (EffectiveDeploymentExecutionStatus
+      -&gt; POSIX -&gt; POSIX -&gt; EffectiveDeployment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (EffectiveDeploymentExecutionStatus
+   -&gt; POSIX -&gt; POSIX -&gt; EffectiveDeployment)
+-&gt; Parser EffectiveDeploymentExecutionStatus
+-&gt; Parser (POSIX -&gt; POSIX -&gt; EffectiveDeployment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EffectiveDeploymentExecutionStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;coreDeviceExecutionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; POSIX -&gt; EffectiveDeployment)
+-&gt; Parser POSIX -&gt; Parser (POSIX -&gt; EffectiveDeployment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; EffectiveDeployment)
+-&gt; Parser POSIX -&gt; Parser EffectiveDeployment
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modifiedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229227"><span id="local-6989586621679229229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.EffectiveDeployment.html#EffectiveDeployment"><span class="hs-identifier hs-type">EffectiveDeployment</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LicenseManager.ListTokens</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists your tokens.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LicenseManager.ListTokens</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier">ListTokens</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#newListTokens"><span class="hs-identifier">newListTokens</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_tokenIds"><span class="hs-identifier">listTokens_tokenIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_filters"><span class="hs-identifier">listTokens_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_nextToken"><span class="hs-identifier">listTokens_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_maxResults"><span class="hs-identifier">listTokens_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier">ListTokensResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#newListTokensResponse"><span class="hs-identifier">newListTokensResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokensResponse_tokens"><span class="hs-identifier">listTokensResponse_tokens</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokensResponse_nextToken"><span class="hs-identifier">listTokensResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokensResponse_httpStatus"><span class="hs-identifier">listTokensResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.html"><span class="hs-identifier">Amazonka.LicenseManager.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListTokens' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679304717"><span id="local-6989586621679304718"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTokens"><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-var">ListTokens</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTokens%27"><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-var">ListTokens'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Token IDs.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtokenIds%3AListTokens%27"><span class="annot"><span class="annottext">ListTokens -&gt; Maybe [Text]
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AtokenIds%3AListTokens%27"><span class="hs-identifier hs-var hs-var">tokenIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Filters to scope the results. The following filter is supported:</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   @LicenseArns@</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Afilters%3AListTokens%27"><span class="annot"><span class="annottext">ListTokens -&gt; Maybe [Filter]
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3Afilters%3AListTokens%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Token for the next set of results.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListTokens%27"><span class="annot"><span class="annottext">ListTokens -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AnextToken%3AListTokens%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Maximum number of results to return in a single call.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTokens%27"><span class="annot"><span class="annottext">ListTokens -&gt; Maybe Natural
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AmaxResults%3AListTokens%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304708"><span id="local-6989586621679304710"><span class="annot"><span class="annottext">ListTokens -&gt; ListTokens -&gt; Bool
+(ListTokens -&gt; ListTokens -&gt; Bool)
+-&gt; (ListTokens -&gt; ListTokens -&gt; Bool) -&gt; Eq ListTokens
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTokens -&gt; ListTokens -&gt; Bool
+$c/= :: ListTokens -&gt; ListTokens -&gt; Bool
+== :: ListTokens -&gt; ListTokens -&gt; Bool
+$c== :: ListTokens -&gt; ListTokens -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304699"><span id="local-6989586621679304701"><span id="local-6989586621679304703"><span id="local-6989586621679304705"><span class="annot"><span class="annottext">ReadPrec [ListTokens]
+ReadPrec ListTokens
+Int -&gt; ReadS ListTokens
+ReadS [ListTokens]
+(Int -&gt; ReadS ListTokens)
+-&gt; ReadS [ListTokens]
+-&gt; ReadPrec ListTokens
+-&gt; ReadPrec [ListTokens]
+-&gt; Read ListTokens
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTokens]
+$creadListPrec :: ReadPrec [ListTokens]
+readPrec :: ReadPrec ListTokens
+$creadPrec :: ReadPrec ListTokens
+readList :: ReadS [ListTokens]
+$creadList :: ReadS [ListTokens]
+readsPrec :: Int -&gt; ReadS ListTokens
+$creadsPrec :: Int -&gt; ReadS ListTokens
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304692"><span id="local-6989586621679304694"><span id="local-6989586621679304696"><span class="annot"><span class="annottext">Int -&gt; ListTokens -&gt; ShowS
+[ListTokens] -&gt; ShowS
+ListTokens -&gt; String
+(Int -&gt; ListTokens -&gt; ShowS)
+-&gt; (ListTokens -&gt; String)
+-&gt; ([ListTokens] -&gt; ShowS)
+-&gt; Show ListTokens
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTokens] -&gt; ShowS
+$cshowList :: [ListTokens] -&gt; ShowS
+show :: ListTokens -&gt; String
+$cshow :: ListTokens -&gt; String
+showsPrec :: Int -&gt; ListTokens -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTokens -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListTokens -&gt; Rep ListTokens x)
+-&gt; (forall x. Rep ListTokens x -&gt; ListTokens) -&gt; Generic ListTokens
+forall x. Rep ListTokens x -&gt; ListTokens
+forall x. ListTokens -&gt; Rep ListTokens x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListTokens x -&gt; ListTokens
+$cfrom :: forall x. ListTokens -&gt; Rep ListTokens x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListTokens' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'tokenIds', 'listTokens_tokenIds' - Token IDs.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'filters', 'listTokens_filters' - Filters to scope the results. The following filter is supported:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- -   @LicenseArns@</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nextToken', 'listTokens_nextToken' - Token for the next set of results.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'maxResults', 'listTokens_maxResults' - Maximum number of results to return in a single call.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#newListTokens"><span class="hs-identifier hs-type">newListTokens</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span>
+</span><span id="line-87"></span><span id="newListTokens"><span class="annot"><span class="annottext">newListTokens :: ListTokens
+</span><a href="Amazonka.LicenseManager.ListTokens.html#newListTokens"><span class="hs-identifier hs-var hs-var">newListTokens</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ListTokens' :: Maybe [Text]
+-&gt; Maybe [Filter] -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListTokens
+</span><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tokenIds:ListTokens' :: Maybe [Text]
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AtokenIds%3AListTokens%27"><span class="hs-identifier hs-var">tokenIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:ListTokens' :: Maybe [Filter]
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3Afilters%3AListTokens%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListTokens' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AnextToken%3AListTokens%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListTokens' :: Maybe Natural
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AmaxResults%3AListTokens%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Token IDs.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_tokenIds"><span class="hs-identifier hs-type">listTokens_tokenIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="listTokens_tokenIds"><span class="annot"><span class="annottext">listTokens_tokenIds :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; ListTokens -&gt; f ListTokens
+</span><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_tokenIds"><span class="hs-identifier hs-var hs-var">listTokens_tokenIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTokens -&gt; Maybe [Text])
+-&gt; (ListTokens -&gt; Maybe [Text] -&gt; ListTokens)
+-&gt; Lens ListTokens ListTokens (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304685"><span class="annot"><span class="annottext">Maybe [Text]
+tokenIds :: Maybe [Text]
+$sel:tokenIds:ListTokens' :: ListTokens -&gt; Maybe [Text]
+</span><a href="#local-6989586621679304685"><span class="hs-identifier hs-var hs-var">tokenIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304685"><span class="hs-identifier hs-var">tokenIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304684"><span class="annot"><span class="annottext">s :: ListTokens
+</span><a href="#local-6989586621679304684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304683"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTokens
+</span><a href="#local-6989586621679304684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenIds:ListTokens' :: Maybe [Text]
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AtokenIds%3AListTokens%27"><span class="hs-identifier hs-var">tokenIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; ListTokens -&gt; f ListTokens)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListTokens
+-&gt; f ListTokens
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Filters to scope the results. The following filter is supported:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   @LicenseArns@</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_filters"><span class="hs-identifier hs-type">listTokens_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listTokens_filters"><span class="annot"><span class="annottext">listTokens_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; ListTokens -&gt; f ListTokens
+</span><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_filters"><span class="hs-identifier hs-var hs-var">listTokens_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTokens -&gt; Maybe [Filter])
+-&gt; (ListTokens -&gt; Maybe [Filter] -&gt; ListTokens)
+-&gt; Lens ListTokens ListTokens (Maybe [Filter]) (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304679"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:ListTokens' :: ListTokens -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679304679"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679304679"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304678"><span class="annot"><span class="annottext">s :: ListTokens
+</span><a href="#local-6989586621679304678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304677"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679304677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTokens
+</span><a href="#local-6989586621679304678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListTokens' :: Maybe [Filter]
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3Afilters%3AListTokens%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679304677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; ListTokens -&gt; f ListTokens)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; ListTokens
+-&gt; f ListTokens
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Token for the next set of results.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_nextToken"><span class="hs-identifier hs-type">listTokens_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="listTokens_nextToken"><span class="annot"><span class="annottext">listTokens_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListTokens -&gt; f ListTokens
+</span><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_nextToken"><span class="hs-identifier hs-var hs-var">listTokens_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTokens -&gt; Maybe Text)
+-&gt; (ListTokens -&gt; Maybe Text -&gt; ListTokens)
+-&gt; Lens ListTokens ListTokens (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304676"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTokens' :: ListTokens -&gt; Maybe Text
+</span><a href="#local-6989586621679304676"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304676"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304675"><span class="annot"><span class="annottext">s :: ListTokens
+</span><a href="#local-6989586621679304675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304674"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTokens
+</span><a href="#local-6989586621679304675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTokens' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AnextToken%3AListTokens%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Maximum number of results to return in a single call.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_maxResults"><span class="hs-identifier hs-type">listTokens_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="listTokens_maxResults"><span class="annot"><span class="annottext">listTokens_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; ListTokens -&gt; f ListTokens
+</span><a href="Amazonka.LicenseManager.ListTokens.html#listTokens_maxResults"><span class="hs-identifier hs-var hs-var">listTokens_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTokens -&gt; Maybe Natural)
+-&gt; (ListTokens -&gt; Maybe Natural -&gt; ListTokens)
+-&gt; Lens ListTokens ListTokens (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304673"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListTokens' :: ListTokens -&gt; Maybe Natural
+</span><a href="#local-6989586621679304673"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304673"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304672"><span class="annot"><span class="annottext">s :: ListTokens
+</span><a href="#local-6989586621679304672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304671"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTokens
+</span><a href="#local-6989586621679304672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTokens' :: Maybe Natural
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AmaxResults%3AListTokens%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-type">ListTokensResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679304667"><span class="annot"><span class="annottext">request :: ListTokens -&gt; Request ListTokens
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTokens -&gt; Request ListTokens
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LicenseManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679304663"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListTokens
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListTokens)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListTokens))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListTokens
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListTokens)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304660"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304660"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304659"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304659"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304658"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TokenData] -&gt; Maybe Text -&gt; Int -&gt; ListTokensResponse
+</span><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse%27"><span class="hs-identifier hs-var">ListTokensResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [TokenData] -&gt; Maybe Text -&gt; Int -&gt; ListTokensResponse)
+-&gt; Either String (Maybe [TokenData])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListTokensResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TokenData]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TokenData]))
+-&gt; Maybe [TokenData] -&gt; Either String (Maybe [TokenData])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TokenData]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListTokensResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListTokensResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListTokensResponse)
+-&gt; Either String Int -&gt; Either String ListTokensResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304660"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304649"><span id="local-6989586621679304651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679304642"><span class="annot"><span class="annottext">toHeaders :: ListTokens -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTokens -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLicenseManager.ListTokens&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304632"><span id="local-6989586621679304634"><span id="local-6989586621679304636"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679304630"><span class="annot"><span class="annottext">toJSON :: ListTokens -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens%27"><span class="hs-identifier hs-type">ListTokens'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304625"><span id="local-6989586621679304626"><span id="local-6989586621679304627"><span id="local-6989586621679304628"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe [Filter]
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+filters :: Maybe [Filter]
+tokenIds :: Maybe [Text]
+$sel:maxResults:ListTokens' :: ListTokens -&gt; Maybe Natural
+$sel:nextToken:ListTokens' :: ListTokens -&gt; Maybe Text
+$sel:filters:ListTokens' :: ListTokens -&gt; Maybe [Filter]
+$sel:tokenIds:ListTokens' :: ListTokens -&gt; Maybe [Text]
+</span><a href="#local-6989586621679304625"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TokenIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304628"><span class="hs-identifier hs-var">tokenIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Filter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; Pair) -&gt; Maybe [Filter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679304627"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304626"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304625"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679304619"><span class="annot"><span class="annottext">toPath :: ListTokens -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTokens -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokens"><span class="hs-identifier hs-type">ListTokens</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679304615"><span class="annot"><span class="annottext">toQuery :: ListTokens -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTokens -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | /See:/ 'newListTokensResponse' smart constructor.</span><span>
+</span><span id="line-162"></span><span id="local-6989586621679304612"><span id="local-6989586621679304613"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTokensResponse"><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-var">ListTokensResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTokensResponse%27"><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse%27"><span class="hs-identifier hs-var">ListTokensResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Received token details.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Atokens%3AListTokensResponse%27"><span class="annot"><span class="annottext">ListTokensResponse -&gt; Maybe [TokenData]
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3Atokens%3AListTokensResponse%27"><span class="hs-identifier hs-var hs-var">tokens</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.TokenData.html#TokenData"><span class="hs-identifier hs-type">TokenData</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | Token for the next set of results.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AnextToken%3AListTokensResponse%27"><span class="annot"><span class="annottext">ListTokensResponse -&gt; Maybe Text
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AnextToken%3AListTokensResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTokensResponse%27"><span class="annot"><span class="annottext">ListTokensResponse -&gt; Int
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AhttpStatus%3AListTokensResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304605"><span id="local-6989586621679304607"><span class="annot"><span class="annottext">ListTokensResponse -&gt; ListTokensResponse -&gt; Bool
+(ListTokensResponse -&gt; ListTokensResponse -&gt; Bool)
+-&gt; (ListTokensResponse -&gt; ListTokensResponse -&gt; Bool)
+-&gt; Eq ListTokensResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTokensResponse -&gt; ListTokensResponse -&gt; Bool
+$c/= :: ListTokensResponse -&gt; ListTokensResponse -&gt; Bool
+== :: ListTokensResponse -&gt; ListTokensResponse -&gt; Bool
+$c== :: ListTokensResponse -&gt; ListTokensResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304597"><span id="local-6989586621679304599"><span id="local-6989586621679304601"><span id="local-6989586621679304603"><span class="annot"><span class="annottext">ReadPrec [ListTokensResponse]
+ReadPrec ListTokensResponse
+Int -&gt; ReadS ListTokensResponse
+ReadS [ListTokensResponse]
+(Int -&gt; ReadS ListTokensResponse)
+-&gt; ReadS [ListTokensResponse]
+-&gt; ReadPrec ListTokensResponse
+-&gt; ReadPrec [ListTokensResponse]
+-&gt; Read ListTokensResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTokensResponse]
+$creadListPrec :: ReadPrec [ListTokensResponse]
+readPrec :: ReadPrec ListTokensResponse
+$creadPrec :: ReadPrec ListTokensResponse
+readList :: ReadS [ListTokensResponse]
+$creadList :: ReadS [ListTokensResponse]
+readsPrec :: Int -&gt; ReadS ListTokensResponse
+$creadsPrec :: Int -&gt; ReadS ListTokensResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304591"><span id="local-6989586621679304593"><span id="local-6989586621679304595"><span class="annot"><span class="annottext">Int -&gt; ListTokensResponse -&gt; ShowS
+[ListTokensResponse] -&gt; ShowS
+ListTokensResponse -&gt; String
+(Int -&gt; ListTokensResponse -&gt; ShowS)
+-&gt; (ListTokensResponse -&gt; String)
+-&gt; ([ListTokensResponse] -&gt; ShowS)
+-&gt; Show ListTokensResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTokensResponse] -&gt; ShowS
+$cshowList :: [ListTokensResponse] -&gt; ShowS
+show :: ListTokensResponse -&gt; String
+$cshow :: ListTokensResponse -&gt; String
+showsPrec :: Int -&gt; ListTokensResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTokensResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListTokensResponse -&gt; Rep ListTokensResponse x)
+-&gt; (forall x. Rep ListTokensResponse x -&gt; ListTokensResponse)
+-&gt; Generic ListTokensResponse
+forall x. Rep ListTokensResponse x -&gt; ListTokensResponse
+forall x. ListTokensResponse -&gt; Rep ListTokensResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListTokensResponse x -&gt; ListTokensResponse
+$cfrom :: forall x. ListTokensResponse -&gt; Rep ListTokensResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Create a value of 'ListTokensResponse' with all optional fields omitted.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'tokens', 'listTokensResponse_tokens' - Received token details.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'nextToken', 'listTokensResponse_nextToken' - Token for the next set of results.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'listTokensResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#newListTokensResponse"><span class="hs-identifier hs-type">newListTokensResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-type">ListTokensResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newListTokensResponse"><span class="annot"><span class="annottext">newListTokensResponse :: Int -&gt; ListTokensResponse
+</span><a href="Amazonka.LicenseManager.ListTokens.html#newListTokensResponse"><span class="hs-identifier hs-var hs-var">newListTokensResponse</span></a></span></span><span> </span><span id="local-6989586621679304588"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">ListTokensResponse' :: Maybe [TokenData] -&gt; Maybe Text -&gt; Int -&gt; ListTokensResponse
+</span><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse%27"><span class="hs-identifier hs-type">ListTokensResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tokens:ListTokensResponse' :: Maybe [TokenData]
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3Atokens%3AListTokensResponse%27"><span class="hs-identifier hs-var">tokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TokenData]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListTokensResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AnextToken%3AListTokensResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTokensResponse' :: Int
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AhttpStatus%3AListTokensResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Received token details.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokensResponse_tokens"><span class="hs-identifier hs-type">listTokensResponse_tokens</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-type">ListTokensResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LicenseManager.Types.TokenData.html#TokenData"><span class="hs-identifier hs-type">TokenData</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="listTokensResponse_tokens"><span class="annot"><span class="annottext">listTokensResponse_tokens :: (Maybe [TokenData] -&gt; f (Maybe [TokenData]))
+-&gt; ListTokensResponse -&gt; f ListTokensResponse
+</span><a href="Amazonka.LicenseManager.ListTokens.html#listTokensResponse_tokens"><span class="hs-identifier hs-var hs-var">listTokensResponse_tokens</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTokensResponse -&gt; Maybe [TokenData])
+-&gt; (ListTokensResponse -&gt; Maybe [TokenData] -&gt; ListTokensResponse)
+-&gt; Lens
+     ListTokensResponse
+     ListTokensResponse
+     (Maybe [TokenData])
+     (Maybe [TokenData])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse%27"><span class="hs-identifier hs-type">ListTokensResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304587"><span class="annot"><span class="annottext">Maybe [TokenData]
+tokens :: Maybe [TokenData]
+$sel:tokens:ListTokensResponse' :: ListTokensResponse -&gt; Maybe [TokenData]
+</span><a href="#local-6989586621679304587"><span class="hs-identifier hs-var hs-var">tokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TokenData]
+</span><a href="#local-6989586621679304587"><span class="hs-identifier hs-var">tokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304586"><span class="annot"><span class="annottext">s :: ListTokensResponse
+</span><a href="#local-6989586621679304586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse%27"><span class="hs-identifier hs-type">ListTokensResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304585"><span class="annot"><span class="annottext">Maybe [TokenData]
+</span><a href="#local-6989586621679304585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTokensResponse
+</span><a href="#local-6989586621679304586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokens:ListTokensResponse' :: Maybe [TokenData]
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3Atokens%3AListTokensResponse%27"><span class="hs-identifier hs-var">tokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TokenData]
+</span><a href="#local-6989586621679304585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-type">ListTokensResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TokenData] -&gt; f (Maybe [TokenData]))
+ -&gt; ListTokensResponse -&gt; f ListTokensResponse)
+-&gt; ((Maybe [TokenData] -&gt; f (Maybe [TokenData]))
+    -&gt; Maybe [TokenData] -&gt; f (Maybe [TokenData]))
+-&gt; (Maybe [TokenData] -&gt; f (Maybe [TokenData]))
+-&gt; ListTokensResponse
+-&gt; f ListTokensResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TokenData] [TokenData] [TokenData] [TokenData]
+-&gt; Iso
+     (Maybe [TokenData])
+     (Maybe [TokenData])
+     (Maybe [TokenData])
+     (Maybe [TokenData])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TokenData] [TokenData] [TokenData] [TokenData]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | Token for the next set of results.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokensResponse_nextToken"><span class="hs-identifier hs-type">listTokensResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-type">ListTokensResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="listTokensResponse_nextToken"><span class="annot"><span class="annottext">listTokensResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTokensResponse -&gt; f ListTokensResponse
+</span><a href="Amazonka.LicenseManager.ListTokens.html#listTokensResponse_nextToken"><span class="hs-identifier hs-var hs-var">listTokensResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTokensResponse -&gt; Maybe Text)
+-&gt; (ListTokensResponse -&gt; Maybe Text -&gt; ListTokensResponse)
+-&gt; Lens
+     ListTokensResponse ListTokensResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse%27"><span class="hs-identifier hs-type">ListTokensResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304584"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTokensResponse' :: ListTokensResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679304584"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304584"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304583"><span class="annot"><span class="annottext">s :: ListTokensResponse
+</span><a href="#local-6989586621679304583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse%27"><span class="hs-identifier hs-type">ListTokensResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304582"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTokensResponse
+</span><a href="#local-6989586621679304583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTokensResponse' :: Maybe Text
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AnextToken%3AListTokensResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-type">ListTokensResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#listTokensResponse_httpStatus"><span class="hs-identifier hs-type">listTokensResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-type">ListTokensResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-206"></span><span id="listTokensResponse_httpStatus"><span class="annot"><span class="annottext">listTokensResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListTokensResponse -&gt; f ListTokensResponse
+</span><a href="Amazonka.LicenseManager.ListTokens.html#listTokensResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listTokensResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTokensResponse -&gt; Int)
+-&gt; (ListTokensResponse -&gt; Int -&gt; ListTokensResponse)
+-&gt; Lens ListTokensResponse ListTokensResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse%27"><span class="hs-identifier hs-type">ListTokensResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304581"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListTokensResponse' :: ListTokensResponse -&gt; Int
+</span><a href="#local-6989586621679304581"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304581"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304580"><span class="annot"><span class="annottext">s :: ListTokensResponse
+</span><a href="#local-6989586621679304580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse%27"><span class="hs-identifier hs-type">ListTokensResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTokensResponse
+</span><a href="#local-6989586621679304580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTokensResponse' :: Int
+</span><a href="Amazonka.LicenseManager.ListTokens.html#%24sel%3AhttpStatus%3AListTokensResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-type">ListTokensResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.ListTokens.html#ListTokensResponse"><span class="hs-identifier hs-type">ListTokensResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

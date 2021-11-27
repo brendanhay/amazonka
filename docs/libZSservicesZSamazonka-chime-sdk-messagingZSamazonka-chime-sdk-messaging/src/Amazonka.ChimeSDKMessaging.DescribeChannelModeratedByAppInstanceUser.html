@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the full details of a channel moderated by the specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @AppInstanceUser@.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- The @x-amz-chime-bearer@ request header is mandatory. Use the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @AppInstanceUserArn@ of the user that makes the API call as the value in</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the header.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier">DescribeChannelModeratedByAppInstanceUser</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#newDescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier">newDescribeChannelModeratedByAppInstanceUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUser_channelArn"><span class="hs-identifier">describeChannelModeratedByAppInstanceUser_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUser_appInstanceUserArn"><span class="hs-identifier">describeChannelModeratedByAppInstanceUser_appInstanceUserArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUser_chimeBearer"><span class="hs-identifier">describeChannelModeratedByAppInstanceUser_chimeBearer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier">DescribeChannelModeratedByAppInstanceUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#newDescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier">newDescribeChannelModeratedByAppInstanceUserResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUserResponse_channel"><span class="hs-identifier">describeChannelModeratedByAppInstanceUserResponse_channel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUserResponse_httpStatus"><span class="hs-identifier">describeChannelModeratedByAppInstanceUserResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.html"><span class="hs-identifier">Amazonka.ChimeSDKMessaging.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeChannelModeratedByAppInstanceUser' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679237689"><span id="local-6989586621679237690"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeChannelModeratedByAppInstanceUser"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-var">DescribeChannelModeratedByAppInstanceUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeChannelModeratedByAppInstanceUser%27"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var">DescribeChannelModeratedByAppInstanceUser'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the moderated channel.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AchannelArn%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUser -&gt; Text
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AchannelArn%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ARN of the @AppInstanceUser@ in the moderated channel.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AappInstanceUserArn%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUser -&gt; Text
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AappInstanceUserArn%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var hs-var">appInstanceUserArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AchimeBearer%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUser -&gt; Text
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AchimeBearer%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237681"><span id="local-6989586621679237683"><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUser
+-&gt; DescribeChannelModeratedByAppInstanceUser -&gt; Bool
+(DescribeChannelModeratedByAppInstanceUser
+ -&gt; DescribeChannelModeratedByAppInstanceUser -&gt; Bool)
+-&gt; (DescribeChannelModeratedByAppInstanceUser
+    -&gt; DescribeChannelModeratedByAppInstanceUser -&gt; Bool)
+-&gt; Eq DescribeChannelModeratedByAppInstanceUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeChannelModeratedByAppInstanceUser
+-&gt; DescribeChannelModeratedByAppInstanceUser -&gt; Bool
+$c/= :: DescribeChannelModeratedByAppInstanceUser
+-&gt; DescribeChannelModeratedByAppInstanceUser -&gt; Bool
+== :: DescribeChannelModeratedByAppInstanceUser
+-&gt; DescribeChannelModeratedByAppInstanceUser -&gt; Bool
+$c== :: DescribeChannelModeratedByAppInstanceUser
+-&gt; DescribeChannelModeratedByAppInstanceUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237672"><span id="local-6989586621679237674"><span id="local-6989586621679237676"><span id="local-6989586621679237678"><span class="annot"><span class="annottext">ReadPrec [DescribeChannelModeratedByAppInstanceUser]
+ReadPrec DescribeChannelModeratedByAppInstanceUser
+Int -&gt; ReadS DescribeChannelModeratedByAppInstanceUser
+ReadS [DescribeChannelModeratedByAppInstanceUser]
+(Int -&gt; ReadS DescribeChannelModeratedByAppInstanceUser)
+-&gt; ReadS [DescribeChannelModeratedByAppInstanceUser]
+-&gt; ReadPrec DescribeChannelModeratedByAppInstanceUser
+-&gt; ReadPrec [DescribeChannelModeratedByAppInstanceUser]
+-&gt; Read DescribeChannelModeratedByAppInstanceUser
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeChannelModeratedByAppInstanceUser]
+$creadListPrec :: ReadPrec [DescribeChannelModeratedByAppInstanceUser]
+readPrec :: ReadPrec DescribeChannelModeratedByAppInstanceUser
+$creadPrec :: ReadPrec DescribeChannelModeratedByAppInstanceUser
+readList :: ReadS [DescribeChannelModeratedByAppInstanceUser]
+$creadList :: ReadS [DescribeChannelModeratedByAppInstanceUser]
+readsPrec :: Int -&gt; ReadS DescribeChannelModeratedByAppInstanceUser
+$creadsPrec :: Int -&gt; ReadS DescribeChannelModeratedByAppInstanceUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237665"><span id="local-6989586621679237667"><span id="local-6989586621679237669"><span class="annot"><span class="annottext">Int -&gt; DescribeChannelModeratedByAppInstanceUser -&gt; ShowS
+[DescribeChannelModeratedByAppInstanceUser] -&gt; ShowS
+DescribeChannelModeratedByAppInstanceUser -&gt; String
+(Int -&gt; DescribeChannelModeratedByAppInstanceUser -&gt; ShowS)
+-&gt; (DescribeChannelModeratedByAppInstanceUser -&gt; String)
+-&gt; ([DescribeChannelModeratedByAppInstanceUser] -&gt; ShowS)
+-&gt; Show DescribeChannelModeratedByAppInstanceUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeChannelModeratedByAppInstanceUser] -&gt; ShowS
+$cshowList :: [DescribeChannelModeratedByAppInstanceUser] -&gt; ShowS
+show :: DescribeChannelModeratedByAppInstanceUser -&gt; String
+$cshow :: DescribeChannelModeratedByAppInstanceUser -&gt; String
+showsPrec :: Int -&gt; DescribeChannelModeratedByAppInstanceUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeChannelModeratedByAppInstanceUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeChannelModeratedByAppInstanceUser
+ -&gt; Rep DescribeChannelModeratedByAppInstanceUser x)
+-&gt; (forall x.
+    Rep DescribeChannelModeratedByAppInstanceUser x
+    -&gt; DescribeChannelModeratedByAppInstanceUser)
+-&gt; Generic DescribeChannelModeratedByAppInstanceUser
+forall x.
+Rep DescribeChannelModeratedByAppInstanceUser x
+-&gt; DescribeChannelModeratedByAppInstanceUser
+forall x.
+DescribeChannelModeratedByAppInstanceUser
+-&gt; Rep DescribeChannelModeratedByAppInstanceUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeChannelModeratedByAppInstanceUser x
+-&gt; DescribeChannelModeratedByAppInstanceUser
+$cfrom :: forall x.
+DescribeChannelModeratedByAppInstanceUser
+-&gt; Rep DescribeChannelModeratedByAppInstanceUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DescribeChannelModeratedByAppInstanceUser' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'channelArn', 'describeChannelModeratedByAppInstanceUser_channelArn' - The ARN of the moderated channel.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'appInstanceUserArn', 'describeChannelModeratedByAppInstanceUser_appInstanceUserArn' - The ARN of the @AppInstanceUser@ in the moderated channel.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'chimeBearer', 'describeChannelModeratedByAppInstanceUser_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#newDescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">newDescribeChannelModeratedByAppInstanceUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'channelArn'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'appInstanceUserArn'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'chimeBearer'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span>
+</span><span id="line-88"></span><span id="newDescribeChannelModeratedByAppInstanceUser"><span class="annot"><span class="annottext">newDescribeChannelModeratedByAppInstanceUser :: Text -&gt; Text -&gt; Text -&gt; DescribeChannelModeratedByAppInstanceUser
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#newDescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-var hs-var">newDescribeChannelModeratedByAppInstanceUser</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679237660"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237660"><span class="hs-identifier hs-var">pChannelArn_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679237659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237659"><span class="hs-identifier hs-var">pAppInstanceUserArn_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679237658"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237658"><span class="hs-identifier hs-var">pChimeBearer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUser' :: Text -&gt; Text -&gt; Text -&gt; DescribeChannelModeratedByAppInstanceUser
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelArn:DescribeChannelModeratedByAppInstanceUser' :: Text
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AchannelArn%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237660"><span class="hs-identifier hs-var">pChannelArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:appInstanceUserArn:DescribeChannelModeratedByAppInstanceUser' :: Text
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AappInstanceUserArn%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var">appInstanceUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237659"><span class="hs-identifier hs-var">pAppInstanceUserArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:chimeBearer:DescribeChannelModeratedByAppInstanceUser' :: Text
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AchimeBearer%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237658"><span class="hs-identifier hs-var">pChimeBearer_</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The ARN of the moderated channel.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUser_channelArn"><span class="hs-identifier hs-type">describeChannelModeratedByAppInstanceUser_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="describeChannelModeratedByAppInstanceUser_channelArn"><span class="annot"><span class="annottext">describeChannelModeratedByAppInstanceUser_channelArn :: (Text -&gt; f Text)
+-&gt; DescribeChannelModeratedByAppInstanceUser
+-&gt; f DescribeChannelModeratedByAppInstanceUser
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUser_channelArn"><span class="hs-identifier hs-var hs-var">describeChannelModeratedByAppInstanceUser_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeChannelModeratedByAppInstanceUser -&gt; Text)
+-&gt; (DescribeChannelModeratedByAppInstanceUser
+    -&gt; Text -&gt; DescribeChannelModeratedByAppInstanceUser)
+-&gt; Lens
+     DescribeChannelModeratedByAppInstanceUser
+     DescribeChannelModeratedByAppInstanceUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237655"><span class="annot"><span class="annottext">Text
+channelArn :: Text
+$sel:channelArn:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+</span><a href="#local-6989586621679237655"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237655"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237654"><span class="annot"><span class="annottext">s :: DescribeChannelModeratedByAppInstanceUser
+</span><a href="#local-6989586621679237654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237653"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUser
+</span><a href="#local-6989586621679237654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:DescribeChannelModeratedByAppInstanceUser' :: Text
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AchannelArn%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The ARN of the @AppInstanceUser@ in the moderated channel.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUser_appInstanceUserArn"><span class="hs-identifier hs-type">describeChannelModeratedByAppInstanceUser_appInstanceUserArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="describeChannelModeratedByAppInstanceUser_appInstanceUserArn"><span class="annot"><span class="annottext">describeChannelModeratedByAppInstanceUser_appInstanceUserArn :: (Text -&gt; f Text)
+-&gt; DescribeChannelModeratedByAppInstanceUser
+-&gt; f DescribeChannelModeratedByAppInstanceUser
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUser_appInstanceUserArn"><span class="hs-identifier hs-var hs-var">describeChannelModeratedByAppInstanceUser_appInstanceUserArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeChannelModeratedByAppInstanceUser -&gt; Text)
+-&gt; (DescribeChannelModeratedByAppInstanceUser
+    -&gt; Text -&gt; DescribeChannelModeratedByAppInstanceUser)
+-&gt; Lens
+     DescribeChannelModeratedByAppInstanceUser
+     DescribeChannelModeratedByAppInstanceUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237652"><span class="annot"><span class="annottext">Text
+appInstanceUserArn :: Text
+$sel:appInstanceUserArn:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+</span><a href="#local-6989586621679237652"><span class="hs-identifier hs-var hs-var">appInstanceUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237652"><span class="hs-identifier hs-var">appInstanceUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237651"><span class="annot"><span class="annottext">s :: DescribeChannelModeratedByAppInstanceUser
+</span><a href="#local-6989586621679237651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237650"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUser
+</span><a href="#local-6989586621679237651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appInstanceUserArn:DescribeChannelModeratedByAppInstanceUser' :: Text
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AappInstanceUserArn%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var">appInstanceUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUser_chimeBearer"><span class="hs-identifier hs-type">describeChannelModeratedByAppInstanceUser_chimeBearer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="describeChannelModeratedByAppInstanceUser_chimeBearer"><span class="annot"><span class="annottext">describeChannelModeratedByAppInstanceUser_chimeBearer :: (Text -&gt; f Text)
+-&gt; DescribeChannelModeratedByAppInstanceUser
+-&gt; f DescribeChannelModeratedByAppInstanceUser
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUser_chimeBearer"><span class="hs-identifier hs-var hs-var">describeChannelModeratedByAppInstanceUser_chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeChannelModeratedByAppInstanceUser -&gt; Text)
+-&gt; (DescribeChannelModeratedByAppInstanceUser
+    -&gt; Text -&gt; DescribeChannelModeratedByAppInstanceUser)
+-&gt; Lens
+     DescribeChannelModeratedByAppInstanceUser
+     DescribeChannelModeratedByAppInstanceUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237649"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+$sel:chimeBearer:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+</span><a href="#local-6989586621679237649"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237649"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237648"><span class="annot"><span class="annottext">s :: DescribeChannelModeratedByAppInstanceUser
+</span><a href="#local-6989586621679237648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237647"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUser
+</span><a href="#local-6989586621679237648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:chimeBearer:DescribeChannelModeratedByAppInstanceUser' :: Text
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AchimeBearer%3ADescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679237643"><span class="annot"><span class="annottext">request :: DescribeChannelModeratedByAppInstanceUser
+-&gt; Request DescribeChannelModeratedByAppInstanceUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeChannelModeratedByAppInstanceUser
+-&gt; Request DescribeChannelModeratedByAppInstanceUser
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679237639"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeChannelModeratedByAppInstanceUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeChannelModeratedByAppInstanceUser)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse DescribeChannelModeratedByAppInstanceUser))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeChannelModeratedByAppInstanceUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeChannelModeratedByAppInstanceUser)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237636"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237636"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237635"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679237635"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237634"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChannelModeratedByAppInstanceUserSummary
+-&gt; Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-var">DescribeChannelModeratedByAppInstanceUserResponse'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ChannelModeratedByAppInstanceUserSummary
+ -&gt; Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse)
+-&gt; Either String (Maybe ChannelModeratedByAppInstanceUserSummary)
+-&gt; Either
+     String (Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe ChannelModeratedByAppInstanceUserSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Channel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeChannelModeratedByAppInstanceUserResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237636"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679237626"><span id="local-6989586621679237628"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679237623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679237619"><span class="annot"><span class="annottext">toHeaders :: DescribeChannelModeratedByAppInstanceUser -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237615"><span id="local-6989586621679237616"><span id="local-6989586621679237617"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+appInstanceUserArn :: Text
+channelArn :: Text
+$sel:chimeBearer:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+$sel:appInstanceUserArn:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+$sel:channelArn:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+</span><a href="#local-6989586621679237615"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-chime-bearer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237615"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679237611"><span class="annot"><span class="annottext">toPath :: DescribeChannelModeratedByAppInstanceUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237607"><span id="local-6989586621679237608"><span id="local-6989586621679237609"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+appInstanceUserArn :: Text
+channelArn :: Text
+$sel:chimeBearer:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+$sel:appInstanceUserArn:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+$sel:channelArn:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+</span><a href="#local-6989586621679237607"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237609"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser</span></a></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679237603"><span class="annot"><span class="annottext">toQuery :: DescribeChannelModeratedByAppInstanceUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUser%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237599"><span id="local-6989586621679237600"><span id="local-6989586621679237601"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+appInstanceUserArn :: Text
+channelArn :: Text
+$sel:chimeBearer:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+$sel:appInstanceUserArn:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+$sel:channelArn:DescribeChannelModeratedByAppInstanceUser' :: DescribeChannelModeratedByAppInstanceUser -&gt; Text
+</span><a href="#local-6989586621679237599"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;app-instance-user-arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237600"><span class="hs-identifier hs-var">appInstanceUserArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;scope=app-instance-user-moderated-channel&quot;</span></span><span>
+</span><span id="line-163"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newDescribeChannelModeratedByAppInstanceUserResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679237596"><span id="local-6989586621679237597"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeChannelModeratedByAppInstanceUserResponse"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-var">DescribeChannelModeratedByAppInstanceUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeChannelModeratedByAppInstanceUserResponse%27"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-var">DescribeChannelModeratedByAppInstanceUserResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The moderated channel.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Achannel%3ADescribeChannelModeratedByAppInstanceUserResponse%27"><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; Maybe ChannelModeratedByAppInstanceUserSummary
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3Achannel%3ADescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary.html#ChannelModeratedByAppInstanceUserSummary"><span class="hs-identifier hs-type">ChannelModeratedByAppInstanceUserSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeChannelModeratedByAppInstanceUserResponse%27"><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUserResponse -&gt; Int
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AhttpStatus%3ADescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237590"><span id="local-6989586621679237592"><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; Bool
+(DescribeChannelModeratedByAppInstanceUserResponse
+ -&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; Bool)
+-&gt; (DescribeChannelModeratedByAppInstanceUserResponse
+    -&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; Bool)
+-&gt; Eq DescribeChannelModeratedByAppInstanceUserResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; Bool
+$c/= :: DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; Bool
+== :: DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; Bool
+$c== :: DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237584"><span id="local-6989586621679237586"><span id="local-6989586621679237588"><span class="annot"><span class="annottext">Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; ShowS
+[DescribeChannelModeratedByAppInstanceUserResponse] -&gt; ShowS
+DescribeChannelModeratedByAppInstanceUserResponse -&gt; String
+(Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; ShowS)
+-&gt; (DescribeChannelModeratedByAppInstanceUserResponse -&gt; String)
+-&gt; ([DescribeChannelModeratedByAppInstanceUserResponse] -&gt; ShowS)
+-&gt; Show DescribeChannelModeratedByAppInstanceUserResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeChannelModeratedByAppInstanceUserResponse] -&gt; ShowS
+$cshowList :: [DescribeChannelModeratedByAppInstanceUserResponse] -&gt; ShowS
+show :: DescribeChannelModeratedByAppInstanceUserResponse -&gt; String
+$cshow :: DescribeChannelModeratedByAppInstanceUserResponse -&gt; String
+showsPrec :: Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeChannelModeratedByAppInstanceUserResponse
+ -&gt; Rep DescribeChannelModeratedByAppInstanceUserResponse x)
+-&gt; (forall x.
+    Rep DescribeChannelModeratedByAppInstanceUserResponse x
+    -&gt; DescribeChannelModeratedByAppInstanceUserResponse)
+-&gt; Generic DescribeChannelModeratedByAppInstanceUserResponse
+forall x.
+Rep DescribeChannelModeratedByAppInstanceUserResponse x
+-&gt; DescribeChannelModeratedByAppInstanceUserResponse
+forall x.
+DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; Rep DescribeChannelModeratedByAppInstanceUserResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeChannelModeratedByAppInstanceUserResponse x
+-&gt; DescribeChannelModeratedByAppInstanceUserResponse
+$cfrom :: forall x.
+DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; Rep DescribeChannelModeratedByAppInstanceUserResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'DescribeChannelModeratedByAppInstanceUserResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'channel', 'describeChannelModeratedByAppInstanceUserResponse_channel' - The moderated channel.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'describeChannelModeratedByAppInstanceUserResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#newDescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-type">newDescribeChannelModeratedByAppInstanceUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newDescribeChannelModeratedByAppInstanceUserResponse"><span class="annot"><span class="annottext">newDescribeChannelModeratedByAppInstanceUserResponse :: Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#newDescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-var hs-var">newDescribeChannelModeratedByAppInstanceUserResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679237581"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUserResponse' :: Maybe ChannelModeratedByAppInstanceUserSummary
+-&gt; Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse'</span></a></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channel:DescribeChannelModeratedByAppInstanceUserResponse' :: Maybe ChannelModeratedByAppInstanceUserSummary
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3Achannel%3ADescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChannelModeratedByAppInstanceUserSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeChannelModeratedByAppInstanceUserResponse' :: Int
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AhttpStatus%3ADescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The moderated channel.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUserResponse_channel"><span class="hs-identifier hs-type">describeChannelModeratedByAppInstanceUserResponse_channel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary.html#ChannelModeratedByAppInstanceUserSummary"><span class="hs-identifier hs-type">ChannelModeratedByAppInstanceUserSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="describeChannelModeratedByAppInstanceUserResponse_channel"><span class="annot"><span class="annottext">describeChannelModeratedByAppInstanceUserResponse_channel :: (Maybe ChannelModeratedByAppInstanceUserSummary
+ -&gt; f (Maybe ChannelModeratedByAppInstanceUserSummary))
+-&gt; DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; f DescribeChannelModeratedByAppInstanceUserResponse
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUserResponse_channel"><span class="hs-identifier hs-var hs-var">describeChannelModeratedByAppInstanceUserResponse_channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeChannelModeratedByAppInstanceUserResponse
+ -&gt; Maybe ChannelModeratedByAppInstanceUserSummary)
+-&gt; (DescribeChannelModeratedByAppInstanceUserResponse
+    -&gt; Maybe ChannelModeratedByAppInstanceUserSummary
+    -&gt; DescribeChannelModeratedByAppInstanceUserResponse)
+-&gt; Lens
+     DescribeChannelModeratedByAppInstanceUserResponse
+     DescribeChannelModeratedByAppInstanceUserResponse
+     (Maybe ChannelModeratedByAppInstanceUserSummary)
+     (Maybe ChannelModeratedByAppInstanceUserSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237580"><span class="annot"><span class="annottext">Maybe ChannelModeratedByAppInstanceUserSummary
+channel :: Maybe ChannelModeratedByAppInstanceUserSummary
+$sel:channel:DescribeChannelModeratedByAppInstanceUserResponse' :: DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; Maybe ChannelModeratedByAppInstanceUserSummary
+</span><a href="#local-6989586621679237580"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelModeratedByAppInstanceUserSummary
+</span><a href="#local-6989586621679237580"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237579"><span class="annot"><span class="annottext">s :: DescribeChannelModeratedByAppInstanceUserResponse
+</span><a href="#local-6989586621679237579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237578"><span class="annot"><span class="annottext">Maybe ChannelModeratedByAppInstanceUserSummary
+</span><a href="#local-6989586621679237578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUserResponse
+</span><a href="#local-6989586621679237579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channel:DescribeChannelModeratedByAppInstanceUserResponse' :: Maybe ChannelModeratedByAppInstanceUserSummary
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3Achannel%3ADescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelModeratedByAppInstanceUserSummary
+</span><a href="#local-6989586621679237578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUserResponse_httpStatus"><span class="hs-identifier hs-type">describeChannelModeratedByAppInstanceUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="describeChannelModeratedByAppInstanceUserResponse_httpStatus"><span class="annot"><span class="annottext">describeChannelModeratedByAppInstanceUserResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeChannelModeratedByAppInstanceUserResponse
+-&gt; f DescribeChannelModeratedByAppInstanceUserResponse
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#describeChannelModeratedByAppInstanceUserResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeChannelModeratedByAppInstanceUserResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeChannelModeratedByAppInstanceUserResponse -&gt; Int)
+-&gt; (DescribeChannelModeratedByAppInstanceUserResponse
+    -&gt; Int -&gt; DescribeChannelModeratedByAppInstanceUserResponse)
+-&gt; Lens
+     DescribeChannelModeratedByAppInstanceUserResponse
+     DescribeChannelModeratedByAppInstanceUserResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237577"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeChannelModeratedByAppInstanceUserResponse' :: DescribeChannelModeratedByAppInstanceUserResponse -&gt; Int
+</span><a href="#local-6989586621679237577"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237577"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237576"><span class="annot"><span class="annottext">s :: DescribeChannelModeratedByAppInstanceUserResponse
+</span><a href="#local-6989586621679237576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237575"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeChannelModeratedByAppInstanceUserResponse
+</span><a href="#local-6989586621679237576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeChannelModeratedByAppInstanceUserResponse' :: Int
+</span><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#%24sel%3AhttpStatus%3ADescribeChannelModeratedByAppInstanceUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679237573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser.html#DescribeChannelModeratedByAppInstanceUserResponse"><span class="hs-identifier hs-type">DescribeChannelModeratedByAppInstanceUserResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

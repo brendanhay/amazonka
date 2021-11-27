@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.CreateIngestion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates and starts a new SPICE ingestion on a dataset</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Any ingestions operating on tagged datasets inherit the same tags</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- automatically for use in access control. For an example, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/ How do I create an IAM policy to control access to Amazon EC2 resources using tags?&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in the Amazon Web Services Knowledge Center. Tags are visible on the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- tagged dataset, but not on the ingestion resource.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.CreateIngestion</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier">CreateIngestion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#newCreateIngestion"><span class="hs-identifier">newCreateIngestion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_ingestionType"><span class="hs-identifier">createIngestion_ingestionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_dataSetId"><span class="hs-identifier">createIngestion_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_ingestionId"><span class="hs-identifier">createIngestion_ingestionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_awsAccountId"><span class="hs-identifier">createIngestion_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier">CreateIngestionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#newCreateIngestionResponse"><span class="hs-identifier">newCreateIngestionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_requestId"><span class="hs-identifier">createIngestionResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_arn"><span class="hs-identifier">createIngestionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_ingestionId"><span class="hs-identifier">createIngestionResponse_ingestionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_ingestionStatus"><span class="hs-identifier">createIngestionResponse_ingestionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_status"><span class="hs-identifier">createIngestionResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateIngestion' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679593794"><span id="local-6989586621679593795"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIngestion"><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-var">CreateIngestion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIngestion%27"><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-var">CreateIngestion'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of ingestion that you want to create.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AingestionType%3ACreateIngestion%27"><span class="annot"><span class="annottext">CreateIngestion -&gt; Maybe IngestionType
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionType%3ACreateIngestion%27"><span class="hs-identifier hs-var hs-var">ingestionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionType.html#IngestionType"><span class="hs-identifier hs-type">IngestionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of the dataset used in the ingestion.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdataSetId%3ACreateIngestion%27"><span class="annot"><span class="annottext">CreateIngestion -&gt; Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AdataSetId%3ACreateIngestion%27"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | An ID for the ingestion.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AingestionId%3ACreateIngestion%27"><span class="annot"><span class="annottext">CreateIngestion -&gt; Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionId%3ACreateIngestion%27"><span class="hs-identifier hs-var hs-var">ingestionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AawsAccountId%3ACreateIngestion%27"><span class="annot"><span class="annottext">CreateIngestion -&gt; Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AawsAccountId%3ACreateIngestion%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593785"><span id="local-6989586621679593787"><span class="annot"><span class="annottext">CreateIngestion -&gt; CreateIngestion -&gt; Bool
+(CreateIngestion -&gt; CreateIngestion -&gt; Bool)
+-&gt; (CreateIngestion -&gt; CreateIngestion -&gt; Bool)
+-&gt; Eq CreateIngestion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateIngestion -&gt; CreateIngestion -&gt; Bool
+$c/= :: CreateIngestion -&gt; CreateIngestion -&gt; Bool
+== :: CreateIngestion -&gt; CreateIngestion -&gt; Bool
+$c== :: CreateIngestion -&gt; CreateIngestion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593776"><span id="local-6989586621679593778"><span id="local-6989586621679593780"><span id="local-6989586621679593782"><span class="annot"><span class="annottext">ReadPrec [CreateIngestion]
+ReadPrec CreateIngestion
+Int -&gt; ReadS CreateIngestion
+ReadS [CreateIngestion]
+(Int -&gt; ReadS CreateIngestion)
+-&gt; ReadS [CreateIngestion]
+-&gt; ReadPrec CreateIngestion
+-&gt; ReadPrec [CreateIngestion]
+-&gt; Read CreateIngestion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateIngestion]
+$creadListPrec :: ReadPrec [CreateIngestion]
+readPrec :: ReadPrec CreateIngestion
+$creadPrec :: ReadPrec CreateIngestion
+readList :: ReadS [CreateIngestion]
+$creadList :: ReadS [CreateIngestion]
+readsPrec :: Int -&gt; ReadS CreateIngestion
+$creadsPrec :: Int -&gt; ReadS CreateIngestion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593769"><span id="local-6989586621679593771"><span id="local-6989586621679593773"><span class="annot"><span class="annottext">Int -&gt; CreateIngestion -&gt; ShowS
+[CreateIngestion] -&gt; ShowS
+CreateIngestion -&gt; String
+(Int -&gt; CreateIngestion -&gt; ShowS)
+-&gt; (CreateIngestion -&gt; String)
+-&gt; ([CreateIngestion] -&gt; ShowS)
+-&gt; Show CreateIngestion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateIngestion] -&gt; ShowS
+$cshowList :: [CreateIngestion] -&gt; ShowS
+show :: CreateIngestion -&gt; String
+$cshow :: CreateIngestion -&gt; String
+showsPrec :: Int -&gt; CreateIngestion -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateIngestion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateIngestion -&gt; Rep CreateIngestion x)
+-&gt; (forall x. Rep CreateIngestion x -&gt; CreateIngestion)
+-&gt; Generic CreateIngestion
+forall x. Rep CreateIngestion x -&gt; CreateIngestion
+forall x. CreateIngestion -&gt; Rep CreateIngestion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateIngestion x -&gt; CreateIngestion
+$cfrom :: forall x. CreateIngestion -&gt; Rep CreateIngestion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'CreateIngestion' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'ingestionType', 'createIngestion_ingestionType' - The type of ingestion that you want to create.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'dataSetId', 'createIngestion_dataSetId' - The ID of the dataset used in the ingestion.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'ingestionId', 'createIngestion_ingestionId' - An ID for the ingestion.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'awsAccountId', 'createIngestion_awsAccountId' - The Amazon Web Services account ID.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#newCreateIngestion"><span class="hs-identifier hs-type">newCreateIngestion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'dataSetId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'ingestionId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span>
+</span><span id="line-97"></span><span id="newCreateIngestion"><span class="annot"><span class="annottext">newCreateIngestion :: Text -&gt; Text -&gt; Text -&gt; CreateIngestion
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#newCreateIngestion"><span class="hs-identifier hs-var hs-var">newCreateIngestion</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679593764"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593764"><span class="hs-identifier hs-var">pDataSetId_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679593763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593763"><span class="hs-identifier hs-var">pIngestionId_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679593762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593762"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">CreateIngestion' :: Maybe IngestionType -&gt; Text -&gt; Text -&gt; Text -&gt; CreateIngestion
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ingestionType:CreateIngestion' :: Maybe IngestionType
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionType%3ACreateIngestion%27"><span class="hs-identifier hs-var">ingestionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSetId:CreateIngestion' :: Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AdataSetId%3ACreateIngestion%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593764"><span class="hs-identifier hs-var">pDataSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:ingestionId:CreateIngestion' :: Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionId%3ACreateIngestion%27"><span class="hs-identifier hs-var">ingestionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593763"><span class="hs-identifier hs-var">pIngestionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsAccountId:CreateIngestion' :: Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AawsAccountId%3ACreateIngestion%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593762"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The type of ingestion that you want to create.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_ingestionType"><span class="hs-identifier hs-type">createIngestion_ingestionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionType.html#IngestionType"><span class="hs-identifier hs-type">IngestionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="createIngestion_ingestionType"><span class="annot"><span class="annottext">createIngestion_ingestionType :: (Maybe IngestionType -&gt; f (Maybe IngestionType))
+-&gt; CreateIngestion -&gt; f CreateIngestion
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_ingestionType"><span class="hs-identifier hs-var hs-var">createIngestion_ingestionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIngestion -&gt; Maybe IngestionType)
+-&gt; (CreateIngestion -&gt; Maybe IngestionType -&gt; CreateIngestion)
+-&gt; Lens
+     CreateIngestion
+     CreateIngestion
+     (Maybe IngestionType)
+     (Maybe IngestionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593759"><span class="annot"><span class="annottext">Maybe IngestionType
+ingestionType :: Maybe IngestionType
+$sel:ingestionType:CreateIngestion' :: CreateIngestion -&gt; Maybe IngestionType
+</span><a href="#local-6989586621679593759"><span class="hs-identifier hs-var hs-var">ingestionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionType
+</span><a href="#local-6989586621679593759"><span class="hs-identifier hs-var">ingestionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593758"><span class="annot"><span class="annottext">s :: CreateIngestion
+</span><a href="#local-6989586621679593758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593757"><span class="annot"><span class="annottext">Maybe IngestionType
+</span><a href="#local-6989586621679593757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIngestion
+</span><a href="#local-6989586621679593758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionType:CreateIngestion' :: Maybe IngestionType
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionType%3ACreateIngestion%27"><span class="hs-identifier hs-var">ingestionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionType
+</span><a href="#local-6989586621679593757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The ID of the dataset used in the ingestion.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_dataSetId"><span class="hs-identifier hs-type">createIngestion_dataSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="createIngestion_dataSetId"><span class="annot"><span class="annottext">createIngestion_dataSetId :: (Text -&gt; f Text) -&gt; CreateIngestion -&gt; f CreateIngestion
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_dataSetId"><span class="hs-identifier hs-var hs-var">createIngestion_dataSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIngestion -&gt; Text)
+-&gt; (CreateIngestion -&gt; Text -&gt; CreateIngestion)
+-&gt; Lens CreateIngestion CreateIngestion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593756"><span class="annot"><span class="annottext">Text
+dataSetId :: Text
+$sel:dataSetId:CreateIngestion' :: CreateIngestion -&gt; Text
+</span><a href="#local-6989586621679593756"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593756"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593755"><span class="annot"><span class="annottext">s :: CreateIngestion
+</span><a href="#local-6989586621679593755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593754"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIngestion
+</span><a href="#local-6989586621679593755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetId:CreateIngestion' :: Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AdataSetId%3ACreateIngestion%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | An ID for the ingestion.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_ingestionId"><span class="hs-identifier hs-type">createIngestion_ingestionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="createIngestion_ingestionId"><span class="annot"><span class="annottext">createIngestion_ingestionId :: (Text -&gt; f Text) -&gt; CreateIngestion -&gt; f CreateIngestion
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_ingestionId"><span class="hs-identifier hs-var hs-var">createIngestion_ingestionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIngestion -&gt; Text)
+-&gt; (CreateIngestion -&gt; Text -&gt; CreateIngestion)
+-&gt; Lens CreateIngestion CreateIngestion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593753"><span class="annot"><span class="annottext">Text
+ingestionId :: Text
+$sel:ingestionId:CreateIngestion' :: CreateIngestion -&gt; Text
+</span><a href="#local-6989586621679593753"><span class="hs-identifier hs-var hs-var">ingestionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593753"><span class="hs-identifier hs-var">ingestionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593752"><span class="annot"><span class="annottext">s :: CreateIngestion
+</span><a href="#local-6989586621679593752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593751"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIngestion
+</span><a href="#local-6989586621679593752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionId:CreateIngestion' :: Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionId%3ACreateIngestion%27"><span class="hs-identifier hs-var">ingestionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_awsAccountId"><span class="hs-identifier hs-type">createIngestion_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="createIngestion_awsAccountId"><span class="annot"><span class="annottext">createIngestion_awsAccountId :: (Text -&gt; f Text) -&gt; CreateIngestion -&gt; f CreateIngestion
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestion_awsAccountId"><span class="hs-identifier hs-var hs-var">createIngestion_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIngestion -&gt; Text)
+-&gt; (CreateIngestion -&gt; Text -&gt; CreateIngestion)
+-&gt; Lens CreateIngestion CreateIngestion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593750"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:CreateIngestion' :: CreateIngestion -&gt; Text
+</span><a href="#local-6989586621679593750"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593750"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593749"><span class="annot"><span class="annottext">s :: CreateIngestion
+</span><a href="#local-6989586621679593749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593748"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIngestion
+</span><a href="#local-6989586621679593749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:CreateIngestion' :: Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AawsAccountId%3ACreateIngestion%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679593744"><span class="annot"><span class="annottext">request :: CreateIngestion -&gt; Request CreateIngestion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateIngestion -&gt; Request CreateIngestion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679593740"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateIngestion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateIngestion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateIngestion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateIngestion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateIngestion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679593737"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593737"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679593736"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679593736"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679593735"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593735"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe IngestionStatus
+-&gt; Int
+-&gt; CreateIngestionResponse
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-var">CreateIngestionResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe IngestionStatus
+ -&gt; Int
+ -&gt; CreateIngestionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe IngestionStatus
+      -&gt; Int
+      -&gt; CreateIngestionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe IngestionStatus
+   -&gt; Int
+   -&gt; CreateIngestionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe IngestionStatus -&gt; Int -&gt; CreateIngestionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe IngestionStatus -&gt; Int -&gt; CreateIngestionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe IngestionStatus -&gt; Int -&gt; CreateIngestionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IngestionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe IngestionStatus -&gt; Int -&gt; CreateIngestionResponse)
+-&gt; Either String (Maybe IngestionStatus)
+-&gt; Either String (Int -&gt; CreateIngestionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IngestionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IngestionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateIngestionResponse)
+-&gt; Either String Int -&gt; Either String CreateIngestionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593737"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593727"><span id="local-6989586621679593729"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593724"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679593720"><span class="annot"><span class="annottext">toHeaders :: CreateIngestion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateIngestion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-151"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593710"><span id="local-6989586621679593712"><span id="local-6989586621679593714"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679593708"><span class="annot"><span class="annottext">toJSON :: CreateIngestion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593703"><span id="local-6989586621679593704"><span id="local-6989586621679593705"><span id="local-6989586621679593706"><span class="annot"><span class="annottext">Maybe IngestionType
+Text
+awsAccountId :: Text
+ingestionId :: Text
+dataSetId :: Text
+ingestionType :: Maybe IngestionType
+$sel:awsAccountId:CreateIngestion' :: CreateIngestion -&gt; Text
+$sel:ingestionId:CreateIngestion' :: CreateIngestion -&gt; Text
+$sel:dataSetId:CreateIngestion' :: CreateIngestion -&gt; Text
+$sel:ingestionType:CreateIngestion' :: CreateIngestion -&gt; Maybe IngestionType
+</span><a href="#local-6989586621679593703"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IngestionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IngestionType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(IngestionType -&gt; Pair) -&gt; Maybe IngestionType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IngestionType
+</span><a href="#local-6989586621679593706"><span class="hs-identifier hs-var">ingestionType</span></a></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679593697"><span class="annot"><span class="annottext">toPath :: CreateIngestion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion%27"><span class="hs-identifier hs-type">CreateIngestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593692"><span id="local-6989586621679593693"><span id="local-6989586621679593694"><span id="local-6989586621679593695"><span class="annot"><span class="annottext">Maybe IngestionType
+Text
+awsAccountId :: Text
+ingestionId :: Text
+dataSetId :: Text
+ingestionType :: Maybe IngestionType
+$sel:awsAccountId:CreateIngestion' :: CreateIngestion -&gt; Text
+$sel:ingestionId:CreateIngestion' :: CreateIngestion -&gt; Text
+$sel:dataSetId:CreateIngestion' :: CreateIngestion -&gt; Text
+$sel:ingestionType:CreateIngestion' :: CreateIngestion -&gt; Maybe IngestionType
+</span><a href="#local-6989586621679593692"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593692"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/data-sets/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593694"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ingestions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593693"><span class="hs-identifier hs-var">ingestionId</span></a></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestion"><span class="hs-identifier hs-type">CreateIngestion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679593688"><span class="annot"><span class="annottext">toQuery :: CreateIngestion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateIngestion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | /See:/ 'newCreateIngestionResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621679593685"><span id="local-6989586621679593686"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIngestionResponse"><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-var">CreateIngestionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIngestionResponse%27"><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-var">CreateIngestionResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3ArequestId%3ACreateIngestionResponse%27"><span class="annot"><span class="annottext">CreateIngestionResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3ArequestId%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the data ingestion.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3Aarn%3ACreateIngestionResponse%27"><span class="annot"><span class="annottext">CreateIngestionResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3Aarn%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | An ID for the ingestion.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AingestionId%3ACreateIngestionResponse%27"><span class="annot"><span class="annottext">CreateIngestionResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionId%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var hs-var">ingestionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The ingestion status.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AingestionStatus%3ACreateIngestionResponse%27"><span class="annot"><span class="annottext">CreateIngestionResponse -&gt; Maybe IngestionStatus
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionStatus%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var hs-var">ingestionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionStatus.html#IngestionStatus"><span class="hs-identifier hs-type">IngestionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3Astatus%3ACreateIngestionResponse%27"><span class="annot"><span class="annottext">CreateIngestionResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3Astatus%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593676"><span id="local-6989586621679593678"><span class="annot"><span class="annottext">CreateIngestionResponse -&gt; CreateIngestionResponse -&gt; Bool
+(CreateIngestionResponse -&gt; CreateIngestionResponse -&gt; Bool)
+-&gt; (CreateIngestionResponse -&gt; CreateIngestionResponse -&gt; Bool)
+-&gt; Eq CreateIngestionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateIngestionResponse -&gt; CreateIngestionResponse -&gt; Bool
+$c/= :: CreateIngestionResponse -&gt; CreateIngestionResponse -&gt; Bool
+== :: CreateIngestionResponse -&gt; CreateIngestionResponse -&gt; Bool
+$c== :: CreateIngestionResponse -&gt; CreateIngestionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593668"><span id="local-6989586621679593670"><span id="local-6989586621679593672"><span id="local-6989586621679593674"><span class="annot"><span class="annottext">ReadPrec [CreateIngestionResponse]
+ReadPrec CreateIngestionResponse
+Int -&gt; ReadS CreateIngestionResponse
+ReadS [CreateIngestionResponse]
+(Int -&gt; ReadS CreateIngestionResponse)
+-&gt; ReadS [CreateIngestionResponse]
+-&gt; ReadPrec CreateIngestionResponse
+-&gt; ReadPrec [CreateIngestionResponse]
+-&gt; Read CreateIngestionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateIngestionResponse]
+$creadListPrec :: ReadPrec [CreateIngestionResponse]
+readPrec :: ReadPrec CreateIngestionResponse
+$creadPrec :: ReadPrec CreateIngestionResponse
+readList :: ReadS [CreateIngestionResponse]
+$creadList :: ReadS [CreateIngestionResponse]
+readsPrec :: Int -&gt; ReadS CreateIngestionResponse
+$creadsPrec :: Int -&gt; ReadS CreateIngestionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593662"><span id="local-6989586621679593664"><span id="local-6989586621679593666"><span class="annot"><span class="annottext">Int -&gt; CreateIngestionResponse -&gt; ShowS
+[CreateIngestionResponse] -&gt; ShowS
+CreateIngestionResponse -&gt; String
+(Int -&gt; CreateIngestionResponse -&gt; ShowS)
+-&gt; (CreateIngestionResponse -&gt; String)
+-&gt; ([CreateIngestionResponse] -&gt; ShowS)
+-&gt; Show CreateIngestionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateIngestionResponse] -&gt; ShowS
+$cshowList :: [CreateIngestionResponse] -&gt; ShowS
+show :: CreateIngestionResponse -&gt; String
+$cshow :: CreateIngestionResponse -&gt; String
+showsPrec :: Int -&gt; CreateIngestionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateIngestionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateIngestionResponse -&gt; Rep CreateIngestionResponse x)
+-&gt; (forall x.
+    Rep CreateIngestionResponse x -&gt; CreateIngestionResponse)
+-&gt; Generic CreateIngestionResponse
+forall x. Rep CreateIngestionResponse x -&gt; CreateIngestionResponse
+forall x. CreateIngestionResponse -&gt; Rep CreateIngestionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateIngestionResponse x -&gt; CreateIngestionResponse
+$cfrom :: forall x. CreateIngestionResponse -&gt; Rep CreateIngestionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Create a value of 'CreateIngestionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'requestId', 'createIngestionResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'arn', 'createIngestionResponse_arn' - The Amazon Resource Name (ARN) for the data ingestion.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'ingestionId', 'createIngestionResponse_ingestionId' - An ID for the ingestion.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'ingestionStatus', 'createIngestionResponse_ingestionStatus' - The ingestion status.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'status', 'createIngestionResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#newCreateIngestionResponse"><span class="hs-identifier hs-type">newCreateIngestionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newCreateIngestionResponse"><span class="annot"><span class="annottext">newCreateIngestionResponse :: Int -&gt; CreateIngestionResponse
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#newCreateIngestionResponse"><span class="hs-identifier hs-var hs-var">newCreateIngestionResponse</span></a></span></span><span> </span><span id="local-6989586621679593659"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593659"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">CreateIngestionResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe IngestionStatus
+-&gt; Int
+-&gt; CreateIngestionResponse
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:CreateIngestionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3ArequestId%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CreateIngestionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3Aarn%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestionId:CreateIngestionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionId%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">ingestionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestionStatus:CreateIngestionResponse' :: Maybe IngestionStatus
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionStatus%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">ingestionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:CreateIngestionResponse' :: Int
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3Astatus%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593659"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_requestId"><span class="hs-identifier hs-type">createIngestionResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="createIngestionResponse_requestId"><span class="annot"><span class="annottext">createIngestionResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateIngestionResponse -&gt; f CreateIngestionResponse
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_requestId"><span class="hs-identifier hs-var hs-var">createIngestionResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIngestionResponse -&gt; Maybe Text)
+-&gt; (CreateIngestionResponse
+    -&gt; Maybe Text -&gt; CreateIngestionResponse)
+-&gt; Lens
+     CreateIngestionResponse
+     CreateIngestionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593658"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:CreateIngestionResponse' :: CreateIngestionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593658"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593658"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593657"><span class="annot"><span class="annottext">s :: CreateIngestionResponse
+</span><a href="#local-6989586621679593657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593656"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIngestionResponse
+</span><a href="#local-6989586621679593657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:CreateIngestionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3ArequestId%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the data ingestion.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_arn"><span class="hs-identifier hs-type">createIngestionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="createIngestionResponse_arn"><span class="annot"><span class="annottext">createIngestionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateIngestionResponse -&gt; f CreateIngestionResponse
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_arn"><span class="hs-identifier hs-var hs-var">createIngestionResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIngestionResponse -&gt; Maybe Text)
+-&gt; (CreateIngestionResponse
+    -&gt; Maybe Text -&gt; CreateIngestionResponse)
+-&gt; Lens
+     CreateIngestionResponse
+     CreateIngestionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593655"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CreateIngestionResponse' :: CreateIngestionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593655"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593655"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593654"><span class="annot"><span class="annottext">s :: CreateIngestionResponse
+</span><a href="#local-6989586621679593654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593653"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIngestionResponse
+</span><a href="#local-6989586621679593654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateIngestionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3Aarn%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | An ID for the ingestion.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_ingestionId"><span class="hs-identifier hs-type">createIngestionResponse_ingestionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="createIngestionResponse_ingestionId"><span class="annot"><span class="annottext">createIngestionResponse_ingestionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateIngestionResponse -&gt; f CreateIngestionResponse
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_ingestionId"><span class="hs-identifier hs-var hs-var">createIngestionResponse_ingestionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIngestionResponse -&gt; Maybe Text)
+-&gt; (CreateIngestionResponse
+    -&gt; Maybe Text -&gt; CreateIngestionResponse)
+-&gt; Lens
+     CreateIngestionResponse
+     CreateIngestionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593652"><span class="annot"><span class="annottext">Maybe Text
+ingestionId :: Maybe Text
+$sel:ingestionId:CreateIngestionResponse' :: CreateIngestionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593652"><span class="hs-identifier hs-var hs-var">ingestionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593652"><span class="hs-identifier hs-var">ingestionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593651"><span class="annot"><span class="annottext">s :: CreateIngestionResponse
+</span><a href="#local-6989586621679593651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIngestionResponse
+</span><a href="#local-6989586621679593651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionId:CreateIngestionResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionId%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">ingestionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The ingestion status.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_ingestionStatus"><span class="hs-identifier hs-type">createIngestionResponse_ingestionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IngestionStatus.html#IngestionStatus"><span class="hs-identifier hs-type">IngestionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="createIngestionResponse_ingestionStatus"><span class="annot"><span class="annottext">createIngestionResponse_ingestionStatus :: (Maybe IngestionStatus -&gt; f (Maybe IngestionStatus))
+-&gt; CreateIngestionResponse -&gt; f CreateIngestionResponse
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_ingestionStatus"><span class="hs-identifier hs-var hs-var">createIngestionResponse_ingestionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIngestionResponse -&gt; Maybe IngestionStatus)
+-&gt; (CreateIngestionResponse
+    -&gt; Maybe IngestionStatus -&gt; CreateIngestionResponse)
+-&gt; Lens
+     CreateIngestionResponse
+     CreateIngestionResponse
+     (Maybe IngestionStatus)
+     (Maybe IngestionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593649"><span class="annot"><span class="annottext">Maybe IngestionStatus
+ingestionStatus :: Maybe IngestionStatus
+$sel:ingestionStatus:CreateIngestionResponse' :: CreateIngestionResponse -&gt; Maybe IngestionStatus
+</span><a href="#local-6989586621679593649"><span class="hs-identifier hs-var hs-var">ingestionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionStatus
+</span><a href="#local-6989586621679593649"><span class="hs-identifier hs-var">ingestionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593648"><span class="annot"><span class="annottext">s :: CreateIngestionResponse
+</span><a href="#local-6989586621679593648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593647"><span class="annot"><span class="annottext">Maybe IngestionStatus
+</span><a href="#local-6989586621679593647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIngestionResponse
+</span><a href="#local-6989586621679593648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionStatus:CreateIngestionResponse' :: Maybe IngestionStatus
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3AingestionStatus%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">ingestionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionStatus
+</span><a href="#local-6989586621679593647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_status"><span class="hs-identifier hs-type">createIngestionResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-242"></span><span id="createIngestionResponse_status"><span class="annot"><span class="annottext">createIngestionResponse_status :: (Int -&gt; f Int)
+-&gt; CreateIngestionResponse -&gt; f CreateIngestionResponse
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#createIngestionResponse_status"><span class="hs-identifier hs-var hs-var">createIngestionResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIngestionResponse -&gt; Int)
+-&gt; (CreateIngestionResponse -&gt; Int -&gt; CreateIngestionResponse)
+-&gt; Lens CreateIngestionResponse CreateIngestionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593646"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:CreateIngestionResponse' :: CreateIngestionResponse -&gt; Int
+</span><a href="#local-6989586621679593646"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593646"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593645"><span class="annot"><span class="annottext">s :: CreateIngestionResponse
+</span><a href="#local-6989586621679593645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse%27"><span class="hs-identifier hs-type">CreateIngestionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593644"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIngestionResponse
+</span><a href="#local-6989586621679593645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateIngestionResponse' :: Int
+</span><a href="Amazonka.QuickSight.CreateIngestion.html#%24sel%3Astatus%3ACreateIngestionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateIngestion.html#CreateIngestionResponse"><span class="hs-identifier hs-type">CreateIngestionResponse</span></a></span></span><span>
+</span><span id="line-245"></span></pre></body></html>

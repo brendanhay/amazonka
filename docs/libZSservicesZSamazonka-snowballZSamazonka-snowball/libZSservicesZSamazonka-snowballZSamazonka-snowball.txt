@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Snowball.Types.Address
+module Amazonka.Snowball.Types.Address
 
 -- | The address that you want the Snow device(s) associated with a
 --   specific job to be shipped to. Addresses are validated at the time of
@@ -170,17 +170,17 @@ address_prefectureOrDistrict :: Lens' Address (Maybe Text)
 -- | The first line in a street address that a Snow device is to be
 --   delivered to.
 address_street1 :: Lens' Address (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.Address.Address
-instance GHC.Show.Show Network.AWS.Snowball.Types.Address.Address
-instance GHC.Read.Read Network.AWS.Snowball.Types.Address.Address
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.Address.Address
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.Address.Address
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.Address.Address
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.Address.Address
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.Address.Address
+instance GHC.Generics.Generic Amazonka.Snowball.Types.Address.Address
+instance GHC.Show.Show Amazonka.Snowball.Types.Address.Address
+instance GHC.Read.Read Amazonka.Snowball.Types.Address.Address
+instance GHC.Classes.Eq Amazonka.Snowball.Types.Address.Address
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.Address.Address
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.Address.Address
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.Address.Address
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.Address.Address
 
 
-module Network.AWS.Snowball.Types.ClusterState
+module Amazonka.Snowball.Types.ClusterState
 newtype ClusterState
 ClusterState' :: Text -> ClusterState
 [fromClusterState] :: ClusterState -> Text
@@ -189,28 +189,28 @@ pattern ClusterState_Cancelled :: ClusterState
 pattern ClusterState_Complete :: ClusterState
 pattern ClusterState_InUse :: ClusterState
 pattern ClusterState_Pending :: ClusterState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance GHC.Read.Read Network.AWS.Snowball.Types.ClusterState.ClusterState
-instance GHC.Show.Show Network.AWS.Snowball.Types.ClusterState.ClusterState
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.ClusterState.ClusterState
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.ClusterState.ClusterState
+instance GHC.Generics.Generic Amazonka.Snowball.Types.ClusterState.ClusterState
+instance GHC.Classes.Ord Amazonka.Snowball.Types.ClusterState.ClusterState
+instance GHC.Classes.Eq Amazonka.Snowball.Types.ClusterState.ClusterState
+instance GHC.Read.Read Amazonka.Snowball.Types.ClusterState.ClusterState
+instance GHC.Show.Show Amazonka.Snowball.Types.ClusterState.ClusterState
 
 
-module Network.AWS.Snowball.Types.ClusterListEntry
+module Amazonka.Snowball.Types.ClusterListEntry
 
 -- | Contains a cluster's state, a cluster's ID, and other important
 --   information.
@@ -276,16 +276,16 @@ clusterListEntry_creationDate :: Lens' ClusterListEntry (Maybe UTCTime)
 -- | Defines an optional description of the cluster, for example
 --   <tt>Environmental Data Cluster-01</tt>.
 clusterListEntry_description :: Lens' ClusterListEntry (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.ClusterListEntry.ClusterListEntry
-instance GHC.Show.Show Network.AWS.Snowball.Types.ClusterListEntry.ClusterListEntry
-instance GHC.Read.Read Network.AWS.Snowball.Types.ClusterListEntry.ClusterListEntry
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.ClusterListEntry.ClusterListEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.ClusterListEntry.ClusterListEntry
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.ClusterListEntry.ClusterListEntry
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.ClusterListEntry.ClusterListEntry
+instance GHC.Generics.Generic Amazonka.Snowball.Types.ClusterListEntry.ClusterListEntry
+instance GHC.Show.Show Amazonka.Snowball.Types.ClusterListEntry.ClusterListEntry
+instance GHC.Read.Read Amazonka.Snowball.Types.ClusterListEntry.ClusterListEntry
+instance GHC.Classes.Eq Amazonka.Snowball.Types.ClusterListEntry.ClusterListEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.ClusterListEntry.ClusterListEntry
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.ClusterListEntry.ClusterListEntry
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.ClusterListEntry.ClusterListEntry
 
 
-module Network.AWS.Snowball.Types.CompatibleImage
+module Amazonka.Snowball.Types.CompatibleImage
 
 -- | A JSON-formatted object that describes a compatible Amazon Machine
 --   Image (AMI), including the ID and name for a Snow device AMI. This AMI
@@ -323,16 +323,16 @@ compatibleImage_name :: Lens' CompatibleImage (Maybe Text)
 
 -- | The unique identifier for an individual Snow device AMI.
 compatibleImage_amiId :: Lens' CompatibleImage (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.CompatibleImage.CompatibleImage
-instance GHC.Show.Show Network.AWS.Snowball.Types.CompatibleImage.CompatibleImage
-instance GHC.Read.Read Network.AWS.Snowball.Types.CompatibleImage.CompatibleImage
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.CompatibleImage.CompatibleImage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.CompatibleImage.CompatibleImage
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.CompatibleImage.CompatibleImage
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.CompatibleImage.CompatibleImage
+instance GHC.Generics.Generic Amazonka.Snowball.Types.CompatibleImage.CompatibleImage
+instance GHC.Show.Show Amazonka.Snowball.Types.CompatibleImage.CompatibleImage
+instance GHC.Read.Read Amazonka.Snowball.Types.CompatibleImage.CompatibleImage
+instance GHC.Classes.Eq Amazonka.Snowball.Types.CompatibleImage.CompatibleImage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.CompatibleImage.CompatibleImage
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.CompatibleImage.CompatibleImage
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.CompatibleImage.CompatibleImage
 
 
-module Network.AWS.Snowball.Types.DataTransfer
+module Amazonka.Snowball.Types.DataTransfer
 
 -- | Defines the real-time status of a Snow device's data transfer while
 --   the device is at AWS. This data is only available while a job has a
@@ -402,43 +402,43 @@ dataTransfer_objectsTransferred :: Lens' DataTransfer (Maybe Integer)
 
 -- | The number of bytes transferred between a Snow device and Amazon S3.
 dataTransfer_bytesTransferred :: Lens' DataTransfer (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.DataTransfer.DataTransfer
-instance GHC.Show.Show Network.AWS.Snowball.Types.DataTransfer.DataTransfer
-instance GHC.Read.Read Network.AWS.Snowball.Types.DataTransfer.DataTransfer
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.DataTransfer.DataTransfer
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.DataTransfer.DataTransfer
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.DataTransfer.DataTransfer
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.DataTransfer.DataTransfer
+instance GHC.Generics.Generic Amazonka.Snowball.Types.DataTransfer.DataTransfer
+instance GHC.Show.Show Amazonka.Snowball.Types.DataTransfer.DataTransfer
+instance GHC.Read.Read Amazonka.Snowball.Types.DataTransfer.DataTransfer
+instance GHC.Classes.Eq Amazonka.Snowball.Types.DataTransfer.DataTransfer
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.DataTransfer.DataTransfer
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.DataTransfer.DataTransfer
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.DataTransfer.DataTransfer
 
 
-module Network.AWS.Snowball.Types.DeviceServiceName
+module Amazonka.Snowball.Types.DeviceServiceName
 newtype DeviceServiceName
 DeviceServiceName' :: Text -> DeviceServiceName
 [fromDeviceServiceName] :: DeviceServiceName -> Text
 pattern DeviceServiceName_NFS_ON_DEVICE_SERVICE :: DeviceServiceName
 pattern DeviceServiceName_S3_ON_DEVICE_SERVICE :: DeviceServiceName
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance GHC.Read.Read Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
-instance GHC.Show.Show Network.AWS.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance GHC.Generics.Generic Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance GHC.Classes.Ord Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance GHC.Classes.Eq Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance GHC.Read.Read Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
+instance GHC.Show.Show Amazonka.Snowball.Types.DeviceServiceName.DeviceServiceName
 
 
-module Network.AWS.Snowball.Types.Ec2AmiResource
+module Amazonka.Snowball.Types.Ec2AmiResource
 
 -- | A JSON-formatted object that contains the IDs for an Amazon Machine
 --   Image (AMI), including the Amazon EC2 AMI ID and the Snow device AMI
@@ -477,17 +477,17 @@ ec2AmiResource_snowballAmiId :: Lens' Ec2AmiResource (Maybe Text)
 
 -- | The ID of the AMI in Amazon EC2.
 ec2AmiResource_amiId :: Lens' Ec2AmiResource Text
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.Ec2AmiResource.Ec2AmiResource
-instance GHC.Show.Show Network.AWS.Snowball.Types.Ec2AmiResource.Ec2AmiResource
-instance GHC.Read.Read Network.AWS.Snowball.Types.Ec2AmiResource.Ec2AmiResource
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.Ec2AmiResource.Ec2AmiResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.Ec2AmiResource.Ec2AmiResource
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.Ec2AmiResource.Ec2AmiResource
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.Ec2AmiResource.Ec2AmiResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.Ec2AmiResource.Ec2AmiResource
+instance GHC.Generics.Generic Amazonka.Snowball.Types.Ec2AmiResource.Ec2AmiResource
+instance GHC.Show.Show Amazonka.Snowball.Types.Ec2AmiResource.Ec2AmiResource
+instance GHC.Read.Read Amazonka.Snowball.Types.Ec2AmiResource.Ec2AmiResource
+instance GHC.Classes.Eq Amazonka.Snowball.Types.Ec2AmiResource.Ec2AmiResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.Ec2AmiResource.Ec2AmiResource
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.Ec2AmiResource.Ec2AmiResource
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.Ec2AmiResource.Ec2AmiResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.Ec2AmiResource.Ec2AmiResource
 
 
-module Network.AWS.Snowball.Types.EventTriggerDefinition
+module Amazonka.Snowball.Types.EventTriggerDefinition
 
 -- | The container for the EventTriggerDefinition$EventResourceARN.
 --   
@@ -517,17 +517,17 @@ newEventTriggerDefinition :: EventTriggerDefinition
 -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that
 --   is an AWS Lambda function's event trigger associated with this job.
 eventTriggerDefinition_eventResourceARN :: Lens' EventTriggerDefinition (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
-instance GHC.Show.Show Network.AWS.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
-instance GHC.Read.Read Network.AWS.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
+instance GHC.Generics.Generic Amazonka.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
+instance GHC.Show.Show Amazonka.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
+instance GHC.Read.Read Amazonka.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
+instance GHC.Classes.Eq Amazonka.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.EventTriggerDefinition.EventTriggerDefinition
 
 
-module Network.AWS.Snowball.Types.INDTaxDocuments
+module Amazonka.Snowball.Types.INDTaxDocuments
 
 -- | The tax documents required in AWS Regions in India.
 --   
@@ -556,17 +556,17 @@ newINDTaxDocuments :: INDTaxDocuments
 -- | The Goods and Services Tax (GST) documents required in AWS Regions in
 --   India.
 iNDTaxDocuments_gstin :: Lens' INDTaxDocuments (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.INDTaxDocuments.INDTaxDocuments
-instance GHC.Show.Show Network.AWS.Snowball.Types.INDTaxDocuments.INDTaxDocuments
-instance GHC.Read.Read Network.AWS.Snowball.Types.INDTaxDocuments.INDTaxDocuments
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.INDTaxDocuments.INDTaxDocuments
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.INDTaxDocuments.INDTaxDocuments
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.INDTaxDocuments.INDTaxDocuments
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.INDTaxDocuments.INDTaxDocuments
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.INDTaxDocuments.INDTaxDocuments
+instance GHC.Generics.Generic Amazonka.Snowball.Types.INDTaxDocuments.INDTaxDocuments
+instance GHC.Show.Show Amazonka.Snowball.Types.INDTaxDocuments.INDTaxDocuments
+instance GHC.Read.Read Amazonka.Snowball.Types.INDTaxDocuments.INDTaxDocuments
+instance GHC.Classes.Eq Amazonka.Snowball.Types.INDTaxDocuments.INDTaxDocuments
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.INDTaxDocuments.INDTaxDocuments
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.INDTaxDocuments.INDTaxDocuments
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.INDTaxDocuments.INDTaxDocuments
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.INDTaxDocuments.INDTaxDocuments
 
 
-module Network.AWS.Snowball.Types.JobLogs
+module Amazonka.Snowball.Types.JobLogs
 
 -- | Contains job logs. Whenever a Snow device is used to import data into
 --   or export data out of Amazon S3, you'll have the option of downloading
@@ -640,16 +640,16 @@ jobLogs_jobCompletionReportURI :: Lens' JobLogs (Maybe Text)
 -- | A link to an Amazon S3 presigned URL where the job success log is
 --   located.
 jobLogs_jobSuccessLogURI :: Lens' JobLogs (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.JobLogs.JobLogs
-instance GHC.Show.Show Network.AWS.Snowball.Types.JobLogs.JobLogs
-instance GHC.Read.Read Network.AWS.Snowball.Types.JobLogs.JobLogs
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.JobLogs.JobLogs
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.JobLogs.JobLogs
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.JobLogs.JobLogs
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.JobLogs.JobLogs
+instance GHC.Generics.Generic Amazonka.Snowball.Types.JobLogs.JobLogs
+instance GHC.Show.Show Amazonka.Snowball.Types.JobLogs.JobLogs
+instance GHC.Read.Read Amazonka.Snowball.Types.JobLogs.JobLogs
+instance GHC.Classes.Eq Amazonka.Snowball.Types.JobLogs.JobLogs
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.JobLogs.JobLogs
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.JobLogs.JobLogs
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.JobLogs.JobLogs
 
 
-module Network.AWS.Snowball.Types.JobState
+module Amazonka.Snowball.Types.JobState
 newtype JobState
 JobState' :: Text -> JobState
 [fromJobState] :: JobState -> Text
@@ -666,56 +666,56 @@ pattern JobState_PreparingShipment :: JobState
 pattern JobState_WithAWS :: JobState
 pattern JobState_WithAWSSortingFacility :: JobState
 pattern JobState_WithCustomer :: JobState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.JobState.JobState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.JobState.JobState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.JobState.JobState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.JobState.JobState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.JobState.JobState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.JobState.JobState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.JobState.JobState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.JobState.JobState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.JobState.JobState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.JobState.JobState
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.JobState.JobState
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.JobState.JobState
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.JobState.JobState
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.JobState.JobState
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.JobState.JobState
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.JobState.JobState
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.JobState.JobState
-instance GHC.Read.Read Network.AWS.Snowball.Types.JobState.JobState
-instance GHC.Show.Show Network.AWS.Snowball.Types.JobState.JobState
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.JobState.JobState
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.JobState.JobState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.JobState.JobState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.JobState.JobState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.JobState.JobState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.JobState.JobState
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.JobState.JobState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.JobState.JobState
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.JobState.JobState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.JobState.JobState
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.JobState.JobState
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.JobState.JobState
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.JobState.JobState
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.JobState.JobState
+instance GHC.Generics.Generic Amazonka.Snowball.Types.JobState.JobState
+instance GHC.Classes.Ord Amazonka.Snowball.Types.JobState.JobState
+instance GHC.Classes.Eq Amazonka.Snowball.Types.JobState.JobState
+instance GHC.Read.Read Amazonka.Snowball.Types.JobState.JobState
+instance GHC.Show.Show Amazonka.Snowball.Types.JobState.JobState
 
 
-module Network.AWS.Snowball.Types.JobType
+module Amazonka.Snowball.Types.JobType
 newtype JobType
 JobType' :: Text -> JobType
 [fromJobType] :: JobType -> Text
 pattern JobType_EXPORT :: JobType
 pattern JobType_IMPORT :: JobType
 pattern JobType_LOCAL_USE :: JobType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.JobType.JobType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.JobType.JobType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.JobType.JobType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.JobType.JobType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.JobType.JobType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.JobType.JobType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.JobType.JobType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.JobType.JobType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.JobType.JobType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.JobType.JobType
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.JobType.JobType
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.JobType.JobType
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.JobType.JobType
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.JobType.JobType
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.JobType.JobType
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.JobType.JobType
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.JobType.JobType
-instance GHC.Read.Read Network.AWS.Snowball.Types.JobType.JobType
-instance GHC.Show.Show Network.AWS.Snowball.Types.JobType.JobType
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.JobType.JobType
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.JobType.JobType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.JobType.JobType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.JobType.JobType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.JobType.JobType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.JobType.JobType
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.JobType.JobType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.JobType.JobType
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.JobType.JobType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.JobType.JobType
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.JobType.JobType
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.JobType.JobType
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.JobType.JobType
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.JobType.JobType
+instance GHC.Generics.Generic Amazonka.Snowball.Types.JobType.JobType
+instance GHC.Classes.Ord Amazonka.Snowball.Types.JobType.JobType
+instance GHC.Classes.Eq Amazonka.Snowball.Types.JobType.JobType
+instance GHC.Read.Read Amazonka.Snowball.Types.JobType.JobType
+instance GHC.Show.Show Amazonka.Snowball.Types.JobType.JobType
 
 
-module Network.AWS.Snowball.Types.KeyRange
+module Amazonka.Snowball.Types.KeyRange
 
 -- | Contains a key range. For export jobs, a <tt>S3Resource</tt> object
 --   can have an optional <tt>KeyRange</tt> value. The length of the range
@@ -759,17 +759,17 @@ keyRange_endMarker :: Lens' KeyRange (Maybe Text)
 -- | The key that starts an optional key range for an export job. Ranges
 --   are inclusive and UTF-8 binary sorted.
 keyRange_beginMarker :: Lens' KeyRange (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.KeyRange.KeyRange
-instance GHC.Show.Show Network.AWS.Snowball.Types.KeyRange.KeyRange
-instance GHC.Read.Read Network.AWS.Snowball.Types.KeyRange.KeyRange
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.KeyRange.KeyRange
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.KeyRange.KeyRange
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.KeyRange.KeyRange
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.KeyRange.KeyRange
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.KeyRange.KeyRange
+instance GHC.Generics.Generic Amazonka.Snowball.Types.KeyRange.KeyRange
+instance GHC.Show.Show Amazonka.Snowball.Types.KeyRange.KeyRange
+instance GHC.Read.Read Amazonka.Snowball.Types.KeyRange.KeyRange
+instance GHC.Classes.Eq Amazonka.Snowball.Types.KeyRange.KeyRange
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.KeyRange.KeyRange
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.KeyRange.KeyRange
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.KeyRange.KeyRange
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.KeyRange.KeyRange
 
 
-module Network.AWS.Snowball.Types.LambdaResource
+module Amazonka.Snowball.Types.LambdaResource
 
 -- | Identifies
 --   
@@ -814,44 +814,44 @@ lambdaResource_eventTriggers :: Lens' LambdaResource (Maybe [EventTriggerDefinit
 --   to be triggered by PUT object actions on the associated local Amazon
 --   S3 resource.
 lambdaResource_lambdaArn :: Lens' LambdaResource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.LambdaResource.LambdaResource
-instance GHC.Show.Show Network.AWS.Snowball.Types.LambdaResource.LambdaResource
-instance GHC.Read.Read Network.AWS.Snowball.Types.LambdaResource.LambdaResource
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.LambdaResource.LambdaResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.LambdaResource.LambdaResource
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.LambdaResource.LambdaResource
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.LambdaResource.LambdaResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.LambdaResource.LambdaResource
+instance GHC.Generics.Generic Amazonka.Snowball.Types.LambdaResource.LambdaResource
+instance GHC.Show.Show Amazonka.Snowball.Types.LambdaResource.LambdaResource
+instance GHC.Read.Read Amazonka.Snowball.Types.LambdaResource.LambdaResource
+instance GHC.Classes.Eq Amazonka.Snowball.Types.LambdaResource.LambdaResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.LambdaResource.LambdaResource
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.LambdaResource.LambdaResource
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.LambdaResource.LambdaResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.LambdaResource.LambdaResource
 
 
-module Network.AWS.Snowball.Types.LongTermPricingType
+module Amazonka.Snowball.Types.LongTermPricingType
 newtype LongTermPricingType
 LongTermPricingType' :: Text -> LongTermPricingType
 [fromLongTermPricingType] :: LongTermPricingType -> Text
 pattern LongTermPricingType_OneYear :: LongTermPricingType
 pattern LongTermPricingType_ThreeYear :: LongTermPricingType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance GHC.Read.Read Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
-instance GHC.Show.Show Network.AWS.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance GHC.Generics.Generic Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance GHC.Classes.Ord Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance GHC.Classes.Eq Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance GHC.Read.Read Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
+instance GHC.Show.Show Amazonka.Snowball.Types.LongTermPricingType.LongTermPricingType
 
 
-module Network.AWS.Snowball.Types.Notification
+module Amazonka.Snowball.Types.Notification
 
 -- | The Amazon Simple Notification Service (Amazon SNS) notification
 --   settings associated with a specific job. The <tt>Notification</tt>
@@ -923,44 +923,44 @@ notification_snsTopicARN :: Lens' Notification (Maybe Text)
 
 -- | The list of job states that will trigger a notification for this job.
 notification_jobStatesToNotify :: Lens' Notification (Maybe [JobState])
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.Notification.Notification
-instance GHC.Show.Show Network.AWS.Snowball.Types.Notification.Notification
-instance GHC.Read.Read Network.AWS.Snowball.Types.Notification.Notification
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.Notification.Notification
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.Notification.Notification
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.Notification.Notification
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.Notification.Notification
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.Notification.Notification
+instance GHC.Generics.Generic Amazonka.Snowball.Types.Notification.Notification
+instance GHC.Show.Show Amazonka.Snowball.Types.Notification.Notification
+instance GHC.Read.Read Amazonka.Snowball.Types.Notification.Notification
+instance GHC.Classes.Eq Amazonka.Snowball.Types.Notification.Notification
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.Notification.Notification
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.Notification.Notification
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.Notification.Notification
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.Notification.Notification
 
 
-module Network.AWS.Snowball.Types.RemoteManagement
+module Amazonka.Snowball.Types.RemoteManagement
 newtype RemoteManagement
 RemoteManagement' :: Text -> RemoteManagement
 [fromRemoteManagement] :: RemoteManagement -> Text
 pattern RemoteManagement_INSTALLED_AUTOSTART :: RemoteManagement
 pattern RemoteManagement_INSTALLED_ONLY :: RemoteManagement
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance GHC.Read.Read Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
-instance GHC.Show.Show Network.AWS.Snowball.Types.RemoteManagement.RemoteManagement
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance GHC.Generics.Generic Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance GHC.Classes.Ord Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance GHC.Classes.Eq Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance GHC.Read.Read Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
+instance GHC.Show.Show Amazonka.Snowball.Types.RemoteManagement.RemoteManagement
 
 
-module Network.AWS.Snowball.Types.Shipment
+module Amazonka.Snowball.Types.Shipment
 
 -- | The <tt>Status</tt> and <tt>TrackingNumber</tt> information for an
 --   inbound or outbound shipment.
@@ -1010,43 +1010,43 @@ shipment_status :: Lens' Shipment (Maybe Text)
 --   For India, the carrier is Amazon Logistics. For all other regions, UPS
 --   is the carrier.
 shipment_trackingNumber :: Lens' Shipment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.Shipment.Shipment
-instance GHC.Show.Show Network.AWS.Snowball.Types.Shipment.Shipment
-instance GHC.Read.Read Network.AWS.Snowball.Types.Shipment.Shipment
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.Shipment.Shipment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.Shipment.Shipment
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.Shipment.Shipment
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.Shipment.Shipment
+instance GHC.Generics.Generic Amazonka.Snowball.Types.Shipment.Shipment
+instance GHC.Show.Show Amazonka.Snowball.Types.Shipment.Shipment
+instance GHC.Read.Read Amazonka.Snowball.Types.Shipment.Shipment
+instance GHC.Classes.Eq Amazonka.Snowball.Types.Shipment.Shipment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.Shipment.Shipment
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.Shipment.Shipment
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.Shipment.Shipment
 
 
-module Network.AWS.Snowball.Types.ShipmentState
+module Amazonka.Snowball.Types.ShipmentState
 newtype ShipmentState
 ShipmentState' :: Text -> ShipmentState
 [fromShipmentState] :: ShipmentState -> Text
 pattern ShipmentState_RECEIVED :: ShipmentState
 pattern ShipmentState_RETURNED :: ShipmentState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance GHC.Read.Read Network.AWS.Snowball.Types.ShipmentState.ShipmentState
-instance GHC.Show.Show Network.AWS.Snowball.Types.ShipmentState.ShipmentState
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance GHC.Generics.Generic Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance GHC.Classes.Ord Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance GHC.Classes.Eq Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance GHC.Read.Read Amazonka.Snowball.Types.ShipmentState.ShipmentState
+instance GHC.Show.Show Amazonka.Snowball.Types.ShipmentState.ShipmentState
 
 
-module Network.AWS.Snowball.Types.ShippingLabelStatus
+module Amazonka.Snowball.Types.ShippingLabelStatus
 newtype ShippingLabelStatus
 ShippingLabelStatus' :: Text -> ShippingLabelStatus
 [fromShippingLabelStatus] :: ShippingLabelStatus -> Text
@@ -1054,28 +1054,28 @@ pattern ShippingLabelStatus_Failed :: ShippingLabelStatus
 pattern ShippingLabelStatus_InProgress :: ShippingLabelStatus
 pattern ShippingLabelStatus_Succeeded :: ShippingLabelStatus
 pattern ShippingLabelStatus_TimedOut :: ShippingLabelStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance GHC.Read.Read Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
-instance GHC.Show.Show Network.AWS.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance GHC.Generics.Generic Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance GHC.Classes.Ord Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance GHC.Classes.Eq Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance GHC.Read.Read Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
+instance GHC.Show.Show Amazonka.Snowball.Types.ShippingLabelStatus.ShippingLabelStatus
 
 
-module Network.AWS.Snowball.Types.ShippingOption
+module Amazonka.Snowball.Types.ShippingOption
 newtype ShippingOption
 ShippingOption' :: Text -> ShippingOption
 [fromShippingOption] :: ShippingOption -> Text
@@ -1083,28 +1083,28 @@ pattern ShippingOption_EXPRESS :: ShippingOption
 pattern ShippingOption_NEXT_DAY :: ShippingOption
 pattern ShippingOption_SECOND_DAY :: ShippingOption
 pattern ShippingOption_STANDARD :: ShippingOption
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance GHC.Read.Read Network.AWS.Snowball.Types.ShippingOption.ShippingOption
-instance GHC.Show.Show Network.AWS.Snowball.Types.ShippingOption.ShippingOption
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance GHC.Generics.Generic Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance GHC.Classes.Ord Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance GHC.Classes.Eq Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance GHC.Read.Read Amazonka.Snowball.Types.ShippingOption.ShippingOption
+instance GHC.Show.Show Amazonka.Snowball.Types.ShippingOption.ShippingOption
 
 
-module Network.AWS.Snowball.Types.ShippingDetails
+module Amazonka.Snowball.Types.ShippingDetails
 
 -- | A job's shipping information, including inbound and outbound tracking
 --   numbers and shipping speed options.
@@ -1205,16 +1205,16 @@ shippingDetails_outboundShipment :: Lens' ShippingDetails (Maybe Shipment)
 -- | The <tt>Status</tt> and <tt>TrackingNumber</tt> values for a Snow
 --   device being returned to AWS for a particular job.
 shippingDetails_inboundShipment :: Lens' ShippingDetails (Maybe Shipment)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.ShippingDetails.ShippingDetails
-instance GHC.Show.Show Network.AWS.Snowball.Types.ShippingDetails.ShippingDetails
-instance GHC.Read.Read Network.AWS.Snowball.Types.ShippingDetails.ShippingDetails
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.ShippingDetails.ShippingDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.ShippingDetails.ShippingDetails
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.ShippingDetails.ShippingDetails
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.ShippingDetails.ShippingDetails
+instance GHC.Generics.Generic Amazonka.Snowball.Types.ShippingDetails.ShippingDetails
+instance GHC.Show.Show Amazonka.Snowball.Types.ShippingDetails.ShippingDetails
+instance GHC.Read.Read Amazonka.Snowball.Types.ShippingDetails.ShippingDetails
+instance GHC.Classes.Eq Amazonka.Snowball.Types.ShippingDetails.ShippingDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.ShippingDetails.ShippingDetails
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.ShippingDetails.ShippingDetails
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.ShippingDetails.ShippingDetails
 
 
-module Network.AWS.Snowball.Types.SnowballCapacity
+module Amazonka.Snowball.Types.SnowballCapacity
 newtype SnowballCapacity
 SnowballCapacity' :: Text -> SnowballCapacity
 [fromSnowballCapacity] :: SnowballCapacity -> Text
@@ -1226,28 +1226,28 @@ pattern SnowballCapacity_T50 :: SnowballCapacity
 pattern SnowballCapacity_T8 :: SnowballCapacity
 pattern SnowballCapacity_T80 :: SnowballCapacity
 pattern SnowballCapacity_T98 :: SnowballCapacity
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance GHC.Read.Read Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
-instance GHC.Show.Show Network.AWS.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance GHC.Generics.Generic Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance GHC.Classes.Ord Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance GHC.Classes.Eq Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance GHC.Read.Read Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
+instance GHC.Show.Show Amazonka.Snowball.Types.SnowballCapacity.SnowballCapacity
 
 
-module Network.AWS.Snowball.Types.SnowballType
+module Amazonka.Snowball.Types.SnowballType
 newtype SnowballType
 SnowballType' :: Text -> SnowballType
 [fromSnowballType] :: SnowballType -> Text
@@ -1258,28 +1258,28 @@ pattern SnowballType_EDGE_S :: SnowballType
 pattern SnowballType_SNC1_HDD :: SnowballType
 pattern SnowballType_SNC1_SSD :: SnowballType
 pattern SnowballType_STANDARD :: SnowballType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance GHC.Read.Read Network.AWS.Snowball.Types.SnowballType.SnowballType
-instance GHC.Show.Show Network.AWS.Snowball.Types.SnowballType.SnowballType
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.SnowballType.SnowballType
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.SnowballType.SnowballType
+instance GHC.Generics.Generic Amazonka.Snowball.Types.SnowballType.SnowballType
+instance GHC.Classes.Ord Amazonka.Snowball.Types.SnowballType.SnowballType
+instance GHC.Classes.Eq Amazonka.Snowball.Types.SnowballType.SnowballType
+instance GHC.Read.Read Amazonka.Snowball.Types.SnowballType.SnowballType
+instance GHC.Show.Show Amazonka.Snowball.Types.SnowballType.SnowballType
 
 
-module Network.AWS.Snowball.Types.LongTermPricingListEntry
+module Amazonka.Snowball.Types.LongTermPricingListEntry
 
 -- | Each <tt>LongTermPricingListEntry</tt> object contains information
 --   about a long-term pricing type.
@@ -1407,16 +1407,16 @@ longTermPricingListEntry_jobIds :: Lens' LongTermPricingListEntry (Maybe [Text])
 -- | A new device that replaces a device that is ordered with long-term
 --   pricing.
 longTermPricingListEntry_replacementJob :: Lens' LongTermPricingListEntry (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
-instance GHC.Show.Show Network.AWS.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
-instance GHC.Read.Read Network.AWS.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
+instance GHC.Generics.Generic Amazonka.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
+instance GHC.Show.Show Amazonka.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
+instance GHC.Read.Read Amazonka.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
+instance GHC.Classes.Eq Amazonka.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.LongTermPricingListEntry.LongTermPricingListEntry
 
 
-module Network.AWS.Snowball.Types.JobListEntry
+module Amazonka.Snowball.Types.JobListEntry
 
 -- | Each <tt>JobListEntry</tt> object contains a job's state, a job's ID,
 --   and a value that indicates whether the job is a job part, in the case
@@ -1523,42 +1523,42 @@ jobListEntry_description :: Lens' JobListEntry (Maybe Text)
 --   a particular main job are listed, because they are created after the
 --   main job is created.
 jobListEntry_isMaster :: Lens' JobListEntry (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.JobListEntry.JobListEntry
-instance GHC.Show.Show Network.AWS.Snowball.Types.JobListEntry.JobListEntry
-instance GHC.Read.Read Network.AWS.Snowball.Types.JobListEntry.JobListEntry
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.JobListEntry.JobListEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.JobListEntry.JobListEntry
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.JobListEntry.JobListEntry
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.JobListEntry.JobListEntry
+instance GHC.Generics.Generic Amazonka.Snowball.Types.JobListEntry.JobListEntry
+instance GHC.Show.Show Amazonka.Snowball.Types.JobListEntry.JobListEntry
+instance GHC.Read.Read Amazonka.Snowball.Types.JobListEntry.JobListEntry
+instance GHC.Classes.Eq Amazonka.Snowball.Types.JobListEntry.JobListEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.JobListEntry.JobListEntry
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.JobListEntry.JobListEntry
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.JobListEntry.JobListEntry
 
 
-module Network.AWS.Snowball.Types.StorageUnit
+module Amazonka.Snowball.Types.StorageUnit
 newtype StorageUnit
 StorageUnit' :: Text -> StorageUnit
 [fromStorageUnit] :: StorageUnit -> Text
 pattern StorageUnit_TB :: StorageUnit
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance GHC.Read.Read Network.AWS.Snowball.Types.StorageUnit.StorageUnit
-instance GHC.Show.Show Network.AWS.Snowball.Types.StorageUnit.StorageUnit
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance GHC.Generics.Generic Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance GHC.Classes.Ord Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance GHC.Classes.Eq Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance GHC.Read.Read Amazonka.Snowball.Types.StorageUnit.StorageUnit
+instance GHC.Show.Show Amazonka.Snowball.Types.StorageUnit.StorageUnit
 
 
-module Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration
+module Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration
 
 -- | An object that represents metadata and configuration settings for NFS
 --   service on an AWS Snow Family device.
@@ -1603,17 +1603,17 @@ nFSOnDeviceServiceConfiguration_storageLimit :: Lens' NFSOnDeviceServiceConfigur
 --   
 --   Valid values: TB.
 nFSOnDeviceServiceConfiguration_storageUnit :: Lens' NFSOnDeviceServiceConfiguration (Maybe StorageUnit)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
-instance GHC.Show.Show Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
-instance GHC.Read.Read Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
+instance GHC.Generics.Generic Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
+instance GHC.Show.Show Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
+instance GHC.Read.Read Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
+instance GHC.Classes.Eq Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration.NFSOnDeviceServiceConfiguration
 
 
-module Network.AWS.Snowball.Types.OnDeviceServiceConfiguration
+module Amazonka.Snowball.Types.OnDeviceServiceConfiguration
 
 -- | An object that represents metadata and configuration settings for
 --   services on an AWS Snow Family device.
@@ -1641,17 +1641,17 @@ newOnDeviceServiceConfiguration :: OnDeviceServiceConfiguration
 
 -- | Represents the NFS service on a Snow Family device.
 onDeviceServiceConfiguration_nFSOnDeviceService :: Lens' OnDeviceServiceConfiguration (Maybe NFSOnDeviceServiceConfiguration)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
-instance GHC.Show.Show Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
-instance GHC.Read.Read Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
+instance GHC.Generics.Generic Amazonka.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
+instance GHC.Show.Show Amazonka.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
+instance GHC.Read.Read Amazonka.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
+instance GHC.Classes.Eq Amazonka.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.OnDeviceServiceConfiguration.OnDeviceServiceConfiguration
 
 
-module Network.AWS.Snowball.Types.TaxDocuments
+module Amazonka.Snowball.Types.TaxDocuments
 
 -- | The tax documents required in your AWS Region.
 --   
@@ -1675,45 +1675,45 @@ newTaxDocuments :: TaxDocuments
 
 -- | Undocumented member.
 taxDocuments_ind :: Lens' TaxDocuments (Maybe INDTaxDocuments)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.TaxDocuments.TaxDocuments
-instance GHC.Show.Show Network.AWS.Snowball.Types.TaxDocuments.TaxDocuments
-instance GHC.Read.Read Network.AWS.Snowball.Types.TaxDocuments.TaxDocuments
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.TaxDocuments.TaxDocuments
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.TaxDocuments.TaxDocuments
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.TaxDocuments.TaxDocuments
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.TaxDocuments.TaxDocuments
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.TaxDocuments.TaxDocuments
+instance GHC.Generics.Generic Amazonka.Snowball.Types.TaxDocuments.TaxDocuments
+instance GHC.Show.Show Amazonka.Snowball.Types.TaxDocuments.TaxDocuments
+instance GHC.Read.Read Amazonka.Snowball.Types.TaxDocuments.TaxDocuments
+instance GHC.Classes.Eq Amazonka.Snowball.Types.TaxDocuments.TaxDocuments
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.TaxDocuments.TaxDocuments
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.TaxDocuments.TaxDocuments
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.TaxDocuments.TaxDocuments
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.TaxDocuments.TaxDocuments
 
 
-module Network.AWS.Snowball.Types.TransferOption
+module Amazonka.Snowball.Types.TransferOption
 newtype TransferOption
 TransferOption' :: Text -> TransferOption
 [fromTransferOption] :: TransferOption -> Text
 pattern TransferOption_EXPORT :: TransferOption
 pattern TransferOption_IMPORT :: TransferOption
 pattern TransferOption_LOCAL_USE :: TransferOption
-instance Network.AWS.Data.XML.ToXML Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Network.AWS.Data.XML.FromXML Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Network.AWS.Data.Log.ToLog Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Network.AWS.Data.Text.ToText Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Network.AWS.Data.Text.FromText Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance GHC.Classes.Ord Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance GHC.Read.Read Network.AWS.Snowball.Types.TransferOption.TransferOption
-instance GHC.Show.Show Network.AWS.Snowball.Types.TransferOption.TransferOption
+instance Amazonka.Data.XML.ToXML Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Amazonka.Data.XML.FromXML Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Amazonka.Data.Headers.ToHeader Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Amazonka.Data.Log.ToLog Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Amazonka.Data.Text.ToText Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Amazonka.Data.Text.FromText Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.TransferOption.TransferOption
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.TransferOption.TransferOption
+instance GHC.Generics.Generic Amazonka.Snowball.Types.TransferOption.TransferOption
+instance GHC.Classes.Ord Amazonka.Snowball.Types.TransferOption.TransferOption
+instance GHC.Classes.Eq Amazonka.Snowball.Types.TransferOption.TransferOption
+instance GHC.Read.Read Amazonka.Snowball.Types.TransferOption.TransferOption
+instance GHC.Show.Show Amazonka.Snowball.Types.TransferOption.TransferOption
 
 
-module Network.AWS.Snowball.Types.TargetOnDeviceService
+module Amazonka.Snowball.Types.TargetOnDeviceService
 
 -- | An object that represents the service or services on the Snow Family
 --   device that your transferred data will be exported from or imported
@@ -1759,17 +1759,17 @@ targetOnDeviceService_transferOption :: Lens' TargetOnDeviceService (Maybe Trans
 -- | Specifies the name of the service on the Snow Family device that your
 --   transferred data will be exported from or imported into.
 targetOnDeviceService_serviceName :: Lens' TargetOnDeviceService (Maybe DeviceServiceName)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
-instance GHC.Show.Show Network.AWS.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
-instance GHC.Read.Read Network.AWS.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
+instance GHC.Generics.Generic Amazonka.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
+instance GHC.Show.Show Amazonka.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
+instance GHC.Read.Read Amazonka.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
+instance GHC.Classes.Eq Amazonka.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.TargetOnDeviceService.TargetOnDeviceService
 
 
-module Network.AWS.Snowball.Types.S3Resource
+module Amazonka.Snowball.Types.S3Resource
 
 -- | Each <tt>S3Resource</tt> object represents an Amazon S3 bucket that
 --   your transferred data will be exported from or imported into. For
@@ -1833,17 +1833,17 @@ s3Resource_bucketArn :: Lens' S3Resource (Maybe Text)
 --   transferred data will be exported from or imported into. AWS Snow
 --   Family supports Amazon S3 and NFS (Network File System).
 s3Resource_targetOnDeviceServices :: Lens' S3Resource (Maybe [TargetOnDeviceService])
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.S3Resource.S3Resource
-instance GHC.Show.Show Network.AWS.Snowball.Types.S3Resource.S3Resource
-instance GHC.Read.Read Network.AWS.Snowball.Types.S3Resource.S3Resource
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.S3Resource.S3Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.S3Resource.S3Resource
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.S3Resource.S3Resource
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.S3Resource.S3Resource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.S3Resource.S3Resource
+instance GHC.Generics.Generic Amazonka.Snowball.Types.S3Resource.S3Resource
+instance GHC.Show.Show Amazonka.Snowball.Types.S3Resource.S3Resource
+instance GHC.Read.Read Amazonka.Snowball.Types.S3Resource.S3Resource
+instance GHC.Classes.Eq Amazonka.Snowball.Types.S3Resource.S3Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.S3Resource.S3Resource
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.S3Resource.S3Resource
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.S3Resource.S3Resource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.S3Resource.S3Resource
 
 
-module Network.AWS.Snowball.Types.JobResource
+module Amazonka.Snowball.Types.JobResource
 
 -- | Contains an array of AWS resource objects. Each object represents an
 --   Amazon S3 bucket, an AWS Lambda function, or an Amazon Machine Image
@@ -1890,17 +1890,17 @@ jobResource_lambdaResources :: Lens' JobResource (Maybe [LambdaResource])
 
 -- | An array of <tt>S3Resource</tt> objects.
 jobResource_s3Resources :: Lens' JobResource (Maybe [S3Resource])
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.JobResource.JobResource
-instance GHC.Show.Show Network.AWS.Snowball.Types.JobResource.JobResource
-instance GHC.Read.Read Network.AWS.Snowball.Types.JobResource.JobResource
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.JobResource.JobResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.JobResource.JobResource
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.JobResource.JobResource
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.JobResource.JobResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.JobResource.JobResource
+instance GHC.Generics.Generic Amazonka.Snowball.Types.JobResource.JobResource
+instance GHC.Show.Show Amazonka.Snowball.Types.JobResource.JobResource
+instance GHC.Read.Read Amazonka.Snowball.Types.JobResource.JobResource
+instance GHC.Classes.Eq Amazonka.Snowball.Types.JobResource.JobResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.JobResource.JobResource
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.JobResource.JobResource
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.JobResource.JobResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.JobResource.JobResource
 
 
-module Network.AWS.Snowball.Types.ClusterMetadata
+module Amazonka.Snowball.Types.ClusterMetadata
 
 -- | Contains metadata about a specific cluster.
 --   
@@ -2145,16 +2145,16 @@ clusterMetadata_taxDocuments :: Lens' ClusterMetadata (Maybe TaxDocuments)
 --   the <a>CreateRole</a> API action in AWS Identity and Access Management
 --   (IAM).
 clusterMetadata_roleARN :: Lens' ClusterMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.ClusterMetadata.ClusterMetadata
-instance GHC.Show.Show Network.AWS.Snowball.Types.ClusterMetadata.ClusterMetadata
-instance GHC.Read.Read Network.AWS.Snowball.Types.ClusterMetadata.ClusterMetadata
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.ClusterMetadata.ClusterMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.ClusterMetadata.ClusterMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.ClusterMetadata.ClusterMetadata
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.ClusterMetadata.ClusterMetadata
+instance GHC.Generics.Generic Amazonka.Snowball.Types.ClusterMetadata.ClusterMetadata
+instance GHC.Show.Show Amazonka.Snowball.Types.ClusterMetadata.ClusterMetadata
+instance GHC.Read.Read Amazonka.Snowball.Types.ClusterMetadata.ClusterMetadata
+instance GHC.Classes.Eq Amazonka.Snowball.Types.ClusterMetadata.ClusterMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.ClusterMetadata.ClusterMetadata
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.ClusterMetadata.ClusterMetadata
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.ClusterMetadata.ClusterMetadata
 
 
-module Network.AWS.Snowball.Types.WirelessConnection
+module Amazonka.Snowball.Types.WirelessConnection
 
 -- | Configures the wireless connection on an AWS Snowcone device.
 --   
@@ -2181,17 +2181,17 @@ newWirelessConnection :: WirelessConnection
 
 -- | Enables the Wi-Fi adapter on an AWS Snowcone device.
 wirelessConnection_isWifiEnabled :: Lens' WirelessConnection (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.WirelessConnection.WirelessConnection
-instance GHC.Show.Show Network.AWS.Snowball.Types.WirelessConnection.WirelessConnection
-instance GHC.Read.Read Network.AWS.Snowball.Types.WirelessConnection.WirelessConnection
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.WirelessConnection.WirelessConnection
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.WirelessConnection.WirelessConnection
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.WirelessConnection.WirelessConnection
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.WirelessConnection.WirelessConnection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.WirelessConnection.WirelessConnection
+instance GHC.Generics.Generic Amazonka.Snowball.Types.WirelessConnection.WirelessConnection
+instance GHC.Show.Show Amazonka.Snowball.Types.WirelessConnection.WirelessConnection
+instance GHC.Read.Read Amazonka.Snowball.Types.WirelessConnection.WirelessConnection
+instance GHC.Classes.Eq Amazonka.Snowball.Types.WirelessConnection.WirelessConnection
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.WirelessConnection.WirelessConnection
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.WirelessConnection.WirelessConnection
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.WirelessConnection.WirelessConnection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.WirelessConnection.WirelessConnection
 
 
-module Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
+module Amazonka.Snowball.Types.SnowconeDeviceConfiguration
 
 -- | Specifies the device configuration for an AWS Snowcone job.
 --   
@@ -2218,17 +2218,17 @@ newSnowconeDeviceConfiguration :: SnowconeDeviceConfiguration
 
 -- | Configures the wireless connection for the AWS Snowcone device.
 snowconeDeviceConfiguration_wirelessConnection :: Lens' SnowconeDeviceConfiguration (Maybe WirelessConnection)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
-instance GHC.Show.Show Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
-instance GHC.Read.Read Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
+instance GHC.Generics.Generic Amazonka.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
+instance GHC.Show.Show Amazonka.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
+instance GHC.Read.Read Amazonka.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
+instance GHC.Classes.Eq Amazonka.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.SnowconeDeviceConfiguration.SnowconeDeviceConfiguration
 
 
-module Network.AWS.Snowball.Types.DeviceConfiguration
+module Amazonka.Snowball.Types.DeviceConfiguration
 
 -- | The container for <tt>SnowconeDeviceConfiguration</tt>.
 --   
@@ -2257,17 +2257,17 @@ newDeviceConfiguration :: DeviceConfiguration
 -- | Returns information about the device configuration for an AWS Snowcone
 --   job.
 deviceConfiguration_snowconeDeviceConfiguration :: Lens' DeviceConfiguration (Maybe SnowconeDeviceConfiguration)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.DeviceConfiguration.DeviceConfiguration
-instance GHC.Show.Show Network.AWS.Snowball.Types.DeviceConfiguration.DeviceConfiguration
-instance GHC.Read.Read Network.AWS.Snowball.Types.DeviceConfiguration.DeviceConfiguration
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.DeviceConfiguration.DeviceConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.DeviceConfiguration.DeviceConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.DeviceConfiguration.DeviceConfiguration
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.DeviceConfiguration.DeviceConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.Types.DeviceConfiguration.DeviceConfiguration
+instance GHC.Generics.Generic Amazonka.Snowball.Types.DeviceConfiguration.DeviceConfiguration
+instance GHC.Show.Show Amazonka.Snowball.Types.DeviceConfiguration.DeviceConfiguration
+instance GHC.Read.Read Amazonka.Snowball.Types.DeviceConfiguration.DeviceConfiguration
+instance GHC.Classes.Eq Amazonka.Snowball.Types.DeviceConfiguration.DeviceConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.DeviceConfiguration.DeviceConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.DeviceConfiguration.DeviceConfiguration
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.DeviceConfiguration.DeviceConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.Types.DeviceConfiguration.DeviceConfiguration
 
 
-module Network.AWS.Snowball.Types.JobMetadata
+module Amazonka.Snowball.Types.JobMetadata
 
 -- | Contains information about a specific job including shipping
 --   information, job status, and other important metadata. This
@@ -2595,16 +2595,16 @@ jobMetadata_roleARN :: Lens' JobMetadata (Maybe Text)
 --   "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
 --   (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.
 jobMetadata_snowballCapacityPreference :: Lens' JobMetadata (Maybe SnowballCapacity)
-instance GHC.Generics.Generic Network.AWS.Snowball.Types.JobMetadata.JobMetadata
-instance GHC.Show.Show Network.AWS.Snowball.Types.JobMetadata.JobMetadata
-instance GHC.Read.Read Network.AWS.Snowball.Types.JobMetadata.JobMetadata
-instance GHC.Classes.Eq Network.AWS.Snowball.Types.JobMetadata.JobMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Snowball.Types.JobMetadata.JobMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.Types.JobMetadata.JobMetadata
-instance Control.DeepSeq.NFData Network.AWS.Snowball.Types.JobMetadata.JobMetadata
+instance GHC.Generics.Generic Amazonka.Snowball.Types.JobMetadata.JobMetadata
+instance GHC.Show.Show Amazonka.Snowball.Types.JobMetadata.JobMetadata
+instance GHC.Read.Read Amazonka.Snowball.Types.JobMetadata.JobMetadata
+instance GHC.Classes.Eq Amazonka.Snowball.Types.JobMetadata.JobMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Snowball.Types.JobMetadata.JobMetadata
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.Types.JobMetadata.JobMetadata
+instance Control.DeepSeq.NFData Amazonka.Snowball.Types.JobMetadata.JobMetadata
 
 
-module Network.AWS.Snowball.Types
+module Amazonka.Snowball.Types
 
 -- | API version <tt>2016-06-30</tt> of the Amazon Import/Export Snowball
 --   SDK configuration.
@@ -4700,7 +4700,7 @@ wirelessConnection_isWifiEnabled :: Lens' WirelessConnection (Maybe Bool)
 
 
 -- | Lists all long-term pricing types.
-module Network.AWS.Snowball.ListLongTermPricing
+module Amazonka.Snowball.ListLongTermPricing
 
 -- | <i>See:</i> <a>newListLongTermPricing</a> smart constructor.
 data ListLongTermPricing
@@ -4788,22 +4788,22 @@ listLongTermPricingResponse_nextToken :: Lens' ListLongTermPricingResponse (Mayb
 
 -- | The response's http status code.
 listLongTermPricingResponse_httpStatus :: Lens' ListLongTermPricingResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance GHC.Show.Show Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance GHC.Read.Read Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance GHC.Classes.Eq Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance GHC.Generics.Generic Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricingResponse
-instance GHC.Show.Show Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricingResponse
-instance GHC.Read.Read Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricingResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.ListLongTermPricing.ListLongTermPricing
+instance GHC.Generics.Generic Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance GHC.Show.Show Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance GHC.Read.Read Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance GHC.Classes.Eq Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance GHC.Generics.Generic Amazonka.Snowball.ListLongTermPricing.ListLongTermPricingResponse
+instance GHC.Show.Show Amazonka.Snowball.ListLongTermPricing.ListLongTermPricingResponse
+instance GHC.Read.Read Amazonka.Snowball.ListLongTermPricing.ListLongTermPricingResponse
+instance GHC.Classes.Eq Amazonka.Snowball.ListLongTermPricing.ListLongTermPricingResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListLongTermPricing.ListLongTermPricingResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.ListLongTermPricing.ListLongTermPricing
 
 
 -- | Returns an array of <tt>JobListEntry</tt> objects of the specified
@@ -4814,7 +4814,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.ListLongTermPricing
 --   this account in all US regions.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Snowball.ListJobs
+module Amazonka.Snowball.ListJobs
 
 -- | <i>See:</i> <a>newListJobs</a> smart constructor.
 data ListJobs
@@ -4911,23 +4911,23 @@ listJobsResponse_nextToken :: Lens' ListJobsResponse (Maybe Text)
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens' ListJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.ListJobs.ListJobs
-instance GHC.Show.Show Network.AWS.Snowball.ListJobs.ListJobs
-instance GHC.Read.Read Network.AWS.Snowball.ListJobs.ListJobs
-instance GHC.Classes.Eq Network.AWS.Snowball.ListJobs.ListJobs
-instance GHC.Generics.Generic Network.AWS.Snowball.ListJobs.ListJobsResponse
-instance GHC.Show.Show Network.AWS.Snowball.ListJobs.ListJobsResponse
-instance GHC.Read.Read Network.AWS.Snowball.ListJobs.ListJobsResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.ListJobs.ListJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListJobs.ListJobsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Snowball.ListJobs.ListJobs
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListJobs.ListJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.ListJobs.ListJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.ListJobs.ListJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.ListJobs.ListJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.Snowball.ListJobs.ListJobs
+instance GHC.Show.Show Amazonka.Snowball.ListJobs.ListJobs
+instance GHC.Read.Read Amazonka.Snowball.ListJobs.ListJobs
+instance GHC.Classes.Eq Amazonka.Snowball.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.Snowball.ListJobs.ListJobsResponse
+instance GHC.Show.Show Amazonka.Snowball.ListJobs.ListJobsResponse
+instance GHC.Read.Read Amazonka.Snowball.ListJobs.ListJobsResponse
+instance GHC.Classes.Eq Amazonka.Snowball.ListJobs.ListJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListJobs.ListJobsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Snowball.ListJobs.ListJobs
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListJobs.ListJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.ListJobs.ListJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.ListJobs.ListJobs
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.ListJobs.ListJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.ListJobs.ListJobs
 
 
 -- | This action returns a list of the different Amazon EC2 Amazon Machine
@@ -4938,7 +4938,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.ListJobs.ListJobs
 --   the AWS Marketplace.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Snowball.ListCompatibleImages
+module Amazonka.Snowball.ListCompatibleImages
 
 -- | <i>See:</i> <a>newListCompatibleImages</a> smart constructor.
 data ListCompatibleImages
@@ -5034,23 +5034,23 @@ listCompatibleImagesResponse_nextToken :: Lens' ListCompatibleImagesResponse (Ma
 
 -- | The response's http status code.
 listCompatibleImagesResponse_httpStatus :: Lens' ListCompatibleImagesResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance GHC.Show.Show Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance GHC.Read.Read Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance GHC.Classes.Eq Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance GHC.Generics.Generic Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
-instance GHC.Show.Show Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
-instance GHC.Read.Read Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.ListCompatibleImages.ListCompatibleImages
+instance GHC.Generics.Generic Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance GHC.Show.Show Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance GHC.Read.Read Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance GHC.Classes.Eq Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance GHC.Generics.Generic Amazonka.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
+instance GHC.Show.Show Amazonka.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
+instance GHC.Read.Read Amazonka.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
+instance GHC.Classes.Eq Amazonka.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListCompatibleImages.ListCompatibleImagesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.ListCompatibleImages.ListCompatibleImages
 
 
 -- | Returns an array of <tt>ClusterListEntry</tt> objects of the specified
@@ -5058,7 +5058,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.ListCompatibleImage
 --   state, a cluster's ID, and other important status information.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Snowball.ListClusters
+module Amazonka.Snowball.ListClusters
 
 -- | <i>See:</i> <a>newListClusters</a> smart constructor.
 data ListClusters
@@ -5155,23 +5155,23 @@ listClustersResponse_nextToken :: Lens' ListClustersResponse (Maybe Text)
 
 -- | The response's http status code.
 listClustersResponse_httpStatus :: Lens' ListClustersResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.ListClusters.ListClusters
-instance GHC.Show.Show Network.AWS.Snowball.ListClusters.ListClusters
-instance GHC.Read.Read Network.AWS.Snowball.ListClusters.ListClusters
-instance GHC.Classes.Eq Network.AWS.Snowball.ListClusters.ListClusters
-instance GHC.Generics.Generic Network.AWS.Snowball.ListClusters.ListClustersResponse
-instance GHC.Show.Show Network.AWS.Snowball.ListClusters.ListClustersResponse
-instance GHC.Read.Read Network.AWS.Snowball.ListClusters.ListClustersResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.ListClusters.ListClustersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.ListClusters.ListClusters
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListClusters.ListClustersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Snowball.ListClusters.ListClusters
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.ListClusters.ListClusters
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListClusters.ListClusters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.ListClusters.ListClusters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.ListClusters.ListClusters
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.ListClusters.ListClusters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.ListClusters.ListClusters
+instance GHC.Generics.Generic Amazonka.Snowball.ListClusters.ListClusters
+instance GHC.Show.Show Amazonka.Snowball.ListClusters.ListClusters
+instance GHC.Read.Read Amazonka.Snowball.ListClusters.ListClusters
+instance GHC.Classes.Eq Amazonka.Snowball.ListClusters.ListClusters
+instance GHC.Generics.Generic Amazonka.Snowball.ListClusters.ListClustersResponse
+instance GHC.Show.Show Amazonka.Snowball.ListClusters.ListClustersResponse
+instance GHC.Read.Read Amazonka.Snowball.ListClusters.ListClustersResponse
+instance GHC.Classes.Eq Amazonka.Snowball.ListClusters.ListClustersResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.ListClusters.ListClusters
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListClusters.ListClustersResponse
+instance Amazonka.Pager.AWSPager Amazonka.Snowball.ListClusters.ListClusters
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.ListClusters.ListClusters
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListClusters.ListClusters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.ListClusters.ListClusters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.ListClusters.ListClusters
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.ListClusters.ListClusters
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.ListClusters.ListClusters
 
 
 -- | Returns an array of <tt>JobListEntry</tt> objects of the specified
@@ -5180,7 +5180,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.ListClusters.ListCl
 --   information.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Snowball.ListClusterJobs
+module Amazonka.Snowball.ListClusterJobs
 
 -- | <i>See:</i> <a>newListClusterJobs</a> smart constructor.
 data ListClusterJobs
@@ -5294,28 +5294,28 @@ listClusterJobsResponse_nextToken :: Lens' ListClusterJobsResponse (Maybe Text)
 
 -- | The response's http status code.
 listClusterJobsResponse_httpStatus :: Lens' ListClusterJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance GHC.Show.Show Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance GHC.Read.Read Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance GHC.Classes.Eq Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance GHC.Generics.Generic Network.AWS.Snowball.ListClusterJobs.ListClusterJobsResponse
-instance GHC.Show.Show Network.AWS.Snowball.ListClusterJobs.ListClusterJobsResponse
-instance GHC.Read.Read Network.AWS.Snowball.ListClusterJobs.ListClusterJobsResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.ListClusterJobs.ListClusterJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListClusterJobs.ListClusterJobsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance Control.DeepSeq.NFData Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.ListClusterJobs.ListClusterJobs
+instance GHC.Generics.Generic Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance GHC.Show.Show Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance GHC.Read.Read Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance GHC.Classes.Eq Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance GHC.Generics.Generic Amazonka.Snowball.ListClusterJobs.ListClusterJobsResponse
+instance GHC.Show.Show Amazonka.Snowball.ListClusterJobs.ListClusterJobsResponse
+instance GHC.Read.Read Amazonka.Snowball.ListClusterJobs.ListClusterJobsResponse
+instance GHC.Classes.Eq Amazonka.Snowball.ListClusterJobs.ListClusterJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListClusterJobs.ListClusterJobsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance Control.DeepSeq.NFData Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.ListClusterJobs.ListClusterJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.ListClusterJobs.ListClusterJobs
 
 
 -- | Returns an Amazon S3 presigned URL for an update file associated with
 --   a specified <tt>JobId</tt>.
-module Network.AWS.Snowball.GetSoftwareUpdates
+module Amazonka.Snowball.GetSoftwareUpdates
 
 -- | <i>See:</i> <a>newGetSoftwareUpdates</a> smart constructor.
 data GetSoftwareUpdates
@@ -5387,22 +5387,22 @@ getSoftwareUpdatesResponse_updatesURI :: Lens' GetSoftwareUpdatesResponse (Maybe
 
 -- | The response's http status code.
 getSoftwareUpdatesResponse_httpStatus :: Lens' GetSoftwareUpdatesResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance GHC.Show.Show Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance GHC.Read.Read Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance GHC.Classes.Eq Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance GHC.Generics.Generic Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
-instance GHC.Show.Show Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
-instance GHC.Read.Read Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance Control.DeepSeq.NFData Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance Control.DeepSeq.NFData Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance GHC.Generics.Generic Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance GHC.Show.Show Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance GHC.Read.Read Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance GHC.Classes.Eq Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance GHC.Generics.Generic Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
+instance GHC.Show.Show Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
+instance GHC.Read.Read Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
+instance GHC.Classes.Eq Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance Control.DeepSeq.NFData Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdatesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance Control.DeepSeq.NFData Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.GetSoftwareUpdates.GetSoftwareUpdates
 
 
 -- | Returns information about the Snow Family service limit for your
@@ -5411,7 +5411,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.GetSoftwareUpdates.
 --   The default service limit for the number of Snow devices that you can
 --   have at one time is 1. If you want to increase your service limit,
 --   contact AWS Support.
-module Network.AWS.Snowball.GetSnowballUsage
+module Amazonka.Snowball.GetSnowballUsage
 
 -- | <i>See:</i> <a>newGetSnowballUsage</a> smart constructor.
 data GetSnowballUsage
@@ -5470,22 +5470,22 @@ getSnowballUsageResponse_snowballLimit :: Lens' GetSnowballUsageResponse (Maybe 
 
 -- | The response's http status code.
 getSnowballUsageResponse_httpStatus :: Lens' GetSnowballUsageResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance GHC.Show.Show Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance GHC.Read.Read Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance GHC.Classes.Eq Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance GHC.Generics.Generic Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsageResponse
-instance GHC.Show.Show Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsageResponse
-instance GHC.Read.Read Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsageResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance Control.DeepSeq.NFData Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance Control.DeepSeq.NFData Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.GetSnowballUsage.GetSnowballUsage
+instance GHC.Generics.Generic Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance GHC.Show.Show Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance GHC.Read.Read Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance GHC.Classes.Eq Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance GHC.Generics.Generic Amazonka.Snowball.GetSnowballUsage.GetSnowballUsageResponse
+instance GHC.Show.Show Amazonka.Snowball.GetSnowballUsage.GetSnowballUsageResponse
+instance GHC.Read.Read Amazonka.Snowball.GetSnowballUsage.GetSnowballUsageResponse
+instance GHC.Classes.Eq Amazonka.Snowball.GetSnowballUsage.GetSnowballUsageResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance Control.DeepSeq.NFData Amazonka.Snowball.GetSnowballUsage.GetSnowballUsageResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance Control.DeepSeq.NFData Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.GetSnowballUsage.GetSnowballUsage
 
 
 -- | Returns the <tt>UnlockCode</tt> code value for the specified job. A
@@ -5502,7 +5502,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.GetSnowballUsage.Ge
 --   <tt>UnlockCode</tt> in the same location as the manifest file for that
 --   job. Saving these separately helps prevent unauthorized parties from
 --   gaining access to the Snow device associated with that job.
-module Network.AWS.Snowball.GetJobUnlockCode
+module Amazonka.Snowball.GetJobUnlockCode
 
 -- | <i>See:</i> <a>newGetJobUnlockCode</a> smart constructor.
 data GetJobUnlockCode
@@ -5568,22 +5568,22 @@ getJobUnlockCodeResponse_unlockCode :: Lens' GetJobUnlockCodeResponse (Maybe Tex
 
 -- | The response's http status code.
 getJobUnlockCodeResponse_httpStatus :: Lens' GetJobUnlockCodeResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance GHC.Show.Show Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance GHC.Read.Read Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance GHC.Classes.Eq Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance GHC.Generics.Generic Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
-instance GHC.Show.Show Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
-instance GHC.Read.Read Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance Control.DeepSeq.NFData Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance Control.DeepSeq.NFData Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance GHC.Generics.Generic Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance GHC.Show.Show Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance GHC.Read.Read Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance GHC.Classes.Eq Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance GHC.Generics.Generic Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
+instance GHC.Show.Show Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
+instance GHC.Read.Read Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
+instance GHC.Classes.Eq Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance Control.DeepSeq.NFData Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCodeResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance Control.DeepSeq.NFData Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.GetJobUnlockCode.GetJobUnlockCode
 
 
 -- | Returns a link to an Amazon S3 presigned URL for the manifest file
@@ -5606,7 +5606,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.GetJobUnlockCode.Ge
 --   
 --   The credentials of a given job, including its manifest file and unlock
 --   code, expire 360 days after the job is created.
-module Network.AWS.Snowball.GetJobManifest
+module Amazonka.Snowball.GetJobManifest
 
 -- | <i>See:</i> <a>newGetJobManifest</a> smart constructor.
 data GetJobManifest
@@ -5670,27 +5670,27 @@ getJobManifestResponse_manifestURI :: Lens' GetJobManifestResponse (Maybe Text)
 
 -- | The response's http status code.
 getJobManifestResponse_httpStatus :: Lens' GetJobManifestResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance GHC.Show.Show Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance GHC.Read.Read Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance GHC.Classes.Eq Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance GHC.Generics.Generic Network.AWS.Snowball.GetJobManifest.GetJobManifestResponse
-instance GHC.Show.Show Network.AWS.Snowball.GetJobManifest.GetJobManifestResponse
-instance GHC.Read.Read Network.AWS.Snowball.GetJobManifest.GetJobManifestResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.GetJobManifest.GetJobManifestResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance Control.DeepSeq.NFData Network.AWS.Snowball.GetJobManifest.GetJobManifestResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance Control.DeepSeq.NFData Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.GetJobManifest.GetJobManifest
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.GetJobManifest.GetJobManifest
+instance GHC.Generics.Generic Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance GHC.Show.Show Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance GHC.Read.Read Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance GHC.Classes.Eq Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance GHC.Generics.Generic Amazonka.Snowball.GetJobManifest.GetJobManifestResponse
+instance GHC.Show.Show Amazonka.Snowball.GetJobManifest.GetJobManifestResponse
+instance GHC.Read.Read Amazonka.Snowball.GetJobManifest.GetJobManifestResponse
+instance GHC.Classes.Eq Amazonka.Snowball.GetJobManifest.GetJobManifestResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance Control.DeepSeq.NFData Amazonka.Snowball.GetJobManifest.GetJobManifestResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance Control.DeepSeq.NFData Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.GetJobManifest.GetJobManifest
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.GetJobManifest.GetJobManifest
 
 
 -- | Information on the shipping label of a Snow device that is being
 --   returned to AWS.
-module Network.AWS.Snowball.DescribeReturnShippingLabel
+module Amazonka.Snowball.DescribeReturnShippingLabel
 
 -- | <i>See:</i> <a>newDescribeReturnShippingLabel</a> smart constructor.
 data DescribeReturnShippingLabel
@@ -5766,27 +5766,27 @@ describeReturnShippingLabelResponse_expirationDate :: Lens' DescribeReturnShippi
 
 -- | The response's http status code.
 describeReturnShippingLabelResponse_httpStatus :: Lens' DescribeReturnShippingLabelResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance GHC.Show.Show Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance GHC.Read.Read Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
-instance GHC.Show.Show Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
-instance GHC.Read.Read Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance GHC.Show.Show Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance GHC.Read.Read Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
+instance GHC.Show.Show Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
+instance GHC.Read.Read Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabelResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.DescribeReturnShippingLabel.DescribeReturnShippingLabel
 
 
 -- | Returns information about a specific job including shipping
 --   information, job status, and other important metadata.
-module Network.AWS.Snowball.DescribeJob
+module Amazonka.Snowball.DescribeJob
 
 -- | <i>See:</i> <a>newDescribeJob</a> smart constructor.
 data DescribeJob
@@ -5864,27 +5864,27 @@ describeJobResponse_subJobMetadata :: Lens' DescribeJobResponse (Maybe [JobMetad
 
 -- | The response's http status code.
 describeJobResponse_httpStatus :: Lens' DescribeJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeJob.DescribeJob
-instance GHC.Show.Show Network.AWS.Snowball.DescribeJob.DescribeJob
-instance GHC.Read.Read Network.AWS.Snowball.DescribeJob.DescribeJob
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeJob.DescribeJob
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeJob.DescribeJobResponse
-instance GHC.Show.Show Network.AWS.Snowball.DescribeJob.DescribeJobResponse
-instance GHC.Read.Read Network.AWS.Snowball.DescribeJob.DescribeJobResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeJob.DescribeJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.DescribeJob.DescribeJob
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeJob.DescribeJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.DescribeJob.DescribeJob
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeJob.DescribeJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.DescribeJob.DescribeJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.DescribeJob.DescribeJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.DescribeJob.DescribeJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.DescribeJob.DescribeJob
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeJob.DescribeJob
+instance GHC.Show.Show Amazonka.Snowball.DescribeJob.DescribeJob
+instance GHC.Read.Read Amazonka.Snowball.DescribeJob.DescribeJob
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeJob.DescribeJob
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeJob.DescribeJobResponse
+instance GHC.Show.Show Amazonka.Snowball.DescribeJob.DescribeJobResponse
+instance GHC.Read.Read Amazonka.Snowball.DescribeJob.DescribeJobResponse
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeJob.DescribeJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.DescribeJob.DescribeJob
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeJob.DescribeJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.DescribeJob.DescribeJob
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeJob.DescribeJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.DescribeJob.DescribeJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.DescribeJob.DescribeJob
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.DescribeJob.DescribeJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.DescribeJob.DescribeJob
 
 
 -- | Returns information about a specific cluster including shipping
 --   information, cluster status, and other important metadata.
-module Network.AWS.Snowball.DescribeCluster
+module Amazonka.Snowball.DescribeCluster
 
 -- | <i>See:</i> <a>newDescribeCluster</a> smart constructor.
 data DescribeCluster
@@ -5946,22 +5946,22 @@ describeClusterResponse_clusterMetadata :: Lens' DescribeClusterResponse (Maybe 
 
 -- | The response's http status code.
 describeClusterResponse_httpStatus :: Lens' DescribeClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance GHC.Show.Show Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance GHC.Read.Read Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeCluster.DescribeClusterResponse
-instance GHC.Show.Show Network.AWS.Snowball.DescribeCluster.DescribeClusterResponse
-instance GHC.Read.Read Network.AWS.Snowball.DescribeCluster.DescribeClusterResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeCluster.DescribeClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeCluster.DescribeClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.DescribeCluster.DescribeCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.DescribeCluster.DescribeCluster
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance GHC.Show.Show Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance GHC.Read.Read Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeCluster.DescribeClusterResponse
+instance GHC.Show.Show Amazonka.Snowball.DescribeCluster.DescribeClusterResponse
+instance GHC.Read.Read Amazonka.Snowball.DescribeCluster.DescribeClusterResponse
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeCluster.DescribeClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeCluster.DescribeClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.DescribeCluster.DescribeCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.DescribeCluster.DescribeCluster
 
 
 -- | Returns a specified number of <tt>ADDRESS</tt> objects. Calling this
@@ -5969,7 +5969,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.DescribeCluster.Des
 --   all addresses associated with this account in all US regions.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Snowball.DescribeAddresses
+module Amazonka.Snowball.DescribeAddresses
 
 -- | <i>See:</i> <a>newDescribeAddresses</a> smart constructor.
 data DescribeAddresses
@@ -6065,28 +6065,28 @@ describeAddressesResponse_nextToken :: Lens' DescribeAddressesResponse (Maybe Te
 
 -- | The response's http status code.
 describeAddressesResponse_httpStatus :: Lens' DescribeAddressesResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance GHC.Show.Show Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance GHC.Read.Read Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeAddresses.DescribeAddressesResponse
-instance GHC.Show.Show Network.AWS.Snowball.DescribeAddresses.DescribeAddressesResponse
-instance GHC.Read.Read Network.AWS.Snowball.DescribeAddresses.DescribeAddressesResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeAddresses.DescribeAddressesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeAddresses.DescribeAddressesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.DescribeAddresses.DescribeAddresses
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance GHC.Show.Show Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance GHC.Read.Read Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeAddresses.DescribeAddressesResponse
+instance GHC.Show.Show Amazonka.Snowball.DescribeAddresses.DescribeAddressesResponse
+instance GHC.Read.Read Amazonka.Snowball.DescribeAddresses.DescribeAddressesResponse
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeAddresses.DescribeAddressesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeAddresses.DescribeAddressesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.DescribeAddresses.DescribeAddresses
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.DescribeAddresses.DescribeAddresses
 
 
 -- | Takes an <tt>AddressId</tt> and returns specific details about that
 --   address in the form of an <tt>Address</tt> object.
-module Network.AWS.Snowball.DescribeAddress
+module Amazonka.Snowball.DescribeAddress
 
 -- | <i>See:</i> <a>newDescribeAddress</a> smart constructor.
 data DescribeAddress
@@ -6147,27 +6147,27 @@ describeAddressResponse_address :: Lens' DescribeAddressResponse (Maybe Address)
 
 -- | The response's http status code.
 describeAddressResponse_httpStatus :: Lens' DescribeAddressResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance GHC.Show.Show Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance GHC.Read.Read Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance GHC.Generics.Generic Network.AWS.Snowball.DescribeAddress.DescribeAddressResponse
-instance GHC.Show.Show Network.AWS.Snowball.DescribeAddress.DescribeAddressResponse
-instance GHC.Read.Read Network.AWS.Snowball.DescribeAddress.DescribeAddressResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.DescribeAddress.DescribeAddressResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeAddress.DescribeAddressResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance Control.DeepSeq.NFData Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.DescribeAddress.DescribeAddress
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.DescribeAddress.DescribeAddress
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance GHC.Show.Show Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance GHC.Read.Read Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance GHC.Generics.Generic Amazonka.Snowball.DescribeAddress.DescribeAddressResponse
+instance GHC.Show.Show Amazonka.Snowball.DescribeAddress.DescribeAddressResponse
+instance GHC.Read.Read Amazonka.Snowball.DescribeAddress.DescribeAddressResponse
+instance GHC.Classes.Eq Amazonka.Snowball.DescribeAddress.DescribeAddressResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeAddress.DescribeAddressResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance Control.DeepSeq.NFData Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.DescribeAddress.DescribeAddress
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.DescribeAddress.DescribeAddress
 
 
 -- | Creates a shipping label that will be used to return the Snow device
 --   to AWS.
-module Network.AWS.Snowball.CreateReturnShippingLabel
+module Amazonka.Snowball.CreateReturnShippingLabel
 
 -- | <i>See:</i> <a>newCreateReturnShippingLabel</a> smart constructor.
 data CreateReturnShippingLabel
@@ -6251,29 +6251,29 @@ createReturnShippingLabelResponse_status :: Lens' CreateReturnShippingLabelRespo
 
 -- | The response's http status code.
 createReturnShippingLabelResponse_httpStatus :: Lens' CreateReturnShippingLabelResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance GHC.Show.Show Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance GHC.Read.Read Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
-instance GHC.Show.Show Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
-instance GHC.Read.Read Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance GHC.Generics.Generic Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance GHC.Show.Show Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance GHC.Read.Read Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance GHC.Classes.Eq Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance GHC.Generics.Generic Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
+instance GHC.Show.Show Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
+instance GHC.Read.Read Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
+instance GHC.Classes.Eq Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabelResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.CreateReturnShippingLabel.CreateReturnShippingLabel
 
 
 -- | Creates a job with the long-term usage option for a device. The
 --   long-term usage is a 1-year or 3-year long-term pricing type for the
 --   device. You are billed upfront, and AWS provides discounts for
 --   long-term pricing.
-module Network.AWS.Snowball.CreateLongTermPricing
+module Amazonka.Snowball.CreateLongTermPricing
 
 -- | <i>See:</i> <a>newCreateLongTermPricing</a> smart constructor.
 data CreateLongTermPricing
@@ -6360,22 +6360,22 @@ createLongTermPricingResponse_longTermPricingId :: Lens' CreateLongTermPricingRe
 
 -- | The response's http status code.
 createLongTermPricingResponse_httpStatus :: Lens' CreateLongTermPricingResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance GHC.Show.Show Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance GHC.Read.Read Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
-instance GHC.Show.Show Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
-instance GHC.Read.Read Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance GHC.Generics.Generic Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance GHC.Show.Show Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance GHC.Read.Read Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance GHC.Classes.Eq Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance GHC.Generics.Generic Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
+instance GHC.Show.Show Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
+instance GHC.Read.Read Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
+instance GHC.Classes.Eq Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricingResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.CreateLongTermPricing.CreateLongTermPricing
 
 
 -- | Creates a job to import or export data between Amazon S3 and your
@@ -6422,7 +6422,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CreateLongTermPrici
 --   available in the Ningxia, Beijing, and Singapore AWS
 --   Regions.</li></ul></li>
 --   </ul>
-module Network.AWS.Snowball.CreateJob
+module Amazonka.Snowball.CreateJob
 
 -- | <i>See:</i> <a>newCreateJob</a> smart constructor.
 data CreateJob
@@ -6845,29 +6845,29 @@ createJobResponse_jobId :: Lens' CreateJobResponse (Maybe Text)
 
 -- | The response's http status code.
 createJobResponse_httpStatus :: Lens' CreateJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateJob.CreateJob
-instance GHC.Show.Show Network.AWS.Snowball.CreateJob.CreateJob
-instance GHC.Read.Read Network.AWS.Snowball.CreateJob.CreateJob
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateJob.CreateJob
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateJob.CreateJobResponse
-instance GHC.Show.Show Network.AWS.Snowball.CreateJob.CreateJobResponse
-instance GHC.Read.Read Network.AWS.Snowball.CreateJob.CreateJobResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateJob.CreateJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.CreateJob.CreateJob
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateJob.CreateJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.CreateJob.CreateJob
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateJob.CreateJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.CreateJob.CreateJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.CreateJob.CreateJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.CreateJob.CreateJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CreateJob.CreateJob
+instance GHC.Generics.Generic Amazonka.Snowball.CreateJob.CreateJob
+instance GHC.Show.Show Amazonka.Snowball.CreateJob.CreateJob
+instance GHC.Read.Read Amazonka.Snowball.CreateJob.CreateJob
+instance GHC.Classes.Eq Amazonka.Snowball.CreateJob.CreateJob
+instance GHC.Generics.Generic Amazonka.Snowball.CreateJob.CreateJobResponse
+instance GHC.Show.Show Amazonka.Snowball.CreateJob.CreateJobResponse
+instance GHC.Read.Read Amazonka.Snowball.CreateJob.CreateJobResponse
+instance GHC.Classes.Eq Amazonka.Snowball.CreateJob.CreateJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.CreateJob.CreateJob
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateJob.CreateJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.CreateJob.CreateJob
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateJob.CreateJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.CreateJob.CreateJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.CreateJob.CreateJob
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.CreateJob.CreateJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.CreateJob.CreateJob
 
 
 -- | Creates an empty cluster. Each cluster supports five nodes. You use
 --   the CreateJob action separately to create the jobs for each of these
 --   nodes. The cluster does not ship until these five node jobs have been
 --   created.
-module Network.AWS.Snowball.CreateCluster
+module Amazonka.Snowball.CreateCluster
 
 -- | <i>See:</i> <a>newCreateCluster</a> smart constructor.
 data CreateCluster
@@ -7209,22 +7209,22 @@ createClusterResponse_clusterId :: Lens' CreateClusterResponse (Maybe Text)
 
 -- | The response's http status code.
 createClusterResponse_httpStatus :: Lens' CreateClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateCluster.CreateCluster
-instance GHC.Show.Show Network.AWS.Snowball.CreateCluster.CreateCluster
-instance GHC.Read.Read Network.AWS.Snowball.CreateCluster.CreateCluster
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateCluster.CreateCluster
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateCluster.CreateClusterResponse
-instance GHC.Show.Show Network.AWS.Snowball.CreateCluster.CreateClusterResponse
-instance GHC.Read.Read Network.AWS.Snowball.CreateCluster.CreateClusterResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateCluster.CreateClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.CreateCluster.CreateCluster
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateCluster.CreateClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.CreateCluster.CreateCluster
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateCluster.CreateCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.CreateCluster.CreateCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.CreateCluster.CreateCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.CreateCluster.CreateCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CreateCluster.CreateCluster
+instance GHC.Generics.Generic Amazonka.Snowball.CreateCluster.CreateCluster
+instance GHC.Show.Show Amazonka.Snowball.CreateCluster.CreateCluster
+instance GHC.Read.Read Amazonka.Snowball.CreateCluster.CreateCluster
+instance GHC.Classes.Eq Amazonka.Snowball.CreateCluster.CreateCluster
+instance GHC.Generics.Generic Amazonka.Snowball.CreateCluster.CreateClusterResponse
+instance GHC.Show.Show Amazonka.Snowball.CreateCluster.CreateClusterResponse
+instance GHC.Read.Read Amazonka.Snowball.CreateCluster.CreateClusterResponse
+instance GHC.Classes.Eq Amazonka.Snowball.CreateCluster.CreateClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.CreateCluster.CreateCluster
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateCluster.CreateClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.CreateCluster.CreateCluster
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateCluster.CreateCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.CreateCluster.CreateCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.CreateCluster.CreateCluster
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.CreateCluster.CreateCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.CreateCluster.CreateCluster
 
 
 -- | Creates an address for a Snow device to be shipped to. In most
@@ -7232,7 +7232,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CreateCluster.Creat
 --   you provide must be located within the serviceable area of your
 --   region. If the address is invalid or unsupported, then an exception is
 --   thrown.
-module Network.AWS.Snowball.CreateAddress
+module Amazonka.Snowball.CreateAddress
 
 -- | <i>See:</i> <a>newCreateAddress</a> smart constructor.
 data CreateAddress
@@ -7296,22 +7296,22 @@ createAddressResponse_addressId :: Lens' CreateAddressResponse (Maybe Text)
 
 -- | The response's http status code.
 createAddressResponse_httpStatus :: Lens' CreateAddressResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateAddress.CreateAddress
-instance GHC.Show.Show Network.AWS.Snowball.CreateAddress.CreateAddress
-instance GHC.Read.Read Network.AWS.Snowball.CreateAddress.CreateAddress
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateAddress.CreateAddress
-instance GHC.Generics.Generic Network.AWS.Snowball.CreateAddress.CreateAddressResponse
-instance GHC.Show.Show Network.AWS.Snowball.CreateAddress.CreateAddressResponse
-instance GHC.Read.Read Network.AWS.Snowball.CreateAddress.CreateAddressResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.CreateAddress.CreateAddressResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.CreateAddress.CreateAddress
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateAddress.CreateAddressResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.CreateAddress.CreateAddress
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CreateAddress.CreateAddress
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.CreateAddress.CreateAddress
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.CreateAddress.CreateAddress
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.CreateAddress.CreateAddress
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CreateAddress.CreateAddress
+instance GHC.Generics.Generic Amazonka.Snowball.CreateAddress.CreateAddress
+instance GHC.Show.Show Amazonka.Snowball.CreateAddress.CreateAddress
+instance GHC.Read.Read Amazonka.Snowball.CreateAddress.CreateAddress
+instance GHC.Classes.Eq Amazonka.Snowball.CreateAddress.CreateAddress
+instance GHC.Generics.Generic Amazonka.Snowball.CreateAddress.CreateAddressResponse
+instance GHC.Show.Show Amazonka.Snowball.CreateAddress.CreateAddressResponse
+instance GHC.Read.Read Amazonka.Snowball.CreateAddress.CreateAddressResponse
+instance GHC.Classes.Eq Amazonka.Snowball.CreateAddress.CreateAddressResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.CreateAddress.CreateAddress
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateAddress.CreateAddressResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.CreateAddress.CreateAddress
+instance Control.DeepSeq.NFData Amazonka.Snowball.CreateAddress.CreateAddress
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.CreateAddress.CreateAddress
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.CreateAddress.CreateAddress
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.CreateAddress.CreateAddress
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.CreateAddress.CreateAddress
 
 
 -- | Cancels the specified job. You can only cancel a job before its
@@ -7319,7 +7319,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CreateAddress.Creat
 --   Requesting the <tt>ListJobs</tt> or <tt>DescribeJob</tt> action
 --   returns a job's <tt>JobState</tt> as part of the response element data
 --   returned.
-module Network.AWS.Snowball.CancelJob
+module Amazonka.Snowball.CancelJob
 
 -- | <i>See:</i> <a>newCancelJob</a> smart constructor.
 data CancelJob
@@ -7368,28 +7368,28 @@ newCancelJobResponse :: Int -> CancelJobResponse
 
 -- | The response's http status code.
 cancelJobResponse_httpStatus :: Lens' CancelJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.CancelJob.CancelJob
-instance GHC.Show.Show Network.AWS.Snowball.CancelJob.CancelJob
-instance GHC.Read.Read Network.AWS.Snowball.CancelJob.CancelJob
-instance GHC.Classes.Eq Network.AWS.Snowball.CancelJob.CancelJob
-instance GHC.Generics.Generic Network.AWS.Snowball.CancelJob.CancelJobResponse
-instance GHC.Show.Show Network.AWS.Snowball.CancelJob.CancelJobResponse
-instance GHC.Read.Read Network.AWS.Snowball.CancelJob.CancelJobResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.CancelJob.CancelJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.CancelJob.CancelJob
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CancelJob.CancelJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.CancelJob.CancelJob
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CancelJob.CancelJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.CancelJob.CancelJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.CancelJob.CancelJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.CancelJob.CancelJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CancelJob.CancelJob
+instance GHC.Generics.Generic Amazonka.Snowball.CancelJob.CancelJob
+instance GHC.Show.Show Amazonka.Snowball.CancelJob.CancelJob
+instance GHC.Read.Read Amazonka.Snowball.CancelJob.CancelJob
+instance GHC.Classes.Eq Amazonka.Snowball.CancelJob.CancelJob
+instance GHC.Generics.Generic Amazonka.Snowball.CancelJob.CancelJobResponse
+instance GHC.Show.Show Amazonka.Snowball.CancelJob.CancelJobResponse
+instance GHC.Read.Read Amazonka.Snowball.CancelJob.CancelJobResponse
+instance GHC.Classes.Eq Amazonka.Snowball.CancelJob.CancelJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.CancelJob.CancelJob
+instance Control.DeepSeq.NFData Amazonka.Snowball.CancelJob.CancelJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.CancelJob.CancelJob
+instance Control.DeepSeq.NFData Amazonka.Snowball.CancelJob.CancelJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.CancelJob.CancelJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.CancelJob.CancelJob
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.CancelJob.CancelJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.CancelJob.CancelJob
 
 
 -- | Cancels a cluster job. You can only cancel a cluster job while it's in
 --   the <tt>AwaitingQuorum</tt> status. You'll have at least an hour after
 --   creating a cluster job to cancel it.
-module Network.AWS.Snowball.CancelCluster
+module Amazonka.Snowball.CancelCluster
 
 -- | <i>See:</i> <a>newCancelCluster</a> smart constructor.
 data CancelCluster
@@ -7440,22 +7440,22 @@ newCancelClusterResponse :: Int -> CancelClusterResponse
 
 -- | The response's http status code.
 cancelClusterResponse_httpStatus :: Lens' CancelClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.CancelCluster.CancelCluster
-instance GHC.Show.Show Network.AWS.Snowball.CancelCluster.CancelCluster
-instance GHC.Read.Read Network.AWS.Snowball.CancelCluster.CancelCluster
-instance GHC.Classes.Eq Network.AWS.Snowball.CancelCluster.CancelCluster
-instance GHC.Generics.Generic Network.AWS.Snowball.CancelCluster.CancelClusterResponse
-instance GHC.Show.Show Network.AWS.Snowball.CancelCluster.CancelClusterResponse
-instance GHC.Read.Read Network.AWS.Snowball.CancelCluster.CancelClusterResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.CancelCluster.CancelClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.CancelCluster.CancelCluster
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CancelCluster.CancelClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.CancelCluster.CancelCluster
-instance Control.DeepSeq.NFData Network.AWS.Snowball.CancelCluster.CancelCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.CancelCluster.CancelCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.CancelCluster.CancelCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.CancelCluster.CancelCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CancelCluster.CancelCluster
+instance GHC.Generics.Generic Amazonka.Snowball.CancelCluster.CancelCluster
+instance GHC.Show.Show Amazonka.Snowball.CancelCluster.CancelCluster
+instance GHC.Read.Read Amazonka.Snowball.CancelCluster.CancelCluster
+instance GHC.Classes.Eq Amazonka.Snowball.CancelCluster.CancelCluster
+instance GHC.Generics.Generic Amazonka.Snowball.CancelCluster.CancelClusterResponse
+instance GHC.Show.Show Amazonka.Snowball.CancelCluster.CancelClusterResponse
+instance GHC.Read.Read Amazonka.Snowball.CancelCluster.CancelClusterResponse
+instance GHC.Classes.Eq Amazonka.Snowball.CancelCluster.CancelClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.CancelCluster.CancelCluster
+instance Control.DeepSeq.NFData Amazonka.Snowball.CancelCluster.CancelClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.CancelCluster.CancelCluster
+instance Control.DeepSeq.NFData Amazonka.Snowball.CancelCluster.CancelCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.CancelCluster.CancelCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.CancelCluster.CancelCluster
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.CancelCluster.CancelCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.CancelCluster.CancelCluster
 
 
 -- | While a cluster's <tt>ClusterState</tt> value is in the
@@ -7463,7 +7463,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.CancelCluster.Cance
 --   associated with a cluster. Once the cluster changes to a different job
 --   state, usually 60 minutes after the cluster being created, this action
 --   is no longer available.
-module Network.AWS.Snowball.UpdateCluster
+module Amazonka.Snowball.UpdateCluster
 
 -- | <i>See:</i> <a>newUpdateCluster</a> smart constructor.
 data UpdateCluster
@@ -7611,29 +7611,29 @@ newUpdateClusterResponse :: Int -> UpdateClusterResponse
 
 -- | The response's http status code.
 updateClusterResponse_httpStatus :: Lens' UpdateClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance GHC.Show.Show Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance GHC.Read.Read Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance GHC.Classes.Eq Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance GHC.Generics.Generic Network.AWS.Snowball.UpdateCluster.UpdateClusterResponse
-instance GHC.Show.Show Network.AWS.Snowball.UpdateCluster.UpdateClusterResponse
-instance GHC.Read.Read Network.AWS.Snowball.UpdateCluster.UpdateClusterResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.UpdateCluster.UpdateClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance Control.DeepSeq.NFData Network.AWS.Snowball.UpdateCluster.UpdateClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance Control.DeepSeq.NFData Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.UpdateCluster.UpdateCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.UpdateCluster.UpdateCluster
+instance GHC.Generics.Generic Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance GHC.Show.Show Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance GHC.Read.Read Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance GHC.Classes.Eq Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance GHC.Generics.Generic Amazonka.Snowball.UpdateCluster.UpdateClusterResponse
+instance GHC.Show.Show Amazonka.Snowball.UpdateCluster.UpdateClusterResponse
+instance GHC.Read.Read Amazonka.Snowball.UpdateCluster.UpdateClusterResponse
+instance GHC.Classes.Eq Amazonka.Snowball.UpdateCluster.UpdateClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance Control.DeepSeq.NFData Amazonka.Snowball.UpdateCluster.UpdateClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance Control.DeepSeq.NFData Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.UpdateCluster.UpdateCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.UpdateCluster.UpdateCluster
 
 
 -- | While a job's <tt>JobState</tt> value is <tt>New</tt>, you can update
 --   some of the information associated with a job. Once the job changes to
 --   a different job state, usually within 60 minutes of the job being
 --   created, this action is no longer available.
-module Network.AWS.Snowball.UpdateJob
+module Amazonka.Snowball.UpdateJob
 
 -- | <i>See:</i> <a>newUpdateJob</a> smart constructor.
 data UpdateJob
@@ -7813,26 +7813,26 @@ newUpdateJobResponse :: Int -> UpdateJobResponse
 
 -- | The response's http status code.
 updateJobResponse_httpStatus :: Lens' UpdateJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.UpdateJob.UpdateJob
-instance GHC.Show.Show Network.AWS.Snowball.UpdateJob.UpdateJob
-instance GHC.Read.Read Network.AWS.Snowball.UpdateJob.UpdateJob
-instance GHC.Classes.Eq Network.AWS.Snowball.UpdateJob.UpdateJob
-instance GHC.Generics.Generic Network.AWS.Snowball.UpdateJob.UpdateJobResponse
-instance GHC.Show.Show Network.AWS.Snowball.UpdateJob.UpdateJobResponse
-instance GHC.Read.Read Network.AWS.Snowball.UpdateJob.UpdateJobResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.UpdateJob.UpdateJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.UpdateJob.UpdateJob
-instance Control.DeepSeq.NFData Network.AWS.Snowball.UpdateJob.UpdateJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.UpdateJob.UpdateJob
-instance Control.DeepSeq.NFData Network.AWS.Snowball.UpdateJob.UpdateJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.UpdateJob.UpdateJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.UpdateJob.UpdateJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.UpdateJob.UpdateJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.UpdateJob.UpdateJob
+instance GHC.Generics.Generic Amazonka.Snowball.UpdateJob.UpdateJob
+instance GHC.Show.Show Amazonka.Snowball.UpdateJob.UpdateJob
+instance GHC.Read.Read Amazonka.Snowball.UpdateJob.UpdateJob
+instance GHC.Classes.Eq Amazonka.Snowball.UpdateJob.UpdateJob
+instance GHC.Generics.Generic Amazonka.Snowball.UpdateJob.UpdateJobResponse
+instance GHC.Show.Show Amazonka.Snowball.UpdateJob.UpdateJobResponse
+instance GHC.Read.Read Amazonka.Snowball.UpdateJob.UpdateJobResponse
+instance GHC.Classes.Eq Amazonka.Snowball.UpdateJob.UpdateJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.UpdateJob.UpdateJob
+instance Control.DeepSeq.NFData Amazonka.Snowball.UpdateJob.UpdateJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.UpdateJob.UpdateJob
+instance Control.DeepSeq.NFData Amazonka.Snowball.UpdateJob.UpdateJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.UpdateJob.UpdateJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.UpdateJob.UpdateJob
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.UpdateJob.UpdateJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.UpdateJob.UpdateJob
 
 
 -- | Updates the state when a shipment state changes to a different state.
-module Network.AWS.Snowball.UpdateJobShipmentState
+module Amazonka.Snowball.UpdateJobShipmentState
 
 -- | <i>See:</i> <a>newUpdateJobShipmentState</a> smart constructor.
 data UpdateJobShipmentState
@@ -7907,26 +7907,26 @@ newUpdateJobShipmentStateResponse :: Int -> UpdateJobShipmentStateResponse
 
 -- | The response's http status code.
 updateJobShipmentStateResponse_httpStatus :: Lens' UpdateJobShipmentStateResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance GHC.Show.Show Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance GHC.Read.Read Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance GHC.Classes.Eq Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance GHC.Generics.Generic Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
-instance GHC.Show.Show Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
-instance GHC.Read.Read Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance Control.DeepSeq.NFData Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance Control.DeepSeq.NFData Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance GHC.Generics.Generic Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance GHC.Show.Show Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance GHC.Read.Read Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance GHC.Classes.Eq Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance GHC.Generics.Generic Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
+instance GHC.Show.Show Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
+instance GHC.Read.Read Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
+instance GHC.Classes.Eq Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance Control.DeepSeq.NFData Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentStateResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance Control.DeepSeq.NFData Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.UpdateJobShipmentState.UpdateJobShipmentState
 
 
 -- | Updates the long-term pricing type.
-module Network.AWS.Snowball.UpdateLongTermPricing
+module Amazonka.Snowball.UpdateLongTermPricing
 
 -- | <i>See:</i> <a>newUpdateLongTermPricing</a> smart constructor.
 data UpdateLongTermPricing
@@ -8004,25 +8004,25 @@ newUpdateLongTermPricingResponse :: Int -> UpdateLongTermPricingResponse
 
 -- | The response's http status code.
 updateLongTermPricingResponse_httpStatus :: Lens' UpdateLongTermPricingResponse Int
-instance GHC.Generics.Generic Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance GHC.Show.Show Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance GHC.Read.Read Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance GHC.Classes.Eq Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance GHC.Generics.Generic Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
-instance GHC.Show.Show Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
-instance GHC.Read.Read Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
-instance GHC.Classes.Eq Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance Control.DeepSeq.NFData Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance Control.DeepSeq.NFData Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance Network.AWS.Data.Path.ToPath Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance GHC.Generics.Generic Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance GHC.Show.Show Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance GHC.Read.Read Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance GHC.Classes.Eq Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance GHC.Generics.Generic Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
+instance GHC.Show.Show Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
+instance GHC.Read.Read Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
+instance GHC.Classes.Eq Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
+instance Amazonka.Types.AWSRequest Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance Control.DeepSeq.NFData Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricingResponse
+instance Data.Hashable.Class.Hashable Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance Control.DeepSeq.NFData Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance Amazonka.Data.Path.ToPath Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
+instance Amazonka.Data.Query.ToQuery Amazonka.Snowball.UpdateLongTermPricing.UpdateLongTermPricing
 
 
-module Network.AWS.Snowball.Lens
+module Amazonka.Snowball.Lens
 
 -- | The 39-character ID for the cluster that you want to cancel, for
 --   example <tt>CID123e4567-e89b-12d3-a456-426655440000</tt>.
@@ -9138,7 +9138,7 @@ taxDocuments_ind :: Lens' TaxDocuments (Maybe INDTaxDocuments)
 wirelessConnection_isWifiEnabled :: Lens' WirelessConnection (Maybe Bool)
 
 
-module Network.AWS.Snowball.Waiters
+module Amazonka.Snowball.Waiters
 
 
 -- | Derived from API version <tt>2016-06-30</tt> of the AWS service
@@ -9154,7 +9154,7 @@ module Network.AWS.Snowball.Waiters
 --   use the Snowball Edge client or the Amazon S3 API Interface for
 --   Snowball or AWS OpsHub for Snow Family. For more information, see the
 --   <a>User Guide</a>.
-module Network.AWS.Snowball
+module Amazonka.Snowball
 
 -- | API version <tt>2016-06-30</tt> of the Amazon Import/Export Snowball
 --   SDK configuration.

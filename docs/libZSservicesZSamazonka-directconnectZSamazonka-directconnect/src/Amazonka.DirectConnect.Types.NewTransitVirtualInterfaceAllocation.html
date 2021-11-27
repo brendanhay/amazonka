@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.AddressFamily.html"><span class="hs-identifier">Amazonka.DirectConnect.Types.AddressFamily</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Tag.html"><span class="hs-identifier">Amazonka.DirectConnect.Types.Tag</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about a transit virtual interface to be provisioned on a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- connection.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNewTransitVirtualInterfaceAllocation' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679289882"><span id="local-6989586621679289883"></span></span><span class="hs-keyword">data</span><span> </span><span id="NewTransitVirtualInterfaceAllocation"><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-var">NewTransitVirtualInterfaceAllocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NewTransitVirtualInterfaceAllocation%27"><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">NewTransitVirtualInterfaceAllocation'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum transmission unit (MTU), in bytes. The supported values are</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- 1500 and 9001. The default value is 1500.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Amtu%3ANewTransitVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation -&gt; Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Amtu%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">mtu</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcustomerAddress%3ANewTransitVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AcustomerAddress%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the VLAN.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Avlan%3ANewTransitVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation -&gt; Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Avlan%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">vlan</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AamazonAddress%3ANewTransitVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AamazonAddress%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AaddressFamily%3ANewTransitVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation -&gt; Maybe AddressFamily
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AaddressFamily%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- The valid values are 1-2147483647.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aasn%3ANewTransitVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation -&gt; Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Aasn%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AauthKey%3ANewTransitVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AauthKey%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The name of the virtual interface assigned by the customer network. The</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The tags associated with the transitive virtual interface.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Atags%3ANewTransitVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag)
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Atags%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289868"><span id="local-6989586621679289870"><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+-&gt; NewTransitVirtualInterfaceAllocation -&gt; Bool
+(NewTransitVirtualInterfaceAllocation
+ -&gt; NewTransitVirtualInterfaceAllocation -&gt; Bool)
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; NewTransitVirtualInterfaceAllocation -&gt; Bool)
+-&gt; Eq NewTransitVirtualInterfaceAllocation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NewTransitVirtualInterfaceAllocation
+-&gt; NewTransitVirtualInterfaceAllocation -&gt; Bool
+$c/= :: NewTransitVirtualInterfaceAllocation
+-&gt; NewTransitVirtualInterfaceAllocation -&gt; Bool
+== :: NewTransitVirtualInterfaceAllocation
+-&gt; NewTransitVirtualInterfaceAllocation -&gt; Bool
+$c== :: NewTransitVirtualInterfaceAllocation
+-&gt; NewTransitVirtualInterfaceAllocation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289859"><span id="local-6989586621679289861"><span id="local-6989586621679289863"><span id="local-6989586621679289865"><span class="annot"><span class="annottext">ReadPrec [NewTransitVirtualInterfaceAllocation]
+ReadPrec NewTransitVirtualInterfaceAllocation
+Int -&gt; ReadS NewTransitVirtualInterfaceAllocation
+ReadS [NewTransitVirtualInterfaceAllocation]
+(Int -&gt; ReadS NewTransitVirtualInterfaceAllocation)
+-&gt; ReadS [NewTransitVirtualInterfaceAllocation]
+-&gt; ReadPrec NewTransitVirtualInterfaceAllocation
+-&gt; ReadPrec [NewTransitVirtualInterfaceAllocation]
+-&gt; Read NewTransitVirtualInterfaceAllocation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NewTransitVirtualInterfaceAllocation]
+$creadListPrec :: ReadPrec [NewTransitVirtualInterfaceAllocation]
+readPrec :: ReadPrec NewTransitVirtualInterfaceAllocation
+$creadPrec :: ReadPrec NewTransitVirtualInterfaceAllocation
+readList :: ReadS [NewTransitVirtualInterfaceAllocation]
+$creadList :: ReadS [NewTransitVirtualInterfaceAllocation]
+readsPrec :: Int -&gt; ReadS NewTransitVirtualInterfaceAllocation
+$creadsPrec :: Int -&gt; ReadS NewTransitVirtualInterfaceAllocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289852"><span id="local-6989586621679289854"><span id="local-6989586621679289856"><span class="annot"><span class="annottext">Int -&gt; NewTransitVirtualInterfaceAllocation -&gt; ShowS
+[NewTransitVirtualInterfaceAllocation] -&gt; ShowS
+NewTransitVirtualInterfaceAllocation -&gt; String
+(Int -&gt; NewTransitVirtualInterfaceAllocation -&gt; ShowS)
+-&gt; (NewTransitVirtualInterfaceAllocation -&gt; String)
+-&gt; ([NewTransitVirtualInterfaceAllocation] -&gt; ShowS)
+-&gt; Show NewTransitVirtualInterfaceAllocation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NewTransitVirtualInterfaceAllocation] -&gt; ShowS
+$cshowList :: [NewTransitVirtualInterfaceAllocation] -&gt; ShowS
+show :: NewTransitVirtualInterfaceAllocation -&gt; String
+$cshow :: NewTransitVirtualInterfaceAllocation -&gt; String
+showsPrec :: Int -&gt; NewTransitVirtualInterfaceAllocation -&gt; ShowS
+$cshowsPrec :: Int -&gt; NewTransitVirtualInterfaceAllocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NewTransitVirtualInterfaceAllocation
+ -&gt; Rep NewTransitVirtualInterfaceAllocation x)
+-&gt; (forall x.
+    Rep NewTransitVirtualInterfaceAllocation x
+    -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Generic NewTransitVirtualInterfaceAllocation
+forall x.
+Rep NewTransitVirtualInterfaceAllocation x
+-&gt; NewTransitVirtualInterfaceAllocation
+forall x.
+NewTransitVirtualInterfaceAllocation
+-&gt; Rep NewTransitVirtualInterfaceAllocation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NewTransitVirtualInterfaceAllocation x
+-&gt; NewTransitVirtualInterfaceAllocation
+$cfrom :: forall x.
+NewTransitVirtualInterfaceAllocation
+-&gt; Rep NewTransitVirtualInterfaceAllocation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'NewTransitVirtualInterfaceAllocation' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'mtu', 'newTransitVirtualInterfaceAllocation_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 1500 and 9001. The default value is 1500.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'customerAddress', 'newTransitVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'vlan', 'newTransitVirtualInterfaceAllocation_vlan' - The ID of the VLAN.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'amazonAddress', 'newTransitVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'addressFamily', 'newTransitVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'asn', 'newTransitVirtualInterfaceAllocation_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The valid values are 1-2147483647.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'authKey', 'newTransitVirtualInterfaceAllocation_authKey' - The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'virtualInterfaceName', 'newTransitVirtualInterfaceAllocation_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tags', 'newTransitVirtualInterfaceAllocation_tags' - The tags associated with the transitive virtual interface.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newNewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">newNewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span>
+</span><span id="line-95"></span><span id="newNewTransitVirtualInterfaceAllocation"><span class="annot"><span class="annottext">newNewTransitVirtualInterfaceAllocation :: NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newNewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-var hs-var">newNewTransitVirtualInterfaceAllocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe AddressFamily
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Tag)
+-&gt; NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mtu:NewTransitVirtualInterfaceAllocation' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Amtu%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">mtu</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerAddress:NewTransitVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AcustomerAddress%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:vlan:NewTransitVirtualInterfaceAllocation' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Avlan%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">vlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:amazonAddress:NewTransitVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AamazonAddress%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:addressFamily:NewTransitVirtualInterfaceAllocation' :: Maybe AddressFamily
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AaddressFamily%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:asn:NewTransitVirtualInterfaceAllocation' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Aasn%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:authKey:NewTransitVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AauthKey%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceName:NewTransitVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:NewTransitVirtualInterfaceAllocation' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Atags%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The maximum transmission unit (MTU), in bytes. The supported values are</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 1500 and 9001. The default value is 1500.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_mtu"><span class="hs-identifier hs-type">newTransitVirtualInterfaceAllocation_mtu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="newTransitVirtualInterfaceAllocation_mtu"><span class="annot"><span class="annottext">newTransitVirtualInterfaceAllocation_mtu :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_mtu"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterfaceAllocation_mtu</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterfaceAllocation -&gt; Maybe Int)
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; Maybe Int -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Lens
+     NewTransitVirtualInterfaceAllocation
+     NewTransitVirtualInterfaceAllocation
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289843"><span class="annot"><span class="annottext">Maybe Int
+mtu :: Maybe Int
+$sel:mtu:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Int
+</span><a href="#local-6989586621679289843"><span class="hs-identifier hs-var hs-var">mtu</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289843"><span class="hs-identifier hs-var">mtu</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289842"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289841"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mtu:NewTransitVirtualInterfaceAllocation' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Amtu%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">mtu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_customerAddress"><span class="hs-identifier hs-type">newTransitVirtualInterfaceAllocation_customerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="newTransitVirtualInterfaceAllocation_customerAddress"><span class="annot"><span class="annottext">newTransitVirtualInterfaceAllocation_customerAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_customerAddress"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterfaceAllocation_customerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterfaceAllocation -&gt; Maybe Text)
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; Maybe Text -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Lens
+     NewTransitVirtualInterfaceAllocation
+     NewTransitVirtualInterfaceAllocation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289839"><span class="annot"><span class="annottext">Maybe Text
+customerAddress :: Maybe Text
+$sel:customerAddress:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="#local-6989586621679289839"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289839"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289838"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAddress:NewTransitVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AcustomerAddress%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The ID of the VLAN.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_vlan"><span class="hs-identifier hs-type">newTransitVirtualInterfaceAllocation_vlan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="newTransitVirtualInterfaceAllocation_vlan"><span class="annot"><span class="annottext">newTransitVirtualInterfaceAllocation_vlan :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_vlan"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterfaceAllocation_vlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterfaceAllocation -&gt; Maybe Int)
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; Maybe Int -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Lens
+     NewTransitVirtualInterfaceAllocation
+     NewTransitVirtualInterfaceAllocation
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289835"><span class="annot"><span class="annottext">Maybe Int
+vlan :: Maybe Int
+$sel:vlan:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Int
+</span><a href="#local-6989586621679289835"><span class="hs-identifier hs-var hs-var">vlan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289835"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289834"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289833"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vlan:NewTransitVirtualInterfaceAllocation' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Avlan%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">vlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_amazonAddress"><span class="hs-identifier hs-type">newTransitVirtualInterfaceAllocation_amazonAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="newTransitVirtualInterfaceAllocation_amazonAddress"><span class="annot"><span class="annottext">newTransitVirtualInterfaceAllocation_amazonAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_amazonAddress"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterfaceAllocation_amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterfaceAllocation -&gt; Maybe Text)
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; Maybe Text -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Lens
+     NewTransitVirtualInterfaceAllocation
+     NewTransitVirtualInterfaceAllocation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289831"><span class="annot"><span class="annottext">Maybe Text
+amazonAddress :: Maybe Text
+$sel:amazonAddress:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="#local-6989586621679289831"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289831"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289830"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonAddress:NewTransitVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AamazonAddress%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_addressFamily"><span class="hs-identifier hs-type">newTransitVirtualInterfaceAllocation_addressFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="newTransitVirtualInterfaceAllocation_addressFamily"><span class="annot"><span class="annottext">newTransitVirtualInterfaceAllocation_addressFamily :: (Maybe AddressFamily -&gt; f (Maybe AddressFamily))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_addressFamily"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterfaceAllocation_addressFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterfaceAllocation -&gt; Maybe AddressFamily)
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; Maybe AddressFamily -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Lens
+     NewTransitVirtualInterfaceAllocation
+     NewTransitVirtualInterfaceAllocation
+     (Maybe AddressFamily)
+     (Maybe AddressFamily)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289827"><span class="annot"><span class="annottext">Maybe AddressFamily
+addressFamily :: Maybe AddressFamily
+$sel:addressFamily:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe AddressFamily
+</span><a href="#local-6989586621679289827"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679289827"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289826"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289825"><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679289825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressFamily:NewTransitVirtualInterfaceAllocation' :: Maybe AddressFamily
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AaddressFamily%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679289825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The valid values are 1-2147483647.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_asn"><span class="hs-identifier hs-type">newTransitVirtualInterfaceAllocation_asn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="newTransitVirtualInterfaceAllocation_asn"><span class="annot"><span class="annottext">newTransitVirtualInterfaceAllocation_asn :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_asn"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterfaceAllocation_asn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterfaceAllocation -&gt; Maybe Int)
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; Maybe Int -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Lens
+     NewTransitVirtualInterfaceAllocation
+     NewTransitVirtualInterfaceAllocation
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289823"><span class="annot"><span class="annottext">Maybe Int
+asn :: Maybe Int
+$sel:asn:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Int
+</span><a href="#local-6989586621679289823"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289823"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289822"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289821"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:NewTransitVirtualInterfaceAllocation' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Aasn%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_authKey"><span class="hs-identifier hs-type">newTransitVirtualInterfaceAllocation_authKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="newTransitVirtualInterfaceAllocation_authKey"><span class="annot"><span class="annottext">newTransitVirtualInterfaceAllocation_authKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_authKey"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterfaceAllocation_authKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterfaceAllocation -&gt; Maybe Text)
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; Maybe Text -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Lens
+     NewTransitVirtualInterfaceAllocation
+     NewTransitVirtualInterfaceAllocation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289819"><span class="annot"><span class="annottext">Maybe Text
+authKey :: Maybe Text
+$sel:authKey:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="#local-6989586621679289819"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289819"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289818"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289817"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authKey:NewTransitVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AauthKey%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The name of the virtual interface assigned by the customer network. The</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_virtualInterfaceName"><span class="hs-identifier hs-type">newTransitVirtualInterfaceAllocation_virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="newTransitVirtualInterfaceAllocation_virtualInterfaceName"><span class="annot"><span class="annottext">newTransitVirtualInterfaceAllocation_virtualInterfaceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_virtualInterfaceName"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterfaceAllocation_virtualInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterfaceAllocation -&gt; Maybe Text)
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; Maybe Text -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Lens
+     NewTransitVirtualInterfaceAllocation
+     NewTransitVirtualInterfaceAllocation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289815"><span class="annot"><span class="annottext">Maybe Text
+virtualInterfaceName :: Maybe Text
+$sel:virtualInterfaceName:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="#local-6989586621679289815"><span class="hs-identifier hs-var hs-var">virtualInterfaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289815"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289814"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceName:NewTransitVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The tags associated with the transitive virtual interface.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_tags"><span class="hs-identifier hs-type">newTransitVirtualInterfaceAllocation_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="newTransitVirtualInterfaceAllocation_tags"><span class="annot"><span class="annottext">newTransitVirtualInterfaceAllocation_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#newTransitVirtualInterfaceAllocation_tags"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterfaceAllocation_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag))
+-&gt; (NewTransitVirtualInterfaceAllocation
+    -&gt; Maybe (NonEmpty Tag) -&gt; NewTransitVirtualInterfaceAllocation)
+-&gt; Lens
+     NewTransitVirtualInterfaceAllocation
+     NewTransitVirtualInterfaceAllocation
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289811"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679289811"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679289811"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289810"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289809"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679289809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterfaceAllocation
+</span><a href="#local-6989586621679289810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:NewTransitVirtualInterfaceAllocation' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#%24sel%3Atags%3ANewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679289809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; NewTransitVirtualInterfaceAllocation
+ -&gt; f NewTransitVirtualInterfaceAllocation)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; NewTransitVirtualInterfaceAllocation
+-&gt; f NewTransitVirtualInterfaceAllocation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679289802"><span id="local-6989586621679289804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679289799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679289791"><span id="local-6989586621679289793"><span id="local-6989586621679289795"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation</span></a></span></span></span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679289789"><span class="annot"><span class="annottext">toJSON :: NewTransitVirtualInterfaceAllocation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation.html#NewTransitVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewTransitVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289779"><span id="local-6989586621679289780"><span id="local-6989586621679289781"><span id="local-6989586621679289782"><span id="local-6989586621679289783"><span id="local-6989586621679289784"><span id="local-6989586621679289785"><span id="local-6989586621679289786"><span id="local-6989586621679289787"><span class="annot"><span class="annottext">Maybe Int
+Maybe (NonEmpty Tag)
+Maybe Text
+Maybe AddressFamily
+tags :: Maybe (NonEmpty Tag)
+virtualInterfaceName :: Maybe Text
+authKey :: Maybe Text
+asn :: Maybe Int
+addressFamily :: Maybe AddressFamily
+amazonAddress :: Maybe Text
+vlan :: Maybe Int
+customerAddress :: Maybe Text
+mtu :: Maybe Int
+$sel:tags:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag)
+$sel:virtualInterfaceName:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+$sel:authKey:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+$sel:asn:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Int
+$sel:addressFamily:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe AddressFamily
+$sel:amazonAddress:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+$sel:vlan:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Int
+$sel:customerAddress:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Text
+$sel:mtu:NewTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation -&gt; Maybe Int
+</span><a href="#local-6989586621679289779"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mtu&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289787"><span class="hs-identifier hs-var">mtu</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289786"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vlan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289785"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;amazonAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289784"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addressFamily&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AddressFamily -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AddressFamily -&gt; Pair) -&gt; Maybe AddressFamily -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679289783"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;asn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289782"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289781"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualInterfaceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289780"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679289779"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span></pre></body></html>

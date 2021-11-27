@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.FunctionStage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.FunctionStage</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage"><span class="hs-identifier">FunctionStage</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage_DEVELOPMENT"><span class="hs-identifier">FunctionStage_DEVELOPMENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage_LIVE"><span class="hs-identifier">FunctionStage_LIVE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679391269"><span id="local-6989586621679391270"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FunctionStage"><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage"><span class="hs-identifier hs-var">FunctionStage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionStage%27"><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage%27"><span class="hs-identifier hs-var">FunctionStage'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFunctionStage"><span class="annot"><span class="annottext">FunctionStage -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.FunctionStage.html#fromFunctionStage"><span class="hs-identifier hs-var hs-var">fromFunctionStage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679391261"><span id="local-6989586621679391263"><span id="local-6989586621679391265"><span class="annot"><span class="annottext">Int -&gt; FunctionStage -&gt; ShowS
+[FunctionStage] -&gt; ShowS
+FunctionStage -&gt; String
+(Int -&gt; FunctionStage -&gt; ShowS)
+-&gt; (FunctionStage -&gt; String)
+-&gt; ([FunctionStage] -&gt; ShowS)
+-&gt; Show FunctionStage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FunctionStage] -&gt; ShowS
+$cshowList :: [FunctionStage] -&gt; ShowS
+show :: FunctionStage -&gt; String
+$cshow :: FunctionStage -&gt; String
+showsPrec :: Int -&gt; FunctionStage -&gt; ShowS
+$cshowsPrec :: Int -&gt; FunctionStage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679391252"><span id="local-6989586621679391254"><span id="local-6989586621679391256"><span id="local-6989586621679391258"><span class="annot"><span class="annottext">ReadPrec [FunctionStage]
+ReadPrec FunctionStage
+Int -&gt; ReadS FunctionStage
+ReadS [FunctionStage]
+(Int -&gt; ReadS FunctionStage)
+-&gt; ReadS [FunctionStage]
+-&gt; ReadPrec FunctionStage
+-&gt; ReadPrec [FunctionStage]
+-&gt; Read FunctionStage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FunctionStage]
+$creadListPrec :: ReadPrec [FunctionStage]
+readPrec :: ReadPrec FunctionStage
+$creadPrec :: ReadPrec FunctionStage
+readList :: ReadS [FunctionStage]
+$creadList :: ReadS [FunctionStage]
+readsPrec :: Int -&gt; ReadS FunctionStage
+$creadsPrec :: Int -&gt; ReadS FunctionStage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679391247"><span id="local-6989586621679391249"><span class="annot"><span class="annottext">FunctionStage -&gt; FunctionStage -&gt; Bool
+(FunctionStage -&gt; FunctionStage -&gt; Bool)
+-&gt; (FunctionStage -&gt; FunctionStage -&gt; Bool) -&gt; Eq FunctionStage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FunctionStage -&gt; FunctionStage -&gt; Bool
+$c/= :: FunctionStage -&gt; FunctionStage -&gt; Bool
+== :: FunctionStage -&gt; FunctionStage -&gt; Bool
+$c== :: FunctionStage -&gt; FunctionStage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679391231"><span id="local-6989586621679391233"><span id="local-6989586621679391235"><span id="local-6989586621679391237"><span id="local-6989586621679391239"><span id="local-6989586621679391241"><span id="local-6989586621679391243"><span class="annot"><span class="annottext">Eq FunctionStage
+Eq FunctionStage
+-&gt; (FunctionStage -&gt; FunctionStage -&gt; Ordering)
+-&gt; (FunctionStage -&gt; FunctionStage -&gt; Bool)
+-&gt; (FunctionStage -&gt; FunctionStage -&gt; Bool)
+-&gt; (FunctionStage -&gt; FunctionStage -&gt; Bool)
+-&gt; (FunctionStage -&gt; FunctionStage -&gt; Bool)
+-&gt; (FunctionStage -&gt; FunctionStage -&gt; FunctionStage)
+-&gt; (FunctionStage -&gt; FunctionStage -&gt; FunctionStage)
+-&gt; Ord FunctionStage
+FunctionStage -&gt; FunctionStage -&gt; Bool
+FunctionStage -&gt; FunctionStage -&gt; Ordering
+FunctionStage -&gt; FunctionStage -&gt; FunctionStage
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FunctionStage -&gt; FunctionStage -&gt; FunctionStage
+$cmin :: FunctionStage -&gt; FunctionStage -&gt; FunctionStage
+max :: FunctionStage -&gt; FunctionStage -&gt; FunctionStage
+$cmax :: FunctionStage -&gt; FunctionStage -&gt; FunctionStage
+&gt;= :: FunctionStage -&gt; FunctionStage -&gt; Bool
+$c&gt;= :: FunctionStage -&gt; FunctionStage -&gt; Bool
+&gt; :: FunctionStage -&gt; FunctionStage -&gt; Bool
+$c&gt; :: FunctionStage -&gt; FunctionStage -&gt; Bool
+&lt;= :: FunctionStage -&gt; FunctionStage -&gt; Bool
+$c&lt;= :: FunctionStage -&gt; FunctionStage -&gt; Bool
+&lt; :: FunctionStage -&gt; FunctionStage -&gt; Bool
+$c&lt; :: FunctionStage -&gt; FunctionStage -&gt; Bool
+compare :: FunctionStage -&gt; FunctionStage -&gt; Ordering
+$ccompare :: FunctionStage -&gt; FunctionStage -&gt; Ordering
+$cp1Ord :: Eq FunctionStage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FunctionStage -&gt; Rep FunctionStage x)
+-&gt; (forall x. Rep FunctionStage x -&gt; FunctionStage)
+-&gt; Generic FunctionStage
+forall x. Rep FunctionStage x -&gt; FunctionStage
+forall x. FunctionStage -&gt; Rep FunctionStage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FunctionStage x -&gt; FunctionStage
+$cfrom :: forall x. FunctionStage -&gt; Rep FunctionStage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679391223"><span id="local-6989586621679391225"><span class="annot"><span class="annottext">Int -&gt; FunctionStage -&gt; Int
+FunctionStage -&gt; Int
+(Int -&gt; FunctionStage -&gt; Int)
+-&gt; (FunctionStage -&gt; Int) -&gt; Hashable FunctionStage
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FunctionStage -&gt; Int
+$chash :: FunctionStage -&gt; Int
+hashWithSalt :: Int -&gt; FunctionStage -&gt; Int
+$chashWithSalt :: Int -&gt; FunctionStage -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679391220"><span class="annot"><span class="annottext">FunctionStage -&gt; ()
+(FunctionStage -&gt; ()) -&gt; NFData FunctionStage
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FunctionStage -&gt; ()
+$crnf :: FunctionStage -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679391217"><span class="annot"><span class="annottext">Text -&gt; Either String FunctionStage
+(Text -&gt; Either String FunctionStage) -&gt; FromText FunctionStage
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FunctionStage
+$cfromText :: Text -&gt; Either String FunctionStage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679391214"><span class="annot"><span class="annottext">FunctionStage -&gt; Text
+(FunctionStage -&gt; Text) -&gt; ToText FunctionStage
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FunctionStage -&gt; Text
+$ctoText :: FunctionStage -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679391211"><span class="annot"><span class="annottext">FunctionStage -&gt; ByteString
+(FunctionStage -&gt; ByteString) -&gt; ToByteString FunctionStage
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FunctionStage -&gt; ByteString
+$ctoBS :: FunctionStage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679391208"><span class="annot"><span class="annottext">FunctionStage -&gt; ByteStringBuilder
+(FunctionStage -&gt; ByteStringBuilder) -&gt; ToLog FunctionStage
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FunctionStage -&gt; ByteStringBuilder
+$cbuild :: FunctionStage -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679391205"><span class="annot"><span class="annottext">HeaderName -&gt; FunctionStage -&gt; [Header]
+(HeaderName -&gt; FunctionStage -&gt; [Header]) -&gt; ToHeader FunctionStage
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FunctionStage -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FunctionStage -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679391202"><span class="annot"><span class="annottext">FunctionStage -&gt; QueryString
+(FunctionStage -&gt; QueryString) -&gt; ToQuery FunctionStage
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FunctionStage -&gt; QueryString
+$ctoQuery :: FunctionStage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679391197"><span id="local-6989586621679391199"><span class="annot"><span class="annottext">Value -&gt; Parser [FunctionStage]
+Value -&gt; Parser FunctionStage
+(Value -&gt; Parser FunctionStage)
+-&gt; (Value -&gt; Parser [FunctionStage]) -&gt; FromJSON FunctionStage
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FunctionStage]
+$cparseJSONList :: Value -&gt; Parser [FunctionStage]
+parseJSON :: Value -&gt; Parser FunctionStage
+$cparseJSON :: Value -&gt; Parser FunctionStage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679391192"><span id="local-6989586621679391194"><span class="annot"><span class="annottext">FromJSONKeyFunction [FunctionStage]
+FromJSONKeyFunction FunctionStage
+FromJSONKeyFunction FunctionStage
+-&gt; FromJSONKeyFunction [FunctionStage] -&gt; FromJSONKey FunctionStage
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FunctionStage]
+$cfromJSONKeyList :: FromJSONKeyFunction [FunctionStage]
+fromJSONKey :: FromJSONKeyFunction FunctionStage
+$cfromJSONKey :: FromJSONKeyFunction FunctionStage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679391183"><span id="local-6989586621679391185"><span id="local-6989586621679391187"><span id="local-6989586621679391189"><span class="annot"><span class="annottext">[FunctionStage] -&gt; Encoding
+[FunctionStage] -&gt; Value
+FunctionStage -&gt; Encoding
+FunctionStage -&gt; Value
+(FunctionStage -&gt; Value)
+-&gt; (FunctionStage -&gt; Encoding)
+-&gt; ([FunctionStage] -&gt; Value)
+-&gt; ([FunctionStage] -&gt; Encoding)
+-&gt; ToJSON FunctionStage
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FunctionStage] -&gt; Encoding
+$ctoEncodingList :: [FunctionStage] -&gt; Encoding
+toJSONList :: [FunctionStage] -&gt; Value
+$ctoJSONList :: [FunctionStage] -&gt; Value
+toEncoding :: FunctionStage -&gt; Encoding
+$ctoEncoding :: FunctionStage -&gt; Encoding
+toJSON :: FunctionStage -&gt; Value
+$ctoJSON :: FunctionStage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679391178"><span id="local-6989586621679391180"><span class="annot"><span class="annottext">ToJSONKeyFunction [FunctionStage]
+ToJSONKeyFunction FunctionStage
+ToJSONKeyFunction FunctionStage
+-&gt; ToJSONKeyFunction [FunctionStage] -&gt; ToJSONKey FunctionStage
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FunctionStage]
+$ctoJSONKeyList :: ToJSONKeyFunction [FunctionStage]
+toJSONKey :: ToJSONKeyFunction FunctionStage
+$ctoJSONKey :: ToJSONKeyFunction FunctionStage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679391175"><span class="annot"><span class="annottext">[Node] -&gt; Either String FunctionStage
+([Node] -&gt; Either String FunctionStage) -&gt; FromXML FunctionStage
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FunctionStage
+$cparseXML :: [Node] -&gt; Either String FunctionStage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679391172"><span class="annot"><span class="annottext">FunctionStage -&gt; XML
+(FunctionStage -&gt; XML) -&gt; ToXML FunctionStage
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FunctionStage -&gt; XML
+$ctoXML :: FunctionStage -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage_DEVELOPMENT"><span class="hs-identifier hs-type">FunctionStage_DEVELOPMENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage"><span class="hs-identifier hs-type">FunctionStage</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFunctionStage_DEVELOPMENT"><span id="%24mFunctionStage_DEVELOPMENT"><span id="FunctionStage_DEVELOPMENT"><span class="annot"><span class="annottext">$bFunctionStage_DEVELOPMENT :: FunctionStage
+$mFunctionStage_DEVELOPMENT :: forall r. FunctionStage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.FunctionStage.html#%24bFunctionStage_DEVELOPMENT"><span class="hs-identifier hs-var hs-var hs-var">FunctionStage_DEVELOPMENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage%27"><span class="hs-identifier hs-type">FunctionStage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEVELOPMENT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage_LIVE"><span class="hs-identifier hs-type">FunctionStage_LIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage"><span class="hs-identifier hs-type">FunctionStage</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFunctionStage_LIVE"><span id="%24mFunctionStage_LIVE"><span id="FunctionStage_LIVE"><span class="annot"><span class="annottext">$bFunctionStage_LIVE :: FunctionStage
+$mFunctionStage_LIVE :: forall r. FunctionStage -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.FunctionStage.html#%24bFunctionStage_LIVE"><span class="hs-identifier hs-var hs-var hs-var">FunctionStage_LIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage%27"><span class="hs-identifier hs-type">FunctionStage'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LIVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage_DEVELOPMENT"><span class="hs-pragma hs-type">FunctionStage_DEVELOPMENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage_LIVE"><span class="hs-pragma hs-type">FunctionStage_LIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.FunctionStage.html#FunctionStage%27"><span class="hs-pragma hs-type">FunctionStage'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

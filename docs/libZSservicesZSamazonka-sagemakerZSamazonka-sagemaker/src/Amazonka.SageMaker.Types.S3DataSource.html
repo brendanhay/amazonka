@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.S3DataSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.S3DataSource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataDistribution.html"><span class="hs-identifier">Amazonka.SageMaker.Types.S3DataDistribution</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataType.html"><span class="hs-identifier">Amazonka.SageMaker.Types.S3DataType</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the S3 data source.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3DataSource' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621680339858"><span id="local-6989586621680339859"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3DataSource"><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-var">S3DataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3DataSource%27"><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-var">S3DataSource'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you want Amazon SageMaker to replicate the entire dataset on each ML</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- compute instance that is launched for model training, specify</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @FullyReplicated@.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- If you want Amazon SageMaker to replicate a subset of data on each ML</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- compute instance that is launched for model training, specify</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @ShardedByS3Key@. If there are /n/ ML compute instances launched for a</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- training job, each instance gets approximately 1\//n/ of the number of</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- S3 objects. In this case, model training on each machine uses only the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- subset of training data.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Don\'t choose more ML compute instances for training than available S3</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- objects. If you do, some nodes won\'t get any data and you will pay for</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- nodes that aren\'t getting any training data. This applies in both File</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- and Pipe modes. Keep this in mind when developing algorithms.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- In distributed training, where you use multiple ML compute EC2</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- instances, you might choose @ShardedByS3Key@. If the algorithm requires</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- copying training data to the ML storage volume (when @TrainingInputMode@</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- is set to @File@), this copies 1\//n/ of the number of objects.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3As3DataDistributionType%3AS3DataSource%27"><span class="annot"><span class="annottext">S3DataSource -&gt; Maybe S3DataDistribution
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3As3DataDistributionType%3AS3DataSource%27"><span class="hs-identifier hs-var hs-var">s3DataDistributionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataDistribution.html#S3DataDistribution"><span class="hs-identifier hs-type">S3DataDistribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | A list of one or more attribute names to use that are found in a</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- specified augmented manifest file.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AattributeNames%3AS3DataSource%27"><span class="annot"><span class="annottext">S3DataSource -&gt; Maybe [Text]
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3AattributeNames%3AS3DataSource%27"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- SageMaker uses all objects that match the specified key name prefix for</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- model training.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- If you choose @ManifestFile@, @S3Uri@ identifies an object that is a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- manifest file containing a list of object keys that you want Amazon</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- SageMaker to use for model training.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- If you choose @AugmentedManifestFile@, S3Uri identifies an object that</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- is an augmented manifest file in JSON lines format. This file contains</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the data you want to use for model training. @AugmentedManifestFile@ can</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- only be used if the Channel\'s input mode is @Pipe@.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3As3DataType%3AS3DataSource%27"><span class="annot"><span class="annottext">S3DataSource -&gt; S3DataType
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3As3DataType%3AS3DataSource%27"><span class="hs-identifier hs-var hs-var">s3DataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataType.html#S3DataType"><span class="hs-identifier hs-type">S3DataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Depending on the value specified for the @S3DataType@, identifies either</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- a key name prefix or a manifest. For example:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   A key name prefix might look like this:</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     @s3:\/\/bucketname\/exampleprefix@</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   A manifest might look like this:</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     @s3:\/\/bucketname\/example.manifest@</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     A manifest is an S3 object which is a JSON file consisting of an</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     array of elements. The first element is a prefix which is followed</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     by one or more suffixes. SageMaker appends the suffix elements to</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     the prefix to get a full set of @S3Uri@. Note that the prefix must</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     be a valid non-empty @S3Uri@ that precludes users from specifying a</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     manifest whose individual @S3Uri@ is sourced from different S3</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     buckets.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     The following code example shows a valid manifest format:</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     @[ {\&quot;prefix\&quot;: \&quot;s3:\/\/customer_bucket\/some\/prefix\/\&quot;},@</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     @ \&quot;relative\/path\/to\/custdata-1\&quot;,@</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     @ \&quot;relative\/path\/custdata-2\&quot;,@</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     @ ...@</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     @ \&quot;relative\/path\/custdata-N\&quot;@</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     @]@</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     This JSON is equivalent to the following @S3Uri@ list:</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     @s3:\/\/customer_bucket\/some\/prefix\/relative\/path\/to\/custdata-1@</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     @s3:\/\/customer_bucket\/some\/prefix\/relative\/path\/custdata-2@</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     @...@</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     @s3:\/\/customer_bucket\/some\/prefix\/relative\/path\/custdata-N@</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--     The complete set of @S3Uri@ in this manifest is the input data for</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--     the channel for this data source. The object that each @S3Uri@</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     points to must be readable by the IAM role that Amazon SageMaker</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--     uses to perform tasks on your behalf.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3As3Uri%3AS3DataSource%27"><span class="annot"><span class="annottext">S3DataSource -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3As3Uri%3AS3DataSource%27"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680339849"><span id="local-6989586621680339851"><span class="annot"><span class="annottext">S3DataSource -&gt; S3DataSource -&gt; Bool
+(S3DataSource -&gt; S3DataSource -&gt; Bool)
+-&gt; (S3DataSource -&gt; S3DataSource -&gt; Bool) -&gt; Eq S3DataSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3DataSource -&gt; S3DataSource -&gt; Bool
+$c/= :: S3DataSource -&gt; S3DataSource -&gt; Bool
+== :: S3DataSource -&gt; S3DataSource -&gt; Bool
+$c== :: S3DataSource -&gt; S3DataSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680339840"><span id="local-6989586621680339842"><span id="local-6989586621680339844"><span id="local-6989586621680339846"><span class="annot"><span class="annottext">ReadPrec [S3DataSource]
+ReadPrec S3DataSource
+Int -&gt; ReadS S3DataSource
+ReadS [S3DataSource]
+(Int -&gt; ReadS S3DataSource)
+-&gt; ReadS [S3DataSource]
+-&gt; ReadPrec S3DataSource
+-&gt; ReadPrec [S3DataSource]
+-&gt; Read S3DataSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3DataSource]
+$creadListPrec :: ReadPrec [S3DataSource]
+readPrec :: ReadPrec S3DataSource
+$creadPrec :: ReadPrec S3DataSource
+readList :: ReadS [S3DataSource]
+$creadList :: ReadS [S3DataSource]
+readsPrec :: Int -&gt; ReadS S3DataSource
+$creadsPrec :: Int -&gt; ReadS S3DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680339833"><span id="local-6989586621680339835"><span id="local-6989586621680339837"><span class="annot"><span class="annottext">Int -&gt; S3DataSource -&gt; ShowS
+[S3DataSource] -&gt; ShowS
+S3DataSource -&gt; String
+(Int -&gt; S3DataSource -&gt; ShowS)
+-&gt; (S3DataSource -&gt; String)
+-&gt; ([S3DataSource] -&gt; ShowS)
+-&gt; Show S3DataSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3DataSource] -&gt; ShowS
+$cshowList :: [S3DataSource] -&gt; ShowS
+show :: S3DataSource -&gt; String
+$cshow :: S3DataSource -&gt; String
+showsPrec :: Int -&gt; S3DataSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3DataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. S3DataSource -&gt; Rep S3DataSource x)
+-&gt; (forall x. Rep S3DataSource x -&gt; S3DataSource)
+-&gt; Generic S3DataSource
+forall x. Rep S3DataSource x -&gt; S3DataSource
+forall x. S3DataSource -&gt; Rep S3DataSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep S3DataSource x -&gt; S3DataSource
+$cfrom :: forall x. S3DataSource -&gt; Rep S3DataSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'S3DataSource' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 's3DataDistributionType', 's3DataSource_s3DataDistributionType' - If you want Amazon SageMaker to replicate the entire dataset on each ML</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- compute instance that is launched for model training, specify</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @FullyReplicated@.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- If you want Amazon SageMaker to replicate a subset of data on each ML</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- compute instance that is launched for model training, specify</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @ShardedByS3Key@. If there are /n/ ML compute instances launched for a</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- training job, each instance gets approximately 1\//n/ of the number of</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- S3 objects. In this case, model training on each machine uses only the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- subset of training data.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Don\'t choose more ML compute instances for training than available S3</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- objects. If you do, some nodes won\'t get any data and you will pay for</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- nodes that aren\'t getting any training data. This applies in both File</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- and Pipe modes. Keep this in mind when developing algorithms.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- In distributed training, where you use multiple ML compute EC2</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- instances, you might choose @ShardedByS3Key@. If the algorithm requires</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- copying training data to the ML storage volume (when @TrainingInputMode@</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- is set to @File@), this copies 1\//n/ of the number of objects.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'attributeNames', 's3DataSource_attributeNames' - A list of one or more attribute names to use that are found in a</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- specified augmented manifest file.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 's3DataType', 's3DataSource_s3DataType' - If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- SageMaker uses all objects that match the specified key name prefix for</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- model training.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- If you choose @ManifestFile@, @S3Uri@ identifies an object that is a</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- manifest file containing a list of object keys that you want Amazon</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- SageMaker to use for model training.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If you choose @AugmentedManifestFile@, S3Uri identifies an object that</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- is an augmented manifest file in JSON lines format. This file contains</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- the data you want to use for model training. @AugmentedManifestFile@ can</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- only be used if the Channel\'s input mode is @Pipe@.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 's3Uri', 's3DataSource_s3Uri' - Depending on the value specified for the @S3DataType@, identifies either</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- a key name prefix or a manifest. For example:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   A key name prefix might look like this:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     @s3:\/\/bucketname\/exampleprefix@</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   A manifest might look like this:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     @s3:\/\/bucketname\/example.manifest@</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     A manifest is an S3 object which is a JSON file consisting of an</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     array of elements. The first element is a prefix which is followed</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     by one or more suffixes. SageMaker appends the suffix elements to</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     the prefix to get a full set of @S3Uri@. Note that the prefix must</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--     be a valid non-empty @S3Uri@ that precludes users from specifying a</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     manifest whose individual @S3Uri@ is sourced from different S3</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     buckets.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     The following code example shows a valid manifest format:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     @[ {\&quot;prefix\&quot;: \&quot;s3:\/\/customer_bucket\/some\/prefix\/\&quot;},@</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     @ \&quot;relative\/path\/to\/custdata-1\&quot;,@</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     @ \&quot;relative\/path\/custdata-2\&quot;,@</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     @ ...@</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     @ \&quot;relative\/path\/custdata-N\&quot;@</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     @]@</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     This JSON is equivalent to the following @S3Uri@ list:</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     @s3:\/\/customer_bucket\/some\/prefix\/relative\/path\/to\/custdata-1@</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     @s3:\/\/customer_bucket\/some\/prefix\/relative\/path\/custdata-2@</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     @...@</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     @s3:\/\/customer_bucket\/some\/prefix\/relative\/path\/custdata-N@</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     The complete set of @S3Uri@ in this manifest is the input data for</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     the channel for this data source. The object that each @S3Uri@</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     points to must be readable by the IAM role that Amazon SageMaker</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     uses to perform tasks on your behalf.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#newS3DataSource"><span class="hs-identifier hs-type">newS3DataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 's3DataType'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataType.html#S3DataType"><span class="hs-identifier hs-type">S3DataType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 's3Uri'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span><span>
+</span><span id="line-214"></span><span id="newS3DataSource"><span class="annot"><span class="annottext">newS3DataSource :: S3DataType -&gt; Text -&gt; S3DataSource
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#newS3DataSource"><span class="hs-identifier hs-var hs-var">newS3DataSource</span></a></span></span><span> </span><span id="local-6989586621680339827"><span class="annot"><span class="annottext">S3DataType
+</span><a href="#local-6989586621680339827"><span class="hs-identifier hs-var">pS3DataType_</span></a></span></span><span> </span><span id="local-6989586621680339826"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680339826"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">S3DataSource' :: Maybe S3DataDistribution
+-&gt; Maybe [Text] -&gt; S3DataType -&gt; Text -&gt; S3DataSource
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3DataDistributionType:S3DataSource' :: Maybe S3DataDistribution
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3As3DataDistributionType%3AS3DataSource%27"><span class="hs-identifier hs-var">s3DataDistributionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe S3DataDistribution
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeNames:S3DataSource' :: Maybe [Text]
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3AattributeNames%3AS3DataSource%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3DataType:S3DataSource' :: S3DataType
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3As3DataType%3AS3DataSource%27"><span class="hs-identifier hs-var">s3DataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DataType
+</span><a href="#local-6989586621680339827"><span class="hs-identifier hs-var">pS3DataType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:S3DataSource' :: Text
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3As3Uri%3AS3DataSource%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680339826"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | If you want Amazon SageMaker to replicate the entire dataset on each ML</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- compute instance that is launched for model training, specify</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- @FullyReplicated@.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- If you want Amazon SageMaker to replicate a subset of data on each ML</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- compute instance that is launched for model training, specify</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- @ShardedByS3Key@. If there are /n/ ML compute instances launched for a</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- training job, each instance gets approximately 1\//n/ of the number of</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- S3 objects. In this case, model training on each machine uses only the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- subset of training data.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Don\'t choose more ML compute instances for training than available S3</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- objects. If you do, some nodes won\'t get any data and you will pay for</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- nodes that aren\'t getting any training data. This applies in both File</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- and Pipe modes. Keep this in mind when developing algorithms.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- In distributed training, where you use multiple ML compute EC2</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- instances, you might choose @ShardedByS3Key@. If the algorithm requires</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- copying training data to the ML storage volume (when @TrainingInputMode@</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- is set to @File@), this copies 1\//n/ of the number of objects.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#s3DataSource_s3DataDistributionType"><span class="hs-identifier hs-type">s3DataSource_s3DataDistributionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataDistribution.html#S3DataDistribution"><span class="hs-identifier hs-type">S3DataDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="s3DataSource_s3DataDistributionType"><span class="annot"><span class="annottext">s3DataSource_s3DataDistributionType :: (Maybe S3DataDistribution -&gt; f (Maybe S3DataDistribution))
+-&gt; S3DataSource -&gt; f S3DataSource
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#s3DataSource_s3DataDistributionType"><span class="hs-identifier hs-var hs-var">s3DataSource_s3DataDistributionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DataSource -&gt; Maybe S3DataDistribution)
+-&gt; (S3DataSource -&gt; Maybe S3DataDistribution -&gt; S3DataSource)
+-&gt; Lens
+     S3DataSource
+     S3DataSource
+     (Maybe S3DataDistribution)
+     (Maybe S3DataDistribution)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339822"><span class="annot"><span class="annottext">Maybe S3DataDistribution
+s3DataDistributionType :: Maybe S3DataDistribution
+$sel:s3DataDistributionType:S3DataSource' :: S3DataSource -&gt; Maybe S3DataDistribution
+</span><a href="#local-6989586621680339822"><span class="hs-identifier hs-var hs-var">s3DataDistributionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DataDistribution
+</span><a href="#local-6989586621680339822"><span class="hs-identifier hs-var">s3DataDistributionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680339821"><span class="annot"><span class="annottext">s :: S3DataSource
+</span><a href="#local-6989586621680339821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680339820"><span class="annot"><span class="annottext">Maybe S3DataDistribution
+</span><a href="#local-6989586621680339820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSource
+</span><a href="#local-6989586621680339821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataDistributionType:S3DataSource' :: Maybe S3DataDistribution
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3As3DataDistributionType%3AS3DataSource%27"><span class="hs-identifier hs-var">s3DataDistributionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DataDistribution
+</span><a href="#local-6989586621680339820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | A list of one or more attribute names to use that are found in a</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- specified augmented manifest file.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#s3DataSource_attributeNames"><span class="hs-identifier hs-type">s3DataSource_attributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="s3DataSource_attributeNames"><span class="annot"><span class="annottext">s3DataSource_attributeNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; S3DataSource -&gt; f S3DataSource
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#s3DataSource_attributeNames"><span class="hs-identifier hs-var hs-var">s3DataSource_attributeNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DataSource -&gt; Maybe [Text])
+-&gt; (S3DataSource -&gt; Maybe [Text] -&gt; S3DataSource)
+-&gt; Lens S3DataSource S3DataSource (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339818"><span class="annot"><span class="annottext">Maybe [Text]
+attributeNames :: Maybe [Text]
+$sel:attributeNames:S3DataSource' :: S3DataSource -&gt; Maybe [Text]
+</span><a href="#local-6989586621680339818"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680339818"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680339817"><span class="annot"><span class="annottext">s :: S3DataSource
+</span><a href="#local-6989586621680339817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680339816"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680339816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSource
+</span><a href="#local-6989586621680339817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:S3DataSource' :: Maybe [Text]
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3AattributeNames%3AS3DataSource%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680339816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; S3DataSource -&gt; f S3DataSource)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; S3DataSource
+-&gt; f S3DataSource
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- SageMaker uses all objects that match the specified key name prefix for</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- model training.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- If you choose @ManifestFile@, @S3Uri@ identifies an object that is a</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- manifest file containing a list of object keys that you want Amazon</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- SageMaker to use for model training.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- If you choose @AugmentedManifestFile@, S3Uri identifies an object that</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- is an augmented manifest file in JSON lines format. This file contains</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- the data you want to use for model training. @AugmentedManifestFile@ can</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- only be used if the Channel\'s input mode is @Pipe@.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#s3DataSource_s3DataType"><span class="hs-identifier hs-type">s3DataSource_s3DataType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataType.html#S3DataType"><span class="hs-identifier hs-type">S3DataType</span></a></span><span>
+</span><span id="line-264"></span><span id="s3DataSource_s3DataType"><span class="annot"><span class="annottext">s3DataSource_s3DataType :: (S3DataType -&gt; f S3DataType) -&gt; S3DataSource -&gt; f S3DataSource
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#s3DataSource_s3DataType"><span class="hs-identifier hs-var hs-var">s3DataSource_s3DataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DataSource -&gt; S3DataType)
+-&gt; (S3DataSource -&gt; S3DataType -&gt; S3DataSource)
+-&gt; Lens S3DataSource S3DataSource S3DataType S3DataType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339811"><span class="annot"><span class="annottext">S3DataType
+s3DataType :: S3DataType
+$sel:s3DataType:S3DataSource' :: S3DataSource -&gt; S3DataType
+</span><a href="#local-6989586621680339811"><span class="hs-identifier hs-var hs-var">s3DataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataType
+</span><a href="#local-6989586621680339811"><span class="hs-identifier hs-var">s3DataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680339810"><span class="annot"><span class="annottext">s :: S3DataSource
+</span><a href="#local-6989586621680339810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680339809"><span class="annot"><span class="annottext">S3DataType
+</span><a href="#local-6989586621680339809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSource
+</span><a href="#local-6989586621680339810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataType:S3DataSource' :: S3DataType
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3As3DataType%3AS3DataSource%27"><span class="hs-identifier hs-var">s3DataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DataType
+</span><a href="#local-6989586621680339809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | Depending on the value specified for the @S3DataType@, identifies either</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- a key name prefix or a manifest. For example:</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- -   A key name prefix might look like this:</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     @s3:\/\/bucketname\/exampleprefix@</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- -   A manifest might look like this:</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     @s3:\/\/bucketname\/example.manifest@</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--     A manifest is an S3 object which is a JSON file consisting of an</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--     array of elements. The first element is a prefix which is followed</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     by one or more suffixes. SageMaker appends the suffix elements to</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     the prefix to get a full set of @S3Uri@. Note that the prefix must</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--     be a valid non-empty @S3Uri@ that precludes users from specifying a</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     manifest whose individual @S3Uri@ is sourced from different S3</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     buckets.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--     The following code example shows a valid manifest format:</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--     @[ {\&quot;prefix\&quot;: \&quot;s3:\/\/customer_bucket\/some\/prefix\/\&quot;},@</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--     @ \&quot;relative\/path\/to\/custdata-1\&quot;,@</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--     @ \&quot;relative\/path\/custdata-2\&quot;,@</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--     @ ...@</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--     @ \&quot;relative\/path\/custdata-N\&quot;@</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--     @]@</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--     This JSON is equivalent to the following @S3Uri@ list:</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--     @s3:\/\/customer_bucket\/some\/prefix\/relative\/path\/to\/custdata-1@</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--     @s3:\/\/customer_bucket\/some\/prefix\/relative\/path\/custdata-2@</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--     @...@</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--     @s3:\/\/customer_bucket\/some\/prefix\/relative\/path\/custdata-N@</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     The complete set of @S3Uri@ in this manifest is the input data for</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     the channel for this data source. The object that each @S3Uri@</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--     points to must be readable by the IAM role that Amazon SageMaker</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--     uses to perform tasks on your behalf.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#s3DataSource_s3Uri"><span class="hs-identifier hs-type">s3DataSource_s3Uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-312"></span><span id="s3DataSource_s3Uri"><span class="annot"><span class="annottext">s3DataSource_s3Uri :: (Text -&gt; f Text) -&gt; S3DataSource -&gt; f S3DataSource
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#s3DataSource_s3Uri"><span class="hs-identifier hs-var hs-var">s3DataSource_s3Uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DataSource -&gt; Text)
+-&gt; (S3DataSource -&gt; Text -&gt; S3DataSource)
+-&gt; Lens S3DataSource S3DataSource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339807"><span class="annot"><span class="annottext">Text
+s3Uri :: Text
+$sel:s3Uri:S3DataSource' :: S3DataSource -&gt; Text
+</span><a href="#local-6989586621680339807"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680339807"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680339806"><span class="annot"><span class="annottext">s :: S3DataSource
+</span><a href="#local-6989586621680339806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680339805"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680339805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSource
+</span><a href="#local-6989586621680339806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:S3DataSource' :: Text
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#%24sel%3As3Uri%3AS3DataSource%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680339805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680339802"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621680339800"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3DataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser S3DataSource) -&gt; Value -&gt; Parser S3DataSource
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-317"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;S3DataSource&quot;</span></span><span>
+</span><span id="line-318"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680339797"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680339797"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-319"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3DataDistribution
+-&gt; Maybe [Text] -&gt; S3DataType -&gt; Text -&gt; S3DataSource
+</span><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-var">S3DataSource'</span></a></span><span>
+</span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">(Maybe S3DataDistribution
+ -&gt; Maybe [Text] -&gt; S3DataType -&gt; Text -&gt; S3DataSource)
+-&gt; Parser (Maybe S3DataDistribution)
+-&gt; Parser (Maybe [Text] -&gt; S3DataType -&gt; Text -&gt; S3DataSource)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680339797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3DataDistribution)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DataDistributionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; S3DataType -&gt; Text -&gt; S3DataSource)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (S3DataType -&gt; Text -&gt; S3DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680339797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">Parser (S3DataType -&gt; Text -&gt; S3DataSource)
+-&gt; Parser S3DataType -&gt; Parser (Text -&gt; S3DataSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680339797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3DataType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DataType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; S3DataSource) -&gt; Parser Text -&gt; Parser S3DataSource
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680339797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680339789"><span id="local-6989586621680339791"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span></span></span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680339786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span></span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680339778"><span id="local-6989586621680339780"><span id="local-6989586621680339782"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource"><span class="hs-identifier hs-type">S3DataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621680339776"><span class="annot"><span class="annottext">toJSON :: S3DataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.S3DataSource.html#S3DataSource%27"><span class="hs-identifier hs-type">S3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339771"><span id="local-6989586621680339772"><span id="local-6989586621680339773"><span id="local-6989586621680339774"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe S3DataDistribution
+Text
+S3DataType
+s3Uri :: Text
+s3DataType :: S3DataType
+attributeNames :: Maybe [Text]
+s3DataDistributionType :: Maybe S3DataDistribution
+$sel:s3Uri:S3DataSource' :: S3DataSource -&gt; Text
+$sel:s3DataType:S3DataSource' :: S3DataSource -&gt; S3DataType
+$sel:attributeNames:S3DataSource' :: S3DataSource -&gt; Maybe [Text]
+$sel:s3DataDistributionType:S3DataSource' :: S3DataSource -&gt; Maybe S3DataDistribution
+</span><a href="#local-6989586621680339771"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-333"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-334"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DataDistributionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DataDistribution -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>              </span><span class="annot"><span class="annottext">(S3DataDistribution -&gt; Pair)
+-&gt; Maybe S3DataDistribution -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3DataDistribution
+</span><a href="#local-6989586621680339774"><span class="hs-identifier hs-var">s3DataDistributionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680339773"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DataType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DataType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3DataType
+</span><a href="#local-6989586621680339772"><span class="hs-identifier hs-var">s3DataType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680339771"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-341"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span></pre></body></html>

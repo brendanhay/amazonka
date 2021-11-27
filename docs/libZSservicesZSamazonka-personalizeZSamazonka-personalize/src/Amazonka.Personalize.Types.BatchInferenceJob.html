@@ -1,0 +1,913 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Personalize.Types.BatchInferenceJob</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Personalize.Types.BatchInferenceJob</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJobConfig.html"><span class="hs-identifier">Amazonka.Personalize.Types.BatchInferenceJobConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJobInput.html"><span class="hs-identifier">Amazonka.Personalize.Types.BatchInferenceJobInput</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJobOutput.html"><span class="hs-identifier">Amazonka.Personalize.Types.BatchInferenceJobOutput</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains information on a batch inference job.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBatchInferenceJob' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679273201"><span id="local-6989586621679273202"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchInferenceJob"><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-var">BatchInferenceJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchInferenceJob%27"><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-var">BatchInferenceJob'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the batch inference job failed, the reason for the failure.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AfailureReason%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AfailureReason%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status of the batch inference job. The status is one of the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   IN PROGRESS</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   ACTIVE</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   CREATE FAILED</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Astatus%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3Astatus%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 bucket that contains the output data generated by the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- batch inference job.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AjobOutput%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe BatchInferenceJobOutput
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AjobOutput%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">jobOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-type">BatchInferenceJobOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The name of the batch inference job.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AjobName%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AjobName%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The time at which the batch inference job was last updated.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AlastUpdatedDateTime%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AlastUpdatedDateTime%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The number of recommendations generated by the batch inference job. This</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- number includes the error messages generated for failed input records.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AnumResults%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe Int
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AnumResults%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A string to string map of the configuration details of a batch inference</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AbatchInferenceJobConfig%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe BatchInferenceJobConfig
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AbatchInferenceJobConfig%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">batchInferenceJobConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJobConfig.html#BatchInferenceJobConfig"><span class="hs-identifier hs-type">BatchInferenceJobConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the batch inference job.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AbatchInferenceJobArn%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AbatchInferenceJobArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">batchInferenceJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ARN of the filter used on the batch inference job.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AfilterArn%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AfilterArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">filterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The time at which the batch inference job was created.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AcreationDateTime%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AcreationDateTime%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the solution version from which the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- batch inference job was created.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AsolutionVersionArn%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AsolutionVersionArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">solutionVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ARN of the Amazon Identity and Access Management (IAM) role that</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- requested the batch inference job.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AroleArn%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AroleArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 path that leads to the input data used to generate the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- batch inference job.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AjobInput%3ABatchInferenceJob%27"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; Maybe BatchInferenceJobInput
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AjobInput%3ABatchInferenceJob%27"><span class="hs-identifier hs-var hs-var">jobInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJobInput.html#BatchInferenceJobInput"><span class="hs-identifier hs-type">BatchInferenceJobInput</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273183"><span id="local-6989586621679273185"><span class="annot"><span class="annottext">BatchInferenceJob -&gt; BatchInferenceJob -&gt; Bool
+(BatchInferenceJob -&gt; BatchInferenceJob -&gt; Bool)
+-&gt; (BatchInferenceJob -&gt; BatchInferenceJob -&gt; Bool)
+-&gt; Eq BatchInferenceJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchInferenceJob -&gt; BatchInferenceJob -&gt; Bool
+$c/= :: BatchInferenceJob -&gt; BatchInferenceJob -&gt; Bool
+== :: BatchInferenceJob -&gt; BatchInferenceJob -&gt; Bool
+$c== :: BatchInferenceJob -&gt; BatchInferenceJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273174"><span id="local-6989586621679273176"><span id="local-6989586621679273178"><span id="local-6989586621679273180"><span class="annot"><span class="annottext">ReadPrec [BatchInferenceJob]
+ReadPrec BatchInferenceJob
+Int -&gt; ReadS BatchInferenceJob
+ReadS [BatchInferenceJob]
+(Int -&gt; ReadS BatchInferenceJob)
+-&gt; ReadS [BatchInferenceJob]
+-&gt; ReadPrec BatchInferenceJob
+-&gt; ReadPrec [BatchInferenceJob]
+-&gt; Read BatchInferenceJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchInferenceJob]
+$creadListPrec :: ReadPrec [BatchInferenceJob]
+readPrec :: ReadPrec BatchInferenceJob
+$creadPrec :: ReadPrec BatchInferenceJob
+readList :: ReadS [BatchInferenceJob]
+$creadList :: ReadS [BatchInferenceJob]
+readsPrec :: Int -&gt; ReadS BatchInferenceJob
+$creadsPrec :: Int -&gt; ReadS BatchInferenceJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273167"><span id="local-6989586621679273169"><span id="local-6989586621679273171"><span class="annot"><span class="annottext">Int -&gt; BatchInferenceJob -&gt; ShowS
+[BatchInferenceJob] -&gt; ShowS
+BatchInferenceJob -&gt; String
+(Int -&gt; BatchInferenceJob -&gt; ShowS)
+-&gt; (BatchInferenceJob -&gt; String)
+-&gt; ([BatchInferenceJob] -&gt; ShowS)
+-&gt; Show BatchInferenceJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchInferenceJob] -&gt; ShowS
+$cshowList :: [BatchInferenceJob] -&gt; ShowS
+show :: BatchInferenceJob -&gt; String
+$cshow :: BatchInferenceJob -&gt; String
+showsPrec :: Int -&gt; BatchInferenceJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchInferenceJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchInferenceJob -&gt; Rep BatchInferenceJob x)
+-&gt; (forall x. Rep BatchInferenceJob x -&gt; BatchInferenceJob)
+-&gt; Generic BatchInferenceJob
+forall x. Rep BatchInferenceJob x -&gt; BatchInferenceJob
+forall x. BatchInferenceJob -&gt; Rep BatchInferenceJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchInferenceJob x -&gt; BatchInferenceJob
+$cfrom :: forall x. BatchInferenceJob -&gt; Rep BatchInferenceJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'BatchInferenceJob' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'failureReason', 'batchInferenceJob_failureReason' - If the batch inference job failed, the reason for the failure.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'status', 'batchInferenceJob_status' - The status of the batch inference job. The status is one of the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   IN PROGRESS</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   ACTIVE</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   CREATE FAILED</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'jobOutput', 'batchInferenceJob_jobOutput' - The Amazon S3 bucket that contains the output data generated by the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- batch inference job.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'jobName', 'batchInferenceJob_jobName' - The name of the batch inference job.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'lastUpdatedDateTime', 'batchInferenceJob_lastUpdatedDateTime' - The time at which the batch inference job was last updated.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'numResults', 'batchInferenceJob_numResults' - The number of recommendations generated by the batch inference job. This</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- number includes the error messages generated for failed input records.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'batchInferenceJobConfig', 'batchInferenceJob_batchInferenceJobConfig' - A string to string map of the configuration details of a batch inference</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'batchInferenceJobArn', 'batchInferenceJob_batchInferenceJobArn' - The Amazon Resource Name (ARN) of the batch inference job.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'filterArn', 'batchInferenceJob_filterArn' - The ARN of the filter used on the batch inference job.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'creationDateTime', 'batchInferenceJob_creationDateTime' - The time at which the batch inference job was created.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'solutionVersionArn', 'batchInferenceJob_solutionVersionArn' - The Amazon Resource Name (ARN) of the solution version from which the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- batch inference job was created.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'roleArn', 'batchInferenceJob_roleArn' - The ARN of the Amazon Identity and Access Management (IAM) role that</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- requested the batch inference job.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'jobInput', 'batchInferenceJob_jobInput' - The Amazon S3 path that leads to the input data used to generate the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- batch inference job.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#newBatchInferenceJob"><span class="hs-identifier hs-type">newBatchInferenceJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span>
+</span><span id="line-127"></span><span id="newBatchInferenceJob"><span class="annot"><span class="annottext">newBatchInferenceJob :: BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#newBatchInferenceJob"><span class="hs-identifier hs-var hs-var">newBatchInferenceJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">BatchInferenceJob' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe BatchInferenceJobOutput
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe BatchInferenceJobConfig
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe BatchInferenceJobInput
+-&gt; BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AfailureReason%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3Astatus%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobOutput:BatchInferenceJob' :: Maybe BatchInferenceJobOutput
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AjobOutput%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">jobOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchInferenceJobOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AjobName%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:BatchInferenceJob' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AlastUpdatedDateTime%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:numResults:BatchInferenceJob' :: Maybe Int
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AnumResults%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:batchInferenceJobConfig:BatchInferenceJob' :: Maybe BatchInferenceJobConfig
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AbatchInferenceJobConfig%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">batchInferenceJobConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchInferenceJobConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:batchInferenceJobArn:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AbatchInferenceJobArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">batchInferenceJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterArn:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AfilterArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">filterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDateTime:BatchInferenceJob' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AcreationDateTime%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:solutionVersionArn:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AsolutionVersionArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AroleArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobInput:BatchInferenceJob' :: Maybe BatchInferenceJobInput
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AjobInput%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">jobInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchInferenceJobInput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | If the batch inference job failed, the reason for the failure.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_failureReason"><span class="hs-identifier hs-type">batchInferenceJob_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="batchInferenceJob_failureReason"><span class="annot"><span class="annottext">batchInferenceJob_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_failureReason"><span class="hs-identifier hs-var hs-var">batchInferenceJob_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe Text)
+-&gt; (BatchInferenceJob -&gt; Maybe Text -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob BatchInferenceJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273158"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679273158"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273158"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273157"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273156"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AfailureReason%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The status of the batch inference job. The status is one of the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   PENDING</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   IN PROGRESS</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   ACTIVE</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   CREATE FAILED</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_status"><span class="hs-identifier hs-type">batchInferenceJob_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="batchInferenceJob_status"><span class="annot"><span class="annottext">batchInferenceJob_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_status"><span class="hs-identifier hs-var hs-var">batchInferenceJob_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe Text)
+-&gt; (BatchInferenceJob -&gt; Maybe Text -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob BatchInferenceJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273154"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679273154"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273154"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273153"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273152"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3Astatus%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The Amazon S3 bucket that contains the output data generated by the</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- batch inference job.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_jobOutput"><span class="hs-identifier hs-type">batchInferenceJob_jobOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-type">BatchInferenceJobOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="batchInferenceJob_jobOutput"><span class="annot"><span class="annottext">batchInferenceJob_jobOutput :: (Maybe BatchInferenceJobOutput
+ -&gt; f (Maybe BatchInferenceJobOutput))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_jobOutput"><span class="hs-identifier hs-var hs-var">batchInferenceJob_jobOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe BatchInferenceJobOutput)
+-&gt; (BatchInferenceJob
+    -&gt; Maybe BatchInferenceJobOutput -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob
+     BatchInferenceJob
+     (Maybe BatchInferenceJobOutput)
+     (Maybe BatchInferenceJobOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273150"><span class="annot"><span class="annottext">Maybe BatchInferenceJobOutput
+jobOutput :: Maybe BatchInferenceJobOutput
+$sel:jobOutput:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe BatchInferenceJobOutput
+</span><a href="#local-6989586621679273150"><span class="hs-identifier hs-var hs-var">jobOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchInferenceJobOutput
+</span><a href="#local-6989586621679273150"><span class="hs-identifier hs-var">jobOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273149"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273148"><span class="annot"><span class="annottext">Maybe BatchInferenceJobOutput
+</span><a href="#local-6989586621679273148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobOutput:BatchInferenceJob' :: Maybe BatchInferenceJobOutput
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AjobOutput%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">jobOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchInferenceJobOutput
+</span><a href="#local-6989586621679273148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The name of the batch inference job.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_jobName"><span class="hs-identifier hs-type">batchInferenceJob_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="batchInferenceJob_jobName"><span class="annot"><span class="annottext">batchInferenceJob_jobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_jobName"><span class="hs-identifier hs-var hs-var">batchInferenceJob_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe Text)
+-&gt; (BatchInferenceJob -&gt; Maybe Text -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob BatchInferenceJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273146"><span class="annot"><span class="annottext">Maybe Text
+jobName :: Maybe Text
+$sel:jobName:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679273146"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273146"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273145"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AjobName%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The time at which the batch inference job was last updated.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_lastUpdatedDateTime"><span class="hs-identifier hs-type">batchInferenceJob_lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="batchInferenceJob_lastUpdatedDateTime"><span class="annot"><span class="annottext">batchInferenceJob_lastUpdatedDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_lastUpdatedDateTime"><span class="hs-identifier hs-var hs-var">batchInferenceJob_lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe POSIX)
+-&gt; (BatchInferenceJob -&gt; Maybe POSIX -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob BatchInferenceJob (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273142"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedDateTime :: Maybe POSIX
+$sel:lastUpdatedDateTime:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe POSIX
+</span><a href="#local-6989586621679273142"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679273142"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273141"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273140"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679273140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:BatchInferenceJob' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AlastUpdatedDateTime%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679273140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BatchInferenceJob -&gt; f BatchInferenceJob)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchInferenceJob
+-&gt; f BatchInferenceJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The number of recommendations generated by the batch inference job. This</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- number includes the error messages generated for failed input records.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_numResults"><span class="hs-identifier hs-type">batchInferenceJob_numResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="batchInferenceJob_numResults"><span class="annot"><span class="annottext">batchInferenceJob_numResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_numResults"><span class="hs-identifier hs-var hs-var">batchInferenceJob_numResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe Int)
+-&gt; (BatchInferenceJob -&gt; Maybe Int -&gt; BatchInferenceJob)
+-&gt; Lens BatchInferenceJob BatchInferenceJob (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273135"><span class="annot"><span class="annottext">Maybe Int
+numResults :: Maybe Int
+$sel:numResults:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe Int
+</span><a href="#local-6989586621679273135"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679273135"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273134"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273133"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679273133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numResults:BatchInferenceJob' :: Maybe Int
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AnumResults%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679273133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | A string to string map of the configuration details of a batch inference</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_batchInferenceJobConfig"><span class="hs-identifier hs-type">batchInferenceJob_batchInferenceJobConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJobConfig.html#BatchInferenceJobConfig"><span class="hs-identifier hs-type">BatchInferenceJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="batchInferenceJob_batchInferenceJobConfig"><span class="annot"><span class="annottext">batchInferenceJob_batchInferenceJobConfig :: (Maybe BatchInferenceJobConfig
+ -&gt; f (Maybe BatchInferenceJobConfig))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_batchInferenceJobConfig"><span class="hs-identifier hs-var hs-var">batchInferenceJob_batchInferenceJobConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe BatchInferenceJobConfig)
+-&gt; (BatchInferenceJob
+    -&gt; Maybe BatchInferenceJobConfig -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob
+     BatchInferenceJob
+     (Maybe BatchInferenceJobConfig)
+     (Maybe BatchInferenceJobConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273131"><span class="annot"><span class="annottext">Maybe BatchInferenceJobConfig
+batchInferenceJobConfig :: Maybe BatchInferenceJobConfig
+$sel:batchInferenceJobConfig:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe BatchInferenceJobConfig
+</span><a href="#local-6989586621679273131"><span class="hs-identifier hs-var hs-var">batchInferenceJobConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchInferenceJobConfig
+</span><a href="#local-6989586621679273131"><span class="hs-identifier hs-var">batchInferenceJobConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273130"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273129"><span class="annot"><span class="annottext">Maybe BatchInferenceJobConfig
+</span><a href="#local-6989586621679273129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchInferenceJobConfig:BatchInferenceJob' :: Maybe BatchInferenceJobConfig
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AbatchInferenceJobConfig%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">batchInferenceJobConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchInferenceJobConfig
+</span><a href="#local-6989586621679273129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the batch inference job.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_batchInferenceJobArn"><span class="hs-identifier hs-type">batchInferenceJob_batchInferenceJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="batchInferenceJob_batchInferenceJobArn"><span class="annot"><span class="annottext">batchInferenceJob_batchInferenceJobArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_batchInferenceJobArn"><span class="hs-identifier hs-var hs-var">batchInferenceJob_batchInferenceJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe Text)
+-&gt; (BatchInferenceJob -&gt; Maybe Text -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob BatchInferenceJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273127"><span class="annot"><span class="annottext">Maybe Text
+batchInferenceJobArn :: Maybe Text
+$sel:batchInferenceJobArn:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679273127"><span class="hs-identifier hs-var hs-var">batchInferenceJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273127"><span class="hs-identifier hs-var">batchInferenceJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273126"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273125"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchInferenceJobArn:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AbatchInferenceJobArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">batchInferenceJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The ARN of the filter used on the batch inference job.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_filterArn"><span class="hs-identifier hs-type">batchInferenceJob_filterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="batchInferenceJob_filterArn"><span class="annot"><span class="annottext">batchInferenceJob_filterArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_filterArn"><span class="hs-identifier hs-var hs-var">batchInferenceJob_filterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe Text)
+-&gt; (BatchInferenceJob -&gt; Maybe Text -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob BatchInferenceJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273123"><span class="annot"><span class="annottext">Maybe Text
+filterArn :: Maybe Text
+$sel:filterArn:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679273123"><span class="hs-identifier hs-var hs-var">filterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273123"><span class="hs-identifier hs-var">filterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273122"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273121"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterArn:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AfilterArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">filterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The time at which the batch inference job was created.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_creationDateTime"><span class="hs-identifier hs-type">batchInferenceJob_creationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="batchInferenceJob_creationDateTime"><span class="annot"><span class="annottext">batchInferenceJob_creationDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_creationDateTime"><span class="hs-identifier hs-var hs-var">batchInferenceJob_creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe POSIX)
+-&gt; (BatchInferenceJob -&gt; Maybe POSIX -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob BatchInferenceJob (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273119"><span class="annot"><span class="annottext">Maybe POSIX
+creationDateTime :: Maybe POSIX
+$sel:creationDateTime:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe POSIX
+</span><a href="#local-6989586621679273119"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679273119"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273118"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273117"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679273117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:BatchInferenceJob' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AcreationDateTime%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679273117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BatchInferenceJob -&gt; f BatchInferenceJob)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BatchInferenceJob
+-&gt; f BatchInferenceJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the solution version from which the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- batch inference job was created.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_solutionVersionArn"><span class="hs-identifier hs-type">batchInferenceJob_solutionVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="batchInferenceJob_solutionVersionArn"><span class="annot"><span class="annottext">batchInferenceJob_solutionVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_solutionVersionArn"><span class="hs-identifier hs-var hs-var">batchInferenceJob_solutionVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe Text)
+-&gt; (BatchInferenceJob -&gt; Maybe Text -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob BatchInferenceJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273115"><span class="annot"><span class="annottext">Maybe Text
+solutionVersionArn :: Maybe Text
+$sel:solutionVersionArn:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679273115"><span class="hs-identifier hs-var hs-var">solutionVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273115"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273114"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273113"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:solutionVersionArn:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AsolutionVersionArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The ARN of the Amazon Identity and Access Management (IAM) role that</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- requested the batch inference job.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_roleArn"><span class="hs-identifier hs-type">batchInferenceJob_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="batchInferenceJob_roleArn"><span class="annot"><span class="annottext">batchInferenceJob_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_roleArn"><span class="hs-identifier hs-var hs-var">batchInferenceJob_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe Text)
+-&gt; (BatchInferenceJob -&gt; Maybe Text -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob BatchInferenceJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273111"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679273111"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273111"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273110"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273109"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:BatchInferenceJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AroleArn%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The Amazon S3 path that leads to the input data used to generate the</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- batch inference job.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_jobInput"><span class="hs-identifier hs-type">batchInferenceJob_jobInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJobInput.html#BatchInferenceJobInput"><span class="hs-identifier hs-type">BatchInferenceJobInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="batchInferenceJob_jobInput"><span class="annot"><span class="annottext">batchInferenceJob_jobInput :: (Maybe BatchInferenceJobInput -&gt; f (Maybe BatchInferenceJobInput))
+-&gt; BatchInferenceJob -&gt; f BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#batchInferenceJob_jobInput"><span class="hs-identifier hs-var hs-var">batchInferenceJob_jobInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJob -&gt; Maybe BatchInferenceJobInput)
+-&gt; (BatchInferenceJob
+    -&gt; Maybe BatchInferenceJobInput -&gt; BatchInferenceJob)
+-&gt; Lens
+     BatchInferenceJob
+     BatchInferenceJob
+     (Maybe BatchInferenceJobInput)
+     (Maybe BatchInferenceJobInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273107"><span class="annot"><span class="annottext">Maybe BatchInferenceJobInput
+jobInput :: Maybe BatchInferenceJobInput
+$sel:jobInput:BatchInferenceJob' :: BatchInferenceJob -&gt; Maybe BatchInferenceJobInput
+</span><a href="#local-6989586621679273107"><span class="hs-identifier hs-var hs-var">jobInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchInferenceJobInput
+</span><a href="#local-6989586621679273107"><span class="hs-identifier hs-var">jobInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273106"><span class="annot"><span class="annottext">s :: BatchInferenceJob
+</span><a href="#local-6989586621679273106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-type">BatchInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273105"><span class="annot"><span class="annottext">Maybe BatchInferenceJobInput
+</span><a href="#local-6989586621679273105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJob
+</span><a href="#local-6989586621679273106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobInput:BatchInferenceJob' :: Maybe BatchInferenceJobInput
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#%24sel%3AjobInput%3ABatchInferenceJob%27"><span class="hs-identifier hs-var">jobInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchInferenceJobInput
+</span><a href="#local-6989586621679273105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273102"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679273100"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchInferenceJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchInferenceJob)
+-&gt; Value
+-&gt; Parser BatchInferenceJob
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchInferenceJob&quot;</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273097"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe BatchInferenceJobOutput
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe BatchInferenceJobConfig
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe BatchInferenceJobInput
+-&gt; BatchInferenceJob
+</span><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob%27"><span class="hs-identifier hs-var">BatchInferenceJob'</span></a></span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe BatchInferenceJobOutput
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Int
+ -&gt; Maybe BatchInferenceJobConfig
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe BatchInferenceJobInput
+ -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe BatchInferenceJobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe BatchInferenceJobConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BatchInferenceJobInput
+      -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe BatchInferenceJobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe BatchInferenceJobConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BatchInferenceJobInput
+   -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe BatchInferenceJobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe BatchInferenceJobConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BatchInferenceJobInput
+      -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BatchInferenceJobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe BatchInferenceJobConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BatchInferenceJobInput
+   -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe BatchInferenceJobOutput)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe BatchInferenceJobConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BatchInferenceJobInput
+      -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchInferenceJobOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobOutput&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe BatchInferenceJobConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BatchInferenceJobInput
+   -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe BatchInferenceJobConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BatchInferenceJobInput
+      -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe BatchInferenceJobConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BatchInferenceJobInput
+   -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe BatchInferenceJobConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BatchInferenceJobInput
+      -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe BatchInferenceJobConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BatchInferenceJobInput
+   -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe BatchInferenceJobConfig
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BatchInferenceJobInput
+      -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;numResults&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BatchInferenceJobConfig
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BatchInferenceJobInput
+   -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe BatchInferenceJobConfig)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BatchInferenceJobInput
+      -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchInferenceJobConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;batchInferenceJobConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BatchInferenceJobInput
+   -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BatchInferenceJobInput
+      -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;batchInferenceJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BatchInferenceJobInput
+   -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe BatchInferenceJobInput
+      -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe BatchInferenceJobInput
+   -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe BatchInferenceJobInput -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe BatchInferenceJobInput -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe BatchInferenceJobInput -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;solutionVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe BatchInferenceJobInput -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe BatchInferenceJobInput -&gt; BatchInferenceJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BatchInferenceJobInput -&gt; BatchInferenceJob)
+-&gt; Parser (Maybe BatchInferenceJobInput)
+-&gt; Parser BatchInferenceJob
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchInferenceJobInput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobInput&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273091"><span id="local-6989586621679273093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.BatchInferenceJob.html#BatchInferenceJob"><span class="hs-identifier hs-type">BatchInferenceJob</span></a></span></span><span>
+</span><span id="line-235"></span></pre></body></html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Kafka.GetCompatibleKafkaVersions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the Apache Kafka versions to which you can update the MSK cluster.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kafka.GetCompatibleKafkaVersions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier">GetCompatibleKafkaVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#newGetCompatibleKafkaVersions"><span class="hs-identifier">newGetCompatibleKafkaVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#getCompatibleKafkaVersions_clusterArn"><span class="hs-identifier">getCompatibleKafkaVersions_clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse"><span class="hs-identifier">GetCompatibleKafkaVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#newGetCompatibleKafkaVersionsResponse"><span class="hs-identifier">newGetCompatibleKafkaVersionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#getCompatibleKafkaVersionsResponse_compatibleKafkaVersions"><span class="hs-identifier">getCompatibleKafkaVersionsResponse_compatibleKafkaVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#getCompatibleKafkaVersionsResponse_httpStatus"><span class="hs-identifier">getCompatibleKafkaVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.html"><span class="hs-identifier">Amazonka.Kafka.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetCompatibleKafkaVersions' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679237290"><span id="local-6989586621679237291"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCompatibleKafkaVersions"><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-var">GetCompatibleKafkaVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCompatibleKafkaVersions%27"><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions%27"><span class="hs-identifier hs-var">GetCompatibleKafkaVersions'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster check.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AclusterArn%3AGetCompatibleKafkaVersions%27"><span class="annot"><span class="annottext">GetCompatibleKafkaVersions -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#%24sel%3AclusterArn%3AGetCompatibleKafkaVersions%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237284"><span id="local-6989586621679237286"><span class="annot"><span class="annottext">GetCompatibleKafkaVersions -&gt; GetCompatibleKafkaVersions -&gt; Bool
+(GetCompatibleKafkaVersions -&gt; GetCompatibleKafkaVersions -&gt; Bool)
+-&gt; (GetCompatibleKafkaVersions
+    -&gt; GetCompatibleKafkaVersions -&gt; Bool)
+-&gt; Eq GetCompatibleKafkaVersions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCompatibleKafkaVersions -&gt; GetCompatibleKafkaVersions -&gt; Bool
+$c/= :: GetCompatibleKafkaVersions -&gt; GetCompatibleKafkaVersions -&gt; Bool
+== :: GetCompatibleKafkaVersions -&gt; GetCompatibleKafkaVersions -&gt; Bool
+$c== :: GetCompatibleKafkaVersions -&gt; GetCompatibleKafkaVersions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237275"><span id="local-6989586621679237277"><span id="local-6989586621679237279"><span id="local-6989586621679237281"><span class="annot"><span class="annottext">ReadPrec [GetCompatibleKafkaVersions]
+ReadPrec GetCompatibleKafkaVersions
+Int -&gt; ReadS GetCompatibleKafkaVersions
+ReadS [GetCompatibleKafkaVersions]
+(Int -&gt; ReadS GetCompatibleKafkaVersions)
+-&gt; ReadS [GetCompatibleKafkaVersions]
+-&gt; ReadPrec GetCompatibleKafkaVersions
+-&gt; ReadPrec [GetCompatibleKafkaVersions]
+-&gt; Read GetCompatibleKafkaVersions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCompatibleKafkaVersions]
+$creadListPrec :: ReadPrec [GetCompatibleKafkaVersions]
+readPrec :: ReadPrec GetCompatibleKafkaVersions
+$creadPrec :: ReadPrec GetCompatibleKafkaVersions
+readList :: ReadS [GetCompatibleKafkaVersions]
+$creadList :: ReadS [GetCompatibleKafkaVersions]
+readsPrec :: Int -&gt; ReadS GetCompatibleKafkaVersions
+$creadsPrec :: Int -&gt; ReadS GetCompatibleKafkaVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237268"><span id="local-6989586621679237270"><span id="local-6989586621679237272"><span class="annot"><span class="annottext">Int -&gt; GetCompatibleKafkaVersions -&gt; ShowS
+[GetCompatibleKafkaVersions] -&gt; ShowS
+GetCompatibleKafkaVersions -&gt; String
+(Int -&gt; GetCompatibleKafkaVersions -&gt; ShowS)
+-&gt; (GetCompatibleKafkaVersions -&gt; String)
+-&gt; ([GetCompatibleKafkaVersions] -&gt; ShowS)
+-&gt; Show GetCompatibleKafkaVersions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCompatibleKafkaVersions] -&gt; ShowS
+$cshowList :: [GetCompatibleKafkaVersions] -&gt; ShowS
+show :: GetCompatibleKafkaVersions -&gt; String
+$cshow :: GetCompatibleKafkaVersions -&gt; String
+showsPrec :: Int -&gt; GetCompatibleKafkaVersions -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCompatibleKafkaVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCompatibleKafkaVersions -&gt; Rep GetCompatibleKafkaVersions x)
+-&gt; (forall x.
+    Rep GetCompatibleKafkaVersions x -&gt; GetCompatibleKafkaVersions)
+-&gt; Generic GetCompatibleKafkaVersions
+forall x.
+Rep GetCompatibleKafkaVersions x -&gt; GetCompatibleKafkaVersions
+forall x.
+GetCompatibleKafkaVersions -&gt; Rep GetCompatibleKafkaVersions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetCompatibleKafkaVersions x -&gt; GetCompatibleKafkaVersions
+$cfrom :: forall x.
+GetCompatibleKafkaVersions -&gt; Rep GetCompatibleKafkaVersions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetCompatibleKafkaVersions' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'clusterArn', 'getCompatibleKafkaVersions_clusterArn' - The Amazon Resource Name (ARN) of the cluster check.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#newGetCompatibleKafkaVersions"><span class="hs-identifier hs-type">newGetCompatibleKafkaVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span><span>
+</span><span id="line-67"></span><span id="newGetCompatibleKafkaVersions"><span class="annot"><span class="annottext">newGetCompatibleKafkaVersions :: GetCompatibleKafkaVersions
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#newGetCompatibleKafkaVersions"><span class="hs-identifier hs-var hs-var">newGetCompatibleKafkaVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">GetCompatibleKafkaVersions' :: Maybe Text -&gt; GetCompatibleKafkaVersions
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions%27"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterArn:GetCompatibleKafkaVersions' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#%24sel%3AclusterArn%3AGetCompatibleKafkaVersions%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster check.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#getCompatibleKafkaVersions_clusterArn"><span class="hs-identifier hs-type">getCompatibleKafkaVersions_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="getCompatibleKafkaVersions_clusterArn"><span class="annot"><span class="annottext">getCompatibleKafkaVersions_clusterArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCompatibleKafkaVersions -&gt; f GetCompatibleKafkaVersions
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#getCompatibleKafkaVersions_clusterArn"><span class="hs-identifier hs-var hs-var">getCompatibleKafkaVersions_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCompatibleKafkaVersions -&gt; Maybe Text)
+-&gt; (GetCompatibleKafkaVersions
+    -&gt; Maybe Text -&gt; GetCompatibleKafkaVersions)
+-&gt; Lens
+     GetCompatibleKafkaVersions
+     GetCompatibleKafkaVersions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions%27"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237261"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:GetCompatibleKafkaVersions' :: GetCompatibleKafkaVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679237261"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237261"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237260"><span class="annot"><span class="annottext">s :: GetCompatibleKafkaVersions
+</span><a href="#local-6989586621679237260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions%27"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237259"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCompatibleKafkaVersions
+</span><a href="#local-6989586621679237260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:GetCompatibleKafkaVersions' :: Maybe Text
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#%24sel%3AclusterArn%3AGetCompatibleKafkaVersions%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679237255"><span class="annot"><span class="annottext">request :: GetCompatibleKafkaVersions -&gt; Request GetCompatibleKafkaVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetCompatibleKafkaVersions -&gt; Request GetCompatibleKafkaVersions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Kafka.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679237251"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetCompatibleKafkaVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCompatibleKafkaVersions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetCompatibleKafkaVersions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetCompatibleKafkaVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCompatibleKafkaVersions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237248"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237248"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237247"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679237247"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237246"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237246"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CompatibleKafkaVersion]
+-&gt; Int -&gt; GetCompatibleKafkaVersionsResponse
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-var">GetCompatibleKafkaVersionsResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CompatibleKafkaVersion]
+ -&gt; Int -&gt; GetCompatibleKafkaVersionsResponse)
+-&gt; Either String (Maybe [CompatibleKafkaVersion])
+-&gt; Either String (Int -&gt; GetCompatibleKafkaVersionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [CompatibleKafkaVersion]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;compatibleKafkaVersions&quot;</span></span><span>
+</span><span id="line-87"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [CompatibleKafkaVersion]))
+-&gt; Maybe [CompatibleKafkaVersion]
+-&gt; Either String (Maybe [CompatibleKafkaVersion])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CompatibleKafkaVersion]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-88"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetCompatibleKafkaVersionsResponse)
+-&gt; Either String Int
+-&gt; Either String GetCompatibleKafkaVersionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237248"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237237"><span id="local-6989586621679237239"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679237230"><span class="annot"><span class="annottext">toHeaders :: GetCompatibleKafkaVersions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCompatibleKafkaVersions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679237224"><span class="annot"><span class="annottext">toPath :: GetCompatibleKafkaVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; GetCompatibleKafkaVersions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/compatible-kafka-versions&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679237220"><span class="annot"><span class="annottext">toQuery :: GetCompatibleKafkaVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersions%27"><span class="hs-identifier hs-type">GetCompatibleKafkaVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237218"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:GetCompatibleKafkaVersions' :: GetCompatibleKafkaVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679237218"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;clusterArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237218"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newGetCompatibleKafkaVersionsResponse' smart constructor.</span><span>
+</span><span id="line-116"></span><span id="local-6989586621679237215"><span id="local-6989586621679237216"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCompatibleKafkaVersionsResponse"><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-var">GetCompatibleKafkaVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCompatibleKafkaVersionsResponse%27"><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-var">GetCompatibleKafkaVersionsResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of CompatibleKafkaVersion objects.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AcompatibleKafkaVersions%3AGetCompatibleKafkaVersionsResponse%27"><span class="annot"><span class="annottext">GetCompatibleKafkaVersionsResponse
+-&gt; Maybe [CompatibleKafkaVersion]
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#%24sel%3AcompatibleKafkaVersions%3AGetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-var hs-var">compatibleKafkaVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Kafka.Types.CompatibleKafkaVersion.html#CompatibleKafkaVersion"><span class="hs-identifier hs-type">CompatibleKafkaVersion</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCompatibleKafkaVersionsResponse%27"><span class="annot"><span class="annottext">GetCompatibleKafkaVersionsResponse -&gt; Int
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#%24sel%3AhttpStatus%3AGetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237209"><span id="local-6989586621679237211"><span class="annot"><span class="annottext">GetCompatibleKafkaVersionsResponse
+-&gt; GetCompatibleKafkaVersionsResponse -&gt; Bool
+(GetCompatibleKafkaVersionsResponse
+ -&gt; GetCompatibleKafkaVersionsResponse -&gt; Bool)
+-&gt; (GetCompatibleKafkaVersionsResponse
+    -&gt; GetCompatibleKafkaVersionsResponse -&gt; Bool)
+-&gt; Eq GetCompatibleKafkaVersionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCompatibleKafkaVersionsResponse
+-&gt; GetCompatibleKafkaVersionsResponse -&gt; Bool
+$c/= :: GetCompatibleKafkaVersionsResponse
+-&gt; GetCompatibleKafkaVersionsResponse -&gt; Bool
+== :: GetCompatibleKafkaVersionsResponse
+-&gt; GetCompatibleKafkaVersionsResponse -&gt; Bool
+$c== :: GetCompatibleKafkaVersionsResponse
+-&gt; GetCompatibleKafkaVersionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237201"><span id="local-6989586621679237203"><span id="local-6989586621679237205"><span id="local-6989586621679237207"><span class="annot"><span class="annottext">ReadPrec [GetCompatibleKafkaVersionsResponse]
+ReadPrec GetCompatibleKafkaVersionsResponse
+Int -&gt; ReadS GetCompatibleKafkaVersionsResponse
+ReadS [GetCompatibleKafkaVersionsResponse]
+(Int -&gt; ReadS GetCompatibleKafkaVersionsResponse)
+-&gt; ReadS [GetCompatibleKafkaVersionsResponse]
+-&gt; ReadPrec GetCompatibleKafkaVersionsResponse
+-&gt; ReadPrec [GetCompatibleKafkaVersionsResponse]
+-&gt; Read GetCompatibleKafkaVersionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCompatibleKafkaVersionsResponse]
+$creadListPrec :: ReadPrec [GetCompatibleKafkaVersionsResponse]
+readPrec :: ReadPrec GetCompatibleKafkaVersionsResponse
+$creadPrec :: ReadPrec GetCompatibleKafkaVersionsResponse
+readList :: ReadS [GetCompatibleKafkaVersionsResponse]
+$creadList :: ReadS [GetCompatibleKafkaVersionsResponse]
+readsPrec :: Int -&gt; ReadS GetCompatibleKafkaVersionsResponse
+$creadsPrec :: Int -&gt; ReadS GetCompatibleKafkaVersionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237195"><span id="local-6989586621679237197"><span id="local-6989586621679237199"><span class="annot"><span class="annottext">Int -&gt; GetCompatibleKafkaVersionsResponse -&gt; ShowS
+[GetCompatibleKafkaVersionsResponse] -&gt; ShowS
+GetCompatibleKafkaVersionsResponse -&gt; String
+(Int -&gt; GetCompatibleKafkaVersionsResponse -&gt; ShowS)
+-&gt; (GetCompatibleKafkaVersionsResponse -&gt; String)
+-&gt; ([GetCompatibleKafkaVersionsResponse] -&gt; ShowS)
+-&gt; Show GetCompatibleKafkaVersionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCompatibleKafkaVersionsResponse] -&gt; ShowS
+$cshowList :: [GetCompatibleKafkaVersionsResponse] -&gt; ShowS
+show :: GetCompatibleKafkaVersionsResponse -&gt; String
+$cshow :: GetCompatibleKafkaVersionsResponse -&gt; String
+showsPrec :: Int -&gt; GetCompatibleKafkaVersionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCompatibleKafkaVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCompatibleKafkaVersionsResponse
+ -&gt; Rep GetCompatibleKafkaVersionsResponse x)
+-&gt; (forall x.
+    Rep GetCompatibleKafkaVersionsResponse x
+    -&gt; GetCompatibleKafkaVersionsResponse)
+-&gt; Generic GetCompatibleKafkaVersionsResponse
+forall x.
+Rep GetCompatibleKafkaVersionsResponse x
+-&gt; GetCompatibleKafkaVersionsResponse
+forall x.
+GetCompatibleKafkaVersionsResponse
+-&gt; Rep GetCompatibleKafkaVersionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetCompatibleKafkaVersionsResponse x
+-&gt; GetCompatibleKafkaVersionsResponse
+$cfrom :: forall x.
+GetCompatibleKafkaVersionsResponse
+-&gt; Rep GetCompatibleKafkaVersionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'GetCompatibleKafkaVersionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'compatibleKafkaVersions', 'getCompatibleKafkaVersionsResponse_compatibleKafkaVersions' - A list of CompatibleKafkaVersion objects.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'httpStatus', 'getCompatibleKafkaVersionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#newGetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-type">newGetCompatibleKafkaVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newGetCompatibleKafkaVersionsResponse"><span class="annot"><span class="annottext">newGetCompatibleKafkaVersionsResponse :: Int -&gt; GetCompatibleKafkaVersionsResponse
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#newGetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-var hs-var">newGetCompatibleKafkaVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679237192"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237192"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">GetCompatibleKafkaVersionsResponse' :: Maybe [CompatibleKafkaVersion]
+-&gt; Int -&gt; GetCompatibleKafkaVersionsResponse
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:compatibleKafkaVersions:GetCompatibleKafkaVersionsResponse' :: Maybe [CompatibleKafkaVersion]
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#%24sel%3AcompatibleKafkaVersions%3AGetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-var">compatibleKafkaVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CompatibleKafkaVersion]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCompatibleKafkaVersionsResponse' :: Int
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#%24sel%3AhttpStatus%3AGetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237192"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | A list of CompatibleKafkaVersion objects.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#getCompatibleKafkaVersionsResponse_compatibleKafkaVersions"><span class="hs-identifier hs-type">getCompatibleKafkaVersionsResponse_compatibleKafkaVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Kafka.Types.CompatibleKafkaVersion.html#CompatibleKafkaVersion"><span class="hs-identifier hs-type">CompatibleKafkaVersion</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="getCompatibleKafkaVersionsResponse_compatibleKafkaVersions"><span class="annot"><span class="annottext">getCompatibleKafkaVersionsResponse_compatibleKafkaVersions :: (Maybe [CompatibleKafkaVersion]
+ -&gt; f (Maybe [CompatibleKafkaVersion]))
+-&gt; GetCompatibleKafkaVersionsResponse
+-&gt; f GetCompatibleKafkaVersionsResponse
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#getCompatibleKafkaVersionsResponse_compatibleKafkaVersions"><span class="hs-identifier hs-var hs-var">getCompatibleKafkaVersionsResponse_compatibleKafkaVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCompatibleKafkaVersionsResponse
+ -&gt; Maybe [CompatibleKafkaVersion])
+-&gt; (GetCompatibleKafkaVersionsResponse
+    -&gt; Maybe [CompatibleKafkaVersion]
+    -&gt; GetCompatibleKafkaVersionsResponse)
+-&gt; Lens
+     GetCompatibleKafkaVersionsResponse
+     GetCompatibleKafkaVersionsResponse
+     (Maybe [CompatibleKafkaVersion])
+     (Maybe [CompatibleKafkaVersion])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237191"><span class="annot"><span class="annottext">Maybe [CompatibleKafkaVersion]
+compatibleKafkaVersions :: Maybe [CompatibleKafkaVersion]
+$sel:compatibleKafkaVersions:GetCompatibleKafkaVersionsResponse' :: GetCompatibleKafkaVersionsResponse
+-&gt; Maybe [CompatibleKafkaVersion]
+</span><a href="#local-6989586621679237191"><span class="hs-identifier hs-var hs-var">compatibleKafkaVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CompatibleKafkaVersion]
+</span><a href="#local-6989586621679237191"><span class="hs-identifier hs-var">compatibleKafkaVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237190"><span class="annot"><span class="annottext">s :: GetCompatibleKafkaVersionsResponse
+</span><a href="#local-6989586621679237190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237189"><span class="annot"><span class="annottext">Maybe [CompatibleKafkaVersion]
+</span><a href="#local-6989586621679237189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCompatibleKafkaVersionsResponse
+</span><a href="#local-6989586621679237190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibleKafkaVersions:GetCompatibleKafkaVersionsResponse' :: Maybe [CompatibleKafkaVersion]
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#%24sel%3AcompatibleKafkaVersions%3AGetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-var">compatibleKafkaVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CompatibleKafkaVersion]
+</span><a href="#local-6989586621679237189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CompatibleKafkaVersion]
+  -&gt; f (Maybe [CompatibleKafkaVersion]))
+ -&gt; GetCompatibleKafkaVersionsResponse
+ -&gt; f GetCompatibleKafkaVersionsResponse)
+-&gt; ((Maybe [CompatibleKafkaVersion]
+     -&gt; f (Maybe [CompatibleKafkaVersion]))
+    -&gt; Maybe [CompatibleKafkaVersion]
+    -&gt; f (Maybe [CompatibleKafkaVersion]))
+-&gt; (Maybe [CompatibleKafkaVersion]
+    -&gt; f (Maybe [CompatibleKafkaVersion]))
+-&gt; GetCompatibleKafkaVersionsResponse
+-&gt; f GetCompatibleKafkaVersionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CompatibleKafkaVersion]
+  [CompatibleKafkaVersion]
+  [CompatibleKafkaVersion]
+  [CompatibleKafkaVersion]
+-&gt; Iso
+     (Maybe [CompatibleKafkaVersion])
+     (Maybe [CompatibleKafkaVersion])
+     (Maybe [CompatibleKafkaVersion])
+     (Maybe [CompatibleKafkaVersion])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CompatibleKafkaVersion]
+  [CompatibleKafkaVersion]
+  [CompatibleKafkaVersion]
+  [CompatibleKafkaVersion]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#getCompatibleKafkaVersionsResponse_httpStatus"><span class="hs-identifier hs-type">getCompatibleKafkaVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-152"></span><span id="getCompatibleKafkaVersionsResponse_httpStatus"><span class="annot"><span class="annottext">getCompatibleKafkaVersionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetCompatibleKafkaVersionsResponse
+-&gt; f GetCompatibleKafkaVersionsResponse
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#getCompatibleKafkaVersionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCompatibleKafkaVersionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCompatibleKafkaVersionsResponse -&gt; Int)
+-&gt; (GetCompatibleKafkaVersionsResponse
+    -&gt; Int -&gt; GetCompatibleKafkaVersionsResponse)
+-&gt; Lens
+     GetCompatibleKafkaVersionsResponse
+     GetCompatibleKafkaVersionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237185"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetCompatibleKafkaVersionsResponse' :: GetCompatibleKafkaVersionsResponse -&gt; Int
+</span><a href="#local-6989586621679237185"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237185"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237184"><span class="annot"><span class="annottext">s :: GetCompatibleKafkaVersionsResponse
+</span><a href="#local-6989586621679237184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCompatibleKafkaVersionsResponse
+</span><a href="#local-6989586621679237184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCompatibleKafkaVersionsResponse' :: Int
+</span><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#%24sel%3AhttpStatus%3AGetCompatibleKafkaVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679237181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.GetCompatibleKafkaVersions.html#GetCompatibleKafkaVersionsResponse"><span class="hs-identifier hs-type">GetCompatibleKafkaVersionsResponse</span></a></span></span><span>
+</span><span id="line-157"></span></pre></body></html>

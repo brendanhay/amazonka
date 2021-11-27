@@ -1,0 +1,812 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AutoScaling.Types.InstanceRefresh</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScaling.Types.InstanceRefresh</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.DesiredConfiguration.html"><span class="hs-identifier">Amazonka.AutoScaling.Types.DesiredConfiguration</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails.html"><span class="hs-identifier">Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefreshStatus.html"><span class="hs-identifier">Amazonka.AutoScaling.Types.InstanceRefreshStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.RefreshPreferences.html"><span class="hs-identifier">Amazonka.AutoScaling.Types.RefreshPreferences</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes an instance refresh for an Auto Scaling group.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newInstanceRefresh' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679331665"><span id="local-6989586621679331666"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceRefresh"><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-var">InstanceRefresh</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRefresh%27"><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-var">InstanceRefresh'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status for the instance refresh operation:</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @Pending@ - The request was created, but the operation has not</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--     started.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @InProgress@ - The operation is in progress.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @Successful@ - The operation completed successfully.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @Failed@ - The operation failed to complete. You can troubleshoot</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     using the status reason and the scaling activities.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @Cancelling@ - An ongoing operation is being cancelled. Cancellation</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     does not roll back any replacements that have already been</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     completed, but it prevents new replacements from being started.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @Cancelled@ - The operation is cancelled.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Astatus%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe InstanceRefreshStatus
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3Astatus%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-type">InstanceRefreshStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Additional progress details for an Auto Scaling group that has a warm</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- pool.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AprogressDetails%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe InstanceRefreshProgressDetails
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AprogressDetails%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">progressDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails.html#InstanceRefreshProgressDetails"><span class="hs-identifier hs-type">InstanceRefreshProgressDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The date and time at which the instance refresh began.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AstartTime%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AstartTime%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Apreferences%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe RefreshPreferences
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3Apreferences%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">preferences</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The number of instances remaining to update before the instance refresh</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- is complete.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AinstancesToUpdate%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe Natural
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AinstancesToUpdate%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">instancesToUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The percentage of the instance refresh that is complete. For each</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- instance replacement, Amazon EC2 Auto Scaling tracks the instance\'s</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- health status and warm-up time. When the instance\'s health status</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- changes to healthy and the specified warm-up time passes, the instance</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- is considered updated and is added to the percentage complete.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3ApercentageComplete%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe Natural
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3ApercentageComplete%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">percentageComplete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AautoScalingGroupName%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The date and time at which the instance refresh ended.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AendTime%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AendTime%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Provides more details about the current status of the instance refresh.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AstatusReason%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AstatusReason%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Describes the specific update you want to deploy.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdesiredConfiguration%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe DesiredConfiguration
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AdesiredConfiguration%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">desiredConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The instance refresh ID.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AinstanceRefreshId%3AInstanceRefresh%27"><span class="annot"><span class="annottext">InstanceRefresh -&gt; Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AinstanceRefreshId%3AInstanceRefresh%27"><span class="hs-identifier hs-var hs-var">instanceRefreshId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331649"><span id="local-6989586621679331651"><span class="annot"><span class="annottext">InstanceRefresh -&gt; InstanceRefresh -&gt; Bool
+(InstanceRefresh -&gt; InstanceRefresh -&gt; Bool)
+-&gt; (InstanceRefresh -&gt; InstanceRefresh -&gt; Bool)
+-&gt; Eq InstanceRefresh
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceRefresh -&gt; InstanceRefresh -&gt; Bool
+$c/= :: InstanceRefresh -&gt; InstanceRefresh -&gt; Bool
+== :: InstanceRefresh -&gt; InstanceRefresh -&gt; Bool
+$c== :: InstanceRefresh -&gt; InstanceRefresh -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331640"><span id="local-6989586621679331642"><span id="local-6989586621679331644"><span id="local-6989586621679331646"><span class="annot"><span class="annottext">ReadPrec [InstanceRefresh]
+ReadPrec InstanceRefresh
+Int -&gt; ReadS InstanceRefresh
+ReadS [InstanceRefresh]
+(Int -&gt; ReadS InstanceRefresh)
+-&gt; ReadS [InstanceRefresh]
+-&gt; ReadPrec InstanceRefresh
+-&gt; ReadPrec [InstanceRefresh]
+-&gt; Read InstanceRefresh
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceRefresh]
+$creadListPrec :: ReadPrec [InstanceRefresh]
+readPrec :: ReadPrec InstanceRefresh
+$creadPrec :: ReadPrec InstanceRefresh
+readList :: ReadS [InstanceRefresh]
+$creadList :: ReadS [InstanceRefresh]
+readsPrec :: Int -&gt; ReadS InstanceRefresh
+$creadsPrec :: Int -&gt; ReadS InstanceRefresh
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331633"><span id="local-6989586621679331635"><span id="local-6989586621679331637"><span class="annot"><span class="annottext">Int -&gt; InstanceRefresh -&gt; ShowS
+[InstanceRefresh] -&gt; ShowS
+InstanceRefresh -&gt; String
+(Int -&gt; InstanceRefresh -&gt; ShowS)
+-&gt; (InstanceRefresh -&gt; String)
+-&gt; ([InstanceRefresh] -&gt; ShowS)
+-&gt; Show InstanceRefresh
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceRefresh] -&gt; ShowS
+$cshowList :: [InstanceRefresh] -&gt; ShowS
+show :: InstanceRefresh -&gt; String
+$cshow :: InstanceRefresh -&gt; String
+showsPrec :: Int -&gt; InstanceRefresh -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceRefresh -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InstanceRefresh -&gt; Rep InstanceRefresh x)
+-&gt; (forall x. Rep InstanceRefresh x -&gt; InstanceRefresh)
+-&gt; Generic InstanceRefresh
+forall x. Rep InstanceRefresh x -&gt; InstanceRefresh
+forall x. InstanceRefresh -&gt; Rep InstanceRefresh x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceRefresh x -&gt; InstanceRefresh
+$cfrom :: forall x. InstanceRefresh -&gt; Rep InstanceRefresh x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'InstanceRefresh' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'status', 'instanceRefresh_status' - The current status for the instance refresh operation:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   @Pending@ - The request was created, but the operation has not</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     started.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @InProgress@ - The operation is in progress.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @Successful@ - The operation completed successfully.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   @Failed@ - The operation failed to complete. You can troubleshoot</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     using the status reason and the scaling activities.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   @Cancelling@ - An ongoing operation is being cancelled. Cancellation</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     does not roll back any replacements that have already been</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     completed, but it prevents new replacements from being started.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   @Cancelled@ - The operation is cancelled.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'progressDetails', 'instanceRefresh_progressDetails' - Additional progress details for an Auto Scaling group that has a warm</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- pool.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'startTime', 'instanceRefresh_startTime' - The date and time at which the instance refresh began.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'preferences', 'instanceRefresh_preferences' - Undocumented member.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'instancesToUpdate', 'instanceRefresh_instancesToUpdate' - The number of instances remaining to update before the instance refresh</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- is complete.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'percentageComplete', 'instanceRefresh_percentageComplete' - The percentage of the instance refresh that is complete. For each</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- instance replacement, Amazon EC2 Auto Scaling tracks the instance\'s</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- health status and warm-up time. When the instance\'s health status</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- changes to healthy and the specified warm-up time passes, the instance</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- is considered updated and is added to the percentage complete.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'autoScalingGroupName', 'instanceRefresh_autoScalingGroupName' - The name of the Auto Scaling group.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'endTime', 'instanceRefresh_endTime' - The date and time at which the instance refresh ended.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'statusReason', 'instanceRefresh_statusReason' - Provides more details about the current status of the instance refresh.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'desiredConfiguration', 'instanceRefresh_desiredConfiguration' - Describes the specific update you want to deploy.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'instanceRefreshId', 'instanceRefresh_instanceRefreshId' - The instance refresh ID.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#newInstanceRefresh"><span class="hs-identifier hs-type">newInstanceRefresh</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span>
+</span><span id="line-133"></span><span id="newInstanceRefresh"><span class="annot"><span class="annottext">newInstanceRefresh :: InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#newInstanceRefresh"><span class="hs-identifier hs-var hs-var">newInstanceRefresh</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">InstanceRefresh' :: Maybe InstanceRefreshStatus
+-&gt; Maybe InstanceRefreshProgressDetails
+-&gt; Maybe ISO8601
+-&gt; Maybe RefreshPreferences
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe DesiredConfiguration
+-&gt; Maybe Text
+-&gt; InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:InstanceRefresh' :: Maybe InstanceRefreshStatus
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3Astatus%3AInstanceRefresh%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceRefreshStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:progressDetails:InstanceRefresh' :: Maybe InstanceRefreshProgressDetails
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AprogressDetails%3AInstanceRefresh%27"><span class="hs-identifier hs-var">progressDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceRefreshProgressDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:InstanceRefresh' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AstartTime%3AInstanceRefresh%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:preferences:InstanceRefresh' :: Maybe RefreshPreferences
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3Apreferences%3AInstanceRefresh%27"><span class="hs-identifier hs-var">preferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RefreshPreferences
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:instancesToUpdate:InstanceRefresh' :: Maybe Natural
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AinstancesToUpdate%3AInstanceRefresh%27"><span class="hs-identifier hs-var">instancesToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:percentageComplete:InstanceRefresh' :: Maybe Natural
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3ApercentageComplete%3AInstanceRefresh%27"><span class="hs-identifier hs-var">percentageComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:InstanceRefresh' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AautoScalingGroupName%3AInstanceRefresh%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:InstanceRefresh' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AendTime%3AInstanceRefresh%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusReason:InstanceRefresh' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AstatusReason%3AInstanceRefresh%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:desiredConfiguration:InstanceRefresh' :: Maybe DesiredConfiguration
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AdesiredConfiguration%3AInstanceRefresh%27"><span class="hs-identifier hs-var">desiredConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DesiredConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceRefreshId:InstanceRefresh' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AinstanceRefreshId%3AInstanceRefresh%27"><span class="hs-identifier hs-var">instanceRefreshId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The current status for the instance refresh operation:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- -   @Pending@ - The request was created, but the operation has not</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--     started.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   @InProgress@ - The operation is in progress.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   @Successful@ - The operation completed successfully.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   @Failed@ - The operation failed to complete. You can troubleshoot</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     using the status reason and the scaling activities.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   @Cancelling@ - An ongoing operation is being cancelled. Cancellation</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     does not roll back any replacements that have already been</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     completed, but it prevents new replacements from being started.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   @Cancelled@ - The operation is cancelled.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_status"><span class="hs-identifier hs-type">instanceRefresh_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-type">InstanceRefreshStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="instanceRefresh_status"><span class="annot"><span class="annottext">instanceRefresh_status :: (Maybe InstanceRefreshStatus -&gt; f (Maybe InstanceRefreshStatus))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_status"><span class="hs-identifier hs-var hs-var">instanceRefresh_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe InstanceRefreshStatus)
+-&gt; (InstanceRefresh
+    -&gt; Maybe InstanceRefreshStatus -&gt; InstanceRefresh)
+-&gt; Lens
+     InstanceRefresh
+     InstanceRefresh
+     (Maybe InstanceRefreshStatus)
+     (Maybe InstanceRefreshStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331624"><span class="annot"><span class="annottext">Maybe InstanceRefreshStatus
+status :: Maybe InstanceRefreshStatus
+$sel:status:InstanceRefresh' :: InstanceRefresh -&gt; Maybe InstanceRefreshStatus
+</span><a href="#local-6989586621679331624"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceRefreshStatus
+</span><a href="#local-6989586621679331624"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331623"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331622"><span class="annot"><span class="annottext">Maybe InstanceRefreshStatus
+</span><a href="#local-6989586621679331622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:InstanceRefresh' :: Maybe InstanceRefreshStatus
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3Astatus%3AInstanceRefresh%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceRefreshStatus
+</span><a href="#local-6989586621679331622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Additional progress details for an Auto Scaling group that has a warm</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- pool.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_progressDetails"><span class="hs-identifier hs-type">instanceRefresh_progressDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails.html#InstanceRefreshProgressDetails"><span class="hs-identifier hs-type">InstanceRefreshProgressDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="instanceRefresh_progressDetails"><span class="annot"><span class="annottext">instanceRefresh_progressDetails :: (Maybe InstanceRefreshProgressDetails
+ -&gt; f (Maybe InstanceRefreshProgressDetails))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_progressDetails"><span class="hs-identifier hs-var hs-var">instanceRefresh_progressDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe InstanceRefreshProgressDetails)
+-&gt; (InstanceRefresh
+    -&gt; Maybe InstanceRefreshProgressDetails -&gt; InstanceRefresh)
+-&gt; Lens
+     InstanceRefresh
+     InstanceRefresh
+     (Maybe InstanceRefreshProgressDetails)
+     (Maybe InstanceRefreshProgressDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331620"><span class="annot"><span class="annottext">Maybe InstanceRefreshProgressDetails
+progressDetails :: Maybe InstanceRefreshProgressDetails
+$sel:progressDetails:InstanceRefresh' :: InstanceRefresh -&gt; Maybe InstanceRefreshProgressDetails
+</span><a href="#local-6989586621679331620"><span class="hs-identifier hs-var hs-var">progressDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceRefreshProgressDetails
+</span><a href="#local-6989586621679331620"><span class="hs-identifier hs-var">progressDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331619"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331618"><span class="annot"><span class="annottext">Maybe InstanceRefreshProgressDetails
+</span><a href="#local-6989586621679331618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressDetails:InstanceRefresh' :: Maybe InstanceRefreshProgressDetails
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AprogressDetails%3AInstanceRefresh%27"><span class="hs-identifier hs-var">progressDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceRefreshProgressDetails
+</span><a href="#local-6989586621679331618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The date and time at which the instance refresh began.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_startTime"><span class="hs-identifier hs-type">instanceRefresh_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="instanceRefresh_startTime"><span class="annot"><span class="annottext">instanceRefresh_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_startTime"><span class="hs-identifier hs-var hs-var">instanceRefresh_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe ISO8601)
+-&gt; (InstanceRefresh -&gt; Maybe ISO8601 -&gt; InstanceRefresh)
+-&gt; Lens
+     InstanceRefresh InstanceRefresh (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331616"><span class="annot"><span class="annottext">Maybe ISO8601
+startTime :: Maybe ISO8601
+$sel:startTime:InstanceRefresh' :: InstanceRefresh -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679331616"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679331616"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331615"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331614"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679331614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:InstanceRefresh' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AstartTime%3AInstanceRefresh%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679331614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; InstanceRefresh -&gt; f InstanceRefresh)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceRefresh
+-&gt; f InstanceRefresh
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_preferences"><span class="hs-identifier hs-type">instanceRefresh_preferences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.RefreshPreferences.html#RefreshPreferences"><span class="hs-identifier hs-type">RefreshPreferences</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="instanceRefresh_preferences"><span class="annot"><span class="annottext">instanceRefresh_preferences :: (Maybe RefreshPreferences -&gt; f (Maybe RefreshPreferences))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_preferences"><span class="hs-identifier hs-var hs-var">instanceRefresh_preferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe RefreshPreferences)
+-&gt; (InstanceRefresh -&gt; Maybe RefreshPreferences -&gt; InstanceRefresh)
+-&gt; Lens
+     InstanceRefresh
+     InstanceRefresh
+     (Maybe RefreshPreferences)
+     (Maybe RefreshPreferences)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331609"><span class="annot"><span class="annottext">Maybe RefreshPreferences
+preferences :: Maybe RefreshPreferences
+$sel:preferences:InstanceRefresh' :: InstanceRefresh -&gt; Maybe RefreshPreferences
+</span><a href="#local-6989586621679331609"><span class="hs-identifier hs-var hs-var">preferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RefreshPreferences
+</span><a href="#local-6989586621679331609"><span class="hs-identifier hs-var">preferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331608"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331607"><span class="annot"><span class="annottext">Maybe RefreshPreferences
+</span><a href="#local-6989586621679331607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferences:InstanceRefresh' :: Maybe RefreshPreferences
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3Apreferences%3AInstanceRefresh%27"><span class="hs-identifier hs-var">preferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RefreshPreferences
+</span><a href="#local-6989586621679331607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The number of instances remaining to update before the instance refresh</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- is complete.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_instancesToUpdate"><span class="hs-identifier hs-type">instanceRefresh_instancesToUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="instanceRefresh_instancesToUpdate"><span class="annot"><span class="annottext">instanceRefresh_instancesToUpdate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_instancesToUpdate"><span class="hs-identifier hs-var hs-var">instanceRefresh_instancesToUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe Natural)
+-&gt; (InstanceRefresh -&gt; Maybe Natural -&gt; InstanceRefresh)
+-&gt; Lens
+     InstanceRefresh InstanceRefresh (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331605"><span class="annot"><span class="annottext">Maybe Natural
+instancesToUpdate :: Maybe Natural
+$sel:instancesToUpdate:InstanceRefresh' :: InstanceRefresh -&gt; Maybe Natural
+</span><a href="#local-6989586621679331605"><span class="hs-identifier hs-var hs-var">instancesToUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331605"><span class="hs-identifier hs-var">instancesToUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331604"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331603"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesToUpdate:InstanceRefresh' :: Maybe Natural
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AinstancesToUpdate%3AInstanceRefresh%27"><span class="hs-identifier hs-var">instancesToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The percentage of the instance refresh that is complete. For each</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- instance replacement, Amazon EC2 Auto Scaling tracks the instance\'s</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- health status and warm-up time. When the instance\'s health status</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- changes to healthy and the specified warm-up time passes, the instance</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- is considered updated and is added to the percentage complete.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_percentageComplete"><span class="hs-identifier hs-type">instanceRefresh_percentageComplete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="instanceRefresh_percentageComplete"><span class="annot"><span class="annottext">instanceRefresh_percentageComplete :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_percentageComplete"><span class="hs-identifier hs-var hs-var">instanceRefresh_percentageComplete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe Natural)
+-&gt; (InstanceRefresh -&gt; Maybe Natural -&gt; InstanceRefresh)
+-&gt; Lens
+     InstanceRefresh InstanceRefresh (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331601"><span class="annot"><span class="annottext">Maybe Natural
+percentageComplete :: Maybe Natural
+$sel:percentageComplete:InstanceRefresh' :: InstanceRefresh -&gt; Maybe Natural
+</span><a href="#local-6989586621679331601"><span class="hs-identifier hs-var hs-var">percentageComplete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331601"><span class="hs-identifier hs-var">percentageComplete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331600"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331599"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentageComplete:InstanceRefresh' :: Maybe Natural
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3ApercentageComplete%3AInstanceRefresh%27"><span class="hs-identifier hs-var">percentageComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679331599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_autoScalingGroupName"><span class="hs-identifier hs-type">instanceRefresh_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="instanceRefresh_autoScalingGroupName"><span class="annot"><span class="annottext">instanceRefresh_autoScalingGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_autoScalingGroupName"><span class="hs-identifier hs-var hs-var">instanceRefresh_autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe Text)
+-&gt; (InstanceRefresh -&gt; Maybe Text -&gt; InstanceRefresh)
+-&gt; Lens InstanceRefresh InstanceRefresh (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331597"><span class="annot"><span class="annottext">Maybe Text
+autoScalingGroupName :: Maybe Text
+$sel:autoScalingGroupName:InstanceRefresh' :: InstanceRefresh -&gt; Maybe Text
+</span><a href="#local-6989586621679331597"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331597"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331596"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331595"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:InstanceRefresh' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AautoScalingGroupName%3AInstanceRefresh%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The date and time at which the instance refresh ended.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_endTime"><span class="hs-identifier hs-type">instanceRefresh_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="instanceRefresh_endTime"><span class="annot"><span class="annottext">instanceRefresh_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_endTime"><span class="hs-identifier hs-var hs-var">instanceRefresh_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe ISO8601)
+-&gt; (InstanceRefresh -&gt; Maybe ISO8601 -&gt; InstanceRefresh)
+-&gt; Lens
+     InstanceRefresh InstanceRefresh (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331593"><span class="annot"><span class="annottext">Maybe ISO8601
+endTime :: Maybe ISO8601
+$sel:endTime:InstanceRefresh' :: InstanceRefresh -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679331593"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679331593"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331592"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331591"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679331591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:InstanceRefresh' :: Maybe ISO8601
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AendTime%3AInstanceRefresh%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679331591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; InstanceRefresh -&gt; f InstanceRefresh)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceRefresh
+-&gt; f InstanceRefresh
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | Provides more details about the current status of the instance refresh.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_statusReason"><span class="hs-identifier hs-type">instanceRefresh_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="instanceRefresh_statusReason"><span class="annot"><span class="annottext">instanceRefresh_statusReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_statusReason"><span class="hs-identifier hs-var hs-var">instanceRefresh_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe Text)
+-&gt; (InstanceRefresh -&gt; Maybe Text -&gt; InstanceRefresh)
+-&gt; Lens InstanceRefresh InstanceRefresh (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331589"><span class="annot"><span class="annottext">Maybe Text
+statusReason :: Maybe Text
+$sel:statusReason:InstanceRefresh' :: InstanceRefresh -&gt; Maybe Text
+</span><a href="#local-6989586621679331589"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331589"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331588"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:InstanceRefresh' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AstatusReason%3AInstanceRefresh%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | Describes the specific update you want to deploy.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_desiredConfiguration"><span class="hs-identifier hs-type">instanceRefresh_desiredConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="instanceRefresh_desiredConfiguration"><span class="annot"><span class="annottext">instanceRefresh_desiredConfiguration :: (Maybe DesiredConfiguration -&gt; f (Maybe DesiredConfiguration))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_desiredConfiguration"><span class="hs-identifier hs-var hs-var">instanceRefresh_desiredConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe DesiredConfiguration)
+-&gt; (InstanceRefresh
+    -&gt; Maybe DesiredConfiguration -&gt; InstanceRefresh)
+-&gt; Lens
+     InstanceRefresh
+     InstanceRefresh
+     (Maybe DesiredConfiguration)
+     (Maybe DesiredConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331585"><span class="annot"><span class="annottext">Maybe DesiredConfiguration
+desiredConfiguration :: Maybe DesiredConfiguration
+$sel:desiredConfiguration:InstanceRefresh' :: InstanceRefresh -&gt; Maybe DesiredConfiguration
+</span><a href="#local-6989586621679331585"><span class="hs-identifier hs-var hs-var">desiredConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DesiredConfiguration
+</span><a href="#local-6989586621679331585"><span class="hs-identifier hs-var">desiredConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331584"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331583"><span class="annot"><span class="annottext">Maybe DesiredConfiguration
+</span><a href="#local-6989586621679331583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredConfiguration:InstanceRefresh' :: Maybe DesiredConfiguration
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AdesiredConfiguration%3AInstanceRefresh%27"><span class="hs-identifier hs-var">desiredConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DesiredConfiguration
+</span><a href="#local-6989586621679331583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The instance refresh ID.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_instanceRefreshId"><span class="hs-identifier hs-type">instanceRefresh_instanceRefreshId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="instanceRefresh_instanceRefreshId"><span class="annot"><span class="annottext">instanceRefresh_instanceRefreshId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceRefresh -&gt; f InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#instanceRefresh_instanceRefreshId"><span class="hs-identifier hs-var hs-var">instanceRefresh_instanceRefreshId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefresh -&gt; Maybe Text)
+-&gt; (InstanceRefresh -&gt; Maybe Text -&gt; InstanceRefresh)
+-&gt; Lens InstanceRefresh InstanceRefresh (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331581"><span class="annot"><span class="annottext">Maybe Text
+instanceRefreshId :: Maybe Text
+$sel:instanceRefreshId:InstanceRefresh' :: InstanceRefresh -&gt; Maybe Text
+</span><a href="#local-6989586621679331581"><span class="hs-identifier hs-var hs-var">instanceRefreshId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331581"><span class="hs-identifier hs-var">instanceRefreshId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331580"><span class="annot"><span class="annottext">s :: InstanceRefresh
+</span><a href="#local-6989586621679331580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-type">InstanceRefresh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331579"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefresh
+</span><a href="#local-6989586621679331580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceRefreshId:InstanceRefresh' :: Maybe Text
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#%24sel%3AinstanceRefreshId%3AInstanceRefresh%27"><span class="hs-identifier hs-var">instanceRefreshId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679331576"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceRefresh
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679331574"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">Maybe InstanceRefreshStatus
+-&gt; Maybe InstanceRefreshProgressDetails
+-&gt; Maybe ISO8601
+-&gt; Maybe RefreshPreferences
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe DesiredConfiguration
+-&gt; Maybe Text
+-&gt; InstanceRefresh
+</span><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh%27"><span class="hs-identifier hs-var">InstanceRefresh'</span></a></span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">(Maybe InstanceRefreshStatus
+ -&gt; Maybe InstanceRefreshProgressDetails
+ -&gt; Maybe ISO8601
+ -&gt; Maybe RefreshPreferences
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe DesiredConfiguration
+ -&gt; Maybe Text
+ -&gt; InstanceRefresh)
+-&gt; Either String (Maybe InstanceRefreshStatus)
+-&gt; Either
+     String
+     (Maybe InstanceRefreshProgressDetails
+      -&gt; Maybe ISO8601
+      -&gt; Maybe RefreshPreferences
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe DesiredConfiguration
+      -&gt; Maybe Text
+      -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceRefreshStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InstanceRefreshProgressDetails
+   -&gt; Maybe ISO8601
+   -&gt; Maybe RefreshPreferences
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe DesiredConfiguration
+   -&gt; Maybe Text
+   -&gt; InstanceRefresh)
+-&gt; Either String (Maybe InstanceRefreshProgressDetails)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe RefreshPreferences
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe DesiredConfiguration
+      -&gt; Maybe Text
+      -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe InstanceRefreshProgressDetails)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgressDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe RefreshPreferences
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe DesiredConfiguration
+   -&gt; Maybe Text
+   -&gt; InstanceRefresh)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe RefreshPreferences
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe DesiredConfiguration
+      -&gt; Maybe Text
+      -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe RefreshPreferences
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe DesiredConfiguration
+   -&gt; Maybe Text
+   -&gt; InstanceRefresh)
+-&gt; Either String (Maybe RefreshPreferences)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe DesiredConfiguration
+      -&gt; Maybe Text
+      -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RefreshPreferences)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Preferences&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe DesiredConfiguration
+   -&gt; Maybe Text
+   -&gt; InstanceRefresh)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe DesiredConfiguration
+      -&gt; Maybe Text
+      -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstancesToUpdate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe DesiredConfiguration
+   -&gt; Maybe Text
+   -&gt; InstanceRefresh)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe DesiredConfiguration
+      -&gt; Maybe Text
+      -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PercentageComplete&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe DesiredConfiguration
+   -&gt; Maybe Text
+   -&gt; InstanceRefresh)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe DesiredConfiguration
+      -&gt; Maybe Text
+      -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe DesiredConfiguration
+   -&gt; Maybe Text
+   -&gt; InstanceRefresh)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe DesiredConfiguration -&gt; Maybe Text -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe DesiredConfiguration -&gt; Maybe Text -&gt; InstanceRefresh)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe DesiredConfiguration -&gt; Maybe Text -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DesiredConfiguration -&gt; Maybe Text -&gt; InstanceRefresh)
+-&gt; Either String (Maybe DesiredConfiguration)
+-&gt; Either String (Maybe Text -&gt; InstanceRefresh)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DesiredConfiguration)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DesiredConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; InstanceRefresh)
+-&gt; Either String (Maybe Text) -&gt; Either String InstanceRefresh
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceRefreshId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331568"><span id="local-6989586621679331570"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span></span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.MediaStoreData.Types.ItemType
+module Amazonka.MediaStoreData.Types.ItemType
 newtype ItemType
 ItemType' :: Text -> ItemType
 [fromItemType] :: ItemType -> Text
 pattern ItemType_FOLDER :: ItemType
 pattern ItemType_OBJECT :: ItemType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance GHC.Classes.Ord Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance GHC.Read.Read Network.AWS.MediaStoreData.Types.ItemType.ItemType
-instance GHC.Show.Show Network.AWS.MediaStoreData.Types.ItemType.ItemType
+instance Amazonka.Data.XML.ToXML Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Amazonka.Data.XML.FromXML Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Amazonka.Data.Log.ToLog Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Amazonka.Data.Text.ToText Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Amazonka.Data.Text.FromText Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance Data.Hashable.Class.Hashable Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance GHC.Generics.Generic Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance GHC.Classes.Ord Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance GHC.Classes.Eq Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance GHC.Read.Read Amazonka.MediaStoreData.Types.ItemType.ItemType
+instance GHC.Show.Show Amazonka.MediaStoreData.Types.ItemType.ItemType
 
 
-module Network.AWS.MediaStoreData.Types.Item
+module Amazonka.MediaStoreData.Types.Item
 
 -- | A metadata entry for a folder or object.
 --   
@@ -101,69 +101,69 @@ item_lastModified :: Lens' Item (Maybe UTCTime)
 
 -- | The content type of the item.
 item_contentType :: Lens' Item (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.Types.Item.Item
-instance GHC.Show.Show Network.AWS.MediaStoreData.Types.Item.Item
-instance GHC.Read.Read Network.AWS.MediaStoreData.Types.Item.Item
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.Types.Item.Item
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStoreData.Types.Item.Item
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStoreData.Types.Item.Item
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.Types.Item.Item
+instance GHC.Generics.Generic Amazonka.MediaStoreData.Types.Item.Item
+instance GHC.Show.Show Amazonka.MediaStoreData.Types.Item.Item
+instance GHC.Read.Read Amazonka.MediaStoreData.Types.Item.Item
+instance GHC.Classes.Eq Amazonka.MediaStoreData.Types.Item.Item
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStoreData.Types.Item.Item
+instance Data.Hashable.Class.Hashable Amazonka.MediaStoreData.Types.Item.Item
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.Types.Item.Item
 
 
-module Network.AWS.MediaStoreData.Types.StorageClass
+module Amazonka.MediaStoreData.Types.StorageClass
 newtype StorageClass
 StorageClass' :: Text -> StorageClass
 [fromStorageClass] :: StorageClass -> Text
 pattern StorageClass_TEMPORAL :: StorageClass
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance GHC.Classes.Ord Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance GHC.Read.Read Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
-instance GHC.Show.Show Network.AWS.MediaStoreData.Types.StorageClass.StorageClass
+instance Amazonka.Data.XML.ToXML Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Amazonka.Data.XML.FromXML Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Amazonka.Data.Log.ToLog Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Amazonka.Data.Text.ToText Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Amazonka.Data.Text.FromText Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance Data.Hashable.Class.Hashable Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance GHC.Generics.Generic Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance GHC.Classes.Ord Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance GHC.Classes.Eq Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance GHC.Read.Read Amazonka.MediaStoreData.Types.StorageClass.StorageClass
+instance GHC.Show.Show Amazonka.MediaStoreData.Types.StorageClass.StorageClass
 
 
-module Network.AWS.MediaStoreData.Types.UploadAvailability
+module Amazonka.MediaStoreData.Types.UploadAvailability
 newtype UploadAvailability
 UploadAvailability' :: Text -> UploadAvailability
 [fromUploadAvailability] :: UploadAvailability -> Text
 pattern UploadAvailability_STANDARD :: UploadAvailability
 pattern UploadAvailability_STREAMING :: UploadAvailability
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance GHC.Classes.Ord Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance GHC.Read.Read Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
-instance GHC.Show.Show Network.AWS.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Amazonka.Data.XML.ToXML Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Amazonka.Data.XML.FromXML Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Amazonka.Data.Log.ToLog Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Amazonka.Data.Text.ToText Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Amazonka.Data.Text.FromText Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance Data.Hashable.Class.Hashable Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance GHC.Generics.Generic Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance GHC.Classes.Ord Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance GHC.Classes.Eq Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance GHC.Read.Read Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
+instance GHC.Show.Show Amazonka.MediaStoreData.Types.UploadAvailability.UploadAvailability
 
 
-module Network.AWS.MediaStoreData.Types
+module Amazonka.MediaStoreData.Types
 
 -- | API version <tt>2017-09-01</tt> of the Amazon Elemental MediaStore
 --   Data Plane SDK configuration.
@@ -267,7 +267,7 @@ item_contentType :: Lens' Item (Maybe Text)
 -- | Uploads an object to the specified path. Object sizes are limited to
 --   25 MB for standard upload availability and 10 MB for streaming upload
 --   availability.
-module Network.AWS.MediaStoreData.PutObject
+module Amazonka.MediaStoreData.PutObject
 
 -- | <i>See:</i> <a>newPutObject</a> smart constructor.
 data PutObject
@@ -515,25 +515,25 @@ putObjectResponse_contentSHA256 :: Lens' PutObjectResponse (Maybe Text)
 
 -- | The response's http status code.
 putObjectResponse_httpStatus :: Lens' PutObjectResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.PutObject.PutObject
-instance GHC.Show.Show Network.AWS.MediaStoreData.PutObject.PutObject
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.PutObject.PutObjectResponse
-instance GHC.Show.Show Network.AWS.MediaStoreData.PutObject.PutObjectResponse
-instance GHC.Read.Read Network.AWS.MediaStoreData.PutObject.PutObjectResponse
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.PutObject.PutObjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStoreData.PutObject.PutObject
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.PutObject.PutObjectResponse
-instance Network.AWS.Data.Body.ToBody Network.AWS.MediaStoreData.PutObject.PutObject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStoreData.PutObject.PutObject
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStoreData.PutObject.PutObject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStoreData.PutObject.PutObject
+instance GHC.Generics.Generic Amazonka.MediaStoreData.PutObject.PutObject
+instance GHC.Show.Show Amazonka.MediaStoreData.PutObject.PutObject
+instance GHC.Generics.Generic Amazonka.MediaStoreData.PutObject.PutObjectResponse
+instance GHC.Show.Show Amazonka.MediaStoreData.PutObject.PutObjectResponse
+instance GHC.Read.Read Amazonka.MediaStoreData.PutObject.PutObjectResponse
+instance GHC.Classes.Eq Amazonka.MediaStoreData.PutObject.PutObjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStoreData.PutObject.PutObject
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.PutObject.PutObjectResponse
+instance Amazonka.Data.Body.ToBody Amazonka.MediaStoreData.PutObject.PutObject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStoreData.PutObject.PutObject
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStoreData.PutObject.PutObject
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStoreData.PutObject.PutObject
 
 
 -- | Provides a list of metadata entries about folders and objects in the
 --   specified folder.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MediaStoreData.ListItems
+module Amazonka.MediaStoreData.ListItems
 
 -- | <i>See:</i> <a>newListItems</a> smart constructor.
 data ListItems
@@ -684,28 +684,28 @@ listItemsResponse_nextToken :: Lens' ListItemsResponse (Maybe Text)
 
 -- | The response's http status code.
 listItemsResponse_httpStatus :: Lens' ListItemsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.ListItems.ListItems
-instance GHC.Show.Show Network.AWS.MediaStoreData.ListItems.ListItems
-instance GHC.Read.Read Network.AWS.MediaStoreData.ListItems.ListItems
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.ListItems.ListItems
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.ListItems.ListItemsResponse
-instance GHC.Show.Show Network.AWS.MediaStoreData.ListItems.ListItemsResponse
-instance GHC.Read.Read Network.AWS.MediaStoreData.ListItems.ListItemsResponse
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.ListItems.ListItemsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStoreData.ListItems.ListItems
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.ListItems.ListItemsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MediaStoreData.ListItems.ListItems
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStoreData.ListItems.ListItems
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.ListItems.ListItems
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStoreData.ListItems.ListItems
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStoreData.ListItems.ListItems
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStoreData.ListItems.ListItems
+instance GHC.Generics.Generic Amazonka.MediaStoreData.ListItems.ListItems
+instance GHC.Show.Show Amazonka.MediaStoreData.ListItems.ListItems
+instance GHC.Read.Read Amazonka.MediaStoreData.ListItems.ListItems
+instance GHC.Classes.Eq Amazonka.MediaStoreData.ListItems.ListItems
+instance GHC.Generics.Generic Amazonka.MediaStoreData.ListItems.ListItemsResponse
+instance GHC.Show.Show Amazonka.MediaStoreData.ListItems.ListItemsResponse
+instance GHC.Read.Read Amazonka.MediaStoreData.ListItems.ListItemsResponse
+instance GHC.Classes.Eq Amazonka.MediaStoreData.ListItems.ListItemsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStoreData.ListItems.ListItems
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.ListItems.ListItemsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MediaStoreData.ListItems.ListItems
+instance Data.Hashable.Class.Hashable Amazonka.MediaStoreData.ListItems.ListItems
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.ListItems.ListItems
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStoreData.ListItems.ListItems
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStoreData.ListItems.ListItems
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStoreData.ListItems.ListItems
 
 
 -- | Downloads the object at the specified path. If the object’s upload
 --   availability is set to <tt>streaming</tt>, AWS Elemental MediaStore
 --   downloads the object even if it’s still uploading the object.
-module Network.AWS.MediaStoreData.GetObject
+module Amazonka.MediaStoreData.GetObject
 
 -- | <i>See:</i> <a>newGetObject</a> smart constructor.
 data GetObject
@@ -940,22 +940,22 @@ getObjectResponse_statusCode :: Lens' GetObjectResponse Int
 
 -- | The bytes of the object.
 getObjectResponse_body :: Lens' GetObjectResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.GetObject.GetObject
-instance GHC.Show.Show Network.AWS.MediaStoreData.GetObject.GetObject
-instance GHC.Read.Read Network.AWS.MediaStoreData.GetObject.GetObject
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.GetObject.GetObject
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.GetObject.GetObjectResponse
-instance GHC.Show.Show Network.AWS.MediaStoreData.GetObject.GetObjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStoreData.GetObject.GetObject
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStoreData.GetObject.GetObject
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.GetObject.GetObject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStoreData.GetObject.GetObject
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStoreData.GetObject.GetObject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStoreData.GetObject.GetObject
+instance GHC.Generics.Generic Amazonka.MediaStoreData.GetObject.GetObject
+instance GHC.Show.Show Amazonka.MediaStoreData.GetObject.GetObject
+instance GHC.Read.Read Amazonka.MediaStoreData.GetObject.GetObject
+instance GHC.Classes.Eq Amazonka.MediaStoreData.GetObject.GetObject
+instance GHC.Generics.Generic Amazonka.MediaStoreData.GetObject.GetObjectResponse
+instance GHC.Show.Show Amazonka.MediaStoreData.GetObject.GetObjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStoreData.GetObject.GetObject
+instance Data.Hashable.Class.Hashable Amazonka.MediaStoreData.GetObject.GetObject
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.GetObject.GetObject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStoreData.GetObject.GetObject
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStoreData.GetObject.GetObject
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStoreData.GetObject.GetObject
 
 
 -- | Gets the headers for an object at the specified path.
-module Network.AWS.MediaStoreData.DescribeObject
+module Amazonka.MediaStoreData.DescribeObject
 
 -- | <i>See:</i> <a>newDescribeObject</a> smart constructor.
 data DescribeObject
@@ -1074,25 +1074,25 @@ describeObjectResponse_contentType :: Lens' DescribeObjectResponse (Maybe Text)
 
 -- | The response's http status code.
 describeObjectResponse_httpStatus :: Lens' DescribeObjectResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.DescribeObject.DescribeObject
-instance GHC.Show.Show Network.AWS.MediaStoreData.DescribeObject.DescribeObject
-instance GHC.Read.Read Network.AWS.MediaStoreData.DescribeObject.DescribeObject
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.DescribeObject.DescribeObject
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.DescribeObject.DescribeObjectResponse
-instance GHC.Show.Show Network.AWS.MediaStoreData.DescribeObject.DescribeObjectResponse
-instance GHC.Read.Read Network.AWS.MediaStoreData.DescribeObject.DescribeObjectResponse
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.DescribeObject.DescribeObjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStoreData.DescribeObject.DescribeObject
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.DescribeObject.DescribeObjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStoreData.DescribeObject.DescribeObject
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.DescribeObject.DescribeObject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStoreData.DescribeObject.DescribeObject
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStoreData.DescribeObject.DescribeObject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStoreData.DescribeObject.DescribeObject
+instance GHC.Generics.Generic Amazonka.MediaStoreData.DescribeObject.DescribeObject
+instance GHC.Show.Show Amazonka.MediaStoreData.DescribeObject.DescribeObject
+instance GHC.Read.Read Amazonka.MediaStoreData.DescribeObject.DescribeObject
+instance GHC.Classes.Eq Amazonka.MediaStoreData.DescribeObject.DescribeObject
+instance GHC.Generics.Generic Amazonka.MediaStoreData.DescribeObject.DescribeObjectResponse
+instance GHC.Show.Show Amazonka.MediaStoreData.DescribeObject.DescribeObjectResponse
+instance GHC.Read.Read Amazonka.MediaStoreData.DescribeObject.DescribeObjectResponse
+instance GHC.Classes.Eq Amazonka.MediaStoreData.DescribeObject.DescribeObjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStoreData.DescribeObject.DescribeObject
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.DescribeObject.DescribeObjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStoreData.DescribeObject.DescribeObject
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.DescribeObject.DescribeObject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStoreData.DescribeObject.DescribeObject
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStoreData.DescribeObject.DescribeObject
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStoreData.DescribeObject.DescribeObject
 
 
 -- | Deletes an object at the specified path.
-module Network.AWS.MediaStoreData.DeleteObject
+module Amazonka.MediaStoreData.DeleteObject
 
 -- | <i>See:</i> <a>newDeleteObject</a> smart constructor.
 data DeleteObject
@@ -1145,24 +1145,24 @@ newDeleteObjectResponse :: Int -> DeleteObjectResponse
 
 -- | The response's http status code.
 deleteObjectResponse_httpStatus :: Lens' DeleteObjectResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.DeleteObject.DeleteObject
-instance GHC.Show.Show Network.AWS.MediaStoreData.DeleteObject.DeleteObject
-instance GHC.Read.Read Network.AWS.MediaStoreData.DeleteObject.DeleteObject
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.DeleteObject.DeleteObject
-instance GHC.Generics.Generic Network.AWS.MediaStoreData.DeleteObject.DeleteObjectResponse
-instance GHC.Show.Show Network.AWS.MediaStoreData.DeleteObject.DeleteObjectResponse
-instance GHC.Read.Read Network.AWS.MediaStoreData.DeleteObject.DeleteObjectResponse
-instance GHC.Classes.Eq Network.AWS.MediaStoreData.DeleteObject.DeleteObjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStoreData.DeleteObject.DeleteObject
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.DeleteObject.DeleteObjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStoreData.DeleteObject.DeleteObject
-instance Control.DeepSeq.NFData Network.AWS.MediaStoreData.DeleteObject.DeleteObject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStoreData.DeleteObject.DeleteObject
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStoreData.DeleteObject.DeleteObject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStoreData.DeleteObject.DeleteObject
+instance GHC.Generics.Generic Amazonka.MediaStoreData.DeleteObject.DeleteObject
+instance GHC.Show.Show Amazonka.MediaStoreData.DeleteObject.DeleteObject
+instance GHC.Read.Read Amazonka.MediaStoreData.DeleteObject.DeleteObject
+instance GHC.Classes.Eq Amazonka.MediaStoreData.DeleteObject.DeleteObject
+instance GHC.Generics.Generic Amazonka.MediaStoreData.DeleteObject.DeleteObjectResponse
+instance GHC.Show.Show Amazonka.MediaStoreData.DeleteObject.DeleteObjectResponse
+instance GHC.Read.Read Amazonka.MediaStoreData.DeleteObject.DeleteObjectResponse
+instance GHC.Classes.Eq Amazonka.MediaStoreData.DeleteObject.DeleteObjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStoreData.DeleteObject.DeleteObject
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.DeleteObject.DeleteObjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStoreData.DeleteObject.DeleteObject
+instance Control.DeepSeq.NFData Amazonka.MediaStoreData.DeleteObject.DeleteObject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStoreData.DeleteObject.DeleteObject
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStoreData.DeleteObject.DeleteObject
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStoreData.DeleteObject.DeleteObject
 
 
-module Network.AWS.MediaStoreData.Lens
+module Amazonka.MediaStoreData.Lens
 
 -- | Indicates the storage class of a <tt>Put</tt> request. Defaults to
 --   high-performance temporal storage class, and objects are persisted
@@ -1401,7 +1401,7 @@ item_lastModified :: Lens' Item (Maybe UTCTime)
 item_contentType :: Lens' Item (Maybe Text)
 
 
-module Network.AWS.MediaStoreData.Waiters
+module Amazonka.MediaStoreData.Waiters
 
 
 -- | Derived from API version <tt>2017-09-01</tt> of the AWS service
@@ -1410,7 +1410,7 @@ module Network.AWS.MediaStoreData.Waiters
 --   An AWS Elemental MediaStore asset is an object, similar to an object
 --   in the Amazon S3 service. Objects are the fundamental entities that
 --   are stored in AWS Elemental MediaStore.
-module Network.AWS.MediaStoreData
+module Amazonka.MediaStoreData
 
 -- | API version <tt>2017-09-01</tt> of the Amazon Elemental MediaStore
 --   Data Plane SDK configuration.

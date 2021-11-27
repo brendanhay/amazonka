@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Backup.ListBackupPlans</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of all active backup plans for an authenticated account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- The list contains information such as Amazon Resource Names (ARNs), plan</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- IDs, creation and deletion dates, version IDs, plan names, and creator</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- request IDs.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Backup.ListBackupPlans</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier">ListBackupPlans</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#newListBackupPlans"><span class="hs-identifier">newListBackupPlans</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlans_nextToken"><span class="hs-identifier">listBackupPlans_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlans_maxResults"><span class="hs-identifier">listBackupPlans_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlans_includeDeleted"><span class="hs-identifier">listBackupPlans_includeDeleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier">ListBackupPlansResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#newListBackupPlansResponse"><span class="hs-identifier">newListBackupPlansResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlansResponse_nextToken"><span class="hs-identifier">listBackupPlansResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlansResponse_backupPlansList"><span class="hs-identifier">listBackupPlansResponse_backupPlansList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlansResponse_httpStatus"><span class="hs-identifier">listBackupPlansResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.html"><span class="hs-identifier">Amazonka.Backup.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListBackupPlans' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679315900"><span id="local-6989586621679315901"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackupPlans"><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-var">ListBackupPlans</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackupPlans%27"><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans%27"><span class="hs-identifier hs-var">ListBackupPlans'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListBackupPlans%27"><span class="annot"><span class="annottext">ListBackupPlans -&gt; Maybe Text
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AnextToken%3AListBackupPlans%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to be returned.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListBackupPlans%27"><span class="annot"><span class="annottext">ListBackupPlans -&gt; Maybe Natural
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AmaxResults%3AListBackupPlans%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A Boolean value with a default value of @FALSE@ that returns deleted</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- backup plans when set to @TRUE@.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AincludeDeleted%3AListBackupPlans%27"><span class="annot"><span class="annottext">ListBackupPlans -&gt; Maybe Bool
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AincludeDeleted%3AListBackupPlans%27"><span class="hs-identifier hs-var hs-var">includeDeleted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315892"><span id="local-6989586621679315894"><span class="annot"><span class="annottext">ListBackupPlans -&gt; ListBackupPlans -&gt; Bool
+(ListBackupPlans -&gt; ListBackupPlans -&gt; Bool)
+-&gt; (ListBackupPlans -&gt; ListBackupPlans -&gt; Bool)
+-&gt; Eq ListBackupPlans
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListBackupPlans -&gt; ListBackupPlans -&gt; Bool
+$c/= :: ListBackupPlans -&gt; ListBackupPlans -&gt; Bool
+== :: ListBackupPlans -&gt; ListBackupPlans -&gt; Bool
+$c== :: ListBackupPlans -&gt; ListBackupPlans -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315883"><span id="local-6989586621679315885"><span id="local-6989586621679315887"><span id="local-6989586621679315889"><span class="annot"><span class="annottext">ReadPrec [ListBackupPlans]
+ReadPrec ListBackupPlans
+Int -&gt; ReadS ListBackupPlans
+ReadS [ListBackupPlans]
+(Int -&gt; ReadS ListBackupPlans)
+-&gt; ReadS [ListBackupPlans]
+-&gt; ReadPrec ListBackupPlans
+-&gt; ReadPrec [ListBackupPlans]
+-&gt; Read ListBackupPlans
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListBackupPlans]
+$creadListPrec :: ReadPrec [ListBackupPlans]
+readPrec :: ReadPrec ListBackupPlans
+$creadPrec :: ReadPrec ListBackupPlans
+readList :: ReadS [ListBackupPlans]
+$creadList :: ReadS [ListBackupPlans]
+readsPrec :: Int -&gt; ReadS ListBackupPlans
+$creadsPrec :: Int -&gt; ReadS ListBackupPlans
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315876"><span id="local-6989586621679315878"><span id="local-6989586621679315880"><span class="annot"><span class="annottext">Int -&gt; ListBackupPlans -&gt; ShowS
+[ListBackupPlans] -&gt; ShowS
+ListBackupPlans -&gt; String
+(Int -&gt; ListBackupPlans -&gt; ShowS)
+-&gt; (ListBackupPlans -&gt; String)
+-&gt; ([ListBackupPlans] -&gt; ShowS)
+-&gt; Show ListBackupPlans
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListBackupPlans] -&gt; ShowS
+$cshowList :: [ListBackupPlans] -&gt; ShowS
+show :: ListBackupPlans -&gt; String
+$cshow :: ListBackupPlans -&gt; String
+showsPrec :: Int -&gt; ListBackupPlans -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListBackupPlans -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListBackupPlans -&gt; Rep ListBackupPlans x)
+-&gt; (forall x. Rep ListBackupPlans x -&gt; ListBackupPlans)
+-&gt; Generic ListBackupPlans
+forall x. Rep ListBackupPlans x -&gt; ListBackupPlans
+forall x. ListBackupPlans -&gt; Rep ListBackupPlans x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListBackupPlans x -&gt; ListBackupPlans
+$cfrom :: forall x. ListBackupPlans -&gt; Rep ListBackupPlans x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'ListBackupPlans' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'listBackupPlans_nextToken' - The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'maxResults', 'listBackupPlans_maxResults' - The maximum number of items to be returned.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'includeDeleted', 'listBackupPlans_includeDeleted' - A Boolean value with a default value of @FALSE@ that returns deleted</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- backup plans when set to @TRUE@.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#newListBackupPlans"><span class="hs-identifier hs-type">newListBackupPlans</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span>
+</span><span id="line-89"></span><span id="newListBackupPlans"><span class="annot"><span class="annottext">newListBackupPlans :: ListBackupPlans
+</span><a href="Amazonka.Backup.ListBackupPlans.html#newListBackupPlans"><span class="hs-identifier hs-var hs-var">newListBackupPlans</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ListBackupPlans' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Bool -&gt; ListBackupPlans
+</span><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans%27"><span class="hs-identifier hs-type">ListBackupPlans'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListBackupPlans' :: Maybe Text
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AnextToken%3AListBackupPlans%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListBackupPlans' :: Maybe Natural
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AmaxResults%3AListBackupPlans%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeDeleted:ListBackupPlans' :: Maybe Bool
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AincludeDeleted%3AListBackupPlans%27"><span class="hs-identifier hs-var">includeDeleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlans_nextToken"><span class="hs-identifier hs-type">listBackupPlans_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listBackupPlans_nextToken"><span class="annot"><span class="annottext">listBackupPlans_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackupPlans -&gt; f ListBackupPlans
+</span><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlans_nextToken"><span class="hs-identifier hs-var hs-var">listBackupPlans_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupPlans -&gt; Maybe Text)
+-&gt; (ListBackupPlans -&gt; Maybe Text -&gt; ListBackupPlans)
+-&gt; Lens ListBackupPlans ListBackupPlans (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans%27"><span class="hs-identifier hs-type">ListBackupPlans'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315869"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListBackupPlans' :: ListBackupPlans -&gt; Maybe Text
+</span><a href="#local-6989586621679315869"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315869"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315868"><span class="annot"><span class="annottext">s :: ListBackupPlans
+</span><a href="#local-6989586621679315868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans%27"><span class="hs-identifier hs-type">ListBackupPlans'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupPlans
+</span><a href="#local-6989586621679315868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBackupPlans' :: Maybe Text
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AnextToken%3AListBackupPlans%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The maximum number of items to be returned.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlans_maxResults"><span class="hs-identifier hs-type">listBackupPlans_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="listBackupPlans_maxResults"><span class="annot"><span class="annottext">listBackupPlans_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListBackupPlans -&gt; f ListBackupPlans
+</span><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlans_maxResults"><span class="hs-identifier hs-var hs-var">listBackupPlans_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupPlans -&gt; Maybe Natural)
+-&gt; (ListBackupPlans -&gt; Maybe Natural -&gt; ListBackupPlans)
+-&gt; Lens
+     ListBackupPlans ListBackupPlans (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans%27"><span class="hs-identifier hs-type">ListBackupPlans'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315866"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListBackupPlans' :: ListBackupPlans -&gt; Maybe Natural
+</span><a href="#local-6989586621679315866"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679315866"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315865"><span class="annot"><span class="annottext">s :: ListBackupPlans
+</span><a href="#local-6989586621679315865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans%27"><span class="hs-identifier hs-type">ListBackupPlans'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315864"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679315864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupPlans
+</span><a href="#local-6989586621679315865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBackupPlans' :: Maybe Natural
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AmaxResults%3AListBackupPlans%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679315864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | A Boolean value with a default value of @FALSE@ that returns deleted</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- backup plans when set to @TRUE@.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlans_includeDeleted"><span class="hs-identifier hs-type">listBackupPlans_includeDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="listBackupPlans_includeDeleted"><span class="annot"><span class="annottext">listBackupPlans_includeDeleted :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListBackupPlans -&gt; f ListBackupPlans
+</span><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlans_includeDeleted"><span class="hs-identifier hs-var hs-var">listBackupPlans_includeDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupPlans -&gt; Maybe Bool)
+-&gt; (ListBackupPlans -&gt; Maybe Bool -&gt; ListBackupPlans)
+-&gt; Lens ListBackupPlans ListBackupPlans (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans%27"><span class="hs-identifier hs-type">ListBackupPlans'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315863"><span class="annot"><span class="annottext">Maybe Bool
+includeDeleted :: Maybe Bool
+$sel:includeDeleted:ListBackupPlans' :: ListBackupPlans -&gt; Maybe Bool
+</span><a href="#local-6989586621679315863"><span class="hs-identifier hs-var hs-var">includeDeleted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679315863"><span class="hs-identifier hs-var">includeDeleted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315862"><span class="annot"><span class="annottext">s :: ListBackupPlans
+</span><a href="#local-6989586621679315862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans%27"><span class="hs-identifier hs-type">ListBackupPlans'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315861"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679315861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupPlans
+</span><a href="#local-6989586621679315862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeDeleted:ListBackupPlans' :: Maybe Bool
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AincludeDeleted%3AListBackupPlans%27"><span class="hs-identifier hs-var">includeDeleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679315861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-type">ListBackupPlansResponse</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679315857"><span class="annot"><span class="annottext">request :: ListBackupPlans -&gt; Request ListBackupPlans
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBackupPlans -&gt; Request ListBackupPlans
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679315853"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListBackupPlans
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListBackupPlans)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListBackupPlans))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListBackupPlans
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListBackupPlans)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315850"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315850"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679315849"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679315849"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679315848"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315848"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [BackupPlansListMember] -&gt; Int -&gt; ListBackupPlansResponse
+</span><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse%27"><span class="hs-identifier hs-var">ListBackupPlansResponse'</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [BackupPlansListMember] -&gt; Int -&gt; ListBackupPlansResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [BackupPlansListMember] -&gt; Int -&gt; ListBackupPlansResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [BackupPlansListMember] -&gt; Int -&gt; ListBackupPlansResponse)
+-&gt; Either String (Maybe [BackupPlansListMember])
+-&gt; Either String (Int -&gt; ListBackupPlansResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [BackupPlansListMember]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupPlansList&quot;</span></span><span>
+</span><span id="line-123"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BackupPlansListMember]))
+-&gt; Maybe [BackupPlansListMember]
+-&gt; Either String (Maybe [BackupPlansListMember])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BackupPlansListMember]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListBackupPlansResponse)
+-&gt; Either String Int -&gt; Either String ListBackupPlansResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315850"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315839"><span id="local-6989586621679315841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679315832"><span class="annot"><span class="annottext">toHeaders :: ListBackupPlans -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBackupPlans -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679315826"><span class="annot"><span class="annottext">toPath :: ListBackupPlans -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListBackupPlans -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backup/plans/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans"><span class="hs-identifier hs-type">ListBackupPlans</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679315822"><span class="annot"><span class="annottext">toQuery :: ListBackupPlans -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlans%27"><span class="hs-identifier hs-type">ListBackupPlans'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315818"><span id="local-6989586621679315819"><span id="local-6989586621679315820"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+includeDeleted :: Maybe Bool
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:includeDeleted:ListBackupPlans' :: ListBackupPlans -&gt; Maybe Bool
+$sel:maxResults:ListBackupPlans' :: ListBackupPlans -&gt; Maybe Natural
+$sel:nextToken:ListBackupPlans' :: ListBackupPlans -&gt; Maybe Text
+</span><a href="#local-6989586621679315818"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315820"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679315819"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;includeDeleted&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679315818"><span class="hs-identifier hs-var">includeDeleted</span></a></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newListBackupPlansResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621679315815"><span id="local-6989586621679315816"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackupPlansResponse"><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-var">ListBackupPlansResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackupPlansResponse%27"><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse%27"><span class="hs-identifier hs-var">ListBackupPlansResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AnextToken%3AListBackupPlansResponse%27"><span class="annot"><span class="annottext">ListBackupPlansResponse -&gt; Maybe Text
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AnextToken%3AListBackupPlansResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | An array of backup plan list items containing metadata about your saved</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- backup plans.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AbackupPlansList%3AListBackupPlansResponse%27"><span class="annot"><span class="annottext">ListBackupPlansResponse -&gt; Maybe [BackupPlansListMember]
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AbackupPlansList%3AListBackupPlansResponse%27"><span class="hs-identifier hs-var hs-var">backupPlansList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Backup.Types.BackupPlansListMember.html#BackupPlansListMember"><span class="hs-identifier hs-type">BackupPlansListMember</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBackupPlansResponse%27"><span class="annot"><span class="annottext">ListBackupPlansResponse -&gt; Int
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AhttpStatus%3AListBackupPlansResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315808"><span id="local-6989586621679315810"><span class="annot"><span class="annottext">ListBackupPlansResponse -&gt; ListBackupPlansResponse -&gt; Bool
+(ListBackupPlansResponse -&gt; ListBackupPlansResponse -&gt; Bool)
+-&gt; (ListBackupPlansResponse -&gt; ListBackupPlansResponse -&gt; Bool)
+-&gt; Eq ListBackupPlansResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListBackupPlansResponse -&gt; ListBackupPlansResponse -&gt; Bool
+$c/= :: ListBackupPlansResponse -&gt; ListBackupPlansResponse -&gt; Bool
+== :: ListBackupPlansResponse -&gt; ListBackupPlansResponse -&gt; Bool
+$c== :: ListBackupPlansResponse -&gt; ListBackupPlansResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315800"><span id="local-6989586621679315802"><span id="local-6989586621679315804"><span id="local-6989586621679315806"><span class="annot"><span class="annottext">ReadPrec [ListBackupPlansResponse]
+ReadPrec ListBackupPlansResponse
+Int -&gt; ReadS ListBackupPlansResponse
+ReadS [ListBackupPlansResponse]
+(Int -&gt; ReadS ListBackupPlansResponse)
+-&gt; ReadS [ListBackupPlansResponse]
+-&gt; ReadPrec ListBackupPlansResponse
+-&gt; ReadPrec [ListBackupPlansResponse]
+-&gt; Read ListBackupPlansResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListBackupPlansResponse]
+$creadListPrec :: ReadPrec [ListBackupPlansResponse]
+readPrec :: ReadPrec ListBackupPlansResponse
+$creadPrec :: ReadPrec ListBackupPlansResponse
+readList :: ReadS [ListBackupPlansResponse]
+$creadList :: ReadS [ListBackupPlansResponse]
+readsPrec :: Int -&gt; ReadS ListBackupPlansResponse
+$creadsPrec :: Int -&gt; ReadS ListBackupPlansResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315794"><span id="local-6989586621679315796"><span id="local-6989586621679315798"><span class="annot"><span class="annottext">Int -&gt; ListBackupPlansResponse -&gt; ShowS
+[ListBackupPlansResponse] -&gt; ShowS
+ListBackupPlansResponse -&gt; String
+(Int -&gt; ListBackupPlansResponse -&gt; ShowS)
+-&gt; (ListBackupPlansResponse -&gt; String)
+-&gt; ([ListBackupPlansResponse] -&gt; ShowS)
+-&gt; Show ListBackupPlansResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListBackupPlansResponse] -&gt; ShowS
+$cshowList :: [ListBackupPlansResponse] -&gt; ShowS
+show :: ListBackupPlansResponse -&gt; String
+$cshow :: ListBackupPlansResponse -&gt; String
+showsPrec :: Int -&gt; ListBackupPlansResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListBackupPlansResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListBackupPlansResponse -&gt; Rep ListBackupPlansResponse x)
+-&gt; (forall x.
+    Rep ListBackupPlansResponse x -&gt; ListBackupPlansResponse)
+-&gt; Generic ListBackupPlansResponse
+forall x. Rep ListBackupPlansResponse x -&gt; ListBackupPlansResponse
+forall x. ListBackupPlansResponse -&gt; Rep ListBackupPlansResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListBackupPlansResponse x -&gt; ListBackupPlansResponse
+$cfrom :: forall x. ListBackupPlansResponse -&gt; Rep ListBackupPlansResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Create a value of 'ListBackupPlansResponse' with all optional fields omitted.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'nextToken', 'listBackupPlansResponse_nextToken' - The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'backupPlansList', 'listBackupPlansResponse_backupPlansList' - An array of backup plan list items containing metadata about your saved</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- backup plans.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'httpStatus', 'listBackupPlansResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#newListBackupPlansResponse"><span class="hs-identifier hs-type">newListBackupPlansResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-type">ListBackupPlansResponse</span></a></span><span>
+</span><span id="line-190"></span><span id="newListBackupPlansResponse"><span class="annot"><span class="annottext">newListBackupPlansResponse :: Int -&gt; ListBackupPlansResponse
+</span><a href="Amazonka.Backup.ListBackupPlans.html#newListBackupPlansResponse"><span class="hs-identifier hs-var hs-var">newListBackupPlansResponse</span></a></span></span><span> </span><span id="local-6989586621679315791"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">ListBackupPlansResponse' :: Maybe Text
+-&gt; Maybe [BackupPlansListMember] -&gt; Int -&gt; ListBackupPlansResponse
+</span><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse%27"><span class="hs-identifier hs-type">ListBackupPlansResponse'</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListBackupPlansResponse' :: Maybe Text
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AnextToken%3AListBackupPlansResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupPlansList:ListBackupPlansResponse' :: Maybe [BackupPlansListMember]
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AbackupPlansList%3AListBackupPlansResponse%27"><span class="hs-identifier hs-var">backupPlansList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BackupPlansListMember]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBackupPlansResponse' :: Int
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AhttpStatus%3AListBackupPlansResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlansResponse_nextToken"><span class="hs-identifier hs-type">listBackupPlansResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-type">ListBackupPlansResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="listBackupPlansResponse_nextToken"><span class="annot"><span class="annottext">listBackupPlansResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackupPlansResponse -&gt; f ListBackupPlansResponse
+</span><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlansResponse_nextToken"><span class="hs-identifier hs-var hs-var">listBackupPlansResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupPlansResponse -&gt; Maybe Text)
+-&gt; (ListBackupPlansResponse
+    -&gt; Maybe Text -&gt; ListBackupPlansResponse)
+-&gt; Lens
+     ListBackupPlansResponse
+     ListBackupPlansResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse%27"><span class="hs-identifier hs-type">ListBackupPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315790"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListBackupPlansResponse' :: ListBackupPlansResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679315790"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315790"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315789"><span class="annot"><span class="annottext">s :: ListBackupPlansResponse
+</span><a href="#local-6989586621679315789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse%27"><span class="hs-identifier hs-type">ListBackupPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315788"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupPlansResponse
+</span><a href="#local-6989586621679315789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBackupPlansResponse' :: Maybe Text
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AnextToken%3AListBackupPlansResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-type">ListBackupPlansResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | An array of backup plan list items containing metadata about your saved</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- backup plans.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlansResponse_backupPlansList"><span class="hs-identifier hs-type">listBackupPlansResponse_backupPlansList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-type">ListBackupPlansResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Backup.Types.BackupPlansListMember.html#BackupPlansListMember"><span class="hs-identifier hs-type">BackupPlansListMember</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="listBackupPlansResponse_backupPlansList"><span class="annot"><span class="annottext">listBackupPlansResponse_backupPlansList :: (Maybe [BackupPlansListMember]
+ -&gt; f (Maybe [BackupPlansListMember]))
+-&gt; ListBackupPlansResponse -&gt; f ListBackupPlansResponse
+</span><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlansResponse_backupPlansList"><span class="hs-identifier hs-var hs-var">listBackupPlansResponse_backupPlansList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupPlansResponse -&gt; Maybe [BackupPlansListMember])
+-&gt; (ListBackupPlansResponse
+    -&gt; Maybe [BackupPlansListMember] -&gt; ListBackupPlansResponse)
+-&gt; Lens
+     ListBackupPlansResponse
+     ListBackupPlansResponse
+     (Maybe [BackupPlansListMember])
+     (Maybe [BackupPlansListMember])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse%27"><span class="hs-identifier hs-type">ListBackupPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315787"><span class="annot"><span class="annottext">Maybe [BackupPlansListMember]
+backupPlansList :: Maybe [BackupPlansListMember]
+$sel:backupPlansList:ListBackupPlansResponse' :: ListBackupPlansResponse -&gt; Maybe [BackupPlansListMember]
+</span><a href="#local-6989586621679315787"><span class="hs-identifier hs-var hs-var">backupPlansList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BackupPlansListMember]
+</span><a href="#local-6989586621679315787"><span class="hs-identifier hs-var">backupPlansList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315786"><span class="annot"><span class="annottext">s :: ListBackupPlansResponse
+</span><a href="#local-6989586621679315786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse%27"><span class="hs-identifier hs-type">ListBackupPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315785"><span class="annot"><span class="annottext">Maybe [BackupPlansListMember]
+</span><a href="#local-6989586621679315785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupPlansResponse
+</span><a href="#local-6989586621679315786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupPlansList:ListBackupPlansResponse' :: Maybe [BackupPlansListMember]
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AbackupPlansList%3AListBackupPlansResponse%27"><span class="hs-identifier hs-var">backupPlansList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BackupPlansListMember]
+</span><a href="#local-6989586621679315785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-type">ListBackupPlansResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BackupPlansListMember]
+  -&gt; f (Maybe [BackupPlansListMember]))
+ -&gt; ListBackupPlansResponse -&gt; f ListBackupPlansResponse)
+-&gt; ((Maybe [BackupPlansListMember]
+     -&gt; f (Maybe [BackupPlansListMember]))
+    -&gt; Maybe [BackupPlansListMember]
+    -&gt; f (Maybe [BackupPlansListMember]))
+-&gt; (Maybe [BackupPlansListMember]
+    -&gt; f (Maybe [BackupPlansListMember]))
+-&gt; ListBackupPlansResponse
+-&gt; f ListBackupPlansResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BackupPlansListMember]
+  [BackupPlansListMember]
+  [BackupPlansListMember]
+  [BackupPlansListMember]
+-&gt; Iso
+     (Maybe [BackupPlansListMember])
+     (Maybe [BackupPlansListMember])
+     (Maybe [BackupPlansListMember])
+     (Maybe [BackupPlansListMember])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BackupPlansListMember]
+  [BackupPlansListMember]
+  [BackupPlansListMember]
+  [BackupPlansListMember]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlansResponse_httpStatus"><span class="hs-identifier hs-type">listBackupPlansResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-type">ListBackupPlansResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span id="listBackupPlansResponse_httpStatus"><span class="annot"><span class="annottext">listBackupPlansResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListBackupPlansResponse -&gt; f ListBackupPlansResponse
+</span><a href="Amazonka.Backup.ListBackupPlans.html#listBackupPlansResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listBackupPlansResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupPlansResponse -&gt; Int)
+-&gt; (ListBackupPlansResponse -&gt; Int -&gt; ListBackupPlansResponse)
+-&gt; Lens ListBackupPlansResponse ListBackupPlansResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse%27"><span class="hs-identifier hs-type">ListBackupPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315781"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListBackupPlansResponse' :: ListBackupPlansResponse -&gt; Int
+</span><a href="#local-6989586621679315781"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315781"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315780"><span class="annot"><span class="annottext">s :: ListBackupPlansResponse
+</span><a href="#local-6989586621679315780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse%27"><span class="hs-identifier hs-type">ListBackupPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupPlansResponse
+</span><a href="#local-6989586621679315780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBackupPlansResponse' :: Int
+</span><a href="Amazonka.Backup.ListBackupPlans.html#%24sel%3AhttpStatus%3AListBackupPlansResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-type">ListBackupPlansResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListBackupPlans.html#ListBackupPlansResponse"><span class="hs-identifier hs-type">ListBackupPlansResponse</span></a></span></span><span>
+</span><span id="line-215"></span></pre></body></html>

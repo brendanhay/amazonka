@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.RouteSpec</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.RouteSpec</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GrpcRoute.html"><span class="hs-identifier">Amazonka.AppMesh.Types.GrpcRoute</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRoute.html"><span class="hs-identifier">Amazonka.AppMesh.Types.HttpRoute</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.TcpRoute.html"><span class="hs-identifier">Amazonka.AppMesh.Types.TcpRoute</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | An object that represents a route specification. Specify one route type.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRouteSpec' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679342968"><span id="local-6989586621679342969"></span></span><span class="hs-keyword">data</span><span> </span><span id="RouteSpec"><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-var">RouteSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteSpec%27"><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-var">RouteSpec'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The priority for the route. Routes are matched based on the specified</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- value, where 0 is the highest priority.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Apriority%3ARouteSpec%27"><span class="annot"><span class="annottext">RouteSpec -&gt; Maybe Natural
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3Apriority%3ARouteSpec%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An object that represents the specification of an HTTP\/2 route.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Ahttp2Route%3ARouteSpec%27"><span class="annot"><span class="annottext">RouteSpec -&gt; Maybe HttpRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3Ahttp2Route%3ARouteSpec%27"><span class="hs-identifier hs-var hs-var">http2Route</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRoute.html#HttpRoute"><span class="hs-identifier hs-type">HttpRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | An object that represents the specification of a gRPC route.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AgrpcRoute%3ARouteSpec%27"><span class="annot"><span class="annottext">RouteSpec -&gt; Maybe GrpcRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3AgrpcRoute%3ARouteSpec%27"><span class="hs-identifier hs-var hs-var">grpcRoute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GrpcRoute.html#GrpcRoute"><span class="hs-identifier hs-type">GrpcRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | An object that represents the specification of a TCP route.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtcpRoute%3ARouteSpec%27"><span class="annot"><span class="annottext">RouteSpec -&gt; Maybe TcpRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3AtcpRoute%3ARouteSpec%27"><span class="hs-identifier hs-var hs-var">tcpRoute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.TcpRoute.html#TcpRoute"><span class="hs-identifier hs-type">TcpRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | An object that represents the specification of an HTTP route.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AhttpRoute%3ARouteSpec%27"><span class="annot"><span class="annottext">RouteSpec -&gt; Maybe HttpRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3AhttpRoute%3ARouteSpec%27"><span class="hs-identifier hs-var hs-var">httpRoute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRoute.html#HttpRoute"><span class="hs-identifier hs-type">HttpRoute</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342958"><span id="local-6989586621679342960"><span class="annot"><span class="annottext">RouteSpec -&gt; RouteSpec -&gt; Bool
+(RouteSpec -&gt; RouteSpec -&gt; Bool)
+-&gt; (RouteSpec -&gt; RouteSpec -&gt; Bool) -&gt; Eq RouteSpec
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RouteSpec -&gt; RouteSpec -&gt; Bool
+$c/= :: RouteSpec -&gt; RouteSpec -&gt; Bool
+== :: RouteSpec -&gt; RouteSpec -&gt; Bool
+$c== :: RouteSpec -&gt; RouteSpec -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342949"><span id="local-6989586621679342951"><span id="local-6989586621679342953"><span id="local-6989586621679342955"><span class="annot"><span class="annottext">ReadPrec [RouteSpec]
+ReadPrec RouteSpec
+Int -&gt; ReadS RouteSpec
+ReadS [RouteSpec]
+(Int -&gt; ReadS RouteSpec)
+-&gt; ReadS [RouteSpec]
+-&gt; ReadPrec RouteSpec
+-&gt; ReadPrec [RouteSpec]
+-&gt; Read RouteSpec
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RouteSpec]
+$creadListPrec :: ReadPrec [RouteSpec]
+readPrec :: ReadPrec RouteSpec
+$creadPrec :: ReadPrec RouteSpec
+readList :: ReadS [RouteSpec]
+$creadList :: ReadS [RouteSpec]
+readsPrec :: Int -&gt; ReadS RouteSpec
+$creadsPrec :: Int -&gt; ReadS RouteSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342942"><span id="local-6989586621679342944"><span id="local-6989586621679342946"><span class="annot"><span class="annottext">Int -&gt; RouteSpec -&gt; ShowS
+[RouteSpec] -&gt; ShowS
+RouteSpec -&gt; String
+(Int -&gt; RouteSpec -&gt; ShowS)
+-&gt; (RouteSpec -&gt; String)
+-&gt; ([RouteSpec] -&gt; ShowS)
+-&gt; Show RouteSpec
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RouteSpec] -&gt; ShowS
+$cshowList :: [RouteSpec] -&gt; ShowS
+show :: RouteSpec -&gt; String
+$cshow :: RouteSpec -&gt; String
+showsPrec :: Int -&gt; RouteSpec -&gt; ShowS
+$cshowsPrec :: Int -&gt; RouteSpec -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RouteSpec -&gt; Rep RouteSpec x)
+-&gt; (forall x. Rep RouteSpec x -&gt; RouteSpec) -&gt; Generic RouteSpec
+forall x. Rep RouteSpec x -&gt; RouteSpec
+forall x. RouteSpec -&gt; Rep RouteSpec x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RouteSpec x -&gt; RouteSpec
+$cfrom :: forall x. RouteSpec -&gt; Rep RouteSpec x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'RouteSpec' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'priority', 'routeSpec_priority' - The priority for the route. Routes are matched based on the specified</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- value, where 0 is the highest priority.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'http2Route', 'routeSpec_http2Route' - An object that represents the specification of an HTTP\/2 route.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'grpcRoute', 'routeSpec_grpcRoute' - An object that represents the specification of a gRPC route.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'tcpRoute', 'routeSpec_tcpRoute' - An object that represents the specification of a TCP route.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'httpRoute', 'routeSpec_httpRoute' - An object that represents the specification of an HTTP route.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#newRouteSpec"><span class="hs-identifier hs-type">newRouteSpec</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span>
+</span><span id="line-67"></span><span id="newRouteSpec"><span class="annot"><span class="annottext">newRouteSpec :: RouteSpec
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#newRouteSpec"><span class="hs-identifier hs-var hs-var">newRouteSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">RouteSpec' :: Maybe Natural
+-&gt; Maybe HttpRoute
+-&gt; Maybe GrpcRoute
+-&gt; Maybe TcpRoute
+-&gt; Maybe HttpRoute
+-&gt; RouteSpec
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:priority:RouteSpec' :: Maybe Natural
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3Apriority%3ARouteSpec%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:http2Route:RouteSpec' :: Maybe HttpRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3Ahttp2Route%3ARouteSpec%27"><span class="hs-identifier hs-var">http2Route</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRoute
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:grpcRoute:RouteSpec' :: Maybe GrpcRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3AgrpcRoute%3ARouteSpec%27"><span class="hs-identifier hs-var">grpcRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrpcRoute
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:tcpRoute:RouteSpec' :: Maybe TcpRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3AtcpRoute%3ARouteSpec%27"><span class="hs-identifier hs-var">tcpRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TcpRoute
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpRoute:RouteSpec' :: Maybe HttpRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3AhttpRoute%3ARouteSpec%27"><span class="hs-identifier hs-var">httpRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRoute
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The priority for the route. Routes are matched based on the specified</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- value, where 0 is the highest priority.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_priority"><span class="hs-identifier hs-type">routeSpec_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="routeSpec_priority"><span class="annot"><span class="annottext">routeSpec_priority :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; RouteSpec -&gt; f RouteSpec
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_priority"><span class="hs-identifier hs-var hs-var">routeSpec_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteSpec -&gt; Maybe Natural)
+-&gt; (RouteSpec -&gt; Maybe Natural -&gt; RouteSpec)
+-&gt; Lens RouteSpec RouteSpec (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342933"><span class="annot"><span class="annottext">Maybe Natural
+priority :: Maybe Natural
+$sel:priority:RouteSpec' :: RouteSpec -&gt; Maybe Natural
+</span><a href="#local-6989586621679342933"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342933"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342932"><span class="annot"><span class="annottext">s :: RouteSpec
+</span><a href="#local-6989586621679342932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342931"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679342932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:RouteSpec' :: Maybe Natural
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3Apriority%3ARouteSpec%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | An object that represents the specification of an HTTP\/2 route.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_http2Route"><span class="hs-identifier hs-type">routeSpec_http2Route</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRoute.html#HttpRoute"><span class="hs-identifier hs-type">HttpRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="routeSpec_http2Route"><span class="annot"><span class="annottext">routeSpec_http2Route :: (Maybe HttpRoute -&gt; f (Maybe HttpRoute))
+-&gt; RouteSpec -&gt; f RouteSpec
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_http2Route"><span class="hs-identifier hs-var hs-var">routeSpec_http2Route</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteSpec -&gt; Maybe HttpRoute)
+-&gt; (RouteSpec -&gt; Maybe HttpRoute -&gt; RouteSpec)
+-&gt; Lens RouteSpec RouteSpec (Maybe HttpRoute) (Maybe HttpRoute)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342929"><span class="annot"><span class="annottext">Maybe HttpRoute
+http2Route :: Maybe HttpRoute
+$sel:http2Route:RouteSpec' :: RouteSpec -&gt; Maybe HttpRoute
+</span><a href="#local-6989586621679342929"><span class="hs-identifier hs-var hs-var">http2Route</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRoute
+</span><a href="#local-6989586621679342929"><span class="hs-identifier hs-var">http2Route</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342928"><span class="annot"><span class="annottext">s :: RouteSpec
+</span><a href="#local-6989586621679342928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342927"><span class="annot"><span class="annottext">Maybe HttpRoute
+</span><a href="#local-6989586621679342927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679342928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:http2Route:RouteSpec' :: Maybe HttpRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3Ahttp2Route%3ARouteSpec%27"><span class="hs-identifier hs-var">http2Route</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRoute
+</span><a href="#local-6989586621679342927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | An object that represents the specification of a gRPC route.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_grpcRoute"><span class="hs-identifier hs-type">routeSpec_grpcRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.GrpcRoute.html#GrpcRoute"><span class="hs-identifier hs-type">GrpcRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="routeSpec_grpcRoute"><span class="annot"><span class="annottext">routeSpec_grpcRoute :: (Maybe GrpcRoute -&gt; f (Maybe GrpcRoute))
+-&gt; RouteSpec -&gt; f RouteSpec
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_grpcRoute"><span class="hs-identifier hs-var hs-var">routeSpec_grpcRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteSpec -&gt; Maybe GrpcRoute)
+-&gt; (RouteSpec -&gt; Maybe GrpcRoute -&gt; RouteSpec)
+-&gt; Lens RouteSpec RouteSpec (Maybe GrpcRoute) (Maybe GrpcRoute)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342925"><span class="annot"><span class="annottext">Maybe GrpcRoute
+grpcRoute :: Maybe GrpcRoute
+$sel:grpcRoute:RouteSpec' :: RouteSpec -&gt; Maybe GrpcRoute
+</span><a href="#local-6989586621679342925"><span class="hs-identifier hs-var hs-var">grpcRoute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GrpcRoute
+</span><a href="#local-6989586621679342925"><span class="hs-identifier hs-var">grpcRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342924"><span class="annot"><span class="annottext">s :: RouteSpec
+</span><a href="#local-6989586621679342924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342923"><span class="annot"><span class="annottext">Maybe GrpcRoute
+</span><a href="#local-6989586621679342923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679342924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grpcRoute:RouteSpec' :: Maybe GrpcRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3AgrpcRoute%3ARouteSpec%27"><span class="hs-identifier hs-var">grpcRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrpcRoute
+</span><a href="#local-6989586621679342923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | An object that represents the specification of a TCP route.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_tcpRoute"><span class="hs-identifier hs-type">routeSpec_tcpRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.TcpRoute.html#TcpRoute"><span class="hs-identifier hs-type">TcpRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="routeSpec_tcpRoute"><span class="annot"><span class="annottext">routeSpec_tcpRoute :: (Maybe TcpRoute -&gt; f (Maybe TcpRoute)) -&gt; RouteSpec -&gt; f RouteSpec
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_tcpRoute"><span class="hs-identifier hs-var hs-var">routeSpec_tcpRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteSpec -&gt; Maybe TcpRoute)
+-&gt; (RouteSpec -&gt; Maybe TcpRoute -&gt; RouteSpec)
+-&gt; Lens RouteSpec RouteSpec (Maybe TcpRoute) (Maybe TcpRoute)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342921"><span class="annot"><span class="annottext">Maybe TcpRoute
+tcpRoute :: Maybe TcpRoute
+$sel:tcpRoute:RouteSpec' :: RouteSpec -&gt; Maybe TcpRoute
+</span><a href="#local-6989586621679342921"><span class="hs-identifier hs-var hs-var">tcpRoute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TcpRoute
+</span><a href="#local-6989586621679342921"><span class="hs-identifier hs-var">tcpRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342920"><span class="annot"><span class="annottext">s :: RouteSpec
+</span><a href="#local-6989586621679342920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342919"><span class="annot"><span class="annottext">Maybe TcpRoute
+</span><a href="#local-6989586621679342919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679342920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tcpRoute:RouteSpec' :: Maybe TcpRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3AtcpRoute%3ARouteSpec%27"><span class="hs-identifier hs-var">tcpRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TcpRoute
+</span><a href="#local-6989586621679342919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | An object that represents the specification of an HTTP route.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_httpRoute"><span class="hs-identifier hs-type">routeSpec_httpRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.HttpRoute.html#HttpRoute"><span class="hs-identifier hs-type">HttpRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="routeSpec_httpRoute"><span class="annot"><span class="annottext">routeSpec_httpRoute :: (Maybe HttpRoute -&gt; f (Maybe HttpRoute))
+-&gt; RouteSpec -&gt; f RouteSpec
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#routeSpec_httpRoute"><span class="hs-identifier hs-var hs-var">routeSpec_httpRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteSpec -&gt; Maybe HttpRoute)
+-&gt; (RouteSpec -&gt; Maybe HttpRoute -&gt; RouteSpec)
+-&gt; Lens RouteSpec RouteSpec (Maybe HttpRoute) (Maybe HttpRoute)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342917"><span class="annot"><span class="annottext">Maybe HttpRoute
+httpRoute :: Maybe HttpRoute
+$sel:httpRoute:RouteSpec' :: RouteSpec -&gt; Maybe HttpRoute
+</span><a href="#local-6989586621679342917"><span class="hs-identifier hs-var hs-var">httpRoute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRoute
+</span><a href="#local-6989586621679342917"><span class="hs-identifier hs-var">httpRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342916"><span class="annot"><span class="annottext">s :: RouteSpec
+</span><a href="#local-6989586621679342916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342915"><span class="annot"><span class="annottext">Maybe HttpRoute
+</span><a href="#local-6989586621679342915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679342916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpRoute:RouteSpec' :: Maybe HttpRoute
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#%24sel%3AhttpRoute%3ARouteSpec%27"><span class="hs-identifier hs-var">httpRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRoute
+</span><a href="#local-6989586621679342915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342912"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679342910"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RouteSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser RouteSpec) -&gt; Value -&gt; Parser RouteSpec
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RouteSpec&quot;</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342907"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342907"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe HttpRoute
+-&gt; Maybe GrpcRoute
+-&gt; Maybe TcpRoute
+-&gt; Maybe HttpRoute
+-&gt; RouteSpec
+</span><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-var">RouteSpec'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe HttpRoute
+ -&gt; Maybe GrpcRoute
+ -&gt; Maybe TcpRoute
+ -&gt; Maybe HttpRoute
+ -&gt; RouteSpec)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe HttpRoute
+      -&gt; Maybe GrpcRoute
+      -&gt; Maybe TcpRoute
+      -&gt; Maybe HttpRoute
+      -&gt; RouteSpec)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;priority&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HttpRoute
+   -&gt; Maybe GrpcRoute
+   -&gt; Maybe TcpRoute
+   -&gt; Maybe HttpRoute
+   -&gt; RouteSpec)
+-&gt; Parser (Maybe HttpRoute)
+-&gt; Parser
+     (Maybe GrpcRoute -&gt; Maybe TcpRoute -&gt; Maybe HttpRoute -&gt; RouteSpec)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpRoute)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http2Route&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GrpcRoute -&gt; Maybe TcpRoute -&gt; Maybe HttpRoute -&gt; RouteSpec)
+-&gt; Parser (Maybe GrpcRoute)
+-&gt; Parser (Maybe TcpRoute -&gt; Maybe HttpRoute -&gt; RouteSpec)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GrpcRoute)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;grpcRoute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TcpRoute -&gt; Maybe HttpRoute -&gt; RouteSpec)
+-&gt; Parser (Maybe TcpRoute) -&gt; Parser (Maybe HttpRoute -&gt; RouteSpec)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TcpRoute)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tcpRoute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HttpRoute -&gt; RouteSpec)
+-&gt; Parser (Maybe HttpRoute) -&gt; Parser RouteSpec
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpRoute)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;httpRoute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342901"><span id="local-6989586621679342903"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342890"><span id="local-6989586621679342892"><span id="local-6989586621679342894"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679342888"><span class="annot"><span class="annottext">toJSON :: RouteSpec -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec%27"><span class="hs-identifier hs-type">RouteSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342882"><span id="local-6989586621679342883"><span id="local-6989586621679342884"><span id="local-6989586621679342885"><span id="local-6989586621679342886"><span class="annot"><span class="annottext">Maybe Natural
+Maybe TcpRoute
+Maybe HttpRoute
+Maybe GrpcRoute
+httpRoute :: Maybe HttpRoute
+tcpRoute :: Maybe TcpRoute
+grpcRoute :: Maybe GrpcRoute
+http2Route :: Maybe HttpRoute
+priority :: Maybe Natural
+$sel:httpRoute:RouteSpec' :: RouteSpec -&gt; Maybe HttpRoute
+$sel:tcpRoute:RouteSpec' :: RouteSpec -&gt; Maybe TcpRoute
+$sel:grpcRoute:RouteSpec' :: RouteSpec -&gt; Maybe GrpcRoute
+$sel:http2Route:RouteSpec' :: RouteSpec -&gt; Maybe HttpRoute
+$sel:priority:RouteSpec' :: RouteSpec -&gt; Maybe Natural
+</span><a href="#local-6989586621679342882"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342886"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http2Route&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpRoute -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpRoute -&gt; Pair) -&gt; Maybe HttpRoute -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpRoute
+</span><a href="#local-6989586621679342885"><span class="hs-identifier hs-var">http2Route</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;grpcRoute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GrpcRoute -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(GrpcRoute -&gt; Pair) -&gt; Maybe GrpcRoute -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GrpcRoute
+</span><a href="#local-6989586621679342884"><span class="hs-identifier hs-var">grpcRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tcpRoute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TcpRoute -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TcpRoute -&gt; Pair) -&gt; Maybe TcpRoute -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TcpRoute
+</span><a href="#local-6989586621679342883"><span class="hs-identifier hs-var">tcpRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;httpRoute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpRoute -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpRoute -&gt; Pair) -&gt; Maybe HttpRoute -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpRoute
+</span><a href="#local-6989586621679342882"><span class="hs-identifier hs-var">httpRoute</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span></pre></body></html>

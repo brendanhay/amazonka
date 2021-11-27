@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.HealthLake.Types.CmkType
+module Amazonka.HealthLake.Types.CmkType
 newtype CmkType
 CmkType' :: Text -> CmkType
 [fromCmkType] :: CmkType -> Text
 pattern CmkType_AWS_OWNED_KMS_KEY :: CmkType
 pattern CmkType_CUSTOMER_MANAGED_KMS_KEY :: CmkType
-instance Network.AWS.Data.XML.ToXML Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Network.AWS.Data.XML.FromXML Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Network.AWS.Data.Log.ToLog Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Network.AWS.Data.Text.ToText Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Network.AWS.Data.Text.FromText Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.CmkType.CmkType
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.CmkType.CmkType
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.CmkType.CmkType
-instance GHC.Classes.Ord Network.AWS.HealthLake.Types.CmkType.CmkType
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.CmkType.CmkType
-instance GHC.Read.Read Network.AWS.HealthLake.Types.CmkType.CmkType
-instance GHC.Show.Show Network.AWS.HealthLake.Types.CmkType.CmkType
+instance Amazonka.Data.XML.ToXML Amazonka.HealthLake.Types.CmkType.CmkType
+instance Amazonka.Data.XML.FromXML Amazonka.HealthLake.Types.CmkType.CmkType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HealthLake.Types.CmkType.CmkType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.CmkType.CmkType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HealthLake.Types.CmkType.CmkType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.CmkType.CmkType
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.Types.CmkType.CmkType
+instance Amazonka.Data.Headers.ToHeader Amazonka.HealthLake.Types.CmkType.CmkType
+instance Amazonka.Data.Log.ToLog Amazonka.HealthLake.Types.CmkType.CmkType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HealthLake.Types.CmkType.CmkType
+instance Amazonka.Data.Text.ToText Amazonka.HealthLake.Types.CmkType.CmkType
+instance Amazonka.Data.Text.FromText Amazonka.HealthLake.Types.CmkType.CmkType
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.CmkType.CmkType
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.CmkType.CmkType
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.CmkType.CmkType
+instance GHC.Classes.Ord Amazonka.HealthLake.Types.CmkType.CmkType
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.CmkType.CmkType
+instance GHC.Read.Read Amazonka.HealthLake.Types.CmkType.CmkType
+instance GHC.Show.Show Amazonka.HealthLake.Types.CmkType.CmkType
 
 
-module Network.AWS.HealthLake.Types.DatastoreStatus
+module Amazonka.HealthLake.Types.DatastoreStatus
 newtype DatastoreStatus
 DatastoreStatus' :: Text -> DatastoreStatus
 [fromDatastoreStatus] :: DatastoreStatus -> Text
@@ -40,28 +40,28 @@ pattern DatastoreStatus_ACTIVE :: DatastoreStatus
 pattern DatastoreStatus_CREATING :: DatastoreStatus
 pattern DatastoreStatus_DELETED :: DatastoreStatus
 pattern DatastoreStatus_DELETING :: DatastoreStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance GHC.Classes.Ord Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance GHC.Read.Read Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
-instance GHC.Show.Show Network.AWS.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Amazonka.Data.XML.ToXML Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Amazonka.Data.XML.FromXML Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Amazonka.Data.Log.ToLog Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Amazonka.Data.Text.ToText Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Amazonka.Data.Text.FromText Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance GHC.Classes.Ord Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance GHC.Read.Read Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
+instance GHC.Show.Show Amazonka.HealthLake.Types.DatastoreStatus.DatastoreStatus
 
 
-module Network.AWS.HealthLake.Types.DatastoreFilter
+module Amazonka.HealthLake.Types.DatastoreFilter
 
 -- | The filters applied to Data Store query.
 --   
@@ -128,42 +128,42 @@ datastoreFilter_datastoreStatus :: Lens' DatastoreFilter (Maybe DatastoreStatus)
 --   Data Stores created before the specified date will be included in the
 --   results.
 datastoreFilter_createdBefore :: Lens' DatastoreFilter (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.DatastoreFilter.DatastoreFilter
-instance GHC.Show.Show Network.AWS.HealthLake.Types.DatastoreFilter.DatastoreFilter
-instance GHC.Read.Read Network.AWS.HealthLake.Types.DatastoreFilter.DatastoreFilter
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.DatastoreFilter.DatastoreFilter
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.DatastoreFilter.DatastoreFilter
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.DatastoreFilter.DatastoreFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.DatastoreFilter.DatastoreFilter
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.DatastoreFilter.DatastoreFilter
+instance GHC.Show.Show Amazonka.HealthLake.Types.DatastoreFilter.DatastoreFilter
+instance GHC.Read.Read Amazonka.HealthLake.Types.DatastoreFilter.DatastoreFilter
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.DatastoreFilter.DatastoreFilter
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.DatastoreFilter.DatastoreFilter
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.DatastoreFilter.DatastoreFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.DatastoreFilter.DatastoreFilter
 
 
-module Network.AWS.HealthLake.Types.FHIRVersion
+module Amazonka.HealthLake.Types.FHIRVersion
 newtype FHIRVersion
 FHIRVersion' :: Text -> FHIRVersion
 [fromFHIRVersion] :: FHIRVersion -> Text
 pattern FHIRVersion_R4 :: FHIRVersion
-instance Network.AWS.Data.XML.ToXML Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Network.AWS.Data.XML.FromXML Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Network.AWS.Data.Log.ToLog Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Network.AWS.Data.Text.ToText Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Network.AWS.Data.Text.FromText Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance GHC.Classes.Ord Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance GHC.Read.Read Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
-instance GHC.Show.Show Network.AWS.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Amazonka.Data.XML.ToXML Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Amazonka.Data.XML.FromXML Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Amazonka.Data.Headers.ToHeader Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Amazonka.Data.Log.ToLog Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Amazonka.Data.Text.ToText Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Amazonka.Data.Text.FromText Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance GHC.Classes.Ord Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance GHC.Read.Read Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
+instance GHC.Show.Show Amazonka.HealthLake.Types.FHIRVersion.FHIRVersion
 
 
-module Network.AWS.HealthLake.Types.InputDataConfig
+module Amazonka.HealthLake.Types.InputDataConfig
 
 -- | The input properties for an import job.
 --   
@@ -192,17 +192,17 @@ newInputDataConfig :: InputDataConfig
 -- | The S3Uri is the user specified S3 location of the FHIR data to be
 --   imported into Amazon HealthLake.
 inputDataConfig_s3Uri :: Lens' InputDataConfig (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.InputDataConfig.InputDataConfig
-instance GHC.Show.Show Network.AWS.HealthLake.Types.InputDataConfig.InputDataConfig
-instance GHC.Read.Read Network.AWS.HealthLake.Types.InputDataConfig.InputDataConfig
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.InputDataConfig.InputDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.InputDataConfig.InputDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.InputDataConfig.InputDataConfig
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.InputDataConfig.InputDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.InputDataConfig.InputDataConfig
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.InputDataConfig.InputDataConfig
+instance GHC.Show.Show Amazonka.HealthLake.Types.InputDataConfig.InputDataConfig
+instance GHC.Read.Read Amazonka.HealthLake.Types.InputDataConfig.InputDataConfig
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.InputDataConfig.InputDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.InputDataConfig.InputDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.InputDataConfig.InputDataConfig
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.InputDataConfig.InputDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.InputDataConfig.InputDataConfig
 
 
-module Network.AWS.HealthLake.Types.JobStatus
+module Amazonka.HealthLake.Types.JobStatus
 newtype JobStatus
 JobStatus' :: Text -> JobStatus
 [fromJobStatus] :: JobStatus -> Text
@@ -211,28 +211,28 @@ pattern JobStatus_COMPLETED_WITH_ERRORS :: JobStatus
 pattern JobStatus_FAILED :: JobStatus
 pattern JobStatus_IN_PROGRESS :: JobStatus
 pattern JobStatus_SUBMITTED :: JobStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance GHC.Classes.Ord Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance GHC.Read.Read Network.AWS.HealthLake.Types.JobStatus.JobStatus
-instance GHC.Show.Show Network.AWS.HealthLake.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.ToXML Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Amazonka.Data.XML.FromXML Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Amazonka.Data.Log.ToLog Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.ToText Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Amazonka.Data.Text.FromText Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance GHC.Classes.Ord Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance GHC.Read.Read Amazonka.HealthLake.Types.JobStatus.JobStatus
+instance GHC.Show.Show Amazonka.HealthLake.Types.JobStatus.JobStatus
 
 
-module Network.AWS.HealthLake.Types.KmsEncryptionConfig
+module Amazonka.HealthLake.Types.KmsEncryptionConfig
 
 -- | The customer-managed-key(CMK) used when creating a Data Store. If a
 --   customer owned key is not specified, an AWS owned key will be used for
@@ -276,43 +276,43 @@ kmsEncryptionConfig_kmsKeyId :: Lens' KmsEncryptionConfig (Maybe Text)
 -- | The type of customer-managed-key(CMK) used for encyrption. The two
 --   types of supported CMKs are customer owned CMKs and AWS owned CMKs.
 kmsEncryptionConfig_cmkType :: Lens' KmsEncryptionConfig CmkType
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
-instance GHC.Show.Show Network.AWS.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
-instance GHC.Read.Read Network.AWS.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
+instance GHC.Show.Show Amazonka.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
+instance GHC.Read.Read Amazonka.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.KmsEncryptionConfig.KmsEncryptionConfig
 
 
-module Network.AWS.HealthLake.Types.PreloadDataType
+module Amazonka.HealthLake.Types.PreloadDataType
 newtype PreloadDataType
 PreloadDataType' :: Text -> PreloadDataType
 [fromPreloadDataType] :: PreloadDataType -> Text
 pattern PreloadDataType_SYNTHEA :: PreloadDataType
-instance Network.AWS.Data.XML.ToXML Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Network.AWS.Data.XML.FromXML Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Network.AWS.Data.Log.ToLog Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Network.AWS.Data.Text.ToText Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Network.AWS.Data.Text.FromText Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance GHC.Classes.Ord Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance GHC.Read.Read Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
-instance GHC.Show.Show Network.AWS.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Amazonka.Data.XML.ToXML Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Amazonka.Data.XML.FromXML Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Amazonka.Data.Headers.ToHeader Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Amazonka.Data.Log.ToLog Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Amazonka.Data.Text.ToText Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Amazonka.Data.Text.FromText Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance GHC.Classes.Ord Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance GHC.Read.Read Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
+instance GHC.Show.Show Amazonka.HealthLake.Types.PreloadDataType.PreloadDataType
 
 
-module Network.AWS.HealthLake.Types.PreloadDataConfig
+module Amazonka.HealthLake.Types.PreloadDataConfig
 
 -- | The input properties for the preloaded Data Store. Only data preloaded
 --   from Synthea is supported.
@@ -340,17 +340,17 @@ newPreloadDataConfig :: PreloadDataType -> PreloadDataConfig
 
 -- | The type of preloaded data. Only Synthea preloaded data is supported.
 preloadDataConfig_preloadDataType :: Lens' PreloadDataConfig PreloadDataType
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
-instance GHC.Show.Show Network.AWS.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
-instance GHC.Read.Read Network.AWS.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
+instance GHC.Show.Show Amazonka.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
+instance GHC.Read.Read Amazonka.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.PreloadDataConfig.PreloadDataConfig
 
 
-module Network.AWS.HealthLake.Types.S3Configuration
+module Amazonka.HealthLake.Types.S3Configuration
 
 -- | The configuration of the S3 bucket for either an import or export job.
 --   This includes assigning permissions for access.
@@ -389,17 +389,17 @@ s3Configuration_s3Uri :: Lens' S3Configuration Text
 
 -- | The KMS key ID used to access the S3 bucket.
 s3Configuration_kmsKeyId :: Lens' S3Configuration Text
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.S3Configuration.S3Configuration
-instance GHC.Show.Show Network.AWS.HealthLake.Types.S3Configuration.S3Configuration
-instance GHC.Read.Read Network.AWS.HealthLake.Types.S3Configuration.S3Configuration
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.S3Configuration.S3Configuration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.S3Configuration.S3Configuration
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.S3Configuration.S3Configuration
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.S3Configuration.S3Configuration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.S3Configuration.S3Configuration
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.S3Configuration.S3Configuration
+instance GHC.Show.Show Amazonka.HealthLake.Types.S3Configuration.S3Configuration
+instance GHC.Read.Read Amazonka.HealthLake.Types.S3Configuration.S3Configuration
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.S3Configuration.S3Configuration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.S3Configuration.S3Configuration
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.S3Configuration.S3Configuration
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.S3Configuration.S3Configuration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.S3Configuration.S3Configuration
 
 
-module Network.AWS.HealthLake.Types.OutputDataConfig
+module Amazonka.HealthLake.Types.OutputDataConfig
 
 -- | The output data configuration that was supplied when the export job
 --   was created.
@@ -429,17 +429,17 @@ newOutputDataConfig :: OutputDataConfig
 -- | The output data configuration that was supplied when the export job
 --   was created.
 outputDataConfig_s3Configuration :: Lens' OutputDataConfig (Maybe S3Configuration)
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Show.Show Network.AWS.HealthLake.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Read.Read Network.AWS.HealthLake.Types.OutputDataConfig.OutputDataConfig
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.OutputDataConfig.OutputDataConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.OutputDataConfig.OutputDataConfig
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.OutputDataConfig.OutputDataConfig
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.OutputDataConfig.OutputDataConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Show.Show Amazonka.HealthLake.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Read.Read Amazonka.HealthLake.Types.OutputDataConfig.OutputDataConfig
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.OutputDataConfig.OutputDataConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.OutputDataConfig.OutputDataConfig
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.OutputDataConfig.OutputDataConfig
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.OutputDataConfig.OutputDataConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.OutputDataConfig.OutputDataConfig
 
 
-module Network.AWS.HealthLake.Types.ImportJobProperties
+module Amazonka.HealthLake.Types.ImportJobProperties
 
 -- | Displays the properties of the import job, including the ID, Arn,
 --   Name, and the status of the Data Store.
@@ -562,16 +562,16 @@ importJobProperties_datastoreId :: Lens' ImportJobProperties Text
 -- | The input data configuration that was supplied when the Import job was
 --   created.
 importJobProperties_inputDataConfig :: Lens' ImportJobProperties InputDataConfig
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.ImportJobProperties.ImportJobProperties
-instance GHC.Show.Show Network.AWS.HealthLake.Types.ImportJobProperties.ImportJobProperties
-instance GHC.Read.Read Network.AWS.HealthLake.Types.ImportJobProperties.ImportJobProperties
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.ImportJobProperties.ImportJobProperties
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.ImportJobProperties.ImportJobProperties
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.ImportJobProperties.ImportJobProperties
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.ImportJobProperties.ImportJobProperties
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.ImportJobProperties.ImportJobProperties
+instance GHC.Show.Show Amazonka.HealthLake.Types.ImportJobProperties.ImportJobProperties
+instance GHC.Read.Read Amazonka.HealthLake.Types.ImportJobProperties.ImportJobProperties
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.ImportJobProperties.ImportJobProperties
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.ImportJobProperties.ImportJobProperties
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.ImportJobProperties.ImportJobProperties
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.ImportJobProperties.ImportJobProperties
 
 
-module Network.AWS.HealthLake.Types.ExportJobProperties
+module Amazonka.HealthLake.Types.ExportJobProperties
 
 -- | The properties of a FHIR export job, including the ID, ARN, name, and
 --   the status of the job.
@@ -687,16 +687,16 @@ exportJobProperties_datastoreId :: Lens' ExportJobProperties Text
 -- | The output data configuration that was supplied when the export job
 --   was created.
 exportJobProperties_outputDataConfig :: Lens' ExportJobProperties OutputDataConfig
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.ExportJobProperties.ExportJobProperties
-instance GHC.Show.Show Network.AWS.HealthLake.Types.ExportJobProperties.ExportJobProperties
-instance GHC.Read.Read Network.AWS.HealthLake.Types.ExportJobProperties.ExportJobProperties
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.ExportJobProperties.ExportJobProperties
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.ExportJobProperties.ExportJobProperties
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.ExportJobProperties.ExportJobProperties
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.ExportJobProperties.ExportJobProperties
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.ExportJobProperties.ExportJobProperties
+instance GHC.Show.Show Amazonka.HealthLake.Types.ExportJobProperties.ExportJobProperties
+instance GHC.Read.Read Amazonka.HealthLake.Types.ExportJobProperties.ExportJobProperties
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.ExportJobProperties.ExportJobProperties
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.ExportJobProperties.ExportJobProperties
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.ExportJobProperties.ExportJobProperties
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.ExportJobProperties.ExportJobProperties
 
 
-module Network.AWS.HealthLake.Types.SseConfiguration
+module Amazonka.HealthLake.Types.SseConfiguration
 
 -- | The server-side encryption key configuration for a customer provided
 --   encryption key.
@@ -726,17 +726,17 @@ newSseConfiguration :: KmsEncryptionConfig -> SseConfiguration
 -- | The KMS encryption configuration used to provide details for data
 --   encryption.
 sseConfiguration_kmsEncryptionConfig :: Lens' SseConfiguration KmsEncryptionConfig
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.SseConfiguration.SseConfiguration
-instance GHC.Show.Show Network.AWS.HealthLake.Types.SseConfiguration.SseConfiguration
-instance GHC.Read.Read Network.AWS.HealthLake.Types.SseConfiguration.SseConfiguration
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.SseConfiguration.SseConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.SseConfiguration.SseConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.SseConfiguration.SseConfiguration
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.SseConfiguration.SseConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.SseConfiguration.SseConfiguration
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.SseConfiguration.SseConfiguration
+instance GHC.Show.Show Amazonka.HealthLake.Types.SseConfiguration.SseConfiguration
+instance GHC.Read.Read Amazonka.HealthLake.Types.SseConfiguration.SseConfiguration
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.SseConfiguration.SseConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.SseConfiguration.SseConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.SseConfiguration.SseConfiguration
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.SseConfiguration.SseConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.SseConfiguration.SseConfiguration
 
 
-module Network.AWS.HealthLake.Types.DatastoreProperties
+module Amazonka.HealthLake.Types.DatastoreProperties
 
 -- | Displays the properties of the Data Store, including the ID, Arn,
 --   name, and the status of the Data Store.
@@ -856,16 +856,16 @@ datastoreProperties_datastoreTypeVersion :: Lens' DatastoreProperties FHIRVersio
 -- | The AWS endpoint for the Data Store. Each Data Store will have it's
 --   own endpoint with Data Store ID in the endpoint URL.
 datastoreProperties_datastoreEndpoint :: Lens' DatastoreProperties Text
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.DatastoreProperties.DatastoreProperties
-instance GHC.Show.Show Network.AWS.HealthLake.Types.DatastoreProperties.DatastoreProperties
-instance GHC.Read.Read Network.AWS.HealthLake.Types.DatastoreProperties.DatastoreProperties
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.DatastoreProperties.DatastoreProperties
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.DatastoreProperties.DatastoreProperties
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.DatastoreProperties.DatastoreProperties
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.DatastoreProperties.DatastoreProperties
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.DatastoreProperties.DatastoreProperties
+instance GHC.Show.Show Amazonka.HealthLake.Types.DatastoreProperties.DatastoreProperties
+instance GHC.Read.Read Amazonka.HealthLake.Types.DatastoreProperties.DatastoreProperties
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.DatastoreProperties.DatastoreProperties
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.DatastoreProperties.DatastoreProperties
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.DatastoreProperties.DatastoreProperties
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.DatastoreProperties.DatastoreProperties
 
 
-module Network.AWS.HealthLake.Types.Tag
+module Amazonka.HealthLake.Types.Tag
 
 -- | A tag is a label consisting of a user-defined key and value. The form
 --   for tags is {"Key", "Value"}
@@ -900,17 +900,17 @@ tag_key :: Lens' Tag Text
 
 -- | The value portion of tag. Tag values are case sensitive.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.HealthLake.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.HealthLake.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.HealthLake.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.HealthLake.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HealthLake.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.HealthLake.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.HealthLake.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.HealthLake.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.HealthLake.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HealthLake.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.HealthLake.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.Types.Tag.Tag
 
 
-module Network.AWS.HealthLake.Types
+module Amazonka.HealthLake.Types
 
 -- | API version <tt>2017-07-01</tt> of the Amazon HealthLake SDK
 --   configuration.
@@ -1617,7 +1617,7 @@ tag_value :: Lens' Tag Text
 
 
 -- | Adds a user specifed key and value tag to a Data Store.
-module Network.AWS.HealthLake.TagResource
+module Amazonka.HealthLake.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1678,26 +1678,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.HealthLake.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.HealthLake.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.HealthLake.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.HealthLake.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.HealthLake.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.HealthLake.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.HealthLake.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.HealthLake.TagResource.TagResource
+instance GHC.Show.Show Amazonka.HealthLake.TagResource.TagResource
+instance GHC.Read.Read Amazonka.HealthLake.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.HealthLake.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.HealthLake.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.HealthLake.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.HealthLake.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.HealthLake.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.HealthLake.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.TagResource.TagResource
 
 
 -- | Begins a FHIR Import job.
-module Network.AWS.HealthLake.StartFHIRImportJob
+module Amazonka.HealthLake.StartFHIRImportJob
 
 -- | <i>See:</i> <a>newStartFHIRImportJob</a> smart constructor.
 data StartFHIRImportJob
@@ -1826,26 +1826,26 @@ startFHIRImportJobResponse_jobId :: Lens' StartFHIRImportJobResponse Text
 
 -- | The status of an import job.
 startFHIRImportJobResponse_jobStatus :: Lens' StartFHIRImportJobResponse JobStatus
-instance GHC.Generics.Generic Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance GHC.Show.Show Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance GHC.Read.Read Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance GHC.Classes.Eq Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance GHC.Generics.Generic Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
-instance GHC.Show.Show Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
-instance GHC.Read.Read Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance GHC.Generics.Generic Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance GHC.Show.Show Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance GHC.Read.Read Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance GHC.Classes.Eq Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance GHC.Generics.Generic Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
+instance GHC.Show.Show Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
+instance GHC.Read.Read Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance Control.DeepSeq.NFData Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance Control.DeepSeq.NFData Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.StartFHIRImportJob.StartFHIRImportJob
 
 
 -- | Begins a FHIR export job.
-module Network.AWS.HealthLake.StartFHIRExportJob
+module Amazonka.HealthLake.StartFHIRExportJob
 
 -- | <i>See:</i> <a>newStartFHIRExportJob</a> smart constructor.
 data StartFHIRExportJob
@@ -1974,26 +1974,26 @@ startFHIRExportJobResponse_jobId :: Lens' StartFHIRExportJobResponse Text
 -- | The status of a FHIR export job. Possible statuses are SUBMITTED,
 --   IN_PROGRESS, COMPLETED, or FAILED.
 startFHIRExportJobResponse_jobStatus :: Lens' StartFHIRExportJobResponse JobStatus
-instance GHC.Generics.Generic Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance GHC.Show.Show Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance GHC.Read.Read Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance GHC.Classes.Eq Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance GHC.Generics.Generic Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
-instance GHC.Show.Show Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
-instance GHC.Read.Read Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance GHC.Generics.Generic Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance GHC.Show.Show Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance GHC.Read.Read Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance GHC.Classes.Eq Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance GHC.Generics.Generic Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
+instance GHC.Show.Show Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
+instance GHC.Read.Read Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance Control.DeepSeq.NFData Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance Control.DeepSeq.NFData Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.StartFHIRExportJob.StartFHIRExportJob
 
 
 -- | Returns a list of all existing tags associated with a Data Store.
-module Network.AWS.HealthLake.ListTagsForResource
+module Amazonka.HealthLake.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2054,27 +2054,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.HealthLake.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.HealthLake.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.HealthLake.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.HealthLake.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.HealthLake.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.HealthLake.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.HealthLake.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists all FHIR import jobs associated with an account and their
 --   statuses.
-module Network.AWS.HealthLake.ListFHIRImportJobs
+module Amazonka.HealthLake.ListFHIRImportJobs
 
 -- | <i>See:</i> <a>newListFHIRImportJobs</a> smart constructor.
 data ListFHIRImportJobs
@@ -2225,27 +2225,27 @@ listFHIRImportJobsResponse_httpStatus :: Lens' ListFHIRImportJobsResponse Int
 -- | The properties of a listed FHIR import jobs, including the ID, ARN,
 --   name, and the status of the job.
 listFHIRImportJobsResponse_importJobPropertiesList :: Lens' ListFHIRImportJobsResponse [ImportJobProperties]
-instance GHC.Generics.Generic Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance GHC.Show.Show Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance GHC.Read.Read Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance GHC.Classes.Eq Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance GHC.Generics.Generic Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
-instance GHC.Show.Show Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
-instance GHC.Read.Read Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance GHC.Generics.Generic Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance GHC.Show.Show Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance GHC.Read.Read Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance GHC.Classes.Eq Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance GHC.Generics.Generic Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
+instance GHC.Show.Show Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
+instance GHC.Read.Read Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance Control.DeepSeq.NFData Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance Control.DeepSeq.NFData Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.ListFHIRImportJobs.ListFHIRImportJobs
 
 
 -- | Lists all FHIR export jobs associated with an account and their
 --   statuses.
-module Network.AWS.HealthLake.ListFHIRExportJobs
+module Amazonka.HealthLake.ListFHIRExportJobs
 
 -- | <i>See:</i> <a>newListFHIRExportJobs</a> smart constructor.
 data ListFHIRExportJobs
@@ -2396,27 +2396,27 @@ listFHIRExportJobsResponse_httpStatus :: Lens' ListFHIRExportJobsResponse Int
 -- | The properties of listed FHIR export jobs, including the ID, ARN,
 --   name, and the status of the job.
 listFHIRExportJobsResponse_exportJobPropertiesList :: Lens' ListFHIRExportJobsResponse [ExportJobProperties]
-instance GHC.Generics.Generic Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance GHC.Show.Show Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance GHC.Read.Read Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance GHC.Classes.Eq Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance GHC.Generics.Generic Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
-instance GHC.Show.Show Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
-instance GHC.Read.Read Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance GHC.Generics.Generic Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance GHC.Show.Show Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance GHC.Read.Read Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance GHC.Classes.Eq Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance GHC.Generics.Generic Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
+instance GHC.Show.Show Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
+instance GHC.Read.Read Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance Control.DeepSeq.NFData Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance Control.DeepSeq.NFData Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.ListFHIRExportJobs.ListFHIRExportJobs
 
 
 -- | Lists all FHIR Data Stores that are in the user’s account, regardless
 --   of Data Store status.
-module Network.AWS.HealthLake.ListFHIRDatastores
+module Amazonka.HealthLake.ListFHIRDatastores
 
 -- | <i>See:</i> <a>newListFHIRDatastores</a> smart constructor.
 data ListFHIRDatastores
@@ -2509,27 +2509,27 @@ listFHIRDatastoresResponse_httpStatus :: Lens' ListFHIRDatastoresResponse Int
 
 -- | All properties associated with the listed Data Stores.
 listFHIRDatastoresResponse_datastorePropertiesList :: Lens' ListFHIRDatastoresResponse [DatastoreProperties]
-instance GHC.Generics.Generic Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance GHC.Show.Show Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance GHC.Read.Read Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance GHC.Classes.Eq Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance GHC.Generics.Generic Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
-instance GHC.Show.Show Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
-instance GHC.Read.Read Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance GHC.Generics.Generic Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance GHC.Show.Show Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance GHC.Read.Read Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance GHC.Classes.Eq Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance GHC.Generics.Generic Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
+instance GHC.Show.Show Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
+instance GHC.Read.Read Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance Control.DeepSeq.NFData Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastoresResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance Control.DeepSeq.NFData Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.ListFHIRDatastores.ListFHIRDatastores
 
 
 -- | Displays the properties of a FHIR import job, including the ID, ARN,
 --   name, and the status of the job.
-module Network.AWS.HealthLake.DescribeFHIRImportJob
+module Amazonka.HealthLake.DescribeFHIRImportJob
 
 -- | <i>See:</i> <a>newDescribeFHIRImportJob</a> smart constructor.
 data DescribeFHIRImportJob
@@ -2600,27 +2600,27 @@ describeFHIRImportJobResponse_httpStatus :: Lens' DescribeFHIRImportJobResponse 
 -- | The properties of the Import job request, including the ID, ARN, name,
 --   and the status of the job.
 describeFHIRImportJobResponse_importJobProperties :: Lens' DescribeFHIRImportJobResponse ImportJobProperties
-instance GHC.Generics.Generic Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance GHC.Show.Show Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance GHC.Read.Read Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance GHC.Classes.Eq Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance GHC.Generics.Generic Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
-instance GHC.Show.Show Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
-instance GHC.Read.Read Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance GHC.Generics.Generic Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance GHC.Show.Show Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance GHC.Read.Read Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance GHC.Classes.Eq Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance GHC.Generics.Generic Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
+instance GHC.Show.Show Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
+instance GHC.Read.Read Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance Control.DeepSeq.NFData Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance Control.DeepSeq.NFData Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.DescribeFHIRImportJob.DescribeFHIRImportJob
 
 
 -- | Displays the properties of a FHIR export job, including the ID, ARN,
 --   name, and the status of the job.
-module Network.AWS.HealthLake.DescribeFHIRExportJob
+module Amazonka.HealthLake.DescribeFHIRExportJob
 
 -- | <i>See:</i> <a>newDescribeFHIRExportJob</a> smart constructor.
 data DescribeFHIRExportJob
@@ -2695,28 +2695,28 @@ describeFHIRExportJobResponse_httpStatus :: Lens' DescribeFHIRExportJobResponse 
 -- | Displays the properties of the export job, including the ID, Arn,
 --   Name, and the status of the job.
 describeFHIRExportJobResponse_exportJobProperties :: Lens' DescribeFHIRExportJobResponse ExportJobProperties
-instance GHC.Generics.Generic Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance GHC.Show.Show Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance GHC.Read.Read Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance GHC.Classes.Eq Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance GHC.Generics.Generic Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
-instance GHC.Show.Show Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
-instance GHC.Read.Read Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance GHC.Generics.Generic Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance GHC.Show.Show Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance GHC.Read.Read Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance GHC.Classes.Eq Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance GHC.Generics.Generic Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
+instance GHC.Show.Show Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
+instance GHC.Read.Read Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance Control.DeepSeq.NFData Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance Control.DeepSeq.NFData Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.DescribeFHIRExportJob.DescribeFHIRExportJob
 
 
 -- | Gets the properties associated with the FHIR Data Store, including the
 --   Data Store ID, Data Store ARN, Data Store name, Data Store status,
 --   created at, Data Store type version, and Data Store endpoint.
-module Network.AWS.HealthLake.DescribeFHIRDatastore
+module Amazonka.HealthLake.DescribeFHIRDatastore
 
 -- | <i>See:</i> <a>newDescribeFHIRDatastore</a> smart constructor.
 data DescribeFHIRDatastore
@@ -2783,26 +2783,26 @@ describeFHIRDatastoreResponse_httpStatus :: Lens' DescribeFHIRDatastoreResponse 
 --   ID, Data Store ARN, Data Store name, Data Store status, created at,
 --   Data Store type version, and Data Store endpoint.
 describeFHIRDatastoreResponse_datastoreProperties :: Lens' DescribeFHIRDatastoreResponse DatastoreProperties
-instance GHC.Generics.Generic Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance GHC.Show.Show Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance GHC.Read.Read Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance GHC.Classes.Eq Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance GHC.Generics.Generic Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
-instance GHC.Show.Show Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
-instance GHC.Read.Read Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance GHC.Generics.Generic Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance GHC.Show.Show Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance GHC.Read.Read Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance GHC.Classes.Eq Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance GHC.Generics.Generic Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
+instance GHC.Show.Show Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
+instance GHC.Read.Read Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance Control.DeepSeq.NFData Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastoreResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance Control.DeepSeq.NFData Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.DescribeFHIRDatastore.DescribeFHIRDatastore
 
 
 -- | Deletes a Data Store.
-module Network.AWS.HealthLake.DeleteFHIRDatastore
+module Amazonka.HealthLake.DeleteFHIRDatastore
 
 -- | <i>See:</i> <a>newDeleteFHIRDatastore</a> smart constructor.
 data DeleteFHIRDatastore
@@ -2897,26 +2897,26 @@ deleteFHIRDatastoreResponse_datastoreStatus :: Lens' DeleteFHIRDatastoreResponse
 -- | The AWS endpoint for the Data Store the user has requested to be
 --   deleted.
 deleteFHIRDatastoreResponse_datastoreEndpoint :: Lens' DeleteFHIRDatastoreResponse Text
-instance GHC.Generics.Generic Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance GHC.Show.Show Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance GHC.Read.Read Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance GHC.Classes.Eq Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance GHC.Generics.Generic Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
-instance GHC.Show.Show Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
-instance GHC.Read.Read Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance GHC.Generics.Generic Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance GHC.Show.Show Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance GHC.Read.Read Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance GHC.Classes.Eq Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance GHC.Generics.Generic Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
+instance GHC.Show.Show Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
+instance GHC.Read.Read Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance Control.DeepSeq.NFData Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastoreResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance Control.DeepSeq.NFData Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.DeleteFHIRDatastore.DeleteFHIRDatastore
 
 
 -- | Creates a Data Store that can ingest and export FHIR formatted data.
-module Network.AWS.HealthLake.CreateFHIRDatastore
+module Amazonka.HealthLake.CreateFHIRDatastore
 
 -- | <i>See:</i> <a>newCreateFHIRDatastore</a> smart constructor.
 data CreateFHIRDatastore
@@ -3076,26 +3076,26 @@ createFHIRDatastoreResponse_datastoreStatus :: Lens' CreateFHIRDatastoreResponse
 -- | The AWS endpoint for the created Data Store. For preview, only
 --   US-east-1 endpoints are supported.
 createFHIRDatastoreResponse_datastoreEndpoint :: Lens' CreateFHIRDatastoreResponse Text
-instance GHC.Generics.Generic Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance GHC.Show.Show Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance GHC.Read.Read Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance GHC.Classes.Eq Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance GHC.Generics.Generic Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
-instance GHC.Show.Show Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
-instance GHC.Read.Read Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance GHC.Generics.Generic Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance GHC.Show.Show Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance GHC.Read.Read Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance GHC.Classes.Eq Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance GHC.Generics.Generic Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
+instance GHC.Show.Show Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
+instance GHC.Read.Read Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance Control.DeepSeq.NFData Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastoreResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance Control.DeepSeq.NFData Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.CreateFHIRDatastore.CreateFHIRDatastore
 
 
 -- | Removes tags from a Data Store.
-module Network.AWS.HealthLake.UntagResource
+module Amazonka.HealthLake.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3155,25 +3155,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.HealthLake.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.HealthLake.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.HealthLake.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.HealthLake.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.HealthLake.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.HealthLake.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.HealthLake.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.HealthLake.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HealthLake.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HealthLake.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.HealthLake.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HealthLake.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HealthLake.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.HealthLake.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HealthLake.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.HealthLake.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.HealthLake.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.HealthLake.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.HealthLake.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.HealthLake.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.HealthLake.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.HealthLake.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.HealthLake.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.HealthLake.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.HealthLake.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.HealthLake.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.HealthLake.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HealthLake.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HealthLake.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.HealthLake.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.HealthLake.UntagResource.UntagResource
 
 
-module Network.AWS.HealthLake.Lens
+module Amazonka.HealthLake.Lens
 
 -- | The name of the FHIR Import job in the StartFHIRImport job request.
 startFHIRImportJob_jobName :: Lens' StartFHIRImportJob (Maybe Text)
@@ -3617,7 +3617,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.HealthLake.Waiters
+module Amazonka.HealthLake.Waiters
 
 
 -- | Derived from API version <tt>2017-07-01</tt> of the AWS service
@@ -3626,7 +3626,7 @@ module Network.AWS.HealthLake.Waiters
 --   Amazon HealthLake is a HIPAA eligibile service that allows customers
 --   to store, transform, query, and analyze their FHIR-formatted data in a
 --   consistent fashion in the cloud.
-module Network.AWS.HealthLake
+module Amazonka.HealthLake
 
 -- | API version <tt>2017-07-01</tt> of the Amazon HealthLake SDK
 --   configuration.

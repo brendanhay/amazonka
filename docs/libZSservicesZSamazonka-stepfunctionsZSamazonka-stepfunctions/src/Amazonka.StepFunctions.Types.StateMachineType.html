@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StepFunctions.Types.StateMachineType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StepFunctions.Types.StateMachineType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType"><span class="hs-identifier">StateMachineType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType_EXPRESS"><span class="hs-identifier">StateMachineType_EXPRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType_STANDARD"><span class="hs-identifier">StateMachineType_STANDARD</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679226457"><span id="local-6989586621679226458"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StateMachineType"><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType"><span class="hs-identifier hs-var">StateMachineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateMachineType%27"><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType%27"><span class="hs-identifier hs-var">StateMachineType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStateMachineType"><span class="annot"><span class="annottext">StateMachineType -&gt; Text
+</span><a href="Amazonka.StepFunctions.Types.StateMachineType.html#fromStateMachineType"><span class="hs-identifier hs-var hs-var">fromStateMachineType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226449"><span id="local-6989586621679226451"><span id="local-6989586621679226453"><span class="annot"><span class="annottext">Int -&gt; StateMachineType -&gt; ShowS
+[StateMachineType] -&gt; ShowS
+StateMachineType -&gt; String
+(Int -&gt; StateMachineType -&gt; ShowS)
+-&gt; (StateMachineType -&gt; String)
+-&gt; ([StateMachineType] -&gt; ShowS)
+-&gt; Show StateMachineType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StateMachineType] -&gt; ShowS
+$cshowList :: [StateMachineType] -&gt; ShowS
+show :: StateMachineType -&gt; String
+$cshow :: StateMachineType -&gt; String
+showsPrec :: Int -&gt; StateMachineType -&gt; ShowS
+$cshowsPrec :: Int -&gt; StateMachineType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679226440"><span id="local-6989586621679226442"><span id="local-6989586621679226444"><span id="local-6989586621679226446"><span class="annot"><span class="annottext">ReadPrec [StateMachineType]
+ReadPrec StateMachineType
+Int -&gt; ReadS StateMachineType
+ReadS [StateMachineType]
+(Int -&gt; ReadS StateMachineType)
+-&gt; ReadS [StateMachineType]
+-&gt; ReadPrec StateMachineType
+-&gt; ReadPrec [StateMachineType]
+-&gt; Read StateMachineType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StateMachineType]
+$creadListPrec :: ReadPrec [StateMachineType]
+readPrec :: ReadPrec StateMachineType
+$creadPrec :: ReadPrec StateMachineType
+readList :: ReadS [StateMachineType]
+$creadList :: ReadS [StateMachineType]
+readsPrec :: Int -&gt; ReadS StateMachineType
+$creadsPrec :: Int -&gt; ReadS StateMachineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679226435"><span id="local-6989586621679226437"><span class="annot"><span class="annottext">StateMachineType -&gt; StateMachineType -&gt; Bool
+(StateMachineType -&gt; StateMachineType -&gt; Bool)
+-&gt; (StateMachineType -&gt; StateMachineType -&gt; Bool)
+-&gt; Eq StateMachineType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StateMachineType -&gt; StateMachineType -&gt; Bool
+$c/= :: StateMachineType -&gt; StateMachineType -&gt; Bool
+== :: StateMachineType -&gt; StateMachineType -&gt; Bool
+$c== :: StateMachineType -&gt; StateMachineType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679226419"><span id="local-6989586621679226421"><span id="local-6989586621679226423"><span id="local-6989586621679226425"><span id="local-6989586621679226427"><span id="local-6989586621679226429"><span id="local-6989586621679226431"><span class="annot"><span class="annottext">Eq StateMachineType
+Eq StateMachineType
+-&gt; (StateMachineType -&gt; StateMachineType -&gt; Ordering)
+-&gt; (StateMachineType -&gt; StateMachineType -&gt; Bool)
+-&gt; (StateMachineType -&gt; StateMachineType -&gt; Bool)
+-&gt; (StateMachineType -&gt; StateMachineType -&gt; Bool)
+-&gt; (StateMachineType -&gt; StateMachineType -&gt; Bool)
+-&gt; (StateMachineType -&gt; StateMachineType -&gt; StateMachineType)
+-&gt; (StateMachineType -&gt; StateMachineType -&gt; StateMachineType)
+-&gt; Ord StateMachineType
+StateMachineType -&gt; StateMachineType -&gt; Bool
+StateMachineType -&gt; StateMachineType -&gt; Ordering
+StateMachineType -&gt; StateMachineType -&gt; StateMachineType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StateMachineType -&gt; StateMachineType -&gt; StateMachineType
+$cmin :: StateMachineType -&gt; StateMachineType -&gt; StateMachineType
+max :: StateMachineType -&gt; StateMachineType -&gt; StateMachineType
+$cmax :: StateMachineType -&gt; StateMachineType -&gt; StateMachineType
+&gt;= :: StateMachineType -&gt; StateMachineType -&gt; Bool
+$c&gt;= :: StateMachineType -&gt; StateMachineType -&gt; Bool
+&gt; :: StateMachineType -&gt; StateMachineType -&gt; Bool
+$c&gt; :: StateMachineType -&gt; StateMachineType -&gt; Bool
+&lt;= :: StateMachineType -&gt; StateMachineType -&gt; Bool
+$c&lt;= :: StateMachineType -&gt; StateMachineType -&gt; Bool
+&lt; :: StateMachineType -&gt; StateMachineType -&gt; Bool
+$c&lt; :: StateMachineType -&gt; StateMachineType -&gt; Bool
+compare :: StateMachineType -&gt; StateMachineType -&gt; Ordering
+$ccompare :: StateMachineType -&gt; StateMachineType -&gt; Ordering
+$cp1Ord :: Eq StateMachineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StateMachineType -&gt; Rep StateMachineType x)
+-&gt; (forall x. Rep StateMachineType x -&gt; StateMachineType)
+-&gt; Generic StateMachineType
+forall x. Rep StateMachineType x -&gt; StateMachineType
+forall x. StateMachineType -&gt; Rep StateMachineType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StateMachineType x -&gt; StateMachineType
+$cfrom :: forall x. StateMachineType -&gt; Rep StateMachineType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226411"><span id="local-6989586621679226413"><span class="annot"><span class="annottext">Int -&gt; StateMachineType -&gt; Int
+StateMachineType -&gt; Int
+(Int -&gt; StateMachineType -&gt; Int)
+-&gt; (StateMachineType -&gt; Int) -&gt; Hashable StateMachineType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StateMachineType -&gt; Int
+$chash :: StateMachineType -&gt; Int
+hashWithSalt :: Int -&gt; StateMachineType -&gt; Int
+$chashWithSalt :: Int -&gt; StateMachineType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679226408"><span class="annot"><span class="annottext">StateMachineType -&gt; ()
+(StateMachineType -&gt; ()) -&gt; NFData StateMachineType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StateMachineType -&gt; ()
+$crnf :: StateMachineType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679226405"><span class="annot"><span class="annottext">Text -&gt; Either String StateMachineType
+(Text -&gt; Either String StateMachineType)
+-&gt; FromText StateMachineType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StateMachineType
+$cfromText :: Text -&gt; Either String StateMachineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679226402"><span class="annot"><span class="annottext">StateMachineType -&gt; Text
+(StateMachineType -&gt; Text) -&gt; ToText StateMachineType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StateMachineType -&gt; Text
+$ctoText :: StateMachineType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679226399"><span class="annot"><span class="annottext">StateMachineType -&gt; ByteString
+(StateMachineType -&gt; ByteString) -&gt; ToByteString StateMachineType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StateMachineType -&gt; ByteString
+$ctoBS :: StateMachineType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679226396"><span class="annot"><span class="annottext">StateMachineType -&gt; ByteStringBuilder
+(StateMachineType -&gt; ByteStringBuilder) -&gt; ToLog StateMachineType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StateMachineType -&gt; ByteStringBuilder
+$cbuild :: StateMachineType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679226393"><span class="annot"><span class="annottext">HeaderName -&gt; StateMachineType -&gt; [Header]
+(HeaderName -&gt; StateMachineType -&gt; [Header])
+-&gt; ToHeader StateMachineType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StateMachineType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StateMachineType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679226390"><span class="annot"><span class="annottext">StateMachineType -&gt; QueryString
+(StateMachineType -&gt; QueryString) -&gt; ToQuery StateMachineType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StateMachineType -&gt; QueryString
+$ctoQuery :: StateMachineType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679226385"><span id="local-6989586621679226387"><span class="annot"><span class="annottext">Value -&gt; Parser [StateMachineType]
+Value -&gt; Parser StateMachineType
+(Value -&gt; Parser StateMachineType)
+-&gt; (Value -&gt; Parser [StateMachineType])
+-&gt; FromJSON StateMachineType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StateMachineType]
+$cparseJSONList :: Value -&gt; Parser [StateMachineType]
+parseJSON :: Value -&gt; Parser StateMachineType
+$cparseJSON :: Value -&gt; Parser StateMachineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679226380"><span id="local-6989586621679226382"><span class="annot"><span class="annottext">FromJSONKeyFunction [StateMachineType]
+FromJSONKeyFunction StateMachineType
+FromJSONKeyFunction StateMachineType
+-&gt; FromJSONKeyFunction [StateMachineType]
+-&gt; FromJSONKey StateMachineType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StateMachineType]
+$cfromJSONKeyList :: FromJSONKeyFunction [StateMachineType]
+fromJSONKey :: FromJSONKeyFunction StateMachineType
+$cfromJSONKey :: FromJSONKeyFunction StateMachineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679226371"><span id="local-6989586621679226373"><span id="local-6989586621679226375"><span id="local-6989586621679226377"><span class="annot"><span class="annottext">[StateMachineType] -&gt; Encoding
+[StateMachineType] -&gt; Value
+StateMachineType -&gt; Encoding
+StateMachineType -&gt; Value
+(StateMachineType -&gt; Value)
+-&gt; (StateMachineType -&gt; Encoding)
+-&gt; ([StateMachineType] -&gt; Value)
+-&gt; ([StateMachineType] -&gt; Encoding)
+-&gt; ToJSON StateMachineType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StateMachineType] -&gt; Encoding
+$ctoEncodingList :: [StateMachineType] -&gt; Encoding
+toJSONList :: [StateMachineType] -&gt; Value
+$ctoJSONList :: [StateMachineType] -&gt; Value
+toEncoding :: StateMachineType -&gt; Encoding
+$ctoEncoding :: StateMachineType -&gt; Encoding
+toJSON :: StateMachineType -&gt; Value
+$ctoJSON :: StateMachineType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679226366"><span id="local-6989586621679226368"><span class="annot"><span class="annottext">ToJSONKeyFunction [StateMachineType]
+ToJSONKeyFunction StateMachineType
+ToJSONKeyFunction StateMachineType
+-&gt; ToJSONKeyFunction [StateMachineType]
+-&gt; ToJSONKey StateMachineType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StateMachineType]
+$ctoJSONKeyList :: ToJSONKeyFunction [StateMachineType]
+toJSONKey :: ToJSONKeyFunction StateMachineType
+$ctoJSONKey :: ToJSONKeyFunction StateMachineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679226363"><span class="annot"><span class="annottext">[Node] -&gt; Either String StateMachineType
+([Node] -&gt; Either String StateMachineType)
+-&gt; FromXML StateMachineType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StateMachineType
+$cparseXML :: [Node] -&gt; Either String StateMachineType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679226360"><span class="annot"><span class="annottext">StateMachineType -&gt; XML
+(StateMachineType -&gt; XML) -&gt; ToXML StateMachineType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StateMachineType -&gt; XML
+$ctoXML :: StateMachineType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType_EXPRESS"><span class="hs-identifier hs-type">StateMachineType_EXPRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType"><span class="hs-identifier hs-type">StateMachineType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStateMachineType_EXPRESS"><span id="%24mStateMachineType_EXPRESS"><span id="StateMachineType_EXPRESS"><span class="annot"><span class="annottext">$bStateMachineType_EXPRESS :: StateMachineType
+$mStateMachineType_EXPRESS :: forall r. StateMachineType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StepFunctions.Types.StateMachineType.html#%24bStateMachineType_EXPRESS"><span class="hs-identifier hs-var hs-var hs-var">StateMachineType_EXPRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType%27"><span class="hs-identifier hs-type">StateMachineType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXPRESS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType_STANDARD"><span class="hs-identifier hs-type">StateMachineType_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType"><span class="hs-identifier hs-type">StateMachineType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStateMachineType_STANDARD"><span id="%24mStateMachineType_STANDARD"><span id="StateMachineType_STANDARD"><span class="annot"><span class="annottext">$bStateMachineType_STANDARD :: StateMachineType
+$mStateMachineType_STANDARD :: forall r. StateMachineType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StepFunctions.Types.StateMachineType.html#%24bStateMachineType_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">StateMachineType_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType%27"><span class="hs-identifier hs-type">StateMachineType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STANDARD&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType_EXPRESS"><span class="hs-pragma hs-type">StateMachineType_EXPRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType_STANDARD"><span class="hs-pragma hs-type">StateMachineType_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.StateMachineType.html#StateMachineType%27"><span class="hs-pragma hs-type">StateMachineType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

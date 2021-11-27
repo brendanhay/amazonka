@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.UpdateRoleDescription</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Use UpdateRole instead.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Modifies only the description of a role. This operation performs the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- same function as the @Description@ parameter in the @UpdateRole@</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.UpdateRoleDescription</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier">UpdateRoleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#newUpdateRoleDescription"><span class="hs-identifier">newUpdateRoleDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescription_roleName"><span class="hs-identifier">updateRoleDescription_roleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescription_description"><span class="hs-identifier">updateRoleDescription_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier">UpdateRoleDescriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#newUpdateRoleDescriptionResponse"><span class="hs-identifier">newUpdateRoleDescriptionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescriptionResponse_role"><span class="hs-identifier">updateRoleDescriptionResponse_role</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescriptionResponse_httpStatus"><span class="hs-identifier">updateRoleDescriptionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoleDescription' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679464210"><span id="local-6989586621679464211"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleDescription"><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-var">UpdateRoleDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleDescription%27"><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-var">UpdateRoleDescription'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the role that you want to modify.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AroleName%3AUpdateRoleDescription%27"><span class="annot"><span class="annottext">UpdateRoleDescription -&gt; Text
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3AroleName%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The new description that you want to apply to the specified role.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateRoleDescription%27"><span class="annot"><span class="annottext">UpdateRoleDescription -&gt; Text
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3Adescription%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464203"><span id="local-6989586621679464205"><span class="annot"><span class="annottext">UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
+(UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool)
+-&gt; (UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool)
+-&gt; Eq UpdateRoleDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
+$c/= :: UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
+== :: UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
+$c== :: UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464194"><span id="local-6989586621679464196"><span id="local-6989586621679464198"><span id="local-6989586621679464200"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleDescription]
+ReadPrec UpdateRoleDescription
+Int -&gt; ReadS UpdateRoleDescription
+ReadS [UpdateRoleDescription]
+(Int -&gt; ReadS UpdateRoleDescription)
+-&gt; ReadS [UpdateRoleDescription]
+-&gt; ReadPrec UpdateRoleDescription
+-&gt; ReadPrec [UpdateRoleDescription]
+-&gt; Read UpdateRoleDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRoleDescription]
+$creadListPrec :: ReadPrec [UpdateRoleDescription]
+readPrec :: ReadPrec UpdateRoleDescription
+$creadPrec :: ReadPrec UpdateRoleDescription
+readList :: ReadS [UpdateRoleDescription]
+$creadList :: ReadS [UpdateRoleDescription]
+readsPrec :: Int -&gt; ReadS UpdateRoleDescription
+$creadsPrec :: Int -&gt; ReadS UpdateRoleDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464187"><span id="local-6989586621679464189"><span id="local-6989586621679464191"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleDescription -&gt; ShowS
+[UpdateRoleDescription] -&gt; ShowS
+UpdateRoleDescription -&gt; String
+(Int -&gt; UpdateRoleDescription -&gt; ShowS)
+-&gt; (UpdateRoleDescription -&gt; String)
+-&gt; ([UpdateRoleDescription] -&gt; ShowS)
+-&gt; Show UpdateRoleDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRoleDescription] -&gt; ShowS
+$cshowList :: [UpdateRoleDescription] -&gt; ShowS
+show :: UpdateRoleDescription -&gt; String
+$cshow :: UpdateRoleDescription -&gt; String
+showsPrec :: Int -&gt; UpdateRoleDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRoleDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateRoleDescription -&gt; Rep UpdateRoleDescription x)
+-&gt; (forall x. Rep UpdateRoleDescription x -&gt; UpdateRoleDescription)
+-&gt; Generic UpdateRoleDescription
+forall x. Rep UpdateRoleDescription x -&gt; UpdateRoleDescription
+forall x. UpdateRoleDescription -&gt; Rep UpdateRoleDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateRoleDescription x -&gt; UpdateRoleDescription
+$cfrom :: forall x. UpdateRoleDescription -&gt; Rep UpdateRoleDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'UpdateRoleDescription' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'roleName', 'updateRoleDescription_roleName' - The name of the role that you want to modify.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'description', 'updateRoleDescription_description' - The new description that you want to apply to the specified role.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#newUpdateRoleDescription"><span class="hs-identifier hs-type">newUpdateRoleDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'roleName'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span>
+</span><span id="line-80"></span><span id="newUpdateRoleDescription"><span class="annot"><span class="annottext">newUpdateRoleDescription :: Text -&gt; Text -&gt; UpdateRoleDescription
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#newUpdateRoleDescription"><span class="hs-identifier hs-var hs-var">newUpdateRoleDescription</span></a></span></span><span> </span><span id="local-6989586621679464182"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464182"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span id="local-6989586621679464181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464181"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoleDescription' :: Text -&gt; Text -&gt; UpdateRoleDescription
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleName:UpdateRoleDescription' :: Text
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3AroleName%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464182"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateRoleDescription' :: Text
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3Adescription%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464181"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The name of the role that you want to modify.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescription_roleName"><span class="hs-identifier hs-type">updateRoleDescription_roleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="updateRoleDescription_roleName"><span class="annot"><span class="annottext">updateRoleDescription_roleName :: (Text -&gt; f Text)
+-&gt; UpdateRoleDescription -&gt; f UpdateRoleDescription
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescription_roleName"><span class="hs-identifier hs-var hs-var">updateRoleDescription_roleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleDescription -&gt; Text)
+-&gt; (UpdateRoleDescription -&gt; Text -&gt; UpdateRoleDescription)
+-&gt; Lens UpdateRoleDescription UpdateRoleDescription Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464178"><span class="annot"><span class="annottext">Text
+roleName :: Text
+$sel:roleName:UpdateRoleDescription' :: UpdateRoleDescription -&gt; Text
+</span><a href="#local-6989586621679464178"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464178"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464177"><span class="annot"><span class="annottext">s :: UpdateRoleDescription
+</span><a href="#local-6989586621679464177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescription
+</span><a href="#local-6989586621679464177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:UpdateRoleDescription' :: Text
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3AroleName%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The new description that you want to apply to the specified role.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescription_description"><span class="hs-identifier hs-type">updateRoleDescription_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="updateRoleDescription_description"><span class="annot"><span class="annottext">updateRoleDescription_description :: (Text -&gt; f Text)
+-&gt; UpdateRoleDescription -&gt; f UpdateRoleDescription
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescription_description"><span class="hs-identifier hs-var hs-var">updateRoleDescription_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleDescription -&gt; Text)
+-&gt; (UpdateRoleDescription -&gt; Text -&gt; UpdateRoleDescription)
+-&gt; Lens UpdateRoleDescription UpdateRoleDescription Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464175"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:UpdateRoleDescription' :: UpdateRoleDescription -&gt; Text
+</span><a href="#local-6989586621679464175"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464175"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464174"><span class="annot"><span class="annottext">s :: UpdateRoleDescription
+</span><a href="#local-6989586621679464174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464173"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescription
+</span><a href="#local-6989586621679464174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateRoleDescription' :: Text
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3Adescription%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679464169"><span class="annot"><span class="annottext">request :: UpdateRoleDescription -&gt; Request UpdateRoleDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRoleDescription -&gt; Request UpdateRoleDescription
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679464165"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateRoleDescription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRoleDescription)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse UpdateRoleDescription))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateRoleDescription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRoleDescription)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateRoleDescriptionResult&quot;</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679464162"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464162"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679464161"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679464161"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679464160"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679464160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Role -&gt; Int -&gt; UpdateRoleDescriptionResponse
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateRoleDescriptionResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Role -&gt; Int -&gt; UpdateRoleDescriptionResponse)
+-&gt; Either String (Maybe Role)
+-&gt; Either String (Int -&gt; UpdateRoleDescriptionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679464160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Role)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Role&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRoleDescriptionResponse)
+-&gt; Either String Int -&gt; Either String UpdateRoleDescriptionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464162"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464152"><span id="local-6989586621679464154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679464145"><span class="annot"><span class="annottext">toHeaders :: UpdateRoleDescription -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRoleDescription -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679464140"><span class="annot"><span class="annottext">toPath :: UpdateRoleDescription -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRoleDescription -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679464136"><span class="annot"><span class="annottext">toQuery :: UpdateRoleDescription -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464133"><span id="local-6989586621679464134"><span class="annot"><span class="annottext">Text
+description :: Text
+roleName :: Text
+$sel:description:UpdateRoleDescription' :: UpdateRoleDescription -&gt; Text
+$sel:roleName:UpdateRoleDescription' :: UpdateRoleDescription -&gt; Text
+</span><a href="#local-6989586621679464133"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UpdateRoleDescription&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464134"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464133"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoleDescriptionResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679464130"><span id="local-6989586621679464131"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleDescriptionResponse"><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-var">UpdateRoleDescriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleDescriptionResponse%27"><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateRoleDescriptionResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains details about the modified role.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3Arole%27%3AUpdateRoleDescriptionResponse%27"><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse -&gt; Maybe Role
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3Arole%27%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.Role.html#Role"><span class="hs-identifier hs-type">Role</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRoleDescriptionResponse%27"><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse -&gt; Int
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3AhttpStatus%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464124"><span id="local-6989586621679464126"><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse
+-&gt; UpdateRoleDescriptionResponse -&gt; Bool
+(UpdateRoleDescriptionResponse
+ -&gt; UpdateRoleDescriptionResponse -&gt; Bool)
+-&gt; (UpdateRoleDescriptionResponse
+    -&gt; UpdateRoleDescriptionResponse -&gt; Bool)
+-&gt; Eq UpdateRoleDescriptionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRoleDescriptionResponse
+-&gt; UpdateRoleDescriptionResponse -&gt; Bool
+$c/= :: UpdateRoleDescriptionResponse
+-&gt; UpdateRoleDescriptionResponse -&gt; Bool
+== :: UpdateRoleDescriptionResponse
+-&gt; UpdateRoleDescriptionResponse -&gt; Bool
+$c== :: UpdateRoleDescriptionResponse
+-&gt; UpdateRoleDescriptionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464116"><span id="local-6989586621679464118"><span id="local-6989586621679464120"><span id="local-6989586621679464122"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleDescriptionResponse]
+ReadPrec UpdateRoleDescriptionResponse
+Int -&gt; ReadS UpdateRoleDescriptionResponse
+ReadS [UpdateRoleDescriptionResponse]
+(Int -&gt; ReadS UpdateRoleDescriptionResponse)
+-&gt; ReadS [UpdateRoleDescriptionResponse]
+-&gt; ReadPrec UpdateRoleDescriptionResponse
+-&gt; ReadPrec [UpdateRoleDescriptionResponse]
+-&gt; Read UpdateRoleDescriptionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRoleDescriptionResponse]
+$creadListPrec :: ReadPrec [UpdateRoleDescriptionResponse]
+readPrec :: ReadPrec UpdateRoleDescriptionResponse
+$creadPrec :: ReadPrec UpdateRoleDescriptionResponse
+readList :: ReadS [UpdateRoleDescriptionResponse]
+$creadList :: ReadS [UpdateRoleDescriptionResponse]
+readsPrec :: Int -&gt; ReadS UpdateRoleDescriptionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateRoleDescriptionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464110"><span id="local-6989586621679464112"><span id="local-6989586621679464114"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleDescriptionResponse -&gt; ShowS
+[UpdateRoleDescriptionResponse] -&gt; ShowS
+UpdateRoleDescriptionResponse -&gt; String
+(Int -&gt; UpdateRoleDescriptionResponse -&gt; ShowS)
+-&gt; (UpdateRoleDescriptionResponse -&gt; String)
+-&gt; ([UpdateRoleDescriptionResponse] -&gt; ShowS)
+-&gt; Show UpdateRoleDescriptionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRoleDescriptionResponse] -&gt; ShowS
+$cshowList :: [UpdateRoleDescriptionResponse] -&gt; ShowS
+show :: UpdateRoleDescriptionResponse -&gt; String
+$cshow :: UpdateRoleDescriptionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateRoleDescriptionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRoleDescriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRoleDescriptionResponse
+ -&gt; Rep UpdateRoleDescriptionResponse x)
+-&gt; (forall x.
+    Rep UpdateRoleDescriptionResponse x
+    -&gt; UpdateRoleDescriptionResponse)
+-&gt; Generic UpdateRoleDescriptionResponse
+forall x.
+Rep UpdateRoleDescriptionResponse x
+-&gt; UpdateRoleDescriptionResponse
+forall x.
+UpdateRoleDescriptionResponse
+-&gt; Rep UpdateRoleDescriptionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRoleDescriptionResponse x
+-&gt; UpdateRoleDescriptionResponse
+$cfrom :: forall x.
+UpdateRoleDescriptionResponse
+-&gt; Rep UpdateRoleDescriptionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'UpdateRoleDescriptionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'role'', 'updateRoleDescriptionResponse_role' - A structure that contains details about the modified role.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'httpStatus', 'updateRoleDescriptionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#newUpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">newUpdateRoleDescriptionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span>
+</span><span id="line-153"></span><span id="newUpdateRoleDescriptionResponse"><span class="annot"><span class="annottext">newUpdateRoleDescriptionResponse :: Int -&gt; UpdateRoleDescriptionResponse
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#newUpdateRoleDescriptionResponse"><span class="hs-identifier hs-var hs-var">newUpdateRoleDescriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679464107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse' :: Maybe Role -&gt; Int -&gt; UpdateRoleDescriptionResponse
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:role':UpdateRoleDescriptionResponse' :: Maybe Role
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3Arole%27%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Maybe Role
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoleDescriptionResponse' :: Int
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3AhttpStatus%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | A structure that contains details about the modified role.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescriptionResponse_role"><span class="hs-identifier hs-type">updateRoleDescriptionResponse_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.Role.html#Role"><span class="hs-identifier hs-type">Role</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="updateRoleDescriptionResponse_role"><span class="annot"><span class="annottext">updateRoleDescriptionResponse_role :: (Maybe Role -&gt; f (Maybe Role))
+-&gt; UpdateRoleDescriptionResponse -&gt; f UpdateRoleDescriptionResponse
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescriptionResponse_role"><span class="hs-identifier hs-var hs-var">updateRoleDescriptionResponse_role</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleDescriptionResponse -&gt; Maybe Role)
+-&gt; (UpdateRoleDescriptionResponse
+    -&gt; Maybe Role -&gt; UpdateRoleDescriptionResponse)
+-&gt; Lens
+     UpdateRoleDescriptionResponse
+     UpdateRoleDescriptionResponse
+     (Maybe Role)
+     (Maybe Role)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464106"><span class="annot"><span class="annottext">Maybe Role
+role' :: Maybe Role
+$sel:role':UpdateRoleDescriptionResponse' :: UpdateRoleDescriptionResponse -&gt; Maybe Role
+</span><a href="#local-6989586621679464106"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Role
+</span><a href="#local-6989586621679464106"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464105"><span class="annot"><span class="annottext">s :: UpdateRoleDescriptionResponse
+</span><a href="#local-6989586621679464105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464104"><span class="annot"><span class="annottext">Maybe Role
+</span><a href="#local-6989586621679464104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse
+</span><a href="#local-6989586621679464105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':UpdateRoleDescriptionResponse' :: Maybe Role
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3Arole%27%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Role
+</span><a href="#local-6989586621679464104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescriptionResponse_httpStatus"><span class="hs-identifier hs-type">updateRoleDescriptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span id="updateRoleDescriptionResponse_httpStatus"><span class="annot"><span class="annottext">updateRoleDescriptionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateRoleDescriptionResponse -&gt; f UpdateRoleDescriptionResponse
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#updateRoleDescriptionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRoleDescriptionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleDescriptionResponse -&gt; Int)
+-&gt; (UpdateRoleDescriptionResponse
+    -&gt; Int -&gt; UpdateRoleDescriptionResponse)
+-&gt; Lens
+     UpdateRoleDescriptionResponse UpdateRoleDescriptionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464103"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateRoleDescriptionResponse' :: UpdateRoleDescriptionResponse -&gt; Int
+</span><a href="#local-6989586621679464103"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464103"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464102"><span class="annot"><span class="annottext">s :: UpdateRoleDescriptionResponse
+</span><a href="#local-6989586621679464102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464101"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse
+</span><a href="#local-6989586621679464102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoleDescriptionResponse' :: Int
+</span><a href="Amazonka.IAM.UpdateRoleDescription.html#%24sel%3AhttpStatus%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

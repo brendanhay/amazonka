@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.CancelImportTask</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels an in-process import virtual machine or import snapshot task.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.CancelImportTask</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier">CancelImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#newCancelImportTask"><span class="hs-identifier">newCancelImportTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTask_cancelReason"><span class="hs-identifier">cancelImportTask_cancelReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTask_importTaskId"><span class="hs-identifier">cancelImportTask_importTaskId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTask_dryRun"><span class="hs-identifier">cancelImportTask_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier">CancelImportTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#newCancelImportTaskResponse"><span class="hs-identifier">newCancelImportTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_state"><span class="hs-identifier">cancelImportTaskResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_importTaskId"><span class="hs-identifier">cancelImportTaskResponse_importTaskId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_previousState"><span class="hs-identifier">cancelImportTaskResponse_previousState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_httpStatus"><span class="hs-identifier">cancelImportTaskResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCancelImportTask' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621681301889"><span id="local-6989586621681301890"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelImportTask"><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-var">CancelImportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelImportTask%27"><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask%27"><span class="hs-identifier hs-var">CancelImportTask'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason for canceling the task.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcancelReason%3ACancelImportTask%27"><span class="annot"><span class="annottext">CancelImportTask -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AcancelReason%3ACancelImportTask%27"><span class="hs-identifier hs-var hs-var">cancelReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ID of the import image or import snapshot task to be canceled.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AimportTaskId%3ACancelImportTask%27"><span class="annot"><span class="annottext">CancelImportTask -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AimportTaskId%3ACancelImportTask%27"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdryRun%3ACancelImportTask%27"><span class="annot"><span class="annottext">CancelImportTask -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AdryRun%3ACancelImportTask%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681301881"><span id="local-6989586621681301883"><span class="annot"><span class="annottext">CancelImportTask -&gt; CancelImportTask -&gt; Bool
+(CancelImportTask -&gt; CancelImportTask -&gt; Bool)
+-&gt; (CancelImportTask -&gt; CancelImportTask -&gt; Bool)
+-&gt; Eq CancelImportTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelImportTask -&gt; CancelImportTask -&gt; Bool
+$c/= :: CancelImportTask -&gt; CancelImportTask -&gt; Bool
+== :: CancelImportTask -&gt; CancelImportTask -&gt; Bool
+$c== :: CancelImportTask -&gt; CancelImportTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301872"><span id="local-6989586621681301874"><span id="local-6989586621681301876"><span id="local-6989586621681301878"><span class="annot"><span class="annottext">ReadPrec [CancelImportTask]
+ReadPrec CancelImportTask
+Int -&gt; ReadS CancelImportTask
+ReadS [CancelImportTask]
+(Int -&gt; ReadS CancelImportTask)
+-&gt; ReadS [CancelImportTask]
+-&gt; ReadPrec CancelImportTask
+-&gt; ReadPrec [CancelImportTask]
+-&gt; Read CancelImportTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelImportTask]
+$creadListPrec :: ReadPrec [CancelImportTask]
+readPrec :: ReadPrec CancelImportTask
+$creadPrec :: ReadPrec CancelImportTask
+readList :: ReadS [CancelImportTask]
+$creadList :: ReadS [CancelImportTask]
+readsPrec :: Int -&gt; ReadS CancelImportTask
+$creadsPrec :: Int -&gt; ReadS CancelImportTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301865"><span id="local-6989586621681301867"><span id="local-6989586621681301869"><span class="annot"><span class="annottext">Int -&gt; CancelImportTask -&gt; ShowS
+[CancelImportTask] -&gt; ShowS
+CancelImportTask -&gt; String
+(Int -&gt; CancelImportTask -&gt; ShowS)
+-&gt; (CancelImportTask -&gt; String)
+-&gt; ([CancelImportTask] -&gt; ShowS)
+-&gt; Show CancelImportTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelImportTask] -&gt; ShowS
+$cshowList :: [CancelImportTask] -&gt; ShowS
+show :: CancelImportTask -&gt; String
+$cshow :: CancelImportTask -&gt; String
+showsPrec :: Int -&gt; CancelImportTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelImportTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CancelImportTask -&gt; Rep CancelImportTask x)
+-&gt; (forall x. Rep CancelImportTask x -&gt; CancelImportTask)
+-&gt; Generic CancelImportTask
+forall x. Rep CancelImportTask x -&gt; CancelImportTask
+forall x. CancelImportTask -&gt; Rep CancelImportTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelImportTask x -&gt; CancelImportTask
+$cfrom :: forall x. CancelImportTask -&gt; Rep CancelImportTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'CancelImportTask' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'cancelReason', 'cancelImportTask_cancelReason' - The reason for canceling the task.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'importTaskId', 'cancelImportTask_importTaskId' - The ID of the import image or import snapshot task to be canceled.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'dryRun', 'cancelImportTask_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#newCancelImportTask"><span class="hs-identifier hs-type">newCancelImportTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span>
+</span><span id="line-85"></span><span id="newCancelImportTask"><span class="annot"><span class="annottext">newCancelImportTask :: CancelImportTask
+</span><a href="Amazonka.EC2.CancelImportTask.html#newCancelImportTask"><span class="hs-identifier hs-var hs-var">newCancelImportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">CancelImportTask' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; CancelImportTask
+</span><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask%27"><span class="hs-identifier hs-type">CancelImportTask'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cancelReason:CancelImportTask' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AcancelReason%3ACancelImportTask%27"><span class="hs-identifier hs-var">cancelReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:importTaskId:CancelImportTask' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AimportTaskId%3ACancelImportTask%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:CancelImportTask' :: Maybe Bool
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AdryRun%3ACancelImportTask%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The reason for canceling the task.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTask_cancelReason"><span class="hs-identifier hs-type">cancelImportTask_cancelReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="cancelImportTask_cancelReason"><span class="annot"><span class="annottext">cancelImportTask_cancelReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelImportTask -&gt; f CancelImportTask
+</span><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTask_cancelReason"><span class="hs-identifier hs-var hs-var">cancelImportTask_cancelReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelImportTask -&gt; Maybe Text)
+-&gt; (CancelImportTask -&gt; Maybe Text -&gt; CancelImportTask)
+-&gt; Lens CancelImportTask CancelImportTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask%27"><span class="hs-identifier hs-type">CancelImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301858"><span class="annot"><span class="annottext">Maybe Text
+cancelReason :: Maybe Text
+$sel:cancelReason:CancelImportTask' :: CancelImportTask -&gt; Maybe Text
+</span><a href="#local-6989586621681301858"><span class="hs-identifier hs-var hs-var">cancelReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301858"><span class="hs-identifier hs-var">cancelReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301857"><span class="annot"><span class="annottext">s :: CancelImportTask
+</span><a href="#local-6989586621681301857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask%27"><span class="hs-identifier hs-type">CancelImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301856"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelImportTask
+</span><a href="#local-6989586621681301857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cancelReason:CancelImportTask' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AcancelReason%3ACancelImportTask%27"><span class="hs-identifier hs-var">cancelReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the import image or import snapshot task to be canceled.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTask_importTaskId"><span class="hs-identifier hs-type">cancelImportTask_importTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="cancelImportTask_importTaskId"><span class="annot"><span class="annottext">cancelImportTask_importTaskId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelImportTask -&gt; f CancelImportTask
+</span><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTask_importTaskId"><span class="hs-identifier hs-var hs-var">cancelImportTask_importTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelImportTask -&gt; Maybe Text)
+-&gt; (CancelImportTask -&gt; Maybe Text -&gt; CancelImportTask)
+-&gt; Lens CancelImportTask CancelImportTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask%27"><span class="hs-identifier hs-type">CancelImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301855"><span class="annot"><span class="annottext">Maybe Text
+importTaskId :: Maybe Text
+$sel:importTaskId:CancelImportTask' :: CancelImportTask -&gt; Maybe Text
+</span><a href="#local-6989586621681301855"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301855"><span class="hs-identifier hs-var">importTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301854"><span class="annot"><span class="annottext">s :: CancelImportTask
+</span><a href="#local-6989586621681301854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask%27"><span class="hs-identifier hs-type">CancelImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301853"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelImportTask
+</span><a href="#local-6989586621681301854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importTaskId:CancelImportTask' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AimportTaskId%3ACancelImportTask%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTask_dryRun"><span class="hs-identifier hs-type">cancelImportTask_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="cancelImportTask_dryRun"><span class="annot"><span class="annottext">cancelImportTask_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CancelImportTask -&gt; f CancelImportTask
+</span><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTask_dryRun"><span class="hs-identifier hs-var hs-var">cancelImportTask_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelImportTask -&gt; Maybe Bool)
+-&gt; (CancelImportTask -&gt; Maybe Bool -&gt; CancelImportTask)
+-&gt; Lens CancelImportTask CancelImportTask (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask%27"><span class="hs-identifier hs-type">CancelImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301852"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CancelImportTask' :: CancelImportTask -&gt; Maybe Bool
+</span><a href="#local-6989586621681301852"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681301852"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301851"><span class="annot"><span class="annottext">s :: CancelImportTask
+</span><a href="#local-6989586621681301851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask%27"><span class="hs-identifier hs-type">CancelImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301850"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681301850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelImportTask
+</span><a href="#local-6989586621681301851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CancelImportTask' :: Maybe Bool
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AdryRun%3ACancelImportTask%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681301850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621681301846"><span class="annot"><span class="annottext">request :: CancelImportTask -&gt; Request CancelImportTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelImportTask -&gt; Request CancelImportTask
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621681301842"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CancelImportTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CancelImportTask)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CancelImportTask))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CancelImportTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CancelImportTask)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681301839"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301839"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681301838"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681301838"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681301837"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681301837"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelImportTaskResponse
+</span><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-var">CancelImportTaskResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelImportTaskResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelImportTaskResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681301837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelImportTaskResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CancelImportTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681301837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;importTaskId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CancelImportTaskResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CancelImportTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681301837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;previousState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CancelImportTaskResponse)
+-&gt; Either String Int -&gt; Either String CancelImportTaskResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301839"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681301829"><span id="local-6989586621681301831"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681301826"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621681301822"><span class="annot"><span class="annottext">toHeaders :: CancelImportTask -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelImportTask -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621681301817"><span class="annot"><span class="annottext">toPath :: CancelImportTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelImportTask -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask"><span class="hs-identifier hs-type">CancelImportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621681301813"><span class="annot"><span class="annottext">toQuery :: CancelImportTask -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTask%27"><span class="hs-identifier hs-type">CancelImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301809"><span id="local-6989586621681301810"><span id="local-6989586621681301811"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+dryRun :: Maybe Bool
+importTaskId :: Maybe Text
+cancelReason :: Maybe Text
+$sel:dryRun:CancelImportTask' :: CancelImportTask -&gt; Maybe Bool
+$sel:importTaskId:CancelImportTask' :: CancelImportTask -&gt; Maybe Text
+$sel:cancelReason:CancelImportTask' :: CancelImportTask -&gt; Maybe Text
+</span><a href="#local-6989586621681301809"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CancelImportTask&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CancelReason&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301811"><span class="hs-identifier hs-var">cancelReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ImportTaskId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301810"><span class="hs-identifier hs-var">importTaskId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681301809"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newCancelImportTaskResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621681301806"><span id="local-6989586621681301807"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelImportTaskResponse"><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-var">CancelImportTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelImportTaskResponse%27"><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-var">CancelImportTaskResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the task being canceled.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3Astate%3ACancelImportTaskResponse%27"><span class="annot"><span class="annottext">CancelImportTaskResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3Astate%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The ID of the task being canceled.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AimportTaskId%3ACancelImportTaskResponse%27"><span class="annot"><span class="annottext">CancelImportTaskResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AimportTaskId%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The current state of the task being canceled.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3ApreviousState%3ACancelImportTaskResponse%27"><span class="annot"><span class="annottext">CancelImportTaskResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3ApreviousState%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var hs-var">previousState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelImportTaskResponse%27"><span class="annot"><span class="annottext">CancelImportTaskResponse -&gt; Int
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AhttpStatus%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681301798"><span id="local-6989586621681301800"><span class="annot"><span class="annottext">CancelImportTaskResponse -&gt; CancelImportTaskResponse -&gt; Bool
+(CancelImportTaskResponse -&gt; CancelImportTaskResponse -&gt; Bool)
+-&gt; (CancelImportTaskResponse -&gt; CancelImportTaskResponse -&gt; Bool)
+-&gt; Eq CancelImportTaskResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelImportTaskResponse -&gt; CancelImportTaskResponse -&gt; Bool
+$c/= :: CancelImportTaskResponse -&gt; CancelImportTaskResponse -&gt; Bool
+== :: CancelImportTaskResponse -&gt; CancelImportTaskResponse -&gt; Bool
+$c== :: CancelImportTaskResponse -&gt; CancelImportTaskResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301790"><span id="local-6989586621681301792"><span id="local-6989586621681301794"><span id="local-6989586621681301796"><span class="annot"><span class="annottext">ReadPrec [CancelImportTaskResponse]
+ReadPrec CancelImportTaskResponse
+Int -&gt; ReadS CancelImportTaskResponse
+ReadS [CancelImportTaskResponse]
+(Int -&gt; ReadS CancelImportTaskResponse)
+-&gt; ReadS [CancelImportTaskResponse]
+-&gt; ReadPrec CancelImportTaskResponse
+-&gt; ReadPrec [CancelImportTaskResponse]
+-&gt; Read CancelImportTaskResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelImportTaskResponse]
+$creadListPrec :: ReadPrec [CancelImportTaskResponse]
+readPrec :: ReadPrec CancelImportTaskResponse
+$creadPrec :: ReadPrec CancelImportTaskResponse
+readList :: ReadS [CancelImportTaskResponse]
+$creadList :: ReadS [CancelImportTaskResponse]
+readsPrec :: Int -&gt; ReadS CancelImportTaskResponse
+$creadsPrec :: Int -&gt; ReadS CancelImportTaskResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301784"><span id="local-6989586621681301786"><span id="local-6989586621681301788"><span class="annot"><span class="annottext">Int -&gt; CancelImportTaskResponse -&gt; ShowS
+[CancelImportTaskResponse] -&gt; ShowS
+CancelImportTaskResponse -&gt; String
+(Int -&gt; CancelImportTaskResponse -&gt; ShowS)
+-&gt; (CancelImportTaskResponse -&gt; String)
+-&gt; ([CancelImportTaskResponse] -&gt; ShowS)
+-&gt; Show CancelImportTaskResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelImportTaskResponse] -&gt; ShowS
+$cshowList :: [CancelImportTaskResponse] -&gt; ShowS
+show :: CancelImportTaskResponse -&gt; String
+$cshow :: CancelImportTaskResponse -&gt; String
+showsPrec :: Int -&gt; CancelImportTaskResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelImportTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CancelImportTaskResponse -&gt; Rep CancelImportTaskResponse x)
+-&gt; (forall x.
+    Rep CancelImportTaskResponse x -&gt; CancelImportTaskResponse)
+-&gt; Generic CancelImportTaskResponse
+forall x.
+Rep CancelImportTaskResponse x -&gt; CancelImportTaskResponse
+forall x.
+CancelImportTaskResponse -&gt; Rep CancelImportTaskResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CancelImportTaskResponse x -&gt; CancelImportTaskResponse
+$cfrom :: forall x.
+CancelImportTaskResponse -&gt; Rep CancelImportTaskResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'CancelImportTaskResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'state', 'cancelImportTaskResponse_state' - The current state of the task being canceled.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'importTaskId', 'cancelImportTaskResponse_importTaskId' - The ID of the task being canceled.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'previousState', 'cancelImportTaskResponse_previousState' - The current state of the task being canceled.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'cancelImportTaskResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#newCancelImportTaskResponse"><span class="hs-identifier hs-type">newCancelImportTaskResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newCancelImportTaskResponse"><span class="annot"><span class="annottext">newCancelImportTaskResponse :: Int -&gt; CancelImportTaskResponse
+</span><a href="Amazonka.EC2.CancelImportTask.html#newCancelImportTaskResponse"><span class="hs-identifier hs-var hs-var">newCancelImportTaskResponse</span></a></span></span><span> </span><span id="local-6989586621681301781"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">CancelImportTaskResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelImportTaskResponse
+</span><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-type">CancelImportTaskResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:CancelImportTaskResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3Astate%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:importTaskId:CancelImportTaskResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AimportTaskId%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:previousState:CancelImportTaskResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3ApreviousState%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var">previousState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CancelImportTaskResponse' :: Int
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AhttpStatus%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The current state of the task being canceled.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_state"><span class="hs-identifier hs-type">cancelImportTaskResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="cancelImportTaskResponse_state"><span class="annot"><span class="annottext">cancelImportTaskResponse_state :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelImportTaskResponse -&gt; f CancelImportTaskResponse
+</span><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_state"><span class="hs-identifier hs-var hs-var">cancelImportTaskResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelImportTaskResponse -&gt; Maybe Text)
+-&gt; (CancelImportTaskResponse
+    -&gt; Maybe Text -&gt; CancelImportTaskResponse)
+-&gt; Lens
+     CancelImportTaskResponse
+     CancelImportTaskResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-type">CancelImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301780"><span class="annot"><span class="annottext">Maybe Text
+state :: Maybe Text
+$sel:state:CancelImportTaskResponse' :: CancelImportTaskResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681301780"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301780"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301779"><span class="annot"><span class="annottext">s :: CancelImportTaskResponse
+</span><a href="#local-6989586621681301779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-type">CancelImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301778"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelImportTaskResponse
+</span><a href="#local-6989586621681301779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CancelImportTaskResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3Astate%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The ID of the task being canceled.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_importTaskId"><span class="hs-identifier hs-type">cancelImportTaskResponse_importTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="cancelImportTaskResponse_importTaskId"><span class="annot"><span class="annottext">cancelImportTaskResponse_importTaskId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelImportTaskResponse -&gt; f CancelImportTaskResponse
+</span><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_importTaskId"><span class="hs-identifier hs-var hs-var">cancelImportTaskResponse_importTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelImportTaskResponse -&gt; Maybe Text)
+-&gt; (CancelImportTaskResponse
+    -&gt; Maybe Text -&gt; CancelImportTaskResponse)
+-&gt; Lens
+     CancelImportTaskResponse
+     CancelImportTaskResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-type">CancelImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301777"><span class="annot"><span class="annottext">Maybe Text
+importTaskId :: Maybe Text
+$sel:importTaskId:CancelImportTaskResponse' :: CancelImportTaskResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681301777"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301777"><span class="hs-identifier hs-var">importTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301776"><span class="annot"><span class="annottext">s :: CancelImportTaskResponse
+</span><a href="#local-6989586621681301776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-type">CancelImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelImportTaskResponse
+</span><a href="#local-6989586621681301776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importTaskId:CancelImportTaskResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AimportTaskId%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The current state of the task being canceled.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_previousState"><span class="hs-identifier hs-type">cancelImportTaskResponse_previousState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="cancelImportTaskResponse_previousState"><span class="annot"><span class="annottext">cancelImportTaskResponse_previousState :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelImportTaskResponse -&gt; f CancelImportTaskResponse
+</span><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_previousState"><span class="hs-identifier hs-var hs-var">cancelImportTaskResponse_previousState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelImportTaskResponse -&gt; Maybe Text)
+-&gt; (CancelImportTaskResponse
+    -&gt; Maybe Text -&gt; CancelImportTaskResponse)
+-&gt; Lens
+     CancelImportTaskResponse
+     CancelImportTaskResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-type">CancelImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301774"><span class="annot"><span class="annottext">Maybe Text
+previousState :: Maybe Text
+$sel:previousState:CancelImportTaskResponse' :: CancelImportTaskResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681301774"><span class="hs-identifier hs-var hs-var">previousState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301774"><span class="hs-identifier hs-var">previousState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301773"><span class="annot"><span class="annottext">s :: CancelImportTaskResponse
+</span><a href="#local-6989586621681301773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-type">CancelImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelImportTaskResponse
+</span><a href="#local-6989586621681301773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:previousState:CancelImportTaskResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3ApreviousState%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var">previousState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_httpStatus"><span class="hs-identifier hs-type">cancelImportTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span id="cancelImportTaskResponse_httpStatus"><span class="annot"><span class="annottext">cancelImportTaskResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CancelImportTaskResponse -&gt; f CancelImportTaskResponse
+</span><a href="Amazonka.EC2.CancelImportTask.html#cancelImportTaskResponse_httpStatus"><span class="hs-identifier hs-var hs-var">cancelImportTaskResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelImportTaskResponse -&gt; Int)
+-&gt; (CancelImportTaskResponse -&gt; Int -&gt; CancelImportTaskResponse)
+-&gt; Lens CancelImportTaskResponse CancelImportTaskResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-type">CancelImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301771"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CancelImportTaskResponse' :: CancelImportTaskResponse -&gt; Int
+</span><a href="#local-6989586621681301771"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301771"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301770"><span class="annot"><span class="annottext">s :: CancelImportTaskResponse
+</span><a href="#local-6989586621681301770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse%27"><span class="hs-identifier hs-type">CancelImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301769"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelImportTaskResponse
+</span><a href="#local-6989586621681301770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelImportTaskResponse' :: Int
+</span><a href="Amazonka.EC2.CancelImportTask.html#%24sel%3AhttpStatus%3ACancelImportTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681301767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CancelImportTask.html#CancelImportTaskResponse"><span class="hs-identifier hs-type">CancelImportTaskResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

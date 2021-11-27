@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LicenseManager.Types.InventoryFilterCondition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LicenseManager.Types.InventoryFilterCondition</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition"><span class="hs-identifier">InventoryFilterCondition</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_BEGINS_WITH"><span class="hs-identifier">InventoryFilterCondition_BEGINS_WITH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_CONTAINS"><span class="hs-identifier">InventoryFilterCondition_CONTAINS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_EQUALS"><span class="hs-identifier">InventoryFilterCondition_EQUALS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_NOT_EQUALS"><span class="hs-identifier">InventoryFilterCondition_NOT_EQUALS</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679297343"><span id="local-6989586621679297344"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryFilterCondition"><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition"><span class="hs-identifier hs-var">InventoryFilterCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryFilterCondition%27"><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition%27"><span class="hs-identifier hs-var">InventoryFilterCondition'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInventoryFilterCondition"><span class="annot"><span class="annottext">InventoryFilterCondition -&gt; Text
+</span><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#fromInventoryFilterCondition"><span class="hs-identifier hs-var hs-var">fromInventoryFilterCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297335"><span id="local-6989586621679297337"><span id="local-6989586621679297339"><span class="annot"><span class="annottext">Int -&gt; InventoryFilterCondition -&gt; ShowS
+[InventoryFilterCondition] -&gt; ShowS
+InventoryFilterCondition -&gt; String
+(Int -&gt; InventoryFilterCondition -&gt; ShowS)
+-&gt; (InventoryFilterCondition -&gt; String)
+-&gt; ([InventoryFilterCondition] -&gt; ShowS)
+-&gt; Show InventoryFilterCondition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InventoryFilterCondition] -&gt; ShowS
+$cshowList :: [InventoryFilterCondition] -&gt; ShowS
+show :: InventoryFilterCondition -&gt; String
+$cshow :: InventoryFilterCondition -&gt; String
+showsPrec :: Int -&gt; InventoryFilterCondition -&gt; ShowS
+$cshowsPrec :: Int -&gt; InventoryFilterCondition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679297326"><span id="local-6989586621679297328"><span id="local-6989586621679297330"><span id="local-6989586621679297332"><span class="annot"><span class="annottext">ReadPrec [InventoryFilterCondition]
+ReadPrec InventoryFilterCondition
+Int -&gt; ReadS InventoryFilterCondition
+ReadS [InventoryFilterCondition]
+(Int -&gt; ReadS InventoryFilterCondition)
+-&gt; ReadS [InventoryFilterCondition]
+-&gt; ReadPrec InventoryFilterCondition
+-&gt; ReadPrec [InventoryFilterCondition]
+-&gt; Read InventoryFilterCondition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InventoryFilterCondition]
+$creadListPrec :: ReadPrec [InventoryFilterCondition]
+readPrec :: ReadPrec InventoryFilterCondition
+$creadPrec :: ReadPrec InventoryFilterCondition
+readList :: ReadS [InventoryFilterCondition]
+$creadList :: ReadS [InventoryFilterCondition]
+readsPrec :: Int -&gt; ReadS InventoryFilterCondition
+$creadsPrec :: Int -&gt; ReadS InventoryFilterCondition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679297321"><span id="local-6989586621679297323"><span class="annot"><span class="annottext">InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+(InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool)
+-&gt; (InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool)
+-&gt; Eq InventoryFilterCondition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+$c/= :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+== :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+$c== :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679297305"><span id="local-6989586621679297307"><span id="local-6989586621679297309"><span id="local-6989586621679297311"><span id="local-6989586621679297313"><span id="local-6989586621679297315"><span id="local-6989586621679297317"><span class="annot"><span class="annottext">Eq InventoryFilterCondition
+Eq InventoryFilterCondition
+-&gt; (InventoryFilterCondition
+    -&gt; InventoryFilterCondition -&gt; Ordering)
+-&gt; (InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool)
+-&gt; (InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool)
+-&gt; (InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool)
+-&gt; (InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool)
+-&gt; (InventoryFilterCondition
+    -&gt; InventoryFilterCondition -&gt; InventoryFilterCondition)
+-&gt; (InventoryFilterCondition
+    -&gt; InventoryFilterCondition -&gt; InventoryFilterCondition)
+-&gt; Ord InventoryFilterCondition
+InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Ordering
+InventoryFilterCondition
+-&gt; InventoryFilterCondition -&gt; InventoryFilterCondition
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InventoryFilterCondition
+-&gt; InventoryFilterCondition -&gt; InventoryFilterCondition
+$cmin :: InventoryFilterCondition
+-&gt; InventoryFilterCondition -&gt; InventoryFilterCondition
+max :: InventoryFilterCondition
+-&gt; InventoryFilterCondition -&gt; InventoryFilterCondition
+$cmax :: InventoryFilterCondition
+-&gt; InventoryFilterCondition -&gt; InventoryFilterCondition
+&gt;= :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+$c&gt;= :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+&gt; :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+$c&gt; :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+&lt;= :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+$c&lt;= :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+&lt; :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+$c&lt; :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Bool
+compare :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Ordering
+$ccompare :: InventoryFilterCondition -&gt; InventoryFilterCondition -&gt; Ordering
+$cp1Ord :: Eq InventoryFilterCondition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ InventoryFilterCondition -&gt; Rep InventoryFilterCondition x)
+-&gt; (forall x.
+    Rep InventoryFilterCondition x -&gt; InventoryFilterCondition)
+-&gt; Generic InventoryFilterCondition
+forall x.
+Rep InventoryFilterCondition x -&gt; InventoryFilterCondition
+forall x.
+InventoryFilterCondition -&gt; Rep InventoryFilterCondition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InventoryFilterCondition x -&gt; InventoryFilterCondition
+$cfrom :: forall x.
+InventoryFilterCondition -&gt; Rep InventoryFilterCondition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297297"><span id="local-6989586621679297299"><span class="annot"><span class="annottext">Int -&gt; InventoryFilterCondition -&gt; Int
+InventoryFilterCondition -&gt; Int
+(Int -&gt; InventoryFilterCondition -&gt; Int)
+-&gt; (InventoryFilterCondition -&gt; Int)
+-&gt; Hashable InventoryFilterCondition
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InventoryFilterCondition -&gt; Int
+$chash :: InventoryFilterCondition -&gt; Int
+hashWithSalt :: Int -&gt; InventoryFilterCondition -&gt; Int
+$chashWithSalt :: Int -&gt; InventoryFilterCondition -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679297294"><span class="annot"><span class="annottext">InventoryFilterCondition -&gt; ()
+(InventoryFilterCondition -&gt; ()) -&gt; NFData InventoryFilterCondition
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InventoryFilterCondition -&gt; ()
+$crnf :: InventoryFilterCondition -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679297291"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryFilterCondition
+(Text -&gt; Either String InventoryFilterCondition)
+-&gt; FromText InventoryFilterCondition
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InventoryFilterCondition
+$cfromText :: Text -&gt; Either String InventoryFilterCondition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679297288"><span class="annot"><span class="annottext">InventoryFilterCondition -&gt; Text
+(InventoryFilterCondition -&gt; Text)
+-&gt; ToText InventoryFilterCondition
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InventoryFilterCondition -&gt; Text
+$ctoText :: InventoryFilterCondition -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679297285"><span class="annot"><span class="annottext">InventoryFilterCondition -&gt; ByteString
+(InventoryFilterCondition -&gt; ByteString)
+-&gt; ToByteString InventoryFilterCondition
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InventoryFilterCondition -&gt; ByteString
+$ctoBS :: InventoryFilterCondition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679297282"><span class="annot"><span class="annottext">InventoryFilterCondition -&gt; ByteStringBuilder
+(InventoryFilterCondition -&gt; ByteStringBuilder)
+-&gt; ToLog InventoryFilterCondition
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InventoryFilterCondition -&gt; ByteStringBuilder
+$cbuild :: InventoryFilterCondition -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679297279"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryFilterCondition -&gt; [Header]
+(HeaderName -&gt; InventoryFilterCondition -&gt; [Header])
+-&gt; ToHeader InventoryFilterCondition
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InventoryFilterCondition -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InventoryFilterCondition -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679297276"><span class="annot"><span class="annottext">InventoryFilterCondition -&gt; QueryString
+(InventoryFilterCondition -&gt; QueryString)
+-&gt; ToQuery InventoryFilterCondition
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InventoryFilterCondition -&gt; QueryString
+$ctoQuery :: InventoryFilterCondition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679297271"><span id="local-6989586621679297273"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryFilterCondition]
+Value -&gt; Parser InventoryFilterCondition
+(Value -&gt; Parser InventoryFilterCondition)
+-&gt; (Value -&gt; Parser [InventoryFilterCondition])
+-&gt; FromJSON InventoryFilterCondition
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InventoryFilterCondition]
+$cparseJSONList :: Value -&gt; Parser [InventoryFilterCondition]
+parseJSON :: Value -&gt; Parser InventoryFilterCondition
+$cparseJSON :: Value -&gt; Parser InventoryFilterCondition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297266"><span id="local-6989586621679297268"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryFilterCondition]
+FromJSONKeyFunction InventoryFilterCondition
+FromJSONKeyFunction InventoryFilterCondition
+-&gt; FromJSONKeyFunction [InventoryFilterCondition]
+-&gt; FromJSONKey InventoryFilterCondition
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InventoryFilterCondition]
+$cfromJSONKeyList :: FromJSONKeyFunction [InventoryFilterCondition]
+fromJSONKey :: FromJSONKeyFunction InventoryFilterCondition
+$cfromJSONKey :: FromJSONKeyFunction InventoryFilterCondition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297257"><span id="local-6989586621679297259"><span id="local-6989586621679297261"><span id="local-6989586621679297263"><span class="annot"><span class="annottext">[InventoryFilterCondition] -&gt; Encoding
+[InventoryFilterCondition] -&gt; Value
+InventoryFilterCondition -&gt; Encoding
+InventoryFilterCondition -&gt; Value
+(InventoryFilterCondition -&gt; Value)
+-&gt; (InventoryFilterCondition -&gt; Encoding)
+-&gt; ([InventoryFilterCondition] -&gt; Value)
+-&gt; ([InventoryFilterCondition] -&gt; Encoding)
+-&gt; ToJSON InventoryFilterCondition
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InventoryFilterCondition] -&gt; Encoding
+$ctoEncodingList :: [InventoryFilterCondition] -&gt; Encoding
+toJSONList :: [InventoryFilterCondition] -&gt; Value
+$ctoJSONList :: [InventoryFilterCondition] -&gt; Value
+toEncoding :: InventoryFilterCondition -&gt; Encoding
+$ctoEncoding :: InventoryFilterCondition -&gt; Encoding
+toJSON :: InventoryFilterCondition -&gt; Value
+$ctoJSON :: InventoryFilterCondition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679297252"><span id="local-6989586621679297254"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryFilterCondition]
+ToJSONKeyFunction InventoryFilterCondition
+ToJSONKeyFunction InventoryFilterCondition
+-&gt; ToJSONKeyFunction [InventoryFilterCondition]
+-&gt; ToJSONKey InventoryFilterCondition
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InventoryFilterCondition]
+$ctoJSONKeyList :: ToJSONKeyFunction [InventoryFilterCondition]
+toJSONKey :: ToJSONKeyFunction InventoryFilterCondition
+$ctoJSONKey :: ToJSONKeyFunction InventoryFilterCondition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679297249"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryFilterCondition
+([Node] -&gt; Either String InventoryFilterCondition)
+-&gt; FromXML InventoryFilterCondition
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InventoryFilterCondition
+$cparseXML :: [Node] -&gt; Either String InventoryFilterCondition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679297246"><span class="annot"><span class="annottext">InventoryFilterCondition -&gt; XML
+(InventoryFilterCondition -&gt; XML) -&gt; ToXML InventoryFilterCondition
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InventoryFilterCondition -&gt; XML
+$ctoXML :: InventoryFilterCondition -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_BEGINS_WITH"><span class="hs-identifier hs-type">InventoryFilterCondition_BEGINS_WITH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition"><span class="hs-identifier hs-type">InventoryFilterCondition</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryFilterCondition_BEGINS_WITH"><span id="%24mInventoryFilterCondition_BEGINS_WITH"><span id="InventoryFilterCondition_BEGINS_WITH"><span class="annot"><span class="annottext">$bInventoryFilterCondition_BEGINS_WITH :: InventoryFilterCondition
+$mInventoryFilterCondition_BEGINS_WITH :: forall r.
+InventoryFilterCondition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#%24bInventoryFilterCondition_BEGINS_WITH"><span class="hs-identifier hs-var hs-var hs-var">InventoryFilterCondition_BEGINS_WITH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition%27"><span class="hs-identifier hs-type">InventoryFilterCondition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BEGINS_WITH&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_CONTAINS"><span class="hs-identifier hs-type">InventoryFilterCondition_CONTAINS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition"><span class="hs-identifier hs-type">InventoryFilterCondition</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryFilterCondition_CONTAINS"><span id="%24mInventoryFilterCondition_CONTAINS"><span id="InventoryFilterCondition_CONTAINS"><span class="annot"><span class="annottext">$bInventoryFilterCondition_CONTAINS :: InventoryFilterCondition
+$mInventoryFilterCondition_CONTAINS :: forall r.
+InventoryFilterCondition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#%24bInventoryFilterCondition_CONTAINS"><span class="hs-identifier hs-var hs-var hs-var">InventoryFilterCondition_CONTAINS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition%27"><span class="hs-identifier hs-type">InventoryFilterCondition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTAINS&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_EQUALS"><span class="hs-identifier hs-type">InventoryFilterCondition_EQUALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition"><span class="hs-identifier hs-type">InventoryFilterCondition</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryFilterCondition_EQUALS"><span id="%24mInventoryFilterCondition_EQUALS"><span id="InventoryFilterCondition_EQUALS"><span class="annot"><span class="annottext">$bInventoryFilterCondition_EQUALS :: InventoryFilterCondition
+$mInventoryFilterCondition_EQUALS :: forall r.
+InventoryFilterCondition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#%24bInventoryFilterCondition_EQUALS"><span class="hs-identifier hs-var hs-var hs-var">InventoryFilterCondition_EQUALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition%27"><span class="hs-identifier hs-type">InventoryFilterCondition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUALS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_NOT_EQUALS"><span class="hs-identifier hs-type">InventoryFilterCondition_NOT_EQUALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition"><span class="hs-identifier hs-type">InventoryFilterCondition</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInventoryFilterCondition_NOT_EQUALS"><span id="%24mInventoryFilterCondition_NOT_EQUALS"><span id="InventoryFilterCondition_NOT_EQUALS"><span class="annot"><span class="annottext">$bInventoryFilterCondition_NOT_EQUALS :: InventoryFilterCondition
+$mInventoryFilterCondition_NOT_EQUALS :: forall r.
+InventoryFilterCondition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#%24bInventoryFilterCondition_NOT_EQUALS"><span class="hs-identifier hs-var hs-var hs-var">InventoryFilterCondition_NOT_EQUALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition%27"><span class="hs-identifier hs-type">InventoryFilterCondition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_EQUALS&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_BEGINS_WITH"><span class="hs-pragma hs-type">InventoryFilterCondition_BEGINS_WITH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_CONTAINS"><span class="hs-pragma hs-type">InventoryFilterCondition_CONTAINS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_EQUALS"><span class="hs-pragma hs-type">InventoryFilterCondition_EQUALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition_NOT_EQUALS"><span class="hs-pragma hs-type">InventoryFilterCondition_NOT_EQUALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.LicenseManager.Types.InventoryFilterCondition.html#InventoryFilterCondition%27"><span class="hs-pragma hs-type">InventoryFilterCondition'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

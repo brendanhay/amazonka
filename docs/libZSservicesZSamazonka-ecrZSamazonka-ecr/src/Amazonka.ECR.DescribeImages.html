@@ -1,0 +1,893 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ECR.DescribeImages</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns metadata about the images in a repository.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Beginning with Docker version 1.9, the Docker client compresses image</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- layers before pushing them to a V2 Docker registry. The output of the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @docker images@ command shows the uncompressed image size, so it may</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- return a larger image size than the image sizes returned by</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- DescribeImages.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECR.DescribeImages</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier">DescribeImages</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#newDescribeImages"><span class="hs-identifier">newDescribeImages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_registryId"><span class="hs-identifier">describeImages_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_imageIds"><span class="hs-identifier">describeImages_imageIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_nextToken"><span class="hs-identifier">describeImages_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_filter"><span class="hs-identifier">describeImages_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_maxResults"><span class="hs-identifier">describeImages_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_repositoryName"><span class="hs-identifier">describeImages_repositoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier">DescribeImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#newDescribeImagesResponse"><span class="hs-identifier">newDescribeImagesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_imageDetails"><span class="hs-identifier">describeImagesResponse_imageDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_nextToken"><span class="hs-identifier">describeImagesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_httpStatus"><span class="hs-identifier">describeImagesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.html"><span class="hs-identifier">Amazonka.ECR.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newDescribeImages' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679241619"><span id="local-6989586621679241620"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImages"><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-var">DescribeImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImages%27"><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-var">DescribeImages'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- contains the repository in which to describe images. If you do not</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- specify a registry, the default registry is assumed.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AregistryId%3ADescribeImages%27"><span class="annot"><span class="annottext">DescribeImages -&gt; Maybe Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AregistryId%3ADescribeImages%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The list of image IDs for the requested repository.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AimageIds%3ADescribeImages%27"><span class="annot"><span class="annottext">DescribeImages -&gt; Maybe [ImageIdentifier]
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AimageIds%3ADescribeImages%27"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @DescribeImages@ request where @maxResults@ was used and the results</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- exceeded the value of that parameter. Pagination continues from the end</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- of the previous results that returned the @nextToken@ value. This value</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- is @null@ when there are no more results to return. This option cannot</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- be used when you specify images with @imageIds@.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeImages%27"><span class="annot"><span class="annottext">DescribeImages -&gt; Maybe Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AnextToken%3ADescribeImages%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The filter key and value with which to filter your @DescribeImages@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Afilter%27%3ADescribeImages%27"><span class="annot"><span class="annottext">DescribeImages -&gt; Maybe DescribeImagesFilter
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3Afilter%27%3ADescribeImages%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier hs-type">DescribeImagesFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The maximum number of repository results returned by @DescribeImages@ in</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- paginated output. When this parameter is used, @DescribeImages@ only</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- returns @maxResults@ results in a single page along with a @nextToken@</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- response element. The remaining results of the initial request can be</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- seen by sending another @DescribeImages@ request with the returned</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @nextToken@ value. This value can be between 1 and 1000. If this</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- parameter is not used, then @DescribeImages@ returns up to 100 results</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- and a @nextToken@ value, if applicable. This option cannot be used when</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- you specify images with @imageIds@.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeImages%27"><span class="annot"><span class="annottext">DescribeImages -&gt; Maybe Natural
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AmaxResults%3ADescribeImages%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The repository that contains the images to describe.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3ArepositoryName%3ADescribeImages%27"><span class="annot"><span class="annottext">DescribeImages -&gt; Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3ArepositoryName%3ADescribeImages%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241608"><span id="local-6989586621679241610"><span class="annot"><span class="annottext">DescribeImages -&gt; DescribeImages -&gt; Bool
+(DescribeImages -&gt; DescribeImages -&gt; Bool)
+-&gt; (DescribeImages -&gt; DescribeImages -&gt; Bool) -&gt; Eq DescribeImages
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeImages -&gt; DescribeImages -&gt; Bool
+$c/= :: DescribeImages -&gt; DescribeImages -&gt; Bool
+== :: DescribeImages -&gt; DescribeImages -&gt; Bool
+$c== :: DescribeImages -&gt; DescribeImages -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241599"><span id="local-6989586621679241601"><span id="local-6989586621679241603"><span id="local-6989586621679241605"><span class="annot"><span class="annottext">ReadPrec [DescribeImages]
+ReadPrec DescribeImages
+Int -&gt; ReadS DescribeImages
+ReadS [DescribeImages]
+(Int -&gt; ReadS DescribeImages)
+-&gt; ReadS [DescribeImages]
+-&gt; ReadPrec DescribeImages
+-&gt; ReadPrec [DescribeImages]
+-&gt; Read DescribeImages
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeImages]
+$creadListPrec :: ReadPrec [DescribeImages]
+readPrec :: ReadPrec DescribeImages
+$creadPrec :: ReadPrec DescribeImages
+readList :: ReadS [DescribeImages]
+$creadList :: ReadS [DescribeImages]
+readsPrec :: Int -&gt; ReadS DescribeImages
+$creadsPrec :: Int -&gt; ReadS DescribeImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241592"><span id="local-6989586621679241594"><span id="local-6989586621679241596"><span class="annot"><span class="annottext">Int -&gt; DescribeImages -&gt; ShowS
+[DescribeImages] -&gt; ShowS
+DescribeImages -&gt; String
+(Int -&gt; DescribeImages -&gt; ShowS)
+-&gt; (DescribeImages -&gt; String)
+-&gt; ([DescribeImages] -&gt; ShowS)
+-&gt; Show DescribeImages
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeImages] -&gt; ShowS
+$cshowList :: [DescribeImages] -&gt; ShowS
+show :: DescribeImages -&gt; String
+$cshow :: DescribeImages -&gt; String
+showsPrec :: Int -&gt; DescribeImages -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeImages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeImages -&gt; Rep DescribeImages x)
+-&gt; (forall x. Rep DescribeImages x -&gt; DescribeImages)
+-&gt; Generic DescribeImages
+forall x. Rep DescribeImages x -&gt; DescribeImages
+forall x. DescribeImages -&gt; Rep DescribeImages x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeImages x -&gt; DescribeImages
+$cfrom :: forall x. DescribeImages -&gt; Rep DescribeImages x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'DescribeImages' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'registryId', 'describeImages_registryId' - The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- contains the repository in which to describe images. If you do not</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- specify a registry, the default registry is assumed.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'imageIds', 'describeImages_imageIds' - The list of image IDs for the requested repository.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'nextToken', 'describeImages_nextToken' - The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @DescribeImages@ request where @maxResults@ was used and the results</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- exceeded the value of that parameter. Pagination continues from the end</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- of the previous results that returned the @nextToken@ value. This value</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- is @null@ when there are no more results to return. This option cannot</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- be used when you specify images with @imageIds@.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'filter'', 'describeImages_filter' - The filter key and value with which to filter your @DescribeImages@</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'maxResults', 'describeImages_maxResults' - The maximum number of repository results returned by @DescribeImages@ in</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- paginated output. When this parameter is used, @DescribeImages@ only</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- returns @maxResults@ results in a single page along with a @nextToken@</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- response element. The remaining results of the initial request can be</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- seen by sending another @DescribeImages@ request with the returned</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @nextToken@ value. This value can be between 1 and 1000. If this</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- parameter is not used, then @DescribeImages@ returns up to 100 results</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- and a @nextToken@ value, if applicable. This option cannot be used when</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- you specify images with @imageIds@.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'repositoryName', 'describeImages_repositoryName' - The repository that contains the images to describe.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#newDescribeImages"><span class="hs-identifier hs-type">newDescribeImages</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'repositoryName'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span>
+</span><span id="line-135"></span><span id="newDescribeImages"><span class="annot"><span class="annottext">newDescribeImages :: Text -&gt; DescribeImages
+</span><a href="Amazonka.ECR.DescribeImages.html#newDescribeImages"><span class="hs-identifier hs-var hs-var">newDescribeImages</span></a></span></span><span> </span><span id="local-6989586621679241587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241587"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DescribeImages' :: Maybe Text
+-&gt; Maybe [ImageIdentifier]
+-&gt; Maybe Text
+-&gt; Maybe DescribeImagesFilter
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; DescribeImages
+</span><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:DescribeImages' :: Maybe Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AregistryId%3ADescribeImages%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageIds:DescribeImages' :: Maybe [ImageIdentifier]
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AimageIds%3ADescribeImages%27"><span class="hs-identifier hs-var">imageIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImages' :: Maybe Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AnextToken%3ADescribeImages%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':DescribeImages' :: Maybe DescribeImagesFilter
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3Afilter%27%3ADescribeImages%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DescribeImagesFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeImages' :: Maybe Natural
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AmaxResults%3ADescribeImages%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:DescribeImages' :: Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3ArepositoryName%3ADescribeImages%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241587"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- contains the repository in which to describe images. If you do not</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- specify a registry, the default registry is assumed.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_registryId"><span class="hs-identifier hs-type">describeImages_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="describeImages_registryId"><span class="annot"><span class="annottext">describeImages_registryId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImages -&gt; f DescribeImages
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImages_registryId"><span class="hs-identifier hs-var hs-var">describeImages_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImages -&gt; Maybe Text)
+-&gt; (DescribeImages -&gt; Maybe Text -&gt; DescribeImages)
+-&gt; Lens DescribeImages DescribeImages (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241585"><span class="annot"><span class="annottext">Maybe Text
+registryId :: Maybe Text
+$sel:registryId:DescribeImages' :: DescribeImages -&gt; Maybe Text
+</span><a href="#local-6989586621679241585"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241585"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241584"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621679241584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241583"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621679241584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DescribeImages' :: Maybe Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AregistryId%3ADescribeImages%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The list of image IDs for the requested repository.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_imageIds"><span class="hs-identifier hs-type">describeImages_imageIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="describeImages_imageIds"><span class="annot"><span class="annottext">describeImages_imageIds :: (Maybe [ImageIdentifier] -&gt; f (Maybe [ImageIdentifier]))
+-&gt; DescribeImages -&gt; f DescribeImages
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImages_imageIds"><span class="hs-identifier hs-var hs-var">describeImages_imageIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImages -&gt; Maybe [ImageIdentifier])
+-&gt; (DescribeImages -&gt; Maybe [ImageIdentifier] -&gt; DescribeImages)
+-&gt; Lens
+     DescribeImages
+     DescribeImages
+     (Maybe [ImageIdentifier])
+     (Maybe [ImageIdentifier])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241582"><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
+imageIds :: Maybe [ImageIdentifier]
+$sel:imageIds:DescribeImages' :: DescribeImages -&gt; Maybe [ImageIdentifier]
+</span><a href="#local-6989586621679241582"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
+</span><a href="#local-6989586621679241582"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241581"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621679241581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241580"><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
+</span><a href="#local-6989586621679241580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621679241581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIds:DescribeImages' :: Maybe [ImageIdentifier]
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AimageIds%3ADescribeImages%27"><span class="hs-identifier hs-var">imageIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
+</span><a href="#local-6989586621679241580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageIdentifier] -&gt; f (Maybe [ImageIdentifier]))
+ -&gt; DescribeImages -&gt; f DescribeImages)
+-&gt; ((Maybe [ImageIdentifier] -&gt; f (Maybe [ImageIdentifier]))
+    -&gt; Maybe [ImageIdentifier] -&gt; f (Maybe [ImageIdentifier]))
+-&gt; (Maybe [ImageIdentifier] -&gt; f (Maybe [ImageIdentifier]))
+-&gt; DescribeImages
+-&gt; f DescribeImages
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ImageIdentifier]
+  [ImageIdentifier]
+  [ImageIdentifier]
+  [ImageIdentifier]
+-&gt; Iso
+     (Maybe [ImageIdentifier])
+     (Maybe [ImageIdentifier])
+     (Maybe [ImageIdentifier])
+     (Maybe [ImageIdentifier])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ImageIdentifier]
+  [ImageIdentifier]
+  [ImageIdentifier]
+  [ImageIdentifier]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @DescribeImages@ request where @maxResults@ was used and the results</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- exceeded the value of that parameter. Pagination continues from the end</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- of the previous results that returned the @nextToken@ value. This value</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- is @null@ when there are no more results to return. This option cannot</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- be used when you specify images with @imageIds@.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_nextToken"><span class="hs-identifier hs-type">describeImages_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="describeImages_nextToken"><span class="annot"><span class="annottext">describeImages_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImages -&gt; f DescribeImages
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImages_nextToken"><span class="hs-identifier hs-var hs-var">describeImages_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImages -&gt; Maybe Text)
+-&gt; (DescribeImages -&gt; Maybe Text -&gt; DescribeImages)
+-&gt; Lens DescribeImages DescribeImages (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241576"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeImages' :: DescribeImages -&gt; Maybe Text
+</span><a href="#local-6989586621679241576"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241576"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241575"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621679241575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241574"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621679241575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImages' :: Maybe Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AnextToken%3ADescribeImages%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The filter key and value with which to filter your @DescribeImages@</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_filter"><span class="hs-identifier hs-type">describeImages_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier hs-type">DescribeImagesFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="describeImages_filter"><span class="annot"><span class="annottext">describeImages_filter :: (Maybe DescribeImagesFilter -&gt; f (Maybe DescribeImagesFilter))
+-&gt; DescribeImages -&gt; f DescribeImages
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImages_filter"><span class="hs-identifier hs-var hs-var">describeImages_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImages -&gt; Maybe DescribeImagesFilter)
+-&gt; (DescribeImages -&gt; Maybe DescribeImagesFilter -&gt; DescribeImages)
+-&gt; Lens
+     DescribeImages
+     DescribeImages
+     (Maybe DescribeImagesFilter)
+     (Maybe DescribeImagesFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241573"><span class="annot"><span class="annottext">Maybe DescribeImagesFilter
+filter' :: Maybe DescribeImagesFilter
+$sel:filter':DescribeImages' :: DescribeImages -&gt; Maybe DescribeImagesFilter
+</span><a href="#local-6989586621679241573"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DescribeImagesFilter
+</span><a href="#local-6989586621679241573"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241572"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621679241572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241571"><span class="annot"><span class="annottext">Maybe DescribeImagesFilter
+</span><a href="#local-6989586621679241571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621679241572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeImages' :: Maybe DescribeImagesFilter
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3Afilter%27%3ADescribeImages%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DescribeImagesFilter
+</span><a href="#local-6989586621679241571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The maximum number of repository results returned by @DescribeImages@ in</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- paginated output. When this parameter is used, @DescribeImages@ only</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- returns @maxResults@ results in a single page along with a @nextToken@</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- response element. The remaining results of the initial request can be</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- seen by sending another @DescribeImages@ request with the returned</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- @nextToken@ value. This value can be between 1 and 1000. If this</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- parameter is not used, then @DescribeImages@ returns up to 100 results</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- and a @nextToken@ value, if applicable. This option cannot be used when</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- you specify images with @imageIds@.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_maxResults"><span class="hs-identifier hs-type">describeImages_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="describeImages_maxResults"><span class="annot"><span class="annottext">describeImages_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeImages -&gt; f DescribeImages
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImages_maxResults"><span class="hs-identifier hs-var hs-var">describeImages_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImages -&gt; Maybe Natural)
+-&gt; (DescribeImages -&gt; Maybe Natural -&gt; DescribeImages)
+-&gt; Lens
+     DescribeImages DescribeImages (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241570"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeImages' :: DescribeImages -&gt; Maybe Natural
+</span><a href="#local-6989586621679241570"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679241570"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241569"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621679241569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241568"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679241568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621679241569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeImages' :: Maybe Natural
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AmaxResults%3ADescribeImages%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679241568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The repository that contains the images to describe.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImages_repositoryName"><span class="hs-identifier hs-type">describeImages_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-183"></span><span id="describeImages_repositoryName"><span class="annot"><span class="annottext">describeImages_repositoryName :: (Text -&gt; f Text) -&gt; DescribeImages -&gt; f DescribeImages
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImages_repositoryName"><span class="hs-identifier hs-var hs-var">describeImages_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImages -&gt; Text)
+-&gt; (DescribeImages -&gt; Text -&gt; DescribeImages)
+-&gt; Lens DescribeImages DescribeImages Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241567"><span class="annot"><span class="annottext">Text
+repositoryName :: Text
+$sel:repositoryName:DescribeImages' :: DescribeImages -&gt; Text
+</span><a href="#local-6989586621679241567"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241567"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241566"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621679241566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241565"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621679241566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:DescribeImages' :: Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3ArepositoryName%3ADescribeImages%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679241561"><span class="annot"><span class="annottext">page :: DescribeImages
+-&gt; AWSResponse DescribeImages -&gt; Maybe DescribeImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679241559"><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621679241559"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679241558"><span class="annot"><span class="annottext">AWSResponse DescribeImages
+</span><a href="#local-6989586621679241558"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-188"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeImages
+DescribeImagesResponse
+</span><a href="#local-6989586621679241558"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">DescribeImagesResponse
+-&gt; Getting (First Text) DescribeImagesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeImagesResponse
+-&gt; Const (First Text) DescribeImagesResponse
+Lens' DescribeImagesResponse (Maybe Text)
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_nextToken"><span class="hs-identifier hs-var">describeImagesResponse_nextToken</span></a></span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeImagesResponse
+ -&gt; Const (First Text) DescribeImagesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeImagesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-191"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeImages
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageDetail] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-194"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeImages
+DescribeImagesResponse
+</span><a href="#local-6989586621679241558"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">DescribeImagesResponse
+-&gt; Getting
+     (First [ImageDetail]) DescribeImagesResponse [ImageDetail]
+-&gt; Maybe [ImageDetail]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ImageDetail]
+ -&gt; Const (First [ImageDetail]) (Maybe [ImageDetail]))
+-&gt; DescribeImagesResponse
+-&gt; Const (First [ImageDetail]) DescribeImagesResponse
+Lens' DescribeImagesResponse (Maybe [ImageDetail])
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_imageDetails"><span class="hs-identifier hs-var">describeImagesResponse_imageDetails</span></a></span><span>
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ImageDetail]
+  -&gt; Const (First [ImageDetail]) (Maybe [ImageDetail]))
+ -&gt; DescribeImagesResponse
+ -&gt; Const (First [ImageDetail]) DescribeImagesResponse)
+-&gt; (([ImageDetail] -&gt; Const (First [ImageDetail]) [ImageDetail])
+    -&gt; Maybe [ImageDetail]
+    -&gt; Const (First [ImageDetail]) (Maybe [ImageDetail]))
+-&gt; Getting
+     (First [ImageDetail]) DescribeImagesResponse [ImageDetail]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ImageDetail] -&gt; Const (First [ImageDetail]) [ImageDetail])
+-&gt; Maybe [ImageDetail]
+-&gt; Const (First [ImageDetail]) (Maybe [ImageDetail])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-197"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeImages
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">DescribeImages -&gt; Maybe DescribeImages
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeImages -&gt; Maybe DescribeImages)
+-&gt; DescribeImages -&gt; Maybe DescribeImages
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621679241559"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">DescribeImages
+-&gt; (DescribeImages -&gt; DescribeImages) -&gt; DescribeImages
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeImages -&gt; Identity DescribeImages
+Lens DescribeImages DescribeImages (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImages_nextToken"><span class="hs-identifier hs-var">describeImages_nextToken</span></a></span><span>
+</span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeImages -&gt; Identity DescribeImages)
+-&gt; Maybe Text -&gt; DescribeImages -&gt; DescribeImages
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeImages
+DescribeImagesResponse
+</span><a href="#local-6989586621679241558"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">DescribeImagesResponse
+-&gt; Getting (First Text) DescribeImagesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeImagesResponse
+-&gt; Const (First Text) DescribeImagesResponse
+Lens' DescribeImagesResponse (Maybe Text)
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_nextToken"><span class="hs-identifier hs-var">describeImagesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeImagesResponse
+ -&gt; Const (First Text) DescribeImagesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeImagesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-208"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679241549"><span class="annot"><span class="annottext">request :: DescribeImages -&gt; Request DescribeImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeImages -&gt; Request DescribeImages
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679241545"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeImages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeImages)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeImages))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeImages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeImages)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241542"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241541"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679241541"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241540"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241540"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ImageDetail] -&gt; Maybe Text -&gt; Int -&gt; DescribeImagesResponse
+</span><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-var">DescribeImagesResponse'</span></a></span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ImageDetail]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeImagesResponse)
+-&gt; Either String (Maybe [ImageDetail])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeImagesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ImageDetail]))
+-&gt; Maybe [ImageDetail] -&gt; Either String (Maybe [ImageDetail])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ImageDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeImagesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeImagesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeImagesResponse)
+-&gt; Either String Int -&gt; Either String DescribeImagesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241542"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241531"><span id="local-6989586621679241533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span></span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679241524"><span class="annot"><span class="annottext">toHeaders :: DescribeImages -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeImages -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-228"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-229"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonEC2ContainerRegistry_V20150921.DescribeImages&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-231"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-234"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-235"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241514"><span id="local-6989586621679241516"><span id="local-6989586621679241518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679241512"><span class="annot"><span class="annottext">toJSON :: DescribeImages -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241505"><span id="local-6989586621679241506"><span id="local-6989586621679241507"><span id="local-6989586621679241508"><span id="local-6989586621679241509"><span id="local-6989586621679241510"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [ImageIdentifier]
+Maybe Text
+Maybe DescribeImagesFilter
+Text
+repositoryName :: Text
+maxResults :: Maybe Natural
+filter' :: Maybe DescribeImagesFilter
+nextToken :: Maybe Text
+imageIds :: Maybe [ImageIdentifier]
+registryId :: Maybe Text
+$sel:repositoryName:DescribeImages' :: DescribeImages -&gt; Text
+$sel:maxResults:DescribeImages' :: DescribeImages -&gt; Maybe Natural
+$sel:filter':DescribeImages' :: DescribeImages -&gt; Maybe DescribeImagesFilter
+$sel:nextToken:DescribeImages' :: DescribeImages -&gt; Maybe Text
+$sel:imageIds:DescribeImages' :: DescribeImages -&gt; Maybe [ImageIdentifier]
+$sel:registryId:DescribeImages' :: DescribeImages -&gt; Maybe Text
+</span><a href="#local-6989586621679241505"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-243"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;registryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241510"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ImageIdentifier] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ImageIdentifier] -&gt; Pair)
+-&gt; Maybe [ImageIdentifier] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
+</span><a href="#local-6989586621679241509"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241508"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DescribeImagesFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DescribeImagesFilter -&gt; Pair)
+-&gt; Maybe DescribeImagesFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DescribeImagesFilter
+</span><a href="#local-6989586621679241507"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679241506"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-249"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679241505"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679241499"><span class="annot"><span class="annottext">toPath :: DescribeImages -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeImages -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679241495"><span class="annot"><span class="annottext">toQuery :: DescribeImages -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeImages -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | /See:/ 'newDescribeImagesResponse' smart constructor.</span><span>
+</span><span id="line-260"></span><span id="local-6989586621679241492"><span id="local-6989586621679241493"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImagesResponse"><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-var">DescribeImagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImagesResponse%27"><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-var">DescribeImagesResponse'</span></a></span></span><span>
+</span><span id="line-261"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of ImageDetail objects that contain data about the image.</span><span>
+</span><span id="line-262"></span><span>    </span><span id="%24sel%3AimageDetails%3ADescribeImagesResponse%27"><span class="annot"><span class="annottext">DescribeImagesResponse -&gt; Maybe [ImageDetail]
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AimageDetails%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var hs-var">imageDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#ImageDetail"><span class="hs-identifier hs-type">ImageDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- | The @nextToken@ value to include in a future @DescribeImages@ request.</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- When the results of a @DescribeImages@ request exceed @maxResults@, this</span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- value can be used to retrieve the next page of results. This value is</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-267"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeImagesResponse%27"><span class="annot"><span class="annottext">DescribeImagesResponse -&gt; Maybe Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AnextToken%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeImagesResponse%27"><span class="annot"><span class="annottext">DescribeImagesResponse -&gt; Int
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AhttpStatus%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-270"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241485"><span id="local-6989586621679241487"><span class="annot"><span class="annottext">DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
+(DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool)
+-&gt; (DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool)
+-&gt; Eq DescribeImagesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
+$c/= :: DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
+== :: DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
+$c== :: DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241477"><span id="local-6989586621679241479"><span id="local-6989586621679241481"><span id="local-6989586621679241483"><span class="annot"><span class="annottext">ReadPrec [DescribeImagesResponse]
+ReadPrec DescribeImagesResponse
+Int -&gt; ReadS DescribeImagesResponse
+ReadS [DescribeImagesResponse]
+(Int -&gt; ReadS DescribeImagesResponse)
+-&gt; ReadS [DescribeImagesResponse]
+-&gt; ReadPrec DescribeImagesResponse
+-&gt; ReadPrec [DescribeImagesResponse]
+-&gt; Read DescribeImagesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeImagesResponse]
+$creadListPrec :: ReadPrec [DescribeImagesResponse]
+readPrec :: ReadPrec DescribeImagesResponse
+$creadPrec :: ReadPrec DescribeImagesResponse
+readList :: ReadS [DescribeImagesResponse]
+$creadList :: ReadS [DescribeImagesResponse]
+readsPrec :: Int -&gt; ReadS DescribeImagesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeImagesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241471"><span id="local-6989586621679241473"><span id="local-6989586621679241475"><span class="annot"><span class="annottext">Int -&gt; DescribeImagesResponse -&gt; ShowS
+[DescribeImagesResponse] -&gt; ShowS
+DescribeImagesResponse -&gt; String
+(Int -&gt; DescribeImagesResponse -&gt; ShowS)
+-&gt; (DescribeImagesResponse -&gt; String)
+-&gt; ([DescribeImagesResponse] -&gt; ShowS)
+-&gt; Show DescribeImagesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeImagesResponse] -&gt; ShowS
+$cshowList :: [DescribeImagesResponse] -&gt; ShowS
+show :: DescribeImagesResponse -&gt; String
+$cshow :: DescribeImagesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeImagesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeImagesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeImagesResponse -&gt; Rep DescribeImagesResponse x)
+-&gt; (forall x.
+    Rep DescribeImagesResponse x -&gt; DescribeImagesResponse)
+-&gt; Generic DescribeImagesResponse
+forall x. Rep DescribeImagesResponse x -&gt; DescribeImagesResponse
+forall x. DescribeImagesResponse -&gt; Rep DescribeImagesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeImagesResponse x -&gt; DescribeImagesResponse
+$cfrom :: forall x. DescribeImagesResponse -&gt; Rep DescribeImagesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- Create a value of 'DescribeImagesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- 'imageDetails', 'describeImagesResponse_imageDetails' - A list of ImageDetail objects that contain data about the image.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'nextToken', 'describeImagesResponse_nextToken' - The @nextToken@ value to include in a future @DescribeImages@ request.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- When the results of a @DescribeImages@ request exceed @maxResults@, this</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- value can be used to retrieve the next page of results. This value is</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'httpStatus', 'describeImagesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#newDescribeImagesResponse"><span class="hs-identifier hs-type">newDescribeImagesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-290"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-291"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-292"></span><span>  </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span>
+</span><span id="line-293"></span><span id="newDescribeImagesResponse"><span class="annot"><span class="annottext">newDescribeImagesResponse :: Int -&gt; DescribeImagesResponse
+</span><a href="Amazonka.ECR.DescribeImages.html#newDescribeImagesResponse"><span class="hs-identifier hs-var hs-var">newDescribeImagesResponse</span></a></span></span><span> </span><span id="local-6989586621679241468"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241468"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-294"></span><span>  </span><span class="annot"><span class="annottext">DescribeImagesResponse' :: Maybe [ImageDetail] -&gt; Maybe Text -&gt; Int -&gt; DescribeImagesResponse
+</span><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageDetails:DescribeImagesResponse' :: Maybe [ImageDetail]
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AimageDetails%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var">imageDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ImageDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImagesResponse' :: Maybe Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AnextToken%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImagesResponse' :: Int
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AhttpStatus%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241468"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-299"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | A list of ImageDetail objects that contain data about the image.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_imageDetails"><span class="hs-identifier hs-type">describeImagesResponse_imageDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#ImageDetail"><span class="hs-identifier hs-type">ImageDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="describeImagesResponse_imageDetails"><span class="annot"><span class="annottext">describeImagesResponse_imageDetails :: (Maybe [ImageDetail] -&gt; f (Maybe [ImageDetail]))
+-&gt; DescribeImagesResponse -&gt; f DescribeImagesResponse
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_imageDetails"><span class="hs-identifier hs-var hs-var">describeImagesResponse_imageDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImagesResponse -&gt; Maybe [ImageDetail])
+-&gt; (DescribeImagesResponse
+    -&gt; Maybe [ImageDetail] -&gt; DescribeImagesResponse)
+-&gt; Lens' DescribeImagesResponse (Maybe [ImageDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241467"><span class="annot"><span class="annottext">Maybe [ImageDetail]
+imageDetails :: Maybe [ImageDetail]
+$sel:imageDetails:DescribeImagesResponse' :: DescribeImagesResponse -&gt; Maybe [ImageDetail]
+</span><a href="#local-6989586621679241467"><span class="hs-identifier hs-var hs-var">imageDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageDetail]
+</span><a href="#local-6989586621679241467"><span class="hs-identifier hs-var">imageDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241466"><span class="annot"><span class="annottext">s :: DescribeImagesResponse
+</span><a href="#local-6989586621679241466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241465"><span class="annot"><span class="annottext">Maybe [ImageDetail]
+</span><a href="#local-6989586621679241465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImagesResponse
+</span><a href="#local-6989586621679241466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageDetails:DescribeImagesResponse' :: Maybe [ImageDetail]
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AimageDetails%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var">imageDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageDetail]
+</span><a href="#local-6989586621679241465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageDetail] -&gt; f (Maybe [ImageDetail]))
+ -&gt; DescribeImagesResponse -&gt; f DescribeImagesResponse)
+-&gt; ((Maybe [ImageDetail] -&gt; f (Maybe [ImageDetail]))
+    -&gt; Maybe [ImageDetail] -&gt; f (Maybe [ImageDetail]))
+-&gt; (Maybe [ImageDetail] -&gt; f (Maybe [ImageDetail]))
+-&gt; DescribeImagesResponse
+-&gt; f DescribeImagesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ImageDetail] [ImageDetail] [ImageDetail] [ImageDetail]
+-&gt; Iso
+     (Maybe [ImageDetail])
+     (Maybe [ImageDetail])
+     (Maybe [ImageDetail])
+     (Maybe [ImageDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ImageDetail] [ImageDetail] [ImageDetail] [ImageDetail]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | The @nextToken@ value to include in a future @DescribeImages@ request.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- When the results of a @DescribeImages@ request exceed @maxResults@, this</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- value can be used to retrieve the next page of results. This value is</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_nextToken"><span class="hs-identifier hs-type">describeImagesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span id="describeImagesResponse_nextToken"><span class="annot"><span class="annottext">describeImagesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImagesResponse -&gt; f DescribeImagesResponse
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeImagesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImagesResponse -&gt; Maybe Text)
+-&gt; (DescribeImagesResponse -&gt; Maybe Text -&gt; DescribeImagesResponse)
+-&gt; Lens' DescribeImagesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241464"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeImagesResponse' :: DescribeImagesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679241464"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241464"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241463"><span class="annot"><span class="annottext">s :: DescribeImagesResponse
+</span><a href="#local-6989586621679241463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImagesResponse
+</span><a href="#local-6989586621679241463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImagesResponse' :: Maybe Text
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AnextToken%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_httpStatus"><span class="hs-identifier hs-type">describeImagesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-314"></span><span id="describeImagesResponse_httpStatus"><span class="annot"><span class="annottext">describeImagesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeImagesResponse -&gt; f DescribeImagesResponse
+</span><a href="Amazonka.ECR.DescribeImages.html#describeImagesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeImagesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImagesResponse -&gt; Int)
+-&gt; (DescribeImagesResponse -&gt; Int -&gt; DescribeImagesResponse)
+-&gt; Lens DescribeImagesResponse DescribeImagesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241461"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeImagesResponse' :: DescribeImagesResponse -&gt; Int
+</span><a href="#local-6989586621679241461"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241461"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241460"><span class="annot"><span class="annottext">s :: DescribeImagesResponse
+</span><a href="#local-6989586621679241460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241459"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImagesResponse
+</span><a href="#local-6989586621679241460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImagesResponse' :: Int
+</span><a href="Amazonka.ECR.DescribeImages.html#%24sel%3AhttpStatus%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECR.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span></span><span>
+</span><span id="line-317"></span></pre></body></html>

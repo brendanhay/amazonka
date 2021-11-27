@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.JoinInstruction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.JoinInstruction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinKeyProperties.html"><span class="hs-identifier">Amazonka.QuickSight.Types.JoinKeyProperties</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinType.html"><span class="hs-identifier">Amazonka.QuickSight.Types.JoinType</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The instructions associated with a join.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newJoinInstruction' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679559675"><span id="local-6989586621679559676"></span></span><span class="hs-keyword">data</span><span> </span><span id="JoinInstruction"><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-var">JoinInstruction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JoinInstruction%27"><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-var">JoinInstruction'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Join key properties of the right operand.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ArightJoinKeyProperties%3AJoinInstruction%27"><span class="annot"><span class="annottext">JoinInstruction -&gt; Maybe JoinKeyProperties
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3ArightJoinKeyProperties%3AJoinInstruction%27"><span class="hs-identifier hs-var hs-var">rightJoinKeyProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinKeyProperties.html#JoinKeyProperties"><span class="hs-identifier hs-type">JoinKeyProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Join key properties of the left operand.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AleftJoinKeyProperties%3AJoinInstruction%27"><span class="annot"><span class="annottext">JoinInstruction -&gt; Maybe JoinKeyProperties
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3AleftJoinKeyProperties%3AJoinInstruction%27"><span class="hs-identifier hs-var hs-var">leftJoinKeyProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinKeyProperties.html#JoinKeyProperties"><span class="hs-identifier hs-type">JoinKeyProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The operand on the left side of a join.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AleftOperand%3AJoinInstruction%27"><span class="annot"><span class="annottext">JoinInstruction -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3AleftOperand%3AJoinInstruction%27"><span class="hs-identifier hs-var hs-var">leftOperand</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The operand on the right side of a join.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArightOperand%3AJoinInstruction%27"><span class="annot"><span class="annottext">JoinInstruction -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3ArightOperand%3AJoinInstruction%27"><span class="hs-identifier hs-var hs-var">rightOperand</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The type of join that it is.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atype%27%3AJoinInstruction%27"><span class="annot"><span class="annottext">JoinInstruction -&gt; JoinType
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3Atype%27%3AJoinInstruction%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinType.html#JoinType"><span class="hs-identifier hs-type">JoinType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The join instructions provided in the @ON@ clause of a join.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AonClause%3AJoinInstruction%27"><span class="annot"><span class="annottext">JoinInstruction -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3AonClause%3AJoinInstruction%27"><span class="hs-identifier hs-var hs-var">onClause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559664"><span id="local-6989586621679559666"><span class="annot"><span class="annottext">JoinInstruction -&gt; JoinInstruction -&gt; Bool
+(JoinInstruction -&gt; JoinInstruction -&gt; Bool)
+-&gt; (JoinInstruction -&gt; JoinInstruction -&gt; Bool)
+-&gt; Eq JoinInstruction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JoinInstruction -&gt; JoinInstruction -&gt; Bool
+$c/= :: JoinInstruction -&gt; JoinInstruction -&gt; Bool
+== :: JoinInstruction -&gt; JoinInstruction -&gt; Bool
+$c== :: JoinInstruction -&gt; JoinInstruction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559655"><span id="local-6989586621679559657"><span id="local-6989586621679559659"><span id="local-6989586621679559661"><span class="annot"><span class="annottext">ReadPrec [JoinInstruction]
+ReadPrec JoinInstruction
+Int -&gt; ReadS JoinInstruction
+ReadS [JoinInstruction]
+(Int -&gt; ReadS JoinInstruction)
+-&gt; ReadS [JoinInstruction]
+-&gt; ReadPrec JoinInstruction
+-&gt; ReadPrec [JoinInstruction]
+-&gt; Read JoinInstruction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JoinInstruction]
+$creadListPrec :: ReadPrec [JoinInstruction]
+readPrec :: ReadPrec JoinInstruction
+$creadPrec :: ReadPrec JoinInstruction
+readList :: ReadS [JoinInstruction]
+$creadList :: ReadS [JoinInstruction]
+readsPrec :: Int -&gt; ReadS JoinInstruction
+$creadsPrec :: Int -&gt; ReadS JoinInstruction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559648"><span id="local-6989586621679559650"><span id="local-6989586621679559652"><span class="annot"><span class="annottext">Int -&gt; JoinInstruction -&gt; ShowS
+[JoinInstruction] -&gt; ShowS
+JoinInstruction -&gt; String
+(Int -&gt; JoinInstruction -&gt; ShowS)
+-&gt; (JoinInstruction -&gt; String)
+-&gt; ([JoinInstruction] -&gt; ShowS)
+-&gt; Show JoinInstruction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JoinInstruction] -&gt; ShowS
+$cshowList :: [JoinInstruction] -&gt; ShowS
+show :: JoinInstruction -&gt; String
+$cshow :: JoinInstruction -&gt; String
+showsPrec :: Int -&gt; JoinInstruction -&gt; ShowS
+$cshowsPrec :: Int -&gt; JoinInstruction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. JoinInstruction -&gt; Rep JoinInstruction x)
+-&gt; (forall x. Rep JoinInstruction x -&gt; JoinInstruction)
+-&gt; Generic JoinInstruction
+forall x. Rep JoinInstruction x -&gt; JoinInstruction
+forall x. JoinInstruction -&gt; Rep JoinInstruction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JoinInstruction x -&gt; JoinInstruction
+$cfrom :: forall x. JoinInstruction -&gt; Rep JoinInstruction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'JoinInstruction' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'rightJoinKeyProperties', 'joinInstruction_rightJoinKeyProperties' - Join key properties of the right operand.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'leftJoinKeyProperties', 'joinInstruction_leftJoinKeyProperties' - Join key properties of the left operand.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'leftOperand', 'joinInstruction_leftOperand' - The operand on the left side of a join.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'rightOperand', 'joinInstruction_rightOperand' - The operand on the right side of a join.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'type'', 'joinInstruction_type' - The type of join that it is.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'onClause', 'joinInstruction_onClause' - The join instructions provided in the @ON@ clause of a join.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#newJoinInstruction"><span class="hs-identifier hs-type">newJoinInstruction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'leftOperand'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'rightOperand'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinType.html#JoinType"><span class="hs-identifier hs-type">JoinType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'onClause'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span>
+</span><span id="line-76"></span><span id="newJoinInstruction"><span class="annot"><span class="annottext">newJoinInstruction :: Text -&gt; Text -&gt; JoinType -&gt; Text -&gt; JoinInstruction
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#newJoinInstruction"><span class="hs-identifier hs-var hs-var">newJoinInstruction</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679559642"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559642"><span class="hs-identifier hs-var">pLeftOperand_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679559641"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559641"><span class="hs-identifier hs-var">pRightOperand_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679559640"><span class="annot"><span class="annottext">JoinType
+</span><a href="#local-6989586621679559640"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679559639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559639"><span class="hs-identifier hs-var">pOnClause_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">JoinInstruction' :: Maybe JoinKeyProperties
+-&gt; Maybe JoinKeyProperties
+-&gt; Text
+-&gt; Text
+-&gt; JoinType
+-&gt; Text
+-&gt; JoinInstruction
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rightJoinKeyProperties:JoinInstruction' :: Maybe JoinKeyProperties
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3ArightJoinKeyProperties%3AJoinInstruction%27"><span class="hs-identifier hs-var">rightJoinKeyProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:leftJoinKeyProperties:JoinInstruction' :: Maybe JoinKeyProperties
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3AleftJoinKeyProperties%3AJoinInstruction%27"><span class="hs-identifier hs-var">leftJoinKeyProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:leftOperand:JoinInstruction' :: Text
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3AleftOperand%3AJoinInstruction%27"><span class="hs-identifier hs-var">leftOperand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559642"><span class="hs-identifier hs-var">pLeftOperand_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:rightOperand:JoinInstruction' :: Text
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3ArightOperand%3AJoinInstruction%27"><span class="hs-identifier hs-var">rightOperand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559641"><span class="hs-identifier hs-var">pRightOperand_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':JoinInstruction' :: JoinType
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3Atype%27%3AJoinInstruction%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JoinType
+</span><a href="#local-6989586621679559640"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:onClause:JoinInstruction' :: Text
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3AonClause%3AJoinInstruction%27"><span class="hs-identifier hs-var">onClause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559639"><span class="hs-identifier hs-var">pOnClause_</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Join key properties of the right operand.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_rightJoinKeyProperties"><span class="hs-identifier hs-type">joinInstruction_rightJoinKeyProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinKeyProperties.html#JoinKeyProperties"><span class="hs-identifier hs-type">JoinKeyProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="joinInstruction_rightJoinKeyProperties"><span class="annot"><span class="annottext">joinInstruction_rightJoinKeyProperties :: (Maybe JoinKeyProperties -&gt; f (Maybe JoinKeyProperties))
+-&gt; JoinInstruction -&gt; f JoinInstruction
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_rightJoinKeyProperties"><span class="hs-identifier hs-var hs-var">joinInstruction_rightJoinKeyProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JoinInstruction -&gt; Maybe JoinKeyProperties)
+-&gt; (JoinInstruction -&gt; Maybe JoinKeyProperties -&gt; JoinInstruction)
+-&gt; Lens
+     JoinInstruction
+     JoinInstruction
+     (Maybe JoinKeyProperties)
+     (Maybe JoinKeyProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559635"><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+rightJoinKeyProperties :: Maybe JoinKeyProperties
+$sel:rightJoinKeyProperties:JoinInstruction' :: JoinInstruction -&gt; Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559635"><span class="hs-identifier hs-var hs-var">rightJoinKeyProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559635"><span class="hs-identifier hs-var">rightJoinKeyProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559634"><span class="annot"><span class="annottext">s :: JoinInstruction
+</span><a href="#local-6989586621679559634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559633"><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JoinInstruction
+</span><a href="#local-6989586621679559634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rightJoinKeyProperties:JoinInstruction' :: Maybe JoinKeyProperties
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3ArightJoinKeyProperties%3AJoinInstruction%27"><span class="hs-identifier hs-var">rightJoinKeyProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Join key properties of the left operand.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_leftJoinKeyProperties"><span class="hs-identifier hs-type">joinInstruction_leftJoinKeyProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinKeyProperties.html#JoinKeyProperties"><span class="hs-identifier hs-type">JoinKeyProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="joinInstruction_leftJoinKeyProperties"><span class="annot"><span class="annottext">joinInstruction_leftJoinKeyProperties :: (Maybe JoinKeyProperties -&gt; f (Maybe JoinKeyProperties))
+-&gt; JoinInstruction -&gt; f JoinInstruction
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_leftJoinKeyProperties"><span class="hs-identifier hs-var hs-var">joinInstruction_leftJoinKeyProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JoinInstruction -&gt; Maybe JoinKeyProperties)
+-&gt; (JoinInstruction -&gt; Maybe JoinKeyProperties -&gt; JoinInstruction)
+-&gt; Lens
+     JoinInstruction
+     JoinInstruction
+     (Maybe JoinKeyProperties)
+     (Maybe JoinKeyProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559631"><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+leftJoinKeyProperties :: Maybe JoinKeyProperties
+$sel:leftJoinKeyProperties:JoinInstruction' :: JoinInstruction -&gt; Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559631"><span class="hs-identifier hs-var hs-var">leftJoinKeyProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559631"><span class="hs-identifier hs-var">leftJoinKeyProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559630"><span class="annot"><span class="annottext">s :: JoinInstruction
+</span><a href="#local-6989586621679559630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559629"><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JoinInstruction
+</span><a href="#local-6989586621679559630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:leftJoinKeyProperties:JoinInstruction' :: Maybe JoinKeyProperties
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3AleftJoinKeyProperties%3AJoinInstruction%27"><span class="hs-identifier hs-var">leftJoinKeyProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The operand on the left side of a join.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_leftOperand"><span class="hs-identifier hs-type">joinInstruction_leftOperand</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="joinInstruction_leftOperand"><span class="annot"><span class="annottext">joinInstruction_leftOperand :: (Text -&gt; f Text) -&gt; JoinInstruction -&gt; f JoinInstruction
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_leftOperand"><span class="hs-identifier hs-var hs-var">joinInstruction_leftOperand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JoinInstruction -&gt; Text)
+-&gt; (JoinInstruction -&gt; Text -&gt; JoinInstruction)
+-&gt; Lens JoinInstruction JoinInstruction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559627"><span class="annot"><span class="annottext">Text
+leftOperand :: Text
+$sel:leftOperand:JoinInstruction' :: JoinInstruction -&gt; Text
+</span><a href="#local-6989586621679559627"><span class="hs-identifier hs-var hs-var">leftOperand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559627"><span class="hs-identifier hs-var">leftOperand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559626"><span class="annot"><span class="annottext">s :: JoinInstruction
+</span><a href="#local-6989586621679559626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559625"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JoinInstruction
+</span><a href="#local-6989586621679559626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:leftOperand:JoinInstruction' :: Text
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3AleftOperand%3AJoinInstruction%27"><span class="hs-identifier hs-var">leftOperand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The operand on the right side of a join.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_rightOperand"><span class="hs-identifier hs-type">joinInstruction_rightOperand</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="joinInstruction_rightOperand"><span class="annot"><span class="annottext">joinInstruction_rightOperand :: (Text -&gt; f Text) -&gt; JoinInstruction -&gt; f JoinInstruction
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_rightOperand"><span class="hs-identifier hs-var hs-var">joinInstruction_rightOperand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JoinInstruction -&gt; Text)
+-&gt; (JoinInstruction -&gt; Text -&gt; JoinInstruction)
+-&gt; Lens JoinInstruction JoinInstruction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559623"><span class="annot"><span class="annottext">Text
+rightOperand :: Text
+$sel:rightOperand:JoinInstruction' :: JoinInstruction -&gt; Text
+</span><a href="#local-6989586621679559623"><span class="hs-identifier hs-var hs-var">rightOperand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559623"><span class="hs-identifier hs-var">rightOperand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559622"><span class="annot"><span class="annottext">s :: JoinInstruction
+</span><a href="#local-6989586621679559622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559621"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JoinInstruction
+</span><a href="#local-6989586621679559622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rightOperand:JoinInstruction' :: Text
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3ArightOperand%3AJoinInstruction%27"><span class="hs-identifier hs-var">rightOperand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The type of join that it is.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_type"><span class="hs-identifier hs-type">joinInstruction_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinType.html#JoinType"><span class="hs-identifier hs-type">JoinType</span></a></span><span>
+</span><span id="line-109"></span><span id="joinInstruction_type"><span class="annot"><span class="annottext">joinInstruction_type :: (JoinType -&gt; f JoinType) -&gt; JoinInstruction -&gt; f JoinInstruction
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_type"><span class="hs-identifier hs-var hs-var">joinInstruction_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JoinInstruction -&gt; JoinType)
+-&gt; (JoinInstruction -&gt; JoinType -&gt; JoinInstruction)
+-&gt; Lens JoinInstruction JoinInstruction JoinType JoinType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559619"><span class="annot"><span class="annottext">JoinType
+type' :: JoinType
+$sel:type':JoinInstruction' :: JoinInstruction -&gt; JoinType
+</span><a href="#local-6989586621679559619"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JoinType
+</span><a href="#local-6989586621679559619"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559618"><span class="annot"><span class="annottext">s :: JoinInstruction
+</span><a href="#local-6989586621679559618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559617"><span class="annot"><span class="annottext">JoinType
+</span><a href="#local-6989586621679559617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JoinInstruction
+</span><a href="#local-6989586621679559618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':JoinInstruction' :: JoinType
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3Atype%27%3AJoinInstruction%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JoinType
+</span><a href="#local-6989586621679559617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The join instructions provided in the @ON@ clause of a join.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_onClause"><span class="hs-identifier hs-type">joinInstruction_onClause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="joinInstruction_onClause"><span class="annot"><span class="annottext">joinInstruction_onClause :: (Text -&gt; f Text) -&gt; JoinInstruction -&gt; f JoinInstruction
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#joinInstruction_onClause"><span class="hs-identifier hs-var hs-var">joinInstruction_onClause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JoinInstruction -&gt; Text)
+-&gt; (JoinInstruction -&gt; Text -&gt; JoinInstruction)
+-&gt; Lens JoinInstruction JoinInstruction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559615"><span class="annot"><span class="annottext">Text
+onClause :: Text
+$sel:onClause:JoinInstruction' :: JoinInstruction -&gt; Text
+</span><a href="#local-6989586621679559615"><span class="hs-identifier hs-var hs-var">onClause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559615"><span class="hs-identifier hs-var">onClause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559614"><span class="annot"><span class="annottext">s :: JoinInstruction
+</span><a href="#local-6989586621679559614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JoinInstruction
+</span><a href="#local-6989586621679559614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onClause:JoinInstruction' :: Text
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#%24sel%3AonClause%3AJoinInstruction%27"><span class="hs-identifier hs-var">onClause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559610"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679559608"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JoinInstruction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser JoinInstruction)
+-&gt; Value
+-&gt; Parser JoinInstruction
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JoinInstruction&quot;</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679559605"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559605"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+-&gt; Maybe JoinKeyProperties
+-&gt; Text
+-&gt; Text
+-&gt; JoinType
+-&gt; Text
+-&gt; JoinInstruction
+</span><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-var">JoinInstruction'</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JoinKeyProperties
+ -&gt; Maybe JoinKeyProperties
+ -&gt; Text
+ -&gt; Text
+ -&gt; JoinType
+ -&gt; Text
+ -&gt; JoinInstruction)
+-&gt; Parser (Maybe JoinKeyProperties)
+-&gt; Parser
+     (Maybe JoinKeyProperties
+      -&gt; Text -&gt; Text -&gt; JoinType -&gt; Text -&gt; JoinInstruction)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JoinKeyProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RightJoinKeyProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JoinKeyProperties
+   -&gt; Text -&gt; Text -&gt; JoinType -&gt; Text -&gt; JoinInstruction)
+-&gt; Parser (Maybe JoinKeyProperties)
+-&gt; Parser (Text -&gt; Text -&gt; JoinType -&gt; Text -&gt; JoinInstruction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JoinKeyProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LeftJoinKeyProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; JoinType -&gt; Text -&gt; JoinInstruction)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; JoinType -&gt; Text -&gt; JoinInstruction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LeftOperand&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; JoinType -&gt; Text -&gt; JoinInstruction)
+-&gt; Parser Text -&gt; Parser (JoinType -&gt; Text -&gt; JoinInstruction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RightOperand&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (JoinType -&gt; Text -&gt; JoinInstruction)
+-&gt; Parser JoinType -&gt; Parser (Text -&gt; JoinInstruction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser JoinType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; JoinInstruction)
+-&gt; Parser Text -&gt; Parser JoinInstruction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679559605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnClause&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559598"><span id="local-6989586621679559600"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559587"><span id="local-6989586621679559589"><span id="local-6989586621679559591"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction"><span class="hs-identifier hs-type">JoinInstruction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679559585"><span class="annot"><span class="annottext">toJSON :: JoinInstruction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.JoinInstruction.html#JoinInstruction%27"><span class="hs-identifier hs-type">JoinInstruction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559578"><span id="local-6989586621679559579"><span id="local-6989586621679559580"><span id="local-6989586621679559581"><span id="local-6989586621679559582"><span id="local-6989586621679559583"><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+Text
+JoinType
+onClause :: Text
+type' :: JoinType
+rightOperand :: Text
+leftOperand :: Text
+leftJoinKeyProperties :: Maybe JoinKeyProperties
+rightJoinKeyProperties :: Maybe JoinKeyProperties
+$sel:onClause:JoinInstruction' :: JoinInstruction -&gt; Text
+$sel:type':JoinInstruction' :: JoinInstruction -&gt; JoinType
+$sel:rightOperand:JoinInstruction' :: JoinInstruction -&gt; Text
+$sel:leftOperand:JoinInstruction' :: JoinInstruction -&gt; Text
+$sel:leftJoinKeyProperties:JoinInstruction' :: JoinInstruction -&gt; Maybe JoinKeyProperties
+$sel:rightJoinKeyProperties:JoinInstruction' :: JoinInstruction -&gt; Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559578"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RightJoinKeyProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JoinKeyProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(JoinKeyProperties -&gt; Pair)
+-&gt; Maybe JoinKeyProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559583"><span class="hs-identifier hs-var">rightJoinKeyProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LeftJoinKeyProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JoinKeyProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">(JoinKeyProperties -&gt; Pair)
+-&gt; Maybe JoinKeyProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JoinKeyProperties
+</span><a href="#local-6989586621679559582"><span class="hs-identifier hs-var">leftJoinKeyProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LeftOperand&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559581"><span class="hs-identifier hs-var">leftOperand</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RightOperand&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559580"><span class="hs-identifier hs-var">rightOperand</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JoinType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">JoinType
+</span><a href="#local-6989586621679559579"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnClause&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559578"><span class="hs-identifier hs-var">onClause</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span></pre></body></html>

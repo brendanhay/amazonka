@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.MultiConditionalBranch</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.MultiConditionalBranch</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SimpleCondition.html"><span class="hs-identifier">Amazonka.Pinpoint.Types.SimpleCondition</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies a condition to evaluate for an activity path in a journey.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMultiConditionalBranch' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679612141"><span id="local-6989586621679612142"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiConditionalBranch"><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-var">MultiConditionalBranch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiConditionalBranch%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch%27"><span class="hs-identifier hs-var">MultiConditionalBranch'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the next activity to perform, after completing</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the activity for the path.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnextActivity%3AMultiConditionalBranch%27"><span class="annot"><span class="annottext">MultiConditionalBranch -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#%24sel%3AnextActivity%3AMultiConditionalBranch%27"><span class="hs-identifier hs-var hs-var">nextActivity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The condition to evaluate for the activity path.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acondition%3AMultiConditionalBranch%27"><span class="annot"><span class="annottext">MultiConditionalBranch -&gt; Maybe SimpleCondition
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#%24sel%3Acondition%3AMultiConditionalBranch%27"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679612134"><span id="local-6989586621679612136"><span class="annot"><span class="annottext">MultiConditionalBranch -&gt; MultiConditionalBranch -&gt; Bool
+(MultiConditionalBranch -&gt; MultiConditionalBranch -&gt; Bool)
+-&gt; (MultiConditionalBranch -&gt; MultiConditionalBranch -&gt; Bool)
+-&gt; Eq MultiConditionalBranch
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MultiConditionalBranch -&gt; MultiConditionalBranch -&gt; Bool
+$c/= :: MultiConditionalBranch -&gt; MultiConditionalBranch -&gt; Bool
+== :: MultiConditionalBranch -&gt; MultiConditionalBranch -&gt; Bool
+$c== :: MultiConditionalBranch -&gt; MultiConditionalBranch -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612125"><span id="local-6989586621679612127"><span id="local-6989586621679612129"><span id="local-6989586621679612131"><span class="annot"><span class="annottext">ReadPrec [MultiConditionalBranch]
+ReadPrec MultiConditionalBranch
+Int -&gt; ReadS MultiConditionalBranch
+ReadS [MultiConditionalBranch]
+(Int -&gt; ReadS MultiConditionalBranch)
+-&gt; ReadS [MultiConditionalBranch]
+-&gt; ReadPrec MultiConditionalBranch
+-&gt; ReadPrec [MultiConditionalBranch]
+-&gt; Read MultiConditionalBranch
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MultiConditionalBranch]
+$creadListPrec :: ReadPrec [MultiConditionalBranch]
+readPrec :: ReadPrec MultiConditionalBranch
+$creadPrec :: ReadPrec MultiConditionalBranch
+readList :: ReadS [MultiConditionalBranch]
+$creadList :: ReadS [MultiConditionalBranch]
+readsPrec :: Int -&gt; ReadS MultiConditionalBranch
+$creadsPrec :: Int -&gt; ReadS MultiConditionalBranch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612118"><span id="local-6989586621679612120"><span id="local-6989586621679612122"><span class="annot"><span class="annottext">Int -&gt; MultiConditionalBranch -&gt; ShowS
+[MultiConditionalBranch] -&gt; ShowS
+MultiConditionalBranch -&gt; String
+(Int -&gt; MultiConditionalBranch -&gt; ShowS)
+-&gt; (MultiConditionalBranch -&gt; String)
+-&gt; ([MultiConditionalBranch] -&gt; ShowS)
+-&gt; Show MultiConditionalBranch
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MultiConditionalBranch] -&gt; ShowS
+$cshowList :: [MultiConditionalBranch] -&gt; ShowS
+show :: MultiConditionalBranch -&gt; String
+$cshow :: MultiConditionalBranch -&gt; String
+showsPrec :: Int -&gt; MultiConditionalBranch -&gt; ShowS
+$cshowsPrec :: Int -&gt; MultiConditionalBranch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MultiConditionalBranch -&gt; Rep MultiConditionalBranch x)
+-&gt; (forall x.
+    Rep MultiConditionalBranch x -&gt; MultiConditionalBranch)
+-&gt; Generic MultiConditionalBranch
+forall x. Rep MultiConditionalBranch x -&gt; MultiConditionalBranch
+forall x. MultiConditionalBranch -&gt; Rep MultiConditionalBranch x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MultiConditionalBranch x -&gt; MultiConditionalBranch
+$cfrom :: forall x. MultiConditionalBranch -&gt; Rep MultiConditionalBranch x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'MultiConditionalBranch' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'nextActivity', 'multiConditionalBranch_nextActivity' - The unique identifier for the next activity to perform, after completing</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- the activity for the path.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'condition', 'multiConditionalBranch_condition' - The condition to evaluate for the activity path.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#newMultiConditionalBranch"><span class="hs-identifier hs-type">newMultiConditionalBranch</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-type">MultiConditionalBranch</span></a></span><span>
+</span><span id="line-53"></span><span id="newMultiConditionalBranch"><span class="annot"><span class="annottext">newMultiConditionalBranch :: MultiConditionalBranch
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#newMultiConditionalBranch"><span class="hs-identifier hs-var hs-var">newMultiConditionalBranch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">MultiConditionalBranch' :: Maybe Text -&gt; Maybe SimpleCondition -&gt; MultiConditionalBranch
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch%27"><span class="hs-identifier hs-type">MultiConditionalBranch'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextActivity:MultiConditionalBranch' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#%24sel%3AnextActivity%3AMultiConditionalBranch%27"><span class="hs-identifier hs-var">nextActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:condition:MultiConditionalBranch' :: Maybe SimpleCondition
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#%24sel%3Acondition%3AMultiConditionalBranch%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleCondition
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The unique identifier for the next activity to perform, after completing</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- the activity for the path.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#multiConditionalBranch_nextActivity"><span class="hs-identifier hs-type">multiConditionalBranch_nextActivity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-type">MultiConditionalBranch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="multiConditionalBranch_nextActivity"><span class="annot"><span class="annottext">multiConditionalBranch_nextActivity :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MultiConditionalBranch -&gt; f MultiConditionalBranch
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#multiConditionalBranch_nextActivity"><span class="hs-identifier hs-var hs-var">multiConditionalBranch_nextActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultiConditionalBranch -&gt; Maybe Text)
+-&gt; (MultiConditionalBranch -&gt; Maybe Text -&gt; MultiConditionalBranch)
+-&gt; Lens
+     MultiConditionalBranch
+     MultiConditionalBranch
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch%27"><span class="hs-identifier hs-type">MultiConditionalBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612109"><span class="annot"><span class="annottext">Maybe Text
+nextActivity :: Maybe Text
+$sel:nextActivity:MultiConditionalBranch' :: MultiConditionalBranch -&gt; Maybe Text
+</span><a href="#local-6989586621679612109"><span class="hs-identifier hs-var hs-var">nextActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612109"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612108"><span class="annot"><span class="annottext">s :: MultiConditionalBranch
+</span><a href="#local-6989586621679612108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch%27"><span class="hs-identifier hs-type">MultiConditionalBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiConditionalBranch
+</span><a href="#local-6989586621679612108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextActivity:MultiConditionalBranch' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#%24sel%3AnextActivity%3AMultiConditionalBranch%27"><span class="hs-identifier hs-var">nextActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-type">MultiConditionalBranch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The condition to evaluate for the activity path.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#multiConditionalBranch_condition"><span class="hs-identifier hs-type">multiConditionalBranch_condition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-type">MultiConditionalBranch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="multiConditionalBranch_condition"><span class="annot"><span class="annottext">multiConditionalBranch_condition :: (Maybe SimpleCondition -&gt; f (Maybe SimpleCondition))
+-&gt; MultiConditionalBranch -&gt; f MultiConditionalBranch
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#multiConditionalBranch_condition"><span class="hs-identifier hs-var hs-var">multiConditionalBranch_condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultiConditionalBranch -&gt; Maybe SimpleCondition)
+-&gt; (MultiConditionalBranch
+    -&gt; Maybe SimpleCondition -&gt; MultiConditionalBranch)
+-&gt; Lens
+     MultiConditionalBranch
+     MultiConditionalBranch
+     (Maybe SimpleCondition)
+     (Maybe SimpleCondition)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch%27"><span class="hs-identifier hs-type">MultiConditionalBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612105"><span class="annot"><span class="annottext">Maybe SimpleCondition
+condition :: Maybe SimpleCondition
+$sel:condition:MultiConditionalBranch' :: MultiConditionalBranch -&gt; Maybe SimpleCondition
+</span><a href="#local-6989586621679612105"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleCondition
+</span><a href="#local-6989586621679612105"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612104"><span class="annot"><span class="annottext">s :: MultiConditionalBranch
+</span><a href="#local-6989586621679612104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch%27"><span class="hs-identifier hs-type">MultiConditionalBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612103"><span class="annot"><span class="annottext">Maybe SimpleCondition
+</span><a href="#local-6989586621679612103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiConditionalBranch
+</span><a href="#local-6989586621679612104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:MultiConditionalBranch' :: Maybe SimpleCondition
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#%24sel%3Acondition%3AMultiConditionalBranch%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleCondition
+</span><a href="#local-6989586621679612103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-type">MultiConditionalBranch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612100"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-type">MultiConditionalBranch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679612098"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiConditionalBranch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MultiConditionalBranch)
+-&gt; Value
+-&gt; Parser MultiConditionalBranch
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MultiConditionalBranch&quot;</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679612095"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe SimpleCondition -&gt; MultiConditionalBranch
+</span><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch%27"><span class="hs-identifier hs-var">MultiConditionalBranch'</span></a></span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe SimpleCondition -&gt; MultiConditionalBranch)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe SimpleCondition -&gt; MultiConditionalBranch)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextActivity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SimpleCondition -&gt; MultiConditionalBranch)
+-&gt; Parser (Maybe SimpleCondition) -&gt; Parser MultiConditionalBranch
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SimpleCondition)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Condition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612089"><span id="local-6989586621679612091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-type">MultiConditionalBranch</span></a></span></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-type">MultiConditionalBranch</span></a></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612078"><span id="local-6989586621679612080"><span id="local-6989586621679612082"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch"><span class="hs-identifier hs-type">MultiConditionalBranch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679612076"><span class="annot"><span class="annottext">toJSON :: MultiConditionalBranch -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.MultiConditionalBranch.html#MultiConditionalBranch%27"><span class="hs-identifier hs-type">MultiConditionalBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612073"><span id="local-6989586621679612074"><span class="annot"><span class="annottext">Maybe Text
+Maybe SimpleCondition
+condition :: Maybe SimpleCondition
+nextActivity :: Maybe Text
+$sel:condition:MultiConditionalBranch' :: MultiConditionalBranch -&gt; Maybe SimpleCondition
+$sel:nextActivity:MultiConditionalBranch' :: MultiConditionalBranch -&gt; Maybe Text
+</span><a href="#local-6989586621679612073"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-87"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextActivity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612074"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Condition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SimpleCondition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SimpleCondition -&gt; Pair) -&gt; Maybe SimpleCondition -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SimpleCondition
+</span><a href="#local-6989586621679612073"><span class="hs-identifier hs-var">condition</span></a></span><span>
+</span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span></pre></body></html>

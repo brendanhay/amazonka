@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.DeleteJobTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Permanently delete a job template you have created.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.DeleteJobTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier">DeleteJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#newDeleteJobTemplate"><span class="hs-identifier">newDeleteJobTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#deleteJobTemplate_name"><span class="hs-identifier">deleteJobTemplate_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse"><span class="hs-identifier">DeleteJobTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#newDeleteJobTemplateResponse"><span class="hs-identifier">newDeleteJobTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#deleteJobTemplateResponse_httpStatus"><span class="hs-identifier">deleteJobTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.html"><span class="hs-identifier">Amazonka.MediaConvert.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteJobTemplate' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621680033844"><span id="local-6989586621680033845"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJobTemplate"><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-var">DeleteJobTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJobTemplate%27"><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate%27"><span class="hs-identifier hs-var">DeleteJobTemplate'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the job template to be deleted.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3ADeleteJobTemplate%27"><span class="annot"><span class="annottext">DeleteJobTemplate -&gt; Text
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#%24sel%3Aname%3ADeleteJobTemplate%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680033838"><span id="local-6989586621680033840"><span class="annot"><span class="annottext">DeleteJobTemplate -&gt; DeleteJobTemplate -&gt; Bool
+(DeleteJobTemplate -&gt; DeleteJobTemplate -&gt; Bool)
+-&gt; (DeleteJobTemplate -&gt; DeleteJobTemplate -&gt; Bool)
+-&gt; Eq DeleteJobTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteJobTemplate -&gt; DeleteJobTemplate -&gt; Bool
+$c/= :: DeleteJobTemplate -&gt; DeleteJobTemplate -&gt; Bool
+== :: DeleteJobTemplate -&gt; DeleteJobTemplate -&gt; Bool
+$c== :: DeleteJobTemplate -&gt; DeleteJobTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033829"><span id="local-6989586621680033831"><span id="local-6989586621680033833"><span id="local-6989586621680033835"><span class="annot"><span class="annottext">ReadPrec [DeleteJobTemplate]
+ReadPrec DeleteJobTemplate
+Int -&gt; ReadS DeleteJobTemplate
+ReadS [DeleteJobTemplate]
+(Int -&gt; ReadS DeleteJobTemplate)
+-&gt; ReadS [DeleteJobTemplate]
+-&gt; ReadPrec DeleteJobTemplate
+-&gt; ReadPrec [DeleteJobTemplate]
+-&gt; Read DeleteJobTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteJobTemplate]
+$creadListPrec :: ReadPrec [DeleteJobTemplate]
+readPrec :: ReadPrec DeleteJobTemplate
+$creadPrec :: ReadPrec DeleteJobTemplate
+readList :: ReadS [DeleteJobTemplate]
+$creadList :: ReadS [DeleteJobTemplate]
+readsPrec :: Int -&gt; ReadS DeleteJobTemplate
+$creadsPrec :: Int -&gt; ReadS DeleteJobTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033822"><span id="local-6989586621680033824"><span id="local-6989586621680033826"><span class="annot"><span class="annottext">Int -&gt; DeleteJobTemplate -&gt; ShowS
+[DeleteJobTemplate] -&gt; ShowS
+DeleteJobTemplate -&gt; String
+(Int -&gt; DeleteJobTemplate -&gt; ShowS)
+-&gt; (DeleteJobTemplate -&gt; String)
+-&gt; ([DeleteJobTemplate] -&gt; ShowS)
+-&gt; Show DeleteJobTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteJobTemplate] -&gt; ShowS
+$cshowList :: [DeleteJobTemplate] -&gt; ShowS
+show :: DeleteJobTemplate -&gt; String
+$cshow :: DeleteJobTemplate -&gt; String
+showsPrec :: Int -&gt; DeleteJobTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteJobTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteJobTemplate -&gt; Rep DeleteJobTemplate x)
+-&gt; (forall x. Rep DeleteJobTemplate x -&gt; DeleteJobTemplate)
+-&gt; Generic DeleteJobTemplate
+forall x. Rep DeleteJobTemplate x -&gt; DeleteJobTemplate
+forall x. DeleteJobTemplate -&gt; Rep DeleteJobTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteJobTemplate x -&gt; DeleteJobTemplate
+$cfrom :: forall x. DeleteJobTemplate -&gt; Rep DeleteJobTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteJobTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'name', 'deleteJobTemplate_name' - The name of the job template to be deleted.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#newDeleteJobTemplate"><span class="hs-identifier hs-type">newDeleteJobTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteJobTemplate"><span class="annot"><span class="annottext">newDeleteJobTemplate :: Text -&gt; DeleteJobTemplate
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#newDeleteJobTemplate"><span class="hs-identifier hs-var hs-var">newDeleteJobTemplate</span></a></span></span><span> </span><span id="local-6989586621680033817"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680033817"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteJobTemplate' :: Text -&gt; DeleteJobTemplate
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate%27"><span class="hs-identifier hs-type">DeleteJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteJobTemplate' :: Text
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#%24sel%3Aname%3ADeleteJobTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680033817"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The name of the job template to be deleted.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#deleteJobTemplate_name"><span class="hs-identifier hs-type">deleteJobTemplate_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteJobTemplate_name"><span class="annot"><span class="annottext">deleteJobTemplate_name :: (Text -&gt; f Text) -&gt; DeleteJobTemplate -&gt; f DeleteJobTemplate
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#deleteJobTemplate_name"><span class="hs-identifier hs-var hs-var">deleteJobTemplate_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteJobTemplate -&gt; Text)
+-&gt; (DeleteJobTemplate -&gt; Text -&gt; DeleteJobTemplate)
+-&gt; Lens DeleteJobTemplate DeleteJobTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate%27"><span class="hs-identifier hs-type">DeleteJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033814"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeleteJobTemplate' :: DeleteJobTemplate -&gt; Text
+</span><a href="#local-6989586621680033814"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680033814"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033813"><span class="annot"><span class="annottext">s :: DeleteJobTemplate
+</span><a href="#local-6989586621680033813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate%27"><span class="hs-identifier hs-type">DeleteJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033812"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680033812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJobTemplate
+</span><a href="#local-6989586621680033813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteJobTemplate' :: Text
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#%24sel%3Aname%3ADeleteJobTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680033812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse"><span class="hs-identifier hs-type">DeleteJobTemplateResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621680033808"><span class="annot"><span class="annottext">request :: DeleteJobTemplate -&gt; Request DeleteJobTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteJobTemplate -&gt; Request DeleteJobTemplate
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680033804"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteJobTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteJobTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteJobTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteJobTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteJobTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680033801"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033801"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680033800"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680033800"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680033799"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621680033799"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteJobTemplateResponse
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse%27"><span class="hs-identifier hs-var">DeleteJobTemplateResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteJobTemplateResponse)
+-&gt; Either String Int -&gt; Either String DeleteJobTemplateResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033801"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033792"><span id="local-6989586621680033794"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033789"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680033785"><span class="annot"><span class="annottext">toHeaders :: DeleteJobTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteJobTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680033779"><span class="annot"><span class="annottext">toPath :: DeleteJobTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate%27"><span class="hs-identifier hs-type">DeleteJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033777"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeleteJobTemplate' :: DeleteJobTemplate -&gt; Text
+</span><a href="#local-6989586621680033777"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2017-08-29/jobTemplates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680033777"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplate"><span class="hs-identifier hs-type">DeleteJobTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621680033773"><span class="annot"><span class="annottext">toQuery :: DeleteJobTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteJobTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newDeleteJobTemplateResponse' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621680033770"><span id="local-6989586621680033771"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJobTemplateResponse"><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse"><span class="hs-identifier hs-var">DeleteJobTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJobTemplateResponse%27"><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse%27"><span class="hs-identifier hs-var">DeleteJobTemplateResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteJobTemplateResponse%27"><span class="annot"><span class="annottext">DeleteJobTemplateResponse -&gt; Int
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#%24sel%3AhttpStatus%3ADeleteJobTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680033765"><span id="local-6989586621680033767"><span class="annot"><span class="annottext">DeleteJobTemplateResponse -&gt; DeleteJobTemplateResponse -&gt; Bool
+(DeleteJobTemplateResponse -&gt; DeleteJobTemplateResponse -&gt; Bool)
+-&gt; (DeleteJobTemplateResponse -&gt; DeleteJobTemplateResponse -&gt; Bool)
+-&gt; Eq DeleteJobTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteJobTemplateResponse -&gt; DeleteJobTemplateResponse -&gt; Bool
+$c/= :: DeleteJobTemplateResponse -&gt; DeleteJobTemplateResponse -&gt; Bool
+== :: DeleteJobTemplateResponse -&gt; DeleteJobTemplateResponse -&gt; Bool
+$c== :: DeleteJobTemplateResponse -&gt; DeleteJobTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033757"><span id="local-6989586621680033759"><span id="local-6989586621680033761"><span id="local-6989586621680033763"><span class="annot"><span class="annottext">ReadPrec [DeleteJobTemplateResponse]
+ReadPrec DeleteJobTemplateResponse
+Int -&gt; ReadS DeleteJobTemplateResponse
+ReadS [DeleteJobTemplateResponse]
+(Int -&gt; ReadS DeleteJobTemplateResponse)
+-&gt; ReadS [DeleteJobTemplateResponse]
+-&gt; ReadPrec DeleteJobTemplateResponse
+-&gt; ReadPrec [DeleteJobTemplateResponse]
+-&gt; Read DeleteJobTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteJobTemplateResponse]
+$creadListPrec :: ReadPrec [DeleteJobTemplateResponse]
+readPrec :: ReadPrec DeleteJobTemplateResponse
+$creadPrec :: ReadPrec DeleteJobTemplateResponse
+readList :: ReadS [DeleteJobTemplateResponse]
+$creadList :: ReadS [DeleteJobTemplateResponse]
+readsPrec :: Int -&gt; ReadS DeleteJobTemplateResponse
+$creadsPrec :: Int -&gt; ReadS DeleteJobTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033751"><span id="local-6989586621680033753"><span id="local-6989586621680033755"><span class="annot"><span class="annottext">Int -&gt; DeleteJobTemplateResponse -&gt; ShowS
+[DeleteJobTemplateResponse] -&gt; ShowS
+DeleteJobTemplateResponse -&gt; String
+(Int -&gt; DeleteJobTemplateResponse -&gt; ShowS)
+-&gt; (DeleteJobTemplateResponse -&gt; String)
+-&gt; ([DeleteJobTemplateResponse] -&gt; ShowS)
+-&gt; Show DeleteJobTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteJobTemplateResponse] -&gt; ShowS
+$cshowList :: [DeleteJobTemplateResponse] -&gt; ShowS
+show :: DeleteJobTemplateResponse -&gt; String
+$cshow :: DeleteJobTemplateResponse -&gt; String
+showsPrec :: Int -&gt; DeleteJobTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteJobTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteJobTemplateResponse -&gt; Rep DeleteJobTemplateResponse x)
+-&gt; (forall x.
+    Rep DeleteJobTemplateResponse x -&gt; DeleteJobTemplateResponse)
+-&gt; Generic DeleteJobTemplateResponse
+forall x.
+Rep DeleteJobTemplateResponse x -&gt; DeleteJobTemplateResponse
+forall x.
+DeleteJobTemplateResponse -&gt; Rep DeleteJobTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteJobTemplateResponse x -&gt; DeleteJobTemplateResponse
+$cfrom :: forall x.
+DeleteJobTemplateResponse -&gt; Rep DeleteJobTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'DeleteJobTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'httpStatus', 'deleteJobTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#newDeleteJobTemplateResponse"><span class="hs-identifier hs-type">newDeleteJobTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse"><span class="hs-identifier hs-type">DeleteJobTemplateResponse</span></a></span><span>
+</span><span id="line-130"></span><span id="newDeleteJobTemplateResponse"><span class="annot"><span class="annottext">newDeleteJobTemplateResponse :: Int -&gt; DeleteJobTemplateResponse
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#newDeleteJobTemplateResponse"><span class="hs-identifier hs-var hs-var">newDeleteJobTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621680033748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">DeleteJobTemplateResponse' :: Int -&gt; DeleteJobTemplateResponse
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse%27"><span class="hs-identifier hs-type">DeleteJobTemplateResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJobTemplateResponse' :: Int
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#%24sel%3AhttpStatus%3ADeleteJobTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#deleteJobTemplateResponse_httpStatus"><span class="hs-identifier hs-type">deleteJobTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse"><span class="hs-identifier hs-type">DeleteJobTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span id="deleteJobTemplateResponse_httpStatus"><span class="annot"><span class="annottext">deleteJobTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteJobTemplateResponse -&gt; f DeleteJobTemplateResponse
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#deleteJobTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteJobTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteJobTemplateResponse -&gt; Int)
+-&gt; (DeleteJobTemplateResponse -&gt; Int -&gt; DeleteJobTemplateResponse)
+-&gt; Lens DeleteJobTemplateResponse DeleteJobTemplateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse%27"><span class="hs-identifier hs-type">DeleteJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033747"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteJobTemplateResponse' :: DeleteJobTemplateResponse -&gt; Int
+</span><a href="#local-6989586621680033747"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033747"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033746"><span class="annot"><span class="annottext">s :: DeleteJobTemplateResponse
+</span><a href="#local-6989586621680033746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse%27"><span class="hs-identifier hs-type">DeleteJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033745"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJobTemplateResponse
+</span><a href="#local-6989586621680033746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJobTemplateResponse' :: Int
+</span><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#%24sel%3AhttpStatus%3ADeleteJobTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse"><span class="hs-identifier hs-type">DeleteJobTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033743"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.DeleteJobTemplate.html#DeleteJobTemplateResponse"><span class="hs-identifier hs-type">DeleteJobTemplateResponse</span></a></span></span><span>
+</span><span id="line-141"></span></pre></body></html>

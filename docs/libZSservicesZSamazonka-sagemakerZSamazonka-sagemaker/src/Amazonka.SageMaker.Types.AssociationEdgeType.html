@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.AssociationEdgeType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.AssociationEdgeType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier">AssociationEdgeType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_AssociatedWith"><span class="hs-identifier">AssociationEdgeType_AssociatedWith</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_ContributedTo"><span class="hs-identifier">AssociationEdgeType_ContributedTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_DerivedFrom"><span class="hs-identifier">AssociationEdgeType_DerivedFrom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_Produced"><span class="hs-identifier">AssociationEdgeType_Produced</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680291064"><span id="local-6989586621680291065"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationEdgeType"><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier hs-var">AssociationEdgeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationEdgeType%27"><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType%27"><span class="hs-identifier hs-var">AssociationEdgeType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssociationEdgeType"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#fromAssociationEdgeType"><span class="hs-identifier hs-var hs-var">fromAssociationEdgeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680291056"><span id="local-6989586621680291058"><span id="local-6989586621680291060"><span class="annot"><span class="annottext">Int -&gt; AssociationEdgeType -&gt; ShowS
+[AssociationEdgeType] -&gt; ShowS
+AssociationEdgeType -&gt; String
+(Int -&gt; AssociationEdgeType -&gt; ShowS)
+-&gt; (AssociationEdgeType -&gt; String)
+-&gt; ([AssociationEdgeType] -&gt; ShowS)
+-&gt; Show AssociationEdgeType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociationEdgeType] -&gt; ShowS
+$cshowList :: [AssociationEdgeType] -&gt; ShowS
+show :: AssociationEdgeType -&gt; String
+$cshow :: AssociationEdgeType -&gt; String
+showsPrec :: Int -&gt; AssociationEdgeType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociationEdgeType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680291047"><span id="local-6989586621680291049"><span id="local-6989586621680291051"><span id="local-6989586621680291053"><span class="annot"><span class="annottext">ReadPrec [AssociationEdgeType]
+ReadPrec AssociationEdgeType
+Int -&gt; ReadS AssociationEdgeType
+ReadS [AssociationEdgeType]
+(Int -&gt; ReadS AssociationEdgeType)
+-&gt; ReadS [AssociationEdgeType]
+-&gt; ReadPrec AssociationEdgeType
+-&gt; ReadPrec [AssociationEdgeType]
+-&gt; Read AssociationEdgeType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociationEdgeType]
+$creadListPrec :: ReadPrec [AssociationEdgeType]
+readPrec :: ReadPrec AssociationEdgeType
+$creadPrec :: ReadPrec AssociationEdgeType
+readList :: ReadS [AssociationEdgeType]
+$creadList :: ReadS [AssociationEdgeType]
+readsPrec :: Int -&gt; ReadS AssociationEdgeType
+$creadsPrec :: Int -&gt; ReadS AssociationEdgeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680291042"><span id="local-6989586621680291044"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+(AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool)
+-&gt; (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool)
+-&gt; Eq AssociationEdgeType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+$c/= :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+== :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+$c== :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680291026"><span id="local-6989586621680291028"><span id="local-6989586621680291030"><span id="local-6989586621680291032"><span id="local-6989586621680291034"><span id="local-6989586621680291036"><span id="local-6989586621680291038"><span class="annot"><span class="annottext">Eq AssociationEdgeType
+Eq AssociationEdgeType
+-&gt; (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Ordering)
+-&gt; (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool)
+-&gt; (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool)
+-&gt; (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool)
+-&gt; (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool)
+-&gt; (AssociationEdgeType
+    -&gt; AssociationEdgeType -&gt; AssociationEdgeType)
+-&gt; (AssociationEdgeType
+    -&gt; AssociationEdgeType -&gt; AssociationEdgeType)
+-&gt; Ord AssociationEdgeType
+AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+AssociationEdgeType -&gt; AssociationEdgeType -&gt; Ordering
+AssociationEdgeType -&gt; AssociationEdgeType -&gt; AssociationEdgeType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; AssociationEdgeType
+$cmin :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; AssociationEdgeType
+max :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; AssociationEdgeType
+$cmax :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; AssociationEdgeType
+&gt;= :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+$c&gt;= :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+&gt; :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+$c&gt; :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+&lt;= :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+$c&lt;= :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+&lt; :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+$c&lt; :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+compare :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Ordering
+$ccompare :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Ordering
+$cp1Ord :: Eq AssociationEdgeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AssociationEdgeType -&gt; Rep AssociationEdgeType x)
+-&gt; (forall x. Rep AssociationEdgeType x -&gt; AssociationEdgeType)
+-&gt; Generic AssociationEdgeType
+forall x. Rep AssociationEdgeType x -&gt; AssociationEdgeType
+forall x. AssociationEdgeType -&gt; Rep AssociationEdgeType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociationEdgeType x -&gt; AssociationEdgeType
+$cfrom :: forall x. AssociationEdgeType -&gt; Rep AssociationEdgeType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680291018"><span id="local-6989586621680291020"><span class="annot"><span class="annottext">Int -&gt; AssociationEdgeType -&gt; Int
+AssociationEdgeType -&gt; Int
+(Int -&gt; AssociationEdgeType -&gt; Int)
+-&gt; (AssociationEdgeType -&gt; Int) -&gt; Hashable AssociationEdgeType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssociationEdgeType -&gt; Int
+$chash :: AssociationEdgeType -&gt; Int
+hashWithSalt :: Int -&gt; AssociationEdgeType -&gt; Int
+$chashWithSalt :: Int -&gt; AssociationEdgeType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680291015"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; ()
+(AssociationEdgeType -&gt; ()) -&gt; NFData AssociationEdgeType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssociationEdgeType -&gt; ()
+$crnf :: AssociationEdgeType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680291012"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationEdgeType
+(Text -&gt; Either String AssociationEdgeType)
+-&gt; FromText AssociationEdgeType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssociationEdgeType
+$cfromText :: Text -&gt; Either String AssociationEdgeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680291009"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; Text
+(AssociationEdgeType -&gt; Text) -&gt; ToText AssociationEdgeType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssociationEdgeType -&gt; Text
+$ctoText :: AssociationEdgeType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680291006"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; ByteString
+(AssociationEdgeType -&gt; ByteString)
+-&gt; ToByteString AssociationEdgeType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssociationEdgeType -&gt; ByteString
+$ctoBS :: AssociationEdgeType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680291003"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; ByteStringBuilder
+(AssociationEdgeType -&gt; ByteStringBuilder)
+-&gt; ToLog AssociationEdgeType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssociationEdgeType -&gt; ByteStringBuilder
+$cbuild :: AssociationEdgeType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680291000"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationEdgeType -&gt; [Header]
+(HeaderName -&gt; AssociationEdgeType -&gt; [Header])
+-&gt; ToHeader AssociationEdgeType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssociationEdgeType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssociationEdgeType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680290997"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; QueryString
+(AssociationEdgeType -&gt; QueryString) -&gt; ToQuery AssociationEdgeType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssociationEdgeType -&gt; QueryString
+$ctoQuery :: AssociationEdgeType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680290992"><span id="local-6989586621680290994"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationEdgeType]
+Value -&gt; Parser AssociationEdgeType
+(Value -&gt; Parser AssociationEdgeType)
+-&gt; (Value -&gt; Parser [AssociationEdgeType])
+-&gt; FromJSON AssociationEdgeType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssociationEdgeType]
+$cparseJSONList :: Value -&gt; Parser [AssociationEdgeType]
+parseJSON :: Value -&gt; Parser AssociationEdgeType
+$cparseJSON :: Value -&gt; Parser AssociationEdgeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680290987"><span id="local-6989586621680290989"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationEdgeType]
+FromJSONKeyFunction AssociationEdgeType
+FromJSONKeyFunction AssociationEdgeType
+-&gt; FromJSONKeyFunction [AssociationEdgeType]
+-&gt; FromJSONKey AssociationEdgeType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssociationEdgeType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssociationEdgeType]
+fromJSONKey :: FromJSONKeyFunction AssociationEdgeType
+$cfromJSONKey :: FromJSONKeyFunction AssociationEdgeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680290978"><span id="local-6989586621680290980"><span id="local-6989586621680290982"><span id="local-6989586621680290984"><span class="annot"><span class="annottext">[AssociationEdgeType] -&gt; Encoding
+[AssociationEdgeType] -&gt; Value
+AssociationEdgeType -&gt; Encoding
+AssociationEdgeType -&gt; Value
+(AssociationEdgeType -&gt; Value)
+-&gt; (AssociationEdgeType -&gt; Encoding)
+-&gt; ([AssociationEdgeType] -&gt; Value)
+-&gt; ([AssociationEdgeType] -&gt; Encoding)
+-&gt; ToJSON AssociationEdgeType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssociationEdgeType] -&gt; Encoding
+$ctoEncodingList :: [AssociationEdgeType] -&gt; Encoding
+toJSONList :: [AssociationEdgeType] -&gt; Value
+$ctoJSONList :: [AssociationEdgeType] -&gt; Value
+toEncoding :: AssociationEdgeType -&gt; Encoding
+$ctoEncoding :: AssociationEdgeType -&gt; Encoding
+toJSON :: AssociationEdgeType -&gt; Value
+$ctoJSON :: AssociationEdgeType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680290973"><span id="local-6989586621680290975"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationEdgeType]
+ToJSONKeyFunction AssociationEdgeType
+ToJSONKeyFunction AssociationEdgeType
+-&gt; ToJSONKeyFunction [AssociationEdgeType]
+-&gt; ToJSONKey AssociationEdgeType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssociationEdgeType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssociationEdgeType]
+toJSONKey :: ToJSONKeyFunction AssociationEdgeType
+$ctoJSONKey :: ToJSONKeyFunction AssociationEdgeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680290970"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationEdgeType
+([Node] -&gt; Either String AssociationEdgeType)
+-&gt; FromXML AssociationEdgeType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssociationEdgeType
+$cparseXML :: [Node] -&gt; Either String AssociationEdgeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680290967"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; XML
+(AssociationEdgeType -&gt; XML) -&gt; ToXML AssociationEdgeType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssociationEdgeType -&gt; XML
+$ctoXML :: AssociationEdgeType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_AssociatedWith"><span class="hs-identifier hs-type">AssociationEdgeType_AssociatedWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier hs-type">AssociationEdgeType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationEdgeType_AssociatedWith"><span id="%24mAssociationEdgeType_AssociatedWith"><span id="AssociationEdgeType_AssociatedWith"><span class="annot"><span class="annottext">$bAssociationEdgeType_AssociatedWith :: AssociationEdgeType
+$mAssociationEdgeType_AssociatedWith :: forall r. AssociationEdgeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#%24bAssociationEdgeType_AssociatedWith"><span class="hs-identifier hs-var hs-var hs-var">AssociationEdgeType_AssociatedWith</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType%27"><span class="hs-identifier hs-type">AssociationEdgeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AssociatedWith&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_ContributedTo"><span class="hs-identifier hs-type">AssociationEdgeType_ContributedTo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier hs-type">AssociationEdgeType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationEdgeType_ContributedTo"><span id="%24mAssociationEdgeType_ContributedTo"><span id="AssociationEdgeType_ContributedTo"><span class="annot"><span class="annottext">$bAssociationEdgeType_ContributedTo :: AssociationEdgeType
+$mAssociationEdgeType_ContributedTo :: forall r. AssociationEdgeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#%24bAssociationEdgeType_ContributedTo"><span class="hs-identifier hs-var hs-var hs-var">AssociationEdgeType_ContributedTo</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType%27"><span class="hs-identifier hs-type">AssociationEdgeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ContributedTo&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_DerivedFrom"><span class="hs-identifier hs-type">AssociationEdgeType_DerivedFrom</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier hs-type">AssociationEdgeType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationEdgeType_DerivedFrom"><span id="%24mAssociationEdgeType_DerivedFrom"><span id="AssociationEdgeType_DerivedFrom"><span class="annot"><span class="annottext">$bAssociationEdgeType_DerivedFrom :: AssociationEdgeType
+$mAssociationEdgeType_DerivedFrom :: forall r. AssociationEdgeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#%24bAssociationEdgeType_DerivedFrom"><span class="hs-identifier hs-var hs-var hs-var">AssociationEdgeType_DerivedFrom</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType%27"><span class="hs-identifier hs-type">AssociationEdgeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DerivedFrom&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_Produced"><span class="hs-identifier hs-type">AssociationEdgeType_Produced</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier hs-type">AssociationEdgeType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationEdgeType_Produced"><span id="%24mAssociationEdgeType_Produced"><span id="AssociationEdgeType_Produced"><span class="annot"><span class="annottext">$bAssociationEdgeType_Produced :: AssociationEdgeType
+$mAssociationEdgeType_Produced :: forall r. AssociationEdgeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#%24bAssociationEdgeType_Produced"><span class="hs-identifier hs-var hs-var hs-var">AssociationEdgeType_Produced</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType%27"><span class="hs-identifier hs-type">AssociationEdgeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Produced&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_AssociatedWith"><span class="hs-pragma hs-type">AssociationEdgeType_AssociatedWith</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_ContributedTo"><span class="hs-pragma hs-type">AssociationEdgeType_ContributedTo</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_DerivedFrom"><span class="hs-pragma hs-type">AssociationEdgeType_DerivedFrom</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType_Produced"><span class="hs-pragma hs-type">AssociationEdgeType_Produced</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType%27"><span class="hs-pragma hs-type">AssociationEdgeType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

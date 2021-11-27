@@ -1,0 +1,849 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.CreateTransitGatewayConnectPeer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a Connect peer for a specified transit gateway Connect</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- attachment between a transit gateway and an appliance.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- The peer address and transit gateway address must be the same IP address</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- family (IPv4 or IPv6).</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer Connect peers&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Transit Gateways Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.CreateTransitGatewayConnectPeer</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#newCreateTransitGatewayConnectPeer"><span class="hs-identifier">newCreateTransitGatewayConnectPeer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_bgpOptions"><span class="hs-identifier">createTransitGatewayConnectPeer_bgpOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_transitGatewayAddress"><span class="hs-identifier">createTransitGatewayConnectPeer_transitGatewayAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_tagSpecifications"><span class="hs-identifier">createTransitGatewayConnectPeer_tagSpecifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_dryRun"><span class="hs-identifier">createTransitGatewayConnectPeer_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_transitGatewayAttachmentId"><span class="hs-identifier">createTransitGatewayConnectPeer_transitGatewayAttachmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_peerAddress"><span class="hs-identifier">createTransitGatewayConnectPeer_peerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_insideCidrBlocks"><span class="hs-identifier">createTransitGatewayConnectPeer_insideCidrBlocks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse"><span class="hs-identifier">CreateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#newCreateTransitGatewayConnectPeerResponse"><span class="hs-identifier">newCreateTransitGatewayConnectPeerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer"><span class="hs-identifier">createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeerResponse_httpStatus"><span class="hs-identifier">createTransitGatewayConnectPeerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newCreateTransitGatewayConnectPeer' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621681287972"><span id="local-6989586621681287973"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTransitGatewayConnectPeer"><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-var">CreateTransitGatewayConnectPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTransitGatewayConnectPeer%27"><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">CreateTransitGatewayConnectPeer'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The BGP options for the Connect peer.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AbgpOptions%3ACreateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer
+-&gt; Maybe TransitGatewayConnectRequestBgpOptions
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AbgpOptions%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">bgpOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayConnectRequestBgpOptions.html#TransitGatewayConnectRequestBgpOptions"><span class="hs-identifier hs-type">TransitGatewayConnectRequestBgpOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The peer IP address (GRE outer IP address) on the transit gateway side</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- of the Connect peer, which must be specified from a transit gateway CIDR</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- block. If not specified, Amazon automatically assigns the first</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- available IP address from the transit gateway CIDR block.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AtransitGatewayAddress%3ACreateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAddress%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">transitGatewayAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The tags to apply to the Connect peer.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AtagSpecifications%3ACreateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer -&gt; Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtagSpecifications%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdryRun%3ACreateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AdryRun%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The ID of the Connect attachment.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3ACreateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer -&gt; Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAttachmentId%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The peer IP address (GRE outer IP address) on the appliance side of the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Connect peer.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3ApeerAddress%3ACreateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer -&gt; Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3ApeerAddress%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">peerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The range of inside IP addresses that are used for BGP peering. You must</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- specify a size \/29 IPv4 CIDR block from the @169.254.0.0\/16@ range.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- The first address from the range must be configured on the appliance as</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the BGP IP address. You can also optionally specify a size \/125 IPv6</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- CIDR block from the @fd00::\/8@ range.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AinsideCidrBlocks%3ACreateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer -&gt; [Text]
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AinsideCidrBlocks%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">insideCidrBlocks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681287960"><span id="local-6989586621681287962"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer
+-&gt; CreateTransitGatewayConnectPeer -&gt; Bool
+(CreateTransitGatewayConnectPeer
+ -&gt; CreateTransitGatewayConnectPeer -&gt; Bool)
+-&gt; (CreateTransitGatewayConnectPeer
+    -&gt; CreateTransitGatewayConnectPeer -&gt; Bool)
+-&gt; Eq CreateTransitGatewayConnectPeer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTransitGatewayConnectPeer
+-&gt; CreateTransitGatewayConnectPeer -&gt; Bool
+$c/= :: CreateTransitGatewayConnectPeer
+-&gt; CreateTransitGatewayConnectPeer -&gt; Bool
+== :: CreateTransitGatewayConnectPeer
+-&gt; CreateTransitGatewayConnectPeer -&gt; Bool
+$c== :: CreateTransitGatewayConnectPeer
+-&gt; CreateTransitGatewayConnectPeer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681287951"><span id="local-6989586621681287953"><span id="local-6989586621681287955"><span id="local-6989586621681287957"><span class="annot"><span class="annottext">ReadPrec [CreateTransitGatewayConnectPeer]
+ReadPrec CreateTransitGatewayConnectPeer
+Int -&gt; ReadS CreateTransitGatewayConnectPeer
+ReadS [CreateTransitGatewayConnectPeer]
+(Int -&gt; ReadS CreateTransitGatewayConnectPeer)
+-&gt; ReadS [CreateTransitGatewayConnectPeer]
+-&gt; ReadPrec CreateTransitGatewayConnectPeer
+-&gt; ReadPrec [CreateTransitGatewayConnectPeer]
+-&gt; Read CreateTransitGatewayConnectPeer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTransitGatewayConnectPeer]
+$creadListPrec :: ReadPrec [CreateTransitGatewayConnectPeer]
+readPrec :: ReadPrec CreateTransitGatewayConnectPeer
+$creadPrec :: ReadPrec CreateTransitGatewayConnectPeer
+readList :: ReadS [CreateTransitGatewayConnectPeer]
+$creadList :: ReadS [CreateTransitGatewayConnectPeer]
+readsPrec :: Int -&gt; ReadS CreateTransitGatewayConnectPeer
+$creadsPrec :: Int -&gt; ReadS CreateTransitGatewayConnectPeer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681287944"><span id="local-6989586621681287946"><span id="local-6989586621681287948"><span class="annot"><span class="annottext">Int -&gt; CreateTransitGatewayConnectPeer -&gt; ShowS
+[CreateTransitGatewayConnectPeer] -&gt; ShowS
+CreateTransitGatewayConnectPeer -&gt; String
+(Int -&gt; CreateTransitGatewayConnectPeer -&gt; ShowS)
+-&gt; (CreateTransitGatewayConnectPeer -&gt; String)
+-&gt; ([CreateTransitGatewayConnectPeer] -&gt; ShowS)
+-&gt; Show CreateTransitGatewayConnectPeer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTransitGatewayConnectPeer] -&gt; ShowS
+$cshowList :: [CreateTransitGatewayConnectPeer] -&gt; ShowS
+show :: CreateTransitGatewayConnectPeer -&gt; String
+$cshow :: CreateTransitGatewayConnectPeer -&gt; String
+showsPrec :: Int -&gt; CreateTransitGatewayConnectPeer -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTransitGatewayConnectPeer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTransitGatewayConnectPeer
+ -&gt; Rep CreateTransitGatewayConnectPeer x)
+-&gt; (forall x.
+    Rep CreateTransitGatewayConnectPeer x
+    -&gt; CreateTransitGatewayConnectPeer)
+-&gt; Generic CreateTransitGatewayConnectPeer
+forall x.
+Rep CreateTransitGatewayConnectPeer x
+-&gt; CreateTransitGatewayConnectPeer
+forall x.
+CreateTransitGatewayConnectPeer
+-&gt; Rep CreateTransitGatewayConnectPeer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTransitGatewayConnectPeer x
+-&gt; CreateTransitGatewayConnectPeer
+$cfrom :: forall x.
+CreateTransitGatewayConnectPeer
+-&gt; Rep CreateTransitGatewayConnectPeer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'CreateTransitGatewayConnectPeer' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'bgpOptions', 'createTransitGatewayConnectPeer_bgpOptions' - The BGP options for the Connect peer.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'transitGatewayAddress', 'createTransitGatewayConnectPeer_transitGatewayAddress' - The peer IP address (GRE outer IP address) on the transit gateway side</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- of the Connect peer, which must be specified from a transit gateway CIDR</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- block. If not specified, Amazon automatically assigns the first</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- available IP address from the transit gateway CIDR block.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'tagSpecifications', 'createTransitGatewayConnectPeer_tagSpecifications' - The tags to apply to the Connect peer.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'dryRun', 'createTransitGatewayConnectPeer_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'createTransitGatewayConnectPeer_transitGatewayAttachmentId' - The ID of the Connect attachment.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'peerAddress', 'createTransitGatewayConnectPeer_peerAddress' - The peer IP address (GRE outer IP address) on the appliance side of the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Connect peer.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'insideCidrBlocks', 'createTransitGatewayConnectPeer_insideCidrBlocks' - The range of inside IP addresses that are used for BGP peering. You must</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- specify a size \/29 IPv4 CIDR block from the @169.254.0.0\/16@ range.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The first address from the range must be configured on the appliance as</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the BGP IP address. You can also optionally specify a size \/125 IPv6</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- CIDR block from the @fd00::\/8@ range.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#newCreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">newCreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'transitGatewayAttachmentId'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'peerAddress'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-131"></span><span id="newCreateTransitGatewayConnectPeer"><span class="annot"><span class="annottext">newCreateTransitGatewayConnectPeer :: Text -&gt; Text -&gt; CreateTransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#newCreateTransitGatewayConnectPeer"><span class="hs-identifier hs-var hs-var">newCreateTransitGatewayConnectPeer</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621681287939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287939"><span class="hs-identifier hs-var">pTransitGatewayAttachmentId_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621681287938"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287938"><span class="hs-identifier hs-var">pPeerAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer' :: Maybe TransitGatewayConnectRequestBgpOptions
+-&gt; Maybe Text
+-&gt; Maybe [TagSpecification]
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; [Text]
+-&gt; CreateTransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bgpOptions:CreateTransitGatewayConnectPeer' :: Maybe TransitGatewayConnectRequestBgpOptions
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AbgpOptions%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">bgpOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectRequestBgpOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayAddress:CreateTransitGatewayConnectPeer' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAddress%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateTransitGatewayConnectPeer' :: Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtagSpecifications%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:CreateTransitGatewayConnectPeer' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AdryRun%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:CreateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAttachmentId%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287939"><span class="hs-identifier hs-var">pTransitGatewayAttachmentId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:peerAddress:CreateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3ApeerAddress%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">peerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287938"><span class="hs-identifier hs-var">pPeerAddress_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:insideCidrBlocks:CreateTransitGatewayConnectPeer' :: [Text]
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AinsideCidrBlocks%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">insideCidrBlocks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The BGP options for the Connect peer.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_bgpOptions"><span class="hs-identifier hs-type">createTransitGatewayConnectPeer_bgpOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayConnectRequestBgpOptions.html#TransitGatewayConnectRequestBgpOptions"><span class="hs-identifier hs-type">TransitGatewayConnectRequestBgpOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="createTransitGatewayConnectPeer_bgpOptions"><span class="annot"><span class="annottext">createTransitGatewayConnectPeer_bgpOptions :: (Maybe TransitGatewayConnectRequestBgpOptions
+ -&gt; f (Maybe TransitGatewayConnectRequestBgpOptions))
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; f CreateTransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_bgpOptions"><span class="hs-identifier hs-var hs-var">createTransitGatewayConnectPeer_bgpOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayConnectPeer
+ -&gt; Maybe TransitGatewayConnectRequestBgpOptions)
+-&gt; (CreateTransitGatewayConnectPeer
+    -&gt; Maybe TransitGatewayConnectRequestBgpOptions
+    -&gt; CreateTransitGatewayConnectPeer)
+-&gt; Lens
+     CreateTransitGatewayConnectPeer
+     CreateTransitGatewayConnectPeer
+     (Maybe TransitGatewayConnectRequestBgpOptions)
+     (Maybe TransitGatewayConnectRequestBgpOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287935"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectRequestBgpOptions
+bgpOptions :: Maybe TransitGatewayConnectRequestBgpOptions
+$sel:bgpOptions:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer
+-&gt; Maybe TransitGatewayConnectRequestBgpOptions
+</span><a href="#local-6989586621681287935"><span class="hs-identifier hs-var hs-var">bgpOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectRequestBgpOptions
+</span><a href="#local-6989586621681287935"><span class="hs-identifier hs-var">bgpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287934"><span class="annot"><span class="annottext">s :: CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287933"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectRequestBgpOptions
+</span><a href="#local-6989586621681287933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bgpOptions:CreateTransitGatewayConnectPeer' :: Maybe TransitGatewayConnectRequestBgpOptions
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AbgpOptions%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">bgpOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectRequestBgpOptions
+</span><a href="#local-6989586621681287933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The peer IP address (GRE outer IP address) on the transit gateway side</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- of the Connect peer, which must be specified from a transit gateway CIDR</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- block. If not specified, Amazon automatically assigns the first</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- available IP address from the transit gateway CIDR block.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_transitGatewayAddress"><span class="hs-identifier hs-type">createTransitGatewayConnectPeer_transitGatewayAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="createTransitGatewayConnectPeer_transitGatewayAddress"><span class="annot"><span class="annottext">createTransitGatewayConnectPeer_transitGatewayAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; f CreateTransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_transitGatewayAddress"><span class="hs-identifier hs-var hs-var">createTransitGatewayConnectPeer_transitGatewayAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayConnectPeer -&gt; Maybe Text)
+-&gt; (CreateTransitGatewayConnectPeer
+    -&gt; Maybe Text -&gt; CreateTransitGatewayConnectPeer)
+-&gt; Lens
+     CreateTransitGatewayConnectPeer
+     CreateTransitGatewayConnectPeer
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287932"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayAddress :: Maybe Text
+$sel:transitGatewayAddress:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="#local-6989586621681287932"><span class="hs-identifier hs-var hs-var">transitGatewayAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681287932"><span class="hs-identifier hs-var">transitGatewayAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287931"><span class="annot"><span class="annottext">s :: CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287930"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681287930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAddress:CreateTransitGatewayConnectPeer' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAddress%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681287930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The tags to apply to the Connect peer.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_tagSpecifications"><span class="hs-identifier hs-type">createTransitGatewayConnectPeer_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="createTransitGatewayConnectPeer_tagSpecifications"><span class="annot"><span class="annottext">createTransitGatewayConnectPeer_tagSpecifications :: (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; f CreateTransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_tagSpecifications"><span class="hs-identifier hs-var hs-var">createTransitGatewayConnectPeer_tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayConnectPeer -&gt; Maybe [TagSpecification])
+-&gt; (CreateTransitGatewayConnectPeer
+    -&gt; Maybe [TagSpecification] -&gt; CreateTransitGatewayConnectPeer)
+-&gt; Lens
+     CreateTransitGatewayConnectPeer
+     CreateTransitGatewayConnectPeer
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287929"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+tagSpecifications :: Maybe [TagSpecification]
+$sel:tagSpecifications:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Maybe [TagSpecification]
+</span><a href="#local-6989586621681287929"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681287929"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287928"><span class="annot"><span class="annottext">s :: CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287927"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681287927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateTransitGatewayConnectPeer' :: Maybe [TagSpecification]
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtagSpecifications%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681287927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+ -&gt; CreateTransitGatewayConnectPeer
+ -&gt; f CreateTransitGatewayConnectPeer)
+-&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+    -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; f CreateTransitGatewayConnectPeer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+-&gt; Iso
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+     (Maybe [TagSpecification])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+  [TagSpecification]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_dryRun"><span class="hs-identifier hs-type">createTransitGatewayConnectPeer_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="createTransitGatewayConnectPeer_dryRun"><span class="annot"><span class="annottext">createTransitGatewayConnectPeer_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; f CreateTransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_dryRun"><span class="hs-identifier hs-var hs-var">createTransitGatewayConnectPeer_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayConnectPeer -&gt; Maybe Bool)
+-&gt; (CreateTransitGatewayConnectPeer
+    -&gt; Maybe Bool -&gt; CreateTransitGatewayConnectPeer)
+-&gt; Lens
+     CreateTransitGatewayConnectPeer
+     CreateTransitGatewayConnectPeer
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287923"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Maybe Bool
+</span><a href="#local-6989586621681287923"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287923"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287922"><span class="annot"><span class="annottext">s :: CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287921"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateTransitGatewayConnectPeer' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AdryRun%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The ID of the Connect attachment.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_transitGatewayAttachmentId"><span class="hs-identifier hs-type">createTransitGatewayConnectPeer_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-170"></span><span id="createTransitGatewayConnectPeer_transitGatewayAttachmentId"><span class="annot"><span class="annottext">createTransitGatewayConnectPeer_transitGatewayAttachmentId :: (Text -&gt; f Text)
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; f CreateTransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_transitGatewayAttachmentId"><span class="hs-identifier hs-var hs-var">createTransitGatewayConnectPeer_transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayConnectPeer -&gt; Text)
+-&gt; (CreateTransitGatewayConnectPeer
+    -&gt; Text -&gt; CreateTransitGatewayConnectPeer)
+-&gt; Lens
+     CreateTransitGatewayConnectPeer
+     CreateTransitGatewayConnectPeer
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287920"><span class="annot"><span class="annottext">Text
+transitGatewayAttachmentId :: Text
+$sel:transitGatewayAttachmentId:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Text
+</span><a href="#local-6989586621681287920"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287920"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287919"><span class="annot"><span class="annottext">s :: CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:CreateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAttachmentId%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The peer IP address (GRE outer IP address) on the appliance side of the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Connect peer.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_peerAddress"><span class="hs-identifier hs-type">createTransitGatewayConnectPeer_peerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-175"></span><span id="createTransitGatewayConnectPeer_peerAddress"><span class="annot"><span class="annottext">createTransitGatewayConnectPeer_peerAddress :: (Text -&gt; f Text)
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; f CreateTransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_peerAddress"><span class="hs-identifier hs-var hs-var">createTransitGatewayConnectPeer_peerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayConnectPeer -&gt; Text)
+-&gt; (CreateTransitGatewayConnectPeer
+    -&gt; Text -&gt; CreateTransitGatewayConnectPeer)
+-&gt; Lens
+     CreateTransitGatewayConnectPeer
+     CreateTransitGatewayConnectPeer
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287917"><span class="annot"><span class="annottext">Text
+peerAddress :: Text
+$sel:peerAddress:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Text
+</span><a href="#local-6989586621681287917"><span class="hs-identifier hs-var hs-var">peerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287917"><span class="hs-identifier hs-var">peerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287916"><span class="annot"><span class="annottext">s :: CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287915"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:peerAddress:CreateTransitGatewayConnectPeer' :: Text
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3ApeerAddress%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">peerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The range of inside IP addresses that are used for BGP peering. You must</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- specify a size \/29 IPv4 CIDR block from the @169.254.0.0\/16@ range.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The first address from the range must be configured on the appliance as</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- the BGP IP address. You can also optionally specify a size \/125 IPv6</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- CIDR block from the @fd00::\/8@ range.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_insideCidrBlocks"><span class="hs-identifier hs-type">createTransitGatewayConnectPeer_insideCidrBlocks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span id="createTransitGatewayConnectPeer_insideCidrBlocks"><span class="annot"><span class="annottext">createTransitGatewayConnectPeer_insideCidrBlocks :: ([Text] -&gt; f [Text])
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; f CreateTransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeer_insideCidrBlocks"><span class="hs-identifier hs-var hs-var">createTransitGatewayConnectPeer_insideCidrBlocks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayConnectPeer -&gt; [Text])
+-&gt; (CreateTransitGatewayConnectPeer
+    -&gt; [Text] -&gt; CreateTransitGatewayConnectPeer)
+-&gt; Lens
+     CreateTransitGatewayConnectPeer
+     CreateTransitGatewayConnectPeer
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287914"><span class="annot"><span class="annottext">[Text]
+insideCidrBlocks :: [Text]
+$sel:insideCidrBlocks:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; [Text]
+</span><a href="#local-6989586621681287914"><span class="hs-identifier hs-var hs-var">insideCidrBlocks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681287914"><span class="hs-identifier hs-var">insideCidrBlocks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287913"><span class="annot"><span class="annottext">s :: CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287912"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681287912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeer
+</span><a href="#local-6989586621681287913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insideCidrBlocks:CreateTransitGatewayConnectPeer' :: [Text]
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AinsideCidrBlocks%3ACreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">insideCidrBlocks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681287912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; CreateTransitGatewayConnectPeer
+ -&gt; f CreateTransitGatewayConnectPeer)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; f CreateTransitGatewayConnectPeer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-190"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse</span></a></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621681287908"><span class="annot"><span class="annottext">request :: CreateTransitGatewayConnectPeer
+-&gt; Request CreateTransitGatewayConnectPeer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateTransitGatewayConnectPeer
+-&gt; Request CreateTransitGatewayConnectPeer
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621681287904"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateTransitGatewayConnectPeer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateTransitGatewayConnectPeer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CreateTransitGatewayConnectPeer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateTransitGatewayConnectPeer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateTransitGatewayConnectPeer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681287901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287901"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681287900"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681287900"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681287899"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681287899"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeer
+-&gt; Int -&gt; CreateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">CreateTransitGatewayConnectPeerResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitGatewayConnectPeer
+ -&gt; Int -&gt; CreateTransitGatewayConnectPeerResponse)
+-&gt; Either String (Maybe TransitGatewayConnectPeer)
+-&gt; Either String (Int -&gt; CreateTransitGatewayConnectPeerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681287899"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitGatewayConnectPeer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayConnectPeer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateTransitGatewayConnectPeerResponse)
+-&gt; Either String Int
+-&gt; Either String CreateTransitGatewayConnectPeerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287901"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621681287891"><span id="local-6989586621681287893"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621681287888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621681287884"><span class="annot"><span class="annottext">toHeaders :: CreateTransitGatewayConnectPeer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateTransitGatewayConnectPeer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621681287879"><span class="annot"><span class="annottext">toPath :: CreateTransitGatewayConnectPeer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTransitGatewayConnectPeer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621681287875"><span class="annot"><span class="annottext">toQuery :: CreateTransitGatewayConnectPeer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287867"><span id="local-6989586621681287868"><span id="local-6989586621681287869"><span id="local-6989586621681287870"><span id="local-6989586621681287871"><span id="local-6989586621681287872"><span id="local-6989586621681287873"><span class="annot"><span class="annottext">[Text]
+Maybe Bool
+Maybe [TagSpecification]
+Maybe Text
+Maybe TransitGatewayConnectRequestBgpOptions
+Text
+insideCidrBlocks :: [Text]
+peerAddress :: Text
+transitGatewayAttachmentId :: Text
+dryRun :: Maybe Bool
+tagSpecifications :: Maybe [TagSpecification]
+transitGatewayAddress :: Maybe Text
+bgpOptions :: Maybe TransitGatewayConnectRequestBgpOptions
+$sel:insideCidrBlocks:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; [Text]
+$sel:peerAddress:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Text
+$sel:transitGatewayAttachmentId:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Text
+$sel:dryRun:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Maybe Bool
+$sel:tagSpecifications:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Maybe [TagSpecification]
+$sel:transitGatewayAddress:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer -&gt; Maybe Text
+$sel:bgpOptions:CreateTransitGatewayConnectPeer' :: CreateTransitGatewayConnectPeer
+-&gt; Maybe TransitGatewayConnectRequestBgpOptions
+</span><a href="#local-6989586621681287867"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateTransitGatewayConnectPeer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-224"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BgpOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; Maybe TransitGatewayConnectRequestBgpOptions -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectRequestBgpOptions
+</span><a href="#local-6989586621681287873"><span class="hs-identifier hs-var">bgpOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayAddress&quot;</span></span><span>
+</span><span id="line-229"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681287872"><span class="hs-identifier hs-var">transitGatewayAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-231"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TagSpecification] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagSpecification&quot;</span></span><span>
+</span><span id="line-232"></span><span>              </span><span class="annot"><span class="annottext">([TagSpecification] -&gt; QueryString)
+-&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681287871"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><span id="line-233"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681287870"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayAttachmentId&quot;</span></span><span>
+</span><span id="line-236"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287869"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PeerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681287868"><span class="hs-identifier hs-var">peerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InsideCidrBlocks&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681287867"><span class="hs-identifier hs-var">insideCidrBlocks</span></a></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | /See:/ 'newCreateTransitGatewayConnectPeerResponse' smart constructor.</span><span>
+</span><span id="line-242"></span><span id="local-6989586621681287863"><span id="local-6989586621681287864"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTransitGatewayConnectPeerResponse"><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-var">CreateTransitGatewayConnectPeerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTransitGatewayConnectPeerResponse%27"><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">CreateTransitGatewayConnectPeerResponse'</span></a></span></span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the Connect peer.</span><span>
+</span><span id="line-244"></span><span>    </span><span id="%24sel%3AtransitGatewayConnectPeer%3ACreateTransitGatewayConnectPeerResponse%27"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeerResponse
+-&gt; Maybe TransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeer%3ACreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-246"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTransitGatewayConnectPeerResponse%27"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeerResponse -&gt; Int
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AhttpStatus%3ACreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681287857"><span id="local-6989586621681287859"><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeerResponse
+-&gt; CreateTransitGatewayConnectPeerResponse -&gt; Bool
+(CreateTransitGatewayConnectPeerResponse
+ -&gt; CreateTransitGatewayConnectPeerResponse -&gt; Bool)
+-&gt; (CreateTransitGatewayConnectPeerResponse
+    -&gt; CreateTransitGatewayConnectPeerResponse -&gt; Bool)
+-&gt; Eq CreateTransitGatewayConnectPeerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTransitGatewayConnectPeerResponse
+-&gt; CreateTransitGatewayConnectPeerResponse -&gt; Bool
+$c/= :: CreateTransitGatewayConnectPeerResponse
+-&gt; CreateTransitGatewayConnectPeerResponse -&gt; Bool
+== :: CreateTransitGatewayConnectPeerResponse
+-&gt; CreateTransitGatewayConnectPeerResponse -&gt; Bool
+$c== :: CreateTransitGatewayConnectPeerResponse
+-&gt; CreateTransitGatewayConnectPeerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681287849"><span id="local-6989586621681287851"><span id="local-6989586621681287853"><span id="local-6989586621681287855"><span class="annot"><span class="annottext">ReadPrec [CreateTransitGatewayConnectPeerResponse]
+ReadPrec CreateTransitGatewayConnectPeerResponse
+Int -&gt; ReadS CreateTransitGatewayConnectPeerResponse
+ReadS [CreateTransitGatewayConnectPeerResponse]
+(Int -&gt; ReadS CreateTransitGatewayConnectPeerResponse)
+-&gt; ReadS [CreateTransitGatewayConnectPeerResponse]
+-&gt; ReadPrec CreateTransitGatewayConnectPeerResponse
+-&gt; ReadPrec [CreateTransitGatewayConnectPeerResponse]
+-&gt; Read CreateTransitGatewayConnectPeerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTransitGatewayConnectPeerResponse]
+$creadListPrec :: ReadPrec [CreateTransitGatewayConnectPeerResponse]
+readPrec :: ReadPrec CreateTransitGatewayConnectPeerResponse
+$creadPrec :: ReadPrec CreateTransitGatewayConnectPeerResponse
+readList :: ReadS [CreateTransitGatewayConnectPeerResponse]
+$creadList :: ReadS [CreateTransitGatewayConnectPeerResponse]
+readsPrec :: Int -&gt; ReadS CreateTransitGatewayConnectPeerResponse
+$creadsPrec :: Int -&gt; ReadS CreateTransitGatewayConnectPeerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681287843"><span id="local-6989586621681287845"><span id="local-6989586621681287847"><span class="annot"><span class="annottext">Int -&gt; CreateTransitGatewayConnectPeerResponse -&gt; ShowS
+[CreateTransitGatewayConnectPeerResponse] -&gt; ShowS
+CreateTransitGatewayConnectPeerResponse -&gt; String
+(Int -&gt; CreateTransitGatewayConnectPeerResponse -&gt; ShowS)
+-&gt; (CreateTransitGatewayConnectPeerResponse -&gt; String)
+-&gt; ([CreateTransitGatewayConnectPeerResponse] -&gt; ShowS)
+-&gt; Show CreateTransitGatewayConnectPeerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTransitGatewayConnectPeerResponse] -&gt; ShowS
+$cshowList :: [CreateTransitGatewayConnectPeerResponse] -&gt; ShowS
+show :: CreateTransitGatewayConnectPeerResponse -&gt; String
+$cshow :: CreateTransitGatewayConnectPeerResponse -&gt; String
+showsPrec :: Int -&gt; CreateTransitGatewayConnectPeerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTransitGatewayConnectPeerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTransitGatewayConnectPeerResponse
+ -&gt; Rep CreateTransitGatewayConnectPeerResponse x)
+-&gt; (forall x.
+    Rep CreateTransitGatewayConnectPeerResponse x
+    -&gt; CreateTransitGatewayConnectPeerResponse)
+-&gt; Generic CreateTransitGatewayConnectPeerResponse
+forall x.
+Rep CreateTransitGatewayConnectPeerResponse x
+-&gt; CreateTransitGatewayConnectPeerResponse
+forall x.
+CreateTransitGatewayConnectPeerResponse
+-&gt; Rep CreateTransitGatewayConnectPeerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTransitGatewayConnectPeerResponse x
+-&gt; CreateTransitGatewayConnectPeerResponse
+$cfrom :: forall x.
+CreateTransitGatewayConnectPeerResponse
+-&gt; Rep CreateTransitGatewayConnectPeerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- Create a value of 'CreateTransitGatewayConnectPeerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'transitGatewayConnectPeer', 'createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer' - Information about the Connect peer.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'httpStatus', 'createTransitGatewayConnectPeerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#newCreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">newCreateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse</span></a></span><span>
+</span><span id="line-265"></span><span id="newCreateTransitGatewayConnectPeerResponse"><span class="annot"><span class="annottext">newCreateTransitGatewayConnectPeerResponse :: Int -&gt; CreateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#newCreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-var hs-var">newCreateTransitGatewayConnectPeerResponse</span></a></span></span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621681287840"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287840"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeerResponse' :: Maybe TransitGatewayConnectPeer
+-&gt; Int -&gt; CreateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse'</span></a></span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeer:CreateTransitGatewayConnectPeerResponse' :: Maybe TransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeer%3ACreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">transitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTransitGatewayConnectPeerResponse' :: Int
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AhttpStatus%3ACreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287840"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-271"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | Information about the Connect peer.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer"><span class="hs-identifier hs-type">createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer"><span class="annot"><span class="annottext">createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer :: (Maybe TransitGatewayConnectPeer
+ -&gt; f (Maybe TransitGatewayConnectPeer))
+-&gt; CreateTransitGatewayConnectPeerResponse
+-&gt; f CreateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer"><span class="hs-identifier hs-var hs-var">createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayConnectPeerResponse
+ -&gt; Maybe TransitGatewayConnectPeer)
+-&gt; (CreateTransitGatewayConnectPeerResponse
+    -&gt; Maybe TransitGatewayConnectPeer
+    -&gt; CreateTransitGatewayConnectPeerResponse)
+-&gt; Lens
+     CreateTransitGatewayConnectPeerResponse
+     CreateTransitGatewayConnectPeerResponse
+     (Maybe TransitGatewayConnectPeer)
+     (Maybe TransitGatewayConnectPeer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287839"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeer
+transitGatewayConnectPeer :: Maybe TransitGatewayConnectPeer
+$sel:transitGatewayConnectPeer:CreateTransitGatewayConnectPeerResponse' :: CreateTransitGatewayConnectPeerResponse
+-&gt; Maybe TransitGatewayConnectPeer
+</span><a href="#local-6989586621681287839"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeer
+</span><a href="#local-6989586621681287839"><span class="hs-identifier hs-var">transitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287838"><span class="annot"><span class="annottext">s :: CreateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621681287838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287837"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeer
+</span><a href="#local-6989586621681287837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621681287838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeer:CreateTransitGatewayConnectPeerResponse' :: Maybe TransitGatewayConnectPeer
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeer%3ACreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">transitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeer
+</span><a href="#local-6989586621681287837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeerResponse_httpStatus"><span class="hs-identifier hs-type">createTransitGatewayConnectPeerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-279"></span><span id="createTransitGatewayConnectPeerResponse_httpStatus"><span class="annot"><span class="annottext">createTransitGatewayConnectPeerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateTransitGatewayConnectPeerResponse
+-&gt; f CreateTransitGatewayConnectPeerResponse
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#createTransitGatewayConnectPeerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createTransitGatewayConnectPeerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayConnectPeerResponse -&gt; Int)
+-&gt; (CreateTransitGatewayConnectPeerResponse
+    -&gt; Int -&gt; CreateTransitGatewayConnectPeerResponse)
+-&gt; Lens
+     CreateTransitGatewayConnectPeerResponse
+     CreateTransitGatewayConnectPeerResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681287836"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateTransitGatewayConnectPeerResponse' :: CreateTransitGatewayConnectPeerResponse -&gt; Int
+</span><a href="#local-6989586621681287836"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287836"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681287835"><span class="annot"><span class="annottext">s :: CreateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621681287835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681287834"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621681287835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTransitGatewayConnectPeerResponse' :: Int
+</span><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#%24sel%3AhttpStatus%3ACreateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681287834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-282"></span><span>  </span><span id="local-6989586621681287832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTransitGatewayConnectPeer.html#CreateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">CreateTransitGatewayConnectPeerResponse</span></a></span></span><span>
+</span><span id="line-284"></span></pre></body></html>

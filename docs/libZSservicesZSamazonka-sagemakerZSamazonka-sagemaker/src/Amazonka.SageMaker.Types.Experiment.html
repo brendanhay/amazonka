@@ -1,0 +1,653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.Experiment</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.Experiment</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ExperimentSource.html"><span class="hs-identifier">Amazonka.SageMaker.Types.ExperimentSource</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html"><span class="hs-identifier">Amazonka.SageMaker.Types.Tag</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.UserContext.html"><span class="hs-identifier">Amazonka.SageMaker.Types.UserContext</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The properties of an experiment as returned by the Search API.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newExperiment' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621680357377"><span id="local-6989586621680357378"></span></span><span class="hs-keyword">data</span><span> </span><span id="Experiment"><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-var">Experiment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Experiment%27"><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-var">Experiment'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the experiment was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationTime%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AcreationTime%3AExperiment%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Who created the experiment.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreatedBy%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe UserContext
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AcreatedBy%3AExperiment%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | When the experiment was last modified.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AlastModifiedTime%3AExperiment%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the experiment.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AexperimentName%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AexperimentName%3AExperiment%27"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the experiment.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AexperimentArn%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AexperimentArn%3AExperiment%27"><span class="hs-identifier hs-var hs-var">experimentArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Asource%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe ExperimentSource
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3Asource%3AExperiment%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the experiment as displayed. If @DisplayName@ isn\'t</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- specified, @ExperimentName@ is displayed.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdisplayName%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AdisplayName%3AExperiment%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AlastModifiedBy%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe UserContext
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AlastModifiedBy%3AExperiment%27"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The description of the experiment.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Adescription%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3Adescription%3AExperiment%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The list of tags that are associated with the experiment. You can use</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- Search API to search on the tags.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Atags%3AExperiment%27"><span class="annot"><span class="annottext">Experiment -&gt; Maybe [Tag]
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3Atags%3AExperiment%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680357362"><span id="local-6989586621680357364"><span class="annot"><span class="annottext">Experiment -&gt; Experiment -&gt; Bool
+(Experiment -&gt; Experiment -&gt; Bool)
+-&gt; (Experiment -&gt; Experiment -&gt; Bool) -&gt; Eq Experiment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Experiment -&gt; Experiment -&gt; Bool
+$c/= :: Experiment -&gt; Experiment -&gt; Bool
+== :: Experiment -&gt; Experiment -&gt; Bool
+$c== :: Experiment -&gt; Experiment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680357353"><span id="local-6989586621680357355"><span id="local-6989586621680357357"><span id="local-6989586621680357359"><span class="annot"><span class="annottext">ReadPrec [Experiment]
+ReadPrec Experiment
+Int -&gt; ReadS Experiment
+ReadS [Experiment]
+(Int -&gt; ReadS Experiment)
+-&gt; ReadS [Experiment]
+-&gt; ReadPrec Experiment
+-&gt; ReadPrec [Experiment]
+-&gt; Read Experiment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Experiment]
+$creadListPrec :: ReadPrec [Experiment]
+readPrec :: ReadPrec Experiment
+$creadPrec :: ReadPrec Experiment
+readList :: ReadS [Experiment]
+$creadList :: ReadS [Experiment]
+readsPrec :: Int -&gt; ReadS Experiment
+$creadsPrec :: Int -&gt; ReadS Experiment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680357346"><span id="local-6989586621680357348"><span id="local-6989586621680357350"><span class="annot"><span class="annottext">Int -&gt; Experiment -&gt; ShowS
+[Experiment] -&gt; ShowS
+Experiment -&gt; String
+(Int -&gt; Experiment -&gt; ShowS)
+-&gt; (Experiment -&gt; String)
+-&gt; ([Experiment] -&gt; ShowS)
+-&gt; Show Experiment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Experiment] -&gt; ShowS
+$cshowList :: [Experiment] -&gt; ShowS
+show :: Experiment -&gt; String
+$cshow :: Experiment -&gt; String
+showsPrec :: Int -&gt; Experiment -&gt; ShowS
+$cshowsPrec :: Int -&gt; Experiment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Experiment -&gt; Rep Experiment x)
+-&gt; (forall x. Rep Experiment x -&gt; Experiment) -&gt; Generic Experiment
+forall x. Rep Experiment x -&gt; Experiment
+forall x. Experiment -&gt; Rep Experiment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Experiment x -&gt; Experiment
+$cfrom :: forall x. Experiment -&gt; Rep Experiment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'Experiment' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'creationTime', 'experiment_creationTime' - When the experiment was created.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'createdBy', 'experiment_createdBy' - Who created the experiment.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'lastModifiedTime', 'experiment_lastModifiedTime' - When the experiment was last modified.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'experimentName', 'experiment_experimentName' - The name of the experiment.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'experimentArn', 'experiment_experimentArn' - The Amazon Resource Name (ARN) of the experiment.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'source', 'experiment_source' - Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'displayName', 'experiment_displayName' - The name of the experiment as displayed. If @DisplayName@ isn\'t</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- specified, @ExperimentName@ is displayed.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'lastModifiedBy', 'experiment_lastModifiedBy' - Undocumented member.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'description', 'experiment_description' - The description of the experiment.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'tags', 'experiment_tags' - The list of tags that are associated with the experiment. You can use</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Search API to search on the tags.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#newExperiment"><span class="hs-identifier hs-type">newExperiment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span>
+</span><span id="line-87"></span><span id="newExperiment"><span class="annot"><span class="annottext">newExperiment :: Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#newExperiment"><span class="hs-identifier hs-var hs-var">newExperiment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">Experiment' :: Maybe POSIX
+-&gt; Maybe UserContext
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ExperimentSource
+-&gt; Maybe Text
+-&gt; Maybe UserContext
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:Experiment' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AcreationTime%3AExperiment%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:Experiment' :: Maybe UserContext
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AcreatedBy%3AExperiment%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Experiment' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AlastModifiedTime%3AExperiment%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:experimentName:Experiment' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AexperimentName%3AExperiment%27"><span class="hs-identifier hs-var">experimentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:experimentArn:Experiment' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AexperimentArn%3AExperiment%27"><span class="hs-identifier hs-var">experimentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:Experiment' :: Maybe ExperimentSource
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3Asource%3AExperiment%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:Experiment' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AdisplayName%3AExperiment%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedBy:Experiment' :: Maybe UserContext
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AlastModifiedBy%3AExperiment%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Experiment' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3Adescription%3AExperiment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Experiment' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3Atags%3AExperiment%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | When the experiment was created.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_creationTime"><span class="hs-identifier hs-type">experiment_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="experiment_creationTime"><span class="annot"><span class="annottext">experiment_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_creationTime"><span class="hs-identifier hs-var hs-var">experiment_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe POSIX)
+-&gt; (Experiment -&gt; Maybe POSIX -&gt; Experiment)
+-&gt; Lens Experiment Experiment (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357337"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:Experiment' :: Experiment -&gt; Maybe POSIX
+</span><a href="#local-6989586621680357337"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680357337"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357336"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357335"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680357335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Experiment' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AcreationTime%3AExperiment%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680357335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Experiment -&gt; f Experiment)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Experiment
+-&gt; f Experiment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Who created the experiment.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_createdBy"><span class="hs-identifier hs-type">experiment_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="experiment_createdBy"><span class="annot"><span class="annottext">experiment_createdBy :: (Maybe UserContext -&gt; f (Maybe UserContext))
+-&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_createdBy"><span class="hs-identifier hs-var hs-var">experiment_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe UserContext)
+-&gt; (Experiment -&gt; Maybe UserContext -&gt; Experiment)
+-&gt; Lens
+     Experiment Experiment (Maybe UserContext) (Maybe UserContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357330"><span class="annot"><span class="annottext">Maybe UserContext
+createdBy :: Maybe UserContext
+$sel:createdBy:Experiment' :: Experiment -&gt; Maybe UserContext
+</span><a href="#local-6989586621680357330"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680357330"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357329"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357328"><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680357328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:Experiment' :: Maybe UserContext
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AcreatedBy%3AExperiment%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680357328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | When the experiment was last modified.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_lastModifiedTime"><span class="hs-identifier hs-type">experiment_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="experiment_lastModifiedTime"><span class="annot"><span class="annottext">experiment_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_lastModifiedTime"><span class="hs-identifier hs-var hs-var">experiment_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe POSIX)
+-&gt; (Experiment -&gt; Maybe POSIX -&gt; Experiment)
+-&gt; Lens Experiment Experiment (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357326"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:Experiment' :: Experiment -&gt; Maybe POSIX
+</span><a href="#local-6989586621680357326"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680357326"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357325"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357324"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680357324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Experiment' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AlastModifiedTime%3AExperiment%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680357324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Experiment -&gt; f Experiment)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Experiment
+-&gt; f Experiment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The name of the experiment.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_experimentName"><span class="hs-identifier hs-type">experiment_experimentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="experiment_experimentName"><span class="annot"><span class="annottext">experiment_experimentName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_experimentName"><span class="hs-identifier hs-var hs-var">experiment_experimentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe Text)
+-&gt; (Experiment -&gt; Maybe Text -&gt; Experiment)
+-&gt; Lens Experiment Experiment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357322"><span class="annot"><span class="annottext">Maybe Text
+experimentName :: Maybe Text
+$sel:experimentName:Experiment' :: Experiment -&gt; Maybe Text
+</span><a href="#local-6989586621680357322"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357322"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357321"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentName:Experiment' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AexperimentName%3AExperiment%27"><span class="hs-identifier hs-var">experimentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the experiment.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_experimentArn"><span class="hs-identifier hs-type">experiment_experimentArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="experiment_experimentArn"><span class="annot"><span class="annottext">experiment_experimentArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_experimentArn"><span class="hs-identifier hs-var hs-var">experiment_experimentArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe Text)
+-&gt; (Experiment -&gt; Maybe Text -&gt; Experiment)
+-&gt; Lens Experiment Experiment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357318"><span class="annot"><span class="annottext">Maybe Text
+experimentArn :: Maybe Text
+$sel:experimentArn:Experiment' :: Experiment -&gt; Maybe Text
+</span><a href="#local-6989586621680357318"><span class="hs-identifier hs-var hs-var">experimentArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357318"><span class="hs-identifier hs-var">experimentArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357317"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentArn:Experiment' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AexperimentArn%3AExperiment%27"><span class="hs-identifier hs-var">experimentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_source"><span class="hs-identifier hs-type">experiment_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="experiment_source"><span class="annot"><span class="annottext">experiment_source :: (Maybe ExperimentSource -&gt; f (Maybe ExperimentSource))
+-&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_source"><span class="hs-identifier hs-var hs-var">experiment_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe ExperimentSource)
+-&gt; (Experiment -&gt; Maybe ExperimentSource -&gt; Experiment)
+-&gt; Lens
+     Experiment
+     Experiment
+     (Maybe ExperimentSource)
+     (Maybe ExperimentSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357314"><span class="annot"><span class="annottext">Maybe ExperimentSource
+source :: Maybe ExperimentSource
+$sel:source:Experiment' :: Experiment -&gt; Maybe ExperimentSource
+</span><a href="#local-6989586621680357314"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentSource
+</span><a href="#local-6989586621680357314"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357313"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357312"><span class="annot"><span class="annottext">Maybe ExperimentSource
+</span><a href="#local-6989586621680357312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Experiment' :: Maybe ExperimentSource
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3Asource%3AExperiment%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExperimentSource
+</span><a href="#local-6989586621680357312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of the experiment as displayed. If @DisplayName@ isn\'t</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- specified, @ExperimentName@ is displayed.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_displayName"><span class="hs-identifier hs-type">experiment_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="experiment_displayName"><span class="annot"><span class="annottext">experiment_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_displayName"><span class="hs-identifier hs-var hs-var">experiment_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe Text)
+-&gt; (Experiment -&gt; Maybe Text -&gt; Experiment)
+-&gt; Lens Experiment Experiment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357310"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:Experiment' :: Experiment -&gt; Maybe Text
+</span><a href="#local-6989586621680357310"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357310"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357309"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357308"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Experiment' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AdisplayName%3AExperiment%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_lastModifiedBy"><span class="hs-identifier hs-type">experiment_lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="experiment_lastModifiedBy"><span class="annot"><span class="annottext">experiment_lastModifiedBy :: (Maybe UserContext -&gt; f (Maybe UserContext))
+-&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_lastModifiedBy"><span class="hs-identifier hs-var hs-var">experiment_lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe UserContext)
+-&gt; (Experiment -&gt; Maybe UserContext -&gt; Experiment)
+-&gt; Lens
+     Experiment Experiment (Maybe UserContext) (Maybe UserContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357306"><span class="annot"><span class="annottext">Maybe UserContext
+lastModifiedBy :: Maybe UserContext
+$sel:lastModifiedBy:Experiment' :: Experiment -&gt; Maybe UserContext
+</span><a href="#local-6989586621680357306"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680357306"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357305"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357304"><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680357304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBy:Experiment' :: Maybe UserContext
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3AlastModifiedBy%3AExperiment%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680357304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The description of the experiment.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_description"><span class="hs-identifier hs-type">experiment_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="experiment_description"><span class="annot"><span class="annottext">experiment_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_description"><span class="hs-identifier hs-var hs-var">experiment_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe Text)
+-&gt; (Experiment -&gt; Maybe Text -&gt; Experiment)
+-&gt; Lens Experiment Experiment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357302"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Experiment' :: Experiment -&gt; Maybe Text
+</span><a href="#local-6989586621680357302"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357302"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357301"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357300"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Experiment' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3Adescription%3AExperiment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680357300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The list of tags that are associated with the experiment. You can use</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Search API to search on the tags.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_tags"><span class="hs-identifier hs-type">experiment_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="experiment_tags"><span class="annot"><span class="annottext">experiment_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Experiment -&gt; f Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#experiment_tags"><span class="hs-identifier hs-var hs-var">experiment_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Experiment -&gt; Maybe [Tag])
+-&gt; (Experiment -&gt; Maybe [Tag] -&gt; Experiment)
+-&gt; Lens Experiment Experiment (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357298"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:Experiment' :: Experiment -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680357298"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680357298"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357297"><span class="annot"><span class="annottext">s :: Experiment
+</span><a href="#local-6989586621680357297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-type">Experiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357296"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680357296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Experiment
+</span><a href="#local-6989586621680357297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Experiment' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#%24sel%3Atags%3AExperiment%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680357296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Experiment -&gt; f Experiment)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; Experiment
+-&gt; f Experiment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357292"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621680357290"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Experiment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Experiment) -&gt; Value -&gt; Parser Experiment
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Experiment&quot;</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680357287"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe UserContext
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ExperimentSource
+-&gt; Maybe Text
+-&gt; Maybe UserContext
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Experiment
+</span><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment%27"><span class="hs-identifier hs-var">Experiment'</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe UserContext
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ExperimentSource
+ -&gt; Maybe Text
+ -&gt; Maybe UserContext
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
+ -&gt; Experiment)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe UserContext
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ExperimentSource
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Experiment)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UserContext
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ExperimentSource
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Experiment)
+-&gt; Parser (Maybe UserContext)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ExperimentSource
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Experiment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UserContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ExperimentSource
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Experiment)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ExperimentSource
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Experiment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ExperimentSource
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Experiment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ExperimentSource
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Experiment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExperimentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ExperimentSource
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Experiment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ExperimentSource
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Experiment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExperimentArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ExperimentSource
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Experiment)
+-&gt; Parser (Maybe ExperimentSource)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe UserContext -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Experiment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExperimentSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe UserContext -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Experiment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe UserContext -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Experiment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UserContext -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Experiment)
+-&gt; Parser (Maybe UserContext)
+-&gt; Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Experiment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UserContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Experiment)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Tag] -&gt; Experiment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; Experiment)
+-&gt; Parser (Maybe [Tag]) -&gt; Parser Experiment
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680357287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357280"><span id="local-6989586621680357282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span></span><span>
+</span><span id="line-164"></span></pre></body></html>

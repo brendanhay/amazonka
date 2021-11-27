@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.SendUsersMessageResponse</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.SendUsersMessageResponse</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EndpointMessageResult.html"><span class="hs-identifier">Amazonka.Pinpoint.Types.EndpointMessageResult</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides information about which users and endpoints a message was sent</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSendUsersMessageResponse' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679609630"><span id="local-6989586621679609631"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendUsersMessageResponse"><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-var">SendUsersMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendUsersMessageResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse%27"><span class="hs-identifier hs-var">SendUsersMessageResponse'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier that was assigned to the message request.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ArequestId%3ASendUsersMessageResponse%27"><span class="annot"><span class="annottext">SendUsersMessageResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#%24sel%3ArequestId%3ASendUsersMessageResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | An object that indicates which endpoints the message was sent to, for</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- each user. The object lists user IDs and, for each user ID, provides the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- endpoint IDs that the message was sent to. For each endpoint ID, it</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- provides an EndpointMessageResult object.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aresult%3ASendUsersMessageResponse%27"><span class="annot"><span class="annottext">SendUsersMessageResponse
+-&gt; Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#%24sel%3Aresult%3ASendUsersMessageResponse%27"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EndpointMessageResult.html#EndpointMessageResult"><span class="hs-identifier hs-type">EndpointMessageResult</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application that was used to send the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AapplicationId%3ASendUsersMessageResponse%27"><span class="annot"><span class="annottext">SendUsersMessageResponse -&gt; Text
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#%24sel%3AapplicationId%3ASendUsersMessageResponse%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609622"><span id="local-6989586621679609624"><span class="annot"><span class="annottext">SendUsersMessageResponse -&gt; SendUsersMessageResponse -&gt; Bool
+(SendUsersMessageResponse -&gt; SendUsersMessageResponse -&gt; Bool)
+-&gt; (SendUsersMessageResponse -&gt; SendUsersMessageResponse -&gt; Bool)
+-&gt; Eq SendUsersMessageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendUsersMessageResponse -&gt; SendUsersMessageResponse -&gt; Bool
+$c/= :: SendUsersMessageResponse -&gt; SendUsersMessageResponse -&gt; Bool
+== :: SendUsersMessageResponse -&gt; SendUsersMessageResponse -&gt; Bool
+$c== :: SendUsersMessageResponse -&gt; SendUsersMessageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609613"><span id="local-6989586621679609615"><span id="local-6989586621679609617"><span id="local-6989586621679609619"><span class="annot"><span class="annottext">ReadPrec [SendUsersMessageResponse]
+ReadPrec SendUsersMessageResponse
+Int -&gt; ReadS SendUsersMessageResponse
+ReadS [SendUsersMessageResponse]
+(Int -&gt; ReadS SendUsersMessageResponse)
+-&gt; ReadS [SendUsersMessageResponse]
+-&gt; ReadPrec SendUsersMessageResponse
+-&gt; ReadPrec [SendUsersMessageResponse]
+-&gt; Read SendUsersMessageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendUsersMessageResponse]
+$creadListPrec :: ReadPrec [SendUsersMessageResponse]
+readPrec :: ReadPrec SendUsersMessageResponse
+$creadPrec :: ReadPrec SendUsersMessageResponse
+readList :: ReadS [SendUsersMessageResponse]
+$creadList :: ReadS [SendUsersMessageResponse]
+readsPrec :: Int -&gt; ReadS SendUsersMessageResponse
+$creadsPrec :: Int -&gt; ReadS SendUsersMessageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609606"><span id="local-6989586621679609608"><span id="local-6989586621679609610"><span class="annot"><span class="annottext">Int -&gt; SendUsersMessageResponse -&gt; ShowS
+[SendUsersMessageResponse] -&gt; ShowS
+SendUsersMessageResponse -&gt; String
+(Int -&gt; SendUsersMessageResponse -&gt; ShowS)
+-&gt; (SendUsersMessageResponse -&gt; String)
+-&gt; ([SendUsersMessageResponse] -&gt; ShowS)
+-&gt; Show SendUsersMessageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendUsersMessageResponse] -&gt; ShowS
+$cshowList :: [SendUsersMessageResponse] -&gt; ShowS
+show :: SendUsersMessageResponse -&gt; String
+$cshow :: SendUsersMessageResponse -&gt; String
+showsPrec :: Int -&gt; SendUsersMessageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendUsersMessageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SendUsersMessageResponse -&gt; Rep SendUsersMessageResponse x)
+-&gt; (forall x.
+    Rep SendUsersMessageResponse x -&gt; SendUsersMessageResponse)
+-&gt; Generic SendUsersMessageResponse
+forall x.
+Rep SendUsersMessageResponse x -&gt; SendUsersMessageResponse
+forall x.
+SendUsersMessageResponse -&gt; Rep SendUsersMessageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SendUsersMessageResponse x -&gt; SendUsersMessageResponse
+$cfrom :: forall x.
+SendUsersMessageResponse -&gt; Rep SendUsersMessageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'SendUsersMessageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'requestId', 'sendUsersMessageResponse_requestId' - The unique identifier that was assigned to the message request.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'result', 'sendUsersMessageResponse_result' - An object that indicates which endpoints the message was sent to, for</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- each user. The object lists user IDs and, for each user ID, provides the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- endpoint IDs that the message was sent to. For each endpoint ID, it</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- provides an EndpointMessageResult object.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'applicationId', 'sendUsersMessageResponse_applicationId' - The unique identifier for the application that was used to send the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#newSendUsersMessageResponse"><span class="hs-identifier hs-type">newSendUsersMessageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span><span>
+</span><span id="line-66"></span><span id="newSendUsersMessageResponse"><span class="annot"><span class="annottext">newSendUsersMessageResponse :: Text -&gt; SendUsersMessageResponse
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#newSendUsersMessageResponse"><span class="hs-identifier hs-var hs-var">newSendUsersMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679609600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679609600"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">SendUsersMessageResponse' :: Maybe Text
+-&gt; Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+-&gt; Text
+-&gt; SendUsersMessageResponse
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse%27"><span class="hs-identifier hs-type">SendUsersMessageResponse'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:SendUsersMessageResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#%24sel%3ArequestId%3ASendUsersMessageResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:result:SendUsersMessageResponse' :: Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#%24sel%3Aresult%3ASendUsersMessageResponse%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:SendUsersMessageResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#%24sel%3AapplicationId%3ASendUsersMessageResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679609600"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The unique identifier that was assigned to the message request.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#sendUsersMessageResponse_requestId"><span class="hs-identifier hs-type">sendUsersMessageResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="sendUsersMessageResponse_requestId"><span class="annot"><span class="annottext">sendUsersMessageResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SendUsersMessageResponse -&gt; f SendUsersMessageResponse
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#sendUsersMessageResponse_requestId"><span class="hs-identifier hs-var hs-var">sendUsersMessageResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendUsersMessageResponse -&gt; Maybe Text)
+-&gt; (SendUsersMessageResponse
+    -&gt; Maybe Text -&gt; SendUsersMessageResponse)
+-&gt; Lens
+     SendUsersMessageResponse
+     SendUsersMessageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse%27"><span class="hs-identifier hs-type">SendUsersMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609596"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:SendUsersMessageResponse' :: SendUsersMessageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679609596"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609596"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609595"><span class="annot"><span class="annottext">s :: SendUsersMessageResponse
+</span><a href="#local-6989586621679609595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse%27"><span class="hs-identifier hs-type">SendUsersMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendUsersMessageResponse
+</span><a href="#local-6989586621679609595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:SendUsersMessageResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#%24sel%3ArequestId%3ASendUsersMessageResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | An object that indicates which endpoints the message was sent to, for</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- each user. The object lists user IDs and, for each user ID, provides the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- endpoint IDs that the message was sent to. For each endpoint ID, it</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- provides an EndpointMessageResult object.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#sendUsersMessageResponse_result"><span class="hs-identifier hs-type">sendUsersMessageResponse_result</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EndpointMessageResult.html#EndpointMessageResult"><span class="hs-identifier hs-type">EndpointMessageResult</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="sendUsersMessageResponse_result"><span class="annot"><span class="annottext">sendUsersMessageResponse_result :: (Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+ -&gt; f (Maybe (HashMap Text (HashMap Text EndpointMessageResult))))
+-&gt; SendUsersMessageResponse -&gt; f SendUsersMessageResponse
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#sendUsersMessageResponse_result"><span class="hs-identifier hs-var hs-var">sendUsersMessageResponse_result</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendUsersMessageResponse
+ -&gt; Maybe (HashMap Text (HashMap Text EndpointMessageResult)))
+-&gt; (SendUsersMessageResponse
+    -&gt; Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+    -&gt; SendUsersMessageResponse)
+-&gt; Lens
+     SendUsersMessageResponse
+     SendUsersMessageResponse
+     (Maybe (HashMap Text (HashMap Text EndpointMessageResult)))
+     (Maybe (HashMap Text (HashMap Text EndpointMessageResult)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse%27"><span class="hs-identifier hs-type">SendUsersMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609592"><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+result :: Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+$sel:result:SendUsersMessageResponse' :: SendUsersMessageResponse
+-&gt; Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+</span><a href="#local-6989586621679609592"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+</span><a href="#local-6989586621679609592"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609591"><span class="annot"><span class="annottext">s :: SendUsersMessageResponse
+</span><a href="#local-6989586621679609591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse%27"><span class="hs-identifier hs-type">SendUsersMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609590"><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+</span><a href="#local-6989586621679609590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendUsersMessageResponse
+</span><a href="#local-6989586621679609591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:SendUsersMessageResponse' :: Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#%24sel%3Aresult%3ASendUsersMessageResponse%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+</span><a href="#local-6989586621679609590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+  -&gt; f (Maybe (HashMap Text (HashMap Text EndpointMessageResult))))
+ -&gt; SendUsersMessageResponse -&gt; f SendUsersMessageResponse)
+-&gt; ((Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+     -&gt; f (Maybe (HashMap Text (HashMap Text EndpointMessageResult))))
+    -&gt; Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+    -&gt; f (Maybe (HashMap Text (HashMap Text EndpointMessageResult))))
+-&gt; (Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+    -&gt; f (Maybe (HashMap Text (HashMap Text EndpointMessageResult))))
+-&gt; SendUsersMessageResponse
+-&gt; f SendUsersMessageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text (HashMap Text EndpointMessageResult))
+  (HashMap Text (HashMap Text EndpointMessageResult))
+  (HashMap Text (HashMap Text EndpointMessageResult))
+  (HashMap Text (HashMap Text EndpointMessageResult))
+-&gt; Iso
+     (Maybe (HashMap Text (HashMap Text EndpointMessageResult)))
+     (Maybe (HashMap Text (HashMap Text EndpointMessageResult)))
+     (Maybe (HashMap Text (HashMap Text EndpointMessageResult)))
+     (Maybe (HashMap Text (HashMap Text EndpointMessageResult)))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text (HashMap Text EndpointMessageResult))
+  (HashMap Text (HashMap Text EndpointMessageResult))
+  (HashMap Text (HashMap Text EndpointMessageResult))
+  (HashMap Text (HashMap Text EndpointMessageResult))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The unique identifier for the application that was used to send the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#sendUsersMessageResponse_applicationId"><span class="hs-identifier hs-type">sendUsersMessageResponse_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="sendUsersMessageResponse_applicationId"><span class="annot"><span class="annottext">sendUsersMessageResponse_applicationId :: (Text -&gt; f Text)
+-&gt; SendUsersMessageResponse -&gt; f SendUsersMessageResponse
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#sendUsersMessageResponse_applicationId"><span class="hs-identifier hs-var hs-var">sendUsersMessageResponse_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendUsersMessageResponse -&gt; Text)
+-&gt; (SendUsersMessageResponse -&gt; Text -&gt; SendUsersMessageResponse)
+-&gt; Lens SendUsersMessageResponse SendUsersMessageResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse%27"><span class="hs-identifier hs-type">SendUsersMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609585"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:SendUsersMessageResponse' :: SendUsersMessageResponse -&gt; Text
+</span><a href="#local-6989586621679609585"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679609585"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609584"><span class="annot"><span class="annottext">s :: SendUsersMessageResponse
+</span><a href="#local-6989586621679609584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse%27"><span class="hs-identifier hs-type">SendUsersMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679609583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendUsersMessageResponse
+</span><a href="#local-6989586621679609584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:SendUsersMessageResponse' :: Text
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#%24sel%3AapplicationId%3ASendUsersMessageResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679609583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609580"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679609578"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SendUsersMessageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SendUsersMessageResponse)
+-&gt; Value
+-&gt; Parser SendUsersMessageResponse
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SendUsersMessageResponse&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679609575"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679609575"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+-&gt; Text
+-&gt; SendUsersMessageResponse
+</span><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse%27"><span class="hs-identifier hs-var">SendUsersMessageResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+ -&gt; Text
+ -&gt; SendUsersMessageResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+      -&gt; Text -&gt; SendUsersMessageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679609575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+   -&gt; Text -&gt; SendUsersMessageResponse)
+-&gt; Parser
+     (Maybe (HashMap Text (HashMap Text EndpointMessageResult)))
+-&gt; Parser (Text -&gt; SendUsersMessageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679609575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe (Maybe (HashMap Text (HashMap Text EndpointMessageResult))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Result&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Maybe (HashMap Text (HashMap Text EndpointMessageResult))))
+-&gt; Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+-&gt; Parser
+     (Maybe (HashMap Text (HashMap Text EndpointMessageResult)))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text EndpointMessageResult))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; SendUsersMessageResponse)
+-&gt; Parser Text -&gt; Parser SendUsersMessageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679609575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609567"><span id="local-6989586621679609569"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609564"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.SendUsersMessageResponse.html#SendUsersMessageResponse"><span class="hs-identifier hs-type">SendUsersMessageResponse</span></a></span></span><span>
+</span><span id="line-104"></span></pre></body></html>

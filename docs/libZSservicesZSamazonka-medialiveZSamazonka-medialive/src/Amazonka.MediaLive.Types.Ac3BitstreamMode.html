@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.Ac3BitstreamMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.Ac3BitstreamMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier">Ac3BitstreamMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_COMMENTARY"><span class="hs-identifier">Ac3BitstreamMode_COMMENTARY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_COMPLETE_MAIN"><span class="hs-identifier">Ac3BitstreamMode_COMPLETE_MAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_DIALOGUE"><span class="hs-identifier">Ac3BitstreamMode_DIALOGUE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_EMERGENCY"><span class="hs-identifier">Ac3BitstreamMode_EMERGENCY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_HEARING_IMPAIRED"><span class="hs-identifier">Ac3BitstreamMode_HEARING_IMPAIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_MUSIC_AND_EFFECTS"><span class="hs-identifier">Ac3BitstreamMode_MUSIC_AND_EFFECTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_VISUALLY_IMPAIRED"><span class="hs-identifier">Ac3BitstreamMode_VISUALLY_IMPAIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_VOICE_OVER"><span class="hs-identifier">Ac3BitstreamMode_VOICE_OVER</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- | Ac3 Bitstream Mode</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679863003"><span id="local-6989586621679863004"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ac3BitstreamMode"><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-var">Ac3BitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3BitstreamMode%27"><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-var">Ac3BitstreamMode'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAc3BitstreamMode"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#fromAc3BitstreamMode"><span class="hs-identifier hs-var hs-var">fromAc3BitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862995"><span id="local-6989586621679862997"><span id="local-6989586621679862999"><span class="annot"><span class="annottext">Int -&gt; Ac3BitstreamMode -&gt; ShowS
+[Ac3BitstreamMode] -&gt; ShowS
+Ac3BitstreamMode -&gt; String
+(Int -&gt; Ac3BitstreamMode -&gt; ShowS)
+-&gt; (Ac3BitstreamMode -&gt; String)
+-&gt; ([Ac3BitstreamMode] -&gt; ShowS)
+-&gt; Show Ac3BitstreamMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Ac3BitstreamMode] -&gt; ShowS
+$cshowList :: [Ac3BitstreamMode] -&gt; ShowS
+show :: Ac3BitstreamMode -&gt; String
+$cshow :: Ac3BitstreamMode -&gt; String
+showsPrec :: Int -&gt; Ac3BitstreamMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; Ac3BitstreamMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679862986"><span id="local-6989586621679862988"><span id="local-6989586621679862990"><span id="local-6989586621679862992"><span class="annot"><span class="annottext">ReadPrec [Ac3BitstreamMode]
+ReadPrec Ac3BitstreamMode
+Int -&gt; ReadS Ac3BitstreamMode
+ReadS [Ac3BitstreamMode]
+(Int -&gt; ReadS Ac3BitstreamMode)
+-&gt; ReadS [Ac3BitstreamMode]
+-&gt; ReadPrec Ac3BitstreamMode
+-&gt; ReadPrec [Ac3BitstreamMode]
+-&gt; Read Ac3BitstreamMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Ac3BitstreamMode]
+$creadListPrec :: ReadPrec [Ac3BitstreamMode]
+readPrec :: ReadPrec Ac3BitstreamMode
+$creadPrec :: ReadPrec Ac3BitstreamMode
+readList :: ReadS [Ac3BitstreamMode]
+$creadList :: ReadS [Ac3BitstreamMode]
+readsPrec :: Int -&gt; ReadS Ac3BitstreamMode
+$creadsPrec :: Int -&gt; ReadS Ac3BitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679862981"><span id="local-6989586621679862983"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+(Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool)
+-&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool)
+-&gt; Eq Ac3BitstreamMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+$c/= :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+== :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+$c== :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679862965"><span id="local-6989586621679862967"><span id="local-6989586621679862969"><span id="local-6989586621679862971"><span id="local-6989586621679862973"><span id="local-6989586621679862975"><span id="local-6989586621679862977"><span class="annot"><span class="annottext">Eq Ac3BitstreamMode
+Eq Ac3BitstreamMode
+-&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ordering)
+-&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool)
+-&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool)
+-&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool)
+-&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool)
+-&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ac3BitstreamMode)
+-&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ac3BitstreamMode)
+-&gt; Ord Ac3BitstreamMode
+Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ordering
+Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ac3BitstreamMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ac3BitstreamMode
+$cmin :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ac3BitstreamMode
+max :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ac3BitstreamMode
+$cmax :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ac3BitstreamMode
+&gt;= :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+$c&gt;= :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+&gt; :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+$c&gt; :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+&lt;= :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+$c&lt;= :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+&lt; :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+$c&lt; :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+compare :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ordering
+$ccompare :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ordering
+$cp1Ord :: Eq Ac3BitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Ac3BitstreamMode -&gt; Rep Ac3BitstreamMode x)
+-&gt; (forall x. Rep Ac3BitstreamMode x -&gt; Ac3BitstreamMode)
+-&gt; Generic Ac3BitstreamMode
+forall x. Rep Ac3BitstreamMode x -&gt; Ac3BitstreamMode
+forall x. Ac3BitstreamMode -&gt; Rep Ac3BitstreamMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Ac3BitstreamMode x -&gt; Ac3BitstreamMode
+$cfrom :: forall x. Ac3BitstreamMode -&gt; Rep Ac3BitstreamMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862957"><span id="local-6989586621679862959"><span class="annot"><span class="annottext">Int -&gt; Ac3BitstreamMode -&gt; Int
+Ac3BitstreamMode -&gt; Int
+(Int -&gt; Ac3BitstreamMode -&gt; Int)
+-&gt; (Ac3BitstreamMode -&gt; Int) -&gt; Hashable Ac3BitstreamMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Ac3BitstreamMode -&gt; Int
+$chash :: Ac3BitstreamMode -&gt; Int
+hashWithSalt :: Int -&gt; Ac3BitstreamMode -&gt; Int
+$chashWithSalt :: Int -&gt; Ac3BitstreamMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679862954"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; ()
+(Ac3BitstreamMode -&gt; ()) -&gt; NFData Ac3BitstreamMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Ac3BitstreamMode -&gt; ()
+$crnf :: Ac3BitstreamMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679862951"><span class="annot"><span class="annottext">Text -&gt; Either String Ac3BitstreamMode
+(Text -&gt; Either String Ac3BitstreamMode)
+-&gt; FromText Ac3BitstreamMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Ac3BitstreamMode
+$cfromText :: Text -&gt; Either String Ac3BitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679862948"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; Text
+(Ac3BitstreamMode -&gt; Text) -&gt; ToText Ac3BitstreamMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Ac3BitstreamMode -&gt; Text
+$ctoText :: Ac3BitstreamMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679862945"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; ByteString
+(Ac3BitstreamMode -&gt; ByteString) -&gt; ToByteString Ac3BitstreamMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Ac3BitstreamMode -&gt; ByteString
+$ctoBS :: Ac3BitstreamMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679862942"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; ByteStringBuilder
+(Ac3BitstreamMode -&gt; ByteStringBuilder) -&gt; ToLog Ac3BitstreamMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Ac3BitstreamMode -&gt; ByteStringBuilder
+$cbuild :: Ac3BitstreamMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679862939"><span class="annot"><span class="annottext">HeaderName -&gt; Ac3BitstreamMode -&gt; [Header]
+(HeaderName -&gt; Ac3BitstreamMode -&gt; [Header])
+-&gt; ToHeader Ac3BitstreamMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Ac3BitstreamMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Ac3BitstreamMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679862936"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; QueryString
+(Ac3BitstreamMode -&gt; QueryString) -&gt; ToQuery Ac3BitstreamMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Ac3BitstreamMode -&gt; QueryString
+$ctoQuery :: Ac3BitstreamMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679862931"><span id="local-6989586621679862933"><span class="annot"><span class="annottext">Value -&gt; Parser [Ac3BitstreamMode]
+Value -&gt; Parser Ac3BitstreamMode
+(Value -&gt; Parser Ac3BitstreamMode)
+-&gt; (Value -&gt; Parser [Ac3BitstreamMode])
+-&gt; FromJSON Ac3BitstreamMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Ac3BitstreamMode]
+$cparseJSONList :: Value -&gt; Parser [Ac3BitstreamMode]
+parseJSON :: Value -&gt; Parser Ac3BitstreamMode
+$cparseJSON :: Value -&gt; Parser Ac3BitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679862926"><span id="local-6989586621679862928"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ac3BitstreamMode]
+FromJSONKeyFunction Ac3BitstreamMode
+FromJSONKeyFunction Ac3BitstreamMode
+-&gt; FromJSONKeyFunction [Ac3BitstreamMode]
+-&gt; FromJSONKey Ac3BitstreamMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Ac3BitstreamMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [Ac3BitstreamMode]
+fromJSONKey :: FromJSONKeyFunction Ac3BitstreamMode
+$cfromJSONKey :: FromJSONKeyFunction Ac3BitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679862917"><span id="local-6989586621679862919"><span id="local-6989586621679862921"><span id="local-6989586621679862923"><span class="annot"><span class="annottext">[Ac3BitstreamMode] -&gt; Encoding
+[Ac3BitstreamMode] -&gt; Value
+Ac3BitstreamMode -&gt; Encoding
+Ac3BitstreamMode -&gt; Value
+(Ac3BitstreamMode -&gt; Value)
+-&gt; (Ac3BitstreamMode -&gt; Encoding)
+-&gt; ([Ac3BitstreamMode] -&gt; Value)
+-&gt; ([Ac3BitstreamMode] -&gt; Encoding)
+-&gt; ToJSON Ac3BitstreamMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Ac3BitstreamMode] -&gt; Encoding
+$ctoEncodingList :: [Ac3BitstreamMode] -&gt; Encoding
+toJSONList :: [Ac3BitstreamMode] -&gt; Value
+$ctoJSONList :: [Ac3BitstreamMode] -&gt; Value
+toEncoding :: Ac3BitstreamMode -&gt; Encoding
+$ctoEncoding :: Ac3BitstreamMode -&gt; Encoding
+toJSON :: Ac3BitstreamMode -&gt; Value
+$ctoJSON :: Ac3BitstreamMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679862912"><span id="local-6989586621679862914"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ac3BitstreamMode]
+ToJSONKeyFunction Ac3BitstreamMode
+ToJSONKeyFunction Ac3BitstreamMode
+-&gt; ToJSONKeyFunction [Ac3BitstreamMode]
+-&gt; ToJSONKey Ac3BitstreamMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Ac3BitstreamMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [Ac3BitstreamMode]
+toJSONKey :: ToJSONKeyFunction Ac3BitstreamMode
+$ctoJSONKey :: ToJSONKeyFunction Ac3BitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679862909"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ac3BitstreamMode
+([Node] -&gt; Either String Ac3BitstreamMode)
+-&gt; FromXML Ac3BitstreamMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Ac3BitstreamMode
+$cparseXML :: [Node] -&gt; Either String Ac3BitstreamMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679862906"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; XML
+(Ac3BitstreamMode -&gt; XML) -&gt; ToXML Ac3BitstreamMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Ac3BitstreamMode -&gt; XML
+$ctoXML :: Ac3BitstreamMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_COMMENTARY"><span class="hs-identifier hs-type">Ac3BitstreamMode_COMMENTARY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-type">Ac3BitstreamMode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3BitstreamMode_COMMENTARY"><span id="%24mAc3BitstreamMode_COMMENTARY"><span id="Ac3BitstreamMode_COMMENTARY"><span class="annot"><span class="annottext">$bAc3BitstreamMode_COMMENTARY :: Ac3BitstreamMode
+$mAc3BitstreamMode_COMMENTARY :: forall r. Ac3BitstreamMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#%24bAc3BitstreamMode_COMMENTARY"><span class="hs-identifier hs-var hs-var hs-var">Ac3BitstreamMode_COMMENTARY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-type">Ac3BitstreamMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMMENTARY&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_COMPLETE_MAIN"><span class="hs-identifier hs-type">Ac3BitstreamMode_COMPLETE_MAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-type">Ac3BitstreamMode</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3BitstreamMode_COMPLETE_MAIN"><span id="%24mAc3BitstreamMode_COMPLETE_MAIN"><span id="Ac3BitstreamMode_COMPLETE_MAIN"><span class="annot"><span class="annottext">$bAc3BitstreamMode_COMPLETE_MAIN :: Ac3BitstreamMode
+$mAc3BitstreamMode_COMPLETE_MAIN :: forall r. Ac3BitstreamMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#%24bAc3BitstreamMode_COMPLETE_MAIN"><span class="hs-identifier hs-var hs-var hs-var">Ac3BitstreamMode_COMPLETE_MAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-type">Ac3BitstreamMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETE_MAIN&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_DIALOGUE"><span class="hs-identifier hs-type">Ac3BitstreamMode_DIALOGUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-type">Ac3BitstreamMode</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3BitstreamMode_DIALOGUE"><span id="%24mAc3BitstreamMode_DIALOGUE"><span id="Ac3BitstreamMode_DIALOGUE"><span class="annot"><span class="annottext">$bAc3BitstreamMode_DIALOGUE :: Ac3BitstreamMode
+$mAc3BitstreamMode_DIALOGUE :: forall r. Ac3BitstreamMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#%24bAc3BitstreamMode_DIALOGUE"><span class="hs-identifier hs-var hs-var hs-var">Ac3BitstreamMode_DIALOGUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-type">Ac3BitstreamMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIALOGUE&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_EMERGENCY"><span class="hs-identifier hs-type">Ac3BitstreamMode_EMERGENCY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-type">Ac3BitstreamMode</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3BitstreamMode_EMERGENCY"><span id="%24mAc3BitstreamMode_EMERGENCY"><span id="Ac3BitstreamMode_EMERGENCY"><span class="annot"><span class="annottext">$bAc3BitstreamMode_EMERGENCY :: Ac3BitstreamMode
+$mAc3BitstreamMode_EMERGENCY :: forall r. Ac3BitstreamMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#%24bAc3BitstreamMode_EMERGENCY"><span class="hs-identifier hs-var hs-var hs-var">Ac3BitstreamMode_EMERGENCY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-type">Ac3BitstreamMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMERGENCY&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_HEARING_IMPAIRED"><span class="hs-identifier hs-type">Ac3BitstreamMode_HEARING_IMPAIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-type">Ac3BitstreamMode</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3BitstreamMode_HEARING_IMPAIRED"><span id="%24mAc3BitstreamMode_HEARING_IMPAIRED"><span id="Ac3BitstreamMode_HEARING_IMPAIRED"><span class="annot"><span class="annottext">$bAc3BitstreamMode_HEARING_IMPAIRED :: Ac3BitstreamMode
+$mAc3BitstreamMode_HEARING_IMPAIRED :: forall r. Ac3BitstreamMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#%24bAc3BitstreamMode_HEARING_IMPAIRED"><span class="hs-identifier hs-var hs-var hs-var">Ac3BitstreamMode_HEARING_IMPAIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-type">Ac3BitstreamMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEARING_IMPAIRED&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_MUSIC_AND_EFFECTS"><span class="hs-identifier hs-type">Ac3BitstreamMode_MUSIC_AND_EFFECTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-type">Ac3BitstreamMode</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3BitstreamMode_MUSIC_AND_EFFECTS"><span id="%24mAc3BitstreamMode_MUSIC_AND_EFFECTS"><span id="Ac3BitstreamMode_MUSIC_AND_EFFECTS"><span class="annot"><span class="annottext">$bAc3BitstreamMode_MUSIC_AND_EFFECTS :: Ac3BitstreamMode
+$mAc3BitstreamMode_MUSIC_AND_EFFECTS :: forall r. Ac3BitstreamMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#%24bAc3BitstreamMode_MUSIC_AND_EFFECTS"><span class="hs-identifier hs-var hs-var hs-var">Ac3BitstreamMode_MUSIC_AND_EFFECTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-type">Ac3BitstreamMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MUSIC_AND_EFFECTS&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_VISUALLY_IMPAIRED"><span class="hs-identifier hs-type">Ac3BitstreamMode_VISUALLY_IMPAIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-type">Ac3BitstreamMode</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3BitstreamMode_VISUALLY_IMPAIRED"><span id="%24mAc3BitstreamMode_VISUALLY_IMPAIRED"><span id="Ac3BitstreamMode_VISUALLY_IMPAIRED"><span class="annot"><span class="annottext">$bAc3BitstreamMode_VISUALLY_IMPAIRED :: Ac3BitstreamMode
+$mAc3BitstreamMode_VISUALLY_IMPAIRED :: forall r. Ac3BitstreamMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#%24bAc3BitstreamMode_VISUALLY_IMPAIRED"><span class="hs-identifier hs-var hs-var hs-var">Ac3BitstreamMode_VISUALLY_IMPAIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-type">Ac3BitstreamMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VISUALLY_IMPAIRED&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_VOICE_OVER"><span class="hs-identifier hs-type">Ac3BitstreamMode_VOICE_OVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-type">Ac3BitstreamMode</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3BitstreamMode_VOICE_OVER"><span id="%24mAc3BitstreamMode_VOICE_OVER"><span id="Ac3BitstreamMode_VOICE_OVER"><span class="annot"><span class="annottext">$bAc3BitstreamMode_VOICE_OVER :: Ac3BitstreamMode
+$mAc3BitstreamMode_VOICE_OVER :: forall r. Ac3BitstreamMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#%24bAc3BitstreamMode_VOICE_OVER"><span class="hs-identifier hs-var hs-var hs-var">Ac3BitstreamMode_VOICE_OVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-type">Ac3BitstreamMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VOICE_OVER&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_COMMENTARY"><span class="hs-pragma hs-type">Ac3BitstreamMode_COMMENTARY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_COMPLETE_MAIN"><span class="hs-pragma hs-type">Ac3BitstreamMode_COMPLETE_MAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_DIALOGUE"><span class="hs-pragma hs-type">Ac3BitstreamMode_DIALOGUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_EMERGENCY"><span class="hs-pragma hs-type">Ac3BitstreamMode_EMERGENCY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_HEARING_IMPAIRED"><span class="hs-pragma hs-type">Ac3BitstreamMode_HEARING_IMPAIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_MUSIC_AND_EFFECTS"><span class="hs-pragma hs-type">Ac3BitstreamMode_MUSIC_AND_EFFECTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_VISUALLY_IMPAIRED"><span class="hs-pragma hs-type">Ac3BitstreamMode_VISUALLY_IMPAIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode_VOICE_OVER"><span class="hs-pragma hs-type">Ac3BitstreamMode_VOICE_OVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-pragma hs-type">Ac3BitstreamMode'</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-102"></span></pre></body></html>

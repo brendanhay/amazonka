@@ -1,0 +1,835 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WellArchitected.Types.Answer</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WellArchitected.Types.Answer</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html"><span class="hs-identifier">Amazonka.WellArchitected.Types.AnswerReason</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Choice.html"><span class="hs-identifier">Amazonka.WellArchitected.Types.Choice</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceAnswer.html"><span class="hs-identifier">Amazonka.WellArchitected.Types.ChoiceAnswer</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Risk.html"><span class="hs-identifier">Amazonka.WellArchitected.Types.Risk</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An answer of the question.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAnswer' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679243470"><span id="local-6989586621679243471"></span></span><span class="hs-keyword">data</span><span> </span><span id="Answer"><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-var">Answer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Answer%27"><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-var">Answer'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of selected choices to a question in your workload.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AchoiceAnswers%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe [ChoiceAnswer]
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AchoiceAnswers%3AAnswer%27"><span class="hs-identifier hs-var hs-var">choiceAnswers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceAnswer.html#ChoiceAnswer"><span class="hs-identifier hs-type">ChoiceAnswer</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AhelpfulResourceUrl%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AhelpfulResourceUrl%3AAnswer%27"><span class="hs-identifier hs-var hs-var">helpfulResourceUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AisApplicable%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe Bool
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AisApplicable%3AAnswer%27"><span class="hs-identifier hs-var hs-var">isApplicable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApillarId%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3ApillarId%3AAnswer%27"><span class="hs-identifier hs-var hs-var">pillarId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AimprovementPlanUrl%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AimprovementPlanUrl%3AAnswer%27"><span class="hs-identifier hs-var hs-var">improvementPlanUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AquestionDescription%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AquestionDescription%3AAnswer%27"><span class="hs-identifier hs-var hs-var">questionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Arisk%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe Risk
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Arisk%3AAnswer%27"><span class="hs-identifier hs-var hs-var">risk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Risk.html#Risk"><span class="hs-identifier hs-type">Risk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AquestionTitle%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AquestionTitle%3AAnswer%27"><span class="hs-identifier hs-var hs-var">questionTitle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AselectedChoices%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AselectedChoices%3AAnswer%27"><span class="hs-identifier hs-var hs-var">selectedChoices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The reason why the question is not applicable to your workload.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Areason%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe AnswerReason
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Areason%3AAnswer%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-type">AnswerReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Achoices%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe [Choice]
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Achoices%3AAnswer%27"><span class="hs-identifier hs-var hs-var">choices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Choice.html#Choice"><span class="hs-identifier hs-type">Choice</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AquestionId%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AquestionId%3AAnswer%27"><span class="hs-identifier hs-var hs-var">questionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Anotes%3AAnswer%27"><span class="annot"><span class="annottext">Answer -&gt; Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Anotes%3AAnswer%27"><span class="hs-identifier hs-var hs-var">notes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243452"><span id="local-6989586621679243454"><span class="annot"><span class="annottext">Answer -&gt; Answer -&gt; Bool
+(Answer -&gt; Answer -&gt; Bool)
+-&gt; (Answer -&gt; Answer -&gt; Bool) -&gt; Eq Answer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Answer -&gt; Answer -&gt; Bool
+$c/= :: Answer -&gt; Answer -&gt; Bool
+== :: Answer -&gt; Answer -&gt; Bool
+$c== :: Answer -&gt; Answer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243443"><span id="local-6989586621679243445"><span id="local-6989586621679243447"><span id="local-6989586621679243449"><span class="annot"><span class="annottext">ReadPrec [Answer]
+ReadPrec Answer
+Int -&gt; ReadS Answer
+ReadS [Answer]
+(Int -&gt; ReadS Answer)
+-&gt; ReadS [Answer]
+-&gt; ReadPrec Answer
+-&gt; ReadPrec [Answer]
+-&gt; Read Answer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Answer]
+$creadListPrec :: ReadPrec [Answer]
+readPrec :: ReadPrec Answer
+$creadPrec :: ReadPrec Answer
+readList :: ReadS [Answer]
+$creadList :: ReadS [Answer]
+readsPrec :: Int -&gt; ReadS Answer
+$creadsPrec :: Int -&gt; ReadS Answer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243436"><span id="local-6989586621679243438"><span id="local-6989586621679243440"><span class="annot"><span class="annottext">Int -&gt; Answer -&gt; ShowS
+[Answer] -&gt; ShowS
+Answer -&gt; String
+(Int -&gt; Answer -&gt; ShowS)
+-&gt; (Answer -&gt; String) -&gt; ([Answer] -&gt; ShowS) -&gt; Show Answer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Answer] -&gt; ShowS
+$cshowList :: [Answer] -&gt; ShowS
+show :: Answer -&gt; String
+$cshow :: Answer -&gt; String
+showsPrec :: Int -&gt; Answer -&gt; ShowS
+$cshowsPrec :: Int -&gt; Answer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Answer -&gt; Rep Answer x)
+-&gt; (forall x. Rep Answer x -&gt; Answer) -&gt; Generic Answer
+forall x. Rep Answer x -&gt; Answer
+forall x. Answer -&gt; Rep Answer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Answer x -&gt; Answer
+$cfrom :: forall x. Answer -&gt; Rep Answer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'Answer' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'choiceAnswers', 'answer_choiceAnswers' - A list of selected choices to a question in your workload.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'helpfulResourceUrl', 'answer_helpfulResourceUrl' - Undocumented member.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'isApplicable', 'answer_isApplicable' - Undocumented member.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'pillarId', 'answer_pillarId' - Undocumented member.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'improvementPlanUrl', 'answer_improvementPlanUrl' - Undocumented member.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'questionDescription', 'answer_questionDescription' - Undocumented member.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'risk', 'answer_risk' - Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'questionTitle', 'answer_questionTitle' - Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'selectedChoices', 'answer_selectedChoices' - Undocumented member.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'reason', 'answer_reason' - The reason why the question is not applicable to your workload.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'choices', 'answer_choices' - Undocumented member.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'questionId', 'answer_questionId' - Undocumented member.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'notes', 'answer_notes' - Undocumented member.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#newAnswer"><span class="hs-identifier hs-type">newAnswer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span>
+</span><span id="line-87"></span><span id="newAnswer"><span class="annot"><span class="annottext">newAnswer :: Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#newAnswer"><span class="hs-identifier hs-var hs-var">newAnswer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">Answer' :: Maybe [ChoiceAnswer]
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Risk
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe AnswerReason
+-&gt; Maybe [Choice]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:choiceAnswers:Answer' :: Maybe [ChoiceAnswer]
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AchoiceAnswers%3AAnswer%27"><span class="hs-identifier hs-var">choiceAnswers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChoiceAnswer]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:helpfulResourceUrl:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AhelpfulResourceUrl%3AAnswer%27"><span class="hs-identifier hs-var">helpfulResourceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:isApplicable:Answer' :: Maybe Bool
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AisApplicable%3AAnswer%27"><span class="hs-identifier hs-var">isApplicable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:pillarId:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3ApillarId%3AAnswer%27"><span class="hs-identifier hs-var">pillarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:improvementPlanUrl:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AimprovementPlanUrl%3AAnswer%27"><span class="hs-identifier hs-var">improvementPlanUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:questionDescription:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AquestionDescription%3AAnswer%27"><span class="hs-identifier hs-var">questionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:risk:Answer' :: Maybe Risk
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Arisk%3AAnswer%27"><span class="hs-identifier hs-var">risk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Risk
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:questionTitle:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AquestionTitle%3AAnswer%27"><span class="hs-identifier hs-var">questionTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:selectedChoices:Answer' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AselectedChoices%3AAnswer%27"><span class="hs-identifier hs-var">selectedChoices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:reason:Answer' :: Maybe AnswerReason
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Areason%3AAnswer%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnswerReason
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:choices:Answer' :: Maybe [Choice]
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Achoices%3AAnswer%27"><span class="hs-identifier hs-var">choices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Choice]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:questionId:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AquestionId%3AAnswer%27"><span class="hs-identifier hs-var">questionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:notes:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Anotes%3AAnswer%27"><span class="hs-identifier hs-var">notes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | A list of selected choices to a question in your workload.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_choiceAnswers"><span class="hs-identifier hs-type">answer_choiceAnswers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceAnswer.html#ChoiceAnswer"><span class="hs-identifier hs-type">ChoiceAnswer</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="answer_choiceAnswers"><span class="annot"><span class="annottext">answer_choiceAnswers :: (Maybe [ChoiceAnswer] -&gt; f (Maybe [ChoiceAnswer]))
+-&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_choiceAnswers"><span class="hs-identifier hs-var hs-var">answer_choiceAnswers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe [ChoiceAnswer])
+-&gt; (Answer -&gt; Maybe [ChoiceAnswer] -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe [ChoiceAnswer]) (Maybe [ChoiceAnswer])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243427"><span class="annot"><span class="annottext">Maybe [ChoiceAnswer]
+choiceAnswers :: Maybe [ChoiceAnswer]
+$sel:choiceAnswers:Answer' :: Answer -&gt; Maybe [ChoiceAnswer]
+</span><a href="#local-6989586621679243427"><span class="hs-identifier hs-var hs-var">choiceAnswers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChoiceAnswer]
+</span><a href="#local-6989586621679243427"><span class="hs-identifier hs-var">choiceAnswers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243426"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243425"><span class="annot"><span class="annottext">Maybe [ChoiceAnswer]
+</span><a href="#local-6989586621679243425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:choiceAnswers:Answer' :: Maybe [ChoiceAnswer]
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AchoiceAnswers%3AAnswer%27"><span class="hs-identifier hs-var">choiceAnswers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChoiceAnswer]
+</span><a href="#local-6989586621679243425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChoiceAnswer] -&gt; f (Maybe [ChoiceAnswer]))
+ -&gt; Answer -&gt; f Answer)
+-&gt; ((Maybe [ChoiceAnswer] -&gt; f (Maybe [ChoiceAnswer]))
+    -&gt; Maybe [ChoiceAnswer] -&gt; f (Maybe [ChoiceAnswer]))
+-&gt; (Maybe [ChoiceAnswer] -&gt; f (Maybe [ChoiceAnswer]))
+-&gt; Answer
+-&gt; f Answer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ChoiceAnswer] [ChoiceAnswer] [ChoiceAnswer] [ChoiceAnswer]
+-&gt; Iso
+     (Maybe [ChoiceAnswer])
+     (Maybe [ChoiceAnswer])
+     (Maybe [ChoiceAnswer])
+     (Maybe [ChoiceAnswer])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ChoiceAnswer] [ChoiceAnswer] [ChoiceAnswer] [ChoiceAnswer]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_helpfulResourceUrl"><span class="hs-identifier hs-type">answer_helpfulResourceUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="answer_helpfulResourceUrl"><span class="annot"><span class="annottext">answer_helpfulResourceUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_helpfulResourceUrl"><span class="hs-identifier hs-var hs-var">answer_helpfulResourceUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe Text)
+-&gt; (Answer -&gt; Maybe Text -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243420"><span class="annot"><span class="annottext">Maybe Text
+helpfulResourceUrl :: Maybe Text
+$sel:helpfulResourceUrl:Answer' :: Answer -&gt; Maybe Text
+</span><a href="#local-6989586621679243420"><span class="hs-identifier hs-var hs-var">helpfulResourceUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243420"><span class="hs-identifier hs-var">helpfulResourceUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243419"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243418"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:helpfulResourceUrl:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AhelpfulResourceUrl%3AAnswer%27"><span class="hs-identifier hs-var">helpfulResourceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_isApplicable"><span class="hs-identifier hs-type">answer_isApplicable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="answer_isApplicable"><span class="annot"><span class="annottext">answer_isApplicable :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_isApplicable"><span class="hs-identifier hs-var hs-var">answer_isApplicable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe Bool)
+-&gt; (Answer -&gt; Maybe Bool -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243416"><span class="annot"><span class="annottext">Maybe Bool
+isApplicable :: Maybe Bool
+$sel:isApplicable:Answer' :: Answer -&gt; Maybe Bool
+</span><a href="#local-6989586621679243416"><span class="hs-identifier hs-var hs-var">isApplicable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679243416"><span class="hs-identifier hs-var">isApplicable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243415"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243414"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679243414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isApplicable:Answer' :: Maybe Bool
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AisApplicable%3AAnswer%27"><span class="hs-identifier hs-var">isApplicable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679243414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_pillarId"><span class="hs-identifier hs-type">answer_pillarId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="answer_pillarId"><span class="annot"><span class="annottext">answer_pillarId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_pillarId"><span class="hs-identifier hs-var hs-var">answer_pillarId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe Text)
+-&gt; (Answer -&gt; Maybe Text -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243412"><span class="annot"><span class="annottext">Maybe Text
+pillarId :: Maybe Text
+$sel:pillarId:Answer' :: Answer -&gt; Maybe Text
+</span><a href="#local-6989586621679243412"><span class="hs-identifier hs-var hs-var">pillarId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243412"><span class="hs-identifier hs-var">pillarId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243411"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243410"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pillarId:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3ApillarId%3AAnswer%27"><span class="hs-identifier hs-var">pillarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_improvementPlanUrl"><span class="hs-identifier hs-type">answer_improvementPlanUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="answer_improvementPlanUrl"><span class="annot"><span class="annottext">answer_improvementPlanUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_improvementPlanUrl"><span class="hs-identifier hs-var hs-var">answer_improvementPlanUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe Text)
+-&gt; (Answer -&gt; Maybe Text -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243408"><span class="annot"><span class="annottext">Maybe Text
+improvementPlanUrl :: Maybe Text
+$sel:improvementPlanUrl:Answer' :: Answer -&gt; Maybe Text
+</span><a href="#local-6989586621679243408"><span class="hs-identifier hs-var hs-var">improvementPlanUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243408"><span class="hs-identifier hs-var">improvementPlanUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243407"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243406"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:improvementPlanUrl:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AimprovementPlanUrl%3AAnswer%27"><span class="hs-identifier hs-var">improvementPlanUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_questionDescription"><span class="hs-identifier hs-type">answer_questionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="answer_questionDescription"><span class="annot"><span class="annottext">answer_questionDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_questionDescription"><span class="hs-identifier hs-var hs-var">answer_questionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe Text)
+-&gt; (Answer -&gt; Maybe Text -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243404"><span class="annot"><span class="annottext">Maybe Text
+questionDescription :: Maybe Text
+$sel:questionDescription:Answer' :: Answer -&gt; Maybe Text
+</span><a href="#local-6989586621679243404"><span class="hs-identifier hs-var hs-var">questionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243404"><span class="hs-identifier hs-var">questionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243403"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243402"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:questionDescription:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AquestionDescription%3AAnswer%27"><span class="hs-identifier hs-var">questionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_risk"><span class="hs-identifier hs-type">answer_risk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Risk.html#Risk"><span class="hs-identifier hs-type">Risk</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="answer_risk"><span class="annot"><span class="annottext">answer_risk :: (Maybe Risk -&gt; f (Maybe Risk)) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_risk"><span class="hs-identifier hs-var hs-var">answer_risk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe Risk)
+-&gt; (Answer -&gt; Maybe Risk -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe Risk) (Maybe Risk)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243400"><span class="annot"><span class="annottext">Maybe Risk
+risk :: Maybe Risk
+$sel:risk:Answer' :: Answer -&gt; Maybe Risk
+</span><a href="#local-6989586621679243400"><span class="hs-identifier hs-var hs-var">risk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Risk
+</span><a href="#local-6989586621679243400"><span class="hs-identifier hs-var">risk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243399"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243398"><span class="annot"><span class="annottext">Maybe Risk
+</span><a href="#local-6989586621679243398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:risk:Answer' :: Maybe Risk
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Arisk%3AAnswer%27"><span class="hs-identifier hs-var">risk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Risk
+</span><a href="#local-6989586621679243398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_questionTitle"><span class="hs-identifier hs-type">answer_questionTitle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="answer_questionTitle"><span class="annot"><span class="annottext">answer_questionTitle :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_questionTitle"><span class="hs-identifier hs-var hs-var">answer_questionTitle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe Text)
+-&gt; (Answer -&gt; Maybe Text -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243396"><span class="annot"><span class="annottext">Maybe Text
+questionTitle :: Maybe Text
+$sel:questionTitle:Answer' :: Answer -&gt; Maybe Text
+</span><a href="#local-6989586621679243396"><span class="hs-identifier hs-var hs-var">questionTitle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243396"><span class="hs-identifier hs-var">questionTitle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243395"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:questionTitle:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AquestionTitle%3AAnswer%27"><span class="hs-identifier hs-var">questionTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_selectedChoices"><span class="hs-identifier hs-type">answer_selectedChoices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="answer_selectedChoices"><span class="annot"><span class="annottext">answer_selectedChoices :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_selectedChoices"><span class="hs-identifier hs-var hs-var">answer_selectedChoices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe [Text])
+-&gt; (Answer -&gt; Maybe [Text] -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243392"><span class="annot"><span class="annottext">Maybe [Text]
+selectedChoices :: Maybe [Text]
+$sel:selectedChoices:Answer' :: Answer -&gt; Maybe [Text]
+</span><a href="#local-6989586621679243392"><span class="hs-identifier hs-var hs-var">selectedChoices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679243392"><span class="hs-identifier hs-var">selectedChoices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243391"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243390"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679243390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectedChoices:Answer' :: Maybe [Text]
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AselectedChoices%3AAnswer%27"><span class="hs-identifier hs-var">selectedChoices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679243390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Answer -&gt; f Answer)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Answer
+-&gt; f Answer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The reason why the question is not applicable to your workload.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_reason"><span class="hs-identifier hs-type">answer_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-type">AnswerReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="answer_reason"><span class="annot"><span class="annottext">answer_reason :: (Maybe AnswerReason -&gt; f (Maybe AnswerReason))
+-&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_reason"><span class="hs-identifier hs-var hs-var">answer_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe AnswerReason)
+-&gt; (Answer -&gt; Maybe AnswerReason -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe AnswerReason) (Maybe AnswerReason)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243388"><span class="annot"><span class="annottext">Maybe AnswerReason
+reason :: Maybe AnswerReason
+$sel:reason:Answer' :: Answer -&gt; Maybe AnswerReason
+</span><a href="#local-6989586621679243388"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnswerReason
+</span><a href="#local-6989586621679243388"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243387"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243386"><span class="annot"><span class="annottext">Maybe AnswerReason
+</span><a href="#local-6989586621679243386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:Answer' :: Maybe AnswerReason
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Areason%3AAnswer%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnswerReason
+</span><a href="#local-6989586621679243386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_choices"><span class="hs-identifier hs-type">answer_choices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Choice.html#Choice"><span class="hs-identifier hs-type">Choice</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="answer_choices"><span class="annot"><span class="annottext">answer_choices :: (Maybe [Choice] -&gt; f (Maybe [Choice])) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_choices"><span class="hs-identifier hs-var hs-var">answer_choices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe [Choice])
+-&gt; (Answer -&gt; Maybe [Choice] -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe [Choice]) (Maybe [Choice])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243384"><span class="annot"><span class="annottext">Maybe [Choice]
+choices :: Maybe [Choice]
+$sel:choices:Answer' :: Answer -&gt; Maybe [Choice]
+</span><a href="#local-6989586621679243384"><span class="hs-identifier hs-var hs-var">choices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Choice]
+</span><a href="#local-6989586621679243384"><span class="hs-identifier hs-var">choices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243383"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243382"><span class="annot"><span class="annottext">Maybe [Choice]
+</span><a href="#local-6989586621679243382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:choices:Answer' :: Maybe [Choice]
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Achoices%3AAnswer%27"><span class="hs-identifier hs-var">choices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Choice]
+</span><a href="#local-6989586621679243382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Choice] -&gt; f (Maybe [Choice])) -&gt; Answer -&gt; f Answer)
+-&gt; ((Maybe [Choice] -&gt; f (Maybe [Choice]))
+    -&gt; Maybe [Choice] -&gt; f (Maybe [Choice]))
+-&gt; (Maybe [Choice] -&gt; f (Maybe [Choice]))
+-&gt; Answer
+-&gt; f Answer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Choice] [Choice] [Choice] [Choice]
+-&gt; Iso
+     (Maybe [Choice]) (Maybe [Choice]) (Maybe [Choice]) (Maybe [Choice])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Choice] [Choice] [Choice] [Choice]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_questionId"><span class="hs-identifier hs-type">answer_questionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="answer_questionId"><span class="annot"><span class="annottext">answer_questionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_questionId"><span class="hs-identifier hs-var hs-var">answer_questionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe Text)
+-&gt; (Answer -&gt; Maybe Text -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243380"><span class="annot"><span class="annottext">Maybe Text
+questionId :: Maybe Text
+$sel:questionId:Answer' :: Answer -&gt; Maybe Text
+</span><a href="#local-6989586621679243380"><span class="hs-identifier hs-var hs-var">questionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243380"><span class="hs-identifier hs-var">questionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243379"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243378"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:questionId:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3AquestionId%3AAnswer%27"><span class="hs-identifier hs-var">questionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#answer_notes"><span class="hs-identifier hs-type">answer_notes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="answer_notes"><span class="annot"><span class="annottext">answer_notes :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Answer -&gt; f Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#answer_notes"><span class="hs-identifier hs-var hs-var">answer_notes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Answer -&gt; Maybe Text)
+-&gt; (Answer -&gt; Maybe Text -&gt; Answer)
+-&gt; Lens Answer Answer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243376"><span class="annot"><span class="annottext">Maybe Text
+notes :: Maybe Text
+$sel:notes:Answer' :: Answer -&gt; Maybe Text
+</span><a href="#local-6989586621679243376"><span class="hs-identifier hs-var hs-var">notes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243376"><span class="hs-identifier hs-var">notes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243375"><span class="annot"><span class="annottext">s :: Answer
+</span><a href="#local-6989586621679243375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-type">Answer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243374"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Answer
+</span><a href="#local-6989586621679243375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notes:Answer' :: Maybe Text
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#%24sel%3Anotes%3AAnswer%27"><span class="hs-identifier hs-var">notes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243371"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679243369"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Answer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Answer) -&gt; Value -&gt; Parser Answer
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Answer&quot;</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243366"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ChoiceAnswer]
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Risk
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe AnswerReason
+-&gt; Maybe [Choice]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Answer
+</span><a href="Amazonka.WellArchitected.Types.Answer.html#Answer%27"><span class="hs-identifier hs-var">Answer'</span></a></span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ChoiceAnswer]
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Risk
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe AnswerReason
+ -&gt; Maybe [Choice]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Answer)
+-&gt; Parser (Maybe [ChoiceAnswer])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Risk
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe AnswerReason
+      -&gt; Maybe [Choice]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Answer)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ChoiceAnswer]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChoiceAnswers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ChoiceAnswer]))
+-&gt; Maybe [ChoiceAnswer] -&gt; Parser (Maybe [ChoiceAnswer])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ChoiceAnswer]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Risk
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe AnswerReason
+   -&gt; Maybe [Choice]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Answer)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Risk
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe AnswerReason
+      -&gt; Maybe [Choice]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HelpfulResourceUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Risk
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe AnswerReason
+   -&gt; Maybe [Choice]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Answer)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Risk
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe AnswerReason
+      -&gt; Maybe [Choice]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsApplicable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Risk
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe AnswerReason
+   -&gt; Maybe [Choice]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Answer)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Risk
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe AnswerReason
+      -&gt; Maybe [Choice]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PillarId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Risk
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe AnswerReason
+   -&gt; Maybe [Choice]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Answer)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Risk
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe AnswerReason
+      -&gt; Maybe [Choice]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImprovementPlanUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Risk
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe AnswerReason
+   -&gt; Maybe [Choice]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Answer)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Risk
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe AnswerReason
+      -&gt; Maybe [Choice]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuestionDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Risk
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe AnswerReason
+   -&gt; Maybe [Choice]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Answer)
+-&gt; Parser (Maybe Risk)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe AnswerReason
+      -&gt; Maybe [Choice]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Risk)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Risk&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe AnswerReason
+   -&gt; Maybe [Choice]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Answer)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe AnswerReason
+      -&gt; Maybe [Choice]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuestionTitle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe AnswerReason
+   -&gt; Maybe [Choice]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Answer)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe AnswerReason
+      -&gt; Maybe [Choice] -&gt; Maybe Text -&gt; Maybe Text -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SelectedChoices&quot;</span></span><span>
+</span><span id="line-171"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-172"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AnswerReason
+   -&gt; Maybe [Choice] -&gt; Maybe Text -&gt; Maybe Text -&gt; Answer)
+-&gt; Parser (Maybe AnswerReason)
+-&gt; Parser (Maybe [Choice] -&gt; Maybe Text -&gt; Maybe Text -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AnswerReason)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Reason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Choice] -&gt; Maybe Text -&gt; Maybe Text -&gt; Answer)
+-&gt; Parser (Maybe [Choice])
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Choice]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Choices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Choice]))
+-&gt; Maybe [Choice] -&gt; Parser (Maybe [Choice])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Choice]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Answer)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Answer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuestionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Answer)
+-&gt; Parser (Maybe Text) -&gt; Parser Answer
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Notes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243359"><span id="local-6989586621679243361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.AppConfig.Types.Application
+module Amazonka.AppConfig.Types.Application
 
 -- | <i>See:</i> <a>newApplication</a> smart constructor.
 data Application
@@ -46,16 +46,16 @@ application_id :: Lens' Application (Maybe Text)
 
 -- | The description of the application.
 application_description :: Lens' Application (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.Application.Application
-instance GHC.Show.Show Network.AWS.AppConfig.Types.Application.Application
-instance GHC.Read.Read Network.AWS.AppConfig.Types.Application.Application
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.Application.Application
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.Application.Application
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.Application.Application
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.Application.Application
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.Application.Application
+instance GHC.Show.Show Amazonka.AppConfig.Types.Application.Application
+instance GHC.Read.Read Amazonka.AppConfig.Types.Application.Application
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.Application.Application
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.Application.Application
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.Application.Application
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.Application.Application
 
 
-module Network.AWS.AppConfig.Types.DeploymentEventType
+module Amazonka.AppConfig.Types.DeploymentEventType
 newtype DeploymentEventType
 DeploymentEventType' :: Text -> DeploymentEventType
 [fromDeploymentEventType] :: DeploymentEventType -> Text
@@ -65,28 +65,28 @@ pattern DeploymentEventType_DEPLOYMENT_STARTED :: DeploymentEventType
 pattern DeploymentEventType_PERCENTAGE_UPDATED :: DeploymentEventType
 pattern DeploymentEventType_ROLLBACK_COMPLETED :: DeploymentEventType
 pattern DeploymentEventType_ROLLBACK_STARTED :: DeploymentEventType
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Network.AWS.Data.Text.ToText Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Network.AWS.Data.Text.FromText Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance GHC.Classes.Ord Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance GHC.Read.Read Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
-instance GHC.Show.Show Network.AWS.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Amazonka.Data.XML.ToXML Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Amazonka.Data.XML.FromXML Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Amazonka.Data.Log.ToLog Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Amazonka.Data.Text.ToText Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Amazonka.Data.Text.FromText Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance GHC.Classes.Ord Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance GHC.Read.Read Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
+instance GHC.Show.Show Amazonka.AppConfig.Types.DeploymentEventType.DeploymentEventType
 
 
-module Network.AWS.AppConfig.Types.DeploymentState
+module Amazonka.AppConfig.Types.DeploymentState
 newtype DeploymentState
 DeploymentState' :: Text -> DeploymentState
 [fromDeploymentState] :: DeploymentState -> Text
@@ -96,28 +96,28 @@ pattern DeploymentState_DEPLOYING :: DeploymentState
 pattern DeploymentState_ROLLED_BACK :: DeploymentState
 pattern DeploymentState_ROLLING_BACK :: DeploymentState
 pattern DeploymentState_VALIDATING :: DeploymentState
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Network.AWS.Data.Text.ToText Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Network.AWS.Data.Text.FromText Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance GHC.Classes.Ord Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance GHC.Read.Read Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
-instance GHC.Show.Show Network.AWS.AppConfig.Types.DeploymentState.DeploymentState
+instance Amazonka.Data.XML.ToXML Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Amazonka.Data.XML.FromXML Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Amazonka.Data.Log.ToLog Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Amazonka.Data.Text.ToText Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Amazonka.Data.Text.FromText Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance GHC.Classes.Ord Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance GHC.Read.Read Amazonka.AppConfig.Types.DeploymentState.DeploymentState
+instance GHC.Show.Show Amazonka.AppConfig.Types.DeploymentState.DeploymentState
 
 
-module Network.AWS.AppConfig.Types.EnvironmentState
+module Amazonka.AppConfig.Types.EnvironmentState
 newtype EnvironmentState
 EnvironmentState' :: Text -> EnvironmentState
 [fromEnvironmentState] :: EnvironmentState -> Text
@@ -125,55 +125,55 @@ pattern EnvironmentState_DEPLOYING :: EnvironmentState
 pattern EnvironmentState_READY_FOR_DEPLOYMENT :: EnvironmentState
 pattern EnvironmentState_ROLLED_BACK :: EnvironmentState
 pattern EnvironmentState_ROLLING_BACK :: EnvironmentState
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Network.AWS.Data.Text.ToText Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Network.AWS.Data.Text.FromText Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance GHC.Classes.Ord Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance GHC.Read.Read Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
-instance GHC.Show.Show Network.AWS.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Amazonka.Data.XML.ToXML Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Amazonka.Data.XML.FromXML Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Amazonka.Data.Log.ToLog Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Amazonka.Data.Text.ToText Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Amazonka.Data.Text.FromText Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance GHC.Classes.Ord Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance GHC.Read.Read Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
+instance GHC.Show.Show Amazonka.AppConfig.Types.EnvironmentState.EnvironmentState
 
 
-module Network.AWS.AppConfig.Types.GrowthType
+module Amazonka.AppConfig.Types.GrowthType
 newtype GrowthType
 GrowthType' :: Text -> GrowthType
 [fromGrowthType] :: GrowthType -> Text
 pattern GrowthType_EXPONENTIAL :: GrowthType
 pattern GrowthType_LINEAR :: GrowthType
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Network.AWS.Data.Text.ToText Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Network.AWS.Data.Text.FromText Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance GHC.Classes.Ord Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance GHC.Read.Read Network.AWS.AppConfig.Types.GrowthType.GrowthType
-instance GHC.Show.Show Network.AWS.AppConfig.Types.GrowthType.GrowthType
+instance Amazonka.Data.XML.ToXML Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Amazonka.Data.XML.FromXML Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Amazonka.Data.Log.ToLog Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Amazonka.Data.Text.ToText Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Amazonka.Data.Text.FromText Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance GHC.Classes.Ord Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance GHC.Read.Read Amazonka.AppConfig.Types.GrowthType.GrowthType
+instance GHC.Show.Show Amazonka.AppConfig.Types.GrowthType.GrowthType
 
 
-module Network.AWS.AppConfig.Types.DeploymentSummary
+module Amazonka.AppConfig.Types.DeploymentSummary
 
 -- | Information about the deployment.
 --   
@@ -304,16 +304,16 @@ deploymentSummary_finalBakeTimeInMinutes :: Lens' DeploymentSummary (Maybe Natur
 
 -- | The algorithm used to define how percentage grows over time.
 deploymentSummary_growthType :: Lens' DeploymentSummary (Maybe GrowthType)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.DeploymentSummary.DeploymentSummary
-instance GHC.Show.Show Network.AWS.AppConfig.Types.DeploymentSummary.DeploymentSummary
-instance GHC.Read.Read Network.AWS.AppConfig.Types.DeploymentSummary.DeploymentSummary
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.DeploymentSummary.DeploymentSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.DeploymentSummary.DeploymentSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.DeploymentSummary.DeploymentSummary
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.DeploymentSummary.DeploymentSummary
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.DeploymentSummary.DeploymentSummary
+instance GHC.Show.Show Amazonka.AppConfig.Types.DeploymentSummary.DeploymentSummary
+instance GHC.Read.Read Amazonka.AppConfig.Types.DeploymentSummary.DeploymentSummary
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.DeploymentSummary.DeploymentSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.DeploymentSummary.DeploymentSummary
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.DeploymentSummary.DeploymentSummary
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.DeploymentSummary.DeploymentSummary
 
 
-module Network.AWS.AppConfig.Types.HostedConfigurationVersion
+module Amazonka.AppConfig.Types.HostedConfigurationVersion
 
 -- | <i>See:</i> <a>newHostedConfigurationVersion</a> smart constructor.
 data HostedConfigurationVersion
@@ -390,14 +390,14 @@ hostedConfigurationVersion_configurationProfileId :: Lens' HostedConfigurationVe
 -- | A standard MIME type describing the format of the configuration
 --   content. For more information, see <a>Content-Type</a>.
 hostedConfigurationVersion_contentType :: Lens' HostedConfigurationVersion (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
-instance GHC.Show.Show Network.AWS.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
+instance GHC.Show.Show Amazonka.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.HostedConfigurationVersion.HostedConfigurationVersion
 
 
-module Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary
+module Amazonka.AppConfig.Types.HostedConfigurationVersionSummary
 
 -- | Information about the configuration.
 --   
@@ -468,16 +468,16 @@ hostedConfigurationVersionSummary_configurationProfileId :: Lens' HostedConfigur
 -- | A standard MIME type describing the format of the configuration
 --   content. For more information, see <a>Content-Type</a>.
 hostedConfigurationVersionSummary_contentType :: Lens' HostedConfigurationVersionSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
-instance GHC.Show.Show Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
-instance GHC.Read.Read Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
+instance GHC.Show.Show Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
+instance GHC.Read.Read Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.HostedConfigurationVersionSummary
 
 
-module Network.AWS.AppConfig.Types.Monitor
+module Amazonka.AppConfig.Types.Monitor
 
 -- | Amazon CloudWatch alarms to monitor during the deployment process.
 --   
@@ -511,17 +511,17 @@ monitor_alarmRoleArn :: Lens' Monitor (Maybe Text)
 
 -- | ARN of the Amazon CloudWatch alarm.
 monitor_alarmArn :: Lens' Monitor (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.Monitor.Monitor
-instance GHC.Show.Show Network.AWS.AppConfig.Types.Monitor.Monitor
-instance GHC.Read.Read Network.AWS.AppConfig.Types.Monitor.Monitor
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.Monitor.Monitor
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.Monitor.Monitor
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.Monitor.Monitor
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.Monitor.Monitor
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.Types.Monitor.Monitor
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.Monitor.Monitor
+instance GHC.Show.Show Amazonka.AppConfig.Types.Monitor.Monitor
+instance GHC.Read.Read Amazonka.AppConfig.Types.Monitor.Monitor
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.Monitor.Monitor
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.Monitor.Monitor
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.Monitor.Monitor
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.Monitor.Monitor
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.Types.Monitor.Monitor
 
 
-module Network.AWS.AppConfig.Types.Environment
+module Amazonka.AppConfig.Types.Environment
 
 -- | <i>See:</i> <a>newEnvironment</a> smart constructor.
 data Environment
@@ -595,43 +595,43 @@ environment_id :: Lens' Environment (Maybe Text)
 
 -- | The description of the environment.
 environment_description :: Lens' Environment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.Environment.Environment
-instance GHC.Show.Show Network.AWS.AppConfig.Types.Environment.Environment
-instance GHC.Read.Read Network.AWS.AppConfig.Types.Environment.Environment
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.Environment.Environment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.Environment.Environment
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.Environment.Environment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.Environment.Environment
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.Environment.Environment
+instance GHC.Show.Show Amazonka.AppConfig.Types.Environment.Environment
+instance GHC.Read.Read Amazonka.AppConfig.Types.Environment.Environment
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.Environment.Environment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.Environment.Environment
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.Environment.Environment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.Environment.Environment
 
 
-module Network.AWS.AppConfig.Types.ReplicateTo
+module Amazonka.AppConfig.Types.ReplicateTo
 newtype ReplicateTo
 ReplicateTo' :: Text -> ReplicateTo
 [fromReplicateTo] :: ReplicateTo -> Text
 pattern ReplicateTo_NONE :: ReplicateTo
 pattern ReplicateTo_SSM_DOCUMENT :: ReplicateTo
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Network.AWS.Data.Text.ToText Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Network.AWS.Data.Text.FromText Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance GHC.Classes.Ord Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance GHC.Read.Read Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
-instance GHC.Show.Show Network.AWS.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Amazonka.Data.XML.ToXML Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Amazonka.Data.XML.FromXML Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Amazonka.Data.Log.ToLog Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Amazonka.Data.Text.ToText Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Amazonka.Data.Text.FromText Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance GHC.Classes.Ord Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance GHC.Read.Read Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
+instance GHC.Show.Show Amazonka.AppConfig.Types.ReplicateTo.ReplicateTo
 
 
-module Network.AWS.AppConfig.Types.DeploymentStrategy
+module Amazonka.AppConfig.Types.DeploymentStrategy
 
 -- | <i>See:</i> <a>newDeploymentStrategy</a> smart constructor.
 data DeploymentStrategy
@@ -731,16 +731,16 @@ deploymentStrategy_description :: Lens' DeploymentStrategy (Maybe Text)
 
 -- | The algorithm used to define how percentage grew over time.
 deploymentStrategy_growthType :: Lens' DeploymentStrategy (Maybe GrowthType)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
-instance GHC.Show.Show Network.AWS.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
-instance GHC.Read.Read Network.AWS.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
+instance GHC.Show.Show Amazonka.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
+instance GHC.Read.Read Amazonka.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.DeploymentStrategy.DeploymentStrategy
 
 
-module Network.AWS.AppConfig.Types.TriggeredBy
+module Amazonka.AppConfig.Types.TriggeredBy
 newtype TriggeredBy
 TriggeredBy' :: Text -> TriggeredBy
 [fromTriggeredBy] :: TriggeredBy -> Text
@@ -748,28 +748,28 @@ pattern TriggeredBy_APPCONFIG :: TriggeredBy
 pattern TriggeredBy_CLOUDWATCH_ALARM :: TriggeredBy
 pattern TriggeredBy_INTERNAL_ERROR :: TriggeredBy
 pattern TriggeredBy_USER :: TriggeredBy
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Network.AWS.Data.Text.ToText Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Network.AWS.Data.Text.FromText Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance GHC.Classes.Ord Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance GHC.Read.Read Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
-instance GHC.Show.Show Network.AWS.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Amazonka.Data.XML.ToXML Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Amazonka.Data.XML.FromXML Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Amazonka.Data.Log.ToLog Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Amazonka.Data.Text.ToText Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Amazonka.Data.Text.FromText Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance GHC.Classes.Ord Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance GHC.Read.Read Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
+instance GHC.Show.Show Amazonka.AppConfig.Types.TriggeredBy.TriggeredBy
 
 
-module Network.AWS.AppConfig.Types.DeploymentEvent
+module Amazonka.AppConfig.Types.DeploymentEvent
 
 -- | An object that describes a deployment event.
 --   
@@ -848,16 +848,16 @@ deploymentEvent_eventType :: Lens' DeploymentEvent (Maybe DeploymentEventType)
 --   deployment, or in the case of an internal error, a recommendation to
 --   attempt a new deployment.
 deploymentEvent_description :: Lens' DeploymentEvent (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.DeploymentEvent.DeploymentEvent
-instance GHC.Show.Show Network.AWS.AppConfig.Types.DeploymentEvent.DeploymentEvent
-instance GHC.Read.Read Network.AWS.AppConfig.Types.DeploymentEvent.DeploymentEvent
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.DeploymentEvent.DeploymentEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.DeploymentEvent.DeploymentEvent
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.DeploymentEvent.DeploymentEvent
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.DeploymentEvent.DeploymentEvent
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.DeploymentEvent.DeploymentEvent
+instance GHC.Show.Show Amazonka.AppConfig.Types.DeploymentEvent.DeploymentEvent
+instance GHC.Read.Read Amazonka.AppConfig.Types.DeploymentEvent.DeploymentEvent
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.DeploymentEvent.DeploymentEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.DeploymentEvent.DeploymentEvent
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.DeploymentEvent.DeploymentEvent
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.DeploymentEvent.DeploymentEvent
 
 
-module Network.AWS.AppConfig.Types.Deployment
+module Amazonka.AppConfig.Types.Deployment
 
 -- | <i>See:</i> <a>newDeployment</a> smart constructor.
 data Deployment
@@ -1052,43 +1052,43 @@ deployment_configurationProfileId :: Lens' Deployment (Maybe Text)
 
 -- | The algorithm used to define how percentage grew over time.
 deployment_growthType :: Lens' Deployment (Maybe GrowthType)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.Deployment.Deployment
-instance GHC.Show.Show Network.AWS.AppConfig.Types.Deployment.Deployment
-instance GHC.Read.Read Network.AWS.AppConfig.Types.Deployment.Deployment
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.Deployment.Deployment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.Deployment.Deployment
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.Deployment.Deployment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.Deployment.Deployment
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.Deployment.Deployment
+instance GHC.Show.Show Amazonka.AppConfig.Types.Deployment.Deployment
+instance GHC.Read.Read Amazonka.AppConfig.Types.Deployment.Deployment
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.Deployment.Deployment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.Deployment.Deployment
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.Deployment.Deployment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.Deployment.Deployment
 
 
-module Network.AWS.AppConfig.Types.ValidatorType
+module Amazonka.AppConfig.Types.ValidatorType
 newtype ValidatorType
 ValidatorType' :: Text -> ValidatorType
 [fromValidatorType] :: ValidatorType -> Text
 pattern ValidatorType_JSON_SCHEMA :: ValidatorType
 pattern ValidatorType_LAMBDA :: ValidatorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Network.AWS.Data.Text.ToText Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Network.AWS.Data.Text.FromText Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance GHC.Classes.Ord Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance GHC.Read.Read Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
-instance GHC.Show.Show Network.AWS.AppConfig.Types.ValidatorType.ValidatorType
+instance Amazonka.Data.XML.ToXML Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Amazonka.Data.XML.FromXML Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Amazonka.Data.Log.ToLog Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Amazonka.Data.Text.ToText Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Amazonka.Data.Text.FromText Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance GHC.Classes.Ord Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance GHC.Read.Read Amazonka.AppConfig.Types.ValidatorType.ValidatorType
+instance GHC.Show.Show Amazonka.AppConfig.Types.ValidatorType.ValidatorType
 
 
-module Network.AWS.AppConfig.Types.Validator
+module Amazonka.AppConfig.Types.Validator
 
 -- | A validator provides a syntactic or semantic check to ensure the
 --   configuration you want to deploy functions as intended. To validate
@@ -1132,16 +1132,16 @@ validator_type :: Lens' Validator ValidatorType
 -- | Either the JSON Schema content or the Amazon Resource Name (ARN) of an
 --   AWS Lambda function.
 validator_content :: Lens' Validator Text
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.Validator.Validator
-instance GHC.Show.Show Network.AWS.AppConfig.Types.Validator.Validator
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.Validator.Validator
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.Validator.Validator
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.Validator.Validator
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.Validator.Validator
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.Types.Validator.Validator
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.Validator.Validator
+instance GHC.Show.Show Amazonka.AppConfig.Types.Validator.Validator
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.Validator.Validator
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.Validator.Validator
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.Validator.Validator
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.Validator.Validator
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.Types.Validator.Validator
 
 
-module Network.AWS.AppConfig.Types.ConfigurationProfile
+module Amazonka.AppConfig.Types.ConfigurationProfile
 
 -- | <i>See:</i> <a>newConfigurationProfile</a> smart constructor.
 data ConfigurationProfile
@@ -1227,15 +1227,15 @@ configurationProfile_id :: Lens' ConfigurationProfile (Maybe Text)
 
 -- | The configuration profile description.
 configurationProfile_description :: Lens' ConfigurationProfile (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
-instance GHC.Show.Show Network.AWS.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
+instance GHC.Show.Show Amazonka.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.ConfigurationProfile.ConfigurationProfile
 
 
-module Network.AWS.AppConfig.Types.ConfigurationProfileSummary
+module Amazonka.AppConfig.Types.ConfigurationProfileSummary
 
 -- | A summary of a configuration profile.
 --   
@@ -1301,16 +1301,16 @@ configurationProfileSummary_id :: Lens' ConfigurationProfileSummary (Maybe Text)
 
 -- | The types of validators in the configuration profile.
 configurationProfileSummary_validatorTypes :: Lens' ConfigurationProfileSummary (Maybe [ValidatorType])
-instance GHC.Generics.Generic Network.AWS.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
-instance GHC.Show.Show Network.AWS.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
-instance GHC.Read.Read Network.AWS.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
-instance GHC.Classes.Eq Network.AWS.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
+instance GHC.Generics.Generic Amazonka.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
+instance GHC.Show.Show Amazonka.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
+instance GHC.Read.Read Amazonka.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
+instance GHC.Classes.Eq Amazonka.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
+instance Control.DeepSeq.NFData Amazonka.AppConfig.Types.ConfigurationProfileSummary.ConfigurationProfileSummary
 
 
-module Network.AWS.AppConfig.Types
+module Amazonka.AppConfig.Types
 
 -- | API version <tt>2019-10-09</tt> of the Amazon AppConfig SDK
 --   configuration.
@@ -2376,7 +2376,7 @@ validator_content :: Lens' Validator Text
 --   categorize your AppConfig resources. Each tag consists of a key and an
 --   optional value, both of which you define. You can specify a maximum of
 --   50 tags for a resource.
-module Network.AWS.AppConfig.TagResource
+module Amazonka.AppConfig.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2425,28 +2425,28 @@ TagResourceResponse' :: TagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTagResourceResponse :: TagResourceResponse
-instance GHC.Generics.Generic Network.AWS.AppConfig.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.AppConfig.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.AppConfig.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.AppConfig.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.AppConfig.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.AppConfig.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.AppConfig.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.AppConfig.TagResource.TagResource
+instance GHC.Show.Show Amazonka.AppConfig.TagResource.TagResource
+instance GHC.Read.Read Amazonka.AppConfig.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.AppConfig.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.AppConfig.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.AppConfig.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.AppConfig.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.AppConfig.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.AppConfig.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.TagResource.TagResource
 
 
 -- | Stops a deployment. This API action works only on deployments that
 --   have a status of <tt>DEPLOYING</tt>. This action moves the deployment
 --   to a status of <tt>ROLLED_BACK</tt>.
-module Network.AWS.AppConfig.StopDeployment
+module Amazonka.AppConfig.StopDeployment
 
 -- | <i>See:</i> <a>newStopDeployment</a> smart constructor.
 data StopDeployment
@@ -2683,20 +2683,20 @@ deployment_configurationProfileId :: Lens' Deployment (Maybe Text)
 
 -- | The algorithm used to define how percentage grew over time.
 deployment_growthType :: Lens' Deployment (Maybe GrowthType)
-instance GHC.Generics.Generic Network.AWS.AppConfig.StopDeployment.StopDeployment
-instance GHC.Show.Show Network.AWS.AppConfig.StopDeployment.StopDeployment
-instance GHC.Read.Read Network.AWS.AppConfig.StopDeployment.StopDeployment
-instance GHC.Classes.Eq Network.AWS.AppConfig.StopDeployment.StopDeployment
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.StopDeployment.StopDeployment
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.StopDeployment.StopDeployment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.StopDeployment.StopDeployment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.StopDeployment.StopDeployment
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.StopDeployment.StopDeployment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.StopDeployment.StopDeployment
+instance GHC.Generics.Generic Amazonka.AppConfig.StopDeployment.StopDeployment
+instance GHC.Show.Show Amazonka.AppConfig.StopDeployment.StopDeployment
+instance GHC.Read.Read Amazonka.AppConfig.StopDeployment.StopDeployment
+instance GHC.Classes.Eq Amazonka.AppConfig.StopDeployment.StopDeployment
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.StopDeployment.StopDeployment
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.StopDeployment.StopDeployment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.StopDeployment.StopDeployment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.StopDeployment.StopDeployment
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.StopDeployment.StopDeployment
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.StopDeployment.StopDeployment
 
 
 -- | Starts a deployment.
-module Network.AWS.AppConfig.StartDeployment
+module Amazonka.AppConfig.StartDeployment
 
 -- | <i>See:</i> <a>newStartDeployment</a> smart constructor.
 data StartDeployment
@@ -2977,21 +2977,21 @@ deployment_configurationProfileId :: Lens' Deployment (Maybe Text)
 
 -- | The algorithm used to define how percentage grew over time.
 deployment_growthType :: Lens' Deployment (Maybe GrowthType)
-instance GHC.Generics.Generic Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance GHC.Show.Show Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance GHC.Read.Read Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance GHC.Classes.Eq Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.StartDeployment.StartDeployment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.StartDeployment.StartDeployment
+instance GHC.Generics.Generic Amazonka.AppConfig.StartDeployment.StartDeployment
+instance GHC.Show.Show Amazonka.AppConfig.StartDeployment.StartDeployment
+instance GHC.Read.Read Amazonka.AppConfig.StartDeployment.StartDeployment
+instance GHC.Classes.Eq Amazonka.AppConfig.StartDeployment.StartDeployment
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.StartDeployment.StartDeployment
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.StartDeployment.StartDeployment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.StartDeployment.StartDeployment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.StartDeployment.StartDeployment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.StartDeployment.StartDeployment
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.StartDeployment.StartDeployment
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.StartDeployment.StartDeployment
 
 
 -- | Retrieves the list of key-value tags assigned to the resource.
-module Network.AWS.AppConfig.ListTagsForResource
+module Amazonka.AppConfig.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3055,26 +3055,26 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.AppConfig.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.AppConfig.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.AppConfig.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.AppConfig.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.AppConfig.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.ListTagsForResource.ListTagsForResource
 
 
 -- | View a list of configurations stored in the AppConfig configuration
 --   store by version.
-module Network.AWS.AppConfig.ListHostedConfigurationVersions
+module Amazonka.AppConfig.ListHostedConfigurationVersions
 
 -- | <i>See:</i> <a>newListHostedConfigurationVersions</a> smart
 --   constructor.
@@ -3185,25 +3185,25 @@ listHostedConfigurationVersionsResponse_nextToken :: Lens' ListHostedConfigurati
 
 -- | The response's http status code.
 listHostedConfigurationVersionsResponse_httpStatus :: Lens' ListHostedConfigurationVersionsResponse Int
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
-instance GHC.Show.Show Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
-instance GHC.Read.Read Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
-instance GHC.Show.Show Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
-instance GHC.Read.Read Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance GHC.Generics.Generic Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance GHC.Show.Show Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance GHC.Read.Read Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance GHC.Classes.Eq Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance GHC.Generics.Generic Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
+instance GHC.Show.Show Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
+instance GHC.Read.Read Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.ListHostedConfigurationVersions.ListHostedConfigurationVersions
 
 
 -- | List the environments for an application.
-module Network.AWS.AppConfig.ListEnvironments
+module Amazonka.AppConfig.ListEnvironments
 
 -- | <i>See:</i> <a>newListEnvironments</a> smart constructor.
 data ListEnvironments
@@ -3300,25 +3300,25 @@ listEnvironmentsResponse_nextToken :: Lens' ListEnvironmentsResponse (Maybe Text
 
 -- | The response's http status code.
 listEnvironmentsResponse_httpStatus :: Lens' ListEnvironmentsResponse Int
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListEnvironments.ListEnvironments
-instance GHC.Show.Show Network.AWS.AppConfig.ListEnvironments.ListEnvironments
-instance GHC.Read.Read Network.AWS.AppConfig.ListEnvironments.ListEnvironments
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListEnvironments.ListEnvironments
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Show.Show Network.AWS.AppConfig.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Read.Read Network.AWS.AppConfig.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListEnvironments.ListEnvironmentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.ListEnvironments.ListEnvironments
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListEnvironments.ListEnvironmentsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.ListEnvironments.ListEnvironments
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.ListEnvironments.ListEnvironments
+instance GHC.Generics.Generic Amazonka.AppConfig.ListEnvironments.ListEnvironments
+instance GHC.Show.Show Amazonka.AppConfig.ListEnvironments.ListEnvironments
+instance GHC.Read.Read Amazonka.AppConfig.ListEnvironments.ListEnvironments
+instance GHC.Classes.Eq Amazonka.AppConfig.ListEnvironments.ListEnvironments
+instance GHC.Generics.Generic Amazonka.AppConfig.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Show.Show Amazonka.AppConfig.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Read.Read Amazonka.AppConfig.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.ListEnvironments.ListEnvironmentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.ListEnvironments.ListEnvironments
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListEnvironments.ListEnvironmentsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.ListEnvironments.ListEnvironments
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.ListEnvironments.ListEnvironments
 
 
 -- | Lists the deployments for an environment.
-module Network.AWS.AppConfig.ListDeployments
+module Amazonka.AppConfig.ListDeployments
 
 -- | <i>See:</i> <a>newListDeployments</a> smart constructor.
 data ListDeployments
@@ -3424,25 +3424,25 @@ listDeploymentsResponse_nextToken :: Lens' ListDeploymentsResponse (Maybe Text)
 
 -- | The response's http status code.
 listDeploymentsResponse_httpStatus :: Lens' ListDeploymentsResponse Int
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListDeployments.ListDeployments
-instance GHC.Show.Show Network.AWS.AppConfig.ListDeployments.ListDeployments
-instance GHC.Read.Read Network.AWS.AppConfig.ListDeployments.ListDeployments
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListDeployments.ListDeployments
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListDeployments.ListDeploymentsResponse
-instance GHC.Show.Show Network.AWS.AppConfig.ListDeployments.ListDeploymentsResponse
-instance GHC.Read.Read Network.AWS.AppConfig.ListDeployments.ListDeploymentsResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListDeployments.ListDeploymentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.ListDeployments.ListDeployments
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListDeployments.ListDeploymentsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.ListDeployments.ListDeployments
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListDeployments.ListDeployments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.ListDeployments.ListDeployments
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.ListDeployments.ListDeployments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.ListDeployments.ListDeployments
+instance GHC.Generics.Generic Amazonka.AppConfig.ListDeployments.ListDeployments
+instance GHC.Show.Show Amazonka.AppConfig.ListDeployments.ListDeployments
+instance GHC.Read.Read Amazonka.AppConfig.ListDeployments.ListDeployments
+instance GHC.Classes.Eq Amazonka.AppConfig.ListDeployments.ListDeployments
+instance GHC.Generics.Generic Amazonka.AppConfig.ListDeployments.ListDeploymentsResponse
+instance GHC.Show.Show Amazonka.AppConfig.ListDeployments.ListDeploymentsResponse
+instance GHC.Read.Read Amazonka.AppConfig.ListDeployments.ListDeploymentsResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.ListDeployments.ListDeploymentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.ListDeployments.ListDeployments
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListDeployments.ListDeploymentsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.ListDeployments.ListDeployments
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListDeployments.ListDeployments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.ListDeployments.ListDeployments
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.ListDeployments.ListDeployments
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.ListDeployments.ListDeployments
 
 
 -- | List deployment strategies.
-module Network.AWS.AppConfig.ListDeploymentStrategies
+module Amazonka.AppConfig.ListDeploymentStrategies
 
 -- | <i>See:</i> <a>newListDeploymentStrategies</a> smart constructor.
 data ListDeploymentStrategies
@@ -3532,25 +3532,25 @@ listDeploymentStrategiesResponse_nextToken :: Lens' ListDeploymentStrategiesResp
 
 -- | The response's http status code.
 listDeploymentStrategiesResponse_httpStatus :: Lens' ListDeploymentStrategiesResponse Int
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
-instance GHC.Show.Show Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
-instance GHC.Read.Read Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
-instance GHC.Show.Show Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
-instance GHC.Read.Read Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance GHC.Generics.Generic Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance GHC.Show.Show Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance GHC.Read.Read Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance GHC.Classes.Eq Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance GHC.Generics.Generic Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
+instance GHC.Show.Show Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
+instance GHC.Read.Read Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategiesResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.ListDeploymentStrategies.ListDeploymentStrategies
 
 
 -- | Lists the configuration profiles for an application.
-module Network.AWS.AppConfig.ListConfigurationProfiles
+module Amazonka.AppConfig.ListConfigurationProfiles
 
 -- | <i>See:</i> <a>newListConfigurationProfiles</a> smart constructor.
 data ListConfigurationProfiles
@@ -3649,25 +3649,25 @@ listConfigurationProfilesResponse_nextToken :: Lens' ListConfigurationProfilesRe
 
 -- | The response's http status code.
 listConfigurationProfilesResponse_httpStatus :: Lens' ListConfigurationProfilesResponse Int
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
-instance GHC.Show.Show Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
-instance GHC.Read.Read Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
-instance GHC.Show.Show Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
-instance GHC.Read.Read Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance GHC.Generics.Generic Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance GHC.Show.Show Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance GHC.Read.Read Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance GHC.Classes.Eq Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance GHC.Generics.Generic Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
+instance GHC.Show.Show Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
+instance GHC.Read.Read Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfilesResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.ListConfigurationProfiles.ListConfigurationProfiles
 
 
 -- | List all applications in your AWS account.
-module Network.AWS.AppConfig.ListApplications
+module Amazonka.AppConfig.ListApplications
 
 -- | <i>See:</i> <a>newListApplications</a> smart constructor.
 data ListApplications
@@ -3755,25 +3755,25 @@ listApplicationsResponse_nextToken :: Lens' ListApplicationsResponse (Maybe Text
 
 -- | The response's http status code.
 listApplicationsResponse_httpStatus :: Lens' ListApplicationsResponse Int
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListApplications.ListApplications
-instance GHC.Show.Show Network.AWS.AppConfig.ListApplications.ListApplications
-instance GHC.Read.Read Network.AWS.AppConfig.ListApplications.ListApplications
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListApplications.ListApplications
-instance GHC.Generics.Generic Network.AWS.AppConfig.ListApplications.ListApplicationsResponse
-instance GHC.Show.Show Network.AWS.AppConfig.ListApplications.ListApplicationsResponse
-instance GHC.Read.Read Network.AWS.AppConfig.ListApplications.ListApplicationsResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.ListApplications.ListApplicationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListApplications.ListApplicationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ListApplications.ListApplications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.ListApplications.ListApplications
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.ListApplications.ListApplications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.AppConfig.ListApplications.ListApplications
+instance GHC.Show.Show Amazonka.AppConfig.ListApplications.ListApplications
+instance GHC.Read.Read Amazonka.AppConfig.ListApplications.ListApplications
+instance GHC.Classes.Eq Amazonka.AppConfig.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.AppConfig.ListApplications.ListApplicationsResponse
+instance GHC.Show.Show Amazonka.AppConfig.ListApplications.ListApplicationsResponse
+instance GHC.Read.Read Amazonka.AppConfig.ListApplications.ListApplicationsResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.ListApplications.ListApplicationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListApplications.ListApplicationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ListApplications.ListApplications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.ListApplications.ListApplications
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.ListApplications.ListApplications
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.ListApplications.ListApplications
 
 
 -- | Get information about a specific configuration version.
-module Network.AWS.AppConfig.GetHostedConfigurationVersion
+module Amazonka.AppConfig.GetHostedConfigurationVersion
 
 -- | <i>See:</i> <a>newGetHostedConfigurationVersion</a> smart constructor.
 data GetHostedConfigurationVersion
@@ -3893,16 +3893,16 @@ hostedConfigurationVersion_configurationProfileId :: Lens' HostedConfigurationVe
 -- | A standard MIME type describing the format of the configuration
 --   content. For more information, see <a>Content-Type</a>.
 hostedConfigurationVersion_contentType :: Lens' HostedConfigurationVersion (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
-instance GHC.Show.Show Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
-instance GHC.Read.Read Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
-instance GHC.Classes.Eq Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance GHC.Generics.Generic Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance GHC.Show.Show Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance GHC.Read.Read Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance GHC.Classes.Eq Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance Control.DeepSeq.NFData Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.GetHostedConfigurationVersion.GetHostedConfigurationVersion
 
 
 -- | Retrieve information about an environment. An environment is a logical
@@ -3912,7 +3912,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetHostedConfigura
 --   can enable one or more Amazon CloudWatch alarms for an environment. If
 --   an alarm is triggered during a deployment, AppConfig roles back the
 --   configuration.
-module Network.AWS.AppConfig.GetEnvironment
+module Amazonka.AppConfig.GetEnvironment
 
 -- | <i>See:</i> <a>newGetEnvironment</a> smart constructor.
 data GetEnvironment
@@ -4022,16 +4022,16 @@ environment_id :: Lens' Environment (Maybe Text)
 
 -- | The description of the environment.
 environment_description :: Lens' Environment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.GetEnvironment.GetEnvironment
-instance GHC.Show.Show Network.AWS.AppConfig.GetEnvironment.GetEnvironment
-instance GHC.Read.Read Network.AWS.AppConfig.GetEnvironment.GetEnvironment
-instance GHC.Classes.Eq Network.AWS.AppConfig.GetEnvironment.GetEnvironment
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.GetEnvironment.GetEnvironment
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.GetEnvironment.GetEnvironment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.GetEnvironment.GetEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.GetEnvironment.GetEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.GetEnvironment.GetEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetEnvironment.GetEnvironment
+instance GHC.Generics.Generic Amazonka.AppConfig.GetEnvironment.GetEnvironment
+instance GHC.Show.Show Amazonka.AppConfig.GetEnvironment.GetEnvironment
+instance GHC.Read.Read Amazonka.AppConfig.GetEnvironment.GetEnvironment
+instance GHC.Classes.Eq Amazonka.AppConfig.GetEnvironment.GetEnvironment
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.GetEnvironment.GetEnvironment
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.GetEnvironment.GetEnvironment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.GetEnvironment.GetEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.GetEnvironment.GetEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.GetEnvironment.GetEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.GetEnvironment.GetEnvironment
 
 
 -- | Retrieve information about a deployment strategy. A deployment
@@ -4040,7 +4040,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetEnvironment.Get
 --   duration required, a percentage of targets to receive the deployment
 --   during each interval, an algorithm that defines how percentage grows,
 --   and bake time.
-module Network.AWS.AppConfig.GetDeploymentStrategy
+module Amazonka.AppConfig.GetDeploymentStrategy
 
 -- | <i>See:</i> <a>newGetDeploymentStrategy</a> smart constructor.
 data GetDeploymentStrategy
@@ -4164,20 +4164,20 @@ deploymentStrategy_description :: Lens' DeploymentStrategy (Maybe Text)
 
 -- | The algorithm used to define how percentage grew over time.
 deploymentStrategy_growthType :: Lens' DeploymentStrategy (Maybe GrowthType)
-instance GHC.Generics.Generic Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
-instance GHC.Show.Show Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
-instance GHC.Read.Read Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
-instance GHC.Classes.Eq Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance GHC.Generics.Generic Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance GHC.Show.Show Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance GHC.Read.Read Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance GHC.Classes.Eq Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance Control.DeepSeq.NFData Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.GetDeploymentStrategy.GetDeploymentStrategy
 
 
 -- | Retrieve information about a configuration deployment.
-module Network.AWS.AppConfig.GetDeployment
+module Amazonka.AppConfig.GetDeployment
 
 -- | <i>See:</i> <a>newGetDeployment</a> smart constructor.
 data GetDeployment
@@ -4420,20 +4420,20 @@ deployment_configurationProfileId :: Lens' Deployment (Maybe Text)
 
 -- | The algorithm used to define how percentage grew over time.
 deployment_growthType :: Lens' Deployment (Maybe GrowthType)
-instance GHC.Generics.Generic Network.AWS.AppConfig.GetDeployment.GetDeployment
-instance GHC.Show.Show Network.AWS.AppConfig.GetDeployment.GetDeployment
-instance GHC.Read.Read Network.AWS.AppConfig.GetDeployment.GetDeployment
-instance GHC.Classes.Eq Network.AWS.AppConfig.GetDeployment.GetDeployment
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.GetDeployment.GetDeployment
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.GetDeployment.GetDeployment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.GetDeployment.GetDeployment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.GetDeployment.GetDeployment
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.GetDeployment.GetDeployment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetDeployment.GetDeployment
+instance GHC.Generics.Generic Amazonka.AppConfig.GetDeployment.GetDeployment
+instance GHC.Show.Show Amazonka.AppConfig.GetDeployment.GetDeployment
+instance GHC.Read.Read Amazonka.AppConfig.GetDeployment.GetDeployment
+instance GHC.Classes.Eq Amazonka.AppConfig.GetDeployment.GetDeployment
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.GetDeployment.GetDeployment
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.GetDeployment.GetDeployment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.GetDeployment.GetDeployment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.GetDeployment.GetDeployment
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.GetDeployment.GetDeployment
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.GetDeployment.GetDeployment
 
 
 -- | Retrieve information about a configuration profile.
-module Network.AWS.AppConfig.GetConfigurationProfile
+module Amazonka.AppConfig.GetConfigurationProfile
 
 -- | <i>See:</i> <a>newGetConfigurationProfile</a> smart constructor.
 data GetConfigurationProfile
@@ -4555,16 +4555,16 @@ configurationProfile_id :: Lens' ConfigurationProfile (Maybe Text)
 
 -- | The configuration profile description.
 configurationProfile_description :: Lens' ConfigurationProfile (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
-instance GHC.Show.Show Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
-instance GHC.Read.Read Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
-instance GHC.Classes.Eq Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance GHC.Generics.Generic Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance GHC.Show.Show Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance GHC.Read.Read Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance GHC.Classes.Eq Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance Control.DeepSeq.NFData Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.GetConfigurationProfile.GetConfigurationProfile
 
 
 -- | Receive information about a configuration.
@@ -4582,7 +4582,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetConfigurationPr
 --   <tt>GetConfiguration</tt>. This value must be saved on your client.
 --   Subsequent calls to <tt>GetConfiguration</tt> must pass this value by
 --   using the <tt>ClientConfigurationVersion</tt> parameter.
-module Network.AWS.AppConfig.GetConfiguration
+module Amazonka.AppConfig.GetConfiguration
 
 -- | <i>See:</i> <a>newGetConfiguration</a> smart constructor.
 data GetConfiguration
@@ -4772,24 +4772,24 @@ getConfigurationResponse_contentType :: Lens' GetConfigurationResponse (Maybe Te
 
 -- | The response's http status code.
 getConfigurationResponse_httpStatus :: Lens' GetConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.AppConfig.GetConfiguration.GetConfiguration
-instance GHC.Show.Show Network.AWS.AppConfig.GetConfiguration.GetConfiguration
-instance GHC.Read.Read Network.AWS.AppConfig.GetConfiguration.GetConfiguration
-instance GHC.Classes.Eq Network.AWS.AppConfig.GetConfiguration.GetConfiguration
-instance GHC.Generics.Generic Network.AWS.AppConfig.GetConfiguration.GetConfigurationResponse
-instance GHC.Show.Show Network.AWS.AppConfig.GetConfiguration.GetConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.GetConfiguration.GetConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.GetConfiguration.GetConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.GetConfiguration.GetConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.GetConfiguration.GetConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.GetConfiguration.GetConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.GetConfiguration.GetConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.GetConfiguration.GetConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetConfiguration.GetConfiguration
+instance GHC.Generics.Generic Amazonka.AppConfig.GetConfiguration.GetConfiguration
+instance GHC.Show.Show Amazonka.AppConfig.GetConfiguration.GetConfiguration
+instance GHC.Read.Read Amazonka.AppConfig.GetConfiguration.GetConfiguration
+instance GHC.Classes.Eq Amazonka.AppConfig.GetConfiguration.GetConfiguration
+instance GHC.Generics.Generic Amazonka.AppConfig.GetConfiguration.GetConfigurationResponse
+instance GHC.Show.Show Amazonka.AppConfig.GetConfiguration.GetConfigurationResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.GetConfiguration.GetConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.GetConfiguration.GetConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppConfig.GetConfiguration.GetConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.GetConfiguration.GetConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppConfig.GetConfiguration.GetConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.GetConfiguration.GetConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.GetConfiguration.GetConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.GetConfiguration.GetConfiguration
 
 
 -- | Retrieve information about an application.
-module Network.AWS.AppConfig.GetApplication
+module Amazonka.AppConfig.GetApplication
 
 -- | <i>See:</i> <a>newGetApplication</a> smart constructor.
 data GetApplication
@@ -4854,21 +4854,21 @@ application_id :: Lens' Application (Maybe Text)
 
 -- | The description of the application.
 application_description :: Lens' Application (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.GetApplication.GetApplication
-instance GHC.Show.Show Network.AWS.AppConfig.GetApplication.GetApplication
-instance GHC.Read.Read Network.AWS.AppConfig.GetApplication.GetApplication
-instance GHC.Classes.Eq Network.AWS.AppConfig.GetApplication.GetApplication
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.GetApplication.GetApplication
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.GetApplication.GetApplication
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.GetApplication.GetApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.GetApplication.GetApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.GetApplication.GetApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.GetApplication.GetApplication
+instance GHC.Generics.Generic Amazonka.AppConfig.GetApplication.GetApplication
+instance GHC.Show.Show Amazonka.AppConfig.GetApplication.GetApplication
+instance GHC.Read.Read Amazonka.AppConfig.GetApplication.GetApplication
+instance GHC.Classes.Eq Amazonka.AppConfig.GetApplication.GetApplication
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.GetApplication.GetApplication
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.GetApplication.GetApplication
+instance Control.DeepSeq.NFData Amazonka.AppConfig.GetApplication.GetApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.GetApplication.GetApplication
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.GetApplication.GetApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.GetApplication.GetApplication
 
 
 -- | Delete a version of a configuration from the AppConfig configuration
 --   store.
-module Network.AWS.AppConfig.DeleteHostedConfigurationVersion
+module Amazonka.AppConfig.DeleteHostedConfigurationVersion
 
 -- | <i>See:</i> <a>newDeleteHostedConfigurationVersion</a> smart
 --   constructor.
@@ -4926,26 +4926,26 @@ DeleteHostedConfigurationVersionResponse' :: DeleteHostedConfigurationVersionRes
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteHostedConfigurationVersionResponse :: DeleteHostedConfigurationVersionResponse
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance GHC.Show.Show Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance GHC.Read.Read Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
+instance GHC.Show.Show Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
+instance GHC.Read.Read Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersionResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.DeleteHostedConfigurationVersion.DeleteHostedConfigurationVersion
 
 
 -- | Delete an environment. Deleting an environment does not delete a
 --   configuration from a host.
-module Network.AWS.AppConfig.DeleteEnvironment
+module Amazonka.AppConfig.DeleteEnvironment
 
 -- | <i>See:</i> <a>newDeleteEnvironment</a> smart constructor.
 data DeleteEnvironment
@@ -4991,26 +4991,26 @@ DeleteEnvironmentResponse' :: DeleteEnvironmentResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteEnvironmentResponse :: DeleteEnvironmentResponse
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance GHC.Show.Show Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance GHC.Read.Read Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Show.Show Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Read.Read Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.DeleteEnvironment.DeleteEnvironment
 
 
 -- | Delete a deployment strategy. Deleting a deployment strategy does not
 --   delete a configuration from a host.
-module Network.AWS.AppConfig.DeleteDeploymentStrategy
+module Amazonka.AppConfig.DeleteDeploymentStrategy
 
 -- | <i>See:</i> <a>newDeleteDeploymentStrategy</a> smart constructor.
 data DeleteDeploymentStrategy
@@ -5047,26 +5047,26 @@ DeleteDeploymentStrategyResponse' :: DeleteDeploymentStrategyResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteDeploymentStrategyResponse :: DeleteDeploymentStrategyResponse
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance GHC.Show.Show Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance GHC.Read.Read Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
+instance GHC.Show.Show Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
+instance GHC.Read.Read Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategyResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.DeleteDeploymentStrategy.DeleteDeploymentStrategy
 
 
 -- | Delete a configuration profile. Deleting a configuration profile does
 --   not delete a configuration from a host.
-module Network.AWS.AppConfig.DeleteConfigurationProfile
+module Amazonka.AppConfig.DeleteConfigurationProfile
 
 -- | <i>See:</i> <a>newDeleteConfigurationProfile</a> smart constructor.
 data DeleteConfigurationProfile
@@ -5115,26 +5115,26 @@ DeleteConfigurationProfileResponse' :: DeleteConfigurationProfileResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteConfigurationProfileResponse :: DeleteConfigurationProfileResponse
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance GHC.Show.Show Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance GHC.Read.Read Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
+instance GHC.Show.Show Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
+instance GHC.Read.Read Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.DeleteConfigurationProfile.DeleteConfigurationProfile
 
 
 -- | Delete an application. Deleting an application does not delete a
 --   configuration from a host.
-module Network.AWS.AppConfig.DeleteApplication
+module Amazonka.AppConfig.DeleteApplication
 
 -- | <i>See:</i> <a>newDeleteApplication</a> smart constructor.
 data DeleteApplication
@@ -5170,25 +5170,25 @@ DeleteApplicationResponse' :: DeleteApplicationResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteApplicationResponse :: DeleteApplicationResponse
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteApplication.DeleteApplication
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteApplication.DeleteApplication
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteApplication.DeleteApplication
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteApplication.DeleteApplication
-instance GHC.Generics.Generic Network.AWS.AppConfig.DeleteApplication.DeleteApplicationResponse
-instance GHC.Show.Show Network.AWS.AppConfig.DeleteApplication.DeleteApplicationResponse
-instance GHC.Read.Read Network.AWS.AppConfig.DeleteApplication.DeleteApplicationResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.DeleteApplication.DeleteApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteApplication.DeleteApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteApplication.DeleteApplication
+instance GHC.Show.Show Amazonka.AppConfig.DeleteApplication.DeleteApplication
+instance GHC.Read.Read Amazonka.AppConfig.DeleteApplication.DeleteApplication
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.AppConfig.DeleteApplication.DeleteApplicationResponse
+instance GHC.Show.Show Amazonka.AppConfig.DeleteApplication.DeleteApplicationResponse
+instance GHC.Read.Read Amazonka.AppConfig.DeleteApplication.DeleteApplicationResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.DeleteApplication.DeleteApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteApplication.DeleteApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.AppConfig.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.DeleteApplication.DeleteApplication
 
 
 -- | Create a new configuration in the AppConfig configuration store.
-module Network.AWS.AppConfig.CreateHostedConfigurationVersion
+module Amazonka.AppConfig.CreateHostedConfigurationVersion
 
 -- | <i>See:</i> <a>newCreateHostedConfigurationVersion</a> smart
 --   constructor.
@@ -5355,16 +5355,16 @@ hostedConfigurationVersion_configurationProfileId :: Lens' HostedConfigurationVe
 -- | A standard MIME type describing the format of the configuration
 --   content. For more information, see <a>Content-Type</a>.
 hostedConfigurationVersion_contentType :: Lens' HostedConfigurationVersion (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
-instance GHC.Show.Show Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
-instance GHC.Classes.Eq Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
-instance Network.AWS.Data.Body.ToBody Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance GHC.Generics.Generic Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance GHC.Show.Show Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance GHC.Classes.Eq Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance Control.DeepSeq.NFData Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance Amazonka.Data.Body.ToBody Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.CreateHostedConfigurationVersion.CreateHostedConfigurationVersion
 
 
 -- | For each application, you define one or more environments. An
@@ -5376,7 +5376,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.CreateHostedConfig
 --   environment. The system monitors alarms during a configuration
 --   deployment. If an alarm is triggered, the system rolls back the
 --   configuration.
-module Network.AWS.AppConfig.CreateEnvironment
+module Amazonka.AppConfig.CreateEnvironment
 
 -- | <i>See:</i> <a>newCreateEnvironment</a> smart constructor.
 data CreateEnvironment
@@ -5517,17 +5517,17 @@ environment_id :: Lens' Environment (Maybe Text)
 
 -- | The description of the environment.
 environment_description :: Lens' Environment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance GHC.Show.Show Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance GHC.Read.Read Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance GHC.Classes.Eq Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.CreateEnvironment.CreateEnvironment
+instance GHC.Generics.Generic Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance GHC.Show.Show Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance GHC.Read.Read Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance GHC.Classes.Eq Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.CreateEnvironment.CreateEnvironment
 
 
 -- | A deployment strategy defines important criteria for rolling out your
@@ -5535,7 +5535,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.CreateEnvironment.
 --   includes: the overall duration required, a percentage of targets to
 --   receive the deployment during each interval, an algorithm that defines
 --   how percentage grows, and bake time.
-module Network.AWS.AppConfig.CreateDeploymentStrategy
+module Amazonka.AppConfig.CreateDeploymentStrategy
 
 -- | <i>See:</i> <a>newCreateDeploymentStrategy</a> smart constructor.
 data CreateDeploymentStrategy
@@ -5838,17 +5838,17 @@ deploymentStrategy_description :: Lens' DeploymentStrategy (Maybe Text)
 
 -- | The algorithm used to define how percentage grew over time.
 deploymentStrategy_growthType :: Lens' DeploymentStrategy (Maybe GrowthType)
-instance GHC.Generics.Generic Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance GHC.Show.Show Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance GHC.Read.Read Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance GHC.Classes.Eq Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance GHC.Generics.Generic Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance GHC.Show.Show Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance GHC.Read.Read Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance GHC.Classes.Eq Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance Control.DeepSeq.NFData Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.CreateDeploymentStrategy.CreateDeploymentStrategy
 
 
 -- | Information that enables AppConfig to access the configuration source.
@@ -5866,7 +5866,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.CreateDeploymentSt
 --   
 --   For more information, see <a>Create a Configuration and a
 --   Configuration Profile</a> in the <i>AWS AppConfig User Guide</i>.
-module Network.AWS.AppConfig.CreateConfigurationProfile
+module Amazonka.AppConfig.CreateConfigurationProfile
 
 -- | <i>See:</i> <a>newCreateConfigurationProfile</a> smart constructor.
 data CreateConfigurationProfile
@@ -6068,16 +6068,16 @@ configurationProfile_id :: Lens' ConfigurationProfile (Maybe Text)
 
 -- | The configuration profile description.
 configurationProfile_description :: Lens' ConfigurationProfile (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
-instance GHC.Show.Show Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
-instance GHC.Classes.Eq Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance GHC.Generics.Generic Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance GHC.Show.Show Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance GHC.Classes.Eq Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance Control.DeepSeq.NFData Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.CreateConfigurationProfile.CreateConfigurationProfile
 
 
 -- | An application in AppConfig is a logical unit of code that provides
@@ -6085,7 +6085,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.CreateConfiguratio
 --   microservice that runs on Amazon EC2 instances, a mobile application
 --   installed by your users, a serverless application using Amazon API
 --   Gateway and AWS Lambda, or any system you run on behalf of others.
-module Network.AWS.AppConfig.CreateApplication
+module Amazonka.AppConfig.CreateApplication
 
 -- | <i>See:</i> <a>newCreateApplication</a> smart constructor.
 data CreateApplication
@@ -6174,21 +6174,21 @@ application_id :: Lens' Application (Maybe Text)
 
 -- | The description of the application.
 application_description :: Lens' Application (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance GHC.Show.Show Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance GHC.Read.Read Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance GHC.Classes.Eq Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.CreateApplication.CreateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.AppConfig.CreateApplication.CreateApplication
+instance GHC.Show.Show Amazonka.AppConfig.CreateApplication.CreateApplication
+instance GHC.Read.Read Amazonka.AppConfig.CreateApplication.CreateApplication
+instance GHC.Classes.Eq Amazonka.AppConfig.CreateApplication.CreateApplication
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.CreateApplication.CreateApplication
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.AppConfig.CreateApplication.CreateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.CreateApplication.CreateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.CreateApplication.CreateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.CreateApplication.CreateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.CreateApplication.CreateApplication
 
 
 -- | Deletes a tag key and value from an AppConfig resource.
-module Network.AWS.AppConfig.UntagResource
+module Amazonka.AppConfig.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6233,25 +6233,25 @@ UntagResourceResponse' :: UntagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagResourceResponse :: UntagResourceResponse
-instance GHC.Generics.Generic Network.AWS.AppConfig.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.AppConfig.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.AppConfig.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.AppConfig.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.AppConfig.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.AppConfig.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.AppConfig.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.AppConfig.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.AppConfig.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.AppConfig.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.AppConfig.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.AppConfig.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.AppConfig.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.AppConfig.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.AppConfig.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.AppConfig.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.UntagResource.UntagResource
 
 
 -- | Updates an application.
-module Network.AWS.AppConfig.UpdateApplication
+module Amazonka.AppConfig.UpdateApplication
 
 -- | <i>See:</i> <a>newUpdateApplication</a> smart constructor.
 data UpdateApplication
@@ -6334,21 +6334,21 @@ application_id :: Lens' Application (Maybe Text)
 
 -- | The description of the application.
 application_description :: Lens' Application (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance GHC.Show.Show Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance GHC.Read.Read Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance GHC.Classes.Eq Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance GHC.Show.Show Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance GHC.Read.Read Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance GHC.Classes.Eq Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.UpdateApplication.UpdateApplication
 
 
 -- | Updates a configuration profile.
-module Network.AWS.AppConfig.UpdateConfigurationProfile
+module Amazonka.AppConfig.UpdateConfigurationProfile
 
 -- | <i>See:</i> <a>newUpdateConfigurationProfile</a> smart constructor.
 data UpdateConfigurationProfile
@@ -6510,20 +6510,20 @@ configurationProfile_id :: Lens' ConfigurationProfile (Maybe Text)
 
 -- | The configuration profile description.
 configurationProfile_description :: Lens' ConfigurationProfile (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
-instance GHC.Show.Show Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
-instance GHC.Classes.Eq Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance GHC.Generics.Generic Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance GHC.Show.Show Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance GHC.Classes.Eq Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance Control.DeepSeq.NFData Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.UpdateConfigurationProfile.UpdateConfigurationProfile
 
 
 -- | Updates a deployment strategy.
-module Network.AWS.AppConfig.UpdateDeploymentStrategy
+module Amazonka.AppConfig.UpdateDeploymentStrategy
 
 -- | <i>See:</i> <a>newUpdateDeploymentStrategy</a> smart constructor.
 data UpdateDeploymentStrategy
@@ -6800,21 +6800,21 @@ deploymentStrategy_description :: Lens' DeploymentStrategy (Maybe Text)
 
 -- | The algorithm used to define how percentage grew over time.
 deploymentStrategy_growthType :: Lens' DeploymentStrategy (Maybe GrowthType)
-instance GHC.Generics.Generic Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance GHC.Show.Show Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance GHC.Read.Read Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance GHC.Classes.Eq Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance GHC.Generics.Generic Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance GHC.Show.Show Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance GHC.Read.Read Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance GHC.Classes.Eq Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance Control.DeepSeq.NFData Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.UpdateDeploymentStrategy.UpdateDeploymentStrategy
 
 
 -- | Updates an environment.
-module Network.AWS.AppConfig.UpdateEnvironment
+module Amazonka.AppConfig.UpdateEnvironment
 
 -- | <i>See:</i> <a>newUpdateEnvironment</a> smart constructor.
 data UpdateEnvironment
@@ -6949,22 +6949,22 @@ environment_id :: Lens' Environment (Maybe Text)
 
 -- | The description of the environment.
 environment_description :: Lens' Environment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance GHC.Show.Show Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance GHC.Read.Read Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance GHC.Classes.Eq Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance GHC.Generics.Generic Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance GHC.Show.Show Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance GHC.Read.Read Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance GHC.Classes.Eq Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance Control.DeepSeq.NFData Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.UpdateEnvironment.UpdateEnvironment
 
 
 -- | Uses the validators in a configuration profile to validate a
 --   configuration.
-module Network.AWS.AppConfig.ValidateConfiguration
+module Amazonka.AppConfig.ValidateConfiguration
 
 -- | <i>See:</i> <a>newValidateConfiguration</a> smart constructor.
 data ValidateConfiguration
@@ -7019,25 +7019,25 @@ ValidateConfigurationResponse' :: ValidateConfigurationResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newValidateConfigurationResponse :: ValidateConfigurationResponse
-instance GHC.Generics.Generic Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance GHC.Show.Show Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance GHC.Read.Read Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance GHC.Classes.Eq Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance GHC.Generics.Generic Network.AWS.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
-instance GHC.Show.Show Network.AWS.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
-instance GHC.Read.Read Network.AWS.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance GHC.Generics.Generic Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance GHC.Show.Show Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance GHC.Read.Read Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance GHC.Classes.Eq Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance GHC.Generics.Generic Amazonka.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
+instance GHC.Show.Show Amazonka.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
+instance GHC.Read.Read Amazonka.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
+instance GHC.Classes.Eq Amazonka.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ValidateConfiguration.ValidateConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppConfig.ValidateConfiguration.ValidateConfiguration
 
 
-module Network.AWS.AppConfig.Lens
+module Amazonka.AppConfig.Lens
 
 -- | A token to start the list. Use this token to get the next set of
 --   results.
@@ -8300,7 +8300,7 @@ validator_type :: Lens' Validator ValidatorType
 validator_content :: Lens' Validator Text
 
 
-module Network.AWS.AppConfig.Waiters
+module Amazonka.AppConfig.Waiters
 
 
 -- | Derived from API version <tt>2019-10-09</tt> of the AWS service
@@ -8351,7 +8351,7 @@ module Network.AWS.AppConfig.Waiters
 --   
 --   This reference is intended to be used with the <a>AWS AppConfig User
 --   Guide</a>.
-module Network.AWS.AppConfig
+module Amazonka.AppConfig
 
 -- | API version <tt>2019-10-09</tt> of the Amazon AppConfig SDK
 --   configuration.

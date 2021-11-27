@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Proton.Types.DeploymentUpdateType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Proton.Types.DeploymentUpdateType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType"><span class="hs-identifier">DeploymentUpdateType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_CURRENT_VERSION"><span class="hs-identifier">DeploymentUpdateType_CURRENT_VERSION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_MAJOR_VERSION"><span class="hs-identifier">DeploymentUpdateType_MAJOR_VERSION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_MINOR_VERSION"><span class="hs-identifier">DeploymentUpdateType_MINOR_VERSION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_NONE"><span class="hs-identifier">DeploymentUpdateType_NONE</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679260987"><span id="local-6989586621679260988"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentUpdateType"><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType"><span class="hs-identifier hs-var">DeploymentUpdateType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentUpdateType%27"><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType%27"><span class="hs-identifier hs-var">DeploymentUpdateType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentUpdateType"><span class="annot"><span class="annottext">DeploymentUpdateType -&gt; Text
+</span><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#fromDeploymentUpdateType"><span class="hs-identifier hs-var hs-var">fromDeploymentUpdateType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260979"><span id="local-6989586621679260981"><span id="local-6989586621679260983"><span class="annot"><span class="annottext">Int -&gt; DeploymentUpdateType -&gt; ShowS
+[DeploymentUpdateType] -&gt; ShowS
+DeploymentUpdateType -&gt; String
+(Int -&gt; DeploymentUpdateType -&gt; ShowS)
+-&gt; (DeploymentUpdateType -&gt; String)
+-&gt; ([DeploymentUpdateType] -&gt; ShowS)
+-&gt; Show DeploymentUpdateType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentUpdateType] -&gt; ShowS
+$cshowList :: [DeploymentUpdateType] -&gt; ShowS
+show :: DeploymentUpdateType -&gt; String
+$cshow :: DeploymentUpdateType -&gt; String
+showsPrec :: Int -&gt; DeploymentUpdateType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentUpdateType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679260970"><span id="local-6989586621679260972"><span id="local-6989586621679260974"><span id="local-6989586621679260976"><span class="annot"><span class="annottext">ReadPrec [DeploymentUpdateType]
+ReadPrec DeploymentUpdateType
+Int -&gt; ReadS DeploymentUpdateType
+ReadS [DeploymentUpdateType]
+(Int -&gt; ReadS DeploymentUpdateType)
+-&gt; ReadS [DeploymentUpdateType]
+-&gt; ReadPrec DeploymentUpdateType
+-&gt; ReadPrec [DeploymentUpdateType]
+-&gt; Read DeploymentUpdateType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentUpdateType]
+$creadListPrec :: ReadPrec [DeploymentUpdateType]
+readPrec :: ReadPrec DeploymentUpdateType
+$creadPrec :: ReadPrec DeploymentUpdateType
+readList :: ReadS [DeploymentUpdateType]
+$creadList :: ReadS [DeploymentUpdateType]
+readsPrec :: Int -&gt; ReadS DeploymentUpdateType
+$creadsPrec :: Int -&gt; ReadS DeploymentUpdateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679260965"><span id="local-6989586621679260967"><span class="annot"><span class="annottext">DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+(DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool)
+-&gt; (DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool)
+-&gt; Eq DeploymentUpdateType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+$c/= :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+== :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+$c== :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679260949"><span id="local-6989586621679260951"><span id="local-6989586621679260953"><span id="local-6989586621679260955"><span id="local-6989586621679260957"><span id="local-6989586621679260959"><span id="local-6989586621679260961"><span class="annot"><span class="annottext">Eq DeploymentUpdateType
+Eq DeploymentUpdateType
+-&gt; (DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Ordering)
+-&gt; (DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool)
+-&gt; (DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool)
+-&gt; (DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool)
+-&gt; (DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool)
+-&gt; (DeploymentUpdateType
+    -&gt; DeploymentUpdateType -&gt; DeploymentUpdateType)
+-&gt; (DeploymentUpdateType
+    -&gt; DeploymentUpdateType -&gt; DeploymentUpdateType)
+-&gt; Ord DeploymentUpdateType
+DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Ordering
+DeploymentUpdateType
+-&gt; DeploymentUpdateType -&gt; DeploymentUpdateType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeploymentUpdateType
+-&gt; DeploymentUpdateType -&gt; DeploymentUpdateType
+$cmin :: DeploymentUpdateType
+-&gt; DeploymentUpdateType -&gt; DeploymentUpdateType
+max :: DeploymentUpdateType
+-&gt; DeploymentUpdateType -&gt; DeploymentUpdateType
+$cmax :: DeploymentUpdateType
+-&gt; DeploymentUpdateType -&gt; DeploymentUpdateType
+&gt;= :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+$c&gt;= :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+&gt; :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+$c&gt; :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+&lt;= :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+$c&lt;= :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+&lt; :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+$c&lt; :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Bool
+compare :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Ordering
+$ccompare :: DeploymentUpdateType -&gt; DeploymentUpdateType -&gt; Ordering
+$cp1Ord :: Eq DeploymentUpdateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeploymentUpdateType -&gt; Rep DeploymentUpdateType x)
+-&gt; (forall x. Rep DeploymentUpdateType x -&gt; DeploymentUpdateType)
+-&gt; Generic DeploymentUpdateType
+forall x. Rep DeploymentUpdateType x -&gt; DeploymentUpdateType
+forall x. DeploymentUpdateType -&gt; Rep DeploymentUpdateType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeploymentUpdateType x -&gt; DeploymentUpdateType
+$cfrom :: forall x. DeploymentUpdateType -&gt; Rep DeploymentUpdateType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260941"><span id="local-6989586621679260943"><span class="annot"><span class="annottext">Int -&gt; DeploymentUpdateType -&gt; Int
+DeploymentUpdateType -&gt; Int
+(Int -&gt; DeploymentUpdateType -&gt; Int)
+-&gt; (DeploymentUpdateType -&gt; Int) -&gt; Hashable DeploymentUpdateType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeploymentUpdateType -&gt; Int
+$chash :: DeploymentUpdateType -&gt; Int
+hashWithSalt :: Int -&gt; DeploymentUpdateType -&gt; Int
+$chashWithSalt :: Int -&gt; DeploymentUpdateType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260938"><span class="annot"><span class="annottext">DeploymentUpdateType -&gt; ()
+(DeploymentUpdateType -&gt; ()) -&gt; NFData DeploymentUpdateType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeploymentUpdateType -&gt; ()
+$crnf :: DeploymentUpdateType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260935"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentUpdateType
+(Text -&gt; Either String DeploymentUpdateType)
+-&gt; FromText DeploymentUpdateType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeploymentUpdateType
+$cfromText :: Text -&gt; Either String DeploymentUpdateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260932"><span class="annot"><span class="annottext">DeploymentUpdateType -&gt; Text
+(DeploymentUpdateType -&gt; Text) -&gt; ToText DeploymentUpdateType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeploymentUpdateType -&gt; Text
+$ctoText :: DeploymentUpdateType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260929"><span class="annot"><span class="annottext">DeploymentUpdateType -&gt; ByteString
+(DeploymentUpdateType -&gt; ByteString)
+-&gt; ToByteString DeploymentUpdateType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeploymentUpdateType -&gt; ByteString
+$ctoBS :: DeploymentUpdateType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260926"><span class="annot"><span class="annottext">DeploymentUpdateType -&gt; ByteStringBuilder
+(DeploymentUpdateType -&gt; ByteStringBuilder)
+-&gt; ToLog DeploymentUpdateType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeploymentUpdateType -&gt; ByteStringBuilder
+$cbuild :: DeploymentUpdateType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260923"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentUpdateType -&gt; [Header]
+(HeaderName -&gt; DeploymentUpdateType -&gt; [Header])
+-&gt; ToHeader DeploymentUpdateType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeploymentUpdateType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeploymentUpdateType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260920"><span class="annot"><span class="annottext">DeploymentUpdateType -&gt; QueryString
+(DeploymentUpdateType -&gt; QueryString)
+-&gt; ToQuery DeploymentUpdateType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeploymentUpdateType -&gt; QueryString
+$ctoQuery :: DeploymentUpdateType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260915"><span id="local-6989586621679260917"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentUpdateType]
+Value -&gt; Parser DeploymentUpdateType
+(Value -&gt; Parser DeploymentUpdateType)
+-&gt; (Value -&gt; Parser [DeploymentUpdateType])
+-&gt; FromJSON DeploymentUpdateType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeploymentUpdateType]
+$cparseJSONList :: Value -&gt; Parser [DeploymentUpdateType]
+parseJSON :: Value -&gt; Parser DeploymentUpdateType
+$cparseJSON :: Value -&gt; Parser DeploymentUpdateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679260910"><span id="local-6989586621679260912"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentUpdateType]
+FromJSONKeyFunction DeploymentUpdateType
+FromJSONKeyFunction DeploymentUpdateType
+-&gt; FromJSONKeyFunction [DeploymentUpdateType]
+-&gt; FromJSONKey DeploymentUpdateType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeploymentUpdateType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeploymentUpdateType]
+fromJSONKey :: FromJSONKeyFunction DeploymentUpdateType
+$cfromJSONKey :: FromJSONKeyFunction DeploymentUpdateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679260901"><span id="local-6989586621679260903"><span id="local-6989586621679260905"><span id="local-6989586621679260907"><span class="annot"><span class="annottext">[DeploymentUpdateType] -&gt; Encoding
+[DeploymentUpdateType] -&gt; Value
+DeploymentUpdateType -&gt; Encoding
+DeploymentUpdateType -&gt; Value
+(DeploymentUpdateType -&gt; Value)
+-&gt; (DeploymentUpdateType -&gt; Encoding)
+-&gt; ([DeploymentUpdateType] -&gt; Value)
+-&gt; ([DeploymentUpdateType] -&gt; Encoding)
+-&gt; ToJSON DeploymentUpdateType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeploymentUpdateType] -&gt; Encoding
+$ctoEncodingList :: [DeploymentUpdateType] -&gt; Encoding
+toJSONList :: [DeploymentUpdateType] -&gt; Value
+$ctoJSONList :: [DeploymentUpdateType] -&gt; Value
+toEncoding :: DeploymentUpdateType -&gt; Encoding
+$ctoEncoding :: DeploymentUpdateType -&gt; Encoding
+toJSON :: DeploymentUpdateType -&gt; Value
+$ctoJSON :: DeploymentUpdateType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679260896"><span id="local-6989586621679260898"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentUpdateType]
+ToJSONKeyFunction DeploymentUpdateType
+ToJSONKeyFunction DeploymentUpdateType
+-&gt; ToJSONKeyFunction [DeploymentUpdateType]
+-&gt; ToJSONKey DeploymentUpdateType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeploymentUpdateType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeploymentUpdateType]
+toJSONKey :: ToJSONKeyFunction DeploymentUpdateType
+$ctoJSONKey :: ToJSONKeyFunction DeploymentUpdateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679260893"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentUpdateType
+([Node] -&gt; Either String DeploymentUpdateType)
+-&gt; FromXML DeploymentUpdateType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeploymentUpdateType
+$cparseXML :: [Node] -&gt; Either String DeploymentUpdateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679260890"><span class="annot"><span class="annottext">DeploymentUpdateType -&gt; XML
+(DeploymentUpdateType -&gt; XML) -&gt; ToXML DeploymentUpdateType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeploymentUpdateType -&gt; XML
+$ctoXML :: DeploymentUpdateType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_CURRENT_VERSION"><span class="hs-identifier hs-type">DeploymentUpdateType_CURRENT_VERSION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType"><span class="hs-identifier hs-type">DeploymentUpdateType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentUpdateType_CURRENT_VERSION"><span id="%24mDeploymentUpdateType_CURRENT_VERSION"><span id="DeploymentUpdateType_CURRENT_VERSION"><span class="annot"><span class="annottext">$bDeploymentUpdateType_CURRENT_VERSION :: DeploymentUpdateType
+$mDeploymentUpdateType_CURRENT_VERSION :: forall r. DeploymentUpdateType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#%24bDeploymentUpdateType_CURRENT_VERSION"><span class="hs-identifier hs-var hs-var hs-var">DeploymentUpdateType_CURRENT_VERSION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType%27"><span class="hs-identifier hs-type">DeploymentUpdateType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CURRENT_VERSION&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_MAJOR_VERSION"><span class="hs-identifier hs-type">DeploymentUpdateType_MAJOR_VERSION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType"><span class="hs-identifier hs-type">DeploymentUpdateType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentUpdateType_MAJOR_VERSION"><span id="%24mDeploymentUpdateType_MAJOR_VERSION"><span id="DeploymentUpdateType_MAJOR_VERSION"><span class="annot"><span class="annottext">$bDeploymentUpdateType_MAJOR_VERSION :: DeploymentUpdateType
+$mDeploymentUpdateType_MAJOR_VERSION :: forall r. DeploymentUpdateType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#%24bDeploymentUpdateType_MAJOR_VERSION"><span class="hs-identifier hs-var hs-var hs-var">DeploymentUpdateType_MAJOR_VERSION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType%27"><span class="hs-identifier hs-type">DeploymentUpdateType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MAJOR_VERSION&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_MINOR_VERSION"><span class="hs-identifier hs-type">DeploymentUpdateType_MINOR_VERSION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType"><span class="hs-identifier hs-type">DeploymentUpdateType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentUpdateType_MINOR_VERSION"><span id="%24mDeploymentUpdateType_MINOR_VERSION"><span id="DeploymentUpdateType_MINOR_VERSION"><span class="annot"><span class="annottext">$bDeploymentUpdateType_MINOR_VERSION :: DeploymentUpdateType
+$mDeploymentUpdateType_MINOR_VERSION :: forall r. DeploymentUpdateType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#%24bDeploymentUpdateType_MINOR_VERSION"><span class="hs-identifier hs-var hs-var hs-var">DeploymentUpdateType_MINOR_VERSION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType%27"><span class="hs-identifier hs-type">DeploymentUpdateType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MINOR_VERSION&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_NONE"><span class="hs-identifier hs-type">DeploymentUpdateType_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType"><span class="hs-identifier hs-type">DeploymentUpdateType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentUpdateType_NONE"><span id="%24mDeploymentUpdateType_NONE"><span id="DeploymentUpdateType_NONE"><span class="annot"><span class="annottext">$bDeploymentUpdateType_NONE :: DeploymentUpdateType
+$mDeploymentUpdateType_NONE :: forall r. DeploymentUpdateType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#%24bDeploymentUpdateType_NONE"><span class="hs-identifier hs-var hs-var hs-var">DeploymentUpdateType_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType%27"><span class="hs-identifier hs-type">DeploymentUpdateType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_CURRENT_VERSION"><span class="hs-pragma hs-type">DeploymentUpdateType_CURRENT_VERSION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_MAJOR_VERSION"><span class="hs-pragma hs-type">DeploymentUpdateType_MAJOR_VERSION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_MINOR_VERSION"><span class="hs-pragma hs-type">DeploymentUpdateType_MINOR_VERSION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType_NONE"><span class="hs-pragma hs-type">DeploymentUpdateType_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType%27"><span class="hs-pragma hs-type">DeploymentUpdateType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

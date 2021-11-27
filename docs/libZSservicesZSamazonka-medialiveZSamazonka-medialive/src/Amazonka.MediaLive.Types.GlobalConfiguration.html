@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.GlobalConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.GlobalConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationInputEndAction.html"><span class="hs-identifier">Amazonka.MediaLive.Types.GlobalConfigurationInputEndAction</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationLowFramerateInputs.html"><span class="hs-identifier">Amazonka.MediaLive.Types.GlobalConfigurationLowFramerateInputs</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationOutputLockingMode.html"><span class="hs-identifier">Amazonka.MediaLive.Types.GlobalConfigurationOutputLockingMode</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationOutputTimingSource.html"><span class="hs-identifier">Amazonka.MediaLive.Types.GlobalConfigurationOutputTimingSource</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputLossBehavior.html"><span class="hs-identifier">Amazonka.MediaLive.Types.InputLossBehavior</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Global Configuration</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newGlobalConfiguration' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679895790"><span id="local-6989586621679895791"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlobalConfiguration"><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-var">GlobalConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlobalConfiguration%27"><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-var">GlobalConfiguration'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates how MediaLive pipelines are synchronized. PIPELINE_LOCKING -</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- MediaLive will attempt to synchronize the output of each pipeline to the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- other. EPOCH_LOCKING - MediaLive will attempt to synchronize the output</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- of each pipeline to the Unix epoch.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AoutputLockingMode%3AGlobalConfiguration%27"><span class="annot"><span class="annottext">GlobalConfiguration -&gt; Maybe GlobalConfigurationOutputLockingMode
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AoutputLockingMode%3AGlobalConfiguration%27"><span class="hs-identifier hs-var hs-var">outputLockingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationOutputLockingMode.html#GlobalConfigurationOutputLockingMode"><span class="hs-identifier hs-type">GlobalConfigurationOutputLockingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Settings for system actions when input is lost.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AinputLossBehavior%3AGlobalConfiguration%27"><span class="annot"><span class="annottext">GlobalConfiguration -&gt; Maybe InputLossBehavior
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AinputLossBehavior%3AGlobalConfiguration%27"><span class="hs-identifier hs-var hs-var">inputLossBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Value to set the initial audio gain for the Live Event.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AinitialAudioGain%3AGlobalConfiguration%27"><span class="annot"><span class="annottext">GlobalConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AinitialAudioGain%3AGlobalConfiguration%27"><span class="hs-identifier hs-var hs-var">initialAudioGain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Adjusts video input buffer for streams with very low video framerates.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- This is commonly set to enabled for music channels with less than one</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- video frame per second.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AsupportLowFramerateInputs%3AGlobalConfiguration%27"><span class="annot"><span class="annottext">GlobalConfiguration -&gt; Maybe GlobalConfigurationLowFramerateInputs
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AsupportLowFramerateInputs%3AGlobalConfiguration%27"><span class="hs-identifier hs-var hs-var">supportLowFramerateInputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationLowFramerateInputs.html#GlobalConfigurationLowFramerateInputs"><span class="hs-identifier hs-type">GlobalConfigurationLowFramerateInputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Indicates the action to take when the current input completes (e.g.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- end-of-file). When switchAndLoopInputs is configured the encoder will</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- restart at the beginning of the first input. When \&quot;none\&quot; is configured</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- the encoder will transcode either black, a solid color, or a user</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- specified slate images per the \&quot;Input Loss Behavior\&quot; configuration</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- until the next input switch occurs (which is controlled through the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Channel Schedule API).</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AinputEndAction%3AGlobalConfiguration%27"><span class="annot"><span class="annottext">GlobalConfiguration -&gt; Maybe GlobalConfigurationInputEndAction
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AinputEndAction%3AGlobalConfiguration%27"><span class="hs-identifier hs-var hs-var">inputEndAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationInputEndAction.html#GlobalConfigurationInputEndAction"><span class="hs-identifier hs-type">GlobalConfigurationInputEndAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Indicates whether the rate of frames emitted by the Live encoder should</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- be paced by its system clock (which optionally may be locked to another</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- source via NTP) or should be locked to the clock of the source that is</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- providing the input stream.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AoutputTimingSource%3AGlobalConfiguration%27"><span class="annot"><span class="annottext">GlobalConfiguration -&gt; Maybe GlobalConfigurationOutputTimingSource
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AoutputTimingSource%3AGlobalConfiguration%27"><span class="hs-identifier hs-var hs-var">outputTimingSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationOutputTimingSource.html#GlobalConfigurationOutputTimingSource"><span class="hs-identifier hs-type">GlobalConfigurationOutputTimingSource</span></a></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679895779"><span id="local-6989586621679895781"><span class="annot"><span class="annottext">GlobalConfiguration -&gt; GlobalConfiguration -&gt; Bool
+(GlobalConfiguration -&gt; GlobalConfiguration -&gt; Bool)
+-&gt; (GlobalConfiguration -&gt; GlobalConfiguration -&gt; Bool)
+-&gt; Eq GlobalConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GlobalConfiguration -&gt; GlobalConfiguration -&gt; Bool
+$c/= :: GlobalConfiguration -&gt; GlobalConfiguration -&gt; Bool
+== :: GlobalConfiguration -&gt; GlobalConfiguration -&gt; Bool
+$c== :: GlobalConfiguration -&gt; GlobalConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679895770"><span id="local-6989586621679895772"><span id="local-6989586621679895774"><span id="local-6989586621679895776"><span class="annot"><span class="annottext">ReadPrec [GlobalConfiguration]
+ReadPrec GlobalConfiguration
+Int -&gt; ReadS GlobalConfiguration
+ReadS [GlobalConfiguration]
+(Int -&gt; ReadS GlobalConfiguration)
+-&gt; ReadS [GlobalConfiguration]
+-&gt; ReadPrec GlobalConfiguration
+-&gt; ReadPrec [GlobalConfiguration]
+-&gt; Read GlobalConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GlobalConfiguration]
+$creadListPrec :: ReadPrec [GlobalConfiguration]
+readPrec :: ReadPrec GlobalConfiguration
+$creadPrec :: ReadPrec GlobalConfiguration
+readList :: ReadS [GlobalConfiguration]
+$creadList :: ReadS [GlobalConfiguration]
+readsPrec :: Int -&gt; ReadS GlobalConfiguration
+$creadsPrec :: Int -&gt; ReadS GlobalConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679895763"><span id="local-6989586621679895765"><span id="local-6989586621679895767"><span class="annot"><span class="annottext">Int -&gt; GlobalConfiguration -&gt; ShowS
+[GlobalConfiguration] -&gt; ShowS
+GlobalConfiguration -&gt; String
+(Int -&gt; GlobalConfiguration -&gt; ShowS)
+-&gt; (GlobalConfiguration -&gt; String)
+-&gt; ([GlobalConfiguration] -&gt; ShowS)
+-&gt; Show GlobalConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GlobalConfiguration] -&gt; ShowS
+$cshowList :: [GlobalConfiguration] -&gt; ShowS
+show :: GlobalConfiguration -&gt; String
+$cshow :: GlobalConfiguration -&gt; String
+showsPrec :: Int -&gt; GlobalConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; GlobalConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GlobalConfiguration -&gt; Rep GlobalConfiguration x)
+-&gt; (forall x. Rep GlobalConfiguration x -&gt; GlobalConfiguration)
+-&gt; Generic GlobalConfiguration
+forall x. Rep GlobalConfiguration x -&gt; GlobalConfiguration
+forall x. GlobalConfiguration -&gt; Rep GlobalConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GlobalConfiguration x -&gt; GlobalConfiguration
+$cfrom :: forall x. GlobalConfiguration -&gt; Rep GlobalConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'GlobalConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'outputLockingMode', 'globalConfiguration_outputLockingMode' - Indicates how MediaLive pipelines are synchronized. PIPELINE_LOCKING -</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- MediaLive will attempt to synchronize the output of each pipeline to the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- other. EPOCH_LOCKING - MediaLive will attempt to synchronize the output</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- of each pipeline to the Unix epoch.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'inputLossBehavior', 'globalConfiguration_inputLossBehavior' - Settings for system actions when input is lost.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'initialAudioGain', 'globalConfiguration_initialAudioGain' - Value to set the initial audio gain for the Live Event.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'supportLowFramerateInputs', 'globalConfiguration_supportLowFramerateInputs' - Adjusts video input buffer for streams with very low video framerates.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- This is commonly set to enabled for music channels with less than one</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- video frame per second.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'inputEndAction', 'globalConfiguration_inputEndAction' - Indicates the action to take when the current input completes (e.g.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- end-of-file). When switchAndLoopInputs is configured the encoder will</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- restart at the beginning of the first input. When \&quot;none\&quot; is configured</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the encoder will transcode either black, a solid color, or a user</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- specified slate images per the \&quot;Input Loss Behavior\&quot; configuration</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- until the next input switch occurs (which is controlled through the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Channel Schedule API).</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'outputTimingSource', 'globalConfiguration_outputTimingSource' - Indicates whether the rate of frames emitted by the Live encoder should</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- be paced by its system clock (which optionally may be locked to another</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- source via NTP) or should be locked to the clock of the source that is</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- providing the input stream.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#newGlobalConfiguration"><span class="hs-identifier hs-type">newGlobalConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span>
+</span><span id="line-99"></span><span id="newGlobalConfiguration"><span class="annot"><span class="annottext">newGlobalConfiguration :: GlobalConfiguration
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#newGlobalConfiguration"><span class="hs-identifier hs-var hs-var">newGlobalConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">GlobalConfiguration' :: Maybe GlobalConfigurationOutputLockingMode
+-&gt; Maybe InputLossBehavior
+-&gt; Maybe Int
+-&gt; Maybe GlobalConfigurationLowFramerateInputs
+-&gt; Maybe GlobalConfigurationInputEndAction
+-&gt; Maybe GlobalConfigurationOutputTimingSource
+-&gt; GlobalConfiguration
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:outputLockingMode:GlobalConfiguration' :: Maybe GlobalConfigurationOutputLockingMode
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AoutputLockingMode%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">outputLockingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputLockingMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputLossBehavior:GlobalConfiguration' :: Maybe InputLossBehavior
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AinputLossBehavior%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">inputLossBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossBehavior
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:initialAudioGain:GlobalConfiguration' :: Maybe Int
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AinitialAudioGain%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">initialAudioGain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportLowFramerateInputs:GlobalConfiguration' :: Maybe GlobalConfigurationLowFramerateInputs
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AsupportLowFramerateInputs%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">supportLowFramerateInputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationLowFramerateInputs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputEndAction:GlobalConfiguration' :: Maybe GlobalConfigurationInputEndAction
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AinputEndAction%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">inputEndAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationInputEndAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputTimingSource:GlobalConfiguration' :: Maybe GlobalConfigurationOutputTimingSource
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AoutputTimingSource%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">outputTimingSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputTimingSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Indicates how MediaLive pipelines are synchronized. PIPELINE_LOCKING -</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- MediaLive will attempt to synchronize the output of each pipeline to the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- other. EPOCH_LOCKING - MediaLive will attempt to synchronize the output</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- of each pipeline to the Unix epoch.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_outputLockingMode"><span class="hs-identifier hs-type">globalConfiguration_outputLockingMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationOutputLockingMode.html#GlobalConfigurationOutputLockingMode"><span class="hs-identifier hs-type">GlobalConfigurationOutputLockingMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="globalConfiguration_outputLockingMode"><span class="annot"><span class="annottext">globalConfiguration_outputLockingMode :: (Maybe GlobalConfigurationOutputLockingMode
+ -&gt; f (Maybe GlobalConfigurationOutputLockingMode))
+-&gt; GlobalConfiguration -&gt; f GlobalConfiguration
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_outputLockingMode"><span class="hs-identifier hs-var hs-var">globalConfiguration_outputLockingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalConfiguration -&gt; Maybe GlobalConfigurationOutputLockingMode)
+-&gt; (GlobalConfiguration
+    -&gt; Maybe GlobalConfigurationOutputLockingMode
+    -&gt; GlobalConfiguration)
+-&gt; Lens
+     GlobalConfiguration
+     GlobalConfiguration
+     (Maybe GlobalConfigurationOutputLockingMode)
+     (Maybe GlobalConfigurationOutputLockingMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895754"><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputLockingMode
+outputLockingMode :: Maybe GlobalConfigurationOutputLockingMode
+$sel:outputLockingMode:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe GlobalConfigurationOutputLockingMode
+</span><a href="#local-6989586621679895754"><span class="hs-identifier hs-var hs-var">outputLockingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputLockingMode
+</span><a href="#local-6989586621679895754"><span class="hs-identifier hs-var">outputLockingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895753"><span class="annot"><span class="annottext">s :: GlobalConfiguration
+</span><a href="#local-6989586621679895753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895752"><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputLockingMode
+</span><a href="#local-6989586621679895752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalConfiguration
+</span><a href="#local-6989586621679895753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLockingMode:GlobalConfiguration' :: Maybe GlobalConfigurationOutputLockingMode
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AoutputLockingMode%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">outputLockingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputLockingMode
+</span><a href="#local-6989586621679895752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Settings for system actions when input is lost.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_inputLossBehavior"><span class="hs-identifier hs-type">globalConfiguration_inputLossBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="globalConfiguration_inputLossBehavior"><span class="annot"><span class="annottext">globalConfiguration_inputLossBehavior :: (Maybe InputLossBehavior -&gt; f (Maybe InputLossBehavior))
+-&gt; GlobalConfiguration -&gt; f GlobalConfiguration
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_inputLossBehavior"><span class="hs-identifier hs-var hs-var">globalConfiguration_inputLossBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalConfiguration -&gt; Maybe InputLossBehavior)
+-&gt; (GlobalConfiguration
+    -&gt; Maybe InputLossBehavior -&gt; GlobalConfiguration)
+-&gt; Lens
+     GlobalConfiguration
+     GlobalConfiguration
+     (Maybe InputLossBehavior)
+     (Maybe InputLossBehavior)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895750"><span class="annot"><span class="annottext">Maybe InputLossBehavior
+inputLossBehavior :: Maybe InputLossBehavior
+$sel:inputLossBehavior:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe InputLossBehavior
+</span><a href="#local-6989586621679895750"><span class="hs-identifier hs-var hs-var">inputLossBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossBehavior
+</span><a href="#local-6989586621679895750"><span class="hs-identifier hs-var">inputLossBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895749"><span class="annot"><span class="annottext">s :: GlobalConfiguration
+</span><a href="#local-6989586621679895749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895748"><span class="annot"><span class="annottext">Maybe InputLossBehavior
+</span><a href="#local-6989586621679895748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalConfiguration
+</span><a href="#local-6989586621679895749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossBehavior:GlobalConfiguration' :: Maybe InputLossBehavior
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AinputLossBehavior%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">inputLossBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossBehavior
+</span><a href="#local-6989586621679895748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Value to set the initial audio gain for the Live Event.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_initialAudioGain"><span class="hs-identifier hs-type">globalConfiguration_initialAudioGain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="globalConfiguration_initialAudioGain"><span class="annot"><span class="annottext">globalConfiguration_initialAudioGain :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GlobalConfiguration -&gt; f GlobalConfiguration
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_initialAudioGain"><span class="hs-identifier hs-var hs-var">globalConfiguration_initialAudioGain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalConfiguration -&gt; Maybe Int)
+-&gt; (GlobalConfiguration -&gt; Maybe Int -&gt; GlobalConfiguration)
+-&gt; Lens
+     GlobalConfiguration GlobalConfiguration (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895746"><span class="annot"><span class="annottext">Maybe Int
+initialAudioGain :: Maybe Int
+$sel:initialAudioGain:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679895746"><span class="hs-identifier hs-var hs-var">initialAudioGain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679895746"><span class="hs-identifier hs-var">initialAudioGain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895745"><span class="annot"><span class="annottext">s :: GlobalConfiguration
+</span><a href="#local-6989586621679895745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895744"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679895744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalConfiguration
+</span><a href="#local-6989586621679895745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialAudioGain:GlobalConfiguration' :: Maybe Int
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AinitialAudioGain%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">initialAudioGain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679895744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Adjusts video input buffer for streams with very low video framerates.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- This is commonly set to enabled for music channels with less than one</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- video frame per second.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_supportLowFramerateInputs"><span class="hs-identifier hs-type">globalConfiguration_supportLowFramerateInputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationLowFramerateInputs.html#GlobalConfigurationLowFramerateInputs"><span class="hs-identifier hs-type">GlobalConfigurationLowFramerateInputs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="globalConfiguration_supportLowFramerateInputs"><span class="annot"><span class="annottext">globalConfiguration_supportLowFramerateInputs :: (Maybe GlobalConfigurationLowFramerateInputs
+ -&gt; f (Maybe GlobalConfigurationLowFramerateInputs))
+-&gt; GlobalConfiguration -&gt; f GlobalConfiguration
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_supportLowFramerateInputs"><span class="hs-identifier hs-var hs-var">globalConfiguration_supportLowFramerateInputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalConfiguration
+ -&gt; Maybe GlobalConfigurationLowFramerateInputs)
+-&gt; (GlobalConfiguration
+    -&gt; Maybe GlobalConfigurationLowFramerateInputs
+    -&gt; GlobalConfiguration)
+-&gt; Lens
+     GlobalConfiguration
+     GlobalConfiguration
+     (Maybe GlobalConfigurationLowFramerateInputs)
+     (Maybe GlobalConfigurationLowFramerateInputs)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895742"><span class="annot"><span class="annottext">Maybe GlobalConfigurationLowFramerateInputs
+supportLowFramerateInputs :: Maybe GlobalConfigurationLowFramerateInputs
+$sel:supportLowFramerateInputs:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe GlobalConfigurationLowFramerateInputs
+</span><a href="#local-6989586621679895742"><span class="hs-identifier hs-var hs-var">supportLowFramerateInputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationLowFramerateInputs
+</span><a href="#local-6989586621679895742"><span class="hs-identifier hs-var">supportLowFramerateInputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895741"><span class="annot"><span class="annottext">s :: GlobalConfiguration
+</span><a href="#local-6989586621679895741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895740"><span class="annot"><span class="annottext">Maybe GlobalConfigurationLowFramerateInputs
+</span><a href="#local-6989586621679895740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalConfiguration
+</span><a href="#local-6989586621679895741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportLowFramerateInputs:GlobalConfiguration' :: Maybe GlobalConfigurationLowFramerateInputs
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AsupportLowFramerateInputs%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">supportLowFramerateInputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationLowFramerateInputs
+</span><a href="#local-6989586621679895740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Indicates the action to take when the current input completes (e.g.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- end-of-file). When switchAndLoopInputs is configured the encoder will</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- restart at the beginning of the first input. When \&quot;none\&quot; is configured</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the encoder will transcode either black, a solid color, or a user</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- specified slate images per the \&quot;Input Loss Behavior\&quot; configuration</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- until the next input switch occurs (which is controlled through the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Channel Schedule API).</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_inputEndAction"><span class="hs-identifier hs-type">globalConfiguration_inputEndAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationInputEndAction.html#GlobalConfigurationInputEndAction"><span class="hs-identifier hs-type">GlobalConfigurationInputEndAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="globalConfiguration_inputEndAction"><span class="annot"><span class="annottext">globalConfiguration_inputEndAction :: (Maybe GlobalConfigurationInputEndAction
+ -&gt; f (Maybe GlobalConfigurationInputEndAction))
+-&gt; GlobalConfiguration -&gt; f GlobalConfiguration
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_inputEndAction"><span class="hs-identifier hs-var hs-var">globalConfiguration_inputEndAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalConfiguration -&gt; Maybe GlobalConfigurationInputEndAction)
+-&gt; (GlobalConfiguration
+    -&gt; Maybe GlobalConfigurationInputEndAction -&gt; GlobalConfiguration)
+-&gt; Lens
+     GlobalConfiguration
+     GlobalConfiguration
+     (Maybe GlobalConfigurationInputEndAction)
+     (Maybe GlobalConfigurationInputEndAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895738"><span class="annot"><span class="annottext">Maybe GlobalConfigurationInputEndAction
+inputEndAction :: Maybe GlobalConfigurationInputEndAction
+$sel:inputEndAction:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe GlobalConfigurationInputEndAction
+</span><a href="#local-6989586621679895738"><span class="hs-identifier hs-var hs-var">inputEndAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationInputEndAction
+</span><a href="#local-6989586621679895738"><span class="hs-identifier hs-var">inputEndAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895737"><span class="annot"><span class="annottext">s :: GlobalConfiguration
+</span><a href="#local-6989586621679895737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895736"><span class="annot"><span class="annottext">Maybe GlobalConfigurationInputEndAction
+</span><a href="#local-6989586621679895736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalConfiguration
+</span><a href="#local-6989586621679895737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputEndAction:GlobalConfiguration' :: Maybe GlobalConfigurationInputEndAction
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AinputEndAction%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">inputEndAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationInputEndAction
+</span><a href="#local-6989586621679895736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Indicates whether the rate of frames emitted by the Live encoder should</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- be paced by its system clock (which optionally may be locked to another</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- source via NTP) or should be locked to the clock of the source that is</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- providing the input stream.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_outputTimingSource"><span class="hs-identifier hs-type">globalConfiguration_outputTimingSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfigurationOutputTimingSource.html#GlobalConfigurationOutputTimingSource"><span class="hs-identifier hs-type">GlobalConfigurationOutputTimingSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="globalConfiguration_outputTimingSource"><span class="annot"><span class="annottext">globalConfiguration_outputTimingSource :: (Maybe GlobalConfigurationOutputTimingSource
+ -&gt; f (Maybe GlobalConfigurationOutputTimingSource))
+-&gt; GlobalConfiguration -&gt; f GlobalConfiguration
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#globalConfiguration_outputTimingSource"><span class="hs-identifier hs-var hs-var">globalConfiguration_outputTimingSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalConfiguration
+ -&gt; Maybe GlobalConfigurationOutputTimingSource)
+-&gt; (GlobalConfiguration
+    -&gt; Maybe GlobalConfigurationOutputTimingSource
+    -&gt; GlobalConfiguration)
+-&gt; Lens
+     GlobalConfiguration
+     GlobalConfiguration
+     (Maybe GlobalConfigurationOutputTimingSource)
+     (Maybe GlobalConfigurationOutputTimingSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895734"><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputTimingSource
+outputTimingSource :: Maybe GlobalConfigurationOutputTimingSource
+$sel:outputTimingSource:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe GlobalConfigurationOutputTimingSource
+</span><a href="#local-6989586621679895734"><span class="hs-identifier hs-var hs-var">outputTimingSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputTimingSource
+</span><a href="#local-6989586621679895734"><span class="hs-identifier hs-var">outputTimingSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895733"><span class="annot"><span class="annottext">s :: GlobalConfiguration
+</span><a href="#local-6989586621679895733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895732"><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputTimingSource
+</span><a href="#local-6989586621679895732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalConfiguration
+</span><a href="#local-6989586621679895733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputTimingSource:GlobalConfiguration' :: Maybe GlobalConfigurationOutputTimingSource
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#%24sel%3AoutputTimingSource%3AGlobalConfiguration%27"><span class="hs-identifier hs-var">outputTimingSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputTimingSource
+</span><a href="#local-6989586621679895732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895729"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679895727"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GlobalConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GlobalConfiguration)
+-&gt; Value
+-&gt; Parser GlobalConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GlobalConfiguration&quot;</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679895724"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679895724"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputLockingMode
+-&gt; Maybe InputLossBehavior
+-&gt; Maybe Int
+-&gt; Maybe GlobalConfigurationLowFramerateInputs
+-&gt; Maybe GlobalConfigurationInputEndAction
+-&gt; Maybe GlobalConfigurationOutputTimingSource
+-&gt; GlobalConfiguration
+</span><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-var">GlobalConfiguration'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GlobalConfigurationOutputLockingMode
+ -&gt; Maybe InputLossBehavior
+ -&gt; Maybe Int
+ -&gt; Maybe GlobalConfigurationLowFramerateInputs
+ -&gt; Maybe GlobalConfigurationInputEndAction
+ -&gt; Maybe GlobalConfigurationOutputTimingSource
+ -&gt; GlobalConfiguration)
+-&gt; Parser (Maybe GlobalConfigurationOutputLockingMode)
+-&gt; Parser
+     (Maybe InputLossBehavior
+      -&gt; Maybe Int
+      -&gt; Maybe GlobalConfigurationLowFramerateInputs
+      -&gt; Maybe GlobalConfigurationInputEndAction
+      -&gt; Maybe GlobalConfigurationOutputTimingSource
+      -&gt; GlobalConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679895724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe GlobalConfigurationOutputLockingMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputLockingMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputLossBehavior
+   -&gt; Maybe Int
+   -&gt; Maybe GlobalConfigurationLowFramerateInputs
+   -&gt; Maybe GlobalConfigurationInputEndAction
+   -&gt; Maybe GlobalConfigurationOutputTimingSource
+   -&gt; GlobalConfiguration)
+-&gt; Parser (Maybe InputLossBehavior)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe GlobalConfigurationLowFramerateInputs
+      -&gt; Maybe GlobalConfigurationInputEndAction
+      -&gt; Maybe GlobalConfigurationOutputTimingSource
+      -&gt; GlobalConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679895724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLossBehavior)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputLossBehavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe GlobalConfigurationLowFramerateInputs
+   -&gt; Maybe GlobalConfigurationInputEndAction
+   -&gt; Maybe GlobalConfigurationOutputTimingSource
+   -&gt; GlobalConfiguration)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe GlobalConfigurationLowFramerateInputs
+      -&gt; Maybe GlobalConfigurationInputEndAction
+      -&gt; Maybe GlobalConfigurationOutputTimingSource
+      -&gt; GlobalConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679895724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initialAudioGain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GlobalConfigurationLowFramerateInputs
+   -&gt; Maybe GlobalConfigurationInputEndAction
+   -&gt; Maybe GlobalConfigurationOutputTimingSource
+   -&gt; GlobalConfiguration)
+-&gt; Parser (Maybe GlobalConfigurationLowFramerateInputs)
+-&gt; Parser
+     (Maybe GlobalConfigurationInputEndAction
+      -&gt; Maybe GlobalConfigurationOutputTimingSource
+      -&gt; GlobalConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679895724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe GlobalConfigurationLowFramerateInputs)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportLowFramerateInputs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GlobalConfigurationInputEndAction
+   -&gt; Maybe GlobalConfigurationOutputTimingSource
+   -&gt; GlobalConfiguration)
+-&gt; Parser (Maybe GlobalConfigurationInputEndAction)
+-&gt; Parser
+     (Maybe GlobalConfigurationOutputTimingSource
+      -&gt; GlobalConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679895724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GlobalConfigurationInputEndAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputEndAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GlobalConfigurationOutputTimingSource
+   -&gt; GlobalConfiguration)
+-&gt; Parser (Maybe GlobalConfigurationOutputTimingSource)
+-&gt; Parser GlobalConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679895724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe GlobalConfigurationOutputTimingSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputTimingSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895718"><span id="local-6989586621679895720"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895715"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895707"><span id="local-6989586621679895709"><span id="local-6989586621679895711"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration"><span class="hs-identifier hs-type">GlobalConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679895705"><span class="annot"><span class="annottext">toJSON :: GlobalConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.GlobalConfiguration.html#GlobalConfiguration%27"><span class="hs-identifier hs-type">GlobalConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895698"><span id="local-6989586621679895699"><span id="local-6989586621679895700"><span id="local-6989586621679895701"><span id="local-6989586621679895702"><span id="local-6989586621679895703"><span class="annot"><span class="annottext">Maybe Int
+Maybe GlobalConfigurationInputEndAction
+Maybe GlobalConfigurationLowFramerateInputs
+Maybe GlobalConfigurationOutputLockingMode
+Maybe GlobalConfigurationOutputTimingSource
+Maybe InputLossBehavior
+outputTimingSource :: Maybe GlobalConfigurationOutputTimingSource
+inputEndAction :: Maybe GlobalConfigurationInputEndAction
+supportLowFramerateInputs :: Maybe GlobalConfigurationLowFramerateInputs
+initialAudioGain :: Maybe Int
+inputLossBehavior :: Maybe InputLossBehavior
+outputLockingMode :: Maybe GlobalConfigurationOutputLockingMode
+$sel:outputTimingSource:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe GlobalConfigurationOutputTimingSource
+$sel:inputEndAction:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe GlobalConfigurationInputEndAction
+$sel:supportLowFramerateInputs:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe GlobalConfigurationLowFramerateInputs
+$sel:initialAudioGain:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe Int
+$sel:inputLossBehavior:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe InputLossBehavior
+$sel:outputLockingMode:GlobalConfiguration' :: GlobalConfiguration -&gt; Maybe GlobalConfigurationOutputLockingMode
+</span><a href="#local-6989586621679895698"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputLockingMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GlobalConfigurationOutputLockingMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">(GlobalConfigurationOutputLockingMode -&gt; Pair)
+-&gt; Maybe GlobalConfigurationOutputLockingMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputLockingMode
+</span><a href="#local-6989586621679895703"><span class="hs-identifier hs-var">outputLockingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputLossBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputLossBehavior -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(InputLossBehavior -&gt; Pair)
+-&gt; Maybe InputLossBehavior -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLossBehavior
+</span><a href="#local-6989586621679895702"><span class="hs-identifier hs-var">inputLossBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initialAudioGain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679895701"><span class="hs-identifier hs-var">initialAudioGain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportLowFramerateInputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GlobalConfigurationLowFramerateInputs -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(GlobalConfigurationLowFramerateInputs -&gt; Pair)
+-&gt; Maybe GlobalConfigurationLowFramerateInputs -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationLowFramerateInputs
+</span><a href="#local-6989586621679895700"><span class="hs-identifier hs-var">supportLowFramerateInputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputEndAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GlobalConfigurationInputEndAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">(GlobalConfigurationInputEndAction -&gt; Pair)
+-&gt; Maybe GlobalConfigurationInputEndAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationInputEndAction
+</span><a href="#local-6989586621679895699"><span class="hs-identifier hs-var">inputEndAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputTimingSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GlobalConfigurationOutputTimingSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(GlobalConfigurationOutputTimingSource -&gt; Pair)
+-&gt; Maybe GlobalConfigurationOutputTimingSource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GlobalConfigurationOutputTimingSource
+</span><a href="#local-6989586621679895698"><span class="hs-identifier hs-var">outputTimingSource</span></a></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span></pre></body></html>

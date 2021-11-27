@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf"><span class="hs-identifier">Ac3DynamicRangeCompressionRf</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_FILM_LIGHT"><span class="hs-identifier">Ac3DynamicRangeCompressionRf_FILM_LIGHT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_FILM_STANDARD"><span class="hs-identifier">Ac3DynamicRangeCompressionRf_FILM_STANDARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_MUSIC_LIGHT"><span class="hs-identifier">Ac3DynamicRangeCompressionRf_MUSIC_LIGHT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_MUSIC_STANDARD"><span class="hs-identifier">Ac3DynamicRangeCompressionRf_MUSIC_STANDARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_NONE"><span class="hs-identifier">Ac3DynamicRangeCompressionRf_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_SPEECH"><span class="hs-identifier">Ac3DynamicRangeCompressionRf_SPEECH</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | Choose the Dolby Digital dynamic range control (DRC) profile that</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- MediaConvert uses when encoding the metadata in the Dolby Digital stream</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- for the RF operating mode. Related setting: When you use this setting,</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- MediaConvert ignores any value you provide for Dynamic range compression</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- profile (DynamicRangeCompressionProfile). For information about the</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Dolby Digital DRC operating modes and profiles, see the Dynamic Range</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Control chapter of the Dolby Metadata Guide at</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.</span><span>
+</span><span id="line-44"></span><span id="local-6989586621679938438"><span id="local-6989586621679938439"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ac3DynamicRangeCompressionRf"><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf"><span class="hs-identifier hs-var">Ac3DynamicRangeCompressionRf</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3DynamicRangeCompressionRf%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf%27"><span class="hs-identifier hs-var">Ac3DynamicRangeCompressionRf'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAc3DynamicRangeCompressionRf"><span class="annot"><span class="annottext">Ac3DynamicRangeCompressionRf -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#fromAc3DynamicRangeCompressionRf"><span class="hs-identifier hs-var hs-var">fromAc3DynamicRangeCompressionRf</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938430"><span id="local-6989586621679938432"><span id="local-6989586621679938434"><span class="annot"><span class="annottext">Int -&gt; Ac3DynamicRangeCompressionRf -&gt; ShowS
+[Ac3DynamicRangeCompressionRf] -&gt; ShowS
+Ac3DynamicRangeCompressionRf -&gt; String
+(Int -&gt; Ac3DynamicRangeCompressionRf -&gt; ShowS)
+-&gt; (Ac3DynamicRangeCompressionRf -&gt; String)
+-&gt; ([Ac3DynamicRangeCompressionRf] -&gt; ShowS)
+-&gt; Show Ac3DynamicRangeCompressionRf
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Ac3DynamicRangeCompressionRf] -&gt; ShowS
+$cshowList :: [Ac3DynamicRangeCompressionRf] -&gt; ShowS
+show :: Ac3DynamicRangeCompressionRf -&gt; String
+$cshow :: Ac3DynamicRangeCompressionRf -&gt; String
+showsPrec :: Int -&gt; Ac3DynamicRangeCompressionRf -&gt; ShowS
+$cshowsPrec :: Int -&gt; Ac3DynamicRangeCompressionRf -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679938421"><span id="local-6989586621679938423"><span id="local-6989586621679938425"><span id="local-6989586621679938427"><span class="annot"><span class="annottext">ReadPrec [Ac3DynamicRangeCompressionRf]
+ReadPrec Ac3DynamicRangeCompressionRf
+Int -&gt; ReadS Ac3DynamicRangeCompressionRf
+ReadS [Ac3DynamicRangeCompressionRf]
+(Int -&gt; ReadS Ac3DynamicRangeCompressionRf)
+-&gt; ReadS [Ac3DynamicRangeCompressionRf]
+-&gt; ReadPrec Ac3DynamicRangeCompressionRf
+-&gt; ReadPrec [Ac3DynamicRangeCompressionRf]
+-&gt; Read Ac3DynamicRangeCompressionRf
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Ac3DynamicRangeCompressionRf]
+$creadListPrec :: ReadPrec [Ac3DynamicRangeCompressionRf]
+readPrec :: ReadPrec Ac3DynamicRangeCompressionRf
+$creadPrec :: ReadPrec Ac3DynamicRangeCompressionRf
+readList :: ReadS [Ac3DynamicRangeCompressionRf]
+$creadList :: ReadS [Ac3DynamicRangeCompressionRf]
+readsPrec :: Int -&gt; ReadS Ac3DynamicRangeCompressionRf
+$creadsPrec :: Int -&gt; ReadS Ac3DynamicRangeCompressionRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679938416"><span id="local-6989586621679938418"><span class="annot"><span class="annottext">Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+(Ac3DynamicRangeCompressionRf
+ -&gt; Ac3DynamicRangeCompressionRf -&gt; Bool)
+-&gt; (Ac3DynamicRangeCompressionRf
+    -&gt; Ac3DynamicRangeCompressionRf -&gt; Bool)
+-&gt; Eq Ac3DynamicRangeCompressionRf
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+$c/= :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+== :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+$c== :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679938400"><span id="local-6989586621679938402"><span id="local-6989586621679938404"><span id="local-6989586621679938406"><span id="local-6989586621679938408"><span id="local-6989586621679938410"><span id="local-6989586621679938412"><span class="annot"><span class="annottext">Eq Ac3DynamicRangeCompressionRf
+Eq Ac3DynamicRangeCompressionRf
+-&gt; (Ac3DynamicRangeCompressionRf
+    -&gt; Ac3DynamicRangeCompressionRf -&gt; Ordering)
+-&gt; (Ac3DynamicRangeCompressionRf
+    -&gt; Ac3DynamicRangeCompressionRf -&gt; Bool)
+-&gt; (Ac3DynamicRangeCompressionRf
+    -&gt; Ac3DynamicRangeCompressionRf -&gt; Bool)
+-&gt; (Ac3DynamicRangeCompressionRf
+    -&gt; Ac3DynamicRangeCompressionRf -&gt; Bool)
+-&gt; (Ac3DynamicRangeCompressionRf
+    -&gt; Ac3DynamicRangeCompressionRf -&gt; Bool)
+-&gt; (Ac3DynamicRangeCompressionRf
+    -&gt; Ac3DynamicRangeCompressionRf -&gt; Ac3DynamicRangeCompressionRf)
+-&gt; (Ac3DynamicRangeCompressionRf
+    -&gt; Ac3DynamicRangeCompressionRf -&gt; Ac3DynamicRangeCompressionRf)
+-&gt; Ord Ac3DynamicRangeCompressionRf
+Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Ordering
+Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Ac3DynamicRangeCompressionRf
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Ac3DynamicRangeCompressionRf
+$cmin :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Ac3DynamicRangeCompressionRf
+max :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Ac3DynamicRangeCompressionRf
+$cmax :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Ac3DynamicRangeCompressionRf
+&gt;= :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+$c&gt;= :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+&gt; :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+$c&gt; :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+&lt;= :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+$c&lt;= :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+&lt; :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+$c&lt; :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Bool
+compare :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Ordering
+$ccompare :: Ac3DynamicRangeCompressionRf
+-&gt; Ac3DynamicRangeCompressionRf -&gt; Ordering
+$cp1Ord :: Eq Ac3DynamicRangeCompressionRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Ac3DynamicRangeCompressionRf -&gt; Rep Ac3DynamicRangeCompressionRf x)
+-&gt; (forall x.
+    Rep Ac3DynamicRangeCompressionRf x -&gt; Ac3DynamicRangeCompressionRf)
+-&gt; Generic Ac3DynamicRangeCompressionRf
+forall x.
+Rep Ac3DynamicRangeCompressionRf x -&gt; Ac3DynamicRangeCompressionRf
+forall x.
+Ac3DynamicRangeCompressionRf -&gt; Rep Ac3DynamicRangeCompressionRf x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Ac3DynamicRangeCompressionRf x -&gt; Ac3DynamicRangeCompressionRf
+$cfrom :: forall x.
+Ac3DynamicRangeCompressionRf -&gt; Rep Ac3DynamicRangeCompressionRf x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938392"><span id="local-6989586621679938394"><span class="annot"><span class="annottext">Int -&gt; Ac3DynamicRangeCompressionRf -&gt; Int
+Ac3DynamicRangeCompressionRf -&gt; Int
+(Int -&gt; Ac3DynamicRangeCompressionRf -&gt; Int)
+-&gt; (Ac3DynamicRangeCompressionRf -&gt; Int)
+-&gt; Hashable Ac3DynamicRangeCompressionRf
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Ac3DynamicRangeCompressionRf -&gt; Int
+$chash :: Ac3DynamicRangeCompressionRf -&gt; Int
+hashWithSalt :: Int -&gt; Ac3DynamicRangeCompressionRf -&gt; Int
+$chashWithSalt :: Int -&gt; Ac3DynamicRangeCompressionRf -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679938389"><span class="annot"><span class="annottext">Ac3DynamicRangeCompressionRf -&gt; ()
+(Ac3DynamicRangeCompressionRf -&gt; ())
+-&gt; NFData Ac3DynamicRangeCompressionRf
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Ac3DynamicRangeCompressionRf -&gt; ()
+$crnf :: Ac3DynamicRangeCompressionRf -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679938386"><span class="annot"><span class="annottext">Text -&gt; Either String Ac3DynamicRangeCompressionRf
+(Text -&gt; Either String Ac3DynamicRangeCompressionRf)
+-&gt; FromText Ac3DynamicRangeCompressionRf
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Ac3DynamicRangeCompressionRf
+$cfromText :: Text -&gt; Either String Ac3DynamicRangeCompressionRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679938383"><span class="annot"><span class="annottext">Ac3DynamicRangeCompressionRf -&gt; Text
+(Ac3DynamicRangeCompressionRf -&gt; Text)
+-&gt; ToText Ac3DynamicRangeCompressionRf
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Ac3DynamicRangeCompressionRf -&gt; Text
+$ctoText :: Ac3DynamicRangeCompressionRf -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679938380"><span class="annot"><span class="annottext">Ac3DynamicRangeCompressionRf -&gt; ByteString
+(Ac3DynamicRangeCompressionRf -&gt; ByteString)
+-&gt; ToByteString Ac3DynamicRangeCompressionRf
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Ac3DynamicRangeCompressionRf -&gt; ByteString
+$ctoBS :: Ac3DynamicRangeCompressionRf -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679938377"><span class="annot"><span class="annottext">Ac3DynamicRangeCompressionRf -&gt; ByteStringBuilder
+(Ac3DynamicRangeCompressionRf -&gt; ByteStringBuilder)
+-&gt; ToLog Ac3DynamicRangeCompressionRf
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Ac3DynamicRangeCompressionRf -&gt; ByteStringBuilder
+$cbuild :: Ac3DynamicRangeCompressionRf -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679938374"><span class="annot"><span class="annottext">HeaderName -&gt; Ac3DynamicRangeCompressionRf -&gt; [Header]
+(HeaderName -&gt; Ac3DynamicRangeCompressionRf -&gt; [Header])
+-&gt; ToHeader Ac3DynamicRangeCompressionRf
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Ac3DynamicRangeCompressionRf -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Ac3DynamicRangeCompressionRf -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679938371"><span class="annot"><span class="annottext">Ac3DynamicRangeCompressionRf -&gt; QueryString
+(Ac3DynamicRangeCompressionRf -&gt; QueryString)
+-&gt; ToQuery Ac3DynamicRangeCompressionRf
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Ac3DynamicRangeCompressionRf -&gt; QueryString
+$ctoQuery :: Ac3DynamicRangeCompressionRf -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679938366"><span id="local-6989586621679938368"><span class="annot"><span class="annottext">Value -&gt; Parser [Ac3DynamicRangeCompressionRf]
+Value -&gt; Parser Ac3DynamicRangeCompressionRf
+(Value -&gt; Parser Ac3DynamicRangeCompressionRf)
+-&gt; (Value -&gt; Parser [Ac3DynamicRangeCompressionRf])
+-&gt; FromJSON Ac3DynamicRangeCompressionRf
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Ac3DynamicRangeCompressionRf]
+$cparseJSONList :: Value -&gt; Parser [Ac3DynamicRangeCompressionRf]
+parseJSON :: Value -&gt; Parser Ac3DynamicRangeCompressionRf
+$cparseJSON :: Value -&gt; Parser Ac3DynamicRangeCompressionRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679938361"><span id="local-6989586621679938363"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ac3DynamicRangeCompressionRf]
+FromJSONKeyFunction Ac3DynamicRangeCompressionRf
+FromJSONKeyFunction Ac3DynamicRangeCompressionRf
+-&gt; FromJSONKeyFunction [Ac3DynamicRangeCompressionRf]
+-&gt; FromJSONKey Ac3DynamicRangeCompressionRf
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Ac3DynamicRangeCompressionRf]
+$cfromJSONKeyList :: FromJSONKeyFunction [Ac3DynamicRangeCompressionRf]
+fromJSONKey :: FromJSONKeyFunction Ac3DynamicRangeCompressionRf
+$cfromJSONKey :: FromJSONKeyFunction Ac3DynamicRangeCompressionRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679938352"><span id="local-6989586621679938354"><span id="local-6989586621679938356"><span id="local-6989586621679938358"><span class="annot"><span class="annottext">[Ac3DynamicRangeCompressionRf] -&gt; Encoding
+[Ac3DynamicRangeCompressionRf] -&gt; Value
+Ac3DynamicRangeCompressionRf -&gt; Encoding
+Ac3DynamicRangeCompressionRf -&gt; Value
+(Ac3DynamicRangeCompressionRf -&gt; Value)
+-&gt; (Ac3DynamicRangeCompressionRf -&gt; Encoding)
+-&gt; ([Ac3DynamicRangeCompressionRf] -&gt; Value)
+-&gt; ([Ac3DynamicRangeCompressionRf] -&gt; Encoding)
+-&gt; ToJSON Ac3DynamicRangeCompressionRf
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Ac3DynamicRangeCompressionRf] -&gt; Encoding
+$ctoEncodingList :: [Ac3DynamicRangeCompressionRf] -&gt; Encoding
+toJSONList :: [Ac3DynamicRangeCompressionRf] -&gt; Value
+$ctoJSONList :: [Ac3DynamicRangeCompressionRf] -&gt; Value
+toEncoding :: Ac3DynamicRangeCompressionRf -&gt; Encoding
+$ctoEncoding :: Ac3DynamicRangeCompressionRf -&gt; Encoding
+toJSON :: Ac3DynamicRangeCompressionRf -&gt; Value
+$ctoJSON :: Ac3DynamicRangeCompressionRf -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679938347"><span id="local-6989586621679938349"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ac3DynamicRangeCompressionRf]
+ToJSONKeyFunction Ac3DynamicRangeCompressionRf
+ToJSONKeyFunction Ac3DynamicRangeCompressionRf
+-&gt; ToJSONKeyFunction [Ac3DynamicRangeCompressionRf]
+-&gt; ToJSONKey Ac3DynamicRangeCompressionRf
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Ac3DynamicRangeCompressionRf]
+$ctoJSONKeyList :: ToJSONKeyFunction [Ac3DynamicRangeCompressionRf]
+toJSONKey :: ToJSONKeyFunction Ac3DynamicRangeCompressionRf
+$ctoJSONKey :: ToJSONKeyFunction Ac3DynamicRangeCompressionRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679938344"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ac3DynamicRangeCompressionRf
+([Node] -&gt; Either String Ac3DynamicRangeCompressionRf)
+-&gt; FromXML Ac3DynamicRangeCompressionRf
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Ac3DynamicRangeCompressionRf
+$cparseXML :: [Node] -&gt; Either String Ac3DynamicRangeCompressionRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679938341"><span class="annot"><span class="annottext">Ac3DynamicRangeCompressionRf -&gt; XML
+(Ac3DynamicRangeCompressionRf -&gt; XML)
+-&gt; ToXML Ac3DynamicRangeCompressionRf
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Ac3DynamicRangeCompressionRf -&gt; XML
+$ctoXML :: Ac3DynamicRangeCompressionRf -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_FILM_LIGHT"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf_FILM_LIGHT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3DynamicRangeCompressionRf_FILM_LIGHT"><span id="%24mAc3DynamicRangeCompressionRf_FILM_LIGHT"><span id="Ac3DynamicRangeCompressionRf_FILM_LIGHT"><span class="annot"><span class="annottext">$bAc3DynamicRangeCompressionRf_FILM_LIGHT :: Ac3DynamicRangeCompressionRf
+$mAc3DynamicRangeCompressionRf_FILM_LIGHT :: forall r.
+Ac3DynamicRangeCompressionRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#%24bAc3DynamicRangeCompressionRf_FILM_LIGHT"><span class="hs-identifier hs-var hs-var hs-var">Ac3DynamicRangeCompressionRf_FILM_LIGHT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf%27"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FILM_LIGHT&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_FILM_STANDARD"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf_FILM_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3DynamicRangeCompressionRf_FILM_STANDARD"><span id="%24mAc3DynamicRangeCompressionRf_FILM_STANDARD"><span id="Ac3DynamicRangeCompressionRf_FILM_STANDARD"><span class="annot"><span class="annottext">$bAc3DynamicRangeCompressionRf_FILM_STANDARD :: Ac3DynamicRangeCompressionRf
+$mAc3DynamicRangeCompressionRf_FILM_STANDARD :: forall r.
+Ac3DynamicRangeCompressionRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#%24bAc3DynamicRangeCompressionRf_FILM_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">Ac3DynamicRangeCompressionRf_FILM_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf%27"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FILM_STANDARD&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_MUSIC_LIGHT"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf_MUSIC_LIGHT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3DynamicRangeCompressionRf_MUSIC_LIGHT"><span id="%24mAc3DynamicRangeCompressionRf_MUSIC_LIGHT"><span id="Ac3DynamicRangeCompressionRf_MUSIC_LIGHT"><span class="annot"><span class="annottext">$bAc3DynamicRangeCompressionRf_MUSIC_LIGHT :: Ac3DynamicRangeCompressionRf
+$mAc3DynamicRangeCompressionRf_MUSIC_LIGHT :: forall r.
+Ac3DynamicRangeCompressionRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#%24bAc3DynamicRangeCompressionRf_MUSIC_LIGHT"><span class="hs-identifier hs-var hs-var hs-var">Ac3DynamicRangeCompressionRf_MUSIC_LIGHT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf%27"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MUSIC_LIGHT&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_MUSIC_STANDARD"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf_MUSIC_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3DynamicRangeCompressionRf_MUSIC_STANDARD"><span id="%24mAc3DynamicRangeCompressionRf_MUSIC_STANDARD"><span id="Ac3DynamicRangeCompressionRf_MUSIC_STANDARD"><span class="annot"><span class="annottext">$bAc3DynamicRangeCompressionRf_MUSIC_STANDARD :: Ac3DynamicRangeCompressionRf
+$mAc3DynamicRangeCompressionRf_MUSIC_STANDARD :: forall r.
+Ac3DynamicRangeCompressionRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#%24bAc3DynamicRangeCompressionRf_MUSIC_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">Ac3DynamicRangeCompressionRf_MUSIC_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf%27"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MUSIC_STANDARD&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_NONE"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3DynamicRangeCompressionRf_NONE"><span id="%24mAc3DynamicRangeCompressionRf_NONE"><span id="Ac3DynamicRangeCompressionRf_NONE"><span class="annot"><span class="annottext">$bAc3DynamicRangeCompressionRf_NONE :: Ac3DynamicRangeCompressionRf
+$mAc3DynamicRangeCompressionRf_NONE :: forall r.
+Ac3DynamicRangeCompressionRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#%24bAc3DynamicRangeCompressionRf_NONE"><span class="hs-identifier hs-var hs-var hs-var">Ac3DynamicRangeCompressionRf_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf%27"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_SPEECH"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf_SPEECH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAc3DynamicRangeCompressionRf_SPEECH"><span id="%24mAc3DynamicRangeCompressionRf_SPEECH"><span id="Ac3DynamicRangeCompressionRf_SPEECH"><span class="annot"><span class="annottext">$bAc3DynamicRangeCompressionRf_SPEECH :: Ac3DynamicRangeCompressionRf
+$mAc3DynamicRangeCompressionRf_SPEECH :: forall r.
+Ac3DynamicRangeCompressionRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#%24bAc3DynamicRangeCompressionRf_SPEECH"><span class="hs-identifier hs-var hs-var hs-var">Ac3DynamicRangeCompressionRf_SPEECH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf%27"><span class="hs-identifier hs-type">Ac3DynamicRangeCompressionRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPEECH&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_FILM_LIGHT"><span class="hs-pragma hs-type">Ac3DynamicRangeCompressionRf_FILM_LIGHT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_FILM_STANDARD"><span class="hs-pragma hs-type">Ac3DynamicRangeCompressionRf_FILM_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_MUSIC_LIGHT"><span class="hs-pragma hs-type">Ac3DynamicRangeCompressionRf_MUSIC_LIGHT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_MUSIC_STANDARD"><span class="hs-pragma hs-type">Ac3DynamicRangeCompressionRf_MUSIC_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_NONE"><span class="hs-pragma hs-type">Ac3DynamicRangeCompressionRf_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf_SPEECH"><span class="hs-pragma hs-type">Ac3DynamicRangeCompressionRf_SPEECH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionRf.html#Ac3DynamicRangeCompressionRf%27"><span class="hs-pragma hs-type">Ac3DynamicRangeCompressionRf'</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-99"></span></pre></body></html>

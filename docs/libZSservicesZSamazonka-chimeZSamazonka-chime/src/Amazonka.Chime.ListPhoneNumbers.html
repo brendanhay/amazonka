@@ -1,0 +1,649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.ListPhoneNumbers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the phone numbers for the specified Amazon Chime account, Amazon</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Chime user, Amazon Chime Voice Connector, or Amazon Chime Voice</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Connector group.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.ListPhoneNumbers</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier">ListPhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#newListPhoneNumbers"><span class="hs-identifier">newListPhoneNumbers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_status"><span class="hs-identifier">listPhoneNumbers_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_filterName"><span class="hs-identifier">listPhoneNumbers_filterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_productType"><span class="hs-identifier">listPhoneNumbers_productType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_nextToken"><span class="hs-identifier">listPhoneNumbers_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_filterValue"><span class="hs-identifier">listPhoneNumbers_filterValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_maxResults"><span class="hs-identifier">listPhoneNumbers_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier">ListPhoneNumbersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#newListPhoneNumbersResponse"><span class="hs-identifier">newListPhoneNumbersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbersResponse_nextToken"><span class="hs-identifier">listPhoneNumbersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbersResponse_phoneNumbers"><span class="hs-identifier">listPhoneNumbersResponse_phoneNumbers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbersResponse_httpStatus"><span class="hs-identifier">listPhoneNumbersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListPhoneNumbers' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679532912"><span id="local-6989586621679532913"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPhoneNumbers"><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-var">ListPhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPhoneNumbers%27"><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-var">ListPhoneNumbers'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The phone number status.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Astatus%3AListPhoneNumbers%27"><span class="annot"><span class="annottext">ListPhoneNumbers -&gt; Maybe PhoneNumberStatus
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3Astatus%3AListPhoneNumbers%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberStatus.html#PhoneNumberStatus"><span class="hs-identifier hs-type">PhoneNumberStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The filter to use to limit the number of results.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AfilterName%3AListPhoneNumbers%27"><span class="annot"><span class="annottext">ListPhoneNumbers -&gt; Maybe PhoneNumberAssociationName
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AfilterName%3AListPhoneNumbers%27"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociationName.html#PhoneNumberAssociationName"><span class="hs-identifier hs-type">PhoneNumberAssociationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The phone number product type.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AproductType%3AListPhoneNumbers%27"><span class="annot"><span class="annottext">ListPhoneNumbers -&gt; Maybe PhoneNumberProductType
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AproductType%3AListPhoneNumbers%27"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberProductType.html#PhoneNumberProductType"><span class="hs-identifier hs-type">PhoneNumberProductType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The token to use to retrieve the next page of results.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3AListPhoneNumbers%27"><span class="annot"><span class="annottext">ListPhoneNumbers -&gt; Maybe Text
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AnextToken%3AListPhoneNumbers%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The value to use for the filter.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AfilterValue%3AListPhoneNumbers%27"><span class="annot"><span class="annottext">ListPhoneNumbers -&gt; Maybe Text
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AfilterValue%3AListPhoneNumbers%27"><span class="hs-identifier hs-var hs-var">filterValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in a single call.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPhoneNumbers%27"><span class="annot"><span class="annottext">ListPhoneNumbers -&gt; Maybe Natural
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AmaxResults%3AListPhoneNumbers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679532901"><span id="local-6989586621679532903"><span class="annot"><span class="annottext">ListPhoneNumbers -&gt; ListPhoneNumbers -&gt; Bool
+(ListPhoneNumbers -&gt; ListPhoneNumbers -&gt; Bool)
+-&gt; (ListPhoneNumbers -&gt; ListPhoneNumbers -&gt; Bool)
+-&gt; Eq ListPhoneNumbers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPhoneNumbers -&gt; ListPhoneNumbers -&gt; Bool
+$c/= :: ListPhoneNumbers -&gt; ListPhoneNumbers -&gt; Bool
+== :: ListPhoneNumbers -&gt; ListPhoneNumbers -&gt; Bool
+$c== :: ListPhoneNumbers -&gt; ListPhoneNumbers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679532892"><span id="local-6989586621679532894"><span id="local-6989586621679532896"><span id="local-6989586621679532898"><span class="annot"><span class="annottext">ReadPrec [ListPhoneNumbers]
+ReadPrec ListPhoneNumbers
+Int -&gt; ReadS ListPhoneNumbers
+ReadS [ListPhoneNumbers]
+(Int -&gt; ReadS ListPhoneNumbers)
+-&gt; ReadS [ListPhoneNumbers]
+-&gt; ReadPrec ListPhoneNumbers
+-&gt; ReadPrec [ListPhoneNumbers]
+-&gt; Read ListPhoneNumbers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPhoneNumbers]
+$creadListPrec :: ReadPrec [ListPhoneNumbers]
+readPrec :: ReadPrec ListPhoneNumbers
+$creadPrec :: ReadPrec ListPhoneNumbers
+readList :: ReadS [ListPhoneNumbers]
+$creadList :: ReadS [ListPhoneNumbers]
+readsPrec :: Int -&gt; ReadS ListPhoneNumbers
+$creadsPrec :: Int -&gt; ReadS ListPhoneNumbers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679532885"><span id="local-6989586621679532887"><span id="local-6989586621679532889"><span class="annot"><span class="annottext">Int -&gt; ListPhoneNumbers -&gt; ShowS
+[ListPhoneNumbers] -&gt; ShowS
+ListPhoneNumbers -&gt; String
+(Int -&gt; ListPhoneNumbers -&gt; ShowS)
+-&gt; (ListPhoneNumbers -&gt; String)
+-&gt; ([ListPhoneNumbers] -&gt; ShowS)
+-&gt; Show ListPhoneNumbers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPhoneNumbers] -&gt; ShowS
+$cshowList :: [ListPhoneNumbers] -&gt; ShowS
+show :: ListPhoneNumbers -&gt; String
+$cshow :: ListPhoneNumbers -&gt; String
+showsPrec :: Int -&gt; ListPhoneNumbers -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPhoneNumbers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListPhoneNumbers -&gt; Rep ListPhoneNumbers x)
+-&gt; (forall x. Rep ListPhoneNumbers x -&gt; ListPhoneNumbers)
+-&gt; Generic ListPhoneNumbers
+forall x. Rep ListPhoneNumbers x -&gt; ListPhoneNumbers
+forall x. ListPhoneNumbers -&gt; Rep ListPhoneNumbers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPhoneNumbers x -&gt; ListPhoneNumbers
+$cfrom :: forall x. ListPhoneNumbers -&gt; Rep ListPhoneNumbers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'ListPhoneNumbers' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'status', 'listPhoneNumbers_status' - The phone number status.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'filterName', 'listPhoneNumbers_filterName' - The filter to use to limit the number of results.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'productType', 'listPhoneNumbers_productType' - The phone number product type.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'nextToken', 'listPhoneNumbers_nextToken' - The token to use to retrieve the next page of results.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'filterValue', 'listPhoneNumbers_filterValue' - The value to use for the filter.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'maxResults', 'listPhoneNumbers_maxResults' - The maximum number of results to return in a single call.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#newListPhoneNumbers"><span class="hs-identifier hs-type">newListPhoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span>
+</span><span id="line-95"></span><span id="newListPhoneNumbers"><span class="annot"><span class="annottext">newListPhoneNumbers :: ListPhoneNumbers
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#newListPhoneNumbers"><span class="hs-identifier hs-var hs-var">newListPhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ListPhoneNumbers' :: Maybe PhoneNumberStatus
+-&gt; Maybe PhoneNumberAssociationName
+-&gt; Maybe PhoneNumberProductType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; ListPhoneNumbers
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ListPhoneNumbers' :: Maybe PhoneNumberStatus
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3Astatus%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterName:ListPhoneNumbers' :: Maybe PhoneNumberAssociationName
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AfilterName%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:productType:ListPhoneNumbers' :: Maybe PhoneNumberProductType
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AproductType%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">productType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListPhoneNumbers' :: Maybe Text
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AnextToken%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterValue:ListPhoneNumbers' :: Maybe Text
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AfilterValue%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">filterValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPhoneNumbers' :: Maybe Natural
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AmaxResults%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The phone number status.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_status"><span class="hs-identifier hs-type">listPhoneNumbers_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberStatus.html#PhoneNumberStatus"><span class="hs-identifier hs-type">PhoneNumberStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="listPhoneNumbers_status"><span class="annot"><span class="annottext">listPhoneNumbers_status :: (Maybe PhoneNumberStatus -&gt; f (Maybe PhoneNumberStatus))
+-&gt; ListPhoneNumbers -&gt; f ListPhoneNumbers
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_status"><span class="hs-identifier hs-var hs-var">listPhoneNumbers_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPhoneNumbers -&gt; Maybe PhoneNumberStatus)
+-&gt; (ListPhoneNumbers
+    -&gt; Maybe PhoneNumberStatus -&gt; ListPhoneNumbers)
+-&gt; Lens
+     ListPhoneNumbers
+     ListPhoneNumbers
+     (Maybe PhoneNumberStatus)
+     (Maybe PhoneNumberStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532878"><span class="annot"><span class="annottext">Maybe PhoneNumberStatus
+status :: Maybe PhoneNumberStatus
+$sel:status:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe PhoneNumberStatus
+</span><a href="#local-6989586621679532878"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberStatus
+</span><a href="#local-6989586621679532878"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679532877"><span class="annot"><span class="annottext">s :: ListPhoneNumbers
+</span><a href="#local-6989586621679532877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679532876"><span class="annot"><span class="annottext">Maybe PhoneNumberStatus
+</span><a href="#local-6989586621679532876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPhoneNumbers
+</span><a href="#local-6989586621679532877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListPhoneNumbers' :: Maybe PhoneNumberStatus
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3Astatus%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberStatus
+</span><a href="#local-6989586621679532876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The filter to use to limit the number of results.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_filterName"><span class="hs-identifier hs-type">listPhoneNumbers_filterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociationName.html#PhoneNumberAssociationName"><span class="hs-identifier hs-type">PhoneNumberAssociationName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="listPhoneNumbers_filterName"><span class="annot"><span class="annottext">listPhoneNumbers_filterName :: (Maybe PhoneNumberAssociationName
+ -&gt; f (Maybe PhoneNumberAssociationName))
+-&gt; ListPhoneNumbers -&gt; f ListPhoneNumbers
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_filterName"><span class="hs-identifier hs-var hs-var">listPhoneNumbers_filterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPhoneNumbers -&gt; Maybe PhoneNumberAssociationName)
+-&gt; (ListPhoneNumbers
+    -&gt; Maybe PhoneNumberAssociationName -&gt; ListPhoneNumbers)
+-&gt; Lens
+     ListPhoneNumbers
+     ListPhoneNumbers
+     (Maybe PhoneNumberAssociationName)
+     (Maybe PhoneNumberAssociationName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532875"><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+filterName :: Maybe PhoneNumberAssociationName
+$sel:filterName:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe PhoneNumberAssociationName
+</span><a href="#local-6989586621679532875"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+</span><a href="#local-6989586621679532875"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679532874"><span class="annot"><span class="annottext">s :: ListPhoneNumbers
+</span><a href="#local-6989586621679532874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679532873"><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+</span><a href="#local-6989586621679532873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPhoneNumbers
+</span><a href="#local-6989586621679532874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:ListPhoneNumbers' :: Maybe PhoneNumberAssociationName
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AfilterName%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+</span><a href="#local-6989586621679532873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The phone number product type.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_productType"><span class="hs-identifier hs-type">listPhoneNumbers_productType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberProductType.html#PhoneNumberProductType"><span class="hs-identifier hs-type">PhoneNumberProductType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="listPhoneNumbers_productType"><span class="annot"><span class="annottext">listPhoneNumbers_productType :: (Maybe PhoneNumberProductType -&gt; f (Maybe PhoneNumberProductType))
+-&gt; ListPhoneNumbers -&gt; f ListPhoneNumbers
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_productType"><span class="hs-identifier hs-var hs-var">listPhoneNumbers_productType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPhoneNumbers -&gt; Maybe PhoneNumberProductType)
+-&gt; (ListPhoneNumbers
+    -&gt; Maybe PhoneNumberProductType -&gt; ListPhoneNumbers)
+-&gt; Lens
+     ListPhoneNumbers
+     ListPhoneNumbers
+     (Maybe PhoneNumberProductType)
+     (Maybe PhoneNumberProductType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532872"><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+productType :: Maybe PhoneNumberProductType
+$sel:productType:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679532872"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679532872"><span class="hs-identifier hs-var">productType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679532871"><span class="annot"><span class="annottext">s :: ListPhoneNumbers
+</span><a href="#local-6989586621679532871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679532870"><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679532870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPhoneNumbers
+</span><a href="#local-6989586621679532871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productType:ListPhoneNumbers' :: Maybe PhoneNumberProductType
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AproductType%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">productType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679532870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_nextToken"><span class="hs-identifier hs-type">listPhoneNumbers_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="listPhoneNumbers_nextToken"><span class="annot"><span class="annottext">listPhoneNumbers_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPhoneNumbers -&gt; f ListPhoneNumbers
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_nextToken"><span class="hs-identifier hs-var hs-var">listPhoneNumbers_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPhoneNumbers -&gt; Maybe Text)
+-&gt; (ListPhoneNumbers -&gt; Maybe Text -&gt; ListPhoneNumbers)
+-&gt; Lens ListPhoneNumbers ListPhoneNumbers (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532869"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679532869"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532869"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679532868"><span class="annot"><span class="annottext">s :: ListPhoneNumbers
+</span><a href="#local-6989586621679532868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679532867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPhoneNumbers
+</span><a href="#local-6989586621679532868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPhoneNumbers' :: Maybe Text
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AnextToken%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The value to use for the filter.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_filterValue"><span class="hs-identifier hs-type">listPhoneNumbers_filterValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="listPhoneNumbers_filterValue"><span class="annot"><span class="annottext">listPhoneNumbers_filterValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPhoneNumbers -&gt; f ListPhoneNumbers
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_filterValue"><span class="hs-identifier hs-var hs-var">listPhoneNumbers_filterValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPhoneNumbers -&gt; Maybe Text)
+-&gt; (ListPhoneNumbers -&gt; Maybe Text -&gt; ListPhoneNumbers)
+-&gt; Lens ListPhoneNumbers ListPhoneNumbers (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532866"><span class="annot"><span class="annottext">Maybe Text
+filterValue :: Maybe Text
+$sel:filterValue:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679532866"><span class="hs-identifier hs-var hs-var">filterValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532866"><span class="hs-identifier hs-var">filterValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679532865"><span class="annot"><span class="annottext">s :: ListPhoneNumbers
+</span><a href="#local-6989586621679532865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679532864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPhoneNumbers
+</span><a href="#local-6989586621679532865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterValue:ListPhoneNumbers' :: Maybe Text
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AfilterValue%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">filterValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The maximum number of results to return in a single call.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_maxResults"><span class="hs-identifier hs-type">listPhoneNumbers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="listPhoneNumbers_maxResults"><span class="annot"><span class="annottext">listPhoneNumbers_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPhoneNumbers -&gt; f ListPhoneNumbers
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbers_maxResults"><span class="hs-identifier hs-var hs-var">listPhoneNumbers_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPhoneNumbers -&gt; Maybe Natural)
+-&gt; (ListPhoneNumbers -&gt; Maybe Natural -&gt; ListPhoneNumbers)
+-&gt; Lens
+     ListPhoneNumbers ListPhoneNumbers (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532863"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe Natural
+</span><a href="#local-6989586621679532863"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679532863"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679532862"><span class="annot"><span class="annottext">s :: ListPhoneNumbers
+</span><a href="#local-6989586621679532862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679532861"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679532861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPhoneNumbers
+</span><a href="#local-6989586621679532862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPhoneNumbers' :: Maybe Natural
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AmaxResults%3AListPhoneNumbers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679532861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-type">ListPhoneNumbersResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679532857"><span class="annot"><span class="annottext">request :: ListPhoneNumbers -&gt; Request ListPhoneNumbers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPhoneNumbers -&gt; Request ListPhoneNumbers
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679532853"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPhoneNumbers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListPhoneNumbers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPhoneNumbers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPhoneNumbers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListPhoneNumbers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679532850"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679532850"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679532849"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679532849"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679532848"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679532848"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PhoneNumber] -&gt; Int -&gt; ListPhoneNumbersResponse
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse%27"><span class="hs-identifier hs-var">ListPhoneNumbersResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PhoneNumber] -&gt; Int -&gt; ListPhoneNumbersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [PhoneNumber] -&gt; Int -&gt; ListPhoneNumbersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679532848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [PhoneNumber] -&gt; Int -&gt; ListPhoneNumbersResponse)
+-&gt; Either String (Maybe [PhoneNumber])
+-&gt; Either String (Int -&gt; ListPhoneNumbersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679532848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PhoneNumber]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhoneNumbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PhoneNumber]))
+-&gt; Maybe [PhoneNumber] -&gt; Either String (Maybe [PhoneNumber])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPhoneNumbersResponse)
+-&gt; Either String Int -&gt; Either String ListPhoneNumbersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679532850"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679532839"><span id="local-6989586621679532841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679532836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679532832"><span class="annot"><span class="annottext">toHeaders :: ListPhoneNumbers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPhoneNumbers -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679532827"><span class="annot"><span class="annottext">toPath :: ListPhoneNumbers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPhoneNumbers -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/phone-numbers&quot;</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers"><span class="hs-identifier hs-type">ListPhoneNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679532823"><span class="annot"><span class="annottext">toQuery :: ListPhoneNumbers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbers%27"><span class="hs-identifier hs-type">ListPhoneNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532816"><span id="local-6989586621679532817"><span id="local-6989586621679532818"><span id="local-6989586621679532819"><span id="local-6989586621679532820"><span id="local-6989586621679532821"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe PhoneNumberAssociationName
+Maybe PhoneNumberProductType
+Maybe PhoneNumberStatus
+maxResults :: Maybe Natural
+filterValue :: Maybe Text
+nextToken :: Maybe Text
+productType :: Maybe PhoneNumberProductType
+filterName :: Maybe PhoneNumberAssociationName
+status :: Maybe PhoneNumberStatus
+$sel:maxResults:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe Natural
+$sel:filterValue:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe Text
+$sel:nextToken:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe Text
+$sel:productType:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe PhoneNumberProductType
+$sel:filterName:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe PhoneNumberAssociationName
+$sel:status:ListPhoneNumbers' :: ListPhoneNumbers -&gt; Maybe PhoneNumberStatus
+</span><a href="#local-6989586621679532816"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PhoneNumberStatus -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberStatus
+</span><a href="#local-6989586621679532821"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;filter-name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PhoneNumberAssociationName -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+</span><a href="#local-6989586621679532820"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;product-type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PhoneNumberProductType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679532819"><span class="hs-identifier hs-var">productType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532818"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;filter-value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532817"><span class="hs-identifier hs-var">filterValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;max-results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679532816"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newListPhoneNumbersResponse' smart constructor.</span><span>
+</span><span id="line-165"></span><span id="local-6989586621679532813"><span id="local-6989586621679532814"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPhoneNumbersResponse"><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-var">ListPhoneNumbersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPhoneNumbersResponse%27"><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse%27"><span class="hs-identifier hs-var">ListPhoneNumbersResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AnextToken%3AListPhoneNumbersResponse%27"><span class="annot"><span class="annottext">ListPhoneNumbersResponse -&gt; Maybe Text
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AnextToken%3AListPhoneNumbersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The phone number details.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AphoneNumbers%3AListPhoneNumbersResponse%27"><span class="annot"><span class="annottext">ListPhoneNumbersResponse -&gt; Maybe [PhoneNumber]
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AphoneNumbers%3AListPhoneNumbersResponse%27"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPhoneNumbersResponse%27"><span class="annot"><span class="annottext">ListPhoneNumbersResponse -&gt; Int
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AhttpStatus%3AListPhoneNumbersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679532806"><span id="local-6989586621679532808"><span class="annot"><span class="annottext">ListPhoneNumbersResponse -&gt; ListPhoneNumbersResponse -&gt; Bool
+(ListPhoneNumbersResponse -&gt; ListPhoneNumbersResponse -&gt; Bool)
+-&gt; (ListPhoneNumbersResponse -&gt; ListPhoneNumbersResponse -&gt; Bool)
+-&gt; Eq ListPhoneNumbersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPhoneNumbersResponse -&gt; ListPhoneNumbersResponse -&gt; Bool
+$c/= :: ListPhoneNumbersResponse -&gt; ListPhoneNumbersResponse -&gt; Bool
+== :: ListPhoneNumbersResponse -&gt; ListPhoneNumbersResponse -&gt; Bool
+$c== :: ListPhoneNumbersResponse -&gt; ListPhoneNumbersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679532800"><span id="local-6989586621679532802"><span id="local-6989586621679532804"><span class="annot"><span class="annottext">Int -&gt; ListPhoneNumbersResponse -&gt; ShowS
+[ListPhoneNumbersResponse] -&gt; ShowS
+ListPhoneNumbersResponse -&gt; String
+(Int -&gt; ListPhoneNumbersResponse -&gt; ShowS)
+-&gt; (ListPhoneNumbersResponse -&gt; String)
+-&gt; ([ListPhoneNumbersResponse] -&gt; ShowS)
+-&gt; Show ListPhoneNumbersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPhoneNumbersResponse] -&gt; ShowS
+$cshowList :: [ListPhoneNumbersResponse] -&gt; ShowS
+show :: ListPhoneNumbersResponse -&gt; String
+$cshow :: ListPhoneNumbersResponse -&gt; String
+showsPrec :: Int -&gt; ListPhoneNumbersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPhoneNumbersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPhoneNumbersResponse -&gt; Rep ListPhoneNumbersResponse x)
+-&gt; (forall x.
+    Rep ListPhoneNumbersResponse x -&gt; ListPhoneNumbersResponse)
+-&gt; Generic ListPhoneNumbersResponse
+forall x.
+Rep ListPhoneNumbersResponse x -&gt; ListPhoneNumbersResponse
+forall x.
+ListPhoneNumbersResponse -&gt; Rep ListPhoneNumbersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPhoneNumbersResponse x -&gt; ListPhoneNumbersResponse
+$cfrom :: forall x.
+ListPhoneNumbersResponse -&gt; Rep ListPhoneNumbersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'ListPhoneNumbersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'nextToken', 'listPhoneNumbersResponse_nextToken' - The token to use to retrieve the next page of results.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'phoneNumbers', 'listPhoneNumbersResponse_phoneNumbers' - The phone number details.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'httpStatus', 'listPhoneNumbersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#newListPhoneNumbersResponse"><span class="hs-identifier hs-type">newListPhoneNumbersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-type">ListPhoneNumbersResponse</span></a></span><span>
+</span><span id="line-192"></span><span id="newListPhoneNumbersResponse"><span class="annot"><span class="annottext">newListPhoneNumbersResponse :: Int -&gt; ListPhoneNumbersResponse
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#newListPhoneNumbersResponse"><span class="hs-identifier hs-var hs-var">newListPhoneNumbersResponse</span></a></span></span><span> </span><span id="local-6989586621679532797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679532797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">ListPhoneNumbersResponse' :: Maybe Text
+-&gt; Maybe [PhoneNumber] -&gt; Int -&gt; ListPhoneNumbersResponse
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse%27"><span class="hs-identifier hs-type">ListPhoneNumbersResponse'</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPhoneNumbersResponse' :: Maybe Text
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AnextToken%3AListPhoneNumbersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumbers:ListPhoneNumbersResponse' :: Maybe [PhoneNumber]
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AphoneNumbers%3AListPhoneNumbersResponse%27"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPhoneNumbersResponse' :: Int
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AhttpStatus%3AListPhoneNumbersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679532797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbersResponse_nextToken"><span class="hs-identifier hs-type">listPhoneNumbersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-type">ListPhoneNumbersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="listPhoneNumbersResponse_nextToken"><span class="annot"><span class="annottext">listPhoneNumbersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPhoneNumbersResponse -&gt; f ListPhoneNumbersResponse
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPhoneNumbersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPhoneNumbersResponse -&gt; Maybe Text)
+-&gt; (ListPhoneNumbersResponse
+    -&gt; Maybe Text -&gt; ListPhoneNumbersResponse)
+-&gt; Lens
+     ListPhoneNumbersResponse
+     ListPhoneNumbersResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse%27"><span class="hs-identifier hs-type">ListPhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532796"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPhoneNumbersResponse' :: ListPhoneNumbersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679532796"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532796"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679532795"><span class="annot"><span class="annottext">s :: ListPhoneNumbersResponse
+</span><a href="#local-6989586621679532795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse%27"><span class="hs-identifier hs-type">ListPhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679532794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPhoneNumbersResponse
+</span><a href="#local-6989586621679532795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPhoneNumbersResponse' :: Maybe Text
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AnextToken%3AListPhoneNumbersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679532794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-type">ListPhoneNumbersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The phone number details.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbersResponse_phoneNumbers"><span class="hs-identifier hs-type">listPhoneNumbersResponse_phoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-type">ListPhoneNumbersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="listPhoneNumbersResponse_phoneNumbers"><span class="annot"><span class="annottext">listPhoneNumbersResponse_phoneNumbers :: (Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+-&gt; ListPhoneNumbersResponse -&gt; f ListPhoneNumbersResponse
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbersResponse_phoneNumbers"><span class="hs-identifier hs-var hs-var">listPhoneNumbersResponse_phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPhoneNumbersResponse -&gt; Maybe [PhoneNumber])
+-&gt; (ListPhoneNumbersResponse
+    -&gt; Maybe [PhoneNumber] -&gt; ListPhoneNumbersResponse)
+-&gt; Lens
+     ListPhoneNumbersResponse
+     ListPhoneNumbersResponse
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse%27"><span class="hs-identifier hs-type">ListPhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532793"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+phoneNumbers :: Maybe [PhoneNumber]
+$sel:phoneNumbers:ListPhoneNumbersResponse' :: ListPhoneNumbersResponse -&gt; Maybe [PhoneNumber]
+</span><a href="#local-6989586621679532793"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><a href="#local-6989586621679532793"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679532792"><span class="annot"><span class="annottext">s :: ListPhoneNumbersResponse
+</span><a href="#local-6989586621679532792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse%27"><span class="hs-identifier hs-type">ListPhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679532791"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><a href="#local-6989586621679532791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPhoneNumbersResponse
+</span><a href="#local-6989586621679532792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumbers:ListPhoneNumbersResponse' :: Maybe [PhoneNumber]
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AphoneNumbers%3AListPhoneNumbersResponse%27"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><a href="#local-6989586621679532791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-type">ListPhoneNumbersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+ -&gt; ListPhoneNumbersResponse -&gt; f ListPhoneNumbersResponse)
+-&gt; ((Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+    -&gt; Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+-&gt; (Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+-&gt; ListPhoneNumbersResponse
+-&gt; f ListPhoneNumbersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PhoneNumber] [PhoneNumber] [PhoneNumber] [PhoneNumber]
+-&gt; Iso
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PhoneNumber] [PhoneNumber] [PhoneNumber] [PhoneNumber]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbersResponse_httpStatus"><span class="hs-identifier hs-type">listPhoneNumbersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-type">ListPhoneNumbersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span id="listPhoneNumbersResponse_httpStatus"><span class="annot"><span class="annottext">listPhoneNumbersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPhoneNumbersResponse -&gt; f ListPhoneNumbersResponse
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#listPhoneNumbersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPhoneNumbersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPhoneNumbersResponse -&gt; Int)
+-&gt; (ListPhoneNumbersResponse -&gt; Int -&gt; ListPhoneNumbersResponse)
+-&gt; Lens ListPhoneNumbersResponse ListPhoneNumbersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse%27"><span class="hs-identifier hs-type">ListPhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679532787"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPhoneNumbersResponse' :: ListPhoneNumbersResponse -&gt; Int
+</span><a href="#local-6989586621679532787"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679532787"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679532786"><span class="annot"><span class="annottext">s :: ListPhoneNumbersResponse
+</span><a href="#local-6989586621679532786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse%27"><span class="hs-identifier hs-type">ListPhoneNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679532785"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679532785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPhoneNumbersResponse
+</span><a href="#local-6989586621679532786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPhoneNumbersResponse' :: Int
+</span><a href="Amazonka.Chime.ListPhoneNumbers.html#%24sel%3AhttpStatus%3AListPhoneNumbersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679532785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-type">ListPhoneNumbersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679532783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.ListPhoneNumbers.html#ListPhoneNumbersResponse"><span class="hs-identifier hs-type">ListPhoneNumbersResponse</span></a></span></span><span>
+</span><span id="line-213"></span></pre></body></html>

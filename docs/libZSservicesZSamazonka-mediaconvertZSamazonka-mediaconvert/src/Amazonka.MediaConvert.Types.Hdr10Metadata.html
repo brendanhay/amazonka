@@ -1,0 +1,953 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Hdr10Metadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Hdr10Metadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Use these settings to specify static color calibration metadata, as</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- defined by SMPTE ST 2086. These values don\'t affect the pixel values</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- that are encoded in the video stream. They are intended to help the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- downstream video player display content in a way that reflects the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- intentions of the the content creator.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newHdr10Metadata' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679975865"><span id="local-6989586621679975866"></span></span><span class="hs-keyword">data</span><span> </span><span id="Hdr10Metadata"><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-var">Hdr10Metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Hdr10Metadata%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-var">Hdr10Metadata'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AredPrimaryX%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AredPrimaryX%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">redPrimaryX</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AbluePrimaryX%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AbluePrimaryX%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">bluePrimaryX</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Maximum average light level of any frame in the coded video sequence, in</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- units of candelas per square meter. This setting doesn\'t have a default</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- value; you must specify a value that is suitable for the content.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AmaxFrameAverageLightLevel%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AmaxFrameAverageLightLevel%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">maxFrameAverageLightLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AwhitePointY%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AwhitePointY%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">whitePointY</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Maximum light level among all samples in the coded video sequence, in</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- units of candelas per square meter. This setting doesn\'t have a default</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- value; you must specify a value that is suitable for the content.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AmaxContentLightLevel%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AmaxContentLightLevel%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">maxContentLightLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AwhitePointX%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AwhitePointX%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">whitePointX</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AbluePrimaryY%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AbluePrimaryY%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">bluePrimaryY</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AgreenPrimaryY%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AgreenPrimaryY%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">greenPrimaryY</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AgreenPrimaryX%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AgreenPrimaryX%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">greenPrimaryX</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Nominal minimum mastering display luminance in units of of 0.0001</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- candelas per square meter</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AminLuminance%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AminLuminance%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">minLuminance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AredPrimaryY%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AredPrimaryY%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">redPrimaryY</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Nominal maximum mastering display luminance in units of of 0.0001</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- candelas per square meter.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AmaxLuminance%3AHdr10Metadata%27"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AmaxLuminance%3AHdr10Metadata%27"><span class="hs-identifier hs-var hs-var">maxLuminance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679975848"><span id="local-6989586621679975850"><span class="annot"><span class="annottext">Hdr10Metadata -&gt; Hdr10Metadata -&gt; Bool
+(Hdr10Metadata -&gt; Hdr10Metadata -&gt; Bool)
+-&gt; (Hdr10Metadata -&gt; Hdr10Metadata -&gt; Bool) -&gt; Eq Hdr10Metadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Hdr10Metadata -&gt; Hdr10Metadata -&gt; Bool
+$c/= :: Hdr10Metadata -&gt; Hdr10Metadata -&gt; Bool
+== :: Hdr10Metadata -&gt; Hdr10Metadata -&gt; Bool
+$c== :: Hdr10Metadata -&gt; Hdr10Metadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679975839"><span id="local-6989586621679975841"><span id="local-6989586621679975843"><span id="local-6989586621679975845"><span class="annot"><span class="annottext">ReadPrec [Hdr10Metadata]
+ReadPrec Hdr10Metadata
+Int -&gt; ReadS Hdr10Metadata
+ReadS [Hdr10Metadata]
+(Int -&gt; ReadS Hdr10Metadata)
+-&gt; ReadS [Hdr10Metadata]
+-&gt; ReadPrec Hdr10Metadata
+-&gt; ReadPrec [Hdr10Metadata]
+-&gt; Read Hdr10Metadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Hdr10Metadata]
+$creadListPrec :: ReadPrec [Hdr10Metadata]
+readPrec :: ReadPrec Hdr10Metadata
+$creadPrec :: ReadPrec Hdr10Metadata
+readList :: ReadS [Hdr10Metadata]
+$creadList :: ReadS [Hdr10Metadata]
+readsPrec :: Int -&gt; ReadS Hdr10Metadata
+$creadsPrec :: Int -&gt; ReadS Hdr10Metadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679975832"><span id="local-6989586621679975834"><span id="local-6989586621679975836"><span class="annot"><span class="annottext">Int -&gt; Hdr10Metadata -&gt; ShowS
+[Hdr10Metadata] -&gt; ShowS
+Hdr10Metadata -&gt; String
+(Int -&gt; Hdr10Metadata -&gt; ShowS)
+-&gt; (Hdr10Metadata -&gt; String)
+-&gt; ([Hdr10Metadata] -&gt; ShowS)
+-&gt; Show Hdr10Metadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Hdr10Metadata] -&gt; ShowS
+$cshowList :: [Hdr10Metadata] -&gt; ShowS
+show :: Hdr10Metadata -&gt; String
+$cshow :: Hdr10Metadata -&gt; String
+showsPrec :: Int -&gt; Hdr10Metadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; Hdr10Metadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Hdr10Metadata -&gt; Rep Hdr10Metadata x)
+-&gt; (forall x. Rep Hdr10Metadata x -&gt; Hdr10Metadata)
+-&gt; Generic Hdr10Metadata
+forall x. Rep Hdr10Metadata x -&gt; Hdr10Metadata
+forall x. Hdr10Metadata -&gt; Rep Hdr10Metadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Hdr10Metadata x -&gt; Hdr10Metadata
+$cfrom :: forall x. Hdr10Metadata -&gt; Rep Hdr10Metadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Create a value of 'Hdr10Metadata' with all optional fields omitted.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'redPrimaryX', 'hdr10Metadata_redPrimaryX' - HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'bluePrimaryX', 'hdr10Metadata_bluePrimaryX' - HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'maxFrameAverageLightLevel', 'hdr10Metadata_maxFrameAverageLightLevel' - Maximum average light level of any frame in the coded video sequence, in</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- units of candelas per square meter. This setting doesn\'t have a default</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- value; you must specify a value that is suitable for the content.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'whitePointY', 'hdr10Metadata_whitePointY' - HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'maxContentLightLevel', 'hdr10Metadata_maxContentLightLevel' - Maximum light level among all samples in the coded video sequence, in</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- units of candelas per square meter. This setting doesn\'t have a default</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- value; you must specify a value that is suitable for the content.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'whitePointX', 'hdr10Metadata_whitePointX' - HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'bluePrimaryY', 'hdr10Metadata_bluePrimaryY' - HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'greenPrimaryY', 'hdr10Metadata_greenPrimaryY' - HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'greenPrimaryX', 'hdr10Metadata_greenPrimaryX' - HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'minLuminance', 'hdr10Metadata_minLuminance' - Nominal minimum mastering display luminance in units of of 0.0001</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- candelas per square meter</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'redPrimaryY', 'hdr10Metadata_redPrimaryY' - HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'maxLuminance', 'hdr10Metadata_maxLuminance' - Nominal maximum mastering display luminance in units of of 0.0001</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- candelas per square meter.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#newHdr10Metadata"><span class="hs-identifier hs-type">newHdr10Metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span>
+</span><span id="line-154"></span><span id="newHdr10Metadata"><span class="annot"><span class="annottext">newHdr10Metadata :: Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#newHdr10Metadata"><span class="hs-identifier hs-var hs-var">newHdr10Metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">Hdr10Metadata' :: Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:redPrimaryX:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AredPrimaryX%3AHdr10Metadata%27"><span class="hs-identifier hs-var">redPrimaryX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:bluePrimaryX:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AbluePrimaryX%3AHdr10Metadata%27"><span class="hs-identifier hs-var">bluePrimaryX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxFrameAverageLightLevel:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AmaxFrameAverageLightLevel%3AHdr10Metadata%27"><span class="hs-identifier hs-var">maxFrameAverageLightLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:whitePointY:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AwhitePointY%3AHdr10Metadata%27"><span class="hs-identifier hs-var">whitePointY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxContentLightLevel:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AmaxContentLightLevel%3AHdr10Metadata%27"><span class="hs-identifier hs-var">maxContentLightLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:whitePointX:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AwhitePointX%3AHdr10Metadata%27"><span class="hs-identifier hs-var">whitePointX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:bluePrimaryY:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AbluePrimaryY%3AHdr10Metadata%27"><span class="hs-identifier hs-var">bluePrimaryY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:greenPrimaryY:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AgreenPrimaryY%3AHdr10Metadata%27"><span class="hs-identifier hs-var">greenPrimaryY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:greenPrimaryX:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AgreenPrimaryX%3AHdr10Metadata%27"><span class="hs-identifier hs-var">greenPrimaryX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:minLuminance:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AminLuminance%3AHdr10Metadata%27"><span class="hs-identifier hs-var">minLuminance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:redPrimaryY:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AredPrimaryY%3AHdr10Metadata%27"><span class="hs-identifier hs-var">redPrimaryY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxLuminance:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AmaxLuminance%3AHdr10Metadata%27"><span class="hs-identifier hs-var">maxLuminance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_redPrimaryX"><span class="hs-identifier hs-type">hdr10Metadata_redPrimaryX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="hdr10Metadata_redPrimaryX"><span class="annot"><span class="annottext">hdr10Metadata_redPrimaryX :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_redPrimaryX"><span class="hs-identifier hs-var hs-var">hdr10Metadata_redPrimaryX</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975823"><span class="annot"><span class="annottext">Maybe Natural
+redPrimaryX :: Maybe Natural
+$sel:redPrimaryX:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975823"><span class="hs-identifier hs-var hs-var">redPrimaryX</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975823"><span class="hs-identifier hs-var">redPrimaryX</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975822"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975821"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redPrimaryX:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AredPrimaryX%3AHdr10Metadata%27"><span class="hs-identifier hs-var">redPrimaryX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_bluePrimaryX"><span class="hs-identifier hs-type">hdr10Metadata_bluePrimaryX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="hdr10Metadata_bluePrimaryX"><span class="annot"><span class="annottext">hdr10Metadata_bluePrimaryX :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_bluePrimaryX"><span class="hs-identifier hs-var hs-var">hdr10Metadata_bluePrimaryX</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975819"><span class="annot"><span class="annottext">Maybe Natural
+bluePrimaryX :: Maybe Natural
+$sel:bluePrimaryX:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975819"><span class="hs-identifier hs-var hs-var">bluePrimaryX</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975819"><span class="hs-identifier hs-var">bluePrimaryX</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975818"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975817"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bluePrimaryX:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AbluePrimaryX%3AHdr10Metadata%27"><span class="hs-identifier hs-var">bluePrimaryX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Maximum average light level of any frame in the coded video sequence, in</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- units of candelas per square meter. This setting doesn\'t have a default</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- value; you must specify a value that is suitable for the content.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_maxFrameAverageLightLevel"><span class="hs-identifier hs-type">hdr10Metadata_maxFrameAverageLightLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="hdr10Metadata_maxFrameAverageLightLevel"><span class="annot"><span class="annottext">hdr10Metadata_maxFrameAverageLightLevel :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_maxFrameAverageLightLevel"><span class="hs-identifier hs-var hs-var">hdr10Metadata_maxFrameAverageLightLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975815"><span class="annot"><span class="annottext">Maybe Natural
+maxFrameAverageLightLevel :: Maybe Natural
+$sel:maxFrameAverageLightLevel:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975815"><span class="hs-identifier hs-var hs-var">maxFrameAverageLightLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975815"><span class="hs-identifier hs-var">maxFrameAverageLightLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975814"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975813"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxFrameAverageLightLevel:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AmaxFrameAverageLightLevel%3AHdr10Metadata%27"><span class="hs-identifier hs-var">maxFrameAverageLightLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_whitePointY"><span class="hs-identifier hs-type">hdr10Metadata_whitePointY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="hdr10Metadata_whitePointY"><span class="annot"><span class="annottext">hdr10Metadata_whitePointY :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_whitePointY"><span class="hs-identifier hs-var hs-var">hdr10Metadata_whitePointY</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975811"><span class="annot"><span class="annottext">Maybe Natural
+whitePointY :: Maybe Natural
+$sel:whitePointY:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975811"><span class="hs-identifier hs-var hs-var">whitePointY</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975811"><span class="hs-identifier hs-var">whitePointY</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975810"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975809"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:whitePointY:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AwhitePointY%3AHdr10Metadata%27"><span class="hs-identifier hs-var">whitePointY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Maximum light level among all samples in the coded video sequence, in</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- units of candelas per square meter. This setting doesn\'t have a default</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- value; you must specify a value that is suitable for the content.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_maxContentLightLevel"><span class="hs-identifier hs-type">hdr10Metadata_maxContentLightLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="hdr10Metadata_maxContentLightLevel"><span class="annot"><span class="annottext">hdr10Metadata_maxContentLightLevel :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_maxContentLightLevel"><span class="hs-identifier hs-var hs-var">hdr10Metadata_maxContentLightLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975807"><span class="annot"><span class="annottext">Maybe Natural
+maxContentLightLevel :: Maybe Natural
+$sel:maxContentLightLevel:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975807"><span class="hs-identifier hs-var hs-var">maxContentLightLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975807"><span class="hs-identifier hs-var">maxContentLightLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975806"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975805"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxContentLightLevel:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AmaxContentLightLevel%3AHdr10Metadata%27"><span class="hs-identifier hs-var">maxContentLightLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_whitePointX"><span class="hs-identifier hs-type">hdr10Metadata_whitePointX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="hdr10Metadata_whitePointX"><span class="annot"><span class="annottext">hdr10Metadata_whitePointX :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_whitePointX"><span class="hs-identifier hs-var hs-var">hdr10Metadata_whitePointX</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975803"><span class="annot"><span class="annottext">Maybe Natural
+whitePointX :: Maybe Natural
+$sel:whitePointX:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975803"><span class="hs-identifier hs-var hs-var">whitePointX</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975803"><span class="hs-identifier hs-var">whitePointX</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975802"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975801"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:whitePointX:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AwhitePointX%3AHdr10Metadata%27"><span class="hs-identifier hs-var">whitePointX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_bluePrimaryY"><span class="hs-identifier hs-type">hdr10Metadata_bluePrimaryY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="hdr10Metadata_bluePrimaryY"><span class="annot"><span class="annottext">hdr10Metadata_bluePrimaryY :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_bluePrimaryY"><span class="hs-identifier hs-var hs-var">hdr10Metadata_bluePrimaryY</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975799"><span class="annot"><span class="annottext">Maybe Natural
+bluePrimaryY :: Maybe Natural
+$sel:bluePrimaryY:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975799"><span class="hs-identifier hs-var hs-var">bluePrimaryY</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975799"><span class="hs-identifier hs-var">bluePrimaryY</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975798"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975797"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bluePrimaryY:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AbluePrimaryY%3AHdr10Metadata%27"><span class="hs-identifier hs-var">bluePrimaryY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_greenPrimaryY"><span class="hs-identifier hs-type">hdr10Metadata_greenPrimaryY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="hdr10Metadata_greenPrimaryY"><span class="annot"><span class="annottext">hdr10Metadata_greenPrimaryY :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_greenPrimaryY"><span class="hs-identifier hs-var hs-var">hdr10Metadata_greenPrimaryY</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975795"><span class="annot"><span class="annottext">Maybe Natural
+greenPrimaryY :: Maybe Natural
+$sel:greenPrimaryY:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975795"><span class="hs-identifier hs-var hs-var">greenPrimaryY</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975795"><span class="hs-identifier hs-var">greenPrimaryY</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975794"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975793"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greenPrimaryY:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AgreenPrimaryY%3AHdr10Metadata%27"><span class="hs-identifier hs-var">greenPrimaryY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_greenPrimaryX"><span class="hs-identifier hs-type">hdr10Metadata_greenPrimaryX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="hdr10Metadata_greenPrimaryX"><span class="annot"><span class="annottext">hdr10Metadata_greenPrimaryX :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_greenPrimaryX"><span class="hs-identifier hs-var hs-var">hdr10Metadata_greenPrimaryX</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975791"><span class="annot"><span class="annottext">Maybe Natural
+greenPrimaryX :: Maybe Natural
+$sel:greenPrimaryX:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975791"><span class="hs-identifier hs-var hs-var">greenPrimaryX</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975791"><span class="hs-identifier hs-var">greenPrimaryX</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975790"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975789"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greenPrimaryX:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AgreenPrimaryX%3AHdr10Metadata%27"><span class="hs-identifier hs-var">greenPrimaryX</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | Nominal minimum mastering display luminance in units of of 0.0001</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- candelas per square meter</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_minLuminance"><span class="hs-identifier hs-type">hdr10Metadata_minLuminance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="hdr10Metadata_minLuminance"><span class="annot"><span class="annottext">hdr10Metadata_minLuminance :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_minLuminance"><span class="hs-identifier hs-var hs-var">hdr10Metadata_minLuminance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975787"><span class="annot"><span class="annottext">Maybe Natural
+minLuminance :: Maybe Natural
+$sel:minLuminance:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975787"><span class="hs-identifier hs-var hs-var">minLuminance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975787"><span class="hs-identifier hs-var">minLuminance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975786"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975785"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minLuminance:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AminLuminance%3AHdr10Metadata%27"><span class="hs-identifier hs-var">minLuminance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | HDR Master Display Information must be provided by a color grader, using</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- color grading tools. Range is 0 to 50,000, each increment represents</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 0.00002 in CIE1931 color coordinate. Note that this setting is not for</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- color correction.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_redPrimaryY"><span class="hs-identifier hs-type">hdr10Metadata_redPrimaryY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="hdr10Metadata_redPrimaryY"><span class="annot"><span class="annottext">hdr10Metadata_redPrimaryY :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_redPrimaryY"><span class="hs-identifier hs-var hs-var">hdr10Metadata_redPrimaryY</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975783"><span class="annot"><span class="annottext">Maybe Natural
+redPrimaryY :: Maybe Natural
+$sel:redPrimaryY:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975783"><span class="hs-identifier hs-var hs-var">redPrimaryY</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975783"><span class="hs-identifier hs-var">redPrimaryY</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975782"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975781"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redPrimaryY:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AredPrimaryY%3AHdr10Metadata%27"><span class="hs-identifier hs-var">redPrimaryY</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | Nominal maximum mastering display luminance in units of of 0.0001</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- candelas per square meter.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_maxLuminance"><span class="hs-identifier hs-type">hdr10Metadata_maxLuminance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="hdr10Metadata_maxLuminance"><span class="annot"><span class="annottext">hdr10Metadata_maxLuminance :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Hdr10Metadata -&gt; f Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#hdr10Metadata_maxLuminance"><span class="hs-identifier hs-var hs-var">hdr10Metadata_maxLuminance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Maybe Natural)
+-&gt; (Hdr10Metadata -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Lens Hdr10Metadata Hdr10Metadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975779"><span class="annot"><span class="annottext">Maybe Natural
+maxLuminance :: Maybe Natural
+$sel:maxLuminance:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975779"><span class="hs-identifier hs-var hs-var">maxLuminance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975779"><span class="hs-identifier hs-var">maxLuminance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679975778"><span class="annot"><span class="annottext">s :: Hdr10Metadata
+</span><a href="#local-6989586621679975778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679975777"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hdr10Metadata
+</span><a href="#local-6989586621679975778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxLuminance:Hdr10Metadata' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#%24sel%3AmaxLuminance%3AHdr10Metadata%27"><span class="hs-identifier hs-var">maxLuminance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679975774"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679975772"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Hdr10Metadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Hdr10Metadata)
+-&gt; Value
+-&gt; Parser Hdr10Metadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Hdr10Metadata&quot;</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679975769"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Hdr10Metadata
+</span><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-var">Hdr10Metadata'</span></a></span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;redPrimaryX&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bluePrimaryX&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxFrameAverageLightLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;whitePointY&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxContentLightLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;whitePointX&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bluePrimaryY&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greenPrimaryY&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greenPrimaryX&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minLuminance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Natural -&gt; Hdr10Metadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;redPrimaryY&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Hdr10Metadata)
+-&gt; Parser (Maybe Natural) -&gt; Parser Hdr10Metadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679975769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxLuminance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679975763"><span id="local-6989586621679975765"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span></span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679975760"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679975752"><span id="local-6989586621679975754"><span id="local-6989586621679975756"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679975750"><span class="annot"><span class="annottext">toJSON :: Hdr10Metadata -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata%27"><span class="hs-identifier hs-type">Hdr10Metadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679975737"><span id="local-6989586621679975738"><span id="local-6989586621679975739"><span id="local-6989586621679975740"><span id="local-6989586621679975741"><span id="local-6989586621679975742"><span id="local-6989586621679975743"><span id="local-6989586621679975744"><span id="local-6989586621679975745"><span id="local-6989586621679975746"><span id="local-6989586621679975747"><span id="local-6989586621679975748"><span class="annot"><span class="annottext">Maybe Natural
+maxLuminance :: Maybe Natural
+redPrimaryY :: Maybe Natural
+minLuminance :: Maybe Natural
+greenPrimaryX :: Maybe Natural
+greenPrimaryY :: Maybe Natural
+bluePrimaryY :: Maybe Natural
+whitePointX :: Maybe Natural
+maxContentLightLevel :: Maybe Natural
+whitePointY :: Maybe Natural
+maxFrameAverageLightLevel :: Maybe Natural
+bluePrimaryX :: Maybe Natural
+redPrimaryX :: Maybe Natural
+$sel:maxLuminance:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:redPrimaryY:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:minLuminance:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:greenPrimaryX:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:greenPrimaryY:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:bluePrimaryY:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:whitePointX:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:maxContentLightLevel:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:whitePointY:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:maxFrameAverageLightLevel:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:bluePrimaryX:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+$sel:redPrimaryX:Hdr10Metadata' :: Hdr10Metadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679975737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-276"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;redPrimaryX&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975748"><span class="hs-identifier hs-var">redPrimaryX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bluePrimaryX&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975747"><span class="hs-identifier hs-var">bluePrimaryX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxFrameAverageLightLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975746"><span class="hs-identifier hs-var">maxFrameAverageLightLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;whitePointY&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975745"><span class="hs-identifier hs-var">whitePointY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxContentLightLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975744"><span class="hs-identifier hs-var">maxContentLightLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;whitePointX&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975743"><span class="hs-identifier hs-var">whitePointX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bluePrimaryY&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975742"><span class="hs-identifier hs-var">bluePrimaryY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greenPrimaryY&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975741"><span class="hs-identifier hs-var">greenPrimaryY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greenPrimaryX&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975740"><span class="hs-identifier hs-var">greenPrimaryX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minLuminance&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975739"><span class="hs-identifier hs-var">minLuminance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;redPrimaryY&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975738"><span class="hs-identifier hs-var">redPrimaryY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxLuminance&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679975737"><span class="hs-identifier hs-var">maxLuminance</span></a></span><span>
+</span><span id="line-290"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-291"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span></pre></body></html>

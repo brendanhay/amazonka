@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MemoryDb.Types.AZStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MemoryDb.Types.AZStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus"><span class="hs-identifier">AZStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus_Multiaz"><span class="hs-identifier">AZStatus_Multiaz</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus_Singleaz"><span class="hs-identifier">AZStatus_Singleaz</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679241394"><span id="local-6989586621679241395"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AZStatus"><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus"><span class="hs-identifier hs-var">AZStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AZStatus%27"><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus%27"><span class="hs-identifier hs-var">AZStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAZStatus"><span class="annot"><span class="annottext">AZStatus -&gt; Text
+</span><a href="Amazonka.MemoryDb.Types.AZStatus.html#fromAZStatus"><span class="hs-identifier hs-var hs-var">fromAZStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679241386"><span id="local-6989586621679241388"><span id="local-6989586621679241390"><span class="annot"><span class="annottext">Int -&gt; AZStatus -&gt; ShowS
+[AZStatus] -&gt; ShowS
+AZStatus -&gt; String
+(Int -&gt; AZStatus -&gt; ShowS)
+-&gt; (AZStatus -&gt; String) -&gt; ([AZStatus] -&gt; ShowS) -&gt; Show AZStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AZStatus] -&gt; ShowS
+$cshowList :: [AZStatus] -&gt; ShowS
+show :: AZStatus -&gt; String
+$cshow :: AZStatus -&gt; String
+showsPrec :: Int -&gt; AZStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AZStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679241377"><span id="local-6989586621679241379"><span id="local-6989586621679241381"><span id="local-6989586621679241383"><span class="annot"><span class="annottext">ReadPrec [AZStatus]
+ReadPrec AZStatus
+Int -&gt; ReadS AZStatus
+ReadS [AZStatus]
+(Int -&gt; ReadS AZStatus)
+-&gt; ReadS [AZStatus]
+-&gt; ReadPrec AZStatus
+-&gt; ReadPrec [AZStatus]
+-&gt; Read AZStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AZStatus]
+$creadListPrec :: ReadPrec [AZStatus]
+readPrec :: ReadPrec AZStatus
+$creadPrec :: ReadPrec AZStatus
+readList :: ReadS [AZStatus]
+$creadList :: ReadS [AZStatus]
+readsPrec :: Int -&gt; ReadS AZStatus
+$creadsPrec :: Int -&gt; ReadS AZStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679241372"><span id="local-6989586621679241374"><span class="annot"><span class="annottext">AZStatus -&gt; AZStatus -&gt; Bool
+(AZStatus -&gt; AZStatus -&gt; Bool)
+-&gt; (AZStatus -&gt; AZStatus -&gt; Bool) -&gt; Eq AZStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AZStatus -&gt; AZStatus -&gt; Bool
+$c/= :: AZStatus -&gt; AZStatus -&gt; Bool
+== :: AZStatus -&gt; AZStatus -&gt; Bool
+$c== :: AZStatus -&gt; AZStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679241356"><span id="local-6989586621679241358"><span id="local-6989586621679241360"><span id="local-6989586621679241362"><span id="local-6989586621679241364"><span id="local-6989586621679241366"><span id="local-6989586621679241368"><span class="annot"><span class="annottext">Eq AZStatus
+Eq AZStatus
+-&gt; (AZStatus -&gt; AZStatus -&gt; Ordering)
+-&gt; (AZStatus -&gt; AZStatus -&gt; Bool)
+-&gt; (AZStatus -&gt; AZStatus -&gt; Bool)
+-&gt; (AZStatus -&gt; AZStatus -&gt; Bool)
+-&gt; (AZStatus -&gt; AZStatus -&gt; Bool)
+-&gt; (AZStatus -&gt; AZStatus -&gt; AZStatus)
+-&gt; (AZStatus -&gt; AZStatus -&gt; AZStatus)
+-&gt; Ord AZStatus
+AZStatus -&gt; AZStatus -&gt; Bool
+AZStatus -&gt; AZStatus -&gt; Ordering
+AZStatus -&gt; AZStatus -&gt; AZStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AZStatus -&gt; AZStatus -&gt; AZStatus
+$cmin :: AZStatus -&gt; AZStatus -&gt; AZStatus
+max :: AZStatus -&gt; AZStatus -&gt; AZStatus
+$cmax :: AZStatus -&gt; AZStatus -&gt; AZStatus
+&gt;= :: AZStatus -&gt; AZStatus -&gt; Bool
+$c&gt;= :: AZStatus -&gt; AZStatus -&gt; Bool
+&gt; :: AZStatus -&gt; AZStatus -&gt; Bool
+$c&gt; :: AZStatus -&gt; AZStatus -&gt; Bool
+&lt;= :: AZStatus -&gt; AZStatus -&gt; Bool
+$c&lt;= :: AZStatus -&gt; AZStatus -&gt; Bool
+&lt; :: AZStatus -&gt; AZStatus -&gt; Bool
+$c&lt; :: AZStatus -&gt; AZStatus -&gt; Bool
+compare :: AZStatus -&gt; AZStatus -&gt; Ordering
+$ccompare :: AZStatus -&gt; AZStatus -&gt; Ordering
+$cp1Ord :: Eq AZStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AZStatus -&gt; Rep AZStatus x)
+-&gt; (forall x. Rep AZStatus x -&gt; AZStatus) -&gt; Generic AZStatus
+forall x. Rep AZStatus x -&gt; AZStatus
+forall x. AZStatus -&gt; Rep AZStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AZStatus x -&gt; AZStatus
+$cfrom :: forall x. AZStatus -&gt; Rep AZStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679241348"><span id="local-6989586621679241350"><span class="annot"><span class="annottext">Int -&gt; AZStatus -&gt; Int
+AZStatus -&gt; Int
+(Int -&gt; AZStatus -&gt; Int) -&gt; (AZStatus -&gt; Int) -&gt; Hashable AZStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AZStatus -&gt; Int
+$chash :: AZStatus -&gt; Int
+hashWithSalt :: Int -&gt; AZStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AZStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679241345"><span class="annot"><span class="annottext">AZStatus -&gt; ()
+(AZStatus -&gt; ()) -&gt; NFData AZStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AZStatus -&gt; ()
+$crnf :: AZStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679241342"><span class="annot"><span class="annottext">Text -&gt; Either String AZStatus
+(Text -&gt; Either String AZStatus) -&gt; FromText AZStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AZStatus
+$cfromText :: Text -&gt; Either String AZStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679241339"><span class="annot"><span class="annottext">AZStatus -&gt; Text
+(AZStatus -&gt; Text) -&gt; ToText AZStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AZStatus -&gt; Text
+$ctoText :: AZStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679241336"><span class="annot"><span class="annottext">AZStatus -&gt; ByteString
+(AZStatus -&gt; ByteString) -&gt; ToByteString AZStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AZStatus -&gt; ByteString
+$ctoBS :: AZStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679241333"><span class="annot"><span class="annottext">AZStatus -&gt; ByteStringBuilder
+(AZStatus -&gt; ByteStringBuilder) -&gt; ToLog AZStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AZStatus -&gt; ByteStringBuilder
+$cbuild :: AZStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679241330"><span class="annot"><span class="annottext">HeaderName -&gt; AZStatus -&gt; [Header]
+(HeaderName -&gt; AZStatus -&gt; [Header]) -&gt; ToHeader AZStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AZStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AZStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679241327"><span class="annot"><span class="annottext">AZStatus -&gt; QueryString
+(AZStatus -&gt; QueryString) -&gt; ToQuery AZStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AZStatus -&gt; QueryString
+$ctoQuery :: AZStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679241322"><span id="local-6989586621679241324"><span class="annot"><span class="annottext">Value -&gt; Parser [AZStatus]
+Value -&gt; Parser AZStatus
+(Value -&gt; Parser AZStatus)
+-&gt; (Value -&gt; Parser [AZStatus]) -&gt; FromJSON AZStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AZStatus]
+$cparseJSONList :: Value -&gt; Parser [AZStatus]
+parseJSON :: Value -&gt; Parser AZStatus
+$cparseJSON :: Value -&gt; Parser AZStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679241317"><span id="local-6989586621679241319"><span class="annot"><span class="annottext">FromJSONKeyFunction [AZStatus]
+FromJSONKeyFunction AZStatus
+FromJSONKeyFunction AZStatus
+-&gt; FromJSONKeyFunction [AZStatus] -&gt; FromJSONKey AZStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AZStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AZStatus]
+fromJSONKey :: FromJSONKeyFunction AZStatus
+$cfromJSONKey :: FromJSONKeyFunction AZStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679241308"><span id="local-6989586621679241310"><span id="local-6989586621679241312"><span id="local-6989586621679241314"><span class="annot"><span class="annottext">[AZStatus] -&gt; Encoding
+[AZStatus] -&gt; Value
+AZStatus -&gt; Encoding
+AZStatus -&gt; Value
+(AZStatus -&gt; Value)
+-&gt; (AZStatus -&gt; Encoding)
+-&gt; ([AZStatus] -&gt; Value)
+-&gt; ([AZStatus] -&gt; Encoding)
+-&gt; ToJSON AZStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AZStatus] -&gt; Encoding
+$ctoEncodingList :: [AZStatus] -&gt; Encoding
+toJSONList :: [AZStatus] -&gt; Value
+$ctoJSONList :: [AZStatus] -&gt; Value
+toEncoding :: AZStatus -&gt; Encoding
+$ctoEncoding :: AZStatus -&gt; Encoding
+toJSON :: AZStatus -&gt; Value
+$ctoJSON :: AZStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679241303"><span id="local-6989586621679241305"><span class="annot"><span class="annottext">ToJSONKeyFunction [AZStatus]
+ToJSONKeyFunction AZStatus
+ToJSONKeyFunction AZStatus
+-&gt; ToJSONKeyFunction [AZStatus] -&gt; ToJSONKey AZStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AZStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AZStatus]
+toJSONKey :: ToJSONKeyFunction AZStatus
+$ctoJSONKey :: ToJSONKeyFunction AZStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679241300"><span class="annot"><span class="annottext">[Node] -&gt; Either String AZStatus
+([Node] -&gt; Either String AZStatus) -&gt; FromXML AZStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AZStatus
+$cparseXML :: [Node] -&gt; Either String AZStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679241297"><span class="annot"><span class="annottext">AZStatus -&gt; XML
+(AZStatus -&gt; XML) -&gt; ToXML AZStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AZStatus -&gt; XML
+$ctoXML :: AZStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus_Multiaz"><span class="hs-identifier hs-type">AZStatus_Multiaz</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus"><span class="hs-identifier hs-type">AZStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAZStatus_Multiaz"><span id="%24mAZStatus_Multiaz"><span id="AZStatus_Multiaz"><span class="annot"><span class="annottext">$bAZStatus_Multiaz :: AZStatus
+$mAZStatus_Multiaz :: forall r. AZStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MemoryDb.Types.AZStatus.html#%24bAZStatus_Multiaz"><span class="hs-identifier hs-var hs-var hs-var">AZStatus_Multiaz</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus%27"><span class="hs-identifier hs-type">AZStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;multiaz&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus_Singleaz"><span class="hs-identifier hs-type">AZStatus_Singleaz</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus"><span class="hs-identifier hs-type">AZStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAZStatus_Singleaz"><span id="%24mAZStatus_Singleaz"><span id="AZStatus_Singleaz"><span class="annot"><span class="annottext">$bAZStatus_Singleaz :: AZStatus
+$mAZStatus_Singleaz :: forall r. AZStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MemoryDb.Types.AZStatus.html#%24bAZStatus_Singleaz"><span class="hs-identifier hs-var hs-var hs-var">AZStatus_Singleaz</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus%27"><span class="hs-identifier hs-type">AZStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;singleaz&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus_Multiaz"><span class="hs-pragma hs-type">AZStatus_Multiaz</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus_Singleaz"><span class="hs-pragma hs-type">AZStatus_Singleaz</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MemoryDb.Types.AZStatus.html#AZStatus%27"><span class="hs-pragma hs-type">AZStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.BlueprintRun</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.BlueprintRun</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html"><span class="hs-identifier">Amazonka.Glue.Types.BlueprintRunState</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The details of a blueprint run.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBlueprintRun' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679678960"><span id="local-6989586621679678961"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlueprintRun"><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-var">BlueprintRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueprintRun%27"><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-var">BlueprintRun'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a workflow that is created as a result of a successful</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- blueprint run. If a blueprint run has an error, there will not be a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- workflow created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AworkflowName%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AworkflowName%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">workflowName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date and time that the blueprint run completed.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcompletedOn%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe POSIX
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AcompletedOn%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">completedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The state of the blueprint run. Possible values are:</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   Running &#8212; The blueprint run is in progress.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   Succeeded &#8212; The blueprint run completed successfully.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   Failed &#8212; The blueprint run failed and rollback is complete.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   Rolling Back &#8212; The blueprint run failed and rollback is in progress.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Astate%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe BlueprintRunState
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3Astate%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier hs-type">BlueprintRunState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | If there are any errors while creating the entities of a workflow, we</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- try to roll back the created entities until that point and delete them.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- This attribute indicates the errors seen while trying to delete the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- entities that are created.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3ArollbackErrorMessage%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3ArollbackErrorMessage%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">rollbackErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The date and time that the blueprint run started.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AstartedOn%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe POSIX
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AstartedOn%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">startedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The run ID for this blueprint run.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ArunId%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3ArunId%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The blueprint parameters as a string. You will have to provide a value</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- for each key that is required from the parameter spec that is defined in</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the @Blueprint$ParameterSpec@.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aparameters%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3Aparameters%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the blueprint.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AblueprintName%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AblueprintName%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">blueprintName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Indicates any errors that are seen while running the blueprint.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AerrorMessage%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AerrorMessage%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The role ARN. This role will be assumed by the Glue service and will be</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- used to create the workflow and other entities of a workflow.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AroleArn%3ABlueprintRun%27"><span class="annot"><span class="annottext">BlueprintRun -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AroleArn%3ABlueprintRun%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679678945"><span id="local-6989586621679678947"><span class="annot"><span class="annottext">BlueprintRun -&gt; BlueprintRun -&gt; Bool
+(BlueprintRun -&gt; BlueprintRun -&gt; Bool)
+-&gt; (BlueprintRun -&gt; BlueprintRun -&gt; Bool) -&gt; Eq BlueprintRun
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BlueprintRun -&gt; BlueprintRun -&gt; Bool
+$c/= :: BlueprintRun -&gt; BlueprintRun -&gt; Bool
+== :: BlueprintRun -&gt; BlueprintRun -&gt; Bool
+$c== :: BlueprintRun -&gt; BlueprintRun -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678936"><span id="local-6989586621679678938"><span id="local-6989586621679678940"><span id="local-6989586621679678942"><span class="annot"><span class="annottext">ReadPrec [BlueprintRun]
+ReadPrec BlueprintRun
+Int -&gt; ReadS BlueprintRun
+ReadS [BlueprintRun]
+(Int -&gt; ReadS BlueprintRun)
+-&gt; ReadS [BlueprintRun]
+-&gt; ReadPrec BlueprintRun
+-&gt; ReadPrec [BlueprintRun]
+-&gt; Read BlueprintRun
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BlueprintRun]
+$creadListPrec :: ReadPrec [BlueprintRun]
+readPrec :: ReadPrec BlueprintRun
+$creadPrec :: ReadPrec BlueprintRun
+readList :: ReadS [BlueprintRun]
+$creadList :: ReadS [BlueprintRun]
+readsPrec :: Int -&gt; ReadS BlueprintRun
+$creadsPrec :: Int -&gt; ReadS BlueprintRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678929"><span id="local-6989586621679678931"><span id="local-6989586621679678933"><span class="annot"><span class="annottext">Int -&gt; BlueprintRun -&gt; ShowS
+[BlueprintRun] -&gt; ShowS
+BlueprintRun -&gt; String
+(Int -&gt; BlueprintRun -&gt; ShowS)
+-&gt; (BlueprintRun -&gt; String)
+-&gt; ([BlueprintRun] -&gt; ShowS)
+-&gt; Show BlueprintRun
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BlueprintRun] -&gt; ShowS
+$cshowList :: [BlueprintRun] -&gt; ShowS
+show :: BlueprintRun -&gt; String
+$cshow :: BlueprintRun -&gt; String
+showsPrec :: Int -&gt; BlueprintRun -&gt; ShowS
+$cshowsPrec :: Int -&gt; BlueprintRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BlueprintRun -&gt; Rep BlueprintRun x)
+-&gt; (forall x. Rep BlueprintRun x -&gt; BlueprintRun)
+-&gt; Generic BlueprintRun
+forall x. Rep BlueprintRun x -&gt; BlueprintRun
+forall x. BlueprintRun -&gt; Rep BlueprintRun x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BlueprintRun x -&gt; BlueprintRun
+$cfrom :: forall x. BlueprintRun -&gt; Rep BlueprintRun x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'BlueprintRun' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'workflowName', 'blueprintRun_workflowName' - The name of a workflow that is created as a result of a successful</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- blueprint run. If a blueprint run has an error, there will not be a</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- workflow created.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'completedOn', 'blueprintRun_completedOn' - The date and time that the blueprint run completed.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'state', 'blueprintRun_state' - The state of the blueprint run. Possible values are:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   Running &#8212; The blueprint run is in progress.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   Succeeded &#8212; The blueprint run completed successfully.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   Failed &#8212; The blueprint run failed and rollback is complete.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   Rolling Back &#8212; The blueprint run failed and rollback is in progress.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'rollbackErrorMessage', 'blueprintRun_rollbackErrorMessage' - If there are any errors while creating the entities of a workflow, we</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- try to roll back the created entities until that point and delete them.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- This attribute indicates the errors seen while trying to delete the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- entities that are created.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'startedOn', 'blueprintRun_startedOn' - The date and time that the blueprint run started.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'runId', 'blueprintRun_runId' - The run ID for this blueprint run.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'parameters', 'blueprintRun_parameters' - The blueprint parameters as a string. You will have to provide a value</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for each key that is required from the parameter spec that is defined in</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- the @Blueprint$ParameterSpec@.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'blueprintName', 'blueprintRun_blueprintName' - The name of the blueprint.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'errorMessage', 'blueprintRun_errorMessage' - Indicates any errors that are seen while running the blueprint.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'roleArn', 'blueprintRun_roleArn' - The role ARN. This role will be assumed by the Glue service and will be</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- used to create the workflow and other entities of a workflow.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#newBlueprintRun"><span class="hs-identifier hs-type">newBlueprintRun</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span>
+</span><span id="line-115"></span><span id="newBlueprintRun"><span class="annot"><span class="annottext">newBlueprintRun :: BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#newBlueprintRun"><span class="hs-identifier hs-var hs-var">newBlueprintRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">BlueprintRun' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe BlueprintRunState
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workflowName:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AworkflowName%3ABlueprintRun%27"><span class="hs-identifier hs-var">workflowName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:completedOn:BlueprintRun' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AcompletedOn%3ABlueprintRun%27"><span class="hs-identifier hs-var">completedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:BlueprintRun' :: Maybe BlueprintRunState
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3Astate%3ABlueprintRun%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlueprintRunState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:rollbackErrorMessage:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3ArollbackErrorMessage%3ABlueprintRun%27"><span class="hs-identifier hs-var">rollbackErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:startedOn:BlueprintRun' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AstartedOn%3ABlueprintRun%27"><span class="hs-identifier hs-var">startedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:runId:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3ArunId%3ABlueprintRun%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3Aparameters%3ABlueprintRun%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:blueprintName:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AblueprintName%3ABlueprintRun%27"><span class="hs-identifier hs-var">blueprintName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AerrorMessage%3ABlueprintRun%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AroleArn%3ABlueprintRun%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The name of a workflow that is created as a result of a successful</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- blueprint run. If a blueprint run has an error, there will not be a</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- workflow created.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_workflowName"><span class="hs-identifier hs-type">blueprintRun_workflowName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="blueprintRun_workflowName"><span class="annot"><span class="annottext">blueprintRun_workflowName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_workflowName"><span class="hs-identifier hs-var hs-var">blueprintRun_workflowName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe Text)
+-&gt; (BlueprintRun -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Lens BlueprintRun BlueprintRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678920"><span class="annot"><span class="annottext">Maybe Text
+workflowName :: Maybe Text
+$sel:workflowName:BlueprintRun' :: BlueprintRun -&gt; Maybe Text
+</span><a href="#local-6989586621679678920"><span class="hs-identifier hs-var hs-var">workflowName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678920"><span class="hs-identifier hs-var">workflowName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678919"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678918"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowName:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AworkflowName%3ABlueprintRun%27"><span class="hs-identifier hs-var">workflowName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The date and time that the blueprint run completed.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_completedOn"><span class="hs-identifier hs-type">blueprintRun_completedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="blueprintRun_completedOn"><span class="annot"><span class="annottext">blueprintRun_completedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_completedOn"><span class="hs-identifier hs-var hs-var">blueprintRun_completedOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe POSIX)
+-&gt; (BlueprintRun -&gt; Maybe POSIX -&gt; BlueprintRun)
+-&gt; Lens BlueprintRun BlueprintRun (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678916"><span class="annot"><span class="annottext">Maybe POSIX
+completedOn :: Maybe POSIX
+$sel:completedOn:BlueprintRun' :: BlueprintRun -&gt; Maybe POSIX
+</span><a href="#local-6989586621679678916"><span class="hs-identifier hs-var hs-var">completedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679678916"><span class="hs-identifier hs-var">completedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678915"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678914"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679678914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completedOn:BlueprintRun' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AcompletedOn%3ABlueprintRun%27"><span class="hs-identifier hs-var">completedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679678914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BlueprintRun -&gt; f BlueprintRun)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BlueprintRun
+-&gt; f BlueprintRun
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The state of the blueprint run. Possible values are:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   Running &#8212; The blueprint run is in progress.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   Succeeded &#8212; The blueprint run completed successfully.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   Failed &#8212; The blueprint run failed and rollback is complete.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   Rolling Back &#8212; The blueprint run failed and rollback is in progress.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_state"><span class="hs-identifier hs-type">blueprintRun_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier hs-type">BlueprintRunState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="blueprintRun_state"><span class="annot"><span class="annottext">blueprintRun_state :: (Maybe BlueprintRunState -&gt; f (Maybe BlueprintRunState))
+-&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_state"><span class="hs-identifier hs-var hs-var">blueprintRun_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe BlueprintRunState)
+-&gt; (BlueprintRun -&gt; Maybe BlueprintRunState -&gt; BlueprintRun)
+-&gt; Lens
+     BlueprintRun
+     BlueprintRun
+     (Maybe BlueprintRunState)
+     (Maybe BlueprintRunState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678909"><span class="annot"><span class="annottext">Maybe BlueprintRunState
+state :: Maybe BlueprintRunState
+$sel:state:BlueprintRun' :: BlueprintRun -&gt; Maybe BlueprintRunState
+</span><a href="#local-6989586621679678909"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlueprintRunState
+</span><a href="#local-6989586621679678909"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678908"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678907"><span class="annot"><span class="annottext">Maybe BlueprintRunState
+</span><a href="#local-6989586621679678907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:BlueprintRun' :: Maybe BlueprintRunState
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3Astate%3ABlueprintRun%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlueprintRunState
+</span><a href="#local-6989586621679678907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | If there are any errors while creating the entities of a workflow, we</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- try to roll back the created entities until that point and delete them.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- This attribute indicates the errors seen while trying to delete the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- entities that are created.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_rollbackErrorMessage"><span class="hs-identifier hs-type">blueprintRun_rollbackErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="blueprintRun_rollbackErrorMessage"><span class="annot"><span class="annottext">blueprintRun_rollbackErrorMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_rollbackErrorMessage"><span class="hs-identifier hs-var hs-var">blueprintRun_rollbackErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe Text)
+-&gt; (BlueprintRun -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Lens BlueprintRun BlueprintRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678905"><span class="annot"><span class="annottext">Maybe Text
+rollbackErrorMessage :: Maybe Text
+$sel:rollbackErrorMessage:BlueprintRun' :: BlueprintRun -&gt; Maybe Text
+</span><a href="#local-6989586621679678905"><span class="hs-identifier hs-var hs-var">rollbackErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678905"><span class="hs-identifier hs-var">rollbackErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678904"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678903"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rollbackErrorMessage:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3ArollbackErrorMessage%3ABlueprintRun%27"><span class="hs-identifier hs-var">rollbackErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The date and time that the blueprint run started.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_startedOn"><span class="hs-identifier hs-type">blueprintRun_startedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="blueprintRun_startedOn"><span class="annot"><span class="annottext">blueprintRun_startedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_startedOn"><span class="hs-identifier hs-var hs-var">blueprintRun_startedOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe POSIX)
+-&gt; (BlueprintRun -&gt; Maybe POSIX -&gt; BlueprintRun)
+-&gt; Lens BlueprintRun BlueprintRun (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678901"><span class="annot"><span class="annottext">Maybe POSIX
+startedOn :: Maybe POSIX
+$sel:startedOn:BlueprintRun' :: BlueprintRun -&gt; Maybe POSIX
+</span><a href="#local-6989586621679678901"><span class="hs-identifier hs-var hs-var">startedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679678901"><span class="hs-identifier hs-var">startedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678900"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678899"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679678899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedOn:BlueprintRun' :: Maybe POSIX
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AstartedOn%3ABlueprintRun%27"><span class="hs-identifier hs-var">startedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679678899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BlueprintRun -&gt; f BlueprintRun)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BlueprintRun
+-&gt; f BlueprintRun
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The run ID for this blueprint run.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_runId"><span class="hs-identifier hs-type">blueprintRun_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="blueprintRun_runId"><span class="annot"><span class="annottext">blueprintRun_runId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_runId"><span class="hs-identifier hs-var hs-var">blueprintRun_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe Text)
+-&gt; (BlueprintRun -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Lens BlueprintRun BlueprintRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678897"><span class="annot"><span class="annottext">Maybe Text
+runId :: Maybe Text
+$sel:runId:BlueprintRun' :: BlueprintRun -&gt; Maybe Text
+</span><a href="#local-6989586621679678897"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678897"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678896"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3ArunId%3ABlueprintRun%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The blueprint parameters as a string. You will have to provide a value</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- for each key that is required from the parameter spec that is defined in</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- the @Blueprint$ParameterSpec@.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_parameters"><span class="hs-identifier hs-type">blueprintRun_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="blueprintRun_parameters"><span class="annot"><span class="annottext">blueprintRun_parameters :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_parameters"><span class="hs-identifier hs-var hs-var">blueprintRun_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe Text)
+-&gt; (BlueprintRun -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Lens BlueprintRun BlueprintRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678893"><span class="annot"><span class="annottext">Maybe Text
+parameters :: Maybe Text
+$sel:parameters:BlueprintRun' :: BlueprintRun -&gt; Maybe Text
+</span><a href="#local-6989586621679678893"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678893"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678892"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3Aparameters%3ABlueprintRun%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The name of the blueprint.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_blueprintName"><span class="hs-identifier hs-type">blueprintRun_blueprintName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="blueprintRun_blueprintName"><span class="annot"><span class="annottext">blueprintRun_blueprintName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_blueprintName"><span class="hs-identifier hs-var hs-var">blueprintRun_blueprintName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe Text)
+-&gt; (BlueprintRun -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Lens BlueprintRun BlueprintRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678889"><span class="annot"><span class="annottext">Maybe Text
+blueprintName :: Maybe Text
+$sel:blueprintName:BlueprintRun' :: BlueprintRun -&gt; Maybe Text
+</span><a href="#local-6989586621679678889"><span class="hs-identifier hs-var hs-var">blueprintName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678889"><span class="hs-identifier hs-var">blueprintName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678888"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintName:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AblueprintName%3ABlueprintRun%27"><span class="hs-identifier hs-var">blueprintName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Indicates any errors that are seen while running the blueprint.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_errorMessage"><span class="hs-identifier hs-type">blueprintRun_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="blueprintRun_errorMessage"><span class="annot"><span class="annottext">blueprintRun_errorMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_errorMessage"><span class="hs-identifier hs-var hs-var">blueprintRun_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe Text)
+-&gt; (BlueprintRun -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Lens BlueprintRun BlueprintRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678885"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:BlueprintRun' :: BlueprintRun -&gt; Maybe Text
+</span><a href="#local-6989586621679678885"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678885"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678884"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678883"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AerrorMessage%3ABlueprintRun%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The role ARN. This role will be assumed by the Glue service and will be</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- used to create the workflow and other entities of a workflow.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_roleArn"><span class="hs-identifier hs-type">blueprintRun_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="blueprintRun_roleArn"><span class="annot"><span class="annottext">blueprintRun_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BlueprintRun -&gt; f BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#blueprintRun_roleArn"><span class="hs-identifier hs-var hs-var">blueprintRun_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueprintRun -&gt; Maybe Text)
+-&gt; (BlueprintRun -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Lens BlueprintRun BlueprintRun (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678881"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:BlueprintRun' :: BlueprintRun -&gt; Maybe Text
+</span><a href="#local-6989586621679678881"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678881"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678880"><span class="annot"><span class="annottext">s :: BlueprintRun
+</span><a href="#local-6989586621679678880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-type">BlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueprintRun
+</span><a href="#local-6989586621679678880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:BlueprintRun' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#%24sel%3AroleArn%3ABlueprintRun%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679678879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678876"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679678874"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlueprintRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BlueprintRun) -&gt; Value -&gt; Parser BlueprintRun
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BlueprintRun&quot;</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679678871"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe BlueprintRunState
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; BlueprintRun
+</span><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun%27"><span class="hs-identifier hs-var">BlueprintRun'</span></a></span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe BlueprintRunState
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; BlueprintRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe BlueprintRunState
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; BlueprintRun)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkflowName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe BlueprintRunState
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; BlueprintRun)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe BlueprintRunState
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; BlueprintRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompletedOn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BlueprintRunState
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; BlueprintRun)
+-&gt; Parser (Maybe BlueprintRunState)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; BlueprintRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlueprintRunState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; BlueprintRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; BlueprintRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RollbackErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; BlueprintRun)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; BlueprintRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartedOn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; BlueprintRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; BlueprintRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; BlueprintRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; BlueprintRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BlueprintName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; BlueprintRun)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; BlueprintRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BlueprintRun)
+-&gt; Parser (Maybe Text) -&gt; Parser BlueprintRun
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678865"><span id="local-6989586621679678867"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span></span><span>
+</span><span id="line-206"></span></pre></body></html>

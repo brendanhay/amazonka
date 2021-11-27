@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.Types.Project</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.Types.Project</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Represents an operating-system neutral workspace for running and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- managing tests.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProject' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679365051"><span id="local-6989586621679365052"></span></span><span class="hs-keyword">data</span><span> </span><span id="Project"><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-var">Project</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Project%27"><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The project\'s ARN.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3Aarn%3AProject%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | When the project was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acreated%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3Acreated%3AProject%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The project\'s name.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The default number of minutes (at the project level) a test run executes</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- before it times out. The default value is 150 minutes.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdefaultJobTimeoutMinutes%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Int
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3AdefaultJobTimeoutMinutes%3AProject%27"><span class="hs-identifier hs-var hs-var">defaultJobTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365042"><span id="local-6989586621679365044"><span class="annot"><span class="annottext">Project -&gt; Project -&gt; Bool
+(Project -&gt; Project -&gt; Bool)
+-&gt; (Project -&gt; Project -&gt; Bool) -&gt; Eq Project
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Project -&gt; Project -&gt; Bool
+$c/= :: Project -&gt; Project -&gt; Bool
+== :: Project -&gt; Project -&gt; Bool
+$c== :: Project -&gt; Project -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365033"><span id="local-6989586621679365035"><span id="local-6989586621679365037"><span id="local-6989586621679365039"><span class="annot"><span class="annottext">ReadPrec [Project]
+ReadPrec Project
+Int -&gt; ReadS Project
+ReadS [Project]
+(Int -&gt; ReadS Project)
+-&gt; ReadS [Project]
+-&gt; ReadPrec Project
+-&gt; ReadPrec [Project]
+-&gt; Read Project
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Project]
+$creadListPrec :: ReadPrec [Project]
+readPrec :: ReadPrec Project
+$creadPrec :: ReadPrec Project
+readList :: ReadS [Project]
+$creadList :: ReadS [Project]
+readsPrec :: Int -&gt; ReadS Project
+$creadsPrec :: Int -&gt; ReadS Project
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365026"><span id="local-6989586621679365028"><span id="local-6989586621679365030"><span class="annot"><span class="annottext">Int -&gt; Project -&gt; ShowS
+[Project] -&gt; ShowS
+Project -&gt; String
+(Int -&gt; Project -&gt; ShowS)
+-&gt; (Project -&gt; String) -&gt; ([Project] -&gt; ShowS) -&gt; Show Project
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Project] -&gt; ShowS
+$cshowList :: [Project] -&gt; ShowS
+show :: Project -&gt; String
+$cshow :: Project -&gt; String
+showsPrec :: Int -&gt; Project -&gt; ShowS
+$cshowsPrec :: Int -&gt; Project -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Project -&gt; Rep Project x)
+-&gt; (forall x. Rep Project x -&gt; Project) -&gt; Generic Project
+forall x. Rep Project x -&gt; Project
+forall x. Project -&gt; Rep Project x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Project x -&gt; Project
+$cfrom :: forall x. Project -&gt; Rep Project x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'Project' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'arn', 'project_arn' - The project\'s ARN.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'created', 'project_created' - When the project was created.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'name', 'project_name' - The project\'s name.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'defaultJobTimeoutMinutes', 'project_defaultJobTimeoutMinutes' - The default number of minutes (at the project level) a test run executes</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- before it times out. The default value is 150 minutes.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#newProject"><span class="hs-identifier hs-type">newProject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span>
+</span><span id="line-61"></span><span id="newProject"><span class="annot"><span class="annottext">newProject :: Project
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#newProject"><span class="hs-identifier hs-var hs-var">newProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Project' :: Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:Project' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3Aarn%3AProject%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:Project' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3Acreated%3AProject%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Project' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultJobTimeoutMinutes:Project' :: Maybe Int
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3AdefaultJobTimeoutMinutes%3AProject%27"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The project\'s ARN.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#project_arn"><span class="hs-identifier hs-type">project_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="project_arn"><span class="annot"><span class="annottext">project_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#project_arn"><span class="hs-identifier hs-var hs-var">project_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365017"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679365017"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365017"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365016"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679365016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365015"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679365016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Project' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3Aarn%3AProject%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | When the project was created.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#project_created"><span class="hs-identifier hs-type">project_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="project_created"><span class="annot"><span class="annottext">project_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#project_created"><span class="hs-identifier hs-var hs-var">project_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe POSIX)
+-&gt; (Project -&gt; Maybe POSIX -&gt; Project)
+-&gt; Lens Project Project (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365013"><span class="annot"><span class="annottext">Maybe POSIX
+created :: Maybe POSIX
+$sel:created:Project' :: Project -&gt; Maybe POSIX
+</span><a href="#local-6989586621679365013"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365013"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365012"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679365012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365011"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679365012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:Project' :: Maybe POSIX
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3Acreated%3AProject%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Project -&gt; f Project)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Project
+-&gt; f Project
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The project\'s name.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#project_name"><span class="hs-identifier hs-type">project_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="project_name"><span class="annot"><span class="annottext">project_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#project_name"><span class="hs-identifier hs-var hs-var">project_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365006"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679365006"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365006"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365005"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679365005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365004"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679365005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Project' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The default number of minutes (at the project level) a test run executes</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- before it times out. The default value is 150 minutes.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#project_defaultJobTimeoutMinutes"><span class="hs-identifier hs-type">project_defaultJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="project_defaultJobTimeoutMinutes"><span class="annot"><span class="annottext">project_defaultJobTimeoutMinutes :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#project_defaultJobTimeoutMinutes"><span class="hs-identifier hs-var hs-var">project_defaultJobTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Int)
+-&gt; (Project -&gt; Maybe Int -&gt; Project)
+-&gt; Lens Project Project (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365002"><span class="annot"><span class="annottext">Maybe Int
+defaultJobTimeoutMinutes :: Maybe Int
+$sel:defaultJobTimeoutMinutes:Project' :: Project -&gt; Maybe Int
+</span><a href="#local-6989586621679365002"><span class="hs-identifier hs-var hs-var">defaultJobTimeoutMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679365002"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365001"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679365001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365000"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679365000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679365001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultJobTimeoutMinutes:Project' :: Maybe Int
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#%24sel%3AdefaultJobTimeoutMinutes%3AProject%27"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679365000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364997"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679364995"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Project
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Project) -&gt; Value -&gt; Parser Project
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Project&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364992"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project
+</span><a href="Amazonka.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; Project)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Int -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Project)
+-&gt; Parser (Maybe Int) -&gt; Parser Project
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultJobTimeoutMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364986"><span id="local-6989586621679364988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span>
+</span><span id="line-101"></span></pre></body></html>

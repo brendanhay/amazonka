@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AccessAnalyzer.GetFinding</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about the specified finding.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AccessAnalyzer.GetFinding</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier">GetFinding</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#newGetFinding"><span class="hs-identifier">newGetFinding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFinding_analyzerArn"><span class="hs-identifier">getFinding_analyzerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFinding_id"><span class="hs-identifier">getFinding_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse"><span class="hs-identifier">GetFindingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#newGetFindingResponse"><span class="hs-identifier">newGetFindingResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFindingResponse_finding"><span class="hs-identifier">getFindingResponse_finding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFindingResponse_httpStatus"><span class="hs-identifier">getFindingResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.html"><span class="hs-identifier">Amazonka.AccessAnalyzer.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | Retrieves a finding.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newGetFinding' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679256494"><span id="local-6989586621679256495"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFinding"><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-var">GetFinding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFinding%27"><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding%27"><span class="hs-identifier hs-var">GetFinding'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer&gt;</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- that generated the finding.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AanalyzerArn%3AGetFinding%27"><span class="annot"><span class="annottext">GetFinding -&gt; Text
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3AanalyzerArn%3AGetFinding%27"><span class="hs-identifier hs-var hs-var">analyzerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the finding to retrieve.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aid%3AGetFinding%27"><span class="annot"><span class="annottext">GetFinding -&gt; Text
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3Aid%3AGetFinding%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256487"><span id="local-6989586621679256489"><span class="annot"><span class="annottext">GetFinding -&gt; GetFinding -&gt; Bool
+(GetFinding -&gt; GetFinding -&gt; Bool)
+-&gt; (GetFinding -&gt; GetFinding -&gt; Bool) -&gt; Eq GetFinding
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFinding -&gt; GetFinding -&gt; Bool
+$c/= :: GetFinding -&gt; GetFinding -&gt; Bool
+== :: GetFinding -&gt; GetFinding -&gt; Bool
+$c== :: GetFinding -&gt; GetFinding -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256478"><span id="local-6989586621679256480"><span id="local-6989586621679256482"><span id="local-6989586621679256484"><span class="annot"><span class="annottext">ReadPrec [GetFinding]
+ReadPrec GetFinding
+Int -&gt; ReadS GetFinding
+ReadS [GetFinding]
+(Int -&gt; ReadS GetFinding)
+-&gt; ReadS [GetFinding]
+-&gt; ReadPrec GetFinding
+-&gt; ReadPrec [GetFinding]
+-&gt; Read GetFinding
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFinding]
+$creadListPrec :: ReadPrec [GetFinding]
+readPrec :: ReadPrec GetFinding
+$creadPrec :: ReadPrec GetFinding
+readList :: ReadS [GetFinding]
+$creadList :: ReadS [GetFinding]
+readsPrec :: Int -&gt; ReadS GetFinding
+$creadsPrec :: Int -&gt; ReadS GetFinding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256471"><span id="local-6989586621679256473"><span id="local-6989586621679256475"><span class="annot"><span class="annottext">Int -&gt; GetFinding -&gt; ShowS
+[GetFinding] -&gt; ShowS
+GetFinding -&gt; String
+(Int -&gt; GetFinding -&gt; ShowS)
+-&gt; (GetFinding -&gt; String)
+-&gt; ([GetFinding] -&gt; ShowS)
+-&gt; Show GetFinding
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFinding] -&gt; ShowS
+$cshowList :: [GetFinding] -&gt; ShowS
+show :: GetFinding -&gt; String
+$cshow :: GetFinding -&gt; String
+showsPrec :: Int -&gt; GetFinding -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFinding -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetFinding -&gt; Rep GetFinding x)
+-&gt; (forall x. Rep GetFinding x -&gt; GetFinding) -&gt; Generic GetFinding
+forall x. Rep GetFinding x -&gt; GetFinding
+forall x. GetFinding -&gt; Rep GetFinding x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetFinding x -&gt; GetFinding
+$cfrom :: forall x. GetFinding -&gt; Rep GetFinding x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'GetFinding' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'analyzerArn', 'getFinding_analyzerArn' - The</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer&gt;</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- that generated the finding.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'id', 'getFinding_id' - The ID of the finding to retrieve.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#newGetFinding"><span class="hs-identifier hs-type">newGetFinding</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'analyzerArn'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span>
+</span><span id="line-82"></span><span id="newGetFinding"><span class="annot"><span class="annottext">newGetFinding :: Text -&gt; Text -&gt; GetFinding
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#newGetFinding"><span class="hs-identifier hs-var hs-var">newGetFinding</span></a></span></span><span> </span><span id="local-6989586621679256466"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256466"><span class="hs-identifier hs-var">pAnalyzerArn_</span></a></span></span><span> </span><span id="local-6989586621679256465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256465"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">GetFinding' :: Text -&gt; Text -&gt; GetFinding
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding%27"><span class="hs-identifier hs-type">GetFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyzerArn:GetFinding' :: Text
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3AanalyzerArn%3AGetFinding%27"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256466"><span class="hs-identifier hs-var">pAnalyzerArn_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:id:GetFinding' :: Text
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3Aid%3AGetFinding%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256465"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer&gt;</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- that generated the finding.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFinding_analyzerArn"><span class="hs-identifier hs-type">getFinding_analyzerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="getFinding_analyzerArn"><span class="annot"><span class="annottext">getFinding_analyzerArn :: (Text -&gt; f Text) -&gt; GetFinding -&gt; f GetFinding
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFinding_analyzerArn"><span class="hs-identifier hs-var hs-var">getFinding_analyzerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFinding -&gt; Text)
+-&gt; (GetFinding -&gt; Text -&gt; GetFinding)
+-&gt; Lens GetFinding GetFinding Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding%27"><span class="hs-identifier hs-type">GetFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256462"><span class="annot"><span class="annottext">Text
+analyzerArn :: Text
+$sel:analyzerArn:GetFinding' :: GetFinding -&gt; Text
+</span><a href="#local-6989586621679256462"><span class="hs-identifier hs-var hs-var">analyzerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256462"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256461"><span class="annot"><span class="annottext">s :: GetFinding
+</span><a href="#local-6989586621679256461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding%27"><span class="hs-identifier hs-type">GetFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256460"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFinding
+</span><a href="#local-6989586621679256461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyzerArn:GetFinding' :: Text
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3AanalyzerArn%3AGetFinding%27"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The ID of the finding to retrieve.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFinding_id"><span class="hs-identifier hs-type">getFinding_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="getFinding_id"><span class="annot"><span class="annottext">getFinding_id :: (Text -&gt; f Text) -&gt; GetFinding -&gt; f GetFinding
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFinding_id"><span class="hs-identifier hs-var hs-var">getFinding_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFinding -&gt; Text)
+-&gt; (GetFinding -&gt; Text -&gt; GetFinding)
+-&gt; Lens GetFinding GetFinding Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding%27"><span class="hs-identifier hs-type">GetFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256459"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetFinding' :: GetFinding -&gt; Text
+</span><a href="#local-6989586621679256459"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256459"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256458"><span class="annot"><span class="annottext">s :: GetFinding
+</span><a href="#local-6989586621679256458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding%27"><span class="hs-identifier hs-type">GetFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFinding
+</span><a href="#local-6989586621679256458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetFinding' :: Text
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3Aid%3AGetFinding%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse"><span class="hs-identifier hs-type">GetFindingResponse</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679256453"><span class="annot"><span class="annottext">request :: GetFinding -&gt; Request GetFinding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetFinding -&gt; Request GetFinding
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AccessAnalyzer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679256449"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetFinding
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetFinding)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetFinding))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetFinding
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetFinding)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256446"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256446"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256445"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256445"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256444"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Finding -&gt; Int -&gt; GetFindingResponse
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse%27"><span class="hs-identifier hs-var">GetFindingResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Finding -&gt; Int -&gt; GetFindingResponse)
+-&gt; Either String (Maybe Finding)
+-&gt; Either String (Int -&gt; GetFindingResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Finding)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;finding&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetFindingResponse)
+-&gt; Either String Int -&gt; Either String GetFindingResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256446"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256436"><span id="local-6989586621679256438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679256429"><span class="annot"><span class="annottext">toHeaders :: GetFinding -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFinding -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679256423"><span class="annot"><span class="annottext">toPath :: GetFinding -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding%27"><span class="hs-identifier hs-type">GetFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256420"><span id="local-6989586621679256421"><span class="annot"><span class="annottext">Text
+id :: Text
+analyzerArn :: Text
+$sel:id:GetFinding' :: GetFinding -&gt; Text
+$sel:analyzerArn:GetFinding' :: GetFinding -&gt; Text
+</span><a href="#local-6989586621679256420"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/finding/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256420"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding"><span class="hs-identifier hs-type">GetFinding</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679256416"><span class="annot"><span class="annottext">toQuery :: GetFinding -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFinding%27"><span class="hs-identifier hs-type">GetFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256413"><span id="local-6989586621679256414"><span class="annot"><span class="annottext">Text
+id :: Text
+analyzerArn :: Text
+$sel:id:GetFinding' :: GetFinding -&gt; Text
+$sel:analyzerArn:GetFinding' :: GetFinding -&gt; Text
+</span><a href="#local-6989586621679256413"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;analyzerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256414"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The response to the request.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- /See:/ 'newGetFindingResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621679256410"><span id="local-6989586621679256411"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFindingResponse"><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse"><span class="hs-identifier hs-var">GetFindingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFindingResponse%27"><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse%27"><span class="hs-identifier hs-var">GetFindingResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @finding@ object that contains finding details.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3Afinding%3AGetFindingResponse%27"><span class="annot"><span class="annottext">GetFindingResponse -&gt; Maybe Finding
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3Afinding%3AGetFindingResponse%27"><span class="hs-identifier hs-var hs-var">finding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.Finding.html#Finding"><span class="hs-identifier hs-type">Finding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFindingResponse%27"><span class="annot"><span class="annottext">GetFindingResponse -&gt; Int
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3AhttpStatus%3AGetFindingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256404"><span id="local-6989586621679256406"><span class="annot"><span class="annottext">GetFindingResponse -&gt; GetFindingResponse -&gt; Bool
+(GetFindingResponse -&gt; GetFindingResponse -&gt; Bool)
+-&gt; (GetFindingResponse -&gt; GetFindingResponse -&gt; Bool)
+-&gt; Eq GetFindingResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFindingResponse -&gt; GetFindingResponse -&gt; Bool
+$c/= :: GetFindingResponse -&gt; GetFindingResponse -&gt; Bool
+== :: GetFindingResponse -&gt; GetFindingResponse -&gt; Bool
+$c== :: GetFindingResponse -&gt; GetFindingResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256396"><span id="local-6989586621679256398"><span id="local-6989586621679256400"><span id="local-6989586621679256402"><span class="annot"><span class="annottext">ReadPrec [GetFindingResponse]
+ReadPrec GetFindingResponse
+Int -&gt; ReadS GetFindingResponse
+ReadS [GetFindingResponse]
+(Int -&gt; ReadS GetFindingResponse)
+-&gt; ReadS [GetFindingResponse]
+-&gt; ReadPrec GetFindingResponse
+-&gt; ReadPrec [GetFindingResponse]
+-&gt; Read GetFindingResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFindingResponse]
+$creadListPrec :: ReadPrec [GetFindingResponse]
+readPrec :: ReadPrec GetFindingResponse
+$creadPrec :: ReadPrec GetFindingResponse
+readList :: ReadS [GetFindingResponse]
+$creadList :: ReadS [GetFindingResponse]
+readsPrec :: Int -&gt; ReadS GetFindingResponse
+$creadsPrec :: Int -&gt; ReadS GetFindingResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256390"><span id="local-6989586621679256392"><span id="local-6989586621679256394"><span class="annot"><span class="annottext">Int -&gt; GetFindingResponse -&gt; ShowS
+[GetFindingResponse] -&gt; ShowS
+GetFindingResponse -&gt; String
+(Int -&gt; GetFindingResponse -&gt; ShowS)
+-&gt; (GetFindingResponse -&gt; String)
+-&gt; ([GetFindingResponse] -&gt; ShowS)
+-&gt; Show GetFindingResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFindingResponse] -&gt; ShowS
+$cshowList :: [GetFindingResponse] -&gt; ShowS
+show :: GetFindingResponse -&gt; String
+$cshow :: GetFindingResponse -&gt; String
+showsPrec :: Int -&gt; GetFindingResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFindingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetFindingResponse -&gt; Rep GetFindingResponse x)
+-&gt; (forall x. Rep GetFindingResponse x -&gt; GetFindingResponse)
+-&gt; Generic GetFindingResponse
+forall x. Rep GetFindingResponse x -&gt; GetFindingResponse
+forall x. GetFindingResponse -&gt; Rep GetFindingResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetFindingResponse x -&gt; GetFindingResponse
+$cfrom :: forall x. GetFindingResponse -&gt; Rep GetFindingResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'GetFindingResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'finding', 'getFindingResponse_finding' - A @finding@ object that contains finding details.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'getFindingResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#newGetFindingResponse"><span class="hs-identifier hs-type">newGetFindingResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse"><span class="hs-identifier hs-type">GetFindingResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newGetFindingResponse"><span class="annot"><span class="annottext">newGetFindingResponse :: Int -&gt; GetFindingResponse
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#newGetFindingResponse"><span class="hs-identifier hs-var hs-var">newGetFindingResponse</span></a></span></span><span> </span><span id="local-6989586621679256387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">GetFindingResponse' :: Maybe Finding -&gt; Int -&gt; GetFindingResponse
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse%27"><span class="hs-identifier hs-type">GetFindingResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:finding:GetFindingResponse' :: Maybe Finding
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3Afinding%3AGetFindingResponse%27"><span class="hs-identifier hs-var">finding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Finding
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFindingResponse' :: Int
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3AhttpStatus%3AGetFindingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | A @finding@ object that contains finding details.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFindingResponse_finding"><span class="hs-identifier hs-type">getFindingResponse_finding</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse"><span class="hs-identifier hs-type">GetFindingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.Finding.html#Finding"><span class="hs-identifier hs-type">Finding</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="getFindingResponse_finding"><span class="annot"><span class="annottext">getFindingResponse_finding :: (Maybe Finding -&gt; f (Maybe Finding))
+-&gt; GetFindingResponse -&gt; f GetFindingResponse
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFindingResponse_finding"><span class="hs-identifier hs-var hs-var">getFindingResponse_finding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFindingResponse -&gt; Maybe Finding)
+-&gt; (GetFindingResponse -&gt; Maybe Finding -&gt; GetFindingResponse)
+-&gt; Lens
+     GetFindingResponse
+     GetFindingResponse
+     (Maybe Finding)
+     (Maybe Finding)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse%27"><span class="hs-identifier hs-type">GetFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256386"><span class="annot"><span class="annottext">Maybe Finding
+finding :: Maybe Finding
+$sel:finding:GetFindingResponse' :: GetFindingResponse -&gt; Maybe Finding
+</span><a href="#local-6989586621679256386"><span class="hs-identifier hs-var hs-var">finding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Finding
+</span><a href="#local-6989586621679256386"><span class="hs-identifier hs-var">finding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256385"><span class="annot"><span class="annottext">s :: GetFindingResponse
+</span><a href="#local-6989586621679256385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse%27"><span class="hs-identifier hs-type">GetFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256384"><span class="annot"><span class="annottext">Maybe Finding
+</span><a href="#local-6989586621679256384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindingResponse
+</span><a href="#local-6989586621679256385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finding:GetFindingResponse' :: Maybe Finding
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3Afinding%3AGetFindingResponse%27"><span class="hs-identifier hs-var">finding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Finding
+</span><a href="#local-6989586621679256384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse"><span class="hs-identifier hs-type">GetFindingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFindingResponse_httpStatus"><span class="hs-identifier hs-type">getFindingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse"><span class="hs-identifier hs-type">GetFindingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="getFindingResponse_httpStatus"><span class="annot"><span class="annottext">getFindingResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetFindingResponse -&gt; f GetFindingResponse
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#getFindingResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getFindingResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFindingResponse -&gt; Int)
+-&gt; (GetFindingResponse -&gt; Int -&gt; GetFindingResponse)
+-&gt; Lens GetFindingResponse GetFindingResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse%27"><span class="hs-identifier hs-type">GetFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256383"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetFindingResponse' :: GetFindingResponse -&gt; Int
+</span><a href="#local-6989586621679256383"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256383"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256382"><span class="annot"><span class="annottext">s :: GetFindingResponse
+</span><a href="#local-6989586621679256382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse%27"><span class="hs-identifier hs-type">GetFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256381"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindingResponse
+</span><a href="#local-6989586621679256382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFindingResponse' :: Int
+</span><a href="Amazonka.AccessAnalyzer.GetFinding.html#%24sel%3AhttpStatus%3AGetFindingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse"><span class="hs-identifier hs-type">GetFindingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.GetFinding.html#GetFindingResponse"><span class="hs-identifier hs-type">GetFindingResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

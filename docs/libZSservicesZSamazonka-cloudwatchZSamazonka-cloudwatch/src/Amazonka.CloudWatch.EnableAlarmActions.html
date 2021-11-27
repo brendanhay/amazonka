@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatch.EnableAlarmActions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables the actions for the specified alarms.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatch.EnableAlarmActions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier">EnableAlarmActions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#newEnableAlarmActions"><span class="hs-identifier">newEnableAlarmActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#enableAlarmActions_alarmNames"><span class="hs-identifier">enableAlarmActions_alarmNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActionsResponse"><span class="hs-identifier">EnableAlarmActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#newEnableAlarmActionsResponse"><span class="hs-identifier">newEnableAlarmActionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html"><span class="hs-identifier">Amazonka.CloudWatch.Types</span></a></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newEnableAlarmActions' smart constructor.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679264148"><span id="local-6989586621679264149"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableAlarmActions"><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-var">EnableAlarmActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableAlarmActions%27"><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions%27"><span class="hs-identifier hs-var">EnableAlarmActions'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of the alarms.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AalarmNames%3AEnableAlarmActions%27"><span class="annot"><span class="annottext">EnableAlarmActions -&gt; [Text]
+</span><a href="Amazonka.CloudWatch.EnableAlarmActions.html#%24sel%3AalarmNames%3AEnableAlarmActions%27"><span class="hs-identifier hs-var hs-var">alarmNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264142"><span id="local-6989586621679264144"><span class="annot"><span class="annottext">EnableAlarmActions -&gt; EnableAlarmActions -&gt; Bool
+(EnableAlarmActions -&gt; EnableAlarmActions -&gt; Bool)
+-&gt; (EnableAlarmActions -&gt; EnableAlarmActions -&gt; Bool)
+-&gt; Eq EnableAlarmActions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableAlarmActions -&gt; EnableAlarmActions -&gt; Bool
+$c/= :: EnableAlarmActions -&gt; EnableAlarmActions -&gt; Bool
+== :: EnableAlarmActions -&gt; EnableAlarmActions -&gt; Bool
+$c== :: EnableAlarmActions -&gt; EnableAlarmActions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264133"><span id="local-6989586621679264135"><span id="local-6989586621679264137"><span id="local-6989586621679264139"><span class="annot"><span class="annottext">ReadPrec [EnableAlarmActions]
+ReadPrec EnableAlarmActions
+Int -&gt; ReadS EnableAlarmActions
+ReadS [EnableAlarmActions]
+(Int -&gt; ReadS EnableAlarmActions)
+-&gt; ReadS [EnableAlarmActions]
+-&gt; ReadPrec EnableAlarmActions
+-&gt; ReadPrec [EnableAlarmActions]
+-&gt; Read EnableAlarmActions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnableAlarmActions]
+$creadListPrec :: ReadPrec [EnableAlarmActions]
+readPrec :: ReadPrec EnableAlarmActions
+$creadPrec :: ReadPrec EnableAlarmActions
+readList :: ReadS [EnableAlarmActions]
+$creadList :: ReadS [EnableAlarmActions]
+readsPrec :: Int -&gt; ReadS EnableAlarmActions
+$creadsPrec :: Int -&gt; ReadS EnableAlarmActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264126"><span id="local-6989586621679264128"><span id="local-6989586621679264130"><span class="annot"><span class="annottext">Int -&gt; EnableAlarmActions -&gt; ShowS
+[EnableAlarmActions] -&gt; ShowS
+EnableAlarmActions -&gt; String
+(Int -&gt; EnableAlarmActions -&gt; ShowS)
+-&gt; (EnableAlarmActions -&gt; String)
+-&gt; ([EnableAlarmActions] -&gt; ShowS)
+-&gt; Show EnableAlarmActions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableAlarmActions] -&gt; ShowS
+$cshowList :: [EnableAlarmActions] -&gt; ShowS
+show :: EnableAlarmActions -&gt; String
+$cshow :: EnableAlarmActions -&gt; String
+showsPrec :: Int -&gt; EnableAlarmActions -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableAlarmActions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EnableAlarmActions -&gt; Rep EnableAlarmActions x)
+-&gt; (forall x. Rep EnableAlarmActions x -&gt; EnableAlarmActions)
+-&gt; Generic EnableAlarmActions
+forall x. Rep EnableAlarmActions x -&gt; EnableAlarmActions
+forall x. EnableAlarmActions -&gt; Rep EnableAlarmActions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnableAlarmActions x -&gt; EnableAlarmActions
+$cfrom :: forall x. EnableAlarmActions -&gt; Rep EnableAlarmActions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'EnableAlarmActions' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'alarmNames', 'enableAlarmActions_alarmNames' - The names of the alarms.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#newEnableAlarmActions"><span class="hs-identifier hs-type">newEnableAlarmActions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span><span>
+</span><span id="line-63"></span><span id="newEnableAlarmActions"><span class="annot"><span class="annottext">newEnableAlarmActions :: EnableAlarmActions
+</span><a href="Amazonka.CloudWatch.EnableAlarmActions.html#newEnableAlarmActions"><span class="hs-identifier hs-var hs-var">newEnableAlarmActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">EnableAlarmActions' :: [Text] -&gt; EnableAlarmActions
+</span><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions%27"><span class="hs-identifier hs-type">EnableAlarmActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmNames:EnableAlarmActions' :: [Text]
+</span><a href="Amazonka.CloudWatch.EnableAlarmActions.html#%24sel%3AalarmNames%3AEnableAlarmActions%27"><span class="hs-identifier hs-var">alarmNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The names of the alarms.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#enableAlarmActions_alarmNames"><span class="hs-identifier hs-type">enableAlarmActions_alarmNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-68"></span><span id="enableAlarmActions_alarmNames"><span class="annot"><span class="annottext">enableAlarmActions_alarmNames :: ([Text] -&gt; f [Text]) -&gt; EnableAlarmActions -&gt; f EnableAlarmActions
+</span><a href="Amazonka.CloudWatch.EnableAlarmActions.html#enableAlarmActions_alarmNames"><span class="hs-identifier hs-var hs-var">enableAlarmActions_alarmNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableAlarmActions -&gt; [Text])
+-&gt; (EnableAlarmActions -&gt; [Text] -&gt; EnableAlarmActions)
+-&gt; Lens EnableAlarmActions EnableAlarmActions [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions%27"><span class="hs-identifier hs-type">EnableAlarmActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264119"><span class="annot"><span class="annottext">[Text]
+alarmNames :: [Text]
+$sel:alarmNames:EnableAlarmActions' :: EnableAlarmActions -&gt; [Text]
+</span><a href="#local-6989586621679264119"><span class="hs-identifier hs-var hs-var">alarmNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679264119"><span class="hs-identifier hs-var">alarmNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264118"><span class="annot"><span class="annottext">s :: EnableAlarmActions
+</span><a href="#local-6989586621679264118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions%27"><span class="hs-identifier hs-type">EnableAlarmActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264117"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679264117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableAlarmActions
+</span><a href="#local-6989586621679264118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmNames:EnableAlarmActions' :: [Text]
+</span><a href="Amazonka.CloudWatch.EnableAlarmActions.html#%24sel%3AalarmNames%3AEnableAlarmActions%27"><span class="hs-identifier hs-var">alarmNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679264117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; EnableAlarmActions -&gt; f EnableAlarmActions)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; EnableAlarmActions
+-&gt; f EnableAlarmActions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-72"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActionsResponse"><span class="hs-identifier hs-type">EnableAlarmActionsResponse</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679264111"><span class="annot"><span class="annottext">request :: EnableAlarmActions -&gt; Request EnableAlarmActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableAlarmActions -&gt; Request EnableAlarmActions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679264107"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy EnableAlarmActions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse EnableAlarmActions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse EnableAlarmActions
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy EnableAlarmActions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse EnableAlarmActions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse EnableAlarmActions
+EnableAlarmActionsResponse
+</span><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActionsResponse%27"><span class="hs-identifier hs-var">EnableAlarmActionsResponse'</span></a></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264100"><span id="local-6989586621679264102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679264093"><span class="annot"><span class="annottext">toHeaders :: EnableAlarmActions -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; EnableAlarmActions -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679264088"><span class="annot"><span class="annottext">toPath :: EnableAlarmActions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableAlarmActions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions"><span class="hs-identifier hs-type">EnableAlarmActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679264084"><span class="annot"><span class="annottext">toQuery :: EnableAlarmActions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActions%27"><span class="hs-identifier hs-type">EnableAlarmActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264082"><span class="annot"><span class="annottext">[Text]
+alarmNames :: [Text]
+$sel:alarmNames:EnableAlarmActions' :: EnableAlarmActions -&gt; [Text]
+</span><a href="#local-6989586621679264082"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnableAlarmActions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-08-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlarmNames&quot;</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679264082"><span class="hs-identifier hs-var">alarmNames</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newEnableAlarmActionsResponse' smart constructor.</span><span>
+</span><span id="line-100"></span><span id="local-6989586621679264078"><span id="local-6989586621679264079"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableAlarmActionsResponse"><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActionsResponse"><span class="hs-identifier hs-var">EnableAlarmActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableAlarmActionsResponse%27"><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActionsResponse%27"><span class="hs-identifier hs-var">EnableAlarmActionsResponse'</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264074"><span id="local-6989586621679264076"><span class="annot"><span class="annottext">EnableAlarmActionsResponse -&gt; EnableAlarmActionsResponse -&gt; Bool
+(EnableAlarmActionsResponse -&gt; EnableAlarmActionsResponse -&gt; Bool)
+-&gt; (EnableAlarmActionsResponse
+    -&gt; EnableAlarmActionsResponse -&gt; Bool)
+-&gt; Eq EnableAlarmActionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableAlarmActionsResponse -&gt; EnableAlarmActionsResponse -&gt; Bool
+$c/= :: EnableAlarmActionsResponse -&gt; EnableAlarmActionsResponse -&gt; Bool
+== :: EnableAlarmActionsResponse -&gt; EnableAlarmActionsResponse -&gt; Bool
+$c== :: EnableAlarmActionsResponse -&gt; EnableAlarmActionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264066"><span id="local-6989586621679264068"><span id="local-6989586621679264070"><span id="local-6989586621679264072"><span class="annot"><span class="annottext">ReadPrec [EnableAlarmActionsResponse]
+ReadPrec EnableAlarmActionsResponse
+Int -&gt; ReadS EnableAlarmActionsResponse
+ReadS [EnableAlarmActionsResponse]
+(Int -&gt; ReadS EnableAlarmActionsResponse)
+-&gt; ReadS [EnableAlarmActionsResponse]
+-&gt; ReadPrec EnableAlarmActionsResponse
+-&gt; ReadPrec [EnableAlarmActionsResponse]
+-&gt; Read EnableAlarmActionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnableAlarmActionsResponse]
+$creadListPrec :: ReadPrec [EnableAlarmActionsResponse]
+readPrec :: ReadPrec EnableAlarmActionsResponse
+$creadPrec :: ReadPrec EnableAlarmActionsResponse
+readList :: ReadS [EnableAlarmActionsResponse]
+$creadList :: ReadS [EnableAlarmActionsResponse]
+readsPrec :: Int -&gt; ReadS EnableAlarmActionsResponse
+$creadsPrec :: Int -&gt; ReadS EnableAlarmActionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264060"><span id="local-6989586621679264062"><span id="local-6989586621679264064"><span class="annot"><span class="annottext">Int -&gt; EnableAlarmActionsResponse -&gt; ShowS
+[EnableAlarmActionsResponse] -&gt; ShowS
+EnableAlarmActionsResponse -&gt; String
+(Int -&gt; EnableAlarmActionsResponse -&gt; ShowS)
+-&gt; (EnableAlarmActionsResponse -&gt; String)
+-&gt; ([EnableAlarmActionsResponse] -&gt; ShowS)
+-&gt; Show EnableAlarmActionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableAlarmActionsResponse] -&gt; ShowS
+$cshowList :: [EnableAlarmActionsResponse] -&gt; ShowS
+show :: EnableAlarmActionsResponse -&gt; String
+$cshow :: EnableAlarmActionsResponse -&gt; String
+showsPrec :: Int -&gt; EnableAlarmActionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableAlarmActionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EnableAlarmActionsResponse -&gt; Rep EnableAlarmActionsResponse x)
+-&gt; (forall x.
+    Rep EnableAlarmActionsResponse x -&gt; EnableAlarmActionsResponse)
+-&gt; Generic EnableAlarmActionsResponse
+forall x.
+Rep EnableAlarmActionsResponse x -&gt; EnableAlarmActionsResponse
+forall x.
+EnableAlarmActionsResponse -&gt; Rep EnableAlarmActionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EnableAlarmActionsResponse x -&gt; EnableAlarmActionsResponse
+$cfrom :: forall x.
+EnableAlarmActionsResponse -&gt; Rep EnableAlarmActionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Create a value of 'EnableAlarmActionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#newEnableAlarmActionsResponse"><span class="hs-identifier hs-type">newEnableAlarmActionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActionsResponse"><span class="hs-identifier hs-type">EnableAlarmActionsResponse</span></a></span><span>
+</span><span id="line-111"></span><span id="newEnableAlarmActionsResponse"><span class="annot"><span class="annottext">newEnableAlarmActionsResponse :: EnableAlarmActionsResponse
+</span><a href="Amazonka.CloudWatch.EnableAlarmActions.html#newEnableAlarmActionsResponse"><span class="hs-identifier hs-var hs-var">newEnableAlarmActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">EnableAlarmActionsResponse
+</span><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActionsResponse%27"><span class="hs-identifier hs-var">EnableAlarmActionsResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.EnableAlarmActions.html#EnableAlarmActionsResponse"><span class="hs-identifier hs-type">EnableAlarmActionsResponse</span></a></span></span><span>
+</span><span id="line-115"></span></pre></body></html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RAM.GetResourceShares</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the resource shares that you own or the resource shares that are</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- shared with you.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RAM.GetResourceShares</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier">GetResourceShares</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#newGetResourceShares"><span class="hs-identifier">newGetResourceShares</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_tagFilters"><span class="hs-identifier">getResourceShares_tagFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_nextToken"><span class="hs-identifier">getResourceShares_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_name"><span class="hs-identifier">getResourceShares_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_resourceShareStatus"><span class="hs-identifier">getResourceShares_resourceShareStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_permissionArn"><span class="hs-identifier">getResourceShares_permissionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_maxResults"><span class="hs-identifier">getResourceShares_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_resourceShareArns"><span class="hs-identifier">getResourceShares_resourceShareArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_resourceOwner"><span class="hs-identifier">getResourceShares_resourceOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier">GetResourceSharesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#newGetResourceSharesResponse"><span class="hs-identifier">newGetResourceSharesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_resourceShares"><span class="hs-identifier">getResourceSharesResponse_resourceShares</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_nextToken"><span class="hs-identifier">getResourceSharesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_httpStatus"><span class="hs-identifier">getResourceSharesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.html"><span class="hs-identifier">Amazonka.RAM.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newGetResourceShares' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679206310"><span id="local-6989586621679206311"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourceShares"><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-var">GetResourceShares</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourceShares%27"><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-var">GetResourceShares'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more tag filters.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AtagFilters%3AGetResourceShares%27"><span class="annot"><span class="annottext">GetResourceShares -&gt; Maybe [TagFilter]
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AtagFilters%3AGetResourceShares%27"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RAM.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AGetResourceShares%27"><span class="annot"><span class="annottext">GetResourceShares -&gt; Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AnextToken%3AGetResourceShares%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the resource share.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aname%3AGetResourceShares%27"><span class="annot"><span class="annottext">GetResourceShares -&gt; Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3Aname%3AGetResourceShares%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The status of the resource share.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AresourceShareStatus%3AGetResourceShares%27"><span class="annot"><span class="annottext">GetResourceShares -&gt; Maybe ResourceShareStatus
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceShareStatus%3AGetResourceShares%27"><span class="hs-identifier hs-var hs-var">resourceShareStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareStatus.html#ResourceShareStatus"><span class="hs-identifier hs-type">ResourceShareStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the RAM permission that is associated</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- with the resource share.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3ApermissionArn%3AGetResourceShares%27"><span class="annot"><span class="annottext">GetResourceShares -&gt; Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3ApermissionArn%3AGetResourceShares%27"><span class="hs-identifier hs-var hs-var">permissionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetResourceShares%27"><span class="annot"><span class="annottext">GetResourceShares -&gt; Maybe Natural
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AmaxResults%3AGetResourceShares%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resource shares.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AresourceShareArns%3AGetResourceShares%27"><span class="annot"><span class="annottext">GetResourceShares -&gt; Maybe [Text]
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceShareArns%3AGetResourceShares%27"><span class="hs-identifier hs-var hs-var">resourceShareArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The type of owner.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AresourceOwner%3AGetResourceShares%27"><span class="annot"><span class="annottext">GetResourceShares -&gt; ResourceOwner
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceOwner%3AGetResourceShares%27"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceOwner.html#ResourceOwner"><span class="hs-identifier hs-type">ResourceOwner</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206297"><span id="local-6989586621679206299"><span class="annot"><span class="annottext">GetResourceShares -&gt; GetResourceShares -&gt; Bool
+(GetResourceShares -&gt; GetResourceShares -&gt; Bool)
+-&gt; (GetResourceShares -&gt; GetResourceShares -&gt; Bool)
+-&gt; Eq GetResourceShares
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourceShares -&gt; GetResourceShares -&gt; Bool
+$c/= :: GetResourceShares -&gt; GetResourceShares -&gt; Bool
+== :: GetResourceShares -&gt; GetResourceShares -&gt; Bool
+$c== :: GetResourceShares -&gt; GetResourceShares -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206288"><span id="local-6989586621679206290"><span id="local-6989586621679206292"><span id="local-6989586621679206294"><span class="annot"><span class="annottext">ReadPrec [GetResourceShares]
+ReadPrec GetResourceShares
+Int -&gt; ReadS GetResourceShares
+ReadS [GetResourceShares]
+(Int -&gt; ReadS GetResourceShares)
+-&gt; ReadS [GetResourceShares]
+-&gt; ReadPrec GetResourceShares
+-&gt; ReadPrec [GetResourceShares]
+-&gt; Read GetResourceShares
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResourceShares]
+$creadListPrec :: ReadPrec [GetResourceShares]
+readPrec :: ReadPrec GetResourceShares
+$creadPrec :: ReadPrec GetResourceShares
+readList :: ReadS [GetResourceShares]
+$creadList :: ReadS [GetResourceShares]
+readsPrec :: Int -&gt; ReadS GetResourceShares
+$creadsPrec :: Int -&gt; ReadS GetResourceShares
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206281"><span id="local-6989586621679206283"><span id="local-6989586621679206285"><span class="annot"><span class="annottext">Int -&gt; GetResourceShares -&gt; ShowS
+[GetResourceShares] -&gt; ShowS
+GetResourceShares -&gt; String
+(Int -&gt; GetResourceShares -&gt; ShowS)
+-&gt; (GetResourceShares -&gt; String)
+-&gt; ([GetResourceShares] -&gt; ShowS)
+-&gt; Show GetResourceShares
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourceShares] -&gt; ShowS
+$cshowList :: [GetResourceShares] -&gt; ShowS
+show :: GetResourceShares -&gt; String
+$cshow :: GetResourceShares -&gt; String
+showsPrec :: Int -&gt; GetResourceShares -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourceShares -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetResourceShares -&gt; Rep GetResourceShares x)
+-&gt; (forall x. Rep GetResourceShares x -&gt; GetResourceShares)
+-&gt; Generic GetResourceShares
+forall x. Rep GetResourceShares x -&gt; GetResourceShares
+forall x. GetResourceShares -&gt; Rep GetResourceShares x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetResourceShares x -&gt; GetResourceShares
+$cfrom :: forall x. GetResourceShares -&gt; Rep GetResourceShares x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'GetResourceShares' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tagFilters', 'getResourceShares_tagFilters' - One or more tag filters.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'nextToken', 'getResourceShares_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'name', 'getResourceShares_name' - The name of the resource share.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'resourceShareStatus', 'getResourceShares_resourceShareStatus' - The status of the resource share.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'permissionArn', 'getResourceShares_permissionArn' - The Amazon Resource Name (ARN) of the RAM permission that is associated</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- with the resource share.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'maxResults', 'getResourceShares_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'resourceShareArns', 'getResourceShares_resourceShareArns' - The Amazon Resource Names (ARNs) of the resource shares.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'resourceOwner', 'getResourceShares_resourceOwner' - The type of owner.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#newGetResourceShares"><span class="hs-identifier hs-type">newGetResourceShares</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'resourceOwner'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceOwner.html#ResourceOwner"><span class="hs-identifier hs-type">ResourceOwner</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span>
+</span><span id="line-114"></span><span id="newGetResourceShares"><span class="annot"><span class="annottext">newGetResourceShares :: ResourceOwner -&gt; GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#newGetResourceShares"><span class="hs-identifier hs-var hs-var">newGetResourceShares</span></a></span></span><span> </span><span id="local-6989586621679206276"><span class="annot"><span class="annottext">ResourceOwner
+</span><a href="#local-6989586621679206276"><span class="hs-identifier hs-var">pResourceOwner_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">GetResourceShares' :: Maybe [TagFilter]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ResourceShareStatus
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [Text]
+-&gt; ResourceOwner
+-&gt; GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagFilters:GetResourceShares' :: Maybe [TagFilter]
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AtagFilters%3AGetResourceShares%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetResourceShares' :: Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AnextToken%3AGetResourceShares%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetResourceShares' :: Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3Aname%3AGetResourceShares%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceShareStatus:GetResourceShares' :: Maybe ResourceShareStatus
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceShareStatus%3AGetResourceShares%27"><span class="hs-identifier hs-var">resourceShareStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionArn:GetResourceShares' :: Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3ApermissionArn%3AGetResourceShares%27"><span class="hs-identifier hs-var">permissionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetResourceShares' :: Maybe Natural
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AmaxResults%3AGetResourceShares%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceShareArns:GetResourceShares' :: Maybe [Text]
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceShareArns%3AGetResourceShares%27"><span class="hs-identifier hs-var">resourceShareArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceOwner:GetResourceShares' :: ResourceOwner
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceOwner%3AGetResourceShares%27"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceOwner
+</span><a href="#local-6989586621679206276"><span class="hs-identifier hs-var">pResourceOwner_</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | One or more tag filters.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_tagFilters"><span class="hs-identifier hs-type">getResourceShares_tagFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RAM.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="getResourceShares_tagFilters"><span class="annot"><span class="annottext">getResourceShares_tagFilters :: (Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+-&gt; GetResourceShares -&gt; f GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_tagFilters"><span class="hs-identifier hs-var hs-var">getResourceShares_tagFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceShares -&gt; Maybe [TagFilter])
+-&gt; (GetResourceShares -&gt; Maybe [TagFilter] -&gt; GetResourceShares)
+-&gt; Lens
+     GetResourceShares
+     GetResourceShares
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206274"><span class="annot"><span class="annottext">Maybe [TagFilter]
+tagFilters :: Maybe [TagFilter]
+$sel:tagFilters:GetResourceShares' :: GetResourceShares -&gt; Maybe [TagFilter]
+</span><a href="#local-6989586621679206274"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679206274"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206273"><span class="annot"><span class="annottext">s :: GetResourceShares
+</span><a href="#local-6989586621679206273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206272"><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679206272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagFilters:GetResourceShares' :: Maybe [TagFilter]
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AtagFilters%3AGetResourceShares%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679206272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+ -&gt; GetResourceShares -&gt; f GetResourceShares)
+-&gt; ((Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+    -&gt; Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+-&gt; (Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+-&gt; GetResourceShares
+-&gt; f GetResourceShares
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagFilter] [TagFilter] [TagFilter] [TagFilter]
+-&gt; Iso
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagFilter] [TagFilter] [TagFilter] [TagFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_nextToken"><span class="hs-identifier hs-type">getResourceShares_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="getResourceShares_nextToken"><span class="annot"><span class="annottext">getResourceShares_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourceShares -&gt; f GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_nextToken"><span class="hs-identifier hs-var hs-var">getResourceShares_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceShares -&gt; Maybe Text)
+-&gt; (GetResourceShares -&gt; Maybe Text -&gt; GetResourceShares)
+-&gt; Lens
+     GetResourceShares GetResourceShares (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206268"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetResourceShares' :: GetResourceShares -&gt; Maybe Text
+</span><a href="#local-6989586621679206268"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206268"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206267"><span class="annot"><span class="annottext">s :: GetResourceShares
+</span><a href="#local-6989586621679206267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206266"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetResourceShares' :: Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AnextToken%3AGetResourceShares%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The name of the resource share.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_name"><span class="hs-identifier hs-type">getResourceShares_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="getResourceShares_name"><span class="annot"><span class="annottext">getResourceShares_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourceShares -&gt; f GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_name"><span class="hs-identifier hs-var hs-var">getResourceShares_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceShares -&gt; Maybe Text)
+-&gt; (GetResourceShares -&gt; Maybe Text -&gt; GetResourceShares)
+-&gt; Lens
+     GetResourceShares GetResourceShares (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206265"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetResourceShares' :: GetResourceShares -&gt; Maybe Text
+</span><a href="#local-6989586621679206265"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206265"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206264"><span class="annot"><span class="annottext">s :: GetResourceShares
+</span><a href="#local-6989586621679206264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206263"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetResourceShares' :: Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3Aname%3AGetResourceShares%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The status of the resource share.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_resourceShareStatus"><span class="hs-identifier hs-type">getResourceShares_resourceShareStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShareStatus.html#ResourceShareStatus"><span class="hs-identifier hs-type">ResourceShareStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="getResourceShares_resourceShareStatus"><span class="annot"><span class="annottext">getResourceShares_resourceShareStatus :: (Maybe ResourceShareStatus -&gt; f (Maybe ResourceShareStatus))
+-&gt; GetResourceShares -&gt; f GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_resourceShareStatus"><span class="hs-identifier hs-var hs-var">getResourceShares_resourceShareStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceShares -&gt; Maybe ResourceShareStatus)
+-&gt; (GetResourceShares
+    -&gt; Maybe ResourceShareStatus -&gt; GetResourceShares)
+-&gt; Lens
+     GetResourceShares
+     GetResourceShares
+     (Maybe ResourceShareStatus)
+     (Maybe ResourceShareStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206262"><span class="annot"><span class="annottext">Maybe ResourceShareStatus
+resourceShareStatus :: Maybe ResourceShareStatus
+$sel:resourceShareStatus:GetResourceShares' :: GetResourceShares -&gt; Maybe ResourceShareStatus
+</span><a href="#local-6989586621679206262"><span class="hs-identifier hs-var hs-var">resourceShareStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareStatus
+</span><a href="#local-6989586621679206262"><span class="hs-identifier hs-var">resourceShareStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206261"><span class="annot"><span class="annottext">s :: GetResourceShares
+</span><a href="#local-6989586621679206261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206260"><span class="annot"><span class="annottext">Maybe ResourceShareStatus
+</span><a href="#local-6989586621679206260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShareStatus:GetResourceShares' :: Maybe ResourceShareStatus
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceShareStatus%3AGetResourceShares%27"><span class="hs-identifier hs-var">resourceShareStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareStatus
+</span><a href="#local-6989586621679206260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the RAM permission that is associated</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- with the resource share.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_permissionArn"><span class="hs-identifier hs-type">getResourceShares_permissionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="getResourceShares_permissionArn"><span class="annot"><span class="annottext">getResourceShares_permissionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourceShares -&gt; f GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_permissionArn"><span class="hs-identifier hs-var hs-var">getResourceShares_permissionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceShares -&gt; Maybe Text)
+-&gt; (GetResourceShares -&gt; Maybe Text -&gt; GetResourceShares)
+-&gt; Lens
+     GetResourceShares GetResourceShares (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206259"><span class="annot"><span class="annottext">Maybe Text
+permissionArn :: Maybe Text
+$sel:permissionArn:GetResourceShares' :: GetResourceShares -&gt; Maybe Text
+</span><a href="#local-6989586621679206259"><span class="hs-identifier hs-var hs-var">permissionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206259"><span class="hs-identifier hs-var">permissionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206258"><span class="annot"><span class="annottext">s :: GetResourceShares
+</span><a href="#local-6989586621679206258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206257"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionArn:GetResourceShares' :: Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3ApermissionArn%3AGetResourceShares%27"><span class="hs-identifier hs-var">permissionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_maxResults"><span class="hs-identifier hs-type">getResourceShares_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="getResourceShares_maxResults"><span class="annot"><span class="annottext">getResourceShares_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetResourceShares -&gt; f GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_maxResults"><span class="hs-identifier hs-var hs-var">getResourceShares_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceShares -&gt; Maybe Natural)
+-&gt; (GetResourceShares -&gt; Maybe Natural -&gt; GetResourceShares)
+-&gt; Lens
+     GetResourceShares GetResourceShares (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206256"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetResourceShares' :: GetResourceShares -&gt; Maybe Natural
+</span><a href="#local-6989586621679206256"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679206256"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206255"><span class="annot"><span class="annottext">s :: GetResourceShares
+</span><a href="#local-6989586621679206255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206254"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679206254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetResourceShares' :: Maybe Natural
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AmaxResults%3AGetResourceShares%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679206254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resource shares.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_resourceShareArns"><span class="hs-identifier hs-type">getResourceShares_resourceShareArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="getResourceShares_resourceShareArns"><span class="annot"><span class="annottext">getResourceShares_resourceShareArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetResourceShares -&gt; f GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_resourceShareArns"><span class="hs-identifier hs-var hs-var">getResourceShares_resourceShareArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceShares -&gt; Maybe [Text])
+-&gt; (GetResourceShares -&gt; Maybe [Text] -&gt; GetResourceShares)
+-&gt; Lens
+     GetResourceShares GetResourceShares (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206253"><span class="annot"><span class="annottext">Maybe [Text]
+resourceShareArns :: Maybe [Text]
+$sel:resourceShareArns:GetResourceShares' :: GetResourceShares -&gt; Maybe [Text]
+</span><a href="#local-6989586621679206253"><span class="hs-identifier hs-var hs-var">resourceShareArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679206253"><span class="hs-identifier hs-var">resourceShareArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206252"><span class="annot"><span class="annottext">s :: GetResourceShares
+</span><a href="#local-6989586621679206252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206251"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679206251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShareArns:GetResourceShares' :: Maybe [Text]
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceShareArns%3AGetResourceShares%27"><span class="hs-identifier hs-var">resourceShareArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679206251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetResourceShares -&gt; f GetResourceShares)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetResourceShares
+-&gt; f GetResourceShares
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The type of owner.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_resourceOwner"><span class="hs-identifier hs-type">getResourceShares_resourceOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="annot"><a href="Amazonka.RAM.Types.ResourceOwner.html#ResourceOwner"><span class="hs-identifier hs-type">ResourceOwner</span></a></span><span>
+</span><span id="line-159"></span><span id="getResourceShares_resourceOwner"><span class="annot"><span class="annottext">getResourceShares_resourceOwner :: (ResourceOwner -&gt; f ResourceOwner)
+-&gt; GetResourceShares -&gt; f GetResourceShares
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_resourceOwner"><span class="hs-identifier hs-var hs-var">getResourceShares_resourceOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceShares -&gt; ResourceOwner)
+-&gt; (GetResourceShares -&gt; ResourceOwner -&gt; GetResourceShares)
+-&gt; Lens
+     GetResourceShares GetResourceShares ResourceOwner ResourceOwner
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206250"><span class="annot"><span class="annottext">ResourceOwner
+resourceOwner :: ResourceOwner
+$sel:resourceOwner:GetResourceShares' :: GetResourceShares -&gt; ResourceOwner
+</span><a href="#local-6989586621679206250"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceOwner
+</span><a href="#local-6989586621679206250"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206249"><span class="annot"><span class="annottext">s :: GetResourceShares
+</span><a href="#local-6989586621679206249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206248"><span class="annot"><span class="annottext">ResourceOwner
+</span><a href="#local-6989586621679206248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceOwner:GetResourceShares' :: ResourceOwner
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceOwner%3AGetResourceShares%27"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceOwner
+</span><a href="#local-6989586621679206248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679206244"><span class="annot"><span class="annottext">page :: GetResourceShares
+-&gt; AWSResponse GetResourceShares -&gt; Maybe GetResourceShares
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679206242"><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206242"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679206241"><span class="annot"><span class="annottext">AWSResponse GetResourceShares
+</span><a href="#local-6989586621679206241"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-164"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetResourceShares
+GetResourceSharesResponse
+</span><a href="#local-6989586621679206241"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">GetResourceSharesResponse
+-&gt; Getting (First Text) GetResourceSharesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetResourceSharesResponse
+-&gt; Const (First Text) GetResourceSharesResponse
+Lens' GetResourceSharesResponse (Maybe Text)
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_nextToken"><span class="hs-identifier hs-var">getResourceSharesResponse_nextToken</span></a></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetResourceSharesResponse
+ -&gt; Const (First Text) GetResourceSharesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetResourceSharesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-167"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetResourceShares
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceShare] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-170"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetResourceShares
+GetResourceSharesResponse
+</span><a href="#local-6989586621679206241"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">GetResourceSharesResponse
+-&gt; Getting
+     (First [ResourceShare]) GetResourceSharesResponse [ResourceShare]
+-&gt; Maybe [ResourceShare]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ResourceShare]
+ -&gt; Const (First [ResourceShare]) (Maybe [ResourceShare]))
+-&gt; GetResourceSharesResponse
+-&gt; Const (First [ResourceShare]) GetResourceSharesResponse
+Lens' GetResourceSharesResponse (Maybe [ResourceShare])
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_resourceShares"><span class="hs-identifier hs-var">getResourceSharesResponse_resourceShares</span></a></span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ResourceShare]
+  -&gt; Const (First [ResourceShare]) (Maybe [ResourceShare]))
+ -&gt; GetResourceSharesResponse
+ -&gt; Const (First [ResourceShare]) GetResourceSharesResponse)
+-&gt; (([ResourceShare]
+     -&gt; Const (First [ResourceShare]) [ResourceShare])
+    -&gt; Maybe [ResourceShare]
+    -&gt; Const (First [ResourceShare]) (Maybe [ResourceShare]))
+-&gt; Getting
+     (First [ResourceShare]) GetResourceSharesResponse [ResourceShare]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResourceShare] -&gt; Const (First [ResourceShare]) [ResourceShare])
+-&gt; Maybe [ResourceShare]
+-&gt; Const (First [ResourceShare]) (Maybe [ResourceShare])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-173"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetResourceShares
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">GetResourceShares -&gt; Maybe GetResourceShares
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetResourceShares -&gt; Maybe GetResourceShares)
+-&gt; GetResourceShares -&gt; Maybe GetResourceShares
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">GetResourceShares
+</span><a href="#local-6989586621679206242"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">GetResourceShares
+-&gt; (GetResourceShares -&gt; GetResourceShares) -&gt; GetResourceShares
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetResourceShares -&gt; Identity GetResourceShares
+Lens GetResourceShares GetResourceShares (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceShares_nextToken"><span class="hs-identifier hs-var">getResourceShares_nextToken</span></a></span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetResourceShares -&gt; Identity GetResourceShares)
+-&gt; Maybe Text -&gt; GetResourceShares -&gt; GetResourceShares
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetResourceShares
+GetResourceSharesResponse
+</span><a href="#local-6989586621679206241"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">GetResourceSharesResponse
+-&gt; Getting (First Text) GetResourceSharesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetResourceSharesResponse
+-&gt; Const (First Text) GetResourceSharesResponse
+Lens' GetResourceSharesResponse (Maybe Text)
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_nextToken"><span class="hs-identifier hs-var">getResourceSharesResponse_nextToken</span></a></span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetResourceSharesResponse
+ -&gt; Const (First Text) GetResourceSharesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetResourceSharesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-185"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-type">GetResourceSharesResponse</span></a></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679206232"><span class="annot"><span class="annottext">request :: GetResourceShares -&gt; Request GetResourceShares
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetResourceShares -&gt; Request GetResourceShares
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679206228"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetResourceShares
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetResourceShares)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetResourceShares))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetResourceShares
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetResourceShares)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206225"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206224"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679206224"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206223"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResourceShare]
+-&gt; Maybe Text -&gt; Int -&gt; GetResourceSharesResponse
+</span><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse%27"><span class="hs-identifier hs-var">GetResourceSharesResponse'</span></a></span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ResourceShare]
+ -&gt; Maybe Text -&gt; Int -&gt; GetResourceSharesResponse)
+-&gt; Either String (Maybe [ResourceShare])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetResourceSharesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ResourceShare]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceShares&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceShare]))
+-&gt; Maybe [ResourceShare] -&gt; Either String (Maybe [ResourceShare])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceShare]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetResourceSharesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetResourceSharesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetResourceSharesResponse)
+-&gt; Either String Int -&gt; Either String GetResourceSharesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206225"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206214"><span id="local-6989586621679206216"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679206207"><span class="annot"><span class="annottext">toHeaders :: GetResourceShares -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetResourceShares -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-208"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206197"><span id="local-6989586621679206199"><span id="local-6989586621679206201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679206195"><span class="annot"><span class="annottext">toJSON :: GetResourceShares -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares%27"><span class="hs-identifier hs-type">GetResourceShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206186"><span id="local-6989586621679206187"><span id="local-6989586621679206188"><span id="local-6989586621679206189"><span id="local-6989586621679206190"><span id="local-6989586621679206191"><span id="local-6989586621679206192"><span id="local-6989586621679206193"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe [TagFilter]
+Maybe Text
+Maybe ResourceShareStatus
+ResourceOwner
+resourceOwner :: ResourceOwner
+resourceShareArns :: Maybe [Text]
+maxResults :: Maybe Natural
+permissionArn :: Maybe Text
+resourceShareStatus :: Maybe ResourceShareStatus
+name :: Maybe Text
+nextToken :: Maybe Text
+tagFilters :: Maybe [TagFilter]
+$sel:resourceOwner:GetResourceShares' :: GetResourceShares -&gt; ResourceOwner
+$sel:resourceShareArns:GetResourceShares' :: GetResourceShares -&gt; Maybe [Text]
+$sel:maxResults:GetResourceShares' :: GetResourceShares -&gt; Maybe Natural
+$sel:permissionArn:GetResourceShares' :: GetResourceShares -&gt; Maybe Text
+$sel:resourceShareStatus:GetResourceShares' :: GetResourceShares -&gt; Maybe ResourceShareStatus
+$sel:name:GetResourceShares' :: GetResourceShares -&gt; Maybe Text
+$sel:nextToken:GetResourceShares' :: GetResourceShares -&gt; Maybe Text
+$sel:tagFilters:GetResourceShares' :: GetResourceShares -&gt; Maybe [TagFilter]
+</span><a href="#local-6989586621679206186"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TagFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagFilter] -&gt; Pair) -&gt; Maybe [TagFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679206193"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206192"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206191"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceShareStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceShareStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>              </span><span class="annot"><span class="annottext">(ResourceShareStatus -&gt; Pair)
+-&gt; Maybe ResourceShareStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceShareStatus
+</span><a href="#local-6989586621679206190"><span class="hs-identifier hs-var">resourceShareStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permissionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206189"><span class="hs-identifier hs-var">permissionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679206188"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceShareArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679206187"><span class="hs-identifier hs-var">resourceShareArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-226"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceOwner -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceOwner
+</span><a href="#local-6989586621679206186"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679206180"><span class="annot"><span class="annottext">toPath :: GetResourceShares -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetResourceShares -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/getresourceshares&quot;</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceShares"><span class="hs-identifier hs-type">GetResourceShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679206176"><span class="annot"><span class="annottext">toQuery :: GetResourceShares -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetResourceShares -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | /See:/ 'newGetResourceSharesResponse' smart constructor.</span><span>
+</span><span id="line-237"></span><span id="local-6989586621679206173"><span id="local-6989586621679206174"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourceSharesResponse"><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-var">GetResourceSharesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourceSharesResponse%27"><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse%27"><span class="hs-identifier hs-var">GetResourceSharesResponse'</span></a></span></span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the resource shares.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3AresourceShares%3AGetResourceSharesResponse%27"><span class="annot"><span class="annottext">GetResourceSharesResponse -&gt; Maybe [ResourceShare]
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceShares%3AGetResourceSharesResponse%27"><span class="hs-identifier hs-var hs-var">resourceShares</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShare.html#ResourceShare"><span class="hs-identifier hs-type">ResourceShare</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-242"></span><span>    </span><span id="%24sel%3AnextToken%3AGetResourceSharesResponse%27"><span class="annot"><span class="annottext">GetResourceSharesResponse -&gt; Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AnextToken%3AGetResourceSharesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-244"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetResourceSharesResponse%27"><span class="annot"><span class="annottext">GetResourceSharesResponse -&gt; Int
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AhttpStatus%3AGetResourceSharesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206166"><span id="local-6989586621679206168"><span class="annot"><span class="annottext">GetResourceSharesResponse -&gt; GetResourceSharesResponse -&gt; Bool
+(GetResourceSharesResponse -&gt; GetResourceSharesResponse -&gt; Bool)
+-&gt; (GetResourceSharesResponse -&gt; GetResourceSharesResponse -&gt; Bool)
+-&gt; Eq GetResourceSharesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourceSharesResponse -&gt; GetResourceSharesResponse -&gt; Bool
+$c/= :: GetResourceSharesResponse -&gt; GetResourceSharesResponse -&gt; Bool
+== :: GetResourceSharesResponse -&gt; GetResourceSharesResponse -&gt; Bool
+$c== :: GetResourceSharesResponse -&gt; GetResourceSharesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206158"><span id="local-6989586621679206160"><span id="local-6989586621679206162"><span id="local-6989586621679206164"><span class="annot"><span class="annottext">ReadPrec [GetResourceSharesResponse]
+ReadPrec GetResourceSharesResponse
+Int -&gt; ReadS GetResourceSharesResponse
+ReadS [GetResourceSharesResponse]
+(Int -&gt; ReadS GetResourceSharesResponse)
+-&gt; ReadS [GetResourceSharesResponse]
+-&gt; ReadPrec GetResourceSharesResponse
+-&gt; ReadPrec [GetResourceSharesResponse]
+-&gt; Read GetResourceSharesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResourceSharesResponse]
+$creadListPrec :: ReadPrec [GetResourceSharesResponse]
+readPrec :: ReadPrec GetResourceSharesResponse
+$creadPrec :: ReadPrec GetResourceSharesResponse
+readList :: ReadS [GetResourceSharesResponse]
+$creadList :: ReadS [GetResourceSharesResponse]
+readsPrec :: Int -&gt; ReadS GetResourceSharesResponse
+$creadsPrec :: Int -&gt; ReadS GetResourceSharesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206152"><span id="local-6989586621679206154"><span id="local-6989586621679206156"><span class="annot"><span class="annottext">Int -&gt; GetResourceSharesResponse -&gt; ShowS
+[GetResourceSharesResponse] -&gt; ShowS
+GetResourceSharesResponse -&gt; String
+(Int -&gt; GetResourceSharesResponse -&gt; ShowS)
+-&gt; (GetResourceSharesResponse -&gt; String)
+-&gt; ([GetResourceSharesResponse] -&gt; ShowS)
+-&gt; Show GetResourceSharesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourceSharesResponse] -&gt; ShowS
+$cshowList :: [GetResourceSharesResponse] -&gt; ShowS
+show :: GetResourceSharesResponse -&gt; String
+$cshow :: GetResourceSharesResponse -&gt; String
+showsPrec :: Int -&gt; GetResourceSharesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourceSharesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetResourceSharesResponse -&gt; Rep GetResourceSharesResponse x)
+-&gt; (forall x.
+    Rep GetResourceSharesResponse x -&gt; GetResourceSharesResponse)
+-&gt; Generic GetResourceSharesResponse
+forall x.
+Rep GetResourceSharesResponse x -&gt; GetResourceSharesResponse
+forall x.
+GetResourceSharesResponse -&gt; Rep GetResourceSharesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetResourceSharesResponse x -&gt; GetResourceSharesResponse
+$cfrom :: forall x.
+GetResourceSharesResponse -&gt; Rep GetResourceSharesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Create a value of 'GetResourceSharesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'resourceShares', 'getResourceSharesResponse_resourceShares' - Information about the resource shares.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'nextToken', 'getResourceSharesResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'httpStatus', 'getResourceSharesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#newGetResourceSharesResponse"><span class="hs-identifier hs-type">newGetResourceSharesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-264"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-type">GetResourceSharesResponse</span></a></span><span>
+</span><span id="line-266"></span><span id="newGetResourceSharesResponse"><span class="annot"><span class="annottext">newGetResourceSharesResponse :: Int -&gt; GetResourceSharesResponse
+</span><a href="Amazonka.RAM.GetResourceShares.html#newGetResourceSharesResponse"><span class="hs-identifier hs-var hs-var">newGetResourceSharesResponse</span></a></span></span><span> </span><span id="local-6989586621679206149"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206149"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="annottext">GetResourceSharesResponse' :: Maybe [ResourceShare]
+-&gt; Maybe Text -&gt; Int -&gt; GetResourceSharesResponse
+</span><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse%27"><span class="hs-identifier hs-type">GetResourceSharesResponse'</span></a></span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceShares:GetResourceSharesResponse' :: Maybe [ResourceShare]
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceShares%3AGetResourceSharesResponse%27"><span class="hs-identifier hs-var">resourceShares</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ResourceShare]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetResourceSharesResponse' :: Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AnextToken%3AGetResourceSharesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourceSharesResponse' :: Int
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AhttpStatus%3AGetResourceSharesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206149"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | Information about the resource shares.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_resourceShares"><span class="hs-identifier hs-type">getResourceSharesResponse_resourceShares</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-type">GetResourceSharesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RAM.Types.ResourceShare.html#ResourceShare"><span class="hs-identifier hs-type">ResourceShare</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="getResourceSharesResponse_resourceShares"><span class="annot"><span class="annottext">getResourceSharesResponse_resourceShares :: (Maybe [ResourceShare] -&gt; f (Maybe [ResourceShare]))
+-&gt; GetResourceSharesResponse -&gt; f GetResourceSharesResponse
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_resourceShares"><span class="hs-identifier hs-var hs-var">getResourceSharesResponse_resourceShares</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceSharesResponse -&gt; Maybe [ResourceShare])
+-&gt; (GetResourceSharesResponse
+    -&gt; Maybe [ResourceShare] -&gt; GetResourceSharesResponse)
+-&gt; Lens' GetResourceSharesResponse (Maybe [ResourceShare])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse%27"><span class="hs-identifier hs-type">GetResourceSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206148"><span class="annot"><span class="annottext">Maybe [ResourceShare]
+resourceShares :: Maybe [ResourceShare]
+$sel:resourceShares:GetResourceSharesResponse' :: GetResourceSharesResponse -&gt; Maybe [ResourceShare]
+</span><a href="#local-6989586621679206148"><span class="hs-identifier hs-var hs-var">resourceShares</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceShare]
+</span><a href="#local-6989586621679206148"><span class="hs-identifier hs-var">resourceShares</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206147"><span class="annot"><span class="annottext">s :: GetResourceSharesResponse
+</span><a href="#local-6989586621679206147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse%27"><span class="hs-identifier hs-type">GetResourceSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206146"><span class="annot"><span class="annottext">Maybe [ResourceShare]
+</span><a href="#local-6989586621679206146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceSharesResponse
+</span><a href="#local-6989586621679206147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceShares:GetResourceSharesResponse' :: Maybe [ResourceShare]
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AresourceShares%3AGetResourceSharesResponse%27"><span class="hs-identifier hs-var">resourceShares</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceShare]
+</span><a href="#local-6989586621679206146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-type">GetResourceSharesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceShare] -&gt; f (Maybe [ResourceShare]))
+ -&gt; GetResourceSharesResponse -&gt; f GetResourceSharesResponse)
+-&gt; ((Maybe [ResourceShare] -&gt; f (Maybe [ResourceShare]))
+    -&gt; Maybe [ResourceShare] -&gt; f (Maybe [ResourceShare]))
+-&gt; (Maybe [ResourceShare] -&gt; f (Maybe [ResourceShare]))
+-&gt; GetResourceSharesResponse
+-&gt; f GetResourceSharesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceShare] [ResourceShare] [ResourceShare] [ResourceShare]
+-&gt; Iso
+     (Maybe [ResourceShare])
+     (Maybe [ResourceShare])
+     (Maybe [ResourceShare])
+     (Maybe [ResourceShare])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceShare] [ResourceShare] [ResourceShare] [ResourceShare]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_nextToken"><span class="hs-identifier hs-type">getResourceSharesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-type">GetResourceSharesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="getResourceSharesResponse_nextToken"><span class="annot"><span class="annottext">getResourceSharesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourceSharesResponse -&gt; f GetResourceSharesResponse
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_nextToken"><span class="hs-identifier hs-var hs-var">getResourceSharesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceSharesResponse -&gt; Maybe Text)
+-&gt; (GetResourceSharesResponse
+    -&gt; Maybe Text -&gt; GetResourceSharesResponse)
+-&gt; Lens' GetResourceSharesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse%27"><span class="hs-identifier hs-type">GetResourceSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206145"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetResourceSharesResponse' :: GetResourceSharesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679206145"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206145"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206144"><span class="annot"><span class="annottext">s :: GetResourceSharesResponse
+</span><a href="#local-6989586621679206144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse%27"><span class="hs-identifier hs-type">GetResourceSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206143"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceSharesResponse
+</span><a href="#local-6989586621679206144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetResourceSharesResponse' :: Maybe Text
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AnextToken%3AGetResourceSharesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-type">GetResourceSharesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_httpStatus"><span class="hs-identifier hs-type">getResourceSharesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-type">GetResourceSharesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-285"></span><span id="getResourceSharesResponse_httpStatus"><span class="annot"><span class="annottext">getResourceSharesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetResourceSharesResponse -&gt; f GetResourceSharesResponse
+</span><a href="Amazonka.RAM.GetResourceShares.html#getResourceSharesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getResourceSharesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceSharesResponse -&gt; Int)
+-&gt; (GetResourceSharesResponse -&gt; Int -&gt; GetResourceSharesResponse)
+-&gt; Lens GetResourceSharesResponse GetResourceSharesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse%27"><span class="hs-identifier hs-type">GetResourceSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206142"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetResourceSharesResponse' :: GetResourceSharesResponse -&gt; Int
+</span><a href="#local-6989586621679206142"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206142"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206141"><span class="annot"><span class="annottext">s :: GetResourceSharesResponse
+</span><a href="#local-6989586621679206141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse%27"><span class="hs-identifier hs-type">GetResourceSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206140"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceSharesResponse
+</span><a href="#local-6989586621679206141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourceSharesResponse' :: Int
+</span><a href="Amazonka.RAM.GetResourceShares.html#%24sel%3AhttpStatus%3AGetResourceSharesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-type">GetResourceSharesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206138"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RAM.GetResourceShares.html#GetResourceSharesResponse"><span class="hs-identifier hs-type">GetResourceSharesResponse</span></a></span></span><span>
+</span><span id="line-288"></span></pre></body></html>

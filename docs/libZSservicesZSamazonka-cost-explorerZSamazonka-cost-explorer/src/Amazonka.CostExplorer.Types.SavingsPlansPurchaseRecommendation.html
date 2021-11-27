@@ -1,0 +1,614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.AccountScope.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.AccountScope</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.LookbackPeriodInDays.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.LookbackPeriodInDays</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.PaymentOption.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.PaymentOption</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SupportedSavingsPlansType.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.SupportedSavingsPlansType</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.TermInYears.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.TermInYears</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Contains your request parameters, Savings Plan Recommendations Summary,</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- and Details.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newSavingsPlansPurchaseRecommendation' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679339704"><span id="local-6989586621679339705"></span></span><span class="hs-keyword">data</span><span> </span><span id="SavingsPlansPurchaseRecommendation"><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-var">SavingsPlansPurchaseRecommendation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansPurchaseRecommendation%27"><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">SavingsPlansPurchaseRecommendation'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details for the Savings Plans we recommend that you purchase to cover</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- existing Savings Plans eligible workloads.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsavingsPlansPurchaseRecommendationDetails%3ASavingsPlansPurchaseRecommendation%27"><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+-&gt; Maybe [SavingsPlansPurchaseRecommendationDetail]
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AsavingsPlansPurchaseRecommendationDetails%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendationDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail.html#SavingsPlansPurchaseRecommendationDetail"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendationDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Savings Plans recommendation term in years. It\'s used to generate</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the recommendation.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtermInYears%3ASavingsPlansPurchaseRecommendation%27"><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation -&gt; Maybe TermInYears
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AtermInYears%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">termInYears</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.TermInYears.html#TermInYears"><span class="hs-identifier hs-type">TermInYears</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The account scope that you want your recommendations for. Amazon Web</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Services calculates recommendations that include the management account</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- and member accounts if the value is set to @PAYER@. If the value is</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @LINKED@, recommendations are calculated for individual member accounts</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- only.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AaccountScope%3ASavingsPlansPurchaseRecommendation%27"><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation -&gt; Maybe AccountScope
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AaccountScope%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">accountScope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.AccountScope.html#AccountScope"><span class="hs-identifier hs-type">AccountScope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The requested Savings Plans recommendation type.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AsavingsPlansType%3ASavingsPlansPurchaseRecommendation%27"><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+-&gt; Maybe SupportedSavingsPlansType
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AsavingsPlansType%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">savingsPlansType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SupportedSavingsPlansType.html#SupportedSavingsPlansType"><span class="hs-identifier hs-type">SupportedSavingsPlansType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The lookback period in days, used to generate the recommendation.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AlookbackPeriodInDays%3ASavingsPlansPurchaseRecommendation%27"><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation -&gt; Maybe LookbackPeriodInDays
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AlookbackPeriodInDays%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">lookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-type">LookbackPeriodInDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The payment option used to generate the recommendation.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ApaymentOption%3ASavingsPlansPurchaseRecommendation%27"><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation -&gt; Maybe PaymentOption
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3ApaymentOption%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Summary metrics for your Savings Plans Recommendations.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsavingsPlansPurchaseRecommendationSummary%3ASavingsPlansPurchaseRecommendation%27"><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+-&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AsavingsPlansPurchaseRecommendationSummary%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendationSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary.html#SavingsPlansPurchaseRecommendationSummary"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendationSummary</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339692"><span id="local-6989586621679339694"><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+-&gt; SavingsPlansPurchaseRecommendation -&gt; Bool
+(SavingsPlansPurchaseRecommendation
+ -&gt; SavingsPlansPurchaseRecommendation -&gt; Bool)
+-&gt; (SavingsPlansPurchaseRecommendation
+    -&gt; SavingsPlansPurchaseRecommendation -&gt; Bool)
+-&gt; Eq SavingsPlansPurchaseRecommendation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SavingsPlansPurchaseRecommendation
+-&gt; SavingsPlansPurchaseRecommendation -&gt; Bool
+$c/= :: SavingsPlansPurchaseRecommendation
+-&gt; SavingsPlansPurchaseRecommendation -&gt; Bool
+== :: SavingsPlansPurchaseRecommendation
+-&gt; SavingsPlansPurchaseRecommendation -&gt; Bool
+$c== :: SavingsPlansPurchaseRecommendation
+-&gt; SavingsPlansPurchaseRecommendation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339683"><span id="local-6989586621679339685"><span id="local-6989586621679339687"><span id="local-6989586621679339689"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansPurchaseRecommendation]
+ReadPrec SavingsPlansPurchaseRecommendation
+Int -&gt; ReadS SavingsPlansPurchaseRecommendation
+ReadS [SavingsPlansPurchaseRecommendation]
+(Int -&gt; ReadS SavingsPlansPurchaseRecommendation)
+-&gt; ReadS [SavingsPlansPurchaseRecommendation]
+-&gt; ReadPrec SavingsPlansPurchaseRecommendation
+-&gt; ReadPrec [SavingsPlansPurchaseRecommendation]
+-&gt; Read SavingsPlansPurchaseRecommendation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SavingsPlansPurchaseRecommendation]
+$creadListPrec :: ReadPrec [SavingsPlansPurchaseRecommendation]
+readPrec :: ReadPrec SavingsPlansPurchaseRecommendation
+$creadPrec :: ReadPrec SavingsPlansPurchaseRecommendation
+readList :: ReadS [SavingsPlansPurchaseRecommendation]
+$creadList :: ReadS [SavingsPlansPurchaseRecommendation]
+readsPrec :: Int -&gt; ReadS SavingsPlansPurchaseRecommendation
+$creadsPrec :: Int -&gt; ReadS SavingsPlansPurchaseRecommendation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339676"><span id="local-6989586621679339678"><span id="local-6989586621679339680"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansPurchaseRecommendation -&gt; ShowS
+[SavingsPlansPurchaseRecommendation] -&gt; ShowS
+SavingsPlansPurchaseRecommendation -&gt; String
+(Int -&gt; SavingsPlansPurchaseRecommendation -&gt; ShowS)
+-&gt; (SavingsPlansPurchaseRecommendation -&gt; String)
+-&gt; ([SavingsPlansPurchaseRecommendation] -&gt; ShowS)
+-&gt; Show SavingsPlansPurchaseRecommendation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SavingsPlansPurchaseRecommendation] -&gt; ShowS
+$cshowList :: [SavingsPlansPurchaseRecommendation] -&gt; ShowS
+show :: SavingsPlansPurchaseRecommendation -&gt; String
+$cshow :: SavingsPlansPurchaseRecommendation -&gt; String
+showsPrec :: Int -&gt; SavingsPlansPurchaseRecommendation -&gt; ShowS
+$cshowsPrec :: Int -&gt; SavingsPlansPurchaseRecommendation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SavingsPlansPurchaseRecommendation
+ -&gt; Rep SavingsPlansPurchaseRecommendation x)
+-&gt; (forall x.
+    Rep SavingsPlansPurchaseRecommendation x
+    -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Generic SavingsPlansPurchaseRecommendation
+forall x.
+Rep SavingsPlansPurchaseRecommendation x
+-&gt; SavingsPlansPurchaseRecommendation
+forall x.
+SavingsPlansPurchaseRecommendation
+-&gt; Rep SavingsPlansPurchaseRecommendation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SavingsPlansPurchaseRecommendation x
+-&gt; SavingsPlansPurchaseRecommendation
+$cfrom :: forall x.
+SavingsPlansPurchaseRecommendation
+-&gt; Rep SavingsPlansPurchaseRecommendation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'SavingsPlansPurchaseRecommendation' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'savingsPlansPurchaseRecommendationDetails', 'savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails' - Details for the Savings Plans we recommend that you purchase to cover</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- existing Savings Plans eligible workloads.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'termInYears', 'savingsPlansPurchaseRecommendation_termInYears' - The Savings Plans recommendation term in years. It\'s used to generate</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the recommendation.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'accountScope', 'savingsPlansPurchaseRecommendation_accountScope' - The account scope that you want your recommendations for. Amazon Web</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Services calculates recommendations that include the management account</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- and member accounts if the value is set to @PAYER@. If the value is</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @LINKED@, recommendations are calculated for individual member accounts</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- only.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'savingsPlansType', 'savingsPlansPurchaseRecommendation_savingsPlansType' - The requested Savings Plans recommendation type.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'lookbackPeriodInDays', 'savingsPlansPurchaseRecommendation_lookbackPeriodInDays' - The lookback period in days, used to generate the recommendation.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'paymentOption', 'savingsPlansPurchaseRecommendation_paymentOption' - The payment option used to generate the recommendation.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'savingsPlansPurchaseRecommendationSummary', 'savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary' - Summary metrics for your Savings Plans Recommendations.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#newSavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">newSavingsPlansPurchaseRecommendation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span>
+</span><span id="line-90"></span><span id="newSavingsPlansPurchaseRecommendation"><span class="annot"><span class="annottext">newSavingsPlansPurchaseRecommendation :: SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#newSavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-var hs-var">newSavingsPlansPurchaseRecommendation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation' :: Maybe [SavingsPlansPurchaseRecommendationDetail]
+-&gt; Maybe TermInYears
+-&gt; Maybe AccountScope
+-&gt; Maybe SupportedSavingsPlansType
+-&gt; Maybe LookbackPeriodInDays
+-&gt; Maybe PaymentOption
+-&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+-&gt; SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:savingsPlansPurchaseRecommendationDetails:SavingsPlansPurchaseRecommendation' :: Maybe [SavingsPlansPurchaseRecommendationDetail]
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AsavingsPlansPurchaseRecommendationDetails%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">savingsPlansPurchaseRecommendationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SavingsPlansPurchaseRecommendationDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:termInYears:SavingsPlansPurchaseRecommendation' :: Maybe TermInYears
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AtermInYears%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">termInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TermInYears
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountScope:SavingsPlansPurchaseRecommendation' :: Maybe AccountScope
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AaccountScope%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">accountScope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountScope
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:savingsPlansType:SavingsPlansPurchaseRecommendation' :: Maybe SupportedSavingsPlansType
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AsavingsPlansType%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">savingsPlansType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SupportedSavingsPlansType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:lookbackPeriodInDays:SavingsPlansPurchaseRecommendation' :: Maybe LookbackPeriodInDays
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AlookbackPeriodInDays%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">lookbackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:paymentOption:SavingsPlansPurchaseRecommendation' :: Maybe PaymentOption
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3ApaymentOption%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:savingsPlansPurchaseRecommendationSummary:SavingsPlansPurchaseRecommendation' :: Maybe SavingsPlansPurchaseRecommendationSummary
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AsavingsPlansPurchaseRecommendationSummary%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">savingsPlansPurchaseRecommendationSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe SavingsPlansPurchaseRecommendationSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Details for the Savings Plans we recommend that you purchase to cover</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- existing Savings Plans eligible workloads.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails"><span class="hs-identifier hs-type">savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail.html#SavingsPlansPurchaseRecommendationDetail"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendationDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails"><span class="annot"><span class="annottext">savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails :: (Maybe [SavingsPlansPurchaseRecommendationDetail]
+ -&gt; f (Maybe [SavingsPlansPurchaseRecommendationDetail]))
+-&gt; SavingsPlansPurchaseRecommendation
+-&gt; f SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansPurchaseRecommendation
+ -&gt; Maybe [SavingsPlansPurchaseRecommendationDetail])
+-&gt; (SavingsPlansPurchaseRecommendation
+    -&gt; Maybe [SavingsPlansPurchaseRecommendationDetail]
+    -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Lens
+     SavingsPlansPurchaseRecommendation
+     SavingsPlansPurchaseRecommendation
+     (Maybe [SavingsPlansPurchaseRecommendationDetail])
+     (Maybe [SavingsPlansPurchaseRecommendationDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339667"><span class="annot"><span class="annottext">Maybe [SavingsPlansPurchaseRecommendationDetail]
+savingsPlansPurchaseRecommendationDetails :: Maybe [SavingsPlansPurchaseRecommendationDetail]
+$sel:savingsPlansPurchaseRecommendationDetails:SavingsPlansPurchaseRecommendation' :: SavingsPlansPurchaseRecommendation
+-&gt; Maybe [SavingsPlansPurchaseRecommendationDetail]
+</span><a href="#local-6989586621679339667"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendationDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SavingsPlansPurchaseRecommendationDetail]
+</span><a href="#local-6989586621679339667"><span class="hs-identifier hs-var">savingsPlansPurchaseRecommendationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339666"><span class="annot"><span class="annottext">s :: SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339665"><span class="annot"><span class="annottext">Maybe [SavingsPlansPurchaseRecommendationDetail]
+</span><a href="#local-6989586621679339665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savingsPlansPurchaseRecommendationDetails:SavingsPlansPurchaseRecommendation' :: Maybe [SavingsPlansPurchaseRecommendationDetail]
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AsavingsPlansPurchaseRecommendationDetails%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">savingsPlansPurchaseRecommendationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SavingsPlansPurchaseRecommendationDetail]
+</span><a href="#local-6989586621679339665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SavingsPlansPurchaseRecommendationDetail]
+  -&gt; f (Maybe [SavingsPlansPurchaseRecommendationDetail]))
+ -&gt; SavingsPlansPurchaseRecommendation
+ -&gt; f SavingsPlansPurchaseRecommendation)
+-&gt; ((Maybe [SavingsPlansPurchaseRecommendationDetail]
+     -&gt; f (Maybe [SavingsPlansPurchaseRecommendationDetail]))
+    -&gt; Maybe [SavingsPlansPurchaseRecommendationDetail]
+    -&gt; f (Maybe [SavingsPlansPurchaseRecommendationDetail]))
+-&gt; (Maybe [SavingsPlansPurchaseRecommendationDetail]
+    -&gt; f (Maybe [SavingsPlansPurchaseRecommendationDetail]))
+-&gt; SavingsPlansPurchaseRecommendation
+-&gt; f SavingsPlansPurchaseRecommendation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SavingsPlansPurchaseRecommendationDetail]
+  [SavingsPlansPurchaseRecommendationDetail]
+  [SavingsPlansPurchaseRecommendationDetail]
+  [SavingsPlansPurchaseRecommendationDetail]
+-&gt; Iso
+     (Maybe [SavingsPlansPurchaseRecommendationDetail])
+     (Maybe [SavingsPlansPurchaseRecommendationDetail])
+     (Maybe [SavingsPlansPurchaseRecommendationDetail])
+     (Maybe [SavingsPlansPurchaseRecommendationDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SavingsPlansPurchaseRecommendationDetail]
+  [SavingsPlansPurchaseRecommendationDetail]
+  [SavingsPlansPurchaseRecommendationDetail]
+  [SavingsPlansPurchaseRecommendationDetail]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The Savings Plans recommendation term in years. It\'s used to generate</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- the recommendation.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_termInYears"><span class="hs-identifier hs-type">savingsPlansPurchaseRecommendation_termInYears</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.TermInYears.html#TermInYears"><span class="hs-identifier hs-type">TermInYears</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="savingsPlansPurchaseRecommendation_termInYears"><span class="annot"><span class="annottext">savingsPlansPurchaseRecommendation_termInYears :: (Maybe TermInYears -&gt; f (Maybe TermInYears))
+-&gt; SavingsPlansPurchaseRecommendation
+-&gt; f SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_termInYears"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendation_termInYears</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansPurchaseRecommendation -&gt; Maybe TermInYears)
+-&gt; (SavingsPlansPurchaseRecommendation
+    -&gt; Maybe TermInYears -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Lens
+     SavingsPlansPurchaseRecommendation
+     SavingsPlansPurchaseRecommendation
+     (Maybe TermInYears)
+     (Maybe TermInYears)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339660"><span class="annot"><span class="annottext">Maybe TermInYears
+termInYears :: Maybe TermInYears
+$sel:termInYears:SavingsPlansPurchaseRecommendation' :: SavingsPlansPurchaseRecommendation -&gt; Maybe TermInYears
+</span><a href="#local-6989586621679339660"><span class="hs-identifier hs-var hs-var">termInYears</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TermInYears
+</span><a href="#local-6989586621679339660"><span class="hs-identifier hs-var">termInYears</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339659"><span class="annot"><span class="annottext">s :: SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339658"><span class="annot"><span class="annottext">Maybe TermInYears
+</span><a href="#local-6989586621679339658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:termInYears:SavingsPlansPurchaseRecommendation' :: Maybe TermInYears
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AtermInYears%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">termInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TermInYears
+</span><a href="#local-6989586621679339658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The account scope that you want your recommendations for. Amazon Web</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Services calculates recommendations that include the management account</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- and member accounts if the value is set to @PAYER@. If the value is</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @LINKED@, recommendations are calculated for individual member accounts</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- only.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_accountScope"><span class="hs-identifier hs-type">savingsPlansPurchaseRecommendation_accountScope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.AccountScope.html#AccountScope"><span class="hs-identifier hs-type">AccountScope</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="savingsPlansPurchaseRecommendation_accountScope"><span class="annot"><span class="annottext">savingsPlansPurchaseRecommendation_accountScope :: (Maybe AccountScope -&gt; f (Maybe AccountScope))
+-&gt; SavingsPlansPurchaseRecommendation
+-&gt; f SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_accountScope"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendation_accountScope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansPurchaseRecommendation -&gt; Maybe AccountScope)
+-&gt; (SavingsPlansPurchaseRecommendation
+    -&gt; Maybe AccountScope -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Lens
+     SavingsPlansPurchaseRecommendation
+     SavingsPlansPurchaseRecommendation
+     (Maybe AccountScope)
+     (Maybe AccountScope)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339656"><span class="annot"><span class="annottext">Maybe AccountScope
+accountScope :: Maybe AccountScope
+$sel:accountScope:SavingsPlansPurchaseRecommendation' :: SavingsPlansPurchaseRecommendation -&gt; Maybe AccountScope
+</span><a href="#local-6989586621679339656"><span class="hs-identifier hs-var hs-var">accountScope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountScope
+</span><a href="#local-6989586621679339656"><span class="hs-identifier hs-var">accountScope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339655"><span class="annot"><span class="annottext">s :: SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339654"><span class="annot"><span class="annottext">Maybe AccountScope
+</span><a href="#local-6989586621679339654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountScope:SavingsPlansPurchaseRecommendation' :: Maybe AccountScope
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AaccountScope%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">accountScope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountScope
+</span><a href="#local-6989586621679339654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The requested Savings Plans recommendation type.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_savingsPlansType"><span class="hs-identifier hs-type">savingsPlansPurchaseRecommendation_savingsPlansType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SupportedSavingsPlansType.html#SupportedSavingsPlansType"><span class="hs-identifier hs-type">SupportedSavingsPlansType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="savingsPlansPurchaseRecommendation_savingsPlansType"><span class="annot"><span class="annottext">savingsPlansPurchaseRecommendation_savingsPlansType :: (Maybe SupportedSavingsPlansType
+ -&gt; f (Maybe SupportedSavingsPlansType))
+-&gt; SavingsPlansPurchaseRecommendation
+-&gt; f SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_savingsPlansType"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendation_savingsPlansType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansPurchaseRecommendation
+ -&gt; Maybe SupportedSavingsPlansType)
+-&gt; (SavingsPlansPurchaseRecommendation
+    -&gt; Maybe SupportedSavingsPlansType
+    -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Lens
+     SavingsPlansPurchaseRecommendation
+     SavingsPlansPurchaseRecommendation
+     (Maybe SupportedSavingsPlansType)
+     (Maybe SupportedSavingsPlansType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339652"><span class="annot"><span class="annottext">Maybe SupportedSavingsPlansType
+savingsPlansType :: Maybe SupportedSavingsPlansType
+$sel:savingsPlansType:SavingsPlansPurchaseRecommendation' :: SavingsPlansPurchaseRecommendation
+-&gt; Maybe SupportedSavingsPlansType
+</span><a href="#local-6989586621679339652"><span class="hs-identifier hs-var hs-var">savingsPlansType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SupportedSavingsPlansType
+</span><a href="#local-6989586621679339652"><span class="hs-identifier hs-var">savingsPlansType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339651"><span class="annot"><span class="annottext">s :: SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339650"><span class="annot"><span class="annottext">Maybe SupportedSavingsPlansType
+</span><a href="#local-6989586621679339650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savingsPlansType:SavingsPlansPurchaseRecommendation' :: Maybe SupportedSavingsPlansType
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AsavingsPlansType%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">savingsPlansType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SupportedSavingsPlansType
+</span><a href="#local-6989586621679339650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The lookback period in days, used to generate the recommendation.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_lookbackPeriodInDays"><span class="hs-identifier hs-type">savingsPlansPurchaseRecommendation_lookbackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-type">LookbackPeriodInDays</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="savingsPlansPurchaseRecommendation_lookbackPeriodInDays"><span class="annot"><span class="annottext">savingsPlansPurchaseRecommendation_lookbackPeriodInDays :: (Maybe LookbackPeriodInDays -&gt; f (Maybe LookbackPeriodInDays))
+-&gt; SavingsPlansPurchaseRecommendation
+-&gt; f SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_lookbackPeriodInDays"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendation_lookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansPurchaseRecommendation -&gt; Maybe LookbackPeriodInDays)
+-&gt; (SavingsPlansPurchaseRecommendation
+    -&gt; Maybe LookbackPeriodInDays
+    -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Lens
+     SavingsPlansPurchaseRecommendation
+     SavingsPlansPurchaseRecommendation
+     (Maybe LookbackPeriodInDays)
+     (Maybe LookbackPeriodInDays)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339648"><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
+lookbackPeriodInDays :: Maybe LookbackPeriodInDays
+$sel:lookbackPeriodInDays:SavingsPlansPurchaseRecommendation' :: SavingsPlansPurchaseRecommendation -&gt; Maybe LookbackPeriodInDays
+</span><a href="#local-6989586621679339648"><span class="hs-identifier hs-var hs-var">lookbackPeriodInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
+</span><a href="#local-6989586621679339648"><span class="hs-identifier hs-var">lookbackPeriodInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339647"><span class="annot"><span class="annottext">s :: SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339646"><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
+</span><a href="#local-6989586621679339646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lookbackPeriodInDays:SavingsPlansPurchaseRecommendation' :: Maybe LookbackPeriodInDays
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AlookbackPeriodInDays%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">lookbackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
+</span><a href="#local-6989586621679339646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The payment option used to generate the recommendation.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_paymentOption"><span class="hs-identifier hs-type">savingsPlansPurchaseRecommendation_paymentOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="savingsPlansPurchaseRecommendation_paymentOption"><span class="annot"><span class="annottext">savingsPlansPurchaseRecommendation_paymentOption :: (Maybe PaymentOption -&gt; f (Maybe PaymentOption))
+-&gt; SavingsPlansPurchaseRecommendation
+-&gt; f SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_paymentOption"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendation_paymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansPurchaseRecommendation -&gt; Maybe PaymentOption)
+-&gt; (SavingsPlansPurchaseRecommendation
+    -&gt; Maybe PaymentOption -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Lens
+     SavingsPlansPurchaseRecommendation
+     SavingsPlansPurchaseRecommendation
+     (Maybe PaymentOption)
+     (Maybe PaymentOption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339644"><span class="annot"><span class="annottext">Maybe PaymentOption
+paymentOption :: Maybe PaymentOption
+$sel:paymentOption:SavingsPlansPurchaseRecommendation' :: SavingsPlansPurchaseRecommendation -&gt; Maybe PaymentOption
+</span><a href="#local-6989586621679339644"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><a href="#local-6989586621679339644"><span class="hs-identifier hs-var">paymentOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339643"><span class="annot"><span class="annottext">s :: SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339642"><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><a href="#local-6989586621679339642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paymentOption:SavingsPlansPurchaseRecommendation' :: Maybe PaymentOption
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3ApaymentOption%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><a href="#local-6989586621679339642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Summary metrics for your Savings Plans Recommendations.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary"><span class="hs-identifier hs-type">savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary.html#SavingsPlansPurchaseRecommendationSummary"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary"><span class="annot"><span class="annottext">savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary :: (Maybe SavingsPlansPurchaseRecommendationSummary
+ -&gt; f (Maybe SavingsPlansPurchaseRecommendationSummary))
+-&gt; SavingsPlansPurchaseRecommendation
+-&gt; f SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansPurchaseRecommendation
+ -&gt; Maybe SavingsPlansPurchaseRecommendationSummary)
+-&gt; (SavingsPlansPurchaseRecommendation
+    -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+    -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Lens
+     SavingsPlansPurchaseRecommendation
+     SavingsPlansPurchaseRecommendation
+     (Maybe SavingsPlansPurchaseRecommendationSummary)
+     (Maybe SavingsPlansPurchaseRecommendationSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339640"><span class="annot"><span class="annottext">Maybe SavingsPlansPurchaseRecommendationSummary
+savingsPlansPurchaseRecommendationSummary :: Maybe SavingsPlansPurchaseRecommendationSummary
+$sel:savingsPlansPurchaseRecommendationSummary:SavingsPlansPurchaseRecommendation' :: SavingsPlansPurchaseRecommendation
+-&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+</span><a href="#local-6989586621679339640"><span class="hs-identifier hs-var hs-var">savingsPlansPurchaseRecommendationSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansPurchaseRecommendationSummary
+</span><a href="#local-6989586621679339640"><span class="hs-identifier hs-var">savingsPlansPurchaseRecommendationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339639"><span class="annot"><span class="annottext">s :: SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339638"><span class="annot"><span class="annottext">Maybe SavingsPlansPurchaseRecommendationSummary
+</span><a href="#local-6989586621679339638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansPurchaseRecommendation
+</span><a href="#local-6989586621679339639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savingsPlansPurchaseRecommendationSummary:SavingsPlansPurchaseRecommendation' :: Maybe SavingsPlansPurchaseRecommendationSummary
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#%24sel%3AsavingsPlansPurchaseRecommendationSummary%3ASavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">savingsPlansPurchaseRecommendationSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansPurchaseRecommendationSummary
+</span><a href="#local-6989586621679339638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679339635"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679339633"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SavingsPlansPurchaseRecommendation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SavingsPlansPurchaseRecommendation)
+-&gt; Value
+-&gt; Parser SavingsPlansPurchaseRecommendation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SavingsPlansPurchaseRecommendation&quot;</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339630"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SavingsPlansPurchaseRecommendationDetail]
+-&gt; Maybe TermInYears
+-&gt; Maybe AccountScope
+-&gt; Maybe SupportedSavingsPlansType
+-&gt; Maybe LookbackPeriodInDays
+-&gt; Maybe PaymentOption
+-&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+-&gt; SavingsPlansPurchaseRecommendation
+</span><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation%27"><span class="hs-identifier hs-var">SavingsPlansPurchaseRecommendation'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SavingsPlansPurchaseRecommendationDetail]
+ -&gt; Maybe TermInYears
+ -&gt; Maybe AccountScope
+ -&gt; Maybe SupportedSavingsPlansType
+ -&gt; Maybe LookbackPeriodInDays
+ -&gt; Maybe PaymentOption
+ -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+ -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Parser (Maybe [SavingsPlansPurchaseRecommendationDetail])
+-&gt; Parser
+     (Maybe TermInYears
+      -&gt; Maybe AccountScope
+      -&gt; Maybe SupportedSavingsPlansType
+      -&gt; Maybe LookbackPeriodInDays
+      -&gt; Maybe PaymentOption
+      -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+      -&gt; SavingsPlansPurchaseRecommendation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339630"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe (Maybe [SavingsPlansPurchaseRecommendationDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SavingsPlansPurchaseRecommendationDetails&quot;</span></span><span>
+</span><span id="line-148"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SavingsPlansPurchaseRecommendationDetail]))
+-&gt; Maybe [SavingsPlansPurchaseRecommendationDetail]
+-&gt; Parser (Maybe [SavingsPlansPurchaseRecommendationDetail])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SavingsPlansPurchaseRecommendationDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TermInYears
+   -&gt; Maybe AccountScope
+   -&gt; Maybe SupportedSavingsPlansType
+   -&gt; Maybe LookbackPeriodInDays
+   -&gt; Maybe PaymentOption
+   -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+   -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Parser (Maybe TermInYears)
+-&gt; Parser
+     (Maybe AccountScope
+      -&gt; Maybe SupportedSavingsPlansType
+      -&gt; Maybe LookbackPeriodInDays
+      -&gt; Maybe PaymentOption
+      -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+      -&gt; SavingsPlansPurchaseRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TermInYears)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TermInYears&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AccountScope
+   -&gt; Maybe SupportedSavingsPlansType
+   -&gt; Maybe LookbackPeriodInDays
+   -&gt; Maybe PaymentOption
+   -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+   -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Parser (Maybe AccountScope)
+-&gt; Parser
+     (Maybe SupportedSavingsPlansType
+      -&gt; Maybe LookbackPeriodInDays
+      -&gt; Maybe PaymentOption
+      -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+      -&gt; SavingsPlansPurchaseRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccountScope)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountScope&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SupportedSavingsPlansType
+   -&gt; Maybe LookbackPeriodInDays
+   -&gt; Maybe PaymentOption
+   -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+   -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Parser (Maybe SupportedSavingsPlansType)
+-&gt; Parser
+     (Maybe LookbackPeriodInDays
+      -&gt; Maybe PaymentOption
+      -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+      -&gt; SavingsPlansPurchaseRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SupportedSavingsPlansType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SavingsPlansType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LookbackPeriodInDays
+   -&gt; Maybe PaymentOption
+   -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+   -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Parser (Maybe LookbackPeriodInDays)
+-&gt; Parser
+     (Maybe PaymentOption
+      -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+      -&gt; SavingsPlansPurchaseRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LookbackPeriodInDays)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LookbackPeriodInDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PaymentOption
+   -&gt; Maybe SavingsPlansPurchaseRecommendationSummary
+   -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Parser (Maybe PaymentOption)
+-&gt; Parser
+     (Maybe SavingsPlansPurchaseRecommendationSummary
+      -&gt; SavingsPlansPurchaseRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PaymentOption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PaymentOption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SavingsPlansPurchaseRecommendationSummary
+   -&gt; SavingsPlansPurchaseRecommendation)
+-&gt; Parser (Maybe SavingsPlansPurchaseRecommendationSummary)
+-&gt; Parser SavingsPlansPurchaseRecommendation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339630"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-156"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe SavingsPlansPurchaseRecommendationSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SavingsPlansPurchaseRecommendationSummary&quot;</span></span><span>
+</span><span id="line-157"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679339623"><span id="local-6989586621679339625"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679339620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation.html#SavingsPlansPurchaseRecommendation"><span class="hs-identifier hs-type">SavingsPlansPurchaseRecommendation</span></a></span></span><span>
+</span><span id="line-167"></span></pre></body></html>

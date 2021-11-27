@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Transfer.Types.CustomStepDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transfer.Types.CustomStepDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Each step type has its own @StepDetails@ structure.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCustomStepDetails' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679235831"><span id="local-6989586621679235832"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomStepDetails"><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-var">CustomStepDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomStepDetails%27"><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-var">CustomStepDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the step, used as an identifier.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3ACustomStepDetails%27"><span class="annot"><span class="annottext">CustomStepDetails -&gt; Maybe Text
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#%24sel%3Aname%3ACustomStepDetails%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Timeout, in seconds, for the step.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtimeoutSeconds%3ACustomStepDetails%27"><span class="annot"><span class="annottext">CustomStepDetails -&gt; Maybe Natural
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#%24sel%3AtimeoutSeconds%3ACustomStepDetails%27"><span class="hs-identifier hs-var hs-var">timeoutSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN for the lambda function that is being called.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atarget%3ACustomStepDetails%27"><span class="annot"><span class="annottext">CustomStepDetails -&gt; Maybe Text
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#%24sel%3Atarget%3ACustomStepDetails%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235823"><span id="local-6989586621679235825"><span class="annot"><span class="annottext">CustomStepDetails -&gt; CustomStepDetails -&gt; Bool
+(CustomStepDetails -&gt; CustomStepDetails -&gt; Bool)
+-&gt; (CustomStepDetails -&gt; CustomStepDetails -&gt; Bool)
+-&gt; Eq CustomStepDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomStepDetails -&gt; CustomStepDetails -&gt; Bool
+$c/= :: CustomStepDetails -&gt; CustomStepDetails -&gt; Bool
+== :: CustomStepDetails -&gt; CustomStepDetails -&gt; Bool
+$c== :: CustomStepDetails -&gt; CustomStepDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235814"><span id="local-6989586621679235816"><span id="local-6989586621679235818"><span id="local-6989586621679235820"><span class="annot"><span class="annottext">ReadPrec [CustomStepDetails]
+ReadPrec CustomStepDetails
+Int -&gt; ReadS CustomStepDetails
+ReadS [CustomStepDetails]
+(Int -&gt; ReadS CustomStepDetails)
+-&gt; ReadS [CustomStepDetails]
+-&gt; ReadPrec CustomStepDetails
+-&gt; ReadPrec [CustomStepDetails]
+-&gt; Read CustomStepDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomStepDetails]
+$creadListPrec :: ReadPrec [CustomStepDetails]
+readPrec :: ReadPrec CustomStepDetails
+$creadPrec :: ReadPrec CustomStepDetails
+readList :: ReadS [CustomStepDetails]
+$creadList :: ReadS [CustomStepDetails]
+readsPrec :: Int -&gt; ReadS CustomStepDetails
+$creadsPrec :: Int -&gt; ReadS CustomStepDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235807"><span id="local-6989586621679235809"><span id="local-6989586621679235811"><span class="annot"><span class="annottext">Int -&gt; CustomStepDetails -&gt; ShowS
+[CustomStepDetails] -&gt; ShowS
+CustomStepDetails -&gt; String
+(Int -&gt; CustomStepDetails -&gt; ShowS)
+-&gt; (CustomStepDetails -&gt; String)
+-&gt; ([CustomStepDetails] -&gt; ShowS)
+-&gt; Show CustomStepDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomStepDetails] -&gt; ShowS
+$cshowList :: [CustomStepDetails] -&gt; ShowS
+show :: CustomStepDetails -&gt; String
+$cshow :: CustomStepDetails -&gt; String
+showsPrec :: Int -&gt; CustomStepDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomStepDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CustomStepDetails -&gt; Rep CustomStepDetails x)
+-&gt; (forall x. Rep CustomStepDetails x -&gt; CustomStepDetails)
+-&gt; Generic CustomStepDetails
+forall x. Rep CustomStepDetails x -&gt; CustomStepDetails
+forall x. CustomStepDetails -&gt; Rep CustomStepDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CustomStepDetails x -&gt; CustomStepDetails
+$cfrom :: forall x. CustomStepDetails -&gt; Rep CustomStepDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'CustomStepDetails' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'name', 'customStepDetails_name' - The name of the step, used as an identifier.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'timeoutSeconds', 'customStepDetails_timeoutSeconds' - Timeout, in seconds, for the step.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'target', 'customStepDetails_target' - The ARN for the lambda function that is being called.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#newCustomStepDetails"><span class="hs-identifier hs-type">newCustomStepDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span><span>
+</span><span id="line-54"></span><span id="newCustomStepDetails"><span class="annot"><span class="annottext">newCustomStepDetails :: CustomStepDetails
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#newCustomStepDetails"><span class="hs-identifier hs-var hs-var">newCustomStepDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">CustomStepDetails' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; CustomStepDetails
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-type">CustomStepDetails'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CustomStepDetails' :: Maybe Text
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#%24sel%3Aname%3ACustomStepDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeoutSeconds:CustomStepDetails' :: Maybe Natural
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#%24sel%3AtimeoutSeconds%3ACustomStepDetails%27"><span class="hs-identifier hs-var">timeoutSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:CustomStepDetails' :: Maybe Text
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#%24sel%3Atarget%3ACustomStepDetails%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The name of the step, used as an identifier.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#customStepDetails_name"><span class="hs-identifier hs-type">customStepDetails_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="customStepDetails_name"><span class="annot"><span class="annottext">customStepDetails_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomStepDetails -&gt; f CustomStepDetails
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#customStepDetails_name"><span class="hs-identifier hs-var hs-var">customStepDetails_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomStepDetails -&gt; Maybe Text)
+-&gt; (CustomStepDetails -&gt; Maybe Text -&gt; CustomStepDetails)
+-&gt; Lens
+     CustomStepDetails CustomStepDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-type">CustomStepDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235798"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CustomStepDetails' :: CustomStepDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679235798"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235798"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235797"><span class="annot"><span class="annottext">s :: CustomStepDetails
+</span><a href="#local-6989586621679235797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-type">CustomStepDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235796"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomStepDetails
+</span><a href="#local-6989586621679235797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CustomStepDetails' :: Maybe Text
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#%24sel%3Aname%3ACustomStepDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Timeout, in seconds, for the step.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#customStepDetails_timeoutSeconds"><span class="hs-identifier hs-type">customStepDetails_timeoutSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="customStepDetails_timeoutSeconds"><span class="annot"><span class="annottext">customStepDetails_timeoutSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CustomStepDetails -&gt; f CustomStepDetails
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#customStepDetails_timeoutSeconds"><span class="hs-identifier hs-var hs-var">customStepDetails_timeoutSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomStepDetails -&gt; Maybe Natural)
+-&gt; (CustomStepDetails -&gt; Maybe Natural -&gt; CustomStepDetails)
+-&gt; Lens
+     CustomStepDetails CustomStepDetails (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-type">CustomStepDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235794"><span class="annot"><span class="annottext">Maybe Natural
+timeoutSeconds :: Maybe Natural
+$sel:timeoutSeconds:CustomStepDetails' :: CustomStepDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679235794"><span class="hs-identifier hs-var hs-var">timeoutSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235794"><span class="hs-identifier hs-var">timeoutSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235793"><span class="annot"><span class="annottext">s :: CustomStepDetails
+</span><a href="#local-6989586621679235793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-type">CustomStepDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235792"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomStepDetails
+</span><a href="#local-6989586621679235793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutSeconds:CustomStepDetails' :: Maybe Natural
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#%24sel%3AtimeoutSeconds%3ACustomStepDetails%27"><span class="hs-identifier hs-var">timeoutSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The ARN for the lambda function that is being called.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#customStepDetails_target"><span class="hs-identifier hs-type">customStepDetails_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="customStepDetails_target"><span class="annot"><span class="annottext">customStepDetails_target :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomStepDetails -&gt; f CustomStepDetails
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#customStepDetails_target"><span class="hs-identifier hs-var hs-var">customStepDetails_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomStepDetails -&gt; Maybe Text)
+-&gt; (CustomStepDetails -&gt; Maybe Text -&gt; CustomStepDetails)
+-&gt; Lens
+     CustomStepDetails CustomStepDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-type">CustomStepDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235790"><span class="annot"><span class="annottext">Maybe Text
+target :: Maybe Text
+$sel:target:CustomStepDetails' :: CustomStepDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679235790"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235790"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235789"><span class="annot"><span class="annottext">s :: CustomStepDetails
+</span><a href="#local-6989586621679235789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-type">CustomStepDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235788"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomStepDetails
+</span><a href="#local-6989586621679235789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:CustomStepDetails' :: Maybe Text
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#%24sel%3Atarget%3ACustomStepDetails%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235785"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679235783"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CustomStepDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CustomStepDetails)
+-&gt; Value
+-&gt; Parser CustomStepDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CustomStepDetails&quot;</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235780"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235780"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; CustomStepDetails
+</span><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-var">CustomStepDetails'</span></a></span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; CustomStepDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural -&gt; Maybe Text -&gt; CustomStepDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Text -&gt; CustomStepDetails)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; CustomStepDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimeoutSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CustomStepDetails)
+-&gt; Parser (Maybe Text) -&gt; Parser CustomStepDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Target&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235774"><span id="local-6989586621679235776"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235771"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235763"><span id="local-6989586621679235765"><span id="local-6989586621679235767"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails"><span class="hs-identifier hs-type">CustomStepDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679235761"><span class="annot"><span class="annottext">toJSON :: CustomStepDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.CustomStepDetails.html#CustomStepDetails%27"><span class="hs-identifier hs-type">CustomStepDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235757"><span id="local-6989586621679235758"><span id="local-6989586621679235759"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+target :: Maybe Text
+timeoutSeconds :: Maybe Natural
+name :: Maybe Text
+$sel:target:CustomStepDetails' :: CustomStepDetails -&gt; Maybe Text
+$sel:timeoutSeconds:CustomStepDetails' :: CustomStepDetails -&gt; Maybe Natural
+$sel:name:CustomStepDetails' :: CustomStepDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679235757"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-92"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235759"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimeoutSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235758"><span class="hs-identifier hs-var">timeoutSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235757"><span class="hs-identifier hs-var">target</span></a></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span></pre></body></html>

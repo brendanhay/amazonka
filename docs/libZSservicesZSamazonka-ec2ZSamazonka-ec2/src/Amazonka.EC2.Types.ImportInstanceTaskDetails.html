@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ImportInstanceTaskDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ImportInstanceTaskDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceVolumeDetailItem.html"><span class="hs-identifier">Amazonka.EC2.Types.ImportInstanceVolumeDetailItem</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html"><span class="hs-identifier">Amazonka.EC2.Types.PlatformValues</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes an import instance task.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newImportInstanceTaskDetails' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681136178"><span id="local-6989586621681136179"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportInstanceTaskDetails"><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-var">ImportInstanceTaskDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportInstanceTaskDetails%27"><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">ImportInstanceTaskDetails'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AinstanceId%3AImportInstanceTaskDetails%27"><span class="annot"><span class="annottext">ImportInstanceTaskDetails -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3AinstanceId%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The instance operating system.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aplatform%3AImportInstanceTaskDetails%27"><span class="annot"><span class="annottext">ImportInstanceTaskDetails -&gt; Maybe PlatformValues
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3Aplatform%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-type">PlatformValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The volumes.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Avolumes%3AImportInstanceTaskDetails%27"><span class="annot"><span class="annottext">ImportInstanceTaskDetails -&gt; Maybe [ImportInstanceVolumeDetailItem]
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3Avolumes%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var hs-var">volumes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A description of the task.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3AImportInstanceTaskDetails%27"><span class="annot"><span class="annottext">ImportInstanceTaskDetails -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3Adescription%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681136169"><span id="local-6989586621681136171"><span class="annot"><span class="annottext">ImportInstanceTaskDetails -&gt; ImportInstanceTaskDetails -&gt; Bool
+(ImportInstanceTaskDetails -&gt; ImportInstanceTaskDetails -&gt; Bool)
+-&gt; (ImportInstanceTaskDetails -&gt; ImportInstanceTaskDetails -&gt; Bool)
+-&gt; Eq ImportInstanceTaskDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportInstanceTaskDetails -&gt; ImportInstanceTaskDetails -&gt; Bool
+$c/= :: ImportInstanceTaskDetails -&gt; ImportInstanceTaskDetails -&gt; Bool
+== :: ImportInstanceTaskDetails -&gt; ImportInstanceTaskDetails -&gt; Bool
+$c== :: ImportInstanceTaskDetails -&gt; ImportInstanceTaskDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136160"><span id="local-6989586621681136162"><span id="local-6989586621681136164"><span id="local-6989586621681136166"><span class="annot"><span class="annottext">ReadPrec [ImportInstanceTaskDetails]
+ReadPrec ImportInstanceTaskDetails
+Int -&gt; ReadS ImportInstanceTaskDetails
+ReadS [ImportInstanceTaskDetails]
+(Int -&gt; ReadS ImportInstanceTaskDetails)
+-&gt; ReadS [ImportInstanceTaskDetails]
+-&gt; ReadPrec ImportInstanceTaskDetails
+-&gt; ReadPrec [ImportInstanceTaskDetails]
+-&gt; Read ImportInstanceTaskDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportInstanceTaskDetails]
+$creadListPrec :: ReadPrec [ImportInstanceTaskDetails]
+readPrec :: ReadPrec ImportInstanceTaskDetails
+$creadPrec :: ReadPrec ImportInstanceTaskDetails
+readList :: ReadS [ImportInstanceTaskDetails]
+$creadList :: ReadS [ImportInstanceTaskDetails]
+readsPrec :: Int -&gt; ReadS ImportInstanceTaskDetails
+$creadsPrec :: Int -&gt; ReadS ImportInstanceTaskDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136153"><span id="local-6989586621681136155"><span id="local-6989586621681136157"><span class="annot"><span class="annottext">Int -&gt; ImportInstanceTaskDetails -&gt; ShowS
+[ImportInstanceTaskDetails] -&gt; ShowS
+ImportInstanceTaskDetails -&gt; String
+(Int -&gt; ImportInstanceTaskDetails -&gt; ShowS)
+-&gt; (ImportInstanceTaskDetails -&gt; String)
+-&gt; ([ImportInstanceTaskDetails] -&gt; ShowS)
+-&gt; Show ImportInstanceTaskDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportInstanceTaskDetails] -&gt; ShowS
+$cshowList :: [ImportInstanceTaskDetails] -&gt; ShowS
+show :: ImportInstanceTaskDetails -&gt; String
+$cshow :: ImportInstanceTaskDetails -&gt; String
+showsPrec :: Int -&gt; ImportInstanceTaskDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportInstanceTaskDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ImportInstanceTaskDetails -&gt; Rep ImportInstanceTaskDetails x)
+-&gt; (forall x.
+    Rep ImportInstanceTaskDetails x -&gt; ImportInstanceTaskDetails)
+-&gt; Generic ImportInstanceTaskDetails
+forall x.
+Rep ImportInstanceTaskDetails x -&gt; ImportInstanceTaskDetails
+forall x.
+ImportInstanceTaskDetails -&gt; Rep ImportInstanceTaskDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ImportInstanceTaskDetails x -&gt; ImportInstanceTaskDetails
+$cfrom :: forall x.
+ImportInstanceTaskDetails -&gt; Rep ImportInstanceTaskDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'ImportInstanceTaskDetails' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'instanceId', 'importInstanceTaskDetails_instanceId' - The ID of the instance.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'platform', 'importInstanceTaskDetails_platform' - The instance operating system.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'volumes', 'importInstanceTaskDetails_volumes' - The volumes.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'description', 'importInstanceTaskDetails_description' - A description of the task.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#newImportInstanceTaskDetails"><span class="hs-identifier hs-type">newImportInstanceTaskDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span>
+</span><span id="line-61"></span><span id="newImportInstanceTaskDetails"><span class="annot"><span class="annottext">newImportInstanceTaskDetails :: ImportInstanceTaskDetails
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#newImportInstanceTaskDetails"><span class="hs-identifier hs-var hs-var">newImportInstanceTaskDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ImportInstanceTaskDetails' :: Maybe Text
+-&gt; Maybe PlatformValues
+-&gt; Maybe [ImportInstanceVolumeDetailItem]
+-&gt; Maybe Text
+-&gt; ImportInstanceTaskDetails
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-type">ImportInstanceTaskDetails'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:ImportInstanceTaskDetails' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3AinstanceId%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:platform:ImportInstanceTaskDetails' :: Maybe PlatformValues
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3Aplatform%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumes:ImportInstanceTaskDetails' :: Maybe [ImportInstanceVolumeDetailItem]
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3Avolumes%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">volumes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImportInstanceVolumeDetailItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ImportInstanceTaskDetails' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3Adescription%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#importInstanceTaskDetails_instanceId"><span class="hs-identifier hs-type">importInstanceTaskDetails_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="importInstanceTaskDetails_instanceId"><span class="annot"><span class="annottext">importInstanceTaskDetails_instanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportInstanceTaskDetails -&gt; f ImportInstanceTaskDetails
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#importInstanceTaskDetails_instanceId"><span class="hs-identifier hs-var hs-var">importInstanceTaskDetails_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceTaskDetails -&gt; Maybe Text)
+-&gt; (ImportInstanceTaskDetails
+    -&gt; Maybe Text -&gt; ImportInstanceTaskDetails)
+-&gt; Lens
+     ImportInstanceTaskDetails
+     ImportInstanceTaskDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-type">ImportInstanceTaskDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136144"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:ImportInstanceTaskDetails' :: ImportInstanceTaskDetails -&gt; Maybe Text
+</span><a href="#local-6989586621681136144"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681136144"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136143"><span class="annot"><span class="annottext">s :: ImportInstanceTaskDetails
+</span><a href="#local-6989586621681136143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-type">ImportInstanceTaskDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681136142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceTaskDetails
+</span><a href="#local-6989586621681136143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ImportInstanceTaskDetails' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3AinstanceId%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681136142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The instance operating system.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#importInstanceTaskDetails_platform"><span class="hs-identifier hs-type">importInstanceTaskDetails_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-type">PlatformValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="importInstanceTaskDetails_platform"><span class="annot"><span class="annottext">importInstanceTaskDetails_platform :: (Maybe PlatformValues -&gt; f (Maybe PlatformValues))
+-&gt; ImportInstanceTaskDetails -&gt; f ImportInstanceTaskDetails
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#importInstanceTaskDetails_platform"><span class="hs-identifier hs-var hs-var">importInstanceTaskDetails_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceTaskDetails -&gt; Maybe PlatformValues)
+-&gt; (ImportInstanceTaskDetails
+    -&gt; Maybe PlatformValues -&gt; ImportInstanceTaskDetails)
+-&gt; Lens
+     ImportInstanceTaskDetails
+     ImportInstanceTaskDetails
+     (Maybe PlatformValues)
+     (Maybe PlatformValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-type">ImportInstanceTaskDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136140"><span class="annot"><span class="annottext">Maybe PlatformValues
+platform :: Maybe PlatformValues
+$sel:platform:ImportInstanceTaskDetails' :: ImportInstanceTaskDetails -&gt; Maybe PlatformValues
+</span><a href="#local-6989586621681136140"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformValues
+</span><a href="#local-6989586621681136140"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136139"><span class="annot"><span class="annottext">s :: ImportInstanceTaskDetails
+</span><a href="#local-6989586621681136139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-type">ImportInstanceTaskDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136138"><span class="annot"><span class="annottext">Maybe PlatformValues
+</span><a href="#local-6989586621681136138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceTaskDetails
+</span><a href="#local-6989586621681136139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:ImportInstanceTaskDetails' :: Maybe PlatformValues
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3Aplatform%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformValues
+</span><a href="#local-6989586621681136138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The volumes.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#importInstanceTaskDetails_volumes"><span class="hs-identifier hs-type">importInstanceTaskDetails_volumes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="importInstanceTaskDetails_volumes"><span class="annot"><span class="annottext">importInstanceTaskDetails_volumes :: (Maybe [ImportInstanceVolumeDetailItem]
+ -&gt; f (Maybe [ImportInstanceVolumeDetailItem]))
+-&gt; ImportInstanceTaskDetails -&gt; f ImportInstanceTaskDetails
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#importInstanceTaskDetails_volumes"><span class="hs-identifier hs-var hs-var">importInstanceTaskDetails_volumes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceTaskDetails
+ -&gt; Maybe [ImportInstanceVolumeDetailItem])
+-&gt; (ImportInstanceTaskDetails
+    -&gt; Maybe [ImportInstanceVolumeDetailItem]
+    -&gt; ImportInstanceTaskDetails)
+-&gt; Lens
+     ImportInstanceTaskDetails
+     ImportInstanceTaskDetails
+     (Maybe [ImportInstanceVolumeDetailItem])
+     (Maybe [ImportInstanceVolumeDetailItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-type">ImportInstanceTaskDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136136"><span class="annot"><span class="annottext">Maybe [ImportInstanceVolumeDetailItem]
+volumes :: Maybe [ImportInstanceVolumeDetailItem]
+$sel:volumes:ImportInstanceTaskDetails' :: ImportInstanceTaskDetails -&gt; Maybe [ImportInstanceVolumeDetailItem]
+</span><a href="#local-6989586621681136136"><span class="hs-identifier hs-var hs-var">volumes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImportInstanceVolumeDetailItem]
+</span><a href="#local-6989586621681136136"><span class="hs-identifier hs-var">volumes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136135"><span class="annot"><span class="annottext">s :: ImportInstanceTaskDetails
+</span><a href="#local-6989586621681136135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-type">ImportInstanceTaskDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136134"><span class="annot"><span class="annottext">Maybe [ImportInstanceVolumeDetailItem]
+</span><a href="#local-6989586621681136134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceTaskDetails
+</span><a href="#local-6989586621681136135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumes:ImportInstanceTaskDetails' :: Maybe [ImportInstanceVolumeDetailItem]
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3Avolumes%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">volumes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImportInstanceVolumeDetailItem]
+</span><a href="#local-6989586621681136134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImportInstanceVolumeDetailItem]
+  -&gt; f (Maybe [ImportInstanceVolumeDetailItem]))
+ -&gt; ImportInstanceTaskDetails -&gt; f ImportInstanceTaskDetails)
+-&gt; ((Maybe [ImportInstanceVolumeDetailItem]
+     -&gt; f (Maybe [ImportInstanceVolumeDetailItem]))
+    -&gt; Maybe [ImportInstanceVolumeDetailItem]
+    -&gt; f (Maybe [ImportInstanceVolumeDetailItem]))
+-&gt; (Maybe [ImportInstanceVolumeDetailItem]
+    -&gt; f (Maybe [ImportInstanceVolumeDetailItem]))
+-&gt; ImportInstanceTaskDetails
+-&gt; f ImportInstanceTaskDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ImportInstanceVolumeDetailItem]
+  [ImportInstanceVolumeDetailItem]
+  [ImportInstanceVolumeDetailItem]
+  [ImportInstanceVolumeDetailItem]
+-&gt; Iso
+     (Maybe [ImportInstanceVolumeDetailItem])
+     (Maybe [ImportInstanceVolumeDetailItem])
+     (Maybe [ImportInstanceVolumeDetailItem])
+     (Maybe [ImportInstanceVolumeDetailItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ImportInstanceVolumeDetailItem]
+  [ImportInstanceVolumeDetailItem]
+  [ImportInstanceVolumeDetailItem]
+  [ImportInstanceVolumeDetailItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | A description of the task.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#importInstanceTaskDetails_description"><span class="hs-identifier hs-type">importInstanceTaskDetails_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="importInstanceTaskDetails_description"><span class="annot"><span class="annottext">importInstanceTaskDetails_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportInstanceTaskDetails -&gt; f ImportInstanceTaskDetails
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#importInstanceTaskDetails_description"><span class="hs-identifier hs-var hs-var">importInstanceTaskDetails_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceTaskDetails -&gt; Maybe Text)
+-&gt; (ImportInstanceTaskDetails
+    -&gt; Maybe Text -&gt; ImportInstanceTaskDetails)
+-&gt; Lens
+     ImportInstanceTaskDetails
+     ImportInstanceTaskDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-type">ImportInstanceTaskDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136129"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ImportInstanceTaskDetails' :: ImportInstanceTaskDetails -&gt; Maybe Text
+</span><a href="#local-6989586621681136129"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681136129"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136128"><span class="annot"><span class="annottext">s :: ImportInstanceTaskDetails
+</span><a href="#local-6989586621681136128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-type">ImportInstanceTaskDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136127"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681136127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceTaskDetails
+</span><a href="#local-6989586621681136128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImportInstanceTaskDetails' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#%24sel%3Adescription%3AImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681136127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621681136124"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ImportInstanceTaskDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681136122"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe PlatformValues
+-&gt; Maybe [ImportInstanceVolumeDetailItem]
+-&gt; Maybe Text
+-&gt; ImportInstanceTaskDetails
+</span><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails%27"><span class="hs-identifier hs-var">ImportInstanceTaskDetails'</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe PlatformValues
+ -&gt; Maybe [ImportInstanceVolumeDetailItem]
+ -&gt; Maybe Text
+ -&gt; ImportInstanceTaskDetails)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe PlatformValues
+      -&gt; Maybe [ImportInstanceVolumeDetailItem]
+      -&gt; Maybe Text
+      -&gt; ImportInstanceTaskDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PlatformValues
+   -&gt; Maybe [ImportInstanceVolumeDetailItem]
+   -&gt; Maybe Text
+   -&gt; ImportInstanceTaskDetails)
+-&gt; Either String (Maybe PlatformValues)
+-&gt; Either
+     String
+     (Maybe [ImportInstanceVolumeDetailItem]
+      -&gt; Maybe Text -&gt; ImportInstanceTaskDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PlatformValues)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ImportInstanceVolumeDetailItem]
+   -&gt; Maybe Text -&gt; ImportInstanceTaskDetails)
+-&gt; Either String (Maybe [ImportInstanceVolumeDetailItem])
+-&gt; Either String (Maybe Text -&gt; ImportInstanceTaskDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;volumes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-92"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [ImportInstanceVolumeDetailItem]))
+-&gt; Either String (Maybe [ImportInstanceVolumeDetailItem])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ImportInstanceVolumeDetailItem])
+-&gt; [Node] -&gt; Either String (Maybe [ImportInstanceVolumeDetailItem])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ImportInstanceVolumeDetailItem]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ImportInstanceTaskDetails)
+-&gt; Either String (Maybe Text)
+-&gt; Either String ImportInstanceTaskDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681136113"><span id="local-6989586621681136115"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681136110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ImportInstanceTaskDetails.html#ImportInstanceTaskDetails"><span class="hs-identifier hs-type">ImportInstanceTaskDetails</span></a></span></span><span>
+</span><span id="line-99"></span></pre></body></html>

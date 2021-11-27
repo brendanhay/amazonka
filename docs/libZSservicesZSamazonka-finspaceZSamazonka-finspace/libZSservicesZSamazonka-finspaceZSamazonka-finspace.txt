@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.FinSpace.Types.EnvironmentStatus
+module Amazonka.FinSpace.Types.EnvironmentStatus
 newtype EnvironmentStatus
 EnvironmentStatus' :: Text -> EnvironmentStatus
 [fromEnvironmentStatus] :: EnvironmentStatus -> Text
@@ -19,55 +19,55 @@ pattern EnvironmentStatus_FAILED_CREATION :: EnvironmentStatus
 pattern EnvironmentStatus_FAILED_DELETION :: EnvironmentStatus
 pattern EnvironmentStatus_RETRY_DELETION :: EnvironmentStatus
 pattern EnvironmentStatus_SUSPENDED :: EnvironmentStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Generics.Generic Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Classes.Ord Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Classes.Eq Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Read.Read Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Show.Show Network.AWS.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.XML.ToXML Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.XML.FromXML Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Log.ToLog Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Text.ToText Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Text.FromText Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Control.DeepSeq.NFData Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Generics.Generic Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Classes.Ord Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Classes.Eq Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Read.Read Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Show.Show Amazonka.FinSpace.Types.EnvironmentStatus.EnvironmentStatus
 
 
-module Network.AWS.FinSpace.Types.FederationMode
+module Amazonka.FinSpace.Types.FederationMode
 newtype FederationMode
 FederationMode' :: Text -> FederationMode
 [fromFederationMode] :: FederationMode -> Text
 pattern FederationMode_FEDERATED :: FederationMode
 pattern FederationMode_LOCAL :: FederationMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Network.AWS.Data.Text.ToText Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Network.AWS.Data.Text.FromText Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance GHC.Generics.Generic Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance GHC.Classes.Ord Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance GHC.Classes.Eq Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance GHC.Read.Read Network.AWS.FinSpace.Types.FederationMode.FederationMode
-instance GHC.Show.Show Network.AWS.FinSpace.Types.FederationMode.FederationMode
+instance Amazonka.Data.XML.ToXML Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Amazonka.Data.XML.FromXML Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Amazonka.Data.Log.ToLog Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Amazonka.Data.Text.ToText Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Amazonka.Data.Text.FromText Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Control.DeepSeq.NFData Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance GHC.Generics.Generic Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance GHC.Classes.Ord Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance GHC.Classes.Eq Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance GHC.Read.Read Amazonka.FinSpace.Types.FederationMode.FederationMode
+instance GHC.Show.Show Amazonka.FinSpace.Types.FederationMode.FederationMode
 
 
-module Network.AWS.FinSpace.Types.FederationParameters
+module Amazonka.FinSpace.Types.FederationParameters
 
 -- | Configuration information when authentication mode is FEDERATED.
 --   
@@ -167,17 +167,17 @@ federationParameters_federationProviderName :: Lens' FederationParameters (Maybe
 
 -- | SAML 2.0 Metadata document from identity provider (IdP).
 federationParameters_samlMetadataDocument :: Lens' FederationParameters (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FinSpace.Types.FederationParameters.FederationParameters
-instance GHC.Show.Show Network.AWS.FinSpace.Types.FederationParameters.FederationParameters
-instance GHC.Read.Read Network.AWS.FinSpace.Types.FederationParameters.FederationParameters
-instance GHC.Classes.Eq Network.AWS.FinSpace.Types.FederationParameters.FederationParameters
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpace.Types.FederationParameters.FederationParameters
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.Types.FederationParameters.FederationParameters
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.Types.FederationParameters.FederationParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpace.Types.FederationParameters.FederationParameters
+instance GHC.Generics.Generic Amazonka.FinSpace.Types.FederationParameters.FederationParameters
+instance GHC.Show.Show Amazonka.FinSpace.Types.FederationParameters.FederationParameters
+instance GHC.Read.Read Amazonka.FinSpace.Types.FederationParameters.FederationParameters
+instance GHC.Classes.Eq Amazonka.FinSpace.Types.FederationParameters.FederationParameters
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpace.Types.FederationParameters.FederationParameters
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.Types.FederationParameters.FederationParameters
+instance Control.DeepSeq.NFData Amazonka.FinSpace.Types.FederationParameters.FederationParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpace.Types.FederationParameters.FederationParameters
 
 
-module Network.AWS.FinSpace.Types.Environment
+module Amazonka.FinSpace.Types.Environment
 
 -- | Represents an FinSpace environment.
 --   
@@ -316,16 +316,16 @@ environment_sageMakerStudioDomainUrl :: Lens' Environment (Maybe Text)
 
 -- | The description of the FinSpace environment.
 environment_description :: Lens' Environment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FinSpace.Types.Environment.Environment
-instance GHC.Show.Show Network.AWS.FinSpace.Types.Environment.Environment
-instance GHC.Read.Read Network.AWS.FinSpace.Types.Environment.Environment
-instance GHC.Classes.Eq Network.AWS.FinSpace.Types.Environment.Environment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FinSpace.Types.Environment.Environment
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.Types.Environment.Environment
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.Types.Environment.Environment
+instance GHC.Generics.Generic Amazonka.FinSpace.Types.Environment.Environment
+instance GHC.Show.Show Amazonka.FinSpace.Types.Environment.Environment
+instance GHC.Read.Read Amazonka.FinSpace.Types.Environment.Environment
+instance GHC.Classes.Eq Amazonka.FinSpace.Types.Environment.Environment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FinSpace.Types.Environment.Environment
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.Types.Environment.Environment
+instance Control.DeepSeq.NFData Amazonka.FinSpace.Types.Environment.Environment
 
 
-module Network.AWS.FinSpace.Types
+module Amazonka.FinSpace.Types
 
 -- | API version <tt>2021-03-12</tt> of the Amazon FinSpace User
 --   Environment Management service SDK configuration.
@@ -617,7 +617,7 @@ federationParameters_samlMetadataDocument :: Lens' FederationParameters (Maybe T
 
 
 -- | Adds metadata tags to a FinSpace resource.
-module Network.AWS.FinSpace.TagResource
+module Amazonka.FinSpace.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -673,26 +673,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpace.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.FinSpace.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.FinSpace.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.FinSpace.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.FinSpace.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.FinSpace.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.FinSpace.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.FinSpace.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpace.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpace.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpace.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpace.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.FinSpace.TagResource.TagResource
+instance GHC.Show.Show Amazonka.FinSpace.TagResource.TagResource
+instance GHC.Read.Read Amazonka.FinSpace.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.FinSpace.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.FinSpace.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.FinSpace.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.FinSpace.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.FinSpace.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpace.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.FinSpace.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.FinSpace.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpace.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpace.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpace.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.TagResource.TagResource
 
 
 -- | A list of all tags for a resource.
-module Network.AWS.FinSpace.ListTagsForResource
+module Amazonka.FinSpace.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -751,25 +751,25 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.FinSpace.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.FinSpace.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.FinSpace.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.FinSpace.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.FinSpace.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.FinSpace.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.FinSpace.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.FinSpace.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.FinSpace.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.ListTagsForResource.ListTagsForResource
 
 
 -- | A list of all of your FinSpace environments.
-module Network.AWS.FinSpace.ListEnvironments
+module Amazonka.FinSpace.ListEnvironments
 
 -- | <i>See:</i> <a>newListEnvironments</a> smart constructor.
 data ListEnvironments
@@ -858,25 +858,25 @@ listEnvironmentsResponse_environments :: Lens' ListEnvironmentsResponse (Maybe [
 
 -- | The response's http status code.
 listEnvironmentsResponse_httpStatus :: Lens' ListEnvironmentsResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpace.ListEnvironments.ListEnvironments
-instance GHC.Show.Show Network.AWS.FinSpace.ListEnvironments.ListEnvironments
-instance GHC.Read.Read Network.AWS.FinSpace.ListEnvironments.ListEnvironments
-instance GHC.Classes.Eq Network.AWS.FinSpace.ListEnvironments.ListEnvironments
-instance GHC.Generics.Generic Network.AWS.FinSpace.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Show.Show Network.AWS.FinSpace.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Read.Read Network.AWS.FinSpace.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Classes.Eq Network.AWS.FinSpace.ListEnvironments.ListEnvironmentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpace.ListEnvironments.ListEnvironments
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.ListEnvironments.ListEnvironmentsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.ListEnvironments.ListEnvironments
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpace.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpace.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.ListEnvironments.ListEnvironments
+instance GHC.Generics.Generic Amazonka.FinSpace.ListEnvironments.ListEnvironments
+instance GHC.Show.Show Amazonka.FinSpace.ListEnvironments.ListEnvironments
+instance GHC.Read.Read Amazonka.FinSpace.ListEnvironments.ListEnvironments
+instance GHC.Classes.Eq Amazonka.FinSpace.ListEnvironments.ListEnvironments
+instance GHC.Generics.Generic Amazonka.FinSpace.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Show.Show Amazonka.FinSpace.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Read.Read Amazonka.FinSpace.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Classes.Eq Amazonka.FinSpace.ListEnvironments.ListEnvironmentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpace.ListEnvironments.ListEnvironments
+instance Control.DeepSeq.NFData Amazonka.FinSpace.ListEnvironments.ListEnvironmentsResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.ListEnvironments.ListEnvironments
+instance Control.DeepSeq.NFData Amazonka.FinSpace.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpace.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpace.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.ListEnvironments.ListEnvironments
 
 
 -- | Returns the FinSpace environment object.
-module Network.AWS.FinSpace.GetEnvironment
+module Amazonka.FinSpace.GetEnvironment
 
 -- | <i>See:</i> <a>newGetEnvironment</a> smart constructor.
 data GetEnvironment
@@ -935,25 +935,25 @@ getEnvironmentResponse_environment :: Lens' GetEnvironmentResponse (Maybe Enviro
 
 -- | The response's http status code.
 getEnvironmentResponse_httpStatus :: Lens' GetEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpace.GetEnvironment.GetEnvironment
-instance GHC.Show.Show Network.AWS.FinSpace.GetEnvironment.GetEnvironment
-instance GHC.Read.Read Network.AWS.FinSpace.GetEnvironment.GetEnvironment
-instance GHC.Classes.Eq Network.AWS.FinSpace.GetEnvironment.GetEnvironment
-instance GHC.Generics.Generic Network.AWS.FinSpace.GetEnvironment.GetEnvironmentResponse
-instance GHC.Show.Show Network.AWS.FinSpace.GetEnvironment.GetEnvironmentResponse
-instance GHC.Read.Read Network.AWS.FinSpace.GetEnvironment.GetEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.FinSpace.GetEnvironment.GetEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpace.GetEnvironment.GetEnvironment
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.GetEnvironment.GetEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.GetEnvironment.GetEnvironment
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.GetEnvironment.GetEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpace.GetEnvironment.GetEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpace.GetEnvironment.GetEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.GetEnvironment.GetEnvironment
+instance GHC.Generics.Generic Amazonka.FinSpace.GetEnvironment.GetEnvironment
+instance GHC.Show.Show Amazonka.FinSpace.GetEnvironment.GetEnvironment
+instance GHC.Read.Read Amazonka.FinSpace.GetEnvironment.GetEnvironment
+instance GHC.Classes.Eq Amazonka.FinSpace.GetEnvironment.GetEnvironment
+instance GHC.Generics.Generic Amazonka.FinSpace.GetEnvironment.GetEnvironmentResponse
+instance GHC.Show.Show Amazonka.FinSpace.GetEnvironment.GetEnvironmentResponse
+instance GHC.Read.Read Amazonka.FinSpace.GetEnvironment.GetEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.FinSpace.GetEnvironment.GetEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpace.GetEnvironment.GetEnvironment
+instance Control.DeepSeq.NFData Amazonka.FinSpace.GetEnvironment.GetEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.GetEnvironment.GetEnvironment
+instance Control.DeepSeq.NFData Amazonka.FinSpace.GetEnvironment.GetEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpace.GetEnvironment.GetEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpace.GetEnvironment.GetEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.GetEnvironment.GetEnvironment
 
 
 -- | Delete an FinSpace environment.
-module Network.AWS.FinSpace.DeleteEnvironment
+module Amazonka.FinSpace.DeleteEnvironment
 
 -- | <i>See:</i> <a>newDeleteEnvironment</a> smart constructor.
 data DeleteEnvironment
@@ -1002,25 +1002,25 @@ newDeleteEnvironmentResponse :: Int -> DeleteEnvironmentResponse
 
 -- | The response's http status code.
 deleteEnvironmentResponse_httpStatus :: Lens' DeleteEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
-instance GHC.Show.Show Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
-instance GHC.Read.Read Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
-instance GHC.Classes.Eq Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
-instance GHC.Generics.Generic Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Show.Show Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Read.Read Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance GHC.Generics.Generic Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance GHC.Show.Show Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance GHC.Read.Read Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance GHC.Classes.Eq Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance GHC.Generics.Generic Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Show.Show Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Read.Read Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance Control.DeepSeq.NFData Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance Control.DeepSeq.NFData Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.DeleteEnvironment.DeleteEnvironment
 
 
 -- | Create a new FinSpace environment.
-module Network.AWS.FinSpace.CreateEnvironment
+module Amazonka.FinSpace.CreateEnvironment
 
 -- | <i>See:</i> <a>newCreateEnvironment</a> smart constructor.
 data CreateEnvironment
@@ -1172,26 +1172,26 @@ createEnvironmentResponse_environmentArn :: Lens' CreateEnvironmentResponse (May
 
 -- | The response's http status code.
 createEnvironmentResponse_httpStatus :: Lens' CreateEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance GHC.Show.Show Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance GHC.Read.Read Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance GHC.Classes.Eq Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance GHC.Generics.Generic Network.AWS.FinSpace.CreateEnvironment.CreateEnvironmentResponse
-instance GHC.Show.Show Network.AWS.FinSpace.CreateEnvironment.CreateEnvironmentResponse
-instance GHC.Read.Read Network.AWS.FinSpace.CreateEnvironment.CreateEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.FinSpace.CreateEnvironment.CreateEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.CreateEnvironment.CreateEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.CreateEnvironment.CreateEnvironment
+instance GHC.Generics.Generic Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance GHC.Show.Show Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance GHC.Read.Read Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance GHC.Classes.Eq Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance GHC.Generics.Generic Amazonka.FinSpace.CreateEnvironment.CreateEnvironmentResponse
+instance GHC.Show.Show Amazonka.FinSpace.CreateEnvironment.CreateEnvironmentResponse
+instance GHC.Read.Read Amazonka.FinSpace.CreateEnvironment.CreateEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.FinSpace.CreateEnvironment.CreateEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance Control.DeepSeq.NFData Amazonka.FinSpace.CreateEnvironment.CreateEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance Control.DeepSeq.NFData Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.CreateEnvironment.CreateEnvironment
 
 
 -- | Removes metadata tags from a FinSpace resource.
-module Network.AWS.FinSpace.UntagResource
+module Amazonka.FinSpace.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -1252,25 +1252,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpace.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.FinSpace.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.FinSpace.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.FinSpace.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.FinSpace.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.FinSpace.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.FinSpace.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.FinSpace.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpace.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpace.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpace.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.FinSpace.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.FinSpace.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.FinSpace.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.FinSpace.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.FinSpace.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.FinSpace.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.FinSpace.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.FinSpace.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpace.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.FinSpace.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.FinSpace.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpace.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpace.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.UntagResource.UntagResource
 
 
 -- | Update your FinSpace environment.
-module Network.AWS.FinSpace.UpdateEnvironment
+module Amazonka.FinSpace.UpdateEnvironment
 
 -- | <i>See:</i> <a>newUpdateEnvironment</a> smart constructor.
 data UpdateEnvironment
@@ -1386,25 +1386,25 @@ updateEnvironmentResponse_environment :: Lens' UpdateEnvironmentResponse (Maybe 
 
 -- | The response's http status code.
 updateEnvironmentResponse_httpStatus :: Lens' UpdateEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance GHC.Show.Show Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance GHC.Read.Read Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance GHC.Classes.Eq Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance GHC.Generics.Generic Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
-instance GHC.Show.Show Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
-instance GHC.Read.Read Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance GHC.Generics.Generic Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance GHC.Show.Show Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance GHC.Read.Read Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance GHC.Classes.Eq Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance GHC.Generics.Generic Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
+instance GHC.Show.Show Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
+instance GHC.Read.Read Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance Control.DeepSeq.NFData Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance Control.DeepSeq.NFData Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.FinSpace.UpdateEnvironment.UpdateEnvironment
 
 
-module Network.AWS.FinSpace.Lens
+module Amazonka.FinSpace.Lens
 
 -- | A token generated by FinSpace that specifies where to continue
 --   pagination if a previous request was truncated. To get the next set of
@@ -1601,7 +1601,7 @@ federationParameters_federationProviderName :: Lens' FederationParameters (Maybe
 federationParameters_samlMetadataDocument :: Lens' FederationParameters (Maybe Text)
 
 
-module Network.AWS.FinSpace.Waiters
+module Amazonka.FinSpace.Waiters
 
 
 -- | Derived from API version <tt>2021-03-12</tt> of the AWS service
@@ -1609,7 +1609,7 @@ module Network.AWS.FinSpace.Waiters
 --   
 --   The FinSpace management service provides the APIs for managing the
 --   FinSpace environments.
-module Network.AWS.FinSpace
+module Amazonka.FinSpace
 
 -- | API version <tt>2021-03-12</tt> of the Amazon FinSpace User
 --   Environment Management service SDK configuration.

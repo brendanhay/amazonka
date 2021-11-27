@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Organizations.Types.ParentType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Organizations.Types.ParentType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType"><span class="hs-identifier">ParentType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType_ORGANIZATIONAL_UNIT"><span class="hs-identifier">ParentType_ORGANIZATIONAL_UNIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType_ROOT"><span class="hs-identifier">ParentType_ROOT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679238372"><span id="local-6989586621679238373"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParentType"><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType"><span class="hs-identifier hs-var">ParentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParentType%27"><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType%27"><span class="hs-identifier hs-var">ParentType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromParentType"><span class="annot"><span class="annottext">ParentType -&gt; Text
+</span><a href="Amazonka.Organizations.Types.ParentType.html#fromParentType"><span class="hs-identifier hs-var hs-var">fromParentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238364"><span id="local-6989586621679238366"><span id="local-6989586621679238368"><span class="annot"><span class="annottext">Int -&gt; ParentType -&gt; ShowS
+[ParentType] -&gt; ShowS
+ParentType -&gt; String
+(Int -&gt; ParentType -&gt; ShowS)
+-&gt; (ParentType -&gt; String)
+-&gt; ([ParentType] -&gt; ShowS)
+-&gt; Show ParentType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ParentType] -&gt; ShowS
+$cshowList :: [ParentType] -&gt; ShowS
+show :: ParentType -&gt; String
+$cshow :: ParentType -&gt; String
+showsPrec :: Int -&gt; ParentType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ParentType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679238355"><span id="local-6989586621679238357"><span id="local-6989586621679238359"><span id="local-6989586621679238361"><span class="annot"><span class="annottext">ReadPrec [ParentType]
+ReadPrec ParentType
+Int -&gt; ReadS ParentType
+ReadS [ParentType]
+(Int -&gt; ReadS ParentType)
+-&gt; ReadS [ParentType]
+-&gt; ReadPrec ParentType
+-&gt; ReadPrec [ParentType]
+-&gt; Read ParentType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ParentType]
+$creadListPrec :: ReadPrec [ParentType]
+readPrec :: ReadPrec ParentType
+$creadPrec :: ReadPrec ParentType
+readList :: ReadS [ParentType]
+$creadList :: ReadS [ParentType]
+readsPrec :: Int -&gt; ReadS ParentType
+$creadsPrec :: Int -&gt; ReadS ParentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679238350"><span id="local-6989586621679238352"><span class="annot"><span class="annottext">ParentType -&gt; ParentType -&gt; Bool
+(ParentType -&gt; ParentType -&gt; Bool)
+-&gt; (ParentType -&gt; ParentType -&gt; Bool) -&gt; Eq ParentType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ParentType -&gt; ParentType -&gt; Bool
+$c/= :: ParentType -&gt; ParentType -&gt; Bool
+== :: ParentType -&gt; ParentType -&gt; Bool
+$c== :: ParentType -&gt; ParentType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679238334"><span id="local-6989586621679238336"><span id="local-6989586621679238338"><span id="local-6989586621679238340"><span id="local-6989586621679238342"><span id="local-6989586621679238344"><span id="local-6989586621679238346"><span class="annot"><span class="annottext">Eq ParentType
+Eq ParentType
+-&gt; (ParentType -&gt; ParentType -&gt; Ordering)
+-&gt; (ParentType -&gt; ParentType -&gt; Bool)
+-&gt; (ParentType -&gt; ParentType -&gt; Bool)
+-&gt; (ParentType -&gt; ParentType -&gt; Bool)
+-&gt; (ParentType -&gt; ParentType -&gt; Bool)
+-&gt; (ParentType -&gt; ParentType -&gt; ParentType)
+-&gt; (ParentType -&gt; ParentType -&gt; ParentType)
+-&gt; Ord ParentType
+ParentType -&gt; ParentType -&gt; Bool
+ParentType -&gt; ParentType -&gt; Ordering
+ParentType -&gt; ParentType -&gt; ParentType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ParentType -&gt; ParentType -&gt; ParentType
+$cmin :: ParentType -&gt; ParentType -&gt; ParentType
+max :: ParentType -&gt; ParentType -&gt; ParentType
+$cmax :: ParentType -&gt; ParentType -&gt; ParentType
+&gt;= :: ParentType -&gt; ParentType -&gt; Bool
+$c&gt;= :: ParentType -&gt; ParentType -&gt; Bool
+&gt; :: ParentType -&gt; ParentType -&gt; Bool
+$c&gt; :: ParentType -&gt; ParentType -&gt; Bool
+&lt;= :: ParentType -&gt; ParentType -&gt; Bool
+$c&lt;= :: ParentType -&gt; ParentType -&gt; Bool
+&lt; :: ParentType -&gt; ParentType -&gt; Bool
+$c&lt; :: ParentType -&gt; ParentType -&gt; Bool
+compare :: ParentType -&gt; ParentType -&gt; Ordering
+$ccompare :: ParentType -&gt; ParentType -&gt; Ordering
+$cp1Ord :: Eq ParentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ParentType -&gt; Rep ParentType x)
+-&gt; (forall x. Rep ParentType x -&gt; ParentType) -&gt; Generic ParentType
+forall x. Rep ParentType x -&gt; ParentType
+forall x. ParentType -&gt; Rep ParentType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ParentType x -&gt; ParentType
+$cfrom :: forall x. ParentType -&gt; Rep ParentType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238326"><span id="local-6989586621679238328"><span class="annot"><span class="annottext">Int -&gt; ParentType -&gt; Int
+ParentType -&gt; Int
+(Int -&gt; ParentType -&gt; Int)
+-&gt; (ParentType -&gt; Int) -&gt; Hashable ParentType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ParentType -&gt; Int
+$chash :: ParentType -&gt; Int
+hashWithSalt :: Int -&gt; ParentType -&gt; Int
+$chashWithSalt :: Int -&gt; ParentType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679238323"><span class="annot"><span class="annottext">ParentType -&gt; ()
+(ParentType -&gt; ()) -&gt; NFData ParentType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ParentType -&gt; ()
+$crnf :: ParentType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679238320"><span class="annot"><span class="annottext">Text -&gt; Either String ParentType
+(Text -&gt; Either String ParentType) -&gt; FromText ParentType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ParentType
+$cfromText :: Text -&gt; Either String ParentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679238317"><span class="annot"><span class="annottext">ParentType -&gt; Text
+(ParentType -&gt; Text) -&gt; ToText ParentType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ParentType -&gt; Text
+$ctoText :: ParentType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679238314"><span class="annot"><span class="annottext">ParentType -&gt; ByteString
+(ParentType -&gt; ByteString) -&gt; ToByteString ParentType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ParentType -&gt; ByteString
+$ctoBS :: ParentType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679238311"><span class="annot"><span class="annottext">ParentType -&gt; ByteStringBuilder
+(ParentType -&gt; ByteStringBuilder) -&gt; ToLog ParentType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ParentType -&gt; ByteStringBuilder
+$cbuild :: ParentType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679238308"><span class="annot"><span class="annottext">HeaderName -&gt; ParentType -&gt; [Header]
+(HeaderName -&gt; ParentType -&gt; [Header]) -&gt; ToHeader ParentType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ParentType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ParentType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679238305"><span class="annot"><span class="annottext">ParentType -&gt; QueryString
+(ParentType -&gt; QueryString) -&gt; ToQuery ParentType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ParentType -&gt; QueryString
+$ctoQuery :: ParentType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679238300"><span id="local-6989586621679238302"><span class="annot"><span class="annottext">Value -&gt; Parser [ParentType]
+Value -&gt; Parser ParentType
+(Value -&gt; Parser ParentType)
+-&gt; (Value -&gt; Parser [ParentType]) -&gt; FromJSON ParentType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ParentType]
+$cparseJSONList :: Value -&gt; Parser [ParentType]
+parseJSON :: Value -&gt; Parser ParentType
+$cparseJSON :: Value -&gt; Parser ParentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679238295"><span id="local-6989586621679238297"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParentType]
+FromJSONKeyFunction ParentType
+FromJSONKeyFunction ParentType
+-&gt; FromJSONKeyFunction [ParentType] -&gt; FromJSONKey ParentType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ParentType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ParentType]
+fromJSONKey :: FromJSONKeyFunction ParentType
+$cfromJSONKey :: FromJSONKeyFunction ParentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679238286"><span id="local-6989586621679238288"><span id="local-6989586621679238290"><span id="local-6989586621679238292"><span class="annot"><span class="annottext">[ParentType] -&gt; Encoding
+[ParentType] -&gt; Value
+ParentType -&gt; Encoding
+ParentType -&gt; Value
+(ParentType -&gt; Value)
+-&gt; (ParentType -&gt; Encoding)
+-&gt; ([ParentType] -&gt; Value)
+-&gt; ([ParentType] -&gt; Encoding)
+-&gt; ToJSON ParentType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ParentType] -&gt; Encoding
+$ctoEncodingList :: [ParentType] -&gt; Encoding
+toJSONList :: [ParentType] -&gt; Value
+$ctoJSONList :: [ParentType] -&gt; Value
+toEncoding :: ParentType -&gt; Encoding
+$ctoEncoding :: ParentType -&gt; Encoding
+toJSON :: ParentType -&gt; Value
+$ctoJSON :: ParentType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679238281"><span id="local-6989586621679238283"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParentType]
+ToJSONKeyFunction ParentType
+ToJSONKeyFunction ParentType
+-&gt; ToJSONKeyFunction [ParentType] -&gt; ToJSONKey ParentType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ParentType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ParentType]
+toJSONKey :: ToJSONKeyFunction ParentType
+$ctoJSONKey :: ToJSONKeyFunction ParentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679238278"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParentType
+([Node] -&gt; Either String ParentType) -&gt; FromXML ParentType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ParentType
+$cparseXML :: [Node] -&gt; Either String ParentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679238275"><span class="annot"><span class="annottext">ParentType -&gt; XML
+(ParentType -&gt; XML) -&gt; ToXML ParentType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ParentType -&gt; XML
+$ctoXML :: ParentType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType_ORGANIZATIONAL_UNIT"><span class="hs-identifier hs-type">ParentType_ORGANIZATIONAL_UNIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType"><span class="hs-identifier hs-type">ParentType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bParentType_ORGANIZATIONAL_UNIT"><span id="%24mParentType_ORGANIZATIONAL_UNIT"><span id="ParentType_ORGANIZATIONAL_UNIT"><span class="annot"><span class="annottext">$bParentType_ORGANIZATIONAL_UNIT :: ParentType
+$mParentType_ORGANIZATIONAL_UNIT :: forall r. ParentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Organizations.Types.ParentType.html#%24bParentType_ORGANIZATIONAL_UNIT"><span class="hs-identifier hs-var hs-var hs-var">ParentType_ORGANIZATIONAL_UNIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType%27"><span class="hs-identifier hs-type">ParentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ORGANIZATIONAL_UNIT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType_ROOT"><span class="hs-identifier hs-type">ParentType_ROOT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType"><span class="hs-identifier hs-type">ParentType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bParentType_ROOT"><span id="%24mParentType_ROOT"><span id="ParentType_ROOT"><span class="annot"><span class="annottext">$bParentType_ROOT :: ParentType
+$mParentType_ROOT :: forall r. ParentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Organizations.Types.ParentType.html#%24bParentType_ROOT"><span class="hs-identifier hs-var hs-var hs-var">ParentType_ROOT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType%27"><span class="hs-identifier hs-type">ParentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROOT&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType_ORGANIZATIONAL_UNIT"><span class="hs-pragma hs-type">ParentType_ORGANIZATIONAL_UNIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType_ROOT"><span class="hs-pragma hs-type">ParentType_ROOT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Organizations.Types.ParentType.html#ParentType%27"><span class="hs-pragma hs-type">ParentType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

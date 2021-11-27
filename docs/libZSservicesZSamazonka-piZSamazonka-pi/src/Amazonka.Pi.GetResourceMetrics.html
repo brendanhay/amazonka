@@ -1,0 +1,1210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Pi.GetResourceMetrics</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieve Performance Insights metrics for a set of data sources, over a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- time period. You can provide specific dimension groups and dimensions,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- and provide aggregation and filtering criteria for each group.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Each response element returns a maximum of 500 bytes. For larger</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- elements, such as SQL statements, only the first 500 bytes are returned.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pi.GetResourceMetrics</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier">GetResourceMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#newGetResourceMetrics"><span class="hs-identifier">newGetResourceMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_periodInSeconds"><span class="hs-identifier">getResourceMetrics_periodInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_nextToken"><span class="hs-identifier">getResourceMetrics_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_maxResults"><span class="hs-identifier">getResourceMetrics_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_serviceType"><span class="hs-identifier">getResourceMetrics_serviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_identifier"><span class="hs-identifier">getResourceMetrics_identifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_metricQueries"><span class="hs-identifier">getResourceMetrics_metricQueries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_startTime"><span class="hs-identifier">getResourceMetrics_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_endTime"><span class="hs-identifier">getResourceMetrics_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier">GetResourceMetricsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#newGetResourceMetricsResponse"><span class="hs-identifier">newGetResourceMetricsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_identifier"><span class="hs-identifier">getResourceMetricsResponse_identifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_metricList"><span class="hs-identifier">getResourceMetricsResponse_metricList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_alignedEndTime"><span class="hs-identifier">getResourceMetricsResponse_alignedEndTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_alignedStartTime"><span class="hs-identifier">getResourceMetricsResponse_alignedStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_nextToken"><span class="hs-identifier">getResourceMetricsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_httpStatus"><span class="hs-identifier">getResourceMetricsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pi.Types.html"><span class="hs-identifier">Amazonka.Pi.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newGetResourceMetrics' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679153058"><span id="local-6989586621679153059"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourceMetrics"><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-var">GetResourceMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourceMetrics%27"><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-var">GetResourceMetrics'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The granularity, in seconds, of the data points returned from</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Performance Insights. A period can be as short as one second, or as long</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- as one day (86400 seconds). Valid values are:</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @1@ (one second)</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   @60@ (one minute)</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @300@ (five minutes)</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @3600@ (one hour)</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @86400@ (twenty-four hours)</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- If you don\'t specify @PeriodInSeconds@, then Performance Insights will</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- choose a value for you, with a goal of returning roughly 100-200 data</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- points in the response.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AperiodInSeconds%3AGetResourceMetrics%27"><span class="annot"><span class="annottext">GetResourceMetrics -&gt; Maybe Int
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AperiodInSeconds%3AGetResourceMetrics%27"><span class="hs-identifier hs-var hs-var">periodInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- token, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AnextToken%3AGetResourceMetrics%27"><span class="annot"><span class="annottext">GetResourceMetrics -&gt; Maybe Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AnextToken%3AGetResourceMetrics%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return in the response. If more items</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- exist than the specified @MaxRecords@ value, a pagination token is</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- included in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetResourceMetrics%27"><span class="annot"><span class="annottext">GetResourceMetrics -&gt; Maybe Natural
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AmaxResults%3AGetResourceMetrics%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The AWS service for which Performance Insights returns metrics. The only</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- valid value for /ServiceType/ is @RDS@.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AserviceType%3AGetResourceMetrics%27"><span class="annot"><span class="annottext">GetResourceMetrics -&gt; ServiceType
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AserviceType%3AGetResourceMetrics%27"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-type">ServiceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | An immutable, AWS Region-unique identifier for a data source.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- Performance Insights gathers metrics from this data source.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- To use a DB instance as a data source, specify its @DbiResourceId@</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- value. For example, specify @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3Aidentifier%3AGetResourceMetrics%27"><span class="annot"><span class="annottext">GetResourceMetrics -&gt; Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3Aidentifier%3AGetResourceMetrics%27"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | An array of one or more queries to perform. Each query must specify a</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- Performance Insights metric, and can optionally specify aggregation and</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- filtering criteria.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AmetricQueries%3AGetResourceMetrics%27"><span class="annot"><span class="annottext">GetResourceMetrics -&gt; NonEmpty MetricQuery
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AmetricQueries%3AGetResourceMetrics%27"><span class="hs-identifier hs-var hs-var">metricQueries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.Types.MetricQuery.html#MetricQuery"><span class="hs-identifier hs-type">MetricQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The date and time specifying the beginning of the requested time series</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- data. You can\'t specify a @StartTime@ that\'s earlier than 7 days ago.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- The value specified is /inclusive/ - data points equal to or greater</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- than @StartTime@ will be returned.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- The value for @StartTime@ must be earlier than the value for @EndTime@.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AstartTime%3AGetResourceMetrics%27"><span class="annot"><span class="annottext">GetResourceMetrics -&gt; POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AstartTime%3AGetResourceMetrics%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The date and time specifying the end of the requested time series data.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- The value specified is /exclusive/ - data points less than (but not</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- equal to) @EndTime@ will be returned.</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- The value for @EndTime@ must be later than the value for @StartTime@.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AendTime%3AGetResourceMetrics%27"><span class="annot"><span class="annottext">GetResourceMetrics -&gt; POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AendTime%3AGetResourceMetrics%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679153045"><span id="local-6989586621679153047"><span class="annot"><span class="annottext">GetResourceMetrics -&gt; GetResourceMetrics -&gt; Bool
+(GetResourceMetrics -&gt; GetResourceMetrics -&gt; Bool)
+-&gt; (GetResourceMetrics -&gt; GetResourceMetrics -&gt; Bool)
+-&gt; Eq GetResourceMetrics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourceMetrics -&gt; GetResourceMetrics -&gt; Bool
+$c/= :: GetResourceMetrics -&gt; GetResourceMetrics -&gt; Bool
+== :: GetResourceMetrics -&gt; GetResourceMetrics -&gt; Bool
+$c== :: GetResourceMetrics -&gt; GetResourceMetrics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153036"><span id="local-6989586621679153038"><span id="local-6989586621679153040"><span id="local-6989586621679153042"><span class="annot"><span class="annottext">ReadPrec [GetResourceMetrics]
+ReadPrec GetResourceMetrics
+Int -&gt; ReadS GetResourceMetrics
+ReadS [GetResourceMetrics]
+(Int -&gt; ReadS GetResourceMetrics)
+-&gt; ReadS [GetResourceMetrics]
+-&gt; ReadPrec GetResourceMetrics
+-&gt; ReadPrec [GetResourceMetrics]
+-&gt; Read GetResourceMetrics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResourceMetrics]
+$creadListPrec :: ReadPrec [GetResourceMetrics]
+readPrec :: ReadPrec GetResourceMetrics
+$creadPrec :: ReadPrec GetResourceMetrics
+readList :: ReadS [GetResourceMetrics]
+$creadList :: ReadS [GetResourceMetrics]
+readsPrec :: Int -&gt; ReadS GetResourceMetrics
+$creadsPrec :: Int -&gt; ReadS GetResourceMetrics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153029"><span id="local-6989586621679153031"><span id="local-6989586621679153033"><span class="annot"><span class="annottext">Int -&gt; GetResourceMetrics -&gt; ShowS
+[GetResourceMetrics] -&gt; ShowS
+GetResourceMetrics -&gt; String
+(Int -&gt; GetResourceMetrics -&gt; ShowS)
+-&gt; (GetResourceMetrics -&gt; String)
+-&gt; ([GetResourceMetrics] -&gt; ShowS)
+-&gt; Show GetResourceMetrics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourceMetrics] -&gt; ShowS
+$cshowList :: [GetResourceMetrics] -&gt; ShowS
+show :: GetResourceMetrics -&gt; String
+$cshow :: GetResourceMetrics -&gt; String
+showsPrec :: Int -&gt; GetResourceMetrics -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourceMetrics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetResourceMetrics -&gt; Rep GetResourceMetrics x)
+-&gt; (forall x. Rep GetResourceMetrics x -&gt; GetResourceMetrics)
+-&gt; Generic GetResourceMetrics
+forall x. Rep GetResourceMetrics x -&gt; GetResourceMetrics
+forall x. GetResourceMetrics -&gt; Rep GetResourceMetrics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetResourceMetrics x -&gt; GetResourceMetrics
+$cfrom :: forall x. GetResourceMetrics -&gt; Rep GetResourceMetrics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Create a value of 'GetResourceMetrics' with all optional fields omitted.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'periodInSeconds', 'getResourceMetrics_periodInSeconds' - The granularity, in seconds, of the data points returned from</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Performance Insights. A period can be as short as one second, or as long</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- as one day (86400 seconds). Valid values are:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @1@ (one second)</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @60@ (one minute)</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @300@ (five minutes)</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @3600@ (one hour)</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @86400@ (twenty-four hours)</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- If you don\'t specify @PeriodInSeconds@, then Performance Insights will</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- choose a value for you, with a goal of returning roughly 100-200 data</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- points in the response.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'nextToken', 'getResourceMetrics_nextToken' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- token, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'maxResults', 'getResourceMetrics_maxResults' - The maximum number of items to return in the response. If more items</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- exist than the specified @MaxRecords@ value, a pagination token is</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- included in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'serviceType', 'getResourceMetrics_serviceType' - The AWS service for which Performance Insights returns metrics. The only</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- valid value for /ServiceType/ is @RDS@.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'identifier', 'getResourceMetrics_identifier' - An immutable, AWS Region-unique identifier for a data source.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Performance Insights gathers metrics from this data source.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- To use a DB instance as a data source, specify its @DbiResourceId@</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- value. For example, specify @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'metricQueries', 'getResourceMetrics_metricQueries' - An array of one or more queries to perform. Each query must specify a</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Performance Insights metric, and can optionally specify aggregation and</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- filtering criteria.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'startTime', 'getResourceMetrics_startTime' - The date and time specifying the beginning of the requested time series</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- data. You can\'t specify a @StartTime@ that\'s earlier than 7 days ago.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The value specified is /inclusive/ - data points equal to or greater</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- than @StartTime@ will be returned.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The value for @StartTime@ must be earlier than the value for @EndTime@.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'endTime', 'getResourceMetrics_endTime' - The date and time specifying the end of the requested time series data.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The value specified is /exclusive/ - data points less than (but not</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- equal to) @EndTime@ will be returned.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The value for @EndTime@ must be later than the value for @StartTime@.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#newGetResourceMetrics"><span class="hs-identifier hs-type">newGetResourceMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-comment">-- | 'serviceType'</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.Pi.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-type">ServiceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'identifier'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'metricQueries'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.Types.MetricQuery.html#MetricQuery"><span class="hs-identifier hs-type">MetricQuery</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'startTime'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'endTime'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span>
+</span><span id="line-193"></span><span id="newGetResourceMetrics"><span class="annot"><span class="annottext">newGetResourceMetrics :: ServiceType
+-&gt; Text
+-&gt; NonEmpty MetricQuery
+-&gt; UTCTime
+-&gt; UTCTime
+-&gt; GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#newGetResourceMetrics"><span class="hs-identifier hs-var hs-var">newGetResourceMetrics</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679153024"><span class="annot"><span class="annottext">ServiceType
+</span><a href="#local-6989586621679153024"><span class="hs-identifier hs-var">pServiceType_</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679153023"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153023"><span class="hs-identifier hs-var">pIdentifier_</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679153022"><span class="annot"><span class="annottext">NonEmpty MetricQuery
+</span><a href="#local-6989586621679153022"><span class="hs-identifier hs-var">pMetricQueries_</span></a></span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679153021"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679153021"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679153020"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679153020"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">GetResourceMetrics' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; ServiceType
+-&gt; Text
+-&gt; NonEmpty MetricQuery
+-&gt; POSIX
+-&gt; POSIX
+-&gt; GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:periodInSeconds:GetResourceMetrics' :: Maybe Int
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AperiodInSeconds%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">periodInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:GetResourceMetrics' :: Maybe Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AnextToken%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:GetResourceMetrics' :: Maybe Natural
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AmaxResults%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceType:GetResourceMetrics' :: ServiceType
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AserviceType%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceType
+</span><a href="#local-6989586621679153024"><span class="hs-identifier hs-var">pServiceType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:identifier:GetResourceMetrics' :: Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3Aidentifier%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153023"><span class="hs-identifier hs-var">pIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricQueries:GetResourceMetrics' :: NonEmpty MetricQuery
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AmetricQueries%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">metricQueries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty MetricQuery) (Identity (NonEmpty MetricQuery))
+-&gt; Tagged (NonEmpty MetricQuery) (Identity (NonEmpty MetricQuery))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty MetricQuery) (Identity (NonEmpty MetricQuery))
+ -&gt; Tagged (NonEmpty MetricQuery) (Identity (NonEmpty MetricQuery)))
+-&gt; NonEmpty MetricQuery -&gt; NonEmpty MetricQuery
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MetricQuery
+</span><a href="#local-6989586621679153022"><span class="hs-identifier hs-var">pMetricQueries_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:GetResourceMetrics' :: POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AstartTime%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679153021"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:GetResourceMetrics' :: POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AendTime%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679153020"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The granularity, in seconds, of the data points returned from</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Performance Insights. A period can be as short as one second, or as long</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- as one day (86400 seconds). Valid values are:</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- -   @1@ (one second)</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   @60@ (one minute)</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- -   @300@ (five minutes)</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- -   @3600@ (one hour)</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- -   @86400@ (twenty-four hours)</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- If you don\'t specify @PeriodInSeconds@, then Performance Insights will</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- choose a value for you, with a goal of returning roughly 100-200 data</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- points in the response.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_periodInSeconds"><span class="hs-identifier hs-type">getResourceMetrics_periodInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="getResourceMetrics_periodInSeconds"><span class="annot"><span class="annottext">getResourceMetrics_periodInSeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetResourceMetrics -&gt; f GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_periodInSeconds"><span class="hs-identifier hs-var hs-var">getResourceMetrics_periodInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetrics -&gt; Maybe Int)
+-&gt; (GetResourceMetrics -&gt; Maybe Int -&gt; GetResourceMetrics)
+-&gt; Lens
+     GetResourceMetrics GetResourceMetrics (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153014"><span class="annot"><span class="annottext">Maybe Int
+periodInSeconds :: Maybe Int
+$sel:periodInSeconds:GetResourceMetrics' :: GetResourceMetrics -&gt; Maybe Int
+</span><a href="#local-6989586621679153014"><span class="hs-identifier hs-var hs-var">periodInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679153014"><span class="hs-identifier hs-var">periodInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153013"><span class="annot"><span class="annottext">s :: GetResourceMetrics
+</span><a href="#local-6989586621679153013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153012"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679153012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetrics
+</span><a href="#local-6989586621679153013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:periodInSeconds:GetResourceMetrics' :: Maybe Int
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AperiodInSeconds%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">periodInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679153012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- token, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_nextToken"><span class="hs-identifier hs-type">getResourceMetrics_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="getResourceMetrics_nextToken"><span class="annot"><span class="annottext">getResourceMetrics_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourceMetrics -&gt; f GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_nextToken"><span class="hs-identifier hs-var hs-var">getResourceMetrics_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetrics -&gt; Maybe Text)
+-&gt; (GetResourceMetrics -&gt; Maybe Text -&gt; GetResourceMetrics)
+-&gt; Lens
+     GetResourceMetrics GetResourceMetrics (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153011"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetResourceMetrics' :: GetResourceMetrics -&gt; Maybe Text
+</span><a href="#local-6989586621679153011"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153011"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153010"><span class="annot"><span class="annottext">s :: GetResourceMetrics
+</span><a href="#local-6989586621679153010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153009"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetrics
+</span><a href="#local-6989586621679153010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetResourceMetrics' :: Maybe Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AnextToken%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The maximum number of items to return in the response. If more items</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- exist than the specified @MaxRecords@ value, a pagination token is</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- included in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_maxResults"><span class="hs-identifier hs-type">getResourceMetrics_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="getResourceMetrics_maxResults"><span class="annot"><span class="annottext">getResourceMetrics_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetResourceMetrics -&gt; f GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_maxResults"><span class="hs-identifier hs-var hs-var">getResourceMetrics_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetrics -&gt; Maybe Natural)
+-&gt; (GetResourceMetrics -&gt; Maybe Natural -&gt; GetResourceMetrics)
+-&gt; Lens
+     GetResourceMetrics
+     GetResourceMetrics
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153008"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetResourceMetrics' :: GetResourceMetrics -&gt; Maybe Natural
+</span><a href="#local-6989586621679153008"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679153008"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153007"><span class="annot"><span class="annottext">s :: GetResourceMetrics
+</span><a href="#local-6989586621679153007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153006"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679153006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetrics
+</span><a href="#local-6989586621679153007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetResourceMetrics' :: Maybe Natural
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AmaxResults%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679153006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The AWS service for which Performance Insights returns metrics. The only</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- valid value for /ServiceType/ is @RDS@.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_serviceType"><span class="hs-identifier hs-type">getResourceMetrics_serviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pi.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-type">ServiceType</span></a></span><span>
+</span><span id="line-246"></span><span id="getResourceMetrics_serviceType"><span class="annot"><span class="annottext">getResourceMetrics_serviceType :: (ServiceType -&gt; f ServiceType)
+-&gt; GetResourceMetrics -&gt; f GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_serviceType"><span class="hs-identifier hs-var hs-var">getResourceMetrics_serviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetrics -&gt; ServiceType)
+-&gt; (GetResourceMetrics -&gt; ServiceType -&gt; GetResourceMetrics)
+-&gt; Lens
+     GetResourceMetrics GetResourceMetrics ServiceType ServiceType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153005"><span class="annot"><span class="annottext">ServiceType
+serviceType :: ServiceType
+$sel:serviceType:GetResourceMetrics' :: GetResourceMetrics -&gt; ServiceType
+</span><a href="#local-6989586621679153005"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceType
+</span><a href="#local-6989586621679153005"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153004"><span class="annot"><span class="annottext">s :: GetResourceMetrics
+</span><a href="#local-6989586621679153004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153003"><span class="annot"><span class="annottext">ServiceType
+</span><a href="#local-6989586621679153003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetrics
+</span><a href="#local-6989586621679153004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceType:GetResourceMetrics' :: ServiceType
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AserviceType%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceType
+</span><a href="#local-6989586621679153003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | An immutable, AWS Region-unique identifier for a data source.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Performance Insights gathers metrics from this data source.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- To use a DB instance as a data source, specify its @DbiResourceId@</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- value. For example, specify @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_identifier"><span class="hs-identifier hs-type">getResourceMetrics_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-254"></span><span id="getResourceMetrics_identifier"><span class="annot"><span class="annottext">getResourceMetrics_identifier :: (Text -&gt; f Text) -&gt; GetResourceMetrics -&gt; f GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_identifier"><span class="hs-identifier hs-var hs-var">getResourceMetrics_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetrics -&gt; Text)
+-&gt; (GetResourceMetrics -&gt; Text -&gt; GetResourceMetrics)
+-&gt; Lens GetResourceMetrics GetResourceMetrics Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153002"><span class="annot"><span class="annottext">Text
+identifier :: Text
+$sel:identifier:GetResourceMetrics' :: GetResourceMetrics -&gt; Text
+</span><a href="#local-6989586621679153002"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153002"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153001"><span class="annot"><span class="annottext">s :: GetResourceMetrics
+</span><a href="#local-6989586621679153001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153000"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetrics
+</span><a href="#local-6989586621679153001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:GetResourceMetrics' :: Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3Aidentifier%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | An array of one or more queries to perform. Each query must specify a</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- Performance Insights metric, and can optionally specify aggregation and</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- filtering criteria.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_metricQueries"><span class="hs-identifier hs-type">getResourceMetrics_metricQueries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.Types.MetricQuery.html#MetricQuery"><span class="hs-identifier hs-type">MetricQuery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="getResourceMetrics_metricQueries"><span class="annot"><span class="annottext">getResourceMetrics_metricQueries :: (NonEmpty MetricQuery -&gt; f (NonEmpty MetricQuery))
+-&gt; GetResourceMetrics -&gt; f GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_metricQueries"><span class="hs-identifier hs-var hs-var">getResourceMetrics_metricQueries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetrics -&gt; NonEmpty MetricQuery)
+-&gt; (GetResourceMetrics
+    -&gt; NonEmpty MetricQuery -&gt; GetResourceMetrics)
+-&gt; Lens
+     GetResourceMetrics
+     GetResourceMetrics
+     (NonEmpty MetricQuery)
+     (NonEmpty MetricQuery)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152999"><span class="annot"><span class="annottext">NonEmpty MetricQuery
+metricQueries :: NonEmpty MetricQuery
+$sel:metricQueries:GetResourceMetrics' :: GetResourceMetrics -&gt; NonEmpty MetricQuery
+</span><a href="#local-6989586621679152999"><span class="hs-identifier hs-var hs-var">metricQueries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MetricQuery
+</span><a href="#local-6989586621679152999"><span class="hs-identifier hs-var">metricQueries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152998"><span class="annot"><span class="annottext">s :: GetResourceMetrics
+</span><a href="#local-6989586621679152998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152997"><span class="annot"><span class="annottext">NonEmpty MetricQuery
+</span><a href="#local-6989586621679152997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetrics
+</span><a href="#local-6989586621679152998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricQueries:GetResourceMetrics' :: NonEmpty MetricQuery
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AmetricQueries%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">metricQueries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty MetricQuery
+</span><a href="#local-6989586621679152997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MetricQuery -&gt; f (NonEmpty MetricQuery))
+ -&gt; GetResourceMetrics -&gt; f GetResourceMetrics)
+-&gt; ((NonEmpty MetricQuery -&gt; f (NonEmpty MetricQuery))
+    -&gt; NonEmpty MetricQuery -&gt; f (NonEmpty MetricQuery))
+-&gt; (NonEmpty MetricQuery -&gt; f (NonEmpty MetricQuery))
+-&gt; GetResourceMetrics
+-&gt; f GetResourceMetrics
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty MetricQuery -&gt; f (NonEmpty MetricQuery))
+-&gt; NonEmpty MetricQuery -&gt; f (NonEmpty MetricQuery)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The date and time specifying the beginning of the requested time series</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- data. You can\'t specify a @StartTime@ that\'s earlier than 7 days ago.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- The value specified is /inclusive/ - data points equal to or greater</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- than @StartTime@ will be returned.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- The value for @StartTime@ must be earlier than the value for @EndTime@.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_startTime"><span class="hs-identifier hs-type">getResourceMetrics_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-269"></span><span id="getResourceMetrics_startTime"><span class="annot"><span class="annottext">getResourceMetrics_startTime :: (UTCTime -&gt; f UTCTime)
+-&gt; GetResourceMetrics -&gt; f GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_startTime"><span class="hs-identifier hs-var hs-var">getResourceMetrics_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetrics -&gt; POSIX)
+-&gt; (GetResourceMetrics -&gt; POSIX -&gt; GetResourceMetrics)
+-&gt; Lens GetResourceMetrics GetResourceMetrics POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152995"><span class="annot"><span class="annottext">POSIX
+startTime :: POSIX
+$sel:startTime:GetResourceMetrics' :: GetResourceMetrics -&gt; POSIX
+</span><a href="#local-6989586621679152995"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679152995"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152994"><span class="annot"><span class="annottext">s :: GetResourceMetrics
+</span><a href="#local-6989586621679152994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152993"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679152993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetrics
+</span><a href="#local-6989586621679152994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:GetResourceMetrics' :: POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AstartTime%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679152993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; GetResourceMetrics -&gt; f GetResourceMetrics)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; GetResourceMetrics
+-&gt; f GetResourceMetrics
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The date and time specifying the end of the requested time series data.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- The value specified is /exclusive/ - data points less than (but not</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- equal to) @EndTime@ will be returned.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- The value for @EndTime@ must be later than the value for @StartTime@.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_endTime"><span class="hs-identifier hs-type">getResourceMetrics_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-277"></span><span id="getResourceMetrics_endTime"><span class="annot"><span class="annottext">getResourceMetrics_endTime :: (UTCTime -&gt; f UTCTime)
+-&gt; GetResourceMetrics -&gt; f GetResourceMetrics
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetrics_endTime"><span class="hs-identifier hs-var hs-var">getResourceMetrics_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetrics -&gt; POSIX)
+-&gt; (GetResourceMetrics -&gt; POSIX -&gt; GetResourceMetrics)
+-&gt; Lens GetResourceMetrics GetResourceMetrics POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152992"><span class="annot"><span class="annottext">POSIX
+endTime :: POSIX
+$sel:endTime:GetResourceMetrics' :: GetResourceMetrics -&gt; POSIX
+</span><a href="#local-6989586621679152992"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679152992"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152991"><span class="annot"><span class="annottext">s :: GetResourceMetrics
+</span><a href="#local-6989586621679152991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152990"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679152990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetrics
+</span><a href="#local-6989586621679152991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:GetResourceMetrics' :: POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AendTime%3AGetResourceMetrics%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679152990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; GetResourceMetrics -&gt; f GetResourceMetrics)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; GetResourceMetrics
+-&gt; f GetResourceMetrics
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-281"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679152986"><span class="annot"><span class="annottext">request :: GetResourceMetrics -&gt; Request GetResourceMetrics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetResourceMetrics -&gt; Request GetResourceMetrics
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Pi.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679152982"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetResourceMetrics
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetResourceMetrics)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetResourceMetrics))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetResourceMetrics
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetResourceMetrics)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-286"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152979"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152979"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679152978"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679152978"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679152977"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [MetricKeyDataPoints]
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetResourceMetricsResponse
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-var">GetResourceMetricsResponse'</span></a></span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [MetricKeyDataPoints]
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetResourceMetricsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [MetricKeyDataPoints]
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetResourceMetricsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Identifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [MetricKeyDataPoints]
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetResourceMetricsResponse)
+-&gt; Either String (Maybe [MetricKeyDataPoints])
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; GetResourceMetricsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [MetricKeyDataPoints]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MetricKeyDataPoints]))
+-&gt; Maybe [MetricKeyDataPoints]
+-&gt; Either String (Maybe [MetricKeyDataPoints])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MetricKeyDataPoints]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; GetResourceMetricsResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; GetResourceMetricsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlignedEndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; GetResourceMetricsResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetResourceMetricsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlignedStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetResourceMetricsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetResourceMetricsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetResourceMetricsResponse)
+-&gt; Either String Int -&gt; Either String GetResourceMetricsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152979"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152968"><span id="local-6989586621679152970"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span></span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span></span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679152961"><span class="annot"><span class="annottext">toHeaders :: GetResourceMetrics -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetResourceMetrics -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-304"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-305"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PerformanceInsightsv20180227.GetResourceMetrics&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-306"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-307"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-309"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-310"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-311"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-313"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152951"><span id="local-6989586621679152953"><span id="local-6989586621679152955"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621679152949"><span class="annot"><span class="annottext">toJSON :: GetResourceMetrics -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics%27"><span class="hs-identifier hs-type">GetResourceMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152940"><span id="local-6989586621679152941"><span id="local-6989586621679152942"><span id="local-6989586621679152943"><span id="local-6989586621679152944"><span id="local-6989586621679152945"><span id="local-6989586621679152946"><span id="local-6989586621679152947"><span class="annot"><span class="annottext">Maybe Int
+Maybe Natural
+Maybe Text
+NonEmpty MetricQuery
+Text
+POSIX
+ServiceType
+endTime :: POSIX
+startTime :: POSIX
+metricQueries :: NonEmpty MetricQuery
+identifier :: Text
+serviceType :: ServiceType
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+periodInSeconds :: Maybe Int
+$sel:endTime:GetResourceMetrics' :: GetResourceMetrics -&gt; POSIX
+$sel:startTime:GetResourceMetrics' :: GetResourceMetrics -&gt; POSIX
+$sel:metricQueries:GetResourceMetrics' :: GetResourceMetrics -&gt; NonEmpty MetricQuery
+$sel:identifier:GetResourceMetrics' :: GetResourceMetrics -&gt; Text
+$sel:serviceType:GetResourceMetrics' :: GetResourceMetrics -&gt; ServiceType
+$sel:maxResults:GetResourceMetrics' :: GetResourceMetrics -&gt; Maybe Natural
+$sel:nextToken:GetResourceMetrics' :: GetResourceMetrics -&gt; Maybe Text
+$sel:periodInSeconds:GetResourceMetrics' :: GetResourceMetrics -&gt; Maybe Int
+</span><a href="#local-6989586621679152940"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-318"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-319"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PeriodInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679152947"><span class="hs-identifier hs-var">periodInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152946"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679152945"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ServiceType
+</span><a href="#local-6989586621679152944"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Identifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679152943"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricQueries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty MetricQuery -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MetricQuery
+</span><a href="#local-6989586621679152942"><span class="hs-identifier hs-var">metricQueries</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679152941"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679152940"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-329"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679152934"><span class="annot"><span class="annottext">toPath :: GetResourceMetrics -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetResourceMetrics -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetrics"><span class="hs-identifier hs-type">GetResourceMetrics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-335"></span><span>  </span><span id="local-6989586621679152930"><span class="annot"><span class="annottext">toQuery :: GetResourceMetrics -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetResourceMetrics -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | /See:/ 'newGetResourceMetricsResponse' smart constructor.</span><span>
+</span><span id="line-338"></span><span id="local-6989586621679152927"><span id="local-6989586621679152928"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourceMetricsResponse"><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-var">GetResourceMetricsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourceMetricsResponse%27"><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-var">GetResourceMetricsResponse'</span></a></span></span><span>
+</span><span id="line-339"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An immutable, AWS Region-unique identifier for a data source.</span><span>
+</span><span id="line-340"></span><span>    </span><span class="hs-comment">-- Performance Insights gathers metrics from this data source.</span><span>
+</span><span id="line-341"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span>    </span><span class="hs-comment">-- To use a DB instance as a data source, you specify its @DbiResourceId@</span><span>
+</span><span id="line-343"></span><span>    </span><span class="hs-comment">-- value - for example: @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@</span><span>
+</span><span id="line-344"></span><span>    </span><span id="%24sel%3Aidentifier%3AGetResourceMetricsResponse%27"><span class="annot"><span class="annottext">GetResourceMetricsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3Aidentifier%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="hs-comment">-- | An array of metric results,, where each array element contains all of</span><span>
+</span><span id="line-346"></span><span>    </span><span class="hs-comment">-- the data points for a particular dimension.</span><span>
+</span><span id="line-347"></span><span>    </span><span id="%24sel%3AmetricList%3AGetResourceMetricsResponse%27"><span class="annot"><span class="annottext">GetResourceMetricsResponse -&gt; Maybe [MetricKeyDataPoints]
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AmetricList%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var hs-var">metricList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Pi.Types.MetricKeyDataPoints.html#MetricKeyDataPoints"><span class="hs-identifier hs-type">MetricKeyDataPoints</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>    </span><span class="hs-comment">-- | The end time for the returned metrics, after alignment to a granular</span><span>
+</span><span id="line-349"></span><span>    </span><span class="hs-comment">-- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be</span><span>
+</span><span id="line-350"></span><span>    </span><span class="hs-comment">-- greater than or equal to the value of the user-specified @Endtime@.</span><span>
+</span><span id="line-351"></span><span>    </span><span id="%24sel%3AalignedEndTime%3AGetResourceMetricsResponse%27"><span class="annot"><span class="annottext">GetResourceMetricsResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AalignedEndTime%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var hs-var">alignedEndTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>    </span><span class="hs-comment">-- | The start time for the returned metrics, after alignment to a granular</span><span>
+</span><span id="line-353"></span><span>    </span><span class="hs-comment">-- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be</span><span>
+</span><span id="line-354"></span><span>    </span><span class="hs-comment">-- less than or equal to the value of the user-specified @StartTime@.</span><span>
+</span><span id="line-355"></span><span>    </span><span id="%24sel%3AalignedStartTime%3AGetResourceMetricsResponse%27"><span class="annot"><span class="annottext">GetResourceMetricsResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AalignedStartTime%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var hs-var">alignedStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-356"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-357"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-358"></span><span>    </span><span class="hs-comment">-- token, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-359"></span><span>    </span><span id="%24sel%3AnextToken%3AGetResourceMetricsResponse%27"><span class="annot"><span class="annottext">GetResourceMetricsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AnextToken%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-361"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetResourceMetricsResponse%27"><span class="annot"><span class="annottext">GetResourceMetricsResponse -&gt; Int
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AhttpStatus%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-362"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-363"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152917"><span id="local-6989586621679152919"><span class="annot"><span class="annottext">GetResourceMetricsResponse -&gt; GetResourceMetricsResponse -&gt; Bool
+(GetResourceMetricsResponse -&gt; GetResourceMetricsResponse -&gt; Bool)
+-&gt; (GetResourceMetricsResponse
+    -&gt; GetResourceMetricsResponse -&gt; Bool)
+-&gt; Eq GetResourceMetricsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourceMetricsResponse -&gt; GetResourceMetricsResponse -&gt; Bool
+$c/= :: GetResourceMetricsResponse -&gt; GetResourceMetricsResponse -&gt; Bool
+== :: GetResourceMetricsResponse -&gt; GetResourceMetricsResponse -&gt; Bool
+$c== :: GetResourceMetricsResponse -&gt; GetResourceMetricsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152909"><span id="local-6989586621679152911"><span id="local-6989586621679152913"><span id="local-6989586621679152915"><span class="annot"><span class="annottext">ReadPrec [GetResourceMetricsResponse]
+ReadPrec GetResourceMetricsResponse
+Int -&gt; ReadS GetResourceMetricsResponse
+ReadS [GetResourceMetricsResponse]
+(Int -&gt; ReadS GetResourceMetricsResponse)
+-&gt; ReadS [GetResourceMetricsResponse]
+-&gt; ReadPrec GetResourceMetricsResponse
+-&gt; ReadPrec [GetResourceMetricsResponse]
+-&gt; Read GetResourceMetricsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResourceMetricsResponse]
+$creadListPrec :: ReadPrec [GetResourceMetricsResponse]
+readPrec :: ReadPrec GetResourceMetricsResponse
+$creadPrec :: ReadPrec GetResourceMetricsResponse
+readList :: ReadS [GetResourceMetricsResponse]
+$creadList :: ReadS [GetResourceMetricsResponse]
+readsPrec :: Int -&gt; ReadS GetResourceMetricsResponse
+$creadsPrec :: Int -&gt; ReadS GetResourceMetricsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152903"><span id="local-6989586621679152905"><span id="local-6989586621679152907"><span class="annot"><span class="annottext">Int -&gt; GetResourceMetricsResponse -&gt; ShowS
+[GetResourceMetricsResponse] -&gt; ShowS
+GetResourceMetricsResponse -&gt; String
+(Int -&gt; GetResourceMetricsResponse -&gt; ShowS)
+-&gt; (GetResourceMetricsResponse -&gt; String)
+-&gt; ([GetResourceMetricsResponse] -&gt; ShowS)
+-&gt; Show GetResourceMetricsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourceMetricsResponse] -&gt; ShowS
+$cshowList :: [GetResourceMetricsResponse] -&gt; ShowS
+show :: GetResourceMetricsResponse -&gt; String
+$cshow :: GetResourceMetricsResponse -&gt; String
+showsPrec :: Int -&gt; GetResourceMetricsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourceMetricsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetResourceMetricsResponse -&gt; Rep GetResourceMetricsResponse x)
+-&gt; (forall x.
+    Rep GetResourceMetricsResponse x -&gt; GetResourceMetricsResponse)
+-&gt; Generic GetResourceMetricsResponse
+forall x.
+Rep GetResourceMetricsResponse x -&gt; GetResourceMetricsResponse
+forall x.
+GetResourceMetricsResponse -&gt; Rep GetResourceMetricsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetResourceMetricsResponse x -&gt; GetResourceMetricsResponse
+$cfrom :: forall x.
+GetResourceMetricsResponse -&gt; Rep GetResourceMetricsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-364"></span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- Create a value of 'GetResourceMetricsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- 'identifier', 'getResourceMetricsResponse_identifier' - An immutable, AWS Region-unique identifier for a data source.</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- Performance Insights gathers metrics from this data source.</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- To use a DB instance as a data source, you specify its @DbiResourceId@</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- value - for example: @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- 'metricList', 'getResourceMetricsResponse_metricList' - An array of metric results,, where each array element contains all of</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- the data points for a particular dimension.</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- 'alignedEndTime', 'getResourceMetricsResponse_alignedEndTime' - The end time for the returned metrics, after alignment to a granular</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- greater than or equal to the value of the user-specified @Endtime@.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- 'alignedStartTime', 'getResourceMetricsResponse_alignedStartTime' - The start time for the returned metrics, after alignment to a granular</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- less than or equal to the value of the user-specified @StartTime@.</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- 'nextToken', 'getResourceMetricsResponse_nextToken' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- token, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- 'httpStatus', 'getResourceMetricsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-395"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#newGetResourceMetricsResponse"><span class="hs-identifier hs-type">newGetResourceMetricsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-396"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-397"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-398"></span><span>  </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span>
+</span><span id="line-399"></span><span id="newGetResourceMetricsResponse"><span class="annot"><span class="annottext">newGetResourceMetricsResponse :: Int -&gt; GetResourceMetricsResponse
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#newGetResourceMetricsResponse"><span class="hs-identifier hs-var hs-var">newGetResourceMetricsResponse</span></a></span></span><span> </span><span id="local-6989586621679152900"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-400"></span><span>  </span><span class="annot"><span class="annottext">GetResourceMetricsResponse' :: Maybe Text
+-&gt; Maybe [MetricKeyDataPoints]
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetResourceMetricsResponse
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span>
+</span><span id="line-401"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identifier:GetResourceMetricsResponse' :: Maybe Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3Aidentifier%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-402"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-403"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricList:GetResourceMetricsResponse' :: Maybe [MetricKeyDataPoints]
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AmetricList%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">metricList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricKeyDataPoints]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>      </span><span class="annot"><span class="annottext">$sel:alignedEndTime:GetResourceMetricsResponse' :: Maybe POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AalignedEndTime%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">alignedEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">$sel:alignedStartTime:GetResourceMetricsResponse' :: Maybe POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AalignedStartTime%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">alignedStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetResourceMetricsResponse' :: Maybe Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AnextToken%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourceMetricsResponse' :: Int
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AhttpStatus%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-408"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-409"></span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- | An immutable, AWS Region-unique identifier for a data source.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- Performance Insights gathers metrics from this data source.</span><span>
+</span><span id="line-412"></span><span class="hs-comment">--</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- To use a DB instance as a data source, you specify its @DbiResourceId@</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- value - for example: @db-FAIHNTYBKTGAUSUZQYPDS2GW4A@</span><span>
+</span><span id="line-415"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_identifier"><span class="hs-identifier hs-type">getResourceMetricsResponse_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span id="getResourceMetricsResponse_identifier"><span class="annot"><span class="annottext">getResourceMetricsResponse_identifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourceMetricsResponse -&gt; f GetResourceMetricsResponse
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_identifier"><span class="hs-identifier hs-var hs-var">getResourceMetricsResponse_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetricsResponse -&gt; Maybe Text)
+-&gt; (GetResourceMetricsResponse
+    -&gt; Maybe Text -&gt; GetResourceMetricsResponse)
+-&gt; Lens
+     GetResourceMetricsResponse
+     GetResourceMetricsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152899"><span class="annot"><span class="annottext">Maybe Text
+identifier :: Maybe Text
+$sel:identifier:GetResourceMetricsResponse' :: GetResourceMetricsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679152899"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152899"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152898"><span class="annot"><span class="annottext">s :: GetResourceMetricsResponse
+</span><a href="#local-6989586621679152898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152897"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetricsResponse
+</span><a href="#local-6989586621679152898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:GetResourceMetricsResponse' :: Maybe Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3Aidentifier%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- | An array of metric results,, where each array element contains all of</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- the data points for a particular dimension.</span><span>
+</span><span id="line-420"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_metricList"><span class="hs-identifier hs-type">getResourceMetricsResponse_metricList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Pi.Types.MetricKeyDataPoints.html#MetricKeyDataPoints"><span class="hs-identifier hs-type">MetricKeyDataPoints</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span id="getResourceMetricsResponse_metricList"><span class="annot"><span class="annottext">getResourceMetricsResponse_metricList :: (Maybe [MetricKeyDataPoints] -&gt; f (Maybe [MetricKeyDataPoints]))
+-&gt; GetResourceMetricsResponse -&gt; f GetResourceMetricsResponse
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_metricList"><span class="hs-identifier hs-var hs-var">getResourceMetricsResponse_metricList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetricsResponse -&gt; Maybe [MetricKeyDataPoints])
+-&gt; (GetResourceMetricsResponse
+    -&gt; Maybe [MetricKeyDataPoints] -&gt; GetResourceMetricsResponse)
+-&gt; Lens
+     GetResourceMetricsResponse
+     GetResourceMetricsResponse
+     (Maybe [MetricKeyDataPoints])
+     (Maybe [MetricKeyDataPoints])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152896"><span class="annot"><span class="annottext">Maybe [MetricKeyDataPoints]
+metricList :: Maybe [MetricKeyDataPoints]
+$sel:metricList:GetResourceMetricsResponse' :: GetResourceMetricsResponse -&gt; Maybe [MetricKeyDataPoints]
+</span><a href="#local-6989586621679152896"><span class="hs-identifier hs-var hs-var">metricList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricKeyDataPoints]
+</span><a href="#local-6989586621679152896"><span class="hs-identifier hs-var">metricList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152895"><span class="annot"><span class="annottext">s :: GetResourceMetricsResponse
+</span><a href="#local-6989586621679152895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152894"><span class="annot"><span class="annottext">Maybe [MetricKeyDataPoints]
+</span><a href="#local-6989586621679152894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetricsResponse
+</span><a href="#local-6989586621679152895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricList:GetResourceMetricsResponse' :: Maybe [MetricKeyDataPoints]
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AmetricList%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">metricList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricKeyDataPoints]
+</span><a href="#local-6989586621679152894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricKeyDataPoints] -&gt; f (Maybe [MetricKeyDataPoints]))
+ -&gt; GetResourceMetricsResponse -&gt; f GetResourceMetricsResponse)
+-&gt; ((Maybe [MetricKeyDataPoints]
+     -&gt; f (Maybe [MetricKeyDataPoints]))
+    -&gt; Maybe [MetricKeyDataPoints] -&gt; f (Maybe [MetricKeyDataPoints]))
+-&gt; (Maybe [MetricKeyDataPoints] -&gt; f (Maybe [MetricKeyDataPoints]))
+-&gt; GetResourceMetricsResponse
+-&gt; f GetResourceMetricsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricKeyDataPoints]
+  [MetricKeyDataPoints]
+  [MetricKeyDataPoints]
+  [MetricKeyDataPoints]
+-&gt; Iso
+     (Maybe [MetricKeyDataPoints])
+     (Maybe [MetricKeyDataPoints])
+     (Maybe [MetricKeyDataPoints])
+     (Maybe [MetricKeyDataPoints])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricKeyDataPoints]
+  [MetricKeyDataPoints]
+  [MetricKeyDataPoints]
+  [MetricKeyDataPoints]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-422"></span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- | The end time for the returned metrics, after alignment to a granular</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- greater than or equal to the value of the user-specified @Endtime@.</span><span>
+</span><span id="line-426"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_alignedEndTime"><span class="hs-identifier hs-type">getResourceMetricsResponse_alignedEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-427"></span><span id="getResourceMetricsResponse_alignedEndTime"><span class="annot"><span class="annottext">getResourceMetricsResponse_alignedEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetResourceMetricsResponse -&gt; f GetResourceMetricsResponse
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_alignedEndTime"><span class="hs-identifier hs-var hs-var">getResourceMetricsResponse_alignedEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetricsResponse -&gt; Maybe POSIX)
+-&gt; (GetResourceMetricsResponse
+    -&gt; Maybe POSIX -&gt; GetResourceMetricsResponse)
+-&gt; Lens
+     GetResourceMetricsResponse
+     GetResourceMetricsResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152892"><span class="annot"><span class="annottext">Maybe POSIX
+alignedEndTime :: Maybe POSIX
+$sel:alignedEndTime:GetResourceMetricsResponse' :: GetResourceMetricsResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679152892"><span class="hs-identifier hs-var hs-var">alignedEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679152892"><span class="hs-identifier hs-var">alignedEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152891"><span class="annot"><span class="annottext">s :: GetResourceMetricsResponse
+</span><a href="#local-6989586621679152891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152890"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679152890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetricsResponse
+</span><a href="#local-6989586621679152891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alignedEndTime:GetResourceMetricsResponse' :: Maybe POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AalignedEndTime%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">alignedEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679152890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetResourceMetricsResponse -&gt; f GetResourceMetricsResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetResourceMetricsResponse
+-&gt; f GetResourceMetricsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-428"></span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- | The start time for the returned metrics, after alignment to a granular</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be</span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- less than or equal to the value of the user-specified @StartTime@.</span><span>
+</span><span id="line-432"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_alignedStartTime"><span class="hs-identifier hs-type">getResourceMetricsResponse_alignedStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-433"></span><span id="getResourceMetricsResponse_alignedStartTime"><span class="annot"><span class="annottext">getResourceMetricsResponse_alignedStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetResourceMetricsResponse -&gt; f GetResourceMetricsResponse
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_alignedStartTime"><span class="hs-identifier hs-var hs-var">getResourceMetricsResponse_alignedStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetricsResponse -&gt; Maybe POSIX)
+-&gt; (GetResourceMetricsResponse
+    -&gt; Maybe POSIX -&gt; GetResourceMetricsResponse)
+-&gt; Lens
+     GetResourceMetricsResponse
+     GetResourceMetricsResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152889"><span class="annot"><span class="annottext">Maybe POSIX
+alignedStartTime :: Maybe POSIX
+$sel:alignedStartTime:GetResourceMetricsResponse' :: GetResourceMetricsResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679152889"><span class="hs-identifier hs-var hs-var">alignedStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679152889"><span class="hs-identifier hs-var">alignedStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152888"><span class="annot"><span class="annottext">s :: GetResourceMetricsResponse
+</span><a href="#local-6989586621679152888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152887"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679152887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetricsResponse
+</span><a href="#local-6989586621679152888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alignedStartTime:GetResourceMetricsResponse' :: Maybe POSIX
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AalignedStartTime%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">alignedStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679152887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetResourceMetricsResponse -&gt; f GetResourceMetricsResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetResourceMetricsResponse
+-&gt; f GetResourceMetricsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-434"></span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- token, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-438"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_nextToken"><span class="hs-identifier hs-type">getResourceMetricsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span id="getResourceMetricsResponse_nextToken"><span class="annot"><span class="annottext">getResourceMetricsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourceMetricsResponse -&gt; f GetResourceMetricsResponse
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getResourceMetricsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetricsResponse -&gt; Maybe Text)
+-&gt; (GetResourceMetricsResponse
+    -&gt; Maybe Text -&gt; GetResourceMetricsResponse)
+-&gt; Lens
+     GetResourceMetricsResponse
+     GetResourceMetricsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152886"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetResourceMetricsResponse' :: GetResourceMetricsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679152886"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152886"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152885"><span class="annot"><span class="annottext">s :: GetResourceMetricsResponse
+</span><a href="#local-6989586621679152885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152884"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetricsResponse
+</span><a href="#local-6989586621679152885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetResourceMetricsResponse' :: Maybe Text
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AnextToken%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-440"></span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-442"></span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_httpStatus"><span class="hs-identifier hs-type">getResourceMetricsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-443"></span><span id="getResourceMetricsResponse_httpStatus"><span class="annot"><span class="annottext">getResourceMetricsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetResourceMetricsResponse -&gt; f GetResourceMetricsResponse
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#getResourceMetricsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getResourceMetricsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceMetricsResponse -&gt; Int)
+-&gt; (GetResourceMetricsResponse
+    -&gt; Int -&gt; GetResourceMetricsResponse)
+-&gt; Lens
+     GetResourceMetricsResponse GetResourceMetricsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152883"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetResourceMetricsResponse' :: GetResourceMetricsResponse -&gt; Int
+</span><a href="#local-6989586621679152883"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152883"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152882"><span class="annot"><span class="annottext">s :: GetResourceMetricsResponse
+</span><a href="#local-6989586621679152882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse%27"><span class="hs-identifier hs-type">GetResourceMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceMetricsResponse
+</span><a href="#local-6989586621679152882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourceMetricsResponse' :: Int
+</span><a href="Amazonka.Pi.GetResourceMetrics.html#%24sel%3AhttpStatus%3AGetResourceMetricsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pi.GetResourceMetrics.html#GetResourceMetricsResponse"><span class="hs-identifier hs-type">GetResourceMetricsResponse</span></a></span></span><span>
+</span><span id="line-446"></span></pre></body></html>

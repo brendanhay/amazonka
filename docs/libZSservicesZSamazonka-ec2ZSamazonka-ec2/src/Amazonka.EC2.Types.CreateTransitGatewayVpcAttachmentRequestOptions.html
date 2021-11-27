@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ApplianceModeSupportValue.html"><span class="hs-identifier">Amazonka.EC2.Types.ApplianceModeSupportValue</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DnsSupportValue.html"><span class="hs-identifier">Amazonka.EC2.Types.DnsSupportValue</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Ipv6SupportValue.html"><span class="hs-identifier">Amazonka.EC2.Types.Ipv6SupportValue</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes the options for a VPC attachment.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newCreateTransitGatewayVpcAttachmentRequestOptions' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621681122004"><span id="local-6989586621681122005"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTransitGatewayVpcAttachmentRequestOptions"><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-var">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">CreateTransitGatewayVpcAttachmentRequestOptions'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enable or disable IPv6 support. The default is @disable@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aipv6Support%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="annot"><span class="annottext">CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe Ipv6SupportValue
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3Aipv6Support%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var hs-var">ipv6Support</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Ipv6SupportValue.html#Ipv6SupportValue"><span class="hs-identifier hs-type">Ipv6SupportValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Enable or disable support for appliance mode. If enabled, a traffic flow</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- between a source and destination uses the same Availability Zone for the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- VPC attachment for the lifetime of that flow. The default is @disable@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AapplianceModeSupport%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="annot"><span class="annottext">CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe ApplianceModeSupportValue
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AapplianceModeSupport%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var hs-var">applianceModeSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ApplianceModeSupportValue.html#ApplianceModeSupportValue"><span class="hs-identifier hs-type">ApplianceModeSupportValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Enable or disable DNS support. The default is @enable@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdnsSupport%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="annot"><span class="annottext">CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe DnsSupportValue
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AdnsSupport%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var hs-var">dnsSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DnsSupportValue.html#DnsSupportValue"><span class="hs-identifier hs-type">DnsSupportValue</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681121996"><span id="local-6989586621681121998"><span class="annot"><span class="annottext">CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+(CreateTransitGatewayVpcAttachmentRequestOptions
+ -&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; Bool)
+-&gt; (CreateTransitGatewayVpcAttachmentRequestOptions
+    -&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; Bool)
+-&gt; Eq CreateTransitGatewayVpcAttachmentRequestOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+$c/= :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+== :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+$c== :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681121987"><span id="local-6989586621681121989"><span id="local-6989586621681121991"><span id="local-6989586621681121993"><span class="annot"><span class="annottext">ReadPrec [CreateTransitGatewayVpcAttachmentRequestOptions]
+ReadPrec CreateTransitGatewayVpcAttachmentRequestOptions
+Int -&gt; ReadS CreateTransitGatewayVpcAttachmentRequestOptions
+ReadS [CreateTransitGatewayVpcAttachmentRequestOptions]
+(Int -&gt; ReadS CreateTransitGatewayVpcAttachmentRequestOptions)
+-&gt; ReadS [CreateTransitGatewayVpcAttachmentRequestOptions]
+-&gt; ReadPrec CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; ReadPrec [CreateTransitGatewayVpcAttachmentRequestOptions]
+-&gt; Read CreateTransitGatewayVpcAttachmentRequestOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTransitGatewayVpcAttachmentRequestOptions]
+$creadListPrec :: ReadPrec [CreateTransitGatewayVpcAttachmentRequestOptions]
+readPrec :: ReadPrec CreateTransitGatewayVpcAttachmentRequestOptions
+$creadPrec :: ReadPrec CreateTransitGatewayVpcAttachmentRequestOptions
+readList :: ReadS [CreateTransitGatewayVpcAttachmentRequestOptions]
+$creadList :: ReadS [CreateTransitGatewayVpcAttachmentRequestOptions]
+readsPrec :: Int -&gt; ReadS CreateTransitGatewayVpcAttachmentRequestOptions
+$creadsPrec :: Int -&gt; ReadS CreateTransitGatewayVpcAttachmentRequestOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681121980"><span id="local-6989586621681121982"><span id="local-6989586621681121984"><span class="annot"><span class="annottext">Int -&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; ShowS
+[CreateTransitGatewayVpcAttachmentRequestOptions] -&gt; ShowS
+CreateTransitGatewayVpcAttachmentRequestOptions -&gt; String
+(Int -&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; ShowS)
+-&gt; (CreateTransitGatewayVpcAttachmentRequestOptions -&gt; String)
+-&gt; ([CreateTransitGatewayVpcAttachmentRequestOptions] -&gt; ShowS)
+-&gt; Show CreateTransitGatewayVpcAttachmentRequestOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTransitGatewayVpcAttachmentRequestOptions] -&gt; ShowS
+$cshowList :: [CreateTransitGatewayVpcAttachmentRequestOptions] -&gt; ShowS
+show :: CreateTransitGatewayVpcAttachmentRequestOptions -&gt; String
+$cshow :: CreateTransitGatewayVpcAttachmentRequestOptions -&gt; String
+showsPrec :: Int -&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTransitGatewayVpcAttachmentRequestOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTransitGatewayVpcAttachmentRequestOptions
+ -&gt; Rep CreateTransitGatewayVpcAttachmentRequestOptions x)
+-&gt; (forall x.
+    Rep CreateTransitGatewayVpcAttachmentRequestOptions x
+    -&gt; CreateTransitGatewayVpcAttachmentRequestOptions)
+-&gt; Generic CreateTransitGatewayVpcAttachmentRequestOptions
+forall x.
+Rep CreateTransitGatewayVpcAttachmentRequestOptions x
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions
+forall x.
+CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Rep CreateTransitGatewayVpcAttachmentRequestOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTransitGatewayVpcAttachmentRequestOptions x
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions
+$cfrom :: forall x.
+CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Rep CreateTransitGatewayVpcAttachmentRequestOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'CreateTransitGatewayVpcAttachmentRequestOptions' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'ipv6Support', 'createTransitGatewayVpcAttachmentRequestOptions_ipv6Support' - Enable or disable IPv6 support. The default is @disable@.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'applianceModeSupport', 'createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport' - Enable or disable support for appliance mode. If enabled, a traffic flow</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- between a source and destination uses the same Availability Zone for the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- VPC attachment for the lifetime of that flow. The default is @disable@.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'dnsSupport', 'createTransitGatewayVpcAttachmentRequestOptions_dnsSupport' - Enable or disable DNS support. The default is @enable@.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#newCreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">newCreateTransitGatewayVpcAttachmentRequestOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span><span>
+</span><span id="line-62"></span><span id="newCreateTransitGatewayVpcAttachmentRequestOptions"><span class="annot"><span class="annottext">newCreateTransitGatewayVpcAttachmentRequestOptions :: CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#newCreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-var hs-var">newCreateTransitGatewayVpcAttachmentRequestOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">CreateTransitGatewayVpcAttachmentRequestOptions' :: Maybe Ipv6SupportValue
+-&gt; Maybe ApplianceModeSupportValue
+-&gt; Maybe DnsSupportValue
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipv6Support:CreateTransitGatewayVpcAttachmentRequestOptions' :: Maybe Ipv6SupportValue
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3Aipv6Support%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">ipv6Support</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:applianceModeSupport:CreateTransitGatewayVpcAttachmentRequestOptions' :: Maybe ApplianceModeSupportValue
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AapplianceModeSupport%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">applianceModeSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsSupport:CreateTransitGatewayVpcAttachmentRequestOptions' :: Maybe DnsSupportValue
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AdnsSupport%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">dnsSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe DnsSupportValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Enable or disable IPv6 support. The default is @disable@.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#createTransitGatewayVpcAttachmentRequestOptions_ipv6Support"><span class="hs-identifier hs-type">createTransitGatewayVpcAttachmentRequestOptions_ipv6Support</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.Ipv6SupportValue.html#Ipv6SupportValue"><span class="hs-identifier hs-type">Ipv6SupportValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="createTransitGatewayVpcAttachmentRequestOptions_ipv6Support"><span class="annot"><span class="annottext">createTransitGatewayVpcAttachmentRequestOptions_ipv6Support :: (Maybe Ipv6SupportValue -&gt; f (Maybe Ipv6SupportValue))
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; f CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#createTransitGatewayVpcAttachmentRequestOptions_ipv6Support"><span class="hs-identifier hs-var hs-var">createTransitGatewayVpcAttachmentRequestOptions_ipv6Support</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayVpcAttachmentRequestOptions
+ -&gt; Maybe Ipv6SupportValue)
+-&gt; (CreateTransitGatewayVpcAttachmentRequestOptions
+    -&gt; Maybe Ipv6SupportValue
+    -&gt; CreateTransitGatewayVpcAttachmentRequestOptions)
+-&gt; Lens
+     CreateTransitGatewayVpcAttachmentRequestOptions
+     CreateTransitGatewayVpcAttachmentRequestOptions
+     (Maybe Ipv6SupportValue)
+     (Maybe Ipv6SupportValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121971"><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+ipv6Support :: Maybe Ipv6SupportValue
+$sel:ipv6Support:CreateTransitGatewayVpcAttachmentRequestOptions' :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681121971"><span class="hs-identifier hs-var hs-var">ipv6Support</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681121971"><span class="hs-identifier hs-var">ipv6Support</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121970"><span class="annot"><span class="annottext">s :: CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681121970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121969"><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681121969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681121970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Support:CreateTransitGatewayVpcAttachmentRequestOptions' :: Maybe Ipv6SupportValue
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3Aipv6Support%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">ipv6Support</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681121969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Enable or disable support for appliance mode. If enabled, a traffic flow</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- between a source and destination uses the same Availability Zone for the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- VPC attachment for the lifetime of that flow. The default is @disable@.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport"><span class="hs-identifier hs-type">createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ApplianceModeSupportValue.html#ApplianceModeSupportValue"><span class="hs-identifier hs-type">ApplianceModeSupportValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport"><span class="annot"><span class="annottext">createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport :: (Maybe ApplianceModeSupportValue
+ -&gt; f (Maybe ApplianceModeSupportValue))
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; f CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport"><span class="hs-identifier hs-var hs-var">createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayVpcAttachmentRequestOptions
+ -&gt; Maybe ApplianceModeSupportValue)
+-&gt; (CreateTransitGatewayVpcAttachmentRequestOptions
+    -&gt; Maybe ApplianceModeSupportValue
+    -&gt; CreateTransitGatewayVpcAttachmentRequestOptions)
+-&gt; Lens
+     CreateTransitGatewayVpcAttachmentRequestOptions
+     CreateTransitGatewayVpcAttachmentRequestOptions
+     (Maybe ApplianceModeSupportValue)
+     (Maybe ApplianceModeSupportValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121967"><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+applianceModeSupport :: Maybe ApplianceModeSupportValue
+$sel:applianceModeSupport:CreateTransitGatewayVpcAttachmentRequestOptions' :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681121967"><span class="hs-identifier hs-var hs-var">applianceModeSupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681121967"><span class="hs-identifier hs-var">applianceModeSupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121966"><span class="annot"><span class="annottext">s :: CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681121966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121965"><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681121965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681121966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applianceModeSupport:CreateTransitGatewayVpcAttachmentRequestOptions' :: Maybe ApplianceModeSupportValue
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AapplianceModeSupport%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">applianceModeSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681121965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Enable or disable DNS support. The default is @enable@.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#createTransitGatewayVpcAttachmentRequestOptions_dnsSupport"><span class="hs-identifier hs-type">createTransitGatewayVpcAttachmentRequestOptions_dnsSupport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DnsSupportValue.html#DnsSupportValue"><span class="hs-identifier hs-type">DnsSupportValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="createTransitGatewayVpcAttachmentRequestOptions_dnsSupport"><span class="annot"><span class="annottext">createTransitGatewayVpcAttachmentRequestOptions_dnsSupport :: (Maybe DnsSupportValue -&gt; f (Maybe DnsSupportValue))
+-&gt; CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; f CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#createTransitGatewayVpcAttachmentRequestOptions_dnsSupport"><span class="hs-identifier hs-var hs-var">createTransitGatewayVpcAttachmentRequestOptions_dnsSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTransitGatewayVpcAttachmentRequestOptions
+ -&gt; Maybe DnsSupportValue)
+-&gt; (CreateTransitGatewayVpcAttachmentRequestOptions
+    -&gt; Maybe DnsSupportValue
+    -&gt; CreateTransitGatewayVpcAttachmentRequestOptions)
+-&gt; Lens
+     CreateTransitGatewayVpcAttachmentRequestOptions
+     CreateTransitGatewayVpcAttachmentRequestOptions
+     (Maybe DnsSupportValue)
+     (Maybe DnsSupportValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121963"><span class="annot"><span class="annottext">Maybe DnsSupportValue
+dnsSupport :: Maybe DnsSupportValue
+$sel:dnsSupport:CreateTransitGatewayVpcAttachmentRequestOptions' :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe DnsSupportValue
+</span><a href="#local-6989586621681121963"><span class="hs-identifier hs-var hs-var">dnsSupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DnsSupportValue
+</span><a href="#local-6989586621681121963"><span class="hs-identifier hs-var">dnsSupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121962"><span class="annot"><span class="annottext">s :: CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681121962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121961"><span class="annot"><span class="annottext">Maybe DnsSupportValue
+</span><a href="#local-6989586621681121961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681121962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsSupport:CreateTransitGatewayVpcAttachmentRequestOptions' :: Maybe DnsSupportValue
+</span><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AdnsSupport%3ACreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">dnsSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsSupportValue
+</span><a href="#local-6989586621681121961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621681121957"><span id="local-6989586621681121959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621681121954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621681121950"><span class="annot"><span class="annottext">toQuery :: CreateTransitGatewayVpcAttachmentRequestOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions.html#CreateTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">CreateTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121946"><span id="local-6989586621681121947"><span id="local-6989586621681121948"><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+Maybe DnsSupportValue
+Maybe Ipv6SupportValue
+dnsSupport :: Maybe DnsSupportValue
+applianceModeSupport :: Maybe ApplianceModeSupportValue
+ipv6Support :: Maybe Ipv6SupportValue
+$sel:dnsSupport:CreateTransitGatewayVpcAttachmentRequestOptions' :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe DnsSupportValue
+$sel:applianceModeSupport:CreateTransitGatewayVpcAttachmentRequestOptions' :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe ApplianceModeSupportValue
+$sel:ipv6Support:CreateTransitGatewayVpcAttachmentRequestOptions' :: CreateTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681121946"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Ipv6Support&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Ipv6SupportValue -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681121948"><span class="hs-identifier hs-var">ipv6Support</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplianceModeSupport&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ApplianceModeSupportValue -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681121947"><span class="hs-identifier hs-var">applianceModeSupport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DnsSupport&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe DnsSupportValue -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe DnsSupportValue
+</span><a href="#local-6989586621681121946"><span class="hs-identifier hs-var">dnsSupport</span></a></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span></pre></body></html>

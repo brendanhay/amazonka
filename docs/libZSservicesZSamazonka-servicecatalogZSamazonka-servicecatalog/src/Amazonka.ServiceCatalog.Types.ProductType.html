@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ServiceCatalog.Types.ProductType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServiceCatalog.Types.ProductType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType"><span class="hs-identifier">ProductType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType_CLOUD_FORMATION_TEMPLATE"><span class="hs-identifier">ProductType_CLOUD_FORMATION_TEMPLATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType_MARKETPLACE"><span class="hs-identifier">ProductType_MARKETPLACE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679400634"><span id="local-6989586621679400635"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProductType"><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType"><span class="hs-identifier hs-var">ProductType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductType%27"><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType%27"><span class="hs-identifier hs-var">ProductType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProductType"><span class="annot"><span class="annottext">ProductType -&gt; Text
+</span><a href="Amazonka.ServiceCatalog.Types.ProductType.html#fromProductType"><span class="hs-identifier hs-var hs-var">fromProductType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400626"><span id="local-6989586621679400628"><span id="local-6989586621679400630"><span class="annot"><span class="annottext">Int -&gt; ProductType -&gt; ShowS
+[ProductType] -&gt; ShowS
+ProductType -&gt; String
+(Int -&gt; ProductType -&gt; ShowS)
+-&gt; (ProductType -&gt; String)
+-&gt; ([ProductType] -&gt; ShowS)
+-&gt; Show ProductType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProductType] -&gt; ShowS
+$cshowList :: [ProductType] -&gt; ShowS
+show :: ProductType -&gt; String
+$cshow :: ProductType -&gt; String
+showsPrec :: Int -&gt; ProductType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProductType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679400617"><span id="local-6989586621679400619"><span id="local-6989586621679400621"><span id="local-6989586621679400623"><span class="annot"><span class="annottext">ReadPrec [ProductType]
+ReadPrec ProductType
+Int -&gt; ReadS ProductType
+ReadS [ProductType]
+(Int -&gt; ReadS ProductType)
+-&gt; ReadS [ProductType]
+-&gt; ReadPrec ProductType
+-&gt; ReadPrec [ProductType]
+-&gt; Read ProductType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProductType]
+$creadListPrec :: ReadPrec [ProductType]
+readPrec :: ReadPrec ProductType
+$creadPrec :: ReadPrec ProductType
+readList :: ReadS [ProductType]
+$creadList :: ReadS [ProductType]
+readsPrec :: Int -&gt; ReadS ProductType
+$creadsPrec :: Int -&gt; ReadS ProductType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679400612"><span id="local-6989586621679400614"><span class="annot"><span class="annottext">ProductType -&gt; ProductType -&gt; Bool
+(ProductType -&gt; ProductType -&gt; Bool)
+-&gt; (ProductType -&gt; ProductType -&gt; Bool) -&gt; Eq ProductType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProductType -&gt; ProductType -&gt; Bool
+$c/= :: ProductType -&gt; ProductType -&gt; Bool
+== :: ProductType -&gt; ProductType -&gt; Bool
+$c== :: ProductType -&gt; ProductType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679400596"><span id="local-6989586621679400598"><span id="local-6989586621679400600"><span id="local-6989586621679400602"><span id="local-6989586621679400604"><span id="local-6989586621679400606"><span id="local-6989586621679400608"><span class="annot"><span class="annottext">Eq ProductType
+Eq ProductType
+-&gt; (ProductType -&gt; ProductType -&gt; Ordering)
+-&gt; (ProductType -&gt; ProductType -&gt; Bool)
+-&gt; (ProductType -&gt; ProductType -&gt; Bool)
+-&gt; (ProductType -&gt; ProductType -&gt; Bool)
+-&gt; (ProductType -&gt; ProductType -&gt; Bool)
+-&gt; (ProductType -&gt; ProductType -&gt; ProductType)
+-&gt; (ProductType -&gt; ProductType -&gt; ProductType)
+-&gt; Ord ProductType
+ProductType -&gt; ProductType -&gt; Bool
+ProductType -&gt; ProductType -&gt; Ordering
+ProductType -&gt; ProductType -&gt; ProductType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ProductType -&gt; ProductType -&gt; ProductType
+$cmin :: ProductType -&gt; ProductType -&gt; ProductType
+max :: ProductType -&gt; ProductType -&gt; ProductType
+$cmax :: ProductType -&gt; ProductType -&gt; ProductType
+&gt;= :: ProductType -&gt; ProductType -&gt; Bool
+$c&gt;= :: ProductType -&gt; ProductType -&gt; Bool
+&gt; :: ProductType -&gt; ProductType -&gt; Bool
+$c&gt; :: ProductType -&gt; ProductType -&gt; Bool
+&lt;= :: ProductType -&gt; ProductType -&gt; Bool
+$c&lt;= :: ProductType -&gt; ProductType -&gt; Bool
+&lt; :: ProductType -&gt; ProductType -&gt; Bool
+$c&lt; :: ProductType -&gt; ProductType -&gt; Bool
+compare :: ProductType -&gt; ProductType -&gt; Ordering
+$ccompare :: ProductType -&gt; ProductType -&gt; Ordering
+$cp1Ord :: Eq ProductType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ProductType -&gt; Rep ProductType x)
+-&gt; (forall x. Rep ProductType x -&gt; ProductType)
+-&gt; Generic ProductType
+forall x. Rep ProductType x -&gt; ProductType
+forall x. ProductType -&gt; Rep ProductType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProductType x -&gt; ProductType
+$cfrom :: forall x. ProductType -&gt; Rep ProductType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400588"><span id="local-6989586621679400590"><span class="annot"><span class="annottext">Int -&gt; ProductType -&gt; Int
+ProductType -&gt; Int
+(Int -&gt; ProductType -&gt; Int)
+-&gt; (ProductType -&gt; Int) -&gt; Hashable ProductType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ProductType -&gt; Int
+$chash :: ProductType -&gt; Int
+hashWithSalt :: Int -&gt; ProductType -&gt; Int
+$chashWithSalt :: Int -&gt; ProductType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679400585"><span class="annot"><span class="annottext">ProductType -&gt; ()
+(ProductType -&gt; ()) -&gt; NFData ProductType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ProductType -&gt; ()
+$crnf :: ProductType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679400582"><span class="annot"><span class="annottext">Text -&gt; Either String ProductType
+(Text -&gt; Either String ProductType) -&gt; FromText ProductType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ProductType
+$cfromText :: Text -&gt; Either String ProductType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679400579"><span class="annot"><span class="annottext">ProductType -&gt; Text
+(ProductType -&gt; Text) -&gt; ToText ProductType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ProductType -&gt; Text
+$ctoText :: ProductType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679400576"><span class="annot"><span class="annottext">ProductType -&gt; ByteString
+(ProductType -&gt; ByteString) -&gt; ToByteString ProductType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ProductType -&gt; ByteString
+$ctoBS :: ProductType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679400573"><span class="annot"><span class="annottext">ProductType -&gt; ByteStringBuilder
+(ProductType -&gt; ByteStringBuilder) -&gt; ToLog ProductType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ProductType -&gt; ByteStringBuilder
+$cbuild :: ProductType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679400570"><span class="annot"><span class="annottext">HeaderName -&gt; ProductType -&gt; [Header]
+(HeaderName -&gt; ProductType -&gt; [Header]) -&gt; ToHeader ProductType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ProductType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ProductType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679400567"><span class="annot"><span class="annottext">ProductType -&gt; QueryString
+(ProductType -&gt; QueryString) -&gt; ToQuery ProductType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ProductType -&gt; QueryString
+$ctoQuery :: ProductType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679400562"><span id="local-6989586621679400564"><span class="annot"><span class="annottext">Value -&gt; Parser [ProductType]
+Value -&gt; Parser ProductType
+(Value -&gt; Parser ProductType)
+-&gt; (Value -&gt; Parser [ProductType]) -&gt; FromJSON ProductType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ProductType]
+$cparseJSONList :: Value -&gt; Parser [ProductType]
+parseJSON :: Value -&gt; Parser ProductType
+$cparseJSON :: Value -&gt; Parser ProductType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679400557"><span id="local-6989586621679400559"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProductType]
+FromJSONKeyFunction ProductType
+FromJSONKeyFunction ProductType
+-&gt; FromJSONKeyFunction [ProductType] -&gt; FromJSONKey ProductType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ProductType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ProductType]
+fromJSONKey :: FromJSONKeyFunction ProductType
+$cfromJSONKey :: FromJSONKeyFunction ProductType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679400548"><span id="local-6989586621679400550"><span id="local-6989586621679400552"><span id="local-6989586621679400554"><span class="annot"><span class="annottext">[ProductType] -&gt; Encoding
+[ProductType] -&gt; Value
+ProductType -&gt; Encoding
+ProductType -&gt; Value
+(ProductType -&gt; Value)
+-&gt; (ProductType -&gt; Encoding)
+-&gt; ([ProductType] -&gt; Value)
+-&gt; ([ProductType] -&gt; Encoding)
+-&gt; ToJSON ProductType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ProductType] -&gt; Encoding
+$ctoEncodingList :: [ProductType] -&gt; Encoding
+toJSONList :: [ProductType] -&gt; Value
+$ctoJSONList :: [ProductType] -&gt; Value
+toEncoding :: ProductType -&gt; Encoding
+$ctoEncoding :: ProductType -&gt; Encoding
+toJSON :: ProductType -&gt; Value
+$ctoJSON :: ProductType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679400543"><span id="local-6989586621679400545"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProductType]
+ToJSONKeyFunction ProductType
+ToJSONKeyFunction ProductType
+-&gt; ToJSONKeyFunction [ProductType] -&gt; ToJSONKey ProductType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ProductType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ProductType]
+toJSONKey :: ToJSONKeyFunction ProductType
+$ctoJSONKey :: ToJSONKeyFunction ProductType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679400540"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProductType
+([Node] -&gt; Either String ProductType) -&gt; FromXML ProductType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ProductType
+$cparseXML :: [Node] -&gt; Either String ProductType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679400537"><span class="annot"><span class="annottext">ProductType -&gt; XML
+(ProductType -&gt; XML) -&gt; ToXML ProductType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ProductType -&gt; XML
+$ctoXML :: ProductType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType_CLOUD_FORMATION_TEMPLATE"><span class="hs-identifier hs-type">ProductType_CLOUD_FORMATION_TEMPLATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType"><span class="hs-identifier hs-type">ProductType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProductType_CLOUD_FORMATION_TEMPLATE"><span id="%24mProductType_CLOUD_FORMATION_TEMPLATE"><span id="ProductType_CLOUD_FORMATION_TEMPLATE"><span class="annot"><span class="annottext">$bProductType_CLOUD_FORMATION_TEMPLATE :: ProductType
+$mProductType_CLOUD_FORMATION_TEMPLATE :: forall r. ProductType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ServiceCatalog.Types.ProductType.html#%24bProductType_CLOUD_FORMATION_TEMPLATE"><span class="hs-identifier hs-var hs-var hs-var">ProductType_CLOUD_FORMATION_TEMPLATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType%27"><span class="hs-identifier hs-type">ProductType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLOUD_FORMATION_TEMPLATE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType_MARKETPLACE"><span class="hs-identifier hs-type">ProductType_MARKETPLACE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType"><span class="hs-identifier hs-type">ProductType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProductType_MARKETPLACE"><span id="%24mProductType_MARKETPLACE"><span id="ProductType_MARKETPLACE"><span class="annot"><span class="annottext">$bProductType_MARKETPLACE :: ProductType
+$mProductType_MARKETPLACE :: forall r. ProductType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ServiceCatalog.Types.ProductType.html#%24bProductType_MARKETPLACE"><span class="hs-identifier hs-var hs-var hs-var">ProductType_MARKETPLACE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType%27"><span class="hs-identifier hs-type">ProductType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MARKETPLACE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType_CLOUD_FORMATION_TEMPLATE"><span class="hs-pragma hs-type">ProductType_CLOUD_FORMATION_TEMPLATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType_MARKETPLACE"><span class="hs-pragma hs-type">ProductType_MARKETPLACE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalog.Types.ProductType.html#ProductType%27"><span class="hs-pragma hs-type">ProductType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

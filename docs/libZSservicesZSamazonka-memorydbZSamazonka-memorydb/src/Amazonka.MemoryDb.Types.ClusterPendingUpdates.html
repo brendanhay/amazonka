@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MemoryDb.Types.ClusterPendingUpdates</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MemoryDb.Types.ClusterPendingUpdates</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ACLsUpdateStatus.html"><span class="hs-identifier">Amazonka.MemoryDb.Types.ACLsUpdateStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.html"><span class="hs-identifier">Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ReshardingStatus.html"><span class="hs-identifier">Amazonka.MemoryDb.Types.ReshardingStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A list of updates being applied to the cluster</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newClusterPendingUpdates' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679244632"><span id="local-6989586621679244633"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterPendingUpdates"><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-var">ClusterPendingUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterPendingUpdates%27"><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates%27"><span class="hs-identifier hs-var">ClusterPendingUpdates'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of service updates being applied to the cluster</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AserviceUpdates%3AClusterPendingUpdates%27"><span class="annot"><span class="annottext">ClusterPendingUpdates -&gt; Maybe [PendingModifiedServiceUpdate]
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#%24sel%3AserviceUpdates%3AClusterPendingUpdates%27"><span class="hs-identifier hs-var hs-var">serviceUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.html#PendingModifiedServiceUpdate"><span class="hs-identifier hs-type">PendingModifiedServiceUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status of an online resharding operation.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aresharding%3AClusterPendingUpdates%27"><span class="annot"><span class="annottext">ClusterPendingUpdates -&gt; Maybe ReshardingStatus
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#%24sel%3Aresharding%3AClusterPendingUpdates%27"><span class="hs-identifier hs-var hs-var">resharding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-type">ReshardingStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A list of ACLs associated with the cluster that are being updated</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AaCLs%3AClusterPendingUpdates%27"><span class="annot"><span class="annottext">ClusterPendingUpdates -&gt; Maybe ACLsUpdateStatus
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#%24sel%3AaCLs%3AClusterPendingUpdates%27"><span class="hs-identifier hs-var hs-var">aCLs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ACLsUpdateStatus.html#ACLsUpdateStatus"><span class="hs-identifier hs-type">ACLsUpdateStatus</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244624"><span id="local-6989586621679244626"><span class="annot"><span class="annottext">ClusterPendingUpdates -&gt; ClusterPendingUpdates -&gt; Bool
+(ClusterPendingUpdates -&gt; ClusterPendingUpdates -&gt; Bool)
+-&gt; (ClusterPendingUpdates -&gt; ClusterPendingUpdates -&gt; Bool)
+-&gt; Eq ClusterPendingUpdates
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClusterPendingUpdates -&gt; ClusterPendingUpdates -&gt; Bool
+$c/= :: ClusterPendingUpdates -&gt; ClusterPendingUpdates -&gt; Bool
+== :: ClusterPendingUpdates -&gt; ClusterPendingUpdates -&gt; Bool
+$c== :: ClusterPendingUpdates -&gt; ClusterPendingUpdates -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244615"><span id="local-6989586621679244617"><span id="local-6989586621679244619"><span id="local-6989586621679244621"><span class="annot"><span class="annottext">ReadPrec [ClusterPendingUpdates]
+ReadPrec ClusterPendingUpdates
+Int -&gt; ReadS ClusterPendingUpdates
+ReadS [ClusterPendingUpdates]
+(Int -&gt; ReadS ClusterPendingUpdates)
+-&gt; ReadS [ClusterPendingUpdates]
+-&gt; ReadPrec ClusterPendingUpdates
+-&gt; ReadPrec [ClusterPendingUpdates]
+-&gt; Read ClusterPendingUpdates
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClusterPendingUpdates]
+$creadListPrec :: ReadPrec [ClusterPendingUpdates]
+readPrec :: ReadPrec ClusterPendingUpdates
+$creadPrec :: ReadPrec ClusterPendingUpdates
+readList :: ReadS [ClusterPendingUpdates]
+$creadList :: ReadS [ClusterPendingUpdates]
+readsPrec :: Int -&gt; ReadS ClusterPendingUpdates
+$creadsPrec :: Int -&gt; ReadS ClusterPendingUpdates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244608"><span id="local-6989586621679244610"><span id="local-6989586621679244612"><span class="annot"><span class="annottext">Int -&gt; ClusterPendingUpdates -&gt; ShowS
+[ClusterPendingUpdates] -&gt; ShowS
+ClusterPendingUpdates -&gt; String
+(Int -&gt; ClusterPendingUpdates -&gt; ShowS)
+-&gt; (ClusterPendingUpdates -&gt; String)
+-&gt; ([ClusterPendingUpdates] -&gt; ShowS)
+-&gt; Show ClusterPendingUpdates
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClusterPendingUpdates] -&gt; ShowS
+$cshowList :: [ClusterPendingUpdates] -&gt; ShowS
+show :: ClusterPendingUpdates -&gt; String
+$cshow :: ClusterPendingUpdates -&gt; String
+showsPrec :: Int -&gt; ClusterPendingUpdates -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClusterPendingUpdates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ClusterPendingUpdates -&gt; Rep ClusterPendingUpdates x)
+-&gt; (forall x. Rep ClusterPendingUpdates x -&gt; ClusterPendingUpdates)
+-&gt; Generic ClusterPendingUpdates
+forall x. Rep ClusterPendingUpdates x -&gt; ClusterPendingUpdates
+forall x. ClusterPendingUpdates -&gt; Rep ClusterPendingUpdates x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ClusterPendingUpdates x -&gt; ClusterPendingUpdates
+$cfrom :: forall x. ClusterPendingUpdates -&gt; Rep ClusterPendingUpdates x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'ClusterPendingUpdates' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'serviceUpdates', 'clusterPendingUpdates_serviceUpdates' - A list of service updates being applied to the cluster</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'resharding', 'clusterPendingUpdates_resharding' - The status of an online resharding operation.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'aCLs', 'clusterPendingUpdates_aCLs' - A list of ACLs associated with the cluster that are being updated</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#newClusterPendingUpdates"><span class="hs-identifier hs-type">newClusterPendingUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span><span>
+</span><span id="line-57"></span><span id="newClusterPendingUpdates"><span class="annot"><span class="annottext">newClusterPendingUpdates :: ClusterPendingUpdates
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#newClusterPendingUpdates"><span class="hs-identifier hs-var hs-var">newClusterPendingUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">ClusterPendingUpdates' :: Maybe [PendingModifiedServiceUpdate]
+-&gt; Maybe ReshardingStatus
+-&gt; Maybe ACLsUpdateStatus
+-&gt; ClusterPendingUpdates
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates%27"><span class="hs-identifier hs-type">ClusterPendingUpdates'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceUpdates:ClusterPendingUpdates' :: Maybe [PendingModifiedServiceUpdate]
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#%24sel%3AserviceUpdates%3AClusterPendingUpdates%27"><span class="hs-identifier hs-var">serviceUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PendingModifiedServiceUpdate]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:resharding:ClusterPendingUpdates' :: Maybe ReshardingStatus
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#%24sel%3Aresharding%3AClusterPendingUpdates%27"><span class="hs-identifier hs-var">resharding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReshardingStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:aCLs:ClusterPendingUpdates' :: Maybe ACLsUpdateStatus
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#%24sel%3AaCLs%3AClusterPendingUpdates%27"><span class="hs-identifier hs-var">aCLs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ACLsUpdateStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | A list of service updates being applied to the cluster</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#clusterPendingUpdates_serviceUpdates"><span class="hs-identifier hs-type">clusterPendingUpdates_serviceUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.html#PendingModifiedServiceUpdate"><span class="hs-identifier hs-type">PendingModifiedServiceUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="clusterPendingUpdates_serviceUpdates"><span class="annot"><span class="annottext">clusterPendingUpdates_serviceUpdates :: (Maybe [PendingModifiedServiceUpdate]
+ -&gt; f (Maybe [PendingModifiedServiceUpdate]))
+-&gt; ClusterPendingUpdates -&gt; f ClusterPendingUpdates
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#clusterPendingUpdates_serviceUpdates"><span class="hs-identifier hs-var hs-var">clusterPendingUpdates_serviceUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterPendingUpdates -&gt; Maybe [PendingModifiedServiceUpdate])
+-&gt; (ClusterPendingUpdates
+    -&gt; Maybe [PendingModifiedServiceUpdate] -&gt; ClusterPendingUpdates)
+-&gt; Lens
+     ClusterPendingUpdates
+     ClusterPendingUpdates
+     (Maybe [PendingModifiedServiceUpdate])
+     (Maybe [PendingModifiedServiceUpdate])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates%27"><span class="hs-identifier hs-type">ClusterPendingUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244599"><span class="annot"><span class="annottext">Maybe [PendingModifiedServiceUpdate]
+serviceUpdates :: Maybe [PendingModifiedServiceUpdate]
+$sel:serviceUpdates:ClusterPendingUpdates' :: ClusterPendingUpdates -&gt; Maybe [PendingModifiedServiceUpdate]
+</span><a href="#local-6989586621679244599"><span class="hs-identifier hs-var hs-var">serviceUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingModifiedServiceUpdate]
+</span><a href="#local-6989586621679244599"><span class="hs-identifier hs-var">serviceUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244598"><span class="annot"><span class="annottext">s :: ClusterPendingUpdates
+</span><a href="#local-6989586621679244598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates%27"><span class="hs-identifier hs-type">ClusterPendingUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244597"><span class="annot"><span class="annottext">Maybe [PendingModifiedServiceUpdate]
+</span><a href="#local-6989586621679244597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterPendingUpdates
+</span><a href="#local-6989586621679244598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUpdates:ClusterPendingUpdates' :: Maybe [PendingModifiedServiceUpdate]
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#%24sel%3AserviceUpdates%3AClusterPendingUpdates%27"><span class="hs-identifier hs-var">serviceUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingModifiedServiceUpdate]
+</span><a href="#local-6989586621679244597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PendingModifiedServiceUpdate]
+  -&gt; f (Maybe [PendingModifiedServiceUpdate]))
+ -&gt; ClusterPendingUpdates -&gt; f ClusterPendingUpdates)
+-&gt; ((Maybe [PendingModifiedServiceUpdate]
+     -&gt; f (Maybe [PendingModifiedServiceUpdate]))
+    -&gt; Maybe [PendingModifiedServiceUpdate]
+    -&gt; f (Maybe [PendingModifiedServiceUpdate]))
+-&gt; (Maybe [PendingModifiedServiceUpdate]
+    -&gt; f (Maybe [PendingModifiedServiceUpdate]))
+-&gt; ClusterPendingUpdates
+-&gt; f ClusterPendingUpdates
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PendingModifiedServiceUpdate]
+  [PendingModifiedServiceUpdate]
+  [PendingModifiedServiceUpdate]
+  [PendingModifiedServiceUpdate]
+-&gt; Iso
+     (Maybe [PendingModifiedServiceUpdate])
+     (Maybe [PendingModifiedServiceUpdate])
+     (Maybe [PendingModifiedServiceUpdate])
+     (Maybe [PendingModifiedServiceUpdate])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PendingModifiedServiceUpdate]
+  [PendingModifiedServiceUpdate]
+  [PendingModifiedServiceUpdate]
+  [PendingModifiedServiceUpdate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The status of an online resharding operation.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#clusterPendingUpdates_resharding"><span class="hs-identifier hs-type">clusterPendingUpdates_resharding</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-type">ReshardingStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="clusterPendingUpdates_resharding"><span class="annot"><span class="annottext">clusterPendingUpdates_resharding :: (Maybe ReshardingStatus -&gt; f (Maybe ReshardingStatus))
+-&gt; ClusterPendingUpdates -&gt; f ClusterPendingUpdates
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#clusterPendingUpdates_resharding"><span class="hs-identifier hs-var hs-var">clusterPendingUpdates_resharding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterPendingUpdates -&gt; Maybe ReshardingStatus)
+-&gt; (ClusterPendingUpdates
+    -&gt; Maybe ReshardingStatus -&gt; ClusterPendingUpdates)
+-&gt; Lens
+     ClusterPendingUpdates
+     ClusterPendingUpdates
+     (Maybe ReshardingStatus)
+     (Maybe ReshardingStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates%27"><span class="hs-identifier hs-type">ClusterPendingUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244592"><span class="annot"><span class="annottext">Maybe ReshardingStatus
+resharding :: Maybe ReshardingStatus
+$sel:resharding:ClusterPendingUpdates' :: ClusterPendingUpdates -&gt; Maybe ReshardingStatus
+</span><a href="#local-6989586621679244592"><span class="hs-identifier hs-var hs-var">resharding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReshardingStatus
+</span><a href="#local-6989586621679244592"><span class="hs-identifier hs-var">resharding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244591"><span class="annot"><span class="annottext">s :: ClusterPendingUpdates
+</span><a href="#local-6989586621679244591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates%27"><span class="hs-identifier hs-type">ClusterPendingUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244590"><span class="annot"><span class="annottext">Maybe ReshardingStatus
+</span><a href="#local-6989586621679244590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterPendingUpdates
+</span><a href="#local-6989586621679244591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resharding:ClusterPendingUpdates' :: Maybe ReshardingStatus
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#%24sel%3Aresharding%3AClusterPendingUpdates%27"><span class="hs-identifier hs-var">resharding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReshardingStatus
+</span><a href="#local-6989586621679244590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | A list of ACLs associated with the cluster that are being updated</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#clusterPendingUpdates_aCLs"><span class="hs-identifier hs-type">clusterPendingUpdates_aCLs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ACLsUpdateStatus.html#ACLsUpdateStatus"><span class="hs-identifier hs-type">ACLsUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="clusterPendingUpdates_aCLs"><span class="annot"><span class="annottext">clusterPendingUpdates_aCLs :: (Maybe ACLsUpdateStatus -&gt; f (Maybe ACLsUpdateStatus))
+-&gt; ClusterPendingUpdates -&gt; f ClusterPendingUpdates
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#clusterPendingUpdates_aCLs"><span class="hs-identifier hs-var hs-var">clusterPendingUpdates_aCLs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterPendingUpdates -&gt; Maybe ACLsUpdateStatus)
+-&gt; (ClusterPendingUpdates
+    -&gt; Maybe ACLsUpdateStatus -&gt; ClusterPendingUpdates)
+-&gt; Lens
+     ClusterPendingUpdates
+     ClusterPendingUpdates
+     (Maybe ACLsUpdateStatus)
+     (Maybe ACLsUpdateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates%27"><span class="hs-identifier hs-type">ClusterPendingUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244588"><span class="annot"><span class="annottext">Maybe ACLsUpdateStatus
+aCLs :: Maybe ACLsUpdateStatus
+$sel:aCLs:ClusterPendingUpdates' :: ClusterPendingUpdates -&gt; Maybe ACLsUpdateStatus
+</span><a href="#local-6989586621679244588"><span class="hs-identifier hs-var hs-var">aCLs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ACLsUpdateStatus
+</span><a href="#local-6989586621679244588"><span class="hs-identifier hs-var">aCLs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244587"><span class="annot"><span class="annottext">s :: ClusterPendingUpdates
+</span><a href="#local-6989586621679244587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates%27"><span class="hs-identifier hs-type">ClusterPendingUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244586"><span class="annot"><span class="annottext">Maybe ACLsUpdateStatus
+</span><a href="#local-6989586621679244586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterPendingUpdates
+</span><a href="#local-6989586621679244587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aCLs:ClusterPendingUpdates' :: Maybe ACLsUpdateStatus
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#%24sel%3AaCLs%3AClusterPendingUpdates%27"><span class="hs-identifier hs-var">aCLs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ACLsUpdateStatus
+</span><a href="#local-6989586621679244586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244583"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679244581"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClusterPendingUpdates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ClusterPendingUpdates)
+-&gt; Value
+-&gt; Parser ClusterPendingUpdates
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ClusterPendingUpdates&quot;</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244578"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PendingModifiedServiceUpdate]
+-&gt; Maybe ReshardingStatus
+-&gt; Maybe ACLsUpdateStatus
+-&gt; ClusterPendingUpdates
+</span><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates%27"><span class="hs-identifier hs-var">ClusterPendingUpdates'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PendingModifiedServiceUpdate]
+ -&gt; Maybe ReshardingStatus
+ -&gt; Maybe ACLsUpdateStatus
+ -&gt; ClusterPendingUpdates)
+-&gt; Parser (Maybe [PendingModifiedServiceUpdate])
+-&gt; Parser
+     (Maybe ReshardingStatus
+      -&gt; Maybe ACLsUpdateStatus -&gt; ClusterPendingUpdates)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [PendingModifiedServiceUpdate]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PendingModifiedServiceUpdate]))
+-&gt; Maybe [PendingModifiedServiceUpdate]
+-&gt; Parser (Maybe [PendingModifiedServiceUpdate])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PendingModifiedServiceUpdate]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReshardingStatus
+   -&gt; Maybe ACLsUpdateStatus -&gt; ClusterPendingUpdates)
+-&gt; Parser (Maybe ReshardingStatus)
+-&gt; Parser (Maybe ACLsUpdateStatus -&gt; ClusterPendingUpdates)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReshardingStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Resharding&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ACLsUpdateStatus -&gt; ClusterPendingUpdates)
+-&gt; Parser (Maybe ACLsUpdateStatus) -&gt; Parser ClusterPendingUpdates
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ACLsUpdateStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ACLs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244571"><span id="local-6989586621679244573"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.ClusterPendingUpdates.html#ClusterPendingUpdates"><span class="hs-identifier hs-type">ClusterPendingUpdates</span></a></span></span><span>
+</span><span id="line-91"></span></pre></body></html>

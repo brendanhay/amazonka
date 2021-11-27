@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.Types.SearchResourcesTagCriterion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.Types.SearchResourcesTagCriterion</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesComparator.html"><span class="hs-identifier">Amazonka.MacieV2.Types.SearchResourcesComparator</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterionPair.html"><span class="hs-identifier">Amazonka.MacieV2.Types.SearchResourcesTagCriterionPair</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Specifies a tag-based filter condition that determines which Amazon Web</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Services resources are included or excluded from the query results.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSearchResourcesTagCriterion' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679394929"><span id="local-6989586621679394930"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchResourcesTagCriterion"><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion"><span class="hs-identifier hs-var">SearchResourcesTagCriterion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchResourcesTagCriterion%27"><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion%27"><span class="hs-identifier hs-var">SearchResourcesTagCriterion'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag keys, tag values, or tag key and value pairs to use in the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- condition.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtagValues%3ASearchResourcesTagCriterion%27"><span class="annot"><span class="annottext">SearchResourcesTagCriterion
+-&gt; Maybe [SearchResourcesTagCriterionPair]
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#%24sel%3AtagValues%3ASearchResourcesTagCriterion%27"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterionPair.html#SearchResourcesTagCriterionPair"><span class="hs-identifier hs-type">SearchResourcesTagCriterionPair</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The operator to use in the condition. Valid values are EQ (equals) and</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- NE (not equals).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Acomparator%3ASearchResourcesTagCriterion%27"><span class="annot"><span class="annottext">SearchResourcesTagCriterion -&gt; Maybe SearchResourcesComparator
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#%24sel%3Acomparator%3ASearchResourcesTagCriterion%27"><span class="hs-identifier hs-var hs-var">comparator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesComparator.html#SearchResourcesComparator"><span class="hs-identifier hs-type">SearchResourcesComparator</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394922"><span id="local-6989586621679394924"><span class="annot"><span class="annottext">SearchResourcesTagCriterion -&gt; SearchResourcesTagCriterion -&gt; Bool
+(SearchResourcesTagCriterion
+ -&gt; SearchResourcesTagCriterion -&gt; Bool)
+-&gt; (SearchResourcesTagCriterion
+    -&gt; SearchResourcesTagCriterion -&gt; Bool)
+-&gt; Eq SearchResourcesTagCriterion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchResourcesTagCriterion -&gt; SearchResourcesTagCriterion -&gt; Bool
+$c/= :: SearchResourcesTagCriterion -&gt; SearchResourcesTagCriterion -&gt; Bool
+== :: SearchResourcesTagCriterion -&gt; SearchResourcesTagCriterion -&gt; Bool
+$c== :: SearchResourcesTagCriterion -&gt; SearchResourcesTagCriterion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394913"><span id="local-6989586621679394915"><span id="local-6989586621679394917"><span id="local-6989586621679394919"><span class="annot"><span class="annottext">ReadPrec [SearchResourcesTagCriterion]
+ReadPrec SearchResourcesTagCriterion
+Int -&gt; ReadS SearchResourcesTagCriterion
+ReadS [SearchResourcesTagCriterion]
+(Int -&gt; ReadS SearchResourcesTagCriterion)
+-&gt; ReadS [SearchResourcesTagCriterion]
+-&gt; ReadPrec SearchResourcesTagCriterion
+-&gt; ReadPrec [SearchResourcesTagCriterion]
+-&gt; Read SearchResourcesTagCriterion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchResourcesTagCriterion]
+$creadListPrec :: ReadPrec [SearchResourcesTagCriterion]
+readPrec :: ReadPrec SearchResourcesTagCriterion
+$creadPrec :: ReadPrec SearchResourcesTagCriterion
+readList :: ReadS [SearchResourcesTagCriterion]
+$creadList :: ReadS [SearchResourcesTagCriterion]
+readsPrec :: Int -&gt; ReadS SearchResourcesTagCriterion
+$creadsPrec :: Int -&gt; ReadS SearchResourcesTagCriterion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394906"><span id="local-6989586621679394908"><span id="local-6989586621679394910"><span class="annot"><span class="annottext">Int -&gt; SearchResourcesTagCriterion -&gt; ShowS
+[SearchResourcesTagCriterion] -&gt; ShowS
+SearchResourcesTagCriterion -&gt; String
+(Int -&gt; SearchResourcesTagCriterion -&gt; ShowS)
+-&gt; (SearchResourcesTagCriterion -&gt; String)
+-&gt; ([SearchResourcesTagCriterion] -&gt; ShowS)
+-&gt; Show SearchResourcesTagCriterion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchResourcesTagCriterion] -&gt; ShowS
+$cshowList :: [SearchResourcesTagCriterion] -&gt; ShowS
+show :: SearchResourcesTagCriterion -&gt; String
+$cshow :: SearchResourcesTagCriterion -&gt; String
+showsPrec :: Int -&gt; SearchResourcesTagCriterion -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchResourcesTagCriterion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SearchResourcesTagCriterion -&gt; Rep SearchResourcesTagCriterion x)
+-&gt; (forall x.
+    Rep SearchResourcesTagCriterion x -&gt; SearchResourcesTagCriterion)
+-&gt; Generic SearchResourcesTagCriterion
+forall x.
+Rep SearchResourcesTagCriterion x -&gt; SearchResourcesTagCriterion
+forall x.
+SearchResourcesTagCriterion -&gt; Rep SearchResourcesTagCriterion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SearchResourcesTagCriterion x -&gt; SearchResourcesTagCriterion
+$cfrom :: forall x.
+SearchResourcesTagCriterion -&gt; Rep SearchResourcesTagCriterion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'SearchResourcesTagCriterion' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'tagValues', 'searchResourcesTagCriterion_tagValues' - The tag keys, tag values, or tag key and value pairs to use in the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- condition.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'comparator', 'searchResourcesTagCriterion_comparator' - The operator to use in the condition. Valid values are EQ (equals) and</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- NE (not equals).</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#newSearchResourcesTagCriterion"><span class="hs-identifier hs-type">newSearchResourcesTagCriterion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion"><span class="hs-identifier hs-type">SearchResourcesTagCriterion</span></a></span><span>
+</span><span id="line-57"></span><span id="newSearchResourcesTagCriterion"><span class="annot"><span class="annottext">newSearchResourcesTagCriterion :: SearchResourcesTagCriterion
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#newSearchResourcesTagCriterion"><span class="hs-identifier hs-var hs-var">newSearchResourcesTagCriterion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">SearchResourcesTagCriterion' :: Maybe [SearchResourcesTagCriterionPair]
+-&gt; Maybe SearchResourcesComparator -&gt; SearchResourcesTagCriterion
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion%27"><span class="hs-identifier hs-type">SearchResourcesTagCriterion'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagValues:SearchResourcesTagCriterion' :: Maybe [SearchResourcesTagCriterionPair]
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#%24sel%3AtagValues%3ASearchResourcesTagCriterion%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SearchResourcesTagCriterionPair]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:comparator:SearchResourcesTagCriterion' :: Maybe SearchResourcesComparator
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#%24sel%3Acomparator%3ASearchResourcesTagCriterion%27"><span class="hs-identifier hs-var">comparator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SearchResourcesComparator
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The tag keys, tag values, or tag key and value pairs to use in the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- condition.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#searchResourcesTagCriterion_tagValues"><span class="hs-identifier hs-type">searchResourcesTagCriterion_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion"><span class="hs-identifier hs-type">SearchResourcesTagCriterion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterionPair.html#SearchResourcesTagCriterionPair"><span class="hs-identifier hs-type">SearchResourcesTagCriterionPair</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="searchResourcesTagCriterion_tagValues"><span class="annot"><span class="annottext">searchResourcesTagCriterion_tagValues :: (Maybe [SearchResourcesTagCriterionPair]
+ -&gt; f (Maybe [SearchResourcesTagCriterionPair]))
+-&gt; SearchResourcesTagCriterion -&gt; f SearchResourcesTagCriterion
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#searchResourcesTagCriterion_tagValues"><span class="hs-identifier hs-var hs-var">searchResourcesTagCriterion_tagValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesTagCriterion
+ -&gt; Maybe [SearchResourcesTagCriterionPair])
+-&gt; (SearchResourcesTagCriterion
+    -&gt; Maybe [SearchResourcesTagCriterionPair]
+    -&gt; SearchResourcesTagCriterion)
+-&gt; Lens
+     SearchResourcesTagCriterion
+     SearchResourcesTagCriterion
+     (Maybe [SearchResourcesTagCriterionPair])
+     (Maybe [SearchResourcesTagCriterionPair])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion%27"><span class="hs-identifier hs-type">SearchResourcesTagCriterion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394897"><span class="annot"><span class="annottext">Maybe [SearchResourcesTagCriterionPair]
+tagValues :: Maybe [SearchResourcesTagCriterionPair]
+$sel:tagValues:SearchResourcesTagCriterion' :: SearchResourcesTagCriterion
+-&gt; Maybe [SearchResourcesTagCriterionPair]
+</span><a href="#local-6989586621679394897"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SearchResourcesTagCriterionPair]
+</span><a href="#local-6989586621679394897"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394896"><span class="annot"><span class="annottext">s :: SearchResourcesTagCriterion
+</span><a href="#local-6989586621679394896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion%27"><span class="hs-identifier hs-type">SearchResourcesTagCriterion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394895"><span class="annot"><span class="annottext">Maybe [SearchResourcesTagCriterionPair]
+</span><a href="#local-6989586621679394895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesTagCriterion
+</span><a href="#local-6989586621679394896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:SearchResourcesTagCriterion' :: Maybe [SearchResourcesTagCriterionPair]
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#%24sel%3AtagValues%3ASearchResourcesTagCriterion%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SearchResourcesTagCriterionPair]
+</span><a href="#local-6989586621679394895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion"><span class="hs-identifier hs-type">SearchResourcesTagCriterion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SearchResourcesTagCriterionPair]
+  -&gt; f (Maybe [SearchResourcesTagCriterionPair]))
+ -&gt; SearchResourcesTagCriterion -&gt; f SearchResourcesTagCriterion)
+-&gt; ((Maybe [SearchResourcesTagCriterionPair]
+     -&gt; f (Maybe [SearchResourcesTagCriterionPair]))
+    -&gt; Maybe [SearchResourcesTagCriterionPair]
+    -&gt; f (Maybe [SearchResourcesTagCriterionPair]))
+-&gt; (Maybe [SearchResourcesTagCriterionPair]
+    -&gt; f (Maybe [SearchResourcesTagCriterionPair]))
+-&gt; SearchResourcesTagCriterion
+-&gt; f SearchResourcesTagCriterion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SearchResourcesTagCriterionPair]
+  [SearchResourcesTagCriterionPair]
+  [SearchResourcesTagCriterionPair]
+  [SearchResourcesTagCriterionPair]
+-&gt; Iso
+     (Maybe [SearchResourcesTagCriterionPair])
+     (Maybe [SearchResourcesTagCriterionPair])
+     (Maybe [SearchResourcesTagCriterionPair])
+     (Maybe [SearchResourcesTagCriterionPair])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SearchResourcesTagCriterionPair]
+  [SearchResourcesTagCriterionPair]
+  [SearchResourcesTagCriterionPair]
+  [SearchResourcesTagCriterionPair]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The operator to use in the condition. Valid values are EQ (equals) and</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- NE (not equals).</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#searchResourcesTagCriterion_comparator"><span class="hs-identifier hs-type">searchResourcesTagCriterion_comparator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion"><span class="hs-identifier hs-type">SearchResourcesTagCriterion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesComparator.html#SearchResourcesComparator"><span class="hs-identifier hs-type">SearchResourcesComparator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="searchResourcesTagCriterion_comparator"><span class="annot"><span class="annottext">searchResourcesTagCriterion_comparator :: (Maybe SearchResourcesComparator
+ -&gt; f (Maybe SearchResourcesComparator))
+-&gt; SearchResourcesTagCriterion -&gt; f SearchResourcesTagCriterion
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#searchResourcesTagCriterion_comparator"><span class="hs-identifier hs-var hs-var">searchResourcesTagCriterion_comparator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesTagCriterion -&gt; Maybe SearchResourcesComparator)
+-&gt; (SearchResourcesTagCriterion
+    -&gt; Maybe SearchResourcesComparator -&gt; SearchResourcesTagCriterion)
+-&gt; Lens
+     SearchResourcesTagCriterion
+     SearchResourcesTagCriterion
+     (Maybe SearchResourcesComparator)
+     (Maybe SearchResourcesComparator)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion%27"><span class="hs-identifier hs-type">SearchResourcesTagCriterion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394890"><span class="annot"><span class="annottext">Maybe SearchResourcesComparator
+comparator :: Maybe SearchResourcesComparator
+$sel:comparator:SearchResourcesTagCriterion' :: SearchResourcesTagCriterion -&gt; Maybe SearchResourcesComparator
+</span><a href="#local-6989586621679394890"><span class="hs-identifier hs-var hs-var">comparator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SearchResourcesComparator
+</span><a href="#local-6989586621679394890"><span class="hs-identifier hs-var">comparator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394889"><span class="annot"><span class="annottext">s :: SearchResourcesTagCriterion
+</span><a href="#local-6989586621679394889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion%27"><span class="hs-identifier hs-type">SearchResourcesTagCriterion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394888"><span class="annot"><span class="annottext">Maybe SearchResourcesComparator
+</span><a href="#local-6989586621679394888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesTagCriterion
+</span><a href="#local-6989586621679394889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparator:SearchResourcesTagCriterion' :: Maybe SearchResourcesComparator
+</span><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#%24sel%3Acomparator%3ASearchResourcesTagCriterion%27"><span class="hs-identifier hs-var">comparator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SearchResourcesComparator
+</span><a href="#local-6989586621679394888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion"><span class="hs-identifier hs-type">SearchResourcesTagCriterion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394884"><span id="local-6989586621679394886"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion"><span class="hs-identifier hs-type">SearchResourcesTagCriterion</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion"><span class="hs-identifier hs-type">SearchResourcesTagCriterion</span></a></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394873"><span id="local-6989586621679394875"><span id="local-6989586621679394877"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion"><span class="hs-identifier hs-type">SearchResourcesTagCriterion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679394871"><span class="annot"><span class="annottext">toJSON :: SearchResourcesTagCriterion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SearchResourcesTagCriterion.html#SearchResourcesTagCriterion%27"><span class="hs-identifier hs-type">SearchResourcesTagCriterion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394868"><span id="local-6989586621679394869"><span class="annot"><span class="annottext">Maybe [SearchResourcesTagCriterionPair]
+Maybe SearchResourcesComparator
+comparator :: Maybe SearchResourcesComparator
+tagValues :: Maybe [SearchResourcesTagCriterionPair]
+$sel:comparator:SearchResourcesTagCriterion' :: SearchResourcesTagCriterion -&gt; Maybe SearchResourcesComparator
+$sel:tagValues:SearchResourcesTagCriterion' :: SearchResourcesTagCriterion
+-&gt; Maybe [SearchResourcesTagCriterionPair]
+</span><a href="#local-6989586621679394868"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-82"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SearchResourcesTagCriterionPair] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SearchResourcesTagCriterionPair] -&gt; Pair)
+-&gt; Maybe [SearchResourcesTagCriterionPair] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SearchResourcesTagCriterionPair]
+</span><a href="#local-6989586621679394869"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comparator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SearchResourcesComparator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesComparator -&gt; Pair)
+-&gt; Maybe SearchResourcesComparator -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SearchResourcesComparator
+</span><a href="#local-6989586621679394868"><span class="hs-identifier hs-var">comparator</span></a></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span></pre></body></html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.EdgeModelStat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.EdgeModelStat</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Status of edge devices with this model.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEdgeModelStat' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621680302296"><span id="local-6989586621680302297"></span></span><span class="hs-keyword">data</span><span> </span><span id="EdgeModelStat"><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-var">EdgeModelStat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EdgeModelStat%27"><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-var">EdgeModelStat'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the model.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AmodelName%3AEdgeModelStat%27"><span class="annot"><span class="annottext">EdgeModelStat -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AmodelName%3AEdgeModelStat%27"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The model version.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmodelVersion%3AEdgeModelStat%27"><span class="annot"><span class="annottext">EdgeModelStat -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AmodelVersion%3AEdgeModelStat%27"><span class="hs-identifier hs-var hs-var">modelVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The number of devices that have this model version and do not have a</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- heart beat.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AofflineDeviceCount%3AEdgeModelStat%27"><span class="annot"><span class="annottext">EdgeModelStat -&gt; Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AofflineDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var hs-var">offlineDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The number of devices that have this model version and have a heart</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- beat.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AconnectedDeviceCount%3AEdgeModelStat%27"><span class="annot"><span class="annottext">EdgeModelStat -&gt; Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AconnectedDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var hs-var">connectedDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of devices that have this model version, a heart beat, and</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- are currently running.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AactiveDeviceCount%3AEdgeModelStat%27"><span class="annot"><span class="annottext">EdgeModelStat -&gt; Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AactiveDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var hs-var">activeDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of devices with this model version and are producing sample</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsamplingDeviceCount%3AEdgeModelStat%27"><span class="annot"><span class="annottext">EdgeModelStat -&gt; Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AsamplingDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var hs-var">samplingDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680302285"><span id="local-6989586621680302287"><span class="annot"><span class="annottext">EdgeModelStat -&gt; EdgeModelStat -&gt; Bool
+(EdgeModelStat -&gt; EdgeModelStat -&gt; Bool)
+-&gt; (EdgeModelStat -&gt; EdgeModelStat -&gt; Bool) -&gt; Eq EdgeModelStat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EdgeModelStat -&gt; EdgeModelStat -&gt; Bool
+$c/= :: EdgeModelStat -&gt; EdgeModelStat -&gt; Bool
+== :: EdgeModelStat -&gt; EdgeModelStat -&gt; Bool
+$c== :: EdgeModelStat -&gt; EdgeModelStat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680302276"><span id="local-6989586621680302278"><span id="local-6989586621680302280"><span id="local-6989586621680302282"><span class="annot"><span class="annottext">ReadPrec [EdgeModelStat]
+ReadPrec EdgeModelStat
+Int -&gt; ReadS EdgeModelStat
+ReadS [EdgeModelStat]
+(Int -&gt; ReadS EdgeModelStat)
+-&gt; ReadS [EdgeModelStat]
+-&gt; ReadPrec EdgeModelStat
+-&gt; ReadPrec [EdgeModelStat]
+-&gt; Read EdgeModelStat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EdgeModelStat]
+$creadListPrec :: ReadPrec [EdgeModelStat]
+readPrec :: ReadPrec EdgeModelStat
+$creadPrec :: ReadPrec EdgeModelStat
+readList :: ReadS [EdgeModelStat]
+$creadList :: ReadS [EdgeModelStat]
+readsPrec :: Int -&gt; ReadS EdgeModelStat
+$creadsPrec :: Int -&gt; ReadS EdgeModelStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680302269"><span id="local-6989586621680302271"><span id="local-6989586621680302273"><span class="annot"><span class="annottext">Int -&gt; EdgeModelStat -&gt; ShowS
+[EdgeModelStat] -&gt; ShowS
+EdgeModelStat -&gt; String
+(Int -&gt; EdgeModelStat -&gt; ShowS)
+-&gt; (EdgeModelStat -&gt; String)
+-&gt; ([EdgeModelStat] -&gt; ShowS)
+-&gt; Show EdgeModelStat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EdgeModelStat] -&gt; ShowS
+$cshowList :: [EdgeModelStat] -&gt; ShowS
+show :: EdgeModelStat -&gt; String
+$cshow :: EdgeModelStat -&gt; String
+showsPrec :: Int -&gt; EdgeModelStat -&gt; ShowS
+$cshowsPrec :: Int -&gt; EdgeModelStat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EdgeModelStat -&gt; Rep EdgeModelStat x)
+-&gt; (forall x. Rep EdgeModelStat x -&gt; EdgeModelStat)
+-&gt; Generic EdgeModelStat
+forall x. Rep EdgeModelStat x -&gt; EdgeModelStat
+forall x. EdgeModelStat -&gt; Rep EdgeModelStat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EdgeModelStat x -&gt; EdgeModelStat
+$cfrom :: forall x. EdgeModelStat -&gt; Rep EdgeModelStat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'EdgeModelStat' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'modelName', 'edgeModelStat_modelName' - The name of the model.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'modelVersion', 'edgeModelStat_modelVersion' - The model version.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'offlineDeviceCount', 'edgeModelStat_offlineDeviceCount' - The number of devices that have this model version and do not have a</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- heart beat.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'connectedDeviceCount', 'edgeModelStat_connectedDeviceCount' - The number of devices that have this model version and have a heart</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- beat.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'activeDeviceCount', 'edgeModelStat_activeDeviceCount' - The number of devices that have this model version, a heart beat, and</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- are currently running.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'samplingDeviceCount', 'edgeModelStat_samplingDeviceCount' - The number of devices with this model version and are producing sample</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#newEdgeModelStat"><span class="hs-identifier hs-type">newEdgeModelStat</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'modelName'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'modelVersion'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'offlineDeviceCount'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'connectedDeviceCount'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'activeDeviceCount'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'samplingDeviceCount'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span>
+</span><span id="line-86"></span><span id="newEdgeModelStat"><span class="annot"><span class="annottext">newEdgeModelStat :: Text
+-&gt; Text
+-&gt; Integer
+-&gt; Integer
+-&gt; Integer
+-&gt; Integer
+-&gt; EdgeModelStat
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#newEdgeModelStat"><span class="hs-identifier hs-var hs-var">newEdgeModelStat</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621680302263"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302263"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621680302262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302262"><span class="hs-identifier hs-var">pModelVersion_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680302261"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302261"><span class="hs-identifier hs-var">pOfflineDeviceCount_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621680302260"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302260"><span class="hs-identifier hs-var">pConnectedDeviceCount_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680302259"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302259"><span class="hs-identifier hs-var">pActiveDeviceCount_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680302258"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302258"><span class="hs-identifier hs-var">pSamplingDeviceCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">EdgeModelStat' :: Text
+-&gt; Text
+-&gt; Integer
+-&gt; Integer
+-&gt; Integer
+-&gt; Integer
+-&gt; EdgeModelStat
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelName:EdgeModelStat' :: Text
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AmodelName%3AEdgeModelStat%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302263"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelVersion:EdgeModelStat' :: Text
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AmodelVersion%3AEdgeModelStat%27"><span class="hs-identifier hs-var">modelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302262"><span class="hs-identifier hs-var">pModelVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:offlineDeviceCount:EdgeModelStat' :: Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AofflineDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var">offlineDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302261"><span class="hs-identifier hs-var">pOfflineDeviceCount_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectedDeviceCount:EdgeModelStat' :: Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AconnectedDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var">connectedDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302260"><span class="hs-identifier hs-var">pConnectedDeviceCount_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:activeDeviceCount:EdgeModelStat' :: Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AactiveDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var">activeDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302259"><span class="hs-identifier hs-var">pActiveDeviceCount_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:samplingDeviceCount:EdgeModelStat' :: Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AsamplingDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var">samplingDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302258"><span class="hs-identifier hs-var">pSamplingDeviceCount_</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the model.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_modelName"><span class="hs-identifier hs-type">edgeModelStat_modelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="edgeModelStat_modelName"><span class="annot"><span class="annottext">edgeModelStat_modelName :: (Text -&gt; f Text) -&gt; EdgeModelStat -&gt; f EdgeModelStat
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_modelName"><span class="hs-identifier hs-var hs-var">edgeModelStat_modelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeModelStat -&gt; Text)
+-&gt; (EdgeModelStat -&gt; Text -&gt; EdgeModelStat)
+-&gt; Lens EdgeModelStat EdgeModelStat Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302254"><span class="annot"><span class="annottext">Text
+modelName :: Text
+$sel:modelName:EdgeModelStat' :: EdgeModelStat -&gt; Text
+</span><a href="#local-6989586621680302254"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302254"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302253"><span class="annot"><span class="annottext">s :: EdgeModelStat
+</span><a href="#local-6989586621680302253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeModelStat
+</span><a href="#local-6989586621680302253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:EdgeModelStat' :: Text
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AmodelName%3AEdgeModelStat%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The model version.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_modelVersion"><span class="hs-identifier hs-type">edgeModelStat_modelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="edgeModelStat_modelVersion"><span class="annot"><span class="annottext">edgeModelStat_modelVersion :: (Text -&gt; f Text) -&gt; EdgeModelStat -&gt; f EdgeModelStat
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_modelVersion"><span class="hs-identifier hs-var hs-var">edgeModelStat_modelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeModelStat -&gt; Text)
+-&gt; (EdgeModelStat -&gt; Text -&gt; EdgeModelStat)
+-&gt; Lens EdgeModelStat EdgeModelStat Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302250"><span class="annot"><span class="annottext">Text
+modelVersion :: Text
+$sel:modelVersion:EdgeModelStat' :: EdgeModelStat -&gt; Text
+</span><a href="#local-6989586621680302250"><span class="hs-identifier hs-var hs-var">modelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302250"><span class="hs-identifier hs-var">modelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302249"><span class="annot"><span class="annottext">s :: EdgeModelStat
+</span><a href="#local-6989586621680302249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeModelStat
+</span><a href="#local-6989586621680302249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelVersion:EdgeModelStat' :: Text
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AmodelVersion%3AEdgeModelStat%27"><span class="hs-identifier hs-var">modelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The number of devices that have this model version and do not have a</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- heart beat.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_offlineDeviceCount"><span class="hs-identifier hs-type">edgeModelStat_offlineDeviceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-113"></span><span id="edgeModelStat_offlineDeviceCount"><span class="annot"><span class="annottext">edgeModelStat_offlineDeviceCount :: (Integer -&gt; f Integer) -&gt; EdgeModelStat -&gt; f EdgeModelStat
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_offlineDeviceCount"><span class="hs-identifier hs-var hs-var">edgeModelStat_offlineDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeModelStat -&gt; Integer)
+-&gt; (EdgeModelStat -&gt; Integer -&gt; EdgeModelStat)
+-&gt; Lens EdgeModelStat EdgeModelStat Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302246"><span class="annot"><span class="annottext">Integer
+offlineDeviceCount :: Integer
+$sel:offlineDeviceCount:EdgeModelStat' :: EdgeModelStat -&gt; Integer
+</span><a href="#local-6989586621680302246"><span class="hs-identifier hs-var hs-var">offlineDeviceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302246"><span class="hs-identifier hs-var">offlineDeviceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302245"><span class="annot"><span class="annottext">s :: EdgeModelStat
+</span><a href="#local-6989586621680302245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302244"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeModelStat
+</span><a href="#local-6989586621680302245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offlineDeviceCount:EdgeModelStat' :: Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AofflineDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var">offlineDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The number of devices that have this model version and have a heart</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- beat.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_connectedDeviceCount"><span class="hs-identifier hs-type">edgeModelStat_connectedDeviceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-118"></span><span id="edgeModelStat_connectedDeviceCount"><span class="annot"><span class="annottext">edgeModelStat_connectedDeviceCount :: (Integer -&gt; f Integer) -&gt; EdgeModelStat -&gt; f EdgeModelStat
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_connectedDeviceCount"><span class="hs-identifier hs-var hs-var">edgeModelStat_connectedDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeModelStat -&gt; Integer)
+-&gt; (EdgeModelStat -&gt; Integer -&gt; EdgeModelStat)
+-&gt; Lens EdgeModelStat EdgeModelStat Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302242"><span class="annot"><span class="annottext">Integer
+connectedDeviceCount :: Integer
+$sel:connectedDeviceCount:EdgeModelStat' :: EdgeModelStat -&gt; Integer
+</span><a href="#local-6989586621680302242"><span class="hs-identifier hs-var hs-var">connectedDeviceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302242"><span class="hs-identifier hs-var">connectedDeviceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302241"><span class="annot"><span class="annottext">s :: EdgeModelStat
+</span><a href="#local-6989586621680302241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302240"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeModelStat
+</span><a href="#local-6989586621680302241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectedDeviceCount:EdgeModelStat' :: Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AconnectedDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var">connectedDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The number of devices that have this model version, a heart beat, and</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- are currently running.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_activeDeviceCount"><span class="hs-identifier hs-type">edgeModelStat_activeDeviceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-123"></span><span id="edgeModelStat_activeDeviceCount"><span class="annot"><span class="annottext">edgeModelStat_activeDeviceCount :: (Integer -&gt; f Integer) -&gt; EdgeModelStat -&gt; f EdgeModelStat
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_activeDeviceCount"><span class="hs-identifier hs-var hs-var">edgeModelStat_activeDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeModelStat -&gt; Integer)
+-&gt; (EdgeModelStat -&gt; Integer -&gt; EdgeModelStat)
+-&gt; Lens EdgeModelStat EdgeModelStat Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302238"><span class="annot"><span class="annottext">Integer
+activeDeviceCount :: Integer
+$sel:activeDeviceCount:EdgeModelStat' :: EdgeModelStat -&gt; Integer
+</span><a href="#local-6989586621680302238"><span class="hs-identifier hs-var hs-var">activeDeviceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302238"><span class="hs-identifier hs-var">activeDeviceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302237"><span class="annot"><span class="annottext">s :: EdgeModelStat
+</span><a href="#local-6989586621680302237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302236"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeModelStat
+</span><a href="#local-6989586621680302237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeDeviceCount:EdgeModelStat' :: Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AactiveDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var">activeDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The number of devices with this model version and are producing sample</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_samplingDeviceCount"><span class="hs-identifier hs-type">edgeModelStat_samplingDeviceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-128"></span><span id="edgeModelStat_samplingDeviceCount"><span class="annot"><span class="annottext">edgeModelStat_samplingDeviceCount :: (Integer -&gt; f Integer) -&gt; EdgeModelStat -&gt; f EdgeModelStat
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#edgeModelStat_samplingDeviceCount"><span class="hs-identifier hs-var hs-var">edgeModelStat_samplingDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EdgeModelStat -&gt; Integer)
+-&gt; (EdgeModelStat -&gt; Integer -&gt; EdgeModelStat)
+-&gt; Lens EdgeModelStat EdgeModelStat Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302234"><span class="annot"><span class="annottext">Integer
+samplingDeviceCount :: Integer
+$sel:samplingDeviceCount:EdgeModelStat' :: EdgeModelStat -&gt; Integer
+</span><a href="#local-6989586621680302234"><span class="hs-identifier hs-var hs-var">samplingDeviceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302234"><span class="hs-identifier hs-var">samplingDeviceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302233"><span class="annot"><span class="annottext">s :: EdgeModelStat
+</span><a href="#local-6989586621680302233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-type">EdgeModelStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302232"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeModelStat
+</span><a href="#local-6989586621680302233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samplingDeviceCount:EdgeModelStat' :: Integer
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#%24sel%3AsamplingDeviceCount%3AEdgeModelStat%27"><span class="hs-identifier hs-var">samplingDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680302232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302229"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621680302227"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EdgeModelStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EdgeModelStat)
+-&gt; Value
+-&gt; Parser EdgeModelStat
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EdgeModelStat&quot;</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680302224"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; Text
+-&gt; Integer
+-&gt; Integer
+-&gt; Integer
+-&gt; Integer
+-&gt; EdgeModelStat
+</span><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat%27"><span class="hs-identifier hs-var">EdgeModelStat'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; Text
+ -&gt; Integer
+ -&gt; Integer
+ -&gt; Integer
+ -&gt; Integer
+ -&gt; EdgeModelStat)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; Integer -&gt; Integer -&gt; Integer -&gt; Integer -&gt; EdgeModelStat)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Integer -&gt; Integer -&gt; Integer -&gt; Integer -&gt; EdgeModelStat)
+-&gt; Parser Text
+-&gt; Parser
+     (Integer -&gt; Integer -&gt; Integer -&gt; Integer -&gt; EdgeModelStat)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; Integer -&gt; Integer -&gt; Integer -&gt; EdgeModelStat)
+-&gt; Parser Integer
+-&gt; Parser (Integer -&gt; Integer -&gt; Integer -&gt; EdgeModelStat)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OfflineDeviceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; Integer -&gt; Integer -&gt; EdgeModelStat)
+-&gt; Parser Integer -&gt; Parser (Integer -&gt; Integer -&gt; EdgeModelStat)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectedDeviceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; Integer -&gt; EdgeModelStat)
+-&gt; Parser Integer -&gt; Parser (Integer -&gt; EdgeModelStat)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActiveDeviceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; EdgeModelStat)
+-&gt; Parser Integer -&gt; Parser EdgeModelStat
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SamplingDeviceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302218"><span id="local-6989586621680302220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.EdgeModelStat.html#EdgeModelStat"><span class="hs-identifier hs-type">EdgeModelStat</span></a></span></span><span>
+</span><span id="line-147"></span></pre></body></html>

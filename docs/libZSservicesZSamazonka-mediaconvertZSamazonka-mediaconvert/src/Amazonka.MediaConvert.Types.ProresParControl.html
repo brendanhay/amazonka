@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.ProresParControl</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.ProresParControl</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl"><span class="hs-identifier">ProresParControl</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl_INITIALIZE_FROM_SOURCE"><span class="hs-identifier">ProresParControl_INITIALIZE_FROM_SOURCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl_SPECIFIED"><span class="hs-identifier">ProresParControl_SPECIFIED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Optional. Specify how the service determines the pixel aspect ratio</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- (PAR) for this output. The default behavior, Follow source</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- output. To specify a different PAR in the console, choose any value</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- other than Follow source. To specify a different PAR by editing the JSON</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- job specification, choose SPECIFIED. When you choose SPECIFIED for this</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- setting, you must also specify values for the parNumerator and</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- parDenominator settings.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621680001381"><span id="local-6989586621680001382"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresParControl"><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl"><span class="hs-identifier hs-var">ProresParControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresParControl%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl%27"><span class="hs-identifier hs-var">ProresParControl'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProresParControl"><span class="annot"><span class="annottext">ProresParControl -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.ProresParControl.html#fromProresParControl"><span class="hs-identifier hs-var hs-var">fromProresParControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680001373"><span id="local-6989586621680001375"><span id="local-6989586621680001377"><span class="annot"><span class="annottext">Int -&gt; ProresParControl -&gt; ShowS
+[ProresParControl] -&gt; ShowS
+ProresParControl -&gt; String
+(Int -&gt; ProresParControl -&gt; ShowS)
+-&gt; (ProresParControl -&gt; String)
+-&gt; ([ProresParControl] -&gt; ShowS)
+-&gt; Show ProresParControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProresParControl] -&gt; ShowS
+$cshowList :: [ProresParControl] -&gt; ShowS
+show :: ProresParControl -&gt; String
+$cshow :: ProresParControl -&gt; String
+showsPrec :: Int -&gt; ProresParControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProresParControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680001364"><span id="local-6989586621680001366"><span id="local-6989586621680001368"><span id="local-6989586621680001370"><span class="annot"><span class="annottext">ReadPrec [ProresParControl]
+ReadPrec ProresParControl
+Int -&gt; ReadS ProresParControl
+ReadS [ProresParControl]
+(Int -&gt; ReadS ProresParControl)
+-&gt; ReadS [ProresParControl]
+-&gt; ReadPrec ProresParControl
+-&gt; ReadPrec [ProresParControl]
+-&gt; Read ProresParControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProresParControl]
+$creadListPrec :: ReadPrec [ProresParControl]
+readPrec :: ReadPrec ProresParControl
+$creadPrec :: ReadPrec ProresParControl
+readList :: ReadS [ProresParControl]
+$creadList :: ReadS [ProresParControl]
+readsPrec :: Int -&gt; ReadS ProresParControl
+$creadsPrec :: Int -&gt; ReadS ProresParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680001359"><span id="local-6989586621680001361"><span class="annot"><span class="annottext">ProresParControl -&gt; ProresParControl -&gt; Bool
+(ProresParControl -&gt; ProresParControl -&gt; Bool)
+-&gt; (ProresParControl -&gt; ProresParControl -&gt; Bool)
+-&gt; Eq ProresParControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProresParControl -&gt; ProresParControl -&gt; Bool
+$c/= :: ProresParControl -&gt; ProresParControl -&gt; Bool
+== :: ProresParControl -&gt; ProresParControl -&gt; Bool
+$c== :: ProresParControl -&gt; ProresParControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680001343"><span id="local-6989586621680001345"><span id="local-6989586621680001347"><span id="local-6989586621680001349"><span id="local-6989586621680001351"><span id="local-6989586621680001353"><span id="local-6989586621680001355"><span class="annot"><span class="annottext">Eq ProresParControl
+Eq ProresParControl
+-&gt; (ProresParControl -&gt; ProresParControl -&gt; Ordering)
+-&gt; (ProresParControl -&gt; ProresParControl -&gt; Bool)
+-&gt; (ProresParControl -&gt; ProresParControl -&gt; Bool)
+-&gt; (ProresParControl -&gt; ProresParControl -&gt; Bool)
+-&gt; (ProresParControl -&gt; ProresParControl -&gt; Bool)
+-&gt; (ProresParControl -&gt; ProresParControl -&gt; ProresParControl)
+-&gt; (ProresParControl -&gt; ProresParControl -&gt; ProresParControl)
+-&gt; Ord ProresParControl
+ProresParControl -&gt; ProresParControl -&gt; Bool
+ProresParControl -&gt; ProresParControl -&gt; Ordering
+ProresParControl -&gt; ProresParControl -&gt; ProresParControl
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ProresParControl -&gt; ProresParControl -&gt; ProresParControl
+$cmin :: ProresParControl -&gt; ProresParControl -&gt; ProresParControl
+max :: ProresParControl -&gt; ProresParControl -&gt; ProresParControl
+$cmax :: ProresParControl -&gt; ProresParControl -&gt; ProresParControl
+&gt;= :: ProresParControl -&gt; ProresParControl -&gt; Bool
+$c&gt;= :: ProresParControl -&gt; ProresParControl -&gt; Bool
+&gt; :: ProresParControl -&gt; ProresParControl -&gt; Bool
+$c&gt; :: ProresParControl -&gt; ProresParControl -&gt; Bool
+&lt;= :: ProresParControl -&gt; ProresParControl -&gt; Bool
+$c&lt;= :: ProresParControl -&gt; ProresParControl -&gt; Bool
+&lt; :: ProresParControl -&gt; ProresParControl -&gt; Bool
+$c&lt; :: ProresParControl -&gt; ProresParControl -&gt; Bool
+compare :: ProresParControl -&gt; ProresParControl -&gt; Ordering
+$ccompare :: ProresParControl -&gt; ProresParControl -&gt; Ordering
+$cp1Ord :: Eq ProresParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ProresParControl -&gt; Rep ProresParControl x)
+-&gt; (forall x. Rep ProresParControl x -&gt; ProresParControl)
+-&gt; Generic ProresParControl
+forall x. Rep ProresParControl x -&gt; ProresParControl
+forall x. ProresParControl -&gt; Rep ProresParControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProresParControl x -&gt; ProresParControl
+$cfrom :: forall x. ProresParControl -&gt; Rep ProresParControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680001335"><span id="local-6989586621680001337"><span class="annot"><span class="annottext">Int -&gt; ProresParControl -&gt; Int
+ProresParControl -&gt; Int
+(Int -&gt; ProresParControl -&gt; Int)
+-&gt; (ProresParControl -&gt; Int) -&gt; Hashable ProresParControl
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ProresParControl -&gt; Int
+$chash :: ProresParControl -&gt; Int
+hashWithSalt :: Int -&gt; ProresParControl -&gt; Int
+$chashWithSalt :: Int -&gt; ProresParControl -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680001332"><span class="annot"><span class="annottext">ProresParControl -&gt; ()
+(ProresParControl -&gt; ()) -&gt; NFData ProresParControl
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ProresParControl -&gt; ()
+$crnf :: ProresParControl -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680001329"><span class="annot"><span class="annottext">Text -&gt; Either String ProresParControl
+(Text -&gt; Either String ProresParControl)
+-&gt; FromText ProresParControl
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ProresParControl
+$cfromText :: Text -&gt; Either String ProresParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680001326"><span class="annot"><span class="annottext">ProresParControl -&gt; Text
+(ProresParControl -&gt; Text) -&gt; ToText ProresParControl
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ProresParControl -&gt; Text
+$ctoText :: ProresParControl -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680001323"><span class="annot"><span class="annottext">ProresParControl -&gt; ByteString
+(ProresParControl -&gt; ByteString) -&gt; ToByteString ProresParControl
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ProresParControl -&gt; ByteString
+$ctoBS :: ProresParControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680001320"><span class="annot"><span class="annottext">ProresParControl -&gt; ByteStringBuilder
+(ProresParControl -&gt; ByteStringBuilder) -&gt; ToLog ProresParControl
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ProresParControl -&gt; ByteStringBuilder
+$cbuild :: ProresParControl -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680001317"><span class="annot"><span class="annottext">HeaderName -&gt; ProresParControl -&gt; [Header]
+(HeaderName -&gt; ProresParControl -&gt; [Header])
+-&gt; ToHeader ProresParControl
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ProresParControl -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ProresParControl -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680001314"><span class="annot"><span class="annottext">ProresParControl -&gt; QueryString
+(ProresParControl -&gt; QueryString) -&gt; ToQuery ProresParControl
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ProresParControl -&gt; QueryString
+$ctoQuery :: ProresParControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680001309"><span id="local-6989586621680001311"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresParControl]
+Value -&gt; Parser ProresParControl
+(Value -&gt; Parser ProresParControl)
+-&gt; (Value -&gt; Parser [ProresParControl])
+-&gt; FromJSON ProresParControl
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ProresParControl]
+$cparseJSONList :: Value -&gt; Parser [ProresParControl]
+parseJSON :: Value -&gt; Parser ProresParControl
+$cparseJSON :: Value -&gt; Parser ProresParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680001304"><span id="local-6989586621680001306"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresParControl]
+FromJSONKeyFunction ProresParControl
+FromJSONKeyFunction ProresParControl
+-&gt; FromJSONKeyFunction [ProresParControl]
+-&gt; FromJSONKey ProresParControl
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ProresParControl]
+$cfromJSONKeyList :: FromJSONKeyFunction [ProresParControl]
+fromJSONKey :: FromJSONKeyFunction ProresParControl
+$cfromJSONKey :: FromJSONKeyFunction ProresParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680001295"><span id="local-6989586621680001297"><span id="local-6989586621680001299"><span id="local-6989586621680001301"><span class="annot"><span class="annottext">[ProresParControl] -&gt; Encoding
+[ProresParControl] -&gt; Value
+ProresParControl -&gt; Encoding
+ProresParControl -&gt; Value
+(ProresParControl -&gt; Value)
+-&gt; (ProresParControl -&gt; Encoding)
+-&gt; ([ProresParControl] -&gt; Value)
+-&gt; ([ProresParControl] -&gt; Encoding)
+-&gt; ToJSON ProresParControl
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ProresParControl] -&gt; Encoding
+$ctoEncodingList :: [ProresParControl] -&gt; Encoding
+toJSONList :: [ProresParControl] -&gt; Value
+$ctoJSONList :: [ProresParControl] -&gt; Value
+toEncoding :: ProresParControl -&gt; Encoding
+$ctoEncoding :: ProresParControl -&gt; Encoding
+toJSON :: ProresParControl -&gt; Value
+$ctoJSON :: ProresParControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680001290"><span id="local-6989586621680001292"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresParControl]
+ToJSONKeyFunction ProresParControl
+ToJSONKeyFunction ProresParControl
+-&gt; ToJSONKeyFunction [ProresParControl]
+-&gt; ToJSONKey ProresParControl
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ProresParControl]
+$ctoJSONKeyList :: ToJSONKeyFunction [ProresParControl]
+toJSONKey :: ToJSONKeyFunction ProresParControl
+$ctoJSONKey :: ToJSONKeyFunction ProresParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680001287"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresParControl
+([Node] -&gt; Either String ProresParControl)
+-&gt; FromXML ProresParControl
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ProresParControl
+$cparseXML :: [Node] -&gt; Either String ProresParControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680001284"><span class="annot"><span class="annottext">ProresParControl -&gt; XML
+(ProresParControl -&gt; XML) -&gt; ToXML ProresParControl
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ProresParControl -&gt; XML
+$ctoXML :: ProresParControl -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl_INITIALIZE_FROM_SOURCE"><span class="hs-identifier hs-type">ProresParControl_INITIALIZE_FROM_SOURCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl"><span class="hs-identifier hs-type">ProresParControl</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProresParControl_INITIALIZE_FROM_SOURCE"><span id="%24mProresParControl_INITIALIZE_FROM_SOURCE"><span id="ProresParControl_INITIALIZE_FROM_SOURCE"><span class="annot"><span class="annottext">$bProresParControl_INITIALIZE_FROM_SOURCE :: ProresParControl
+$mProresParControl_INITIALIZE_FROM_SOURCE :: forall r. ProresParControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ProresParControl.html#%24bProresParControl_INITIALIZE_FROM_SOURCE"><span class="hs-identifier hs-var hs-var hs-var">ProresParControl_INITIALIZE_FROM_SOURCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl%27"><span class="hs-identifier hs-type">ProresParControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INITIALIZE_FROM_SOURCE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl_SPECIFIED"><span class="hs-identifier hs-type">ProresParControl_SPECIFIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl"><span class="hs-identifier hs-type">ProresParControl</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProresParControl_SPECIFIED"><span id="%24mProresParControl_SPECIFIED"><span id="ProresParControl_SPECIFIED"><span class="annot"><span class="annottext">$bProresParControl_SPECIFIED :: ProresParControl
+$mProresParControl_SPECIFIED :: forall r. ProresParControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.ProresParControl.html#%24bProresParControl_SPECIFIED"><span class="hs-identifier hs-var hs-var hs-var">ProresParControl_SPECIFIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl%27"><span class="hs-identifier hs-type">ProresParControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPECIFIED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl_INITIALIZE_FROM_SOURCE"><span class="hs-pragma hs-type">ProresParControl_INITIALIZE_FROM_SOURCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl_SPECIFIED"><span class="hs-pragma hs-type">ProresParControl_SPECIFIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.ProresParControl.html#ProresParControl%27"><span class="hs-pragma hs-type">ProresParControl'</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-79"></span></pre></body></html>

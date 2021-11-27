@@ -1,0 +1,1360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | LoRaWANGetServiceProfileInfo object.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLoRaWANGetServiceProfileInfo' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679274971"><span id="local-6989586621679274972"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoRaWANGetServiceProfileInfo"><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-var">LoRaWANGetServiceProfileInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoRaWANGetServiceProfileInfo%27"><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">LoRaWANGetServiceProfileInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AddGWMetaData value.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AaddGwMetadata%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AaddGwMetadata%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">addGwMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The PRAllowed value that describes whether passive roaming is allowed.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AprAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AprAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">prAllowed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The DRMax value.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdrMax%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdrMax%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">drMax</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The DLRate value.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdlRate%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdlRate%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">dlRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The DevStatusReqFreq value.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdevStatusReqFreq%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdevStatusReqFreq%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">devStatusReqFreq</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ReportDevStatusBattery value.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AreportDevStatusBattery%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AreportDevStatusBattery%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">reportDevStatusBattery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The DLBucketSize value.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdlBucketSize%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdlBucketSize%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">dlBucketSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ULRatePolicy value.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AulRatePolicy%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AulRatePolicy%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">ulRatePolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The TargetPER value.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtargetPer%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AtargetPer%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">targetPer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The DRMin value.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdrMin%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdrMin%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">drMin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The NwkGeoLoc value.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AnwkGeoLoc%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AnwkGeoLoc%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">nwkGeoLoc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The ChannelMask value.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AchannelMask%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AchannelMask%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">channelMask</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The DLRatePolicy value.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdlRatePolicy%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdlRatePolicy%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">dlRatePolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The HRAllowed value that describes whether handover roaming is allowed.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AhrAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AhrAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">hrAllowed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ULBucketSize value.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AulBucketSize%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AulBucketSize%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">ulBucketSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ULRate value.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AulRate%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AulRate%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">ulRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ReportDevStatusMargin value.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AreportDevStatusMargin%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AreportDevStatusMargin%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">reportDevStatusMargin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The RAAllowed value that describes whether roaming activation is</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- allowed.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AraAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AraAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">raAllowed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The MinGwDiversity value.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AminGwDiversity%3ALoRaWANGetServiceProfileInfo%27"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AminGwDiversity%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var hs-var">minGwDiversity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274947"><span id="local-6989586621679274949"><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+-&gt; LoRaWANGetServiceProfileInfo -&gt; Bool
+(LoRaWANGetServiceProfileInfo
+ -&gt; LoRaWANGetServiceProfileInfo -&gt; Bool)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; LoRaWANGetServiceProfileInfo -&gt; Bool)
+-&gt; Eq LoRaWANGetServiceProfileInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LoRaWANGetServiceProfileInfo
+-&gt; LoRaWANGetServiceProfileInfo -&gt; Bool
+$c/= :: LoRaWANGetServiceProfileInfo
+-&gt; LoRaWANGetServiceProfileInfo -&gt; Bool
+== :: LoRaWANGetServiceProfileInfo
+-&gt; LoRaWANGetServiceProfileInfo -&gt; Bool
+$c== :: LoRaWANGetServiceProfileInfo
+-&gt; LoRaWANGetServiceProfileInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274938"><span id="local-6989586621679274940"><span id="local-6989586621679274942"><span id="local-6989586621679274944"><span class="annot"><span class="annottext">ReadPrec [LoRaWANGetServiceProfileInfo]
+ReadPrec LoRaWANGetServiceProfileInfo
+Int -&gt; ReadS LoRaWANGetServiceProfileInfo
+ReadS [LoRaWANGetServiceProfileInfo]
+(Int -&gt; ReadS LoRaWANGetServiceProfileInfo)
+-&gt; ReadS [LoRaWANGetServiceProfileInfo]
+-&gt; ReadPrec LoRaWANGetServiceProfileInfo
+-&gt; ReadPrec [LoRaWANGetServiceProfileInfo]
+-&gt; Read LoRaWANGetServiceProfileInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LoRaWANGetServiceProfileInfo]
+$creadListPrec :: ReadPrec [LoRaWANGetServiceProfileInfo]
+readPrec :: ReadPrec LoRaWANGetServiceProfileInfo
+$creadPrec :: ReadPrec LoRaWANGetServiceProfileInfo
+readList :: ReadS [LoRaWANGetServiceProfileInfo]
+$creadList :: ReadS [LoRaWANGetServiceProfileInfo]
+readsPrec :: Int -&gt; ReadS LoRaWANGetServiceProfileInfo
+$creadsPrec :: Int -&gt; ReadS LoRaWANGetServiceProfileInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274931"><span id="local-6989586621679274933"><span id="local-6989586621679274935"><span class="annot"><span class="annottext">Int -&gt; LoRaWANGetServiceProfileInfo -&gt; ShowS
+[LoRaWANGetServiceProfileInfo] -&gt; ShowS
+LoRaWANGetServiceProfileInfo -&gt; String
+(Int -&gt; LoRaWANGetServiceProfileInfo -&gt; ShowS)
+-&gt; (LoRaWANGetServiceProfileInfo -&gt; String)
+-&gt; ([LoRaWANGetServiceProfileInfo] -&gt; ShowS)
+-&gt; Show LoRaWANGetServiceProfileInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LoRaWANGetServiceProfileInfo] -&gt; ShowS
+$cshowList :: [LoRaWANGetServiceProfileInfo] -&gt; ShowS
+show :: LoRaWANGetServiceProfileInfo -&gt; String
+$cshow :: LoRaWANGetServiceProfileInfo -&gt; String
+showsPrec :: Int -&gt; LoRaWANGetServiceProfileInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; LoRaWANGetServiceProfileInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ LoRaWANGetServiceProfileInfo -&gt; Rep LoRaWANGetServiceProfileInfo x)
+-&gt; (forall x.
+    Rep LoRaWANGetServiceProfileInfo x -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Generic LoRaWANGetServiceProfileInfo
+forall x.
+Rep LoRaWANGetServiceProfileInfo x -&gt; LoRaWANGetServiceProfileInfo
+forall x.
+LoRaWANGetServiceProfileInfo -&gt; Rep LoRaWANGetServiceProfileInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LoRaWANGetServiceProfileInfo x -&gt; LoRaWANGetServiceProfileInfo
+$cfrom :: forall x.
+LoRaWANGetServiceProfileInfo -&gt; Rep LoRaWANGetServiceProfileInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'LoRaWANGetServiceProfileInfo' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'addGwMetadata', 'loRaWANGetServiceProfileInfo_addGwMetadata' - The AddGWMetaData value.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'prAllowed', 'loRaWANGetServiceProfileInfo_prAllowed' - The PRAllowed value that describes whether passive roaming is allowed.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'drMax', 'loRaWANGetServiceProfileInfo_drMax' - The DRMax value.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'dlRate', 'loRaWANGetServiceProfileInfo_dlRate' - The DLRate value.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'devStatusReqFreq', 'loRaWANGetServiceProfileInfo_devStatusReqFreq' - The DevStatusReqFreq value.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'reportDevStatusBattery', 'loRaWANGetServiceProfileInfo_reportDevStatusBattery' - The ReportDevStatusBattery value.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'dlBucketSize', 'loRaWANGetServiceProfileInfo_dlBucketSize' - The DLBucketSize value.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'ulRatePolicy', 'loRaWANGetServiceProfileInfo_ulRatePolicy' - The ULRatePolicy value.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'targetPer', 'loRaWANGetServiceProfileInfo_targetPer' - The TargetPER value.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'drMin', 'loRaWANGetServiceProfileInfo_drMin' - The DRMin value.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'nwkGeoLoc', 'loRaWANGetServiceProfileInfo_nwkGeoLoc' - The NwkGeoLoc value.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'channelMask', 'loRaWANGetServiceProfileInfo_channelMask' - The ChannelMask value.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'dlRatePolicy', 'loRaWANGetServiceProfileInfo_dlRatePolicy' - The DLRatePolicy value.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'hrAllowed', 'loRaWANGetServiceProfileInfo_hrAllowed' - The HRAllowed value that describes whether handover roaming is allowed.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'ulBucketSize', 'loRaWANGetServiceProfileInfo_ulBucketSize' - The ULBucketSize value.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'ulRate', 'loRaWANGetServiceProfileInfo_ulRate' - The ULRate value.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'reportDevStatusMargin', 'loRaWANGetServiceProfileInfo_reportDevStatusMargin' - The ReportDevStatusMargin value.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'raAllowed', 'loRaWANGetServiceProfileInfo_raAllowed' - The RAAllowed value that describes whether roaming activation is</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- allowed.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'minGwDiversity', 'loRaWANGetServiceProfileInfo_minGwDiversity' - The MinGwDiversity value.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#newLoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">newLoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span>
+</span><span id="line-120"></span><span id="newLoRaWANGetServiceProfileInfo"><span class="annot"><span class="annottext">newLoRaWANGetServiceProfileInfo :: LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#newLoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-var hs-var">newLoRaWANGetServiceProfileInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo' :: Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addGwMetadata:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AaddGwMetadata%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">addGwMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:prAllowed:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AprAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">prAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:drMax:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdrMax%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">drMax</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:dlRate:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdlRate%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">dlRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:devStatusReqFreq:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdevStatusReqFreq%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">devStatusReqFreq</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportDevStatusBattery:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AreportDevStatusBattery%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">reportDevStatusBattery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:dlBucketSize:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdlBucketSize%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">dlBucketSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:ulRatePolicy:LoRaWANGetServiceProfileInfo' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AulRatePolicy%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">ulRatePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetPer:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AtargetPer%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">targetPer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:drMin:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdrMin%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">drMin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:nwkGeoLoc:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AnwkGeoLoc%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">nwkGeoLoc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelMask:LoRaWANGetServiceProfileInfo' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AchannelMask%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">channelMask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:dlRatePolicy:LoRaWANGetServiceProfileInfo' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdlRatePolicy%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">dlRatePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:hrAllowed:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AhrAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">hrAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:ulBucketSize:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AulBucketSize%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">ulBucketSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:ulRate:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AulRate%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">ulRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportDevStatusMargin:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AreportDevStatusMargin%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">reportDevStatusMargin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:raAllowed:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AraAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">raAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:minGwDiversity:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AminGwDiversity%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">minGwDiversity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The AddGWMetaData value.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_addGwMetadata"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_addGwMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="loRaWANGetServiceProfileInfo_addGwMetadata"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_addGwMetadata :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_addGwMetadata"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_addGwMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Bool)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Bool -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274922"><span class="annot"><span class="annottext">Maybe Bool
+addGwMetadata :: Maybe Bool
+$sel:addGwMetadata:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="#local-6989586621679274922"><span class="hs-identifier hs-var hs-var">addGwMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274922"><span class="hs-identifier hs-var">addGwMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274921"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274920"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addGwMetadata:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AaddGwMetadata%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">addGwMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The PRAllowed value that describes whether passive roaming is allowed.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_prAllowed"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_prAllowed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="loRaWANGetServiceProfileInfo_prAllowed"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_prAllowed :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_prAllowed"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_prAllowed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Bool)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Bool -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274918"><span class="annot"><span class="annottext">Maybe Bool
+prAllowed :: Maybe Bool
+$sel:prAllowed:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="#local-6989586621679274918"><span class="hs-identifier hs-var hs-var">prAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274918"><span class="hs-identifier hs-var">prAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274917"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274916"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prAllowed:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AprAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">prAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The DRMax value.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_drMax"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_drMax</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="loRaWANGetServiceProfileInfo_drMax"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_drMax :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_drMax"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_drMax</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Natural)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274914"><span class="annot"><span class="annottext">Maybe Natural
+drMax :: Maybe Natural
+$sel:drMax:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679274914"><span class="hs-identifier hs-var hs-var">drMax</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274914"><span class="hs-identifier hs-var">drMax</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274913"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274912"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:drMax:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdrMax%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">drMax</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The DLRate value.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_dlRate"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_dlRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="loRaWANGetServiceProfileInfo_dlRate"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_dlRate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_dlRate"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_dlRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Natural)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274910"><span class="annot"><span class="annottext">Maybe Natural
+dlRate :: Maybe Natural
+$sel:dlRate:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679274910"><span class="hs-identifier hs-var hs-var">dlRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274910"><span class="hs-identifier hs-var">dlRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274909"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274908"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dlRate:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdlRate%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">dlRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The DevStatusReqFreq value.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_devStatusReqFreq"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_devStatusReqFreq</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="loRaWANGetServiceProfileInfo_devStatusReqFreq"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_devStatusReqFreq :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_devStatusReqFreq"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_devStatusReqFreq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Natural)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274906"><span class="annot"><span class="annottext">Maybe Natural
+devStatusReqFreq :: Maybe Natural
+$sel:devStatusReqFreq:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679274906"><span class="hs-identifier hs-var hs-var">devStatusReqFreq</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274906"><span class="hs-identifier hs-var">devStatusReqFreq</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274905"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274904"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devStatusReqFreq:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdevStatusReqFreq%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">devStatusReqFreq</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The ReportDevStatusBattery value.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_reportDevStatusBattery"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_reportDevStatusBattery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="loRaWANGetServiceProfileInfo_reportDevStatusBattery"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_reportDevStatusBattery :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_reportDevStatusBattery"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_reportDevStatusBattery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Bool)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Bool -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274902"><span class="annot"><span class="annottext">Maybe Bool
+reportDevStatusBattery :: Maybe Bool
+$sel:reportDevStatusBattery:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="#local-6989586621679274902"><span class="hs-identifier hs-var hs-var">reportDevStatusBattery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274902"><span class="hs-identifier hs-var">reportDevStatusBattery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274901"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274900"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportDevStatusBattery:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AreportDevStatusBattery%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">reportDevStatusBattery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The DLBucketSize value.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_dlBucketSize"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_dlBucketSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="loRaWANGetServiceProfileInfo_dlBucketSize"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_dlBucketSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_dlBucketSize"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_dlBucketSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Natural)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274898"><span class="annot"><span class="annottext">Maybe Natural
+dlBucketSize :: Maybe Natural
+$sel:dlBucketSize:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679274898"><span class="hs-identifier hs-var hs-var">dlBucketSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274898"><span class="hs-identifier hs-var">dlBucketSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274897"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274896"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dlBucketSize:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdlBucketSize%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">dlBucketSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The ULRatePolicy value.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_ulRatePolicy"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_ulRatePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="loRaWANGetServiceProfileInfo_ulRatePolicy"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_ulRatePolicy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_ulRatePolicy"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_ulRatePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Text)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Text -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274894"><span class="annot"><span class="annottext">Maybe Text
+ulRatePolicy :: Maybe Text
+$sel:ulRatePolicy:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679274894"><span class="hs-identifier hs-var hs-var">ulRatePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274894"><span class="hs-identifier hs-var">ulRatePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274893"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ulRatePolicy:LoRaWANGetServiceProfileInfo' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AulRatePolicy%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">ulRatePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The TargetPER value.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_targetPer"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_targetPer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="loRaWANGetServiceProfileInfo_targetPer"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_targetPer :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_targetPer"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_targetPer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Natural)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274890"><span class="annot"><span class="annottext">Maybe Natural
+targetPer :: Maybe Natural
+$sel:targetPer:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679274890"><span class="hs-identifier hs-var hs-var">targetPer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274890"><span class="hs-identifier hs-var">targetPer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274889"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274888"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPer:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AtargetPer%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">targetPer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The DRMin value.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_drMin"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_drMin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="loRaWANGetServiceProfileInfo_drMin"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_drMin :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_drMin"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_drMin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Natural)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274886"><span class="annot"><span class="annottext">Maybe Natural
+drMin :: Maybe Natural
+$sel:drMin:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679274886"><span class="hs-identifier hs-var hs-var">drMin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274886"><span class="hs-identifier hs-var">drMin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274885"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274884"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:drMin:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdrMin%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">drMin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The NwkGeoLoc value.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_nwkGeoLoc"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_nwkGeoLoc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="loRaWANGetServiceProfileInfo_nwkGeoLoc"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_nwkGeoLoc :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_nwkGeoLoc"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_nwkGeoLoc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Bool)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Bool -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274882"><span class="annot"><span class="annottext">Maybe Bool
+nwkGeoLoc :: Maybe Bool
+$sel:nwkGeoLoc:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="#local-6989586621679274882"><span class="hs-identifier hs-var hs-var">nwkGeoLoc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274882"><span class="hs-identifier hs-var">nwkGeoLoc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274881"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274880"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nwkGeoLoc:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AnwkGeoLoc%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">nwkGeoLoc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The ChannelMask value.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_channelMask"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_channelMask</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="loRaWANGetServiceProfileInfo_channelMask"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_channelMask :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_channelMask"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_channelMask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Text)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Text -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274878"><span class="annot"><span class="annottext">Maybe Text
+channelMask :: Maybe Text
+$sel:channelMask:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679274878"><span class="hs-identifier hs-var hs-var">channelMask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274878"><span class="hs-identifier hs-var">channelMask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274877"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274876"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelMask:LoRaWANGetServiceProfileInfo' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AchannelMask%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">channelMask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The DLRatePolicy value.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_dlRatePolicy"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_dlRatePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="loRaWANGetServiceProfileInfo_dlRatePolicy"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_dlRatePolicy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_dlRatePolicy"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_dlRatePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Text)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Text -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274874"><span class="annot"><span class="annottext">Maybe Text
+dlRatePolicy :: Maybe Text
+$sel:dlRatePolicy:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679274874"><span class="hs-identifier hs-var hs-var">dlRatePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274874"><span class="hs-identifier hs-var">dlRatePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274873"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274872"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dlRatePolicy:LoRaWANGetServiceProfileInfo' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AdlRatePolicy%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">dlRatePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The HRAllowed value that describes whether handover roaming is allowed.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_hrAllowed"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_hrAllowed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="loRaWANGetServiceProfileInfo_hrAllowed"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_hrAllowed :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_hrAllowed"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_hrAllowed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Bool)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Bool -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274870"><span class="annot"><span class="annottext">Maybe Bool
+hrAllowed :: Maybe Bool
+$sel:hrAllowed:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="#local-6989586621679274870"><span class="hs-identifier hs-var hs-var">hrAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274870"><span class="hs-identifier hs-var">hrAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274869"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274868"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hrAllowed:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AhrAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">hrAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The ULBucketSize value.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_ulBucketSize"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_ulBucketSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="loRaWANGetServiceProfileInfo_ulBucketSize"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_ulBucketSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_ulBucketSize"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_ulBucketSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Natural)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274866"><span class="annot"><span class="annottext">Maybe Natural
+ulBucketSize :: Maybe Natural
+$sel:ulBucketSize:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679274866"><span class="hs-identifier hs-var hs-var">ulBucketSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274866"><span class="hs-identifier hs-var">ulBucketSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274865"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274864"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ulBucketSize:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AulBucketSize%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">ulBucketSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The ULRate value.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_ulRate"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_ulRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="loRaWANGetServiceProfileInfo_ulRate"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_ulRate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_ulRate"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_ulRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Natural)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274862"><span class="annot"><span class="annottext">Maybe Natural
+ulRate :: Maybe Natural
+$sel:ulRate:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679274862"><span class="hs-identifier hs-var hs-var">ulRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274862"><span class="hs-identifier hs-var">ulRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274861"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274860"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ulRate:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AulRate%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">ulRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The ReportDevStatusMargin value.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_reportDevStatusMargin"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_reportDevStatusMargin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="loRaWANGetServiceProfileInfo_reportDevStatusMargin"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_reportDevStatusMargin :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_reportDevStatusMargin"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_reportDevStatusMargin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Bool)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Bool -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274858"><span class="annot"><span class="annottext">Maybe Bool
+reportDevStatusMargin :: Maybe Bool
+$sel:reportDevStatusMargin:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="#local-6989586621679274858"><span class="hs-identifier hs-var hs-var">reportDevStatusMargin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274858"><span class="hs-identifier hs-var">reportDevStatusMargin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274857"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274856"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportDevStatusMargin:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AreportDevStatusMargin%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">reportDevStatusMargin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The RAAllowed value that describes whether roaming activation is</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- allowed.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_raAllowed"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_raAllowed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="loRaWANGetServiceProfileInfo_raAllowed"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_raAllowed :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_raAllowed"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_raAllowed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Bool)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Bool -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274854"><span class="annot"><span class="annottext">Maybe Bool
+raAllowed :: Maybe Bool
+$sel:raAllowed:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Bool
+</span><a href="#local-6989586621679274854"><span class="hs-identifier hs-var hs-var">raAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274854"><span class="hs-identifier hs-var">raAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274853"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274852"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:raAllowed:LoRaWANGetServiceProfileInfo' :: Maybe Bool
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AraAllowed%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">raAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The MinGwDiversity value.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_minGwDiversity"><span class="hs-identifier hs-type">loRaWANGetServiceProfileInfo_minGwDiversity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="loRaWANGetServiceProfileInfo_minGwDiversity"><span class="annot"><span class="annottext">loRaWANGetServiceProfileInfo_minGwDiversity :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LoRaWANGetServiceProfileInfo -&gt; f LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#loRaWANGetServiceProfileInfo_minGwDiversity"><span class="hs-identifier hs-var hs-var">loRaWANGetServiceProfileInfo_minGwDiversity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANGetServiceProfileInfo -&gt; Maybe Natural)
+-&gt; (LoRaWANGetServiceProfileInfo
+    -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Lens
+     LoRaWANGetServiceProfileInfo
+     LoRaWANGetServiceProfileInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274850"><span class="annot"><span class="annottext">Maybe Natural
+minGwDiversity :: Maybe Natural
+$sel:minGwDiversity:LoRaWANGetServiceProfileInfo' :: LoRaWANGetServiceProfileInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679274850"><span class="hs-identifier hs-var hs-var">minGwDiversity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274850"><span class="hs-identifier hs-var">minGwDiversity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274849"><span class="annot"><span class="annottext">s :: LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274848"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANGetServiceProfileInfo
+</span><a href="#local-6989586621679274849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minGwDiversity:LoRaWANGetServiceProfileInfo' :: Maybe Natural
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#%24sel%3AminGwDiversity%3ALoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">minGwDiversity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274845"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679274843"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoRaWANGetServiceProfileInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LoRaWANGetServiceProfileInfo)
+-&gt; Value
+-&gt; Parser LoRaWANGetServiceProfileInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LoRaWANGetServiceProfileInfo&quot;</span></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274840"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; LoRaWANGetServiceProfileInfo
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo%27"><span class="hs-identifier hs-var">LoRaWANGetServiceProfileInfo'</span></a></span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Bool
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Natural
+ -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AddGwMetadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrAllowed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DrMax&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DlRate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DevStatusReqFreq&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportDevStatusBattery&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DlBucketSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UlRatePolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetPer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DrMin&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NwkGeoLoc&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelMask&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DlRatePolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HrAllowed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
+      -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UlBucketSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
+   -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UlRate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportDevStatusMargin&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool -&gt; Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RaAllowed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; LoRaWANGetServiceProfileInfo)
+-&gt; Parser (Maybe Natural) -&gt; Parser LoRaWANGetServiceProfileInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinGwDiversity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679274834"><span id="local-6989586621679274836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span></span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo.html#LoRaWANGetServiceProfileInfo"><span class="hs-identifier hs-type">LoRaWANGetServiceProfileInfo</span></a></span></span><span>
+</span><span id="line-253"></span></pre></body></html>

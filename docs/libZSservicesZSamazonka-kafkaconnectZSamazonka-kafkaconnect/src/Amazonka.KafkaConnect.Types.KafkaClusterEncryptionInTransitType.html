@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType"><span class="hs-identifier">KafkaClusterEncryptionInTransitType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType_PLAINTEXT"><span class="hs-identifier">KafkaClusterEncryptionInTransitType_PLAINTEXT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType_TLS"><span class="hs-identifier">KafkaClusterEncryptionInTransitType_TLS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679201889"><span id="local-6989586621679201890"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KafkaClusterEncryptionInTransitType"><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType"><span class="hs-identifier hs-var">KafkaClusterEncryptionInTransitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KafkaClusterEncryptionInTransitType%27"><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType%27"><span class="hs-identifier hs-var">KafkaClusterEncryptionInTransitType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromKafkaClusterEncryptionInTransitType"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransitType -&gt; Text
+</span><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#fromKafkaClusterEncryptionInTransitType"><span class="hs-identifier hs-var hs-var">fromKafkaClusterEncryptionInTransitType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201881"><span id="local-6989586621679201883"><span id="local-6989586621679201885"><span class="annot"><span class="annottext">Int -&gt; KafkaClusterEncryptionInTransitType -&gt; ShowS
+[KafkaClusterEncryptionInTransitType] -&gt; ShowS
+KafkaClusterEncryptionInTransitType -&gt; String
+(Int -&gt; KafkaClusterEncryptionInTransitType -&gt; ShowS)
+-&gt; (KafkaClusterEncryptionInTransitType -&gt; String)
+-&gt; ([KafkaClusterEncryptionInTransitType] -&gt; ShowS)
+-&gt; Show KafkaClusterEncryptionInTransitType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [KafkaClusterEncryptionInTransitType] -&gt; ShowS
+$cshowList :: [KafkaClusterEncryptionInTransitType] -&gt; ShowS
+show :: KafkaClusterEncryptionInTransitType -&gt; String
+$cshow :: KafkaClusterEncryptionInTransitType -&gt; String
+showsPrec :: Int -&gt; KafkaClusterEncryptionInTransitType -&gt; ShowS
+$cshowsPrec :: Int -&gt; KafkaClusterEncryptionInTransitType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679201872"><span id="local-6989586621679201874"><span id="local-6989586621679201876"><span id="local-6989586621679201878"><span class="annot"><span class="annottext">ReadPrec [KafkaClusterEncryptionInTransitType]
+ReadPrec KafkaClusterEncryptionInTransitType
+Int -&gt; ReadS KafkaClusterEncryptionInTransitType
+ReadS [KafkaClusterEncryptionInTransitType]
+(Int -&gt; ReadS KafkaClusterEncryptionInTransitType)
+-&gt; ReadS [KafkaClusterEncryptionInTransitType]
+-&gt; ReadPrec KafkaClusterEncryptionInTransitType
+-&gt; ReadPrec [KafkaClusterEncryptionInTransitType]
+-&gt; Read KafkaClusterEncryptionInTransitType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [KafkaClusterEncryptionInTransitType]
+$creadListPrec :: ReadPrec [KafkaClusterEncryptionInTransitType]
+readPrec :: ReadPrec KafkaClusterEncryptionInTransitType
+$creadPrec :: ReadPrec KafkaClusterEncryptionInTransitType
+readList :: ReadS [KafkaClusterEncryptionInTransitType]
+$creadList :: ReadS [KafkaClusterEncryptionInTransitType]
+readsPrec :: Int -&gt; ReadS KafkaClusterEncryptionInTransitType
+$creadsPrec :: Int -&gt; ReadS KafkaClusterEncryptionInTransitType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679201867"><span id="local-6989586621679201869"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+(KafkaClusterEncryptionInTransitType
+ -&gt; KafkaClusterEncryptionInTransitType -&gt; Bool)
+-&gt; (KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType -&gt; Bool)
+-&gt; Eq KafkaClusterEncryptionInTransitType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+$c/= :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+== :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+$c== :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679201851"><span id="local-6989586621679201853"><span id="local-6989586621679201855"><span id="local-6989586621679201857"><span id="local-6989586621679201859"><span id="local-6989586621679201861"><span id="local-6989586621679201863"><span class="annot"><span class="annottext">Eq KafkaClusterEncryptionInTransitType
+Eq KafkaClusterEncryptionInTransitType
+-&gt; (KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType -&gt; Ordering)
+-&gt; (KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType -&gt; Bool)
+-&gt; (KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType -&gt; Bool)
+-&gt; (KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType -&gt; Bool)
+-&gt; (KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType -&gt; Bool)
+-&gt; (KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType)
+-&gt; (KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType
+    -&gt; KafkaClusterEncryptionInTransitType)
+-&gt; Ord KafkaClusterEncryptionInTransitType
+KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Ordering
+KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+$cmin :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+max :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+$cmax :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType
+&gt;= :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+$c&gt;= :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+&gt; :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+$c&gt; :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+&lt;= :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+$c&lt;= :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+&lt; :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+$c&lt; :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Bool
+compare :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Ordering
+$ccompare :: KafkaClusterEncryptionInTransitType
+-&gt; KafkaClusterEncryptionInTransitType -&gt; Ordering
+$cp1Ord :: Eq KafkaClusterEncryptionInTransitType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ KafkaClusterEncryptionInTransitType
+ -&gt; Rep KafkaClusterEncryptionInTransitType x)
+-&gt; (forall x.
+    Rep KafkaClusterEncryptionInTransitType x
+    -&gt; KafkaClusterEncryptionInTransitType)
+-&gt; Generic KafkaClusterEncryptionInTransitType
+forall x.
+Rep KafkaClusterEncryptionInTransitType x
+-&gt; KafkaClusterEncryptionInTransitType
+forall x.
+KafkaClusterEncryptionInTransitType
+-&gt; Rep KafkaClusterEncryptionInTransitType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep KafkaClusterEncryptionInTransitType x
+-&gt; KafkaClusterEncryptionInTransitType
+$cfrom :: forall x.
+KafkaClusterEncryptionInTransitType
+-&gt; Rep KafkaClusterEncryptionInTransitType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201843"><span id="local-6989586621679201845"><span class="annot"><span class="annottext">Int -&gt; KafkaClusterEncryptionInTransitType -&gt; Int
+KafkaClusterEncryptionInTransitType -&gt; Int
+(Int -&gt; KafkaClusterEncryptionInTransitType -&gt; Int)
+-&gt; (KafkaClusterEncryptionInTransitType -&gt; Int)
+-&gt; Hashable KafkaClusterEncryptionInTransitType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: KafkaClusterEncryptionInTransitType -&gt; Int
+$chash :: KafkaClusterEncryptionInTransitType -&gt; Int
+hashWithSalt :: Int -&gt; KafkaClusterEncryptionInTransitType -&gt; Int
+$chashWithSalt :: Int -&gt; KafkaClusterEncryptionInTransitType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679201840"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransitType -&gt; ()
+(KafkaClusterEncryptionInTransitType -&gt; ())
+-&gt; NFData KafkaClusterEncryptionInTransitType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: KafkaClusterEncryptionInTransitType -&gt; ()
+$crnf :: KafkaClusterEncryptionInTransitType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679201837"><span class="annot"><span class="annottext">Text -&gt; Either String KafkaClusterEncryptionInTransitType
+(Text -&gt; Either String KafkaClusterEncryptionInTransitType)
+-&gt; FromText KafkaClusterEncryptionInTransitType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String KafkaClusterEncryptionInTransitType
+$cfromText :: Text -&gt; Either String KafkaClusterEncryptionInTransitType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679201834"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransitType -&gt; Text
+(KafkaClusterEncryptionInTransitType -&gt; Text)
+-&gt; ToText KafkaClusterEncryptionInTransitType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: KafkaClusterEncryptionInTransitType -&gt; Text
+$ctoText :: KafkaClusterEncryptionInTransitType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679201831"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransitType -&gt; ByteString
+(KafkaClusterEncryptionInTransitType -&gt; ByteString)
+-&gt; ToByteString KafkaClusterEncryptionInTransitType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: KafkaClusterEncryptionInTransitType -&gt; ByteString
+$ctoBS :: KafkaClusterEncryptionInTransitType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679201828"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransitType -&gt; ByteStringBuilder
+(KafkaClusterEncryptionInTransitType -&gt; ByteStringBuilder)
+-&gt; ToLog KafkaClusterEncryptionInTransitType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: KafkaClusterEncryptionInTransitType -&gt; ByteStringBuilder
+$cbuild :: KafkaClusterEncryptionInTransitType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679201825"><span class="annot"><span class="annottext">HeaderName -&gt; KafkaClusterEncryptionInTransitType -&gt; [Header]
+(HeaderName -&gt; KafkaClusterEncryptionInTransitType -&gt; [Header])
+-&gt; ToHeader KafkaClusterEncryptionInTransitType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; KafkaClusterEncryptionInTransitType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; KafkaClusterEncryptionInTransitType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201822"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransitType -&gt; QueryString
+(KafkaClusterEncryptionInTransitType -&gt; QueryString)
+-&gt; ToQuery KafkaClusterEncryptionInTransitType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: KafkaClusterEncryptionInTransitType -&gt; QueryString
+$ctoQuery :: KafkaClusterEncryptionInTransitType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201817"><span id="local-6989586621679201819"><span class="annot"><span class="annottext">Value -&gt; Parser [KafkaClusterEncryptionInTransitType]
+Value -&gt; Parser KafkaClusterEncryptionInTransitType
+(Value -&gt; Parser KafkaClusterEncryptionInTransitType)
+-&gt; (Value -&gt; Parser [KafkaClusterEncryptionInTransitType])
+-&gt; FromJSON KafkaClusterEncryptionInTransitType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [KafkaClusterEncryptionInTransitType]
+$cparseJSONList :: Value -&gt; Parser [KafkaClusterEncryptionInTransitType]
+parseJSON :: Value -&gt; Parser KafkaClusterEncryptionInTransitType
+$cparseJSON :: Value -&gt; Parser KafkaClusterEncryptionInTransitType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201812"><span id="local-6989586621679201814"><span class="annot"><span class="annottext">FromJSONKeyFunction [KafkaClusterEncryptionInTransitType]
+FromJSONKeyFunction KafkaClusterEncryptionInTransitType
+FromJSONKeyFunction KafkaClusterEncryptionInTransitType
+-&gt; FromJSONKeyFunction [KafkaClusterEncryptionInTransitType]
+-&gt; FromJSONKey KafkaClusterEncryptionInTransitType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [KafkaClusterEncryptionInTransitType]
+$cfromJSONKeyList :: FromJSONKeyFunction [KafkaClusterEncryptionInTransitType]
+fromJSONKey :: FromJSONKeyFunction KafkaClusterEncryptionInTransitType
+$cfromJSONKey :: FromJSONKeyFunction KafkaClusterEncryptionInTransitType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201803"><span id="local-6989586621679201805"><span id="local-6989586621679201807"><span id="local-6989586621679201809"><span class="annot"><span class="annottext">[KafkaClusterEncryptionInTransitType] -&gt; Encoding
+[KafkaClusterEncryptionInTransitType] -&gt; Value
+KafkaClusterEncryptionInTransitType -&gt; Encoding
+KafkaClusterEncryptionInTransitType -&gt; Value
+(KafkaClusterEncryptionInTransitType -&gt; Value)
+-&gt; (KafkaClusterEncryptionInTransitType -&gt; Encoding)
+-&gt; ([KafkaClusterEncryptionInTransitType] -&gt; Value)
+-&gt; ([KafkaClusterEncryptionInTransitType] -&gt; Encoding)
+-&gt; ToJSON KafkaClusterEncryptionInTransitType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [KafkaClusterEncryptionInTransitType] -&gt; Encoding
+$ctoEncodingList :: [KafkaClusterEncryptionInTransitType] -&gt; Encoding
+toJSONList :: [KafkaClusterEncryptionInTransitType] -&gt; Value
+$ctoJSONList :: [KafkaClusterEncryptionInTransitType] -&gt; Value
+toEncoding :: KafkaClusterEncryptionInTransitType -&gt; Encoding
+$ctoEncoding :: KafkaClusterEncryptionInTransitType -&gt; Encoding
+toJSON :: KafkaClusterEncryptionInTransitType -&gt; Value
+$ctoJSON :: KafkaClusterEncryptionInTransitType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201798"><span id="local-6989586621679201800"><span class="annot"><span class="annottext">ToJSONKeyFunction [KafkaClusterEncryptionInTransitType]
+ToJSONKeyFunction KafkaClusterEncryptionInTransitType
+ToJSONKeyFunction KafkaClusterEncryptionInTransitType
+-&gt; ToJSONKeyFunction [KafkaClusterEncryptionInTransitType]
+-&gt; ToJSONKey KafkaClusterEncryptionInTransitType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [KafkaClusterEncryptionInTransitType]
+$ctoJSONKeyList :: ToJSONKeyFunction [KafkaClusterEncryptionInTransitType]
+toJSONKey :: ToJSONKeyFunction KafkaClusterEncryptionInTransitType
+$ctoJSONKey :: ToJSONKeyFunction KafkaClusterEncryptionInTransitType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201795"><span class="annot"><span class="annottext">[Node] -&gt; Either String KafkaClusterEncryptionInTransitType
+([Node] -&gt; Either String KafkaClusterEncryptionInTransitType)
+-&gt; FromXML KafkaClusterEncryptionInTransitType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String KafkaClusterEncryptionInTransitType
+$cparseXML :: [Node] -&gt; Either String KafkaClusterEncryptionInTransitType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201792"><span class="annot"><span class="annottext">KafkaClusterEncryptionInTransitType -&gt; XML
+(KafkaClusterEncryptionInTransitType -&gt; XML)
+-&gt; ToXML KafkaClusterEncryptionInTransitType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: KafkaClusterEncryptionInTransitType -&gt; XML
+$ctoXML :: KafkaClusterEncryptionInTransitType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType_PLAINTEXT"><span class="hs-identifier hs-type">KafkaClusterEncryptionInTransitType_PLAINTEXT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType"><span class="hs-identifier hs-type">KafkaClusterEncryptionInTransitType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKafkaClusterEncryptionInTransitType_PLAINTEXT"><span id="%24mKafkaClusterEncryptionInTransitType_PLAINTEXT"><span id="KafkaClusterEncryptionInTransitType_PLAINTEXT"><span class="annot"><span class="annottext">$bKafkaClusterEncryptionInTransitType_PLAINTEXT :: KafkaClusterEncryptionInTransitType
+$mKafkaClusterEncryptionInTransitType_PLAINTEXT :: forall r.
+KafkaClusterEncryptionInTransitType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#%24bKafkaClusterEncryptionInTransitType_PLAINTEXT"><span class="hs-identifier hs-var hs-var hs-var">KafkaClusterEncryptionInTransitType_PLAINTEXT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType%27"><span class="hs-identifier hs-type">KafkaClusterEncryptionInTransitType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PLAINTEXT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType_TLS"><span class="hs-identifier hs-type">KafkaClusterEncryptionInTransitType_TLS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType"><span class="hs-identifier hs-type">KafkaClusterEncryptionInTransitType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKafkaClusterEncryptionInTransitType_TLS"><span id="%24mKafkaClusterEncryptionInTransitType_TLS"><span id="KafkaClusterEncryptionInTransitType_TLS"><span class="annot"><span class="annottext">$bKafkaClusterEncryptionInTransitType_TLS :: KafkaClusterEncryptionInTransitType
+$mKafkaClusterEncryptionInTransitType_TLS :: forall r.
+KafkaClusterEncryptionInTransitType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#%24bKafkaClusterEncryptionInTransitType_TLS"><span class="hs-identifier hs-var hs-var hs-var">KafkaClusterEncryptionInTransitType_TLS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType%27"><span class="hs-identifier hs-type">KafkaClusterEncryptionInTransitType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType_PLAINTEXT"><span class="hs-pragma hs-type">KafkaClusterEncryptionInTransitType_PLAINTEXT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType_TLS"><span class="hs-pragma hs-type">KafkaClusterEncryptionInTransitType_TLS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.html#KafkaClusterEncryptionInTransitType%27"><span class="hs-pragma hs-type">KafkaClusterEncryptionInTransitType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

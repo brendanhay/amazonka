@@ -1,0 +1,817 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDB.RestoreTableFromBackup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new table from an existing backup. Any number of users can</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- execute up to 4 concurrent restores (any type of restore) in a given</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- You can call @RestoreTableFromBackup@ at a maximum rate of 10 times per</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- second.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- You must manually set up the following on the restored table:</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   Auto scaling policies</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   IAM policies</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   Amazon CloudWatch metrics and alarms</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   Tags</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   Stream settings</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   Time to Live (TTL) settings</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDB.RestoreTableFromBackup</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#newRestoreTableFromBackup"><span class="hs-identifier">newRestoreTableFromBackup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_billingModeOverride"><span class="hs-identifier">restoreTableFromBackup_billingModeOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_globalSecondaryIndexOverride"><span class="hs-identifier">restoreTableFromBackup_globalSecondaryIndexOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_provisionedThroughputOverride"><span class="hs-identifier">restoreTableFromBackup_provisionedThroughputOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_sSESpecificationOverride"><span class="hs-identifier">restoreTableFromBackup_sSESpecificationOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_localSecondaryIndexOverride"><span class="hs-identifier">restoreTableFromBackup_localSecondaryIndexOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_targetTableName"><span class="hs-identifier">restoreTableFromBackup_targetTableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_backupArn"><span class="hs-identifier">restoreTableFromBackup_backupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse"><span class="hs-identifier">RestoreTableFromBackupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#newRestoreTableFromBackupResponse"><span class="hs-identifier">newRestoreTableFromBackupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackupResponse_tableDescription"><span class="hs-identifier">restoreTableFromBackupResponse_tableDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackupResponse_httpStatus"><span class="hs-identifier">restoreTableFromBackupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.html"><span class="hs-identifier">Amazonka.DynamoDB.Types</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newRestoreTableFromBackup' smart constructor.</span><span>
+</span><span id="line-75"></span><span id="local-6989586621679387135"><span id="local-6989586621679387136"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreTableFromBackup"><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-var">RestoreTableFromBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreTableFromBackup%27"><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-var">RestoreTableFromBackup'</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The billing mode of the restored table.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AbillingModeOverride%3ARestoreTableFromBackup%27"><span class="annot"><span class="annottext">RestoreTableFromBackup -&gt; Maybe BillingMode
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AbillingModeOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var hs-var">billingModeOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.BillingMode.html#BillingMode"><span class="hs-identifier hs-type">BillingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | List of global secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AglobalSecondaryIndexOverride%3ARestoreTableFromBackup%27"><span class="annot"><span class="annottext">RestoreTableFromBackup -&gt; Maybe [GlobalSecondaryIndex]
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AglobalSecondaryIndexOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Provisioned throughput settings for the restored table.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AprovisionedThroughputOverride%3ARestoreTableFromBackup%27"><span class="annot"><span class="annottext">RestoreTableFromBackup -&gt; Maybe ProvisionedThroughput
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AprovisionedThroughputOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The new server-side encryption settings for the restored table.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AsSESpecificationOverride%3ARestoreTableFromBackup%27"><span class="annot"><span class="annottext">RestoreTableFromBackup -&gt; Maybe SSESpecification
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AsSESpecificationOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var hs-var">sSESpecificationOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.SSESpecification.html#SSESpecification"><span class="hs-identifier hs-type">SSESpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | List of local secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AlocalSecondaryIndexOverride%3ARestoreTableFromBackup%27"><span class="annot"><span class="annottext">RestoreTableFromBackup -&gt; Maybe [LocalSecondaryIndex]
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AlocalSecondaryIndexOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var hs-var">localSecondaryIndexOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The name of the new table to which the backup must be restored.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AtargetTableName%3ARestoreTableFromBackup%27"><span class="annot"><span class="annottext">RestoreTableFromBackup -&gt; Text
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AtargetTableName%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var hs-var">targetTableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) associated with the backup.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AbackupArn%3ARestoreTableFromBackup%27"><span class="annot"><span class="annottext">RestoreTableFromBackup -&gt; Text
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AbackupArn%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var hs-var">backupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387123"><span id="local-6989586621679387125"><span class="annot"><span class="annottext">RestoreTableFromBackup -&gt; RestoreTableFromBackup -&gt; Bool
+(RestoreTableFromBackup -&gt; RestoreTableFromBackup -&gt; Bool)
+-&gt; (RestoreTableFromBackup -&gt; RestoreTableFromBackup -&gt; Bool)
+-&gt; Eq RestoreTableFromBackup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RestoreTableFromBackup -&gt; RestoreTableFromBackup -&gt; Bool
+$c/= :: RestoreTableFromBackup -&gt; RestoreTableFromBackup -&gt; Bool
+== :: RestoreTableFromBackup -&gt; RestoreTableFromBackup -&gt; Bool
+$c== :: RestoreTableFromBackup -&gt; RestoreTableFromBackup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387114"><span id="local-6989586621679387116"><span id="local-6989586621679387118"><span id="local-6989586621679387120"><span class="annot"><span class="annottext">ReadPrec [RestoreTableFromBackup]
+ReadPrec RestoreTableFromBackup
+Int -&gt; ReadS RestoreTableFromBackup
+ReadS [RestoreTableFromBackup]
+(Int -&gt; ReadS RestoreTableFromBackup)
+-&gt; ReadS [RestoreTableFromBackup]
+-&gt; ReadPrec RestoreTableFromBackup
+-&gt; ReadPrec [RestoreTableFromBackup]
+-&gt; Read RestoreTableFromBackup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RestoreTableFromBackup]
+$creadListPrec :: ReadPrec [RestoreTableFromBackup]
+readPrec :: ReadPrec RestoreTableFromBackup
+$creadPrec :: ReadPrec RestoreTableFromBackup
+readList :: ReadS [RestoreTableFromBackup]
+$creadList :: ReadS [RestoreTableFromBackup]
+readsPrec :: Int -&gt; ReadS RestoreTableFromBackup
+$creadsPrec :: Int -&gt; ReadS RestoreTableFromBackup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387107"><span id="local-6989586621679387109"><span id="local-6989586621679387111"><span class="annot"><span class="annottext">Int -&gt; RestoreTableFromBackup -&gt; ShowS
+[RestoreTableFromBackup] -&gt; ShowS
+RestoreTableFromBackup -&gt; String
+(Int -&gt; RestoreTableFromBackup -&gt; ShowS)
+-&gt; (RestoreTableFromBackup -&gt; String)
+-&gt; ([RestoreTableFromBackup] -&gt; ShowS)
+-&gt; Show RestoreTableFromBackup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RestoreTableFromBackup] -&gt; ShowS
+$cshowList :: [RestoreTableFromBackup] -&gt; ShowS
+show :: RestoreTableFromBackup -&gt; String
+$cshow :: RestoreTableFromBackup -&gt; String
+showsPrec :: Int -&gt; RestoreTableFromBackup -&gt; ShowS
+$cshowsPrec :: Int -&gt; RestoreTableFromBackup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RestoreTableFromBackup -&gt; Rep RestoreTableFromBackup x)
+-&gt; (forall x.
+    Rep RestoreTableFromBackup x -&gt; RestoreTableFromBackup)
+-&gt; Generic RestoreTableFromBackup
+forall x. Rep RestoreTableFromBackup x -&gt; RestoreTableFromBackup
+forall x. RestoreTableFromBackup -&gt; Rep RestoreTableFromBackup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RestoreTableFromBackup x -&gt; RestoreTableFromBackup
+$cfrom :: forall x. RestoreTableFromBackup -&gt; Rep RestoreTableFromBackup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'RestoreTableFromBackup' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'billingModeOverride', 'restoreTableFromBackup_billingModeOverride' - The billing mode of the restored table.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'globalSecondaryIndexOverride', 'restoreTableFromBackup_globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'provisionedThroughputOverride', 'restoreTableFromBackup_provisionedThroughputOverride' - Provisioned throughput settings for the restored table.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'sSESpecificationOverride', 'restoreTableFromBackup_sSESpecificationOverride' - The new server-side encryption settings for the restored table.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'localSecondaryIndexOverride', 'restoreTableFromBackup_localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'targetTableName', 'restoreTableFromBackup_targetTableName' - The name of the new table to which the backup must be restored.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'backupArn', 'restoreTableFromBackup_backupArn' - The Amazon Resource Name (ARN) associated with the backup.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#newRestoreTableFromBackup"><span class="hs-identifier hs-type">newRestoreTableFromBackup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'targetTableName'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'backupArn'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span>
+</span><span id="line-128"></span><span id="newRestoreTableFromBackup"><span class="annot"><span class="annottext">newRestoreTableFromBackup :: Text -&gt; Text -&gt; RestoreTableFromBackup
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#newRestoreTableFromBackup"><span class="hs-identifier hs-var hs-var">newRestoreTableFromBackup</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679387102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387102"><span class="hs-identifier hs-var">pTargetTableName_</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679387101"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387101"><span class="hs-identifier hs-var">pBackupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">RestoreTableFromBackup' :: Maybe BillingMode
+-&gt; Maybe [GlobalSecondaryIndex]
+-&gt; Maybe ProvisionedThroughput
+-&gt; Maybe SSESpecification
+-&gt; Maybe [LocalSecondaryIndex]
+-&gt; Text
+-&gt; Text
+-&gt; RestoreTableFromBackup
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:billingModeOverride:RestoreTableFromBackup' :: Maybe BillingMode
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AbillingModeOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">billingModeOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe BillingMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexOverride:RestoreTableFromBackup' :: Maybe [GlobalSecondaryIndex]
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AglobalSecondaryIndexOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">globalSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:RestoreTableFromBackup' :: Maybe ProvisionedThroughput
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AprovisionedThroughputOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:sSESpecificationOverride:RestoreTableFromBackup' :: Maybe SSESpecification
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AsSESpecificationOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">sSESpecificationOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSESpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:localSecondaryIndexOverride:RestoreTableFromBackup' :: Maybe [LocalSecondaryIndex]
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AlocalSecondaryIndexOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">localSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetTableName:RestoreTableFromBackup' :: Text
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AtargetTableName%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">targetTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387102"><span class="hs-identifier hs-var">pTargetTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:backupArn:RestoreTableFromBackup' :: Text
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AbackupArn%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">backupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387101"><span class="hs-identifier hs-var">pBackupArn_</span></a></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The billing mode of the restored table.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_billingModeOverride"><span class="hs-identifier hs-type">restoreTableFromBackup_billingModeOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.BillingMode.html#BillingMode"><span class="hs-identifier hs-type">BillingMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="restoreTableFromBackup_billingModeOverride"><span class="annot"><span class="annottext">restoreTableFromBackup_billingModeOverride :: (Maybe BillingMode -&gt; f (Maybe BillingMode))
+-&gt; RestoreTableFromBackup -&gt; f RestoreTableFromBackup
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_billingModeOverride"><span class="hs-identifier hs-var hs-var">restoreTableFromBackup_billingModeOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableFromBackup -&gt; Maybe BillingMode)
+-&gt; (RestoreTableFromBackup
+    -&gt; Maybe BillingMode -&gt; RestoreTableFromBackup)
+-&gt; Lens
+     RestoreTableFromBackup
+     RestoreTableFromBackup
+     (Maybe BillingMode)
+     (Maybe BillingMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387098"><span class="annot"><span class="annottext">Maybe BillingMode
+billingModeOverride :: Maybe BillingMode
+$sel:billingModeOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe BillingMode
+</span><a href="#local-6989586621679387098"><span class="hs-identifier hs-var hs-var">billingModeOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679387098"><span class="hs-identifier hs-var">billingModeOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387097"><span class="annot"><span class="annottext">s :: RestoreTableFromBackup
+</span><a href="#local-6989586621679387097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387096"><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679387096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableFromBackup
+</span><a href="#local-6989586621679387097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingModeOverride:RestoreTableFromBackup' :: Maybe BillingMode
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AbillingModeOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">billingModeOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679387096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | List of global secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_globalSecondaryIndexOverride"><span class="hs-identifier hs-type">restoreTableFromBackup_globalSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="restoreTableFromBackup_globalSecondaryIndexOverride"><span class="annot"><span class="annottext">restoreTableFromBackup_globalSecondaryIndexOverride :: (Maybe [GlobalSecondaryIndex] -&gt; f (Maybe [GlobalSecondaryIndex]))
+-&gt; RestoreTableFromBackup -&gt; f RestoreTableFromBackup
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_globalSecondaryIndexOverride"><span class="hs-identifier hs-var hs-var">restoreTableFromBackup_globalSecondaryIndexOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableFromBackup -&gt; Maybe [GlobalSecondaryIndex])
+-&gt; (RestoreTableFromBackup
+    -&gt; Maybe [GlobalSecondaryIndex] -&gt; RestoreTableFromBackup)
+-&gt; Lens
+     RestoreTableFromBackup
+     RestoreTableFromBackup
+     (Maybe [GlobalSecondaryIndex])
+     (Maybe [GlobalSecondaryIndex])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387095"><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+globalSecondaryIndexOverride :: Maybe [GlobalSecondaryIndex]
+$sel:globalSecondaryIndexOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679387095"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679387095"><span class="hs-identifier hs-var">globalSecondaryIndexOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387094"><span class="annot"><span class="annottext">s :: RestoreTableFromBackup
+</span><a href="#local-6989586621679387094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387093"><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679387093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableFromBackup
+</span><a href="#local-6989586621679387094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexOverride:RestoreTableFromBackup' :: Maybe [GlobalSecondaryIndex]
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AglobalSecondaryIndexOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">globalSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679387093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GlobalSecondaryIndex] -&gt; f (Maybe [GlobalSecondaryIndex]))
+ -&gt; RestoreTableFromBackup -&gt; f RestoreTableFromBackup)
+-&gt; ((Maybe [GlobalSecondaryIndex]
+     -&gt; f (Maybe [GlobalSecondaryIndex]))
+    -&gt; Maybe [GlobalSecondaryIndex]
+    -&gt; f (Maybe [GlobalSecondaryIndex]))
+-&gt; (Maybe [GlobalSecondaryIndex]
+    -&gt; f (Maybe [GlobalSecondaryIndex]))
+-&gt; RestoreTableFromBackup
+-&gt; f RestoreTableFromBackup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+-&gt; Iso
+     (Maybe [GlobalSecondaryIndex])
+     (Maybe [GlobalSecondaryIndex])
+     (Maybe [GlobalSecondaryIndex])
+     (Maybe [GlobalSecondaryIndex])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+  [GlobalSecondaryIndex]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Provisioned throughput settings for the restored table.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_provisionedThroughputOverride"><span class="hs-identifier hs-type">restoreTableFromBackup_provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="restoreTableFromBackup_provisionedThroughputOverride"><span class="annot"><span class="annottext">restoreTableFromBackup_provisionedThroughputOverride :: (Maybe ProvisionedThroughput -&gt; f (Maybe ProvisionedThroughput))
+-&gt; RestoreTableFromBackup -&gt; f RestoreTableFromBackup
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_provisionedThroughputOverride"><span class="hs-identifier hs-var hs-var">restoreTableFromBackup_provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableFromBackup -&gt; Maybe ProvisionedThroughput)
+-&gt; (RestoreTableFromBackup
+    -&gt; Maybe ProvisionedThroughput -&gt; RestoreTableFromBackup)
+-&gt; Lens
+     RestoreTableFromBackup
+     RestoreTableFromBackup
+     (Maybe ProvisionedThroughput)
+     (Maybe ProvisionedThroughput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387089"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+provisionedThroughputOverride :: Maybe ProvisionedThroughput
+$sel:provisionedThroughputOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679387089"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679387089"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387088"><span class="annot"><span class="annottext">s :: RestoreTableFromBackup
+</span><a href="#local-6989586621679387088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387087"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679387087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableFromBackup
+</span><a href="#local-6989586621679387088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:RestoreTableFromBackup' :: Maybe ProvisionedThroughput
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AprovisionedThroughputOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679387087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The new server-side encryption settings for the restored table.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_sSESpecificationOverride"><span class="hs-identifier hs-type">restoreTableFromBackup_sSESpecificationOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.SSESpecification.html#SSESpecification"><span class="hs-identifier hs-type">SSESpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="restoreTableFromBackup_sSESpecificationOverride"><span class="annot"><span class="annottext">restoreTableFromBackup_sSESpecificationOverride :: (Maybe SSESpecification -&gt; f (Maybe SSESpecification))
+-&gt; RestoreTableFromBackup -&gt; f RestoreTableFromBackup
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_sSESpecificationOverride"><span class="hs-identifier hs-var hs-var">restoreTableFromBackup_sSESpecificationOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableFromBackup -&gt; Maybe SSESpecification)
+-&gt; (RestoreTableFromBackup
+    -&gt; Maybe SSESpecification -&gt; RestoreTableFromBackup)
+-&gt; Lens
+     RestoreTableFromBackup
+     RestoreTableFromBackup
+     (Maybe SSESpecification)
+     (Maybe SSESpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387086"><span class="annot"><span class="annottext">Maybe SSESpecification
+sSESpecificationOverride :: Maybe SSESpecification
+$sel:sSESpecificationOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe SSESpecification
+</span><a href="#local-6989586621679387086"><span class="hs-identifier hs-var hs-var">sSESpecificationOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSESpecification
+</span><a href="#local-6989586621679387086"><span class="hs-identifier hs-var">sSESpecificationOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387085"><span class="annot"><span class="annottext">s :: RestoreTableFromBackup
+</span><a href="#local-6989586621679387085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387084"><span class="annot"><span class="annottext">Maybe SSESpecification
+</span><a href="#local-6989586621679387084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableFromBackup
+</span><a href="#local-6989586621679387085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSESpecificationOverride:RestoreTableFromBackup' :: Maybe SSESpecification
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AsSESpecificationOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">sSESpecificationOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSESpecification
+</span><a href="#local-6989586621679387084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | List of local secondary indexes for the restored table. The indexes</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- provided should match existing secondary indexes. You can choose to</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- exclude some or all of the indexes at the time of restore.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_localSecondaryIndexOverride"><span class="hs-identifier hs-type">restoreTableFromBackup_localSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="restoreTableFromBackup_localSecondaryIndexOverride"><span class="annot"><span class="annottext">restoreTableFromBackup_localSecondaryIndexOverride :: (Maybe [LocalSecondaryIndex] -&gt; f (Maybe [LocalSecondaryIndex]))
+-&gt; RestoreTableFromBackup -&gt; f RestoreTableFromBackup
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_localSecondaryIndexOverride"><span class="hs-identifier hs-var hs-var">restoreTableFromBackup_localSecondaryIndexOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableFromBackup -&gt; Maybe [LocalSecondaryIndex])
+-&gt; (RestoreTableFromBackup
+    -&gt; Maybe [LocalSecondaryIndex] -&gt; RestoreTableFromBackup)
+-&gt; Lens
+     RestoreTableFromBackup
+     RestoreTableFromBackup
+     (Maybe [LocalSecondaryIndex])
+     (Maybe [LocalSecondaryIndex])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387083"><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+localSecondaryIndexOverride :: Maybe [LocalSecondaryIndex]
+$sel:localSecondaryIndexOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679387083"><span class="hs-identifier hs-var hs-var">localSecondaryIndexOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679387083"><span class="hs-identifier hs-var">localSecondaryIndexOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387082"><span class="annot"><span class="annottext">s :: RestoreTableFromBackup
+</span><a href="#local-6989586621679387082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387081"><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679387081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableFromBackup
+</span><a href="#local-6989586621679387082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localSecondaryIndexOverride:RestoreTableFromBackup' :: Maybe [LocalSecondaryIndex]
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AlocalSecondaryIndexOverride%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">localSecondaryIndexOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679387081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LocalSecondaryIndex] -&gt; f (Maybe [LocalSecondaryIndex]))
+ -&gt; RestoreTableFromBackup -&gt; f RestoreTableFromBackup)
+-&gt; ((Maybe [LocalSecondaryIndex]
+     -&gt; f (Maybe [LocalSecondaryIndex]))
+    -&gt; Maybe [LocalSecondaryIndex] -&gt; f (Maybe [LocalSecondaryIndex]))
+-&gt; (Maybe [LocalSecondaryIndex] -&gt; f (Maybe [LocalSecondaryIndex]))
+-&gt; RestoreTableFromBackup
+-&gt; f RestoreTableFromBackup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+-&gt; Iso
+     (Maybe [LocalSecondaryIndex])
+     (Maybe [LocalSecondaryIndex])
+     (Maybe [LocalSecondaryIndex])
+     (Maybe [LocalSecondaryIndex])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+  [LocalSecondaryIndex]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The name of the new table to which the backup must be restored.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_targetTableName"><span class="hs-identifier hs-type">restoreTableFromBackup_targetTableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-168"></span><span id="restoreTableFromBackup_targetTableName"><span class="annot"><span class="annottext">restoreTableFromBackup_targetTableName :: (Text -&gt; f Text)
+-&gt; RestoreTableFromBackup -&gt; f RestoreTableFromBackup
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_targetTableName"><span class="hs-identifier hs-var hs-var">restoreTableFromBackup_targetTableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableFromBackup -&gt; Text)
+-&gt; (RestoreTableFromBackup -&gt; Text -&gt; RestoreTableFromBackup)
+-&gt; Lens RestoreTableFromBackup RestoreTableFromBackup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387080"><span class="annot"><span class="annottext">Text
+targetTableName :: Text
+$sel:targetTableName:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Text
+</span><a href="#local-6989586621679387080"><span class="hs-identifier hs-var hs-var">targetTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387080"><span class="hs-identifier hs-var">targetTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387079"><span class="annot"><span class="annottext">s :: RestoreTableFromBackup
+</span><a href="#local-6989586621679387079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableFromBackup
+</span><a href="#local-6989586621679387079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetTableName:RestoreTableFromBackup' :: Text
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AtargetTableName%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">targetTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) associated with the backup.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_backupArn"><span class="hs-identifier hs-type">restoreTableFromBackup_backupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-172"></span><span id="restoreTableFromBackup_backupArn"><span class="annot"><span class="annottext">restoreTableFromBackup_backupArn :: (Text -&gt; f Text)
+-&gt; RestoreTableFromBackup -&gt; f RestoreTableFromBackup
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackup_backupArn"><span class="hs-identifier hs-var hs-var">restoreTableFromBackup_backupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableFromBackup -&gt; Text)
+-&gt; (RestoreTableFromBackup -&gt; Text -&gt; RestoreTableFromBackup)
+-&gt; Lens RestoreTableFromBackup RestoreTableFromBackup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387077"><span class="annot"><span class="annottext">Text
+backupArn :: Text
+$sel:backupArn:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Text
+</span><a href="#local-6989586621679387077"><span class="hs-identifier hs-var hs-var">backupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387077"><span class="hs-identifier hs-var">backupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387076"><span class="annot"><span class="annottext">s :: RestoreTableFromBackup
+</span><a href="#local-6989586621679387076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387075"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableFromBackup
+</span><a href="#local-6989586621679387076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupArn:RestoreTableFromBackup' :: Text
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AbackupArn%3ARestoreTableFromBackup%27"><span class="hs-identifier hs-var">backupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-176"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse</span></a></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679387071"><span class="annot"><span class="annottext">request :: RestoreTableFromBackup -&gt; Request RestoreTableFromBackup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RestoreTableFromBackup -&gt; Request RestoreTableFromBackup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679387067"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RestoreTableFromBackup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RestoreTableFromBackup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RestoreTableFromBackup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RestoreTableFromBackup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RestoreTableFromBackup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387064"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387064"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387063"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387063"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387062"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387062"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe TableDescription -&gt; Int -&gt; RestoreTableFromBackupResponse
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse%27"><span class="hs-identifier hs-var">RestoreTableFromBackupResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TableDescription -&gt; Int -&gt; RestoreTableFromBackupResponse)
+-&gt; Either String (Maybe TableDescription)
+-&gt; Either String (Int -&gt; RestoreTableFromBackupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TableDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RestoreTableFromBackupResponse)
+-&gt; Either String Int
+-&gt; Either String RestoreTableFromBackupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387064"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387054"><span id="local-6989586621679387056"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679387047"><span class="annot"><span class="annottext">toHeaders :: RestoreTableFromBackup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RestoreTableFromBackup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DynamoDB_20120810.RestoreTableFromBackup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-198"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-202"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387037"><span id="local-6989586621679387039"><span id="local-6989586621679387041"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679387035"><span class="annot"><span class="annottext">toJSON :: RestoreTableFromBackup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup%27"><span class="hs-identifier hs-type">RestoreTableFromBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387027"><span id="local-6989586621679387028"><span id="local-6989586621679387029"><span id="local-6989586621679387030"><span id="local-6989586621679387031"><span id="local-6989586621679387032"><span id="local-6989586621679387033"><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+Maybe [GlobalSecondaryIndex]
+Maybe BillingMode
+Maybe ProvisionedThroughput
+Maybe SSESpecification
+Text
+backupArn :: Text
+targetTableName :: Text
+localSecondaryIndexOverride :: Maybe [LocalSecondaryIndex]
+sSESpecificationOverride :: Maybe SSESpecification
+provisionedThroughputOverride :: Maybe ProvisionedThroughput
+globalSecondaryIndexOverride :: Maybe [GlobalSecondaryIndex]
+billingModeOverride :: Maybe BillingMode
+$sel:backupArn:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Text
+$sel:targetTableName:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Text
+$sel:localSecondaryIndexOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe [LocalSecondaryIndex]
+$sel:sSESpecificationOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe SSESpecification
+$sel:provisionedThroughputOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe ProvisionedThroughput
+$sel:globalSecondaryIndexOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe [GlobalSecondaryIndex]
+$sel:billingModeOverride:RestoreTableFromBackup' :: RestoreTableFromBackup -&gt; Maybe BillingMode
+</span><a href="#local-6989586621679387027"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BillingModeOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BillingMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(BillingMode -&gt; Pair) -&gt; Maybe BillingMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679387033"><span class="hs-identifier hs-var">billingModeOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalSecondaryIndexOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GlobalSecondaryIndex] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">([GlobalSecondaryIndex] -&gt; Pair)
+-&gt; Maybe [GlobalSecondaryIndex] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GlobalSecondaryIndex]
+</span><a href="#local-6989586621679387032"><span class="hs-identifier hs-var">globalSecondaryIndexOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedThroughputOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProvisionedThroughput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">(ProvisionedThroughput -&gt; Pair)
+-&gt; Maybe ProvisionedThroughput -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679387031"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SSESpecificationOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SSESpecification -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(SSESpecification -&gt; Pair) -&gt; Maybe SSESpecification -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SSESpecification
+</span><a href="#local-6989586621679387030"><span class="hs-identifier hs-var">sSESpecificationOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalSecondaryIndexOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [LocalSecondaryIndex] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">([LocalSecondaryIndex] -&gt; Pair)
+-&gt; Maybe [LocalSecondaryIndex] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LocalSecondaryIndex]
+</span><a href="#local-6989586621679387029"><span class="hs-identifier hs-var">localSecondaryIndexOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-221"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetTableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387028"><span class="hs-identifier hs-var">targetTableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387027"><span class="hs-identifier hs-var">backupArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679387021"><span class="annot"><span class="annottext">toPath :: RestoreTableFromBackup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RestoreTableFromBackup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackup"><span class="hs-identifier hs-type">RestoreTableFromBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679387017"><span class="annot"><span class="annottext">toQuery :: RestoreTableFromBackup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RestoreTableFromBackup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | /See:/ 'newRestoreTableFromBackupResponse' smart constructor.</span><span>
+</span><span id="line-233"></span><span id="local-6989586621679387014"><span id="local-6989586621679387015"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreTableFromBackupResponse"><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse"><span class="hs-identifier hs-var">RestoreTableFromBackupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreTableFromBackupResponse%27"><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse%27"><span class="hs-identifier hs-var">RestoreTableFromBackupResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the table created from an existing backup.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3AtableDescription%3ARestoreTableFromBackupResponse%27"><span class="annot"><span class="annottext">RestoreTableFromBackupResponse -&gt; Maybe TableDescription
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AtableDescription%3ARestoreTableFromBackupResponse%27"><span class="hs-identifier hs-var hs-var">tableDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableDescription.html#TableDescription"><span class="hs-identifier hs-type">TableDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARestoreTableFromBackupResponse%27"><span class="annot"><span class="annottext">RestoreTableFromBackupResponse -&gt; Int
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AhttpStatus%3ARestoreTableFromBackupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387008"><span id="local-6989586621679387010"><span class="annot"><span class="annottext">RestoreTableFromBackupResponse
+-&gt; RestoreTableFromBackupResponse -&gt; Bool
+(RestoreTableFromBackupResponse
+ -&gt; RestoreTableFromBackupResponse -&gt; Bool)
+-&gt; (RestoreTableFromBackupResponse
+    -&gt; RestoreTableFromBackupResponse -&gt; Bool)
+-&gt; Eq RestoreTableFromBackupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RestoreTableFromBackupResponse
+-&gt; RestoreTableFromBackupResponse -&gt; Bool
+$c/= :: RestoreTableFromBackupResponse
+-&gt; RestoreTableFromBackupResponse -&gt; Bool
+== :: RestoreTableFromBackupResponse
+-&gt; RestoreTableFromBackupResponse -&gt; Bool
+$c== :: RestoreTableFromBackupResponse
+-&gt; RestoreTableFromBackupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387000"><span id="local-6989586621679387002"><span id="local-6989586621679387004"><span id="local-6989586621679387006"><span class="annot"><span class="annottext">ReadPrec [RestoreTableFromBackupResponse]
+ReadPrec RestoreTableFromBackupResponse
+Int -&gt; ReadS RestoreTableFromBackupResponse
+ReadS [RestoreTableFromBackupResponse]
+(Int -&gt; ReadS RestoreTableFromBackupResponse)
+-&gt; ReadS [RestoreTableFromBackupResponse]
+-&gt; ReadPrec RestoreTableFromBackupResponse
+-&gt; ReadPrec [RestoreTableFromBackupResponse]
+-&gt; Read RestoreTableFromBackupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RestoreTableFromBackupResponse]
+$creadListPrec :: ReadPrec [RestoreTableFromBackupResponse]
+readPrec :: ReadPrec RestoreTableFromBackupResponse
+$creadPrec :: ReadPrec RestoreTableFromBackupResponse
+readList :: ReadS [RestoreTableFromBackupResponse]
+$creadList :: ReadS [RestoreTableFromBackupResponse]
+readsPrec :: Int -&gt; ReadS RestoreTableFromBackupResponse
+$creadsPrec :: Int -&gt; ReadS RestoreTableFromBackupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386994"><span id="local-6989586621679386996"><span id="local-6989586621679386998"><span class="annot"><span class="annottext">Int -&gt; RestoreTableFromBackupResponse -&gt; ShowS
+[RestoreTableFromBackupResponse] -&gt; ShowS
+RestoreTableFromBackupResponse -&gt; String
+(Int -&gt; RestoreTableFromBackupResponse -&gt; ShowS)
+-&gt; (RestoreTableFromBackupResponse -&gt; String)
+-&gt; ([RestoreTableFromBackupResponse] -&gt; ShowS)
+-&gt; Show RestoreTableFromBackupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RestoreTableFromBackupResponse] -&gt; ShowS
+$cshowList :: [RestoreTableFromBackupResponse] -&gt; ShowS
+show :: RestoreTableFromBackupResponse -&gt; String
+$cshow :: RestoreTableFromBackupResponse -&gt; String
+showsPrec :: Int -&gt; RestoreTableFromBackupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RestoreTableFromBackupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RestoreTableFromBackupResponse
+ -&gt; Rep RestoreTableFromBackupResponse x)
+-&gt; (forall x.
+    Rep RestoreTableFromBackupResponse x
+    -&gt; RestoreTableFromBackupResponse)
+-&gt; Generic RestoreTableFromBackupResponse
+forall x.
+Rep RestoreTableFromBackupResponse x
+-&gt; RestoreTableFromBackupResponse
+forall x.
+RestoreTableFromBackupResponse
+-&gt; Rep RestoreTableFromBackupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RestoreTableFromBackupResponse x
+-&gt; RestoreTableFromBackupResponse
+$cfrom :: forall x.
+RestoreTableFromBackupResponse
+-&gt; Rep RestoreTableFromBackupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- Create a value of 'RestoreTableFromBackupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'tableDescription', 'restoreTableFromBackupResponse_tableDescription' - The description of the table created from an existing backup.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'httpStatus', 'restoreTableFromBackupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#newRestoreTableFromBackupResponse"><span class="hs-identifier hs-type">newRestoreTableFromBackupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse</span></a></span><span>
+</span><span id="line-256"></span><span id="newRestoreTableFromBackupResponse"><span class="annot"><span class="annottext">newRestoreTableFromBackupResponse :: Int -&gt; RestoreTableFromBackupResponse
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#newRestoreTableFromBackupResponse"><span class="hs-identifier hs-var hs-var">newRestoreTableFromBackupResponse</span></a></span></span><span> </span><span id="local-6989586621679386991"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>  </span><span class="annot"><span class="annottext">RestoreTableFromBackupResponse' :: Maybe TableDescription -&gt; Int -&gt; RestoreTableFromBackupResponse
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse%27"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse'</span></a></span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableDescription:RestoreTableFromBackupResponse' :: Maybe TableDescription
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AtableDescription%3ARestoreTableFromBackupResponse%27"><span class="hs-identifier hs-var">tableDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">Maybe TableDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreTableFromBackupResponse' :: Int
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AhttpStatus%3ARestoreTableFromBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The description of the table created from an existing backup.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackupResponse_tableDescription"><span class="hs-identifier hs-type">restoreTableFromBackupResponse_tableDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableDescription.html#TableDescription"><span class="hs-identifier hs-type">TableDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="restoreTableFromBackupResponse_tableDescription"><span class="annot"><span class="annottext">restoreTableFromBackupResponse_tableDescription :: (Maybe TableDescription -&gt; f (Maybe TableDescription))
+-&gt; RestoreTableFromBackupResponse
+-&gt; f RestoreTableFromBackupResponse
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackupResponse_tableDescription"><span class="hs-identifier hs-var hs-var">restoreTableFromBackupResponse_tableDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableFromBackupResponse -&gt; Maybe TableDescription)
+-&gt; (RestoreTableFromBackupResponse
+    -&gt; Maybe TableDescription -&gt; RestoreTableFromBackupResponse)
+-&gt; Lens
+     RestoreTableFromBackupResponse
+     RestoreTableFromBackupResponse
+     (Maybe TableDescription)
+     (Maybe TableDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse%27"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386990"><span class="annot"><span class="annottext">Maybe TableDescription
+tableDescription :: Maybe TableDescription
+$sel:tableDescription:RestoreTableFromBackupResponse' :: RestoreTableFromBackupResponse -&gt; Maybe TableDescription
+</span><a href="#local-6989586621679386990"><span class="hs-identifier hs-var hs-var">tableDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679386990"><span class="hs-identifier hs-var">tableDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386989"><span class="annot"><span class="annottext">s :: RestoreTableFromBackupResponse
+</span><a href="#local-6989586621679386989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse%27"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386988"><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679386988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableFromBackupResponse
+</span><a href="#local-6989586621679386989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableDescription:RestoreTableFromBackupResponse' :: Maybe TableDescription
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AtableDescription%3ARestoreTableFromBackupResponse%27"><span class="hs-identifier hs-var">tableDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679386988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackupResponse_httpStatus"><span class="hs-identifier hs-type">restoreTableFromBackupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-269"></span><span id="restoreTableFromBackupResponse_httpStatus"><span class="annot"><span class="annottext">restoreTableFromBackupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RestoreTableFromBackupResponse
+-&gt; f RestoreTableFromBackupResponse
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#restoreTableFromBackupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">restoreTableFromBackupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreTableFromBackupResponse -&gt; Int)
+-&gt; (RestoreTableFromBackupResponse
+    -&gt; Int -&gt; RestoreTableFromBackupResponse)
+-&gt; Lens
+     RestoreTableFromBackupResponse
+     RestoreTableFromBackupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse%27"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386987"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RestoreTableFromBackupResponse' :: RestoreTableFromBackupResponse -&gt; Int
+</span><a href="#local-6989586621679386987"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386987"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386986"><span class="annot"><span class="annottext">s :: RestoreTableFromBackupResponse
+</span><a href="#local-6989586621679386986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse%27"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386985"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreTableFromBackupResponse
+</span><a href="#local-6989586621679386986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreTableFromBackupResponse' :: Int
+</span><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#%24sel%3AhttpStatus%3ARestoreTableFromBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679386983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.RestoreTableFromBackup.html#RestoreTableFromBackupResponse"><span class="hs-identifier hs-type">RestoreTableFromBackupResponse</span></a></span></span><span>
+</span><span id="line-274"></span></pre></body></html>

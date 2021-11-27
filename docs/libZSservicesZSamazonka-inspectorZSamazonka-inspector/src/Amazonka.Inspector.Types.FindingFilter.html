@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Inspector.Types.FindingFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Inspector.Types.FindingFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.Attribute.html"><span class="hs-identifier">Amazonka.Inspector.Types.Attribute</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.Severity.html"><span class="hs-identifier">Amazonka.Inspector.Types.Severity</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.TimestampRange.html"><span class="hs-identifier">Amazonka.Inspector.Types.TimestampRange</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | This data type is used as a request parameter in the ListFindings</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFindingFilter' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679250017"><span id="local-6989586621679250018"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingFilter"><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-var">FindingFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingFilter%27"><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-var">FindingFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- __agentId__ property of the Finding data type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AagentIds%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AagentIds%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">agentIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- __ruleName__ property of the Finding data type.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AruleNames%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AruleNames%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- __userAttributes__ property of the Finding data type.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AuserAttributes%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Attribute]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AuserAttributes%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- __rulesPackageArn__ property of the Finding data type.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the list of values that are specified</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- for this data type property must be contained in the list of values of</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the __attributes__ property of the Finding data type.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aattributes%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Attribute]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3Aattributes%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- __severity__ property of the Finding data type.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aseverities%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Severity]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3Aseverities%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">severities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.Severity.html#Severity"><span class="hs-identifier hs-type">Severity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The time range during which the finding is generated.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe TimestampRange
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">creationTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- __autoScalingGroup__ property of the Finding data type.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250004"><span id="local-6989586621679250006"><span class="annot"><span class="annottext">FindingFilter -&gt; FindingFilter -&gt; Bool
+(FindingFilter -&gt; FindingFilter -&gt; Bool)
+-&gt; (FindingFilter -&gt; FindingFilter -&gt; Bool) -&gt; Eq FindingFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FindingFilter -&gt; FindingFilter -&gt; Bool
+$c/= :: FindingFilter -&gt; FindingFilter -&gt; Bool
+== :: FindingFilter -&gt; FindingFilter -&gt; Bool
+$c== :: FindingFilter -&gt; FindingFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249995"><span id="local-6989586621679249997"><span id="local-6989586621679249999"><span id="local-6989586621679250001"><span class="annot"><span class="annottext">ReadPrec [FindingFilter]
+ReadPrec FindingFilter
+Int -&gt; ReadS FindingFilter
+ReadS [FindingFilter]
+(Int -&gt; ReadS FindingFilter)
+-&gt; ReadS [FindingFilter]
+-&gt; ReadPrec FindingFilter
+-&gt; ReadPrec [FindingFilter]
+-&gt; Read FindingFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FindingFilter]
+$creadListPrec :: ReadPrec [FindingFilter]
+readPrec :: ReadPrec FindingFilter
+$creadPrec :: ReadPrec FindingFilter
+readList :: ReadS [FindingFilter]
+$creadList :: ReadS [FindingFilter]
+readsPrec :: Int -&gt; ReadS FindingFilter
+$creadsPrec :: Int -&gt; ReadS FindingFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249988"><span id="local-6989586621679249990"><span id="local-6989586621679249992"><span class="annot"><span class="annottext">Int -&gt; FindingFilter -&gt; ShowS
+[FindingFilter] -&gt; ShowS
+FindingFilter -&gt; String
+(Int -&gt; FindingFilter -&gt; ShowS)
+-&gt; (FindingFilter -&gt; String)
+-&gt; ([FindingFilter] -&gt; ShowS)
+-&gt; Show FindingFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FindingFilter] -&gt; ShowS
+$cshowList :: [FindingFilter] -&gt; ShowS
+show :: FindingFilter -&gt; String
+$cshow :: FindingFilter -&gt; String
+showsPrec :: Int -&gt; FindingFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; FindingFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FindingFilter -&gt; Rep FindingFilter x)
+-&gt; (forall x. Rep FindingFilter x -&gt; FindingFilter)
+-&gt; Generic FindingFilter
+forall x. Rep FindingFilter x -&gt; FindingFilter
+forall x. FindingFilter -&gt; Rep FindingFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FindingFilter x -&gt; FindingFilter
+$cfrom :: forall x. FindingFilter -&gt; Rep FindingFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'FindingFilter' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'agentIds', 'findingFilter_agentIds' - For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- __agentId__ property of the Finding data type.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'ruleNames', 'findingFilter_ruleNames' - For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- __ruleName__ property of the Finding data type.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'userAttributes', 'findingFilter_userAttributes' - For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- __userAttributes__ property of the Finding data type.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'rulesPackageArns', 'findingFilter_rulesPackageArns' - For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- __rulesPackageArn__ property of the Finding data type.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'attributes', 'findingFilter_attributes' - For a record to match a filter, the list of values that are specified</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for this data type property must be contained in the list of values of</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the __attributes__ property of the Finding data type.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'severities', 'findingFilter_severities' - For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- __severity__ property of the Finding data type.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'creationTimeRange', 'findingFilter_creationTimeRange' - The time range during which the finding is generated.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'autoScalingGroups', 'findingFilter_autoScalingGroups' - For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- __autoScalingGroup__ property of the Finding data type.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#newFindingFilter"><span class="hs-identifier hs-type">newFindingFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span>
+</span><span id="line-106"></span><span id="newFindingFilter"><span class="annot"><span class="annottext">newFindingFilter :: FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#newFindingFilter"><span class="hs-identifier hs-var hs-var">newFindingFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">FindingFilter' :: Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Attribute]
+-&gt; Maybe [Text]
+-&gt; Maybe [Attribute]
+-&gt; Maybe [Severity]
+-&gt; Maybe TimestampRange
+-&gt; Maybe [Text]
+-&gt; FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:agentIds:FindingFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AagentIds%3AFindingFilter%27"><span class="hs-identifier hs-var">agentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleNames:FindingFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AruleNames%3AFindingFilter%27"><span class="hs-identifier hs-var">ruleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:userAttributes:FindingFilter' :: Maybe [Attribute]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AuserAttributes%3AFindingFilter%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:FindingFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:FindingFilter' :: Maybe [Attribute]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3Aattributes%3AFindingFilter%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:severities:FindingFilter' :: Maybe [Severity]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3Aseverities%3AFindingFilter%27"><span class="hs-identifier hs-var">severities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimeRange:FindingFilter' :: Maybe TimestampRange
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroups:FindingFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- __agentId__ property of the Finding data type.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_agentIds"><span class="hs-identifier hs-type">findingFilter_agentIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="findingFilter_agentIds"><span class="annot"><span class="annottext">findingFilter_agentIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_agentIds"><span class="hs-identifier hs-var hs-var">findingFilter_agentIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Text])
+-&gt; (FindingFilter -&gt; Maybe [Text] -&gt; FindingFilter)
+-&gt; Lens FindingFilter FindingFilter (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249979"><span class="annot"><span class="annottext">Maybe [Text]
+agentIds :: Maybe [Text]
+$sel:agentIds:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679249979"><span class="hs-identifier hs-var hs-var">agentIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249979"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249978"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679249978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249977"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679249978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentIds:FindingFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AagentIds%3AFindingFilter%27"><span class="hs-identifier hs-var">agentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- __ruleName__ property of the Finding data type.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_ruleNames"><span class="hs-identifier hs-type">findingFilter_ruleNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="findingFilter_ruleNames"><span class="annot"><span class="annottext">findingFilter_ruleNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_ruleNames"><span class="hs-identifier hs-var hs-var">findingFilter_ruleNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Text])
+-&gt; (FindingFilter -&gt; Maybe [Text] -&gt; FindingFilter)
+-&gt; Lens FindingFilter FindingFilter (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249972"><span class="annot"><span class="annottext">Maybe [Text]
+ruleNames :: Maybe [Text]
+$sel:ruleNames:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679249972"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249972"><span class="hs-identifier hs-var">ruleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249971"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679249971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249970"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679249971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNames:FindingFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AruleNames%3AFindingFilter%27"><span class="hs-identifier hs-var">ruleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- __userAttributes__ property of the Finding data type.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_userAttributes"><span class="hs-identifier hs-type">findingFilter_userAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="findingFilter_userAttributes"><span class="annot"><span class="annottext">findingFilter_userAttributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_userAttributes"><span class="hs-identifier hs-var hs-var">findingFilter_userAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Attribute])
+-&gt; (FindingFilter -&gt; Maybe [Attribute] -&gt; FindingFilter)
+-&gt; Lens
+     FindingFilter FindingFilter (Maybe [Attribute]) (Maybe [Attribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249968"><span class="annot"><span class="annottext">Maybe [Attribute]
+userAttributes :: Maybe [Attribute]
+$sel:userAttributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679249968"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679249968"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249967"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679249967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249966"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679249966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679249967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:FindingFilter' :: Maybe [Attribute]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AuserAttributes%3AFindingFilter%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679249966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+-&gt; Iso
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- __rulesPackageArn__ property of the Finding data type.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_rulesPackageArns"><span class="hs-identifier hs-type">findingFilter_rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="findingFilter_rulesPackageArns"><span class="annot"><span class="annottext">findingFilter_rulesPackageArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_rulesPackageArns"><span class="hs-identifier hs-var hs-var">findingFilter_rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Text])
+-&gt; (FindingFilter -&gt; Maybe [Text] -&gt; FindingFilter)
+-&gt; Lens FindingFilter FindingFilter (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249964"><span class="annot"><span class="annottext">Maybe [Text]
+rulesPackageArns :: Maybe [Text]
+$sel:rulesPackageArns:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679249964"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249964"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249963"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679249963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249962"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679249963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:FindingFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | For a record to match a filter, the list of values that are specified</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for this data type property must be contained in the list of values of</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- the __attributes__ property of the Finding data type.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_attributes"><span class="hs-identifier hs-type">findingFilter_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="findingFilter_attributes"><span class="annot"><span class="annottext">findingFilter_attributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_attributes"><span class="hs-identifier hs-var hs-var">findingFilter_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Attribute])
+-&gt; (FindingFilter -&gt; Maybe [Attribute] -&gt; FindingFilter)
+-&gt; Lens
+     FindingFilter FindingFilter (Maybe [Attribute]) (Maybe [Attribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249960"><span class="annot"><span class="annottext">Maybe [Attribute]
+attributes :: Maybe [Attribute]
+$sel:attributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679249960"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679249960"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249959"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679249959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249958"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679249958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679249959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:FindingFilter' :: Maybe [Attribute]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3Aattributes%3AFindingFilter%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679249958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+-&gt; Iso
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- __severity__ property of the Finding data type.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_severities"><span class="hs-identifier hs-type">findingFilter_severities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.Severity.html#Severity"><span class="hs-identifier hs-type">Severity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="findingFilter_severities"><span class="annot"><span class="annottext">findingFilter_severities :: (Maybe [Severity] -&gt; f (Maybe [Severity]))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_severities"><span class="hs-identifier hs-var hs-var">findingFilter_severities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Severity])
+-&gt; (FindingFilter -&gt; Maybe [Severity] -&gt; FindingFilter)
+-&gt; Lens
+     FindingFilter FindingFilter (Maybe [Severity]) (Maybe [Severity])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249956"><span class="annot"><span class="annottext">Maybe [Severity]
+severities :: Maybe [Severity]
+$sel:severities:FindingFilter' :: FindingFilter -&gt; Maybe [Severity]
+</span><a href="#local-6989586621679249956"><span class="hs-identifier hs-var hs-var">severities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
+</span><a href="#local-6989586621679249956"><span class="hs-identifier hs-var">severities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249955"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679249955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249954"><span class="annot"><span class="annottext">Maybe [Severity]
+</span><a href="#local-6989586621679249954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679249955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severities:FindingFilter' :: Maybe [Severity]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3Aseverities%3AFindingFilter%27"><span class="hs-identifier hs-var">severities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
+</span><a href="#local-6989586621679249954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Severity] -&gt; f (Maybe [Severity]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Severity] -&gt; f (Maybe [Severity]))
+    -&gt; Maybe [Severity] -&gt; f (Maybe [Severity]))
+-&gt; (Maybe [Severity] -&gt; f (Maybe [Severity]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Severity] [Severity] [Severity] [Severity]
+-&gt; Iso
+     (Maybe [Severity])
+     (Maybe [Severity])
+     (Maybe [Severity])
+     (Maybe [Severity])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Severity] [Severity] [Severity] [Severity]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The time range during which the finding is generated.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_creationTimeRange"><span class="hs-identifier hs-type">findingFilter_creationTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="findingFilter_creationTimeRange"><span class="annot"><span class="annottext">findingFilter_creationTimeRange :: (Maybe TimestampRange -&gt; f (Maybe TimestampRange))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_creationTimeRange"><span class="hs-identifier hs-var hs-var">findingFilter_creationTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe TimestampRange)
+-&gt; (FindingFilter -&gt; Maybe TimestampRange -&gt; FindingFilter)
+-&gt; Lens
+     FindingFilter
+     FindingFilter
+     (Maybe TimestampRange)
+     (Maybe TimestampRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249952"><span class="annot"><span class="annottext">Maybe TimestampRange
+creationTimeRange :: Maybe TimestampRange
+$sel:creationTimeRange:FindingFilter' :: FindingFilter -&gt; Maybe TimestampRange
+</span><a href="#local-6989586621679249952"><span class="hs-identifier hs-var hs-var">creationTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679249952"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249951"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679249951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249950"><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679249950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679249951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeRange:FindingFilter' :: Maybe TimestampRange
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679249950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- __autoScalingGroup__ property of the Finding data type.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_autoScalingGroups"><span class="hs-identifier hs-type">findingFilter_autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="findingFilter_autoScalingGroups"><span class="annot"><span class="annottext">findingFilter_autoScalingGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#findingFilter_autoScalingGroups"><span class="hs-identifier hs-var hs-var">findingFilter_autoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Text])
+-&gt; (FindingFilter -&gt; Maybe [Text] -&gt; FindingFilter)
+-&gt; Lens FindingFilter FindingFilter (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249948"><span class="annot"><span class="annottext">Maybe [Text]
+autoScalingGroups :: Maybe [Text]
+$sel:autoScalingGroups:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679249948"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249948"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249947"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679249947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249946"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679249947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroups:FindingFilter' :: Maybe [Text]
+</span><a href="Amazonka.Inspector.Types.FindingFilter.html#%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249942"><span id="local-6989586621679249944"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249931"><span id="local-6989586621679249933"><span id="local-6989586621679249935"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679249929"><span class="annot"><span class="annottext">toJSON :: FindingFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249920"><span id="local-6989586621679249921"><span id="local-6989586621679249922"><span id="local-6989586621679249923"><span id="local-6989586621679249924"><span id="local-6989586621679249925"><span id="local-6989586621679249926"><span id="local-6989586621679249927"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe [Attribute]
+Maybe [Severity]
+Maybe TimestampRange
+autoScalingGroups :: Maybe [Text]
+creationTimeRange :: Maybe TimestampRange
+severities :: Maybe [Severity]
+attributes :: Maybe [Attribute]
+rulesPackageArns :: Maybe [Text]
+userAttributes :: Maybe [Attribute]
+ruleNames :: Maybe [Text]
+agentIds :: Maybe [Text]
+$sel:autoScalingGroups:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+$sel:creationTimeRange:FindingFilter' :: FindingFilter -&gt; Maybe TimestampRange
+$sel:severities:FindingFilter' :: FindingFilter -&gt; Maybe [Severity]
+$sel:attributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
+$sel:rulesPackageArns:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+$sel:userAttributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
+$sel:ruleNames:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+$sel:agentIds:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679249920"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;agentIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249927"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249926"><span class="hs-identifier hs-var">ruleNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Attribute] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">([Attribute] -&gt; Pair) -&gt; Maybe [Attribute] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679249925"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rulesPackageArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249924"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Attribute] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Attribute] -&gt; Pair) -&gt; Maybe [Attribute] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679249923"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;severities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Severity] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Severity] -&gt; Pair) -&gt; Maybe [Severity] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
+</span><a href="#local-6989586621679249922"><span class="hs-identifier hs-var">severities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestampRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Pair) -&gt; Maybe TimestampRange -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679249921"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;autoScalingGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249920"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span></pre></body></html>

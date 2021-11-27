@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.Types.Build</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.Types.Build</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.BuildStatus.html"><span class="hs-identifier">Amazonka.GameLift.Types.BuildStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.OperatingSystem.html"><span class="hs-identifier">Amazonka.GameLift.Types.OperatingSystem</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Properties describing a custom game build.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- CreateBuild | ListBuilds | DescribeBuild | UpdateBuild | DeleteBuild |</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newBuild' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679436657"><span id="local-6989586621679436658"></span></span><span class="hs-keyword">data</span><span> </span><span id="Build"><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-var">Build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Build%27"><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-var">Build'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp indicating when this data object was created. Format is a</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcreationTime%3ABuild%27"><span class="annot"><span class="annottext">Build -&gt; Maybe POSIX
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AcreationTime%3ABuild%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Current status of the build.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Possible build statuses include the following:</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   __INITIALIZED__ -- A new build has been defined, but no files have</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     been uploaded. You cannot create fleets for builds that are in this</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     status. When a build is successfully created, the build status is</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     set to this value.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   __READY__ -- The game build has been successfully uploaded. You can</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     now create new fleets for this build.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   __FAILED__ -- The game build upload failed. You cannot create new</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     fleets for this build.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Astatus%3ABuild%27"><span class="annot"><span class="annottext">Build -&gt; Maybe BuildStatus
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3Astatus%3ABuild%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.BuildStatus.html#BuildStatus"><span class="hs-identifier hs-type">BuildStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Operating system that the game server binaries are built to run on. This</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- value determines the type of fleet resources that you can use for this</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- build.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AoperatingSystem%3ABuild%27"><span class="annot"><span class="annottext">Build -&gt; Maybe OperatingSystem
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AoperatingSystem%3ABuild%27"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the build.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AbuildId%3ABuild%27"><span class="annot"><span class="annottext">Build -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AbuildId%3ABuild%27"><span class="hs-identifier hs-var hs-var">buildId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A descriptive label that is associated with a build. Build names do not</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- need to be unique. It can be set using CreateBuild or UpdateBuild.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aname%3ABuild%27"><span class="annot"><span class="annottext">Build -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3Aname%3ABuild%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Version information that is associated with a build or script. Version</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- strings do not need to be unique. This value can be set using</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- CreateBuild or UpdateBuild.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aversion%3ABuild%27"><span class="annot"><span class="annottext">Build -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3Aversion%3ABuild%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift build resource and uniquely identifies</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::build\/build-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- In a GameLift build ARN, the resource ID matches the /BuildId/ value.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AbuildArn%3ABuild%27"><span class="annot"><span class="annottext">Build -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AbuildArn%3ABuild%27"><span class="hs-identifier hs-var hs-var">buildArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | File size of the uploaded game build, expressed in bytes. When the build</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- status is @INITIALIZED@, this value is 0.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AsizeOnDisk%3ABuild%27"><span class="annot"><span class="annottext">Build -&gt; Maybe Natural
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AsizeOnDisk%3ABuild%27"><span class="hs-identifier hs-var hs-var">sizeOnDisk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436644"><span id="local-6989586621679436646"><span class="annot"><span class="annottext">Build -&gt; Build -&gt; Bool
+(Build -&gt; Build -&gt; Bool) -&gt; (Build -&gt; Build -&gt; Bool) -&gt; Eq Build
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Build -&gt; Build -&gt; Bool
+$c/= :: Build -&gt; Build -&gt; Bool
+== :: Build -&gt; Build -&gt; Bool
+$c== :: Build -&gt; Build -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436635"><span id="local-6989586621679436637"><span id="local-6989586621679436639"><span id="local-6989586621679436641"><span class="annot"><span class="annottext">ReadPrec [Build]
+ReadPrec Build
+Int -&gt; ReadS Build
+ReadS [Build]
+(Int -&gt; ReadS Build)
+-&gt; ReadS [Build]
+-&gt; ReadPrec Build
+-&gt; ReadPrec [Build]
+-&gt; Read Build
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Build]
+$creadListPrec :: ReadPrec [Build]
+readPrec :: ReadPrec Build
+$creadPrec :: ReadPrec Build
+readList :: ReadS [Build]
+$creadList :: ReadS [Build]
+readsPrec :: Int -&gt; ReadS Build
+$creadsPrec :: Int -&gt; ReadS Build
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436628"><span id="local-6989586621679436630"><span id="local-6989586621679436632"><span class="annot"><span class="annottext">Int -&gt; Build -&gt; ShowS
+[Build] -&gt; ShowS
+Build -&gt; String
+(Int -&gt; Build -&gt; ShowS)
+-&gt; (Build -&gt; String) -&gt; ([Build] -&gt; ShowS) -&gt; Show Build
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Build] -&gt; ShowS
+$cshowList :: [Build] -&gt; ShowS
+show :: Build -&gt; String
+$cshow :: Build -&gt; String
+showsPrec :: Int -&gt; Build -&gt; ShowS
+$cshowsPrec :: Int -&gt; Build -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Build -&gt; Rep Build x)
+-&gt; (forall x. Rep Build x -&gt; Build) -&gt; Generic Build
+forall x. Rep Build x -&gt; Build
+forall x. Build -&gt; Rep Build x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Build x -&gt; Build
+$cfrom :: forall x. Build -&gt; Rep Build x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'Build' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'creationTime', 'build_creationTime' - A time stamp indicating when this data object was created. Format is a</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'status', 'build_status' - Current status of the build.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Possible build statuses include the following:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   __INITIALIZED__ -- A new build has been defined, but no files have</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     been uploaded. You cannot create fleets for builds that are in this</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     status. When a build is successfully created, the build status is</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     set to this value.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -   __READY__ -- The game build has been successfully uploaded. You can</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     now create new fleets for this build.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   __FAILED__ -- The game build upload failed. You cannot create new</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     fleets for this build.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'operatingSystem', 'build_operatingSystem' - Operating system that the game server binaries are built to run on. This</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- value determines the type of fleet resources that you can use for this</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- build.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'buildId', 'build_buildId' - A unique identifier for the build.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'name', 'build_name' - A descriptive label that is associated with a build. Build names do not</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- need to be unique. It can be set using CreateBuild or UpdateBuild.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'version', 'build_version' - Version information that is associated with a build or script. Version</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- strings do not need to be unique. This value can be set using</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- CreateBuild or UpdateBuild.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'buildArn', 'build_buildArn' - The Amazon Resource Name</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- that is assigned to a GameLift build resource and uniquely identifies</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::build\/build-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- In a GameLift build ARN, the resource ID matches the /BuildId/ value.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'sizeOnDisk', 'build_sizeOnDisk' - File size of the uploaded game build, expressed in bytes. When the build</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- status is @INITIALIZED@, this value is 0.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#newBuild"><span class="hs-identifier hs-type">newBuild</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span>
+</span><span id="line-133"></span><span id="newBuild"><span class="annot"><span class="annottext">newBuild :: Build
+</span><a href="Amazonka.GameLift.Types.Build.html#newBuild"><span class="hs-identifier hs-var hs-var">newBuild</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">Build' :: Maybe POSIX
+-&gt; Maybe BuildStatus
+-&gt; Maybe OperatingSystem
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Build
+</span><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:Build' :: Maybe POSIX
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AcreationTime%3ABuild%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Build' :: Maybe BuildStatus
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3Astatus%3ABuild%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:operatingSystem:Build' :: Maybe OperatingSystem
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AoperatingSystem%3ABuild%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildId:Build' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AbuildId%3ABuild%27"><span class="hs-identifier hs-var">buildId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Build' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3Aname%3ABuild%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:Build' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3Aversion%3ABuild%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildArn:Build' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AbuildArn%3ABuild%27"><span class="hs-identifier hs-var">buildArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeOnDisk:Build' :: Maybe Natural
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AsizeOnDisk%3ABuild%27"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | A time stamp indicating when this data object was created. Format is a</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#build_creationTime"><span class="hs-identifier hs-type">build_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="build_creationTime"><span class="annot"><span class="annottext">build_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Build -&gt; f Build
+</span><a href="Amazonka.GameLift.Types.Build.html#build_creationTime"><span class="hs-identifier hs-var hs-var">build_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Build -&gt; Maybe POSIX)
+-&gt; (Build -&gt; Maybe POSIX -&gt; Build)
+-&gt; Lens Build Build (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436619"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:Build' :: Build -&gt; Maybe POSIX
+</span><a href="#local-6989586621679436619"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679436619"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436618"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436617"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679436617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Build' :: Maybe POSIX
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AcreationTime%3ABuild%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679436617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Build -&gt; f Build)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Build
+-&gt; f Build
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Current status of the build.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Possible build statuses include the following:</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   __INITIALIZED__ -- A new build has been defined, but no files have</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     been uploaded. You cannot create fleets for builds that are in this</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     status. When a build is successfully created, the build status is</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     set to this value.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   __READY__ -- The game build has been successfully uploaded. You can</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     now create new fleets for this build.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   __FAILED__ -- The game build upload failed. You cannot create new</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     fleets for this build.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#build_status"><span class="hs-identifier hs-type">build_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.BuildStatus.html#BuildStatus"><span class="hs-identifier hs-type">BuildStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="build_status"><span class="annot"><span class="annottext">build_status :: (Maybe BuildStatus -&gt; f (Maybe BuildStatus)) -&gt; Build -&gt; f Build
+</span><a href="Amazonka.GameLift.Types.Build.html#build_status"><span class="hs-identifier hs-var hs-var">build_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Build -&gt; Maybe BuildStatus)
+-&gt; (Build -&gt; Maybe BuildStatus -&gt; Build)
+-&gt; Lens Build Build (Maybe BuildStatus) (Maybe BuildStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436612"><span class="annot"><span class="annottext">Maybe BuildStatus
+status :: Maybe BuildStatus
+$sel:status:Build' :: Build -&gt; Maybe BuildStatus
+</span><a href="#local-6989586621679436612"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatus
+</span><a href="#local-6989586621679436612"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436611"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436610"><span class="annot"><span class="annottext">Maybe BuildStatus
+</span><a href="#local-6989586621679436610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Build' :: Maybe BuildStatus
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3Astatus%3ABuild%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatus
+</span><a href="#local-6989586621679436610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Operating system that the game server binaries are built to run on. This</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- value determines the type of fleet resources that you can use for this</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- build.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#build_operatingSystem"><span class="hs-identifier hs-type">build_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="build_operatingSystem"><span class="annot"><span class="annottext">build_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
+-&gt; Build -&gt; f Build
+</span><a href="Amazonka.GameLift.Types.Build.html#build_operatingSystem"><span class="hs-identifier hs-var hs-var">build_operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Build -&gt; Maybe OperatingSystem)
+-&gt; (Build -&gt; Maybe OperatingSystem -&gt; Build)
+-&gt; Lens Build Build (Maybe OperatingSystem) (Maybe OperatingSystem)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436608"><span class="annot"><span class="annottext">Maybe OperatingSystem
+operatingSystem :: Maybe OperatingSystem
+$sel:operatingSystem:Build' :: Build -&gt; Maybe OperatingSystem
+</span><a href="#local-6989586621679436608"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679436608"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436607"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436606"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679436606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:Build' :: Maybe OperatingSystem
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AoperatingSystem%3ABuild%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679436606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | A unique identifier for the build.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#build_buildId"><span class="hs-identifier hs-type">build_buildId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="build_buildId"><span class="annot"><span class="annottext">build_buildId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Build -&gt; f Build
+</span><a href="Amazonka.GameLift.Types.Build.html#build_buildId"><span class="hs-identifier hs-var hs-var">build_buildId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Build -&gt; Maybe Text)
+-&gt; (Build -&gt; Maybe Text -&gt; Build)
+-&gt; Lens Build Build (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436604"><span class="annot"><span class="annottext">Maybe Text
+buildId :: Maybe Text
+$sel:buildId:Build' :: Build -&gt; Maybe Text
+</span><a href="#local-6989586621679436604"><span class="hs-identifier hs-var hs-var">buildId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436604"><span class="hs-identifier hs-var">buildId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436603"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildId:Build' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AbuildId%3ABuild%27"><span class="hs-identifier hs-var">buildId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | A descriptive label that is associated with a build. Build names do not</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- need to be unique. It can be set using CreateBuild or UpdateBuild.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#build_name"><span class="hs-identifier hs-type">build_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="build_name"><span class="annot"><span class="annottext">build_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Build -&gt; f Build
+</span><a href="Amazonka.GameLift.Types.Build.html#build_name"><span class="hs-identifier hs-var hs-var">build_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Build -&gt; Maybe Text)
+-&gt; (Build -&gt; Maybe Text -&gt; Build)
+-&gt; Lens Build Build (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436600"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Build' :: Build -&gt; Maybe Text
+</span><a href="#local-6989586621679436600"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436600"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436599"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436598"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Build' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3Aname%3ABuild%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Version information that is associated with a build or script. Version</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- strings do not need to be unique. This value can be set using</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- CreateBuild or UpdateBuild.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#build_version"><span class="hs-identifier hs-type">build_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="build_version"><span class="annot"><span class="annottext">build_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Build -&gt; f Build
+</span><a href="Amazonka.GameLift.Types.Build.html#build_version"><span class="hs-identifier hs-var hs-var">build_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Build -&gt; Maybe Text)
+-&gt; (Build -&gt; Maybe Text -&gt; Build)
+-&gt; Lens Build Build (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436596"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:Build' :: Build -&gt; Maybe Text
+</span><a href="#local-6989586621679436596"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436596"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436595"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Build' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3Aversion%3ABuild%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- that is assigned to a GameLift build resource and uniquely identifies</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::build\/build-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- In a GameLift build ARN, the resource ID matches the /BuildId/ value.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#build_buildArn"><span class="hs-identifier hs-type">build_buildArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="build_buildArn"><span class="annot"><span class="annottext">build_buildArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Build -&gt; f Build
+</span><a href="Amazonka.GameLift.Types.Build.html#build_buildArn"><span class="hs-identifier hs-var hs-var">build_buildArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Build -&gt; Maybe Text)
+-&gt; (Build -&gt; Maybe Text -&gt; Build)
+-&gt; Lens Build Build (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436592"><span class="annot"><span class="annottext">Maybe Text
+buildArn :: Maybe Text
+$sel:buildArn:Build' :: Build -&gt; Maybe Text
+</span><a href="#local-6989586621679436592"><span class="hs-identifier hs-var hs-var">buildArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436592"><span class="hs-identifier hs-var">buildArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436591"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436590"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildArn:Build' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AbuildArn%3ABuild%27"><span class="hs-identifier hs-var">buildArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | File size of the uploaded game build, expressed in bytes. When the build</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- status is @INITIALIZED@, this value is 0.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#build_sizeOnDisk"><span class="hs-identifier hs-type">build_sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="build_sizeOnDisk"><span class="annot"><span class="annottext">build_sizeOnDisk :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Build -&gt; f Build
+</span><a href="Amazonka.GameLift.Types.Build.html#build_sizeOnDisk"><span class="hs-identifier hs-var hs-var">build_sizeOnDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Build -&gt; Maybe Natural)
+-&gt; (Build -&gt; Maybe Natural -&gt; Build)
+-&gt; Lens Build Build (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436588"><span class="annot"><span class="annottext">Maybe Natural
+sizeOnDisk :: Maybe Natural
+$sel:sizeOnDisk:Build' :: Build -&gt; Maybe Natural
+</span><a href="#local-6989586621679436588"><span class="hs-identifier hs-var hs-var">sizeOnDisk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679436588"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436587"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436586"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679436586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeOnDisk:Build' :: Maybe Natural
+</span><a href="Amazonka.GameLift.Types.Build.html#%24sel%3AsizeOnDisk%3ABuild%27"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679436586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436583"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679436581"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Build
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Build) -&gt; Value -&gt; Parser Build
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Build&quot;</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679436578"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe BuildStatus
+-&gt; Maybe OperatingSystem
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Build
+</span><a href="Amazonka.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-var">Build'</span></a></span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe BuildStatus
+ -&gt; Maybe OperatingSystem
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Build)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe BuildStatus
+      -&gt; Maybe OperatingSystem
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Build)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BuildStatus
+   -&gt; Maybe OperatingSystem
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Build)
+-&gt; Parser (Maybe BuildStatus)
+-&gt; Parser
+     (Maybe OperatingSystem
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Build)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OperatingSystem
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Build)
+-&gt; Parser (Maybe OperatingSystem)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Build)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystem)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OperatingSystem&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Build)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Build)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BuildId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Build)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Build)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Build)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; Build)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; Build)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Natural -&gt; Build)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BuildArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Build)
+-&gt; Parser (Maybe Natural) -&gt; Parser Build
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SizeOnDisk&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436572"><span id="local-6989586621679436574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span></span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

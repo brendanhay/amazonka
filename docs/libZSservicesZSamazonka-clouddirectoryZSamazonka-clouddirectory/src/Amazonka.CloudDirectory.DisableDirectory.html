@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.DisableDirectory</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disables the specified directory. Disabled directories cannot be read or</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- written to. Only enabled directories can be disabled. Disabled</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- directories may be reenabled.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.DisableDirectory</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier">DisableDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#newDisableDirectory"><span class="hs-identifier">newDisableDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#disableDirectory_directoryArn"><span class="hs-identifier">disableDirectory_directoryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier">DisableDirectoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#newDisableDirectoryResponse"><span class="hs-identifier">newDisableDirectoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#disableDirectoryResponse_httpStatus"><span class="hs-identifier">disableDirectoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#disableDirectoryResponse_directoryArn"><span class="hs-identifier">disableDirectoryResponse_directoryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDisableDirectory' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679344368"><span id="local-6989586621679344369"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableDirectory"><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-var">DisableDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableDirectory%27"><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-var">DisableDirectory'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the directory to disable.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ADisableDirectory%27"><span class="annot"><span class="annottext">DisableDirectory -&gt; Text
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectory%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344362"><span id="local-6989586621679344364"><span class="annot"><span class="annottext">DisableDirectory -&gt; DisableDirectory -&gt; Bool
+(DisableDirectory -&gt; DisableDirectory -&gt; Bool)
+-&gt; (DisableDirectory -&gt; DisableDirectory -&gt; Bool)
+-&gt; Eq DisableDirectory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableDirectory -&gt; DisableDirectory -&gt; Bool
+$c/= :: DisableDirectory -&gt; DisableDirectory -&gt; Bool
+== :: DisableDirectory -&gt; DisableDirectory -&gt; Bool
+$c== :: DisableDirectory -&gt; DisableDirectory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344353"><span id="local-6989586621679344355"><span id="local-6989586621679344357"><span id="local-6989586621679344359"><span class="annot"><span class="annottext">ReadPrec [DisableDirectory]
+ReadPrec DisableDirectory
+Int -&gt; ReadS DisableDirectory
+ReadS [DisableDirectory]
+(Int -&gt; ReadS DisableDirectory)
+-&gt; ReadS [DisableDirectory]
+-&gt; ReadPrec DisableDirectory
+-&gt; ReadPrec [DisableDirectory]
+-&gt; Read DisableDirectory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableDirectory]
+$creadListPrec :: ReadPrec [DisableDirectory]
+readPrec :: ReadPrec DisableDirectory
+$creadPrec :: ReadPrec DisableDirectory
+readList :: ReadS [DisableDirectory]
+$creadList :: ReadS [DisableDirectory]
+readsPrec :: Int -&gt; ReadS DisableDirectory
+$creadsPrec :: Int -&gt; ReadS DisableDirectory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344346"><span id="local-6989586621679344348"><span id="local-6989586621679344350"><span class="annot"><span class="annottext">Int -&gt; DisableDirectory -&gt; ShowS
+[DisableDirectory] -&gt; ShowS
+DisableDirectory -&gt; String
+(Int -&gt; DisableDirectory -&gt; ShowS)
+-&gt; (DisableDirectory -&gt; String)
+-&gt; ([DisableDirectory] -&gt; ShowS)
+-&gt; Show DisableDirectory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableDirectory] -&gt; ShowS
+$cshowList :: [DisableDirectory] -&gt; ShowS
+show :: DisableDirectory -&gt; String
+$cshow :: DisableDirectory -&gt; String
+showsPrec :: Int -&gt; DisableDirectory -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DisableDirectory -&gt; Rep DisableDirectory x)
+-&gt; (forall x. Rep DisableDirectory x -&gt; DisableDirectory)
+-&gt; Generic DisableDirectory
+forall x. Rep DisableDirectory x -&gt; DisableDirectory
+forall x. DisableDirectory -&gt; Rep DisableDirectory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DisableDirectory x -&gt; DisableDirectory
+$cfrom :: forall x. DisableDirectory -&gt; Rep DisableDirectory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DisableDirectory' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'directoryArn', 'disableDirectory_directoryArn' - The ARN of the directory to disable.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#newDisableDirectory"><span class="hs-identifier hs-type">newDisableDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'directoryArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span>
+</span><span id="line-71"></span><span id="newDisableDirectory"><span class="annot"><span class="annottext">newDisableDirectory :: Text -&gt; DisableDirectory
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#newDisableDirectory"><span class="hs-identifier hs-var hs-var">newDisableDirectory</span></a></span></span><span> </span><span id="local-6989586621679344341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344341"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DisableDirectory' :: Text -&gt; DisableDirectory
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectory' :: Text
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectory%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344341"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the directory to disable.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#disableDirectory_directoryArn"><span class="hs-identifier hs-type">disableDirectory_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="disableDirectory_directoryArn"><span class="annot"><span class="annottext">disableDirectory_directoryArn :: (Text -&gt; f Text) -&gt; DisableDirectory -&gt; f DisableDirectory
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#disableDirectory_directoryArn"><span class="hs-identifier hs-var hs-var">disableDirectory_directoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableDirectory -&gt; Text)
+-&gt; (DisableDirectory -&gt; Text -&gt; DisableDirectory)
+-&gt; Lens DisableDirectory DisableDirectory Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344338"><span class="annot"><span class="annottext">Text
+directoryArn :: Text
+$sel:directoryArn:DisableDirectory' :: DisableDirectory -&gt; Text
+</span><a href="#local-6989586621679344338"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344338"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344337"><span class="annot"><span class="annottext">s :: DisableDirectory
+</span><a href="#local-6989586621679344337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344336"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableDirectory
+</span><a href="#local-6989586621679344337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectory' :: Text
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectory%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679344332"><span class="annot"><span class="annottext">request :: DisableDirectory -&gt; Request DisableDirectory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisableDirectory -&gt; Request DisableDirectory
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679344328"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisableDirectory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DisableDirectory)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DisableDirectory))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisableDirectory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DisableDirectory)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344325"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344324"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679344324"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344323"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344323"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; DisableDirectoryResponse
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-var">DisableDirectoryResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; DisableDirectoryResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; DisableDirectoryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344325"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; DisableDirectoryResponse)
+-&gt; Either String Text -&gt; Either String DisableDirectoryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344315"><span id="local-6989586621679344317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679344308"><span class="annot"><span class="annottext">toHeaders :: DisableDirectory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344306"><span class="annot"><span class="annottext">Text
+directoryArn :: Text
+$sel:directoryArn:DisableDirectory' :: DisableDirectory -&gt; Text
+</span><a href="#local-6989586621679344306"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344306"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344298"><span id="local-6989586621679344300"><span id="local-6989586621679344302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679344296"><span class="annot"><span class="annottext">toJSON :: DisableDirectory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DisableDirectory -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679344290"><span class="annot"><span class="annottext">toPath :: DisableDirectory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; DisableDirectory -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/directory/disable&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679344286"><span class="annot"><span class="annottext">toQuery :: DisableDirectory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisableDirectory -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newDisableDirectoryResponse' smart constructor.</span><span>
+</span><span id="line-112"></span><span id="local-6989586621679344283"><span id="local-6989586621679344284"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableDirectoryResponse"><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-var">DisableDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableDirectoryResponse%27"><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-var">DisableDirectoryResponse'</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisableDirectoryResponse%27"><span class="annot"><span class="annottext">DisableDirectoryResponse -&gt; Int
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#%24sel%3AhttpStatus%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The ARN of the directory that has been disabled.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ADisableDirectoryResponse%27"><span class="annot"><span class="annottext">DisableDirectoryResponse -&gt; Text
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344277"><span id="local-6989586621679344279"><span class="annot"><span class="annottext">DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
+(DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool)
+-&gt; (DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool)
+-&gt; Eq DisableDirectoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
+$c/= :: DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
+== :: DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
+$c== :: DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344269"><span id="local-6989586621679344271"><span id="local-6989586621679344273"><span id="local-6989586621679344275"><span class="annot"><span class="annottext">ReadPrec [DisableDirectoryResponse]
+ReadPrec DisableDirectoryResponse
+Int -&gt; ReadS DisableDirectoryResponse
+ReadS [DisableDirectoryResponse]
+(Int -&gt; ReadS DisableDirectoryResponse)
+-&gt; ReadS [DisableDirectoryResponse]
+-&gt; ReadPrec DisableDirectoryResponse
+-&gt; ReadPrec [DisableDirectoryResponse]
+-&gt; Read DisableDirectoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableDirectoryResponse]
+$creadListPrec :: ReadPrec [DisableDirectoryResponse]
+readPrec :: ReadPrec DisableDirectoryResponse
+$creadPrec :: ReadPrec DisableDirectoryResponse
+readList :: ReadS [DisableDirectoryResponse]
+$creadList :: ReadS [DisableDirectoryResponse]
+readsPrec :: Int -&gt; ReadS DisableDirectoryResponse
+$creadsPrec :: Int -&gt; ReadS DisableDirectoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344263"><span id="local-6989586621679344265"><span id="local-6989586621679344267"><span class="annot"><span class="annottext">Int -&gt; DisableDirectoryResponse -&gt; ShowS
+[DisableDirectoryResponse] -&gt; ShowS
+DisableDirectoryResponse -&gt; String
+(Int -&gt; DisableDirectoryResponse -&gt; ShowS)
+-&gt; (DisableDirectoryResponse -&gt; String)
+-&gt; ([DisableDirectoryResponse] -&gt; ShowS)
+-&gt; Show DisableDirectoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableDirectoryResponse] -&gt; ShowS
+$cshowList :: [DisableDirectoryResponse] -&gt; ShowS
+show :: DisableDirectoryResponse -&gt; String
+$cshow :: DisableDirectoryResponse -&gt; String
+showsPrec :: Int -&gt; DisableDirectoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableDirectoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableDirectoryResponse -&gt; Rep DisableDirectoryResponse x)
+-&gt; (forall x.
+    Rep DisableDirectoryResponse x -&gt; DisableDirectoryResponse)
+-&gt; Generic DisableDirectoryResponse
+forall x.
+Rep DisableDirectoryResponse x -&gt; DisableDirectoryResponse
+forall x.
+DisableDirectoryResponse -&gt; Rep DisableDirectoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableDirectoryResponse x -&gt; DisableDirectoryResponse
+$cfrom :: forall x.
+DisableDirectoryResponse -&gt; Rep DisableDirectoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'DisableDirectoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'httpStatus', 'disableDirectoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'directoryArn', 'disableDirectoryResponse_directoryArn' - The ARN of the directory that has been disabled.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#newDisableDirectoryResponse"><span class="hs-identifier hs-type">newDisableDirectoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'directoryArn'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span>
+</span><span id="line-137"></span><span id="newDisableDirectoryResponse"><span class="annot"><span class="annottext">newDisableDirectoryResponse :: Int -&gt; Text -&gt; DisableDirectoryResponse
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#newDisableDirectoryResponse"><span class="hs-identifier hs-var hs-var">newDisableDirectoryResponse</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679344260"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344260"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679344259"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344259"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">DisableDirectoryResponse' :: Int -&gt; Text -&gt; DisableDirectoryResponse
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisableDirectoryResponse' :: Int
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#%24sel%3AhttpStatus%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344260"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectoryResponse' :: Text
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344259"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#disableDirectoryResponse_httpStatus"><span class="hs-identifier hs-type">disableDirectoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span id="disableDirectoryResponse_httpStatus"><span class="annot"><span class="annottext">disableDirectoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisableDirectoryResponse -&gt; f DisableDirectoryResponse
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#disableDirectoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disableDirectoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableDirectoryResponse -&gt; Int)
+-&gt; (DisableDirectoryResponse -&gt; Int -&gt; DisableDirectoryResponse)
+-&gt; Lens DisableDirectoryResponse DisableDirectoryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344258"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisableDirectoryResponse' :: DisableDirectoryResponse -&gt; Int
+</span><a href="#local-6989586621679344258"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344258"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344257"><span class="annot"><span class="annottext">s :: DisableDirectoryResponse
+</span><a href="#local-6989586621679344257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344256"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableDirectoryResponse
+</span><a href="#local-6989586621679344257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisableDirectoryResponse' :: Int
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#%24sel%3AhttpStatus%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The ARN of the directory that has been disabled.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#disableDirectoryResponse_directoryArn"><span class="hs-identifier hs-type">disableDirectoryResponse_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="disableDirectoryResponse_directoryArn"><span class="annot"><span class="annottext">disableDirectoryResponse_directoryArn :: (Text -&gt; f Text)
+-&gt; DisableDirectoryResponse -&gt; f DisableDirectoryResponse
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#disableDirectoryResponse_directoryArn"><span class="hs-identifier hs-var hs-var">disableDirectoryResponse_directoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableDirectoryResponse -&gt; Text)
+-&gt; (DisableDirectoryResponse -&gt; Text -&gt; DisableDirectoryResponse)
+-&gt; Lens DisableDirectoryResponse DisableDirectoryResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344255"><span class="annot"><span class="annottext">Text
+directoryArn :: Text
+$sel:directoryArn:DisableDirectoryResponse' :: DisableDirectoryResponse -&gt; Text
+</span><a href="#local-6989586621679344255"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344255"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344254"><span class="annot"><span class="annottext">s :: DisableDirectoryResponse
+</span><a href="#local-6989586621679344254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344253"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableDirectoryResponse
+</span><a href="#local-6989586621679344254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectoryResponse' :: Text
+</span><a href="Amazonka.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344251"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

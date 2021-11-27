@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Rekognition.Types.OrientationCorrection</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Rekognition.Types.OrientationCorrection</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier">OrientationCorrection</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_0"><span class="hs-identifier">OrientationCorrection_ROTATE_0</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_180"><span class="hs-identifier">OrientationCorrection_ROTATE_180</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_270"><span class="hs-identifier">OrientationCorrection_ROTATE_270</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_90"><span class="hs-identifier">OrientationCorrection_ROTATE_90</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679326397"><span id="local-6989586621679326398"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrientationCorrection"><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-var">OrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrientationCorrection%27"><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection%27"><span class="hs-identifier hs-var">OrientationCorrection'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrientationCorrection"><span class="annot"><span class="annottext">OrientationCorrection -&gt; Text
+</span><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#fromOrientationCorrection"><span class="hs-identifier hs-var hs-var">fromOrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326389"><span id="local-6989586621679326391"><span id="local-6989586621679326393"><span class="annot"><span class="annottext">Int -&gt; OrientationCorrection -&gt; ShowS
+[OrientationCorrection] -&gt; ShowS
+OrientationCorrection -&gt; String
+(Int -&gt; OrientationCorrection -&gt; ShowS)
+-&gt; (OrientationCorrection -&gt; String)
+-&gt; ([OrientationCorrection] -&gt; ShowS)
+-&gt; Show OrientationCorrection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OrientationCorrection] -&gt; ShowS
+$cshowList :: [OrientationCorrection] -&gt; ShowS
+show :: OrientationCorrection -&gt; String
+$cshow :: OrientationCorrection -&gt; String
+showsPrec :: Int -&gt; OrientationCorrection -&gt; ShowS
+$cshowsPrec :: Int -&gt; OrientationCorrection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679326380"><span id="local-6989586621679326382"><span id="local-6989586621679326384"><span id="local-6989586621679326386"><span class="annot"><span class="annottext">ReadPrec [OrientationCorrection]
+ReadPrec OrientationCorrection
+Int -&gt; ReadS OrientationCorrection
+ReadS [OrientationCorrection]
+(Int -&gt; ReadS OrientationCorrection)
+-&gt; ReadS [OrientationCorrection]
+-&gt; ReadPrec OrientationCorrection
+-&gt; ReadPrec [OrientationCorrection]
+-&gt; Read OrientationCorrection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OrientationCorrection]
+$creadListPrec :: ReadPrec [OrientationCorrection]
+readPrec :: ReadPrec OrientationCorrection
+$creadPrec :: ReadPrec OrientationCorrection
+readList :: ReadS [OrientationCorrection]
+$creadList :: ReadS [OrientationCorrection]
+readsPrec :: Int -&gt; ReadS OrientationCorrection
+$creadsPrec :: Int -&gt; ReadS OrientationCorrection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679326375"><span id="local-6989586621679326377"><span class="annot"><span class="annottext">OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+(OrientationCorrection -&gt; OrientationCorrection -&gt; Bool)
+-&gt; (OrientationCorrection -&gt; OrientationCorrection -&gt; Bool)
+-&gt; Eq OrientationCorrection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+$c/= :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+== :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+$c== :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679326359"><span id="local-6989586621679326361"><span id="local-6989586621679326363"><span id="local-6989586621679326365"><span id="local-6989586621679326367"><span id="local-6989586621679326369"><span id="local-6989586621679326371"><span class="annot"><span class="annottext">Eq OrientationCorrection
+Eq OrientationCorrection
+-&gt; (OrientationCorrection -&gt; OrientationCorrection -&gt; Ordering)
+-&gt; (OrientationCorrection -&gt; OrientationCorrection -&gt; Bool)
+-&gt; (OrientationCorrection -&gt; OrientationCorrection -&gt; Bool)
+-&gt; (OrientationCorrection -&gt; OrientationCorrection -&gt; Bool)
+-&gt; (OrientationCorrection -&gt; OrientationCorrection -&gt; Bool)
+-&gt; (OrientationCorrection
+    -&gt; OrientationCorrection -&gt; OrientationCorrection)
+-&gt; (OrientationCorrection
+    -&gt; OrientationCorrection -&gt; OrientationCorrection)
+-&gt; Ord OrientationCorrection
+OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+OrientationCorrection -&gt; OrientationCorrection -&gt; Ordering
+OrientationCorrection
+-&gt; OrientationCorrection -&gt; OrientationCorrection
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OrientationCorrection
+-&gt; OrientationCorrection -&gt; OrientationCorrection
+$cmin :: OrientationCorrection
+-&gt; OrientationCorrection -&gt; OrientationCorrection
+max :: OrientationCorrection
+-&gt; OrientationCorrection -&gt; OrientationCorrection
+$cmax :: OrientationCorrection
+-&gt; OrientationCorrection -&gt; OrientationCorrection
+&gt;= :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+$c&gt;= :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+&gt; :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+$c&gt; :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+&lt;= :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+$c&lt;= :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+&lt; :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+$c&lt; :: OrientationCorrection -&gt; OrientationCorrection -&gt; Bool
+compare :: OrientationCorrection -&gt; OrientationCorrection -&gt; Ordering
+$ccompare :: OrientationCorrection -&gt; OrientationCorrection -&gt; Ordering
+$cp1Ord :: Eq OrientationCorrection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OrientationCorrection -&gt; Rep OrientationCorrection x)
+-&gt; (forall x. Rep OrientationCorrection x -&gt; OrientationCorrection)
+-&gt; Generic OrientationCorrection
+forall x. Rep OrientationCorrection x -&gt; OrientationCorrection
+forall x. OrientationCorrection -&gt; Rep OrientationCorrection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OrientationCorrection x -&gt; OrientationCorrection
+$cfrom :: forall x. OrientationCorrection -&gt; Rep OrientationCorrection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326351"><span id="local-6989586621679326353"><span class="annot"><span class="annottext">Int -&gt; OrientationCorrection -&gt; Int
+OrientationCorrection -&gt; Int
+(Int -&gt; OrientationCorrection -&gt; Int)
+-&gt; (OrientationCorrection -&gt; Int) -&gt; Hashable OrientationCorrection
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OrientationCorrection -&gt; Int
+$chash :: OrientationCorrection -&gt; Int
+hashWithSalt :: Int -&gt; OrientationCorrection -&gt; Int
+$chashWithSalt :: Int -&gt; OrientationCorrection -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326348"><span class="annot"><span class="annottext">OrientationCorrection -&gt; ()
+(OrientationCorrection -&gt; ()) -&gt; NFData OrientationCorrection
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OrientationCorrection -&gt; ()
+$crnf :: OrientationCorrection -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679326345"><span class="annot"><span class="annottext">Text -&gt; Either String OrientationCorrection
+(Text -&gt; Either String OrientationCorrection)
+-&gt; FromText OrientationCorrection
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OrientationCorrection
+$cfromText :: Text -&gt; Either String OrientationCorrection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326342"><span class="annot"><span class="annottext">OrientationCorrection -&gt; Text
+(OrientationCorrection -&gt; Text) -&gt; ToText OrientationCorrection
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OrientationCorrection -&gt; Text
+$ctoText :: OrientationCorrection -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326339"><span class="annot"><span class="annottext">OrientationCorrection -&gt; ByteString
+(OrientationCorrection -&gt; ByteString)
+-&gt; ToByteString OrientationCorrection
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OrientationCorrection -&gt; ByteString
+$ctoBS :: OrientationCorrection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326336"><span class="annot"><span class="annottext">OrientationCorrection -&gt; ByteStringBuilder
+(OrientationCorrection -&gt; ByteStringBuilder)
+-&gt; ToLog OrientationCorrection
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OrientationCorrection -&gt; ByteStringBuilder
+$cbuild :: OrientationCorrection -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326333"><span class="annot"><span class="annottext">HeaderName -&gt; OrientationCorrection -&gt; [Header]
+(HeaderName -&gt; OrientationCorrection -&gt; [Header])
+-&gt; ToHeader OrientationCorrection
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OrientationCorrection -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OrientationCorrection -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326330"><span class="annot"><span class="annottext">OrientationCorrection -&gt; QueryString
+(OrientationCorrection -&gt; QueryString)
+-&gt; ToQuery OrientationCorrection
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OrientationCorrection -&gt; QueryString
+$ctoQuery :: OrientationCorrection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326325"><span id="local-6989586621679326327"><span class="annot"><span class="annottext">Value -&gt; Parser [OrientationCorrection]
+Value -&gt; Parser OrientationCorrection
+(Value -&gt; Parser OrientationCorrection)
+-&gt; (Value -&gt; Parser [OrientationCorrection])
+-&gt; FromJSON OrientationCorrection
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OrientationCorrection]
+$cparseJSONList :: Value -&gt; Parser [OrientationCorrection]
+parseJSON :: Value -&gt; Parser OrientationCorrection
+$cparseJSON :: Value -&gt; Parser OrientationCorrection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326320"><span id="local-6989586621679326322"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrientationCorrection]
+FromJSONKeyFunction OrientationCorrection
+FromJSONKeyFunction OrientationCorrection
+-&gt; FromJSONKeyFunction [OrientationCorrection]
+-&gt; FromJSONKey OrientationCorrection
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OrientationCorrection]
+$cfromJSONKeyList :: FromJSONKeyFunction [OrientationCorrection]
+fromJSONKey :: FromJSONKeyFunction OrientationCorrection
+$cfromJSONKey :: FromJSONKeyFunction OrientationCorrection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326311"><span id="local-6989586621679326313"><span id="local-6989586621679326315"><span id="local-6989586621679326317"><span class="annot"><span class="annottext">[OrientationCorrection] -&gt; Encoding
+[OrientationCorrection] -&gt; Value
+OrientationCorrection -&gt; Encoding
+OrientationCorrection -&gt; Value
+(OrientationCorrection -&gt; Value)
+-&gt; (OrientationCorrection -&gt; Encoding)
+-&gt; ([OrientationCorrection] -&gt; Value)
+-&gt; ([OrientationCorrection] -&gt; Encoding)
+-&gt; ToJSON OrientationCorrection
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OrientationCorrection] -&gt; Encoding
+$ctoEncodingList :: [OrientationCorrection] -&gt; Encoding
+toJSONList :: [OrientationCorrection] -&gt; Value
+$ctoJSONList :: [OrientationCorrection] -&gt; Value
+toEncoding :: OrientationCorrection -&gt; Encoding
+$ctoEncoding :: OrientationCorrection -&gt; Encoding
+toJSON :: OrientationCorrection -&gt; Value
+$ctoJSON :: OrientationCorrection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326306"><span id="local-6989586621679326308"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrientationCorrection]
+ToJSONKeyFunction OrientationCorrection
+ToJSONKeyFunction OrientationCorrection
+-&gt; ToJSONKeyFunction [OrientationCorrection]
+-&gt; ToJSONKey OrientationCorrection
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OrientationCorrection]
+$ctoJSONKeyList :: ToJSONKeyFunction [OrientationCorrection]
+toJSONKey :: ToJSONKeyFunction OrientationCorrection
+$ctoJSONKey :: ToJSONKeyFunction OrientationCorrection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679326303"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrientationCorrection
+([Node] -&gt; Either String OrientationCorrection)
+-&gt; FromXML OrientationCorrection
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OrientationCorrection
+$cparseXML :: [Node] -&gt; Either String OrientationCorrection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679326300"><span class="annot"><span class="annottext">OrientationCorrection -&gt; XML
+(OrientationCorrection -&gt; XML) -&gt; ToXML OrientationCorrection
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OrientationCorrection -&gt; XML
+$ctoXML :: OrientationCorrection -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_0"><span class="hs-identifier hs-type">OrientationCorrection_ROTATE_0</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrientationCorrection_ROTATE_0"><span id="%24mOrientationCorrection_ROTATE_0"><span id="OrientationCorrection_ROTATE_0"><span class="annot"><span class="annottext">$bOrientationCorrection_ROTATE_0 :: OrientationCorrection
+$mOrientationCorrection_ROTATE_0 :: forall r.
+OrientationCorrection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#%24bOrientationCorrection_ROTATE_0"><span class="hs-identifier hs-var hs-var hs-var">OrientationCorrection_ROTATE_0</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection%27"><span class="hs-identifier hs-type">OrientationCorrection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROTATE_0&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_180"><span class="hs-identifier hs-type">OrientationCorrection_ROTATE_180</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrientationCorrection_ROTATE_180"><span id="%24mOrientationCorrection_ROTATE_180"><span id="OrientationCorrection_ROTATE_180"><span class="annot"><span class="annottext">$bOrientationCorrection_ROTATE_180 :: OrientationCorrection
+$mOrientationCorrection_ROTATE_180 :: forall r.
+OrientationCorrection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#%24bOrientationCorrection_ROTATE_180"><span class="hs-identifier hs-var hs-var hs-var">OrientationCorrection_ROTATE_180</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection%27"><span class="hs-identifier hs-type">OrientationCorrection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROTATE_180&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_270"><span class="hs-identifier hs-type">OrientationCorrection_ROTATE_270</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrientationCorrection_ROTATE_270"><span id="%24mOrientationCorrection_ROTATE_270"><span id="OrientationCorrection_ROTATE_270"><span class="annot"><span class="annottext">$bOrientationCorrection_ROTATE_270 :: OrientationCorrection
+$mOrientationCorrection_ROTATE_270 :: forall r.
+OrientationCorrection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#%24bOrientationCorrection_ROTATE_270"><span class="hs-identifier hs-var hs-var hs-var">OrientationCorrection_ROTATE_270</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection%27"><span class="hs-identifier hs-type">OrientationCorrection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROTATE_270&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_90"><span class="hs-identifier hs-type">OrientationCorrection_ROTATE_90</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrientationCorrection_ROTATE_90"><span id="%24mOrientationCorrection_ROTATE_90"><span id="OrientationCorrection_ROTATE_90"><span class="annot"><span class="annottext">$bOrientationCorrection_ROTATE_90 :: OrientationCorrection
+$mOrientationCorrection_ROTATE_90 :: forall r.
+OrientationCorrection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#%24bOrientationCorrection_ROTATE_90"><span class="hs-identifier hs-var hs-var hs-var">OrientationCorrection_ROTATE_90</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection%27"><span class="hs-identifier hs-type">OrientationCorrection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROTATE_90&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_0"><span class="hs-pragma hs-type">OrientationCorrection_ROTATE_0</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_180"><span class="hs-pragma hs-type">OrientationCorrection_ROTATE_180</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_270"><span class="hs-pragma hs-type">OrientationCorrection_ROTATE_270</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection_ROTATE_90"><span class="hs-pragma hs-type">OrientationCorrection_ROTATE_90</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection%27"><span class="hs-pragma hs-type">OrientationCorrection'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

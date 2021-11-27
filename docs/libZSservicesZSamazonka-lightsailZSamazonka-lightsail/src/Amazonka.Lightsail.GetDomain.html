@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.GetDomain</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a specific domain recordset.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.GetDomain</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier">GetDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#newGetDomain"><span class="hs-identifier">newGetDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#getDomain_domainName"><span class="hs-identifier">getDomain_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier">GetDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#newGetDomainResponse"><span class="hs-identifier">newGetDomainResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#getDomainResponse_domain"><span class="hs-identifier">getDomainResponse_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#getDomainResponse_httpStatus"><span class="hs-identifier">getDomainResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.html"><span class="hs-identifier">Amazonka.Lightsail.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetDomain' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679642689"><span id="local-6989586621679642690"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDomain"><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-var">GetDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDomain%27"><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-var">GetDomain'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain name for which your want to return information about.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AdomainName%3AGetDomain%27"><span class="annot"><span class="annottext">GetDomain -&gt; Text
+</span><a href="Amazonka.Lightsail.GetDomain.html#%24sel%3AdomainName%3AGetDomain%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642683"><span id="local-6989586621679642685"><span class="annot"><span class="annottext">GetDomain -&gt; GetDomain -&gt; Bool
+(GetDomain -&gt; GetDomain -&gt; Bool)
+-&gt; (GetDomain -&gt; GetDomain -&gt; Bool) -&gt; Eq GetDomain
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDomain -&gt; GetDomain -&gt; Bool
+$c/= :: GetDomain -&gt; GetDomain -&gt; Bool
+== :: GetDomain -&gt; GetDomain -&gt; Bool
+$c== :: GetDomain -&gt; GetDomain -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642674"><span id="local-6989586621679642676"><span id="local-6989586621679642678"><span id="local-6989586621679642680"><span class="annot"><span class="annottext">ReadPrec [GetDomain]
+ReadPrec GetDomain
+Int -&gt; ReadS GetDomain
+ReadS [GetDomain]
+(Int -&gt; ReadS GetDomain)
+-&gt; ReadS [GetDomain]
+-&gt; ReadPrec GetDomain
+-&gt; ReadPrec [GetDomain]
+-&gt; Read GetDomain
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDomain]
+$creadListPrec :: ReadPrec [GetDomain]
+readPrec :: ReadPrec GetDomain
+$creadPrec :: ReadPrec GetDomain
+readList :: ReadS [GetDomain]
+$creadList :: ReadS [GetDomain]
+readsPrec :: Int -&gt; ReadS GetDomain
+$creadsPrec :: Int -&gt; ReadS GetDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642667"><span id="local-6989586621679642669"><span id="local-6989586621679642671"><span class="annot"><span class="annottext">Int -&gt; GetDomain -&gt; ShowS
+[GetDomain] -&gt; ShowS
+GetDomain -&gt; String
+(Int -&gt; GetDomain -&gt; ShowS)
+-&gt; (GetDomain -&gt; String)
+-&gt; ([GetDomain] -&gt; ShowS)
+-&gt; Show GetDomain
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDomain] -&gt; ShowS
+$cshowList :: [GetDomain] -&gt; ShowS
+show :: GetDomain -&gt; String
+$cshow :: GetDomain -&gt; String
+showsPrec :: Int -&gt; GetDomain -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDomain -&gt; Rep GetDomain x)
+-&gt; (forall x. Rep GetDomain x -&gt; GetDomain) -&gt; Generic GetDomain
+forall x. Rep GetDomain x -&gt; GetDomain
+forall x. GetDomain -&gt; Rep GetDomain x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDomain x -&gt; GetDomain
+$cfrom :: forall x. GetDomain -&gt; Rep GetDomain x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetDomain' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'domainName', 'getDomain_domainName' - The domain name for which your want to return information about.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#newGetDomain"><span class="hs-identifier hs-type">newGetDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetDomain"><span class="annot"><span class="annottext">newGetDomain :: Text -&gt; GetDomain
+</span><a href="Amazonka.Lightsail.GetDomain.html#newGetDomain"><span class="hs-identifier hs-var hs-var">newGetDomain</span></a></span></span><span> </span><span id="local-6989586621679642662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679642662"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetDomain' :: Text -&gt; GetDomain
+</span><a href="Amazonka.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetDomain' :: Text
+</span><a href="Amazonka.Lightsail.GetDomain.html#%24sel%3AdomainName%3AGetDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679642662"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The domain name for which your want to return information about.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#getDomain_domainName"><span class="hs-identifier hs-type">getDomain_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="getDomain_domainName"><span class="annot"><span class="annottext">getDomain_domainName :: (Text -&gt; f Text) -&gt; GetDomain -&gt; f GetDomain
+</span><a href="Amazonka.Lightsail.GetDomain.html#getDomain_domainName"><span class="hs-identifier hs-var hs-var">getDomain_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomain -&gt; Text)
+-&gt; (GetDomain -&gt; Text -&gt; GetDomain)
+-&gt; Lens GetDomain GetDomain Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642659"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:GetDomain' :: GetDomain -&gt; Text
+</span><a href="#local-6989586621679642659"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679642659"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642658"><span class="annot"><span class="annottext">s :: GetDomain
+</span><a href="#local-6989586621679642658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642657"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679642657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomain
+</span><a href="#local-6989586621679642658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetDomain' :: Text
+</span><a href="Amazonka.Lightsail.GetDomain.html#%24sel%3AdomainName%3AGetDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679642657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679642653"><span class="annot"><span class="annottext">request :: GetDomain -&gt; Request GetDomain
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDomain -&gt; Request GetDomain
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679642649"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDomain)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDomain))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDomain
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDomain)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679642646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642646"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679642645"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679642645"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679642644"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679642644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Domain -&gt; Int -&gt; GetDomainResponse
+</span><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-var">GetDomainResponse'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Domain -&gt; Int -&gt; GetDomainResponse)
+-&gt; Either String (Maybe Domain)
+-&gt; Either String (Int -&gt; GetDomainResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679642644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Domain)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDomainResponse)
+-&gt; Either String Int -&gt; Either String GetDomainResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642646"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642636"><span id="local-6989586621679642638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679642629"><span class="annot"><span class="annottext">toHeaders :: GetDomain -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDomain -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.GetDomain&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642619"><span id="local-6989586621679642621"><span id="local-6989586621679642623"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679642617"><span class="annot"><span class="annottext">toJSON :: GetDomain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain%27"><span class="hs-identifier hs-type">GetDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642615"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:GetDomain' :: GetDomain -&gt; Text
+</span><a href="#local-6989586621679642615"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679642615"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679642609"><span class="annot"><span class="annottext">toPath :: GetDomain -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDomain -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomain"><span class="hs-identifier hs-type">GetDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679642605"><span class="annot"><span class="annottext">toQuery :: GetDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDomain -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newGetDomainResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621679642602"><span id="local-6989586621679642603"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDomainResponse"><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-var">GetDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDomainResponse%27"><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-var">GetDomainResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of key-value pairs containing information about your get domain</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3Adomain%3AGetDomainResponse%27"><span class="annot"><span class="annottext">GetDomainResponse -&gt; Maybe Domain
+</span><a href="Amazonka.Lightsail.GetDomain.html#%24sel%3Adomain%3AGetDomainResponse%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDomainResponse%27"><span class="annot"><span class="annottext">GetDomainResponse -&gt; Int
+</span><a href="Amazonka.Lightsail.GetDomain.html#%24sel%3AhttpStatus%3AGetDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642596"><span id="local-6989586621679642598"><span class="annot"><span class="annottext">GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
+(GetDomainResponse -&gt; GetDomainResponse -&gt; Bool)
+-&gt; (GetDomainResponse -&gt; GetDomainResponse -&gt; Bool)
+-&gt; Eq GetDomainResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
+$c/= :: GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
+== :: GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
+$c== :: GetDomainResponse -&gt; GetDomainResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642588"><span id="local-6989586621679642590"><span id="local-6989586621679642592"><span id="local-6989586621679642594"><span class="annot"><span class="annottext">ReadPrec [GetDomainResponse]
+ReadPrec GetDomainResponse
+Int -&gt; ReadS GetDomainResponse
+ReadS [GetDomainResponse]
+(Int -&gt; ReadS GetDomainResponse)
+-&gt; ReadS [GetDomainResponse]
+-&gt; ReadPrec GetDomainResponse
+-&gt; ReadPrec [GetDomainResponse]
+-&gt; Read GetDomainResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDomainResponse]
+$creadListPrec :: ReadPrec [GetDomainResponse]
+readPrec :: ReadPrec GetDomainResponse
+$creadPrec :: ReadPrec GetDomainResponse
+readList :: ReadS [GetDomainResponse]
+$creadList :: ReadS [GetDomainResponse]
+readsPrec :: Int -&gt; ReadS GetDomainResponse
+$creadsPrec :: Int -&gt; ReadS GetDomainResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642582"><span id="local-6989586621679642584"><span id="local-6989586621679642586"><span class="annot"><span class="annottext">Int -&gt; GetDomainResponse -&gt; ShowS
+[GetDomainResponse] -&gt; ShowS
+GetDomainResponse -&gt; String
+(Int -&gt; GetDomainResponse -&gt; ShowS)
+-&gt; (GetDomainResponse -&gt; String)
+-&gt; ([GetDomainResponse] -&gt; ShowS)
+-&gt; Show GetDomainResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDomainResponse] -&gt; ShowS
+$cshowList :: [GetDomainResponse] -&gt; ShowS
+show :: GetDomainResponse -&gt; String
+$cshow :: GetDomainResponse -&gt; String
+showsPrec :: Int -&gt; GetDomainResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDomainResponse -&gt; Rep GetDomainResponse x)
+-&gt; (forall x. Rep GetDomainResponse x -&gt; GetDomainResponse)
+-&gt; Generic GetDomainResponse
+forall x. Rep GetDomainResponse x -&gt; GetDomainResponse
+forall x. GetDomainResponse -&gt; Rep GetDomainResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDomainResponse x -&gt; GetDomainResponse
+$cfrom :: forall x. GetDomainResponse -&gt; Rep GetDomainResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'GetDomainResponse' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'domain', 'getDomainResponse_domain' - An array of key-value pairs containing information about your get domain</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'httpStatus', 'getDomainResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#newGetDomainResponse"><span class="hs-identifier hs-type">newGetDomainResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span>
+</span><span id="line-145"></span><span id="newGetDomainResponse"><span class="annot"><span class="annottext">newGetDomainResponse :: Int -&gt; GetDomainResponse
+</span><a href="Amazonka.Lightsail.GetDomain.html#newGetDomainResponse"><span class="hs-identifier hs-var hs-var">newGetDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679642579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">GetDomainResponse' :: Maybe Domain -&gt; Int -&gt; GetDomainResponse
+</span><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domain:GetDomainResponse' :: Maybe Domain
+</span><a href="Amazonka.Lightsail.GetDomain.html#%24sel%3Adomain%3AGetDomainResponse%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Domain
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDomainResponse' :: Int
+</span><a href="Amazonka.Lightsail.GetDomain.html#%24sel%3AhttpStatus%3AGetDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | An array of key-value pairs containing information about your get domain</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#getDomainResponse_domain"><span class="hs-identifier hs-type">getDomainResponse_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="getDomainResponse_domain"><span class="annot"><span class="annottext">getDomainResponse_domain :: (Maybe Domain -&gt; f (Maybe Domain))
+-&gt; GetDomainResponse -&gt; f GetDomainResponse
+</span><a href="Amazonka.Lightsail.GetDomain.html#getDomainResponse_domain"><span class="hs-identifier hs-var hs-var">getDomainResponse_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomainResponse -&gt; Maybe Domain)
+-&gt; (GetDomainResponse -&gt; Maybe Domain -&gt; GetDomainResponse)
+-&gt; Lens
+     GetDomainResponse GetDomainResponse (Maybe Domain) (Maybe Domain)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642578"><span class="annot"><span class="annottext">Maybe Domain
+domain :: Maybe Domain
+$sel:domain:GetDomainResponse' :: GetDomainResponse -&gt; Maybe Domain
+</span><a href="#local-6989586621679642578"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Domain
+</span><a href="#local-6989586621679642578"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642577"><span class="annot"><span class="annottext">s :: GetDomainResponse
+</span><a href="#local-6989586621679642577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642576"><span class="annot"><span class="annottext">Maybe Domain
+</span><a href="#local-6989586621679642576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainResponse
+</span><a href="#local-6989586621679642577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:GetDomainResponse' :: Maybe Domain
+</span><a href="Amazonka.Lightsail.GetDomain.html#%24sel%3Adomain%3AGetDomainResponse%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Domain
+</span><a href="#local-6989586621679642576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#getDomainResponse_httpStatus"><span class="hs-identifier hs-type">getDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="getDomainResponse_httpStatus"><span class="annot"><span class="annottext">getDomainResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetDomainResponse -&gt; f GetDomainResponse
+</span><a href="Amazonka.Lightsail.GetDomain.html#getDomainResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDomainResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDomainResponse -&gt; Int)
+-&gt; (GetDomainResponse -&gt; Int -&gt; GetDomainResponse)
+-&gt; Lens GetDomainResponse GetDomainResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642575"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDomainResponse' :: GetDomainResponse -&gt; Int
+</span><a href="#local-6989586621679642575"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642575"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642574"><span class="annot"><span class="annottext">s :: GetDomainResponse
+</span><a href="#local-6989586621679642574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse%27"><span class="hs-identifier hs-type">GetDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDomainResponse
+</span><a href="#local-6989586621679642574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDomainResponse' :: Int
+</span><a href="Amazonka.Lightsail.GetDomain.html#%24sel%3AhttpStatus%3AGetDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDomain.html#GetDomainResponse"><span class="hs-identifier hs-type">GetDomainResponse</span></a></span></span><span>
+</span><span id="line-161"></span></pre></body></html>

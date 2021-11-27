@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.Occurrences</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.Occurrences</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cell.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.Cell</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Page.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.Page</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Range.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.Range</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Record.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.Record</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | The detected occurrences of sensitive data.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newOccurrences' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679984236"><span id="local-6989586621679984237"></span></span><span class="hs-keyword">data</span><span> </span><span id="Occurrences"><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-var">Occurrences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Occurrences%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-var">Occurrences'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Occurrences of sensitive data detected in a non-binary text file or a</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Microsoft Word file. Non-binary text files include files such as HTML,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- XML, JSON, and TXT files.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlineRanges%3AOccurrences%27"><span class="annot"><span class="annottext">Occurrences -&gt; Maybe [Range]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3AlineRanges%3AOccurrences%27"><span class="hs-identifier hs-var hs-var">lineRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Range.html#Range"><span class="hs-identifier hs-type">Range</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Occurrences of sensitive data detected in Microsoft Excel workbooks,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- comma-separated value (CSV) files, or tab-separated value (TSV) files.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Acells%3AOccurrences%27"><span class="annot"><span class="annottext">Occurrences -&gt; Maybe [Cell]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3Acells%3AOccurrences%27"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Occurrences of sensitive data in an Adobe Portable Document Format (PDF)</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Apages%3AOccurrences%27"><span class="annot"><span class="annottext">Occurrences -&gt; Maybe [Page]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3Apages%3AOccurrences%27"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Page.html#Page"><span class="hs-identifier hs-type">Page</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Occurrences of sensitive data in an Apache Avro object container or an</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Apache Parquet file.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Arecords%3AOccurrences%27"><span class="annot"><span class="annottext">Occurrences -&gt; Maybe [Record]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3Arecords%3AOccurrences%27"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Occurrences of sensitive data detected in a binary text file.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AoffsetRanges%3AOccurrences%27"><span class="annot"><span class="annottext">Occurrences -&gt; Maybe [Range]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3AoffsetRanges%3AOccurrences%27"><span class="hs-identifier hs-var hs-var">offsetRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Range.html#Range"><span class="hs-identifier hs-type">Range</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679984226"><span id="local-6989586621679984228"><span class="annot"><span class="annottext">Occurrences -&gt; Occurrences -&gt; Bool
+(Occurrences -&gt; Occurrences -&gt; Bool)
+-&gt; (Occurrences -&gt; Occurrences -&gt; Bool) -&gt; Eq Occurrences
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Occurrences -&gt; Occurrences -&gt; Bool
+$c/= :: Occurrences -&gt; Occurrences -&gt; Bool
+== :: Occurrences -&gt; Occurrences -&gt; Bool
+$c== :: Occurrences -&gt; Occurrences -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679984217"><span id="local-6989586621679984219"><span id="local-6989586621679984221"><span id="local-6989586621679984223"><span class="annot"><span class="annottext">ReadPrec [Occurrences]
+ReadPrec Occurrences
+Int -&gt; ReadS Occurrences
+ReadS [Occurrences]
+(Int -&gt; ReadS Occurrences)
+-&gt; ReadS [Occurrences]
+-&gt; ReadPrec Occurrences
+-&gt; ReadPrec [Occurrences]
+-&gt; Read Occurrences
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Occurrences]
+$creadListPrec :: ReadPrec [Occurrences]
+readPrec :: ReadPrec Occurrences
+$creadPrec :: ReadPrec Occurrences
+readList :: ReadS [Occurrences]
+$creadList :: ReadS [Occurrences]
+readsPrec :: Int -&gt; ReadS Occurrences
+$creadsPrec :: Int -&gt; ReadS Occurrences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679984210"><span id="local-6989586621679984212"><span id="local-6989586621679984214"><span class="annot"><span class="annottext">Int -&gt; Occurrences -&gt; ShowS
+[Occurrences] -&gt; ShowS
+Occurrences -&gt; String
+(Int -&gt; Occurrences -&gt; ShowS)
+-&gt; (Occurrences -&gt; String)
+-&gt; ([Occurrences] -&gt; ShowS)
+-&gt; Show Occurrences
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Occurrences] -&gt; ShowS
+$cshowList :: [Occurrences] -&gt; ShowS
+show :: Occurrences -&gt; String
+$cshow :: Occurrences -&gt; String
+showsPrec :: Int -&gt; Occurrences -&gt; ShowS
+$cshowsPrec :: Int -&gt; Occurrences -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Occurrences -&gt; Rep Occurrences x)
+-&gt; (forall x. Rep Occurrences x -&gt; Occurrences)
+-&gt; Generic Occurrences
+forall x. Rep Occurrences x -&gt; Occurrences
+forall x. Occurrences -&gt; Rep Occurrences x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Occurrences x -&gt; Occurrences
+$cfrom :: forall x. Occurrences -&gt; Rep Occurrences x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'Occurrences' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'lineRanges', 'occurrences_lineRanges' - Occurrences of sensitive data detected in a non-binary text file or a</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Microsoft Word file. Non-binary text files include files such as HTML,</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- XML, JSON, and TXT files.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'cells', 'occurrences_cells' - Occurrences of sensitive data detected in Microsoft Excel workbooks,</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- comma-separated value (CSV) files, or tab-separated value (TSV) files.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'pages', 'occurrences_pages' - Occurrences of sensitive data in an Adobe Portable Document Format (PDF)</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'records', 'occurrences_records' - Occurrences of sensitive data in an Apache Avro object container or an</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Apache Parquet file.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'offsetRanges', 'occurrences_offsetRanges' - Occurrences of sensitive data detected in a binary text file.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#newOccurrences"><span class="hs-identifier hs-type">newOccurrences</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span>
+</span><span id="line-76"></span><span id="newOccurrences"><span class="annot"><span class="annottext">newOccurrences :: Occurrences
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#newOccurrences"><span class="hs-identifier hs-var hs-var">newOccurrences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">Occurrences' :: Maybe [Range]
+-&gt; Maybe [Cell]
+-&gt; Maybe [Page]
+-&gt; Maybe [Record]
+-&gt; Maybe [Range]
+-&gt; Occurrences
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lineRanges:Occurrences' :: Maybe [Range]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3AlineRanges%3AOccurrences%27"><span class="hs-identifier hs-var">lineRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:cells:Occurrences' :: Maybe [Cell]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3Acells%3AOccurrences%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Cell]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:pages:Occurrences' :: Maybe [Page]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3Apages%3AOccurrences%27"><span class="hs-identifier hs-var">pages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Page]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:records:Occurrences' :: Maybe [Record]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3Arecords%3AOccurrences%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Record]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:offsetRanges:Occurrences' :: Maybe [Range]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3AoffsetRanges%3AOccurrences%27"><span class="hs-identifier hs-var">offsetRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Occurrences of sensitive data detected in a non-binary text file or a</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Microsoft Word file. Non-binary text files include files such as HTML,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- XML, JSON, and TXT files.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_lineRanges"><span class="hs-identifier hs-type">occurrences_lineRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Range.html#Range"><span class="hs-identifier hs-type">Range</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="occurrences_lineRanges"><span class="annot"><span class="annottext">occurrences_lineRanges :: (Maybe [Range] -&gt; f (Maybe [Range]))
+-&gt; Occurrences -&gt; f Occurrences
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_lineRanges"><span class="hs-identifier hs-var hs-var">occurrences_lineRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Occurrences -&gt; Maybe [Range])
+-&gt; (Occurrences -&gt; Maybe [Range] -&gt; Occurrences)
+-&gt; Lens Occurrences Occurrences (Maybe [Range]) (Maybe [Range])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984201"><span class="annot"><span class="annottext">Maybe [Range]
+lineRanges :: Maybe [Range]
+$sel:lineRanges:Occurrences' :: Occurrences -&gt; Maybe [Range]
+</span><a href="#local-6989586621679984201"><span class="hs-identifier hs-var hs-var">lineRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+</span><a href="#local-6989586621679984201"><span class="hs-identifier hs-var">lineRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984200"><span class="annot"><span class="annottext">s :: Occurrences
+</span><a href="#local-6989586621679984200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984199"><span class="annot"><span class="annottext">Maybe [Range]
+</span><a href="#local-6989586621679984199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Occurrences
+</span><a href="#local-6989586621679984200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineRanges:Occurrences' :: Maybe [Range]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3AlineRanges%3AOccurrences%27"><span class="hs-identifier hs-var">lineRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+</span><a href="#local-6989586621679984199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Range] -&gt; f (Maybe [Range]))
+ -&gt; Occurrences -&gt; f Occurrences)
+-&gt; ((Maybe [Range] -&gt; f (Maybe [Range]))
+    -&gt; Maybe [Range] -&gt; f (Maybe [Range]))
+-&gt; (Maybe [Range] -&gt; f (Maybe [Range]))
+-&gt; Occurrences
+-&gt; f Occurrences
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Range] [Range] [Range] [Range]
+-&gt; Iso
+     (Maybe [Range]) (Maybe [Range]) (Maybe [Range]) (Maybe [Range])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Range] [Range] [Range] [Range]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Occurrences of sensitive data detected in Microsoft Excel workbooks,</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- comma-separated value (CSV) files, or tab-separated value (TSV) files.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_cells"><span class="hs-identifier hs-type">occurrences_cells</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Cell.html#Cell"><span class="hs-identifier hs-type">Cell</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="occurrences_cells"><span class="annot"><span class="annottext">occurrences_cells :: (Maybe [Cell] -&gt; f (Maybe [Cell])) -&gt; Occurrences -&gt; f Occurrences
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_cells"><span class="hs-identifier hs-var hs-var">occurrences_cells</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Occurrences -&gt; Maybe [Cell])
+-&gt; (Occurrences -&gt; Maybe [Cell] -&gt; Occurrences)
+-&gt; Lens Occurrences Occurrences (Maybe [Cell]) (Maybe [Cell])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984194"><span class="annot"><span class="annottext">Maybe [Cell]
+cells :: Maybe [Cell]
+$sel:cells:Occurrences' :: Occurrences -&gt; Maybe [Cell]
+</span><a href="#local-6989586621679984194"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Cell]
+</span><a href="#local-6989586621679984194"><span class="hs-identifier hs-var">cells</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984193"><span class="annot"><span class="annottext">s :: Occurrences
+</span><a href="#local-6989586621679984193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984192"><span class="annot"><span class="annottext">Maybe [Cell]
+</span><a href="#local-6989586621679984192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Occurrences
+</span><a href="#local-6989586621679984193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cells:Occurrences' :: Maybe [Cell]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3Acells%3AOccurrences%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Cell]
+</span><a href="#local-6989586621679984192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Cell] -&gt; f (Maybe [Cell]))
+ -&gt; Occurrences -&gt; f Occurrences)
+-&gt; ((Maybe [Cell] -&gt; f (Maybe [Cell]))
+    -&gt; Maybe [Cell] -&gt; f (Maybe [Cell]))
+-&gt; (Maybe [Cell] -&gt; f (Maybe [Cell]))
+-&gt; Occurrences
+-&gt; f Occurrences
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Cell] [Cell] [Cell] [Cell]
+-&gt; Iso (Maybe [Cell]) (Maybe [Cell]) (Maybe [Cell]) (Maybe [Cell])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Cell] [Cell] [Cell] [Cell]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Occurrences of sensitive data in an Adobe Portable Document Format (PDF)</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_pages"><span class="hs-identifier hs-type">occurrences_pages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Page.html#Page"><span class="hs-identifier hs-type">Page</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="occurrences_pages"><span class="annot"><span class="annottext">occurrences_pages :: (Maybe [Page] -&gt; f (Maybe [Page])) -&gt; Occurrences -&gt; f Occurrences
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_pages"><span class="hs-identifier hs-var hs-var">occurrences_pages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Occurrences -&gt; Maybe [Page])
+-&gt; (Occurrences -&gt; Maybe [Page] -&gt; Occurrences)
+-&gt; Lens Occurrences Occurrences (Maybe [Page]) (Maybe [Page])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984190"><span class="annot"><span class="annottext">Maybe [Page]
+pages :: Maybe [Page]
+$sel:pages:Occurrences' :: Occurrences -&gt; Maybe [Page]
+</span><a href="#local-6989586621679984190"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Page]
+</span><a href="#local-6989586621679984190"><span class="hs-identifier hs-var">pages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984189"><span class="annot"><span class="annottext">s :: Occurrences
+</span><a href="#local-6989586621679984189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984188"><span class="annot"><span class="annottext">Maybe [Page]
+</span><a href="#local-6989586621679984188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Occurrences
+</span><a href="#local-6989586621679984189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pages:Occurrences' :: Maybe [Page]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3Apages%3AOccurrences%27"><span class="hs-identifier hs-var">pages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Page]
+</span><a href="#local-6989586621679984188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Page] -&gt; f (Maybe [Page]))
+ -&gt; Occurrences -&gt; f Occurrences)
+-&gt; ((Maybe [Page] -&gt; f (Maybe [Page]))
+    -&gt; Maybe [Page] -&gt; f (Maybe [Page]))
+-&gt; (Maybe [Page] -&gt; f (Maybe [Page]))
+-&gt; Occurrences
+-&gt; f Occurrences
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Page] [Page] [Page] [Page]
+-&gt; Iso (Maybe [Page]) (Maybe [Page]) (Maybe [Page]) (Maybe [Page])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Page] [Page] [Page] [Page]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Occurrences of sensitive data in an Apache Avro object container or an</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Apache Parquet file.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_records"><span class="hs-identifier hs-type">occurrences_records</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="occurrences_records"><span class="annot"><span class="annottext">occurrences_records :: (Maybe [Record] -&gt; f (Maybe [Record]))
+-&gt; Occurrences -&gt; f Occurrences
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_records"><span class="hs-identifier hs-var hs-var">occurrences_records</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Occurrences -&gt; Maybe [Record])
+-&gt; (Occurrences -&gt; Maybe [Record] -&gt; Occurrences)
+-&gt; Lens Occurrences Occurrences (Maybe [Record]) (Maybe [Record])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984186"><span class="annot"><span class="annottext">Maybe [Record]
+records :: Maybe [Record]
+$sel:records:Occurrences' :: Occurrences -&gt; Maybe [Record]
+</span><a href="#local-6989586621679984186"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Record]
+</span><a href="#local-6989586621679984186"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984185"><span class="annot"><span class="annottext">s :: Occurrences
+</span><a href="#local-6989586621679984185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984184"><span class="annot"><span class="annottext">Maybe [Record]
+</span><a href="#local-6989586621679984184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Occurrences
+</span><a href="#local-6989586621679984185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:records:Occurrences' :: Maybe [Record]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3Arecords%3AOccurrences%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Record]
+</span><a href="#local-6989586621679984184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Record] -&gt; f (Maybe [Record]))
+ -&gt; Occurrences -&gt; f Occurrences)
+-&gt; ((Maybe [Record] -&gt; f (Maybe [Record]))
+    -&gt; Maybe [Record] -&gt; f (Maybe [Record]))
+-&gt; (Maybe [Record] -&gt; f (Maybe [Record]))
+-&gt; Occurrences
+-&gt; f Occurrences
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Record] [Record] [Record] [Record]
+-&gt; Iso
+     (Maybe [Record]) (Maybe [Record]) (Maybe [Record]) (Maybe [Record])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Record] [Record] [Record] [Record]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Occurrences of sensitive data detected in a binary text file.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_offsetRanges"><span class="hs-identifier hs-type">occurrences_offsetRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Range.html#Range"><span class="hs-identifier hs-type">Range</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="occurrences_offsetRanges"><span class="annot"><span class="annottext">occurrences_offsetRanges :: (Maybe [Range] -&gt; f (Maybe [Range]))
+-&gt; Occurrences -&gt; f Occurrences
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#occurrences_offsetRanges"><span class="hs-identifier hs-var hs-var">occurrences_offsetRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Occurrences -&gt; Maybe [Range])
+-&gt; (Occurrences -&gt; Maybe [Range] -&gt; Occurrences)
+-&gt; Lens Occurrences Occurrences (Maybe [Range]) (Maybe [Range])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984182"><span class="annot"><span class="annottext">Maybe [Range]
+offsetRanges :: Maybe [Range]
+$sel:offsetRanges:Occurrences' :: Occurrences -&gt; Maybe [Range]
+</span><a href="#local-6989586621679984182"><span class="hs-identifier hs-var hs-var">offsetRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+</span><a href="#local-6989586621679984182"><span class="hs-identifier hs-var">offsetRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984181"><span class="annot"><span class="annottext">s :: Occurrences
+</span><a href="#local-6989586621679984181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984180"><span class="annot"><span class="annottext">Maybe [Range]
+</span><a href="#local-6989586621679984180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Occurrences
+</span><a href="#local-6989586621679984181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offsetRanges:Occurrences' :: Maybe [Range]
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#%24sel%3AoffsetRanges%3AOccurrences%27"><span class="hs-identifier hs-var">offsetRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+</span><a href="#local-6989586621679984180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Range] -&gt; f (Maybe [Range]))
+ -&gt; Occurrences -&gt; f Occurrences)
+-&gt; ((Maybe [Range] -&gt; f (Maybe [Range]))
+    -&gt; Maybe [Range] -&gt; f (Maybe [Range]))
+-&gt; (Maybe [Range] -&gt; f (Maybe [Range]))
+-&gt; Occurrences
+-&gt; f Occurrences
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Range] [Range] [Range] [Range]
+-&gt; Iso
+     (Maybe [Range]) (Maybe [Range]) (Maybe [Range]) (Maybe [Range])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Range] [Range] [Range] [Range]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679984175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Occurrences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Occurrences) -&gt; Value -&gt; Parser Occurrences
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Occurrences&quot;</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679984172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Range]
+-&gt; Maybe [Cell]
+-&gt; Maybe [Page]
+-&gt; Maybe [Record]
+-&gt; Maybe [Range]
+-&gt; Occurrences
+</span><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-var">Occurrences'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Range]
+ -&gt; Maybe [Cell]
+ -&gt; Maybe [Page]
+ -&gt; Maybe [Record]
+ -&gt; Maybe [Range]
+ -&gt; Occurrences)
+-&gt; Parser (Maybe [Range])
+-&gt; Parser
+     (Maybe [Cell]
+      -&gt; Maybe [Page] -&gt; Maybe [Record] -&gt; Maybe [Range] -&gt; Occurrences)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Range]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LineRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Range]))
+-&gt; Maybe [Range] -&gt; Parser (Maybe [Range])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Cell]
+   -&gt; Maybe [Page] -&gt; Maybe [Record] -&gt; Maybe [Range] -&gt; Occurrences)
+-&gt; Parser (Maybe [Cell])
+-&gt; Parser
+     (Maybe [Page] -&gt; Maybe [Record] -&gt; Maybe [Range] -&gt; Occurrences)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Cell]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cells&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Cell]))
+-&gt; Maybe [Cell] -&gt; Parser (Maybe [Cell])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Cell]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Page] -&gt; Maybe [Record] -&gt; Maybe [Range] -&gt; Occurrences)
+-&gt; Parser (Maybe [Page])
+-&gt; Parser (Maybe [Record] -&gt; Maybe [Range] -&gt; Occurrences)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Page]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Pages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Page]))
+-&gt; Maybe [Page] -&gt; Parser (Maybe [Page])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Page]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Record] -&gt; Maybe [Range] -&gt; Occurrences)
+-&gt; Parser (Maybe [Record]) -&gt; Parser (Maybe [Range] -&gt; Occurrences)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Record]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Records&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Record]))
+-&gt; Maybe [Record] -&gt; Parser (Maybe [Record])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Record]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Range] -&gt; Occurrences)
+-&gt; Parser (Maybe [Range]) -&gt; Parser Occurrences
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Range]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OffsetRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Range]))
+-&gt; Maybe [Range] -&gt; Parser (Maybe [Range])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984165"><span id="local-6989586621679984167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984154"><span id="local-6989586621679984156"><span id="local-6989586621679984158"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679984152"><span class="annot"><span class="annottext">toJSON :: Occurrences -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Occurrences.html#Occurrences%27"><span class="hs-identifier hs-type">Occurrences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984146"><span id="local-6989586621679984147"><span id="local-6989586621679984148"><span id="local-6989586621679984149"><span id="local-6989586621679984150"><span class="annot"><span class="annottext">Maybe [Cell]
+Maybe [Range]
+Maybe [Page]
+Maybe [Record]
+offsetRanges :: Maybe [Range]
+records :: Maybe [Record]
+pages :: Maybe [Page]
+cells :: Maybe [Cell]
+lineRanges :: Maybe [Range]
+$sel:offsetRanges:Occurrences' :: Occurrences -&gt; Maybe [Range]
+$sel:records:Occurrences' :: Occurrences -&gt; Maybe [Record]
+$sel:pages:Occurrences' :: Occurrences -&gt; Maybe [Page]
+$sel:cells:Occurrences' :: Occurrences -&gt; Maybe [Cell]
+$sel:lineRanges:Occurrences' :: Occurrences -&gt; Maybe [Range]
+</span><a href="#local-6989586621679984146"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LineRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Range] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Range] -&gt; Pair) -&gt; Maybe [Range] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+</span><a href="#local-6989586621679984150"><span class="hs-identifier hs-var">lineRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cells&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Cell] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Cell] -&gt; Pair) -&gt; Maybe [Cell] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Cell]
+</span><a href="#local-6989586621679984149"><span class="hs-identifier hs-var">cells</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Pages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Page] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Page] -&gt; Pair) -&gt; Maybe [Page] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Page]
+</span><a href="#local-6989586621679984148"><span class="hs-identifier hs-var">pages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Records&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Record] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Record] -&gt; Pair) -&gt; Maybe [Record] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Record]
+</span><a href="#local-6989586621679984147"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OffsetRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Range] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Range] -&gt; Pair) -&gt; Maybe [Range] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Range]
+</span><a href="#local-6989586621679984146"><span class="hs-identifier hs-var">offsetRanges</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span></pre></body></html>

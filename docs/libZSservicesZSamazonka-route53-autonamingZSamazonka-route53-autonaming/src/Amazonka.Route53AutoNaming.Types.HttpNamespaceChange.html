@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Route53AutoNaming.Types.HttpNamespaceChange</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53AutoNaming.Types.HttpNamespaceChange</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Updated properties for the HTTP namespace.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHttpNamespaceChange' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679219866"><span id="local-6989586621679219867"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpNamespaceChange"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange"><span class="hs-identifier hs-var">HttpNamespaceChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpNamespaceChange%27"><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange%27"><span class="hs-identifier hs-var">HttpNamespaceChange'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An updated description for the HTTP namespace.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Adescription%3AHttpNamespaceChange%27"><span class="annot"><span class="annottext">HttpNamespaceChange -&gt; Text
+</span><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#%24sel%3Adescription%3AHttpNamespaceChange%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219860"><span id="local-6989586621679219862"><span class="annot"><span class="annottext">HttpNamespaceChange -&gt; HttpNamespaceChange -&gt; Bool
+(HttpNamespaceChange -&gt; HttpNamespaceChange -&gt; Bool)
+-&gt; (HttpNamespaceChange -&gt; HttpNamespaceChange -&gt; Bool)
+-&gt; Eq HttpNamespaceChange
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HttpNamespaceChange -&gt; HttpNamespaceChange -&gt; Bool
+$c/= :: HttpNamespaceChange -&gt; HttpNamespaceChange -&gt; Bool
+== :: HttpNamespaceChange -&gt; HttpNamespaceChange -&gt; Bool
+$c== :: HttpNamespaceChange -&gt; HttpNamespaceChange -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219851"><span id="local-6989586621679219853"><span id="local-6989586621679219855"><span id="local-6989586621679219857"><span class="annot"><span class="annottext">ReadPrec [HttpNamespaceChange]
+ReadPrec HttpNamespaceChange
+Int -&gt; ReadS HttpNamespaceChange
+ReadS [HttpNamespaceChange]
+(Int -&gt; ReadS HttpNamespaceChange)
+-&gt; ReadS [HttpNamespaceChange]
+-&gt; ReadPrec HttpNamespaceChange
+-&gt; ReadPrec [HttpNamespaceChange]
+-&gt; Read HttpNamespaceChange
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HttpNamespaceChange]
+$creadListPrec :: ReadPrec [HttpNamespaceChange]
+readPrec :: ReadPrec HttpNamespaceChange
+$creadPrec :: ReadPrec HttpNamespaceChange
+readList :: ReadS [HttpNamespaceChange]
+$creadList :: ReadS [HttpNamespaceChange]
+readsPrec :: Int -&gt; ReadS HttpNamespaceChange
+$creadsPrec :: Int -&gt; ReadS HttpNamespaceChange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219844"><span id="local-6989586621679219846"><span id="local-6989586621679219848"><span class="annot"><span class="annottext">Int -&gt; HttpNamespaceChange -&gt; ShowS
+[HttpNamespaceChange] -&gt; ShowS
+HttpNamespaceChange -&gt; String
+(Int -&gt; HttpNamespaceChange -&gt; ShowS)
+-&gt; (HttpNamespaceChange -&gt; String)
+-&gt; ([HttpNamespaceChange] -&gt; ShowS)
+-&gt; Show HttpNamespaceChange
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HttpNamespaceChange] -&gt; ShowS
+$cshowList :: [HttpNamespaceChange] -&gt; ShowS
+show :: HttpNamespaceChange -&gt; String
+$cshow :: HttpNamespaceChange -&gt; String
+showsPrec :: Int -&gt; HttpNamespaceChange -&gt; ShowS
+$cshowsPrec :: Int -&gt; HttpNamespaceChange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. HttpNamespaceChange -&gt; Rep HttpNamespaceChange x)
+-&gt; (forall x. Rep HttpNamespaceChange x -&gt; HttpNamespaceChange)
+-&gt; Generic HttpNamespaceChange
+forall x. Rep HttpNamespaceChange x -&gt; HttpNamespaceChange
+forall x. HttpNamespaceChange -&gt; Rep HttpNamespaceChange x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HttpNamespaceChange x -&gt; HttpNamespaceChange
+$cfrom :: forall x. HttpNamespaceChange -&gt; Rep HttpNamespaceChange x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Create a value of 'HttpNamespaceChange' with all optional fields omitted.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- 'description', 'httpNamespaceChange_description' - An updated description for the HTTP namespace.</span><span>
+</span><span id="line-44"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#newHttpNamespaceChange"><span class="hs-identifier hs-type">newHttpNamespaceChange</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-47"></span><span>  </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange"><span class="hs-identifier hs-type">HttpNamespaceChange</span></a></span><span>
+</span><span id="line-48"></span><span id="newHttpNamespaceChange"><span class="annot"><span class="annottext">newHttpNamespaceChange :: Text -&gt; HttpNamespaceChange
+</span><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#newHttpNamespaceChange"><span class="hs-identifier hs-var hs-var">newHttpNamespaceChange</span></a></span></span><span> </span><span id="local-6989586621679219838"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219838"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">HttpNamespaceChange' :: Text -&gt; HttpNamespaceChange
+</span><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange%27"><span class="hs-identifier hs-type">HttpNamespaceChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:HttpNamespaceChange' :: Text
+</span><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#%24sel%3Adescription%3AHttpNamespaceChange%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219838"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | An updated description for the HTTP namespace.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#httpNamespaceChange_description"><span class="hs-identifier hs-type">httpNamespaceChange_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange"><span class="hs-identifier hs-type">HttpNamespaceChange</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span id="httpNamespaceChange_description"><span class="annot"><span class="annottext">httpNamespaceChange_description :: (Text -&gt; f Text) -&gt; HttpNamespaceChange -&gt; f HttpNamespaceChange
+</span><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#httpNamespaceChange_description"><span class="hs-identifier hs-var hs-var">httpNamespaceChange_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpNamespaceChange -&gt; Text)
+-&gt; (HttpNamespaceChange -&gt; Text -&gt; HttpNamespaceChange)
+-&gt; Lens HttpNamespaceChange HttpNamespaceChange Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange%27"><span class="hs-identifier hs-type">HttpNamespaceChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219834"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:HttpNamespaceChange' :: HttpNamespaceChange -&gt; Text
+</span><a href="#local-6989586621679219834"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219834"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219833"><span class="annot"><span class="annottext">s :: HttpNamespaceChange
+</span><a href="#local-6989586621679219833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange%27"><span class="hs-identifier hs-type">HttpNamespaceChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219832"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpNamespaceChange
+</span><a href="#local-6989586621679219833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:HttpNamespaceChange' :: Text
+</span><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#%24sel%3Adescription%3AHttpNamespaceChange%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange"><span class="hs-identifier hs-type">HttpNamespaceChange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219828"><span id="local-6989586621679219830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange"><span class="hs-identifier hs-type">HttpNamespaceChange</span></a></span></span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange"><span class="hs-identifier hs-type">HttpNamespaceChange</span></a></span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219817"><span id="local-6989586621679219819"><span id="local-6989586621679219821"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange"><span class="hs-identifier hs-type">HttpNamespaceChange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679219815"><span class="annot"><span class="annottext">toJSON :: HttpNamespaceChange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.HttpNamespaceChange.html#HttpNamespaceChange%27"><span class="hs-identifier hs-type">HttpNamespaceChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219813"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:HttpNamespaceChange' :: HttpNamespaceChange -&gt; Text
+</span><a href="#local-6989586621679219813"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-63"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219813"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span></pre></body></html>

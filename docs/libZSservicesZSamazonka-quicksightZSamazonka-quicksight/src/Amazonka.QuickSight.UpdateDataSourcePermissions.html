@@ -1,0 +1,791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.UpdateDataSourcePermissions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the permissions to a data source.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.UpdateDataSourcePermissions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier">UpdateDataSourcePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#newUpdateDataSourcePermissions"><span class="hs-identifier">newUpdateDataSourcePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_revokePermissions"><span class="hs-identifier">updateDataSourcePermissions_revokePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_grantPermissions"><span class="hs-identifier">updateDataSourcePermissions_grantPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_awsAccountId"><span class="hs-identifier">updateDataSourcePermissions_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_dataSourceId"><span class="hs-identifier">updateDataSourcePermissions_dataSourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier">UpdateDataSourcePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#newUpdateDataSourcePermissionsResponse"><span class="hs-identifier">newUpdateDataSourcePermissionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_requestId"><span class="hs-identifier">updateDataSourcePermissionsResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_dataSourceId"><span class="hs-identifier">updateDataSourcePermissionsResponse_dataSourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_dataSourceArn"><span class="hs-identifier">updateDataSourcePermissionsResponse_dataSourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_status"><span class="hs-identifier">updateDataSourcePermissionsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateDataSourcePermissions' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679600183"><span id="local-6989586621679600184"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDataSourcePermissions"><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-var">UpdateDataSourcePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDataSourcePermissions%27"><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-var">UpdateDataSourcePermissions'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of resource permissions that you want to revoke on the data</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ArevokePermissions%3AUpdateDataSourcePermissions%27"><span class="annot"><span class="annottext">UpdateDataSourcePermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3ArevokePermissions%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var hs-var">revokePermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A list of resource permissions that you want to grant on the data</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AgrantPermissions%3AUpdateDataSourcePermissions%27"><span class="annot"><span class="annottext">UpdateDataSourcePermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AgrantPermissions%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var hs-var">grantPermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AawsAccountId%3AUpdateDataSourcePermissions%27"><span class="annot"><span class="annottext">UpdateDataSourcePermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AawsAccountId%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the data source. This ID is unique per Amazon Web Services</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Region for each Amazon Web Services account.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdataSourceId%3AUpdateDataSourcePermissions%27"><span class="annot"><span class="annottext">UpdateDataSourcePermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AdataSourceId%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679600174"><span id="local-6989586621679600176"><span class="annot"><span class="annottext">UpdateDataSourcePermissions -&gt; UpdateDataSourcePermissions -&gt; Bool
+(UpdateDataSourcePermissions
+ -&gt; UpdateDataSourcePermissions -&gt; Bool)
+-&gt; (UpdateDataSourcePermissions
+    -&gt; UpdateDataSourcePermissions -&gt; Bool)
+-&gt; Eq UpdateDataSourcePermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDataSourcePermissions -&gt; UpdateDataSourcePermissions -&gt; Bool
+$c/= :: UpdateDataSourcePermissions -&gt; UpdateDataSourcePermissions -&gt; Bool
+== :: UpdateDataSourcePermissions -&gt; UpdateDataSourcePermissions -&gt; Bool
+$c== :: UpdateDataSourcePermissions -&gt; UpdateDataSourcePermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600165"><span id="local-6989586621679600167"><span id="local-6989586621679600169"><span id="local-6989586621679600171"><span class="annot"><span class="annottext">ReadPrec [UpdateDataSourcePermissions]
+ReadPrec UpdateDataSourcePermissions
+Int -&gt; ReadS UpdateDataSourcePermissions
+ReadS [UpdateDataSourcePermissions]
+(Int -&gt; ReadS UpdateDataSourcePermissions)
+-&gt; ReadS [UpdateDataSourcePermissions]
+-&gt; ReadPrec UpdateDataSourcePermissions
+-&gt; ReadPrec [UpdateDataSourcePermissions]
+-&gt; Read UpdateDataSourcePermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDataSourcePermissions]
+$creadListPrec :: ReadPrec [UpdateDataSourcePermissions]
+readPrec :: ReadPrec UpdateDataSourcePermissions
+$creadPrec :: ReadPrec UpdateDataSourcePermissions
+readList :: ReadS [UpdateDataSourcePermissions]
+$creadList :: ReadS [UpdateDataSourcePermissions]
+readsPrec :: Int -&gt; ReadS UpdateDataSourcePermissions
+$creadsPrec :: Int -&gt; ReadS UpdateDataSourcePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600158"><span id="local-6989586621679600160"><span id="local-6989586621679600162"><span class="annot"><span class="annottext">Int -&gt; UpdateDataSourcePermissions -&gt; ShowS
+[UpdateDataSourcePermissions] -&gt; ShowS
+UpdateDataSourcePermissions -&gt; String
+(Int -&gt; UpdateDataSourcePermissions -&gt; ShowS)
+-&gt; (UpdateDataSourcePermissions -&gt; String)
+-&gt; ([UpdateDataSourcePermissions] -&gt; ShowS)
+-&gt; Show UpdateDataSourcePermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDataSourcePermissions] -&gt; ShowS
+$cshowList :: [UpdateDataSourcePermissions] -&gt; ShowS
+show :: UpdateDataSourcePermissions -&gt; String
+$cshow :: UpdateDataSourcePermissions -&gt; String
+showsPrec :: Int -&gt; UpdateDataSourcePermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDataSourcePermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDataSourcePermissions -&gt; Rep UpdateDataSourcePermissions x)
+-&gt; (forall x.
+    Rep UpdateDataSourcePermissions x -&gt; UpdateDataSourcePermissions)
+-&gt; Generic UpdateDataSourcePermissions
+forall x.
+Rep UpdateDataSourcePermissions x -&gt; UpdateDataSourcePermissions
+forall x.
+UpdateDataSourcePermissions -&gt; Rep UpdateDataSourcePermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDataSourcePermissions x -&gt; UpdateDataSourcePermissions
+$cfrom :: forall x.
+UpdateDataSourcePermissions -&gt; Rep UpdateDataSourcePermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'UpdateDataSourcePermissions' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'revokePermissions', 'updateDataSourcePermissions_revokePermissions' - A list of resource permissions that you want to revoke on the data</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'grantPermissions', 'updateDataSourcePermissions_grantPermissions' - A list of resource permissions that you want to grant on the data</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'awsAccountId', 'updateDataSourcePermissions_awsAccountId' - The Amazon Web Services account ID.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'dataSourceId', 'updateDataSourcePermissions_dataSourceId' - The ID of the data source. This ID is unique per Amazon Web Services</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Region for each Amazon Web Services account.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#newUpdateDataSourcePermissions"><span class="hs-identifier hs-type">newUpdateDataSourcePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'dataSourceId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span>
+</span><span id="line-94"></span><span id="newUpdateDataSourcePermissions"><span class="annot"><span class="annottext">newUpdateDataSourcePermissions :: Text -&gt; Text -&gt; UpdateDataSourcePermissions
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#newUpdateDataSourcePermissions"><span class="hs-identifier hs-var hs-var">newUpdateDataSourcePermissions</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679600153"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600153"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679600152"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600152"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">UpdateDataSourcePermissions' :: Maybe (NonEmpty ResourcePermission)
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Text
+-&gt; Text
+-&gt; UpdateDataSourcePermissions
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revokePermissions:UpdateDataSourcePermissions' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3ArevokePermissions%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:grantPermissions:UpdateDataSourcePermissions' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AgrantPermissions%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateDataSourcePermissions' :: Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AawsAccountId%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600153"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSourceId:UpdateDataSourcePermissions' :: Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AdataSourceId%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600152"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A list of resource permissions that you want to revoke on the data</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_revokePermissions"><span class="hs-identifier hs-type">updateDataSourcePermissions_revokePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="updateDataSourcePermissions_revokePermissions"><span class="annot"><span class="annottext">updateDataSourcePermissions_revokePermissions :: (Maybe (NonEmpty ResourcePermission)
+ -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateDataSourcePermissions -&gt; f UpdateDataSourcePermissions
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_revokePermissions"><span class="hs-identifier hs-var hs-var">updateDataSourcePermissions_revokePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataSourcePermissions
+ -&gt; Maybe (NonEmpty ResourcePermission))
+-&gt; (UpdateDataSourcePermissions
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; UpdateDataSourcePermissions)
+-&gt; Lens
+     UpdateDataSourcePermissions
+     UpdateDataSourcePermissions
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600149"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+revokePermissions :: Maybe (NonEmpty ResourcePermission)
+$sel:revokePermissions:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600149"><span class="hs-identifier hs-var hs-var">revokePermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600149"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600148"><span class="annot"><span class="annottext">s :: UpdateDataSourcePermissions
+</span><a href="#local-6989586621679600148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600147"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataSourcePermissions
+</span><a href="#local-6989586621679600148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revokePermissions:UpdateDataSourcePermissions' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3ArevokePermissions%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourcePermission)
+  -&gt; f (Maybe (NonEmpty ResourcePermission)))
+ -&gt; UpdateDataSourcePermissions -&gt; f UpdateDataSourcePermissions)
+-&gt; ((Maybe (NonEmpty ResourcePermission)
+     -&gt; f (Maybe (NonEmpty ResourcePermission)))
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; (Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateDataSourcePermissions
+-&gt; f UpdateDataSourcePermissions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+-&gt; Iso
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | A list of resource permissions that you want to grant on the data</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_grantPermissions"><span class="hs-identifier hs-type">updateDataSourcePermissions_grantPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="updateDataSourcePermissions_grantPermissions"><span class="annot"><span class="annottext">updateDataSourcePermissions_grantPermissions :: (Maybe (NonEmpty ResourcePermission)
+ -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateDataSourcePermissions -&gt; f UpdateDataSourcePermissions
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_grantPermissions"><span class="hs-identifier hs-var hs-var">updateDataSourcePermissions_grantPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataSourcePermissions
+ -&gt; Maybe (NonEmpty ResourcePermission))
+-&gt; (UpdateDataSourcePermissions
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; UpdateDataSourcePermissions)
+-&gt; Lens
+     UpdateDataSourcePermissions
+     UpdateDataSourcePermissions
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600143"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+grantPermissions :: Maybe (NonEmpty ResourcePermission)
+$sel:grantPermissions:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600143"><span class="hs-identifier hs-var hs-var">grantPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600143"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600142"><span class="annot"><span class="annottext">s :: UpdateDataSourcePermissions
+</span><a href="#local-6989586621679600142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600141"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataSourcePermissions
+</span><a href="#local-6989586621679600142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantPermissions:UpdateDataSourcePermissions' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AgrantPermissions%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourcePermission)
+  -&gt; f (Maybe (NonEmpty ResourcePermission)))
+ -&gt; UpdateDataSourcePermissions -&gt; f UpdateDataSourcePermissions)
+-&gt; ((Maybe (NonEmpty ResourcePermission)
+     -&gt; f (Maybe (NonEmpty ResourcePermission)))
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; (Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateDataSourcePermissions
+-&gt; f UpdateDataSourcePermissions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+-&gt; Iso
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_awsAccountId"><span class="hs-identifier hs-type">updateDataSourcePermissions_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="updateDataSourcePermissions_awsAccountId"><span class="annot"><span class="annottext">updateDataSourcePermissions_awsAccountId :: (Text -&gt; f Text)
+-&gt; UpdateDataSourcePermissions -&gt; f UpdateDataSourcePermissions
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_awsAccountId"><span class="hs-identifier hs-var hs-var">updateDataSourcePermissions_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataSourcePermissions -&gt; Text)
+-&gt; (UpdateDataSourcePermissions
+    -&gt; Text -&gt; UpdateDataSourcePermissions)
+-&gt; Lens
+     UpdateDataSourcePermissions UpdateDataSourcePermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600140"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Text
+</span><a href="#local-6989586621679600140"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600140"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600139"><span class="annot"><span class="annottext">s :: UpdateDataSourcePermissions
+</span><a href="#local-6989586621679600139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataSourcePermissions
+</span><a href="#local-6989586621679600139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateDataSourcePermissions' :: Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AawsAccountId%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The ID of the data source. This ID is unique per Amazon Web Services</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Region for each Amazon Web Services account.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_dataSourceId"><span class="hs-identifier hs-type">updateDataSourcePermissions_dataSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="updateDataSourcePermissions_dataSourceId"><span class="annot"><span class="annottext">updateDataSourcePermissions_dataSourceId :: (Text -&gt; f Text)
+-&gt; UpdateDataSourcePermissions -&gt; f UpdateDataSourcePermissions
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissions_dataSourceId"><span class="hs-identifier hs-var hs-var">updateDataSourcePermissions_dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataSourcePermissions -&gt; Text)
+-&gt; (UpdateDataSourcePermissions
+    -&gt; Text -&gt; UpdateDataSourcePermissions)
+-&gt; Lens
+     UpdateDataSourcePermissions UpdateDataSourcePermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600137"><span class="annot"><span class="annottext">Text
+dataSourceId :: Text
+$sel:dataSourceId:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Text
+</span><a href="#local-6989586621679600137"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600137"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600136"><span class="annot"><span class="annottext">s :: UpdateDataSourcePermissions
+</span><a href="#local-6989586621679600136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600135"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataSourcePermissions
+</span><a href="#local-6989586621679600136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:UpdateDataSourcePermissions' :: Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AdataSourceId%3AUpdateDataSourcePermissions%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679600131"><span class="annot"><span class="annottext">request :: UpdateDataSourcePermissions -&gt; Request UpdateDataSourcePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateDataSourcePermissions
+-&gt; Request UpdateDataSourcePermissions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679600127"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDataSourcePermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDataSourcePermissions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateDataSourcePermissions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDataSourcePermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDataSourcePermissions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679600124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600124"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679600123"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679600123"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679600122"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateDataSourcePermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">UpdateDataSourcePermissionsResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateDataSourcePermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; UpdateDataSourcePermissionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; UpdateDataSourcePermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; UpdateDataSourcePermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; UpdateDataSourcePermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateDataSourcePermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateDataSourcePermissionsResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateDataSourcePermissionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600124"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679600114"><span id="local-6989586621679600116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679600111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679600107"><span class="annot"><span class="annottext">toHeaders :: UpdateDataSourcePermissions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDataSourcePermissions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679600097"><span id="local-6989586621679600099"><span id="local-6989586621679600101"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679600095"><span class="annot"><span class="annottext">toJSON :: UpdateDataSourcePermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600090"><span id="local-6989586621679600091"><span id="local-6989586621679600092"><span id="local-6989586621679600093"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+Text
+dataSourceId :: Text
+awsAccountId :: Text
+grantPermissions :: Maybe (NonEmpty ResourcePermission)
+revokePermissions :: Maybe (NonEmpty ResourcePermission)
+$sel:dataSourceId:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Text
+$sel:awsAccountId:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Text
+$sel:grantPermissions:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Maybe (NonEmpty ResourcePermission)
+$sel:revokePermissions:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600090"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RevokePermissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourcePermission -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ResourcePermission -&gt; Pair)
+-&gt; Maybe (NonEmpty ResourcePermission) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600093"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrantPermissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourcePermission -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ResourcePermission -&gt; Pair)
+-&gt; Maybe (NonEmpty ResourcePermission) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600092"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679600084"><span class="annot"><span class="annottext">toPath :: UpdateDataSourcePermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600079"><span id="local-6989586621679600080"><span id="local-6989586621679600081"><span id="local-6989586621679600082"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+Text
+dataSourceId :: Text
+awsAccountId :: Text
+grantPermissions :: Maybe (NonEmpty ResourcePermission)
+revokePermissions :: Maybe (NonEmpty ResourcePermission)
+$sel:dataSourceId:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Text
+$sel:awsAccountId:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Text
+$sel:grantPermissions:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Maybe (NonEmpty ResourcePermission)
+$sel:revokePermissions:UpdateDataSourcePermissions' :: UpdateDataSourcePermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600079"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600080"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/data-sources/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600079"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/permissions&quot;</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissions"><span class="hs-identifier hs-type">UpdateDataSourcePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679600075"><span class="annot"><span class="annottext">toQuery :: UpdateDataSourcePermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDataSourcePermissions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | /See:/ 'newUpdateDataSourcePermissionsResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621679600072"><span id="local-6989586621679600073"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDataSourcePermissionsResponse"><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-var">UpdateDataSourcePermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDataSourcePermissionsResponse%27"><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">UpdateDataSourcePermissionsResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3ArequestId%3AUpdateDataSourcePermissionsResponse%27"><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3ArequestId%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The ID of the data source. This ID is unique per Amazon Web Services</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- Region for each Amazon Web Services account.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AdataSourceId%3AUpdateDataSourcePermissionsResponse%27"><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AdataSourceId%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the data source.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AdataSourceArn%3AUpdateDataSourcePermissionsResponse%27"><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AdataSourceArn%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">dataSourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateDataSourcePermissionsResponse%27"><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3Astatus%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679600064"><span id="local-6989586621679600066"><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse
+-&gt; UpdateDataSourcePermissionsResponse -&gt; Bool
+(UpdateDataSourcePermissionsResponse
+ -&gt; UpdateDataSourcePermissionsResponse -&gt; Bool)
+-&gt; (UpdateDataSourcePermissionsResponse
+    -&gt; UpdateDataSourcePermissionsResponse -&gt; Bool)
+-&gt; Eq UpdateDataSourcePermissionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDataSourcePermissionsResponse
+-&gt; UpdateDataSourcePermissionsResponse -&gt; Bool
+$c/= :: UpdateDataSourcePermissionsResponse
+-&gt; UpdateDataSourcePermissionsResponse -&gt; Bool
+== :: UpdateDataSourcePermissionsResponse
+-&gt; UpdateDataSourcePermissionsResponse -&gt; Bool
+$c== :: UpdateDataSourcePermissionsResponse
+-&gt; UpdateDataSourcePermissionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600056"><span id="local-6989586621679600058"><span id="local-6989586621679600060"><span id="local-6989586621679600062"><span class="annot"><span class="annottext">ReadPrec [UpdateDataSourcePermissionsResponse]
+ReadPrec UpdateDataSourcePermissionsResponse
+Int -&gt; ReadS UpdateDataSourcePermissionsResponse
+ReadS [UpdateDataSourcePermissionsResponse]
+(Int -&gt; ReadS UpdateDataSourcePermissionsResponse)
+-&gt; ReadS [UpdateDataSourcePermissionsResponse]
+-&gt; ReadPrec UpdateDataSourcePermissionsResponse
+-&gt; ReadPrec [UpdateDataSourcePermissionsResponse]
+-&gt; Read UpdateDataSourcePermissionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDataSourcePermissionsResponse]
+$creadListPrec :: ReadPrec [UpdateDataSourcePermissionsResponse]
+readPrec :: ReadPrec UpdateDataSourcePermissionsResponse
+$creadPrec :: ReadPrec UpdateDataSourcePermissionsResponse
+readList :: ReadS [UpdateDataSourcePermissionsResponse]
+$creadList :: ReadS [UpdateDataSourcePermissionsResponse]
+readsPrec :: Int -&gt; ReadS UpdateDataSourcePermissionsResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDataSourcePermissionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600050"><span id="local-6989586621679600052"><span id="local-6989586621679600054"><span class="annot"><span class="annottext">Int -&gt; UpdateDataSourcePermissionsResponse -&gt; ShowS
+[UpdateDataSourcePermissionsResponse] -&gt; ShowS
+UpdateDataSourcePermissionsResponse -&gt; String
+(Int -&gt; UpdateDataSourcePermissionsResponse -&gt; ShowS)
+-&gt; (UpdateDataSourcePermissionsResponse -&gt; String)
+-&gt; ([UpdateDataSourcePermissionsResponse] -&gt; ShowS)
+-&gt; Show UpdateDataSourcePermissionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDataSourcePermissionsResponse] -&gt; ShowS
+$cshowList :: [UpdateDataSourcePermissionsResponse] -&gt; ShowS
+show :: UpdateDataSourcePermissionsResponse -&gt; String
+$cshow :: UpdateDataSourcePermissionsResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDataSourcePermissionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDataSourcePermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDataSourcePermissionsResponse
+ -&gt; Rep UpdateDataSourcePermissionsResponse x)
+-&gt; (forall x.
+    Rep UpdateDataSourcePermissionsResponse x
+    -&gt; UpdateDataSourcePermissionsResponse)
+-&gt; Generic UpdateDataSourcePermissionsResponse
+forall x.
+Rep UpdateDataSourcePermissionsResponse x
+-&gt; UpdateDataSourcePermissionsResponse
+forall x.
+UpdateDataSourcePermissionsResponse
+-&gt; Rep UpdateDataSourcePermissionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDataSourcePermissionsResponse x
+-&gt; UpdateDataSourcePermissionsResponse
+$cfrom :: forall x.
+UpdateDataSourcePermissionsResponse
+-&gt; Rep UpdateDataSourcePermissionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Create a value of 'UpdateDataSourcePermissionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'requestId', 'updateDataSourcePermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'dataSourceId', 'updateDataSourcePermissionsResponse_dataSourceId' - The ID of the data source. This ID is unique per Amazon Web Services</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Region for each Amazon Web Services account.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'dataSourceArn', 'updateDataSourcePermissionsResponse_dataSourceArn' - The Amazon Resource Name (ARN) of the data source.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'status', 'updateDataSourcePermissionsResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#newUpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">newUpdateDataSourcePermissionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span>
+</span><span id="line-212"></span><span id="newUpdateDataSourcePermissionsResponse"><span class="annot"><span class="annottext">newUpdateDataSourcePermissionsResponse :: Int -&gt; UpdateDataSourcePermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#newUpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-var hs-var">newUpdateDataSourcePermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679600047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600047"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateDataSourcePermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse'</span></a></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:UpdateDataSourcePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3ArequestId%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSourceId:UpdateDataSourcePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AdataSourceId%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSourceArn:UpdateDataSourcePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AdataSourceArn%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">dataSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:UpdateDataSourcePermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3Astatus%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600047"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_requestId"><span class="hs-identifier hs-type">updateDataSourcePermissionsResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="updateDataSourcePermissionsResponse_requestId"><span class="annot"><span class="annottext">updateDataSourcePermissionsResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDataSourcePermissionsResponse
+-&gt; f UpdateDataSourcePermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_requestId"><span class="hs-identifier hs-var hs-var">updateDataSourcePermissionsResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataSourcePermissionsResponse -&gt; Maybe Text)
+-&gt; (UpdateDataSourcePermissionsResponse
+    -&gt; Maybe Text -&gt; UpdateDataSourcePermissionsResponse)
+-&gt; Lens
+     UpdateDataSourcePermissionsResponse
+     UpdateDataSourcePermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600046"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:UpdateDataSourcePermissionsResponse' :: UpdateDataSourcePermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679600046"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600046"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600045"><span class="annot"><span class="annottext">s :: UpdateDataSourcePermissionsResponse
+</span><a href="#local-6989586621679600045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600044"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse
+</span><a href="#local-6989586621679600045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:UpdateDataSourcePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3ArequestId%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The ID of the data source. This ID is unique per Amazon Web Services</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Region for each Amazon Web Services account.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_dataSourceId"><span class="hs-identifier hs-type">updateDataSourcePermissionsResponse_dataSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="updateDataSourcePermissionsResponse_dataSourceId"><span class="annot"><span class="annottext">updateDataSourcePermissionsResponse_dataSourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDataSourcePermissionsResponse
+-&gt; f UpdateDataSourcePermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_dataSourceId"><span class="hs-identifier hs-var hs-var">updateDataSourcePermissionsResponse_dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataSourcePermissionsResponse -&gt; Maybe Text)
+-&gt; (UpdateDataSourcePermissionsResponse
+    -&gt; Maybe Text -&gt; UpdateDataSourcePermissionsResponse)
+-&gt; Lens
+     UpdateDataSourcePermissionsResponse
+     UpdateDataSourcePermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600043"><span class="annot"><span class="annottext">Maybe Text
+dataSourceId :: Maybe Text
+$sel:dataSourceId:UpdateDataSourcePermissionsResponse' :: UpdateDataSourcePermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679600043"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600043"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600042"><span class="annot"><span class="annottext">s :: UpdateDataSourcePermissionsResponse
+</span><a href="#local-6989586621679600042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600041"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse
+</span><a href="#local-6989586621679600042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:UpdateDataSourcePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AdataSourceId%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the data source.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_dataSourceArn"><span class="hs-identifier hs-type">updateDataSourcePermissionsResponse_dataSourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="updateDataSourcePermissionsResponse_dataSourceArn"><span class="annot"><span class="annottext">updateDataSourcePermissionsResponse_dataSourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDataSourcePermissionsResponse
+-&gt; f UpdateDataSourcePermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_dataSourceArn"><span class="hs-identifier hs-var hs-var">updateDataSourcePermissionsResponse_dataSourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataSourcePermissionsResponse -&gt; Maybe Text)
+-&gt; (UpdateDataSourcePermissionsResponse
+    -&gt; Maybe Text -&gt; UpdateDataSourcePermissionsResponse)
+-&gt; Lens
+     UpdateDataSourcePermissionsResponse
+     UpdateDataSourcePermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600040"><span class="annot"><span class="annottext">Maybe Text
+dataSourceArn :: Maybe Text
+$sel:dataSourceArn:UpdateDataSourcePermissionsResponse' :: UpdateDataSourcePermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679600040"><span class="hs-identifier hs-var hs-var">dataSourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600040"><span class="hs-identifier hs-var">dataSourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600039"><span class="annot"><span class="annottext">s :: UpdateDataSourcePermissionsResponse
+</span><a href="#local-6989586621679600039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600038"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse
+</span><a href="#local-6989586621679600039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceArn:UpdateDataSourcePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3AdataSourceArn%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">dataSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_status"><span class="hs-identifier hs-type">updateDataSourcePermissionsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-236"></span><span id="updateDataSourcePermissionsResponse_status"><span class="annot"><span class="annottext">updateDataSourcePermissionsResponse_status :: (Int -&gt; f Int)
+-&gt; UpdateDataSourcePermissionsResponse
+-&gt; f UpdateDataSourcePermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#updateDataSourcePermissionsResponse_status"><span class="hs-identifier hs-var hs-var">updateDataSourcePermissionsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDataSourcePermissionsResponse -&gt; Int)
+-&gt; (UpdateDataSourcePermissionsResponse
+    -&gt; Int -&gt; UpdateDataSourcePermissionsResponse)
+-&gt; Lens
+     UpdateDataSourcePermissionsResponse
+     UpdateDataSourcePermissionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600037"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:UpdateDataSourcePermissionsResponse' :: UpdateDataSourcePermissionsResponse -&gt; Int
+</span><a href="#local-6989586621679600037"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600037"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600036"><span class="annot"><span class="annottext">s :: UpdateDataSourcePermissionsResponse
+</span><a href="#local-6989586621679600036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600035"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataSourcePermissionsResponse
+</span><a href="#local-6989586621679600036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateDataSourcePermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#%24sel%3Astatus%3AUpdateDataSourcePermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679600033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateDataSourcePermissions.html#UpdateDataSourcePermissionsResponse"><span class="hs-identifier hs-type">UpdateDataSourcePermissionsResponse</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

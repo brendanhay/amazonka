@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DirectConnect.UpdateLag</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the attributes of the specified link aggregation group (LAG).</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can update the following LAG attributes:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   The name of the LAG.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   The value for the minimum number of connections that must be</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     operational for the LAG itself to be operational.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   The LAG\'s MACsec encryption mode.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     Amazon Web Services assigns this value to each connection which is</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     part of the LAG.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   The tags</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- If you adjust the threshold value for the minimum number of operational</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- connections, ensure that the new value does not cause the LAG to fall</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- below the threshold and become non-operational.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectConnect.UpdateLag</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier">UpdateLag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#newUpdateLag"><span class="hs-identifier">newUpdateLag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_minimumLinks"><span class="hs-identifier">updateLag_minimumLinks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_lagName"><span class="hs-identifier">updateLag_lagName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_encryptionMode"><span class="hs-identifier">updateLag_encryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_lagId"><span class="hs-identifier">updateLag_lagId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#Lag"><span class="hs-identifier">Lag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#newLag"><span class="hs-identifier">newLag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_lagId"><span class="hs-identifier">lag_lagId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_macSecCapable"><span class="hs-identifier">lag_macSecCapable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_connectionsBandwidth"><span class="hs-identifier">lag_connectionsBandwidth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_minimumLinks"><span class="hs-identifier">lag_minimumLinks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_lagName"><span class="hs-identifier">lag_lagName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_location"><span class="hs-identifier">lag_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_connections"><span class="hs-identifier">lag_connections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_awsDevice"><span class="hs-identifier">lag_awsDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_hasLogicalRedundancy"><span class="hs-identifier">lag_hasLogicalRedundancy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_awsLogicalDeviceId"><span class="hs-identifier">lag_awsLogicalDeviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_allowsHostedConnections"><span class="hs-identifier">lag_allowsHostedConnections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_encryptionMode"><span class="hs-identifier">lag_encryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_numberOfConnections"><span class="hs-identifier">lag_numberOfConnections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_jumboFrameCapable"><span class="hs-identifier">lag_jumboFrameCapable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_lagState"><span class="hs-identifier">lag_lagState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_ownerAccount"><span class="hs-identifier">lag_ownerAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_region"><span class="hs-identifier">lag_region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_macSecKeys"><span class="hs-identifier">lag_macSecKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_providerName"><span class="hs-identifier">lag_providerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_awsDeviceV2"><span class="hs-identifier">lag_awsDeviceV2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#lag_tags"><span class="hs-identifier">lag_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.html"><span class="hs-identifier">Amazonka.DirectConnect.Types</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | /See:/ 'newUpdateLag' smart constructor.</span><span>
+</span><span id="line-90"></span><span id="local-6989586621679306185"><span id="local-6989586621679306186"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLag"><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-var">UpdateLag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLag%27"><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-var">UpdateLag'</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum number of physical connections that must be operational for</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- the LAG itself to be operational.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AminimumLinks%3AUpdateLag%27"><span class="annot"><span class="annottext">UpdateLag -&gt; Maybe Int
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AminimumLinks%3AUpdateLag%27"><span class="hs-identifier hs-var hs-var">minimumLinks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The name of the LAG.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AlagName%3AUpdateLag%27"><span class="annot"><span class="annottext">UpdateLag -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AlagName%3AUpdateLag%27"><span class="hs-identifier hs-var hs-var">lagName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The LAG MAC Security (MACsec) encryption mode.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- Amazon Web Services applies the value to all connections which are part</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- of the LAG.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AencryptionMode%3AUpdateLag%27"><span class="annot"><span class="annottext">UpdateLag -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AencryptionMode%3AUpdateLag%27"><span class="hs-identifier hs-var hs-var">encryptionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The ID of the LAG.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AlagId%3AUpdateLag%27"><span class="annot"><span class="annottext">UpdateLag -&gt; Text
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AlagId%3AUpdateLag%27"><span class="hs-identifier hs-var hs-var">lagId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306176"><span id="local-6989586621679306178"><span class="annot"><span class="annottext">UpdateLag -&gt; UpdateLag -&gt; Bool
+(UpdateLag -&gt; UpdateLag -&gt; Bool)
+-&gt; (UpdateLag -&gt; UpdateLag -&gt; Bool) -&gt; Eq UpdateLag
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateLag -&gt; UpdateLag -&gt; Bool
+$c/= :: UpdateLag -&gt; UpdateLag -&gt; Bool
+== :: UpdateLag -&gt; UpdateLag -&gt; Bool
+$c== :: UpdateLag -&gt; UpdateLag -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306167"><span id="local-6989586621679306169"><span id="local-6989586621679306171"><span id="local-6989586621679306173"><span class="annot"><span class="annottext">ReadPrec [UpdateLag]
+ReadPrec UpdateLag
+Int -&gt; ReadS UpdateLag
+ReadS [UpdateLag]
+(Int -&gt; ReadS UpdateLag)
+-&gt; ReadS [UpdateLag]
+-&gt; ReadPrec UpdateLag
+-&gt; ReadPrec [UpdateLag]
+-&gt; Read UpdateLag
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateLag]
+$creadListPrec :: ReadPrec [UpdateLag]
+readPrec :: ReadPrec UpdateLag
+$creadPrec :: ReadPrec UpdateLag
+readList :: ReadS [UpdateLag]
+$creadList :: ReadS [UpdateLag]
+readsPrec :: Int -&gt; ReadS UpdateLag
+$creadsPrec :: Int -&gt; ReadS UpdateLag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306160"><span id="local-6989586621679306162"><span id="local-6989586621679306164"><span class="annot"><span class="annottext">Int -&gt; UpdateLag -&gt; ShowS
+[UpdateLag] -&gt; ShowS
+UpdateLag -&gt; String
+(Int -&gt; UpdateLag -&gt; ShowS)
+-&gt; (UpdateLag -&gt; String)
+-&gt; ([UpdateLag] -&gt; ShowS)
+-&gt; Show UpdateLag
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateLag] -&gt; ShowS
+$cshowList :: [UpdateLag] -&gt; ShowS
+show :: UpdateLag -&gt; String
+$cshow :: UpdateLag -&gt; String
+showsPrec :: Int -&gt; UpdateLag -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateLag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateLag -&gt; Rep UpdateLag x)
+-&gt; (forall x. Rep UpdateLag x -&gt; UpdateLag) -&gt; Generic UpdateLag
+forall x. Rep UpdateLag x -&gt; UpdateLag
+forall x. UpdateLag -&gt; Rep UpdateLag x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateLag x -&gt; UpdateLag
+$cfrom :: forall x. UpdateLag -&gt; Rep UpdateLag x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'UpdateLag' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'minimumLinks', 'updateLag_minimumLinks' - The minimum number of physical connections that must be operational for</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the LAG itself to be operational.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'lagName', 'updateLag_lagName' - The name of the LAG.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'encryptionMode', 'updateLag_encryptionMode' - The LAG MAC Security (MACsec) encryption mode.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Amazon Web Services applies the value to all connections which are part</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- of the LAG.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'lagId', 'updateLag_lagId' - The ID of the LAG.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#newUpdateLag"><span class="hs-identifier hs-type">newUpdateLag</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'lagId'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span>
+</span><span id="line-129"></span><span id="newUpdateLag"><span class="annot"><span class="annottext">newUpdateLag :: Text -&gt; UpdateLag
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#newUpdateLag"><span class="hs-identifier hs-var hs-var">newUpdateLag</span></a></span></span><span> </span><span id="local-6989586621679306155"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306155"><span class="hs-identifier hs-var">pLagId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">UpdateLag' :: Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateLag
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minimumLinks:UpdateLag' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AminimumLinks%3AUpdateLag%27"><span class="hs-identifier hs-var">minimumLinks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:lagName:UpdateLag' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AlagName%3AUpdateLag%27"><span class="hs-identifier hs-var">lagName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionMode:UpdateLag' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AencryptionMode%3AUpdateLag%27"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:lagId:UpdateLag' :: Text
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AlagId%3AUpdateLag%27"><span class="hs-identifier hs-var">lagId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306155"><span class="hs-identifier hs-var">pLagId_</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The minimum number of physical connections that must be operational for</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- the LAG itself to be operational.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_minimumLinks"><span class="hs-identifier hs-type">updateLag_minimumLinks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="updateLag_minimumLinks"><span class="annot"><span class="annottext">updateLag_minimumLinks :: (Maybe Int -&gt; f (Maybe Int)) -&gt; UpdateLag -&gt; f UpdateLag
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_minimumLinks"><span class="hs-identifier hs-var hs-var">updateLag_minimumLinks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLag -&gt; Maybe Int)
+-&gt; (UpdateLag -&gt; Maybe Int -&gt; UpdateLag)
+-&gt; Lens UpdateLag UpdateLag (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306152"><span class="annot"><span class="annottext">Maybe Int
+minimumLinks :: Maybe Int
+$sel:minimumLinks:UpdateLag' :: UpdateLag -&gt; Maybe Int
+</span><a href="#local-6989586621679306152"><span class="hs-identifier hs-var hs-var">minimumLinks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679306152"><span class="hs-identifier hs-var">minimumLinks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306151"><span class="annot"><span class="annottext">s :: UpdateLag
+</span><a href="#local-6989586621679306151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306150"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679306150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLag
+</span><a href="#local-6989586621679306151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumLinks:UpdateLag' :: Maybe Int
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AminimumLinks%3AUpdateLag%27"><span class="hs-identifier hs-var">minimumLinks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679306150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The name of the LAG.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_lagName"><span class="hs-identifier hs-type">updateLag_lagName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="updateLag_lagName"><span class="annot"><span class="annottext">updateLag_lagName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateLag -&gt; f UpdateLag
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_lagName"><span class="hs-identifier hs-var hs-var">updateLag_lagName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLag -&gt; Maybe Text)
+-&gt; (UpdateLag -&gt; Maybe Text -&gt; UpdateLag)
+-&gt; Lens UpdateLag UpdateLag (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306149"><span class="annot"><span class="annottext">Maybe Text
+lagName :: Maybe Text
+$sel:lagName:UpdateLag' :: UpdateLag -&gt; Maybe Text
+</span><a href="#local-6989586621679306149"><span class="hs-identifier hs-var hs-var">lagName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306149"><span class="hs-identifier hs-var">lagName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306148"><span class="annot"><span class="annottext">s :: UpdateLag
+</span><a href="#local-6989586621679306148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLag
+</span><a href="#local-6989586621679306148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lagName:UpdateLag' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AlagName%3AUpdateLag%27"><span class="hs-identifier hs-var">lagName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The LAG MAC Security (MACsec) encryption mode.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Amazon Web Services applies the value to all connections which are part</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- of the LAG.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_encryptionMode"><span class="hs-identifier hs-type">updateLag_encryptionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="updateLag_encryptionMode"><span class="annot"><span class="annottext">updateLag_encryptionMode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateLag -&gt; f UpdateLag
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_encryptionMode"><span class="hs-identifier hs-var hs-var">updateLag_encryptionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLag -&gt; Maybe Text)
+-&gt; (UpdateLag -&gt; Maybe Text -&gt; UpdateLag)
+-&gt; Lens UpdateLag UpdateLag (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306146"><span class="annot"><span class="annottext">Maybe Text
+encryptionMode :: Maybe Text
+$sel:encryptionMode:UpdateLag' :: UpdateLag -&gt; Maybe Text
+</span><a href="#local-6989586621679306146"><span class="hs-identifier hs-var hs-var">encryptionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306146"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306145"><span class="annot"><span class="annottext">s :: UpdateLag
+</span><a href="#local-6989586621679306145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLag
+</span><a href="#local-6989586621679306145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionMode:UpdateLag' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AencryptionMode%3AUpdateLag%27"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The ID of the LAG.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_lagId"><span class="hs-identifier hs-type">updateLag_lagId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span id="updateLag_lagId"><span class="annot"><span class="annottext">updateLag_lagId :: (Text -&gt; f Text) -&gt; UpdateLag -&gt; f UpdateLag
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#updateLag_lagId"><span class="hs-identifier hs-var hs-var">updateLag_lagId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLag -&gt; Text)
+-&gt; (UpdateLag -&gt; Text -&gt; UpdateLag)
+-&gt; Lens UpdateLag UpdateLag Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306143"><span class="annot"><span class="annottext">Text
+lagId :: Text
+$sel:lagId:UpdateLag' :: UpdateLag -&gt; Text
+</span><a href="#local-6989586621679306143"><span class="hs-identifier hs-var hs-var">lagId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306143"><span class="hs-identifier hs-var">lagId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306142"><span class="annot"><span class="annottext">s :: UpdateLag
+</span><a href="#local-6989586621679306142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306141"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLag
+</span><a href="#local-6989586621679306142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lagId:UpdateLag' :: Text
+</span><a href="Amazonka.DirectConnect.UpdateLag.html#%24sel%3AlagId%3AUpdateLag%27"><span class="hs-identifier hs-var">lagId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.Lag.html#Lag"><span class="hs-identifier hs-type">Lag</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679306137"><span class="annot"><span class="annottext">request :: UpdateLag -&gt; Request UpdateLag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateLag -&gt; Request UpdateLag
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679306133"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateLag
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateLag)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateLag))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateLag
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateLag)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306130"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306129"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306129"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306128"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306128"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Lag
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306128"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306123"><span id="local-6989586621679306125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679306116"><span class="annot"><span class="annottext">toHeaders :: UpdateLag -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateLag -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OvertureService.UpdateLag&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-177"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306106"><span id="local-6989586621679306108"><span id="local-6989586621679306110"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679306104"><span class="annot"><span class="annottext">toJSON :: UpdateLag -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag%27"><span class="hs-identifier hs-type">UpdateLag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306099"><span id="local-6989586621679306100"><span id="local-6989586621679306101"><span id="local-6989586621679306102"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Text
+lagId :: Text
+encryptionMode :: Maybe Text
+lagName :: Maybe Text
+minimumLinks :: Maybe Int
+$sel:lagId:UpdateLag' :: UpdateLag -&gt; Text
+$sel:encryptionMode:UpdateLag' :: UpdateLag -&gt; Maybe Text
+$sel:lagName:UpdateLag' :: UpdateLag -&gt; Maybe Text
+$sel:minimumLinks:UpdateLag' :: UpdateLag -&gt; Maybe Int
+</span><a href="#local-6989586621679306099"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minimumLinks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679306102"><span class="hs-identifier hs-var">minimumLinks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lagName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306101"><span class="hs-identifier hs-var">lagName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryptionMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306100"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lagId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306099"><span class="hs-identifier hs-var">lagId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679306092"><span class="annot"><span class="annottext">toPath :: UpdateLag -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateLag -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.UpdateLag.html#UpdateLag"><span class="hs-identifier hs-type">UpdateLag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679306088"><span class="annot"><span class="annottext">toQuery :: UpdateLag -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateLag -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-198"></span></pre></body></html>

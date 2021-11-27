@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSMIncidents.CreateReplicationSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- A replication set replicates and encrypts your data to the provided</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Regions with the provided KMS key.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSMIncidents.CreateReplicationSet</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier">CreateReplicationSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#newCreateReplicationSet"><span class="hs-identifier">newCreateReplicationSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSet_clientToken"><span class="hs-identifier">createReplicationSet_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSet_regions"><span class="hs-identifier">createReplicationSet_regions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse"><span class="hs-identifier">CreateReplicationSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#newCreateReplicationSetResponse"><span class="hs-identifier">newCreateReplicationSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSetResponse_httpStatus"><span class="hs-identifier">createReplicationSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSetResponse_arn"><span class="hs-identifier">createReplicationSetResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.html"><span class="hs-identifier">Amazonka.SSMIncidents.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateReplicationSet' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679222333"><span id="local-6989586621679222334"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateReplicationSet"><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-var">CreateReplicationSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateReplicationSet%27"><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet%27"><span class="hs-identifier hs-var">CreateReplicationSet'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token ensuring that the action is called only once with the specified</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateReplicationSet%27"><span class="annot"><span class="annottext">CreateReplicationSet -&gt; Maybe Text
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3AclientToken%3ACreateReplicationSet%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The Regions that Incident Manager replicates your data to. You can have</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- up to three Regions in your replication set.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aregions%3ACreateReplicationSet%27"><span class="annot"><span class="annottext">CreateReplicationSet -&gt; HashMap Text RegionMapInputValue
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3Aregions%3ACreateReplicationSet%27"><span class="hs-identifier hs-var hs-var">regions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.RegionMapInputValue.html#RegionMapInputValue"><span class="hs-identifier hs-type">RegionMapInputValue</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222326"><span id="local-6989586621679222328"><span class="annot"><span class="annottext">CreateReplicationSet -&gt; CreateReplicationSet -&gt; Bool
+(CreateReplicationSet -&gt; CreateReplicationSet -&gt; Bool)
+-&gt; (CreateReplicationSet -&gt; CreateReplicationSet -&gt; Bool)
+-&gt; Eq CreateReplicationSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateReplicationSet -&gt; CreateReplicationSet -&gt; Bool
+$c/= :: CreateReplicationSet -&gt; CreateReplicationSet -&gt; Bool
+== :: CreateReplicationSet -&gt; CreateReplicationSet -&gt; Bool
+$c== :: CreateReplicationSet -&gt; CreateReplicationSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222317"><span id="local-6989586621679222319"><span id="local-6989586621679222321"><span id="local-6989586621679222323"><span class="annot"><span class="annottext">ReadPrec [CreateReplicationSet]
+ReadPrec CreateReplicationSet
+Int -&gt; ReadS CreateReplicationSet
+ReadS [CreateReplicationSet]
+(Int -&gt; ReadS CreateReplicationSet)
+-&gt; ReadS [CreateReplicationSet]
+-&gt; ReadPrec CreateReplicationSet
+-&gt; ReadPrec [CreateReplicationSet]
+-&gt; Read CreateReplicationSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateReplicationSet]
+$creadListPrec :: ReadPrec [CreateReplicationSet]
+readPrec :: ReadPrec CreateReplicationSet
+$creadPrec :: ReadPrec CreateReplicationSet
+readList :: ReadS [CreateReplicationSet]
+$creadList :: ReadS [CreateReplicationSet]
+readsPrec :: Int -&gt; ReadS CreateReplicationSet
+$creadsPrec :: Int -&gt; ReadS CreateReplicationSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222310"><span id="local-6989586621679222312"><span id="local-6989586621679222314"><span class="annot"><span class="annottext">Int -&gt; CreateReplicationSet -&gt; ShowS
+[CreateReplicationSet] -&gt; ShowS
+CreateReplicationSet -&gt; String
+(Int -&gt; CreateReplicationSet -&gt; ShowS)
+-&gt; (CreateReplicationSet -&gt; String)
+-&gt; ([CreateReplicationSet] -&gt; ShowS)
+-&gt; Show CreateReplicationSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateReplicationSet] -&gt; ShowS
+$cshowList :: [CreateReplicationSet] -&gt; ShowS
+show :: CreateReplicationSet -&gt; String
+$cshow :: CreateReplicationSet -&gt; String
+showsPrec :: Int -&gt; CreateReplicationSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateReplicationSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateReplicationSet -&gt; Rep CreateReplicationSet x)
+-&gt; (forall x. Rep CreateReplicationSet x -&gt; CreateReplicationSet)
+-&gt; Generic CreateReplicationSet
+forall x. Rep CreateReplicationSet x -&gt; CreateReplicationSet
+forall x. CreateReplicationSet -&gt; Rep CreateReplicationSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateReplicationSet x -&gt; CreateReplicationSet
+$cfrom :: forall x. CreateReplicationSet -&gt; Rep CreateReplicationSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'CreateReplicationSet' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'clientToken', 'createReplicationSet_clientToken' - A token ensuring that the action is called only once with the specified</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'regions', 'createReplicationSet_regions' - The Regions that Incident Manager replicates your data to. You can have</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- up to three Regions in your replication set.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#newCreateReplicationSet"><span class="hs-identifier hs-type">newCreateReplicationSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span>
+</span><span id="line-77"></span><span id="newCreateReplicationSet"><span class="annot"><span class="annottext">newCreateReplicationSet :: CreateReplicationSet
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#newCreateReplicationSet"><span class="hs-identifier hs-var hs-var">newCreateReplicationSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">CreateReplicationSet' :: Maybe Text
+-&gt; HashMap Text RegionMapInputValue -&gt; CreateReplicationSet
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet%27"><span class="hs-identifier hs-type">CreateReplicationSet'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateReplicationSet' :: Maybe Text
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3AclientToken%3ACreateReplicationSet%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:regions:CreateReplicationSet' :: HashMap Text RegionMapInputValue
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3Aregions%3ACreateReplicationSet%27"><span class="hs-identifier hs-var">regions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text RegionMapInputValue
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | A token ensuring that the action is called only once with the specified</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSet_clientToken"><span class="hs-identifier hs-type">createReplicationSet_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="createReplicationSet_clientToken"><span class="annot"><span class="annottext">createReplicationSet_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateReplicationSet -&gt; f CreateReplicationSet
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSet_clientToken"><span class="hs-identifier hs-var hs-var">createReplicationSet_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReplicationSet -&gt; Maybe Text)
+-&gt; (CreateReplicationSet -&gt; Maybe Text -&gt; CreateReplicationSet)
+-&gt; Lens
+     CreateReplicationSet CreateReplicationSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet%27"><span class="hs-identifier hs-type">CreateReplicationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222303"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateReplicationSet' :: CreateReplicationSet -&gt; Maybe Text
+</span><a href="#local-6989586621679222303"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222303"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222302"><span class="annot"><span class="annottext">s :: CreateReplicationSet
+</span><a href="#local-6989586621679222302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet%27"><span class="hs-identifier hs-type">CreateReplicationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222301"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReplicationSet
+</span><a href="#local-6989586621679222302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateReplicationSet' :: Maybe Text
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3AclientToken%3ACreateReplicationSet%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The Regions that Incident Manager replicates your data to. You can have</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- up to three Regions in your replication set.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSet_regions"><span class="hs-identifier hs-type">createReplicationSet_regions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.RegionMapInputValue.html#RegionMapInputValue"><span class="hs-identifier hs-type">RegionMapInputValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="createReplicationSet_regions"><span class="annot"><span class="annottext">createReplicationSet_regions :: (HashMap Text RegionMapInputValue
+ -&gt; f (HashMap Text RegionMapInputValue))
+-&gt; CreateReplicationSet -&gt; f CreateReplicationSet
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSet_regions"><span class="hs-identifier hs-var hs-var">createReplicationSet_regions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReplicationSet -&gt; HashMap Text RegionMapInputValue)
+-&gt; (CreateReplicationSet
+    -&gt; HashMap Text RegionMapInputValue -&gt; CreateReplicationSet)
+-&gt; Lens
+     CreateReplicationSet
+     CreateReplicationSet
+     (HashMap Text RegionMapInputValue)
+     (HashMap Text RegionMapInputValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet%27"><span class="hs-identifier hs-type">CreateReplicationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222300"><span class="annot"><span class="annottext">HashMap Text RegionMapInputValue
+regions :: HashMap Text RegionMapInputValue
+$sel:regions:CreateReplicationSet' :: CreateReplicationSet -&gt; HashMap Text RegionMapInputValue
+</span><a href="#local-6989586621679222300"><span class="hs-identifier hs-var hs-var">regions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text RegionMapInputValue
+</span><a href="#local-6989586621679222300"><span class="hs-identifier hs-var">regions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222299"><span class="annot"><span class="annottext">s :: CreateReplicationSet
+</span><a href="#local-6989586621679222299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet%27"><span class="hs-identifier hs-type">CreateReplicationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222298"><span class="annot"><span class="annottext">HashMap Text RegionMapInputValue
+</span><a href="#local-6989586621679222298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReplicationSet
+</span><a href="#local-6989586621679222299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regions:CreateReplicationSet' :: HashMap Text RegionMapInputValue
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3Aregions%3ACreateReplicationSet%27"><span class="hs-identifier hs-var">regions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text RegionMapInputValue
+</span><a href="#local-6989586621679222298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text RegionMapInputValue
+  -&gt; f (HashMap Text RegionMapInputValue))
+ -&gt; CreateReplicationSet -&gt; f CreateReplicationSet)
+-&gt; ((HashMap Text RegionMapInputValue
+     -&gt; f (HashMap Text RegionMapInputValue))
+    -&gt; HashMap Text RegionMapInputValue
+    -&gt; f (HashMap Text RegionMapInputValue))
+-&gt; (HashMap Text RegionMapInputValue
+    -&gt; f (HashMap Text RegionMapInputValue))
+-&gt; CreateReplicationSet
+-&gt; f CreateReplicationSet
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text RegionMapInputValue
+ -&gt; f (HashMap Text RegionMapInputValue))
+-&gt; HashMap Text RegionMapInputValue
+-&gt; f (HashMap Text RegionMapInputValue)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse"><span class="hs-identifier hs-type">CreateReplicationSetResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679222292"><span class="annot"><span class="annottext">request :: CreateReplicationSet -&gt; Request CreateReplicationSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateReplicationSet -&gt; Request CreateReplicationSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSMIncidents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679222288"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateReplicationSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateReplicationSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateReplicationSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateReplicationSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateReplicationSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222285"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222285"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222284"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222284"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222283"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222283"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateReplicationSetResponse
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse%27"><span class="hs-identifier hs-var">CreateReplicationSetResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateReplicationSetResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateReplicationSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222285"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateReplicationSetResponse)
+-&gt; Either String Text -&gt; Either String CreateReplicationSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222275"><span id="local-6989586621679222277"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222272"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679222268"><span class="annot"><span class="annottext">toHeaders :: CreateReplicationSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateReplicationSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222258"><span id="local-6989586621679222260"><span id="local-6989586621679222262"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679222256"><span class="annot"><span class="annottext">toJSON :: CreateReplicationSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet%27"><span class="hs-identifier hs-type">CreateReplicationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222253"><span id="local-6989586621679222254"><span class="annot"><span class="annottext">Maybe Text
+HashMap Text RegionMapInputValue
+regions :: HashMap Text RegionMapInputValue
+clientToken :: Maybe Text
+$sel:regions:CreateReplicationSet' :: CreateReplicationSet -&gt; HashMap Text RegionMapInputValue
+$sel:clientToken:CreateReplicationSet' :: CreateReplicationSet -&gt; Maybe Text
+</span><a href="#local-6989586621679222253"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222254"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;regions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text RegionMapInputValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text RegionMapInputValue
+</span><a href="#local-6989586621679222253"><span class="hs-identifier hs-var">regions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679222247"><span class="annot"><span class="annottext">toPath :: CreateReplicationSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateReplicationSet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/createReplicationSet&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSet"><span class="hs-identifier hs-type">CreateReplicationSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679222243"><span class="annot"><span class="annottext">toQuery :: CreateReplicationSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateReplicationSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newCreateReplicationSetResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679222240"><span id="local-6989586621679222241"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateReplicationSetResponse"><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse"><span class="hs-identifier hs-var">CreateReplicationSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateReplicationSetResponse%27"><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse%27"><span class="hs-identifier hs-var">CreateReplicationSetResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateReplicationSetResponse%27"><span class="annot"><span class="annottext">CreateReplicationSetResponse -&gt; Int
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3AhttpStatus%3ACreateReplicationSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the replication set.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Aarn%3ACreateReplicationSetResponse%27"><span class="annot"><span class="annottext">CreateReplicationSetResponse -&gt; Text
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3Aarn%3ACreateReplicationSetResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222234"><span id="local-6989586621679222236"><span class="annot"><span class="annottext">CreateReplicationSetResponse
+-&gt; CreateReplicationSetResponse -&gt; Bool
+(CreateReplicationSetResponse
+ -&gt; CreateReplicationSetResponse -&gt; Bool)
+-&gt; (CreateReplicationSetResponse
+    -&gt; CreateReplicationSetResponse -&gt; Bool)
+-&gt; Eq CreateReplicationSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateReplicationSetResponse
+-&gt; CreateReplicationSetResponse -&gt; Bool
+$c/= :: CreateReplicationSetResponse
+-&gt; CreateReplicationSetResponse -&gt; Bool
+== :: CreateReplicationSetResponse
+-&gt; CreateReplicationSetResponse -&gt; Bool
+$c== :: CreateReplicationSetResponse
+-&gt; CreateReplicationSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222226"><span id="local-6989586621679222228"><span id="local-6989586621679222230"><span id="local-6989586621679222232"><span class="annot"><span class="annottext">ReadPrec [CreateReplicationSetResponse]
+ReadPrec CreateReplicationSetResponse
+Int -&gt; ReadS CreateReplicationSetResponse
+ReadS [CreateReplicationSetResponse]
+(Int -&gt; ReadS CreateReplicationSetResponse)
+-&gt; ReadS [CreateReplicationSetResponse]
+-&gt; ReadPrec CreateReplicationSetResponse
+-&gt; ReadPrec [CreateReplicationSetResponse]
+-&gt; Read CreateReplicationSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateReplicationSetResponse]
+$creadListPrec :: ReadPrec [CreateReplicationSetResponse]
+readPrec :: ReadPrec CreateReplicationSetResponse
+$creadPrec :: ReadPrec CreateReplicationSetResponse
+readList :: ReadS [CreateReplicationSetResponse]
+$creadList :: ReadS [CreateReplicationSetResponse]
+readsPrec :: Int -&gt; ReadS CreateReplicationSetResponse
+$creadsPrec :: Int -&gt; ReadS CreateReplicationSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222220"><span id="local-6989586621679222222"><span id="local-6989586621679222224"><span class="annot"><span class="annottext">Int -&gt; CreateReplicationSetResponse -&gt; ShowS
+[CreateReplicationSetResponse] -&gt; ShowS
+CreateReplicationSetResponse -&gt; String
+(Int -&gt; CreateReplicationSetResponse -&gt; ShowS)
+-&gt; (CreateReplicationSetResponse -&gt; String)
+-&gt; ([CreateReplicationSetResponse] -&gt; ShowS)
+-&gt; Show CreateReplicationSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateReplicationSetResponse] -&gt; ShowS
+$cshowList :: [CreateReplicationSetResponse] -&gt; ShowS
+show :: CreateReplicationSetResponse -&gt; String
+$cshow :: CreateReplicationSetResponse -&gt; String
+showsPrec :: Int -&gt; CreateReplicationSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateReplicationSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateReplicationSetResponse -&gt; Rep CreateReplicationSetResponse x)
+-&gt; (forall x.
+    Rep CreateReplicationSetResponse x -&gt; CreateReplicationSetResponse)
+-&gt; Generic CreateReplicationSetResponse
+forall x.
+Rep CreateReplicationSetResponse x -&gt; CreateReplicationSetResponse
+forall x.
+CreateReplicationSetResponse -&gt; Rep CreateReplicationSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateReplicationSetResponse x -&gt; CreateReplicationSetResponse
+$cfrom :: forall x.
+CreateReplicationSetResponse -&gt; Rep CreateReplicationSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'CreateReplicationSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'createReplicationSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'arn', 'createReplicationSetResponse_arn' - The Amazon Resource Name (ARN) of the replication set.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#newCreateReplicationSetResponse"><span class="hs-identifier hs-type">newCreateReplicationSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse"><span class="hs-identifier hs-type">CreateReplicationSetResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newCreateReplicationSetResponse"><span class="annot"><span class="annottext">newCreateReplicationSetResponse :: Int -&gt; Text -&gt; CreateReplicationSetResponse
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#newCreateReplicationSetResponse"><span class="hs-identifier hs-var hs-var">newCreateReplicationSetResponse</span></a></span></span><span> </span><span id="local-6989586621679222217"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222217"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679222216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222216"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">CreateReplicationSetResponse' :: Int -&gt; Text -&gt; CreateReplicationSetResponse
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse%27"><span class="hs-identifier hs-type">CreateReplicationSetResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateReplicationSetResponse' :: Int
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3AhttpStatus%3ACreateReplicationSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222217"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CreateReplicationSetResponse' :: Text
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3Aarn%3ACreateReplicationSetResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222216"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSetResponse_httpStatus"><span class="hs-identifier hs-type">createReplicationSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse"><span class="hs-identifier hs-type">CreateReplicationSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span id="createReplicationSetResponse_httpStatus"><span class="annot"><span class="annottext">createReplicationSetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateReplicationSetResponse -&gt; f CreateReplicationSetResponse
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createReplicationSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReplicationSetResponse -&gt; Int)
+-&gt; (CreateReplicationSetResponse
+    -&gt; Int -&gt; CreateReplicationSetResponse)
+-&gt; Lens
+     CreateReplicationSetResponse CreateReplicationSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse%27"><span class="hs-identifier hs-type">CreateReplicationSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222215"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateReplicationSetResponse' :: CreateReplicationSetResponse -&gt; Int
+</span><a href="#local-6989586621679222215"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222215"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222214"><span class="annot"><span class="annottext">s :: CreateReplicationSetResponse
+</span><a href="#local-6989586621679222214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse%27"><span class="hs-identifier hs-type">CreateReplicationSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222213"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReplicationSetResponse
+</span><a href="#local-6989586621679222214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateReplicationSetResponse' :: Int
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3AhttpStatus%3ACreateReplicationSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse"><span class="hs-identifier hs-type">CreateReplicationSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the replication set.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSetResponse_arn"><span class="hs-identifier hs-type">createReplicationSetResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse"><span class="hs-identifier hs-type">CreateReplicationSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span id="createReplicationSetResponse_arn"><span class="annot"><span class="annottext">createReplicationSetResponse_arn :: (Text -&gt; f Text)
+-&gt; CreateReplicationSetResponse -&gt; f CreateReplicationSetResponse
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#createReplicationSetResponse_arn"><span class="hs-identifier hs-var hs-var">createReplicationSetResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReplicationSetResponse -&gt; Text)
+-&gt; (CreateReplicationSetResponse
+    -&gt; Text -&gt; CreateReplicationSetResponse)
+-&gt; Lens
+     CreateReplicationSetResponse CreateReplicationSetResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse%27"><span class="hs-identifier hs-type">CreateReplicationSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222212"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:CreateReplicationSetResponse' :: CreateReplicationSetResponse -&gt; Text
+</span><a href="#local-6989586621679222212"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222212"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222211"><span class="annot"><span class="annottext">s :: CreateReplicationSetResponse
+</span><a href="#local-6989586621679222211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse%27"><span class="hs-identifier hs-type">CreateReplicationSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222210"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReplicationSetResponse
+</span><a href="#local-6989586621679222211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateReplicationSetResponse' :: Text
+</span><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#%24sel%3Aarn%3ACreateReplicationSetResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse"><span class="hs-identifier hs-type">CreateReplicationSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.CreateReplicationSet.html#CreateReplicationSetResponse"><span class="hs-identifier hs-type">CreateReplicationSetResponse</span></a></span></span><span>
+</span><span id="line-179"></span></pre></body></html>

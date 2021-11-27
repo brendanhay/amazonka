@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.RebootOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.RebootOption</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption"><span class="hs-identifier">RebootOption</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption_NoReboot"><span class="hs-identifier">RebootOption_NoReboot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption_RebootIfNeeded"><span class="hs-identifier">RebootOption_RebootIfNeeded</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679810755"><span id="local-6989586621679810756"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RebootOption"><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption"><span class="hs-identifier hs-var">RebootOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootOption%27"><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption%27"><span class="hs-identifier hs-var">RebootOption'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRebootOption"><span class="annot"><span class="annottext">RebootOption -&gt; Text
+</span><a href="Amazonka.SSM.Types.RebootOption.html#fromRebootOption"><span class="hs-identifier hs-var hs-var">fromRebootOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679810747"><span id="local-6989586621679810749"><span id="local-6989586621679810751"><span class="annot"><span class="annottext">Int -&gt; RebootOption -&gt; ShowS
+[RebootOption] -&gt; ShowS
+RebootOption -&gt; String
+(Int -&gt; RebootOption -&gt; ShowS)
+-&gt; (RebootOption -&gt; String)
+-&gt; ([RebootOption] -&gt; ShowS)
+-&gt; Show RebootOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RebootOption] -&gt; ShowS
+$cshowList :: [RebootOption] -&gt; ShowS
+show :: RebootOption -&gt; String
+$cshow :: RebootOption -&gt; String
+showsPrec :: Int -&gt; RebootOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; RebootOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679810738"><span id="local-6989586621679810740"><span id="local-6989586621679810742"><span id="local-6989586621679810744"><span class="annot"><span class="annottext">ReadPrec [RebootOption]
+ReadPrec RebootOption
+Int -&gt; ReadS RebootOption
+ReadS [RebootOption]
+(Int -&gt; ReadS RebootOption)
+-&gt; ReadS [RebootOption]
+-&gt; ReadPrec RebootOption
+-&gt; ReadPrec [RebootOption]
+-&gt; Read RebootOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RebootOption]
+$creadListPrec :: ReadPrec [RebootOption]
+readPrec :: ReadPrec RebootOption
+$creadPrec :: ReadPrec RebootOption
+readList :: ReadS [RebootOption]
+$creadList :: ReadS [RebootOption]
+readsPrec :: Int -&gt; ReadS RebootOption
+$creadsPrec :: Int -&gt; ReadS RebootOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679810733"><span id="local-6989586621679810735"><span class="annot"><span class="annottext">RebootOption -&gt; RebootOption -&gt; Bool
+(RebootOption -&gt; RebootOption -&gt; Bool)
+-&gt; (RebootOption -&gt; RebootOption -&gt; Bool) -&gt; Eq RebootOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RebootOption -&gt; RebootOption -&gt; Bool
+$c/= :: RebootOption -&gt; RebootOption -&gt; Bool
+== :: RebootOption -&gt; RebootOption -&gt; Bool
+$c== :: RebootOption -&gt; RebootOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679810717"><span id="local-6989586621679810719"><span id="local-6989586621679810721"><span id="local-6989586621679810723"><span id="local-6989586621679810725"><span id="local-6989586621679810727"><span id="local-6989586621679810729"><span class="annot"><span class="annottext">Eq RebootOption
+Eq RebootOption
+-&gt; (RebootOption -&gt; RebootOption -&gt; Ordering)
+-&gt; (RebootOption -&gt; RebootOption -&gt; Bool)
+-&gt; (RebootOption -&gt; RebootOption -&gt; Bool)
+-&gt; (RebootOption -&gt; RebootOption -&gt; Bool)
+-&gt; (RebootOption -&gt; RebootOption -&gt; Bool)
+-&gt; (RebootOption -&gt; RebootOption -&gt; RebootOption)
+-&gt; (RebootOption -&gt; RebootOption -&gt; RebootOption)
+-&gt; Ord RebootOption
+RebootOption -&gt; RebootOption -&gt; Bool
+RebootOption -&gt; RebootOption -&gt; Ordering
+RebootOption -&gt; RebootOption -&gt; RebootOption
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RebootOption -&gt; RebootOption -&gt; RebootOption
+$cmin :: RebootOption -&gt; RebootOption -&gt; RebootOption
+max :: RebootOption -&gt; RebootOption -&gt; RebootOption
+$cmax :: RebootOption -&gt; RebootOption -&gt; RebootOption
+&gt;= :: RebootOption -&gt; RebootOption -&gt; Bool
+$c&gt;= :: RebootOption -&gt; RebootOption -&gt; Bool
+&gt; :: RebootOption -&gt; RebootOption -&gt; Bool
+$c&gt; :: RebootOption -&gt; RebootOption -&gt; Bool
+&lt;= :: RebootOption -&gt; RebootOption -&gt; Bool
+$c&lt;= :: RebootOption -&gt; RebootOption -&gt; Bool
+&lt; :: RebootOption -&gt; RebootOption -&gt; Bool
+$c&lt; :: RebootOption -&gt; RebootOption -&gt; Bool
+compare :: RebootOption -&gt; RebootOption -&gt; Ordering
+$ccompare :: RebootOption -&gt; RebootOption -&gt; Ordering
+$cp1Ord :: Eq RebootOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RebootOption -&gt; Rep RebootOption x)
+-&gt; (forall x. Rep RebootOption x -&gt; RebootOption)
+-&gt; Generic RebootOption
+forall x. Rep RebootOption x -&gt; RebootOption
+forall x. RebootOption -&gt; Rep RebootOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RebootOption x -&gt; RebootOption
+$cfrom :: forall x. RebootOption -&gt; Rep RebootOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679810709"><span id="local-6989586621679810711"><span class="annot"><span class="annottext">Int -&gt; RebootOption -&gt; Int
+RebootOption -&gt; Int
+(Int -&gt; RebootOption -&gt; Int)
+-&gt; (RebootOption -&gt; Int) -&gt; Hashable RebootOption
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RebootOption -&gt; Int
+$chash :: RebootOption -&gt; Int
+hashWithSalt :: Int -&gt; RebootOption -&gt; Int
+$chashWithSalt :: Int -&gt; RebootOption -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679810706"><span class="annot"><span class="annottext">RebootOption -&gt; ()
+(RebootOption -&gt; ()) -&gt; NFData RebootOption
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RebootOption -&gt; ()
+$crnf :: RebootOption -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679810703"><span class="annot"><span class="annottext">Text -&gt; Either String RebootOption
+(Text -&gt; Either String RebootOption) -&gt; FromText RebootOption
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RebootOption
+$cfromText :: Text -&gt; Either String RebootOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679810700"><span class="annot"><span class="annottext">RebootOption -&gt; Text
+(RebootOption -&gt; Text) -&gt; ToText RebootOption
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RebootOption -&gt; Text
+$ctoText :: RebootOption -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679810697"><span class="annot"><span class="annottext">RebootOption -&gt; ByteString
+(RebootOption -&gt; ByteString) -&gt; ToByteString RebootOption
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RebootOption -&gt; ByteString
+$ctoBS :: RebootOption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679810694"><span class="annot"><span class="annottext">RebootOption -&gt; ByteStringBuilder
+(RebootOption -&gt; ByteStringBuilder) -&gt; ToLog RebootOption
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RebootOption -&gt; ByteStringBuilder
+$cbuild :: RebootOption -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679810691"><span class="annot"><span class="annottext">HeaderName -&gt; RebootOption -&gt; [Header]
+(HeaderName -&gt; RebootOption -&gt; [Header]) -&gt; ToHeader RebootOption
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RebootOption -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RebootOption -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679810688"><span class="annot"><span class="annottext">RebootOption -&gt; QueryString
+(RebootOption -&gt; QueryString) -&gt; ToQuery RebootOption
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RebootOption -&gt; QueryString
+$ctoQuery :: RebootOption -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679810683"><span id="local-6989586621679810685"><span class="annot"><span class="annottext">Value -&gt; Parser [RebootOption]
+Value -&gt; Parser RebootOption
+(Value -&gt; Parser RebootOption)
+-&gt; (Value -&gt; Parser [RebootOption]) -&gt; FromJSON RebootOption
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RebootOption]
+$cparseJSONList :: Value -&gt; Parser [RebootOption]
+parseJSON :: Value -&gt; Parser RebootOption
+$cparseJSON :: Value -&gt; Parser RebootOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679810678"><span id="local-6989586621679810680"><span class="annot"><span class="annottext">FromJSONKeyFunction [RebootOption]
+FromJSONKeyFunction RebootOption
+FromJSONKeyFunction RebootOption
+-&gt; FromJSONKeyFunction [RebootOption] -&gt; FromJSONKey RebootOption
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RebootOption]
+$cfromJSONKeyList :: FromJSONKeyFunction [RebootOption]
+fromJSONKey :: FromJSONKeyFunction RebootOption
+$cfromJSONKey :: FromJSONKeyFunction RebootOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679810669"><span id="local-6989586621679810671"><span id="local-6989586621679810673"><span id="local-6989586621679810675"><span class="annot"><span class="annottext">[RebootOption] -&gt; Encoding
+[RebootOption] -&gt; Value
+RebootOption -&gt; Encoding
+RebootOption -&gt; Value
+(RebootOption -&gt; Value)
+-&gt; (RebootOption -&gt; Encoding)
+-&gt; ([RebootOption] -&gt; Value)
+-&gt; ([RebootOption] -&gt; Encoding)
+-&gt; ToJSON RebootOption
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RebootOption] -&gt; Encoding
+$ctoEncodingList :: [RebootOption] -&gt; Encoding
+toJSONList :: [RebootOption] -&gt; Value
+$ctoJSONList :: [RebootOption] -&gt; Value
+toEncoding :: RebootOption -&gt; Encoding
+$ctoEncoding :: RebootOption -&gt; Encoding
+toJSON :: RebootOption -&gt; Value
+$ctoJSON :: RebootOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679810664"><span id="local-6989586621679810666"><span class="annot"><span class="annottext">ToJSONKeyFunction [RebootOption]
+ToJSONKeyFunction RebootOption
+ToJSONKeyFunction RebootOption
+-&gt; ToJSONKeyFunction [RebootOption] -&gt; ToJSONKey RebootOption
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RebootOption]
+$ctoJSONKeyList :: ToJSONKeyFunction [RebootOption]
+toJSONKey :: ToJSONKeyFunction RebootOption
+$ctoJSONKey :: ToJSONKeyFunction RebootOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679810661"><span class="annot"><span class="annottext">[Node] -&gt; Either String RebootOption
+([Node] -&gt; Either String RebootOption) -&gt; FromXML RebootOption
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RebootOption
+$cparseXML :: [Node] -&gt; Either String RebootOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679810658"><span class="annot"><span class="annottext">RebootOption -&gt; XML
+(RebootOption -&gt; XML) -&gt; ToXML RebootOption
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RebootOption -&gt; XML
+$ctoXML :: RebootOption -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption_NoReboot"><span class="hs-identifier hs-type">RebootOption_NoReboot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption"><span class="hs-identifier hs-type">RebootOption</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRebootOption_NoReboot"><span id="%24mRebootOption_NoReboot"><span id="RebootOption_NoReboot"><span class="annot"><span class="annottext">$bRebootOption_NoReboot :: RebootOption
+$mRebootOption_NoReboot :: forall r. RebootOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.RebootOption.html#%24bRebootOption_NoReboot"><span class="hs-identifier hs-var hs-var hs-var">RebootOption_NoReboot</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption%27"><span class="hs-identifier hs-type">RebootOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NoReboot&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption_RebootIfNeeded"><span class="hs-identifier hs-type">RebootOption_RebootIfNeeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption"><span class="hs-identifier hs-type">RebootOption</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRebootOption_RebootIfNeeded"><span id="%24mRebootOption_RebootIfNeeded"><span id="RebootOption_RebootIfNeeded"><span class="annot"><span class="annottext">$bRebootOption_RebootIfNeeded :: RebootOption
+$mRebootOption_RebootIfNeeded :: forall r. RebootOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.RebootOption.html#%24bRebootOption_RebootIfNeeded"><span class="hs-identifier hs-var hs-var hs-var">RebootOption_RebootIfNeeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption%27"><span class="hs-identifier hs-type">RebootOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RebootIfNeeded&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption_NoReboot"><span class="hs-pragma hs-type">RebootOption_NoReboot</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption_RebootIfNeeded"><span class="hs-pragma hs-type">RebootOption_RebootIfNeeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.RebootOption.html#RebootOption%27"><span class="hs-pragma hs-type">RebootOption'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataBrew.Types.DatabaseOutput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataBrew.Types.DatabaseOutput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutputMode.html"><span class="hs-identifier">Amazonka.DataBrew.Types.DatabaseOutputMode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseTableOutputOptions.html"><span class="hs-identifier">Amazonka.DataBrew.Types.DatabaseTableOutputOptions</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents a JDBC database output object which defines the output</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- destination for a DataBrew recipe job to write into.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDatabaseOutput' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679297215"><span id="local-6989586621679297216"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatabaseOutput"><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-var">DatabaseOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatabaseOutput%27"><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-var">DatabaseOutput'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The output mode to write into the database. Currently supported option:</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- NEW_TABLE.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdatabaseOutputMode%3ADatabaseOutput%27"><span class="annot"><span class="annottext">DatabaseOutput -&gt; Maybe DatabaseOutputMode
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#%24sel%3AdatabaseOutputMode%3ADatabaseOutput%27"><span class="hs-identifier hs-var hs-var">databaseOutputMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutputMode.html#DatabaseOutputMode"><span class="hs-identifier hs-type">DatabaseOutputMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Glue connection that stores the connection information for the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- target database.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AglueConnectionName%3ADatabaseOutput%27"><span class="annot"><span class="annottext">DatabaseOutput -&gt; Text
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#%24sel%3AglueConnectionName%3ADatabaseOutput%27"><span class="hs-identifier hs-var hs-var">glueConnectionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Represents options that specify how and where DataBrew writes the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- database output generated by recipe jobs.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdatabaseOptions%3ADatabaseOutput%27"><span class="annot"><span class="annottext">DatabaseOutput -&gt; DatabaseTableOutputOptions
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#%24sel%3AdatabaseOptions%3ADatabaseOutput%27"><span class="hs-identifier hs-var hs-var">databaseOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseTableOutputOptions.html#DatabaseTableOutputOptions"><span class="hs-identifier hs-type">DatabaseTableOutputOptions</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297207"><span id="local-6989586621679297209"><span class="annot"><span class="annottext">DatabaseOutput -&gt; DatabaseOutput -&gt; Bool
+(DatabaseOutput -&gt; DatabaseOutput -&gt; Bool)
+-&gt; (DatabaseOutput -&gt; DatabaseOutput -&gt; Bool) -&gt; Eq DatabaseOutput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DatabaseOutput -&gt; DatabaseOutput -&gt; Bool
+$c/= :: DatabaseOutput -&gt; DatabaseOutput -&gt; Bool
+== :: DatabaseOutput -&gt; DatabaseOutput -&gt; Bool
+$c== :: DatabaseOutput -&gt; DatabaseOutput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297198"><span id="local-6989586621679297200"><span id="local-6989586621679297202"><span id="local-6989586621679297204"><span class="annot"><span class="annottext">ReadPrec [DatabaseOutput]
+ReadPrec DatabaseOutput
+Int -&gt; ReadS DatabaseOutput
+ReadS [DatabaseOutput]
+(Int -&gt; ReadS DatabaseOutput)
+-&gt; ReadS [DatabaseOutput]
+-&gt; ReadPrec DatabaseOutput
+-&gt; ReadPrec [DatabaseOutput]
+-&gt; Read DatabaseOutput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DatabaseOutput]
+$creadListPrec :: ReadPrec [DatabaseOutput]
+readPrec :: ReadPrec DatabaseOutput
+$creadPrec :: ReadPrec DatabaseOutput
+readList :: ReadS [DatabaseOutput]
+$creadList :: ReadS [DatabaseOutput]
+readsPrec :: Int -&gt; ReadS DatabaseOutput
+$creadsPrec :: Int -&gt; ReadS DatabaseOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297191"><span id="local-6989586621679297193"><span id="local-6989586621679297195"><span class="annot"><span class="annottext">Int -&gt; DatabaseOutput -&gt; ShowS
+[DatabaseOutput] -&gt; ShowS
+DatabaseOutput -&gt; String
+(Int -&gt; DatabaseOutput -&gt; ShowS)
+-&gt; (DatabaseOutput -&gt; String)
+-&gt; ([DatabaseOutput] -&gt; ShowS)
+-&gt; Show DatabaseOutput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DatabaseOutput] -&gt; ShowS
+$cshowList :: [DatabaseOutput] -&gt; ShowS
+show :: DatabaseOutput -&gt; String
+$cshow :: DatabaseOutput -&gt; String
+showsPrec :: Int -&gt; DatabaseOutput -&gt; ShowS
+$cshowsPrec :: Int -&gt; DatabaseOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DatabaseOutput -&gt; Rep DatabaseOutput x)
+-&gt; (forall x. Rep DatabaseOutput x -&gt; DatabaseOutput)
+-&gt; Generic DatabaseOutput
+forall x. Rep DatabaseOutput x -&gt; DatabaseOutput
+forall x. DatabaseOutput -&gt; Rep DatabaseOutput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DatabaseOutput x -&gt; DatabaseOutput
+$cfrom :: forall x. DatabaseOutput -&gt; Rep DatabaseOutput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'DatabaseOutput' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'databaseOutputMode', 'databaseOutput_databaseOutputMode' - The output mode to write into the database. Currently supported option:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- NEW_TABLE.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'glueConnectionName', 'databaseOutput_glueConnectionName' - The Glue connection that stores the connection information for the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- target database.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'databaseOptions', 'databaseOutput_databaseOptions' - Represents options that specify how and where DataBrew writes the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- database output generated by recipe jobs.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#newDatabaseOutput"><span class="hs-identifier hs-type">newDatabaseOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'glueConnectionName'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'databaseOptions'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseTableOutputOptions.html#DatabaseTableOutputOptions"><span class="hs-identifier hs-type">DatabaseTableOutputOptions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span><span>
+</span><span id="line-67"></span><span id="newDatabaseOutput"><span class="annot"><span class="annottext">newDatabaseOutput :: Text -&gt; DatabaseTableOutputOptions -&gt; DatabaseOutput
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#newDatabaseOutput"><span class="hs-identifier hs-var hs-var">newDatabaseOutput</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679297185"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297185"><span class="hs-identifier hs-var">pGlueConnectionName_</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679297184"><span class="annot"><span class="annottext">DatabaseTableOutputOptions
+</span><a href="#local-6989586621679297184"><span class="hs-identifier hs-var">pDatabaseOptions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">DatabaseOutput' :: Maybe DatabaseOutputMode
+-&gt; Text -&gt; DatabaseTableOutputOptions -&gt; DatabaseOutput
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-type">DatabaseOutput'</span></a></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:databaseOutputMode:DatabaseOutput' :: Maybe DatabaseOutputMode
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#%24sel%3AdatabaseOutputMode%3ADatabaseOutput%27"><span class="hs-identifier hs-var">databaseOutputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe DatabaseOutputMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">$sel:glueConnectionName:DatabaseOutput' :: Text
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#%24sel%3AglueConnectionName%3ADatabaseOutput%27"><span class="hs-identifier hs-var">glueConnectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297185"><span class="hs-identifier hs-var">pGlueConnectionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseOptions:DatabaseOutput' :: DatabaseTableOutputOptions
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#%24sel%3AdatabaseOptions%3ADatabaseOutput%27"><span class="hs-identifier hs-var">databaseOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DatabaseTableOutputOptions
+</span><a href="#local-6989586621679297184"><span class="hs-identifier hs-var">pDatabaseOptions_</span></a></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The output mode to write into the database. Currently supported option:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- NEW_TABLE.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#databaseOutput_databaseOutputMode"><span class="hs-identifier hs-type">databaseOutput_databaseOutputMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutputMode.html#DatabaseOutputMode"><span class="hs-identifier hs-type">DatabaseOutputMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="databaseOutput_databaseOutputMode"><span class="annot"><span class="annottext">databaseOutput_databaseOutputMode :: (Maybe DatabaseOutputMode -&gt; f (Maybe DatabaseOutputMode))
+-&gt; DatabaseOutput -&gt; f DatabaseOutput
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#databaseOutput_databaseOutputMode"><span class="hs-identifier hs-var hs-var">databaseOutput_databaseOutputMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatabaseOutput -&gt; Maybe DatabaseOutputMode)
+-&gt; (DatabaseOutput -&gt; Maybe DatabaseOutputMode -&gt; DatabaseOutput)
+-&gt; Lens
+     DatabaseOutput
+     DatabaseOutput
+     (Maybe DatabaseOutputMode)
+     (Maybe DatabaseOutputMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-type">DatabaseOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297180"><span class="annot"><span class="annottext">Maybe DatabaseOutputMode
+databaseOutputMode :: Maybe DatabaseOutputMode
+$sel:databaseOutputMode:DatabaseOutput' :: DatabaseOutput -&gt; Maybe DatabaseOutputMode
+</span><a href="#local-6989586621679297180"><span class="hs-identifier hs-var hs-var">databaseOutputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseOutputMode
+</span><a href="#local-6989586621679297180"><span class="hs-identifier hs-var">databaseOutputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297179"><span class="annot"><span class="annottext">s :: DatabaseOutput
+</span><a href="#local-6989586621679297179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-type">DatabaseOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297178"><span class="annot"><span class="annottext">Maybe DatabaseOutputMode
+</span><a href="#local-6989586621679297178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatabaseOutput
+</span><a href="#local-6989586621679297179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseOutputMode:DatabaseOutput' :: Maybe DatabaseOutputMode
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#%24sel%3AdatabaseOutputMode%3ADatabaseOutput%27"><span class="hs-identifier hs-var">databaseOutputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseOutputMode
+</span><a href="#local-6989586621679297178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The Glue connection that stores the connection information for the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- target database.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#databaseOutput_glueConnectionName"><span class="hs-identifier hs-type">databaseOutput_glueConnectionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="databaseOutput_glueConnectionName"><span class="annot"><span class="annottext">databaseOutput_glueConnectionName :: (Text -&gt; f Text) -&gt; DatabaseOutput -&gt; f DatabaseOutput
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#databaseOutput_glueConnectionName"><span class="hs-identifier hs-var hs-var">databaseOutput_glueConnectionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatabaseOutput -&gt; Text)
+-&gt; (DatabaseOutput -&gt; Text -&gt; DatabaseOutput)
+-&gt; Lens DatabaseOutput DatabaseOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-type">DatabaseOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297176"><span class="annot"><span class="annottext">Text
+glueConnectionName :: Text
+$sel:glueConnectionName:DatabaseOutput' :: DatabaseOutput -&gt; Text
+</span><a href="#local-6989586621679297176"><span class="hs-identifier hs-var hs-var">glueConnectionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297176"><span class="hs-identifier hs-var">glueConnectionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297175"><span class="annot"><span class="annottext">s :: DatabaseOutput
+</span><a href="#local-6989586621679297175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-type">DatabaseOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297174"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatabaseOutput
+</span><a href="#local-6989586621679297175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:glueConnectionName:DatabaseOutput' :: Text
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#%24sel%3AglueConnectionName%3ADatabaseOutput%27"><span class="hs-identifier hs-var">glueConnectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Represents options that specify how and where DataBrew writes the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- database output generated by recipe jobs.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#databaseOutput_databaseOptions"><span class="hs-identifier hs-type">databaseOutput_databaseOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseTableOutputOptions.html#DatabaseTableOutputOptions"><span class="hs-identifier hs-type">DatabaseTableOutputOptions</span></a></span><span>
+</span><span id="line-90"></span><span id="databaseOutput_databaseOptions"><span class="annot"><span class="annottext">databaseOutput_databaseOptions :: (DatabaseTableOutputOptions -&gt; f DatabaseTableOutputOptions)
+-&gt; DatabaseOutput -&gt; f DatabaseOutput
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#databaseOutput_databaseOptions"><span class="hs-identifier hs-var hs-var">databaseOutput_databaseOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatabaseOutput -&gt; DatabaseTableOutputOptions)
+-&gt; (DatabaseOutput -&gt; DatabaseTableOutputOptions -&gt; DatabaseOutput)
+-&gt; Lens
+     DatabaseOutput
+     DatabaseOutput
+     DatabaseTableOutputOptions
+     DatabaseTableOutputOptions
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-type">DatabaseOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297172"><span class="annot"><span class="annottext">DatabaseTableOutputOptions
+databaseOptions :: DatabaseTableOutputOptions
+$sel:databaseOptions:DatabaseOutput' :: DatabaseOutput -&gt; DatabaseTableOutputOptions
+</span><a href="#local-6989586621679297172"><span class="hs-identifier hs-var hs-var">databaseOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatabaseTableOutputOptions
+</span><a href="#local-6989586621679297172"><span class="hs-identifier hs-var">databaseOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297171"><span class="annot"><span class="annottext">s :: DatabaseOutput
+</span><a href="#local-6989586621679297171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-type">DatabaseOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297170"><span class="annot"><span class="annottext">DatabaseTableOutputOptions
+</span><a href="#local-6989586621679297170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatabaseOutput
+</span><a href="#local-6989586621679297171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseOptions:DatabaseOutput' :: DatabaseTableOutputOptions
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#%24sel%3AdatabaseOptions%3ADatabaseOutput%27"><span class="hs-identifier hs-var">databaseOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DatabaseTableOutputOptions
+</span><a href="#local-6989586621679297170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297167"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679297165"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatabaseOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DatabaseOutput)
+-&gt; Value
+-&gt; Parser DatabaseOutput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DatabaseOutput&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297162"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe DatabaseOutputMode
+-&gt; Text -&gt; DatabaseTableOutputOptions -&gt; DatabaseOutput
+</span><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-var">DatabaseOutput'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DatabaseOutputMode
+ -&gt; Text -&gt; DatabaseTableOutputOptions -&gt; DatabaseOutput)
+-&gt; Parser (Maybe DatabaseOutputMode)
+-&gt; Parser (Text -&gt; DatabaseTableOutputOptions -&gt; DatabaseOutput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatabaseOutputMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseOutputMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DatabaseTableOutputOptions -&gt; DatabaseOutput)
+-&gt; Parser Text
+-&gt; Parser (DatabaseTableOutputOptions -&gt; DatabaseOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlueConnectionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (DatabaseTableOutputOptions -&gt; DatabaseOutput)
+-&gt; Parser DatabaseTableOutputOptions -&gt; Parser DatabaseOutput
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DatabaseTableOutputOptions
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297155"><span id="local-6989586621679297157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297144"><span id="local-6989586621679297146"><span id="local-6989586621679297148"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput"><span class="hs-identifier hs-type">DatabaseOutput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679297142"><span class="annot"><span class="annottext">toJSON :: DatabaseOutput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.DatabaseOutput.html#DatabaseOutput%27"><span class="hs-identifier hs-type">DatabaseOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297138"><span id="local-6989586621679297139"><span id="local-6989586621679297140"><span class="annot"><span class="annottext">Maybe DatabaseOutputMode
+Text
+DatabaseTableOutputOptions
+databaseOptions :: DatabaseTableOutputOptions
+glueConnectionName :: Text
+databaseOutputMode :: Maybe DatabaseOutputMode
+$sel:databaseOptions:DatabaseOutput' :: DatabaseOutput -&gt; DatabaseTableOutputOptions
+$sel:glueConnectionName:DatabaseOutput' :: DatabaseOutput -&gt; Text
+$sel:databaseOutputMode:DatabaseOutput' :: DatabaseOutput -&gt; Maybe DatabaseOutputMode
+</span><a href="#local-6989586621679297138"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseOutputMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DatabaseOutputMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(DatabaseOutputMode -&gt; Pair)
+-&gt; Maybe DatabaseOutputMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseOutputMode
+</span><a href="#local-6989586621679297140"><span class="hs-identifier hs-var">databaseOutputMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlueConnectionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297139"><span class="hs-identifier hs-var">glueConnectionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DatabaseTableOutputOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DatabaseTableOutputOptions
+</span><a href="#local-6989586621679297138"><span class="hs-identifier hs-var">databaseOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span></pre></body></html>

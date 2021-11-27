@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier">SMSSandboxPhoneNumberVerificationStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus_Pending"><span class="hs-identifier">SMSSandboxPhoneNumberVerificationStatus_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus_Verified"><span class="hs-identifier">SMSSandboxPhoneNumberVerificationStatus_Verified</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Enum listing out all supported destination phone number verification</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- statuses. The following enum values are supported. 1. PENDING : The</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- destination phone number is pending verification. 2. VERIFIED : The</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- destination phone number is verified.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679191951"><span id="local-6989586621679191952"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SMSSandboxPhoneNumberVerificationStatus"><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-var">SMSSandboxPhoneNumberVerificationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMSSandboxPhoneNumberVerificationStatus%27"><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus%27"><span class="hs-identifier hs-var">SMSSandboxPhoneNumberVerificationStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSMSSandboxPhoneNumberVerificationStatus"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; Text
+</span><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#fromSMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-var hs-var">fromSMSSandboxPhoneNumberVerificationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679191943"><span id="local-6989586621679191945"><span id="local-6989586621679191947"><span class="annot"><span class="annottext">Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; ShowS
+[SMSSandboxPhoneNumberVerificationStatus] -&gt; ShowS
+SMSSandboxPhoneNumberVerificationStatus -&gt; String
+(Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; ShowS)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus -&gt; String)
+-&gt; ([SMSSandboxPhoneNumberVerificationStatus] -&gt; ShowS)
+-&gt; Show SMSSandboxPhoneNumberVerificationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SMSSandboxPhoneNumberVerificationStatus] -&gt; ShowS
+$cshowList :: [SMSSandboxPhoneNumberVerificationStatus] -&gt; ShowS
+show :: SMSSandboxPhoneNumberVerificationStatus -&gt; String
+$cshow :: SMSSandboxPhoneNumberVerificationStatus -&gt; String
+showsPrec :: Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679191934"><span id="local-6989586621679191936"><span id="local-6989586621679191938"><span id="local-6989586621679191940"><span class="annot"><span class="annottext">ReadPrec [SMSSandboxPhoneNumberVerificationStatus]
+ReadPrec SMSSandboxPhoneNumberVerificationStatus
+Int -&gt; ReadS SMSSandboxPhoneNumberVerificationStatus
+ReadS [SMSSandboxPhoneNumberVerificationStatus]
+(Int -&gt; ReadS SMSSandboxPhoneNumberVerificationStatus)
+-&gt; ReadS [SMSSandboxPhoneNumberVerificationStatus]
+-&gt; ReadPrec SMSSandboxPhoneNumberVerificationStatus
+-&gt; ReadPrec [SMSSandboxPhoneNumberVerificationStatus]
+-&gt; Read SMSSandboxPhoneNumberVerificationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SMSSandboxPhoneNumberVerificationStatus]
+$creadListPrec :: ReadPrec [SMSSandboxPhoneNumberVerificationStatus]
+readPrec :: ReadPrec SMSSandboxPhoneNumberVerificationStatus
+$creadPrec :: ReadPrec SMSSandboxPhoneNumberVerificationStatus
+readList :: ReadS [SMSSandboxPhoneNumberVerificationStatus]
+$creadList :: ReadS [SMSSandboxPhoneNumberVerificationStatus]
+readsPrec :: Int -&gt; ReadS SMSSandboxPhoneNumberVerificationStatus
+$creadsPrec :: Int -&gt; ReadS SMSSandboxPhoneNumberVerificationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679191929"><span id="local-6989586621679191931"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+(SMSSandboxPhoneNumberVerificationStatus
+ -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool)
+-&gt; Eq SMSSandboxPhoneNumberVerificationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+$c/= :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+== :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+$c== :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679191913"><span id="local-6989586621679191915"><span id="local-6989586621679191917"><span id="local-6989586621679191919"><span id="local-6989586621679191921"><span id="local-6989586621679191923"><span id="local-6989586621679191925"><span class="annot"><span class="annottext">Eq SMSSandboxPhoneNumberVerificationStatus
+Eq SMSSandboxPhoneNumberVerificationStatus
+-&gt; (SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Ordering)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus
+    -&gt; SMSSandboxPhoneNumberVerificationStatus)
+-&gt; Ord SMSSandboxPhoneNumberVerificationStatus
+SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Ordering
+SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+$cmin :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+max :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+$cmax :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+&gt;= :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+$c&gt;= :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+&gt; :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+$c&gt; :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+&lt;= :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+$c&lt;= :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+&lt; :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+$c&lt; :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
+compare :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Ordering
+$ccompare :: SMSSandboxPhoneNumberVerificationStatus
+-&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Ordering
+$cp1Ord :: Eq SMSSandboxPhoneNumberVerificationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SMSSandboxPhoneNumberVerificationStatus
+ -&gt; Rep SMSSandboxPhoneNumberVerificationStatus x)
+-&gt; (forall x.
+    Rep SMSSandboxPhoneNumberVerificationStatus x
+    -&gt; SMSSandboxPhoneNumberVerificationStatus)
+-&gt; Generic SMSSandboxPhoneNumberVerificationStatus
+forall x.
+Rep SMSSandboxPhoneNumberVerificationStatus x
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+forall x.
+SMSSandboxPhoneNumberVerificationStatus
+-&gt; Rep SMSSandboxPhoneNumberVerificationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SMSSandboxPhoneNumberVerificationStatus x
+-&gt; SMSSandboxPhoneNumberVerificationStatus
+$cfrom :: forall x.
+SMSSandboxPhoneNumberVerificationStatus
+-&gt; Rep SMSSandboxPhoneNumberVerificationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679191905"><span id="local-6989586621679191907"><span class="annot"><span class="annottext">Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Int
+SMSSandboxPhoneNumberVerificationStatus -&gt; Int
+(Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Int)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus -&gt; Int)
+-&gt; Hashable SMSSandboxPhoneNumberVerificationStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SMSSandboxPhoneNumberVerificationStatus -&gt; Int
+$chash :: SMSSandboxPhoneNumberVerificationStatus -&gt; Int
+hashWithSalt :: Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Int
+$chashWithSalt :: Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679191902"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; ()
+(SMSSandboxPhoneNumberVerificationStatus -&gt; ())
+-&gt; NFData SMSSandboxPhoneNumberVerificationStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SMSSandboxPhoneNumberVerificationStatus -&gt; ()
+$crnf :: SMSSandboxPhoneNumberVerificationStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679191899"><span class="annot"><span class="annottext">Text -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
+(Text -&gt; Either String SMSSandboxPhoneNumberVerificationStatus)
+-&gt; FromText SMSSandboxPhoneNumberVerificationStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
+$cfromText :: Text -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679191896"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; Text
+(SMSSandboxPhoneNumberVerificationStatus -&gt; Text)
+-&gt; ToText SMSSandboxPhoneNumberVerificationStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SMSSandboxPhoneNumberVerificationStatus -&gt; Text
+$ctoText :: SMSSandboxPhoneNumberVerificationStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679191893"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; ByteString
+(SMSSandboxPhoneNumberVerificationStatus -&gt; ByteString)
+-&gt; ToByteString SMSSandboxPhoneNumberVerificationStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SMSSandboxPhoneNumberVerificationStatus -&gt; ByteString
+$ctoBS :: SMSSandboxPhoneNumberVerificationStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679191890"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; ByteStringBuilder
+(SMSSandboxPhoneNumberVerificationStatus -&gt; ByteStringBuilder)
+-&gt; ToLog SMSSandboxPhoneNumberVerificationStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SMSSandboxPhoneNumberVerificationStatus -&gt; ByteStringBuilder
+$cbuild :: SMSSandboxPhoneNumberVerificationStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679191887"><span class="annot"><span class="annottext">HeaderName -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; [Header]
+(HeaderName -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; [Header])
+-&gt; ToHeader SMSSandboxPhoneNumberVerificationStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679191884"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; QueryString
+(SMSSandboxPhoneNumberVerificationStatus -&gt; QueryString)
+-&gt; ToQuery SMSSandboxPhoneNumberVerificationStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SMSSandboxPhoneNumberVerificationStatus -&gt; QueryString
+$ctoQuery :: SMSSandboxPhoneNumberVerificationStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679191879"><span id="local-6989586621679191881"><span class="annot"><span class="annottext">Value -&gt; Parser [SMSSandboxPhoneNumberVerificationStatus]
+Value -&gt; Parser SMSSandboxPhoneNumberVerificationStatus
+(Value -&gt; Parser SMSSandboxPhoneNumberVerificationStatus)
+-&gt; (Value -&gt; Parser [SMSSandboxPhoneNumberVerificationStatus])
+-&gt; FromJSON SMSSandboxPhoneNumberVerificationStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SMSSandboxPhoneNumberVerificationStatus]
+$cparseJSONList :: Value -&gt; Parser [SMSSandboxPhoneNumberVerificationStatus]
+parseJSON :: Value -&gt; Parser SMSSandboxPhoneNumberVerificationStatus
+$cparseJSON :: Value -&gt; Parser SMSSandboxPhoneNumberVerificationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679191874"><span id="local-6989586621679191876"><span class="annot"><span class="annottext">FromJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+FromJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
+FromJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
+-&gt; FromJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+-&gt; FromJSONKey SMSSandboxPhoneNumberVerificationStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+fromJSONKey :: FromJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
+$cfromJSONKey :: FromJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679191865"><span id="local-6989586621679191867"><span id="local-6989586621679191869"><span id="local-6989586621679191871"><span class="annot"><span class="annottext">[SMSSandboxPhoneNumberVerificationStatus] -&gt; Encoding
+[SMSSandboxPhoneNumberVerificationStatus] -&gt; Value
+SMSSandboxPhoneNumberVerificationStatus -&gt; Encoding
+SMSSandboxPhoneNumberVerificationStatus -&gt; Value
+(SMSSandboxPhoneNumberVerificationStatus -&gt; Value)
+-&gt; (SMSSandboxPhoneNumberVerificationStatus -&gt; Encoding)
+-&gt; ([SMSSandboxPhoneNumberVerificationStatus] -&gt; Value)
+-&gt; ([SMSSandboxPhoneNumberVerificationStatus] -&gt; Encoding)
+-&gt; ToJSON SMSSandboxPhoneNumberVerificationStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SMSSandboxPhoneNumberVerificationStatus] -&gt; Encoding
+$ctoEncodingList :: [SMSSandboxPhoneNumberVerificationStatus] -&gt; Encoding
+toJSONList :: [SMSSandboxPhoneNumberVerificationStatus] -&gt; Value
+$ctoJSONList :: [SMSSandboxPhoneNumberVerificationStatus] -&gt; Value
+toEncoding :: SMSSandboxPhoneNumberVerificationStatus -&gt; Encoding
+$ctoEncoding :: SMSSandboxPhoneNumberVerificationStatus -&gt; Encoding
+toJSON :: SMSSandboxPhoneNumberVerificationStatus -&gt; Value
+$ctoJSON :: SMSSandboxPhoneNumberVerificationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679191860"><span id="local-6989586621679191862"><span class="annot"><span class="annottext">ToJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+ToJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
+ToJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
+-&gt; ToJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+-&gt; ToJSONKey SMSSandboxPhoneNumberVerificationStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+toJSONKey :: ToJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
+$ctoJSONKey :: ToJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679191857"><span class="annot"><span class="annottext">[Node] -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
+([Node] -&gt; Either String SMSSandboxPhoneNumberVerificationStatus)
+-&gt; FromXML SMSSandboxPhoneNumberVerificationStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
+$cparseXML :: [Node] -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679191854"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; XML
+(SMSSandboxPhoneNumberVerificationStatus -&gt; XML)
+-&gt; ToXML SMSSandboxPhoneNumberVerificationStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SMSSandboxPhoneNumberVerificationStatus -&gt; XML
+$ctoXML :: SMSSandboxPhoneNumberVerificationStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus_Pending"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSMSSandboxPhoneNumberVerificationStatus_Pending"><span id="%24mSMSSandboxPhoneNumberVerificationStatus_Pending"><span id="SMSSandboxPhoneNumberVerificationStatus_Pending"><span class="annot"><span class="annottext">$bSMSSandboxPhoneNumberVerificationStatus_Pending :: SMSSandboxPhoneNumberVerificationStatus
+$mSMSSandboxPhoneNumberVerificationStatus_Pending :: forall r.
+SMSSandboxPhoneNumberVerificationStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#%24bSMSSandboxPhoneNumberVerificationStatus_Pending"><span class="hs-identifier hs-var hs-var hs-var">SMSSandboxPhoneNumberVerificationStatus_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Pending&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus_Verified"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus_Verified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSMSSandboxPhoneNumberVerificationStatus_Verified"><span id="%24mSMSSandboxPhoneNumberVerificationStatus_Verified"><span id="SMSSandboxPhoneNumberVerificationStatus_Verified"><span class="annot"><span class="annottext">$bSMSSandboxPhoneNumberVerificationStatus_Verified :: SMSSandboxPhoneNumberVerificationStatus
+$mSMSSandboxPhoneNumberVerificationStatus_Verified :: forall r.
+SMSSandboxPhoneNumberVerificationStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#%24bSMSSandboxPhoneNumberVerificationStatus_Verified"><span class="hs-identifier hs-var hs-var hs-var">SMSSandboxPhoneNumberVerificationStatus_Verified</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Verified&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus_Pending"><span class="hs-pragma hs-type">SMSSandboxPhoneNumberVerificationStatus_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus_Verified"><span class="hs-pragma hs-type">SMSSandboxPhoneNumberVerificationStatus_Verified</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus%27"><span class="hs-pragma hs-type">SMSSandboxPhoneNumberVerificationStatus'</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-75"></span></pre></body></html>

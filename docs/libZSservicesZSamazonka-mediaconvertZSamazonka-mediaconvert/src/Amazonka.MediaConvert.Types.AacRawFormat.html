@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.AacRawFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.AacRawFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier">AacRawFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat_LATM_LOAS"><span class="hs-identifier">AacRawFormat_LATM_LOAS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat_NONE"><span class="hs-identifier">AacRawFormat_NONE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Enables LATM\/LOAS AAC output. Note that if you use LATM\/LOAS AAC in an</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- output, you must choose \&quot;No container\&quot; for the output container.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679937071"><span id="local-6989586621679937072"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacRawFormat"><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier hs-var">AacRawFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacRawFormat%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat%27"><span class="hs-identifier hs-var">AacRawFormat'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAacRawFormat"><span class="annot"><span class="annottext">AacRawFormat -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#fromAacRawFormat"><span class="hs-identifier hs-var hs-var">fromAacRawFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679937063"><span id="local-6989586621679937065"><span id="local-6989586621679937067"><span class="annot"><span class="annottext">Int -&gt; AacRawFormat -&gt; ShowS
+[AacRawFormat] -&gt; ShowS
+AacRawFormat -&gt; String
+(Int -&gt; AacRawFormat -&gt; ShowS)
+-&gt; (AacRawFormat -&gt; String)
+-&gt; ([AacRawFormat] -&gt; ShowS)
+-&gt; Show AacRawFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AacRawFormat] -&gt; ShowS
+$cshowList :: [AacRawFormat] -&gt; ShowS
+show :: AacRawFormat -&gt; String
+$cshow :: AacRawFormat -&gt; String
+showsPrec :: Int -&gt; AacRawFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; AacRawFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679937054"><span id="local-6989586621679937056"><span id="local-6989586621679937058"><span id="local-6989586621679937060"><span class="annot"><span class="annottext">ReadPrec [AacRawFormat]
+ReadPrec AacRawFormat
+Int -&gt; ReadS AacRawFormat
+ReadS [AacRawFormat]
+(Int -&gt; ReadS AacRawFormat)
+-&gt; ReadS [AacRawFormat]
+-&gt; ReadPrec AacRawFormat
+-&gt; ReadPrec [AacRawFormat]
+-&gt; Read AacRawFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AacRawFormat]
+$creadListPrec :: ReadPrec [AacRawFormat]
+readPrec :: ReadPrec AacRawFormat
+$creadPrec :: ReadPrec AacRawFormat
+readList :: ReadS [AacRawFormat]
+$creadList :: ReadS [AacRawFormat]
+readsPrec :: Int -&gt; ReadS AacRawFormat
+$creadsPrec :: Int -&gt; ReadS AacRawFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679937049"><span id="local-6989586621679937051"><span class="annot"><span class="annottext">AacRawFormat -&gt; AacRawFormat -&gt; Bool
+(AacRawFormat -&gt; AacRawFormat -&gt; Bool)
+-&gt; (AacRawFormat -&gt; AacRawFormat -&gt; Bool) -&gt; Eq AacRawFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+$c/= :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+== :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+$c== :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679937033"><span id="local-6989586621679937035"><span id="local-6989586621679937037"><span id="local-6989586621679937039"><span id="local-6989586621679937041"><span id="local-6989586621679937043"><span id="local-6989586621679937045"><span class="annot"><span class="annottext">Eq AacRawFormat
+Eq AacRawFormat
+-&gt; (AacRawFormat -&gt; AacRawFormat -&gt; Ordering)
+-&gt; (AacRawFormat -&gt; AacRawFormat -&gt; Bool)
+-&gt; (AacRawFormat -&gt; AacRawFormat -&gt; Bool)
+-&gt; (AacRawFormat -&gt; AacRawFormat -&gt; Bool)
+-&gt; (AacRawFormat -&gt; AacRawFormat -&gt; Bool)
+-&gt; (AacRawFormat -&gt; AacRawFormat -&gt; AacRawFormat)
+-&gt; (AacRawFormat -&gt; AacRawFormat -&gt; AacRawFormat)
+-&gt; Ord AacRawFormat
+AacRawFormat -&gt; AacRawFormat -&gt; Bool
+AacRawFormat -&gt; AacRawFormat -&gt; Ordering
+AacRawFormat -&gt; AacRawFormat -&gt; AacRawFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AacRawFormat -&gt; AacRawFormat -&gt; AacRawFormat
+$cmin :: AacRawFormat -&gt; AacRawFormat -&gt; AacRawFormat
+max :: AacRawFormat -&gt; AacRawFormat -&gt; AacRawFormat
+$cmax :: AacRawFormat -&gt; AacRawFormat -&gt; AacRawFormat
+&gt;= :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+$c&gt;= :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+&gt; :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+$c&gt; :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+&lt;= :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+$c&lt;= :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+&lt; :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+$c&lt; :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
+compare :: AacRawFormat -&gt; AacRawFormat -&gt; Ordering
+$ccompare :: AacRawFormat -&gt; AacRawFormat -&gt; Ordering
+$cp1Ord :: Eq AacRawFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AacRawFormat -&gt; Rep AacRawFormat x)
+-&gt; (forall x. Rep AacRawFormat x -&gt; AacRawFormat)
+-&gt; Generic AacRawFormat
+forall x. Rep AacRawFormat x -&gt; AacRawFormat
+forall x. AacRawFormat -&gt; Rep AacRawFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AacRawFormat x -&gt; AacRawFormat
+$cfrom :: forall x. AacRawFormat -&gt; Rep AacRawFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679937025"><span id="local-6989586621679937027"><span class="annot"><span class="annottext">Int -&gt; AacRawFormat -&gt; Int
+AacRawFormat -&gt; Int
+(Int -&gt; AacRawFormat -&gt; Int)
+-&gt; (AacRawFormat -&gt; Int) -&gt; Hashable AacRawFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AacRawFormat -&gt; Int
+$chash :: AacRawFormat -&gt; Int
+hashWithSalt :: Int -&gt; AacRawFormat -&gt; Int
+$chashWithSalt :: Int -&gt; AacRawFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679937022"><span class="annot"><span class="annottext">AacRawFormat -&gt; ()
+(AacRawFormat -&gt; ()) -&gt; NFData AacRawFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AacRawFormat -&gt; ()
+$crnf :: AacRawFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679937019"><span class="annot"><span class="annottext">Text -&gt; Either String AacRawFormat
+(Text -&gt; Either String AacRawFormat) -&gt; FromText AacRawFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AacRawFormat
+$cfromText :: Text -&gt; Either String AacRawFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679937016"><span class="annot"><span class="annottext">AacRawFormat -&gt; Text
+(AacRawFormat -&gt; Text) -&gt; ToText AacRawFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AacRawFormat -&gt; Text
+$ctoText :: AacRawFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679937013"><span class="annot"><span class="annottext">AacRawFormat -&gt; ByteString
+(AacRawFormat -&gt; ByteString) -&gt; ToByteString AacRawFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AacRawFormat -&gt; ByteString
+$ctoBS :: AacRawFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679937010"><span class="annot"><span class="annottext">AacRawFormat -&gt; ByteStringBuilder
+(AacRawFormat -&gt; ByteStringBuilder) -&gt; ToLog AacRawFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AacRawFormat -&gt; ByteStringBuilder
+$cbuild :: AacRawFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679937007"><span class="annot"><span class="annottext">HeaderName -&gt; AacRawFormat -&gt; [Header]
+(HeaderName -&gt; AacRawFormat -&gt; [Header]) -&gt; ToHeader AacRawFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AacRawFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AacRawFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679937004"><span class="annot"><span class="annottext">AacRawFormat -&gt; QueryString
+(AacRawFormat -&gt; QueryString) -&gt; ToQuery AacRawFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AacRawFormat -&gt; QueryString
+$ctoQuery :: AacRawFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679936999"><span id="local-6989586621679937001"><span class="annot"><span class="annottext">Value -&gt; Parser [AacRawFormat]
+Value -&gt; Parser AacRawFormat
+(Value -&gt; Parser AacRawFormat)
+-&gt; (Value -&gt; Parser [AacRawFormat]) -&gt; FromJSON AacRawFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AacRawFormat]
+$cparseJSONList :: Value -&gt; Parser [AacRawFormat]
+parseJSON :: Value -&gt; Parser AacRawFormat
+$cparseJSON :: Value -&gt; Parser AacRawFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679936994"><span id="local-6989586621679936996"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacRawFormat]
+FromJSONKeyFunction AacRawFormat
+FromJSONKeyFunction AacRawFormat
+-&gt; FromJSONKeyFunction [AacRawFormat] -&gt; FromJSONKey AacRawFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AacRawFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [AacRawFormat]
+fromJSONKey :: FromJSONKeyFunction AacRawFormat
+$cfromJSONKey :: FromJSONKeyFunction AacRawFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679936985"><span id="local-6989586621679936987"><span id="local-6989586621679936989"><span id="local-6989586621679936991"><span class="annot"><span class="annottext">[AacRawFormat] -&gt; Encoding
+[AacRawFormat] -&gt; Value
+AacRawFormat -&gt; Encoding
+AacRawFormat -&gt; Value
+(AacRawFormat -&gt; Value)
+-&gt; (AacRawFormat -&gt; Encoding)
+-&gt; ([AacRawFormat] -&gt; Value)
+-&gt; ([AacRawFormat] -&gt; Encoding)
+-&gt; ToJSON AacRawFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AacRawFormat] -&gt; Encoding
+$ctoEncodingList :: [AacRawFormat] -&gt; Encoding
+toJSONList :: [AacRawFormat] -&gt; Value
+$ctoJSONList :: [AacRawFormat] -&gt; Value
+toEncoding :: AacRawFormat -&gt; Encoding
+$ctoEncoding :: AacRawFormat -&gt; Encoding
+toJSON :: AacRawFormat -&gt; Value
+$ctoJSON :: AacRawFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679936980"><span id="local-6989586621679936982"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacRawFormat]
+ToJSONKeyFunction AacRawFormat
+ToJSONKeyFunction AacRawFormat
+-&gt; ToJSONKeyFunction [AacRawFormat] -&gt; ToJSONKey AacRawFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AacRawFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [AacRawFormat]
+toJSONKey :: ToJSONKeyFunction AacRawFormat
+$ctoJSONKey :: ToJSONKeyFunction AacRawFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679936977"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacRawFormat
+([Node] -&gt; Either String AacRawFormat) -&gt; FromXML AacRawFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AacRawFormat
+$cparseXML :: [Node] -&gt; Either String AacRawFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679936974"><span class="annot"><span class="annottext">AacRawFormat -&gt; XML
+(AacRawFormat -&gt; XML) -&gt; ToXML AacRawFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AacRawFormat -&gt; XML
+$ctoXML :: AacRawFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat_LATM_LOAS"><span class="hs-identifier hs-type">AacRawFormat_LATM_LOAS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier hs-type">AacRawFormat</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAacRawFormat_LATM_LOAS"><span id="%24mAacRawFormat_LATM_LOAS"><span id="AacRawFormat_LATM_LOAS"><span class="annot"><span class="annottext">$bAacRawFormat_LATM_LOAS :: AacRawFormat
+$mAacRawFormat_LATM_LOAS :: forall r. AacRawFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#%24bAacRawFormat_LATM_LOAS"><span class="hs-identifier hs-var hs-var hs-var">AacRawFormat_LATM_LOAS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat%27"><span class="hs-identifier hs-type">AacRawFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LATM_LOAS&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat_NONE"><span class="hs-identifier hs-type">AacRawFormat_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier hs-type">AacRawFormat</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAacRawFormat_NONE"><span id="%24mAacRawFormat_NONE"><span id="AacRawFormat_NONE"><span class="annot"><span class="annottext">$bAacRawFormat_NONE :: AacRawFormat
+$mAacRawFormat_NONE :: forall r. AacRawFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#%24bAacRawFormat_NONE"><span class="hs-identifier hs-var hs-var hs-var">AacRawFormat_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat%27"><span class="hs-identifier hs-type">AacRawFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat_LATM_LOAS"><span class="hs-pragma hs-type">AacRawFormat_LATM_LOAS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat_NONE"><span class="hs-pragma hs-type">AacRawFormat_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacRawFormat.html#AacRawFormat%27"><span class="hs-pragma hs-type">AacRawFormat'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

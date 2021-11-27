@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WellArchitected.Types.AnswerReason</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WellArchitected.Types.AnswerReason</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier">AnswerReason</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_ARCHITECTURE_CONSTRAINTS"><span class="hs-identifier">AnswerReason_ARCHITECTURE_CONSTRAINTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_BUSINESS_PRIORITIES"><span class="hs-identifier">AnswerReason_BUSINESS_PRIORITIES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_NONE"><span class="hs-identifier">AnswerReason_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_OTHER"><span class="hs-identifier">AnswerReason_OTHER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_OUT_OF_SCOPE"><span class="hs-identifier">AnswerReason_OUT_OF_SCOPE</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679240307"><span id="local-6989586621679240308"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnswerReason"><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-var">AnswerReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnswerReason%27"><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason%27"><span class="hs-identifier hs-var">AnswerReason'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnswerReason"><span class="annot"><span class="annottext">AnswerReason -&gt; Text
+</span><a href="Amazonka.WellArchitected.Types.AnswerReason.html#fromAnswerReason"><span class="hs-identifier hs-var hs-var">fromAnswerReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240299"><span id="local-6989586621679240301"><span id="local-6989586621679240303"><span class="annot"><span class="annottext">Int -&gt; AnswerReason -&gt; ShowS
+[AnswerReason] -&gt; ShowS
+AnswerReason -&gt; String
+(Int -&gt; AnswerReason -&gt; ShowS)
+-&gt; (AnswerReason -&gt; String)
+-&gt; ([AnswerReason] -&gt; ShowS)
+-&gt; Show AnswerReason
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnswerReason] -&gt; ShowS
+$cshowList :: [AnswerReason] -&gt; ShowS
+show :: AnswerReason -&gt; String
+$cshow :: AnswerReason -&gt; String
+showsPrec :: Int -&gt; AnswerReason -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnswerReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679240290"><span id="local-6989586621679240292"><span id="local-6989586621679240294"><span id="local-6989586621679240296"><span class="annot"><span class="annottext">ReadPrec [AnswerReason]
+ReadPrec AnswerReason
+Int -&gt; ReadS AnswerReason
+ReadS [AnswerReason]
+(Int -&gt; ReadS AnswerReason)
+-&gt; ReadS [AnswerReason]
+-&gt; ReadPrec AnswerReason
+-&gt; ReadPrec [AnswerReason]
+-&gt; Read AnswerReason
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnswerReason]
+$creadListPrec :: ReadPrec [AnswerReason]
+readPrec :: ReadPrec AnswerReason
+$creadPrec :: ReadPrec AnswerReason
+readList :: ReadS [AnswerReason]
+$creadList :: ReadS [AnswerReason]
+readsPrec :: Int -&gt; ReadS AnswerReason
+$creadsPrec :: Int -&gt; ReadS AnswerReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679240285"><span id="local-6989586621679240287"><span class="annot"><span class="annottext">AnswerReason -&gt; AnswerReason -&gt; Bool
+(AnswerReason -&gt; AnswerReason -&gt; Bool)
+-&gt; (AnswerReason -&gt; AnswerReason -&gt; Bool) -&gt; Eq AnswerReason
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnswerReason -&gt; AnswerReason -&gt; Bool
+$c/= :: AnswerReason -&gt; AnswerReason -&gt; Bool
+== :: AnswerReason -&gt; AnswerReason -&gt; Bool
+$c== :: AnswerReason -&gt; AnswerReason -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679240269"><span id="local-6989586621679240271"><span id="local-6989586621679240273"><span id="local-6989586621679240275"><span id="local-6989586621679240277"><span id="local-6989586621679240279"><span id="local-6989586621679240281"><span class="annot"><span class="annottext">Eq AnswerReason
+Eq AnswerReason
+-&gt; (AnswerReason -&gt; AnswerReason -&gt; Ordering)
+-&gt; (AnswerReason -&gt; AnswerReason -&gt; Bool)
+-&gt; (AnswerReason -&gt; AnswerReason -&gt; Bool)
+-&gt; (AnswerReason -&gt; AnswerReason -&gt; Bool)
+-&gt; (AnswerReason -&gt; AnswerReason -&gt; Bool)
+-&gt; (AnswerReason -&gt; AnswerReason -&gt; AnswerReason)
+-&gt; (AnswerReason -&gt; AnswerReason -&gt; AnswerReason)
+-&gt; Ord AnswerReason
+AnswerReason -&gt; AnswerReason -&gt; Bool
+AnswerReason -&gt; AnswerReason -&gt; Ordering
+AnswerReason -&gt; AnswerReason -&gt; AnswerReason
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AnswerReason -&gt; AnswerReason -&gt; AnswerReason
+$cmin :: AnswerReason -&gt; AnswerReason -&gt; AnswerReason
+max :: AnswerReason -&gt; AnswerReason -&gt; AnswerReason
+$cmax :: AnswerReason -&gt; AnswerReason -&gt; AnswerReason
+&gt;= :: AnswerReason -&gt; AnswerReason -&gt; Bool
+$c&gt;= :: AnswerReason -&gt; AnswerReason -&gt; Bool
+&gt; :: AnswerReason -&gt; AnswerReason -&gt; Bool
+$c&gt; :: AnswerReason -&gt; AnswerReason -&gt; Bool
+&lt;= :: AnswerReason -&gt; AnswerReason -&gt; Bool
+$c&lt;= :: AnswerReason -&gt; AnswerReason -&gt; Bool
+&lt; :: AnswerReason -&gt; AnswerReason -&gt; Bool
+$c&lt; :: AnswerReason -&gt; AnswerReason -&gt; Bool
+compare :: AnswerReason -&gt; AnswerReason -&gt; Ordering
+$ccompare :: AnswerReason -&gt; AnswerReason -&gt; Ordering
+$cp1Ord :: Eq AnswerReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AnswerReason -&gt; Rep AnswerReason x)
+-&gt; (forall x. Rep AnswerReason x -&gt; AnswerReason)
+-&gt; Generic AnswerReason
+forall x. Rep AnswerReason x -&gt; AnswerReason
+forall x. AnswerReason -&gt; Rep AnswerReason x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnswerReason x -&gt; AnswerReason
+$cfrom :: forall x. AnswerReason -&gt; Rep AnswerReason x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240261"><span id="local-6989586621679240263"><span class="annot"><span class="annottext">Int -&gt; AnswerReason -&gt; Int
+AnswerReason -&gt; Int
+(Int -&gt; AnswerReason -&gt; Int)
+-&gt; (AnswerReason -&gt; Int) -&gt; Hashable AnswerReason
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AnswerReason -&gt; Int
+$chash :: AnswerReason -&gt; Int
+hashWithSalt :: Int -&gt; AnswerReason -&gt; Int
+$chashWithSalt :: Int -&gt; AnswerReason -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679240258"><span class="annot"><span class="annottext">AnswerReason -&gt; ()
+(AnswerReason -&gt; ()) -&gt; NFData AnswerReason
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AnswerReason -&gt; ()
+$crnf :: AnswerReason -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679240255"><span class="annot"><span class="annottext">Text -&gt; Either String AnswerReason
+(Text -&gt; Either String AnswerReason) -&gt; FromText AnswerReason
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AnswerReason
+$cfromText :: Text -&gt; Either String AnswerReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679240252"><span class="annot"><span class="annottext">AnswerReason -&gt; Text
+(AnswerReason -&gt; Text) -&gt; ToText AnswerReason
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AnswerReason -&gt; Text
+$ctoText :: AnswerReason -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679240249"><span class="annot"><span class="annottext">AnswerReason -&gt; ByteString
+(AnswerReason -&gt; ByteString) -&gt; ToByteString AnswerReason
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AnswerReason -&gt; ByteString
+$ctoBS :: AnswerReason -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679240246"><span class="annot"><span class="annottext">AnswerReason -&gt; ByteStringBuilder
+(AnswerReason -&gt; ByteStringBuilder) -&gt; ToLog AnswerReason
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AnswerReason -&gt; ByteStringBuilder
+$cbuild :: AnswerReason -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679240243"><span class="annot"><span class="annottext">HeaderName -&gt; AnswerReason -&gt; [Header]
+(HeaderName -&gt; AnswerReason -&gt; [Header]) -&gt; ToHeader AnswerReason
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AnswerReason -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AnswerReason -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679240240"><span class="annot"><span class="annottext">AnswerReason -&gt; QueryString
+(AnswerReason -&gt; QueryString) -&gt; ToQuery AnswerReason
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AnswerReason -&gt; QueryString
+$ctoQuery :: AnswerReason -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679240235"><span id="local-6989586621679240237"><span class="annot"><span class="annottext">Value -&gt; Parser [AnswerReason]
+Value -&gt; Parser AnswerReason
+(Value -&gt; Parser AnswerReason)
+-&gt; (Value -&gt; Parser [AnswerReason]) -&gt; FromJSON AnswerReason
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AnswerReason]
+$cparseJSONList :: Value -&gt; Parser [AnswerReason]
+parseJSON :: Value -&gt; Parser AnswerReason
+$cparseJSON :: Value -&gt; Parser AnswerReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679240230"><span id="local-6989586621679240232"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnswerReason]
+FromJSONKeyFunction AnswerReason
+FromJSONKeyFunction AnswerReason
+-&gt; FromJSONKeyFunction [AnswerReason] -&gt; FromJSONKey AnswerReason
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AnswerReason]
+$cfromJSONKeyList :: FromJSONKeyFunction [AnswerReason]
+fromJSONKey :: FromJSONKeyFunction AnswerReason
+$cfromJSONKey :: FromJSONKeyFunction AnswerReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679240221"><span id="local-6989586621679240223"><span id="local-6989586621679240225"><span id="local-6989586621679240227"><span class="annot"><span class="annottext">[AnswerReason] -&gt; Encoding
+[AnswerReason] -&gt; Value
+AnswerReason -&gt; Encoding
+AnswerReason -&gt; Value
+(AnswerReason -&gt; Value)
+-&gt; (AnswerReason -&gt; Encoding)
+-&gt; ([AnswerReason] -&gt; Value)
+-&gt; ([AnswerReason] -&gt; Encoding)
+-&gt; ToJSON AnswerReason
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AnswerReason] -&gt; Encoding
+$ctoEncodingList :: [AnswerReason] -&gt; Encoding
+toJSONList :: [AnswerReason] -&gt; Value
+$ctoJSONList :: [AnswerReason] -&gt; Value
+toEncoding :: AnswerReason -&gt; Encoding
+$ctoEncoding :: AnswerReason -&gt; Encoding
+toJSON :: AnswerReason -&gt; Value
+$ctoJSON :: AnswerReason -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679240216"><span id="local-6989586621679240218"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnswerReason]
+ToJSONKeyFunction AnswerReason
+ToJSONKeyFunction AnswerReason
+-&gt; ToJSONKeyFunction [AnswerReason] -&gt; ToJSONKey AnswerReason
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AnswerReason]
+$ctoJSONKeyList :: ToJSONKeyFunction [AnswerReason]
+toJSONKey :: ToJSONKeyFunction AnswerReason
+$ctoJSONKey :: ToJSONKeyFunction AnswerReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679240213"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnswerReason
+([Node] -&gt; Either String AnswerReason) -&gt; FromXML AnswerReason
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AnswerReason
+$cparseXML :: [Node] -&gt; Either String AnswerReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679240210"><span class="annot"><span class="annottext">AnswerReason -&gt; XML
+(AnswerReason -&gt; XML) -&gt; ToXML AnswerReason
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AnswerReason -&gt; XML
+$ctoXML :: AnswerReason -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_ARCHITECTURE_CONSTRAINTS"><span class="hs-identifier hs-type">AnswerReason_ARCHITECTURE_CONSTRAINTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-type">AnswerReason</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnswerReason_ARCHITECTURE_CONSTRAINTS"><span id="%24mAnswerReason_ARCHITECTURE_CONSTRAINTS"><span id="AnswerReason_ARCHITECTURE_CONSTRAINTS"><span class="annot"><span class="annottext">$bAnswerReason_ARCHITECTURE_CONSTRAINTS :: AnswerReason
+$mAnswerReason_ARCHITECTURE_CONSTRAINTS :: forall r. AnswerReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.AnswerReason.html#%24bAnswerReason_ARCHITECTURE_CONSTRAINTS"><span class="hs-identifier hs-var hs-var hs-var">AnswerReason_ARCHITECTURE_CONSTRAINTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason%27"><span class="hs-identifier hs-type">AnswerReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ARCHITECTURE_CONSTRAINTS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_BUSINESS_PRIORITIES"><span class="hs-identifier hs-type">AnswerReason_BUSINESS_PRIORITIES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-type">AnswerReason</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnswerReason_BUSINESS_PRIORITIES"><span id="%24mAnswerReason_BUSINESS_PRIORITIES"><span id="AnswerReason_BUSINESS_PRIORITIES"><span class="annot"><span class="annottext">$bAnswerReason_BUSINESS_PRIORITIES :: AnswerReason
+$mAnswerReason_BUSINESS_PRIORITIES :: forall r. AnswerReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.AnswerReason.html#%24bAnswerReason_BUSINESS_PRIORITIES"><span class="hs-identifier hs-var hs-var hs-var">AnswerReason_BUSINESS_PRIORITIES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason%27"><span class="hs-identifier hs-type">AnswerReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BUSINESS_PRIORITIES&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_NONE"><span class="hs-identifier hs-type">AnswerReason_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-type">AnswerReason</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnswerReason_NONE"><span id="%24mAnswerReason_NONE"><span id="AnswerReason_NONE"><span class="annot"><span class="annottext">$bAnswerReason_NONE :: AnswerReason
+$mAnswerReason_NONE :: forall r. AnswerReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.AnswerReason.html#%24bAnswerReason_NONE"><span class="hs-identifier hs-var hs-var hs-var">AnswerReason_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason%27"><span class="hs-identifier hs-type">AnswerReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_OTHER"><span class="hs-identifier hs-type">AnswerReason_OTHER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-type">AnswerReason</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnswerReason_OTHER"><span id="%24mAnswerReason_OTHER"><span id="AnswerReason_OTHER"><span class="annot"><span class="annottext">$bAnswerReason_OTHER :: AnswerReason
+$mAnswerReason_OTHER :: forall r. AnswerReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.AnswerReason.html#%24bAnswerReason_OTHER"><span class="hs-identifier hs-var hs-var hs-var">AnswerReason_OTHER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason%27"><span class="hs-identifier hs-type">AnswerReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OTHER&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_OUT_OF_SCOPE"><span class="hs-identifier hs-type">AnswerReason_OUT_OF_SCOPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-type">AnswerReason</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnswerReason_OUT_OF_SCOPE"><span id="%24mAnswerReason_OUT_OF_SCOPE"><span id="AnswerReason_OUT_OF_SCOPE"><span class="annot"><span class="annottext">$bAnswerReason_OUT_OF_SCOPE :: AnswerReason
+$mAnswerReason_OUT_OF_SCOPE :: forall r. AnswerReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.AnswerReason.html#%24bAnswerReason_OUT_OF_SCOPE"><span class="hs-identifier hs-var hs-var hs-var">AnswerReason_OUT_OF_SCOPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason%27"><span class="hs-identifier hs-type">AnswerReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OUT_OF_SCOPE&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_ARCHITECTURE_CONSTRAINTS"><span class="hs-pragma hs-type">AnswerReason_ARCHITECTURE_CONSTRAINTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_BUSINESS_PRIORITIES"><span class="hs-pragma hs-type">AnswerReason_BUSINESS_PRIORITIES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_NONE"><span class="hs-pragma hs-type">AnswerReason_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_OTHER"><span class="hs-pragma hs-type">AnswerReason_OTHER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason_OUT_OF_SCOPE"><span class="hs-pragma hs-type">AnswerReason_OUT_OF_SCOPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.AnswerReason.html#AnswerReason%27"><span class="hs-pragma hs-type">AnswerReason'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

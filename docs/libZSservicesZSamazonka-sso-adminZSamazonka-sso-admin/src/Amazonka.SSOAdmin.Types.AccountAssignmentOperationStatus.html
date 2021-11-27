@@ -1,0 +1,684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.PrincipalType.html"><span class="hs-identifier">Amazonka.SSOAdmin.Types.PrincipalType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.StatusValues.html"><span class="hs-identifier">Amazonka.SSOAdmin.Types.StatusValues</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.TargetType.html"><span class="hs-identifier">Amazonka.SSOAdmin.Types.TargetType</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The status of the creation or deletion operation of an assignment that a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- principal needs to access an account.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAccountAssignmentOperationStatus' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679200100"><span id="local-6989586621679200101"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountAssignmentOperationStatus"><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-var">AccountAssignmentOperationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountAssignmentOperationStatus%27"><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">AccountAssignmentOperationStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for tracking the request operation that is generated by</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the universally unique identifier (UUID) workflow.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3ArequestId%3AAccountAssignmentOperationStatus%27"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3ArequestId%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The status of the permission set provisioning process.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AAccountAssignmentOperationStatus%27"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus -&gt; Maybe StatusValues
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3Astatus%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.StatusValues.html#StatusValues"><span class="hs-identifier hs-type">StatusValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The message that contains an error or exception in case of an operation</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AfailureReason%3AAccountAssignmentOperationStatus%27"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AfailureReason%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | TargetID is an Amazon Web Services account identifier, typically a 10-12</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- digit string (For example, 123456789012).</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtargetId%3AAccountAssignmentOperationStatus%27"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AtargetId%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | An identifier for an object in Amazon Web Services SSO, such as a user</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- or group. PrincipalIds are GUIDs (For example,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- PrincipalIds in Amazon Web Services SSO, see the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;/singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference&gt;.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AprincipalId%3AAccountAssignmentOperationStatus%27"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AprincipalId%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The entity type for which the assignment will be created.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AprincipalType%3AAccountAssignmentOperationStatus%27"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus -&gt; Maybe PrincipalType
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AprincipalType%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The entity type for which the assignment will be created.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AtargetType%3AAccountAssignmentOperationStatus%27"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus -&gt; Maybe TargetType
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AtargetType%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.TargetType.html#TargetType"><span class="hs-identifier hs-type">TargetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The date that the permission set was created.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcreatedDate%3AAccountAssignmentOperationStatus%27"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus -&gt; Maybe POSIX
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AcreatedDate%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ARN of the permission set. For more information about ARNs, see</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3ApermissionSetArn%3AAccountAssignmentOperationStatus%27"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3ApermissionSetArn%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var hs-var">permissionSetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200086"><span id="local-6989586621679200088"><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+-&gt; AccountAssignmentOperationStatus -&gt; Bool
+(AccountAssignmentOperationStatus
+ -&gt; AccountAssignmentOperationStatus -&gt; Bool)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; AccountAssignmentOperationStatus -&gt; Bool)
+-&gt; Eq AccountAssignmentOperationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccountAssignmentOperationStatus
+-&gt; AccountAssignmentOperationStatus -&gt; Bool
+$c/= :: AccountAssignmentOperationStatus
+-&gt; AccountAssignmentOperationStatus -&gt; Bool
+== :: AccountAssignmentOperationStatus
+-&gt; AccountAssignmentOperationStatus -&gt; Bool
+$c== :: AccountAssignmentOperationStatus
+-&gt; AccountAssignmentOperationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200077"><span id="local-6989586621679200079"><span id="local-6989586621679200081"><span id="local-6989586621679200083"><span class="annot"><span class="annottext">ReadPrec [AccountAssignmentOperationStatus]
+ReadPrec AccountAssignmentOperationStatus
+Int -&gt; ReadS AccountAssignmentOperationStatus
+ReadS [AccountAssignmentOperationStatus]
+(Int -&gt; ReadS AccountAssignmentOperationStatus)
+-&gt; ReadS [AccountAssignmentOperationStatus]
+-&gt; ReadPrec AccountAssignmentOperationStatus
+-&gt; ReadPrec [AccountAssignmentOperationStatus]
+-&gt; Read AccountAssignmentOperationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccountAssignmentOperationStatus]
+$creadListPrec :: ReadPrec [AccountAssignmentOperationStatus]
+readPrec :: ReadPrec AccountAssignmentOperationStatus
+$creadPrec :: ReadPrec AccountAssignmentOperationStatus
+readList :: ReadS [AccountAssignmentOperationStatus]
+$creadList :: ReadS [AccountAssignmentOperationStatus]
+readsPrec :: Int -&gt; ReadS AccountAssignmentOperationStatus
+$creadsPrec :: Int -&gt; ReadS AccountAssignmentOperationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200070"><span id="local-6989586621679200072"><span id="local-6989586621679200074"><span class="annot"><span class="annottext">Int -&gt; AccountAssignmentOperationStatus -&gt; ShowS
+[AccountAssignmentOperationStatus] -&gt; ShowS
+AccountAssignmentOperationStatus -&gt; String
+(Int -&gt; AccountAssignmentOperationStatus -&gt; ShowS)
+-&gt; (AccountAssignmentOperationStatus -&gt; String)
+-&gt; ([AccountAssignmentOperationStatus] -&gt; ShowS)
+-&gt; Show AccountAssignmentOperationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccountAssignmentOperationStatus] -&gt; ShowS
+$cshowList :: [AccountAssignmentOperationStatus] -&gt; ShowS
+show :: AccountAssignmentOperationStatus -&gt; String
+$cshow :: AccountAssignmentOperationStatus -&gt; String
+showsPrec :: Int -&gt; AccountAssignmentOperationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccountAssignmentOperationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AccountAssignmentOperationStatus
+ -&gt; Rep AccountAssignmentOperationStatus x)
+-&gt; (forall x.
+    Rep AccountAssignmentOperationStatus x
+    -&gt; AccountAssignmentOperationStatus)
+-&gt; Generic AccountAssignmentOperationStatus
+forall x.
+Rep AccountAssignmentOperationStatus x
+-&gt; AccountAssignmentOperationStatus
+forall x.
+AccountAssignmentOperationStatus
+-&gt; Rep AccountAssignmentOperationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AccountAssignmentOperationStatus x
+-&gt; AccountAssignmentOperationStatus
+$cfrom :: forall x.
+AccountAssignmentOperationStatus
+-&gt; Rep AccountAssignmentOperationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'AccountAssignmentOperationStatus' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'requestId', 'accountAssignmentOperationStatus_requestId' - The identifier for tracking the request operation that is generated by</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the universally unique identifier (UUID) workflow.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'status', 'accountAssignmentOperationStatus_status' - The status of the permission set provisioning process.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'failureReason', 'accountAssignmentOperationStatus_failureReason' - The message that contains an error or exception in case of an operation</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'targetId', 'accountAssignmentOperationStatus_targetId' - TargetID is an Amazon Web Services account identifier, typically a 10-12</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- digit string (For example, 123456789012).</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'principalId', 'accountAssignmentOperationStatus_principalId' - An identifier for an object in Amazon Web Services SSO, such as a user</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- or group. PrincipalIds are GUIDs (For example,</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- PrincipalIds in Amazon Web Services SSO, see the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;/singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference&gt;.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'principalType', 'accountAssignmentOperationStatus_principalType' - The entity type for which the assignment will be created.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'targetType', 'accountAssignmentOperationStatus_targetType' - The entity type for which the assignment will be created.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'createdDate', 'accountAssignmentOperationStatus_createdDate' - The date that the permission set was created.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'permissionSetArn', 'accountAssignmentOperationStatus_permissionSetArn' - The ARN of the permission set. For more information about ARNs, see</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#newAccountAssignmentOperationStatus"><span class="hs-identifier hs-type">newAccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span>
+</span><span id="line-100"></span><span id="newAccountAssignmentOperationStatus"><span class="annot"><span class="annottext">newAccountAssignmentOperationStatus :: AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#newAccountAssignmentOperationStatus"><span class="hs-identifier hs-var hs-var">newAccountAssignmentOperationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus' :: Maybe Text
+-&gt; Maybe StatusValues
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PrincipalType
+-&gt; Maybe TargetType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3ArequestId%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:AccountAssignmentOperationStatus' :: Maybe StatusValues
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3Astatus%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AfailureReason%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetId:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AtargetId%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">targetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalId:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AprincipalId%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalType:AccountAssignmentOperationStatus' :: Maybe PrincipalType
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AprincipalType%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetType:AccountAssignmentOperationStatus' :: Maybe TargetType
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AtargetType%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:AccountAssignmentOperationStatus' :: Maybe POSIX
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AcreatedDate%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionSetArn:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3ApermissionSetArn%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The identifier for tracking the request operation that is generated by</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the universally unique identifier (UUID) workflow.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_requestId"><span class="hs-identifier hs-type">accountAssignmentOperationStatus_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="accountAssignmentOperationStatus_requestId"><span class="annot"><span class="annottext">accountAssignmentOperationStatus_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_requestId"><span class="hs-identifier hs-var hs-var">accountAssignmentOperationStatus_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAssignmentOperationStatus -&gt; Maybe Text)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; Maybe Text -&gt; AccountAssignmentOperationStatus)
+-&gt; Lens
+     AccountAssignmentOperationStatus
+     AccountAssignmentOperationStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200061"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:AccountAssignmentOperationStatus' :: AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679200061"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200061"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200060"><span class="annot"><span class="annottext">s :: AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200059"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3ArequestId%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The status of the permission set provisioning process.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_status"><span class="hs-identifier hs-type">accountAssignmentOperationStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.StatusValues.html#StatusValues"><span class="hs-identifier hs-type">StatusValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="accountAssignmentOperationStatus_status"><span class="annot"><span class="annottext">accountAssignmentOperationStatus_status :: (Maybe StatusValues -&gt; f (Maybe StatusValues))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_status"><span class="hs-identifier hs-var hs-var">accountAssignmentOperationStatus_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAssignmentOperationStatus -&gt; Maybe StatusValues)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; Maybe StatusValues -&gt; AccountAssignmentOperationStatus)
+-&gt; Lens
+     AccountAssignmentOperationStatus
+     AccountAssignmentOperationStatus
+     (Maybe StatusValues)
+     (Maybe StatusValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200057"><span class="annot"><span class="annottext">Maybe StatusValues
+status :: Maybe StatusValues
+$sel:status:AccountAssignmentOperationStatus' :: AccountAssignmentOperationStatus -&gt; Maybe StatusValues
+</span><a href="#local-6989586621679200057"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusValues
+</span><a href="#local-6989586621679200057"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200056"><span class="annot"><span class="annottext">s :: AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200055"><span class="annot"><span class="annottext">Maybe StatusValues
+</span><a href="#local-6989586621679200055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AccountAssignmentOperationStatus' :: Maybe StatusValues
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3Astatus%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusValues
+</span><a href="#local-6989586621679200055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The message that contains an error or exception in case of an operation</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_failureReason"><span class="hs-identifier hs-type">accountAssignmentOperationStatus_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="accountAssignmentOperationStatus_failureReason"><span class="annot"><span class="annottext">accountAssignmentOperationStatus_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_failureReason"><span class="hs-identifier hs-var hs-var">accountAssignmentOperationStatus_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAssignmentOperationStatus -&gt; Maybe Text)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; Maybe Text -&gt; AccountAssignmentOperationStatus)
+-&gt; Lens
+     AccountAssignmentOperationStatus
+     AccountAssignmentOperationStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200053"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:AccountAssignmentOperationStatus' :: AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679200053"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200053"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200052"><span class="annot"><span class="annottext">s :: AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AfailureReason%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | TargetID is an Amazon Web Services account identifier, typically a 10-12</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- digit string (For example, 123456789012).</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_targetId"><span class="hs-identifier hs-type">accountAssignmentOperationStatus_targetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="accountAssignmentOperationStatus_targetId"><span class="annot"><span class="annottext">accountAssignmentOperationStatus_targetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_targetId"><span class="hs-identifier hs-var hs-var">accountAssignmentOperationStatus_targetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAssignmentOperationStatus -&gt; Maybe Text)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; Maybe Text -&gt; AccountAssignmentOperationStatus)
+-&gt; Lens
+     AccountAssignmentOperationStatus
+     AccountAssignmentOperationStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200049"><span class="annot"><span class="annottext">Maybe Text
+targetId :: Maybe Text
+$sel:targetId:AccountAssignmentOperationStatus' :: AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679200049"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200049"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200048"><span class="annot"><span class="annottext">s :: AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200047"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetId:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AtargetId%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">targetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | An identifier for an object in Amazon Web Services SSO, such as a user</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- or group. PrincipalIds are GUIDs (For example,</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- PrincipalIds in Amazon Web Services SSO, see the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- &lt;/singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference&gt;.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_principalId"><span class="hs-identifier hs-type">accountAssignmentOperationStatus_principalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="accountAssignmentOperationStatus_principalId"><span class="annot"><span class="annottext">accountAssignmentOperationStatus_principalId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_principalId"><span class="hs-identifier hs-var hs-var">accountAssignmentOperationStatus_principalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAssignmentOperationStatus -&gt; Maybe Text)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; Maybe Text -&gt; AccountAssignmentOperationStatus)
+-&gt; Lens
+     AccountAssignmentOperationStatus
+     AccountAssignmentOperationStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200045"><span class="annot"><span class="annottext">Maybe Text
+principalId :: Maybe Text
+$sel:principalId:AccountAssignmentOperationStatus' :: AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679200045"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200045"><span class="hs-identifier hs-var">principalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200044"><span class="annot"><span class="annottext">s :: AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200043"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalId:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AprincipalId%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The entity type for which the assignment will be created.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_principalType"><span class="hs-identifier hs-type">accountAssignmentOperationStatus_principalType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="accountAssignmentOperationStatus_principalType"><span class="annot"><span class="annottext">accountAssignmentOperationStatus_principalType :: (Maybe PrincipalType -&gt; f (Maybe PrincipalType))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_principalType"><span class="hs-identifier hs-var hs-var">accountAssignmentOperationStatus_principalType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAssignmentOperationStatus -&gt; Maybe PrincipalType)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; Maybe PrincipalType -&gt; AccountAssignmentOperationStatus)
+-&gt; Lens
+     AccountAssignmentOperationStatus
+     AccountAssignmentOperationStatus
+     (Maybe PrincipalType)
+     (Maybe PrincipalType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200041"><span class="annot"><span class="annottext">Maybe PrincipalType
+principalType :: Maybe PrincipalType
+$sel:principalType:AccountAssignmentOperationStatus' :: AccountAssignmentOperationStatus -&gt; Maybe PrincipalType
+</span><a href="#local-6989586621679200041"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679200041"><span class="hs-identifier hs-var">principalType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200040"><span class="annot"><span class="annottext">s :: AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200039"><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679200039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalType:AccountAssignmentOperationStatus' :: Maybe PrincipalType
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AprincipalType%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679200039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The entity type for which the assignment will be created.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_targetType"><span class="hs-identifier hs-type">accountAssignmentOperationStatus_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.TargetType.html#TargetType"><span class="hs-identifier hs-type">TargetType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="accountAssignmentOperationStatus_targetType"><span class="annot"><span class="annottext">accountAssignmentOperationStatus_targetType :: (Maybe TargetType -&gt; f (Maybe TargetType))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_targetType"><span class="hs-identifier hs-var hs-var">accountAssignmentOperationStatus_targetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAssignmentOperationStatus -&gt; Maybe TargetType)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; Maybe TargetType -&gt; AccountAssignmentOperationStatus)
+-&gt; Lens
+     AccountAssignmentOperationStatus
+     AccountAssignmentOperationStatus
+     (Maybe TargetType)
+     (Maybe TargetType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200037"><span class="annot"><span class="annottext">Maybe TargetType
+targetType :: Maybe TargetType
+$sel:targetType:AccountAssignmentOperationStatus' :: AccountAssignmentOperationStatus -&gt; Maybe TargetType
+</span><a href="#local-6989586621679200037"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetType
+</span><a href="#local-6989586621679200037"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200036"><span class="annot"><span class="annottext">s :: AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200035"><span class="annot"><span class="annottext">Maybe TargetType
+</span><a href="#local-6989586621679200035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:AccountAssignmentOperationStatus' :: Maybe TargetType
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AtargetType%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetType
+</span><a href="#local-6989586621679200035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The date that the permission set was created.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_createdDate"><span class="hs-identifier hs-type">accountAssignmentOperationStatus_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="accountAssignmentOperationStatus_createdDate"><span class="annot"><span class="annottext">accountAssignmentOperationStatus_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_createdDate"><span class="hs-identifier hs-var hs-var">accountAssignmentOperationStatus_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAssignmentOperationStatus -&gt; Maybe POSIX)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; Maybe POSIX -&gt; AccountAssignmentOperationStatus)
+-&gt; Lens
+     AccountAssignmentOperationStatus
+     AccountAssignmentOperationStatus
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200033"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:AccountAssignmentOperationStatus' :: AccountAssignmentOperationStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679200033"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679200033"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200032"><span class="annot"><span class="annottext">s :: AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200031"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679200031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:AccountAssignmentOperationStatus' :: Maybe POSIX
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3AcreatedDate%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679200031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AccountAssignmentOperationStatus
+ -&gt; f AccountAssignmentOperationStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The ARN of the permission set. For more information about ARNs, see</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_permissionSetArn"><span class="hs-identifier hs-type">accountAssignmentOperationStatus_permissionSetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="accountAssignmentOperationStatus_permissionSetArn"><span class="annot"><span class="annottext">accountAssignmentOperationStatus_permissionSetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountAssignmentOperationStatus
+-&gt; f AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#accountAssignmentOperationStatus_permissionSetArn"><span class="hs-identifier hs-var hs-var">accountAssignmentOperationStatus_permissionSetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAssignmentOperationStatus -&gt; Maybe Text)
+-&gt; (AccountAssignmentOperationStatus
+    -&gt; Maybe Text -&gt; AccountAssignmentOperationStatus)
+-&gt; Lens
+     AccountAssignmentOperationStatus
+     AccountAssignmentOperationStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200026"><span class="annot"><span class="annottext">Maybe Text
+permissionSetArn :: Maybe Text
+$sel:permissionSetArn:AccountAssignmentOperationStatus' :: AccountAssignmentOperationStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679200026"><span class="hs-identifier hs-var hs-var">permissionSetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200026"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200025"><span class="annot"><span class="annottext">s :: AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200024"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAssignmentOperationStatus
+</span><a href="#local-6989586621679200025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionSetArn:AccountAssignmentOperationStatus' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#%24sel%3ApermissionSetArn%3AAccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679200021"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679200019"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountAssignmentOperationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AccountAssignmentOperationStatus)
+-&gt; Value
+-&gt; Parser AccountAssignmentOperationStatus
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AccountAssignmentOperationStatus&quot;</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200016"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe StatusValues
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PrincipalType
+-&gt; Maybe TargetType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; AccountAssignmentOperationStatus
+</span><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus%27"><span class="hs-identifier hs-var">AccountAssignmentOperationStatus'</span></a></span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe StatusValues
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe PrincipalType
+ -&gt; Maybe TargetType
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; AccountAssignmentOperationStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe StatusValues
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PrincipalType
+      -&gt; Maybe TargetType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; AccountAssignmentOperationStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StatusValues
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PrincipalType
+   -&gt; Maybe TargetType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; AccountAssignmentOperationStatus)
+-&gt; Parser (Maybe StatusValues)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PrincipalType
+      -&gt; Maybe TargetType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; AccountAssignmentOperationStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatusValues)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PrincipalType
+   -&gt; Maybe TargetType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; AccountAssignmentOperationStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PrincipalType
+      -&gt; Maybe TargetType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; AccountAssignmentOperationStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PrincipalType
+   -&gt; Maybe TargetType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; AccountAssignmentOperationStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe PrincipalType
+      -&gt; Maybe TargetType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; AccountAssignmentOperationStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe PrincipalType
+   -&gt; Maybe TargetType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; AccountAssignmentOperationStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PrincipalType
+      -&gt; Maybe TargetType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; AccountAssignmentOperationStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrincipalId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PrincipalType
+   -&gt; Maybe TargetType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; AccountAssignmentOperationStatus)
+-&gt; Parser (Maybe PrincipalType)
+-&gt; Parser
+     (Maybe TargetType
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AccountAssignmentOperationStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PrincipalType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrincipalType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TargetType
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AccountAssignmentOperationStatus)
+-&gt; Parser (Maybe TargetType)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe Text -&gt; AccountAssignmentOperationStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe Text -&gt; AccountAssignmentOperationStatus)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; AccountAssignmentOperationStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AccountAssignmentOperationStatus)
+-&gt; Parser (Maybe Text) -&gt; Parser AccountAssignmentOperationStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PermissionSetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679200010"><span id="local-6989586621679200012"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679200007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus.html#AccountAssignmentOperationStatus"><span class="hs-identifier hs-type">AccountAssignmentOperationStatus</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

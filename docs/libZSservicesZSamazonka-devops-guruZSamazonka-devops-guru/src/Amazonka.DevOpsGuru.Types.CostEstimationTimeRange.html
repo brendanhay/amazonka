@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DevOpsGuru.Types.CostEstimationTimeRange</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DevOpsGuru.Types.CostEstimationTimeRange</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The time range of a cost estimation.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCostEstimationTimeRange' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679231594"><span id="local-6989586621679231595"></span></span><span class="hs-keyword">data</span><span> </span><span id="CostEstimationTimeRange"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange"><span class="hs-identifier hs-var">CostEstimationTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostEstimationTimeRange%27"><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange%27"><span class="hs-identifier hs-var">CostEstimationTimeRange'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start time of the cost estimation.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AstartTime%3ACostEstimationTimeRange%27"><span class="annot"><span class="annottext">CostEstimationTimeRange -&gt; Maybe POSIX
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#%24sel%3AstartTime%3ACostEstimationTimeRange%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The end time of the cost estimation.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AendTime%3ACostEstimationTimeRange%27"><span class="annot"><span class="annottext">CostEstimationTimeRange -&gt; Maybe POSIX
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#%24sel%3AendTime%3ACostEstimationTimeRange%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231587"><span id="local-6989586621679231589"><span class="annot"><span class="annottext">CostEstimationTimeRange -&gt; CostEstimationTimeRange -&gt; Bool
+(CostEstimationTimeRange -&gt; CostEstimationTimeRange -&gt; Bool)
+-&gt; (CostEstimationTimeRange -&gt; CostEstimationTimeRange -&gt; Bool)
+-&gt; Eq CostEstimationTimeRange
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CostEstimationTimeRange -&gt; CostEstimationTimeRange -&gt; Bool
+$c/= :: CostEstimationTimeRange -&gt; CostEstimationTimeRange -&gt; Bool
+== :: CostEstimationTimeRange -&gt; CostEstimationTimeRange -&gt; Bool
+$c== :: CostEstimationTimeRange -&gt; CostEstimationTimeRange -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231578"><span id="local-6989586621679231580"><span id="local-6989586621679231582"><span id="local-6989586621679231584"><span class="annot"><span class="annottext">ReadPrec [CostEstimationTimeRange]
+ReadPrec CostEstimationTimeRange
+Int -&gt; ReadS CostEstimationTimeRange
+ReadS [CostEstimationTimeRange]
+(Int -&gt; ReadS CostEstimationTimeRange)
+-&gt; ReadS [CostEstimationTimeRange]
+-&gt; ReadPrec CostEstimationTimeRange
+-&gt; ReadPrec [CostEstimationTimeRange]
+-&gt; Read CostEstimationTimeRange
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CostEstimationTimeRange]
+$creadListPrec :: ReadPrec [CostEstimationTimeRange]
+readPrec :: ReadPrec CostEstimationTimeRange
+$creadPrec :: ReadPrec CostEstimationTimeRange
+readList :: ReadS [CostEstimationTimeRange]
+$creadList :: ReadS [CostEstimationTimeRange]
+readsPrec :: Int -&gt; ReadS CostEstimationTimeRange
+$creadsPrec :: Int -&gt; ReadS CostEstimationTimeRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231571"><span id="local-6989586621679231573"><span id="local-6989586621679231575"><span class="annot"><span class="annottext">Int -&gt; CostEstimationTimeRange -&gt; ShowS
+[CostEstimationTimeRange] -&gt; ShowS
+CostEstimationTimeRange -&gt; String
+(Int -&gt; CostEstimationTimeRange -&gt; ShowS)
+-&gt; (CostEstimationTimeRange -&gt; String)
+-&gt; ([CostEstimationTimeRange] -&gt; ShowS)
+-&gt; Show CostEstimationTimeRange
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CostEstimationTimeRange] -&gt; ShowS
+$cshowList :: [CostEstimationTimeRange] -&gt; ShowS
+show :: CostEstimationTimeRange -&gt; String
+$cshow :: CostEstimationTimeRange -&gt; String
+showsPrec :: Int -&gt; CostEstimationTimeRange -&gt; ShowS
+$cshowsPrec :: Int -&gt; CostEstimationTimeRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CostEstimationTimeRange -&gt; Rep CostEstimationTimeRange x)
+-&gt; (forall x.
+    Rep CostEstimationTimeRange x -&gt; CostEstimationTimeRange)
+-&gt; Generic CostEstimationTimeRange
+forall x. Rep CostEstimationTimeRange x -&gt; CostEstimationTimeRange
+forall x. CostEstimationTimeRange -&gt; Rep CostEstimationTimeRange x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CostEstimationTimeRange x -&gt; CostEstimationTimeRange
+$cfrom :: forall x. CostEstimationTimeRange -&gt; Rep CostEstimationTimeRange x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'CostEstimationTimeRange' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'startTime', 'costEstimationTimeRange_startTime' - The start time of the cost estimation.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'endTime', 'costEstimationTimeRange_endTime' - The end time of the cost estimation.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#newCostEstimationTimeRange"><span class="hs-identifier hs-type">newCostEstimationTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange"><span class="hs-identifier hs-type">CostEstimationTimeRange</span></a></span><span>
+</span><span id="line-50"></span><span id="newCostEstimationTimeRange"><span class="annot"><span class="annottext">newCostEstimationTimeRange :: CostEstimationTimeRange
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#newCostEstimationTimeRange"><span class="hs-identifier hs-var hs-var">newCostEstimationTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">CostEstimationTimeRange' :: Maybe POSIX -&gt; Maybe POSIX -&gt; CostEstimationTimeRange
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange%27"><span class="hs-identifier hs-type">CostEstimationTimeRange'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:CostEstimationTimeRange' :: Maybe POSIX
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#%24sel%3AstartTime%3ACostEstimationTimeRange%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:CostEstimationTimeRange' :: Maybe POSIX
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#%24sel%3AendTime%3ACostEstimationTimeRange%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The start time of the cost estimation.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#costEstimationTimeRange_startTime"><span class="hs-identifier hs-type">costEstimationTimeRange_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange"><span class="hs-identifier hs-type">CostEstimationTimeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="costEstimationTimeRange_startTime"><span class="annot"><span class="annottext">costEstimationTimeRange_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CostEstimationTimeRange -&gt; f CostEstimationTimeRange
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#costEstimationTimeRange_startTime"><span class="hs-identifier hs-var hs-var">costEstimationTimeRange_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CostEstimationTimeRange -&gt; Maybe POSIX)
+-&gt; (CostEstimationTimeRange
+    -&gt; Maybe POSIX -&gt; CostEstimationTimeRange)
+-&gt; Lens
+     CostEstimationTimeRange
+     CostEstimationTimeRange
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange%27"><span class="hs-identifier hs-type">CostEstimationTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231562"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:CostEstimationTimeRange' :: CostEstimationTimeRange -&gt; Maybe POSIX
+</span><a href="#local-6989586621679231562"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231562"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231561"><span class="annot"><span class="annottext">s :: CostEstimationTimeRange
+</span><a href="#local-6989586621679231561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange%27"><span class="hs-identifier hs-type">CostEstimationTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231560"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostEstimationTimeRange
+</span><a href="#local-6989586621679231561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:CostEstimationTimeRange' :: Maybe POSIX
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#%24sel%3AstartTime%3ACostEstimationTimeRange%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange"><span class="hs-identifier hs-type">CostEstimationTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CostEstimationTimeRange -&gt; f CostEstimationTimeRange)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CostEstimationTimeRange
+-&gt; f CostEstimationTimeRange
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The end time of the cost estimation.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#costEstimationTimeRange_endTime"><span class="hs-identifier hs-type">costEstimationTimeRange_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange"><span class="hs-identifier hs-type">CostEstimationTimeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="costEstimationTimeRange_endTime"><span class="annot"><span class="annottext">costEstimationTimeRange_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CostEstimationTimeRange -&gt; f CostEstimationTimeRange
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#costEstimationTimeRange_endTime"><span class="hs-identifier hs-var hs-var">costEstimationTimeRange_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CostEstimationTimeRange -&gt; Maybe POSIX)
+-&gt; (CostEstimationTimeRange
+    -&gt; Maybe POSIX -&gt; CostEstimationTimeRange)
+-&gt; Lens
+     CostEstimationTimeRange
+     CostEstimationTimeRange
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange%27"><span class="hs-identifier hs-type">CostEstimationTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231555"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:CostEstimationTimeRange' :: CostEstimationTimeRange -&gt; Maybe POSIX
+</span><a href="#local-6989586621679231555"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231555"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231554"><span class="annot"><span class="annottext">s :: CostEstimationTimeRange
+</span><a href="#local-6989586621679231554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange%27"><span class="hs-identifier hs-type">CostEstimationTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231553"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostEstimationTimeRange
+</span><a href="#local-6989586621679231554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:CostEstimationTimeRange' :: Maybe POSIX
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#%24sel%3AendTime%3ACostEstimationTimeRange%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange"><span class="hs-identifier hs-type">CostEstimationTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CostEstimationTimeRange -&gt; f CostEstimationTimeRange)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CostEstimationTimeRange
+-&gt; f CostEstimationTimeRange
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231550"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange"><span class="hs-identifier hs-type">CostEstimationTimeRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679231548"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CostEstimationTimeRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CostEstimationTimeRange)
+-&gt; Value
+-&gt; Parser CostEstimationTimeRange
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CostEstimationTimeRange&quot;</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231545"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; CostEstimationTimeRange
+</span><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange%27"><span class="hs-identifier hs-var">CostEstimationTimeRange'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; CostEstimationTimeRange)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; CostEstimationTimeRange)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; CostEstimationTimeRange)
+-&gt; Parser (Maybe POSIX) -&gt; Parser CostEstimationTimeRange
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231539"><span id="local-6989586621679231541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange"><span class="hs-identifier hs-type">CostEstimationTimeRange</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.CostEstimationTimeRange.html#CostEstimationTimeRange"><span class="hs-identifier hs-type">CostEstimationTimeRange</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

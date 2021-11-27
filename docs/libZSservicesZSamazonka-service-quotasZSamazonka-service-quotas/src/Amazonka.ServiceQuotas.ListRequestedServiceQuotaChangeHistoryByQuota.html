@@ -1,0 +1,1004 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the quota increase requests for the specified quota.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#newListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier">newListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_status"><span class="hs-identifier">listRequestedServiceQuotaChangeHistoryByQuota_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_nextToken"><span class="hs-identifier">listRequestedServiceQuotaChangeHistoryByQuota_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_maxResults"><span class="hs-identifier">listRequestedServiceQuotaChangeHistoryByQuota_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_serviceCode"><span class="hs-identifier">listRequestedServiceQuotaChangeHistoryByQuota_serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_quotaCode"><span class="hs-identifier">listRequestedServiceQuotaChangeHistoryByQuota_quotaCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#newListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier">newListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken"><span class="hs-identifier">listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas"><span class="hs-identifier">listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus"><span class="hs-identifier">listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.html"><span class="hs-identifier">Amazonka.ServiceQuotas.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListRequestedServiceQuotaChangeHistoryByQuota' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679179565"><span id="local-6989586621679179566"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRequestedServiceQuotaChangeHistoryByQuota"><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-var">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status value of the quota increase request.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Astatus%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Maybe RequestStatus
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3Astatus%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Maybe Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AnextToken%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the remaining results, if any, make another call with the token returned</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- from this call.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Maybe Natural
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AmaxResults%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The service identifier.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AserviceCode%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AserviceCode%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The quota identifier.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AquotaCode%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AquotaCode%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var hs-var">quotaCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179555"><span id="local-6989586621679179557"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Bool
+(ListRequestedServiceQuotaChangeHistoryByQuota
+ -&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Bool)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuota
+    -&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Bool)
+-&gt; Eq ListRequestedServiceQuotaChangeHistoryByQuota
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Bool
+$c/= :: ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Bool
+== :: ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Bool
+$c== :: ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179546"><span id="local-6989586621679179548"><span id="local-6989586621679179550"><span id="local-6989586621679179552"><span class="annot"><span class="annottext">ReadPrec [ListRequestedServiceQuotaChangeHistoryByQuota]
+ReadPrec ListRequestedServiceQuotaChangeHistoryByQuota
+Int -&gt; ReadS ListRequestedServiceQuotaChangeHistoryByQuota
+ReadS [ListRequestedServiceQuotaChangeHistoryByQuota]
+(Int -&gt; ReadS ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; ReadS [ListRequestedServiceQuotaChangeHistoryByQuota]
+-&gt; ReadPrec ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; ReadPrec [ListRequestedServiceQuotaChangeHistoryByQuota]
+-&gt; Read ListRequestedServiceQuotaChangeHistoryByQuota
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRequestedServiceQuotaChangeHistoryByQuota]
+$creadListPrec :: ReadPrec [ListRequestedServiceQuotaChangeHistoryByQuota]
+readPrec :: ReadPrec ListRequestedServiceQuotaChangeHistoryByQuota
+$creadPrec :: ReadPrec ListRequestedServiceQuotaChangeHistoryByQuota
+readList :: ReadS [ListRequestedServiceQuotaChangeHistoryByQuota]
+$creadList :: ReadS [ListRequestedServiceQuotaChangeHistoryByQuota]
+readsPrec :: Int -&gt; ReadS ListRequestedServiceQuotaChangeHistoryByQuota
+$creadsPrec :: Int -&gt; ReadS ListRequestedServiceQuotaChangeHistoryByQuota
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179539"><span id="local-6989586621679179541"><span id="local-6989586621679179543"><span class="annot"><span class="annottext">Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; ShowS
+[ListRequestedServiceQuotaChangeHistoryByQuota] -&gt; ShowS
+ListRequestedServiceQuotaChangeHistoryByQuota -&gt; String
+(Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; ShowS)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuota -&gt; String)
+-&gt; ([ListRequestedServiceQuotaChangeHistoryByQuota] -&gt; ShowS)
+-&gt; Show ListRequestedServiceQuotaChangeHistoryByQuota
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRequestedServiceQuotaChangeHistoryByQuota] -&gt; ShowS
+$cshowList :: [ListRequestedServiceQuotaChangeHistoryByQuota] -&gt; ShowS
+show :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; String
+$cshow :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; String
+showsPrec :: Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListRequestedServiceQuotaChangeHistoryByQuota
+ -&gt; Rep ListRequestedServiceQuotaChangeHistoryByQuota x)
+-&gt; (forall x.
+    Rep ListRequestedServiceQuotaChangeHistoryByQuota x
+    -&gt; ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; Generic ListRequestedServiceQuotaChangeHistoryByQuota
+forall x.
+Rep ListRequestedServiceQuotaChangeHistoryByQuota x
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+forall x.
+ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Rep ListRequestedServiceQuotaChangeHistoryByQuota x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListRequestedServiceQuotaChangeHistoryByQuota x
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+$cfrom :: forall x.
+ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Rep ListRequestedServiceQuotaChangeHistoryByQuota x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'ListRequestedServiceQuotaChangeHistoryByQuota' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'status', 'listRequestedServiceQuotaChangeHistoryByQuota_status' - The status value of the quota increase request.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'listRequestedServiceQuotaChangeHistoryByQuota_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'listRequestedServiceQuotaChangeHistoryByQuota_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the remaining results, if any, make another call with the token returned</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- from this call.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'serviceCode', 'listRequestedServiceQuotaChangeHistoryByQuota_serviceCode' - The service identifier.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'quotaCode', 'listRequestedServiceQuotaChangeHistoryByQuota_quotaCode' - The quota identifier.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#newListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">newListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'serviceCode'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'quotaCode'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span>
+</span><span id="line-98"></span><span id="newListRequestedServiceQuotaChangeHistoryByQuota"><span class="annot"><span class="annottext">newListRequestedServiceQuotaChangeHistoryByQuota :: Text -&gt; Text -&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#newListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-var hs-var">newListRequestedServiceQuotaChangeHistoryByQuota</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679179534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179534"><span class="hs-identifier hs-var">pServiceCode_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679179533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179533"><span class="hs-identifier hs-var">pQuotaCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota' :: Maybe RequestStatus
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ListRequestedServiceQuotaChangeHistoryByQuota' :: Maybe RequestStatus
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3Astatus%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:ListRequestedServiceQuotaChangeHistoryByQuota' :: Maybe Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AnextToken%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:ListRequestedServiceQuotaChangeHistoryByQuota' :: Maybe Natural
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AmaxResults%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceCode:ListRequestedServiceQuotaChangeHistoryByQuota' :: Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AserviceCode%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179534"><span class="hs-identifier hs-var">pServiceCode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:quotaCode:ListRequestedServiceQuotaChangeHistoryByQuota' :: Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AquotaCode%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">quotaCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179533"><span class="hs-identifier hs-var">pQuotaCode_</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The status value of the quota increase request.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_status"><span class="hs-identifier hs-type">listRequestedServiceQuotaChangeHistoryByQuota_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="listRequestedServiceQuotaChangeHistoryByQuota_status"><span class="annot"><span class="annottext">listRequestedServiceQuotaChangeHistoryByQuota_status :: (Maybe RequestStatus -&gt; f (Maybe RequestStatus))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; f ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_status"><span class="hs-identifier hs-var hs-var">listRequestedServiceQuotaChangeHistoryByQuota_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRequestedServiceQuotaChangeHistoryByQuota
+ -&gt; Maybe RequestStatus)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuota
+    -&gt; Maybe RequestStatus
+    -&gt; ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; Lens
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     (Maybe RequestStatus)
+     (Maybe RequestStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179531"><span class="annot"><span class="annottext">Maybe RequestStatus
+status :: Maybe RequestStatus
+$sel:status:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Maybe RequestStatus
+</span><a href="#local-6989586621679179531"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><a href="#local-6989586621679179531"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179530"><span class="annot"><span class="annottext">s :: ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179529"><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><a href="#local-6989586621679179529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListRequestedServiceQuotaChangeHistoryByQuota' :: Maybe RequestStatus
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3Astatus%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><a href="#local-6989586621679179529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_nextToken"><span class="hs-identifier hs-type">listRequestedServiceQuotaChangeHistoryByQuota_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="listRequestedServiceQuotaChangeHistoryByQuota_nextToken"><span class="annot"><span class="annottext">listRequestedServiceQuotaChangeHistoryByQuota_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; f ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_nextToken"><span class="hs-identifier hs-var hs-var">listRequestedServiceQuotaChangeHistoryByQuota_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Maybe Text)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuota
+    -&gt; Maybe Text -&gt; ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; Lens
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179528"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Maybe Text
+</span><a href="#local-6989586621679179528"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179528"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179527"><span class="annot"><span class="annottext">s :: ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179526"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRequestedServiceQuotaChangeHistoryByQuota' :: Maybe Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AnextToken%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- the remaining results, if any, make another call with the token returned</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- from this call.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_maxResults"><span class="hs-identifier hs-type">listRequestedServiceQuotaChangeHistoryByQuota_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="listRequestedServiceQuotaChangeHistoryByQuota_maxResults"><span class="annot"><span class="annottext">listRequestedServiceQuotaChangeHistoryByQuota_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; f ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_maxResults"><span class="hs-identifier hs-var hs-var">listRequestedServiceQuotaChangeHistoryByQuota_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Maybe Natural)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuota
+    -&gt; Maybe Natural -&gt; ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; Lens
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179525"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Maybe Natural
+</span><a href="#local-6989586621679179525"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179525"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179524"><span class="annot"><span class="annottext">s :: ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179523"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListRequestedServiceQuotaChangeHistoryByQuota' :: Maybe Natural
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AmaxResults%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The service identifier.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_serviceCode"><span class="hs-identifier hs-type">listRequestedServiceQuotaChangeHistoryByQuota_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="listRequestedServiceQuotaChangeHistoryByQuota_serviceCode"><span class="annot"><span class="annottext">listRequestedServiceQuotaChangeHistoryByQuota_serviceCode :: (Text -&gt; f Text)
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; f ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_serviceCode"><span class="hs-identifier hs-var hs-var">listRequestedServiceQuotaChangeHistoryByQuota_serviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Text)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuota
+    -&gt; Text -&gt; ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; Lens
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179522"><span class="annot"><span class="annottext">Text
+serviceCode :: Text
+$sel:serviceCode:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Text
+</span><a href="#local-6989586621679179522"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179522"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179521"><span class="annot"><span class="annottext">s :: ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179520"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:ListRequestedServiceQuotaChangeHistoryByQuota' :: Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AserviceCode%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The quota identifier.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_quotaCode"><span class="hs-identifier hs-type">listRequestedServiceQuotaChangeHistoryByQuota_quotaCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="listRequestedServiceQuotaChangeHistoryByQuota_quotaCode"><span class="annot"><span class="annottext">listRequestedServiceQuotaChangeHistoryByQuota_quotaCode :: (Text -&gt; f Text)
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; f ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_quotaCode"><span class="hs-identifier hs-var hs-var">listRequestedServiceQuotaChangeHistoryByQuota_quotaCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Text)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuota
+    -&gt; Text -&gt; ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; Lens
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     ListRequestedServiceQuotaChangeHistoryByQuota
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179519"><span class="annot"><span class="annottext">Text
+quotaCode :: Text
+$sel:quotaCode:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Text
+</span><a href="#local-6989586621679179519"><span class="hs-identifier hs-var hs-var">quotaCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179519"><span class="hs-identifier hs-var">quotaCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179518"><span class="annot"><span class="annottext">s :: ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179517"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quotaCode:ListRequestedServiceQuotaChangeHistoryByQuota' :: Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AquotaCode%3AListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-var">quotaCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679179513"><span class="annot"><span class="annottext">page :: ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; AWSResponse ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Maybe ListRequestedServiceQuotaChangeHistoryByQuota
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679179511"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179511"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679179510"><span class="annot"><span class="annottext">AWSResponse ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179510"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-138"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRequestedServiceQuotaChangeHistoryByQuota
+ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="#local-6989586621679179510"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Getting
+     (First Text)
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+     Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Const
+     (First Text) ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+Lens'
+  ListRequestedServiceQuotaChangeHistoryByQuotaResponse (Maybe Text)
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken"><span class="hs-identifier hs-var">listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken</span></a></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+ -&gt; Const
+      (First Text) ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text)
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+     Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-141"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListRequestedServiceQuotaChangeHistoryByQuota
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [RequestedServiceQuotaChange] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-144"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRequestedServiceQuotaChangeHistoryByQuota
+ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="#local-6989586621679179510"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Getting
+     (First [RequestedServiceQuotaChange])
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+     [RequestedServiceQuotaChange]
+-&gt; Maybe [RequestedServiceQuotaChange]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [RequestedServiceQuotaChange]
+ -&gt; Const
+      (First [RequestedServiceQuotaChange])
+      (Maybe [RequestedServiceQuotaChange]))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Const
+     (First [RequestedServiceQuotaChange])
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+Lens'
+  ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+  (Maybe [RequestedServiceQuotaChange])
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas"><span class="hs-identifier hs-var">listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas</span></a></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [RequestedServiceQuotaChange]
+  -&gt; Const
+       (First [RequestedServiceQuotaChange])
+       (Maybe [RequestedServiceQuotaChange]))
+ -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+ -&gt; Const
+      (First [RequestedServiceQuotaChange])
+      ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; (([RequestedServiceQuotaChange]
+     -&gt; Const
+          (First [RequestedServiceQuotaChange])
+          [RequestedServiceQuotaChange])
+    -&gt; Maybe [RequestedServiceQuotaChange]
+    -&gt; Const
+         (First [RequestedServiceQuotaChange])
+         (Maybe [RequestedServiceQuotaChange]))
+-&gt; Getting
+     (First [RequestedServiceQuotaChange])
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+     [RequestedServiceQuotaChange]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RequestedServiceQuotaChange]
+ -&gt; Const
+      (First [RequestedServiceQuotaChange])
+      [RequestedServiceQuotaChange])
+-&gt; Maybe [RequestedServiceQuotaChange]
+-&gt; Const
+     (First [RequestedServiceQuotaChange])
+     (Maybe [RequestedServiceQuotaChange])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-147"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListRequestedServiceQuotaChangeHistoryByQuota
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Maybe ListRequestedServiceQuotaChangeHistoryByQuota
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListRequestedServiceQuotaChangeHistoryByQuota
+ -&gt; Maybe ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Maybe ListRequestedServiceQuotaChangeHistoryByQuota
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+</span><a href="#local-6989586621679179511"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuota
+    -&gt; ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Identity ListRequestedServiceQuotaChangeHistoryByQuota
+Lens
+  ListRequestedServiceQuotaChangeHistoryByQuota
+  ListRequestedServiceQuotaChangeHistoryByQuota
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuota_nextToken"><span class="hs-identifier hs-var">listRequestedServiceQuotaChangeHistoryByQuota_nextToken</span></a></span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+ -&gt; Identity ListRequestedServiceQuotaChangeHistoryByQuota)
+-&gt; Maybe Text
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRequestedServiceQuotaChangeHistoryByQuota
+ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="#local-6989586621679179510"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Getting
+     (First Text)
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+     Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Const
+     (First Text) ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+Lens'
+  ListRequestedServiceQuotaChangeHistoryByQuotaResponse (Maybe Text)
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken"><span class="hs-identifier hs-var">listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken</span></a></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+ -&gt; Const
+      (First Text) ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text)
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+     Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679179500"><span class="annot"><span class="annottext">request :: ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Request ListRequestedServiceQuotaChangeHistoryByQuota
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Request ListRequestedServiceQuotaChangeHistoryByQuota
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ServiceQuotas.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679179496"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListRequestedServiceQuotaChangeHistoryByQuota)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse ListRequestedServiceQuotaChangeHistoryByQuota))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListRequestedServiceQuotaChangeHistoryByQuota)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179493"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179493"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179492"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179492"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179491"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179491"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [RequestedServiceQuotaChange]
+-&gt; Int
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var">ListRequestedServiceQuotaChangeHistoryByQuotaResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [RequestedServiceQuotaChange]
+ -&gt; Int
+ -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [RequestedServiceQuotaChange]
+      -&gt; Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [RequestedServiceQuotaChange]
+   -&gt; Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; Either String (Maybe [RequestedServiceQuotaChange])
+-&gt; Either
+     String
+     (Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [RequestedServiceQuotaChange]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestedQuotas&quot;</span></span><span>
+</span><span id="line-172"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RequestedServiceQuotaChange]))
+-&gt; Maybe [RequestedServiceQuotaChange]
+-&gt; Either String (Maybe [RequestedServiceQuotaChange])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RequestedServiceQuotaChange]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; Either String Int
+-&gt; Either
+     String ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179493"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679179482"><span id="local-6989586621679179484"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679179479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679179475"><span class="annot"><span class="annottext">toHeaders :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-195"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-199"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679179465"><span id="local-6989586621679179467"><span id="local-6989586621679179469"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span></span></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679179463"><span class="annot"><span class="annottext">toJSON :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179457"><span id="local-6989586621679179458"><span id="local-6989586621679179459"><span id="local-6989586621679179460"><span id="local-6989586621679179461"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe RequestStatus
+Text
+quotaCode :: Text
+serviceCode :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+status :: Maybe RequestStatus
+$sel:quotaCode:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Text
+$sel:serviceCode:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Text
+$sel:maxResults:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Maybe Natural
+$sel:nextToken:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; Maybe Text
+$sel:status:ListRequestedServiceQuotaChangeHistoryByQuota' :: ListRequestedServiceQuotaChangeHistoryByQuota
+-&gt; Maybe RequestStatus
+</span><a href="#local-6989586621679179457"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-210"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RequestStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RequestStatus -&gt; Pair) -&gt; Maybe RequestStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><a href="#local-6989586621679179461"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179460"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179459"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179458"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuotaCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179457"><span class="hs-identifier hs-var">quotaCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679179451"><span class="annot"><span class="annottext">toPath :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuota"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuota</span></a></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679179447"><span class="annot"><span class="annottext">toQuery :: ListRequestedServiceQuotaChangeHistoryByQuota -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuota -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | /See:/ 'newListRequestedServiceQuotaChangeHistoryByQuotaResponse' smart constructor.</span><span>
+</span><span id="line-232"></span><span id="local-6989586621679179444"><span id="local-6989586621679179445"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-var">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var">ListRequestedServiceQuotaChangeHistoryByQuotaResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3AnextToken%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Maybe Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AnextToken%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | Information about the quota increase requests.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3ArequestedQuotas%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Maybe [RequestedServiceQuotaChange]
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3ArequestedQuotas%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var hs-var">requestedQuotas</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange.html#RequestedServiceQuotaChange"><span class="hs-identifier hs-type">RequestedServiceQuotaChange</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Int
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AhttpStatus%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179437"><span id="local-6989586621679179439"><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Bool
+(ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+ -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Bool)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+    -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Bool)
+-&gt; Eq ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Bool
+$c/= :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Bool
+== :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Bool
+$c== :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179429"><span id="local-6989586621679179431"><span id="local-6989586621679179433"><span id="local-6989586621679179435"><span class="annot"><span class="annottext">ReadPrec [ListRequestedServiceQuotaChangeHistoryByQuotaResponse]
+ReadPrec ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+Int -&gt; ReadS ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+ReadS [ListRequestedServiceQuotaChangeHistoryByQuotaResponse]
+(Int
+ -&gt; ReadS ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; ReadS [ListRequestedServiceQuotaChangeHistoryByQuotaResponse]
+-&gt; ReadPrec ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; ReadPrec [ListRequestedServiceQuotaChangeHistoryByQuotaResponse]
+-&gt; Read ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRequestedServiceQuotaChangeHistoryByQuotaResponse]
+$creadListPrec :: ReadPrec [ListRequestedServiceQuotaChangeHistoryByQuotaResponse]
+readPrec :: ReadPrec ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+$creadPrec :: ReadPrec ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+readList :: ReadS [ListRequestedServiceQuotaChangeHistoryByQuotaResponse]
+$creadList :: ReadS [ListRequestedServiceQuotaChangeHistoryByQuotaResponse]
+readsPrec :: Int -&gt; ReadS ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+$creadsPrec :: Int -&gt; ReadS ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179423"><span id="local-6989586621679179425"><span id="local-6989586621679179427"><span class="annot"><span class="annottext">Int
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; ShowS
+[ListRequestedServiceQuotaChangeHistoryByQuotaResponse] -&gt; ShowS
+ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; String
+(Int
+ -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; ShowS)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+    -&gt; String)
+-&gt; ([ListRequestedServiceQuotaChangeHistoryByQuotaResponse]
+    -&gt; ShowS)
+-&gt; Show ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRequestedServiceQuotaChangeHistoryByQuotaResponse] -&gt; ShowS
+$cshowList :: [ListRequestedServiceQuotaChangeHistoryByQuotaResponse] -&gt; ShowS
+show :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; String
+$cshow :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; String
+showsPrec :: Int
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; ShowS
+$cshowsPrec :: Int
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+ -&gt; Rep ListRequestedServiceQuotaChangeHistoryByQuotaResponse x)
+-&gt; (forall x.
+    Rep ListRequestedServiceQuotaChangeHistoryByQuotaResponse x
+    -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; Generic ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+forall x.
+Rep ListRequestedServiceQuotaChangeHistoryByQuotaResponse x
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+forall x.
+ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Rep ListRequestedServiceQuotaChangeHistoryByQuotaResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListRequestedServiceQuotaChangeHistoryByQuotaResponse x
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+$cfrom :: forall x.
+ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Rep ListRequestedServiceQuotaChangeHistoryByQuotaResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Create a value of 'ListRequestedServiceQuotaChangeHistoryByQuotaResponse' with all optional fields omitted.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'nextToken', 'listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- 'requestedQuotas', 'listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas' - Information about the quota increase requests.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'httpStatus', 'listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#newListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">newListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-260"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span>
+</span><span id="line-261"></span><span id="newListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="annot"><span class="annottext">newListRequestedServiceQuotaChangeHistoryByQuotaResponse :: Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#newListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-var hs-var">newListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679179420"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: Maybe Text
+-&gt; Maybe [RequestedServiceQuotaChange]
+-&gt; Int
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse'</span></a></span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AnextToken%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">$sel:requestedQuotas:ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: Maybe [RequestedServiceQuotaChange]
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3ArequestedQuotas%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var">requestedQuotas</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RequestedServiceQuotaChange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: Int
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AhttpStatus%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken"><span class="hs-identifier hs-type">listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken"><span class="annot"><span class="annottext">listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; f ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken"><span class="hs-identifier hs-var hs-var">listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+ -&gt; Maybe Text)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+    -&gt; Maybe Text
+    -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; Lens'
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179419"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679179419"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179419"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179418"><span class="annot"><span class="annottext">s :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="#local-6989586621679179418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179417"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="#local-6989586621679179418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AnextToken%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | Information about the quota increase requests.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas"><span class="hs-identifier hs-type">listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange.html#RequestedServiceQuotaChange"><span class="hs-identifier hs-type">RequestedServiceQuotaChange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas"><span class="annot"><span class="annottext">listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas :: (Maybe [RequestedServiceQuotaChange]
+ -&gt; f (Maybe [RequestedServiceQuotaChange]))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; f ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas"><span class="hs-identifier hs-var hs-var">listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+ -&gt; Maybe [RequestedServiceQuotaChange])
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+    -&gt; Maybe [RequestedServiceQuotaChange]
+    -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; Lens'
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+     (Maybe [RequestedServiceQuotaChange])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179416"><span class="annot"><span class="annottext">Maybe [RequestedServiceQuotaChange]
+requestedQuotas :: Maybe [RequestedServiceQuotaChange]
+$sel:requestedQuotas:ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; Maybe [RequestedServiceQuotaChange]
+</span><a href="#local-6989586621679179416"><span class="hs-identifier hs-var hs-var">requestedQuotas</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RequestedServiceQuotaChange]
+</span><a href="#local-6989586621679179416"><span class="hs-identifier hs-var">requestedQuotas</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179415"><span class="annot"><span class="annottext">s :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="#local-6989586621679179415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179414"><span class="annot"><span class="annottext">Maybe [RequestedServiceQuotaChange]
+</span><a href="#local-6989586621679179414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="#local-6989586621679179415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedQuotas:ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: Maybe [RequestedServiceQuotaChange]
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3ArequestedQuotas%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var">requestedQuotas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RequestedServiceQuotaChange]
+</span><a href="#local-6989586621679179414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RequestedServiceQuotaChange]
+  -&gt; f (Maybe [RequestedServiceQuotaChange]))
+ -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+ -&gt; f ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; ((Maybe [RequestedServiceQuotaChange]
+     -&gt; f (Maybe [RequestedServiceQuotaChange]))
+    -&gt; Maybe [RequestedServiceQuotaChange]
+    -&gt; f (Maybe [RequestedServiceQuotaChange]))
+-&gt; (Maybe [RequestedServiceQuotaChange]
+    -&gt; f (Maybe [RequestedServiceQuotaChange]))
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; f ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RequestedServiceQuotaChange]
+  [RequestedServiceQuotaChange]
+  [RequestedServiceQuotaChange]
+  [RequestedServiceQuotaChange]
+-&gt; Iso
+     (Maybe [RequestedServiceQuotaChange])
+     (Maybe [RequestedServiceQuotaChange])
+     (Maybe [RequestedServiceQuotaChange])
+     (Maybe [RequestedServiceQuotaChange])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RequestedServiceQuotaChange]
+  [RequestedServiceQuotaChange]
+  [RequestedServiceQuotaChange]
+  [RequestedServiceQuotaChange]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus"><span class="hs-identifier hs-type">listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-283"></span><span id="listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus"><span class="annot"><span class="annottext">listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+-&gt; f ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Int)
+-&gt; (ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+    -&gt; Int -&gt; ListRequestedServiceQuotaChangeHistoryByQuotaResponse)
+-&gt; Lens
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179411"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse -&gt; Int
+</span><a href="#local-6989586621679179411"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179411"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179410"><span class="annot"><span class="annottext">s :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="#local-6989586621679179410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179409"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+</span><a href="#local-6989586621679179410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRequestedServiceQuotaChangeHistoryByQuotaResponse' :: Int
+</span><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#%24sel%3AhttpStatus%3AListRequestedServiceQuotaChangeHistoryByQuotaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679179407"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.html#ListRequestedServiceQuotaChangeHistoryByQuotaResponse"><span class="hs-identifier hs-type">ListRequestedServiceQuotaChangeHistoryByQuotaResponse</span></a></span></span><span>
+</span><span id="line-288"></span></pre></body></html>

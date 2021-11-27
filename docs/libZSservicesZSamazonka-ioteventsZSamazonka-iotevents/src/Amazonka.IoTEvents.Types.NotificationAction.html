@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTEvents.Types.NotificationAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEvents.Types.NotificationAction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EmailConfiguration.html"><span class="hs-identifier">Amazonka.IoTEvents.Types.EmailConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationTargetActions.html"><span class="hs-identifier">Amazonka.IoTEvents.Types.NotificationTargetActions</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SMSConfiguration.html"><span class="hs-identifier">Amazonka.IoTEvents.Types.SMSConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains the notification settings of an alarm model. The settings apply</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- to all alarms that were created based on this alarm model.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newNotificationAction' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679244418"><span id="local-6989586621679244419"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationAction"><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-var">NotificationAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationAction%27"><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-var">NotificationAction'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the configuration information of email notifications.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AemailConfigurations%3ANotificationAction%27"><span class="annot"><span class="annottext">NotificationAction -&gt; Maybe (NonEmpty EmailConfiguration)
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#%24sel%3AemailConfigurations%3ANotificationAction%27"><span class="hs-identifier hs-var hs-var">emailConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EmailConfiguration.html#EmailConfiguration"><span class="hs-identifier hs-type">EmailConfiguration</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Contains the configuration information of SMS notifications.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsmsConfigurations%3ANotificationAction%27"><span class="annot"><span class="annottext">NotificationAction -&gt; Maybe (NonEmpty SMSConfiguration)
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#%24sel%3AsmsConfigurations%3ANotificationAction%27"><span class="hs-identifier hs-var hs-var">smsConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SMSConfiguration.html#SMSConfiguration"><span class="hs-identifier hs-type">SMSConfiguration</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Specifies an AWS Lambda function to manage alarm notifications. You can</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- create one or use the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html AWS Lambda function provided by AWS IoT Events&gt;.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aaction%3ANotificationAction%27"><span class="annot"><span class="annottext">NotificationAction -&gt; NotificationTargetActions
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#%24sel%3Aaction%3ANotificationAction%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationTargetActions.html#NotificationTargetActions"><span class="hs-identifier hs-type">NotificationTargetActions</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244410"><span id="local-6989586621679244412"><span class="annot"><span class="annottext">NotificationAction -&gt; NotificationAction -&gt; Bool
+(NotificationAction -&gt; NotificationAction -&gt; Bool)
+-&gt; (NotificationAction -&gt; NotificationAction -&gt; Bool)
+-&gt; Eq NotificationAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotificationAction -&gt; NotificationAction -&gt; Bool
+$c/= :: NotificationAction -&gt; NotificationAction -&gt; Bool
+== :: NotificationAction -&gt; NotificationAction -&gt; Bool
+$c== :: NotificationAction -&gt; NotificationAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244401"><span id="local-6989586621679244403"><span id="local-6989586621679244405"><span id="local-6989586621679244407"><span class="annot"><span class="annottext">ReadPrec [NotificationAction]
+ReadPrec NotificationAction
+Int -&gt; ReadS NotificationAction
+ReadS [NotificationAction]
+(Int -&gt; ReadS NotificationAction)
+-&gt; ReadS [NotificationAction]
+-&gt; ReadPrec NotificationAction
+-&gt; ReadPrec [NotificationAction]
+-&gt; Read NotificationAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotificationAction]
+$creadListPrec :: ReadPrec [NotificationAction]
+readPrec :: ReadPrec NotificationAction
+$creadPrec :: ReadPrec NotificationAction
+readList :: ReadS [NotificationAction]
+$creadList :: ReadS [NotificationAction]
+readsPrec :: Int -&gt; ReadS NotificationAction
+$creadsPrec :: Int -&gt; ReadS NotificationAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244394"><span id="local-6989586621679244396"><span id="local-6989586621679244398"><span class="annot"><span class="annottext">Int -&gt; NotificationAction -&gt; ShowS
+[NotificationAction] -&gt; ShowS
+NotificationAction -&gt; String
+(Int -&gt; NotificationAction -&gt; ShowS)
+-&gt; (NotificationAction -&gt; String)
+-&gt; ([NotificationAction] -&gt; ShowS)
+-&gt; Show NotificationAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotificationAction] -&gt; ShowS
+$cshowList :: [NotificationAction] -&gt; ShowS
+show :: NotificationAction -&gt; String
+$cshow :: NotificationAction -&gt; String
+showsPrec :: Int -&gt; NotificationAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotificationAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NotificationAction -&gt; Rep NotificationAction x)
+-&gt; (forall x. Rep NotificationAction x -&gt; NotificationAction)
+-&gt; Generic NotificationAction
+forall x. Rep NotificationAction x -&gt; NotificationAction
+forall x. NotificationAction -&gt; Rep NotificationAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NotificationAction x -&gt; NotificationAction
+$cfrom :: forall x. NotificationAction -&gt; Rep NotificationAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'NotificationAction' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'emailConfigurations', 'notificationAction_emailConfigurations' - Contains the configuration information of email notifications.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'smsConfigurations', 'notificationAction_smsConfigurations' - Contains the configuration information of SMS notifications.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'action', 'notificationAction_action' - Specifies an AWS Lambda function to manage alarm notifications. You can</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- create one or use the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html AWS Lambda function provided by AWS IoT Events&gt;.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#newNotificationAction"><span class="hs-identifier hs-type">newNotificationAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'action'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationTargetActions.html#NotificationTargetActions"><span class="hs-identifier hs-type">NotificationTargetActions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span><span>
+</span><span id="line-64"></span><span id="newNotificationAction"><span class="annot"><span class="annottext">newNotificationAction :: NotificationTargetActions -&gt; NotificationAction
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#newNotificationAction"><span class="hs-identifier hs-var hs-var">newNotificationAction</span></a></span></span><span> </span><span id="local-6989586621679244388"><span class="annot"><span class="annottext">NotificationTargetActions
+</span><a href="#local-6989586621679244388"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">NotificationAction' :: Maybe (NonEmpty EmailConfiguration)
+-&gt; Maybe (NonEmpty SMSConfiguration)
+-&gt; NotificationTargetActions
+-&gt; NotificationAction
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-type">NotificationAction'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:emailConfigurations:NotificationAction' :: Maybe (NonEmpty EmailConfiguration)
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#%24sel%3AemailConfigurations%3ANotificationAction%27"><span class="hs-identifier hs-var">emailConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty EmailConfiguration)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:smsConfigurations:NotificationAction' :: Maybe (NonEmpty SMSConfiguration)
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#%24sel%3AsmsConfigurations%3ANotificationAction%27"><span class="hs-identifier hs-var">smsConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SMSConfiguration)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:action:NotificationAction' :: NotificationTargetActions
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#%24sel%3Aaction%3ANotificationAction%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NotificationTargetActions
+</span><a href="#local-6989586621679244388"><span class="hs-identifier hs-var">pAction_</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Contains the configuration information of email notifications.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#notificationAction_emailConfigurations"><span class="hs-identifier hs-type">notificationAction_emailConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.EmailConfiguration.html#EmailConfiguration"><span class="hs-identifier hs-type">EmailConfiguration</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="notificationAction_emailConfigurations"><span class="annot"><span class="annottext">notificationAction_emailConfigurations :: (Maybe (NonEmpty EmailConfiguration)
+ -&gt; f (Maybe (NonEmpty EmailConfiguration)))
+-&gt; NotificationAction -&gt; f NotificationAction
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#notificationAction_emailConfigurations"><span class="hs-identifier hs-var hs-var">notificationAction_emailConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotificationAction -&gt; Maybe (NonEmpty EmailConfiguration))
+-&gt; (NotificationAction
+    -&gt; Maybe (NonEmpty EmailConfiguration) -&gt; NotificationAction)
+-&gt; Lens
+     NotificationAction
+     NotificationAction
+     (Maybe (NonEmpty EmailConfiguration))
+     (Maybe (NonEmpty EmailConfiguration))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-type">NotificationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244384"><span class="annot"><span class="annottext">Maybe (NonEmpty EmailConfiguration)
+emailConfigurations :: Maybe (NonEmpty EmailConfiguration)
+$sel:emailConfigurations:NotificationAction' :: NotificationAction -&gt; Maybe (NonEmpty EmailConfiguration)
+</span><a href="#local-6989586621679244384"><span class="hs-identifier hs-var hs-var">emailConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty EmailConfiguration)
+</span><a href="#local-6989586621679244384"><span class="hs-identifier hs-var">emailConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244383"><span class="annot"><span class="annottext">s :: NotificationAction
+</span><a href="#local-6989586621679244383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-type">NotificationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244382"><span class="annot"><span class="annottext">Maybe (NonEmpty EmailConfiguration)
+</span><a href="#local-6989586621679244382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationAction
+</span><a href="#local-6989586621679244383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailConfigurations:NotificationAction' :: Maybe (NonEmpty EmailConfiguration)
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#%24sel%3AemailConfigurations%3ANotificationAction%27"><span class="hs-identifier hs-var">emailConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty EmailConfiguration)
+</span><a href="#local-6989586621679244382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty EmailConfiguration)
+  -&gt; f (Maybe (NonEmpty EmailConfiguration)))
+ -&gt; NotificationAction -&gt; f NotificationAction)
+-&gt; ((Maybe (NonEmpty EmailConfiguration)
+     -&gt; f (Maybe (NonEmpty EmailConfiguration)))
+    -&gt; Maybe (NonEmpty EmailConfiguration)
+    -&gt; f (Maybe (NonEmpty EmailConfiguration)))
+-&gt; (Maybe (NonEmpty EmailConfiguration)
+    -&gt; f (Maybe (NonEmpty EmailConfiguration)))
+-&gt; NotificationAction
+-&gt; f NotificationAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty EmailConfiguration)
+  (NonEmpty EmailConfiguration)
+  (NonEmpty EmailConfiguration)
+  (NonEmpty EmailConfiguration)
+-&gt; Iso
+     (Maybe (NonEmpty EmailConfiguration))
+     (Maybe (NonEmpty EmailConfiguration))
+     (Maybe (NonEmpty EmailConfiguration))
+     (Maybe (NonEmpty EmailConfiguration))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty EmailConfiguration)
+  (NonEmpty EmailConfiguration)
+  (NonEmpty EmailConfiguration)
+  (NonEmpty EmailConfiguration)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Contains the configuration information of SMS notifications.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#notificationAction_smsConfigurations"><span class="hs-identifier hs-type">notificationAction_smsConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.SMSConfiguration.html#SMSConfiguration"><span class="hs-identifier hs-type">SMSConfiguration</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="notificationAction_smsConfigurations"><span class="annot"><span class="annottext">notificationAction_smsConfigurations :: (Maybe (NonEmpty SMSConfiguration)
+ -&gt; f (Maybe (NonEmpty SMSConfiguration)))
+-&gt; NotificationAction -&gt; f NotificationAction
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#notificationAction_smsConfigurations"><span class="hs-identifier hs-var hs-var">notificationAction_smsConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotificationAction -&gt; Maybe (NonEmpty SMSConfiguration))
+-&gt; (NotificationAction
+    -&gt; Maybe (NonEmpty SMSConfiguration) -&gt; NotificationAction)
+-&gt; Lens
+     NotificationAction
+     NotificationAction
+     (Maybe (NonEmpty SMSConfiguration))
+     (Maybe (NonEmpty SMSConfiguration))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-type">NotificationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244377"><span class="annot"><span class="annottext">Maybe (NonEmpty SMSConfiguration)
+smsConfigurations :: Maybe (NonEmpty SMSConfiguration)
+$sel:smsConfigurations:NotificationAction' :: NotificationAction -&gt; Maybe (NonEmpty SMSConfiguration)
+</span><a href="#local-6989586621679244377"><span class="hs-identifier hs-var hs-var">smsConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SMSConfiguration)
+</span><a href="#local-6989586621679244377"><span class="hs-identifier hs-var">smsConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244376"><span class="annot"><span class="annottext">s :: NotificationAction
+</span><a href="#local-6989586621679244376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-type">NotificationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244375"><span class="annot"><span class="annottext">Maybe (NonEmpty SMSConfiguration)
+</span><a href="#local-6989586621679244375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationAction
+</span><a href="#local-6989586621679244376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smsConfigurations:NotificationAction' :: Maybe (NonEmpty SMSConfiguration)
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#%24sel%3AsmsConfigurations%3ANotificationAction%27"><span class="hs-identifier hs-var">smsConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SMSConfiguration)
+</span><a href="#local-6989586621679244375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty SMSConfiguration)
+  -&gt; f (Maybe (NonEmpty SMSConfiguration)))
+ -&gt; NotificationAction -&gt; f NotificationAction)
+-&gt; ((Maybe (NonEmpty SMSConfiguration)
+     -&gt; f (Maybe (NonEmpty SMSConfiguration)))
+    -&gt; Maybe (NonEmpty SMSConfiguration)
+    -&gt; f (Maybe (NonEmpty SMSConfiguration)))
+-&gt; (Maybe (NonEmpty SMSConfiguration)
+    -&gt; f (Maybe (NonEmpty SMSConfiguration)))
+-&gt; NotificationAction
+-&gt; f NotificationAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty SMSConfiguration)
+  (NonEmpty SMSConfiguration)
+  (NonEmpty SMSConfiguration)
+  (NonEmpty SMSConfiguration)
+-&gt; Iso
+     (Maybe (NonEmpty SMSConfiguration))
+     (Maybe (NonEmpty SMSConfiguration))
+     (Maybe (NonEmpty SMSConfiguration))
+     (Maybe (NonEmpty SMSConfiguration))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty SMSConfiguration)
+  (NonEmpty SMSConfiguration)
+  (NonEmpty SMSConfiguration)
+  (NonEmpty SMSConfiguration)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Specifies an AWS Lambda function to manage alarm notifications. You can</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- create one or use the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html AWS Lambda function provided by AWS IoT Events&gt;.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#notificationAction_action"><span class="hs-identifier hs-type">notificationAction_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationTargetActions.html#NotificationTargetActions"><span class="hs-identifier hs-type">NotificationTargetActions</span></a></span><span>
+</span><span id="line-84"></span><span id="notificationAction_action"><span class="annot"><span class="annottext">notificationAction_action :: (NotificationTargetActions -&gt; f NotificationTargetActions)
+-&gt; NotificationAction -&gt; f NotificationAction
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#notificationAction_action"><span class="hs-identifier hs-var hs-var">notificationAction_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotificationAction -&gt; NotificationTargetActions)
+-&gt; (NotificationAction
+    -&gt; NotificationTargetActions -&gt; NotificationAction)
+-&gt; Lens
+     NotificationAction
+     NotificationAction
+     NotificationTargetActions
+     NotificationTargetActions
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-type">NotificationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244373"><span class="annot"><span class="annottext">NotificationTargetActions
+action :: NotificationTargetActions
+$sel:action:NotificationAction' :: NotificationAction -&gt; NotificationTargetActions
+</span><a href="#local-6989586621679244373"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationTargetActions
+</span><a href="#local-6989586621679244373"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244372"><span class="annot"><span class="annottext">s :: NotificationAction
+</span><a href="#local-6989586621679244372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-type">NotificationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244371"><span class="annot"><span class="annottext">NotificationTargetActions
+</span><a href="#local-6989586621679244371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationAction
+</span><a href="#local-6989586621679244372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:NotificationAction' :: NotificationTargetActions
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#%24sel%3Aaction%3ANotificationAction%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NotificationTargetActions
+</span><a href="#local-6989586621679244371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244368"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679244366"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NotificationAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NotificationAction)
+-&gt; Value
+-&gt; Parser NotificationAction
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NotificationAction&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244363"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty EmailConfiguration)
+-&gt; Maybe (NonEmpty SMSConfiguration)
+-&gt; NotificationTargetActions
+-&gt; NotificationAction
+</span><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-var">NotificationAction'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty EmailConfiguration)
+ -&gt; Maybe (NonEmpty SMSConfiguration)
+ -&gt; NotificationTargetActions
+ -&gt; NotificationAction)
+-&gt; Parser (Maybe (NonEmpty EmailConfiguration))
+-&gt; Parser
+     (Maybe (NonEmpty SMSConfiguration)
+      -&gt; NotificationTargetActions -&gt; NotificationAction)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty EmailConfiguration))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;emailConfigurations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty SMSConfiguration)
+   -&gt; NotificationTargetActions -&gt; NotificationAction)
+-&gt; Parser (Maybe (NonEmpty SMSConfiguration))
+-&gt; Parser (NotificationTargetActions -&gt; NotificationAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty SMSConfiguration))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smsConfigurations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (NotificationTargetActions -&gt; NotificationAction)
+-&gt; Parser NotificationTargetActions -&gt; Parser NotificationAction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser NotificationTargetActions
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;action&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244356"><span id="local-6989586621679244358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244345"><span id="local-6989586621679244347"><span id="local-6989586621679244349"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction"><span class="hs-identifier hs-type">NotificationAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679244343"><span class="annot"><span class="annottext">toJSON :: NotificationAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.NotificationAction.html#NotificationAction%27"><span class="hs-identifier hs-type">NotificationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244339"><span id="local-6989586621679244340"><span id="local-6989586621679244341"><span class="annot"><span class="annottext">Maybe (NonEmpty SMSConfiguration)
+Maybe (NonEmpty EmailConfiguration)
+NotificationTargetActions
+action :: NotificationTargetActions
+smsConfigurations :: Maybe (NonEmpty SMSConfiguration)
+emailConfigurations :: Maybe (NonEmpty EmailConfiguration)
+$sel:action:NotificationAction' :: NotificationAction -&gt; NotificationTargetActions
+$sel:smsConfigurations:NotificationAction' :: NotificationAction -&gt; Maybe (NonEmpty SMSConfiguration)
+$sel:emailConfigurations:NotificationAction' :: NotificationAction -&gt; Maybe (NonEmpty EmailConfiguration)
+</span><a href="#local-6989586621679244339"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;emailConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty EmailConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty EmailConfiguration -&gt; Pair)
+-&gt; Maybe (NonEmpty EmailConfiguration) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty EmailConfiguration)
+</span><a href="#local-6989586621679244341"><span class="hs-identifier hs-var">emailConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smsConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty SMSConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty SMSConfiguration -&gt; Pair)
+-&gt; Maybe (NonEmpty SMSConfiguration) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SMSConfiguration)
+</span><a href="#local-6989586621679244340"><span class="hs-identifier hs-var">smsConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NotificationTargetActions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NotificationTargetActions
+</span><a href="#local-6989586621679244339"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span></pre></body></html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.Types.NodeGroupUpdateStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.Types.NodeGroupUpdateStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus.html"><span class="hs-identifier">Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The status of the service update on the node group</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newNodeGroupUpdateStatus' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679402448"><span id="local-6989586621679402449"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeGroupUpdateStatus"><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus"><span class="hs-identifier hs-var">NodeGroupUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeGroupUpdateStatus%27"><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus%27"><span class="hs-identifier hs-var">NodeGroupUpdateStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the service update on the node group member</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AnodeGroupMemberUpdateStatus%3ANodeGroupUpdateStatus%27"><span class="annot"><span class="annottext">NodeGroupUpdateStatus -&gt; Maybe [NodeGroupMemberUpdateStatus]
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#%24sel%3AnodeGroupMemberUpdateStatus%3ANodeGroupUpdateStatus%27"><span class="hs-identifier hs-var hs-var">nodeGroupMemberUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus.html#NodeGroupMemberUpdateStatus"><span class="hs-identifier hs-type">NodeGroupMemberUpdateStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID of the node group</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AnodeGroupId%3ANodeGroupUpdateStatus%27"><span class="annot"><span class="annottext">NodeGroupUpdateStatus -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#%24sel%3AnodeGroupId%3ANodeGroupUpdateStatus%27"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402441"><span id="local-6989586621679402443"><span class="annot"><span class="annottext">NodeGroupUpdateStatus -&gt; NodeGroupUpdateStatus -&gt; Bool
+(NodeGroupUpdateStatus -&gt; NodeGroupUpdateStatus -&gt; Bool)
+-&gt; (NodeGroupUpdateStatus -&gt; NodeGroupUpdateStatus -&gt; Bool)
+-&gt; Eq NodeGroupUpdateStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeGroupUpdateStatus -&gt; NodeGroupUpdateStatus -&gt; Bool
+$c/= :: NodeGroupUpdateStatus -&gt; NodeGroupUpdateStatus -&gt; Bool
+== :: NodeGroupUpdateStatus -&gt; NodeGroupUpdateStatus -&gt; Bool
+$c== :: NodeGroupUpdateStatus -&gt; NodeGroupUpdateStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402432"><span id="local-6989586621679402434"><span id="local-6989586621679402436"><span id="local-6989586621679402438"><span class="annot"><span class="annottext">ReadPrec [NodeGroupUpdateStatus]
+ReadPrec NodeGroupUpdateStatus
+Int -&gt; ReadS NodeGroupUpdateStatus
+ReadS [NodeGroupUpdateStatus]
+(Int -&gt; ReadS NodeGroupUpdateStatus)
+-&gt; ReadS [NodeGroupUpdateStatus]
+-&gt; ReadPrec NodeGroupUpdateStatus
+-&gt; ReadPrec [NodeGroupUpdateStatus]
+-&gt; Read NodeGroupUpdateStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeGroupUpdateStatus]
+$creadListPrec :: ReadPrec [NodeGroupUpdateStatus]
+readPrec :: ReadPrec NodeGroupUpdateStatus
+$creadPrec :: ReadPrec NodeGroupUpdateStatus
+readList :: ReadS [NodeGroupUpdateStatus]
+$creadList :: ReadS [NodeGroupUpdateStatus]
+readsPrec :: Int -&gt; ReadS NodeGroupUpdateStatus
+$creadsPrec :: Int -&gt; ReadS NodeGroupUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402425"><span id="local-6989586621679402427"><span id="local-6989586621679402429"><span class="annot"><span class="annottext">Int -&gt; NodeGroupUpdateStatus -&gt; ShowS
+[NodeGroupUpdateStatus] -&gt; ShowS
+NodeGroupUpdateStatus -&gt; String
+(Int -&gt; NodeGroupUpdateStatus -&gt; ShowS)
+-&gt; (NodeGroupUpdateStatus -&gt; String)
+-&gt; ([NodeGroupUpdateStatus] -&gt; ShowS)
+-&gt; Show NodeGroupUpdateStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeGroupUpdateStatus] -&gt; ShowS
+$cshowList :: [NodeGroupUpdateStatus] -&gt; ShowS
+show :: NodeGroupUpdateStatus -&gt; String
+$cshow :: NodeGroupUpdateStatus -&gt; String
+showsPrec :: Int -&gt; NodeGroupUpdateStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeGroupUpdateStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NodeGroupUpdateStatus -&gt; Rep NodeGroupUpdateStatus x)
+-&gt; (forall x. Rep NodeGroupUpdateStatus x -&gt; NodeGroupUpdateStatus)
+-&gt; Generic NodeGroupUpdateStatus
+forall x. Rep NodeGroupUpdateStatus x -&gt; NodeGroupUpdateStatus
+forall x. NodeGroupUpdateStatus -&gt; Rep NodeGroupUpdateStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NodeGroupUpdateStatus x -&gt; NodeGroupUpdateStatus
+$cfrom :: forall x. NodeGroupUpdateStatus -&gt; Rep NodeGroupUpdateStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'NodeGroupUpdateStatus' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'nodeGroupMemberUpdateStatus', 'nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus' - The status of the service update on the node group member</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'nodeGroupId', 'nodeGroupUpdateStatus_nodeGroupId' - The ID of the node group</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#newNodeGroupUpdateStatus"><span class="hs-identifier hs-type">newNodeGroupUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus"><span class="hs-identifier hs-type">NodeGroupUpdateStatus</span></a></span><span>
+</span><span id="line-51"></span><span id="newNodeGroupUpdateStatus"><span class="annot"><span class="annottext">newNodeGroupUpdateStatus :: NodeGroupUpdateStatus
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#newNodeGroupUpdateStatus"><span class="hs-identifier hs-var hs-var">newNodeGroupUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">NodeGroupUpdateStatus' :: Maybe [NodeGroupMemberUpdateStatus]
+-&gt; Maybe Text -&gt; NodeGroupUpdateStatus
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus%27"><span class="hs-identifier hs-type">NodeGroupUpdateStatus'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nodeGroupMemberUpdateStatus:NodeGroupUpdateStatus' :: Maybe [NodeGroupMemberUpdateStatus]
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#%24sel%3AnodeGroupMemberUpdateStatus%3ANodeGroupUpdateStatus%27"><span class="hs-identifier hs-var">nodeGroupMemberUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe [NodeGroupMemberUpdateStatus]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeGroupUpdateStatus' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#%24sel%3AnodeGroupId%3ANodeGroupUpdateStatus%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The status of the service update on the node group member</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus"><span class="hs-identifier hs-type">nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus"><span class="hs-identifier hs-type">NodeGroupUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus.html#NodeGroupMemberUpdateStatus"><span class="hs-identifier hs-type">NodeGroupMemberUpdateStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus"><span class="annot"><span class="annottext">nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus :: (Maybe [NodeGroupMemberUpdateStatus]
+ -&gt; f (Maybe [NodeGroupMemberUpdateStatus]))
+-&gt; NodeGroupUpdateStatus -&gt; f NodeGroupUpdateStatus
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus"><span class="hs-identifier hs-var hs-var">nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeGroupUpdateStatus -&gt; Maybe [NodeGroupMemberUpdateStatus])
+-&gt; (NodeGroupUpdateStatus
+    -&gt; Maybe [NodeGroupMemberUpdateStatus] -&gt; NodeGroupUpdateStatus)
+-&gt; Lens
+     NodeGroupUpdateStatus
+     NodeGroupUpdateStatus
+     (Maybe [NodeGroupMemberUpdateStatus])
+     (Maybe [NodeGroupMemberUpdateStatus])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus%27"><span class="hs-identifier hs-type">NodeGroupUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402416"><span class="annot"><span class="annottext">Maybe [NodeGroupMemberUpdateStatus]
+nodeGroupMemberUpdateStatus :: Maybe [NodeGroupMemberUpdateStatus]
+$sel:nodeGroupMemberUpdateStatus:NodeGroupUpdateStatus' :: NodeGroupUpdateStatus -&gt; Maybe [NodeGroupMemberUpdateStatus]
+</span><a href="#local-6989586621679402416"><span class="hs-identifier hs-var hs-var">nodeGroupMemberUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeGroupMemberUpdateStatus]
+</span><a href="#local-6989586621679402416"><span class="hs-identifier hs-var">nodeGroupMemberUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402415"><span class="annot"><span class="annottext">s :: NodeGroupUpdateStatus
+</span><a href="#local-6989586621679402415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus%27"><span class="hs-identifier hs-type">NodeGroupUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402414"><span class="annot"><span class="annottext">Maybe [NodeGroupMemberUpdateStatus]
+</span><a href="#local-6989586621679402414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupUpdateStatus
+</span><a href="#local-6989586621679402415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupMemberUpdateStatus:NodeGroupUpdateStatus' :: Maybe [NodeGroupMemberUpdateStatus]
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#%24sel%3AnodeGroupMemberUpdateStatus%3ANodeGroupUpdateStatus%27"><span class="hs-identifier hs-var">nodeGroupMemberUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeGroupMemberUpdateStatus]
+</span><a href="#local-6989586621679402414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus"><span class="hs-identifier hs-type">NodeGroupUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NodeGroupMemberUpdateStatus]
+  -&gt; f (Maybe [NodeGroupMemberUpdateStatus]))
+ -&gt; NodeGroupUpdateStatus -&gt; f NodeGroupUpdateStatus)
+-&gt; ((Maybe [NodeGroupMemberUpdateStatus]
+     -&gt; f (Maybe [NodeGroupMemberUpdateStatus]))
+    -&gt; Maybe [NodeGroupMemberUpdateStatus]
+    -&gt; f (Maybe [NodeGroupMemberUpdateStatus]))
+-&gt; (Maybe [NodeGroupMemberUpdateStatus]
+    -&gt; f (Maybe [NodeGroupMemberUpdateStatus]))
+-&gt; NodeGroupUpdateStatus
+-&gt; f NodeGroupUpdateStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NodeGroupMemberUpdateStatus]
+  [NodeGroupMemberUpdateStatus]
+  [NodeGroupMemberUpdateStatus]
+  [NodeGroupMemberUpdateStatus]
+-&gt; Iso
+     (Maybe [NodeGroupMemberUpdateStatus])
+     (Maybe [NodeGroupMemberUpdateStatus])
+     (Maybe [NodeGroupMemberUpdateStatus])
+     (Maybe [NodeGroupMemberUpdateStatus])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NodeGroupMemberUpdateStatus]
+  [NodeGroupMemberUpdateStatus]
+  [NodeGroupMemberUpdateStatus]
+  [NodeGroupMemberUpdateStatus]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The ID of the node group</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#nodeGroupUpdateStatus_nodeGroupId"><span class="hs-identifier hs-type">nodeGroupUpdateStatus_nodeGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus"><span class="hs-identifier hs-type">NodeGroupUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="nodeGroupUpdateStatus_nodeGroupId"><span class="annot"><span class="annottext">nodeGroupUpdateStatus_nodeGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NodeGroupUpdateStatus -&gt; f NodeGroupUpdateStatus
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#nodeGroupUpdateStatus_nodeGroupId"><span class="hs-identifier hs-var hs-var">nodeGroupUpdateStatus_nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeGroupUpdateStatus -&gt; Maybe Text)
+-&gt; (NodeGroupUpdateStatus -&gt; Maybe Text -&gt; NodeGroupUpdateStatus)
+-&gt; Lens
+     NodeGroupUpdateStatus
+     NodeGroupUpdateStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus%27"><span class="hs-identifier hs-type">NodeGroupUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402409"><span class="annot"><span class="annottext">Maybe Text
+nodeGroupId :: Maybe Text
+$sel:nodeGroupId:NodeGroupUpdateStatus' :: NodeGroupUpdateStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679402409"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402409"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402408"><span class="annot"><span class="annottext">s :: NodeGroupUpdateStatus
+</span><a href="#local-6989586621679402408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus%27"><span class="hs-identifier hs-type">NodeGroupUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402407"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupUpdateStatus
+</span><a href="#local-6989586621679402408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeGroupUpdateStatus' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#%24sel%3AnodeGroupId%3ANodeGroupUpdateStatus%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus"><span class="hs-identifier hs-type">NodeGroupUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus"><span class="hs-identifier hs-type">NodeGroupUpdateStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679402404"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NodeGroupUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402402"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402402"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe [NodeGroupMemberUpdateStatus]
+-&gt; Maybe Text -&gt; NodeGroupUpdateStatus
+</span><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus%27"><span class="hs-identifier hs-var">NodeGroupUpdateStatus'</span></a></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [NodeGroupMemberUpdateStatus]
+ -&gt; Maybe Text -&gt; NodeGroupUpdateStatus)
+-&gt; Either String (Maybe [NodeGroupMemberUpdateStatus])
+-&gt; Either String (Maybe Text -&gt; NodeGroupUpdateStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeGroupMemberUpdateStatus&quot;</span></span><span>
+</span><span id="line-70"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-71"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [NodeGroupMemberUpdateStatus]))
+-&gt; Either String (Maybe [NodeGroupMemberUpdateStatus])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [NodeGroupMemberUpdateStatus])
+-&gt; [Node] -&gt; Either String (Maybe [NodeGroupMemberUpdateStatus])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span>
+</span><span id="line-72"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [NodeGroupMemberUpdateStatus]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeGroupMemberUpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; NodeGroupUpdateStatus)
+-&gt; Either String (Maybe Text)
+-&gt; Either String NodeGroupUpdateStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402393"><span id="local-6989586621679402395"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus"><span class="hs-identifier hs-type">NodeGroupUpdateStatus</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402390"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.NodeGroupUpdateStatus.html#NodeGroupUpdateStatus"><span class="hs-identifier hs-type">NodeGroupUpdateStatus</span></a></span></span><span>
+</span><span id="line-79"></span></pre></body></html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a notebook instance lifecycle configuration created with the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- CreateNotebookInstanceLifecycleConfig API.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier">UpdateNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#newUpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier">newUpdateNotebookInstanceLifecycleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfig_onCreate"><span class="hs-identifier">updateNotebookInstanceLifecycleConfig_onCreate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfig_onStart"><span class="hs-identifier">updateNotebookInstanceLifecycleConfig_onStart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName"><span class="hs-identifier">updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier">UpdateNotebookInstanceLifecycleConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#newUpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier">newUpdateNotebookInstanceLifecycleConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfigResponse_httpStatus"><span class="hs-identifier">updateNotebookInstanceLifecycleConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateNotebookInstanceLifecycleConfig' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621680428316"><span id="local-6989586621680428317"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNotebookInstanceLifecycleConfig"><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-var">UpdateNotebookInstanceLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNotebookInstanceLifecycleConfig%27"><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">UpdateNotebookInstanceLifecycleConfig'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The shell script that runs only once, when you create a notebook</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- instance. The shell script must be a base64-encoded string.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AonCreate%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfig
+-&gt; Maybe [NotebookInstanceLifecycleHook]
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AonCreate%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">onCreate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleHook.html#NotebookInstanceLifecycleHook"><span class="hs-identifier hs-type">NotebookInstanceLifecycleHook</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The shell script that runs every time you start a notebook instance,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- including when you create the notebook instance. The shell script must</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- be a base64-encoded string.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AonStart%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfig
+-&gt; Maybe [NotebookInstanceLifecycleHook]
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AonStart%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">onStart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleHook.html#NotebookInstanceLifecycleHook"><span class="hs-identifier hs-type">NotebookInstanceLifecycleHook</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the lifecycle configuration.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnotebookInstanceLifecycleConfigName%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfig -&gt; Text
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AnotebookInstanceLifecycleConfigName%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">notebookInstanceLifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680428308"><span id="local-6989586621680428310"><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfig
+-&gt; UpdateNotebookInstanceLifecycleConfig -&gt; Bool
+(UpdateNotebookInstanceLifecycleConfig
+ -&gt; UpdateNotebookInstanceLifecycleConfig -&gt; Bool)
+-&gt; (UpdateNotebookInstanceLifecycleConfig
+    -&gt; UpdateNotebookInstanceLifecycleConfig -&gt; Bool)
+-&gt; Eq UpdateNotebookInstanceLifecycleConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateNotebookInstanceLifecycleConfig
+-&gt; UpdateNotebookInstanceLifecycleConfig -&gt; Bool
+$c/= :: UpdateNotebookInstanceLifecycleConfig
+-&gt; UpdateNotebookInstanceLifecycleConfig -&gt; Bool
+== :: UpdateNotebookInstanceLifecycleConfig
+-&gt; UpdateNotebookInstanceLifecycleConfig -&gt; Bool
+$c== :: UpdateNotebookInstanceLifecycleConfig
+-&gt; UpdateNotebookInstanceLifecycleConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680428299"><span id="local-6989586621680428301"><span id="local-6989586621680428303"><span id="local-6989586621680428305"><span class="annot"><span class="annottext">ReadPrec [UpdateNotebookInstanceLifecycleConfig]
+ReadPrec UpdateNotebookInstanceLifecycleConfig
+Int -&gt; ReadS UpdateNotebookInstanceLifecycleConfig
+ReadS [UpdateNotebookInstanceLifecycleConfig]
+(Int -&gt; ReadS UpdateNotebookInstanceLifecycleConfig)
+-&gt; ReadS [UpdateNotebookInstanceLifecycleConfig]
+-&gt; ReadPrec UpdateNotebookInstanceLifecycleConfig
+-&gt; ReadPrec [UpdateNotebookInstanceLifecycleConfig]
+-&gt; Read UpdateNotebookInstanceLifecycleConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateNotebookInstanceLifecycleConfig]
+$creadListPrec :: ReadPrec [UpdateNotebookInstanceLifecycleConfig]
+readPrec :: ReadPrec UpdateNotebookInstanceLifecycleConfig
+$creadPrec :: ReadPrec UpdateNotebookInstanceLifecycleConfig
+readList :: ReadS [UpdateNotebookInstanceLifecycleConfig]
+$creadList :: ReadS [UpdateNotebookInstanceLifecycleConfig]
+readsPrec :: Int -&gt; ReadS UpdateNotebookInstanceLifecycleConfig
+$creadsPrec :: Int -&gt; ReadS UpdateNotebookInstanceLifecycleConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680428292"><span id="local-6989586621680428294"><span id="local-6989586621680428296"><span class="annot"><span class="annottext">Int -&gt; UpdateNotebookInstanceLifecycleConfig -&gt; ShowS
+[UpdateNotebookInstanceLifecycleConfig] -&gt; ShowS
+UpdateNotebookInstanceLifecycleConfig -&gt; String
+(Int -&gt; UpdateNotebookInstanceLifecycleConfig -&gt; ShowS)
+-&gt; (UpdateNotebookInstanceLifecycleConfig -&gt; String)
+-&gt; ([UpdateNotebookInstanceLifecycleConfig] -&gt; ShowS)
+-&gt; Show UpdateNotebookInstanceLifecycleConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateNotebookInstanceLifecycleConfig] -&gt; ShowS
+$cshowList :: [UpdateNotebookInstanceLifecycleConfig] -&gt; ShowS
+show :: UpdateNotebookInstanceLifecycleConfig -&gt; String
+$cshow :: UpdateNotebookInstanceLifecycleConfig -&gt; String
+showsPrec :: Int -&gt; UpdateNotebookInstanceLifecycleConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateNotebookInstanceLifecycleConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateNotebookInstanceLifecycleConfig
+ -&gt; Rep UpdateNotebookInstanceLifecycleConfig x)
+-&gt; (forall x.
+    Rep UpdateNotebookInstanceLifecycleConfig x
+    -&gt; UpdateNotebookInstanceLifecycleConfig)
+-&gt; Generic UpdateNotebookInstanceLifecycleConfig
+forall x.
+Rep UpdateNotebookInstanceLifecycleConfig x
+-&gt; UpdateNotebookInstanceLifecycleConfig
+forall x.
+UpdateNotebookInstanceLifecycleConfig
+-&gt; Rep UpdateNotebookInstanceLifecycleConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateNotebookInstanceLifecycleConfig x
+-&gt; UpdateNotebookInstanceLifecycleConfig
+$cfrom :: forall x.
+UpdateNotebookInstanceLifecycleConfig
+-&gt; Rep UpdateNotebookInstanceLifecycleConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'UpdateNotebookInstanceLifecycleConfig' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'onCreate', 'updateNotebookInstanceLifecycleConfig_onCreate' - The shell script that runs only once, when you create a notebook</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- instance. The shell script must be a base64-encoded string.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'onStart', 'updateNotebookInstanceLifecycleConfig_onStart' - The shell script that runs every time you start a notebook instance,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- including when you create the notebook instance. The shell script must</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- be a base64-encoded string.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'notebookInstanceLifecycleConfigName', 'updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#newUpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">newUpdateNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'notebookInstanceLifecycleConfigName'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-85"></span><span id="newUpdateNotebookInstanceLifecycleConfig"><span class="annot"><span class="annottext">newUpdateNotebookInstanceLifecycleConfig :: Text -&gt; UpdateNotebookInstanceLifecycleConfig
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#newUpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-var hs-var">newUpdateNotebookInstanceLifecycleConfig</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621680428287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680428287"><span class="hs-identifier hs-var">pNotebookInstanceLifecycleConfigName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfig' :: Maybe [NotebookInstanceLifecycleHook]
+-&gt; Maybe [NotebookInstanceLifecycleHook]
+-&gt; Text
+-&gt; UpdateNotebookInstanceLifecycleConfig
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig'</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:onCreate:UpdateNotebookInstanceLifecycleConfig' :: Maybe [NotebookInstanceLifecycleHook]
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AonCreate%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">onCreate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:onStart:UpdateNotebookInstanceLifecycleConfig' :: Maybe [NotebookInstanceLifecycleHook]
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AonStart%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">onStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:notebookInstanceLifecycleConfigName:UpdateNotebookInstanceLifecycleConfig' :: Text
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AnotebookInstanceLifecycleConfigName%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">notebookInstanceLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680428287"><span class="hs-identifier hs-var">pNotebookInstanceLifecycleConfigName_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The shell script that runs only once, when you create a notebook</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- instance. The shell script must be a base64-encoded string.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfig_onCreate"><span class="hs-identifier hs-type">updateNotebookInstanceLifecycleConfig_onCreate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleHook.html#NotebookInstanceLifecycleHook"><span class="hs-identifier hs-type">NotebookInstanceLifecycleHook</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="updateNotebookInstanceLifecycleConfig_onCreate"><span class="annot"><span class="annottext">updateNotebookInstanceLifecycleConfig_onCreate :: (Maybe [NotebookInstanceLifecycleHook]
+ -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+-&gt; UpdateNotebookInstanceLifecycleConfig
+-&gt; f UpdateNotebookInstanceLifecycleConfig
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfig_onCreate"><span class="hs-identifier hs-var hs-var">updateNotebookInstanceLifecycleConfig_onCreate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstanceLifecycleConfig
+ -&gt; Maybe [NotebookInstanceLifecycleHook])
+-&gt; (UpdateNotebookInstanceLifecycleConfig
+    -&gt; Maybe [NotebookInstanceLifecycleHook]
+    -&gt; UpdateNotebookInstanceLifecycleConfig)
+-&gt; Lens
+     UpdateNotebookInstanceLifecycleConfig
+     UpdateNotebookInstanceLifecycleConfig
+     (Maybe [NotebookInstanceLifecycleHook])
+     (Maybe [NotebookInstanceLifecycleHook])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428284"><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+onCreate :: Maybe [NotebookInstanceLifecycleHook]
+$sel:onCreate:UpdateNotebookInstanceLifecycleConfig' :: UpdateNotebookInstanceLifecycleConfig
+-&gt; Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428284"><span class="hs-identifier hs-var hs-var">onCreate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428284"><span class="hs-identifier hs-var">onCreate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428283"><span class="annot"><span class="annottext">s :: UpdateNotebookInstanceLifecycleConfig
+</span><a href="#local-6989586621680428283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428282"><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfig
+</span><a href="#local-6989586621680428283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onCreate:UpdateNotebookInstanceLifecycleConfig' :: Maybe [NotebookInstanceLifecycleHook]
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AonCreate%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">onCreate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NotebookInstanceLifecycleHook]
+  -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+ -&gt; UpdateNotebookInstanceLifecycleConfig
+ -&gt; f UpdateNotebookInstanceLifecycleConfig)
+-&gt; ((Maybe [NotebookInstanceLifecycleHook]
+     -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+    -&gt; Maybe [NotebookInstanceLifecycleHook]
+    -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+-&gt; (Maybe [NotebookInstanceLifecycleHook]
+    -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+-&gt; UpdateNotebookInstanceLifecycleConfig
+-&gt; f UpdateNotebookInstanceLifecycleConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+-&gt; Iso
+     (Maybe [NotebookInstanceLifecycleHook])
+     (Maybe [NotebookInstanceLifecycleHook])
+     (Maybe [NotebookInstanceLifecycleHook])
+     (Maybe [NotebookInstanceLifecycleHook])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The shell script that runs every time you start a notebook instance,</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- including when you create the notebook instance. The shell script must</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- be a base64-encoded string.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfig_onStart"><span class="hs-identifier hs-type">updateNotebookInstanceLifecycleConfig_onStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.NotebookInstanceLifecycleHook.html#NotebookInstanceLifecycleHook"><span class="hs-identifier hs-type">NotebookInstanceLifecycleHook</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="updateNotebookInstanceLifecycleConfig_onStart"><span class="annot"><span class="annottext">updateNotebookInstanceLifecycleConfig_onStart :: (Maybe [NotebookInstanceLifecycleHook]
+ -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+-&gt; UpdateNotebookInstanceLifecycleConfig
+-&gt; f UpdateNotebookInstanceLifecycleConfig
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfig_onStart"><span class="hs-identifier hs-var hs-var">updateNotebookInstanceLifecycleConfig_onStart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstanceLifecycleConfig
+ -&gt; Maybe [NotebookInstanceLifecycleHook])
+-&gt; (UpdateNotebookInstanceLifecycleConfig
+    -&gt; Maybe [NotebookInstanceLifecycleHook]
+    -&gt; UpdateNotebookInstanceLifecycleConfig)
+-&gt; Lens
+     UpdateNotebookInstanceLifecycleConfig
+     UpdateNotebookInstanceLifecycleConfig
+     (Maybe [NotebookInstanceLifecycleHook])
+     (Maybe [NotebookInstanceLifecycleHook])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428278"><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+onStart :: Maybe [NotebookInstanceLifecycleHook]
+$sel:onStart:UpdateNotebookInstanceLifecycleConfig' :: UpdateNotebookInstanceLifecycleConfig
+-&gt; Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428278"><span class="hs-identifier hs-var hs-var">onStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428278"><span class="hs-identifier hs-var">onStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428277"><span class="annot"><span class="annottext">s :: UpdateNotebookInstanceLifecycleConfig
+</span><a href="#local-6989586621680428277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428276"><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfig
+</span><a href="#local-6989586621680428277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onStart:UpdateNotebookInstanceLifecycleConfig' :: Maybe [NotebookInstanceLifecycleHook]
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AonStart%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">onStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NotebookInstanceLifecycleHook]
+  -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+ -&gt; UpdateNotebookInstanceLifecycleConfig
+ -&gt; f UpdateNotebookInstanceLifecycleConfig)
+-&gt; ((Maybe [NotebookInstanceLifecycleHook]
+     -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+    -&gt; Maybe [NotebookInstanceLifecycleHook]
+    -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+-&gt; (Maybe [NotebookInstanceLifecycleHook]
+    -&gt; f (Maybe [NotebookInstanceLifecycleHook]))
+-&gt; UpdateNotebookInstanceLifecycleConfig
+-&gt; f UpdateNotebookInstanceLifecycleConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+-&gt; Iso
+     (Maybe [NotebookInstanceLifecycleHook])
+     (Maybe [NotebookInstanceLifecycleHook])
+     (Maybe [NotebookInstanceLifecycleHook])
+     (Maybe [NotebookInstanceLifecycleHook])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+  [NotebookInstanceLifecycleHook]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the lifecycle configuration.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName"><span class="hs-identifier hs-type">updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName"><span class="annot"><span class="annottext">updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName :: (Text -&gt; f Text)
+-&gt; UpdateNotebookInstanceLifecycleConfig
+-&gt; f UpdateNotebookInstanceLifecycleConfig
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName"><span class="hs-identifier hs-var hs-var">updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstanceLifecycleConfig -&gt; Text)
+-&gt; (UpdateNotebookInstanceLifecycleConfig
+    -&gt; Text -&gt; UpdateNotebookInstanceLifecycleConfig)
+-&gt; Lens
+     UpdateNotebookInstanceLifecycleConfig
+     UpdateNotebookInstanceLifecycleConfig
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428275"><span class="annot"><span class="annottext">Text
+notebookInstanceLifecycleConfigName :: Text
+$sel:notebookInstanceLifecycleConfigName:UpdateNotebookInstanceLifecycleConfig' :: UpdateNotebookInstanceLifecycleConfig -&gt; Text
+</span><a href="#local-6989586621680428275"><span class="hs-identifier hs-var hs-var">notebookInstanceLifecycleConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680428275"><span class="hs-identifier hs-var">notebookInstanceLifecycleConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428274"><span class="annot"><span class="annottext">s :: UpdateNotebookInstanceLifecycleConfig
+</span><a href="#local-6989586621680428274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428273"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680428273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfig
+</span><a href="#local-6989586621680428274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookInstanceLifecycleConfigName:UpdateNotebookInstanceLifecycleConfig' :: Text
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AnotebookInstanceLifecycleConfigName%3AUpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">notebookInstanceLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680428273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfigResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621680428269"><span class="annot"><span class="annottext">request :: UpdateNotebookInstanceLifecycleConfig
+-&gt; Request UpdateNotebookInstanceLifecycleConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateNotebookInstanceLifecycleConfig
+-&gt; Request UpdateNotebookInstanceLifecycleConfig
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621680428265"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateNotebookInstanceLifecycleConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse UpdateNotebookInstanceLifecycleConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either
+      String (AWSResponse UpdateNotebookInstanceLifecycleConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateNotebookInstanceLifecycleConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse UpdateNotebookInstanceLifecycleConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680428262"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680428262"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680428261"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680428261"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680428260"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621680428260"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateNotebookInstanceLifecycleConfigResponse
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-var">UpdateNotebookInstanceLifecycleConfigResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateNotebookInstanceLifecycleConfigResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateNotebookInstanceLifecycleConfigResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680428262"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621680428253"><span id="local-6989586621680428255"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621680428250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621680428246"><span class="annot"><span class="annottext">toHeaders :: UpdateNotebookInstanceLifecycleConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; UpdateNotebookInstanceLifecycleConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.UpdateNotebookInstanceLifecycleConfig&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-144"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-148"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621680428236"><span id="local-6989586621680428238"><span id="local-6989586621680428240"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span></span></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621680428234"><span class="annot"><span class="annottext">toJSON :: UpdateNotebookInstanceLifecycleConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428230"><span id="local-6989586621680428231"><span id="local-6989586621680428232"><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+Text
+notebookInstanceLifecycleConfigName :: Text
+onStart :: Maybe [NotebookInstanceLifecycleHook]
+onCreate :: Maybe [NotebookInstanceLifecycleHook]
+$sel:notebookInstanceLifecycleConfigName:UpdateNotebookInstanceLifecycleConfig' :: UpdateNotebookInstanceLifecycleConfig -&gt; Text
+$sel:onStart:UpdateNotebookInstanceLifecycleConfig' :: UpdateNotebookInstanceLifecycleConfig
+-&gt; Maybe [NotebookInstanceLifecycleHook]
+$sel:onCreate:UpdateNotebookInstanceLifecycleConfig' :: UpdateNotebookInstanceLifecycleConfig
+-&gt; Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428230"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnCreate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [NotebookInstanceLifecycleHook] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([NotebookInstanceLifecycleHook] -&gt; Pair)
+-&gt; Maybe [NotebookInstanceLifecycleHook] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428232"><span class="hs-identifier hs-var">onCreate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnStart&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [NotebookInstanceLifecycleHook] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([NotebookInstanceLifecycleHook] -&gt; Pair)
+-&gt; Maybe [NotebookInstanceLifecycleHook] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceLifecycleHook]
+</span><a href="#local-6989586621680428231"><span class="hs-identifier hs-var">onStart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotebookInstanceLifecycleConfigName&quot;</span></span><span>
+</span><span id="line-163"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680428230"><span class="hs-identifier hs-var">notebookInstanceLifecycleConfigName</span></a></span><span>
+</span><span id="line-164"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621680428224"><span class="annot"><span class="annottext">toPath :: UpdateNotebookInstanceLifecycleConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateNotebookInstanceLifecycleConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621680428220"><span class="annot"><span class="annottext">toQuery :: UpdateNotebookInstanceLifecycleConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateNotebookInstanceLifecycleConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newUpdateNotebookInstanceLifecycleConfigResponse' smart constructor.</span><span>
+</span><span id="line-181"></span><span id="local-6989586621680428217"><span id="local-6989586621680428218"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNotebookInstanceLifecycleConfigResponse"><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-var">UpdateNotebookInstanceLifecycleConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNotebookInstanceLifecycleConfigResponse%27"><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-var">UpdateNotebookInstanceLifecycleConfigResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateNotebookInstanceLifecycleConfigResponse%27"><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfigResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AhttpStatus%3AUpdateNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680428212"><span id="local-6989586621680428214"><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfigResponse
+-&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; Bool
+(UpdateNotebookInstanceLifecycleConfigResponse
+ -&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; Bool)
+-&gt; (UpdateNotebookInstanceLifecycleConfigResponse
+    -&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; Bool)
+-&gt; Eq UpdateNotebookInstanceLifecycleConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateNotebookInstanceLifecycleConfigResponse
+-&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; Bool
+$c/= :: UpdateNotebookInstanceLifecycleConfigResponse
+-&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; Bool
+== :: UpdateNotebookInstanceLifecycleConfigResponse
+-&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; Bool
+$c== :: UpdateNotebookInstanceLifecycleConfigResponse
+-&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680428204"><span id="local-6989586621680428206"><span id="local-6989586621680428208"><span id="local-6989586621680428210"><span class="annot"><span class="annottext">ReadPrec [UpdateNotebookInstanceLifecycleConfigResponse]
+ReadPrec UpdateNotebookInstanceLifecycleConfigResponse
+Int -&gt; ReadS UpdateNotebookInstanceLifecycleConfigResponse
+ReadS [UpdateNotebookInstanceLifecycleConfigResponse]
+(Int -&gt; ReadS UpdateNotebookInstanceLifecycleConfigResponse)
+-&gt; ReadS [UpdateNotebookInstanceLifecycleConfigResponse]
+-&gt; ReadPrec UpdateNotebookInstanceLifecycleConfigResponse
+-&gt; ReadPrec [UpdateNotebookInstanceLifecycleConfigResponse]
+-&gt; Read UpdateNotebookInstanceLifecycleConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateNotebookInstanceLifecycleConfigResponse]
+$creadListPrec :: ReadPrec [UpdateNotebookInstanceLifecycleConfigResponse]
+readPrec :: ReadPrec UpdateNotebookInstanceLifecycleConfigResponse
+$creadPrec :: ReadPrec UpdateNotebookInstanceLifecycleConfigResponse
+readList :: ReadS [UpdateNotebookInstanceLifecycleConfigResponse]
+$creadList :: ReadS [UpdateNotebookInstanceLifecycleConfigResponse]
+readsPrec :: Int -&gt; ReadS UpdateNotebookInstanceLifecycleConfigResponse
+$creadsPrec :: Int -&gt; ReadS UpdateNotebookInstanceLifecycleConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680428198"><span id="local-6989586621680428200"><span id="local-6989586621680428202"><span class="annot"><span class="annottext">Int -&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; ShowS
+[UpdateNotebookInstanceLifecycleConfigResponse] -&gt; ShowS
+UpdateNotebookInstanceLifecycleConfigResponse -&gt; String
+(Int -&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; ShowS)
+-&gt; (UpdateNotebookInstanceLifecycleConfigResponse -&gt; String)
+-&gt; ([UpdateNotebookInstanceLifecycleConfigResponse] -&gt; ShowS)
+-&gt; Show UpdateNotebookInstanceLifecycleConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateNotebookInstanceLifecycleConfigResponse] -&gt; ShowS
+$cshowList :: [UpdateNotebookInstanceLifecycleConfigResponse] -&gt; ShowS
+show :: UpdateNotebookInstanceLifecycleConfigResponse -&gt; String
+$cshow :: UpdateNotebookInstanceLifecycleConfigResponse -&gt; String
+showsPrec :: Int -&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateNotebookInstanceLifecycleConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateNotebookInstanceLifecycleConfigResponse
+ -&gt; Rep UpdateNotebookInstanceLifecycleConfigResponse x)
+-&gt; (forall x.
+    Rep UpdateNotebookInstanceLifecycleConfigResponse x
+    -&gt; UpdateNotebookInstanceLifecycleConfigResponse)
+-&gt; Generic UpdateNotebookInstanceLifecycleConfigResponse
+forall x.
+Rep UpdateNotebookInstanceLifecycleConfigResponse x
+-&gt; UpdateNotebookInstanceLifecycleConfigResponse
+forall x.
+UpdateNotebookInstanceLifecycleConfigResponse
+-&gt; Rep UpdateNotebookInstanceLifecycleConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateNotebookInstanceLifecycleConfigResponse x
+-&gt; UpdateNotebookInstanceLifecycleConfigResponse
+$cfrom :: forall x.
+UpdateNotebookInstanceLifecycleConfigResponse
+-&gt; Rep UpdateNotebookInstanceLifecycleConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Create a value of 'UpdateNotebookInstanceLifecycleConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'updateNotebookInstanceLifecycleConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#newUpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">newUpdateNotebookInstanceLifecycleConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfigResponse</span></a></span><span>
+</span><span id="line-200"></span><span id="newUpdateNotebookInstanceLifecycleConfigResponse"><span class="annot"><span class="annottext">newUpdateNotebookInstanceLifecycleConfigResponse :: Int -&gt; UpdateNotebookInstanceLifecycleConfigResponse
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#newUpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-var hs-var">newUpdateNotebookInstanceLifecycleConfigResponse</span></a></span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621680428195"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680428195"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfigResponse' :: Int -&gt; UpdateNotebookInstanceLifecycleConfigResponse
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfigResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNotebookInstanceLifecycleConfigResponse' :: Int
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AhttpStatus%3AUpdateNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680428195"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfigResponse_httpStatus"><span class="hs-identifier hs-type">updateNotebookInstanceLifecycleConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-209"></span><span id="updateNotebookInstanceLifecycleConfigResponse_httpStatus"><span class="annot"><span class="annottext">updateNotebookInstanceLifecycleConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateNotebookInstanceLifecycleConfigResponse
+-&gt; f UpdateNotebookInstanceLifecycleConfigResponse
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#updateNotebookInstanceLifecycleConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateNotebookInstanceLifecycleConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstanceLifecycleConfigResponse -&gt; Int)
+-&gt; (UpdateNotebookInstanceLifecycleConfigResponse
+    -&gt; Int -&gt; UpdateNotebookInstanceLifecycleConfigResponse)
+-&gt; Lens
+     UpdateNotebookInstanceLifecycleConfigResponse
+     UpdateNotebookInstanceLifecycleConfigResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428194"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateNotebookInstanceLifecycleConfigResponse' :: UpdateNotebookInstanceLifecycleConfigResponse -&gt; Int
+</span><a href="#local-6989586621680428194"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680428194"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428193"><span class="annot"><span class="annottext">s :: UpdateNotebookInstanceLifecycleConfigResponse
+</span><a href="#local-6989586621680428193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428192"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680428192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstanceLifecycleConfigResponse
+</span><a href="#local-6989586621680428193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNotebookInstanceLifecycleConfigResponse' :: Int
+</span><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#%24sel%3AhttpStatus%3AUpdateNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680428192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621680428190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig.html#UpdateNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceLifecycleConfigResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

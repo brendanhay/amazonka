@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus"><span class="hs-identifier">PrivateConnectionProvisioningStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus_CREATED"><span class="hs-identifier">PrivateConnectionProvisioningStatus_CREATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus_FAILED"><span class="hs-identifier">PrivateConnectionProvisioningStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus_PENDING"><span class="hs-identifier">PrivateConnectionProvisioningStatus_PENDING</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679319755"><span id="local-6989586621679319756"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PrivateConnectionProvisioningStatus"><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus"><span class="hs-identifier hs-var">PrivateConnectionProvisioningStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrivateConnectionProvisioningStatus%27"><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus%27"><span class="hs-identifier hs-var">PrivateConnectionProvisioningStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPrivateConnectionProvisioningStatus"><span class="annot"><span class="annottext">PrivateConnectionProvisioningStatus -&gt; Text
+</span><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#fromPrivateConnectionProvisioningStatus"><span class="hs-identifier hs-var hs-var">fromPrivateConnectionProvisioningStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679319747"><span id="local-6989586621679319749"><span id="local-6989586621679319751"><span class="annot"><span class="annottext">Int -&gt; PrivateConnectionProvisioningStatus -&gt; ShowS
+[PrivateConnectionProvisioningStatus] -&gt; ShowS
+PrivateConnectionProvisioningStatus -&gt; String
+(Int -&gt; PrivateConnectionProvisioningStatus -&gt; ShowS)
+-&gt; (PrivateConnectionProvisioningStatus -&gt; String)
+-&gt; ([PrivateConnectionProvisioningStatus] -&gt; ShowS)
+-&gt; Show PrivateConnectionProvisioningStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PrivateConnectionProvisioningStatus] -&gt; ShowS
+$cshowList :: [PrivateConnectionProvisioningStatus] -&gt; ShowS
+show :: PrivateConnectionProvisioningStatus -&gt; String
+$cshow :: PrivateConnectionProvisioningStatus -&gt; String
+showsPrec :: Int -&gt; PrivateConnectionProvisioningStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PrivateConnectionProvisioningStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679319738"><span id="local-6989586621679319740"><span id="local-6989586621679319742"><span id="local-6989586621679319744"><span class="annot"><span class="annottext">ReadPrec [PrivateConnectionProvisioningStatus]
+ReadPrec PrivateConnectionProvisioningStatus
+Int -&gt; ReadS PrivateConnectionProvisioningStatus
+ReadS [PrivateConnectionProvisioningStatus]
+(Int -&gt; ReadS PrivateConnectionProvisioningStatus)
+-&gt; ReadS [PrivateConnectionProvisioningStatus]
+-&gt; ReadPrec PrivateConnectionProvisioningStatus
+-&gt; ReadPrec [PrivateConnectionProvisioningStatus]
+-&gt; Read PrivateConnectionProvisioningStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PrivateConnectionProvisioningStatus]
+$creadListPrec :: ReadPrec [PrivateConnectionProvisioningStatus]
+readPrec :: ReadPrec PrivateConnectionProvisioningStatus
+$creadPrec :: ReadPrec PrivateConnectionProvisioningStatus
+readList :: ReadS [PrivateConnectionProvisioningStatus]
+$creadList :: ReadS [PrivateConnectionProvisioningStatus]
+readsPrec :: Int -&gt; ReadS PrivateConnectionProvisioningStatus
+$creadsPrec :: Int -&gt; ReadS PrivateConnectionProvisioningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679319733"><span id="local-6989586621679319735"><span class="annot"><span class="annottext">PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+(PrivateConnectionProvisioningStatus
+ -&gt; PrivateConnectionProvisioningStatus -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus -&gt; Bool)
+-&gt; Eq PrivateConnectionProvisioningStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+$c/= :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+== :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+$c== :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679319717"><span id="local-6989586621679319719"><span id="local-6989586621679319721"><span id="local-6989586621679319723"><span id="local-6989586621679319725"><span id="local-6989586621679319727"><span id="local-6989586621679319729"><span class="annot"><span class="annottext">Eq PrivateConnectionProvisioningStatus
+Eq PrivateConnectionProvisioningStatus
+-&gt; (PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus -&gt; Ordering)
+-&gt; (PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus)
+-&gt; (PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus
+    -&gt; PrivateConnectionProvisioningStatus)
+-&gt; Ord PrivateConnectionProvisioningStatus
+PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Ordering
+PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+$cmin :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+max :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+$cmax :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus
+&gt;= :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+$c&gt;= :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+&gt; :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+$c&gt; :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+&lt;= :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+$c&lt;= :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+&lt; :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+$c&lt; :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Bool
+compare :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Ordering
+$ccompare :: PrivateConnectionProvisioningStatus
+-&gt; PrivateConnectionProvisioningStatus -&gt; Ordering
+$cp1Ord :: Eq PrivateConnectionProvisioningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ PrivateConnectionProvisioningStatus
+ -&gt; Rep PrivateConnectionProvisioningStatus x)
+-&gt; (forall x.
+    Rep PrivateConnectionProvisioningStatus x
+    -&gt; PrivateConnectionProvisioningStatus)
+-&gt; Generic PrivateConnectionProvisioningStatus
+forall x.
+Rep PrivateConnectionProvisioningStatus x
+-&gt; PrivateConnectionProvisioningStatus
+forall x.
+PrivateConnectionProvisioningStatus
+-&gt; Rep PrivateConnectionProvisioningStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PrivateConnectionProvisioningStatus x
+-&gt; PrivateConnectionProvisioningStatus
+$cfrom :: forall x.
+PrivateConnectionProvisioningStatus
+-&gt; Rep PrivateConnectionProvisioningStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679319709"><span id="local-6989586621679319711"><span class="annot"><span class="annottext">Int -&gt; PrivateConnectionProvisioningStatus -&gt; Int
+PrivateConnectionProvisioningStatus -&gt; Int
+(Int -&gt; PrivateConnectionProvisioningStatus -&gt; Int)
+-&gt; (PrivateConnectionProvisioningStatus -&gt; Int)
+-&gt; Hashable PrivateConnectionProvisioningStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PrivateConnectionProvisioningStatus -&gt; Int
+$chash :: PrivateConnectionProvisioningStatus -&gt; Int
+hashWithSalt :: Int -&gt; PrivateConnectionProvisioningStatus -&gt; Int
+$chashWithSalt :: Int -&gt; PrivateConnectionProvisioningStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679319706"><span class="annot"><span class="annottext">PrivateConnectionProvisioningStatus -&gt; ()
+(PrivateConnectionProvisioningStatus -&gt; ())
+-&gt; NFData PrivateConnectionProvisioningStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PrivateConnectionProvisioningStatus -&gt; ()
+$crnf :: PrivateConnectionProvisioningStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679319703"><span class="annot"><span class="annottext">Text -&gt; Either String PrivateConnectionProvisioningStatus
+(Text -&gt; Either String PrivateConnectionProvisioningStatus)
+-&gt; FromText PrivateConnectionProvisioningStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PrivateConnectionProvisioningStatus
+$cfromText :: Text -&gt; Either String PrivateConnectionProvisioningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679319700"><span class="annot"><span class="annottext">PrivateConnectionProvisioningStatus -&gt; Text
+(PrivateConnectionProvisioningStatus -&gt; Text)
+-&gt; ToText PrivateConnectionProvisioningStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PrivateConnectionProvisioningStatus -&gt; Text
+$ctoText :: PrivateConnectionProvisioningStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679319697"><span class="annot"><span class="annottext">PrivateConnectionProvisioningStatus -&gt; ByteString
+(PrivateConnectionProvisioningStatus -&gt; ByteString)
+-&gt; ToByteString PrivateConnectionProvisioningStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PrivateConnectionProvisioningStatus -&gt; ByteString
+$ctoBS :: PrivateConnectionProvisioningStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679319694"><span class="annot"><span class="annottext">PrivateConnectionProvisioningStatus -&gt; ByteStringBuilder
+(PrivateConnectionProvisioningStatus -&gt; ByteStringBuilder)
+-&gt; ToLog PrivateConnectionProvisioningStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PrivateConnectionProvisioningStatus -&gt; ByteStringBuilder
+$cbuild :: PrivateConnectionProvisioningStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679319691"><span class="annot"><span class="annottext">HeaderName -&gt; PrivateConnectionProvisioningStatus -&gt; [Header]
+(HeaderName -&gt; PrivateConnectionProvisioningStatus -&gt; [Header])
+-&gt; ToHeader PrivateConnectionProvisioningStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PrivateConnectionProvisioningStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PrivateConnectionProvisioningStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679319688"><span class="annot"><span class="annottext">PrivateConnectionProvisioningStatus -&gt; QueryString
+(PrivateConnectionProvisioningStatus -&gt; QueryString)
+-&gt; ToQuery PrivateConnectionProvisioningStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PrivateConnectionProvisioningStatus -&gt; QueryString
+$ctoQuery :: PrivateConnectionProvisioningStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679319683"><span id="local-6989586621679319685"><span class="annot"><span class="annottext">Value -&gt; Parser [PrivateConnectionProvisioningStatus]
+Value -&gt; Parser PrivateConnectionProvisioningStatus
+(Value -&gt; Parser PrivateConnectionProvisioningStatus)
+-&gt; (Value -&gt; Parser [PrivateConnectionProvisioningStatus])
+-&gt; FromJSON PrivateConnectionProvisioningStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PrivateConnectionProvisioningStatus]
+$cparseJSONList :: Value -&gt; Parser [PrivateConnectionProvisioningStatus]
+parseJSON :: Value -&gt; Parser PrivateConnectionProvisioningStatus
+$cparseJSON :: Value -&gt; Parser PrivateConnectionProvisioningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679319678"><span id="local-6989586621679319680"><span class="annot"><span class="annottext">FromJSONKeyFunction [PrivateConnectionProvisioningStatus]
+FromJSONKeyFunction PrivateConnectionProvisioningStatus
+FromJSONKeyFunction PrivateConnectionProvisioningStatus
+-&gt; FromJSONKeyFunction [PrivateConnectionProvisioningStatus]
+-&gt; FromJSONKey PrivateConnectionProvisioningStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PrivateConnectionProvisioningStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [PrivateConnectionProvisioningStatus]
+fromJSONKey :: FromJSONKeyFunction PrivateConnectionProvisioningStatus
+$cfromJSONKey :: FromJSONKeyFunction PrivateConnectionProvisioningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679319669"><span id="local-6989586621679319671"><span id="local-6989586621679319673"><span id="local-6989586621679319675"><span class="annot"><span class="annottext">[PrivateConnectionProvisioningStatus] -&gt; Encoding
+[PrivateConnectionProvisioningStatus] -&gt; Value
+PrivateConnectionProvisioningStatus -&gt; Encoding
+PrivateConnectionProvisioningStatus -&gt; Value
+(PrivateConnectionProvisioningStatus -&gt; Value)
+-&gt; (PrivateConnectionProvisioningStatus -&gt; Encoding)
+-&gt; ([PrivateConnectionProvisioningStatus] -&gt; Value)
+-&gt; ([PrivateConnectionProvisioningStatus] -&gt; Encoding)
+-&gt; ToJSON PrivateConnectionProvisioningStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PrivateConnectionProvisioningStatus] -&gt; Encoding
+$ctoEncodingList :: [PrivateConnectionProvisioningStatus] -&gt; Encoding
+toJSONList :: [PrivateConnectionProvisioningStatus] -&gt; Value
+$ctoJSONList :: [PrivateConnectionProvisioningStatus] -&gt; Value
+toEncoding :: PrivateConnectionProvisioningStatus -&gt; Encoding
+$ctoEncoding :: PrivateConnectionProvisioningStatus -&gt; Encoding
+toJSON :: PrivateConnectionProvisioningStatus -&gt; Value
+$ctoJSON :: PrivateConnectionProvisioningStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679319664"><span id="local-6989586621679319666"><span class="annot"><span class="annottext">ToJSONKeyFunction [PrivateConnectionProvisioningStatus]
+ToJSONKeyFunction PrivateConnectionProvisioningStatus
+ToJSONKeyFunction PrivateConnectionProvisioningStatus
+-&gt; ToJSONKeyFunction [PrivateConnectionProvisioningStatus]
+-&gt; ToJSONKey PrivateConnectionProvisioningStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PrivateConnectionProvisioningStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [PrivateConnectionProvisioningStatus]
+toJSONKey :: ToJSONKeyFunction PrivateConnectionProvisioningStatus
+$ctoJSONKey :: ToJSONKeyFunction PrivateConnectionProvisioningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679319661"><span class="annot"><span class="annottext">[Node] -&gt; Either String PrivateConnectionProvisioningStatus
+([Node] -&gt; Either String PrivateConnectionProvisioningStatus)
+-&gt; FromXML PrivateConnectionProvisioningStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PrivateConnectionProvisioningStatus
+$cparseXML :: [Node] -&gt; Either String PrivateConnectionProvisioningStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679319658"><span class="annot"><span class="annottext">PrivateConnectionProvisioningStatus -&gt; XML
+(PrivateConnectionProvisioningStatus -&gt; XML)
+-&gt; ToXML PrivateConnectionProvisioningStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PrivateConnectionProvisioningStatus -&gt; XML
+$ctoXML :: PrivateConnectionProvisioningStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus_CREATED"><span class="hs-identifier hs-type">PrivateConnectionProvisioningStatus_CREATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus"><span class="hs-identifier hs-type">PrivateConnectionProvisioningStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrivateConnectionProvisioningStatus_CREATED"><span id="%24mPrivateConnectionProvisioningStatus_CREATED"><span id="PrivateConnectionProvisioningStatus_CREATED"><span class="annot"><span class="annottext">$bPrivateConnectionProvisioningStatus_CREATED :: PrivateConnectionProvisioningStatus
+$mPrivateConnectionProvisioningStatus_CREATED :: forall r.
+PrivateConnectionProvisioningStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#%24bPrivateConnectionProvisioningStatus_CREATED"><span class="hs-identifier hs-var hs-var hs-var">PrivateConnectionProvisioningStatus_CREATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus%27"><span class="hs-identifier hs-type">PrivateConnectionProvisioningStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus_FAILED"><span class="hs-identifier hs-type">PrivateConnectionProvisioningStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus"><span class="hs-identifier hs-type">PrivateConnectionProvisioningStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrivateConnectionProvisioningStatus_FAILED"><span id="%24mPrivateConnectionProvisioningStatus_FAILED"><span id="PrivateConnectionProvisioningStatus_FAILED"><span class="annot"><span class="annottext">$bPrivateConnectionProvisioningStatus_FAILED :: PrivateConnectionProvisioningStatus
+$mPrivateConnectionProvisioningStatus_FAILED :: forall r.
+PrivateConnectionProvisioningStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#%24bPrivateConnectionProvisioningStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">PrivateConnectionProvisioningStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus%27"><span class="hs-identifier hs-type">PrivateConnectionProvisioningStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus_PENDING"><span class="hs-identifier hs-type">PrivateConnectionProvisioningStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus"><span class="hs-identifier hs-type">PrivateConnectionProvisioningStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrivateConnectionProvisioningStatus_PENDING"><span id="%24mPrivateConnectionProvisioningStatus_PENDING"><span id="PrivateConnectionProvisioningStatus_PENDING"><span class="annot"><span class="annottext">$bPrivateConnectionProvisioningStatus_PENDING :: PrivateConnectionProvisioningStatus
+$mPrivateConnectionProvisioningStatus_PENDING :: forall r.
+PrivateConnectionProvisioningStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#%24bPrivateConnectionProvisioningStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">PrivateConnectionProvisioningStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus%27"><span class="hs-identifier hs-type">PrivateConnectionProvisioningStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus_CREATED"><span class="hs-pragma hs-type">PrivateConnectionProvisioningStatus_CREATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus_FAILED"><span class="hs-pragma hs-type">PrivateConnectionProvisioningStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus_PENDING"><span class="hs-pragma hs-type">PrivateConnectionProvisioningStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus.html#PrivateConnectionProvisioningStatus%27"><span class="hs-pragma hs-type">PrivateConnectionProvisioningStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

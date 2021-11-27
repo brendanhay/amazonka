@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.BlueprintRunState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.BlueprintRunState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier">BlueprintRunState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_FAILED"><span class="hs-identifier">BlueprintRunState_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_ROLLING_BACK"><span class="hs-identifier">BlueprintRunState_ROLLING_BACK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_RUNNING"><span class="hs-identifier">BlueprintRunState_RUNNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_SUCCEEDED"><span class="hs-identifier">BlueprintRunState_SUCCEEDED</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679678798"><span id="local-6989586621679678799"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BlueprintRunState"><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier hs-var">BlueprintRunState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueprintRunState%27"><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState%27"><span class="hs-identifier hs-var">BlueprintRunState'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBlueprintRunState"><span class="annot"><span class="annottext">BlueprintRunState -&gt; Text
+</span><a href="Amazonka.Glue.Types.BlueprintRunState.html#fromBlueprintRunState"><span class="hs-identifier hs-var hs-var">fromBlueprintRunState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679678790"><span id="local-6989586621679678792"><span id="local-6989586621679678794"><span class="annot"><span class="annottext">Int -&gt; BlueprintRunState -&gt; ShowS
+[BlueprintRunState] -&gt; ShowS
+BlueprintRunState -&gt; String
+(Int -&gt; BlueprintRunState -&gt; ShowS)
+-&gt; (BlueprintRunState -&gt; String)
+-&gt; ([BlueprintRunState] -&gt; ShowS)
+-&gt; Show BlueprintRunState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BlueprintRunState] -&gt; ShowS
+$cshowList :: [BlueprintRunState] -&gt; ShowS
+show :: BlueprintRunState -&gt; String
+$cshow :: BlueprintRunState -&gt; String
+showsPrec :: Int -&gt; BlueprintRunState -&gt; ShowS
+$cshowsPrec :: Int -&gt; BlueprintRunState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679678781"><span id="local-6989586621679678783"><span id="local-6989586621679678785"><span id="local-6989586621679678787"><span class="annot"><span class="annottext">ReadPrec [BlueprintRunState]
+ReadPrec BlueprintRunState
+Int -&gt; ReadS BlueprintRunState
+ReadS [BlueprintRunState]
+(Int -&gt; ReadS BlueprintRunState)
+-&gt; ReadS [BlueprintRunState]
+-&gt; ReadPrec BlueprintRunState
+-&gt; ReadPrec [BlueprintRunState]
+-&gt; Read BlueprintRunState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BlueprintRunState]
+$creadListPrec :: ReadPrec [BlueprintRunState]
+readPrec :: ReadPrec BlueprintRunState
+$creadPrec :: ReadPrec BlueprintRunState
+readList :: ReadS [BlueprintRunState]
+$creadList :: ReadS [BlueprintRunState]
+readsPrec :: Int -&gt; ReadS BlueprintRunState
+$creadsPrec :: Int -&gt; ReadS BlueprintRunState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679678776"><span id="local-6989586621679678778"><span class="annot"><span class="annottext">BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+(BlueprintRunState -&gt; BlueprintRunState -&gt; Bool)
+-&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; Bool)
+-&gt; Eq BlueprintRunState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+$c/= :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+== :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+$c== :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679678760"><span id="local-6989586621679678762"><span id="local-6989586621679678764"><span id="local-6989586621679678766"><span id="local-6989586621679678768"><span id="local-6989586621679678770"><span id="local-6989586621679678772"><span class="annot"><span class="annottext">Eq BlueprintRunState
+Eq BlueprintRunState
+-&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; Ordering)
+-&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; Bool)
+-&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; Bool)
+-&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; Bool)
+-&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; Bool)
+-&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; BlueprintRunState)
+-&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; BlueprintRunState)
+-&gt; Ord BlueprintRunState
+BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+BlueprintRunState -&gt; BlueprintRunState -&gt; Ordering
+BlueprintRunState -&gt; BlueprintRunState -&gt; BlueprintRunState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BlueprintRunState -&gt; BlueprintRunState -&gt; BlueprintRunState
+$cmin :: BlueprintRunState -&gt; BlueprintRunState -&gt; BlueprintRunState
+max :: BlueprintRunState -&gt; BlueprintRunState -&gt; BlueprintRunState
+$cmax :: BlueprintRunState -&gt; BlueprintRunState -&gt; BlueprintRunState
+&gt;= :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+$c&gt;= :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+&gt; :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+$c&gt; :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+&lt;= :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+$c&lt;= :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+&lt; :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+$c&lt; :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+compare :: BlueprintRunState -&gt; BlueprintRunState -&gt; Ordering
+$ccompare :: BlueprintRunState -&gt; BlueprintRunState -&gt; Ordering
+$cp1Ord :: Eq BlueprintRunState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BlueprintRunState -&gt; Rep BlueprintRunState x)
+-&gt; (forall x. Rep BlueprintRunState x -&gt; BlueprintRunState)
+-&gt; Generic BlueprintRunState
+forall x. Rep BlueprintRunState x -&gt; BlueprintRunState
+forall x. BlueprintRunState -&gt; Rep BlueprintRunState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BlueprintRunState x -&gt; BlueprintRunState
+$cfrom :: forall x. BlueprintRunState -&gt; Rep BlueprintRunState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679678752"><span id="local-6989586621679678754"><span class="annot"><span class="annottext">Int -&gt; BlueprintRunState -&gt; Int
+BlueprintRunState -&gt; Int
+(Int -&gt; BlueprintRunState -&gt; Int)
+-&gt; (BlueprintRunState -&gt; Int) -&gt; Hashable BlueprintRunState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BlueprintRunState -&gt; Int
+$chash :: BlueprintRunState -&gt; Int
+hashWithSalt :: Int -&gt; BlueprintRunState -&gt; Int
+$chashWithSalt :: Int -&gt; BlueprintRunState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679678749"><span class="annot"><span class="annottext">BlueprintRunState -&gt; ()
+(BlueprintRunState -&gt; ()) -&gt; NFData BlueprintRunState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BlueprintRunState -&gt; ()
+$crnf :: BlueprintRunState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679678746"><span class="annot"><span class="annottext">Text -&gt; Either String BlueprintRunState
+(Text -&gt; Either String BlueprintRunState)
+-&gt; FromText BlueprintRunState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BlueprintRunState
+$cfromText :: Text -&gt; Either String BlueprintRunState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679678743"><span class="annot"><span class="annottext">BlueprintRunState -&gt; Text
+(BlueprintRunState -&gt; Text) -&gt; ToText BlueprintRunState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BlueprintRunState -&gt; Text
+$ctoText :: BlueprintRunState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679678740"><span class="annot"><span class="annottext">BlueprintRunState -&gt; ByteString
+(BlueprintRunState -&gt; ByteString) -&gt; ToByteString BlueprintRunState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BlueprintRunState -&gt; ByteString
+$ctoBS :: BlueprintRunState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679678737"><span class="annot"><span class="annottext">BlueprintRunState -&gt; ByteStringBuilder
+(BlueprintRunState -&gt; ByteStringBuilder) -&gt; ToLog BlueprintRunState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BlueprintRunState -&gt; ByteStringBuilder
+$cbuild :: BlueprintRunState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679678734"><span class="annot"><span class="annottext">HeaderName -&gt; BlueprintRunState -&gt; [Header]
+(HeaderName -&gt; BlueprintRunState -&gt; [Header])
+-&gt; ToHeader BlueprintRunState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BlueprintRunState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BlueprintRunState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679678731"><span class="annot"><span class="annottext">BlueprintRunState -&gt; QueryString
+(BlueprintRunState -&gt; QueryString) -&gt; ToQuery BlueprintRunState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BlueprintRunState -&gt; QueryString
+$ctoQuery :: BlueprintRunState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679678726"><span id="local-6989586621679678728"><span class="annot"><span class="annottext">Value -&gt; Parser [BlueprintRunState]
+Value -&gt; Parser BlueprintRunState
+(Value -&gt; Parser BlueprintRunState)
+-&gt; (Value -&gt; Parser [BlueprintRunState])
+-&gt; FromJSON BlueprintRunState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BlueprintRunState]
+$cparseJSONList :: Value -&gt; Parser [BlueprintRunState]
+parseJSON :: Value -&gt; Parser BlueprintRunState
+$cparseJSON :: Value -&gt; Parser BlueprintRunState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679678721"><span id="local-6989586621679678723"><span class="annot"><span class="annottext">FromJSONKeyFunction [BlueprintRunState]
+FromJSONKeyFunction BlueprintRunState
+FromJSONKeyFunction BlueprintRunState
+-&gt; FromJSONKeyFunction [BlueprintRunState]
+-&gt; FromJSONKey BlueprintRunState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BlueprintRunState]
+$cfromJSONKeyList :: FromJSONKeyFunction [BlueprintRunState]
+fromJSONKey :: FromJSONKeyFunction BlueprintRunState
+$cfromJSONKey :: FromJSONKeyFunction BlueprintRunState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679678712"><span id="local-6989586621679678714"><span id="local-6989586621679678716"><span id="local-6989586621679678718"><span class="annot"><span class="annottext">[BlueprintRunState] -&gt; Encoding
+[BlueprintRunState] -&gt; Value
+BlueprintRunState -&gt; Encoding
+BlueprintRunState -&gt; Value
+(BlueprintRunState -&gt; Value)
+-&gt; (BlueprintRunState -&gt; Encoding)
+-&gt; ([BlueprintRunState] -&gt; Value)
+-&gt; ([BlueprintRunState] -&gt; Encoding)
+-&gt; ToJSON BlueprintRunState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BlueprintRunState] -&gt; Encoding
+$ctoEncodingList :: [BlueprintRunState] -&gt; Encoding
+toJSONList :: [BlueprintRunState] -&gt; Value
+$ctoJSONList :: [BlueprintRunState] -&gt; Value
+toEncoding :: BlueprintRunState -&gt; Encoding
+$ctoEncoding :: BlueprintRunState -&gt; Encoding
+toJSON :: BlueprintRunState -&gt; Value
+$ctoJSON :: BlueprintRunState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679678707"><span id="local-6989586621679678709"><span class="annot"><span class="annottext">ToJSONKeyFunction [BlueprintRunState]
+ToJSONKeyFunction BlueprintRunState
+ToJSONKeyFunction BlueprintRunState
+-&gt; ToJSONKeyFunction [BlueprintRunState]
+-&gt; ToJSONKey BlueprintRunState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BlueprintRunState]
+$ctoJSONKeyList :: ToJSONKeyFunction [BlueprintRunState]
+toJSONKey :: ToJSONKeyFunction BlueprintRunState
+$ctoJSONKey :: ToJSONKeyFunction BlueprintRunState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679678704"><span class="annot"><span class="annottext">[Node] -&gt; Either String BlueprintRunState
+([Node] -&gt; Either String BlueprintRunState)
+-&gt; FromXML BlueprintRunState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BlueprintRunState
+$cparseXML :: [Node] -&gt; Either String BlueprintRunState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679678701"><span class="annot"><span class="annottext">BlueprintRunState -&gt; XML
+(BlueprintRunState -&gt; XML) -&gt; ToXML BlueprintRunState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BlueprintRunState -&gt; XML
+$ctoXML :: BlueprintRunState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_FAILED"><span class="hs-identifier hs-type">BlueprintRunState_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier hs-type">BlueprintRunState</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBlueprintRunState_FAILED"><span id="%24mBlueprintRunState_FAILED"><span id="BlueprintRunState_FAILED"><span class="annot"><span class="annottext">$bBlueprintRunState_FAILED :: BlueprintRunState
+$mBlueprintRunState_FAILED :: forall r. BlueprintRunState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.BlueprintRunState.html#%24bBlueprintRunState_FAILED"><span class="hs-identifier hs-var hs-var hs-var">BlueprintRunState_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState%27"><span class="hs-identifier hs-type">BlueprintRunState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_ROLLING_BACK"><span class="hs-identifier hs-type">BlueprintRunState_ROLLING_BACK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier hs-type">BlueprintRunState</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBlueprintRunState_ROLLING_BACK"><span id="%24mBlueprintRunState_ROLLING_BACK"><span id="BlueprintRunState_ROLLING_BACK"><span class="annot"><span class="annottext">$bBlueprintRunState_ROLLING_BACK :: BlueprintRunState
+$mBlueprintRunState_ROLLING_BACK :: forall r. BlueprintRunState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.BlueprintRunState.html#%24bBlueprintRunState_ROLLING_BACK"><span class="hs-identifier hs-var hs-var hs-var">BlueprintRunState_ROLLING_BACK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState%27"><span class="hs-identifier hs-type">BlueprintRunState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROLLING_BACK&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_RUNNING"><span class="hs-identifier hs-type">BlueprintRunState_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier hs-type">BlueprintRunState</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBlueprintRunState_RUNNING"><span id="%24mBlueprintRunState_RUNNING"><span id="BlueprintRunState_RUNNING"><span class="annot"><span class="annottext">$bBlueprintRunState_RUNNING :: BlueprintRunState
+$mBlueprintRunState_RUNNING :: forall r. BlueprintRunState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.BlueprintRunState.html#%24bBlueprintRunState_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">BlueprintRunState_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState%27"><span class="hs-identifier hs-type">BlueprintRunState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_SUCCEEDED"><span class="hs-identifier hs-type">BlueprintRunState_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier hs-type">BlueprintRunState</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBlueprintRunState_SUCCEEDED"><span id="%24mBlueprintRunState_SUCCEEDED"><span id="BlueprintRunState_SUCCEEDED"><span class="annot"><span class="annottext">$bBlueprintRunState_SUCCEEDED :: BlueprintRunState
+$mBlueprintRunState_SUCCEEDED :: forall r. BlueprintRunState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.BlueprintRunState.html#%24bBlueprintRunState_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">BlueprintRunState_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState%27"><span class="hs-identifier hs-type">BlueprintRunState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_FAILED"><span class="hs-pragma hs-type">BlueprintRunState_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_ROLLING_BACK"><span class="hs-pragma hs-type">BlueprintRunState_ROLLING_BACK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_RUNNING"><span class="hs-pragma hs-type">BlueprintRunState_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState_SUCCEEDED"><span class="hs-pragma hs-type">BlueprintRunState_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRunState.html#BlueprintRunState%27"><span class="hs-pragma hs-type">BlueprintRunState'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Personalize.Types.DatasetExportJob</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Personalize.Types.DatasetExportJob</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJobOutput.html"><span class="hs-identifier">Amazonka.Personalize.Types.DatasetExportJobOutput</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.IngestionMode.html"><span class="hs-identifier">Amazonka.Personalize.Types.IngestionMode</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a job that exports a dataset to an Amazon S3 bucket. For more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- information, see CreateDatasetExportJob.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- A dataset export job can be in one of the following states:</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newDatasetExportJob' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679272795"><span id="local-6989586621679272796"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetExportJob"><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-var">DatasetExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetExportJob%27"><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-var">DatasetExportJob'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a dataset export job fails, provides the reason why.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AfailureReason%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AfailureReason%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The status of the dataset export job.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- A dataset export job can be in one of the following states:</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Astatus%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3Astatus%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset export job.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdatasetExportJobArn%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AdatasetExportJobArn%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">datasetExportJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset to export.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdatasetArn%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AdatasetArn%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The path to the Amazon S3 bucket where the job\'s output is stored. For</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- example:</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @s3:\/\/bucket-name\/folder-name\/@</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AjobOutput%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe DatasetExportJobOutput
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AjobOutput%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">jobOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJobOutput.html#DatasetExportJobOutput"><span class="hs-identifier hs-type">DatasetExportJobOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the export job.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AjobName%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AjobName%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The date and time (in Unix time) the status of the dataset export job</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- was last updated.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AlastUpdatedDateTime%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AlastUpdatedDateTime%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The data to export, based on how you imported the data. You can choose</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- to export @BULK@ data that you imported using a dataset import job,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @PUT@ data that you imported incrementally (using the console,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- PutEvents, PutUsers and PutItems operations), or @ALL@ for both types.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- The default value is @PUT@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AingestionMode%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe IngestionMode
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AingestionMode%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">ingestionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.IngestionMode.html#IngestionMode"><span class="hs-identifier hs-type">IngestionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The creation date and time (in Unix time) of the dataset export job.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AcreationDateTime%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AcreationDateTime%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM service role that has</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- permissions to add data to your output Amazon S3 bucket.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AroleArn%3ADatasetExportJob%27"><span class="annot"><span class="annottext">DatasetExportJob -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AroleArn%3ADatasetExportJob%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272780"><span id="local-6989586621679272782"><span class="annot"><span class="annottext">DatasetExportJob -&gt; DatasetExportJob -&gt; Bool
+(DatasetExportJob -&gt; DatasetExportJob -&gt; Bool)
+-&gt; (DatasetExportJob -&gt; DatasetExportJob -&gt; Bool)
+-&gt; Eq DatasetExportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DatasetExportJob -&gt; DatasetExportJob -&gt; Bool
+$c/= :: DatasetExportJob -&gt; DatasetExportJob -&gt; Bool
+== :: DatasetExportJob -&gt; DatasetExportJob -&gt; Bool
+$c== :: DatasetExportJob -&gt; DatasetExportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272771"><span id="local-6989586621679272773"><span id="local-6989586621679272775"><span id="local-6989586621679272777"><span class="annot"><span class="annottext">ReadPrec [DatasetExportJob]
+ReadPrec DatasetExportJob
+Int -&gt; ReadS DatasetExportJob
+ReadS [DatasetExportJob]
+(Int -&gt; ReadS DatasetExportJob)
+-&gt; ReadS [DatasetExportJob]
+-&gt; ReadPrec DatasetExportJob
+-&gt; ReadPrec [DatasetExportJob]
+-&gt; Read DatasetExportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DatasetExportJob]
+$creadListPrec :: ReadPrec [DatasetExportJob]
+readPrec :: ReadPrec DatasetExportJob
+$creadPrec :: ReadPrec DatasetExportJob
+readList :: ReadS [DatasetExportJob]
+$creadList :: ReadS [DatasetExportJob]
+readsPrec :: Int -&gt; ReadS DatasetExportJob
+$creadsPrec :: Int -&gt; ReadS DatasetExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272764"><span id="local-6989586621679272766"><span id="local-6989586621679272768"><span class="annot"><span class="annottext">Int -&gt; DatasetExportJob -&gt; ShowS
+[DatasetExportJob] -&gt; ShowS
+DatasetExportJob -&gt; String
+(Int -&gt; DatasetExportJob -&gt; ShowS)
+-&gt; (DatasetExportJob -&gt; String)
+-&gt; ([DatasetExportJob] -&gt; ShowS)
+-&gt; Show DatasetExportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DatasetExportJob] -&gt; ShowS
+$cshowList :: [DatasetExportJob] -&gt; ShowS
+show :: DatasetExportJob -&gt; String
+$cshow :: DatasetExportJob -&gt; String
+showsPrec :: Int -&gt; DatasetExportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DatasetExportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DatasetExportJob -&gt; Rep DatasetExportJob x)
+-&gt; (forall x. Rep DatasetExportJob x -&gt; DatasetExportJob)
+-&gt; Generic DatasetExportJob
+forall x. Rep DatasetExportJob x -&gt; DatasetExportJob
+forall x. DatasetExportJob -&gt; Rep DatasetExportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DatasetExportJob x -&gt; DatasetExportJob
+$cfrom :: forall x. DatasetExportJob -&gt; Rep DatasetExportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'DatasetExportJob' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'failureReason', 'datasetExportJob_failureReason' - If a dataset export job fails, provides the reason why.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'status', 'datasetExportJob_status' - The status of the dataset export job.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- A dataset export job can be in one of the following states:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'datasetExportJobArn', 'datasetExportJob_datasetExportJobArn' - The Amazon Resource Name (ARN) of the dataset export job.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'datasetArn', 'datasetExportJob_datasetArn' - The Amazon Resource Name (ARN) of the dataset to export.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'jobOutput', 'datasetExportJob_jobOutput' - The path to the Amazon S3 bucket where the job\'s output is stored. For</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- example:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @s3:\/\/bucket-name\/folder-name\/@</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'jobName', 'datasetExportJob_jobName' - The name of the export job.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'lastUpdatedDateTime', 'datasetExportJob_lastUpdatedDateTime' - The date and time (in Unix time) the status of the dataset export job</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- was last updated.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'ingestionMode', 'datasetExportJob_ingestionMode' - The data to export, based on how you imported the data. You can choose</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- to export @BULK@ data that you imported using a dataset import job,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @PUT@ data that you imported incrementally (using the console,</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- PutEvents, PutUsers and PutItems operations), or @ALL@ for both types.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The default value is @PUT@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'creationDateTime', 'datasetExportJob_creationDateTime' - The creation date and time (in Unix time) of the dataset export job.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'roleArn', 'datasetExportJob_roleArn' - The Amazon Resource Name (ARN) of the IAM service role that has</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- permissions to add data to your output Amazon S3 bucket.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#newDatasetExportJob"><span class="hs-identifier hs-type">newDatasetExportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span>
+</span><span id="line-115"></span><span id="newDatasetExportJob"><span class="annot"><span class="annottext">newDatasetExportJob :: DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#newDatasetExportJob"><span class="hs-identifier hs-var hs-var">newDatasetExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DatasetExportJob' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DatasetExportJobOutput
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe IngestionMode
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AfailureReason%3ADatasetExportJob%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3Astatus%3ADatasetExportJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetExportJobArn:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AdatasetExportJobArn%3ADatasetExportJob%27"><span class="hs-identifier hs-var">datasetExportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetArn:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AdatasetArn%3ADatasetExportJob%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobOutput:DatasetExportJob' :: Maybe DatasetExportJobOutput
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AjobOutput%3ADatasetExportJob%27"><span class="hs-identifier hs-var">jobOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetExportJobOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AjobName%3ADatasetExportJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:DatasetExportJob' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AlastUpdatedDateTime%3ADatasetExportJob%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestionMode:DatasetExportJob' :: Maybe IngestionMode
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AingestionMode%3ADatasetExportJob%27"><span class="hs-identifier hs-var">ingestionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDateTime:DatasetExportJob' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AcreationDateTime%3ADatasetExportJob%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AroleArn%3ADatasetExportJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | If a dataset export job fails, provides the reason why.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_failureReason"><span class="hs-identifier hs-type">datasetExportJob_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="datasetExportJob_failureReason"><span class="annot"><span class="annottext">datasetExportJob_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_failureReason"><span class="hs-identifier hs-var hs-var">datasetExportJob_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe Text)
+-&gt; (DatasetExportJob -&gt; Maybe Text -&gt; DatasetExportJob)
+-&gt; Lens DatasetExportJob DatasetExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272755"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:DatasetExportJob' :: DatasetExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679272755"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272755"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272754"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AfailureReason%3ADatasetExportJob%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The status of the dataset export job.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- A dataset export job can be in one of the following states:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_status"><span class="hs-identifier hs-type">datasetExportJob_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="datasetExportJob_status"><span class="annot"><span class="annottext">datasetExportJob_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_status"><span class="hs-identifier hs-var hs-var">datasetExportJob_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe Text)
+-&gt; (DatasetExportJob -&gt; Maybe Text -&gt; DatasetExportJob)
+-&gt; Lens DatasetExportJob DatasetExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272751"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:DatasetExportJob' :: DatasetExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679272751"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272751"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272750"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3Astatus%3ADatasetExportJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset export job.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_datasetExportJobArn"><span class="hs-identifier hs-type">datasetExportJob_datasetExportJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="datasetExportJob_datasetExportJobArn"><span class="annot"><span class="annottext">datasetExportJob_datasetExportJobArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_datasetExportJobArn"><span class="hs-identifier hs-var hs-var">datasetExportJob_datasetExportJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe Text)
+-&gt; (DatasetExportJob -&gt; Maybe Text -&gt; DatasetExportJob)
+-&gt; Lens DatasetExportJob DatasetExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272747"><span class="annot"><span class="annottext">Maybe Text
+datasetExportJobArn :: Maybe Text
+$sel:datasetExportJobArn:DatasetExportJob' :: DatasetExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679272747"><span class="hs-identifier hs-var hs-var">datasetExportJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272747"><span class="hs-identifier hs-var">datasetExportJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272746"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272745"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetExportJobArn:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AdatasetExportJobArn%3ADatasetExportJob%27"><span class="hs-identifier hs-var">datasetExportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset to export.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_datasetArn"><span class="hs-identifier hs-type">datasetExportJob_datasetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="datasetExportJob_datasetArn"><span class="annot"><span class="annottext">datasetExportJob_datasetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_datasetArn"><span class="hs-identifier hs-var hs-var">datasetExportJob_datasetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe Text)
+-&gt; (DatasetExportJob -&gt; Maybe Text -&gt; DatasetExportJob)
+-&gt; Lens DatasetExportJob DatasetExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272743"><span class="annot"><span class="annottext">Maybe Text
+datasetArn :: Maybe Text
+$sel:datasetArn:DatasetExportJob' :: DatasetExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679272743"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272743"><span class="hs-identifier hs-var">datasetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272742"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272741"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetArn:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AdatasetArn%3ADatasetExportJob%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The path to the Amazon S3 bucket where the job\'s output is stored. For</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- example:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @s3:\/\/bucket-name\/folder-name\/@</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_jobOutput"><span class="hs-identifier hs-type">datasetExportJob_jobOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJobOutput.html#DatasetExportJobOutput"><span class="hs-identifier hs-type">DatasetExportJobOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="datasetExportJob_jobOutput"><span class="annot"><span class="annottext">datasetExportJob_jobOutput :: (Maybe DatasetExportJobOutput -&gt; f (Maybe DatasetExportJobOutput))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_jobOutput"><span class="hs-identifier hs-var hs-var">datasetExportJob_jobOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe DatasetExportJobOutput)
+-&gt; (DatasetExportJob
+    -&gt; Maybe DatasetExportJobOutput -&gt; DatasetExportJob)
+-&gt; Lens
+     DatasetExportJob
+     DatasetExportJob
+     (Maybe DatasetExportJobOutput)
+     (Maybe DatasetExportJobOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272739"><span class="annot"><span class="annottext">Maybe DatasetExportJobOutput
+jobOutput :: Maybe DatasetExportJobOutput
+$sel:jobOutput:DatasetExportJob' :: DatasetExportJob -&gt; Maybe DatasetExportJobOutput
+</span><a href="#local-6989586621679272739"><span class="hs-identifier hs-var hs-var">jobOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetExportJobOutput
+</span><a href="#local-6989586621679272739"><span class="hs-identifier hs-var">jobOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272738"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272737"><span class="annot"><span class="annottext">Maybe DatasetExportJobOutput
+</span><a href="#local-6989586621679272737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobOutput:DatasetExportJob' :: Maybe DatasetExportJobOutput
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AjobOutput%3ADatasetExportJob%27"><span class="hs-identifier hs-var">jobOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetExportJobOutput
+</span><a href="#local-6989586621679272737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The name of the export job.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_jobName"><span class="hs-identifier hs-type">datasetExportJob_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="datasetExportJob_jobName"><span class="annot"><span class="annottext">datasetExportJob_jobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_jobName"><span class="hs-identifier hs-var hs-var">datasetExportJob_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe Text)
+-&gt; (DatasetExportJob -&gt; Maybe Text -&gt; DatasetExportJob)
+-&gt; Lens DatasetExportJob DatasetExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272735"><span class="annot"><span class="annottext">Maybe Text
+jobName :: Maybe Text
+$sel:jobName:DatasetExportJob' :: DatasetExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679272735"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272735"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272734"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272733"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AjobName%3ADatasetExportJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The date and time (in Unix time) the status of the dataset export job</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- was last updated.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_lastUpdatedDateTime"><span class="hs-identifier hs-type">datasetExportJob_lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="datasetExportJob_lastUpdatedDateTime"><span class="annot"><span class="annottext">datasetExportJob_lastUpdatedDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_lastUpdatedDateTime"><span class="hs-identifier hs-var hs-var">datasetExportJob_lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe POSIX)
+-&gt; (DatasetExportJob -&gt; Maybe POSIX -&gt; DatasetExportJob)
+-&gt; Lens
+     DatasetExportJob DatasetExportJob (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272731"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedDateTime :: Maybe POSIX
+$sel:lastUpdatedDateTime:DatasetExportJob' :: DatasetExportJob -&gt; Maybe POSIX
+</span><a href="#local-6989586621679272731"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272731"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272730"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272729"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:DatasetExportJob' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AlastUpdatedDateTime%3ADatasetExportJob%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DatasetExportJob -&gt; f DatasetExportJob)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetExportJob
+-&gt; f DatasetExportJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The data to export, based on how you imported the data. You can choose</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- to export @BULK@ data that you imported using a dataset import job,</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- @PUT@ data that you imported incrementally (using the console,</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- PutEvents, PutUsers and PutItems operations), or @ALL@ for both types.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- The default value is @PUT@.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_ingestionMode"><span class="hs-identifier hs-type">datasetExportJob_ingestionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.IngestionMode.html#IngestionMode"><span class="hs-identifier hs-type">IngestionMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="datasetExportJob_ingestionMode"><span class="annot"><span class="annottext">datasetExportJob_ingestionMode :: (Maybe IngestionMode -&gt; f (Maybe IngestionMode))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_ingestionMode"><span class="hs-identifier hs-var hs-var">datasetExportJob_ingestionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe IngestionMode)
+-&gt; (DatasetExportJob -&gt; Maybe IngestionMode -&gt; DatasetExportJob)
+-&gt; Lens
+     DatasetExportJob
+     DatasetExportJob
+     (Maybe IngestionMode)
+     (Maybe IngestionMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272724"><span class="annot"><span class="annottext">Maybe IngestionMode
+ingestionMode :: Maybe IngestionMode
+$sel:ingestionMode:DatasetExportJob' :: DatasetExportJob -&gt; Maybe IngestionMode
+</span><a href="#local-6989586621679272724"><span class="hs-identifier hs-var hs-var">ingestionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionMode
+</span><a href="#local-6989586621679272724"><span class="hs-identifier hs-var">ingestionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272723"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272722"><span class="annot"><span class="annottext">Maybe IngestionMode
+</span><a href="#local-6989586621679272722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestionMode:DatasetExportJob' :: Maybe IngestionMode
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AingestionMode%3ADatasetExportJob%27"><span class="hs-identifier hs-var">ingestionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestionMode
+</span><a href="#local-6989586621679272722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The creation date and time (in Unix time) of the dataset export job.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_creationDateTime"><span class="hs-identifier hs-type">datasetExportJob_creationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="datasetExportJob_creationDateTime"><span class="annot"><span class="annottext">datasetExportJob_creationDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_creationDateTime"><span class="hs-identifier hs-var hs-var">datasetExportJob_creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe POSIX)
+-&gt; (DatasetExportJob -&gt; Maybe POSIX -&gt; DatasetExportJob)
+-&gt; Lens
+     DatasetExportJob DatasetExportJob (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272720"><span class="annot"><span class="annottext">Maybe POSIX
+creationDateTime :: Maybe POSIX
+$sel:creationDateTime:DatasetExportJob' :: DatasetExportJob -&gt; Maybe POSIX
+</span><a href="#local-6989586621679272720"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272720"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272719"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272718"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:DatasetExportJob' :: Maybe POSIX
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AcreationDateTime%3ADatasetExportJob%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DatasetExportJob -&gt; f DatasetExportJob)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetExportJob
+-&gt; f DatasetExportJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM service role that has</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- permissions to add data to your output Amazon S3 bucket.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_roleArn"><span class="hs-identifier hs-type">datasetExportJob_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="datasetExportJob_roleArn"><span class="annot"><span class="annottext">datasetExportJob_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatasetExportJob -&gt; f DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#datasetExportJob_roleArn"><span class="hs-identifier hs-var hs-var">datasetExportJob_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetExportJob -&gt; Maybe Text)
+-&gt; (DatasetExportJob -&gt; Maybe Text -&gt; DatasetExportJob)
+-&gt; Lens DatasetExportJob DatasetExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272716"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:DatasetExportJob' :: DatasetExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679272716"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272716"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272715"><span class="annot"><span class="annottext">s :: DatasetExportJob
+</span><a href="#local-6989586621679272715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-type">DatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetExportJob
+</span><a href="#local-6989586621679272715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DatasetExportJob' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#%24sel%3AroleArn%3ADatasetExportJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272711"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679272709"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DatasetExportJob)
+-&gt; Value
+-&gt; Parser DatasetExportJob
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DatasetExportJob&quot;</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272706"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DatasetExportJobOutput
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe IngestionMode
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; DatasetExportJob
+</span><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob%27"><span class="hs-identifier hs-var">DatasetExportJob'</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe DatasetExportJobOutput
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe IngestionMode
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; DatasetExportJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DatasetExportJobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe IngestionMode
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; DatasetExportJob)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DatasetExportJobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe IngestionMode
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; DatasetExportJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DatasetExportJobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe IngestionMode
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; DatasetExportJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DatasetExportJobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe IngestionMode
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; DatasetExportJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DatasetExportJobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe IngestionMode
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; DatasetExportJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetExportJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DatasetExportJobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe IngestionMode
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; DatasetExportJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DatasetExportJobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe IngestionMode
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; DatasetExportJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DatasetExportJobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe IngestionMode
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; DatasetExportJob)
+-&gt; Parser (Maybe DatasetExportJobOutput)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe IngestionMode
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; DatasetExportJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatasetExportJobOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobOutput&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe IngestionMode
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; DatasetExportJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe IngestionMode
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; DatasetExportJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe IngestionMode
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; DatasetExportJob)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe IngestionMode
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; DatasetExportJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IngestionMode
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; DatasetExportJob)
+-&gt; Parser (Maybe IngestionMode)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; DatasetExportJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IngestionMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ingestionMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; DatasetExportJob)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; DatasetExportJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DatasetExportJob)
+-&gt; Parser (Maybe Text) -&gt; Parser DatasetExportJob
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272700"><span id="local-6989586621679272702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

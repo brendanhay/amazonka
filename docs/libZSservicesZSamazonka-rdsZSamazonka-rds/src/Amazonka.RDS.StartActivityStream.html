@@ -1,0 +1,897 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.StartActivityStream</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts a database activity stream to monitor activity on the database.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html Database Activity Streams&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /Amazon Aurora User Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.StartActivityStream</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier">StartActivityStream</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#newStartActivityStream"><span class="hs-identifier">newStartActivityStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_engineNativeAuditFieldsIncluded"><span class="hs-identifier">startActivityStream_engineNativeAuditFieldsIncluded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_applyImmediately"><span class="hs-identifier">startActivityStream_applyImmediately</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_resourceArn"><span class="hs-identifier">startActivityStream_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_mode"><span class="hs-identifier">startActivityStream_mode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_kmsKeyId"><span class="hs-identifier">startActivityStream_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier">StartActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#newStartActivityStreamResponse"><span class="hs-identifier">newStartActivityStreamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_status"><span class="hs-identifier">startActivityStreamResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_kinesisStreamName"><span class="hs-identifier">startActivityStreamResponse_kinesisStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_engineNativeAuditFieldsIncluded"><span class="hs-identifier">startActivityStreamResponse_engineNativeAuditFieldsIncluded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_mode"><span class="hs-identifier">startActivityStreamResponse_mode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_kmsKeyId"><span class="hs-identifier">startActivityStreamResponse_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_applyImmediately"><span class="hs-identifier">startActivityStreamResponse_applyImmediately</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_httpStatus"><span class="hs-identifier">startActivityStreamResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newStartActivityStream' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679775305"><span id="local-6989586621679775306"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartActivityStream"><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-var">StartActivityStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartActivityStream%27"><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-var">StartActivityStream'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the database activity stream includes engine-native</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- audit fields. This option only applies to an Oracle DB instance. By</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- default, no engine-native audit fields are included.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AengineNativeAuditFieldsIncluded%3AStartActivityStream%27"><span class="annot"><span class="annottext">StartActivityStream -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AengineNativeAuditFieldsIncluded%3AStartActivityStream%27"><span class="hs-identifier hs-var hs-var">engineNativeAuditFieldsIncluded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Specifies whether or not the database activity stream is to start as</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- soon as possible, regardless of the maintenance window for the database.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AapplyImmediately%3AStartActivityStream%27"><span class="annot"><span class="annottext">StartActivityStream -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AapplyImmediately%3AStartActivityStream%27"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the DB cluster, for example,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AresourceArn%3AStartActivityStream%27"><span class="annot"><span class="annottext">StartActivityStream -&gt; Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AresourceArn%3AStartActivityStream%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Specifies the mode of the database activity stream. Database events such</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- as a change or access generate an activity stream event. The database</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- session can handle these events either synchronously or asynchronously.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Amode%3AStartActivityStream%27"><span class="annot"><span class="annottext">StartActivityStream -&gt; ActivityStreamMode
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3Amode%3AStartActivityStream%27"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ActivityStreamMode.html#ActivityStreamMode"><span class="hs-identifier hs-type">ActivityStreamMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services KMS key identifier for encrypting messages in</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- the database activity stream. The Amazon Web Services KMS key identifier</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- is the key ARN, key ID, alias ARN, or alias name for the Amazon Web</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Services KMS customer master key (CMK).</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AStartActivityStream%27"><span class="annot"><span class="annottext">StartActivityStream -&gt; Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AkmsKeyId%3AStartActivityStream%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679775295"><span id="local-6989586621679775297"><span class="annot"><span class="annottext">StartActivityStream -&gt; StartActivityStream -&gt; Bool
+(StartActivityStream -&gt; StartActivityStream -&gt; Bool)
+-&gt; (StartActivityStream -&gt; StartActivityStream -&gt; Bool)
+-&gt; Eq StartActivityStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartActivityStream -&gt; StartActivityStream -&gt; Bool
+$c/= :: StartActivityStream -&gt; StartActivityStream -&gt; Bool
+== :: StartActivityStream -&gt; StartActivityStream -&gt; Bool
+$c== :: StartActivityStream -&gt; StartActivityStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679775286"><span id="local-6989586621679775288"><span id="local-6989586621679775290"><span id="local-6989586621679775292"><span class="annot"><span class="annottext">ReadPrec [StartActivityStream]
+ReadPrec StartActivityStream
+Int -&gt; ReadS StartActivityStream
+ReadS [StartActivityStream]
+(Int -&gt; ReadS StartActivityStream)
+-&gt; ReadS [StartActivityStream]
+-&gt; ReadPrec StartActivityStream
+-&gt; ReadPrec [StartActivityStream]
+-&gt; Read StartActivityStream
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartActivityStream]
+$creadListPrec :: ReadPrec [StartActivityStream]
+readPrec :: ReadPrec StartActivityStream
+$creadPrec :: ReadPrec StartActivityStream
+readList :: ReadS [StartActivityStream]
+$creadList :: ReadS [StartActivityStream]
+readsPrec :: Int -&gt; ReadS StartActivityStream
+$creadsPrec :: Int -&gt; ReadS StartActivityStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679775279"><span id="local-6989586621679775281"><span id="local-6989586621679775283"><span class="annot"><span class="annottext">Int -&gt; StartActivityStream -&gt; ShowS
+[StartActivityStream] -&gt; ShowS
+StartActivityStream -&gt; String
+(Int -&gt; StartActivityStream -&gt; ShowS)
+-&gt; (StartActivityStream -&gt; String)
+-&gt; ([StartActivityStream] -&gt; ShowS)
+-&gt; Show StartActivityStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartActivityStream] -&gt; ShowS
+$cshowList :: [StartActivityStream] -&gt; ShowS
+show :: StartActivityStream -&gt; String
+$cshow :: StartActivityStream -&gt; String
+showsPrec :: Int -&gt; StartActivityStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartActivityStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartActivityStream -&gt; Rep StartActivityStream x)
+-&gt; (forall x. Rep StartActivityStream x -&gt; StartActivityStream)
+-&gt; Generic StartActivityStream
+forall x. Rep StartActivityStream x -&gt; StartActivityStream
+forall x. StartActivityStream -&gt; Rep StartActivityStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartActivityStream x -&gt; StartActivityStream
+$cfrom :: forall x. StartActivityStream -&gt; Rep StartActivityStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'StartActivityStream' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'engineNativeAuditFieldsIncluded', 'startActivityStream_engineNativeAuditFieldsIncluded' - Specifies whether the database activity stream includes engine-native</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- audit fields. This option only applies to an Oracle DB instance. By</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- default, no engine-native audit fields are included.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'applyImmediately', 'startActivityStream_applyImmediately' - Specifies whether or not the database activity stream is to start as</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- soon as possible, regardless of the maintenance window for the database.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'resourceArn', 'startActivityStream_resourceArn' - The Amazon Resource Name (ARN) of the DB cluster, for example,</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'mode', 'startActivityStream_mode' - Specifies the mode of the database activity stream. Database events such</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- as a change or access generate an activity stream event. The database</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- session can handle these events either synchronously or asynchronously.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'kmsKeyId', 'startActivityStream_kmsKeyId' - The Amazon Web Services KMS key identifier for encrypting messages in</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the database activity stream. The Amazon Web Services KMS key identifier</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- is the key ARN, key ID, alias ARN, or alias name for the Amazon Web</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Services KMS customer master key (CMK).</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#newStartActivityStream"><span class="hs-identifier hs-type">newStartActivityStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'mode'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.Types.ActivityStreamMode.html#ActivityStreamMode"><span class="hs-identifier hs-type">ActivityStreamMode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'kmsKeyId'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span>
+</span><span id="line-119"></span><span id="newStartActivityStream"><span class="annot"><span class="annottext">newStartActivityStream :: Text -&gt; ActivityStreamMode -&gt; Text -&gt; StartActivityStream
+</span><a href="Amazonka.RDS.StartActivityStream.html#newStartActivityStream"><span class="hs-identifier hs-var hs-var">newStartActivityStream</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679775274"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775274"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679775273"><span class="annot"><span class="annottext">ActivityStreamMode
+</span><a href="#local-6989586621679775273"><span class="hs-identifier hs-var">pMode_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679775272"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775272"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">StartActivityStream' :: Maybe Bool
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; ActivityStreamMode
+-&gt; Text
+-&gt; StartActivityStream
+</span><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineNativeAuditFieldsIncluded:StartActivityStream' :: Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AengineNativeAuditFieldsIncluded%3AStartActivityStream%27"><span class="hs-identifier hs-var">engineNativeAuditFieldsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:applyImmediately:StartActivityStream' :: Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AapplyImmediately%3AStartActivityStream%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceArn:StartActivityStream' :: Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AresourceArn%3AStartActivityStream%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775274"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:mode:StartActivityStream' :: ActivityStreamMode
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3Amode%3AStartActivityStream%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityStreamMode
+</span><a href="#local-6989586621679775273"><span class="hs-identifier hs-var">pMode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:kmsKeyId:StartActivityStream' :: Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AkmsKeyId%3AStartActivityStream%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775272"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Specifies whether the database activity stream includes engine-native</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- audit fields. This option only applies to an Oracle DB instance. By</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- default, no engine-native audit fields are included.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_engineNativeAuditFieldsIncluded"><span class="hs-identifier hs-type">startActivityStream_engineNativeAuditFieldsIncluded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="startActivityStream_engineNativeAuditFieldsIncluded"><span class="annot"><span class="annottext">startActivityStream_engineNativeAuditFieldsIncluded :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; StartActivityStream -&gt; f StartActivityStream
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_engineNativeAuditFieldsIncluded"><span class="hs-identifier hs-var hs-var">startActivityStream_engineNativeAuditFieldsIncluded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStream -&gt; Maybe Bool)
+-&gt; (StartActivityStream -&gt; Maybe Bool -&gt; StartActivityStream)
+-&gt; Lens
+     StartActivityStream StartActivityStream (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775269"><span class="annot"><span class="annottext">Maybe Bool
+engineNativeAuditFieldsIncluded :: Maybe Bool
+$sel:engineNativeAuditFieldsIncluded:StartActivityStream' :: StartActivityStream -&gt; Maybe Bool
+</span><a href="#local-6989586621679775269"><span class="hs-identifier hs-var hs-var">engineNativeAuditFieldsIncluded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775269"><span class="hs-identifier hs-var">engineNativeAuditFieldsIncluded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775268"><span class="annot"><span class="annottext">s :: StartActivityStream
+</span><a href="#local-6989586621679775268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775267"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStream
+</span><a href="#local-6989586621679775268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineNativeAuditFieldsIncluded:StartActivityStream' :: Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AengineNativeAuditFieldsIncluded%3AStartActivityStream%27"><span class="hs-identifier hs-var">engineNativeAuditFieldsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Specifies whether or not the database activity stream is to start as</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- soon as possible, regardless of the maintenance window for the database.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_applyImmediately"><span class="hs-identifier hs-type">startActivityStream_applyImmediately</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="startActivityStream_applyImmediately"><span class="annot"><span class="annottext">startActivityStream_applyImmediately :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; StartActivityStream -&gt; f StartActivityStream
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_applyImmediately"><span class="hs-identifier hs-var hs-var">startActivityStream_applyImmediately</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStream -&gt; Maybe Bool)
+-&gt; (StartActivityStream -&gt; Maybe Bool -&gt; StartActivityStream)
+-&gt; Lens
+     StartActivityStream StartActivityStream (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775266"><span class="annot"><span class="annottext">Maybe Bool
+applyImmediately :: Maybe Bool
+$sel:applyImmediately:StartActivityStream' :: StartActivityStream -&gt; Maybe Bool
+</span><a href="#local-6989586621679775266"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775266"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775265"><span class="annot"><span class="annottext">s :: StartActivityStream
+</span><a href="#local-6989586621679775265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775264"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStream
+</span><a href="#local-6989586621679775265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:StartActivityStream' :: Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AapplyImmediately%3AStartActivityStream%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the DB cluster, for example,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_resourceArn"><span class="hs-identifier hs-type">startActivityStream_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-146"></span><span id="startActivityStream_resourceArn"><span class="annot"><span class="annottext">startActivityStream_resourceArn :: (Text -&gt; f Text) -&gt; StartActivityStream -&gt; f StartActivityStream
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_resourceArn"><span class="hs-identifier hs-var hs-var">startActivityStream_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStream -&gt; Text)
+-&gt; (StartActivityStream -&gt; Text -&gt; StartActivityStream)
+-&gt; Lens StartActivityStream StartActivityStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775263"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:StartActivityStream' :: StartActivityStream -&gt; Text
+</span><a href="#local-6989586621679775263"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775263"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775262"><span class="annot"><span class="annottext">s :: StartActivityStream
+</span><a href="#local-6989586621679775262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775261"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStream
+</span><a href="#local-6989586621679775262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:StartActivityStream' :: Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AresourceArn%3AStartActivityStream%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Specifies the mode of the database activity stream. Database events such</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- as a change or access generate an activity stream event. The database</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- session can handle these events either synchronously or asynchronously.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_mode"><span class="hs-identifier hs-type">startActivityStream_mode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ActivityStreamMode.html#ActivityStreamMode"><span class="hs-identifier hs-type">ActivityStreamMode</span></a></span><span>
+</span><span id="line-152"></span><span id="startActivityStream_mode"><span class="annot"><span class="annottext">startActivityStream_mode :: (ActivityStreamMode -&gt; f ActivityStreamMode)
+-&gt; StartActivityStream -&gt; f StartActivityStream
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_mode"><span class="hs-identifier hs-var hs-var">startActivityStream_mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStream -&gt; ActivityStreamMode)
+-&gt; (StartActivityStream
+    -&gt; ActivityStreamMode -&gt; StartActivityStream)
+-&gt; Lens
+     StartActivityStream
+     StartActivityStream
+     ActivityStreamMode
+     ActivityStreamMode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775260"><span class="annot"><span class="annottext">ActivityStreamMode
+mode :: ActivityStreamMode
+$sel:mode:StartActivityStream' :: StartActivityStream -&gt; ActivityStreamMode
+</span><a href="#local-6989586621679775260"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityStreamMode
+</span><a href="#local-6989586621679775260"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775259"><span class="annot"><span class="annottext">s :: StartActivityStream
+</span><a href="#local-6989586621679775259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775258"><span class="annot"><span class="annottext">ActivityStreamMode
+</span><a href="#local-6989586621679775258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStream
+</span><a href="#local-6989586621679775259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:StartActivityStream' :: ActivityStreamMode
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3Amode%3AStartActivityStream%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityStreamMode
+</span><a href="#local-6989586621679775258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The Amazon Web Services KMS key identifier for encrypting messages in</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- the database activity stream. The Amazon Web Services KMS key identifier</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- is the key ARN, key ID, alias ARN, or alias name for the Amazon Web</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Services KMS customer master key (CMK).</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_kmsKeyId"><span class="hs-identifier hs-type">startActivityStream_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-159"></span><span id="startActivityStream_kmsKeyId"><span class="annot"><span class="annottext">startActivityStream_kmsKeyId :: (Text -&gt; f Text) -&gt; StartActivityStream -&gt; f StartActivityStream
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStream_kmsKeyId"><span class="hs-identifier hs-var hs-var">startActivityStream_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStream -&gt; Text)
+-&gt; (StartActivityStream -&gt; Text -&gt; StartActivityStream)
+-&gt; Lens StartActivityStream StartActivityStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775257"><span class="annot"><span class="annottext">Text
+kmsKeyId :: Text
+$sel:kmsKeyId:StartActivityStream' :: StartActivityStream -&gt; Text
+</span><a href="#local-6989586621679775257"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775257"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775256"><span class="annot"><span class="annottext">s :: StartActivityStream
+</span><a href="#local-6989586621679775256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775255"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStream
+</span><a href="#local-6989586621679775256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:StartActivityStream' :: Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AkmsKeyId%3AStartActivityStream%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679775251"><span class="annot"><span class="annottext">request :: StartActivityStream -&gt; Request StartActivityStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartActivityStream -&gt; Request StartActivityStream
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679775247"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartActivityStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartActivityStream)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse StartActivityStream))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartActivityStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartActivityStream)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartActivityStreamResult&quot;</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679775244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775244"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679775243"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679775243"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679775242"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679775242"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ActivityStreamMode
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-var">StartActivityStreamResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ActivityStreamStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe ActivityStreamMode
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Int
+ -&gt; StartActivityStreamResponse)
+-&gt; Either String (Maybe ActivityStreamStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ActivityStreamMode
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; StartActivityStreamResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679775242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActivityStreamStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ActivityStreamMode
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; StartActivityStreamResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe ActivityStreamMode
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Int
+      -&gt; StartActivityStreamResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679775242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisStreamName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe ActivityStreamMode
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Int
+   -&gt; StartActivityStreamResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe ActivityStreamMode
+      -&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; StartActivityStreamResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679775242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineNativeAuditFieldsIncluded&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ActivityStreamMode
+   -&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; StartActivityStreamResponse)
+-&gt; Either String (Maybe ActivityStreamMode)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; StartActivityStreamResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679775242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActivityStreamMode)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Mode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; StartActivityStreamResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; Int -&gt; StartActivityStreamResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679775242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Int -&gt; StartActivityStreamResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; StartActivityStreamResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679775242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplyImmediately&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartActivityStreamResponse)
+-&gt; Either String Int -&gt; Either String StartActivityStreamResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775244"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679775234"><span id="local-6989586621679775236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679775231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679775227"><span class="annot"><span class="annottext">toHeaders :: StartActivityStream -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartActivityStream -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679775222"><span class="annot"><span class="annottext">toPath :: StartActivityStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartActivityStream -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream"><span class="hs-identifier hs-type">StartActivityStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679775218"><span class="annot"><span class="annottext">toQuery :: StartActivityStream -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStream%27"><span class="hs-identifier hs-type">StartActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775212"><span id="local-6989586621679775213"><span id="local-6989586621679775214"><span id="local-6989586621679775215"><span id="local-6989586621679775216"><span class="annot"><span class="annottext">Maybe Bool
+Text
+ActivityStreamMode
+kmsKeyId :: Text
+mode :: ActivityStreamMode
+resourceArn :: Text
+applyImmediately :: Maybe Bool
+engineNativeAuditFieldsIncluded :: Maybe Bool
+$sel:kmsKeyId:StartActivityStream' :: StartActivityStream -&gt; Text
+$sel:mode:StartActivityStream' :: StartActivityStream -&gt; ActivityStreamMode
+$sel:resourceArn:StartActivityStream' :: StartActivityStream -&gt; Text
+$sel:applyImmediately:StartActivityStream' :: StartActivityStream -&gt; Maybe Bool
+$sel:engineNativeAuditFieldsIncluded:StartActivityStream' :: StartActivityStream -&gt; Maybe Bool
+</span><a href="#local-6989586621679775212"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StartActivityStream&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EngineNativeAuditFieldsIncluded&quot;</span></span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775216"><span class="hs-identifier hs-var">engineNativeAuditFieldsIncluded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplyImmediately&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775215"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775214"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Mode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ActivityStreamMode -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ActivityStreamMode
+</span><a href="#local-6989586621679775213"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775212"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newStartActivityStreamResponse' smart constructor.</span><span>
+</span><span id="line-206"></span><span id="local-6989586621679775209"><span id="local-6989586621679775210"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartActivityStreamResponse"><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-var">StartActivityStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartActivityStreamResponse%27"><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-var">StartActivityStreamResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the database activity stream.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3Astatus%3AStartActivityStreamResponse%27"><span class="annot"><span class="annottext">StartActivityStreamResponse -&gt; Maybe ActivityStreamStatus
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3Astatus%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus"><span class="hs-identifier hs-type">ActivityStreamStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Kinesis data stream to be used for the database</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- activity stream.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AkinesisStreamName%3AStartActivityStreamResponse%27"><span class="annot"><span class="annottext">StartActivityStreamResponse -&gt; Maybe Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AkinesisStreamName%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">kinesisStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | Indicates whether engine-native audit fields are included in the</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- database activity stream.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AengineNativeAuditFieldsIncluded%3AStartActivityStreamResponse%27"><span class="annot"><span class="annottext">StartActivityStreamResponse -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AengineNativeAuditFieldsIncluded%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">engineNativeAuditFieldsIncluded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The mode of the database activity stream.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3Amode%3AStartActivityStreamResponse%27"><span class="annot"><span class="annottext">StartActivityStreamResponse -&gt; Maybe ActivityStreamMode
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3Amode%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ActivityStreamMode.html#ActivityStreamMode"><span class="hs-identifier hs-type">ActivityStreamMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services KMS key identifier for encryption of messages in</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- the database activity stream.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AStartActivityStreamResponse%27"><span class="annot"><span class="annottext">StartActivityStreamResponse -&gt; Maybe Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AkmsKeyId%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | Indicates whether or not the database activity stream will start as soon</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- as possible, regardless of the maintenance window for the database.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AapplyImmediately%3AStartActivityStreamResponse%27"><span class="annot"><span class="annottext">StartActivityStreamResponse -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AapplyImmediately%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartActivityStreamResponse%27"><span class="annot"><span class="annottext">StartActivityStreamResponse -&gt; Int
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AhttpStatus%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679775198"><span id="local-6989586621679775200"><span class="annot"><span class="annottext">StartActivityStreamResponse -&gt; StartActivityStreamResponse -&gt; Bool
+(StartActivityStreamResponse
+ -&gt; StartActivityStreamResponse -&gt; Bool)
+-&gt; (StartActivityStreamResponse
+    -&gt; StartActivityStreamResponse -&gt; Bool)
+-&gt; Eq StartActivityStreamResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartActivityStreamResponse -&gt; StartActivityStreamResponse -&gt; Bool
+$c/= :: StartActivityStreamResponse -&gt; StartActivityStreamResponse -&gt; Bool
+== :: StartActivityStreamResponse -&gt; StartActivityStreamResponse -&gt; Bool
+$c== :: StartActivityStreamResponse -&gt; StartActivityStreamResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679775190"><span id="local-6989586621679775192"><span id="local-6989586621679775194"><span id="local-6989586621679775196"><span class="annot"><span class="annottext">ReadPrec [StartActivityStreamResponse]
+ReadPrec StartActivityStreamResponse
+Int -&gt; ReadS StartActivityStreamResponse
+ReadS [StartActivityStreamResponse]
+(Int -&gt; ReadS StartActivityStreamResponse)
+-&gt; ReadS [StartActivityStreamResponse]
+-&gt; ReadPrec StartActivityStreamResponse
+-&gt; ReadPrec [StartActivityStreamResponse]
+-&gt; Read StartActivityStreamResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartActivityStreamResponse]
+$creadListPrec :: ReadPrec [StartActivityStreamResponse]
+readPrec :: ReadPrec StartActivityStreamResponse
+$creadPrec :: ReadPrec StartActivityStreamResponse
+readList :: ReadS [StartActivityStreamResponse]
+$creadList :: ReadS [StartActivityStreamResponse]
+readsPrec :: Int -&gt; ReadS StartActivityStreamResponse
+$creadsPrec :: Int -&gt; ReadS StartActivityStreamResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679775184"><span id="local-6989586621679775186"><span id="local-6989586621679775188"><span class="annot"><span class="annottext">Int -&gt; StartActivityStreamResponse -&gt; ShowS
+[StartActivityStreamResponse] -&gt; ShowS
+StartActivityStreamResponse -&gt; String
+(Int -&gt; StartActivityStreamResponse -&gt; ShowS)
+-&gt; (StartActivityStreamResponse -&gt; String)
+-&gt; ([StartActivityStreamResponse] -&gt; ShowS)
+-&gt; Show StartActivityStreamResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartActivityStreamResponse] -&gt; ShowS
+$cshowList :: [StartActivityStreamResponse] -&gt; ShowS
+show :: StartActivityStreamResponse -&gt; String
+$cshow :: StartActivityStreamResponse -&gt; String
+showsPrec :: Int -&gt; StartActivityStreamResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartActivityStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartActivityStreamResponse -&gt; Rep StartActivityStreamResponse x)
+-&gt; (forall x.
+    Rep StartActivityStreamResponse x -&gt; StartActivityStreamResponse)
+-&gt; Generic StartActivityStreamResponse
+forall x.
+Rep StartActivityStreamResponse x -&gt; StartActivityStreamResponse
+forall x.
+StartActivityStreamResponse -&gt; Rep StartActivityStreamResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartActivityStreamResponse x -&gt; StartActivityStreamResponse
+$cfrom :: forall x.
+StartActivityStreamResponse -&gt; Rep StartActivityStreamResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Create a value of 'StartActivityStreamResponse' with all optional fields omitted.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'status', 'startActivityStreamResponse_status' - The status of the database activity stream.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'kinesisStreamName', 'startActivityStreamResponse_kinesisStreamName' - The name of the Amazon Kinesis data stream to be used for the database</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- activity stream.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'engineNativeAuditFieldsIncluded', 'startActivityStreamResponse_engineNativeAuditFieldsIncluded' - Indicates whether engine-native audit fields are included in the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- database activity stream.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'mode', 'startActivityStreamResponse_mode' - The mode of the database activity stream.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'kmsKeyId', 'startActivityStreamResponse_kmsKeyId' - The Amazon Web Services KMS key identifier for encryption of messages in</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- the database activity stream.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'applyImmediately', 'startActivityStreamResponse_applyImmediately' - Indicates whether or not the database activity stream will start as soon</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- as possible, regardless of the maintenance window for the database.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'httpStatus', 'startActivityStreamResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#newStartActivityStreamResponse"><span class="hs-identifier hs-type">newStartActivityStreamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-254"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-255"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-256"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span>
+</span><span id="line-257"></span><span id="newStartActivityStreamResponse"><span class="annot"><span class="annottext">newStartActivityStreamResponse :: Int -&gt; StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#newStartActivityStreamResponse"><span class="hs-identifier hs-var hs-var">newStartActivityStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679775181"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775181"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>  </span><span class="annot"><span class="annottext">StartActivityStreamResponse' :: Maybe ActivityStreamStatus
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ActivityStreamMode
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Int
+-&gt; StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:StartActivityStreamResponse' :: Maybe ActivityStreamStatus
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3Astatus%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisStreamName:StartActivityStreamResponse' :: Maybe Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AkinesisStreamName%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">kinesisStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineNativeAuditFieldsIncluded:StartActivityStreamResponse' :: Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AengineNativeAuditFieldsIncluded%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">engineNativeAuditFieldsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">$sel:mode:StartActivityStreamResponse' :: Maybe ActivityStreamMode
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3Amode%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStreamMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:StartActivityStreamResponse' :: Maybe Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AkmsKeyId%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:applyImmediately:StartActivityStreamResponse' :: Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AapplyImmediately%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartActivityStreamResponse' :: Int
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AhttpStatus%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775181"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The status of the database activity stream.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_status"><span class="hs-identifier hs-type">startActivityStreamResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus"><span class="hs-identifier hs-type">ActivityStreamStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="startActivityStreamResponse_status"><span class="annot"><span class="annottext">startActivityStreamResponse_status :: (Maybe ActivityStreamStatus -&gt; f (Maybe ActivityStreamStatus))
+-&gt; StartActivityStreamResponse -&gt; f StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_status"><span class="hs-identifier hs-var hs-var">startActivityStreamResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStreamResponse -&gt; Maybe ActivityStreamStatus)
+-&gt; (StartActivityStreamResponse
+    -&gt; Maybe ActivityStreamStatus -&gt; StartActivityStreamResponse)
+-&gt; Lens
+     StartActivityStreamResponse
+     StartActivityStreamResponse
+     (Maybe ActivityStreamStatus)
+     (Maybe ActivityStreamStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775180"><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
+status :: Maybe ActivityStreamStatus
+$sel:status:StartActivityStreamResponse' :: StartActivityStreamResponse -&gt; Maybe ActivityStreamStatus
+</span><a href="#local-6989586621679775180"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
+</span><a href="#local-6989586621679775180"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775179"><span class="annot"><span class="annottext">s :: StartActivityStreamResponse
+</span><a href="#local-6989586621679775179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775178"><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
+</span><a href="#local-6989586621679775178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStreamResponse
+</span><a href="#local-6989586621679775179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StartActivityStreamResponse' :: Maybe ActivityStreamStatus
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3Astatus%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
+</span><a href="#local-6989586621679775178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The name of the Amazon Kinesis data stream to be used for the database</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- activity stream.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_kinesisStreamName"><span class="hs-identifier hs-type">startActivityStreamResponse_kinesisStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="startActivityStreamResponse_kinesisStreamName"><span class="annot"><span class="annottext">startActivityStreamResponse_kinesisStreamName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartActivityStreamResponse -&gt; f StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_kinesisStreamName"><span class="hs-identifier hs-var hs-var">startActivityStreamResponse_kinesisStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStreamResponse -&gt; Maybe Text)
+-&gt; (StartActivityStreamResponse
+    -&gt; Maybe Text -&gt; StartActivityStreamResponse)
+-&gt; Lens
+     StartActivityStreamResponse
+     StartActivityStreamResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775177"><span class="annot"><span class="annottext">Maybe Text
+kinesisStreamName :: Maybe Text
+$sel:kinesisStreamName:StartActivityStreamResponse' :: StartActivityStreamResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679775177"><span class="hs-identifier hs-var hs-var">kinesisStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679775177"><span class="hs-identifier hs-var">kinesisStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775176"><span class="annot"><span class="annottext">s :: StartActivityStreamResponse
+</span><a href="#local-6989586621679775176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775175"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679775175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStreamResponse
+</span><a href="#local-6989586621679775176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamName:StartActivityStreamResponse' :: Maybe Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AkinesisStreamName%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">kinesisStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679775175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | Indicates whether engine-native audit fields are included in the</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- database activity stream.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_engineNativeAuditFieldsIncluded"><span class="hs-identifier hs-type">startActivityStreamResponse_engineNativeAuditFieldsIncluded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="startActivityStreamResponse_engineNativeAuditFieldsIncluded"><span class="annot"><span class="annottext">startActivityStreamResponse_engineNativeAuditFieldsIncluded :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; StartActivityStreamResponse -&gt; f StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_engineNativeAuditFieldsIncluded"><span class="hs-identifier hs-var hs-var">startActivityStreamResponse_engineNativeAuditFieldsIncluded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStreamResponse -&gt; Maybe Bool)
+-&gt; (StartActivityStreamResponse
+    -&gt; Maybe Bool -&gt; StartActivityStreamResponse)
+-&gt; Lens
+     StartActivityStreamResponse
+     StartActivityStreamResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775174"><span class="annot"><span class="annottext">Maybe Bool
+engineNativeAuditFieldsIncluded :: Maybe Bool
+$sel:engineNativeAuditFieldsIncluded:StartActivityStreamResponse' :: StartActivityStreamResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679775174"><span class="hs-identifier hs-var hs-var">engineNativeAuditFieldsIncluded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775174"><span class="hs-identifier hs-var">engineNativeAuditFieldsIncluded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775173"><span class="annot"><span class="annottext">s :: StartActivityStreamResponse
+</span><a href="#local-6989586621679775173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775172"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStreamResponse
+</span><a href="#local-6989586621679775173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineNativeAuditFieldsIncluded:StartActivityStreamResponse' :: Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AengineNativeAuditFieldsIncluded%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">engineNativeAuditFieldsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The mode of the database activity stream.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_mode"><span class="hs-identifier hs-type">startActivityStreamResponse_mode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ActivityStreamMode.html#ActivityStreamMode"><span class="hs-identifier hs-type">ActivityStreamMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="startActivityStreamResponse_mode"><span class="annot"><span class="annottext">startActivityStreamResponse_mode :: (Maybe ActivityStreamMode -&gt; f (Maybe ActivityStreamMode))
+-&gt; StartActivityStreamResponse -&gt; f StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_mode"><span class="hs-identifier hs-var hs-var">startActivityStreamResponse_mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStreamResponse -&gt; Maybe ActivityStreamMode)
+-&gt; (StartActivityStreamResponse
+    -&gt; Maybe ActivityStreamMode -&gt; StartActivityStreamResponse)
+-&gt; Lens
+     StartActivityStreamResponse
+     StartActivityStreamResponse
+     (Maybe ActivityStreamMode)
+     (Maybe ActivityStreamMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775171"><span class="annot"><span class="annottext">Maybe ActivityStreamMode
+mode :: Maybe ActivityStreamMode
+$sel:mode:StartActivityStreamResponse' :: StartActivityStreamResponse -&gt; Maybe ActivityStreamMode
+</span><a href="#local-6989586621679775171"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStreamMode
+</span><a href="#local-6989586621679775171"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775170"><span class="annot"><span class="annottext">s :: StartActivityStreamResponse
+</span><a href="#local-6989586621679775170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775169"><span class="annot"><span class="annottext">Maybe ActivityStreamMode
+</span><a href="#local-6989586621679775169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStreamResponse
+</span><a href="#local-6989586621679775170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:StartActivityStreamResponse' :: Maybe ActivityStreamMode
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3Amode%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStreamMode
+</span><a href="#local-6989586621679775169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The Amazon Web Services KMS key identifier for encryption of messages in</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- the database activity stream.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_kmsKeyId"><span class="hs-identifier hs-type">startActivityStreamResponse_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="startActivityStreamResponse_kmsKeyId"><span class="annot"><span class="annottext">startActivityStreamResponse_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartActivityStreamResponse -&gt; f StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_kmsKeyId"><span class="hs-identifier hs-var hs-var">startActivityStreamResponse_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStreamResponse -&gt; Maybe Text)
+-&gt; (StartActivityStreamResponse
+    -&gt; Maybe Text -&gt; StartActivityStreamResponse)
+-&gt; Lens
+     StartActivityStreamResponse
+     StartActivityStreamResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775168"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:StartActivityStreamResponse' :: StartActivityStreamResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679775168"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679775168"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775167"><span class="annot"><span class="annottext">s :: StartActivityStreamResponse
+</span><a href="#local-6989586621679775167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775166"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679775166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStreamResponse
+</span><a href="#local-6989586621679775167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:StartActivityStreamResponse' :: Maybe Text
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AkmsKeyId%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679775166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | Indicates whether or not the database activity stream will start as soon</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- as possible, regardless of the maintenance window for the database.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_applyImmediately"><span class="hs-identifier hs-type">startActivityStreamResponse_applyImmediately</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="startActivityStreamResponse_applyImmediately"><span class="annot"><span class="annottext">startActivityStreamResponse_applyImmediately :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; StartActivityStreamResponse -&gt; f StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_applyImmediately"><span class="hs-identifier hs-var hs-var">startActivityStreamResponse_applyImmediately</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStreamResponse -&gt; Maybe Bool)
+-&gt; (StartActivityStreamResponse
+    -&gt; Maybe Bool -&gt; StartActivityStreamResponse)
+-&gt; Lens
+     StartActivityStreamResponse
+     StartActivityStreamResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775165"><span class="annot"><span class="annottext">Maybe Bool
+applyImmediately :: Maybe Bool
+$sel:applyImmediately:StartActivityStreamResponse' :: StartActivityStreamResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679775165"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775165"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775164"><span class="annot"><span class="annottext">s :: StartActivityStreamResponse
+</span><a href="#local-6989586621679775164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775163"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStreamResponse
+</span><a href="#local-6989586621679775164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:StartActivityStreamResponse' :: Maybe Bool
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AapplyImmediately%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679775163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_httpStatus"><span class="hs-identifier hs-type">startActivityStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-300"></span><span id="startActivityStreamResponse_httpStatus"><span class="annot"><span class="annottext">startActivityStreamResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartActivityStreamResponse -&gt; f StartActivityStreamResponse
+</span><a href="Amazonka.RDS.StartActivityStream.html#startActivityStreamResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startActivityStreamResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartActivityStreamResponse -&gt; Int)
+-&gt; (StartActivityStreamResponse
+    -&gt; Int -&gt; StartActivityStreamResponse)
+-&gt; Lens
+     StartActivityStreamResponse StartActivityStreamResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775162"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartActivityStreamResponse' :: StartActivityStreamResponse -&gt; Int
+</span><a href="#local-6989586621679775162"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775162"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775161"><span class="annot"><span class="annottext">s :: StartActivityStreamResponse
+</span><a href="#local-6989586621679775161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse%27"><span class="hs-identifier hs-type">StartActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775160"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartActivityStreamResponse
+</span><a href="#local-6989586621679775161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartActivityStreamResponse' :: Int
+</span><a href="Amazonka.RDS.StartActivityStream.html#%24sel%3AhttpStatus%3AStartActivityStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679775158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.StartActivityStream.html#StartActivityStreamResponse"><span class="hs-identifier hs-type">StartActivityStreamResponse</span></a></span></span><span>
+</span><span id="line-303"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ChimeSDKIdentity.Types.AppInstance
+module Amazonka.ChimeSDKIdentity.Types.AppInstance
 
 -- | The details of an <tt>AppInstance</tt>, an instance of an Amazon Chime
 --   SDK messaging application.
@@ -73,15 +73,15 @@ appInstance_createdTimestamp :: Lens' AppInstance (Maybe UTCTime)
 -- | The time an <tt>AppInstance</tt> was last updated. In epoch
 --   milliseconds.
 appInstance_lastUpdatedTimestamp :: Lens' AppInstance (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.AppInstance.AppInstance
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.AppInstance.AppInstance
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.AppInstance.AppInstance
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ChimeSDKIdentity.Types.AppInstance.AppInstance
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.AppInstance.AppInstance
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.AppInstance.AppInstance
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.AppInstance.AppInstance
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.AppInstance.AppInstance
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.AppInstance.AppInstance
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ChimeSDKIdentity.Types.AppInstance.AppInstance
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.AppInstance.AppInstance
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.AppInstance.AppInstance
 
 
-module Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary
+module Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary
 
 -- | Summary of the data for an <tt>AppInstance</tt>.
 --   
@@ -127,15 +127,15 @@ appInstanceSummary_metadata :: Lens' AppInstanceSummary (Maybe Text)
 
 -- | The <tt>AppInstance</tt> ARN.
 appInstanceSummary_appInstanceArn :: Lens' AppInstanceSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary.AppInstanceSummary
 
 
-module Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser
+module Amazonka.ChimeSDKIdentity.Types.AppInstanceUser
 
 -- | The details of an <tt>AppInstanceUser</tt>.
 --   
@@ -200,15 +200,15 @@ appInstanceUser_createdTimestamp :: Lens' AppInstanceUser (Maybe UTCTime)
 
 -- | The time at which the <tt>AppInstanceUser</tt> was last updated.
 appInstanceUser_lastUpdatedTimestamp :: Lens' AppInstanceUser (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.AppInstanceUser.AppInstanceUser
 
 
-module Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary
+module Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary
 
 -- | Summary of the details of an <tt>AppInstanceUser</tt>.
 --   
@@ -255,15 +255,15 @@ appInstanceUserSummary_name :: Lens' AppInstanceUserSummary (Maybe Text)
 
 -- | The metadata of the <tt>AppInstanceUser</tt>.
 appInstanceUserSummary_metadata :: Lens' AppInstanceUserSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary.AppInstanceUserSummary
 
 
-module Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings
+module Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
 
 -- | The details of the retention settings for a channel.
 --   
@@ -290,17 +290,17 @@ newChannelRetentionSettings :: ChannelRetentionSettings
 
 -- | The time in days to retain the messages in a channel.
 channelRetentionSettings_retentionDays :: Lens' ChannelRetentionSettings (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings.ChannelRetentionSettings
 
 
-module Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
+module Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
 
 -- | The details of the data-retention settings for an
 --   <tt>AppInstance</tt>.
@@ -328,17 +328,17 @@ newAppInstanceRetentionSettings :: AppInstanceRetentionSettings
 
 -- | The length of time in days to retain the messages in a channel.
 appInstanceRetentionSettings_channelRetentionSettings :: Lens' AppInstanceRetentionSettings (Maybe ChannelRetentionSettings)
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings.AppInstanceRetentionSettings
 
 
-module Network.AWS.ChimeSDKIdentity.Types.Identity
+module Amazonka.ChimeSDKIdentity.Types.Identity
 
 -- | The details of a user.
 --   
@@ -372,15 +372,15 @@ identity_arn :: Lens' Identity (Maybe Text)
 
 -- | The name in an Identity.
 identity_name :: Lens' Identity (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.Identity.Identity
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.Identity.Identity
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.Identity.Identity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ChimeSDKIdentity.Types.Identity.Identity
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.Identity.Identity
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.Identity.Identity
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.Identity.Identity
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.Identity.Identity
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.Identity.Identity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ChimeSDKIdentity.Types.Identity.Identity
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.Identity.Identity
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.Identity.Identity
 
 
-module Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary
+module Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary
 
 -- | Summary of the details of an <tt>AppInstanceAdmin</tt>.
 --   
@@ -407,15 +407,15 @@ newAppInstanceAdminSummary :: AppInstanceAdminSummary
 
 -- | The details of the <tt>AppInstanceAdmin</tt>.
 appInstanceAdminSummary_admin :: Lens' AppInstanceAdminSummary (Maybe Identity)
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary.AppInstanceAdminSummary
 
 
-module Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin
+module Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
 
 -- | The details of an <tt>AppInstanceAdmin</tt>.
 --   
@@ -463,15 +463,15 @@ appInstanceAdmin_appInstanceArn :: Lens' AppInstanceAdmin (Maybe Text)
 
 -- | The time at which an administrator was created.
 appInstanceAdmin_createdTimestamp :: Lens' AppInstanceAdmin (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin.AppInstanceAdmin
 
 
-module Network.AWS.ChimeSDKIdentity.Types.Tag
+module Amazonka.ChimeSDKIdentity.Types.Tag
 
 -- | Describes a tag applied to a resource.
 --   
@@ -503,15 +503,15 @@ tag_key :: Lens' Tag Text
 
 -- | The value of the tag.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ChimeSDKIdentity.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ChimeSDKIdentity.Types.Tag.Tag
 
 
-module Network.AWS.ChimeSDKIdentity.Types
+module Amazonka.ChimeSDKIdentity.Types
 
 -- | API version <tt>2021-04-20</tt> of the Amazon Chime SDK Identity SDK
 --   configuration.
@@ -957,7 +957,7 @@ tag_value :: Lens' Tag Text
 
 -- | Sets the amount of time in days that a given <tt>AppInstance</tt>
 --   retains data.
-module Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings
+module Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings
 
 -- | <i>See:</i> <a>newPutAppInstanceRetentionSettings</a> smart
 --   constructor.
@@ -1041,27 +1041,27 @@ putAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp :: Lens' PutAp
 
 -- | The response's http status code.
 putAppInstanceRetentionSettingsResponse_httpStatus :: Lens' PutAppInstanceRetentionSettingsResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettingsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings.PutAppInstanceRetentionSettings
 
 
 -- | Lists all Amazon Chime <tt>AppInstance</tt>s created under a single
 --   AWS account.
-module Network.AWS.ChimeSDKIdentity.ListAppInstances
+module Amazonka.ChimeSDKIdentity.ListAppInstances
 
 -- | <i>See:</i> <a>newListAppInstances</a> smart constructor.
 data ListAppInstances
@@ -1145,24 +1145,24 @@ listAppInstancesResponse_nextToken :: Lens' ListAppInstancesResponse (Maybe Text
 
 -- | The response's http status code.
 listAppInstancesResponse_httpStatus :: Lens' ListAppInstancesResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstances
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstances
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstances
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstancesResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstancesResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstancesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstances
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstancesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstances
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstances
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstances
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstances
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.ListAppInstances.ListAppInstances
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstances
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstances
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstances
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstancesResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstancesResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstancesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstances
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstancesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstances
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstances
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstances
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstances
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.ListAppInstances.ListAppInstances
 
 
 -- | List all <tt>AppInstanceUsers</tt> created under a single
 --   <tt>AppInstance</tt>.
-module Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers
+module Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
 
 -- | <i>See:</i> <a>newListAppInstanceUsers</a> smart constructor.
 data ListAppInstanceUsers
@@ -1265,23 +1265,23 @@ listAppInstanceUsersResponse_appInstanceArn :: Lens' ListAppInstanceUsersRespons
 
 -- | The response's http status code.
 listAppInstanceUsersResponse_httpStatus :: Lens' ListAppInstanceUsersResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsersResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsersResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsersResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsersResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsersResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsersResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.ListAppInstanceUsers.ListAppInstanceUsers
 
 
 -- | Returns a list of the administrators in the <tt>AppInstance</tt>.
-module Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins
+module Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins
 
 -- | <i>See:</i> <a>newListAppInstanceAdmins</a> smart constructor.
 data ListAppInstanceAdmins
@@ -1385,23 +1385,23 @@ listAppInstanceAdminsResponse_appInstanceArn :: Lens' ListAppInstanceAdminsRespo
 
 -- | The response's http status code.
 listAppInstanceAdminsResponse_httpStatus :: Lens' ListAppInstanceAdminsResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdminsResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdminsResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdminsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdminsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdminsResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdminsResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdminsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdminsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins.ListAppInstanceAdmins
 
 
 -- | Gets the retention settings for an <tt>AppInstance</tt>.
-module Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings
+module Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings
 
 -- | <i>See:</i> <a>newGetAppInstanceRetentionSettings</a> smart
 --   constructor.
@@ -1477,25 +1477,25 @@ getAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp :: Lens' GetAp
 
 -- | The response's http status code.
 getAppInstanceRetentionSettingsResponse_httpStatus :: Lens' GetAppInstanceRetentionSettingsResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettingsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings.GetAppInstanceRetentionSettings
 
 
 -- | Returns the full details of an <tt>AppInstanceUser</tt>.
-module Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser
+module Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser
 
 -- | <i>See:</i> <a>newDescribeAppInstanceUser</a> smart constructor.
 data DescribeAppInstanceUser
@@ -1555,24 +1555,24 @@ describeAppInstanceUserResponse_appInstanceUser :: Lens' DescribeAppInstanceUser
 
 -- | The response's http status code.
 describeAppInstanceUserResponse_httpStatus :: Lens' DescribeAppInstanceUserResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUserResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUserResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUserResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUserResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser.DescribeAppInstanceUser
 
 
 -- | Returns the full details of an <tt>AppInstanceAdmin</tt>.
-module Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin
+module Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin
 
 -- | <i>See:</i> <a>newDescribeAppInstanceAdmin</a> smart constructor.
 data DescribeAppInstanceAdmin
@@ -1648,24 +1648,24 @@ describeAppInstanceAdminResponse_appInstanceAdmin :: Lens' DescribeAppInstanceAd
 
 -- | The response's http status code.
 describeAppInstanceAdminResponse_httpStatus :: Lens' DescribeAppInstanceAdminResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdminResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdminResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdminResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdminResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdminResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdminResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdminResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdminResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin.DescribeAppInstanceAdmin
 
 
 -- | Returns the full details of an <tt>AppInstance</tt>.
-module Network.AWS.ChimeSDKIdentity.DescribeAppInstance
+module Amazonka.ChimeSDKIdentity.DescribeAppInstance
 
 -- | <i>See:</i> <a>newDescribeAppInstance</a> smart constructor.
 data DescribeAppInstance
@@ -1727,24 +1727,24 @@ describeAppInstanceResponse_appInstance :: Lens' DescribeAppInstanceResponse (Ma
 
 -- | The response's http status code.
 describeAppInstanceResponse_httpStatus :: Lens' DescribeAppInstanceResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstanceResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstanceResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstanceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstanceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstanceResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstanceResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstanceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstanceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.DescribeAppInstance.DescribeAppInstance
 
 
 -- | Deletes an <tt>AppInstanceUser</tt>.
-module Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser
+module Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser
 
 -- | <i>See:</i> <a>newDeleteAppInstanceUser</a> smart constructor.
 data DeleteAppInstanceUser
@@ -1780,26 +1780,26 @@ DeleteAppInstanceUserResponse' :: DeleteAppInstanceUserResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteAppInstanceUserResponse :: DeleteAppInstanceUserResponse
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser.DeleteAppInstanceUser
 
 
 -- | Demotes an <tt>AppInstanceAdmin</tt> to an <tt>AppInstanceUser</tt>.
 --   This action does not delete the user.
-module Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin
+module Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
 
 -- | <i>See:</i> <a>newDeleteAppInstanceAdmin</a> smart constructor.
 data DeleteAppInstanceAdmin
@@ -1846,26 +1846,26 @@ DeleteAppInstanceAdminResponse' :: DeleteAppInstanceAdminResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteAppInstanceAdminResponse :: DeleteAppInstanceAdminResponse
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdminResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin.DeleteAppInstanceAdmin
 
 
 -- | Deletes an <tt>AppInstance</tt> and all associated data
 --   asynchronously.
-module Network.AWS.ChimeSDKIdentity.DeleteAppInstance
+module Amazonka.ChimeSDKIdentity.DeleteAppInstance
 
 -- | <i>See:</i> <a>newDeleteAppInstance</a> smart constructor.
 data DeleteAppInstance
@@ -1901,27 +1901,27 @@ DeleteAppInstanceResponse' :: DeleteAppInstanceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteAppInstanceResponse :: DeleteAppInstanceResponse
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstanceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.DeleteAppInstance.DeleteAppInstance
 
 
 -- | Creates a user under an Amazon Chime <tt>AppInstance</tt>. The request
 --   consists of a unique <tt>appInstanceUserId</tt> and <tt>Name</tt> for
 --   that user.
-module Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser
+module Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
 
 -- | <i>See:</i> <a>newCreateAppInstanceUser</a> smart constructor.
 data CreateAppInstanceUser
@@ -2029,21 +2029,21 @@ createAppInstanceUserResponse_appInstanceUserArn :: Lens' CreateAppInstanceUserR
 
 -- | The response's http status code.
 createAppInstanceUserResponse_httpStatus :: Lens' CreateAppInstanceUserResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.CreateAppInstanceUser.CreateAppInstanceUser
 
 
 -- | Promotes an <tt>AppInstanceUser</tt> to an <tt>AppInstanceAdmin</tt>.
@@ -2057,7 +2057,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.CreateAppIn
 --   
 --   Only an <tt>AppInstanceUser</tt> can be promoted to an
 --   <tt>AppInstanceAdmin</tt> role.
-module Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin
+module Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin
 
 -- | <i>See:</i> <a>newCreateAppInstanceAdmin</a> smart constructor.
 data CreateAppInstanceAdmin
@@ -2137,21 +2137,21 @@ createAppInstanceAdminResponse_appInstanceArn :: Lens' CreateAppInstanceAdminRes
 
 -- | The response's http status code.
 createAppInstanceAdminResponse_httpStatus :: Lens' CreateAppInstanceAdminResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdminResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdminResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdminResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdminResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdminResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdminResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdminResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdminResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin.CreateAppInstanceAdmin
 
 
 -- | Creates an Amazon Chime SDK messaging <tt>AppInstance</tt> under an
@@ -2160,7 +2160,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.CreateAppIn
 --   in the AWS API Standard.
 --   
 --   identity
-module Network.AWS.ChimeSDKIdentity.CreateAppInstance
+module Amazonka.ChimeSDKIdentity.CreateAppInstance
 
 -- | <i>See:</i> <a>newCreateAppInstance</a> smart constructor.
 data CreateAppInstance
@@ -2249,25 +2249,25 @@ createAppInstanceResponse_appInstanceArn :: Lens' CreateAppInstanceResponse (May
 
 -- | The response's http status code.
 createAppInstanceResponse_httpStatus :: Lens' CreateAppInstanceResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstanceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.CreateAppInstance.CreateAppInstance
 
 
 -- | Updates <tt>AppInstance</tt> metadata.
-module Network.AWS.ChimeSDKIdentity.UpdateAppInstance
+module Amazonka.ChimeSDKIdentity.UpdateAppInstance
 
 -- | <i>See:</i> <a>newUpdateAppInstance</a> smart constructor.
 data UpdateAppInstance
@@ -2345,26 +2345,26 @@ updateAppInstanceResponse_appInstanceArn :: Lens' UpdateAppInstanceResponse (May
 
 -- | The response's http status code.
 updateAppInstanceResponse_httpStatus :: Lens' UpdateAppInstanceResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstanceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.UpdateAppInstance.UpdateAppInstance
 
 
 -- | Updates the details of an <tt>AppInstanceUser</tt>. You can update
 --   names and metadata.
-module Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser
+module Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser
 
 -- | <i>See:</i> <a>newUpdateAppInstanceUser</a> smart constructor.
 data UpdateAppInstanceUser
@@ -2443,24 +2443,24 @@ updateAppInstanceUserResponse_appInstanceUserArn :: Lens' UpdateAppInstanceUserR
 
 -- | The response's http status code.
 updateAppInstanceUserResponse_httpStatus :: Lens' UpdateAppInstanceUserResponse Int
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
-instance GHC.Generics.Generic Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
-instance GHC.Show.Show Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
-instance GHC.Read.Read Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
-instance GHC.Classes.Eq Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
-instance Control.DeepSeq.NFData Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance GHC.Generics.Generic Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
+instance GHC.Show.Show Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
+instance GHC.Read.Read Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
+instance GHC.Classes.Eq Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance Control.DeepSeq.NFData Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance Amazonka.Data.Path.ToPath Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
+instance Amazonka.Data.Query.ToQuery Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser.UpdateAppInstanceUser
 
 
-module Network.AWS.ChimeSDKIdentity.Lens
+module Amazonka.ChimeSDKIdentity.Lens
 
 -- | The metadata of the <tt>AppInstance</tt>. Limited to a 1KB string in
 --   UTF-8.
@@ -2768,7 +2768,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.ChimeSDKIdentity.Waiters
+module Amazonka.ChimeSDKIdentity.Waiters
 
 
 -- | Derived from API version <tt>2021-04-20</tt> of the AWS service
@@ -2779,7 +2779,7 @@ module Network.AWS.ChimeSDKIdentity.Waiters
 --   applications. These APIs provide the overarching framework for
 --   creating and sending messages. For more information about the identity
 --   APIs, refer to <a>Amazon Chime SDK identity</a>.
-module Network.AWS.ChimeSDKIdentity
+module Amazonka.ChimeSDKIdentity
 
 -- | API version <tt>2021-04-20</tt> of the Amazon Chime SDK Identity SDK
 --   configuration.

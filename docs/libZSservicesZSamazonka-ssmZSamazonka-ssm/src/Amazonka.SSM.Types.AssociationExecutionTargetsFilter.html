@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.AssociationExecutionTargetsFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.AssociationExecutionTargetsFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilterKey.html"><span class="hs-identifier">Amazonka.SSM.Types.AssociationExecutionTargetsFilterKey</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Filters for the association execution.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAssociationExecutionTargetsFilter' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679786425"><span id="local-6989586621679786426"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociationExecutionTargetsFilter"><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter"><span class="hs-identifier hs-var">AssociationExecutionTargetsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationExecutionTargetsFilter%27"><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-var">AssociationExecutionTargetsFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key value used in the request.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3AAssociationExecutionTargetsFilter%27"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilter
+-&gt; AssociationExecutionTargetsFilterKey
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#%24sel%3Akey%3AAssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The value specified for the key.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AAssociationExecutionTargetsFilter%27"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilter -&gt; Text
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#%24sel%3Avalue%3AAssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679786418"><span id="local-6989586621679786420"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilter
+-&gt; AssociationExecutionTargetsFilter -&gt; Bool
+(AssociationExecutionTargetsFilter
+ -&gt; AssociationExecutionTargetsFilter -&gt; Bool)
+-&gt; (AssociationExecutionTargetsFilter
+    -&gt; AssociationExecutionTargetsFilter -&gt; Bool)
+-&gt; Eq AssociationExecutionTargetsFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociationExecutionTargetsFilter
+-&gt; AssociationExecutionTargetsFilter -&gt; Bool
+$c/= :: AssociationExecutionTargetsFilter
+-&gt; AssociationExecutionTargetsFilter -&gt; Bool
+== :: AssociationExecutionTargetsFilter
+-&gt; AssociationExecutionTargetsFilter -&gt; Bool
+$c== :: AssociationExecutionTargetsFilter
+-&gt; AssociationExecutionTargetsFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786409"><span id="local-6989586621679786411"><span id="local-6989586621679786413"><span id="local-6989586621679786415"><span class="annot"><span class="annottext">ReadPrec [AssociationExecutionTargetsFilter]
+ReadPrec AssociationExecutionTargetsFilter
+Int -&gt; ReadS AssociationExecutionTargetsFilter
+ReadS [AssociationExecutionTargetsFilter]
+(Int -&gt; ReadS AssociationExecutionTargetsFilter)
+-&gt; ReadS [AssociationExecutionTargetsFilter]
+-&gt; ReadPrec AssociationExecutionTargetsFilter
+-&gt; ReadPrec [AssociationExecutionTargetsFilter]
+-&gt; Read AssociationExecutionTargetsFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociationExecutionTargetsFilter]
+$creadListPrec :: ReadPrec [AssociationExecutionTargetsFilter]
+readPrec :: ReadPrec AssociationExecutionTargetsFilter
+$creadPrec :: ReadPrec AssociationExecutionTargetsFilter
+readList :: ReadS [AssociationExecutionTargetsFilter]
+$creadList :: ReadS [AssociationExecutionTargetsFilter]
+readsPrec :: Int -&gt; ReadS AssociationExecutionTargetsFilter
+$creadsPrec :: Int -&gt; ReadS AssociationExecutionTargetsFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786402"><span id="local-6989586621679786404"><span id="local-6989586621679786406"><span class="annot"><span class="annottext">Int -&gt; AssociationExecutionTargetsFilter -&gt; ShowS
+[AssociationExecutionTargetsFilter] -&gt; ShowS
+AssociationExecutionTargetsFilter -&gt; String
+(Int -&gt; AssociationExecutionTargetsFilter -&gt; ShowS)
+-&gt; (AssociationExecutionTargetsFilter -&gt; String)
+-&gt; ([AssociationExecutionTargetsFilter] -&gt; ShowS)
+-&gt; Show AssociationExecutionTargetsFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociationExecutionTargetsFilter] -&gt; ShowS
+$cshowList :: [AssociationExecutionTargetsFilter] -&gt; ShowS
+show :: AssociationExecutionTargetsFilter -&gt; String
+$cshow :: AssociationExecutionTargetsFilter -&gt; String
+showsPrec :: Int -&gt; AssociationExecutionTargetsFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociationExecutionTargetsFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociationExecutionTargetsFilter
+ -&gt; Rep AssociationExecutionTargetsFilter x)
+-&gt; (forall x.
+    Rep AssociationExecutionTargetsFilter x
+    -&gt; AssociationExecutionTargetsFilter)
+-&gt; Generic AssociationExecutionTargetsFilter
+forall x.
+Rep AssociationExecutionTargetsFilter x
+-&gt; AssociationExecutionTargetsFilter
+forall x.
+AssociationExecutionTargetsFilter
+-&gt; Rep AssociationExecutionTargetsFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociationExecutionTargetsFilter x
+-&gt; AssociationExecutionTargetsFilter
+$cfrom :: forall x.
+AssociationExecutionTargetsFilter
+-&gt; Rep AssociationExecutionTargetsFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'AssociationExecutionTargetsFilter' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'key', 'associationExecutionTargetsFilter_key' - The key value used in the request.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'value', 'associationExecutionTargetsFilter_value' - The value specified for the key.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#newAssociationExecutionTargetsFilter"><span class="hs-identifier hs-type">newAssociationExecutionTargetsFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'value'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter</span></a></span><span>
+</span><span id="line-55"></span><span id="newAssociationExecutionTargetsFilter"><span class="annot"><span class="annottext">newAssociationExecutionTargetsFilter :: AssociationExecutionTargetsFilterKey
+-&gt; Text -&gt; AssociationExecutionTargetsFilter
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#newAssociationExecutionTargetsFilter"><span class="hs-identifier hs-var hs-var">newAssociationExecutionTargetsFilter</span></a></span></span><span> </span><span id="local-6989586621679786396"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey
+</span><a href="#local-6989586621679786396"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679786395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786395"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">AssociationExecutionTargetsFilter' :: AssociationExecutionTargetsFilterKey
+-&gt; Text -&gt; AssociationExecutionTargetsFilter
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:AssociationExecutionTargetsFilter' :: AssociationExecutionTargetsFilterKey
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#%24sel%3Akey%3AAssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey
+</span><a href="#local-6989586621679786396"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:AssociationExecutionTargetsFilter' :: Text
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#%24sel%3Avalue%3AAssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786395"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The key value used in the request.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#associationExecutionTargetsFilter_key"><span class="hs-identifier hs-type">associationExecutionTargetsFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilterKey.html#AssociationExecutionTargetsFilterKey"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilterKey</span></a></span><span>
+</span><span id="line-63"></span><span id="associationExecutionTargetsFilter_key"><span class="annot"><span class="annottext">associationExecutionTargetsFilter_key :: (AssociationExecutionTargetsFilterKey
+ -&gt; f AssociationExecutionTargetsFilterKey)
+-&gt; AssociationExecutionTargetsFilter
+-&gt; f AssociationExecutionTargetsFilter
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#associationExecutionTargetsFilter_key"><span class="hs-identifier hs-var hs-var">associationExecutionTargetsFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTargetsFilter
+ -&gt; AssociationExecutionTargetsFilterKey)
+-&gt; (AssociationExecutionTargetsFilter
+    -&gt; AssociationExecutionTargetsFilterKey
+    -&gt; AssociationExecutionTargetsFilter)
+-&gt; Lens
+     AssociationExecutionTargetsFilter
+     AssociationExecutionTargetsFilter
+     AssociationExecutionTargetsFilterKey
+     AssociationExecutionTargetsFilterKey
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786391"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey
+key :: AssociationExecutionTargetsFilterKey
+$sel:key:AssociationExecutionTargetsFilter' :: AssociationExecutionTargetsFilter
+-&gt; AssociationExecutionTargetsFilterKey
+</span><a href="#local-6989586621679786391"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey
+</span><a href="#local-6989586621679786391"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786390"><span class="annot"><span class="annottext">s :: AssociationExecutionTargetsFilter
+</span><a href="#local-6989586621679786390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786389"><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey
+</span><a href="#local-6989586621679786389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTargetsFilter
+</span><a href="#local-6989586621679786390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:AssociationExecutionTargetsFilter' :: AssociationExecutionTargetsFilterKey
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#%24sel%3Akey%3AAssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey
+</span><a href="#local-6989586621679786389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The value specified for the key.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#associationExecutionTargetsFilter_value"><span class="hs-identifier hs-type">associationExecutionTargetsFilter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span id="associationExecutionTargetsFilter_value"><span class="annot"><span class="annottext">associationExecutionTargetsFilter_value :: (Text -&gt; f Text)
+-&gt; AssociationExecutionTargetsFilter
+-&gt; f AssociationExecutionTargetsFilter
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#associationExecutionTargetsFilter_value"><span class="hs-identifier hs-var hs-var">associationExecutionTargetsFilter_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTargetsFilter -&gt; Text)
+-&gt; (AssociationExecutionTargetsFilter
+    -&gt; Text -&gt; AssociationExecutionTargetsFilter)
+-&gt; Lens
+     AssociationExecutionTargetsFilter
+     AssociationExecutionTargetsFilter
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786387"><span class="annot"><span class="annottext">Text
+value :: Text
+$sel:value:AssociationExecutionTargetsFilter' :: AssociationExecutionTargetsFilter -&gt; Text
+</span><a href="#local-6989586621679786387"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786387"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786386"><span class="annot"><span class="annottext">s :: AssociationExecutionTargetsFilter
+</span><a href="#local-6989586621679786386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTargetsFilter
+</span><a href="#local-6989586621679786386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AssociationExecutionTargetsFilter' :: Text
+</span><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#%24sel%3Avalue%3AAssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679786381"><span id="local-6989586621679786383"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679786378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679786370"><span id="local-6989586621679786372"><span id="local-6989586621679786374"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter</span></a></span></span></span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679786368"><span class="annot"><span class="annottext">toJSON :: AssociationExecutionTargetsFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationExecutionTargetsFilter.html#AssociationExecutionTargetsFilter%27"><span class="hs-identifier hs-type">AssociationExecutionTargetsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786365"><span id="local-6989586621679786366"><span class="annot"><span class="annottext">Text
+AssociationExecutionTargetsFilterKey
+value :: Text
+key :: AssociationExecutionTargetsFilterKey
+$sel:value:AssociationExecutionTargetsFilter' :: AssociationExecutionTargetsFilter -&gt; Text
+$sel:key:AssociationExecutionTargetsFilter' :: AssociationExecutionTargetsFilter
+-&gt; AssociationExecutionTargetsFilterKey
+</span><a href="#local-6989586621679786365"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AssociationExecutionTargetsFilterKey -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTargetsFilterKey
+</span><a href="#local-6989586621679786366"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679786365"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span></pre></body></html>

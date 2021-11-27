@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.NetworkFirewall.Types.ResourceStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkFirewall.Types.ResourceStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier">ResourceStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus_ACTIVE"><span class="hs-identifier">ResourceStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus_DELETING"><span class="hs-identifier">ResourceStatus_DELETING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679238653"><span id="local-6989586621679238654"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceStatus"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-var">ResourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceStatus%27"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-var">ResourceStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceStatus"><span class="annot"><span class="annottext">ResourceStatus -&gt; Text
+</span><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#fromResourceStatus"><span class="hs-identifier hs-var hs-var">fromResourceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238645"><span id="local-6989586621679238647"><span id="local-6989586621679238649"><span class="annot"><span class="annottext">Int -&gt; ResourceStatus -&gt; ShowS
+[ResourceStatus] -&gt; ShowS
+ResourceStatus -&gt; String
+(Int -&gt; ResourceStatus -&gt; ShowS)
+-&gt; (ResourceStatus -&gt; String)
+-&gt; ([ResourceStatus] -&gt; ShowS)
+-&gt; Show ResourceStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceStatus] -&gt; ShowS
+$cshowList :: [ResourceStatus] -&gt; ShowS
+show :: ResourceStatus -&gt; String
+$cshow :: ResourceStatus -&gt; String
+showsPrec :: Int -&gt; ResourceStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679238636"><span id="local-6989586621679238638"><span id="local-6989586621679238640"><span id="local-6989586621679238642"><span class="annot"><span class="annottext">ReadPrec [ResourceStatus]
+ReadPrec ResourceStatus
+Int -&gt; ReadS ResourceStatus
+ReadS [ResourceStatus]
+(Int -&gt; ReadS ResourceStatus)
+-&gt; ReadS [ResourceStatus]
+-&gt; ReadPrec ResourceStatus
+-&gt; ReadPrec [ResourceStatus]
+-&gt; Read ResourceStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceStatus]
+$creadListPrec :: ReadPrec [ResourceStatus]
+readPrec :: ReadPrec ResourceStatus
+$creadPrec :: ReadPrec ResourceStatus
+readList :: ReadS [ResourceStatus]
+$creadList :: ReadS [ResourceStatus]
+readsPrec :: Int -&gt; ReadS ResourceStatus
+$creadsPrec :: Int -&gt; ReadS ResourceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679238631"><span id="local-6989586621679238633"><span class="annot"><span class="annottext">ResourceStatus -&gt; ResourceStatus -&gt; Bool
+(ResourceStatus -&gt; ResourceStatus -&gt; Bool)
+-&gt; (ResourceStatus -&gt; ResourceStatus -&gt; Bool) -&gt; Eq ResourceStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+$c/= :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+== :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+$c== :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679238615"><span id="local-6989586621679238617"><span id="local-6989586621679238619"><span id="local-6989586621679238621"><span id="local-6989586621679238623"><span id="local-6989586621679238625"><span id="local-6989586621679238627"><span class="annot"><span class="annottext">Eq ResourceStatus
+Eq ResourceStatus
+-&gt; (ResourceStatus -&gt; ResourceStatus -&gt; Ordering)
+-&gt; (ResourceStatus -&gt; ResourceStatus -&gt; Bool)
+-&gt; (ResourceStatus -&gt; ResourceStatus -&gt; Bool)
+-&gt; (ResourceStatus -&gt; ResourceStatus -&gt; Bool)
+-&gt; (ResourceStatus -&gt; ResourceStatus -&gt; Bool)
+-&gt; (ResourceStatus -&gt; ResourceStatus -&gt; ResourceStatus)
+-&gt; (ResourceStatus -&gt; ResourceStatus -&gt; ResourceStatus)
+-&gt; Ord ResourceStatus
+ResourceStatus -&gt; ResourceStatus -&gt; Bool
+ResourceStatus -&gt; ResourceStatus -&gt; Ordering
+ResourceStatus -&gt; ResourceStatus -&gt; ResourceStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResourceStatus -&gt; ResourceStatus -&gt; ResourceStatus
+$cmin :: ResourceStatus -&gt; ResourceStatus -&gt; ResourceStatus
+max :: ResourceStatus -&gt; ResourceStatus -&gt; ResourceStatus
+$cmax :: ResourceStatus -&gt; ResourceStatus -&gt; ResourceStatus
+&gt;= :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+$c&gt;= :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+&gt; :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+$c&gt; :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+&lt;= :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+$c&lt;= :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+&lt; :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+$c&lt; :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
+compare :: ResourceStatus -&gt; ResourceStatus -&gt; Ordering
+$ccompare :: ResourceStatus -&gt; ResourceStatus -&gt; Ordering
+$cp1Ord :: Eq ResourceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ResourceStatus -&gt; Rep ResourceStatus x)
+-&gt; (forall x. Rep ResourceStatus x -&gt; ResourceStatus)
+-&gt; Generic ResourceStatus
+forall x. Rep ResourceStatus x -&gt; ResourceStatus
+forall x. ResourceStatus -&gt; Rep ResourceStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceStatus x -&gt; ResourceStatus
+$cfrom :: forall x. ResourceStatus -&gt; Rep ResourceStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238607"><span id="local-6989586621679238609"><span class="annot"><span class="annottext">Int -&gt; ResourceStatus -&gt; Int
+ResourceStatus -&gt; Int
+(Int -&gt; ResourceStatus -&gt; Int)
+-&gt; (ResourceStatus -&gt; Int) -&gt; Hashable ResourceStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResourceStatus -&gt; Int
+$chash :: ResourceStatus -&gt; Int
+hashWithSalt :: Int -&gt; ResourceStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ResourceStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679238604"><span class="annot"><span class="annottext">ResourceStatus -&gt; ()
+(ResourceStatus -&gt; ()) -&gt; NFData ResourceStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResourceStatus -&gt; ()
+$crnf :: ResourceStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679238601"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceStatus
+(Text -&gt; Either String ResourceStatus) -&gt; FromText ResourceStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResourceStatus
+$cfromText :: Text -&gt; Either String ResourceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679238598"><span class="annot"><span class="annottext">ResourceStatus -&gt; Text
+(ResourceStatus -&gt; Text) -&gt; ToText ResourceStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResourceStatus -&gt; Text
+$ctoText :: ResourceStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679238595"><span class="annot"><span class="annottext">ResourceStatus -&gt; ByteString
+(ResourceStatus -&gt; ByteString) -&gt; ToByteString ResourceStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResourceStatus -&gt; ByteString
+$ctoBS :: ResourceStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679238592"><span class="annot"><span class="annottext">ResourceStatus -&gt; ByteStringBuilder
+(ResourceStatus -&gt; ByteStringBuilder) -&gt; ToLog ResourceStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResourceStatus -&gt; ByteStringBuilder
+$cbuild :: ResourceStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679238589"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceStatus -&gt; [Header]
+(HeaderName -&gt; ResourceStatus -&gt; [Header])
+-&gt; ToHeader ResourceStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResourceStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResourceStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679238586"><span class="annot"><span class="annottext">ResourceStatus -&gt; QueryString
+(ResourceStatus -&gt; QueryString) -&gt; ToQuery ResourceStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResourceStatus -&gt; QueryString
+$ctoQuery :: ResourceStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679238581"><span id="local-6989586621679238583"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceStatus]
+Value -&gt; Parser ResourceStatus
+(Value -&gt; Parser ResourceStatus)
+-&gt; (Value -&gt; Parser [ResourceStatus]) -&gt; FromJSON ResourceStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResourceStatus]
+$cparseJSONList :: Value -&gt; Parser [ResourceStatus]
+parseJSON :: Value -&gt; Parser ResourceStatus
+$cparseJSON :: Value -&gt; Parser ResourceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679238576"><span id="local-6989586621679238578"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceStatus]
+FromJSONKeyFunction ResourceStatus
+FromJSONKeyFunction ResourceStatus
+-&gt; FromJSONKeyFunction [ResourceStatus]
+-&gt; FromJSONKey ResourceStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResourceStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResourceStatus]
+fromJSONKey :: FromJSONKeyFunction ResourceStatus
+$cfromJSONKey :: FromJSONKeyFunction ResourceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679238567"><span id="local-6989586621679238569"><span id="local-6989586621679238571"><span id="local-6989586621679238573"><span class="annot"><span class="annottext">[ResourceStatus] -&gt; Encoding
+[ResourceStatus] -&gt; Value
+ResourceStatus -&gt; Encoding
+ResourceStatus -&gt; Value
+(ResourceStatus -&gt; Value)
+-&gt; (ResourceStatus -&gt; Encoding)
+-&gt; ([ResourceStatus] -&gt; Value)
+-&gt; ([ResourceStatus] -&gt; Encoding)
+-&gt; ToJSON ResourceStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResourceStatus] -&gt; Encoding
+$ctoEncodingList :: [ResourceStatus] -&gt; Encoding
+toJSONList :: [ResourceStatus] -&gt; Value
+$ctoJSONList :: [ResourceStatus] -&gt; Value
+toEncoding :: ResourceStatus -&gt; Encoding
+$ctoEncoding :: ResourceStatus -&gt; Encoding
+toJSON :: ResourceStatus -&gt; Value
+$ctoJSON :: ResourceStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679238562"><span id="local-6989586621679238564"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceStatus]
+ToJSONKeyFunction ResourceStatus
+ToJSONKeyFunction ResourceStatus
+-&gt; ToJSONKeyFunction [ResourceStatus] -&gt; ToJSONKey ResourceStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResourceStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResourceStatus]
+toJSONKey :: ToJSONKeyFunction ResourceStatus
+$ctoJSONKey :: ToJSONKeyFunction ResourceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679238559"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceStatus
+([Node] -&gt; Either String ResourceStatus) -&gt; FromXML ResourceStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResourceStatus
+$cparseXML :: [Node] -&gt; Either String ResourceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679238556"><span class="annot"><span class="annottext">ResourceStatus -&gt; XML
+(ResourceStatus -&gt; XML) -&gt; ToXML ResourceStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResourceStatus -&gt; XML
+$ctoXML :: ResourceStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus_ACTIVE"><span class="hs-identifier hs-type">ResourceStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceStatus_ACTIVE"><span id="%24mResourceStatus_ACTIVE"><span id="ResourceStatus_ACTIVE"><span class="annot"><span class="annottext">$bResourceStatus_ACTIVE :: ResourceStatus
+$mResourceStatus_ACTIVE :: forall r. ResourceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#%24bResourceStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">ResourceStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-type">ResourceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus_DELETING"><span class="hs-identifier hs-type">ResourceStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceStatus_DELETING"><span id="%24mResourceStatus_DELETING"><span id="ResourceStatus_DELETING"><span class="annot"><span class="annottext">$bResourceStatus_DELETING :: ResourceStatus
+$mResourceStatus_DELETING :: forall r. ResourceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#%24bResourceStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ResourceStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-type">ResourceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus_ACTIVE"><span class="hs-pragma hs-type">ResourceStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus_DELETING"><span class="hs-pragma hs-type">ResourceStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-pragma hs-type">ResourceStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

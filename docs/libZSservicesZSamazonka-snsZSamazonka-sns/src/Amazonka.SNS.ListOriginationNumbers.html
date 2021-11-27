@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SNS.ListOriginationNumbers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the calling account\'s dedicated origination numbers and their</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- metadata. For more information about origination numbers, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html Origination numbers&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SNS.ListOriginationNumbers</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier">ListOriginationNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#newListOriginationNumbers"><span class="hs-identifier">newListOriginationNumbers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbers_nextToken"><span class="hs-identifier">listOriginationNumbers_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbers_maxResults"><span class="hs-identifier">listOriginationNumbers_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier">ListOriginationNumbersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#newListOriginationNumbersResponse"><span class="hs-identifier">newListOriginationNumbersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_nextToken"><span class="hs-identifier">listOriginationNumbersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_phoneNumbers"><span class="hs-identifier">listOriginationNumbersResponse_phoneNumbers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_httpStatus"><span class="hs-identifier">listOriginationNumbersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.html"><span class="hs-identifier">Amazonka.SNS.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListOriginationNumbers' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679196411"><span id="local-6989586621679196412"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOriginationNumbers"><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-var">ListOriginationNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOriginationNumbers%27"><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers%27"><span class="hs-identifier hs-var">ListOriginationNumbers'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Token that the previous @ListOriginationNumbers@ request returns.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListOriginationNumbers%27"><span class="annot"><span class="annottext">ListOriginationNumbers -&gt; Maybe Text
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AnextToken%3AListOriginationNumbers%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of origination numbers to return.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListOriginationNumbers%27"><span class="annot"><span class="annottext">ListOriginationNumbers -&gt; Maybe Natural
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AmaxResults%3AListOriginationNumbers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196404"><span id="local-6989586621679196406"><span class="annot"><span class="annottext">ListOriginationNumbers -&gt; ListOriginationNumbers -&gt; Bool
+(ListOriginationNumbers -&gt; ListOriginationNumbers -&gt; Bool)
+-&gt; (ListOriginationNumbers -&gt; ListOriginationNumbers -&gt; Bool)
+-&gt; Eq ListOriginationNumbers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListOriginationNumbers -&gt; ListOriginationNumbers -&gt; Bool
+$c/= :: ListOriginationNumbers -&gt; ListOriginationNumbers -&gt; Bool
+== :: ListOriginationNumbers -&gt; ListOriginationNumbers -&gt; Bool
+$c== :: ListOriginationNumbers -&gt; ListOriginationNumbers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196395"><span id="local-6989586621679196397"><span id="local-6989586621679196399"><span id="local-6989586621679196401"><span class="annot"><span class="annottext">ReadPrec [ListOriginationNumbers]
+ReadPrec ListOriginationNumbers
+Int -&gt; ReadS ListOriginationNumbers
+ReadS [ListOriginationNumbers]
+(Int -&gt; ReadS ListOriginationNumbers)
+-&gt; ReadS [ListOriginationNumbers]
+-&gt; ReadPrec ListOriginationNumbers
+-&gt; ReadPrec [ListOriginationNumbers]
+-&gt; Read ListOriginationNumbers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListOriginationNumbers]
+$creadListPrec :: ReadPrec [ListOriginationNumbers]
+readPrec :: ReadPrec ListOriginationNumbers
+$creadPrec :: ReadPrec ListOriginationNumbers
+readList :: ReadS [ListOriginationNumbers]
+$creadList :: ReadS [ListOriginationNumbers]
+readsPrec :: Int -&gt; ReadS ListOriginationNumbers
+$creadsPrec :: Int -&gt; ReadS ListOriginationNumbers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196388"><span id="local-6989586621679196390"><span id="local-6989586621679196392"><span class="annot"><span class="annottext">Int -&gt; ListOriginationNumbers -&gt; ShowS
+[ListOriginationNumbers] -&gt; ShowS
+ListOriginationNumbers -&gt; String
+(Int -&gt; ListOriginationNumbers -&gt; ShowS)
+-&gt; (ListOriginationNumbers -&gt; String)
+-&gt; ([ListOriginationNumbers] -&gt; ShowS)
+-&gt; Show ListOriginationNumbers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListOriginationNumbers] -&gt; ShowS
+$cshowList :: [ListOriginationNumbers] -&gt; ShowS
+show :: ListOriginationNumbers -&gt; String
+$cshow :: ListOriginationNumbers -&gt; String
+showsPrec :: Int -&gt; ListOriginationNumbers -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListOriginationNumbers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListOriginationNumbers -&gt; Rep ListOriginationNumbers x)
+-&gt; (forall x.
+    Rep ListOriginationNumbers x -&gt; ListOriginationNumbers)
+-&gt; Generic ListOriginationNumbers
+forall x. Rep ListOriginationNumbers x -&gt; ListOriginationNumbers
+forall x. ListOriginationNumbers -&gt; Rep ListOriginationNumbers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListOriginationNumbers x -&gt; ListOriginationNumbers
+$cfrom :: forall x. ListOriginationNumbers -&gt; Rep ListOriginationNumbers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ListOriginationNumbers' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nextToken', 'listOriginationNumbers_nextToken' - Token that the previous @ListOriginationNumbers@ request returns.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'maxResults', 'listOriginationNumbers_maxResults' - The maximum number of origination numbers to return.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#newListOriginationNumbers"><span class="hs-identifier hs-type">newListOriginationNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span>
+</span><span id="line-78"></span><span id="newListOriginationNumbers"><span class="annot"><span class="annottext">newListOriginationNumbers :: ListOriginationNumbers
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#newListOriginationNumbers"><span class="hs-identifier hs-var hs-var">newListOriginationNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">ListOriginationNumbers' :: Maybe Text -&gt; Maybe Natural -&gt; ListOriginationNumbers
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers%27"><span class="hs-identifier hs-type">ListOriginationNumbers'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListOriginationNumbers' :: Maybe Text
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AnextToken%3AListOriginationNumbers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListOriginationNumbers' :: Maybe Natural
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AmaxResults%3AListOriginationNumbers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Token that the previous @ListOriginationNumbers@ request returns.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbers_nextToken"><span class="hs-identifier hs-type">listOriginationNumbers_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="listOriginationNumbers_nextToken"><span class="annot"><span class="annottext">listOriginationNumbers_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListOriginationNumbers -&gt; f ListOriginationNumbers
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbers_nextToken"><span class="hs-identifier hs-var hs-var">listOriginationNumbers_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOriginationNumbers -&gt; Maybe Text)
+-&gt; (ListOriginationNumbers -&gt; Maybe Text -&gt; ListOriginationNumbers)
+-&gt; Lens
+     ListOriginationNumbers
+     ListOriginationNumbers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers%27"><span class="hs-identifier hs-type">ListOriginationNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196382"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListOriginationNumbers' :: ListOriginationNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679196382"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196382"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196381"><span class="annot"><span class="annottext">s :: ListOriginationNumbers
+</span><a href="#local-6989586621679196381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers%27"><span class="hs-identifier hs-type">ListOriginationNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginationNumbers
+</span><a href="#local-6989586621679196381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOriginationNumbers' :: Maybe Text
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AnextToken%3AListOriginationNumbers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The maximum number of origination numbers to return.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbers_maxResults"><span class="hs-identifier hs-type">listOriginationNumbers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="listOriginationNumbers_maxResults"><span class="annot"><span class="annottext">listOriginationNumbers_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListOriginationNumbers -&gt; f ListOriginationNumbers
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbers_maxResults"><span class="hs-identifier hs-var hs-var">listOriginationNumbers_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOriginationNumbers -&gt; Maybe Natural)
+-&gt; (ListOriginationNumbers
+    -&gt; Maybe Natural -&gt; ListOriginationNumbers)
+-&gt; Lens
+     ListOriginationNumbers
+     ListOriginationNumbers
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers%27"><span class="hs-identifier hs-type">ListOriginationNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196379"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListOriginationNumbers' :: ListOriginationNumbers -&gt; Maybe Natural
+</span><a href="#local-6989586621679196379"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679196379"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196378"><span class="annot"><span class="annottext">s :: ListOriginationNumbers
+</span><a href="#local-6989586621679196378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers%27"><span class="hs-identifier hs-type">ListOriginationNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196377"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679196377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginationNumbers
+</span><a href="#local-6989586621679196378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListOriginationNumbers' :: Maybe Natural
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AmaxResults%3AListOriginationNumbers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679196377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679196373"><span class="annot"><span class="annottext">page :: ListOriginationNumbers
+-&gt; AWSResponse ListOriginationNumbers
+-&gt; Maybe ListOriginationNumbers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679196371"><span class="annot"><span class="annottext">ListOriginationNumbers
+</span><a href="#local-6989586621679196371"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679196370"><span class="annot"><span class="annottext">AWSResponse ListOriginationNumbers
+</span><a href="#local-6989586621679196370"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-96"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOriginationNumbers
+ListOriginationNumbersResponse
+</span><a href="#local-6989586621679196370"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">ListOriginationNumbersResponse
+-&gt; Getting (First Text) ListOriginationNumbersResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListOriginationNumbersResponse
+-&gt; Const (First Text) ListOriginationNumbersResponse
+Lens' ListOriginationNumbersResponse (Maybe Text)
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_nextToken"><span class="hs-identifier hs-var">listOriginationNumbersResponse_nextToken</span></a></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListOriginationNumbersResponse
+ -&gt; Const (First Text) ListOriginationNumbersResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListOriginationNumbersResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-99"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListOriginationNumbers
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumberInformation] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOriginationNumbers
+ListOriginationNumbersResponse
+</span><a href="#local-6989586621679196370"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ListOriginationNumbersResponse
+-&gt; Getting
+     (First [PhoneNumberInformation])
+     ListOriginationNumbersResponse
+     [PhoneNumberInformation]
+-&gt; Maybe [PhoneNumberInformation]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [PhoneNumberInformation]
+ -&gt; Const
+      (First [PhoneNumberInformation]) (Maybe [PhoneNumberInformation]))
+-&gt; ListOriginationNumbersResponse
+-&gt; Const
+     (First [PhoneNumberInformation]) ListOriginationNumbersResponse
+Lens'
+  ListOriginationNumbersResponse (Maybe [PhoneNumberInformation])
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_phoneNumbers"><span class="hs-identifier hs-var">listOriginationNumbersResponse_phoneNumbers</span></a></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [PhoneNumberInformation]
+  -&gt; Const
+       (First [PhoneNumberInformation]) (Maybe [PhoneNumberInformation]))
+ -&gt; ListOriginationNumbersResponse
+ -&gt; Const
+      (First [PhoneNumberInformation]) ListOriginationNumbersResponse)
+-&gt; (([PhoneNumberInformation]
+     -&gt; Const (First [PhoneNumberInformation]) [PhoneNumberInformation])
+    -&gt; Maybe [PhoneNumberInformation]
+    -&gt; Const
+         (First [PhoneNumberInformation]) (Maybe [PhoneNumberInformation]))
+-&gt; Getting
+     (First [PhoneNumberInformation])
+     ListOriginationNumbersResponse
+     [PhoneNumberInformation]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PhoneNumberInformation]
+ -&gt; Const (First [PhoneNumberInformation]) [PhoneNumberInformation])
+-&gt; Maybe [PhoneNumberInformation]
+-&gt; Const
+     (First [PhoneNumberInformation]) (Maybe [PhoneNumberInformation])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-105"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListOriginationNumbers
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">ListOriginationNumbers -&gt; Maybe ListOriginationNumbers
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListOriginationNumbers -&gt; Maybe ListOriginationNumbers)
+-&gt; ListOriginationNumbers -&gt; Maybe ListOriginationNumbers
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">ListOriginationNumbers
+</span><a href="#local-6989586621679196371"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">ListOriginationNumbers
+-&gt; (ListOriginationNumbers -&gt; ListOriginationNumbers)
+-&gt; ListOriginationNumbers
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListOriginationNumbers -&gt; Identity ListOriginationNumbers
+Lens
+  ListOriginationNumbers
+  ListOriginationNumbers
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbers_nextToken"><span class="hs-identifier hs-var">listOriginationNumbers_nextToken</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListOriginationNumbers -&gt; Identity ListOriginationNumbers)
+-&gt; Maybe Text -&gt; ListOriginationNumbers -&gt; ListOriginationNumbers
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOriginationNumbers
+ListOriginationNumbersResponse
+</span><a href="#local-6989586621679196370"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListOriginationNumbersResponse
+-&gt; Getting (First Text) ListOriginationNumbersResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListOriginationNumbersResponse
+-&gt; Const (First Text) ListOriginationNumbersResponse
+Lens' ListOriginationNumbersResponse (Maybe Text)
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_nextToken"><span class="hs-identifier hs-var">listOriginationNumbersResponse_nextToken</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListOriginationNumbersResponse
+ -&gt; Const (First Text) ListOriginationNumbersResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListOriginationNumbersResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-type">ListOriginationNumbersResponse</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679196360"><span class="annot"><span class="annottext">request :: ListOriginationNumbers -&gt; Request ListOriginationNumbers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListOriginationNumbers -&gt; Request ListOriginationNumbers
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679196356"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListOriginationNumbers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListOriginationNumbers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ListOriginationNumbers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListOriginationNumbers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListOriginationNumbers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListOriginationNumbersResult&quot;</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196353"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679196353"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679196352"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679196352"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679196351"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679196351"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PhoneNumberInformation]
+-&gt; Int
+-&gt; ListOriginationNumbersResponse
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse%27"><span class="hs-identifier hs-var">ListOriginationNumbersResponse'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PhoneNumberInformation]
+ -&gt; Int
+ -&gt; ListOriginationNumbersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PhoneNumberInformation]
+      -&gt; Int -&gt; ListOriginationNumbersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679196351"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PhoneNumberInformation]
+   -&gt; Int -&gt; ListOriginationNumbersResponse)
+-&gt; Either String (Maybe [PhoneNumberInformation])
+-&gt; Either String (Int -&gt; ListOriginationNumbersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679196351"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhoneNumbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [PhoneNumberInformation]))
+-&gt; Either String (Maybe [PhoneNumberInformation])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [PhoneNumberInformation])
+-&gt; [Node] -&gt; Either String (Maybe [PhoneNumberInformation])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [PhoneNumberInformation]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListOriginationNumbersResponse)
+-&gt; Either String Int
+-&gt; Either String ListOriginationNumbersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679196353"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196340"><span id="local-6989586621679196342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679196333"><span class="annot"><span class="annottext">toHeaders :: ListOriginationNumbers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListOriginationNumbers -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679196328"><span class="annot"><span class="annottext">toPath :: ListOriginationNumbers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListOriginationNumbers -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers"><span class="hs-identifier hs-type">ListOriginationNumbers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679196324"><span class="annot"><span class="annottext">toQuery :: ListOriginationNumbers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbers%27"><span class="hs-identifier hs-type">ListOriginationNumbers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196321"><span id="local-6989586621679196322"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListOriginationNumbers' :: ListOriginationNumbers -&gt; Maybe Natural
+$sel:nextToken:ListOriginationNumbers' :: ListOriginationNumbers -&gt; Maybe Text
+</span><a href="#local-6989586621679196321"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ListOriginationNumbers&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-03-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196322"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679196321"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newListOriginationNumbersResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621679196318"><span id="local-6989586621679196319"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOriginationNumbersResponse"><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-var">ListOriginationNumbersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOriginationNumbersResponse%27"><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse%27"><span class="hs-identifier hs-var">ListOriginationNumbersResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @NextToken@ string is returned when you call the</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- @ListOriginationNumbers@ operation if additional pages of records are</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AnextToken%3AListOriginationNumbersResponse%27"><span class="annot"><span class="annottext">ListOriginationNumbersResponse -&gt; Maybe Text
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AnextToken%3AListOriginationNumbersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | A list of the calling account\'s verified and pending origination</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- numbers.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AphoneNumbers%3AListOriginationNumbersResponse%27"><span class="annot"><span class="annottext">ListOriginationNumbersResponse -&gt; Maybe [PhoneNumberInformation]
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AphoneNumbers%3AListOriginationNumbersResponse%27"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SNS.Types.PhoneNumberInformation.html#PhoneNumberInformation"><span class="hs-identifier hs-type">PhoneNumberInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListOriginationNumbersResponse%27"><span class="annot"><span class="annottext">ListOriginationNumbersResponse -&gt; Int
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AhttpStatus%3AListOriginationNumbersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196311"><span id="local-6989586621679196313"><span class="annot"><span class="annottext">ListOriginationNumbersResponse
+-&gt; ListOriginationNumbersResponse -&gt; Bool
+(ListOriginationNumbersResponse
+ -&gt; ListOriginationNumbersResponse -&gt; Bool)
+-&gt; (ListOriginationNumbersResponse
+    -&gt; ListOriginationNumbersResponse -&gt; Bool)
+-&gt; Eq ListOriginationNumbersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListOriginationNumbersResponse
+-&gt; ListOriginationNumbersResponse -&gt; Bool
+$c/= :: ListOriginationNumbersResponse
+-&gt; ListOriginationNumbersResponse -&gt; Bool
+== :: ListOriginationNumbersResponse
+-&gt; ListOriginationNumbersResponse -&gt; Bool
+$c== :: ListOriginationNumbersResponse
+-&gt; ListOriginationNumbersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196303"><span id="local-6989586621679196305"><span id="local-6989586621679196307"><span id="local-6989586621679196309"><span class="annot"><span class="annottext">ReadPrec [ListOriginationNumbersResponse]
+ReadPrec ListOriginationNumbersResponse
+Int -&gt; ReadS ListOriginationNumbersResponse
+ReadS [ListOriginationNumbersResponse]
+(Int -&gt; ReadS ListOriginationNumbersResponse)
+-&gt; ReadS [ListOriginationNumbersResponse]
+-&gt; ReadPrec ListOriginationNumbersResponse
+-&gt; ReadPrec [ListOriginationNumbersResponse]
+-&gt; Read ListOriginationNumbersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListOriginationNumbersResponse]
+$creadListPrec :: ReadPrec [ListOriginationNumbersResponse]
+readPrec :: ReadPrec ListOriginationNumbersResponse
+$creadPrec :: ReadPrec ListOriginationNumbersResponse
+readList :: ReadS [ListOriginationNumbersResponse]
+$creadList :: ReadS [ListOriginationNumbersResponse]
+readsPrec :: Int -&gt; ReadS ListOriginationNumbersResponse
+$creadsPrec :: Int -&gt; ReadS ListOriginationNumbersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196297"><span id="local-6989586621679196299"><span id="local-6989586621679196301"><span class="annot"><span class="annottext">Int -&gt; ListOriginationNumbersResponse -&gt; ShowS
+[ListOriginationNumbersResponse] -&gt; ShowS
+ListOriginationNumbersResponse -&gt; String
+(Int -&gt; ListOriginationNumbersResponse -&gt; ShowS)
+-&gt; (ListOriginationNumbersResponse -&gt; String)
+-&gt; ([ListOriginationNumbersResponse] -&gt; ShowS)
+-&gt; Show ListOriginationNumbersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListOriginationNumbersResponse] -&gt; ShowS
+$cshowList :: [ListOriginationNumbersResponse] -&gt; ShowS
+show :: ListOriginationNumbersResponse -&gt; String
+$cshow :: ListOriginationNumbersResponse -&gt; String
+showsPrec :: Int -&gt; ListOriginationNumbersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListOriginationNumbersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListOriginationNumbersResponse
+ -&gt; Rep ListOriginationNumbersResponse x)
+-&gt; (forall x.
+    Rep ListOriginationNumbersResponse x
+    -&gt; ListOriginationNumbersResponse)
+-&gt; Generic ListOriginationNumbersResponse
+forall x.
+Rep ListOriginationNumbersResponse x
+-&gt; ListOriginationNumbersResponse
+forall x.
+ListOriginationNumbersResponse
+-&gt; Rep ListOriginationNumbersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListOriginationNumbersResponse x
+-&gt; ListOriginationNumbersResponse
+$cfrom :: forall x.
+ListOriginationNumbersResponse
+-&gt; Rep ListOriginationNumbersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'ListOriginationNumbersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'nextToken', 'listOriginationNumbersResponse_nextToken' - A @NextToken@ string is returned when you call the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- @ListOriginationNumbers@ operation if additional pages of records are</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'phoneNumbers', 'listOriginationNumbersResponse_phoneNumbers' - A list of the calling account\'s verified and pending origination</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- numbers.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'listOriginationNumbersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#newListOriginationNumbersResponse"><span class="hs-identifier hs-type">newListOriginationNumbersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-type">ListOriginationNumbersResponse</span></a></span><span>
+</span><span id="line-187"></span><span id="newListOriginationNumbersResponse"><span class="annot"><span class="annottext">newListOriginationNumbersResponse :: Int -&gt; ListOriginationNumbersResponse
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#newListOriginationNumbersResponse"><span class="hs-identifier hs-var hs-var">newListOriginationNumbersResponse</span></a></span></span><span> </span><span id="local-6989586621679196294"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679196294"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">ListOriginationNumbersResponse' :: Maybe Text
+-&gt; Maybe [PhoneNumberInformation]
+-&gt; Int
+-&gt; ListOriginationNumbersResponse
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse%27"><span class="hs-identifier hs-type">ListOriginationNumbersResponse'</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListOriginationNumbersResponse' :: Maybe Text
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AnextToken%3AListOriginationNumbersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumbers:ListOriginationNumbersResponse' :: Maybe [PhoneNumberInformation]
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AphoneNumbers%3AListOriginationNumbersResponse%27"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumberInformation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListOriginationNumbersResponse' :: Int
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AhttpStatus%3AListOriginationNumbersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679196294"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | A @NextToken@ string is returned when you call the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- @ListOriginationNumbers@ operation if additional pages of records are</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- available.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_nextToken"><span class="hs-identifier hs-type">listOriginationNumbersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-type">ListOriginationNumbersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="listOriginationNumbersResponse_nextToken"><span class="annot"><span class="annottext">listOriginationNumbersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListOriginationNumbersResponse
+-&gt; f ListOriginationNumbersResponse
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listOriginationNumbersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOriginationNumbersResponse -&gt; Maybe Text)
+-&gt; (ListOriginationNumbersResponse
+    -&gt; Maybe Text -&gt; ListOriginationNumbersResponse)
+-&gt; Lens' ListOriginationNumbersResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse%27"><span class="hs-identifier hs-type">ListOriginationNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196293"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListOriginationNumbersResponse' :: ListOriginationNumbersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679196293"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196293"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196292"><span class="annot"><span class="annottext">s :: ListOriginationNumbersResponse
+</span><a href="#local-6989586621679196292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse%27"><span class="hs-identifier hs-type">ListOriginationNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginationNumbersResponse
+</span><a href="#local-6989586621679196292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOriginationNumbersResponse' :: Maybe Text
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AnextToken%3AListOriginationNumbersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-type">ListOriginationNumbersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | A list of the calling account\'s verified and pending origination</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- numbers.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_phoneNumbers"><span class="hs-identifier hs-type">listOriginationNumbersResponse_phoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-type">ListOriginationNumbersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SNS.Types.PhoneNumberInformation.html#PhoneNumberInformation"><span class="hs-identifier hs-type">PhoneNumberInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="listOriginationNumbersResponse_phoneNumbers"><span class="annot"><span class="annottext">listOriginationNumbersResponse_phoneNumbers :: (Maybe [PhoneNumberInformation]
+ -&gt; f (Maybe [PhoneNumberInformation]))
+-&gt; ListOriginationNumbersResponse
+-&gt; f ListOriginationNumbersResponse
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_phoneNumbers"><span class="hs-identifier hs-var hs-var">listOriginationNumbersResponse_phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOriginationNumbersResponse -&gt; Maybe [PhoneNumberInformation])
+-&gt; (ListOriginationNumbersResponse
+    -&gt; Maybe [PhoneNumberInformation]
+    -&gt; ListOriginationNumbersResponse)
+-&gt; Lens'
+     ListOriginationNumbersResponse (Maybe [PhoneNumberInformation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse%27"><span class="hs-identifier hs-type">ListOriginationNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196290"><span class="annot"><span class="annottext">Maybe [PhoneNumberInformation]
+phoneNumbers :: Maybe [PhoneNumberInformation]
+$sel:phoneNumbers:ListOriginationNumbersResponse' :: ListOriginationNumbersResponse -&gt; Maybe [PhoneNumberInformation]
+</span><a href="#local-6989586621679196290"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumberInformation]
+</span><a href="#local-6989586621679196290"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196289"><span class="annot"><span class="annottext">s :: ListOriginationNumbersResponse
+</span><a href="#local-6989586621679196289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse%27"><span class="hs-identifier hs-type">ListOriginationNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196288"><span class="annot"><span class="annottext">Maybe [PhoneNumberInformation]
+</span><a href="#local-6989586621679196288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginationNumbersResponse
+</span><a href="#local-6989586621679196289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumbers:ListOriginationNumbersResponse' :: Maybe [PhoneNumberInformation]
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AphoneNumbers%3AListOriginationNumbersResponse%27"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumberInformation]
+</span><a href="#local-6989586621679196288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-type">ListOriginationNumbersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhoneNumberInformation]
+  -&gt; f (Maybe [PhoneNumberInformation]))
+ -&gt; ListOriginationNumbersResponse
+ -&gt; f ListOriginationNumbersResponse)
+-&gt; ((Maybe [PhoneNumberInformation]
+     -&gt; f (Maybe [PhoneNumberInformation]))
+    -&gt; Maybe [PhoneNumberInformation]
+    -&gt; f (Maybe [PhoneNumberInformation]))
+-&gt; (Maybe [PhoneNumberInformation]
+    -&gt; f (Maybe [PhoneNumberInformation]))
+-&gt; ListOriginationNumbersResponse
+-&gt; f ListOriginationNumbersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PhoneNumberInformation]
+  [PhoneNumberInformation]
+  [PhoneNumberInformation]
+  [PhoneNumberInformation]
+-&gt; Iso
+     (Maybe [PhoneNumberInformation])
+     (Maybe [PhoneNumberInformation])
+     (Maybe [PhoneNumberInformation])
+     (Maybe [PhoneNumberInformation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PhoneNumberInformation]
+  [PhoneNumberInformation]
+  [PhoneNumberInformation]
+  [PhoneNumberInformation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_httpStatus"><span class="hs-identifier hs-type">listOriginationNumbersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-type">ListOriginationNumbersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-208"></span><span id="listOriginationNumbersResponse_httpStatus"><span class="annot"><span class="annottext">listOriginationNumbersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListOriginationNumbersResponse
+-&gt; f ListOriginationNumbersResponse
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#listOriginationNumbersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listOriginationNumbersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOriginationNumbersResponse -&gt; Int)
+-&gt; (ListOriginationNumbersResponse
+    -&gt; Int -&gt; ListOriginationNumbersResponse)
+-&gt; Lens
+     ListOriginationNumbersResponse
+     ListOriginationNumbersResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse%27"><span class="hs-identifier hs-type">ListOriginationNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196285"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListOriginationNumbersResponse' :: ListOriginationNumbersResponse -&gt; Int
+</span><a href="#local-6989586621679196285"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679196285"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196284"><span class="annot"><span class="annottext">s :: ListOriginationNumbersResponse
+</span><a href="#local-6989586621679196284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse%27"><span class="hs-identifier hs-type">ListOriginationNumbersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196283"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679196283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginationNumbersResponse
+</span><a href="#local-6989586621679196284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOriginationNumbersResponse' :: Int
+</span><a href="Amazonka.SNS.ListOriginationNumbers.html#%24sel%3AhttpStatus%3AListOriginationNumbersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679196283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-type">ListOriginationNumbersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679196281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.ListOriginationNumbers.html#ListOriginationNumbersResponse"><span class="hs-identifier hs-type">ListOriginationNumbersResponse</span></a></span></span><span>
+</span><span id="line-213"></span></pre></body></html>

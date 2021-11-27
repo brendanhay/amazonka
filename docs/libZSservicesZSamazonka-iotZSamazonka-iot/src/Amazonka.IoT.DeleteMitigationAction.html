@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.DeleteMitigationAction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a defined mitigation action from your Amazon Web Services</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- accounts.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteMitigationAction&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.DeleteMitigationAction</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier">DeleteMitigationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#newDeleteMitigationAction"><span class="hs-identifier">newDeleteMitigationAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#deleteMitigationAction_actionName"><span class="hs-identifier">deleteMitigationAction_actionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse"><span class="hs-identifier">DeleteMitigationActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#newDeleteMitigationActionResponse"><span class="hs-identifier">newDeleteMitigationActionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#deleteMitigationActionResponse_httpStatus"><span class="hs-identifier">deleteMitigationActionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteMitigationAction' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679844240"><span id="local-6989586621679844241"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMitigationAction"><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-var">DeleteMitigationAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMitigationAction%27"><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction%27"><span class="hs-identifier hs-var">DeleteMitigationAction'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the mitigation action that you want to delete.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AactionName%3ADeleteMitigationAction%27"><span class="annot"><span class="annottext">DeleteMitigationAction -&gt; Text
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#%24sel%3AactionName%3ADeleteMitigationAction%27"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844234"><span id="local-6989586621679844236"><span class="annot"><span class="annottext">DeleteMitigationAction -&gt; DeleteMitigationAction -&gt; Bool
+(DeleteMitigationAction -&gt; DeleteMitigationAction -&gt; Bool)
+-&gt; (DeleteMitigationAction -&gt; DeleteMitigationAction -&gt; Bool)
+-&gt; Eq DeleteMitigationAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteMitigationAction -&gt; DeleteMitigationAction -&gt; Bool
+$c/= :: DeleteMitigationAction -&gt; DeleteMitigationAction -&gt; Bool
+== :: DeleteMitigationAction -&gt; DeleteMitigationAction -&gt; Bool
+$c== :: DeleteMitigationAction -&gt; DeleteMitigationAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844225"><span id="local-6989586621679844227"><span id="local-6989586621679844229"><span id="local-6989586621679844231"><span class="annot"><span class="annottext">ReadPrec [DeleteMitigationAction]
+ReadPrec DeleteMitigationAction
+Int -&gt; ReadS DeleteMitigationAction
+ReadS [DeleteMitigationAction]
+(Int -&gt; ReadS DeleteMitigationAction)
+-&gt; ReadS [DeleteMitigationAction]
+-&gt; ReadPrec DeleteMitigationAction
+-&gt; ReadPrec [DeleteMitigationAction]
+-&gt; Read DeleteMitigationAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteMitigationAction]
+$creadListPrec :: ReadPrec [DeleteMitigationAction]
+readPrec :: ReadPrec DeleteMitigationAction
+$creadPrec :: ReadPrec DeleteMitigationAction
+readList :: ReadS [DeleteMitigationAction]
+$creadList :: ReadS [DeleteMitigationAction]
+readsPrec :: Int -&gt; ReadS DeleteMitigationAction
+$creadsPrec :: Int -&gt; ReadS DeleteMitigationAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844218"><span id="local-6989586621679844220"><span id="local-6989586621679844222"><span class="annot"><span class="annottext">Int -&gt; DeleteMitigationAction -&gt; ShowS
+[DeleteMitigationAction] -&gt; ShowS
+DeleteMitigationAction -&gt; String
+(Int -&gt; DeleteMitigationAction -&gt; ShowS)
+-&gt; (DeleteMitigationAction -&gt; String)
+-&gt; ([DeleteMitigationAction] -&gt; ShowS)
+-&gt; Show DeleteMitigationAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteMitigationAction] -&gt; ShowS
+$cshowList :: [DeleteMitigationAction] -&gt; ShowS
+show :: DeleteMitigationAction -&gt; String
+$cshow :: DeleteMitigationAction -&gt; String
+showsPrec :: Int -&gt; DeleteMitigationAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteMitigationAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteMitigationAction -&gt; Rep DeleteMitigationAction x)
+-&gt; (forall x.
+    Rep DeleteMitigationAction x -&gt; DeleteMitigationAction)
+-&gt; Generic DeleteMitigationAction
+forall x. Rep DeleteMitigationAction x -&gt; DeleteMitigationAction
+forall x. DeleteMitigationAction -&gt; Rep DeleteMitigationAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteMitigationAction x -&gt; DeleteMitigationAction
+$cfrom :: forall x. DeleteMitigationAction -&gt; Rep DeleteMitigationAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DeleteMitigationAction' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'actionName', 'deleteMitigationAction_actionName' - The name of the mitigation action that you want to delete.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#newDeleteMitigationAction"><span class="hs-identifier hs-type">newDeleteMitigationAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'actionName'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span><span>
+</span><span id="line-73"></span><span id="newDeleteMitigationAction"><span class="annot"><span class="annottext">newDeleteMitigationAction :: Text -&gt; DeleteMitigationAction
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#newDeleteMitigationAction"><span class="hs-identifier hs-var hs-var">newDeleteMitigationAction</span></a></span></span><span> </span><span id="local-6989586621679844213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679844213"><span class="hs-identifier hs-var">pActionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeleteMitigationAction' :: Text -&gt; DeleteMitigationAction
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction%27"><span class="hs-identifier hs-type">DeleteMitigationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:DeleteMitigationAction' :: Text
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#%24sel%3AactionName%3ADeleteMitigationAction%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679844213"><span class="hs-identifier hs-var">pActionName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The name of the mitigation action that you want to delete.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#deleteMitigationAction_actionName"><span class="hs-identifier hs-type">deleteMitigationAction_actionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="deleteMitigationAction_actionName"><span class="annot"><span class="annottext">deleteMitigationAction_actionName :: (Text -&gt; f Text)
+-&gt; DeleteMitigationAction -&gt; f DeleteMitigationAction
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#deleteMitigationAction_actionName"><span class="hs-identifier hs-var hs-var">deleteMitigationAction_actionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteMitigationAction -&gt; Text)
+-&gt; (DeleteMitigationAction -&gt; Text -&gt; DeleteMitigationAction)
+-&gt; Lens DeleteMitigationAction DeleteMitigationAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction%27"><span class="hs-identifier hs-type">DeleteMitigationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844210"><span class="annot"><span class="annottext">Text
+actionName :: Text
+$sel:actionName:DeleteMitigationAction' :: DeleteMitigationAction -&gt; Text
+</span><a href="#local-6989586621679844210"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679844210"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844209"><span class="annot"><span class="annottext">s :: DeleteMitigationAction
+</span><a href="#local-6989586621679844209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction%27"><span class="hs-identifier hs-type">DeleteMitigationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679844208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMitigationAction
+</span><a href="#local-6989586621679844209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:DeleteMitigationAction' :: Text
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#%24sel%3AactionName%3ADeleteMitigationAction%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679844208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse"><span class="hs-identifier hs-type">DeleteMitigationActionResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679844204"><span class="annot"><span class="annottext">request :: DeleteMitigationAction -&gt; Request DeleteMitigationAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteMitigationAction -&gt; Request DeleteMitigationAction
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679844200"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteMitigationAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteMitigationAction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteMitigationAction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteMitigationAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteMitigationAction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679844197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844197"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679844196"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679844196"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679844195"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679844195"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteMitigationActionResponse
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse%27"><span class="hs-identifier hs-var">DeleteMitigationActionResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteMitigationActionResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteMitigationActionResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844197"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844188"><span id="local-6989586621679844190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679844181"><span class="annot"><span class="annottext">toHeaders :: DeleteMitigationAction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteMitigationAction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679844176"><span class="annot"><span class="annottext">toPath :: DeleteMitigationAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction%27"><span class="hs-identifier hs-type">DeleteMitigationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844174"><span class="annot"><span class="annottext">Text
+actionName :: Text
+$sel:actionName:DeleteMitigationAction' :: DeleteMitigationAction -&gt; Text
+</span><a href="#local-6989586621679844174"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/mitigationactions/actions/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679844174"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationAction"><span class="hs-identifier hs-type">DeleteMitigationAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679844170"><span class="annot"><span class="annottext">toQuery :: DeleteMitigationAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteMitigationAction -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newDeleteMitigationActionResponse' smart constructor.</span><span>
+</span><span id="line-108"></span><span id="local-6989586621679844167"><span id="local-6989586621679844168"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMitigationActionResponse"><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse"><span class="hs-identifier hs-var">DeleteMitigationActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMitigationActionResponse%27"><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse%27"><span class="hs-identifier hs-var">DeleteMitigationActionResponse'</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteMitigationActionResponse%27"><span class="annot"><span class="annottext">DeleteMitigationActionResponse -&gt; Int
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#%24sel%3AhttpStatus%3ADeleteMitigationActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844162"><span id="local-6989586621679844164"><span class="annot"><span class="annottext">DeleteMitigationActionResponse
+-&gt; DeleteMitigationActionResponse -&gt; Bool
+(DeleteMitigationActionResponse
+ -&gt; DeleteMitigationActionResponse -&gt; Bool)
+-&gt; (DeleteMitigationActionResponse
+    -&gt; DeleteMitigationActionResponse -&gt; Bool)
+-&gt; Eq DeleteMitigationActionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteMitigationActionResponse
+-&gt; DeleteMitigationActionResponse -&gt; Bool
+$c/= :: DeleteMitigationActionResponse
+-&gt; DeleteMitigationActionResponse -&gt; Bool
+== :: DeleteMitigationActionResponse
+-&gt; DeleteMitigationActionResponse -&gt; Bool
+$c== :: DeleteMitigationActionResponse
+-&gt; DeleteMitigationActionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844154"><span id="local-6989586621679844156"><span id="local-6989586621679844158"><span id="local-6989586621679844160"><span class="annot"><span class="annottext">ReadPrec [DeleteMitigationActionResponse]
+ReadPrec DeleteMitigationActionResponse
+Int -&gt; ReadS DeleteMitigationActionResponse
+ReadS [DeleteMitigationActionResponse]
+(Int -&gt; ReadS DeleteMitigationActionResponse)
+-&gt; ReadS [DeleteMitigationActionResponse]
+-&gt; ReadPrec DeleteMitigationActionResponse
+-&gt; ReadPrec [DeleteMitigationActionResponse]
+-&gt; Read DeleteMitigationActionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteMitigationActionResponse]
+$creadListPrec :: ReadPrec [DeleteMitigationActionResponse]
+readPrec :: ReadPrec DeleteMitigationActionResponse
+$creadPrec :: ReadPrec DeleteMitigationActionResponse
+readList :: ReadS [DeleteMitigationActionResponse]
+$creadList :: ReadS [DeleteMitigationActionResponse]
+readsPrec :: Int -&gt; ReadS DeleteMitigationActionResponse
+$creadsPrec :: Int -&gt; ReadS DeleteMitigationActionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844148"><span id="local-6989586621679844150"><span id="local-6989586621679844152"><span class="annot"><span class="annottext">Int -&gt; DeleteMitigationActionResponse -&gt; ShowS
+[DeleteMitigationActionResponse] -&gt; ShowS
+DeleteMitigationActionResponse -&gt; String
+(Int -&gt; DeleteMitigationActionResponse -&gt; ShowS)
+-&gt; (DeleteMitigationActionResponse -&gt; String)
+-&gt; ([DeleteMitigationActionResponse] -&gt; ShowS)
+-&gt; Show DeleteMitigationActionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteMitigationActionResponse] -&gt; ShowS
+$cshowList :: [DeleteMitigationActionResponse] -&gt; ShowS
+show :: DeleteMitigationActionResponse -&gt; String
+$cshow :: DeleteMitigationActionResponse -&gt; String
+showsPrec :: Int -&gt; DeleteMitigationActionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteMitigationActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteMitigationActionResponse
+ -&gt; Rep DeleteMitigationActionResponse x)
+-&gt; (forall x.
+    Rep DeleteMitigationActionResponse x
+    -&gt; DeleteMitigationActionResponse)
+-&gt; Generic DeleteMitigationActionResponse
+forall x.
+Rep DeleteMitigationActionResponse x
+-&gt; DeleteMitigationActionResponse
+forall x.
+DeleteMitigationActionResponse
+-&gt; Rep DeleteMitigationActionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteMitigationActionResponse x
+-&gt; DeleteMitigationActionResponse
+$cfrom :: forall x.
+DeleteMitigationActionResponse
+-&gt; Rep DeleteMitigationActionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Create a value of 'DeleteMitigationActionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'httpStatus', 'deleteMitigationActionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#newDeleteMitigationActionResponse"><span class="hs-identifier hs-type">newDeleteMitigationActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse"><span class="hs-identifier hs-type">DeleteMitigationActionResponse</span></a></span><span>
+</span><span id="line-127"></span><span id="newDeleteMitigationActionResponse"><span class="annot"><span class="annottext">newDeleteMitigationActionResponse :: Int -&gt; DeleteMitigationActionResponse
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#newDeleteMitigationActionResponse"><span class="hs-identifier hs-var hs-var">newDeleteMitigationActionResponse</span></a></span></span><span> </span><span id="local-6989586621679844145"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">DeleteMitigationActionResponse' :: Int -&gt; DeleteMitigationActionResponse
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse%27"><span class="hs-identifier hs-type">DeleteMitigationActionResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMitigationActionResponse' :: Int
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#%24sel%3AhttpStatus%3ADeleteMitigationActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#deleteMitigationActionResponse_httpStatus"><span class="hs-identifier hs-type">deleteMitigationActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse"><span class="hs-identifier hs-type">DeleteMitigationActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span id="deleteMitigationActionResponse_httpStatus"><span class="annot"><span class="annottext">deleteMitigationActionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteMitigationActionResponse
+-&gt; f DeleteMitigationActionResponse
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#deleteMitigationActionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteMitigationActionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteMitigationActionResponse -&gt; Int)
+-&gt; (DeleteMitigationActionResponse
+    -&gt; Int -&gt; DeleteMitigationActionResponse)
+-&gt; Lens
+     DeleteMitigationActionResponse
+     DeleteMitigationActionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse%27"><span class="hs-identifier hs-type">DeleteMitigationActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844144"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteMitigationActionResponse' :: DeleteMitigationActionResponse -&gt; Int
+</span><a href="#local-6989586621679844144"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844144"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844143"><span class="annot"><span class="annottext">s :: DeleteMitigationActionResponse
+</span><a href="#local-6989586621679844143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse%27"><span class="hs-identifier hs-type">DeleteMitigationActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844142"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMitigationActionResponse
+</span><a href="#local-6989586621679844143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMitigationActionResponse' :: Int
+</span><a href="Amazonka.IoT.DeleteMitigationAction.html#%24sel%3AhttpStatus%3ADeleteMitigationActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse"><span class="hs-identifier hs-type">DeleteMitigationActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679844140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.DeleteMitigationAction.html#DeleteMitigationActionResponse"><span class="hs-identifier hs-type">DeleteMitigationActionResponse</span></a></span></span><span>
+</span><span id="line-140"></span></pre></body></html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Wisdom.Types.AssociationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Wisdom.Types.AssociationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssociationType.html#AssociationType"><span class="hs-identifier">AssociationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssociationType.html#AssociationType_KNOWLEDGE_BASE"><span class="hs-identifier">AssociationType_KNOWLEDGE_BASE</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679219238"><span id="local-6989586621679219239"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationType"><span class="annot"><a href="Amazonka.Wisdom.Types.AssociationType.html#AssociationType"><span class="hs-identifier hs-var">AssociationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationType%27"><span class="annot"><a href="Amazonka.Wisdom.Types.AssociationType.html#AssociationType%27"><span class="hs-identifier hs-var">AssociationType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssociationType"><span class="annot"><span class="annottext">AssociationType -&gt; Text
+</span><a href="Amazonka.Wisdom.Types.AssociationType.html#fromAssociationType"><span class="hs-identifier hs-var hs-var">fromAssociationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219230"><span id="local-6989586621679219232"><span id="local-6989586621679219234"><span class="annot"><span class="annottext">Int -&gt; AssociationType -&gt; ShowS
+[AssociationType] -&gt; ShowS
+AssociationType -&gt; String
+(Int -&gt; AssociationType -&gt; ShowS)
+-&gt; (AssociationType -&gt; String)
+-&gt; ([AssociationType] -&gt; ShowS)
+-&gt; Show AssociationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociationType] -&gt; ShowS
+$cshowList :: [AssociationType] -&gt; ShowS
+show :: AssociationType -&gt; String
+$cshow :: AssociationType -&gt; String
+showsPrec :: Int -&gt; AssociationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679219221"><span id="local-6989586621679219223"><span id="local-6989586621679219225"><span id="local-6989586621679219227"><span class="annot"><span class="annottext">ReadPrec [AssociationType]
+ReadPrec AssociationType
+Int -&gt; ReadS AssociationType
+ReadS [AssociationType]
+(Int -&gt; ReadS AssociationType)
+-&gt; ReadS [AssociationType]
+-&gt; ReadPrec AssociationType
+-&gt; ReadPrec [AssociationType]
+-&gt; Read AssociationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociationType]
+$creadListPrec :: ReadPrec [AssociationType]
+readPrec :: ReadPrec AssociationType
+$creadPrec :: ReadPrec AssociationType
+readList :: ReadS [AssociationType]
+$creadList :: ReadS [AssociationType]
+readsPrec :: Int -&gt; ReadS AssociationType
+$creadsPrec :: Int -&gt; ReadS AssociationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679219216"><span id="local-6989586621679219218"><span class="annot"><span class="annottext">AssociationType -&gt; AssociationType -&gt; Bool
+(AssociationType -&gt; AssociationType -&gt; Bool)
+-&gt; (AssociationType -&gt; AssociationType -&gt; Bool)
+-&gt; Eq AssociationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociationType -&gt; AssociationType -&gt; Bool
+$c/= :: AssociationType -&gt; AssociationType -&gt; Bool
+== :: AssociationType -&gt; AssociationType -&gt; Bool
+$c== :: AssociationType -&gt; AssociationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679219200"><span id="local-6989586621679219202"><span id="local-6989586621679219204"><span id="local-6989586621679219206"><span id="local-6989586621679219208"><span id="local-6989586621679219210"><span id="local-6989586621679219212"><span class="annot"><span class="annottext">Eq AssociationType
+Eq AssociationType
+-&gt; (AssociationType -&gt; AssociationType -&gt; Ordering)
+-&gt; (AssociationType -&gt; AssociationType -&gt; Bool)
+-&gt; (AssociationType -&gt; AssociationType -&gt; Bool)
+-&gt; (AssociationType -&gt; AssociationType -&gt; Bool)
+-&gt; (AssociationType -&gt; AssociationType -&gt; Bool)
+-&gt; (AssociationType -&gt; AssociationType -&gt; AssociationType)
+-&gt; (AssociationType -&gt; AssociationType -&gt; AssociationType)
+-&gt; Ord AssociationType
+AssociationType -&gt; AssociationType -&gt; Bool
+AssociationType -&gt; AssociationType -&gt; Ordering
+AssociationType -&gt; AssociationType -&gt; AssociationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssociationType -&gt; AssociationType -&gt; AssociationType
+$cmin :: AssociationType -&gt; AssociationType -&gt; AssociationType
+max :: AssociationType -&gt; AssociationType -&gt; AssociationType
+$cmax :: AssociationType -&gt; AssociationType -&gt; AssociationType
+&gt;= :: AssociationType -&gt; AssociationType -&gt; Bool
+$c&gt;= :: AssociationType -&gt; AssociationType -&gt; Bool
+&gt; :: AssociationType -&gt; AssociationType -&gt; Bool
+$c&gt; :: AssociationType -&gt; AssociationType -&gt; Bool
+&lt;= :: AssociationType -&gt; AssociationType -&gt; Bool
+$c&lt;= :: AssociationType -&gt; AssociationType -&gt; Bool
+&lt; :: AssociationType -&gt; AssociationType -&gt; Bool
+$c&lt; :: AssociationType -&gt; AssociationType -&gt; Bool
+compare :: AssociationType -&gt; AssociationType -&gt; Ordering
+$ccompare :: AssociationType -&gt; AssociationType -&gt; Ordering
+$cp1Ord :: Eq AssociationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AssociationType -&gt; Rep AssociationType x)
+-&gt; (forall x. Rep AssociationType x -&gt; AssociationType)
+-&gt; Generic AssociationType
+forall x. Rep AssociationType x -&gt; AssociationType
+forall x. AssociationType -&gt; Rep AssociationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociationType x -&gt; AssociationType
+$cfrom :: forall x. AssociationType -&gt; Rep AssociationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219192"><span id="local-6989586621679219194"><span class="annot"><span class="annottext">Int -&gt; AssociationType -&gt; Int
+AssociationType -&gt; Int
+(Int -&gt; AssociationType -&gt; Int)
+-&gt; (AssociationType -&gt; Int) -&gt; Hashable AssociationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssociationType -&gt; Int
+$chash :: AssociationType -&gt; Int
+hashWithSalt :: Int -&gt; AssociationType -&gt; Int
+$chashWithSalt :: Int -&gt; AssociationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679219189"><span class="annot"><span class="annottext">AssociationType -&gt; ()
+(AssociationType -&gt; ()) -&gt; NFData AssociationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssociationType -&gt; ()
+$crnf :: AssociationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679219186"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationType
+(Text -&gt; Either String AssociationType) -&gt; FromText AssociationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssociationType
+$cfromText :: Text -&gt; Either String AssociationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679219183"><span class="annot"><span class="annottext">AssociationType -&gt; Text
+(AssociationType -&gt; Text) -&gt; ToText AssociationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssociationType -&gt; Text
+$ctoText :: AssociationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679219180"><span class="annot"><span class="annottext">AssociationType -&gt; ByteString
+(AssociationType -&gt; ByteString) -&gt; ToByteString AssociationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssociationType -&gt; ByteString
+$ctoBS :: AssociationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679219177"><span class="annot"><span class="annottext">AssociationType -&gt; ByteStringBuilder
+(AssociationType -&gt; ByteStringBuilder) -&gt; ToLog AssociationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssociationType -&gt; ByteStringBuilder
+$cbuild :: AssociationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679219174"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationType -&gt; [Header]
+(HeaderName -&gt; AssociationType -&gt; [Header])
+-&gt; ToHeader AssociationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssociationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssociationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679219171"><span class="annot"><span class="annottext">AssociationType -&gt; QueryString
+(AssociationType -&gt; QueryString) -&gt; ToQuery AssociationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssociationType -&gt; QueryString
+$ctoQuery :: AssociationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679219166"><span id="local-6989586621679219168"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationType]
+Value -&gt; Parser AssociationType
+(Value -&gt; Parser AssociationType)
+-&gt; (Value -&gt; Parser [AssociationType]) -&gt; FromJSON AssociationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssociationType]
+$cparseJSONList :: Value -&gt; Parser [AssociationType]
+parseJSON :: Value -&gt; Parser AssociationType
+$cparseJSON :: Value -&gt; Parser AssociationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679219161"><span id="local-6989586621679219163"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationType]
+FromJSONKeyFunction AssociationType
+FromJSONKeyFunction AssociationType
+-&gt; FromJSONKeyFunction [AssociationType]
+-&gt; FromJSONKey AssociationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssociationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssociationType]
+fromJSONKey :: FromJSONKeyFunction AssociationType
+$cfromJSONKey :: FromJSONKeyFunction AssociationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679219152"><span id="local-6989586621679219154"><span id="local-6989586621679219156"><span id="local-6989586621679219158"><span class="annot"><span class="annottext">[AssociationType] -&gt; Encoding
+[AssociationType] -&gt; Value
+AssociationType -&gt; Encoding
+AssociationType -&gt; Value
+(AssociationType -&gt; Value)
+-&gt; (AssociationType -&gt; Encoding)
+-&gt; ([AssociationType] -&gt; Value)
+-&gt; ([AssociationType] -&gt; Encoding)
+-&gt; ToJSON AssociationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssociationType] -&gt; Encoding
+$ctoEncodingList :: [AssociationType] -&gt; Encoding
+toJSONList :: [AssociationType] -&gt; Value
+$ctoJSONList :: [AssociationType] -&gt; Value
+toEncoding :: AssociationType -&gt; Encoding
+$ctoEncoding :: AssociationType -&gt; Encoding
+toJSON :: AssociationType -&gt; Value
+$ctoJSON :: AssociationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679219147"><span id="local-6989586621679219149"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationType]
+ToJSONKeyFunction AssociationType
+ToJSONKeyFunction AssociationType
+-&gt; ToJSONKeyFunction [AssociationType] -&gt; ToJSONKey AssociationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssociationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssociationType]
+toJSONKey :: ToJSONKeyFunction AssociationType
+$ctoJSONKey :: ToJSONKeyFunction AssociationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679219144"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationType
+([Node] -&gt; Either String AssociationType)
+-&gt; FromXML AssociationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssociationType
+$cparseXML :: [Node] -&gt; Either String AssociationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679219141"><span class="annot"><span class="annottext">AssociationType -&gt; XML
+(AssociationType -&gt; XML) -&gt; ToXML AssociationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssociationType -&gt; XML
+$ctoXML :: AssociationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssociationType.html#AssociationType_KNOWLEDGE_BASE"><span class="hs-identifier hs-type">AssociationType_KNOWLEDGE_BASE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssociationType.html#AssociationType"><span class="hs-identifier hs-type">AssociationType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationType_KNOWLEDGE_BASE"><span id="%24mAssociationType_KNOWLEDGE_BASE"><span id="AssociationType_KNOWLEDGE_BASE"><span class="annot"><span class="annottext">$bAssociationType_KNOWLEDGE_BASE :: AssociationType
+$mAssociationType_KNOWLEDGE_BASE :: forall r. AssociationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Wisdom.Types.AssociationType.html#%24bAssociationType_KNOWLEDGE_BASE"><span class="hs-identifier hs-var hs-var hs-var">AssociationType_KNOWLEDGE_BASE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssociationType.html#AssociationType%27"><span class="hs-identifier hs-type">AssociationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KNOWLEDGE_BASE&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssociationType.html#AssociationType_KNOWLEDGE_BASE"><span class="hs-pragma hs-type">AssociationType_KNOWLEDGE_BASE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssociationType.html#AssociationType%27"><span class="hs-pragma hs-type">AssociationType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

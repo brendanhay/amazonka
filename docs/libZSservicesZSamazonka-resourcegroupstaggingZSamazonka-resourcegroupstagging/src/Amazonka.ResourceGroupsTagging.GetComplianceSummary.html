@@ -1,0 +1,1121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ResourceGroupsTagging.GetComplianceSummary</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a table that shows counts of resources that are noncompliant</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- with their tag policies.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For more information on tag policies, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html Tag Policies&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in the /AWS Organizations User Guide./</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- You can call this operation only from the organization\'s management</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- account and from the us-east-1 Region.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- This operation supports pagination, where the response can be sent in</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- multiple pages. You should check the @PaginationToken@ response</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- parameter to determine if there are additional results available to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- return. Repeat the query, passing the @PaginationToken@ response</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- parameter value as an input to the next request until you recieve a</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @null@ value. A null value for @PaginationToken@ indicates that there</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- are no more results waiting to be returned.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ResourceGroupsTagging.GetComplianceSummary</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier">GetComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#newGetComplianceSummary"><span class="hs-identifier">newGetComplianceSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_groupBy"><span class="hs-identifier">getComplianceSummary_groupBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_paginationToken"><span class="hs-identifier">getComplianceSummary_paginationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_targetIdFilters"><span class="hs-identifier">getComplianceSummary_targetIdFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_resourceTypeFilters"><span class="hs-identifier">getComplianceSummary_resourceTypeFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_regionFilters"><span class="hs-identifier">getComplianceSummary_regionFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_tagKeyFilters"><span class="hs-identifier">getComplianceSummary_tagKeyFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_maxResults"><span class="hs-identifier">getComplianceSummary_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier">GetComplianceSummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#newGetComplianceSummaryResponse"><span class="hs-identifier">newGetComplianceSummaryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_paginationToken"><span class="hs-identifier">getComplianceSummaryResponse_paginationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_summaryList"><span class="hs-identifier">getComplianceSummaryResponse_summaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_httpStatus"><span class="hs-identifier">getComplianceSummaryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.html"><span class="hs-identifier">Amazonka.ResourceGroupsTagging.Types</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newGetComplianceSummary' smart constructor.</span><span>
+</span><span id="line-75"></span><span id="local-6989586621679158601"><span id="local-6989586621679158602"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetComplianceSummary"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-var">GetComplianceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetComplianceSummary%27"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-var">GetComplianceSummary'</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies a list of attributes to group the counts of noncompliant</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- resources by. If supplied, the counts are sorted by those attributes.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AgroupBy%3AGetComplianceSummary%27"><span class="annot"><span class="annottext">GetComplianceSummary -&gt; Maybe [GroupByAttribute]
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AgroupBy%3AGetComplianceSummary%27"><span class="hs-identifier hs-var hs-var">groupBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute"><span class="hs-identifier hs-type">GroupByAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Specifies a @PaginationToken@ response value from a previous request to</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- indicate that you want the next page of results. Leave this parameter</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- empty in your initial request.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3ApaginationToken%3AGetComplianceSummary%27"><span class="annot"><span class="annottext">GetComplianceSummary -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3ApaginationToken%3AGetComplianceSummary%27"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | Specifies target identifiers (usually, specific account IDs) to limit</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- the output by. If you use this parameter, the count of returned</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- noncompliant resources includes only resources with the specified target</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- IDs.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AtargetIdFilters%3AGetComplianceSummary%27"><span class="annot"><span class="annottext">GetComplianceSummary -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AtargetIdFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var hs-var">targetIdFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Specifies that you want the response to include information for only</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- resources of the specified types. The format of each resource type is</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @service[:resourceType]@. For example, specifying a resource type of</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- @ec2@ returns all Amazon EC2 resources (which includes EC2 instances).</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- Specifying a resource type of @ec2:instance@ returns only EC2 instances.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- The string for each service name and resource type is the same as that</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- embedded in a resource\'s Amazon Resource Name (ARN). Consult the /AWS</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- General Reference/ for the following:</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- -   For a list of service name strings, see</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   For resource type strings, see</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax Example ARNs&gt;.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   For more information about ARNs, see</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- You can specify multiple resource types by using a comma separated</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- array. The array can include up to 100 items. Note that the length</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- constraint requirement applies to each resource type filter.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AresourceTypeFilters%3AGetComplianceSummary%27"><span class="annot"><span class="annottext">GetComplianceSummary -&gt; Maybe [Text]
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AresourceTypeFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var hs-var">resourceTypeFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | Specifies a list of AWS Regions to limit the output by. If you use this</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- parameter, the count of returned noncompliant resources includes only</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- resources in the specified Regions.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AregionFilters%3AGetComplianceSummary%27"><span class="annot"><span class="annottext">GetComplianceSummary -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AregionFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var hs-var">regionFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | Specifies that you want the response to include information for only</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- resources that have tags with the specified tag keys. If you use this</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- parameter, the count of returned noncompliant resources includes only</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- resources that have the specified tag keys.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AtagKeyFilters%3AGetComplianceSummary%27"><span class="annot"><span class="annottext">GetComplianceSummary -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AtagKeyFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var hs-var">tagKeyFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | Specifies the maximum number of results to be returned in each page. A</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- query can return fewer than this maximum, even if there are more results</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- still to return. You should always check the @PaginationToken@ response</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- value to see if there are more results. You can specify a minimum of 1</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- and a maximum value of 100.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetComplianceSummary%27"><span class="annot"><span class="annottext">GetComplianceSummary -&gt; Maybe Natural
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AmaxResults%3AGetComplianceSummary%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679158589"><span id="local-6989586621679158591"><span class="annot"><span class="annottext">GetComplianceSummary -&gt; GetComplianceSummary -&gt; Bool
+(GetComplianceSummary -&gt; GetComplianceSummary -&gt; Bool)
+-&gt; (GetComplianceSummary -&gt; GetComplianceSummary -&gt; Bool)
+-&gt; Eq GetComplianceSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetComplianceSummary -&gt; GetComplianceSummary -&gt; Bool
+$c/= :: GetComplianceSummary -&gt; GetComplianceSummary -&gt; Bool
+== :: GetComplianceSummary -&gt; GetComplianceSummary -&gt; Bool
+$c== :: GetComplianceSummary -&gt; GetComplianceSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158580"><span id="local-6989586621679158582"><span id="local-6989586621679158584"><span id="local-6989586621679158586"><span class="annot"><span class="annottext">ReadPrec [GetComplianceSummary]
+ReadPrec GetComplianceSummary
+Int -&gt; ReadS GetComplianceSummary
+ReadS [GetComplianceSummary]
+(Int -&gt; ReadS GetComplianceSummary)
+-&gt; ReadS [GetComplianceSummary]
+-&gt; ReadPrec GetComplianceSummary
+-&gt; ReadPrec [GetComplianceSummary]
+-&gt; Read GetComplianceSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetComplianceSummary]
+$creadListPrec :: ReadPrec [GetComplianceSummary]
+readPrec :: ReadPrec GetComplianceSummary
+$creadPrec :: ReadPrec GetComplianceSummary
+readList :: ReadS [GetComplianceSummary]
+$creadList :: ReadS [GetComplianceSummary]
+readsPrec :: Int -&gt; ReadS GetComplianceSummary
+$creadsPrec :: Int -&gt; ReadS GetComplianceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158573"><span id="local-6989586621679158575"><span id="local-6989586621679158577"><span class="annot"><span class="annottext">Int -&gt; GetComplianceSummary -&gt; ShowS
+[GetComplianceSummary] -&gt; ShowS
+GetComplianceSummary -&gt; String
+(Int -&gt; GetComplianceSummary -&gt; ShowS)
+-&gt; (GetComplianceSummary -&gt; String)
+-&gt; ([GetComplianceSummary] -&gt; ShowS)
+-&gt; Show GetComplianceSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetComplianceSummary] -&gt; ShowS
+$cshowList :: [GetComplianceSummary] -&gt; ShowS
+show :: GetComplianceSummary -&gt; String
+$cshow :: GetComplianceSummary -&gt; String
+showsPrec :: Int -&gt; GetComplianceSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetComplianceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetComplianceSummary -&gt; Rep GetComplianceSummary x)
+-&gt; (forall x. Rep GetComplianceSummary x -&gt; GetComplianceSummary)
+-&gt; Generic GetComplianceSummary
+forall x. Rep GetComplianceSummary x -&gt; GetComplianceSummary
+forall x. GetComplianceSummary -&gt; Rep GetComplianceSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetComplianceSummary x -&gt; GetComplianceSummary
+$cfrom :: forall x. GetComplianceSummary -&gt; Rep GetComplianceSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'GetComplianceSummary' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'groupBy', 'getComplianceSummary_groupBy' - Specifies a list of attributes to group the counts of noncompliant</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- resources by. If supplied, the counts are sorted by those attributes.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'paginationToken', 'getComplianceSummary_paginationToken' - Specifies a @PaginationToken@ response value from a previous request to</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- indicate that you want the next page of results. Leave this parameter</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- empty in your initial request.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'targetIdFilters', 'getComplianceSummary_targetIdFilters' - Specifies target identifiers (usually, specific account IDs) to limit</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- the output by. If you use this parameter, the count of returned</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- noncompliant resources includes only resources with the specified target</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- IDs.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'resourceTypeFilters', 'getComplianceSummary_resourceTypeFilters' - Specifies that you want the response to include information for only</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- resources of the specified types. The format of each resource type is</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @service[:resourceType]@. For example, specifying a resource type of</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @ec2@ returns all Amazon EC2 resources (which includes EC2 instances).</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Specifying a resource type of @ec2:instance@ returns only EC2 instances.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- The string for each service name and resource type is the same as that</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- embedded in a resource\'s Amazon Resource Name (ARN). Consult the /AWS</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- General Reference/ for the following:</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   For a list of service name strings, see</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   For resource type strings, see</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax Example ARNs&gt;.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   For more information about ARNs, see</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- You can specify multiple resource types by using a comma separated</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- array. The array can include up to 100 items. Note that the length</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- constraint requirement applies to each resource type filter.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'regionFilters', 'getComplianceSummary_regionFilters' - Specifies a list of AWS Regions to limit the output by. If you use this</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- parameter, the count of returned noncompliant resources includes only</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- resources in the specified Regions.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'tagKeyFilters', 'getComplianceSummary_tagKeyFilters' - Specifies that you want the response to include information for only</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- resources that have tags with the specified tag keys. If you use this</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- parameter, the count of returned noncompliant resources includes only</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- resources that have the specified tag keys.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'maxResults', 'getComplianceSummary_maxResults' - Specifies the maximum number of results to be returned in each page. A</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- query can return fewer than this maximum, even if there are more results</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- still to return. You should always check the @PaginationToken@ response</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- value to see if there are more results. You can specify a minimum of 1</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- and a maximum value of 100.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#newGetComplianceSummary"><span class="hs-identifier hs-type">newGetComplianceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span>
+</span><span id="line-188"></span><span id="newGetComplianceSummary"><span class="annot"><span class="annottext">newGetComplianceSummary :: GetComplianceSummary
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#newGetComplianceSummary"><span class="hs-identifier hs-var hs-var">newGetComplianceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">GetComplianceSummary' :: Maybe [GroupByAttribute]
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe [Text]
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Natural
+-&gt; GetComplianceSummary
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupBy:GetComplianceSummary' :: Maybe [GroupByAttribute]
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AgroupBy%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">groupBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupByAttribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:paginationToken:GetComplianceSummary' :: Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3ApaginationToken%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetIdFilters:GetComplianceSummary' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AtargetIdFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">targetIdFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceTypeFilters:GetComplianceSummary' :: Maybe [Text]
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AresourceTypeFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">resourceTypeFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:regionFilters:GetComplianceSummary' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AregionFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">regionFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeyFilters:GetComplianceSummary' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AtagKeyFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">tagKeyFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetComplianceSummary' :: Maybe Natural
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AmaxResults%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | Specifies a list of attributes to group the counts of noncompliant</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- resources by. If supplied, the counts are sorted by those attributes.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_groupBy"><span class="hs-identifier hs-type">getComplianceSummary_groupBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.html#GroupByAttribute"><span class="hs-identifier hs-type">GroupByAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="getComplianceSummary_groupBy"><span class="annot"><span class="annottext">getComplianceSummary_groupBy :: (Maybe [GroupByAttribute] -&gt; f (Maybe [GroupByAttribute]))
+-&gt; GetComplianceSummary -&gt; f GetComplianceSummary
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_groupBy"><span class="hs-identifier hs-var hs-var">getComplianceSummary_groupBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummary -&gt; Maybe [GroupByAttribute])
+-&gt; (GetComplianceSummary
+    -&gt; Maybe [GroupByAttribute] -&gt; GetComplianceSummary)
+-&gt; Lens
+     GetComplianceSummary
+     GetComplianceSummary
+     (Maybe [GroupByAttribute])
+     (Maybe [GroupByAttribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158567"><span class="annot"><span class="annottext">Maybe [GroupByAttribute]
+groupBy :: Maybe [GroupByAttribute]
+$sel:groupBy:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe [GroupByAttribute]
+</span><a href="#local-6989586621679158567"><span class="hs-identifier hs-var hs-var">groupBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupByAttribute]
+</span><a href="#local-6989586621679158567"><span class="hs-identifier hs-var">groupBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158566"><span class="annot"><span class="annottext">s :: GetComplianceSummary
+</span><a href="#local-6989586621679158566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158565"><span class="annot"><span class="annottext">Maybe [GroupByAttribute]
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummary
+</span><a href="#local-6989586621679158566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupBy:GetComplianceSummary' :: Maybe [GroupByAttribute]
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AgroupBy%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">groupBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupByAttribute]
+</span><a href="#local-6989586621679158565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupByAttribute] -&gt; f (Maybe [GroupByAttribute]))
+ -&gt; GetComplianceSummary -&gt; f GetComplianceSummary)
+-&gt; ((Maybe [GroupByAttribute] -&gt; f (Maybe [GroupByAttribute]))
+    -&gt; Maybe [GroupByAttribute] -&gt; f (Maybe [GroupByAttribute]))
+-&gt; (Maybe [GroupByAttribute] -&gt; f (Maybe [GroupByAttribute]))
+-&gt; GetComplianceSummary
+-&gt; f GetComplianceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupByAttribute]
+  [GroupByAttribute]
+  [GroupByAttribute]
+  [GroupByAttribute]
+-&gt; Iso
+     (Maybe [GroupByAttribute])
+     (Maybe [GroupByAttribute])
+     (Maybe [GroupByAttribute])
+     (Maybe [GroupByAttribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GroupByAttribute]
+  [GroupByAttribute]
+  [GroupByAttribute]
+  [GroupByAttribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Specifies a @PaginationToken@ response value from a previous request to</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- indicate that you want the next page of results. Leave this parameter</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- empty in your initial request.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_paginationToken"><span class="hs-identifier hs-type">getComplianceSummary_paginationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="getComplianceSummary_paginationToken"><span class="annot"><span class="annottext">getComplianceSummary_paginationToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetComplianceSummary -&gt; f GetComplianceSummary
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_paginationToken"><span class="hs-identifier hs-var hs-var">getComplianceSummary_paginationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummary -&gt; Maybe Text)
+-&gt; (GetComplianceSummary -&gt; Maybe Text -&gt; GetComplianceSummary)
+-&gt; Lens
+     GetComplianceSummary GetComplianceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158561"><span class="annot"><span class="annottext">Maybe Text
+paginationToken :: Maybe Text
+$sel:paginationToken:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679158561"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158561"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158560"><span class="annot"><span class="annottext">s :: GetComplianceSummary
+</span><a href="#local-6989586621679158560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158559"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummary
+</span><a href="#local-6989586621679158560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paginationToken:GetComplianceSummary' :: Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3ApaginationToken%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Specifies target identifiers (usually, specific account IDs) to limit</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- the output by. If you use this parameter, the count of returned</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- noncompliant resources includes only resources with the specified target</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- IDs.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_targetIdFilters"><span class="hs-identifier hs-type">getComplianceSummary_targetIdFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="getComplianceSummary_targetIdFilters"><span class="annot"><span class="annottext">getComplianceSummary_targetIdFilters :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetComplianceSummary -&gt; f GetComplianceSummary
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_targetIdFilters"><span class="hs-identifier hs-var hs-var">getComplianceSummary_targetIdFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummary -&gt; Maybe (NonEmpty Text))
+-&gt; (GetComplianceSummary
+    -&gt; Maybe (NonEmpty Text) -&gt; GetComplianceSummary)
+-&gt; Lens
+     GetComplianceSummary
+     GetComplianceSummary
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158558"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+targetIdFilters :: Maybe (NonEmpty Text)
+$sel:targetIdFilters:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158558"><span class="hs-identifier hs-var hs-var">targetIdFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158558"><span class="hs-identifier hs-var">targetIdFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158557"><span class="annot"><span class="annottext">s :: GetComplianceSummary
+</span><a href="#local-6989586621679158557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158556"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummary
+</span><a href="#local-6989586621679158557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetIdFilters:GetComplianceSummary' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AtargetIdFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">targetIdFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; GetComplianceSummary -&gt; f GetComplianceSummary)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetComplianceSummary
+-&gt; f GetComplianceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | Specifies that you want the response to include information for only</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- resources of the specified types. The format of each resource type is</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- @service[:resourceType]@. For example, specifying a resource type of</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- @ec2@ returns all Amazon EC2 resources (which includes EC2 instances).</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Specifying a resource type of @ec2:instance@ returns only EC2 instances.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- The string for each service name and resource type is the same as that</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- embedded in a resource\'s Amazon Resource Name (ARN). Consult the /AWS</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- General Reference/ for the following:</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   For a list of service name strings, see</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   For resource type strings, see</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax Example ARNs&gt;.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   For more information about ARNs, see</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- You can specify multiple resource types by using a comma separated</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- array. The array can include up to 100 items. Note that the length</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- constraint requirement applies to each resource type filter.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_resourceTypeFilters"><span class="hs-identifier hs-type">getComplianceSummary_resourceTypeFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="getComplianceSummary_resourceTypeFilters"><span class="annot"><span class="annottext">getComplianceSummary_resourceTypeFilters :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetComplianceSummary -&gt; f GetComplianceSummary
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_resourceTypeFilters"><span class="hs-identifier hs-var hs-var">getComplianceSummary_resourceTypeFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummary -&gt; Maybe [Text])
+-&gt; (GetComplianceSummary -&gt; Maybe [Text] -&gt; GetComplianceSummary)
+-&gt; Lens
+     GetComplianceSummary
+     GetComplianceSummary
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158555"><span class="annot"><span class="annottext">Maybe [Text]
+resourceTypeFilters :: Maybe [Text]
+$sel:resourceTypeFilters:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe [Text]
+</span><a href="#local-6989586621679158555"><span class="hs-identifier hs-var hs-var">resourceTypeFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158555"><span class="hs-identifier hs-var">resourceTypeFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158554"><span class="annot"><span class="annottext">s :: GetComplianceSummary
+</span><a href="#local-6989586621679158554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158553"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummary
+</span><a href="#local-6989586621679158554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypeFilters:GetComplianceSummary' :: Maybe [Text]
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AresourceTypeFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">resourceTypeFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetComplianceSummary -&gt; f GetComplianceSummary)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetComplianceSummary
+-&gt; f GetComplianceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Specifies a list of AWS Regions to limit the output by. If you use this</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- parameter, the count of returned noncompliant resources includes only</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- resources in the specified Regions.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_regionFilters"><span class="hs-identifier hs-type">getComplianceSummary_regionFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="getComplianceSummary_regionFilters"><span class="annot"><span class="annottext">getComplianceSummary_regionFilters :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetComplianceSummary -&gt; f GetComplianceSummary
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_regionFilters"><span class="hs-identifier hs-var hs-var">getComplianceSummary_regionFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummary -&gt; Maybe (NonEmpty Text))
+-&gt; (GetComplianceSummary
+    -&gt; Maybe (NonEmpty Text) -&gt; GetComplianceSummary)
+-&gt; Lens
+     GetComplianceSummary
+     GetComplianceSummary
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158552"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+regionFilters :: Maybe (NonEmpty Text)
+$sel:regionFilters:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158552"><span class="hs-identifier hs-var hs-var">regionFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158552"><span class="hs-identifier hs-var">regionFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158551"><span class="annot"><span class="annottext">s :: GetComplianceSummary
+</span><a href="#local-6989586621679158551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158550"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummary
+</span><a href="#local-6989586621679158551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionFilters:GetComplianceSummary' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AregionFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">regionFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; GetComplianceSummary -&gt; f GetComplianceSummary)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetComplianceSummary
+-&gt; f GetComplianceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | Specifies that you want the response to include information for only</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- resources that have tags with the specified tag keys. If you use this</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- parameter, the count of returned noncompliant resources includes only</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- resources that have the specified tag keys.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_tagKeyFilters"><span class="hs-identifier hs-type">getComplianceSummary_tagKeyFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="getComplianceSummary_tagKeyFilters"><span class="annot"><span class="annottext">getComplianceSummary_tagKeyFilters :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetComplianceSummary -&gt; f GetComplianceSummary
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_tagKeyFilters"><span class="hs-identifier hs-var hs-var">getComplianceSummary_tagKeyFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummary -&gt; Maybe (NonEmpty Text))
+-&gt; (GetComplianceSummary
+    -&gt; Maybe (NonEmpty Text) -&gt; GetComplianceSummary)
+-&gt; Lens
+     GetComplianceSummary
+     GetComplianceSummary
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158549"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+tagKeyFilters :: Maybe (NonEmpty Text)
+$sel:tagKeyFilters:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158549"><span class="hs-identifier hs-var hs-var">tagKeyFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158549"><span class="hs-identifier hs-var">tagKeyFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158548"><span class="annot"><span class="annottext">s :: GetComplianceSummary
+</span><a href="#local-6989586621679158548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158547"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummary
+</span><a href="#local-6989586621679158548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeyFilters:GetComplianceSummary' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AtagKeyFilters%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">tagKeyFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; GetComplianceSummary -&gt; f GetComplianceSummary)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; GetComplianceSummary
+-&gt; f GetComplianceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | Specifies the maximum number of results to be returned in each page. A</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- query can return fewer than this maximum, even if there are more results</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- still to return. You should always check the @PaginationToken@ response</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- value to see if there are more results. You can specify a minimum of 1</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- and a maximum value of 100.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_maxResults"><span class="hs-identifier hs-type">getComplianceSummary_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="getComplianceSummary_maxResults"><span class="annot"><span class="annottext">getComplianceSummary_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetComplianceSummary -&gt; f GetComplianceSummary
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_maxResults"><span class="hs-identifier hs-var hs-var">getComplianceSummary_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummary -&gt; Maybe Natural)
+-&gt; (GetComplianceSummary -&gt; Maybe Natural -&gt; GetComplianceSummary)
+-&gt; Lens
+     GetComplianceSummary
+     GetComplianceSummary
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158546"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe Natural
+</span><a href="#local-6989586621679158546"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679158546"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158545"><span class="annot"><span class="annottext">s :: GetComplianceSummary
+</span><a href="#local-6989586621679158545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158544"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679158544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummary
+</span><a href="#local-6989586621679158545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetComplianceSummary' :: Maybe Natural
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AmaxResults%3AGetComplianceSummary%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679158544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679158540"><span class="annot"><span class="annottext">page :: GetComplianceSummary
+-&gt; AWSResponse GetComplianceSummary -&gt; Maybe GetComplianceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679158538"><span class="annot"><span class="annottext">GetComplianceSummary
+</span><a href="#local-6989586621679158538"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679158537"><span class="annot"><span class="annottext">AWSResponse GetComplianceSummary
+</span><a href="#local-6989586621679158537"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-266"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetComplianceSummary
+GetComplianceSummaryResponse
+</span><a href="#local-6989586621679158537"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">GetComplianceSummaryResponse
+-&gt; Getting (First Text) GetComplianceSummaryResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetComplianceSummaryResponse
+-&gt; Const (First Text) GetComplianceSummaryResponse
+Lens' GetComplianceSummaryResponse (Maybe Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_paginationToken"><span class="hs-identifier hs-var">getComplianceSummaryResponse_paginationToken</span></a></span><span>
+</span><span id="line-268"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetComplianceSummaryResponse
+ -&gt; Const (First Text) GetComplianceSummaryResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetComplianceSummaryResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-269"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetComplianceSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Summary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-272"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetComplianceSummary
+GetComplianceSummaryResponse
+</span><a href="#local-6989586621679158537"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">GetComplianceSummaryResponse
+-&gt; Getting (First [Summary]) GetComplianceSummaryResponse [Summary]
+-&gt; Maybe [Summary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Summary] -&gt; Const (First [Summary]) (Maybe [Summary]))
+-&gt; GetComplianceSummaryResponse
+-&gt; Const (First [Summary]) GetComplianceSummaryResponse
+Lens' GetComplianceSummaryResponse (Maybe [Summary])
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_summaryList"><span class="hs-identifier hs-var">getComplianceSummaryResponse_summaryList</span></a></span><span>
+</span><span id="line-274"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Summary] -&gt; Const (First [Summary]) (Maybe [Summary]))
+ -&gt; GetComplianceSummaryResponse
+ -&gt; Const (First [Summary]) GetComplianceSummaryResponse)
+-&gt; (([Summary] -&gt; Const (First [Summary]) [Summary])
+    -&gt; Maybe [Summary] -&gt; Const (First [Summary]) (Maybe [Summary]))
+-&gt; Getting (First [Summary]) GetComplianceSummaryResponse [Summary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Summary] -&gt; Const (First [Summary]) [Summary])
+-&gt; Maybe [Summary] -&gt; Const (First [Summary]) (Maybe [Summary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-275"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetComplianceSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">GetComplianceSummary -&gt; Maybe GetComplianceSummary
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummary -&gt; Maybe GetComplianceSummary)
+-&gt; GetComplianceSummary -&gt; Maybe GetComplianceSummary
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">GetComplianceSummary
+</span><a href="#local-6989586621679158538"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-280"></span><span>          </span><span class="annot"><span class="annottext">GetComplianceSummary
+-&gt; (GetComplianceSummary -&gt; GetComplianceSummary)
+-&gt; GetComplianceSummary
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetComplianceSummary -&gt; Identity GetComplianceSummary
+Lens
+  GetComplianceSummary GetComplianceSummary (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummary_paginationToken"><span class="hs-identifier hs-var">getComplianceSummary_paginationToken</span></a></span><span>
+</span><span id="line-281"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetComplianceSummary -&gt; Identity GetComplianceSummary)
+-&gt; Maybe Text -&gt; GetComplianceSummary -&gt; GetComplianceSummary
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetComplianceSummary
+GetComplianceSummaryResponse
+</span><a href="#local-6989586621679158537"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-282"></span><span>          </span><span class="annot"><span class="annottext">GetComplianceSummaryResponse
+-&gt; Getting (First Text) GetComplianceSummaryResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetComplianceSummaryResponse
+-&gt; Const (First Text) GetComplianceSummaryResponse
+Lens' GetComplianceSummaryResponse (Maybe Text)
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_paginationToken"><span class="hs-identifier hs-var">getComplianceSummaryResponse_paginationToken</span></a></span><span>
+</span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetComplianceSummaryResponse
+ -&gt; Const (First Text) GetComplianceSummaryResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetComplianceSummaryResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-286"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-287"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-type">GetComplianceSummaryResponse</span></a></span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679158528"><span class="annot"><span class="annottext">request :: GetComplianceSummary -&gt; Request GetComplianceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetComplianceSummary -&gt; Request GetComplianceSummary
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679158524"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetComplianceSummary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetComplianceSummary)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetComplianceSummary))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetComplianceSummary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetComplianceSummary)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679158521"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158521"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679158520"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679158520"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679158519"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158519"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-293"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Summary] -&gt; Int -&gt; GetComplianceSummaryResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse%27"><span class="hs-identifier hs-var">GetComplianceSummaryResponse'</span></a></span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Summary] -&gt; Int -&gt; GetComplianceSummaryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Summary] -&gt; Int -&gt; GetComplianceSummaryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PaginationToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Summary] -&gt; Int -&gt; GetComplianceSummaryResponse)
+-&gt; Either String (Maybe [Summary])
+-&gt; Either String (Int -&gt; GetComplianceSummaryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679158519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Summary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SummaryList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Summary]))
+-&gt; Maybe [Summary] -&gt; Either String (Maybe [Summary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Summary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetComplianceSummaryResponse)
+-&gt; Either String Int -&gt; Either String GetComplianceSummaryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158521"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158510"><span id="local-6989586621679158512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span></span></span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span></span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679158503"><span class="annot"><span class="annottext">toHeaders :: GetComplianceSummary -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetComplianceSummary -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-307"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-308"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResourceGroupsTaggingAPI_20170126.GetComplianceSummary&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-309"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-310"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-312"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-313"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-314"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-316"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158493"><span id="local-6989586621679158495"><span id="local-6989586621679158497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679158491"><span class="annot"><span class="annottext">toJSON :: GetComplianceSummary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary%27"><span class="hs-identifier hs-type">GetComplianceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158483"><span id="local-6989586621679158484"><span id="local-6989586621679158485"><span id="local-6989586621679158486"><span id="local-6989586621679158487"><span id="local-6989586621679158488"><span id="local-6989586621679158489"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe [GroupByAttribute]
+Maybe (NonEmpty Text)
+Maybe Text
+maxResults :: Maybe Natural
+tagKeyFilters :: Maybe (NonEmpty Text)
+regionFilters :: Maybe (NonEmpty Text)
+resourceTypeFilters :: Maybe [Text]
+targetIdFilters :: Maybe (NonEmpty Text)
+paginationToken :: Maybe Text
+groupBy :: Maybe [GroupByAttribute]
+$sel:maxResults:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe Natural
+$sel:tagKeyFilters:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe (NonEmpty Text)
+$sel:regionFilters:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe (NonEmpty Text)
+$sel:resourceTypeFilters:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe [Text]
+$sel:targetIdFilters:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe (NonEmpty Text)
+$sel:paginationToken:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe Text
+$sel:groupBy:GetComplianceSummary' :: GetComplianceSummary -&gt; Maybe [GroupByAttribute]
+</span><a href="#local-6989586621679158483"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-321"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-322"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GroupByAttribute] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([GroupByAttribute] -&gt; Pair)
+-&gt; Maybe [GroupByAttribute] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GroupByAttribute]
+</span><a href="#local-6989586621679158489"><span class="hs-identifier hs-var">groupBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PaginationToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158488"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetIdFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158487"><span class="hs-identifier hs-var">targetIdFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceTypeFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679158486"><span class="hs-identifier hs-var">resourceTypeFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RegionFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158485"><span class="hs-identifier hs-var">regionFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagKeyFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679158484"><span class="hs-identifier hs-var">tagKeyFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679158483"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-332"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-333"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-336"></span><span>  </span><span id="local-6989586621679158477"><span class="annot"><span class="annottext">toPath :: GetComplianceSummary -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetComplianceSummary -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummary"><span class="hs-identifier hs-type">GetComplianceSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-339"></span><span>  </span><span id="local-6989586621679158473"><span class="annot"><span class="annottext">toQuery :: GetComplianceSummary -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetComplianceSummary -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | /See:/ 'newGetComplianceSummaryResponse' smart constructor.</span><span>
+</span><span id="line-342"></span><span id="local-6989586621679158470"><span id="local-6989586621679158471"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetComplianceSummaryResponse"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-var">GetComplianceSummaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetComplianceSummaryResponse%27"><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse%27"><span class="hs-identifier hs-var">GetComplianceSummaryResponse'</span></a></span></span><span>
+</span><span id="line-343"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that indicates that there is more data available than this</span><span>
+</span><span id="line-344"></span><span>    </span><span class="hs-comment">-- response contains. To receive the next part of the response, specify</span><span>
+</span><span id="line-345"></span><span>    </span><span class="hs-comment">-- this response value as the @PaginationToken@ value in the request for</span><span>
+</span><span id="line-346"></span><span>    </span><span class="hs-comment">-- the next page.</span><span>
+</span><span id="line-347"></span><span>    </span><span id="%24sel%3ApaginationToken%3AGetComplianceSummaryResponse%27"><span class="annot"><span class="annottext">GetComplianceSummaryResponse -&gt; Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3ApaginationToken%3AGetComplianceSummaryResponse%27"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>    </span><span class="hs-comment">-- | A table that shows counts of noncompliant resources.</span><span>
+</span><span id="line-349"></span><span>    </span><span id="%24sel%3AsummaryList%3AGetComplianceSummaryResponse%27"><span class="annot"><span class="annottext">GetComplianceSummaryResponse -&gt; Maybe [Summary]
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AsummaryList%3AGetComplianceSummaryResponse%27"><span class="hs-identifier hs-var hs-var">summaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-351"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetComplianceSummaryResponse%27"><span class="annot"><span class="annottext">GetComplianceSummaryResponse -&gt; Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AhttpStatus%3AGetComplianceSummaryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-352"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-353"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679158463"><span id="local-6989586621679158465"><span class="annot"><span class="annottext">GetComplianceSummaryResponse
+-&gt; GetComplianceSummaryResponse -&gt; Bool
+(GetComplianceSummaryResponse
+ -&gt; GetComplianceSummaryResponse -&gt; Bool)
+-&gt; (GetComplianceSummaryResponse
+    -&gt; GetComplianceSummaryResponse -&gt; Bool)
+-&gt; Eq GetComplianceSummaryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetComplianceSummaryResponse
+-&gt; GetComplianceSummaryResponse -&gt; Bool
+$c/= :: GetComplianceSummaryResponse
+-&gt; GetComplianceSummaryResponse -&gt; Bool
+== :: GetComplianceSummaryResponse
+-&gt; GetComplianceSummaryResponse -&gt; Bool
+$c== :: GetComplianceSummaryResponse
+-&gt; GetComplianceSummaryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158455"><span id="local-6989586621679158457"><span id="local-6989586621679158459"><span id="local-6989586621679158461"><span class="annot"><span class="annottext">ReadPrec [GetComplianceSummaryResponse]
+ReadPrec GetComplianceSummaryResponse
+Int -&gt; ReadS GetComplianceSummaryResponse
+ReadS [GetComplianceSummaryResponse]
+(Int -&gt; ReadS GetComplianceSummaryResponse)
+-&gt; ReadS [GetComplianceSummaryResponse]
+-&gt; ReadPrec GetComplianceSummaryResponse
+-&gt; ReadPrec [GetComplianceSummaryResponse]
+-&gt; Read GetComplianceSummaryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetComplianceSummaryResponse]
+$creadListPrec :: ReadPrec [GetComplianceSummaryResponse]
+readPrec :: ReadPrec GetComplianceSummaryResponse
+$creadPrec :: ReadPrec GetComplianceSummaryResponse
+readList :: ReadS [GetComplianceSummaryResponse]
+$creadList :: ReadS [GetComplianceSummaryResponse]
+readsPrec :: Int -&gt; ReadS GetComplianceSummaryResponse
+$creadsPrec :: Int -&gt; ReadS GetComplianceSummaryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679158449"><span id="local-6989586621679158451"><span id="local-6989586621679158453"><span class="annot"><span class="annottext">Int -&gt; GetComplianceSummaryResponse -&gt; ShowS
+[GetComplianceSummaryResponse] -&gt; ShowS
+GetComplianceSummaryResponse -&gt; String
+(Int -&gt; GetComplianceSummaryResponse -&gt; ShowS)
+-&gt; (GetComplianceSummaryResponse -&gt; String)
+-&gt; ([GetComplianceSummaryResponse] -&gt; ShowS)
+-&gt; Show GetComplianceSummaryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetComplianceSummaryResponse] -&gt; ShowS
+$cshowList :: [GetComplianceSummaryResponse] -&gt; ShowS
+show :: GetComplianceSummaryResponse -&gt; String
+$cshow :: GetComplianceSummaryResponse -&gt; String
+showsPrec :: Int -&gt; GetComplianceSummaryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetComplianceSummaryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetComplianceSummaryResponse -&gt; Rep GetComplianceSummaryResponse x)
+-&gt; (forall x.
+    Rep GetComplianceSummaryResponse x -&gt; GetComplianceSummaryResponse)
+-&gt; Generic GetComplianceSummaryResponse
+forall x.
+Rep GetComplianceSummaryResponse x -&gt; GetComplianceSummaryResponse
+forall x.
+GetComplianceSummaryResponse -&gt; Rep GetComplianceSummaryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetComplianceSummaryResponse x -&gt; GetComplianceSummaryResponse
+$cfrom :: forall x.
+GetComplianceSummaryResponse -&gt; Rep GetComplianceSummaryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- Create a value of 'GetComplianceSummaryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- 'paginationToken', 'getComplianceSummaryResponse_paginationToken' - A string that indicates that there is more data available than this</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- response contains. To receive the next part of the response, specify</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- this response value as the @PaginationToken@ value in the request for</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- the next page.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- 'summaryList', 'getComplianceSummaryResponse_summaryList' - A table that shows counts of noncompliant resources.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- 'httpStatus', 'getComplianceSummaryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-371"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#newGetComplianceSummaryResponse"><span class="hs-identifier hs-type">newGetComplianceSummaryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-372"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-373"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-374"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-type">GetComplianceSummaryResponse</span></a></span><span>
+</span><span id="line-375"></span><span id="newGetComplianceSummaryResponse"><span class="annot"><span class="annottext">newGetComplianceSummaryResponse :: Int -&gt; GetComplianceSummaryResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#newGetComplianceSummaryResponse"><span class="hs-identifier hs-var hs-var">newGetComplianceSummaryResponse</span></a></span></span><span> </span><span id="local-6989586621679158446"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158446"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-376"></span><span>  </span><span class="annot"><span class="annottext">GetComplianceSummaryResponse' :: Maybe Text
+-&gt; Maybe [Summary] -&gt; Int -&gt; GetComplianceSummaryResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse%27"><span class="hs-identifier hs-type">GetComplianceSummaryResponse'</span></a></span><span>
+</span><span id="line-377"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:paginationToken:GetComplianceSummaryResponse' :: Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3ApaginationToken%3AGetComplianceSummaryResponse%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-378"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>      </span><span class="annot"><span class="annottext">$sel:summaryList:GetComplianceSummaryResponse' :: Maybe [Summary]
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AsummaryList%3AGetComplianceSummaryResponse%27"><span class="hs-identifier hs-var">summaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Summary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetComplianceSummaryResponse' :: Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AhttpStatus%3AGetComplianceSummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158446"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-381"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- | A string that indicates that there is more data available than this</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- response contains. To receive the next part of the response, specify</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- this response value as the @PaginationToken@ value in the request for</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- the next page.</span><span>
+</span><span id="line-387"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_paginationToken"><span class="hs-identifier hs-type">getComplianceSummaryResponse_paginationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-type">GetComplianceSummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span id="getComplianceSummaryResponse_paginationToken"><span class="annot"><span class="annottext">getComplianceSummaryResponse_paginationToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetComplianceSummaryResponse -&gt; f GetComplianceSummaryResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_paginationToken"><span class="hs-identifier hs-var hs-var">getComplianceSummaryResponse_paginationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummaryResponse -&gt; Maybe Text)
+-&gt; (GetComplianceSummaryResponse
+    -&gt; Maybe Text -&gt; GetComplianceSummaryResponse)
+-&gt; Lens' GetComplianceSummaryResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse%27"><span class="hs-identifier hs-type">GetComplianceSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158445"><span class="annot"><span class="annottext">Maybe Text
+paginationToken :: Maybe Text
+$sel:paginationToken:GetComplianceSummaryResponse' :: GetComplianceSummaryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679158445"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158445"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158444"><span class="annot"><span class="annottext">s :: GetComplianceSummaryResponse
+</span><a href="#local-6989586621679158444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse%27"><span class="hs-identifier hs-type">GetComplianceSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158443"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummaryResponse
+</span><a href="#local-6989586621679158444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paginationToken:GetComplianceSummaryResponse' :: Maybe Text
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3ApaginationToken%3AGetComplianceSummaryResponse%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-type">GetComplianceSummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- | A table that shows counts of noncompliant resources.</span><span>
+</span><span id="line-391"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_summaryList"><span class="hs-identifier hs-type">getComplianceSummaryResponse_summaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-type">GetComplianceSummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span id="getComplianceSummaryResponse_summaryList"><span class="annot"><span class="annottext">getComplianceSummaryResponse_summaryList :: (Maybe [Summary] -&gt; f (Maybe [Summary]))
+-&gt; GetComplianceSummaryResponse -&gt; f GetComplianceSummaryResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_summaryList"><span class="hs-identifier hs-var hs-var">getComplianceSummaryResponse_summaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummaryResponse -&gt; Maybe [Summary])
+-&gt; (GetComplianceSummaryResponse
+    -&gt; Maybe [Summary] -&gt; GetComplianceSummaryResponse)
+-&gt; Lens' GetComplianceSummaryResponse (Maybe [Summary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse%27"><span class="hs-identifier hs-type">GetComplianceSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158442"><span class="annot"><span class="annottext">Maybe [Summary]
+summaryList :: Maybe [Summary]
+$sel:summaryList:GetComplianceSummaryResponse' :: GetComplianceSummaryResponse -&gt; Maybe [Summary]
+</span><a href="#local-6989586621679158442"><span class="hs-identifier hs-var hs-var">summaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Summary]
+</span><a href="#local-6989586621679158442"><span class="hs-identifier hs-var">summaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158441"><span class="annot"><span class="annottext">s :: GetComplianceSummaryResponse
+</span><a href="#local-6989586621679158441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse%27"><span class="hs-identifier hs-type">GetComplianceSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158440"><span class="annot"><span class="annottext">Maybe [Summary]
+</span><a href="#local-6989586621679158440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummaryResponse
+</span><a href="#local-6989586621679158441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaryList:GetComplianceSummaryResponse' :: Maybe [Summary]
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AsummaryList%3AGetComplianceSummaryResponse%27"><span class="hs-identifier hs-var">summaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Summary]
+</span><a href="#local-6989586621679158440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-type">GetComplianceSummaryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Summary] -&gt; f (Maybe [Summary]))
+ -&gt; GetComplianceSummaryResponse -&gt; f GetComplianceSummaryResponse)
+-&gt; ((Maybe [Summary] -&gt; f (Maybe [Summary]))
+    -&gt; Maybe [Summary] -&gt; f (Maybe [Summary]))
+-&gt; (Maybe [Summary] -&gt; f (Maybe [Summary]))
+-&gt; GetComplianceSummaryResponse
+-&gt; f GetComplianceSummaryResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Summary] [Summary] [Summary] [Summary]
+-&gt; Iso
+     (Maybe [Summary])
+     (Maybe [Summary])
+     (Maybe [Summary])
+     (Maybe [Summary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Summary] [Summary] [Summary] [Summary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-393"></span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-395"></span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_httpStatus"><span class="hs-identifier hs-type">getComplianceSummaryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-type">GetComplianceSummaryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-396"></span><span id="getComplianceSummaryResponse_httpStatus"><span class="annot"><span class="annottext">getComplianceSummaryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetComplianceSummaryResponse -&gt; f GetComplianceSummaryResponse
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#getComplianceSummaryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getComplianceSummaryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceSummaryResponse -&gt; Int)
+-&gt; (GetComplianceSummaryResponse
+    -&gt; Int -&gt; GetComplianceSummaryResponse)
+-&gt; Lens
+     GetComplianceSummaryResponse GetComplianceSummaryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse%27"><span class="hs-identifier hs-type">GetComplianceSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158439"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetComplianceSummaryResponse' :: GetComplianceSummaryResponse -&gt; Int
+</span><a href="#local-6989586621679158439"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158439"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679158438"><span class="annot"><span class="annottext">s :: GetComplianceSummaryResponse
+</span><a href="#local-6989586621679158438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse%27"><span class="hs-identifier hs-type">GetComplianceSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679158437"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceSummaryResponse
+</span><a href="#local-6989586621679158438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetComplianceSummaryResponse' :: Int
+</span><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#%24sel%3AhttpStatus%3AGetComplianceSummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679158437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-type">GetComplianceSummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679158435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ResourceGroupsTagging.GetComplianceSummary.html#GetComplianceSummaryResponse"><span class="hs-identifier hs-type">GetComplianceSummaryResponse</span></a></span></span><span>
+</span><span id="line-399"></span></pre></body></html>

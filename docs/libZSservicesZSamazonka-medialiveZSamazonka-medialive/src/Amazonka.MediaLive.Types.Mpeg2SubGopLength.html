@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.Mpeg2SubGopLength</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.Mpeg2SubGopLength</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength"><span class="hs-identifier">Mpeg2SubGopLength</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength_DYNAMIC"><span class="hs-identifier">Mpeg2SubGopLength_DYNAMIC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength_FIXED"><span class="hs-identifier">Mpeg2SubGopLength_FIXED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Mpeg2 Sub Gop Length</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679905524"><span id="local-6989586621679905525"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2SubGopLength"><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength"><span class="hs-identifier hs-var">Mpeg2SubGopLength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2SubGopLength%27"><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength%27"><span class="hs-identifier hs-var">Mpeg2SubGopLength'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2SubGopLength"><span class="annot"><span class="annottext">Mpeg2SubGopLength -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#fromMpeg2SubGopLength"><span class="hs-identifier hs-var hs-var">fromMpeg2SubGopLength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679905516"><span id="local-6989586621679905518"><span id="local-6989586621679905520"><span class="annot"><span class="annottext">Int -&gt; Mpeg2SubGopLength -&gt; ShowS
+[Mpeg2SubGopLength] -&gt; ShowS
+Mpeg2SubGopLength -&gt; String
+(Int -&gt; Mpeg2SubGopLength -&gt; ShowS)
+-&gt; (Mpeg2SubGopLength -&gt; String)
+-&gt; ([Mpeg2SubGopLength] -&gt; ShowS)
+-&gt; Show Mpeg2SubGopLength
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Mpeg2SubGopLength] -&gt; ShowS
+$cshowList :: [Mpeg2SubGopLength] -&gt; ShowS
+show :: Mpeg2SubGopLength -&gt; String
+$cshow :: Mpeg2SubGopLength -&gt; String
+showsPrec :: Int -&gt; Mpeg2SubGopLength -&gt; ShowS
+$cshowsPrec :: Int -&gt; Mpeg2SubGopLength -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679905507"><span id="local-6989586621679905509"><span id="local-6989586621679905511"><span id="local-6989586621679905513"><span class="annot"><span class="annottext">ReadPrec [Mpeg2SubGopLength]
+ReadPrec Mpeg2SubGopLength
+Int -&gt; ReadS Mpeg2SubGopLength
+ReadS [Mpeg2SubGopLength]
+(Int -&gt; ReadS Mpeg2SubGopLength)
+-&gt; ReadS [Mpeg2SubGopLength]
+-&gt; ReadPrec Mpeg2SubGopLength
+-&gt; ReadPrec [Mpeg2SubGopLength]
+-&gt; Read Mpeg2SubGopLength
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Mpeg2SubGopLength]
+$creadListPrec :: ReadPrec [Mpeg2SubGopLength]
+readPrec :: ReadPrec Mpeg2SubGopLength
+$creadPrec :: ReadPrec Mpeg2SubGopLength
+readList :: ReadS [Mpeg2SubGopLength]
+$creadList :: ReadS [Mpeg2SubGopLength]
+readsPrec :: Int -&gt; ReadS Mpeg2SubGopLength
+$creadsPrec :: Int -&gt; ReadS Mpeg2SubGopLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679905502"><span id="local-6989586621679905504"><span class="annot"><span class="annottext">Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+(Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool)
+-&gt; (Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool)
+-&gt; Eq Mpeg2SubGopLength
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+$c/= :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+== :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+$c== :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679905486"><span id="local-6989586621679905488"><span id="local-6989586621679905490"><span id="local-6989586621679905492"><span id="local-6989586621679905494"><span id="local-6989586621679905496"><span id="local-6989586621679905498"><span class="annot"><span class="annottext">Eq Mpeg2SubGopLength
+Eq Mpeg2SubGopLength
+-&gt; (Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Ordering)
+-&gt; (Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool)
+-&gt; (Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool)
+-&gt; (Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool)
+-&gt; (Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool)
+-&gt; (Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Mpeg2SubGopLength)
+-&gt; (Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Mpeg2SubGopLength)
+-&gt; Ord Mpeg2SubGopLength
+Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Ordering
+Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Mpeg2SubGopLength
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Mpeg2SubGopLength
+$cmin :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Mpeg2SubGopLength
+max :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Mpeg2SubGopLength
+$cmax :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Mpeg2SubGopLength
+&gt;= :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+$c&gt;= :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+&gt; :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+$c&gt; :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+&lt;= :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+$c&lt;= :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+&lt; :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+$c&lt; :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Bool
+compare :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Ordering
+$ccompare :: Mpeg2SubGopLength -&gt; Mpeg2SubGopLength -&gt; Ordering
+$cp1Ord :: Eq Mpeg2SubGopLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Mpeg2SubGopLength -&gt; Rep Mpeg2SubGopLength x)
+-&gt; (forall x. Rep Mpeg2SubGopLength x -&gt; Mpeg2SubGopLength)
+-&gt; Generic Mpeg2SubGopLength
+forall x. Rep Mpeg2SubGopLength x -&gt; Mpeg2SubGopLength
+forall x. Mpeg2SubGopLength -&gt; Rep Mpeg2SubGopLength x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Mpeg2SubGopLength x -&gt; Mpeg2SubGopLength
+$cfrom :: forall x. Mpeg2SubGopLength -&gt; Rep Mpeg2SubGopLength x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679905478"><span id="local-6989586621679905480"><span class="annot"><span class="annottext">Int -&gt; Mpeg2SubGopLength -&gt; Int
+Mpeg2SubGopLength -&gt; Int
+(Int -&gt; Mpeg2SubGopLength -&gt; Int)
+-&gt; (Mpeg2SubGopLength -&gt; Int) -&gt; Hashable Mpeg2SubGopLength
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Mpeg2SubGopLength -&gt; Int
+$chash :: Mpeg2SubGopLength -&gt; Int
+hashWithSalt :: Int -&gt; Mpeg2SubGopLength -&gt; Int
+$chashWithSalt :: Int -&gt; Mpeg2SubGopLength -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679905475"><span class="annot"><span class="annottext">Mpeg2SubGopLength -&gt; ()
+(Mpeg2SubGopLength -&gt; ()) -&gt; NFData Mpeg2SubGopLength
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Mpeg2SubGopLength -&gt; ()
+$crnf :: Mpeg2SubGopLength -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679905472"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2SubGopLength
+(Text -&gt; Either String Mpeg2SubGopLength)
+-&gt; FromText Mpeg2SubGopLength
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Mpeg2SubGopLength
+$cfromText :: Text -&gt; Either String Mpeg2SubGopLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679905469"><span class="annot"><span class="annottext">Mpeg2SubGopLength -&gt; Text
+(Mpeg2SubGopLength -&gt; Text) -&gt; ToText Mpeg2SubGopLength
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Mpeg2SubGopLength -&gt; Text
+$ctoText :: Mpeg2SubGopLength -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679905466"><span class="annot"><span class="annottext">Mpeg2SubGopLength -&gt; ByteString
+(Mpeg2SubGopLength -&gt; ByteString) -&gt; ToByteString Mpeg2SubGopLength
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Mpeg2SubGopLength -&gt; ByteString
+$ctoBS :: Mpeg2SubGopLength -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679905463"><span class="annot"><span class="annottext">Mpeg2SubGopLength -&gt; ByteStringBuilder
+(Mpeg2SubGopLength -&gt; ByteStringBuilder) -&gt; ToLog Mpeg2SubGopLength
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Mpeg2SubGopLength -&gt; ByteStringBuilder
+$cbuild :: Mpeg2SubGopLength -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679905460"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2SubGopLength -&gt; [Header]
+(HeaderName -&gt; Mpeg2SubGopLength -&gt; [Header])
+-&gt; ToHeader Mpeg2SubGopLength
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Mpeg2SubGopLength -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Mpeg2SubGopLength -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679905457"><span class="annot"><span class="annottext">Mpeg2SubGopLength -&gt; QueryString
+(Mpeg2SubGopLength -&gt; QueryString) -&gt; ToQuery Mpeg2SubGopLength
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Mpeg2SubGopLength -&gt; QueryString
+$ctoQuery :: Mpeg2SubGopLength -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679905452"><span id="local-6989586621679905454"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2SubGopLength]
+Value -&gt; Parser Mpeg2SubGopLength
+(Value -&gt; Parser Mpeg2SubGopLength)
+-&gt; (Value -&gt; Parser [Mpeg2SubGopLength])
+-&gt; FromJSON Mpeg2SubGopLength
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Mpeg2SubGopLength]
+$cparseJSONList :: Value -&gt; Parser [Mpeg2SubGopLength]
+parseJSON :: Value -&gt; Parser Mpeg2SubGopLength
+$cparseJSON :: Value -&gt; Parser Mpeg2SubGopLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679905447"><span id="local-6989586621679905449"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2SubGopLength]
+FromJSONKeyFunction Mpeg2SubGopLength
+FromJSONKeyFunction Mpeg2SubGopLength
+-&gt; FromJSONKeyFunction [Mpeg2SubGopLength]
+-&gt; FromJSONKey Mpeg2SubGopLength
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Mpeg2SubGopLength]
+$cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2SubGopLength]
+fromJSONKey :: FromJSONKeyFunction Mpeg2SubGopLength
+$cfromJSONKey :: FromJSONKeyFunction Mpeg2SubGopLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679905438"><span id="local-6989586621679905440"><span id="local-6989586621679905442"><span id="local-6989586621679905444"><span class="annot"><span class="annottext">[Mpeg2SubGopLength] -&gt; Encoding
+[Mpeg2SubGopLength] -&gt; Value
+Mpeg2SubGopLength -&gt; Encoding
+Mpeg2SubGopLength -&gt; Value
+(Mpeg2SubGopLength -&gt; Value)
+-&gt; (Mpeg2SubGopLength -&gt; Encoding)
+-&gt; ([Mpeg2SubGopLength] -&gt; Value)
+-&gt; ([Mpeg2SubGopLength] -&gt; Encoding)
+-&gt; ToJSON Mpeg2SubGopLength
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Mpeg2SubGopLength] -&gt; Encoding
+$ctoEncodingList :: [Mpeg2SubGopLength] -&gt; Encoding
+toJSONList :: [Mpeg2SubGopLength] -&gt; Value
+$ctoJSONList :: [Mpeg2SubGopLength] -&gt; Value
+toEncoding :: Mpeg2SubGopLength -&gt; Encoding
+$ctoEncoding :: Mpeg2SubGopLength -&gt; Encoding
+toJSON :: Mpeg2SubGopLength -&gt; Value
+$ctoJSON :: Mpeg2SubGopLength -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679905433"><span id="local-6989586621679905435"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2SubGopLength]
+ToJSONKeyFunction Mpeg2SubGopLength
+ToJSONKeyFunction Mpeg2SubGopLength
+-&gt; ToJSONKeyFunction [Mpeg2SubGopLength]
+-&gt; ToJSONKey Mpeg2SubGopLength
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Mpeg2SubGopLength]
+$ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2SubGopLength]
+toJSONKey :: ToJSONKeyFunction Mpeg2SubGopLength
+$ctoJSONKey :: ToJSONKeyFunction Mpeg2SubGopLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679905430"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2SubGopLength
+([Node] -&gt; Either String Mpeg2SubGopLength)
+-&gt; FromXML Mpeg2SubGopLength
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Mpeg2SubGopLength
+$cparseXML :: [Node] -&gt; Either String Mpeg2SubGopLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679905427"><span class="annot"><span class="annottext">Mpeg2SubGopLength -&gt; XML
+(Mpeg2SubGopLength -&gt; XML) -&gt; ToXML Mpeg2SubGopLength
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Mpeg2SubGopLength -&gt; XML
+$ctoXML :: Mpeg2SubGopLength -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength_DYNAMIC"><span class="hs-identifier hs-type">Mpeg2SubGopLength_DYNAMIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength"><span class="hs-identifier hs-type">Mpeg2SubGopLength</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpeg2SubGopLength_DYNAMIC"><span id="%24mMpeg2SubGopLength_DYNAMIC"><span id="Mpeg2SubGopLength_DYNAMIC"><span class="annot"><span class="annottext">$bMpeg2SubGopLength_DYNAMIC :: Mpeg2SubGopLength
+$mMpeg2SubGopLength_DYNAMIC :: forall r. Mpeg2SubGopLength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#%24bMpeg2SubGopLength_DYNAMIC"><span class="hs-identifier hs-var hs-var hs-var">Mpeg2SubGopLength_DYNAMIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength%27"><span class="hs-identifier hs-type">Mpeg2SubGopLength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DYNAMIC&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength_FIXED"><span class="hs-identifier hs-type">Mpeg2SubGopLength_FIXED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength"><span class="hs-identifier hs-type">Mpeg2SubGopLength</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpeg2SubGopLength_FIXED"><span id="%24mMpeg2SubGopLength_FIXED"><span id="Mpeg2SubGopLength_FIXED"><span class="annot"><span class="annottext">$bMpeg2SubGopLength_FIXED :: Mpeg2SubGopLength
+$mMpeg2SubGopLength_FIXED :: forall r. Mpeg2SubGopLength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#%24bMpeg2SubGopLength_FIXED"><span class="hs-identifier hs-var hs-var hs-var">Mpeg2SubGopLength_FIXED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength%27"><span class="hs-identifier hs-type">Mpeg2SubGopLength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FIXED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength_DYNAMIC"><span class="hs-pragma hs-type">Mpeg2SubGopLength_DYNAMIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength_FIXED"><span class="hs-pragma hs-type">Mpeg2SubGopLength_FIXED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mpeg2SubGopLength.html#Mpeg2SubGopLength%27"><span class="hs-pragma hs-type">Mpeg2SubGopLength'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

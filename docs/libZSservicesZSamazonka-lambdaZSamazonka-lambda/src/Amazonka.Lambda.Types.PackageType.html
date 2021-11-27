@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lambda.Types.PackageType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lambda.Types.PackageType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType"><span class="hs-identifier">PackageType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType_Image"><span class="hs-identifier">PackageType_Image</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType_Zip"><span class="hs-identifier">PackageType_Zip</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679297530"><span id="local-6989586621679297531"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PackageType"><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType"><span class="hs-identifier hs-var">PackageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PackageType%27"><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType%27"><span class="hs-identifier hs-var">PackageType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPackageType"><span class="annot"><span class="annottext">PackageType -&gt; Text
+</span><a href="Amazonka.Lambda.Types.PackageType.html#fromPackageType"><span class="hs-identifier hs-var hs-var">fromPackageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297522"><span id="local-6989586621679297524"><span id="local-6989586621679297526"><span class="annot"><span class="annottext">Int -&gt; PackageType -&gt; ShowS
+[PackageType] -&gt; ShowS
+PackageType -&gt; String
+(Int -&gt; PackageType -&gt; ShowS)
+-&gt; (PackageType -&gt; String)
+-&gt; ([PackageType] -&gt; ShowS)
+-&gt; Show PackageType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PackageType] -&gt; ShowS
+$cshowList :: [PackageType] -&gt; ShowS
+show :: PackageType -&gt; String
+$cshow :: PackageType -&gt; String
+showsPrec :: Int -&gt; PackageType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PackageType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679297513"><span id="local-6989586621679297515"><span id="local-6989586621679297517"><span id="local-6989586621679297519"><span class="annot"><span class="annottext">ReadPrec [PackageType]
+ReadPrec PackageType
+Int -&gt; ReadS PackageType
+ReadS [PackageType]
+(Int -&gt; ReadS PackageType)
+-&gt; ReadS [PackageType]
+-&gt; ReadPrec PackageType
+-&gt; ReadPrec [PackageType]
+-&gt; Read PackageType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PackageType]
+$creadListPrec :: ReadPrec [PackageType]
+readPrec :: ReadPrec PackageType
+$creadPrec :: ReadPrec PackageType
+readList :: ReadS [PackageType]
+$creadList :: ReadS [PackageType]
+readsPrec :: Int -&gt; ReadS PackageType
+$creadsPrec :: Int -&gt; ReadS PackageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679297508"><span id="local-6989586621679297510"><span class="annot"><span class="annottext">PackageType -&gt; PackageType -&gt; Bool
+(PackageType -&gt; PackageType -&gt; Bool)
+-&gt; (PackageType -&gt; PackageType -&gt; Bool) -&gt; Eq PackageType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PackageType -&gt; PackageType -&gt; Bool
+$c/= :: PackageType -&gt; PackageType -&gt; Bool
+== :: PackageType -&gt; PackageType -&gt; Bool
+$c== :: PackageType -&gt; PackageType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679297492"><span id="local-6989586621679297494"><span id="local-6989586621679297496"><span id="local-6989586621679297498"><span id="local-6989586621679297500"><span id="local-6989586621679297502"><span id="local-6989586621679297504"><span class="annot"><span class="annottext">Eq PackageType
+Eq PackageType
+-&gt; (PackageType -&gt; PackageType -&gt; Ordering)
+-&gt; (PackageType -&gt; PackageType -&gt; Bool)
+-&gt; (PackageType -&gt; PackageType -&gt; Bool)
+-&gt; (PackageType -&gt; PackageType -&gt; Bool)
+-&gt; (PackageType -&gt; PackageType -&gt; Bool)
+-&gt; (PackageType -&gt; PackageType -&gt; PackageType)
+-&gt; (PackageType -&gt; PackageType -&gt; PackageType)
+-&gt; Ord PackageType
+PackageType -&gt; PackageType -&gt; Bool
+PackageType -&gt; PackageType -&gt; Ordering
+PackageType -&gt; PackageType -&gt; PackageType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PackageType -&gt; PackageType -&gt; PackageType
+$cmin :: PackageType -&gt; PackageType -&gt; PackageType
+max :: PackageType -&gt; PackageType -&gt; PackageType
+$cmax :: PackageType -&gt; PackageType -&gt; PackageType
+&gt;= :: PackageType -&gt; PackageType -&gt; Bool
+$c&gt;= :: PackageType -&gt; PackageType -&gt; Bool
+&gt; :: PackageType -&gt; PackageType -&gt; Bool
+$c&gt; :: PackageType -&gt; PackageType -&gt; Bool
+&lt;= :: PackageType -&gt; PackageType -&gt; Bool
+$c&lt;= :: PackageType -&gt; PackageType -&gt; Bool
+&lt; :: PackageType -&gt; PackageType -&gt; Bool
+$c&lt; :: PackageType -&gt; PackageType -&gt; Bool
+compare :: PackageType -&gt; PackageType -&gt; Ordering
+$ccompare :: PackageType -&gt; PackageType -&gt; Ordering
+$cp1Ord :: Eq PackageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PackageType -&gt; Rep PackageType x)
+-&gt; (forall x. Rep PackageType x -&gt; PackageType)
+-&gt; Generic PackageType
+forall x. Rep PackageType x -&gt; PackageType
+forall x. PackageType -&gt; Rep PackageType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PackageType x -&gt; PackageType
+$cfrom :: forall x. PackageType -&gt; Rep PackageType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297484"><span id="local-6989586621679297486"><span class="annot"><span class="annottext">Int -&gt; PackageType -&gt; Int
+PackageType -&gt; Int
+(Int -&gt; PackageType -&gt; Int)
+-&gt; (PackageType -&gt; Int) -&gt; Hashable PackageType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PackageType -&gt; Int
+$chash :: PackageType -&gt; Int
+hashWithSalt :: Int -&gt; PackageType -&gt; Int
+$chashWithSalt :: Int -&gt; PackageType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679297481"><span class="annot"><span class="annottext">PackageType -&gt; ()
+(PackageType -&gt; ()) -&gt; NFData PackageType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PackageType -&gt; ()
+$crnf :: PackageType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679297478"><span class="annot"><span class="annottext">Text -&gt; Either String PackageType
+(Text -&gt; Either String PackageType) -&gt; FromText PackageType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PackageType
+$cfromText :: Text -&gt; Either String PackageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679297475"><span class="annot"><span class="annottext">PackageType -&gt; Text
+(PackageType -&gt; Text) -&gt; ToText PackageType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PackageType -&gt; Text
+$ctoText :: PackageType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679297472"><span class="annot"><span class="annottext">PackageType -&gt; ByteString
+(PackageType -&gt; ByteString) -&gt; ToByteString PackageType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PackageType -&gt; ByteString
+$ctoBS :: PackageType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679297469"><span class="annot"><span class="annottext">PackageType -&gt; ByteStringBuilder
+(PackageType -&gt; ByteStringBuilder) -&gt; ToLog PackageType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PackageType -&gt; ByteStringBuilder
+$cbuild :: PackageType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679297466"><span class="annot"><span class="annottext">HeaderName -&gt; PackageType -&gt; [Header]
+(HeaderName -&gt; PackageType -&gt; [Header]) -&gt; ToHeader PackageType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PackageType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PackageType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679297463"><span class="annot"><span class="annottext">PackageType -&gt; QueryString
+(PackageType -&gt; QueryString) -&gt; ToQuery PackageType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PackageType -&gt; QueryString
+$ctoQuery :: PackageType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679297458"><span id="local-6989586621679297460"><span class="annot"><span class="annottext">Value -&gt; Parser [PackageType]
+Value -&gt; Parser PackageType
+(Value -&gt; Parser PackageType)
+-&gt; (Value -&gt; Parser [PackageType]) -&gt; FromJSON PackageType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PackageType]
+$cparseJSONList :: Value -&gt; Parser [PackageType]
+parseJSON :: Value -&gt; Parser PackageType
+$cparseJSON :: Value -&gt; Parser PackageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679297453"><span id="local-6989586621679297455"><span class="annot"><span class="annottext">FromJSONKeyFunction [PackageType]
+FromJSONKeyFunction PackageType
+FromJSONKeyFunction PackageType
+-&gt; FromJSONKeyFunction [PackageType] -&gt; FromJSONKey PackageType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PackageType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PackageType]
+fromJSONKey :: FromJSONKeyFunction PackageType
+$cfromJSONKey :: FromJSONKeyFunction PackageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679297444"><span id="local-6989586621679297446"><span id="local-6989586621679297448"><span id="local-6989586621679297450"><span class="annot"><span class="annottext">[PackageType] -&gt; Encoding
+[PackageType] -&gt; Value
+PackageType -&gt; Encoding
+PackageType -&gt; Value
+(PackageType -&gt; Value)
+-&gt; (PackageType -&gt; Encoding)
+-&gt; ([PackageType] -&gt; Value)
+-&gt; ([PackageType] -&gt; Encoding)
+-&gt; ToJSON PackageType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PackageType] -&gt; Encoding
+$ctoEncodingList :: [PackageType] -&gt; Encoding
+toJSONList :: [PackageType] -&gt; Value
+$ctoJSONList :: [PackageType] -&gt; Value
+toEncoding :: PackageType -&gt; Encoding
+$ctoEncoding :: PackageType -&gt; Encoding
+toJSON :: PackageType -&gt; Value
+$ctoJSON :: PackageType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297439"><span id="local-6989586621679297441"><span class="annot"><span class="annottext">ToJSONKeyFunction [PackageType]
+ToJSONKeyFunction PackageType
+ToJSONKeyFunction PackageType
+-&gt; ToJSONKeyFunction [PackageType] -&gt; ToJSONKey PackageType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PackageType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PackageType]
+toJSONKey :: ToJSONKeyFunction PackageType
+$ctoJSONKey :: ToJSONKeyFunction PackageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297436"><span class="annot"><span class="annottext">[Node] -&gt; Either String PackageType
+([Node] -&gt; Either String PackageType) -&gt; FromXML PackageType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PackageType
+$cparseXML :: [Node] -&gt; Either String PackageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679297433"><span class="annot"><span class="annottext">PackageType -&gt; XML
+(PackageType -&gt; XML) -&gt; ToXML PackageType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PackageType -&gt; XML
+$ctoXML :: PackageType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType_Image"><span class="hs-identifier hs-type">PackageType_Image</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType"><span class="hs-identifier hs-type">PackageType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPackageType_Image"><span id="%24mPackageType_Image"><span id="PackageType_Image"><span class="annot"><span class="annottext">$bPackageType_Image :: PackageType
+$mPackageType_Image :: forall r. PackageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lambda.Types.PackageType.html#%24bPackageType_Image"><span class="hs-identifier hs-var hs-var hs-var">PackageType_Image</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType%27"><span class="hs-identifier hs-type">PackageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Image&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType_Zip"><span class="hs-identifier hs-type">PackageType_Zip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType"><span class="hs-identifier hs-type">PackageType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPackageType_Zip"><span id="%24mPackageType_Zip"><span id="PackageType_Zip"><span class="annot"><span class="annottext">$bPackageType_Zip :: PackageType
+$mPackageType_Zip :: forall r. PackageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lambda.Types.PackageType.html#%24bPackageType_Zip"><span class="hs-identifier hs-var hs-var hs-var">PackageType_Zip</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType%27"><span class="hs-identifier hs-type">PackageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Zip&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType_Image"><span class="hs-pragma hs-type">PackageType_Image</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType_Zip"><span class="hs-pragma hs-type">PackageType_Zip</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.Types.PackageType.html#PackageType%27"><span class="hs-pragma hs-type">PackageType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

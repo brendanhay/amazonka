@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WorkLink.Types.FleetStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkLink.Types.FleetStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier">FleetStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_ACTIVE"><span class="hs-identifier">FleetStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_CREATING"><span class="hs-identifier">FleetStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_DELETED"><span class="hs-identifier">FleetStatus_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_DELETING"><span class="hs-identifier">FleetStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_FAILED_TO_CREATE"><span class="hs-identifier">FleetStatus_FAILED_TO_CREATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_FAILED_TO_DELETE"><span class="hs-identifier">FleetStatus_FAILED_TO_DELETE</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679190120"><span id="local-6989586621679190121"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetStatus"><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-var">FleetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetStatus%27"><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus%27"><span class="hs-identifier hs-var">FleetStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetStatus"><span class="annot"><span class="annottext">FleetStatus -&gt; Text
+</span><a href="Amazonka.WorkLink.Types.FleetStatus.html#fromFleetStatus"><span class="hs-identifier hs-var hs-var">fromFleetStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190112"><span id="local-6989586621679190114"><span id="local-6989586621679190116"><span class="annot"><span class="annottext">Int -&gt; FleetStatus -&gt; ShowS
+[FleetStatus] -&gt; ShowS
+FleetStatus -&gt; String
+(Int -&gt; FleetStatus -&gt; ShowS)
+-&gt; (FleetStatus -&gt; String)
+-&gt; ([FleetStatus] -&gt; ShowS)
+-&gt; Show FleetStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FleetStatus] -&gt; ShowS
+$cshowList :: [FleetStatus] -&gt; ShowS
+show :: FleetStatus -&gt; String
+$cshow :: FleetStatus -&gt; String
+showsPrec :: Int -&gt; FleetStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; FleetStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679190103"><span id="local-6989586621679190105"><span id="local-6989586621679190107"><span id="local-6989586621679190109"><span class="annot"><span class="annottext">ReadPrec [FleetStatus]
+ReadPrec FleetStatus
+Int -&gt; ReadS FleetStatus
+ReadS [FleetStatus]
+(Int -&gt; ReadS FleetStatus)
+-&gt; ReadS [FleetStatus]
+-&gt; ReadPrec FleetStatus
+-&gt; ReadPrec [FleetStatus]
+-&gt; Read FleetStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FleetStatus]
+$creadListPrec :: ReadPrec [FleetStatus]
+readPrec :: ReadPrec FleetStatus
+$creadPrec :: ReadPrec FleetStatus
+readList :: ReadS [FleetStatus]
+$creadList :: ReadS [FleetStatus]
+readsPrec :: Int -&gt; ReadS FleetStatus
+$creadsPrec :: Int -&gt; ReadS FleetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679190098"><span id="local-6989586621679190100"><span class="annot"><span class="annottext">FleetStatus -&gt; FleetStatus -&gt; Bool
+(FleetStatus -&gt; FleetStatus -&gt; Bool)
+-&gt; (FleetStatus -&gt; FleetStatus -&gt; Bool) -&gt; Eq FleetStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FleetStatus -&gt; FleetStatus -&gt; Bool
+$c/= :: FleetStatus -&gt; FleetStatus -&gt; Bool
+== :: FleetStatus -&gt; FleetStatus -&gt; Bool
+$c== :: FleetStatus -&gt; FleetStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679190082"><span id="local-6989586621679190084"><span id="local-6989586621679190086"><span id="local-6989586621679190088"><span id="local-6989586621679190090"><span id="local-6989586621679190092"><span id="local-6989586621679190094"><span class="annot"><span class="annottext">Eq FleetStatus
+Eq FleetStatus
+-&gt; (FleetStatus -&gt; FleetStatus -&gt; Ordering)
+-&gt; (FleetStatus -&gt; FleetStatus -&gt; Bool)
+-&gt; (FleetStatus -&gt; FleetStatus -&gt; Bool)
+-&gt; (FleetStatus -&gt; FleetStatus -&gt; Bool)
+-&gt; (FleetStatus -&gt; FleetStatus -&gt; Bool)
+-&gt; (FleetStatus -&gt; FleetStatus -&gt; FleetStatus)
+-&gt; (FleetStatus -&gt; FleetStatus -&gt; FleetStatus)
+-&gt; Ord FleetStatus
+FleetStatus -&gt; FleetStatus -&gt; Bool
+FleetStatus -&gt; FleetStatus -&gt; Ordering
+FleetStatus -&gt; FleetStatus -&gt; FleetStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FleetStatus -&gt; FleetStatus -&gt; FleetStatus
+$cmin :: FleetStatus -&gt; FleetStatus -&gt; FleetStatus
+max :: FleetStatus -&gt; FleetStatus -&gt; FleetStatus
+$cmax :: FleetStatus -&gt; FleetStatus -&gt; FleetStatus
+&gt;= :: FleetStatus -&gt; FleetStatus -&gt; Bool
+$c&gt;= :: FleetStatus -&gt; FleetStatus -&gt; Bool
+&gt; :: FleetStatus -&gt; FleetStatus -&gt; Bool
+$c&gt; :: FleetStatus -&gt; FleetStatus -&gt; Bool
+&lt;= :: FleetStatus -&gt; FleetStatus -&gt; Bool
+$c&lt;= :: FleetStatus -&gt; FleetStatus -&gt; Bool
+&lt; :: FleetStatus -&gt; FleetStatus -&gt; Bool
+$c&lt; :: FleetStatus -&gt; FleetStatus -&gt; Bool
+compare :: FleetStatus -&gt; FleetStatus -&gt; Ordering
+$ccompare :: FleetStatus -&gt; FleetStatus -&gt; Ordering
+$cp1Ord :: Eq FleetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FleetStatus -&gt; Rep FleetStatus x)
+-&gt; (forall x. Rep FleetStatus x -&gt; FleetStatus)
+-&gt; Generic FleetStatus
+forall x. Rep FleetStatus x -&gt; FleetStatus
+forall x. FleetStatus -&gt; Rep FleetStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FleetStatus x -&gt; FleetStatus
+$cfrom :: forall x. FleetStatus -&gt; Rep FleetStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190074"><span id="local-6989586621679190076"><span class="annot"><span class="annottext">Int -&gt; FleetStatus -&gt; Int
+FleetStatus -&gt; Int
+(Int -&gt; FleetStatus -&gt; Int)
+-&gt; (FleetStatus -&gt; Int) -&gt; Hashable FleetStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FleetStatus -&gt; Int
+$chash :: FleetStatus -&gt; Int
+hashWithSalt :: Int -&gt; FleetStatus -&gt; Int
+$chashWithSalt :: Int -&gt; FleetStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679190071"><span class="annot"><span class="annottext">FleetStatus -&gt; ()
+(FleetStatus -&gt; ()) -&gt; NFData FleetStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FleetStatus -&gt; ()
+$crnf :: FleetStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679190068"><span class="annot"><span class="annottext">Text -&gt; Either String FleetStatus
+(Text -&gt; Either String FleetStatus) -&gt; FromText FleetStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FleetStatus
+$cfromText :: Text -&gt; Either String FleetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679190065"><span class="annot"><span class="annottext">FleetStatus -&gt; Text
+(FleetStatus -&gt; Text) -&gt; ToText FleetStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FleetStatus -&gt; Text
+$ctoText :: FleetStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679190062"><span class="annot"><span class="annottext">FleetStatus -&gt; ByteString
+(FleetStatus -&gt; ByteString) -&gt; ToByteString FleetStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FleetStatus -&gt; ByteString
+$ctoBS :: FleetStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679190059"><span class="annot"><span class="annottext">FleetStatus -&gt; ByteStringBuilder
+(FleetStatus -&gt; ByteStringBuilder) -&gt; ToLog FleetStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FleetStatus -&gt; ByteStringBuilder
+$cbuild :: FleetStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679190056"><span class="annot"><span class="annottext">HeaderName -&gt; FleetStatus -&gt; [Header]
+(HeaderName -&gt; FleetStatus -&gt; [Header]) -&gt; ToHeader FleetStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FleetStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FleetStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679190053"><span class="annot"><span class="annottext">FleetStatus -&gt; QueryString
+(FleetStatus -&gt; QueryString) -&gt; ToQuery FleetStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FleetStatus -&gt; QueryString
+$ctoQuery :: FleetStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679190048"><span id="local-6989586621679190050"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetStatus]
+Value -&gt; Parser FleetStatus
+(Value -&gt; Parser FleetStatus)
+-&gt; (Value -&gt; Parser [FleetStatus]) -&gt; FromJSON FleetStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FleetStatus]
+$cparseJSONList :: Value -&gt; Parser [FleetStatus]
+parseJSON :: Value -&gt; Parser FleetStatus
+$cparseJSON :: Value -&gt; Parser FleetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679190043"><span id="local-6989586621679190045"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetStatus]
+FromJSONKeyFunction FleetStatus
+FromJSONKeyFunction FleetStatus
+-&gt; FromJSONKeyFunction [FleetStatus] -&gt; FromJSONKey FleetStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FleetStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [FleetStatus]
+fromJSONKey :: FromJSONKeyFunction FleetStatus
+$cfromJSONKey :: FromJSONKeyFunction FleetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679190034"><span id="local-6989586621679190036"><span id="local-6989586621679190038"><span id="local-6989586621679190040"><span class="annot"><span class="annottext">[FleetStatus] -&gt; Encoding
+[FleetStatus] -&gt; Value
+FleetStatus -&gt; Encoding
+FleetStatus -&gt; Value
+(FleetStatus -&gt; Value)
+-&gt; (FleetStatus -&gt; Encoding)
+-&gt; ([FleetStatus] -&gt; Value)
+-&gt; ([FleetStatus] -&gt; Encoding)
+-&gt; ToJSON FleetStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FleetStatus] -&gt; Encoding
+$ctoEncodingList :: [FleetStatus] -&gt; Encoding
+toJSONList :: [FleetStatus] -&gt; Value
+$ctoJSONList :: [FleetStatus] -&gt; Value
+toEncoding :: FleetStatus -&gt; Encoding
+$ctoEncoding :: FleetStatus -&gt; Encoding
+toJSON :: FleetStatus -&gt; Value
+$ctoJSON :: FleetStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679190029"><span id="local-6989586621679190031"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetStatus]
+ToJSONKeyFunction FleetStatus
+ToJSONKeyFunction FleetStatus
+-&gt; ToJSONKeyFunction [FleetStatus] -&gt; ToJSONKey FleetStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FleetStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [FleetStatus]
+toJSONKey :: ToJSONKeyFunction FleetStatus
+$ctoJSONKey :: ToJSONKeyFunction FleetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679190026"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetStatus
+([Node] -&gt; Either String FleetStatus) -&gt; FromXML FleetStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FleetStatus
+$cparseXML :: [Node] -&gt; Either String FleetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679190023"><span class="annot"><span class="annottext">FleetStatus -&gt; XML
+(FleetStatus -&gt; XML) -&gt; ToXML FleetStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FleetStatus -&gt; XML
+$ctoXML :: FleetStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_ACTIVE"><span class="hs-identifier hs-type">FleetStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetStatus_ACTIVE"><span id="%24mFleetStatus_ACTIVE"><span id="FleetStatus_ACTIVE"><span class="annot"><span class="annottext">$bFleetStatus_ACTIVE :: FleetStatus
+$mFleetStatus_ACTIVE :: forall r. FleetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkLink.Types.FleetStatus.html#%24bFleetStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">FleetStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus%27"><span class="hs-identifier hs-type">FleetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_CREATING"><span class="hs-identifier hs-type">FleetStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetStatus_CREATING"><span id="%24mFleetStatus_CREATING"><span id="FleetStatus_CREATING"><span class="annot"><span class="annottext">$bFleetStatus_CREATING :: FleetStatus
+$mFleetStatus_CREATING :: forall r. FleetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkLink.Types.FleetStatus.html#%24bFleetStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">FleetStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus%27"><span class="hs-identifier hs-type">FleetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_DELETED"><span class="hs-identifier hs-type">FleetStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetStatus_DELETED"><span id="%24mFleetStatus_DELETED"><span id="FleetStatus_DELETED"><span class="annot"><span class="annottext">$bFleetStatus_DELETED :: FleetStatus
+$mFleetStatus_DELETED :: forall r. FleetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkLink.Types.FleetStatus.html#%24bFleetStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">FleetStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus%27"><span class="hs-identifier hs-type">FleetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_DELETING"><span class="hs-identifier hs-type">FleetStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetStatus_DELETING"><span id="%24mFleetStatus_DELETING"><span id="FleetStatus_DELETING"><span class="annot"><span class="annottext">$bFleetStatus_DELETING :: FleetStatus
+$mFleetStatus_DELETING :: forall r. FleetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkLink.Types.FleetStatus.html#%24bFleetStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">FleetStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus%27"><span class="hs-identifier hs-type">FleetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_FAILED_TO_CREATE"><span class="hs-identifier hs-type">FleetStatus_FAILED_TO_CREATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetStatus_FAILED_TO_CREATE"><span id="%24mFleetStatus_FAILED_TO_CREATE"><span id="FleetStatus_FAILED_TO_CREATE"><span class="annot"><span class="annottext">$bFleetStatus_FAILED_TO_CREATE :: FleetStatus
+$mFleetStatus_FAILED_TO_CREATE :: forall r. FleetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkLink.Types.FleetStatus.html#%24bFleetStatus_FAILED_TO_CREATE"><span class="hs-identifier hs-var hs-var hs-var">FleetStatus_FAILED_TO_CREATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus%27"><span class="hs-identifier hs-type">FleetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_CREATE&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_FAILED_TO_DELETE"><span class="hs-identifier hs-type">FleetStatus_FAILED_TO_DELETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetStatus_FAILED_TO_DELETE"><span id="%24mFleetStatus_FAILED_TO_DELETE"><span id="FleetStatus_FAILED_TO_DELETE"><span class="annot"><span class="annottext">$bFleetStatus_FAILED_TO_DELETE :: FleetStatus
+$mFleetStatus_FAILED_TO_DELETE :: forall r. FleetStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkLink.Types.FleetStatus.html#%24bFleetStatus_FAILED_TO_DELETE"><span class="hs-identifier hs-var hs-var hs-var">FleetStatus_FAILED_TO_DELETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus%27"><span class="hs-identifier hs-type">FleetStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_DELETE&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_ACTIVE"><span class="hs-pragma hs-type">FleetStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_CREATING"><span class="hs-pragma hs-type">FleetStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_DELETED"><span class="hs-pragma hs-type">FleetStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_DELETING"><span class="hs-pragma hs-type">FleetStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_FAILED_TO_CREATE"><span class="hs-pragma hs-type">FleetStatus_FAILED_TO_CREATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus_FAILED_TO_DELETE"><span class="hs-pragma hs-type">FleetStatus_FAILED_TO_DELETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus%27"><span class="hs-pragma hs-type">FleetStatus'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

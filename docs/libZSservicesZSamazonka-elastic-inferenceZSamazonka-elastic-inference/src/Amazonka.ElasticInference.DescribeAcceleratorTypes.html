@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ElasticInference.DescribeAcceleratorTypes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the accelerator types available in a given region, as well as</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- their characteristics, such as memory and throughput.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticInference.DescribeAcceleratorTypes</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier">DescribeAcceleratorTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#newDescribeAcceleratorTypes"><span class="hs-identifier">newDescribeAcceleratorTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse"><span class="hs-identifier">DescribeAcceleratorTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#newDescribeAcceleratorTypesResponse"><span class="hs-identifier">newDescribeAcceleratorTypesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#describeAcceleratorTypesResponse_acceleratorTypes"><span class="hs-identifier">describeAcceleratorTypesResponse_acceleratorTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#describeAcceleratorTypesResponse_httpStatus"><span class="hs-identifier">describeAcceleratorTypesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.Types.html"><span class="hs-identifier">Amazonka.ElasticInference.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newDescribeAcceleratorTypes' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679148688"><span id="local-6989586621679148689"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAcceleratorTypes"><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier hs-var">DescribeAcceleratorTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAcceleratorTypes%27"><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes%27"><span class="hs-identifier hs-var">DescribeAcceleratorTypes'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148683"><span id="local-6989586621679148685"><span class="annot"><span class="annottext">DescribeAcceleratorTypes -&gt; DescribeAcceleratorTypes -&gt; Bool
+(DescribeAcceleratorTypes -&gt; DescribeAcceleratorTypes -&gt; Bool)
+-&gt; (DescribeAcceleratorTypes -&gt; DescribeAcceleratorTypes -&gt; Bool)
+-&gt; Eq DescribeAcceleratorTypes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAcceleratorTypes -&gt; DescribeAcceleratorTypes -&gt; Bool
+$c/= :: DescribeAcceleratorTypes -&gt; DescribeAcceleratorTypes -&gt; Bool
+== :: DescribeAcceleratorTypes -&gt; DescribeAcceleratorTypes -&gt; Bool
+$c== :: DescribeAcceleratorTypes -&gt; DescribeAcceleratorTypes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148674"><span id="local-6989586621679148676"><span id="local-6989586621679148678"><span id="local-6989586621679148680"><span class="annot"><span class="annottext">ReadPrec [DescribeAcceleratorTypes]
+ReadPrec DescribeAcceleratorTypes
+Int -&gt; ReadS DescribeAcceleratorTypes
+ReadS [DescribeAcceleratorTypes]
+(Int -&gt; ReadS DescribeAcceleratorTypes)
+-&gt; ReadS [DescribeAcceleratorTypes]
+-&gt; ReadPrec DescribeAcceleratorTypes
+-&gt; ReadPrec [DescribeAcceleratorTypes]
+-&gt; Read DescribeAcceleratorTypes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAcceleratorTypes]
+$creadListPrec :: ReadPrec [DescribeAcceleratorTypes]
+readPrec :: ReadPrec DescribeAcceleratorTypes
+$creadPrec :: ReadPrec DescribeAcceleratorTypes
+readList :: ReadS [DescribeAcceleratorTypes]
+$creadList :: ReadS [DescribeAcceleratorTypes]
+readsPrec :: Int -&gt; ReadS DescribeAcceleratorTypes
+$creadsPrec :: Int -&gt; ReadS DescribeAcceleratorTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148667"><span id="local-6989586621679148669"><span id="local-6989586621679148671"><span class="annot"><span class="annottext">Int -&gt; DescribeAcceleratorTypes -&gt; ShowS
+[DescribeAcceleratorTypes] -&gt; ShowS
+DescribeAcceleratorTypes -&gt; String
+(Int -&gt; DescribeAcceleratorTypes -&gt; ShowS)
+-&gt; (DescribeAcceleratorTypes -&gt; String)
+-&gt; ([DescribeAcceleratorTypes] -&gt; ShowS)
+-&gt; Show DescribeAcceleratorTypes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAcceleratorTypes] -&gt; ShowS
+$cshowList :: [DescribeAcceleratorTypes] -&gt; ShowS
+show :: DescribeAcceleratorTypes -&gt; String
+$cshow :: DescribeAcceleratorTypes -&gt; String
+showsPrec :: Int -&gt; DescribeAcceleratorTypes -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAcceleratorTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAcceleratorTypes -&gt; Rep DescribeAcceleratorTypes x)
+-&gt; (forall x.
+    Rep DescribeAcceleratorTypes x -&gt; DescribeAcceleratorTypes)
+-&gt; Generic DescribeAcceleratorTypes
+forall x.
+Rep DescribeAcceleratorTypes x -&gt; DescribeAcceleratorTypes
+forall x.
+DescribeAcceleratorTypes -&gt; Rep DescribeAcceleratorTypes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAcceleratorTypes x -&gt; DescribeAcceleratorTypes
+$cfrom :: forall x.
+DescribeAcceleratorTypes -&gt; Rep DescribeAcceleratorTypes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'DescribeAcceleratorTypes' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#newDescribeAcceleratorTypes"><span class="hs-identifier hs-type">newDescribeAcceleratorTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier hs-type">DescribeAcceleratorTypes</span></a></span><span>
+</span><span id="line-59"></span><span id="newDescribeAcceleratorTypes"><span class="annot"><span class="annottext">newDescribeAcceleratorTypes :: DescribeAcceleratorTypes
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#newDescribeAcceleratorTypes"><span class="hs-identifier hs-var hs-var">newDescribeAcceleratorTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">DescribeAcceleratorTypes
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes%27"><span class="hs-identifier hs-var">DescribeAcceleratorTypes'</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier hs-type">DescribeAcceleratorTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-64"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier hs-type">DescribeAcceleratorTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679148659"><span class="annot"><span class="annottext">request :: DescribeAcceleratorTypes -&gt; Request DescribeAcceleratorTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeAcceleratorTypes -&gt; Request DescribeAcceleratorTypes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ElasticInference.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679148655"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAcceleratorTypes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAcceleratorTypes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeAcceleratorTypes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAcceleratorTypes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAcceleratorTypes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679148652"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148652"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679148651"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679148651"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679148650"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679148650"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AcceleratorType] -&gt; Int -&gt; DescribeAcceleratorTypesResponse
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-var">DescribeAcceleratorTypesResponse'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AcceleratorType]
+ -&gt; Int -&gt; DescribeAcceleratorTypesResponse)
+-&gt; Either String (Maybe [AcceleratorType])
+-&gt; Either String (Int -&gt; DescribeAcceleratorTypesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679148650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe (Maybe [AcceleratorType]))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;acceleratorTypes&quot;</span></span><span>
+</span><span id="line-72"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AcceleratorType]))
+-&gt; Maybe [AcceleratorType]
+-&gt; Either String (Maybe [AcceleratorType])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AcceleratorType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-73"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAcceleratorTypesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeAcceleratorTypesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148652"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679148641"><span id="local-6989586621679148643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier hs-type">DescribeAcceleratorTypes</span></a></span></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679148638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier hs-type">DescribeAcceleratorTypes</span></a></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier hs-type">DescribeAcceleratorTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679148634"><span class="annot"><span class="annottext">toHeaders :: DescribeAcceleratorTypes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAcceleratorTypes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-86"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-88"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier hs-type">DescribeAcceleratorTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679148628"><span class="annot"><span class="annottext">toPath :: DescribeAcceleratorTypes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAcceleratorTypes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/describe-accelerator-types&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypes"><span class="hs-identifier hs-type">DescribeAcceleratorTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679148624"><span class="annot"><span class="annottext">toQuery :: DescribeAcceleratorTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAcceleratorTypes -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | /See:/ 'newDescribeAcceleratorTypesResponse' smart constructor.</span><span>
+</span><span id="line-99"></span><span id="local-6989586621679148621"><span id="local-6989586621679148622"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAcceleratorTypesResponse"><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse"><span class="hs-identifier hs-var">DescribeAcceleratorTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAcceleratorTypesResponse%27"><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-var">DescribeAcceleratorTypesResponse'</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The available accelerator types.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AacceleratorTypes%3ADescribeAcceleratorTypesResponse%27"><span class="annot"><span class="annottext">DescribeAcceleratorTypesResponse -&gt; Maybe [AcceleratorType]
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#%24sel%3AacceleratorTypes%3ADescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-var hs-var">acceleratorTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticInference.Types.AcceleratorType.html#AcceleratorType"><span class="hs-identifier hs-type">AcceleratorType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAcceleratorTypesResponse%27"><span class="annot"><span class="annottext">DescribeAcceleratorTypesResponse -&gt; Int
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#%24sel%3AhttpStatus%3ADescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148615"><span id="local-6989586621679148617"><span class="annot"><span class="annottext">DescribeAcceleratorTypesResponse
+-&gt; DescribeAcceleratorTypesResponse -&gt; Bool
+(DescribeAcceleratorTypesResponse
+ -&gt; DescribeAcceleratorTypesResponse -&gt; Bool)
+-&gt; (DescribeAcceleratorTypesResponse
+    -&gt; DescribeAcceleratorTypesResponse -&gt; Bool)
+-&gt; Eq DescribeAcceleratorTypesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAcceleratorTypesResponse
+-&gt; DescribeAcceleratorTypesResponse -&gt; Bool
+$c/= :: DescribeAcceleratorTypesResponse
+-&gt; DescribeAcceleratorTypesResponse -&gt; Bool
+== :: DescribeAcceleratorTypesResponse
+-&gt; DescribeAcceleratorTypesResponse -&gt; Bool
+$c== :: DescribeAcceleratorTypesResponse
+-&gt; DescribeAcceleratorTypesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148607"><span id="local-6989586621679148609"><span id="local-6989586621679148611"><span id="local-6989586621679148613"><span class="annot"><span class="annottext">ReadPrec [DescribeAcceleratorTypesResponse]
+ReadPrec DescribeAcceleratorTypesResponse
+Int -&gt; ReadS DescribeAcceleratorTypesResponse
+ReadS [DescribeAcceleratorTypesResponse]
+(Int -&gt; ReadS DescribeAcceleratorTypesResponse)
+-&gt; ReadS [DescribeAcceleratorTypesResponse]
+-&gt; ReadPrec DescribeAcceleratorTypesResponse
+-&gt; ReadPrec [DescribeAcceleratorTypesResponse]
+-&gt; Read DescribeAcceleratorTypesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAcceleratorTypesResponse]
+$creadListPrec :: ReadPrec [DescribeAcceleratorTypesResponse]
+readPrec :: ReadPrec DescribeAcceleratorTypesResponse
+$creadPrec :: ReadPrec DescribeAcceleratorTypesResponse
+readList :: ReadS [DescribeAcceleratorTypesResponse]
+$creadList :: ReadS [DescribeAcceleratorTypesResponse]
+readsPrec :: Int -&gt; ReadS DescribeAcceleratorTypesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAcceleratorTypesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148601"><span id="local-6989586621679148603"><span id="local-6989586621679148605"><span class="annot"><span class="annottext">Int -&gt; DescribeAcceleratorTypesResponse -&gt; ShowS
+[DescribeAcceleratorTypesResponse] -&gt; ShowS
+DescribeAcceleratorTypesResponse -&gt; String
+(Int -&gt; DescribeAcceleratorTypesResponse -&gt; ShowS)
+-&gt; (DescribeAcceleratorTypesResponse -&gt; String)
+-&gt; ([DescribeAcceleratorTypesResponse] -&gt; ShowS)
+-&gt; Show DescribeAcceleratorTypesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAcceleratorTypesResponse] -&gt; ShowS
+$cshowList :: [DescribeAcceleratorTypesResponse] -&gt; ShowS
+show :: DescribeAcceleratorTypesResponse -&gt; String
+$cshow :: DescribeAcceleratorTypesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAcceleratorTypesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAcceleratorTypesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAcceleratorTypesResponse
+ -&gt; Rep DescribeAcceleratorTypesResponse x)
+-&gt; (forall x.
+    Rep DescribeAcceleratorTypesResponse x
+    -&gt; DescribeAcceleratorTypesResponse)
+-&gt; Generic DescribeAcceleratorTypesResponse
+forall x.
+Rep DescribeAcceleratorTypesResponse x
+-&gt; DescribeAcceleratorTypesResponse
+forall x.
+DescribeAcceleratorTypesResponse
+-&gt; Rep DescribeAcceleratorTypesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAcceleratorTypesResponse x
+-&gt; DescribeAcceleratorTypesResponse
+$cfrom :: forall x.
+DescribeAcceleratorTypesResponse
+-&gt; Rep DescribeAcceleratorTypesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Create a value of 'DescribeAcceleratorTypesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'acceleratorTypes', 'describeAcceleratorTypesResponse_acceleratorTypes' - The available accelerator types.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'httpStatus', 'describeAcceleratorTypesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#newDescribeAcceleratorTypesResponse"><span class="hs-identifier hs-type">newDescribeAcceleratorTypesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse</span></a></span><span>
+</span><span id="line-122"></span><span id="newDescribeAcceleratorTypesResponse"><span class="annot"><span class="annottext">newDescribeAcceleratorTypesResponse :: Int -&gt; DescribeAcceleratorTypesResponse
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#newDescribeAcceleratorTypesResponse"><span class="hs-identifier hs-var hs-var">newDescribeAcceleratorTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679148598"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">DescribeAcceleratorTypesResponse' :: Maybe [AcceleratorType] -&gt; Int -&gt; DescribeAcceleratorTypesResponse
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceleratorTypes:DescribeAcceleratorTypesResponse' :: Maybe [AcceleratorType]
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#%24sel%3AacceleratorTypes%3ADescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-var">acceleratorTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AcceleratorType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAcceleratorTypesResponse' :: Int
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#%24sel%3AhttpStatus%3ADescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The available accelerator types.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#describeAcceleratorTypesResponse_acceleratorTypes"><span class="hs-identifier hs-type">describeAcceleratorTypesResponse_acceleratorTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticInference.Types.AcceleratorType.html#AcceleratorType"><span class="hs-identifier hs-type">AcceleratorType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="describeAcceleratorTypesResponse_acceleratorTypes"><span class="annot"><span class="annottext">describeAcceleratorTypesResponse_acceleratorTypes :: (Maybe [AcceleratorType] -&gt; f (Maybe [AcceleratorType]))
+-&gt; DescribeAcceleratorTypesResponse
+-&gt; f DescribeAcceleratorTypesResponse
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#describeAcceleratorTypesResponse_acceleratorTypes"><span class="hs-identifier hs-var hs-var">describeAcceleratorTypesResponse_acceleratorTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAcceleratorTypesResponse -&gt; Maybe [AcceleratorType])
+-&gt; (DescribeAcceleratorTypesResponse
+    -&gt; Maybe [AcceleratorType] -&gt; DescribeAcceleratorTypesResponse)
+-&gt; Lens
+     DescribeAcceleratorTypesResponse
+     DescribeAcceleratorTypesResponse
+     (Maybe [AcceleratorType])
+     (Maybe [AcceleratorType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148595"><span class="annot"><span class="annottext">Maybe [AcceleratorType]
+acceleratorTypes :: Maybe [AcceleratorType]
+$sel:acceleratorTypes:DescribeAcceleratorTypesResponse' :: DescribeAcceleratorTypesResponse -&gt; Maybe [AcceleratorType]
+</span><a href="#local-6989586621679148595"><span class="hs-identifier hs-var hs-var">acceleratorTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AcceleratorType]
+</span><a href="#local-6989586621679148595"><span class="hs-identifier hs-var">acceleratorTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148594"><span class="annot"><span class="annottext">s :: DescribeAcceleratorTypesResponse
+</span><a href="#local-6989586621679148594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148593"><span class="annot"><span class="annottext">Maybe [AcceleratorType]
+</span><a href="#local-6989586621679148593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAcceleratorTypesResponse
+</span><a href="#local-6989586621679148594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceleratorTypes:DescribeAcceleratorTypesResponse' :: Maybe [AcceleratorType]
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#%24sel%3AacceleratorTypes%3ADescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-var">acceleratorTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AcceleratorType]
+</span><a href="#local-6989586621679148593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AcceleratorType] -&gt; f (Maybe [AcceleratorType]))
+ -&gt; DescribeAcceleratorTypesResponse
+ -&gt; f DescribeAcceleratorTypesResponse)
+-&gt; ((Maybe [AcceleratorType] -&gt; f (Maybe [AcceleratorType]))
+    -&gt; Maybe [AcceleratorType] -&gt; f (Maybe [AcceleratorType]))
+-&gt; (Maybe [AcceleratorType] -&gt; f (Maybe [AcceleratorType]))
+-&gt; DescribeAcceleratorTypesResponse
+-&gt; f DescribeAcceleratorTypesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AcceleratorType]
+  [AcceleratorType]
+  [AcceleratorType]
+  [AcceleratorType]
+-&gt; Iso
+     (Maybe [AcceleratorType])
+     (Maybe [AcceleratorType])
+     (Maybe [AcceleratorType])
+     (Maybe [AcceleratorType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AcceleratorType]
+  [AcceleratorType]
+  [AcceleratorType]
+  [AcceleratorType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#describeAcceleratorTypesResponse_httpStatus"><span class="hs-identifier hs-type">describeAcceleratorTypesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span id="describeAcceleratorTypesResponse_httpStatus"><span class="annot"><span class="annottext">describeAcceleratorTypesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeAcceleratorTypesResponse
+-&gt; f DescribeAcceleratorTypesResponse
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#describeAcceleratorTypesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeAcceleratorTypesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAcceleratorTypesResponse -&gt; Int)
+-&gt; (DescribeAcceleratorTypesResponse
+    -&gt; Int -&gt; DescribeAcceleratorTypesResponse)
+-&gt; Lens
+     DescribeAcceleratorTypesResponse
+     DescribeAcceleratorTypesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148589"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeAcceleratorTypesResponse' :: DescribeAcceleratorTypesResponse -&gt; Int
+</span><a href="#local-6989586621679148589"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148589"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148588"><span class="annot"><span class="annottext">s :: DescribeAcceleratorTypesResponse
+</span><a href="#local-6989586621679148588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148587"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAcceleratorTypesResponse
+</span><a href="#local-6989586621679148588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAcceleratorTypesResponse' :: Int
+</span><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#%24sel%3AhttpStatus%3ADescribeAcceleratorTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679148585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticInference.DescribeAcceleratorTypes.html#DescribeAcceleratorTypesResponse"><span class="hs-identifier hs-type">DescribeAcceleratorTypesResponse</span></a></span></span><span>
+</span><span id="line-140"></span></pre></body></html>

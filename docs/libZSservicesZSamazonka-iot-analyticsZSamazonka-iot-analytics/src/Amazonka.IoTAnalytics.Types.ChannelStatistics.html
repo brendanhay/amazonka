@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTAnalytics.Types.ChannelStatistics</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTAnalytics.Types.ChannelStatistics</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.EstimatedResourceSize.html"><span class="hs-identifier">Amazonka.IoTAnalytics.Types.EstimatedResourceSize</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Statistics information about the channel.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newChannelStatistics' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679255157"><span id="local-6989586621679255158"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelStatistics"><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-var">ChannelStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelStatistics%27"><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-var">ChannelStatistics'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The estimated size of the channel.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Asize%3AChannelStatistics%27"><span class="annot"><span class="annottext">ChannelStatistics -&gt; Maybe EstimatedResourceSize
+</span><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#%24sel%3Asize%3AChannelStatistics%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255151"><span id="local-6989586621679255153"><span class="annot"><span class="annottext">ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
+(ChannelStatistics -&gt; ChannelStatistics -&gt; Bool)
+-&gt; (ChannelStatistics -&gt; ChannelStatistics -&gt; Bool)
+-&gt; Eq ChannelStatistics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
+$c/= :: ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
+== :: ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
+$c== :: ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255142"><span id="local-6989586621679255144"><span id="local-6989586621679255146"><span id="local-6989586621679255148"><span class="annot"><span class="annottext">ReadPrec [ChannelStatistics]
+ReadPrec ChannelStatistics
+Int -&gt; ReadS ChannelStatistics
+ReadS [ChannelStatistics]
+(Int -&gt; ReadS ChannelStatistics)
+-&gt; ReadS [ChannelStatistics]
+-&gt; ReadPrec ChannelStatistics
+-&gt; ReadPrec [ChannelStatistics]
+-&gt; Read ChannelStatistics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChannelStatistics]
+$creadListPrec :: ReadPrec [ChannelStatistics]
+readPrec :: ReadPrec ChannelStatistics
+$creadPrec :: ReadPrec ChannelStatistics
+readList :: ReadS [ChannelStatistics]
+$creadList :: ReadS [ChannelStatistics]
+readsPrec :: Int -&gt; ReadS ChannelStatistics
+$creadsPrec :: Int -&gt; ReadS ChannelStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255135"><span id="local-6989586621679255137"><span id="local-6989586621679255139"><span class="annot"><span class="annottext">Int -&gt; ChannelStatistics -&gt; ShowS
+[ChannelStatistics] -&gt; ShowS
+ChannelStatistics -&gt; String
+(Int -&gt; ChannelStatistics -&gt; ShowS)
+-&gt; (ChannelStatistics -&gt; String)
+-&gt; ([ChannelStatistics] -&gt; ShowS)
+-&gt; Show ChannelStatistics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChannelStatistics] -&gt; ShowS
+$cshowList :: [ChannelStatistics] -&gt; ShowS
+show :: ChannelStatistics -&gt; String
+$cshow :: ChannelStatistics -&gt; String
+showsPrec :: Int -&gt; ChannelStatistics -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChannelStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ChannelStatistics -&gt; Rep ChannelStatistics x)
+-&gt; (forall x. Rep ChannelStatistics x -&gt; ChannelStatistics)
+-&gt; Generic ChannelStatistics
+forall x. Rep ChannelStatistics x -&gt; ChannelStatistics
+forall x. ChannelStatistics -&gt; Rep ChannelStatistics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChannelStatistics x -&gt; ChannelStatistics
+$cfrom :: forall x. ChannelStatistics -&gt; Rep ChannelStatistics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'ChannelStatistics' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'size', 'channelStatistics_size' - The estimated size of the channel.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#newChannelStatistics"><span class="hs-identifier hs-type">newChannelStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span><span>
+</span><span id="line-47"></span><span id="newChannelStatistics"><span class="annot"><span class="annottext">newChannelStatistics :: ChannelStatistics
+</span><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#newChannelStatistics"><span class="hs-identifier hs-var hs-var">newChannelStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">ChannelStatistics' :: Maybe EstimatedResourceSize -&gt; ChannelStatistics
+</span><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-type">ChannelStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:ChannelStatistics' :: Maybe EstimatedResourceSize
+</span><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#%24sel%3Asize%3AChannelStatistics%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | The estimated size of the channel.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#channelStatistics_size"><span class="hs-identifier hs-type">channelStatistics_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span id="channelStatistics_size"><span class="annot"><span class="annottext">channelStatistics_size :: (Maybe EstimatedResourceSize -&gt; f (Maybe EstimatedResourceSize))
+-&gt; ChannelStatistics -&gt; f ChannelStatistics
+</span><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#channelStatistics_size"><span class="hs-identifier hs-var hs-var">channelStatistics_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelStatistics -&gt; Maybe EstimatedResourceSize)
+-&gt; (ChannelStatistics
+    -&gt; Maybe EstimatedResourceSize -&gt; ChannelStatistics)
+-&gt; Lens
+     ChannelStatistics
+     ChannelStatistics
+     (Maybe EstimatedResourceSize)
+     (Maybe EstimatedResourceSize)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-type">ChannelStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255126"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+size :: Maybe EstimatedResourceSize
+$sel:size:ChannelStatistics' :: ChannelStatistics -&gt; Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255126"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255126"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255125"><span class="annot"><span class="annottext">s :: ChannelStatistics
+</span><a href="#local-6989586621679255125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-type">ChannelStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255124"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelStatistics
+</span><a href="#local-6989586621679255125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:ChannelStatistics' :: Maybe EstimatedResourceSize
+</span><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#%24sel%3Asize%3AChannelStatistics%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255121"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679255119"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelStatistics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ChannelStatistics)
+-&gt; Value
+-&gt; Parser ChannelStatistics
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ChannelStatistics&quot;</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255116"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255116"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize -&gt; ChannelStatistics
+</span><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-var">ChannelStatistics'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe EstimatedResourceSize -&gt; ChannelStatistics)
+-&gt; Parser (Maybe EstimatedResourceSize) -&gt; Parser ChannelStatistics
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EstimatedResourceSize)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;size&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255110"><span id="local-6989586621679255112"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span></span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span></span><span>
+</span><span id="line-65"></span></pre></body></html>

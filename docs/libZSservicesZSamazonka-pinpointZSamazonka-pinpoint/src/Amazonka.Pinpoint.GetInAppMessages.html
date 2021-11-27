@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.GetInAppMessages</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the in-app messages targeted for the provided endpoint ID.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.GetInAppMessages</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier">GetInAppMessages</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#newGetInAppMessages"><span class="hs-identifier">newGetInAppMessages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessages_applicationId"><span class="hs-identifier">getInAppMessages_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessages_endpointId"><span class="hs-identifier">getInAppMessages_endpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse"><span class="hs-identifier">GetInAppMessagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#newGetInAppMessagesResponse"><span class="hs-identifier">newGetInAppMessagesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessagesResponse_httpStatus"><span class="hs-identifier">getInAppMessagesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessagesResponse_inAppMessagesResponse"><span class="hs-identifier">getInAppMessagesResponse_inAppMessagesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.html"><span class="hs-identifier">Amazonka.Pinpoint.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetInAppMessages' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679629530"><span id="local-6989586621679629531"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInAppMessages"><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-var">GetInAppMessages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInAppMessages%27"><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages%27"><span class="hs-identifier hs-var">GetInAppMessages'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetInAppMessages%27"><span class="annot"><span class="annottext">GetInAppMessages -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AapplicationId%3AGetInAppMessages%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the endpoint.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AendpointId%3AGetInAppMessages%27"><span class="annot"><span class="annottext">GetInAppMessages -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AendpointId%3AGetInAppMessages%27"><span class="hs-identifier hs-var hs-var">endpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679629523"><span id="local-6989586621679629525"><span class="annot"><span class="annottext">GetInAppMessages -&gt; GetInAppMessages -&gt; Bool
+(GetInAppMessages -&gt; GetInAppMessages -&gt; Bool)
+-&gt; (GetInAppMessages -&gt; GetInAppMessages -&gt; Bool)
+-&gt; Eq GetInAppMessages
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInAppMessages -&gt; GetInAppMessages -&gt; Bool
+$c/= :: GetInAppMessages -&gt; GetInAppMessages -&gt; Bool
+== :: GetInAppMessages -&gt; GetInAppMessages -&gt; Bool
+$c== :: GetInAppMessages -&gt; GetInAppMessages -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629514"><span id="local-6989586621679629516"><span id="local-6989586621679629518"><span id="local-6989586621679629520"><span class="annot"><span class="annottext">ReadPrec [GetInAppMessages]
+ReadPrec GetInAppMessages
+Int -&gt; ReadS GetInAppMessages
+ReadS [GetInAppMessages]
+(Int -&gt; ReadS GetInAppMessages)
+-&gt; ReadS [GetInAppMessages]
+-&gt; ReadPrec GetInAppMessages
+-&gt; ReadPrec [GetInAppMessages]
+-&gt; Read GetInAppMessages
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInAppMessages]
+$creadListPrec :: ReadPrec [GetInAppMessages]
+readPrec :: ReadPrec GetInAppMessages
+$creadPrec :: ReadPrec GetInAppMessages
+readList :: ReadS [GetInAppMessages]
+$creadList :: ReadS [GetInAppMessages]
+readsPrec :: Int -&gt; ReadS GetInAppMessages
+$creadsPrec :: Int -&gt; ReadS GetInAppMessages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629507"><span id="local-6989586621679629509"><span id="local-6989586621679629511"><span class="annot"><span class="annottext">Int -&gt; GetInAppMessages -&gt; ShowS
+[GetInAppMessages] -&gt; ShowS
+GetInAppMessages -&gt; String
+(Int -&gt; GetInAppMessages -&gt; ShowS)
+-&gt; (GetInAppMessages -&gt; String)
+-&gt; ([GetInAppMessages] -&gt; ShowS)
+-&gt; Show GetInAppMessages
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInAppMessages] -&gt; ShowS
+$cshowList :: [GetInAppMessages] -&gt; ShowS
+show :: GetInAppMessages -&gt; String
+$cshow :: GetInAppMessages -&gt; String
+showsPrec :: Int -&gt; GetInAppMessages -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInAppMessages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetInAppMessages -&gt; Rep GetInAppMessages x)
+-&gt; (forall x. Rep GetInAppMessages x -&gt; GetInAppMessages)
+-&gt; Generic GetInAppMessages
+forall x. Rep GetInAppMessages x -&gt; GetInAppMessages
+forall x. GetInAppMessages -&gt; Rep GetInAppMessages x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetInAppMessages x -&gt; GetInAppMessages
+$cfrom :: forall x. GetInAppMessages -&gt; Rep GetInAppMessages x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetInAppMessages' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'applicationId', 'getInAppMessages_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'endpointId', 'getInAppMessages_endpointId' - The unique identifier for the endpoint.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#newGetInAppMessages"><span class="hs-identifier hs-type">newGetInAppMessages</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'endpointId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span>
+</span><span id="line-78"></span><span id="newGetInAppMessages"><span class="annot"><span class="annottext">newGetInAppMessages :: Text -&gt; Text -&gt; GetInAppMessages
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#newGetInAppMessages"><span class="hs-identifier hs-var hs-var">newGetInAppMessages</span></a></span></span><span> </span><span id="local-6989586621679629502"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629502"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span id="local-6989586621679629501"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629501"><span class="hs-identifier hs-var">pEndpointId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">GetInAppMessages' :: Text -&gt; Text -&gt; GetInAppMessages
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages%27"><span class="hs-identifier hs-type">GetInAppMessages'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:GetInAppMessages' :: Text
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AapplicationId%3AGetInAppMessages%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629502"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointId:GetInAppMessages' :: Text
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AendpointId%3AGetInAppMessages%27"><span class="hs-identifier hs-var">endpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629501"><span class="hs-identifier hs-var">pEndpointId_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessages_applicationId"><span class="hs-identifier hs-type">getInAppMessages_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="getInAppMessages_applicationId"><span class="annot"><span class="annottext">getInAppMessages_applicationId :: (Text -&gt; f Text) -&gt; GetInAppMessages -&gt; f GetInAppMessages
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessages_applicationId"><span class="hs-identifier hs-var hs-var">getInAppMessages_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInAppMessages -&gt; Text)
+-&gt; (GetInAppMessages -&gt; Text -&gt; GetInAppMessages)
+-&gt; Lens GetInAppMessages GetInAppMessages Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages%27"><span class="hs-identifier hs-type">GetInAppMessages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629498"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:GetInAppMessages' :: GetInAppMessages -&gt; Text
+</span><a href="#local-6989586621679629498"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629498"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629497"><span class="annot"><span class="annottext">s :: GetInAppMessages
+</span><a href="#local-6989586621679629497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages%27"><span class="hs-identifier hs-type">GetInAppMessages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629496"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInAppMessages
+</span><a href="#local-6989586621679629497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetInAppMessages' :: Text
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AapplicationId%3AGetInAppMessages%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The unique identifier for the endpoint.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessages_endpointId"><span class="hs-identifier hs-type">getInAppMessages_endpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="getInAppMessages_endpointId"><span class="annot"><span class="annottext">getInAppMessages_endpointId :: (Text -&gt; f Text) -&gt; GetInAppMessages -&gt; f GetInAppMessages
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessages_endpointId"><span class="hs-identifier hs-var hs-var">getInAppMessages_endpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInAppMessages -&gt; Text)
+-&gt; (GetInAppMessages -&gt; Text -&gt; GetInAppMessages)
+-&gt; Lens GetInAppMessages GetInAppMessages Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages%27"><span class="hs-identifier hs-type">GetInAppMessages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629495"><span class="annot"><span class="annottext">Text
+endpointId :: Text
+$sel:endpointId:GetInAppMessages' :: GetInAppMessages -&gt; Text
+</span><a href="#local-6989586621679629495"><span class="hs-identifier hs-var hs-var">endpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629495"><span class="hs-identifier hs-var">endpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629494"><span class="annot"><span class="annottext">s :: GetInAppMessages
+</span><a href="#local-6989586621679629494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages%27"><span class="hs-identifier hs-type">GetInAppMessages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629493"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInAppMessages
+</span><a href="#local-6989586621679629494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointId:GetInAppMessages' :: Text
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AendpointId%3AGetInAppMessages%27"><span class="hs-identifier hs-var">endpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse"><span class="hs-identifier hs-type">GetInAppMessagesResponse</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679629489"><span class="annot"><span class="annottext">request :: GetInAppMessages -&gt; Request GetInAppMessages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInAppMessages -&gt; Request GetInAppMessages
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679629485"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetInAppMessages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetInAppMessages)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetInAppMessages))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetInAppMessages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetInAppMessages)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679629482"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629482"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679629481"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679629481"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679629480"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679629480"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; InAppMessagesResponse -&gt; GetInAppMessagesResponse
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse%27"><span class="hs-identifier hs-var">GetInAppMessagesResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; InAppMessagesResponse -&gt; GetInAppMessagesResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (InAppMessagesResponse -&gt; GetInAppMessagesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629482"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (InAppMessagesResponse -&gt; GetInAppMessagesResponse)
+-&gt; Either String InAppMessagesResponse
+-&gt; Either String GetInAppMessagesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String InAppMessagesResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679629480"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629472"><span id="local-6989586621679629474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679629465"><span class="annot"><span class="annottext">toHeaders :: GetInAppMessages -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInAppMessages -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679629459"><span class="annot"><span class="annottext">toPath :: GetInAppMessages -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages%27"><span class="hs-identifier hs-type">GetInAppMessages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629456"><span id="local-6989586621679629457"><span class="annot"><span class="annottext">Text
+endpointId :: Text
+applicationId :: Text
+$sel:endpointId:GetInAppMessages' :: GetInAppMessages -&gt; Text
+$sel:applicationId:GetInAppMessages' :: GetInAppMessages -&gt; Text
+</span><a href="#local-6989586621679629456"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629457"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/endpoints/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629456"><span class="hs-identifier hs-var">endpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/inappmessages&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessages"><span class="hs-identifier hs-type">GetInAppMessages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679629452"><span class="annot"><span class="annottext">toQuery :: GetInAppMessages -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInAppMessages -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newGetInAppMessagesResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679629449"><span id="local-6989586621679629450"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInAppMessagesResponse"><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse"><span class="hs-identifier hs-var">GetInAppMessagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInAppMessagesResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse%27"><span class="hs-identifier hs-var">GetInAppMessagesResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInAppMessagesResponse%27"><span class="annot"><span class="annottext">GetInAppMessagesResponse -&gt; Int
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AhttpStatus%3AGetInAppMessagesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AinAppMessagesResponse%3AGetInAppMessagesResponse%27"><span class="annot"><span class="annottext">GetInAppMessagesResponse -&gt; InAppMessagesResponse
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AinAppMessagesResponse%3AGetInAppMessagesResponse%27"><span class="hs-identifier hs-var hs-var">inAppMessagesResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessagesResponse.html#InAppMessagesResponse"><span class="hs-identifier hs-type">InAppMessagesResponse</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679629443"><span id="local-6989586621679629445"><span class="annot"><span class="annottext">GetInAppMessagesResponse -&gt; GetInAppMessagesResponse -&gt; Bool
+(GetInAppMessagesResponse -&gt; GetInAppMessagesResponse -&gt; Bool)
+-&gt; (GetInAppMessagesResponse -&gt; GetInAppMessagesResponse -&gt; Bool)
+-&gt; Eq GetInAppMessagesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInAppMessagesResponse -&gt; GetInAppMessagesResponse -&gt; Bool
+$c/= :: GetInAppMessagesResponse -&gt; GetInAppMessagesResponse -&gt; Bool
+== :: GetInAppMessagesResponse -&gt; GetInAppMessagesResponse -&gt; Bool
+$c== :: GetInAppMessagesResponse -&gt; GetInAppMessagesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629435"><span id="local-6989586621679629437"><span id="local-6989586621679629439"><span id="local-6989586621679629441"><span class="annot"><span class="annottext">ReadPrec [GetInAppMessagesResponse]
+ReadPrec GetInAppMessagesResponse
+Int -&gt; ReadS GetInAppMessagesResponse
+ReadS [GetInAppMessagesResponse]
+(Int -&gt; ReadS GetInAppMessagesResponse)
+-&gt; ReadS [GetInAppMessagesResponse]
+-&gt; ReadPrec GetInAppMessagesResponse
+-&gt; ReadPrec [GetInAppMessagesResponse]
+-&gt; Read GetInAppMessagesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInAppMessagesResponse]
+$creadListPrec :: ReadPrec [GetInAppMessagesResponse]
+readPrec :: ReadPrec GetInAppMessagesResponse
+$creadPrec :: ReadPrec GetInAppMessagesResponse
+readList :: ReadS [GetInAppMessagesResponse]
+$creadList :: ReadS [GetInAppMessagesResponse]
+readsPrec :: Int -&gt; ReadS GetInAppMessagesResponse
+$creadsPrec :: Int -&gt; ReadS GetInAppMessagesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629429"><span id="local-6989586621679629431"><span id="local-6989586621679629433"><span class="annot"><span class="annottext">Int -&gt; GetInAppMessagesResponse -&gt; ShowS
+[GetInAppMessagesResponse] -&gt; ShowS
+GetInAppMessagesResponse -&gt; String
+(Int -&gt; GetInAppMessagesResponse -&gt; ShowS)
+-&gt; (GetInAppMessagesResponse -&gt; String)
+-&gt; ([GetInAppMessagesResponse] -&gt; ShowS)
+-&gt; Show GetInAppMessagesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInAppMessagesResponse] -&gt; ShowS
+$cshowList :: [GetInAppMessagesResponse] -&gt; ShowS
+show :: GetInAppMessagesResponse -&gt; String
+$cshow :: GetInAppMessagesResponse -&gt; String
+showsPrec :: Int -&gt; GetInAppMessagesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInAppMessagesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetInAppMessagesResponse -&gt; Rep GetInAppMessagesResponse x)
+-&gt; (forall x.
+    Rep GetInAppMessagesResponse x -&gt; GetInAppMessagesResponse)
+-&gt; Generic GetInAppMessagesResponse
+forall x.
+Rep GetInAppMessagesResponse x -&gt; GetInAppMessagesResponse
+forall x.
+GetInAppMessagesResponse -&gt; Rep GetInAppMessagesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetInAppMessagesResponse x -&gt; GetInAppMessagesResponse
+$cfrom :: forall x.
+GetInAppMessagesResponse -&gt; Rep GetInAppMessagesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'GetInAppMessagesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'getInAppMessagesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'inAppMessagesResponse', 'getInAppMessagesResponse_inAppMessagesResponse' - Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#newGetInAppMessagesResponse"><span class="hs-identifier hs-type">newGetInAppMessagesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'inAppMessagesResponse'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessagesResponse.html#InAppMessagesResponse"><span class="hs-identifier hs-type">InAppMessagesResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse"><span class="hs-identifier hs-type">GetInAppMessagesResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newGetInAppMessagesResponse"><span class="annot"><span class="annottext">newGetInAppMessagesResponse :: Int -&gt; InAppMessagesResponse -&gt; GetInAppMessagesResponse
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#newGetInAppMessagesResponse"><span class="hs-identifier hs-var hs-var">newGetInAppMessagesResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679629426"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629426"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679629425"><span class="annot"><span class="annottext">InAppMessagesResponse
+</span><a href="#local-6989586621679629425"><span class="hs-identifier hs-var">pInAppMessagesResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">GetInAppMessagesResponse' :: Int -&gt; InAppMessagesResponse -&gt; GetInAppMessagesResponse
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse%27"><span class="hs-identifier hs-type">GetInAppMessagesResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInAppMessagesResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AhttpStatus%3AGetInAppMessagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629426"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:inAppMessagesResponse:GetInAppMessagesResponse' :: InAppMessagesResponse
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AinAppMessagesResponse%3AGetInAppMessagesResponse%27"><span class="hs-identifier hs-var">inAppMessagesResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InAppMessagesResponse
+</span><a href="#local-6989586621679629425"><span class="hs-identifier hs-var">pInAppMessagesResponse_</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessagesResponse_httpStatus"><span class="hs-identifier hs-type">getInAppMessagesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse"><span class="hs-identifier hs-type">GetInAppMessagesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="getInAppMessagesResponse_httpStatus"><span class="annot"><span class="annottext">getInAppMessagesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetInAppMessagesResponse -&gt; f GetInAppMessagesResponse
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessagesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getInAppMessagesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInAppMessagesResponse -&gt; Int)
+-&gt; (GetInAppMessagesResponse -&gt; Int -&gt; GetInAppMessagesResponse)
+-&gt; Lens GetInAppMessagesResponse GetInAppMessagesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse%27"><span class="hs-identifier hs-type">GetInAppMessagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629424"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetInAppMessagesResponse' :: GetInAppMessagesResponse -&gt; Int
+</span><a href="#local-6989586621679629424"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629424"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629423"><span class="annot"><span class="annottext">s :: GetInAppMessagesResponse
+</span><a href="#local-6989586621679629423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse%27"><span class="hs-identifier hs-type">GetInAppMessagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629422"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInAppMessagesResponse
+</span><a href="#local-6989586621679629423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInAppMessagesResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AhttpStatus%3AGetInAppMessagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse"><span class="hs-identifier hs-type">GetInAppMessagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessagesResponse_inAppMessagesResponse"><span class="hs-identifier hs-type">getInAppMessagesResponse_inAppMessagesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse"><span class="hs-identifier hs-type">GetInAppMessagesResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.InAppMessagesResponse.html#InAppMessagesResponse"><span class="hs-identifier hs-type">InAppMessagesResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="getInAppMessagesResponse_inAppMessagesResponse"><span class="annot"><span class="annottext">getInAppMessagesResponse_inAppMessagesResponse :: (InAppMessagesResponse -&gt; f InAppMessagesResponse)
+-&gt; GetInAppMessagesResponse -&gt; f GetInAppMessagesResponse
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#getInAppMessagesResponse_inAppMessagesResponse"><span class="hs-identifier hs-var hs-var">getInAppMessagesResponse_inAppMessagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInAppMessagesResponse -&gt; InAppMessagesResponse)
+-&gt; (GetInAppMessagesResponse
+    -&gt; InAppMessagesResponse -&gt; GetInAppMessagesResponse)
+-&gt; Lens
+     GetInAppMessagesResponse
+     GetInAppMessagesResponse
+     InAppMessagesResponse
+     InAppMessagesResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse%27"><span class="hs-identifier hs-type">GetInAppMessagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629421"><span class="annot"><span class="annottext">InAppMessagesResponse
+inAppMessagesResponse :: InAppMessagesResponse
+$sel:inAppMessagesResponse:GetInAppMessagesResponse' :: GetInAppMessagesResponse -&gt; InAppMessagesResponse
+</span><a href="#local-6989586621679629421"><span class="hs-identifier hs-var hs-var">inAppMessagesResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppMessagesResponse
+</span><a href="#local-6989586621679629421"><span class="hs-identifier hs-var">inAppMessagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629420"><span class="annot"><span class="annottext">s :: GetInAppMessagesResponse
+</span><a href="#local-6989586621679629420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse%27"><span class="hs-identifier hs-type">GetInAppMessagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629419"><span class="annot"><span class="annottext">InAppMessagesResponse
+</span><a href="#local-6989586621679629419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInAppMessagesResponse
+</span><a href="#local-6989586621679629420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inAppMessagesResponse:GetInAppMessagesResponse' :: InAppMessagesResponse
+</span><a href="Amazonka.Pinpoint.GetInAppMessages.html#%24sel%3AinAppMessagesResponse%3AGetInAppMessagesResponse%27"><span class="hs-identifier hs-var">inAppMessagesResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InAppMessagesResponse
+</span><a href="#local-6989586621679629419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse"><span class="hs-identifier hs-type">GetInAppMessagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetInAppMessages.html#GetInAppMessagesResponse"><span class="hs-identifier hs-type">GetInAppMessagesResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

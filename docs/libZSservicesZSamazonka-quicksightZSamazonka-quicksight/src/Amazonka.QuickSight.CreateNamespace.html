@@ -1,0 +1,893 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.CreateNamespace</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- (Enterprise edition only) Creates a new namespace for you to use with</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon QuickSight.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- A namespace allows you to isolate the Amazon QuickSight users and groups</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- that are registered for that namespace. Users that access the namespace</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- can share assets only with other users or groups in the same namespace.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- They can\'t see users and groups in other namespaces. You can create a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- namespace after your Amazon Web Services account is subscribed to Amazon</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- QuickSight. The namespace must be unique within the Amazon Web Services</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- account. By default, there is a limit of 100 namespaces per Amazon Web</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Services account. To increase your limit, create a ticket with Amazon</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Web Services Support.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.CreateNamespace</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier">CreateNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#newCreateNamespace"><span class="hs-identifier">newCreateNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_tags"><span class="hs-identifier">createNamespace_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_awsAccountId"><span class="hs-identifier">createNamespace_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_namespace"><span class="hs-identifier">createNamespace_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_identityStore"><span class="hs-identifier">createNamespace_identityStore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier">CreateNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#newCreateNamespaceResponse"><span class="hs-identifier">newCreateNamespaceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_requestId"><span class="hs-identifier">createNamespaceResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_capacityRegion"><span class="hs-identifier">createNamespaceResponse_capacityRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_arn"><span class="hs-identifier">createNamespaceResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_creationStatus"><span class="hs-identifier">createNamespaceResponse_creationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_name"><span class="hs-identifier">createNamespaceResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_identityStore"><span class="hs-identifier">createNamespaceResponse_identityStore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_status"><span class="hs-identifier">createNamespaceResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newCreateNamespace' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679593516"><span id="local-6989586621679593517"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNamespace"><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-var">CreateNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNamespace%27"><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-var">CreateNamespace'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags that you want to associate with the namespace that you\'re</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- creating.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Atags%3ACreateNamespace%27"><span class="annot"><span class="annottext">CreateNamespace -&gt; Maybe (NonEmpty Tag)
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Atags%3ACreateNamespace%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The ID for the Amazon Web Services account that you want to create the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Amazon QuickSight namespace in.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AawsAccountId%3ACreateNamespace%27"><span class="annot"><span class="annottext">CreateNamespace -&gt; Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AawsAccountId%3ACreateNamespace%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name that you want to use to describe the new namespace.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Anamespace%3ACreateNamespace%27"><span class="annot"><span class="annottext">CreateNamespace -&gt; Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Anamespace%3ACreateNamespace%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Specifies the type of your user identity directory. Currently, this</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- supports users with an identity type of @QUICKSIGHT@.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AidentityStore%3ACreateNamespace%27"><span class="annot"><span class="annottext">CreateNamespace -&gt; IdentityStore
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AidentityStore%3ACreateNamespace%27"><span class="hs-identifier hs-var hs-var">identityStore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IdentityStore.html#IdentityStore"><span class="hs-identifier hs-type">IdentityStore</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593507"><span id="local-6989586621679593509"><span class="annot"><span class="annottext">CreateNamespace -&gt; CreateNamespace -&gt; Bool
+(CreateNamespace -&gt; CreateNamespace -&gt; Bool)
+-&gt; (CreateNamespace -&gt; CreateNamespace -&gt; Bool)
+-&gt; Eq CreateNamespace
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNamespace -&gt; CreateNamespace -&gt; Bool
+$c/= :: CreateNamespace -&gt; CreateNamespace -&gt; Bool
+== :: CreateNamespace -&gt; CreateNamespace -&gt; Bool
+$c== :: CreateNamespace -&gt; CreateNamespace -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593498"><span id="local-6989586621679593500"><span id="local-6989586621679593502"><span id="local-6989586621679593504"><span class="annot"><span class="annottext">ReadPrec [CreateNamespace]
+ReadPrec CreateNamespace
+Int -&gt; ReadS CreateNamespace
+ReadS [CreateNamespace]
+(Int -&gt; ReadS CreateNamespace)
+-&gt; ReadS [CreateNamespace]
+-&gt; ReadPrec CreateNamespace
+-&gt; ReadPrec [CreateNamespace]
+-&gt; Read CreateNamespace
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateNamespace]
+$creadListPrec :: ReadPrec [CreateNamespace]
+readPrec :: ReadPrec CreateNamespace
+$creadPrec :: ReadPrec CreateNamespace
+readList :: ReadS [CreateNamespace]
+$creadList :: ReadS [CreateNamespace]
+readsPrec :: Int -&gt; ReadS CreateNamespace
+$creadsPrec :: Int -&gt; ReadS CreateNamespace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593491"><span id="local-6989586621679593493"><span id="local-6989586621679593495"><span class="annot"><span class="annottext">Int -&gt; CreateNamespace -&gt; ShowS
+[CreateNamespace] -&gt; ShowS
+CreateNamespace -&gt; String
+(Int -&gt; CreateNamespace -&gt; ShowS)
+-&gt; (CreateNamespace -&gt; String)
+-&gt; ([CreateNamespace] -&gt; ShowS)
+-&gt; Show CreateNamespace
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNamespace] -&gt; ShowS
+$cshowList :: [CreateNamespace] -&gt; ShowS
+show :: CreateNamespace -&gt; String
+$cshow :: CreateNamespace -&gt; String
+showsPrec :: Int -&gt; CreateNamespace -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNamespace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateNamespace -&gt; Rep CreateNamespace x)
+-&gt; (forall x. Rep CreateNamespace x -&gt; CreateNamespace)
+-&gt; Generic CreateNamespace
+forall x. Rep CreateNamespace x -&gt; CreateNamespace
+forall x. CreateNamespace -&gt; Rep CreateNamespace x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateNamespace x -&gt; CreateNamespace
+$cfrom :: forall x. CreateNamespace -&gt; Rep CreateNamespace x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'CreateNamespace' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tags', 'createNamespace_tags' - The tags that you want to associate with the namespace that you\'re</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- creating.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'awsAccountId', 'createNamespace_awsAccountId' - The ID for the Amazon Web Services account that you want to create the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Amazon QuickSight namespace in.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'namespace', 'createNamespace_namespace' - The name that you want to use to describe the new namespace.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'identityStore', 'createNamespace_identityStore' - Specifies the type of your user identity directory. Currently, this</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- supports users with an identity type of @QUICKSIGHT@.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#newCreateNamespace"><span class="hs-identifier hs-type">newCreateNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'namespace'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'identityStore'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.IdentityStore.html#IdentityStore"><span class="hs-identifier hs-type">IdentityStore</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span>
+</span><span id="line-110"></span><span id="newCreateNamespace"><span class="annot"><span class="annottext">newCreateNamespace :: Text -&gt; Text -&gt; IdentityStore -&gt; CreateNamespace
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#newCreateNamespace"><span class="hs-identifier hs-var hs-var">newCreateNamespace</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679593486"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593486"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679593485"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593485"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679593484"><span class="annot"><span class="annottext">IdentityStore
+</span><a href="#local-6989586621679593484"><span class="hs-identifier hs-var">pIdentityStore_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">CreateNamespace' :: Maybe (NonEmpty Tag)
+-&gt; Text -&gt; Text -&gt; IdentityStore -&gt; CreateNamespace
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateNamespace' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Atags%3ACreateNamespace%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsAccountId:CreateNamespace' :: Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AawsAccountId%3ACreateNamespace%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593486"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespace:CreateNamespace' :: Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Anamespace%3ACreateNamespace%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593485"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityStore:CreateNamespace' :: IdentityStore
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AidentityStore%3ACreateNamespace%27"><span class="hs-identifier hs-var">identityStore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IdentityStore
+</span><a href="#local-6989586621679593484"><span class="hs-identifier hs-var">pIdentityStore_</span></a></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The tags that you want to associate with the namespace that you\'re</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- creating.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_tags"><span class="hs-identifier hs-type">createNamespace_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="createNamespace_tags"><span class="annot"><span class="annottext">createNamespace_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateNamespace -&gt; f CreateNamespace
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_tags"><span class="hs-identifier hs-var hs-var">createNamespace_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespace -&gt; Maybe (NonEmpty Tag))
+-&gt; (CreateNamespace -&gt; Maybe (NonEmpty Tag) -&gt; CreateNamespace)
+-&gt; Lens
+     CreateNamespace
+     CreateNamespace
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593481"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:CreateNamespace' :: CreateNamespace -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679593481"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679593481"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593480"><span class="annot"><span class="annottext">s :: CreateNamespace
+</span><a href="#local-6989586621679593480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593479"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679593479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespace
+</span><a href="#local-6989586621679593480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateNamespace' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Atags%3ACreateNamespace%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679593479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; CreateNamespace -&gt; f CreateNamespace)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateNamespace
+-&gt; f CreateNamespace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The ID for the Amazon Web Services account that you want to create the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Amazon QuickSight namespace in.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_awsAccountId"><span class="hs-identifier hs-type">createNamespace_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="createNamespace_awsAccountId"><span class="annot"><span class="annottext">createNamespace_awsAccountId :: (Text -&gt; f Text) -&gt; CreateNamespace -&gt; f CreateNamespace
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_awsAccountId"><span class="hs-identifier hs-var hs-var">createNamespace_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespace -&gt; Text)
+-&gt; (CreateNamespace -&gt; Text -&gt; CreateNamespace)
+-&gt; Lens CreateNamespace CreateNamespace Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593475"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:CreateNamespace' :: CreateNamespace -&gt; Text
+</span><a href="#local-6989586621679593475"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593475"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593474"><span class="annot"><span class="annottext">s :: CreateNamespace
+</span><a href="#local-6989586621679593474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593473"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespace
+</span><a href="#local-6989586621679593474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:CreateNamespace' :: Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AawsAccountId%3ACreateNamespace%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The name that you want to use to describe the new namespace.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_namespace"><span class="hs-identifier hs-type">createNamespace_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="createNamespace_namespace"><span class="annot"><span class="annottext">createNamespace_namespace :: (Text -&gt; f Text) -&gt; CreateNamespace -&gt; f CreateNamespace
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_namespace"><span class="hs-identifier hs-var hs-var">createNamespace_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespace -&gt; Text)
+-&gt; (CreateNamespace -&gt; Text -&gt; CreateNamespace)
+-&gt; Lens CreateNamespace CreateNamespace Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593472"><span class="annot"><span class="annottext">Text
+namespace :: Text
+$sel:namespace:CreateNamespace' :: CreateNamespace -&gt; Text
+</span><a href="#local-6989586621679593472"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593472"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593471"><span class="annot"><span class="annottext">s :: CreateNamespace
+</span><a href="#local-6989586621679593471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593470"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespace
+</span><a href="#local-6989586621679593471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:CreateNamespace' :: Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Anamespace%3ACreateNamespace%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Specifies the type of your user identity directory. Currently, this</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- supports users with an identity type of @QUICKSIGHT@.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_identityStore"><span class="hs-identifier hs-type">createNamespace_identityStore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IdentityStore.html#IdentityStore"><span class="hs-identifier hs-type">IdentityStore</span></a></span><span>
+</span><span id="line-138"></span><span id="createNamespace_identityStore"><span class="annot"><span class="annottext">createNamespace_identityStore :: (IdentityStore -&gt; f IdentityStore)
+-&gt; CreateNamespace -&gt; f CreateNamespace
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespace_identityStore"><span class="hs-identifier hs-var hs-var">createNamespace_identityStore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespace -&gt; IdentityStore)
+-&gt; (CreateNamespace -&gt; IdentityStore -&gt; CreateNamespace)
+-&gt; Lens CreateNamespace CreateNamespace IdentityStore IdentityStore
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593469"><span class="annot"><span class="annottext">IdentityStore
+identityStore :: IdentityStore
+$sel:identityStore:CreateNamespace' :: CreateNamespace -&gt; IdentityStore
+</span><a href="#local-6989586621679593469"><span class="hs-identifier hs-var hs-var">identityStore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityStore
+</span><a href="#local-6989586621679593469"><span class="hs-identifier hs-var">identityStore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593468"><span class="annot"><span class="annottext">s :: CreateNamespace
+</span><a href="#local-6989586621679593468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593467"><span class="annot"><span class="annottext">IdentityStore
+</span><a href="#local-6989586621679593467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespace
+</span><a href="#local-6989586621679593468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityStore:CreateNamespace' :: IdentityStore
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AidentityStore%3ACreateNamespace%27"><span class="hs-identifier hs-var">identityStore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IdentityStore
+</span><a href="#local-6989586621679593467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-142"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679593463"><span class="annot"><span class="annottext">request :: CreateNamespace -&gt; Request CreateNamespace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateNamespace -&gt; Request CreateNamespace
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679593459"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateNamespace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateNamespace)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateNamespace))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateNamespace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateNamespace)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679593456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593456"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679593455"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679593455"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679593454"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe NamespaceStatus
+-&gt; Maybe Text
+-&gt; Maybe IdentityStore
+-&gt; Int
+-&gt; CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-var">CreateNamespaceResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe NamespaceStatus
+ -&gt; Maybe Text
+ -&gt; Maybe IdentityStore
+ -&gt; Int
+ -&gt; CreateNamespaceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NamespaceStatus
+      -&gt; Maybe Text
+      -&gt; Maybe IdentityStore
+      -&gt; Int
+      -&gt; CreateNamespaceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NamespaceStatus
+   -&gt; Maybe Text
+   -&gt; Maybe IdentityStore
+   -&gt; Int
+   -&gt; CreateNamespaceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe NamespaceStatus
+      -&gt; Maybe Text
+      -&gt; Maybe IdentityStore
+      -&gt; Int
+      -&gt; CreateNamespaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CapacityRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe NamespaceStatus
+   -&gt; Maybe Text
+   -&gt; Maybe IdentityStore
+   -&gt; Int
+   -&gt; CreateNamespaceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe NamespaceStatus
+      -&gt; Maybe Text
+      -&gt; Maybe IdentityStore
+      -&gt; Int
+      -&gt; CreateNamespaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe NamespaceStatus
+   -&gt; Maybe Text
+   -&gt; Maybe IdentityStore
+   -&gt; Int
+   -&gt; CreateNamespaceResponse)
+-&gt; Either String (Maybe NamespaceStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe IdentityStore -&gt; Int -&gt; CreateNamespaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe NamespaceStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe IdentityStore -&gt; Int -&gt; CreateNamespaceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe IdentityStore -&gt; Int -&gt; CreateNamespaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe IdentityStore -&gt; Int -&gt; CreateNamespaceResponse)
+-&gt; Either String (Maybe IdentityStore)
+-&gt; Either String (Int -&gt; CreateNamespaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IdentityStore)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityStore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateNamespaceResponse)
+-&gt; Either String Int -&gt; Either String CreateNamespaceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593456"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593446"><span id="local-6989586621679593448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679593439"><span class="annot"><span class="annottext">toHeaders :: CreateNamespace -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateNamespace -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-169"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593429"><span id="local-6989586621679593431"><span id="local-6989586621679593433"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679593427"><span class="annot"><span class="annottext">toJSON :: CreateNamespace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593422"><span id="local-6989586621679593423"><span id="local-6989586621679593424"><span id="local-6989586621679593425"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+Text
+IdentityStore
+identityStore :: IdentityStore
+namespace :: Text
+awsAccountId :: Text
+tags :: Maybe (NonEmpty Tag)
+$sel:identityStore:CreateNamespace' :: CreateNamespace -&gt; IdentityStore
+$sel:namespace:CreateNamespace' :: CreateNamespace -&gt; Text
+$sel:awsAccountId:CreateNamespace' :: CreateNamespace -&gt; Text
+$sel:tags:CreateNamespace' :: CreateNamespace -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679593422"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679593425"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593423"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-180"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityStore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IdentityStore -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">IdentityStore
+</span><a href="#local-6989586621679593422"><span class="hs-identifier hs-var">identityStore</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679593416"><span class="annot"><span class="annottext">toPath :: CreateNamespace -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace%27"><span class="hs-identifier hs-type">CreateNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593411"><span id="local-6989586621679593412"><span id="local-6989586621679593413"><span id="local-6989586621679593414"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+Text
+IdentityStore
+identityStore :: IdentityStore
+namespace :: Text
+awsAccountId :: Text
+tags :: Maybe (NonEmpty Tag)
+$sel:identityStore:CreateNamespace' :: CreateNamespace -&gt; IdentityStore
+$sel:namespace:CreateNamespace' :: CreateNamespace -&gt; Text
+$sel:awsAccountId:CreateNamespace' :: CreateNamespace -&gt; Text
+$sel:tags:CreateNamespace' :: CreateNamespace -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679593411"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679593413"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespace"><span class="hs-identifier hs-type">CreateNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679593407"><span class="annot"><span class="annottext">toQuery :: CreateNamespace -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateNamespace -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | /See:/ 'newCreateNamespaceResponse' smart constructor.</span><span>
+</span><span id="line-193"></span><span id="local-6989586621679593404"><span id="local-6989586621679593405"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNamespaceResponse"><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-var">CreateNamespaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNamespaceResponse%27"><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-var">CreateNamespaceResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3ArequestId%3ACreateNamespaceResponse%27"><span class="annot"><span class="annottext">CreateNamespaceResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3ArequestId%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Region; that you want to use for the free SPICE</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- capacity for the new namespace. This is set to the region that you run</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- CreateNamespace in.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AcapacityRegion%3ACreateNamespaceResponse%27"><span class="annot"><span class="annottext">CreateNamespaceResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AcapacityRegion%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">capacityRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The ARN of the Amazon QuickSight namespace you created.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3Aarn%3ACreateNamespaceResponse%27"><span class="annot"><span class="annottext">CreateNamespaceResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Aarn%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The status of the creation of the namespace. This is an asynchronous</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- process. A status of @CREATED@ means that your namespace is ready to</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- use. If an error occurs, it indicates if the process is @retryable@ or</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- @non-retryable@. In the case of a non-retryable error, refer to the</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- error message for follow-up tasks.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AcreationStatus%3ACreateNamespaceResponse%27"><span class="annot"><span class="annottext">CreateNamespaceResponse -&gt; Maybe NamespaceStatus
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AcreationStatus%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">creationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceStatus.html#NamespaceStatus"><span class="hs-identifier hs-type">NamespaceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The name of the new namespace that you created.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3Aname%3ACreateNamespaceResponse%27"><span class="annot"><span class="annottext">CreateNamespaceResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Aname%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | Specifies the type of your user identity directory. Currently, this</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- supports users with an identity type of @QUICKSIGHT@.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AidentityStore%3ACreateNamespaceResponse%27"><span class="annot"><span class="annottext">CreateNamespaceResponse -&gt; Maybe IdentityStore
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AidentityStore%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">identityStore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IdentityStore.html#IdentityStore"><span class="hs-identifier hs-type">IdentityStore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3Astatus%3ACreateNamespaceResponse%27"><span class="annot"><span class="annottext">CreateNamespaceResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Astatus%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593393"><span id="local-6989586621679593395"><span class="annot"><span class="annottext">CreateNamespaceResponse -&gt; CreateNamespaceResponse -&gt; Bool
+(CreateNamespaceResponse -&gt; CreateNamespaceResponse -&gt; Bool)
+-&gt; (CreateNamespaceResponse -&gt; CreateNamespaceResponse -&gt; Bool)
+-&gt; Eq CreateNamespaceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNamespaceResponse -&gt; CreateNamespaceResponse -&gt; Bool
+$c/= :: CreateNamespaceResponse -&gt; CreateNamespaceResponse -&gt; Bool
+== :: CreateNamespaceResponse -&gt; CreateNamespaceResponse -&gt; Bool
+$c== :: CreateNamespaceResponse -&gt; CreateNamespaceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593385"><span id="local-6989586621679593387"><span id="local-6989586621679593389"><span id="local-6989586621679593391"><span class="annot"><span class="annottext">ReadPrec [CreateNamespaceResponse]
+ReadPrec CreateNamespaceResponse
+Int -&gt; ReadS CreateNamespaceResponse
+ReadS [CreateNamespaceResponse]
+(Int -&gt; ReadS CreateNamespaceResponse)
+-&gt; ReadS [CreateNamespaceResponse]
+-&gt; ReadPrec CreateNamespaceResponse
+-&gt; ReadPrec [CreateNamespaceResponse]
+-&gt; Read CreateNamespaceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateNamespaceResponse]
+$creadListPrec :: ReadPrec [CreateNamespaceResponse]
+readPrec :: ReadPrec CreateNamespaceResponse
+$creadPrec :: ReadPrec CreateNamespaceResponse
+readList :: ReadS [CreateNamespaceResponse]
+$creadList :: ReadS [CreateNamespaceResponse]
+readsPrec :: Int -&gt; ReadS CreateNamespaceResponse
+$creadsPrec :: Int -&gt; ReadS CreateNamespaceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593379"><span id="local-6989586621679593381"><span id="local-6989586621679593383"><span class="annot"><span class="annottext">Int -&gt; CreateNamespaceResponse -&gt; ShowS
+[CreateNamespaceResponse] -&gt; ShowS
+CreateNamespaceResponse -&gt; String
+(Int -&gt; CreateNamespaceResponse -&gt; ShowS)
+-&gt; (CreateNamespaceResponse -&gt; String)
+-&gt; ([CreateNamespaceResponse] -&gt; ShowS)
+-&gt; Show CreateNamespaceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNamespaceResponse] -&gt; ShowS
+$cshowList :: [CreateNamespaceResponse] -&gt; ShowS
+show :: CreateNamespaceResponse -&gt; String
+$cshow :: CreateNamespaceResponse -&gt; String
+showsPrec :: Int -&gt; CreateNamespaceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNamespaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateNamespaceResponse -&gt; Rep CreateNamespaceResponse x)
+-&gt; (forall x.
+    Rep CreateNamespaceResponse x -&gt; CreateNamespaceResponse)
+-&gt; Generic CreateNamespaceResponse
+forall x. Rep CreateNamespaceResponse x -&gt; CreateNamespaceResponse
+forall x. CreateNamespaceResponse -&gt; Rep CreateNamespaceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateNamespaceResponse x -&gt; CreateNamespaceResponse
+$cfrom :: forall x. CreateNamespaceResponse -&gt; Rep CreateNamespaceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Create a value of 'CreateNamespaceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'requestId', 'createNamespaceResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'capacityRegion', 'createNamespaceResponse_capacityRegion' - The Amazon Web Services Region; that you want to use for the free SPICE</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- capacity for the new namespace. This is set to the region that you run</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- CreateNamespace in.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'arn', 'createNamespaceResponse_arn' - The ARN of the Amazon QuickSight namespace you created.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'creationStatus', 'createNamespaceResponse_creationStatus' - The status of the creation of the namespace. This is an asynchronous</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- process. A status of @CREATED@ means that your namespace is ready to</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- use. If an error occurs, it indicates if the process is @retryable@ or</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- @non-retryable@. In the case of a non-retryable error, refer to the</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- error message for follow-up tasks.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'name', 'createNamespaceResponse_name' - The name of the new namespace that you created.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'identityStore', 'createNamespaceResponse_identityStore' - Specifies the type of your user identity directory. Currently, this</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- supports users with an identity type of @QUICKSIGHT@.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'status', 'createNamespaceResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#newCreateNamespaceResponse"><span class="hs-identifier hs-type">newCreateNamespaceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span>
+</span><span id="line-250"></span><span id="newCreateNamespaceResponse"><span class="annot"><span class="annottext">newCreateNamespaceResponse :: Int -&gt; CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#newCreateNamespaceResponse"><span class="hs-identifier hs-var hs-var">newCreateNamespaceResponse</span></a></span></span><span> </span><span id="local-6989586621679593376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593376"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="annottext">CreateNamespaceResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe NamespaceStatus
+-&gt; Maybe Text
+-&gt; Maybe IdentityStore
+-&gt; Int
+-&gt; CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:CreateNamespaceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3ArequestId%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityRegion:CreateNamespaceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AcapacityRegion%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">capacityRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CreateNamespaceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Aarn%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationStatus:CreateNamespaceResponse' :: Maybe NamespaceStatus
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AcreationStatus%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">creationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NamespaceStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateNamespaceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Aname%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityStore:CreateNamespaceResponse' :: Maybe IdentityStore
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AidentityStore%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">identityStore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityStore
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:CreateNamespaceResponse' :: Int
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Astatus%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593376"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_requestId"><span class="hs-identifier hs-type">createNamespaceResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="createNamespaceResponse_requestId"><span class="annot"><span class="annottext">createNamespaceResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNamespaceResponse -&gt; f CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_requestId"><span class="hs-identifier hs-var hs-var">createNamespaceResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespaceResponse -&gt; Maybe Text)
+-&gt; (CreateNamespaceResponse
+    -&gt; Maybe Text -&gt; CreateNamespaceResponse)
+-&gt; Lens
+     CreateNamespaceResponse
+     CreateNamespaceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593375"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:CreateNamespaceResponse' :: CreateNamespaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593375"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593375"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593374"><span class="annot"><span class="annottext">s :: CreateNamespaceResponse
+</span><a href="#local-6989586621679593374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespaceResponse
+</span><a href="#local-6989586621679593374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:CreateNamespaceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3ArequestId%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The Amazon Web Services Region; that you want to use for the free SPICE</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- capacity for the new namespace. This is set to the region that you run</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- CreateNamespace in.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_capacityRegion"><span class="hs-identifier hs-type">createNamespaceResponse_capacityRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="createNamespaceResponse_capacityRegion"><span class="annot"><span class="annottext">createNamespaceResponse_capacityRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNamespaceResponse -&gt; f CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_capacityRegion"><span class="hs-identifier hs-var hs-var">createNamespaceResponse_capacityRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespaceResponse -&gt; Maybe Text)
+-&gt; (CreateNamespaceResponse
+    -&gt; Maybe Text -&gt; CreateNamespaceResponse)
+-&gt; Lens
+     CreateNamespaceResponse
+     CreateNamespaceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593372"><span class="annot"><span class="annottext">Maybe Text
+capacityRegion :: Maybe Text
+$sel:capacityRegion:CreateNamespaceResponse' :: CreateNamespaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593372"><span class="hs-identifier hs-var hs-var">capacityRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593372"><span class="hs-identifier hs-var">capacityRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593371"><span class="annot"><span class="annottext">s :: CreateNamespaceResponse
+</span><a href="#local-6989586621679593371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespaceResponse
+</span><a href="#local-6989586621679593371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityRegion:CreateNamespaceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AcapacityRegion%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">capacityRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The ARN of the Amazon QuickSight namespace you created.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_arn"><span class="hs-identifier hs-type">createNamespaceResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="createNamespaceResponse_arn"><span class="annot"><span class="annottext">createNamespaceResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNamespaceResponse -&gt; f CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_arn"><span class="hs-identifier hs-var hs-var">createNamespaceResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespaceResponse -&gt; Maybe Text)
+-&gt; (CreateNamespaceResponse
+    -&gt; Maybe Text -&gt; CreateNamespaceResponse)
+-&gt; Lens
+     CreateNamespaceResponse
+     CreateNamespaceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593369"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CreateNamespaceResponse' :: CreateNamespaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593369"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593369"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593368"><span class="annot"><span class="annottext">s :: CreateNamespaceResponse
+</span><a href="#local-6989586621679593368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespaceResponse
+</span><a href="#local-6989586621679593368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateNamespaceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Aarn%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The status of the creation of the namespace. This is an asynchronous</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- process. A status of @CREATED@ means that your namespace is ready to</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- use. If an error occurs, it indicates if the process is @retryable@ or</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- @non-retryable@. In the case of a non-retryable error, refer to the</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- error message for follow-up tasks.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_creationStatus"><span class="hs-identifier hs-type">createNamespaceResponse_creationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceStatus.html#NamespaceStatus"><span class="hs-identifier hs-type">NamespaceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="createNamespaceResponse_creationStatus"><span class="annot"><span class="annottext">createNamespaceResponse_creationStatus :: (Maybe NamespaceStatus -&gt; f (Maybe NamespaceStatus))
+-&gt; CreateNamespaceResponse -&gt; f CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_creationStatus"><span class="hs-identifier hs-var hs-var">createNamespaceResponse_creationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespaceResponse -&gt; Maybe NamespaceStatus)
+-&gt; (CreateNamespaceResponse
+    -&gt; Maybe NamespaceStatus -&gt; CreateNamespaceResponse)
+-&gt; Lens
+     CreateNamespaceResponse
+     CreateNamespaceResponse
+     (Maybe NamespaceStatus)
+     (Maybe NamespaceStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593366"><span class="annot"><span class="annottext">Maybe NamespaceStatus
+creationStatus :: Maybe NamespaceStatus
+$sel:creationStatus:CreateNamespaceResponse' :: CreateNamespaceResponse -&gt; Maybe NamespaceStatus
+</span><a href="#local-6989586621679593366"><span class="hs-identifier hs-var hs-var">creationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NamespaceStatus
+</span><a href="#local-6989586621679593366"><span class="hs-identifier hs-var">creationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593365"><span class="annot"><span class="annottext">s :: CreateNamespaceResponse
+</span><a href="#local-6989586621679593365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593364"><span class="annot"><span class="annottext">Maybe NamespaceStatus
+</span><a href="#local-6989586621679593364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespaceResponse
+</span><a href="#local-6989586621679593365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationStatus:CreateNamespaceResponse' :: Maybe NamespaceStatus
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AcreationStatus%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">creationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NamespaceStatus
+</span><a href="#local-6989586621679593364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The name of the new namespace that you created.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_name"><span class="hs-identifier hs-type">createNamespaceResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="createNamespaceResponse_name"><span class="annot"><span class="annottext">createNamespaceResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNamespaceResponse -&gt; f CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_name"><span class="hs-identifier hs-var hs-var">createNamespaceResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespaceResponse -&gt; Maybe Text)
+-&gt; (CreateNamespaceResponse
+    -&gt; Maybe Text -&gt; CreateNamespaceResponse)
+-&gt; Lens
+     CreateNamespaceResponse
+     CreateNamespaceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593363"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CreateNamespaceResponse' :: CreateNamespaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593363"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593363"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593362"><span class="annot"><span class="annottext">s :: CreateNamespaceResponse
+</span><a href="#local-6989586621679593362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593361"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespaceResponse
+</span><a href="#local-6989586621679593362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateNamespaceResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Aname%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | Specifies the type of your user identity directory. Currently, this</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- supports users with an identity type of @QUICKSIGHT@.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_identityStore"><span class="hs-identifier hs-type">createNamespaceResponse_identityStore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.IdentityStore.html#IdentityStore"><span class="hs-identifier hs-type">IdentityStore</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="createNamespaceResponse_identityStore"><span class="annot"><span class="annottext">createNamespaceResponse_identityStore :: (Maybe IdentityStore -&gt; f (Maybe IdentityStore))
+-&gt; CreateNamespaceResponse -&gt; f CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_identityStore"><span class="hs-identifier hs-var hs-var">createNamespaceResponse_identityStore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespaceResponse -&gt; Maybe IdentityStore)
+-&gt; (CreateNamespaceResponse
+    -&gt; Maybe IdentityStore -&gt; CreateNamespaceResponse)
+-&gt; Lens
+     CreateNamespaceResponse
+     CreateNamespaceResponse
+     (Maybe IdentityStore)
+     (Maybe IdentityStore)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593360"><span class="annot"><span class="annottext">Maybe IdentityStore
+identityStore :: Maybe IdentityStore
+$sel:identityStore:CreateNamespaceResponse' :: CreateNamespaceResponse -&gt; Maybe IdentityStore
+</span><a href="#local-6989586621679593360"><span class="hs-identifier hs-var hs-var">identityStore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityStore
+</span><a href="#local-6989586621679593360"><span class="hs-identifier hs-var">identityStore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593359"><span class="annot"><span class="annottext">s :: CreateNamespaceResponse
+</span><a href="#local-6989586621679593359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593358"><span class="annot"><span class="annottext">Maybe IdentityStore
+</span><a href="#local-6989586621679593358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespaceResponse
+</span><a href="#local-6989586621679593359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityStore:CreateNamespaceResponse' :: Maybe IdentityStore
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3AidentityStore%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">identityStore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityStore
+</span><a href="#local-6989586621679593358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_status"><span class="hs-identifier hs-type">createNamespaceResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-295"></span><span id="createNamespaceResponse_status"><span class="annot"><span class="annottext">createNamespaceResponse_status :: (Int -&gt; f Int)
+-&gt; CreateNamespaceResponse -&gt; f CreateNamespaceResponse
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#createNamespaceResponse_status"><span class="hs-identifier hs-var hs-var">createNamespaceResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNamespaceResponse -&gt; Int)
+-&gt; (CreateNamespaceResponse -&gt; Int -&gt; CreateNamespaceResponse)
+-&gt; Lens CreateNamespaceResponse CreateNamespaceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593357"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:CreateNamespaceResponse' :: CreateNamespaceResponse -&gt; Int
+</span><a href="#local-6989586621679593357"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593357"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593356"><span class="annot"><span class="annottext">s :: CreateNamespaceResponse
+</span><a href="#local-6989586621679593356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse%27"><span class="hs-identifier hs-type">CreateNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593355"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNamespaceResponse
+</span><a href="#local-6989586621679593356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateNamespaceResponse' :: Int
+</span><a href="Amazonka.QuickSight.CreateNamespace.html#%24sel%3Astatus%3ACreateNamespaceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679593355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateNamespace.html#CreateNamespaceResponse"><span class="hs-identifier hs-type">CreateNamespaceResponse</span></a></span></span><span>
+</span><span id="line-298"></span></pre></body></html>

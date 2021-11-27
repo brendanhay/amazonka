@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.HlsAdMarkers</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.HlsAdMarkers</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers"><span class="hs-identifier">HlsAdMarkers</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers_ADOBE"><span class="hs-identifier">HlsAdMarkers_ADOBE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers_ELEMENTAL"><span class="hs-identifier">HlsAdMarkers_ELEMENTAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers_ELEMENTAL_SCTE35"><span class="hs-identifier">HlsAdMarkers_ELEMENTAL_SCTE35</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Hls Ad Markers</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679884640"><span id="local-6989586621679884641"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsAdMarkers"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers"><span class="hs-identifier hs-var">HlsAdMarkers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsAdMarkers%27"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers%27"><span class="hs-identifier hs-var">HlsAdMarkers'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsAdMarkers"><span class="annot"><span class="annottext">HlsAdMarkers -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#fromHlsAdMarkers"><span class="hs-identifier hs-var hs-var">fromHlsAdMarkers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679884632"><span id="local-6989586621679884634"><span id="local-6989586621679884636"><span class="annot"><span class="annottext">Int -&gt; HlsAdMarkers -&gt; ShowS
+[HlsAdMarkers] -&gt; ShowS
+HlsAdMarkers -&gt; String
+(Int -&gt; HlsAdMarkers -&gt; ShowS)
+-&gt; (HlsAdMarkers -&gt; String)
+-&gt; ([HlsAdMarkers] -&gt; ShowS)
+-&gt; Show HlsAdMarkers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsAdMarkers] -&gt; ShowS
+$cshowList :: [HlsAdMarkers] -&gt; ShowS
+show :: HlsAdMarkers -&gt; String
+$cshow :: HlsAdMarkers -&gt; String
+showsPrec :: Int -&gt; HlsAdMarkers -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsAdMarkers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679884623"><span id="local-6989586621679884625"><span id="local-6989586621679884627"><span id="local-6989586621679884629"><span class="annot"><span class="annottext">ReadPrec [HlsAdMarkers]
+ReadPrec HlsAdMarkers
+Int -&gt; ReadS HlsAdMarkers
+ReadS [HlsAdMarkers]
+(Int -&gt; ReadS HlsAdMarkers)
+-&gt; ReadS [HlsAdMarkers]
+-&gt; ReadPrec HlsAdMarkers
+-&gt; ReadPrec [HlsAdMarkers]
+-&gt; Read HlsAdMarkers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsAdMarkers]
+$creadListPrec :: ReadPrec [HlsAdMarkers]
+readPrec :: ReadPrec HlsAdMarkers
+$creadPrec :: ReadPrec HlsAdMarkers
+readList :: ReadS [HlsAdMarkers]
+$creadList :: ReadS [HlsAdMarkers]
+readsPrec :: Int -&gt; ReadS HlsAdMarkers
+$creadsPrec :: Int -&gt; ReadS HlsAdMarkers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679884618"><span id="local-6989586621679884620"><span class="annot"><span class="annottext">HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+(HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool)
+-&gt; (HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool) -&gt; Eq HlsAdMarkers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+$c/= :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+== :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+$c== :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679884602"><span id="local-6989586621679884604"><span id="local-6989586621679884606"><span id="local-6989586621679884608"><span id="local-6989586621679884610"><span id="local-6989586621679884612"><span id="local-6989586621679884614"><span class="annot"><span class="annottext">Eq HlsAdMarkers
+Eq HlsAdMarkers
+-&gt; (HlsAdMarkers -&gt; HlsAdMarkers -&gt; Ordering)
+-&gt; (HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool)
+-&gt; (HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool)
+-&gt; (HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool)
+-&gt; (HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool)
+-&gt; (HlsAdMarkers -&gt; HlsAdMarkers -&gt; HlsAdMarkers)
+-&gt; (HlsAdMarkers -&gt; HlsAdMarkers -&gt; HlsAdMarkers)
+-&gt; Ord HlsAdMarkers
+HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+HlsAdMarkers -&gt; HlsAdMarkers -&gt; Ordering
+HlsAdMarkers -&gt; HlsAdMarkers -&gt; HlsAdMarkers
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; HlsAdMarkers
+$cmin :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; HlsAdMarkers
+max :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; HlsAdMarkers
+$cmax :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; HlsAdMarkers
+&gt;= :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+$c&gt;= :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+&gt; :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+$c&gt; :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+&lt;= :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+$c&lt;= :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+&lt; :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+$c&lt; :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Bool
+compare :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Ordering
+$ccompare :: HlsAdMarkers -&gt; HlsAdMarkers -&gt; Ordering
+$cp1Ord :: Eq HlsAdMarkers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HlsAdMarkers -&gt; Rep HlsAdMarkers x)
+-&gt; (forall x. Rep HlsAdMarkers x -&gt; HlsAdMarkers)
+-&gt; Generic HlsAdMarkers
+forall x. Rep HlsAdMarkers x -&gt; HlsAdMarkers
+forall x. HlsAdMarkers -&gt; Rep HlsAdMarkers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsAdMarkers x -&gt; HlsAdMarkers
+$cfrom :: forall x. HlsAdMarkers -&gt; Rep HlsAdMarkers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679884594"><span id="local-6989586621679884596"><span class="annot"><span class="annottext">Int -&gt; HlsAdMarkers -&gt; Int
+HlsAdMarkers -&gt; Int
+(Int -&gt; HlsAdMarkers -&gt; Int)
+-&gt; (HlsAdMarkers -&gt; Int) -&gt; Hashable HlsAdMarkers
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsAdMarkers -&gt; Int
+$chash :: HlsAdMarkers -&gt; Int
+hashWithSalt :: Int -&gt; HlsAdMarkers -&gt; Int
+$chashWithSalt :: Int -&gt; HlsAdMarkers -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679884591"><span class="annot"><span class="annottext">HlsAdMarkers -&gt; ()
+(HlsAdMarkers -&gt; ()) -&gt; NFData HlsAdMarkers
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsAdMarkers -&gt; ()
+$crnf :: HlsAdMarkers -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679884588"><span class="annot"><span class="annottext">Text -&gt; Either String HlsAdMarkers
+(Text -&gt; Either String HlsAdMarkers) -&gt; FromText HlsAdMarkers
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsAdMarkers
+$cfromText :: Text -&gt; Either String HlsAdMarkers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679884585"><span class="annot"><span class="annottext">HlsAdMarkers -&gt; Text
+(HlsAdMarkers -&gt; Text) -&gt; ToText HlsAdMarkers
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsAdMarkers -&gt; Text
+$ctoText :: HlsAdMarkers -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679884582"><span class="annot"><span class="annottext">HlsAdMarkers -&gt; ByteString
+(HlsAdMarkers -&gt; ByteString) -&gt; ToByteString HlsAdMarkers
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsAdMarkers -&gt; ByteString
+$ctoBS :: HlsAdMarkers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679884579"><span class="annot"><span class="annottext">HlsAdMarkers -&gt; ByteStringBuilder
+(HlsAdMarkers -&gt; ByteStringBuilder) -&gt; ToLog HlsAdMarkers
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsAdMarkers -&gt; ByteStringBuilder
+$cbuild :: HlsAdMarkers -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679884576"><span class="annot"><span class="annottext">HeaderName -&gt; HlsAdMarkers -&gt; [Header]
+(HeaderName -&gt; HlsAdMarkers -&gt; [Header]) -&gt; ToHeader HlsAdMarkers
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsAdMarkers -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsAdMarkers -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679884573"><span class="annot"><span class="annottext">HlsAdMarkers -&gt; QueryString
+(HlsAdMarkers -&gt; QueryString) -&gt; ToQuery HlsAdMarkers
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsAdMarkers -&gt; QueryString
+$ctoQuery :: HlsAdMarkers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679884568"><span id="local-6989586621679884570"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsAdMarkers]
+Value -&gt; Parser HlsAdMarkers
+(Value -&gt; Parser HlsAdMarkers)
+-&gt; (Value -&gt; Parser [HlsAdMarkers]) -&gt; FromJSON HlsAdMarkers
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsAdMarkers]
+$cparseJSONList :: Value -&gt; Parser [HlsAdMarkers]
+parseJSON :: Value -&gt; Parser HlsAdMarkers
+$cparseJSON :: Value -&gt; Parser HlsAdMarkers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679884563"><span id="local-6989586621679884565"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsAdMarkers]
+FromJSONKeyFunction HlsAdMarkers
+FromJSONKeyFunction HlsAdMarkers
+-&gt; FromJSONKeyFunction [HlsAdMarkers] -&gt; FromJSONKey HlsAdMarkers
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsAdMarkers]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsAdMarkers]
+fromJSONKey :: FromJSONKeyFunction HlsAdMarkers
+$cfromJSONKey :: FromJSONKeyFunction HlsAdMarkers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679884554"><span id="local-6989586621679884556"><span id="local-6989586621679884558"><span id="local-6989586621679884560"><span class="annot"><span class="annottext">[HlsAdMarkers] -&gt; Encoding
+[HlsAdMarkers] -&gt; Value
+HlsAdMarkers -&gt; Encoding
+HlsAdMarkers -&gt; Value
+(HlsAdMarkers -&gt; Value)
+-&gt; (HlsAdMarkers -&gt; Encoding)
+-&gt; ([HlsAdMarkers] -&gt; Value)
+-&gt; ([HlsAdMarkers] -&gt; Encoding)
+-&gt; ToJSON HlsAdMarkers
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsAdMarkers] -&gt; Encoding
+$ctoEncodingList :: [HlsAdMarkers] -&gt; Encoding
+toJSONList :: [HlsAdMarkers] -&gt; Value
+$ctoJSONList :: [HlsAdMarkers] -&gt; Value
+toEncoding :: HlsAdMarkers -&gt; Encoding
+$ctoEncoding :: HlsAdMarkers -&gt; Encoding
+toJSON :: HlsAdMarkers -&gt; Value
+$ctoJSON :: HlsAdMarkers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679884549"><span id="local-6989586621679884551"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsAdMarkers]
+ToJSONKeyFunction HlsAdMarkers
+ToJSONKeyFunction HlsAdMarkers
+-&gt; ToJSONKeyFunction [HlsAdMarkers] -&gt; ToJSONKey HlsAdMarkers
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsAdMarkers]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsAdMarkers]
+toJSONKey :: ToJSONKeyFunction HlsAdMarkers
+$ctoJSONKey :: ToJSONKeyFunction HlsAdMarkers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679884546"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsAdMarkers
+([Node] -&gt; Either String HlsAdMarkers) -&gt; FromXML HlsAdMarkers
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsAdMarkers
+$cparseXML :: [Node] -&gt; Either String HlsAdMarkers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679884543"><span class="annot"><span class="annottext">HlsAdMarkers -&gt; XML
+(HlsAdMarkers -&gt; XML) -&gt; ToXML HlsAdMarkers
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsAdMarkers -&gt; XML
+$ctoXML :: HlsAdMarkers -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers_ADOBE"><span class="hs-identifier hs-type">HlsAdMarkers_ADOBE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers"><span class="hs-identifier hs-type">HlsAdMarkers</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsAdMarkers_ADOBE"><span id="%24mHlsAdMarkers_ADOBE"><span id="HlsAdMarkers_ADOBE"><span class="annot"><span class="annottext">$bHlsAdMarkers_ADOBE :: HlsAdMarkers
+$mHlsAdMarkers_ADOBE :: forall r. HlsAdMarkers -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#%24bHlsAdMarkers_ADOBE"><span class="hs-identifier hs-var hs-var hs-var">HlsAdMarkers_ADOBE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers%27"><span class="hs-identifier hs-type">HlsAdMarkers'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADOBE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers_ELEMENTAL"><span class="hs-identifier hs-type">HlsAdMarkers_ELEMENTAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers"><span class="hs-identifier hs-type">HlsAdMarkers</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsAdMarkers_ELEMENTAL"><span id="%24mHlsAdMarkers_ELEMENTAL"><span id="HlsAdMarkers_ELEMENTAL"><span class="annot"><span class="annottext">$bHlsAdMarkers_ELEMENTAL :: HlsAdMarkers
+$mHlsAdMarkers_ELEMENTAL :: forall r. HlsAdMarkers -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#%24bHlsAdMarkers_ELEMENTAL"><span class="hs-identifier hs-var hs-var hs-var">HlsAdMarkers_ELEMENTAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers%27"><span class="hs-identifier hs-type">HlsAdMarkers'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ELEMENTAL&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers_ELEMENTAL_SCTE35"><span class="hs-identifier hs-type">HlsAdMarkers_ELEMENTAL_SCTE35</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers"><span class="hs-identifier hs-type">HlsAdMarkers</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsAdMarkers_ELEMENTAL_SCTE35"><span id="%24mHlsAdMarkers_ELEMENTAL_SCTE35"><span id="HlsAdMarkers_ELEMENTAL_SCTE35"><span class="annot"><span class="annottext">$bHlsAdMarkers_ELEMENTAL_SCTE35 :: HlsAdMarkers
+$mHlsAdMarkers_ELEMENTAL_SCTE35 :: forall r. HlsAdMarkers -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#%24bHlsAdMarkers_ELEMENTAL_SCTE35"><span class="hs-identifier hs-var hs-var hs-var">HlsAdMarkers_ELEMENTAL_SCTE35</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers%27"><span class="hs-identifier hs-type">HlsAdMarkers'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ELEMENTAL_SCTE35&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers_ADOBE"><span class="hs-pragma hs-type">HlsAdMarkers_ADOBE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers_ELEMENTAL"><span class="hs-pragma hs-type">HlsAdMarkers_ELEMENTAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers_ELEMENTAL_SCTE35"><span class="hs-pragma hs-type">HlsAdMarkers_ELEMENTAL_SCTE35</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsAdMarkers.html#HlsAdMarkers%27"><span class="hs-pragma hs-type">HlsAdMarkers'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

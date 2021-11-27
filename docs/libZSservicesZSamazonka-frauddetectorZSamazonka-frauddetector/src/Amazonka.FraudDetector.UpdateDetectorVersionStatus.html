@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.UpdateDetectorVersionStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the detector version&#8217;s status. You can perform the following</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- promotions or demotions using @UpdateDetectorVersionStatus@: @DRAFT@ to</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @ACTIVE@, @ACTIVE@ to @INACTIVE@, and @INACTIVE@ to @ACTIVE@.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.UpdateDetectorVersionStatus</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier">UpdateDetectorVersionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#newUpdateDetectorVersionStatus"><span class="hs-identifier">newUpdateDetectorVersionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatus_detectorId"><span class="hs-identifier">updateDetectorVersionStatus_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatus_detectorVersionId"><span class="hs-identifier">updateDetectorVersionStatus_detectorVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatus_status"><span class="hs-identifier">updateDetectorVersionStatus_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse"><span class="hs-identifier">UpdateDetectorVersionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#newUpdateDetectorVersionStatusResponse"><span class="hs-identifier">newUpdateDetectorVersionStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatusResponse_httpStatus"><span class="hs-identifier">updateDetectorVersionStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html"><span class="hs-identifier">Amazonka.FraudDetector.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateDetectorVersionStatus' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679323248"><span id="local-6989586621679323249"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDetectorVersionStatus"><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-var">UpdateDetectorVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDetectorVersionStatus%27"><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var">UpdateDetectorVersionStatus'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The detector ID.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdetectorId%3AUpdateDetectorVersionStatus%27"><span class="annot"><span class="annottext">UpdateDetectorVersionStatus -&gt; Text
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3AdetectorId%3AUpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The detector version ID.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdetectorVersionId%3AUpdateDetectorVersionStatus%27"><span class="annot"><span class="annottext">UpdateDetectorVersionStatus -&gt; Text
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3AdetectorVersionId%3AUpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var hs-var">detectorVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The new status.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateDetectorVersionStatus%27"><span class="annot"><span class="annottext">UpdateDetectorVersionStatus -&gt; DetectorVersionStatus
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3Astatus%3AUpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus"><span class="hs-identifier hs-type">DetectorVersionStatus</span></a></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323240"><span id="local-6989586621679323242"><span class="annot"><span class="annottext">UpdateDetectorVersionStatus -&gt; UpdateDetectorVersionStatus -&gt; Bool
+(UpdateDetectorVersionStatus
+ -&gt; UpdateDetectorVersionStatus -&gt; Bool)
+-&gt; (UpdateDetectorVersionStatus
+    -&gt; UpdateDetectorVersionStatus -&gt; Bool)
+-&gt; Eq UpdateDetectorVersionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDetectorVersionStatus -&gt; UpdateDetectorVersionStatus -&gt; Bool
+$c/= :: UpdateDetectorVersionStatus -&gt; UpdateDetectorVersionStatus -&gt; Bool
+== :: UpdateDetectorVersionStatus -&gt; UpdateDetectorVersionStatus -&gt; Bool
+$c== :: UpdateDetectorVersionStatus -&gt; UpdateDetectorVersionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323231"><span id="local-6989586621679323233"><span id="local-6989586621679323235"><span id="local-6989586621679323237"><span class="annot"><span class="annottext">ReadPrec [UpdateDetectorVersionStatus]
+ReadPrec UpdateDetectorVersionStatus
+Int -&gt; ReadS UpdateDetectorVersionStatus
+ReadS [UpdateDetectorVersionStatus]
+(Int -&gt; ReadS UpdateDetectorVersionStatus)
+-&gt; ReadS [UpdateDetectorVersionStatus]
+-&gt; ReadPrec UpdateDetectorVersionStatus
+-&gt; ReadPrec [UpdateDetectorVersionStatus]
+-&gt; Read UpdateDetectorVersionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDetectorVersionStatus]
+$creadListPrec :: ReadPrec [UpdateDetectorVersionStatus]
+readPrec :: ReadPrec UpdateDetectorVersionStatus
+$creadPrec :: ReadPrec UpdateDetectorVersionStatus
+readList :: ReadS [UpdateDetectorVersionStatus]
+$creadList :: ReadS [UpdateDetectorVersionStatus]
+readsPrec :: Int -&gt; ReadS UpdateDetectorVersionStatus
+$creadsPrec :: Int -&gt; ReadS UpdateDetectorVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323224"><span id="local-6989586621679323226"><span id="local-6989586621679323228"><span class="annot"><span class="annottext">Int -&gt; UpdateDetectorVersionStatus -&gt; ShowS
+[UpdateDetectorVersionStatus] -&gt; ShowS
+UpdateDetectorVersionStatus -&gt; String
+(Int -&gt; UpdateDetectorVersionStatus -&gt; ShowS)
+-&gt; (UpdateDetectorVersionStatus -&gt; String)
+-&gt; ([UpdateDetectorVersionStatus] -&gt; ShowS)
+-&gt; Show UpdateDetectorVersionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDetectorVersionStatus] -&gt; ShowS
+$cshowList :: [UpdateDetectorVersionStatus] -&gt; ShowS
+show :: UpdateDetectorVersionStatus -&gt; String
+$cshow :: UpdateDetectorVersionStatus -&gt; String
+showsPrec :: Int -&gt; UpdateDetectorVersionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDetectorVersionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDetectorVersionStatus -&gt; Rep UpdateDetectorVersionStatus x)
+-&gt; (forall x.
+    Rep UpdateDetectorVersionStatus x -&gt; UpdateDetectorVersionStatus)
+-&gt; Generic UpdateDetectorVersionStatus
+forall x.
+Rep UpdateDetectorVersionStatus x -&gt; UpdateDetectorVersionStatus
+forall x.
+UpdateDetectorVersionStatus -&gt; Rep UpdateDetectorVersionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDetectorVersionStatus x -&gt; UpdateDetectorVersionStatus
+$cfrom :: forall x.
+UpdateDetectorVersionStatus -&gt; Rep UpdateDetectorVersionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'UpdateDetectorVersionStatus' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'detectorId', 'updateDetectorVersionStatus_detectorId' - The detector ID.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'detectorVersionId', 'updateDetectorVersionStatus_detectorVersionId' - The detector version ID.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'status', 'updateDetectorVersionStatus_status' - The new status.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#newUpdateDetectorVersionStatus"><span class="hs-identifier hs-type">newUpdateDetectorVersionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'detectorVersionId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus"><span class="hs-identifier hs-type">DetectorVersionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span>
+</span><span id="line-84"></span><span id="newUpdateDetectorVersionStatus"><span class="annot"><span class="annottext">newUpdateDetectorVersionStatus :: Text
+-&gt; Text -&gt; DetectorVersionStatus -&gt; UpdateDetectorVersionStatus
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#newUpdateDetectorVersionStatus"><span class="hs-identifier hs-var hs-var">newUpdateDetectorVersionStatus</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679323219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323219"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679323218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323218"><span class="hs-identifier hs-var">pDetectorVersionId_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679323217"><span class="annot"><span class="annottext">DetectorVersionStatus
+</span><a href="#local-6989586621679323217"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">UpdateDetectorVersionStatus' :: Text
+-&gt; Text -&gt; DetectorVersionStatus -&gt; UpdateDetectorVersionStatus
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus'</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:UpdateDetectorVersionStatus' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3AdetectorId%3AUpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323219"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:detectorVersionId:UpdateDetectorVersionStatus' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3AdetectorVersionId%3AUpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var">detectorVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323218"><span class="hs-identifier hs-var">pDetectorVersionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:UpdateDetectorVersionStatus' :: DetectorVersionStatus
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3Astatus%3AUpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetectorVersionStatus
+</span><a href="#local-6989586621679323217"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The detector ID.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatus_detectorId"><span class="hs-identifier hs-type">updateDetectorVersionStatus_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="updateDetectorVersionStatus_detectorId"><span class="annot"><span class="annottext">updateDetectorVersionStatus_detectorId :: (Text -&gt; f Text)
+-&gt; UpdateDetectorVersionStatus -&gt; f UpdateDetectorVersionStatus
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatus_detectorId"><span class="hs-identifier hs-var hs-var">updateDetectorVersionStatus_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDetectorVersionStatus -&gt; Text)
+-&gt; (UpdateDetectorVersionStatus
+    -&gt; Text -&gt; UpdateDetectorVersionStatus)
+-&gt; Lens
+     UpdateDetectorVersionStatus UpdateDetectorVersionStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323214"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:UpdateDetectorVersionStatus' :: UpdateDetectorVersionStatus -&gt; Text
+</span><a href="#local-6989586621679323214"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323214"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323213"><span class="annot"><span class="annottext">s :: UpdateDetectorVersionStatus
+</span><a href="#local-6989586621679323213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323212"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDetectorVersionStatus
+</span><a href="#local-6989586621679323213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:UpdateDetectorVersionStatus' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3AdetectorId%3AUpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The detector version ID.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatus_detectorVersionId"><span class="hs-identifier hs-type">updateDetectorVersionStatus_detectorVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="updateDetectorVersionStatus_detectorVersionId"><span class="annot"><span class="annottext">updateDetectorVersionStatus_detectorVersionId :: (Text -&gt; f Text)
+-&gt; UpdateDetectorVersionStatus -&gt; f UpdateDetectorVersionStatus
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatus_detectorVersionId"><span class="hs-identifier hs-var hs-var">updateDetectorVersionStatus_detectorVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDetectorVersionStatus -&gt; Text)
+-&gt; (UpdateDetectorVersionStatus
+    -&gt; Text -&gt; UpdateDetectorVersionStatus)
+-&gt; Lens
+     UpdateDetectorVersionStatus UpdateDetectorVersionStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323211"><span class="annot"><span class="annottext">Text
+detectorVersionId :: Text
+$sel:detectorVersionId:UpdateDetectorVersionStatus' :: UpdateDetectorVersionStatus -&gt; Text
+</span><a href="#local-6989586621679323211"><span class="hs-identifier hs-var hs-var">detectorVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323211"><span class="hs-identifier hs-var">detectorVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323210"><span class="annot"><span class="annottext">s :: UpdateDetectorVersionStatus
+</span><a href="#local-6989586621679323210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323209"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDetectorVersionStatus
+</span><a href="#local-6989586621679323210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorVersionId:UpdateDetectorVersionStatus' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3AdetectorVersionId%3AUpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var">detectorVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The new status.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatus_status"><span class="hs-identifier hs-type">updateDetectorVersionStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus"><span class="hs-identifier hs-type">DetectorVersionStatus</span></a></span><span>
+</span><span id="line-105"></span><span id="updateDetectorVersionStatus_status"><span class="annot"><span class="annottext">updateDetectorVersionStatus_status :: (DetectorVersionStatus -&gt; f DetectorVersionStatus)
+-&gt; UpdateDetectorVersionStatus -&gt; f UpdateDetectorVersionStatus
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatus_status"><span class="hs-identifier hs-var hs-var">updateDetectorVersionStatus_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDetectorVersionStatus -&gt; DetectorVersionStatus)
+-&gt; (UpdateDetectorVersionStatus
+    -&gt; DetectorVersionStatus -&gt; UpdateDetectorVersionStatus)
+-&gt; Lens
+     UpdateDetectorVersionStatus
+     UpdateDetectorVersionStatus
+     DetectorVersionStatus
+     DetectorVersionStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323208"><span class="annot"><span class="annottext">DetectorVersionStatus
+status :: DetectorVersionStatus
+$sel:status:UpdateDetectorVersionStatus' :: UpdateDetectorVersionStatus -&gt; DetectorVersionStatus
+</span><a href="#local-6989586621679323208"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorVersionStatus
+</span><a href="#local-6989586621679323208"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323207"><span class="annot"><span class="annottext">s :: UpdateDetectorVersionStatus
+</span><a href="#local-6989586621679323207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323206"><span class="annot"><span class="annottext">DetectorVersionStatus
+</span><a href="#local-6989586621679323206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDetectorVersionStatus
+</span><a href="#local-6989586621679323207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateDetectorVersionStatus' :: DetectorVersionStatus
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3Astatus%3AUpdateDetectorVersionStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetectorVersionStatus
+</span><a href="#local-6989586621679323206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse"><span class="hs-identifier hs-type">UpdateDetectorVersionStatusResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679323202"><span class="annot"><span class="annottext">request :: UpdateDetectorVersionStatus -&gt; Request UpdateDetectorVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateDetectorVersionStatus
+-&gt; Request UpdateDetectorVersionStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679323198"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDetectorVersionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDetectorVersionStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateDetectorVersionStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDetectorVersionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDetectorVersionStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323195"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323195"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679323194"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679323194"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679323193"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679323193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateDetectorVersionStatusResponse
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse%27"><span class="hs-identifier hs-var">UpdateDetectorVersionStatusResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateDetectorVersionStatusResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateDetectorVersionStatusResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323195"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323186"><span id="local-6989586621679323188"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679323179"><span class="annot"><span class="annottext">toHeaders :: UpdateDetectorVersionStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDetectorVersionStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.UpdateDetectorVersionStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323169"><span id="local-6989586621679323171"><span id="local-6989586621679323173"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679323167"><span class="annot"><span class="annottext">toJSON :: UpdateDetectorVersionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323163"><span id="local-6989586621679323164"><span id="local-6989586621679323165"><span class="annot"><span class="annottext">Text
+DetectorVersionStatus
+status :: DetectorVersionStatus
+detectorVersionId :: Text
+detectorId :: Text
+$sel:status:UpdateDetectorVersionStatus' :: UpdateDetectorVersionStatus -&gt; DetectorVersionStatus
+$sel:detectorVersionId:UpdateDetectorVersionStatus' :: UpdateDetectorVersionStatus -&gt; Text
+$sel:detectorId:UpdateDetectorVersionStatus' :: UpdateDetectorVersionStatus -&gt; Text
+</span><a href="#local-6989586621679323163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;detectorId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323165"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;detectorVersionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323164"><span class="hs-identifier hs-var">detectorVersionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DetectorVersionStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DetectorVersionStatus
+</span><a href="#local-6989586621679323163"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679323157"><span class="annot"><span class="annottext">toPath :: UpdateDetectorVersionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDetectorVersionStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatus"><span class="hs-identifier hs-type">UpdateDetectorVersionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679323153"><span class="annot"><span class="annottext">toQuery :: UpdateDetectorVersionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDetectorVersionStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newUpdateDetectorVersionStatusResponse' smart constructor.</span><span>
+</span><span id="line-156"></span><span id="local-6989586621679323150"><span id="local-6989586621679323151"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDetectorVersionStatusResponse"><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse"><span class="hs-identifier hs-var">UpdateDetectorVersionStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDetectorVersionStatusResponse%27"><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse%27"><span class="hs-identifier hs-var">UpdateDetectorVersionStatusResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDetectorVersionStatusResponse%27"><span class="annot"><span class="annottext">UpdateDetectorVersionStatusResponse -&gt; Int
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3AhttpStatus%3AUpdateDetectorVersionStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323145"><span id="local-6989586621679323147"><span class="annot"><span class="annottext">UpdateDetectorVersionStatusResponse
+-&gt; UpdateDetectorVersionStatusResponse -&gt; Bool
+(UpdateDetectorVersionStatusResponse
+ -&gt; UpdateDetectorVersionStatusResponse -&gt; Bool)
+-&gt; (UpdateDetectorVersionStatusResponse
+    -&gt; UpdateDetectorVersionStatusResponse -&gt; Bool)
+-&gt; Eq UpdateDetectorVersionStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDetectorVersionStatusResponse
+-&gt; UpdateDetectorVersionStatusResponse -&gt; Bool
+$c/= :: UpdateDetectorVersionStatusResponse
+-&gt; UpdateDetectorVersionStatusResponse -&gt; Bool
+== :: UpdateDetectorVersionStatusResponse
+-&gt; UpdateDetectorVersionStatusResponse -&gt; Bool
+$c== :: UpdateDetectorVersionStatusResponse
+-&gt; UpdateDetectorVersionStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323137"><span id="local-6989586621679323139"><span id="local-6989586621679323141"><span id="local-6989586621679323143"><span class="annot"><span class="annottext">ReadPrec [UpdateDetectorVersionStatusResponse]
+ReadPrec UpdateDetectorVersionStatusResponse
+Int -&gt; ReadS UpdateDetectorVersionStatusResponse
+ReadS [UpdateDetectorVersionStatusResponse]
+(Int -&gt; ReadS UpdateDetectorVersionStatusResponse)
+-&gt; ReadS [UpdateDetectorVersionStatusResponse]
+-&gt; ReadPrec UpdateDetectorVersionStatusResponse
+-&gt; ReadPrec [UpdateDetectorVersionStatusResponse]
+-&gt; Read UpdateDetectorVersionStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDetectorVersionStatusResponse]
+$creadListPrec :: ReadPrec [UpdateDetectorVersionStatusResponse]
+readPrec :: ReadPrec UpdateDetectorVersionStatusResponse
+$creadPrec :: ReadPrec UpdateDetectorVersionStatusResponse
+readList :: ReadS [UpdateDetectorVersionStatusResponse]
+$creadList :: ReadS [UpdateDetectorVersionStatusResponse]
+readsPrec :: Int -&gt; ReadS UpdateDetectorVersionStatusResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDetectorVersionStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323131"><span id="local-6989586621679323133"><span id="local-6989586621679323135"><span class="annot"><span class="annottext">Int -&gt; UpdateDetectorVersionStatusResponse -&gt; ShowS
+[UpdateDetectorVersionStatusResponse] -&gt; ShowS
+UpdateDetectorVersionStatusResponse -&gt; String
+(Int -&gt; UpdateDetectorVersionStatusResponse -&gt; ShowS)
+-&gt; (UpdateDetectorVersionStatusResponse -&gt; String)
+-&gt; ([UpdateDetectorVersionStatusResponse] -&gt; ShowS)
+-&gt; Show UpdateDetectorVersionStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDetectorVersionStatusResponse] -&gt; ShowS
+$cshowList :: [UpdateDetectorVersionStatusResponse] -&gt; ShowS
+show :: UpdateDetectorVersionStatusResponse -&gt; String
+$cshow :: UpdateDetectorVersionStatusResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDetectorVersionStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDetectorVersionStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDetectorVersionStatusResponse
+ -&gt; Rep UpdateDetectorVersionStatusResponse x)
+-&gt; (forall x.
+    Rep UpdateDetectorVersionStatusResponse x
+    -&gt; UpdateDetectorVersionStatusResponse)
+-&gt; Generic UpdateDetectorVersionStatusResponse
+forall x.
+Rep UpdateDetectorVersionStatusResponse x
+-&gt; UpdateDetectorVersionStatusResponse
+forall x.
+UpdateDetectorVersionStatusResponse
+-&gt; Rep UpdateDetectorVersionStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDetectorVersionStatusResponse x
+-&gt; UpdateDetectorVersionStatusResponse
+$cfrom :: forall x.
+UpdateDetectorVersionStatusResponse
+-&gt; Rep UpdateDetectorVersionStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'UpdateDetectorVersionStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'updateDetectorVersionStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#newUpdateDetectorVersionStatusResponse"><span class="hs-identifier hs-type">newUpdateDetectorVersionStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse"><span class="hs-identifier hs-type">UpdateDetectorVersionStatusResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newUpdateDetectorVersionStatusResponse"><span class="annot"><span class="annottext">newUpdateDetectorVersionStatusResponse :: Int -&gt; UpdateDetectorVersionStatusResponse
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#newUpdateDetectorVersionStatusResponse"><span class="hs-identifier hs-var hs-var">newUpdateDetectorVersionStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679323128"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323128"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">UpdateDetectorVersionStatusResponse' :: Int -&gt; UpdateDetectorVersionStatusResponse
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatusResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDetectorVersionStatusResponse' :: Int
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3AhttpStatus%3AUpdateDetectorVersionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323128"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatusResponse_httpStatus"><span class="hs-identifier hs-type">updateDetectorVersionStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse"><span class="hs-identifier hs-type">UpdateDetectorVersionStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="updateDetectorVersionStatusResponse_httpStatus"><span class="annot"><span class="annottext">updateDetectorVersionStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateDetectorVersionStatusResponse
+-&gt; f UpdateDetectorVersionStatusResponse
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#updateDetectorVersionStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDetectorVersionStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDetectorVersionStatusResponse -&gt; Int)
+-&gt; (UpdateDetectorVersionStatusResponse
+    -&gt; Int -&gt; UpdateDetectorVersionStatusResponse)
+-&gt; Lens
+     UpdateDetectorVersionStatusResponse
+     UpdateDetectorVersionStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323127"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateDetectorVersionStatusResponse' :: UpdateDetectorVersionStatusResponse -&gt; Int
+</span><a href="#local-6989586621679323127"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323127"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323126"><span class="annot"><span class="annottext">s :: UpdateDetectorVersionStatusResponse
+</span><a href="#local-6989586621679323126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse%27"><span class="hs-identifier hs-type">UpdateDetectorVersionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDetectorVersionStatusResponse
+</span><a href="#local-6989586621679323126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDetectorVersionStatusResponse' :: Int
+</span><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#%24sel%3AhttpStatus%3AUpdateDetectorVersionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse"><span class="hs-identifier hs-type">UpdateDetectorVersionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679323123"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateDetectorVersionStatus.html#UpdateDetectorVersionStatusResponse"><span class="hs-identifier hs-type">UpdateDetectorVersionStatusResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

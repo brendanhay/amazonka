@@ -1,0 +1,566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.RegisterThing</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provisions a thing in the device registry. RegisterThing calls other IoT</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- control plane APIs. These calls might exceed your account level</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot IoT Throttling Limits&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- and cause throttle errors. Please contact</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home Amazon Web Services Customer Support&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to raise your throttling limits if necessary.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions RegisterThing&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.RegisterThing</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier">RegisterThing</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#newRegisterThing"><span class="hs-identifier">newRegisterThing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThing_parameters"><span class="hs-identifier">registerThing_parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThing_templateBody"><span class="hs-identifier">registerThing_templateBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier">RegisterThingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#newRegisterThingResponse"><span class="hs-identifier">newRegisterThingResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThingResponse_certificatePem"><span class="hs-identifier">registerThingResponse_certificatePem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThingResponse_resourceArns"><span class="hs-identifier">registerThingResponse_resourceArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThingResponse_httpStatus"><span class="hs-identifier">registerThingResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newRegisterThing' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679814725"><span id="local-6989586621679814726"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterThing"><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-var">RegisterThing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterThing%27"><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing%27"><span class="hs-identifier hs-var">RegisterThing'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameters for provisioning a thing. See</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates&gt;</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aparameters%3ARegisterThing%27"><span class="annot"><span class="annottext">RegisterThing -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3Aparameters%3ARegisterThing%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The provisioning template. See</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates&gt;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtemplateBody%3ARegisterThing%27"><span class="annot"><span class="annottext">RegisterThing -&gt; Text
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AtemplateBody%3ARegisterThing%27"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814718"><span id="local-6989586621679814720"><span class="annot"><span class="annottext">RegisterThing -&gt; RegisterThing -&gt; Bool
+(RegisterThing -&gt; RegisterThing -&gt; Bool)
+-&gt; (RegisterThing -&gt; RegisterThing -&gt; Bool) -&gt; Eq RegisterThing
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterThing -&gt; RegisterThing -&gt; Bool
+$c/= :: RegisterThing -&gt; RegisterThing -&gt; Bool
+== :: RegisterThing -&gt; RegisterThing -&gt; Bool
+$c== :: RegisterThing -&gt; RegisterThing -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814709"><span id="local-6989586621679814711"><span id="local-6989586621679814713"><span id="local-6989586621679814715"><span class="annot"><span class="annottext">ReadPrec [RegisterThing]
+ReadPrec RegisterThing
+Int -&gt; ReadS RegisterThing
+ReadS [RegisterThing]
+(Int -&gt; ReadS RegisterThing)
+-&gt; ReadS [RegisterThing]
+-&gt; ReadPrec RegisterThing
+-&gt; ReadPrec [RegisterThing]
+-&gt; Read RegisterThing
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterThing]
+$creadListPrec :: ReadPrec [RegisterThing]
+readPrec :: ReadPrec RegisterThing
+$creadPrec :: ReadPrec RegisterThing
+readList :: ReadS [RegisterThing]
+$creadList :: ReadS [RegisterThing]
+readsPrec :: Int -&gt; ReadS RegisterThing
+$creadsPrec :: Int -&gt; ReadS RegisterThing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814702"><span id="local-6989586621679814704"><span id="local-6989586621679814706"><span class="annot"><span class="annottext">Int -&gt; RegisterThing -&gt; ShowS
+[RegisterThing] -&gt; ShowS
+RegisterThing -&gt; String
+(Int -&gt; RegisterThing -&gt; ShowS)
+-&gt; (RegisterThing -&gt; String)
+-&gt; ([RegisterThing] -&gt; ShowS)
+-&gt; Show RegisterThing
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterThing] -&gt; ShowS
+$cshowList :: [RegisterThing] -&gt; ShowS
+show :: RegisterThing -&gt; String
+$cshow :: RegisterThing -&gt; String
+showsPrec :: Int -&gt; RegisterThing -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterThing -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegisterThing -&gt; Rep RegisterThing x)
+-&gt; (forall x. Rep RegisterThing x -&gt; RegisterThing)
+-&gt; Generic RegisterThing
+forall x. Rep RegisterThing x -&gt; RegisterThing
+forall x. RegisterThing -&gt; Rep RegisterThing x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegisterThing x -&gt; RegisterThing
+$cfrom :: forall x. RegisterThing -&gt; Rep RegisterThing x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'RegisterThing' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'parameters', 'registerThing_parameters' - The parameters for provisioning a thing. See</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates&gt;</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'templateBody', 'registerThing_templateBody' - The provisioning template. See</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates&gt;</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#newRegisterThing"><span class="hs-identifier hs-type">newRegisterThing</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'templateBody'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span>
+</span><span id="line-92"></span><span id="newRegisterThing"><span class="annot"><span class="annottext">newRegisterThing :: Text -&gt; RegisterThing
+</span><a href="Amazonka.IoT.RegisterThing.html#newRegisterThing"><span class="hs-identifier hs-var hs-var">newRegisterThing</span></a></span></span><span> </span><span id="local-6989586621679814697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679814697"><span class="hs-identifier hs-var">pTemplateBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">RegisterThing' :: Maybe (HashMap Text Text) -&gt; Text -&gt; RegisterThing
+</span><a href="Amazonka.IoT.RegisterThing.html#RegisterThing%27"><span class="hs-identifier hs-type">RegisterThing'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:RegisterThing' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3Aparameters%3ARegisterThing%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateBody:RegisterThing' :: Text
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AtemplateBody%3ARegisterThing%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679814697"><span class="hs-identifier hs-var">pTemplateBody_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The parameters for provisioning a thing. See</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates&gt;</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThing_parameters"><span class="hs-identifier hs-type">registerThing_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="registerThing_parameters"><span class="annot"><span class="annottext">registerThing_parameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; RegisterThing -&gt; f RegisterThing
+</span><a href="Amazonka.IoT.RegisterThing.html#registerThing_parameters"><span class="hs-identifier hs-var hs-var">registerThing_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterThing -&gt; Maybe (HashMap Text Text))
+-&gt; (RegisterThing -&gt; Maybe (HashMap Text Text) -&gt; RegisterThing)
+-&gt; Lens
+     RegisterThing
+     RegisterThing
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing%27"><span class="hs-identifier hs-type">RegisterThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814694"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+parameters :: Maybe (HashMap Text Text)
+$sel:parameters:RegisterThing' :: RegisterThing -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814694"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814694"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814693"><span class="annot"><span class="annottext">s :: RegisterThing
+</span><a href="#local-6989586621679814693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing%27"><span class="hs-identifier hs-type">RegisterThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814692"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterThing
+</span><a href="#local-6989586621679814693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:RegisterThing' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3Aparameters%3ARegisterThing%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; RegisterThing -&gt; f RegisterThing)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; RegisterThing
+-&gt; f RegisterThing
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The provisioning template. See</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates&gt;</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThing_templateBody"><span class="hs-identifier hs-type">registerThing_templateBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="registerThing_templateBody"><span class="annot"><span class="annottext">registerThing_templateBody :: (Text -&gt; f Text) -&gt; RegisterThing -&gt; f RegisterThing
+</span><a href="Amazonka.IoT.RegisterThing.html#registerThing_templateBody"><span class="hs-identifier hs-var hs-var">registerThing_templateBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterThing -&gt; Text)
+-&gt; (RegisterThing -&gt; Text -&gt; RegisterThing)
+-&gt; Lens RegisterThing RegisterThing Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing%27"><span class="hs-identifier hs-type">RegisterThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814688"><span class="annot"><span class="annottext">Text
+templateBody :: Text
+$sel:templateBody:RegisterThing' :: RegisterThing -&gt; Text
+</span><a href="#local-6989586621679814688"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679814688"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814687"><span class="annot"><span class="annottext">s :: RegisterThing
+</span><a href="#local-6989586621679814687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing%27"><span class="hs-identifier hs-type">RegisterThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814686"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679814686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterThing
+</span><a href="#local-6989586621679814687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateBody:RegisterThing' :: Text
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AtemplateBody%3ARegisterThing%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679814686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-type">RegisterThingResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679814682"><span class="annot"><span class="annottext">request :: RegisterThing -&gt; Request RegisterThing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterThing -&gt; Request RegisterThing
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679814678"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RegisterThing
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RegisterThing)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RegisterThing))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RegisterThing
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RegisterThing)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814675"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814675"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679814674"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679814674"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679814673"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814673"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; RegisterThingResponse
+</span><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse%27"><span class="hs-identifier hs-var">RegisterThingResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; RegisterThingResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe (HashMap Text Text) -&gt; Int -&gt; RegisterThingResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificatePem&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (HashMap Text Text) -&gt; Int -&gt; RegisterThingResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; RegisterThingResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RegisterThingResponse)
+-&gt; Either String Int -&gt; Either String RegisterThingResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814675"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814664"><span id="local-6989586621679814666"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679814657"><span class="annot"><span class="annottext">toHeaders :: RegisterThing -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterThing -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814648"><span id="local-6989586621679814650"><span id="local-6989586621679814652"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679814646"><span class="annot"><span class="annottext">toJSON :: RegisterThing -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing%27"><span class="hs-identifier hs-type">RegisterThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814643"><span id="local-6989586621679814644"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+Text
+templateBody :: Text
+parameters :: Maybe (HashMap Text Text)
+$sel:templateBody:RegisterThing' :: RegisterThing -&gt; Text
+$sel:parameters:RegisterThing' :: RegisterThing -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814643"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814644"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679814643"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679814637"><span class="annot"><span class="annottext">toPath :: RegisterThing -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterThing -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/things&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThing"><span class="hs-identifier hs-type">RegisterThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679814633"><span class="annot"><span class="annottext">toQuery :: RegisterThing -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterThing -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newRegisterThingResponse' smart constructor.</span><span>
+</span><span id="line-147"></span><span id="local-6989586621679814630"><span id="local-6989586621679814631"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterThingResponse"><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-var">RegisterThingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterThingResponse%27"><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse%27"><span class="hs-identifier hs-var">RegisterThingResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The certificate data, in PEM format.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AcertificatePem%3ARegisterThingResponse%27"><span class="annot"><span class="annottext">RegisterThingResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AcertificatePem%3ARegisterThingResponse%27"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | ARNs for the generated resources.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AresourceArns%3ARegisterThingResponse%27"><span class="annot"><span class="annottext">RegisterThingResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AresourceArns%3ARegisterThingResponse%27"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterThingResponse%27"><span class="annot"><span class="annottext">RegisterThingResponse -&gt; Int
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AhttpStatus%3ARegisterThingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814623"><span id="local-6989586621679814625"><span class="annot"><span class="annottext">RegisterThingResponse -&gt; RegisterThingResponse -&gt; Bool
+(RegisterThingResponse -&gt; RegisterThingResponse -&gt; Bool)
+-&gt; (RegisterThingResponse -&gt; RegisterThingResponse -&gt; Bool)
+-&gt; Eq RegisterThingResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterThingResponse -&gt; RegisterThingResponse -&gt; Bool
+$c/= :: RegisterThingResponse -&gt; RegisterThingResponse -&gt; Bool
+== :: RegisterThingResponse -&gt; RegisterThingResponse -&gt; Bool
+$c== :: RegisterThingResponse -&gt; RegisterThingResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814615"><span id="local-6989586621679814617"><span id="local-6989586621679814619"><span id="local-6989586621679814621"><span class="annot"><span class="annottext">ReadPrec [RegisterThingResponse]
+ReadPrec RegisterThingResponse
+Int -&gt; ReadS RegisterThingResponse
+ReadS [RegisterThingResponse]
+(Int -&gt; ReadS RegisterThingResponse)
+-&gt; ReadS [RegisterThingResponse]
+-&gt; ReadPrec RegisterThingResponse
+-&gt; ReadPrec [RegisterThingResponse]
+-&gt; Read RegisterThingResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterThingResponse]
+$creadListPrec :: ReadPrec [RegisterThingResponse]
+readPrec :: ReadPrec RegisterThingResponse
+$creadPrec :: ReadPrec RegisterThingResponse
+readList :: ReadS [RegisterThingResponse]
+$creadList :: ReadS [RegisterThingResponse]
+readsPrec :: Int -&gt; ReadS RegisterThingResponse
+$creadsPrec :: Int -&gt; ReadS RegisterThingResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814609"><span id="local-6989586621679814611"><span id="local-6989586621679814613"><span class="annot"><span class="annottext">Int -&gt; RegisterThingResponse -&gt; ShowS
+[RegisterThingResponse] -&gt; ShowS
+RegisterThingResponse -&gt; String
+(Int -&gt; RegisterThingResponse -&gt; ShowS)
+-&gt; (RegisterThingResponse -&gt; String)
+-&gt; ([RegisterThingResponse] -&gt; ShowS)
+-&gt; Show RegisterThingResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterThingResponse] -&gt; ShowS
+$cshowList :: [RegisterThingResponse] -&gt; ShowS
+show :: RegisterThingResponse -&gt; String
+$cshow :: RegisterThingResponse -&gt; String
+showsPrec :: Int -&gt; RegisterThingResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterThingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegisterThingResponse -&gt; Rep RegisterThingResponse x)
+-&gt; (forall x. Rep RegisterThingResponse x -&gt; RegisterThingResponse)
+-&gt; Generic RegisterThingResponse
+forall x. Rep RegisterThingResponse x -&gt; RegisterThingResponse
+forall x. RegisterThingResponse -&gt; Rep RegisterThingResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegisterThingResponse x -&gt; RegisterThingResponse
+$cfrom :: forall x. RegisterThingResponse -&gt; Rep RegisterThingResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'RegisterThingResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'certificatePem', 'registerThingResponse_certificatePem' - The certificate data, in PEM format.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'resourceArns', 'registerThingResponse_resourceArns' - ARNs for the generated resources.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'registerThingResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#newRegisterThingResponse"><span class="hs-identifier hs-type">newRegisterThingResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-type">RegisterThingResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="newRegisterThingResponse"><span class="annot"><span class="annottext">newRegisterThingResponse :: Int -&gt; RegisterThingResponse
+</span><a href="Amazonka.IoT.RegisterThing.html#newRegisterThingResponse"><span class="hs-identifier hs-var hs-var">newRegisterThingResponse</span></a></span></span><span> </span><span id="local-6989586621679814606"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">RegisterThingResponse' :: Maybe Text
+-&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; RegisterThingResponse
+</span><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse%27"><span class="hs-identifier hs-type">RegisterThingResponse'</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificatePem:RegisterThingResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AcertificatePem%3ARegisterThingResponse%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArns:RegisterThingResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AresourceArns%3ARegisterThingResponse%27"><span class="hs-identifier hs-var">resourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterThingResponse' :: Int
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AhttpStatus%3ARegisterThingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The certificate data, in PEM format.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThingResponse_certificatePem"><span class="hs-identifier hs-type">registerThingResponse_certificatePem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-type">RegisterThingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="registerThingResponse_certificatePem"><span class="annot"><span class="annottext">registerThingResponse_certificatePem :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterThingResponse -&gt; f RegisterThingResponse
+</span><a href="Amazonka.IoT.RegisterThing.html#registerThingResponse_certificatePem"><span class="hs-identifier hs-var hs-var">registerThingResponse_certificatePem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterThingResponse -&gt; Maybe Text)
+-&gt; (RegisterThingResponse -&gt; Maybe Text -&gt; RegisterThingResponse)
+-&gt; Lens
+     RegisterThingResponse
+     RegisterThingResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse%27"><span class="hs-identifier hs-type">RegisterThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814605"><span class="annot"><span class="annottext">Maybe Text
+certificatePem :: Maybe Text
+$sel:certificatePem:RegisterThingResponse' :: RegisterThingResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679814605"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814605"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814604"><span class="annot"><span class="annottext">s :: RegisterThingResponse
+</span><a href="#local-6989586621679814604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse%27"><span class="hs-identifier hs-type">RegisterThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterThingResponse
+</span><a href="#local-6989586621679814604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificatePem:RegisterThingResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AcertificatePem%3ARegisterThingResponse%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-type">RegisterThingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | ARNs for the generated resources.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThingResponse_resourceArns"><span class="hs-identifier hs-type">registerThingResponse_resourceArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-type">RegisterThingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="registerThingResponse_resourceArns"><span class="annot"><span class="annottext">registerThingResponse_resourceArns :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; RegisterThingResponse -&gt; f RegisterThingResponse
+</span><a href="Amazonka.IoT.RegisterThing.html#registerThingResponse_resourceArns"><span class="hs-identifier hs-var hs-var">registerThingResponse_resourceArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterThingResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (RegisterThingResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; RegisterThingResponse)
+-&gt; Lens
+     RegisterThingResponse
+     RegisterThingResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse%27"><span class="hs-identifier hs-type">RegisterThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814602"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+resourceArns :: Maybe (HashMap Text Text)
+$sel:resourceArns:RegisterThingResponse' :: RegisterThingResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814602"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814602"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814601"><span class="annot"><span class="annottext">s :: RegisterThingResponse
+</span><a href="#local-6989586621679814601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse%27"><span class="hs-identifier hs-type">RegisterThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814600"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterThingResponse
+</span><a href="#local-6989586621679814601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArns:RegisterThingResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AresourceArns%3ARegisterThingResponse%27"><span class="hs-identifier hs-var">resourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679814600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-type">RegisterThingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; RegisterThingResponse -&gt; f RegisterThingResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; RegisterThingResponse
+-&gt; f RegisterThingResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#registerThingResponse_httpStatus"><span class="hs-identifier hs-type">registerThingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-type">RegisterThingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span id="registerThingResponse_httpStatus"><span class="annot"><span class="annottext">registerThingResponse_httpStatus :: (Int -&gt; f Int) -&gt; RegisterThingResponse -&gt; f RegisterThingResponse
+</span><a href="Amazonka.IoT.RegisterThing.html#registerThingResponse_httpStatus"><span class="hs-identifier hs-var hs-var">registerThingResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterThingResponse -&gt; Int)
+-&gt; (RegisterThingResponse -&gt; Int -&gt; RegisterThingResponse)
+-&gt; Lens RegisterThingResponse RegisterThingResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse%27"><span class="hs-identifier hs-type">RegisterThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814599"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RegisterThingResponse' :: RegisterThingResponse -&gt; Int
+</span><a href="#local-6989586621679814599"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814599"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814598"><span class="annot"><span class="annottext">s :: RegisterThingResponse
+</span><a href="#local-6989586621679814598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse%27"><span class="hs-identifier hs-type">RegisterThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814597"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterThingResponse
+</span><a href="#local-6989586621679814598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterThingResponse' :: Int
+</span><a href="Amazonka.IoT.RegisterThing.html#%24sel%3AhttpStatus%3ARegisterThingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-type">RegisterThingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.RegisterThing.html#RegisterThingResponse"><span class="hs-identifier hs-type">RegisterThingResponse</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

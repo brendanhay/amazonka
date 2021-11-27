@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Get the field-level encryption profile configuration information.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier">GetFieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#newGetFieldLevelEncryptionProfileConfig"><span class="hs-identifier">newGetFieldLevelEncryptionProfileConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfig_id"><span class="hs-identifier">getFieldLevelEncryptionProfileConfig_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier">GetFieldLevelEncryptionProfileConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#newGetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier">newGetFieldLevelEncryptionProfileConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfigResponse_eTag"><span class="hs-identifier">getFieldLevelEncryptionProfileConfigResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig"><span class="hs-identifier">getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfigResponse_httpStatus"><span class="hs-identifier">getFieldLevelEncryptionProfileConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.html"><span class="hs-identifier">Amazonka.CloudFront.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetFieldLevelEncryptionProfileConfig' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679415383"><span id="local-6989586621679415384"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFieldLevelEncryptionProfileConfig"><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-var">GetFieldLevelEncryptionProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFieldLevelEncryptionProfileConfig%27"><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig%27"><span class="hs-identifier hs-var">GetFieldLevelEncryptionProfileConfig'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Get the ID for the field-level encryption profile configuration</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aid%3AGetFieldLevelEncryptionProfileConfig%27"><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfig -&gt; Text
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3Aid%3AGetFieldLevelEncryptionProfileConfig%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415377"><span id="local-6989586621679415379"><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfig
+-&gt; GetFieldLevelEncryptionProfileConfig -&gt; Bool
+(GetFieldLevelEncryptionProfileConfig
+ -&gt; GetFieldLevelEncryptionProfileConfig -&gt; Bool)
+-&gt; (GetFieldLevelEncryptionProfileConfig
+    -&gt; GetFieldLevelEncryptionProfileConfig -&gt; Bool)
+-&gt; Eq GetFieldLevelEncryptionProfileConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFieldLevelEncryptionProfileConfig
+-&gt; GetFieldLevelEncryptionProfileConfig -&gt; Bool
+$c/= :: GetFieldLevelEncryptionProfileConfig
+-&gt; GetFieldLevelEncryptionProfileConfig -&gt; Bool
+== :: GetFieldLevelEncryptionProfileConfig
+-&gt; GetFieldLevelEncryptionProfileConfig -&gt; Bool
+$c== :: GetFieldLevelEncryptionProfileConfig
+-&gt; GetFieldLevelEncryptionProfileConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415368"><span id="local-6989586621679415370"><span id="local-6989586621679415372"><span id="local-6989586621679415374"><span class="annot"><span class="annottext">ReadPrec [GetFieldLevelEncryptionProfileConfig]
+ReadPrec GetFieldLevelEncryptionProfileConfig
+Int -&gt; ReadS GetFieldLevelEncryptionProfileConfig
+ReadS [GetFieldLevelEncryptionProfileConfig]
+(Int -&gt; ReadS GetFieldLevelEncryptionProfileConfig)
+-&gt; ReadS [GetFieldLevelEncryptionProfileConfig]
+-&gt; ReadPrec GetFieldLevelEncryptionProfileConfig
+-&gt; ReadPrec [GetFieldLevelEncryptionProfileConfig]
+-&gt; Read GetFieldLevelEncryptionProfileConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFieldLevelEncryptionProfileConfig]
+$creadListPrec :: ReadPrec [GetFieldLevelEncryptionProfileConfig]
+readPrec :: ReadPrec GetFieldLevelEncryptionProfileConfig
+$creadPrec :: ReadPrec GetFieldLevelEncryptionProfileConfig
+readList :: ReadS [GetFieldLevelEncryptionProfileConfig]
+$creadList :: ReadS [GetFieldLevelEncryptionProfileConfig]
+readsPrec :: Int -&gt; ReadS GetFieldLevelEncryptionProfileConfig
+$creadsPrec :: Int -&gt; ReadS GetFieldLevelEncryptionProfileConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415361"><span id="local-6989586621679415363"><span id="local-6989586621679415365"><span class="annot"><span class="annottext">Int -&gt; GetFieldLevelEncryptionProfileConfig -&gt; ShowS
+[GetFieldLevelEncryptionProfileConfig] -&gt; ShowS
+GetFieldLevelEncryptionProfileConfig -&gt; String
+(Int -&gt; GetFieldLevelEncryptionProfileConfig -&gt; ShowS)
+-&gt; (GetFieldLevelEncryptionProfileConfig -&gt; String)
+-&gt; ([GetFieldLevelEncryptionProfileConfig] -&gt; ShowS)
+-&gt; Show GetFieldLevelEncryptionProfileConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFieldLevelEncryptionProfileConfig] -&gt; ShowS
+$cshowList :: [GetFieldLevelEncryptionProfileConfig] -&gt; ShowS
+show :: GetFieldLevelEncryptionProfileConfig -&gt; String
+$cshow :: GetFieldLevelEncryptionProfileConfig -&gt; String
+showsPrec :: Int -&gt; GetFieldLevelEncryptionProfileConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFieldLevelEncryptionProfileConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetFieldLevelEncryptionProfileConfig
+ -&gt; Rep GetFieldLevelEncryptionProfileConfig x)
+-&gt; (forall x.
+    Rep GetFieldLevelEncryptionProfileConfig x
+    -&gt; GetFieldLevelEncryptionProfileConfig)
+-&gt; Generic GetFieldLevelEncryptionProfileConfig
+forall x.
+Rep GetFieldLevelEncryptionProfileConfig x
+-&gt; GetFieldLevelEncryptionProfileConfig
+forall x.
+GetFieldLevelEncryptionProfileConfig
+-&gt; Rep GetFieldLevelEncryptionProfileConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetFieldLevelEncryptionProfileConfig x
+-&gt; GetFieldLevelEncryptionProfileConfig
+$cfrom :: forall x.
+GetFieldLevelEncryptionProfileConfig
+-&gt; Rep GetFieldLevelEncryptionProfileConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetFieldLevelEncryptionProfileConfig' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'id', 'getFieldLevelEncryptionProfileConfig_id' - Get the ID for the field-level encryption profile configuration</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#newGetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">newGetFieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetFieldLevelEncryptionProfileConfig"><span class="annot"><span class="annottext">newGetFieldLevelEncryptionProfileConfig :: Text -&gt; GetFieldLevelEncryptionProfileConfig
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#newGetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-var hs-var">newGetFieldLevelEncryptionProfileConfig</span></a></span></span><span> </span><span id="local-6989586621679415356"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415356"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfig' :: Text -&gt; GetFieldLevelEncryptionProfileConfig
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetFieldLevelEncryptionProfileConfig' :: Text
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3Aid%3AGetFieldLevelEncryptionProfileConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415356"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Get the ID for the field-level encryption profile configuration</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfig_id"><span class="hs-identifier hs-type">getFieldLevelEncryptionProfileConfig_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="getFieldLevelEncryptionProfileConfig_id"><span class="annot"><span class="annottext">getFieldLevelEncryptionProfileConfig_id :: (Text -&gt; f Text)
+-&gt; GetFieldLevelEncryptionProfileConfig
+-&gt; f GetFieldLevelEncryptionProfileConfig
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfig_id"><span class="hs-identifier hs-var hs-var">getFieldLevelEncryptionProfileConfig_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFieldLevelEncryptionProfileConfig -&gt; Text)
+-&gt; (GetFieldLevelEncryptionProfileConfig
+    -&gt; Text -&gt; GetFieldLevelEncryptionProfileConfig)
+-&gt; Lens
+     GetFieldLevelEncryptionProfileConfig
+     GetFieldLevelEncryptionProfileConfig
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415353"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetFieldLevelEncryptionProfileConfig' :: GetFieldLevelEncryptionProfileConfig -&gt; Text
+</span><a href="#local-6989586621679415353"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415353"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415352"><span class="annot"><span class="annottext">s :: GetFieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679415352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679415352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetFieldLevelEncryptionProfileConfig' :: Text
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3Aid%3AGetFieldLevelEncryptionProfileConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679415347"><span class="annot"><span class="annottext">request :: GetFieldLevelEncryptionProfileConfig
+-&gt; Request GetFieldLevelEncryptionProfileConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetFieldLevelEncryptionProfileConfig
+-&gt; Request GetFieldLevelEncryptionProfileConfig
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679415343"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetFieldLevelEncryptionProfileConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetFieldLevelEncryptionProfileConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse GetFieldLevelEncryptionProfileConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetFieldLevelEncryptionProfileConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetFieldLevelEncryptionProfileConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415340"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415340"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415339"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415339"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415338"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679415338"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe FieldLevelEncryptionProfileConfig
+-&gt; Int
+-&gt; GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var">GetFieldLevelEncryptionProfileConfigResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe FieldLevelEncryptionProfileConfig
+ -&gt; Int
+ -&gt; GetFieldLevelEncryptionProfileConfigResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe FieldLevelEncryptionProfileConfig
+      -&gt; Int -&gt; GetFieldLevelEncryptionProfileConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415339"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe FieldLevelEncryptionProfileConfig
+   -&gt; Int -&gt; GetFieldLevelEncryptionProfileConfigResponse)
+-&gt; Either String (Maybe FieldLevelEncryptionProfileConfig)
+-&gt; Either
+     String (Int -&gt; GetFieldLevelEncryptionProfileConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe FieldLevelEncryptionProfileConfig)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679415338"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetFieldLevelEncryptionProfileConfigResponse)
+-&gt; Either String Int
+-&gt; Either String GetFieldLevelEncryptionProfileConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415340"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679415329"><span id="local-6989586621679415331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679415326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679415322"><span class="annot"><span class="annottext">toHeaders :: GetFieldLevelEncryptionProfileConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetFieldLevelEncryptionProfileConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679415317"><span class="annot"><span class="annottext">toPath :: GetFieldLevelEncryptionProfileConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415315"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetFieldLevelEncryptionProfileConfig' :: GetFieldLevelEncryptionProfileConfig -&gt; Text
+</span><a href="#local-6989586621679415315"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/field-level-encryption-profile/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415315"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/config&quot;</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfig</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679415311"><span class="annot"><span class="annottext">toQuery :: GetFieldLevelEncryptionProfileConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetFieldLevelEncryptionProfileConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newGetFieldLevelEncryptionProfileConfigResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679415308"><span id="local-6989586621679415309"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFieldLevelEncryptionProfileConfigResponse"><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-var">GetFieldLevelEncryptionProfileConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFieldLevelEncryptionProfileConfigResponse%27"><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var">GetFieldLevelEncryptionProfileConfigResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the field-level encryption profile configuration</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- result. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AeTag%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfigResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3AeTag%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | Return the field-level encryption profile configuration information.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AfieldLevelEncryptionProfileConfig%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfigResponse
+-&gt; Maybe FieldLevelEncryptionProfileConfig
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3AfieldLevelEncryptionProfileConfig%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfileConfig.html#FieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfigResponse -&gt; Int
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3AhttpStatus%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415301"><span id="local-6989586621679415303"><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfigResponse
+-&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; Bool
+(GetFieldLevelEncryptionProfileConfigResponse
+ -&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; Bool)
+-&gt; (GetFieldLevelEncryptionProfileConfigResponse
+    -&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; Bool)
+-&gt; Eq GetFieldLevelEncryptionProfileConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFieldLevelEncryptionProfileConfigResponse
+-&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; Bool
+$c/= :: GetFieldLevelEncryptionProfileConfigResponse
+-&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; Bool
+== :: GetFieldLevelEncryptionProfileConfigResponse
+-&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; Bool
+$c== :: GetFieldLevelEncryptionProfileConfigResponse
+-&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415293"><span id="local-6989586621679415295"><span id="local-6989586621679415297"><span id="local-6989586621679415299"><span class="annot"><span class="annottext">ReadPrec [GetFieldLevelEncryptionProfileConfigResponse]
+ReadPrec GetFieldLevelEncryptionProfileConfigResponse
+Int -&gt; ReadS GetFieldLevelEncryptionProfileConfigResponse
+ReadS [GetFieldLevelEncryptionProfileConfigResponse]
+(Int -&gt; ReadS GetFieldLevelEncryptionProfileConfigResponse)
+-&gt; ReadS [GetFieldLevelEncryptionProfileConfigResponse]
+-&gt; ReadPrec GetFieldLevelEncryptionProfileConfigResponse
+-&gt; ReadPrec [GetFieldLevelEncryptionProfileConfigResponse]
+-&gt; Read GetFieldLevelEncryptionProfileConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFieldLevelEncryptionProfileConfigResponse]
+$creadListPrec :: ReadPrec [GetFieldLevelEncryptionProfileConfigResponse]
+readPrec :: ReadPrec GetFieldLevelEncryptionProfileConfigResponse
+$creadPrec :: ReadPrec GetFieldLevelEncryptionProfileConfigResponse
+readList :: ReadS [GetFieldLevelEncryptionProfileConfigResponse]
+$creadList :: ReadS [GetFieldLevelEncryptionProfileConfigResponse]
+readsPrec :: Int -&gt; ReadS GetFieldLevelEncryptionProfileConfigResponse
+$creadsPrec :: Int -&gt; ReadS GetFieldLevelEncryptionProfileConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415287"><span id="local-6989586621679415289"><span id="local-6989586621679415291"><span class="annot"><span class="annottext">Int -&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; ShowS
+[GetFieldLevelEncryptionProfileConfigResponse] -&gt; ShowS
+GetFieldLevelEncryptionProfileConfigResponse -&gt; String
+(Int -&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; ShowS)
+-&gt; (GetFieldLevelEncryptionProfileConfigResponse -&gt; String)
+-&gt; ([GetFieldLevelEncryptionProfileConfigResponse] -&gt; ShowS)
+-&gt; Show GetFieldLevelEncryptionProfileConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFieldLevelEncryptionProfileConfigResponse] -&gt; ShowS
+$cshowList :: [GetFieldLevelEncryptionProfileConfigResponse] -&gt; ShowS
+show :: GetFieldLevelEncryptionProfileConfigResponse -&gt; String
+$cshow :: GetFieldLevelEncryptionProfileConfigResponse -&gt; String
+showsPrec :: Int -&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFieldLevelEncryptionProfileConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetFieldLevelEncryptionProfileConfigResponse
+ -&gt; Rep GetFieldLevelEncryptionProfileConfigResponse x)
+-&gt; (forall x.
+    Rep GetFieldLevelEncryptionProfileConfigResponse x
+    -&gt; GetFieldLevelEncryptionProfileConfigResponse)
+-&gt; Generic GetFieldLevelEncryptionProfileConfigResponse
+forall x.
+Rep GetFieldLevelEncryptionProfileConfigResponse x
+-&gt; GetFieldLevelEncryptionProfileConfigResponse
+forall x.
+GetFieldLevelEncryptionProfileConfigResponse
+-&gt; Rep GetFieldLevelEncryptionProfileConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetFieldLevelEncryptionProfileConfigResponse x
+-&gt; GetFieldLevelEncryptionProfileConfigResponse
+$cfrom :: forall x.
+GetFieldLevelEncryptionProfileConfigResponse
+-&gt; Rep GetFieldLevelEncryptionProfileConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'GetFieldLevelEncryptionProfileConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'eTag', 'getFieldLevelEncryptionProfileConfigResponse_eTag' - The current version of the field-level encryption profile configuration</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- result. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'fieldLevelEncryptionProfileConfig', 'getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig' - Return the field-level encryption profile configuration information.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'getFieldLevelEncryptionProfileConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#newGetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">newGetFieldLevelEncryptionProfileConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newGetFieldLevelEncryptionProfileConfigResponse"><span class="annot"><span class="annottext">newGetFieldLevelEncryptionProfileConfigResponse :: Int -&gt; GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#newGetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-var hs-var">newGetFieldLevelEncryptionProfileConfigResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679415284"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfigResponse' :: Maybe Text
+-&gt; Maybe FieldLevelEncryptionProfileConfig
+-&gt; Int
+-&gt; GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eTag:GetFieldLevelEncryptionProfileConfigResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3AeTag%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:fieldLevelEncryptionProfileConfig:GetFieldLevelEncryptionProfileConfigResponse' :: Maybe FieldLevelEncryptionProfileConfig
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3AfieldLevelEncryptionProfileConfig%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var">fieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe FieldLevelEncryptionProfileConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFieldLevelEncryptionProfileConfigResponse' :: Int
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3AhttpStatus%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The current version of the field-level encryption profile configuration</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- result. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfigResponse_eTag"><span class="hs-identifier hs-type">getFieldLevelEncryptionProfileConfigResponse_eTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="getFieldLevelEncryptionProfileConfigResponse_eTag"><span class="annot"><span class="annottext">getFieldLevelEncryptionProfileConfigResponse_eTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFieldLevelEncryptionProfileConfigResponse
+-&gt; f GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfigResponse_eTag"><span class="hs-identifier hs-var hs-var">getFieldLevelEncryptionProfileConfigResponse_eTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFieldLevelEncryptionProfileConfigResponse -&gt; Maybe Text)
+-&gt; (GetFieldLevelEncryptionProfileConfigResponse
+    -&gt; Maybe Text -&gt; GetFieldLevelEncryptionProfileConfigResponse)
+-&gt; Lens
+     GetFieldLevelEncryptionProfileConfigResponse
+     GetFieldLevelEncryptionProfileConfigResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415283"><span class="annot"><span class="annottext">Maybe Text
+eTag :: Maybe Text
+$sel:eTag:GetFieldLevelEncryptionProfileConfigResponse' :: GetFieldLevelEncryptionProfileConfigResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679415283"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415283"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415282"><span class="annot"><span class="annottext">s :: GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="#local-6989586621679415282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="#local-6989586621679415282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetFieldLevelEncryptionProfileConfigResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3AeTag%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Return the field-level encryption profile configuration information.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldLevelEncryptionProfileConfig.html#FieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionProfileConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig"><span class="annot"><span class="annottext">getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig :: (Maybe FieldLevelEncryptionProfileConfig
+ -&gt; f (Maybe FieldLevelEncryptionProfileConfig))
+-&gt; GetFieldLevelEncryptionProfileConfigResponse
+-&gt; f GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig"><span class="hs-identifier hs-var hs-var">getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFieldLevelEncryptionProfileConfigResponse
+ -&gt; Maybe FieldLevelEncryptionProfileConfig)
+-&gt; (GetFieldLevelEncryptionProfileConfigResponse
+    -&gt; Maybe FieldLevelEncryptionProfileConfig
+    -&gt; GetFieldLevelEncryptionProfileConfigResponse)
+-&gt; Lens
+     GetFieldLevelEncryptionProfileConfigResponse
+     GetFieldLevelEncryptionProfileConfigResponse
+     (Maybe FieldLevelEncryptionProfileConfig)
+     (Maybe FieldLevelEncryptionProfileConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415280"><span class="annot"><span class="annottext">Maybe FieldLevelEncryptionProfileConfig
+fieldLevelEncryptionProfileConfig :: Maybe FieldLevelEncryptionProfileConfig
+$sel:fieldLevelEncryptionProfileConfig:GetFieldLevelEncryptionProfileConfigResponse' :: GetFieldLevelEncryptionProfileConfigResponse
+-&gt; Maybe FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679415280"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionProfileConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679415280"><span class="hs-identifier hs-var">fieldLevelEncryptionProfileConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415279"><span class="annot"><span class="annottext">s :: GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="#local-6989586621679415279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415278"><span class="annot"><span class="annottext">Maybe FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679415278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="#local-6989586621679415279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldLevelEncryptionProfileConfig:GetFieldLevelEncryptionProfileConfigResponse' :: Maybe FieldLevelEncryptionProfileConfig
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3AfieldLevelEncryptionProfileConfig%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var">fieldLevelEncryptionProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FieldLevelEncryptionProfileConfig
+</span><a href="#local-6989586621679415278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfigResponse_httpStatus"><span class="hs-identifier hs-type">getFieldLevelEncryptionProfileConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span id="getFieldLevelEncryptionProfileConfigResponse_httpStatus"><span class="annot"><span class="annottext">getFieldLevelEncryptionProfileConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetFieldLevelEncryptionProfileConfigResponse
+-&gt; f GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#getFieldLevelEncryptionProfileConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getFieldLevelEncryptionProfileConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFieldLevelEncryptionProfileConfigResponse -&gt; Int)
+-&gt; (GetFieldLevelEncryptionProfileConfigResponse
+    -&gt; Int -&gt; GetFieldLevelEncryptionProfileConfigResponse)
+-&gt; Lens
+     GetFieldLevelEncryptionProfileConfigResponse
+     GetFieldLevelEncryptionProfileConfigResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415277"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetFieldLevelEncryptionProfileConfigResponse' :: GetFieldLevelEncryptionProfileConfigResponse -&gt; Int
+</span><a href="#local-6989586621679415277"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415277"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415276"><span class="annot"><span class="annottext">s :: GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="#local-6989586621679415276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415275"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFieldLevelEncryptionProfileConfigResponse
+</span><a href="#local-6989586621679415276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFieldLevelEncryptionProfileConfigResponse' :: Int
+</span><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#%24sel%3AhttpStatus%3AGetFieldLevelEncryptionProfileConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679415273"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig.html#GetFieldLevelEncryptionProfileConfigResponse"><span class="hs-identifier hs-type">GetFieldLevelEncryptionProfileConfigResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

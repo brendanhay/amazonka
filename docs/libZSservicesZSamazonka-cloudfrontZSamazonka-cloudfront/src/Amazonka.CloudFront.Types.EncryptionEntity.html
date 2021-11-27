@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.EncryptionEntity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.EncryptionEntity</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldPatterns.html"><span class="hs-identifier">Amazonka.CloudFront.Types.FieldPatterns</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Complex data type for field-level encryption profiles that includes the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- encryption key and field pattern specifications.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEncryptionEntity' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679389430"><span id="local-6989586621679389431"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionEntity"><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-var">EncryptionEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionEntity%27"><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-var">EncryptionEntity'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The public key associated with a set of field-level encryption patterns,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to be used when encrypting the fields that match the patterns.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApublicKeyId%3AEncryptionEntity%27"><span class="annot"><span class="annottext">EncryptionEntity -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#%24sel%3ApublicKeyId%3AEncryptionEntity%27"><span class="hs-identifier hs-var hs-var">publicKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The provider associated with the public key being used for encryption.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- This value must also be provided with the private key for applications</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- to be able to decrypt data.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AproviderId%3AEncryptionEntity%27"><span class="annot"><span class="annottext">EncryptionEntity -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#%24sel%3AproviderId%3AEncryptionEntity%27"><span class="hs-identifier hs-var hs-var">providerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Field patterns in a field-level encryption content type profile specify</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- the fields that you want to be encrypted. You can provide the full field</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- name, or any beginning characters followed by a wildcard (*). You can\'t</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- overlap field patterns. For example, you can\'t have both ABC* and AB*.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Note that field patterns are case-sensitive.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AfieldPatterns%3AEncryptionEntity%27"><span class="annot"><span class="annottext">EncryptionEntity -&gt; FieldPatterns
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#%24sel%3AfieldPatterns%3AEncryptionEntity%27"><span class="hs-identifier hs-var hs-var">fieldPatterns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389422"><span id="local-6989586621679389424"><span class="annot"><span class="annottext">EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
+(EncryptionEntity -&gt; EncryptionEntity -&gt; Bool)
+-&gt; (EncryptionEntity -&gt; EncryptionEntity -&gt; Bool)
+-&gt; Eq EncryptionEntity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
+$c/= :: EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
+== :: EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
+$c== :: EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389413"><span id="local-6989586621679389415"><span id="local-6989586621679389417"><span id="local-6989586621679389419"><span class="annot"><span class="annottext">ReadPrec [EncryptionEntity]
+ReadPrec EncryptionEntity
+Int -&gt; ReadS EncryptionEntity
+ReadS [EncryptionEntity]
+(Int -&gt; ReadS EncryptionEntity)
+-&gt; ReadS [EncryptionEntity]
+-&gt; ReadPrec EncryptionEntity
+-&gt; ReadPrec [EncryptionEntity]
+-&gt; Read EncryptionEntity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EncryptionEntity]
+$creadListPrec :: ReadPrec [EncryptionEntity]
+readPrec :: ReadPrec EncryptionEntity
+$creadPrec :: ReadPrec EncryptionEntity
+readList :: ReadS [EncryptionEntity]
+$creadList :: ReadS [EncryptionEntity]
+readsPrec :: Int -&gt; ReadS EncryptionEntity
+$creadsPrec :: Int -&gt; ReadS EncryptionEntity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389406"><span id="local-6989586621679389408"><span id="local-6989586621679389410"><span class="annot"><span class="annottext">Int -&gt; EncryptionEntity -&gt; ShowS
+[EncryptionEntity] -&gt; ShowS
+EncryptionEntity -&gt; String
+(Int -&gt; EncryptionEntity -&gt; ShowS)
+-&gt; (EncryptionEntity -&gt; String)
+-&gt; ([EncryptionEntity] -&gt; ShowS)
+-&gt; Show EncryptionEntity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EncryptionEntity] -&gt; ShowS
+$cshowList :: [EncryptionEntity] -&gt; ShowS
+show :: EncryptionEntity -&gt; String
+$cshow :: EncryptionEntity -&gt; String
+showsPrec :: Int -&gt; EncryptionEntity -&gt; ShowS
+$cshowsPrec :: Int -&gt; EncryptionEntity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EncryptionEntity -&gt; Rep EncryptionEntity x)
+-&gt; (forall x. Rep EncryptionEntity x -&gt; EncryptionEntity)
+-&gt; Generic EncryptionEntity
+forall x. Rep EncryptionEntity x -&gt; EncryptionEntity
+forall x. EncryptionEntity -&gt; Rep EncryptionEntity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EncryptionEntity x -&gt; EncryptionEntity
+$cfrom :: forall x. EncryptionEntity -&gt; Rep EncryptionEntity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'EncryptionEntity' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'publicKeyId', 'encryptionEntity_publicKeyId' - The public key associated with a set of field-level encryption patterns,</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- to be used when encrypting the fields that match the patterns.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'providerId', 'encryptionEntity_providerId' - The provider associated with the public key being used for encryption.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- This value must also be provided with the private key for applications</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- to be able to decrypt data.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'fieldPatterns', 'encryptionEntity_fieldPatterns' - Field patterns in a field-level encryption content type profile specify</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- the fields that you want to be encrypted. You can provide the full field</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- name, or any beginning characters followed by a wildcard (*). You can\'t</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- overlap field patterns. For example, you can\'t have both ABC* and AB*.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Note that field patterns are case-sensitive.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#newEncryptionEntity"><span class="hs-identifier hs-type">newEncryptionEntity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'publicKeyId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'providerId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'fieldPatterns'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span>
+</span><span id="line-76"></span><span id="newEncryptionEntity"><span class="annot"><span class="annottext">newEncryptionEntity :: Text -&gt; Text -&gt; FieldPatterns -&gt; EncryptionEntity
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#newEncryptionEntity"><span class="hs-identifier hs-var hs-var">newEncryptionEntity</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679389400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389400"><span class="hs-identifier hs-var">pPublicKeyId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679389399"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389399"><span class="hs-identifier hs-var">pProviderId_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679389398"><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389398"><span class="hs-identifier hs-var">pFieldPatterns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">EncryptionEntity' :: Text -&gt; Text -&gt; FieldPatterns -&gt; EncryptionEntity
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:publicKeyId:EncryptionEntity' :: Text
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#%24sel%3ApublicKeyId%3AEncryptionEntity%27"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389400"><span class="hs-identifier hs-var">pPublicKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:providerId:EncryptionEntity' :: Text
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#%24sel%3AproviderId%3AEncryptionEntity%27"><span class="hs-identifier hs-var">providerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389399"><span class="hs-identifier hs-var">pProviderId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:fieldPatterns:EncryptionEntity' :: FieldPatterns
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#%24sel%3AfieldPatterns%3AEncryptionEntity%27"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389398"><span class="hs-identifier hs-var">pFieldPatterns_</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The public key associated with a set of field-level encryption patterns,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- to be used when encrypting the fields that match the patterns.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#encryptionEntity_publicKeyId"><span class="hs-identifier hs-type">encryptionEntity_publicKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="encryptionEntity_publicKeyId"><span class="annot"><span class="annottext">encryptionEntity_publicKeyId :: (Text -&gt; f Text) -&gt; EncryptionEntity -&gt; f EncryptionEntity
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#encryptionEntity_publicKeyId"><span class="hs-identifier hs-var hs-var">encryptionEntity_publicKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncryptionEntity -&gt; Text)
+-&gt; (EncryptionEntity -&gt; Text -&gt; EncryptionEntity)
+-&gt; Lens EncryptionEntity EncryptionEntity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389394"><span class="annot"><span class="annottext">Text
+publicKeyId :: Text
+$sel:publicKeyId:EncryptionEntity' :: EncryptionEntity -&gt; Text
+</span><a href="#local-6989586621679389394"><span class="hs-identifier hs-var hs-var">publicKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389394"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389393"><span class="annot"><span class="annottext">s :: EncryptionEntity
+</span><a href="#local-6989586621679389393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389392"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionEntity
+</span><a href="#local-6989586621679389393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKeyId:EncryptionEntity' :: Text
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#%24sel%3ApublicKeyId%3AEncryptionEntity%27"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The provider associated with the public key being used for encryption.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- This value must also be provided with the private key for applications</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- to be able to decrypt data.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#encryptionEntity_providerId"><span class="hs-identifier hs-type">encryptionEntity_providerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="encryptionEntity_providerId"><span class="annot"><span class="annottext">encryptionEntity_providerId :: (Text -&gt; f Text) -&gt; EncryptionEntity -&gt; f EncryptionEntity
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#encryptionEntity_providerId"><span class="hs-identifier hs-var hs-var">encryptionEntity_providerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncryptionEntity -&gt; Text)
+-&gt; (EncryptionEntity -&gt; Text -&gt; EncryptionEntity)
+-&gt; Lens EncryptionEntity EncryptionEntity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389390"><span class="annot"><span class="annottext">Text
+providerId :: Text
+$sel:providerId:EncryptionEntity' :: EncryptionEntity -&gt; Text
+</span><a href="#local-6989586621679389390"><span class="hs-identifier hs-var hs-var">providerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389390"><span class="hs-identifier hs-var">providerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389389"><span class="annot"><span class="annottext">s :: EncryptionEntity
+</span><a href="#local-6989586621679389389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389388"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionEntity
+</span><a href="#local-6989586621679389389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerId:EncryptionEntity' :: Text
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#%24sel%3AproviderId%3AEncryptionEntity%27"><span class="hs-identifier hs-var">providerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Field patterns in a field-level encryption content type profile specify</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- the fields that you want to be encrypted. You can provide the full field</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- name, or any beginning characters followed by a wildcard (*). You can\'t</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- overlap field patterns. For example, you can\'t have both ABC* and AB*.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Note that field patterns are case-sensitive.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#encryptionEntity_fieldPatterns"><span class="hs-identifier hs-type">encryptionEntity_fieldPatterns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span>
+</span><span id="line-103"></span><span id="encryptionEntity_fieldPatterns"><span class="annot"><span class="annottext">encryptionEntity_fieldPatterns :: (FieldPatterns -&gt; f FieldPatterns)
+-&gt; EncryptionEntity -&gt; f EncryptionEntity
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#encryptionEntity_fieldPatterns"><span class="hs-identifier hs-var hs-var">encryptionEntity_fieldPatterns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncryptionEntity -&gt; FieldPatterns)
+-&gt; (EncryptionEntity -&gt; FieldPatterns -&gt; EncryptionEntity)
+-&gt; Lens
+     EncryptionEntity EncryptionEntity FieldPatterns FieldPatterns
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389386"><span class="annot"><span class="annottext">FieldPatterns
+fieldPatterns :: FieldPatterns
+$sel:fieldPatterns:EncryptionEntity' :: EncryptionEntity -&gt; FieldPatterns
+</span><a href="#local-6989586621679389386"><span class="hs-identifier hs-var hs-var">fieldPatterns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389386"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389385"><span class="annot"><span class="annottext">s :: EncryptionEntity
+</span><a href="#local-6989586621679389385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389384"><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionEntity
+</span><a href="#local-6989586621679389385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldPatterns:EncryptionEntity' :: FieldPatterns
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#%24sel%3AfieldPatterns%3AEncryptionEntity%27"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679389381"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EncryptionEntity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679389379"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; FieldPatterns -&gt; EncryptionEntity
+</span><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-var">EncryptionEntity'</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; FieldPatterns -&gt; EncryptionEntity)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; FieldPatterns -&gt; EncryptionEntity)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PublicKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; FieldPatterns -&gt; EncryptionEntity)
+-&gt; Either String Text
+-&gt; Either String (FieldPatterns -&gt; EncryptionEntity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProviderId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either String (FieldPatterns -&gt; EncryptionEntity)
+-&gt; Either String FieldPatterns -&gt; Either String EncryptionEntity
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String FieldPatterns
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FieldPatterns&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389373"><span id="local-6989586621679389375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679389366"><span class="annot"><span class="annottext">toXML :: EncryptionEntity -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389362"><span id="local-6989586621679389363"><span id="local-6989586621679389364"><span class="annot"><span class="annottext">Text
+FieldPatterns
+fieldPatterns :: FieldPatterns
+providerId :: Text
+publicKeyId :: Text
+$sel:fieldPatterns:EncryptionEntity' :: EncryptionEntity -&gt; FieldPatterns
+$sel:providerId:EncryptionEntity' :: EncryptionEntity -&gt; Text
+$sel:publicKeyId:EncryptionEntity' :: EncryptionEntity -&gt; Text
+</span><a href="#local-6989586621679389362"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;PublicKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389364"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ProviderId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389363"><span class="hs-identifier hs-var">providerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;FieldPatterns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; FieldPatterns -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389362"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span></pre></body></html>

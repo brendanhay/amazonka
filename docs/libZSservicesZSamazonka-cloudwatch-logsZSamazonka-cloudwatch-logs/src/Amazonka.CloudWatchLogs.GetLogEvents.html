@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchLogs.GetLogEvents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists log events from the specified log stream. You can list all of the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- log events or filter using a time range.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- By default, this operation returns as many log events as can fit in a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- response size of 1MB (up to 10,000 log events). You can get additional</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- log events by specifying one of the tokens in a subsequent call. This</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- operation can return empty results while there are more log events</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- available through the token.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchLogs.GetLogEvents</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier">GetLogEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#newGetLogEvents"><span class="hs-identifier">newGetLogEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_startTime"><span class="hs-identifier">getLogEvents_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_startFromHead"><span class="hs-identifier">getLogEvents_startFromHead</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_nextToken"><span class="hs-identifier">getLogEvents_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_endTime"><span class="hs-identifier">getLogEvents_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_limit"><span class="hs-identifier">getLogEvents_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_logGroupName"><span class="hs-identifier">getLogEvents_logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_logStreamName"><span class="hs-identifier">getLogEvents_logStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier">GetLogEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#newGetLogEventsResponse"><span class="hs-identifier">newGetLogEventsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_nextBackwardToken"><span class="hs-identifier">getLogEventsResponse_nextBackwardToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_nextForwardToken"><span class="hs-identifier">getLogEventsResponse_nextForwardToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_events"><span class="hs-identifier">getLogEventsResponse_events</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_httpStatus"><span class="hs-identifier">getLogEventsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.html"><span class="hs-identifier">Amazonka.CloudWatchLogs.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newGetLogEvents' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679227431"><span id="local-6989586621679227432"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLogEvents"><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-var">GetLogEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLogEvents%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-var">GetLogEvents'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start of the time range, expressed as the number of milliseconds</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- time or later than this time are included. Events with a timestamp</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- earlier than this time are not included.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AstartTime%3AGetLogEvents%27"><span class="annot"><span class="annottext">GetLogEvents -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AstartTime%3AGetLogEvents%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | If the value is true, the earliest log events are returned first. If the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- value is false, the latest log events are returned first. The default</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- value is false.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- If you are using a previous @nextForwardToken@ value as the @nextToken@</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- in this operation, you must specify @true@ for @startFromHead@.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AstartFromHead%3AGetLogEvents%27"><span class="annot"><span class="annottext">GetLogEvents -&gt; Maybe Bool
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AstartFromHead%3AGetLogEvents%27"><span class="hs-identifier hs-var hs-var">startFromHead</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AnextToken%3AGetLogEvents%27"><span class="annot"><span class="annottext">GetLogEvents -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AnextToken%3AGetLogEvents%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The end of the time range, expressed as the number of milliseconds after</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- this time are not included.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AendTime%3AGetLogEvents%27"><span class="annot"><span class="annottext">GetLogEvents -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AendTime%3AGetLogEvents%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The maximum number of log events returned. If you don\'t specify a</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- value, the maximum is as many log events as can fit in a response size</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- of 1 MB, up to 10,000 log events.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Alimit%3AGetLogEvents%27"><span class="annot"><span class="annottext">GetLogEvents -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3Alimit%3AGetLogEvents%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AlogGroupName%3AGetLogEvents%27"><span class="annot"><span class="annottext">GetLogEvents -&gt; Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AlogGroupName%3AGetLogEvents%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The name of the log stream.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AlogStreamName%3AGetLogEvents%27"><span class="annot"><span class="annottext">GetLogEvents -&gt; Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AlogStreamName%3AGetLogEvents%27"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227419"><span id="local-6989586621679227421"><span class="annot"><span class="annottext">GetLogEvents -&gt; GetLogEvents -&gt; Bool
+(GetLogEvents -&gt; GetLogEvents -&gt; Bool)
+-&gt; (GetLogEvents -&gt; GetLogEvents -&gt; Bool) -&gt; Eq GetLogEvents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetLogEvents -&gt; GetLogEvents -&gt; Bool
+$c/= :: GetLogEvents -&gt; GetLogEvents -&gt; Bool
+== :: GetLogEvents -&gt; GetLogEvents -&gt; Bool
+$c== :: GetLogEvents -&gt; GetLogEvents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227410"><span id="local-6989586621679227412"><span id="local-6989586621679227414"><span id="local-6989586621679227416"><span class="annot"><span class="annottext">ReadPrec [GetLogEvents]
+ReadPrec GetLogEvents
+Int -&gt; ReadS GetLogEvents
+ReadS [GetLogEvents]
+(Int -&gt; ReadS GetLogEvents)
+-&gt; ReadS [GetLogEvents]
+-&gt; ReadPrec GetLogEvents
+-&gt; ReadPrec [GetLogEvents]
+-&gt; Read GetLogEvents
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetLogEvents]
+$creadListPrec :: ReadPrec [GetLogEvents]
+readPrec :: ReadPrec GetLogEvents
+$creadPrec :: ReadPrec GetLogEvents
+readList :: ReadS [GetLogEvents]
+$creadList :: ReadS [GetLogEvents]
+readsPrec :: Int -&gt; ReadS GetLogEvents
+$creadsPrec :: Int -&gt; ReadS GetLogEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227403"><span id="local-6989586621679227405"><span id="local-6989586621679227407"><span class="annot"><span class="annottext">Int -&gt; GetLogEvents -&gt; ShowS
+[GetLogEvents] -&gt; ShowS
+GetLogEvents -&gt; String
+(Int -&gt; GetLogEvents -&gt; ShowS)
+-&gt; (GetLogEvents -&gt; String)
+-&gt; ([GetLogEvents] -&gt; ShowS)
+-&gt; Show GetLogEvents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetLogEvents] -&gt; ShowS
+$cshowList :: [GetLogEvents] -&gt; ShowS
+show :: GetLogEvents -&gt; String
+$cshow :: GetLogEvents -&gt; String
+showsPrec :: Int -&gt; GetLogEvents -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetLogEvents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetLogEvents -&gt; Rep GetLogEvents x)
+-&gt; (forall x. Rep GetLogEvents x -&gt; GetLogEvents)
+-&gt; Generic GetLogEvents
+forall x. Rep GetLogEvents x -&gt; GetLogEvents
+forall x. GetLogEvents -&gt; Rep GetLogEvents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetLogEvents x -&gt; GetLogEvents
+$cfrom :: forall x. GetLogEvents -&gt; Rep GetLogEvents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'GetLogEvents' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'startTime', 'getLogEvents_startTime' - The start of the time range, expressed as the number of milliseconds</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- time or later than this time are included. Events with a timestamp</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- earlier than this time are not included.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'startFromHead', 'getLogEvents_startFromHead' - If the value is true, the earliest log events are returned first. If the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- value is false, the latest log events are returned first. The default</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- value is false.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- If you are using a previous @nextForwardToken@ value as the @nextToken@</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- in this operation, you must specify @true@ for @startFromHead@.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'nextToken', 'getLogEvents_nextToken' - The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'endTime', 'getLogEvents_endTime' - The end of the time range, expressed as the number of milliseconds after</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- this time are not included.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'limit', 'getLogEvents_limit' - The maximum number of log events returned. If you don\'t specify a</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- value, the maximum is as many log events as can fit in a response size</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- of 1 MB, up to 10,000 log events.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'logGroupName', 'getLogEvents_logGroupName' - The name of the log group.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'logStreamName', 'getLogEvents_logStreamName' - The name of the log stream.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#newGetLogEvents"><span class="hs-identifier hs-type">newGetLogEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'logGroupName'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'logStreamName'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span>
+</span><span id="line-136"></span><span id="newGetLogEvents"><span class="annot"><span class="annottext">newGetLogEvents :: Text -&gt; Text -&gt; GetLogEvents
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#newGetLogEvents"><span class="hs-identifier hs-var hs-var">newGetLogEvents</span></a></span></span><span> </span><span id="local-6989586621679227398"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227398"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span id="local-6989586621679227397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227397"><span class="hs-identifier hs-var">pLogStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">GetLogEvents' :: Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; GetLogEvents
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:GetLogEvents' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AstartTime%3AGetLogEvents%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:startFromHead:GetLogEvents' :: Maybe Bool
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AstartFromHead%3AGetLogEvents%27"><span class="hs-identifier hs-var">startFromHead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetLogEvents' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AnextToken%3AGetLogEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:GetLogEvents' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AendTime%3AGetLogEvents%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:GetLogEvents' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3Alimit%3AGetLogEvents%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:GetLogEvents' :: Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AlogGroupName%3AGetLogEvents%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227398"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:logStreamName:GetLogEvents' :: Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AlogStreamName%3AGetLogEvents%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227397"><span class="hs-identifier hs-var">pLogStreamName_</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The start of the time range, expressed as the number of milliseconds</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- time or later than this time are included. Events with a timestamp</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- earlier than this time are not included.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_startTime"><span class="hs-identifier hs-type">getLogEvents_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="getLogEvents_startTime"><span class="annot"><span class="annottext">getLogEvents_startTime :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetLogEvents -&gt; f GetLogEvents
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_startTime"><span class="hs-identifier hs-var hs-var">getLogEvents_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEvents -&gt; Maybe Natural)
+-&gt; (GetLogEvents -&gt; Maybe Natural -&gt; GetLogEvents)
+-&gt; Lens GetLogEvents GetLogEvents (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227394"><span class="annot"><span class="annottext">Maybe Natural
+startTime :: Maybe Natural
+$sel:startTime:GetLogEvents' :: GetLogEvents -&gt; Maybe Natural
+</span><a href="#local-6989586621679227394"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227394"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227393"><span class="annot"><span class="annottext">s :: GetLogEvents
+</span><a href="#local-6989586621679227393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227392"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEvents
+</span><a href="#local-6989586621679227393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:GetLogEvents' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AstartTime%3AGetLogEvents%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | If the value is true, the earliest log events are returned first. If the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- value is false, the latest log events are returned first. The default</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- value is false.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If you are using a previous @nextForwardToken@ value as the @nextToken@</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- in this operation, you must specify @true@ for @startFromHead@.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_startFromHead"><span class="hs-identifier hs-type">getLogEvents_startFromHead</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getLogEvents_startFromHead"><span class="annot"><span class="annottext">getLogEvents_startFromHead :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; GetLogEvents -&gt; f GetLogEvents
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_startFromHead"><span class="hs-identifier hs-var hs-var">getLogEvents_startFromHead</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEvents -&gt; Maybe Bool)
+-&gt; (GetLogEvents -&gt; Maybe Bool -&gt; GetLogEvents)
+-&gt; Lens GetLogEvents GetLogEvents (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227391"><span class="annot"><span class="annottext">Maybe Bool
+startFromHead :: Maybe Bool
+$sel:startFromHead:GetLogEvents' :: GetLogEvents -&gt; Maybe Bool
+</span><a href="#local-6989586621679227391"><span class="hs-identifier hs-var hs-var">startFromHead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679227391"><span class="hs-identifier hs-var">startFromHead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227390"><span class="annot"><span class="annottext">s :: GetLogEvents
+</span><a href="#local-6989586621679227390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227389"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679227389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEvents
+</span><a href="#local-6989586621679227390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startFromHead:GetLogEvents' :: Maybe Bool
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AstartFromHead%3AGetLogEvents%27"><span class="hs-identifier hs-var">startFromHead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679227389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_nextToken"><span class="hs-identifier hs-type">getLogEvents_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="getLogEvents_nextToken"><span class="annot"><span class="annottext">getLogEvents_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetLogEvents -&gt; f GetLogEvents
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_nextToken"><span class="hs-identifier hs-var hs-var">getLogEvents_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEvents -&gt; Maybe Text)
+-&gt; (GetLogEvents -&gt; Maybe Text -&gt; GetLogEvents)
+-&gt; Lens GetLogEvents GetLogEvents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227388"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetLogEvents' :: GetLogEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679227388"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227388"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227387"><span class="annot"><span class="annottext">s :: GetLogEvents
+</span><a href="#local-6989586621679227387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227386"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEvents
+</span><a href="#local-6989586621679227387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetLogEvents' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AnextToken%3AGetLogEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The end of the time range, expressed as the number of milliseconds after</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- this time are not included.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_endTime"><span class="hs-identifier hs-type">getLogEvents_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="getLogEvents_endTime"><span class="annot"><span class="annottext">getLogEvents_endTime :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetLogEvents -&gt; f GetLogEvents
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_endTime"><span class="hs-identifier hs-var hs-var">getLogEvents_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEvents -&gt; Maybe Natural)
+-&gt; (GetLogEvents -&gt; Maybe Natural -&gt; GetLogEvents)
+-&gt; Lens GetLogEvents GetLogEvents (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227385"><span class="annot"><span class="annottext">Maybe Natural
+endTime :: Maybe Natural
+$sel:endTime:GetLogEvents' :: GetLogEvents -&gt; Maybe Natural
+</span><a href="#local-6989586621679227385"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227385"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227384"><span class="annot"><span class="annottext">s :: GetLogEvents
+</span><a href="#local-6989586621679227384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227383"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEvents
+</span><a href="#local-6989586621679227384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:GetLogEvents' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AendTime%3AGetLogEvents%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The maximum number of log events returned. If you don\'t specify a</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- value, the maximum is as many log events as can fit in a response size</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- of 1 MB, up to 10,000 log events.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_limit"><span class="hs-identifier hs-type">getLogEvents_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="getLogEvents_limit"><span class="annot"><span class="annottext">getLogEvents_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetLogEvents -&gt; f GetLogEvents
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_limit"><span class="hs-identifier hs-var hs-var">getLogEvents_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEvents -&gt; Maybe Natural)
+-&gt; (GetLogEvents -&gt; Maybe Natural -&gt; GetLogEvents)
+-&gt; Lens GetLogEvents GetLogEvents (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227382"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:GetLogEvents' :: GetLogEvents -&gt; Maybe Natural
+</span><a href="#local-6989586621679227382"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227382"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227381"><span class="annot"><span class="annottext">s :: GetLogEvents
+</span><a href="#local-6989586621679227381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227380"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEvents
+</span><a href="#local-6989586621679227381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetLogEvents' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3Alimit%3AGetLogEvents%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_logGroupName"><span class="hs-identifier hs-type">getLogEvents_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-182"></span><span id="getLogEvents_logGroupName"><span class="annot"><span class="annottext">getLogEvents_logGroupName :: (Text -&gt; f Text) -&gt; GetLogEvents -&gt; f GetLogEvents
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_logGroupName"><span class="hs-identifier hs-var hs-var">getLogEvents_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEvents -&gt; Text)
+-&gt; (GetLogEvents -&gt; Text -&gt; GetLogEvents)
+-&gt; Lens GetLogEvents GetLogEvents Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227379"><span class="annot"><span class="annottext">Text
+logGroupName :: Text
+$sel:logGroupName:GetLogEvents' :: GetLogEvents -&gt; Text
+</span><a href="#local-6989586621679227379"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227379"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227378"><span class="annot"><span class="annottext">s :: GetLogEvents
+</span><a href="#local-6989586621679227378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEvents
+</span><a href="#local-6989586621679227378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:GetLogEvents' :: Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AlogGroupName%3AGetLogEvents%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The name of the log stream.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_logStreamName"><span class="hs-identifier hs-type">getLogEvents_logStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-186"></span><span id="getLogEvents_logStreamName"><span class="annot"><span class="annottext">getLogEvents_logStreamName :: (Text -&gt; f Text) -&gt; GetLogEvents -&gt; f GetLogEvents
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEvents_logStreamName"><span class="hs-identifier hs-var hs-var">getLogEvents_logStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEvents -&gt; Text)
+-&gt; (GetLogEvents -&gt; Text -&gt; GetLogEvents)
+-&gt; Lens GetLogEvents GetLogEvents Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227376"><span class="annot"><span class="annottext">Text
+logStreamName :: Text
+$sel:logStreamName:GetLogEvents' :: GetLogEvents -&gt; Text
+</span><a href="#local-6989586621679227376"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227376"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227375"><span class="annot"><span class="annottext">s :: GetLogEvents
+</span><a href="#local-6989586621679227375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227374"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEvents
+</span><a href="#local-6989586621679227375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamName:GetLogEvents' :: Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AlogStreamName%3AGetLogEvents%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679227370"><span class="annot"><span class="annottext">request :: GetLogEvents -&gt; Request GetLogEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetLogEvents -&gt; Request GetLogEvents
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679227366"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetLogEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetLogEvents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetLogEvents))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetLogEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetLogEvents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227363"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227362"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679227362"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227361"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [OutputLogEvent]
+-&gt; Int
+-&gt; GetLogEventsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-var">GetLogEventsResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [OutputLogEvent]
+ -&gt; Int
+ -&gt; GetLogEventsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [OutputLogEvent] -&gt; Int -&gt; GetLogEventsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextBackwardToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [OutputLogEvent] -&gt; Int -&gt; GetLogEventsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [OutputLogEvent] -&gt; Int -&gt; GetLogEventsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextForwardToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [OutputLogEvent] -&gt; Int -&gt; GetLogEventsResponse)
+-&gt; Either String (Maybe [OutputLogEvent])
+-&gt; Either String (Int -&gt; GetLogEventsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OutputLogEvent]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [OutputLogEvent]))
+-&gt; Maybe [OutputLogEvent] -&gt; Either String (Maybe [OutputLogEvent])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OutputLogEvent]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetLogEventsResponse)
+-&gt; Either String Int -&gt; Either String GetLogEventsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227363"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227352"><span id="local-6989586621679227354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679227345"><span class="annot"><span class="annottext">toHeaders :: GetLogEvents -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetLogEvents -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-209"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Logs_20140328.GetLogEvents&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-214"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227335"><span id="local-6989586621679227337"><span id="local-6989586621679227339"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679227333"><span class="annot"><span class="annottext">toJSON :: GetLogEvents -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents%27"><span class="hs-identifier hs-type">GetLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227325"><span id="local-6989586621679227326"><span id="local-6989586621679227327"><span id="local-6989586621679227328"><span id="local-6989586621679227329"><span id="local-6989586621679227330"><span id="local-6989586621679227331"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+Text
+logStreamName :: Text
+logGroupName :: Text
+limit :: Maybe Natural
+endTime :: Maybe Natural
+nextToken :: Maybe Text
+startFromHead :: Maybe Bool
+startTime :: Maybe Natural
+$sel:logStreamName:GetLogEvents' :: GetLogEvents -&gt; Text
+$sel:logGroupName:GetLogEvents' :: GetLogEvents -&gt; Text
+$sel:limit:GetLogEvents' :: GetLogEvents -&gt; Maybe Natural
+$sel:endTime:GetLogEvents' :: GetLogEvents -&gt; Maybe Natural
+$sel:nextToken:GetLogEvents' :: GetLogEvents -&gt; Maybe Text
+$sel:startFromHead:GetLogEvents' :: GetLogEvents -&gt; Maybe Bool
+$sel:startTime:GetLogEvents' :: GetLogEvents -&gt; Maybe Natural
+</span><a href="#local-6989586621679227325"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227331"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startFromHead&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679227330"><span class="hs-identifier hs-var">startFromHead</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227329"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227328"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227327"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227326"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-229"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227325"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679227319"><span class="annot"><span class="annottext">toPath :: GetLogEvents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetLogEvents -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEvents"><span class="hs-identifier hs-type">GetLogEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679227315"><span class="annot"><span class="annottext">toQuery :: GetLogEvents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetLogEvents -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | /See:/ 'newGetLogEventsResponse' smart constructor.</span><span>
+</span><span id="line-240"></span><span id="local-6989586621679227312"><span id="local-6989586621679227313"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLogEventsResponse"><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-var">GetLogEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLogEventsResponse%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-var">GetLogEventsResponse'</span></a></span></span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items in the backward direction. The token</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- expires after 24 hours. This token is never null. If you have reached</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- the end of the stream, it returns the same token you passed in.</span><span>
+</span><span id="line-244"></span><span>    </span><span id="%24sel%3AnextBackwardToken%3AGetLogEventsResponse%27"><span class="annot"><span class="annottext">GetLogEventsResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AnextBackwardToken%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var hs-var">nextBackwardToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items in the forward direction. The token</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">-- expires after 24 hours. If you have reached the end of the stream, it</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- returns the same token you passed in.</span><span>
+</span><span id="line-248"></span><span>    </span><span id="%24sel%3AnextForwardToken%3AGetLogEventsResponse%27"><span class="annot"><span class="annottext">GetLogEventsResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AnextForwardToken%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var hs-var">nextForwardToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- | The events.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3Aevents%3AGetLogEventsResponse%27"><span class="annot"><span class="annottext">GetLogEventsResponse -&gt; Maybe [OutputLogEvent]
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3Aevents%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.OutputLogEvent.html#OutputLogEvent"><span class="hs-identifier hs-type">OutputLogEvent</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-252"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetLogEventsResponse%27"><span class="annot"><span class="annottext">GetLogEventsResponse -&gt; Int
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AhttpStatus%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-254"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227304"><span id="local-6989586621679227306"><span class="annot"><span class="annottext">GetLogEventsResponse -&gt; GetLogEventsResponse -&gt; Bool
+(GetLogEventsResponse -&gt; GetLogEventsResponse -&gt; Bool)
+-&gt; (GetLogEventsResponse -&gt; GetLogEventsResponse -&gt; Bool)
+-&gt; Eq GetLogEventsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetLogEventsResponse -&gt; GetLogEventsResponse -&gt; Bool
+$c/= :: GetLogEventsResponse -&gt; GetLogEventsResponse -&gt; Bool
+== :: GetLogEventsResponse -&gt; GetLogEventsResponse -&gt; Bool
+$c== :: GetLogEventsResponse -&gt; GetLogEventsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227296"><span id="local-6989586621679227298"><span id="local-6989586621679227300"><span id="local-6989586621679227302"><span class="annot"><span class="annottext">ReadPrec [GetLogEventsResponse]
+ReadPrec GetLogEventsResponse
+Int -&gt; ReadS GetLogEventsResponse
+ReadS [GetLogEventsResponse]
+(Int -&gt; ReadS GetLogEventsResponse)
+-&gt; ReadS [GetLogEventsResponse]
+-&gt; ReadPrec GetLogEventsResponse
+-&gt; ReadPrec [GetLogEventsResponse]
+-&gt; Read GetLogEventsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetLogEventsResponse]
+$creadListPrec :: ReadPrec [GetLogEventsResponse]
+readPrec :: ReadPrec GetLogEventsResponse
+$creadPrec :: ReadPrec GetLogEventsResponse
+readList :: ReadS [GetLogEventsResponse]
+$creadList :: ReadS [GetLogEventsResponse]
+readsPrec :: Int -&gt; ReadS GetLogEventsResponse
+$creadsPrec :: Int -&gt; ReadS GetLogEventsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227290"><span id="local-6989586621679227292"><span id="local-6989586621679227294"><span class="annot"><span class="annottext">Int -&gt; GetLogEventsResponse -&gt; ShowS
+[GetLogEventsResponse] -&gt; ShowS
+GetLogEventsResponse -&gt; String
+(Int -&gt; GetLogEventsResponse -&gt; ShowS)
+-&gt; (GetLogEventsResponse -&gt; String)
+-&gt; ([GetLogEventsResponse] -&gt; ShowS)
+-&gt; Show GetLogEventsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetLogEventsResponse] -&gt; ShowS
+$cshowList :: [GetLogEventsResponse] -&gt; ShowS
+show :: GetLogEventsResponse -&gt; String
+$cshow :: GetLogEventsResponse -&gt; String
+showsPrec :: Int -&gt; GetLogEventsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetLogEventsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetLogEventsResponse -&gt; Rep GetLogEventsResponse x)
+-&gt; (forall x. Rep GetLogEventsResponse x -&gt; GetLogEventsResponse)
+-&gt; Generic GetLogEventsResponse
+forall x. Rep GetLogEventsResponse x -&gt; GetLogEventsResponse
+forall x. GetLogEventsResponse -&gt; Rep GetLogEventsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetLogEventsResponse x -&gt; GetLogEventsResponse
+$cfrom :: forall x. GetLogEventsResponse -&gt; Rep GetLogEventsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- Create a value of 'GetLogEventsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'nextBackwardToken', 'getLogEventsResponse_nextBackwardToken' - The token for the next set of items in the backward direction. The token</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- expires after 24 hours. This token is never null. If you have reached</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- the end of the stream, it returns the same token you passed in.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- 'nextForwardToken', 'getLogEventsResponse_nextForwardToken' - The token for the next set of items in the forward direction. The token</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- expires after 24 hours. If you have reached the end of the stream, it</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- returns the same token you passed in.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'events', 'getLogEventsResponse_events' - The events.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'httpStatus', 'getLogEventsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#newGetLogEventsResponse"><span class="hs-identifier hs-type">newGetLogEventsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-276"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-277"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-278"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span>
+</span><span id="line-279"></span><span id="newGetLogEventsResponse"><span class="annot"><span class="annottext">newGetLogEventsResponse :: Int -&gt; GetLogEventsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#newGetLogEventsResponse"><span class="hs-identifier hs-var hs-var">newGetLogEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679227287"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-280"></span><span>  </span><span class="annot"><span class="annottext">GetLogEventsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [OutputLogEvent]
+-&gt; Int
+-&gt; GetLogEventsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-type">GetLogEventsResponse'</span></a></span><span>
+</span><span id="line-281"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextBackwardToken:GetLogEventsResponse' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AnextBackwardToken%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var">nextBackwardToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextForwardToken:GetLogEventsResponse' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AnextForwardToken%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var">nextForwardToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:events:GetLogEventsResponse' :: Maybe [OutputLogEvent]
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3Aevents%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputLogEvent]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetLogEventsResponse' :: Int
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AhttpStatus%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-286"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The token for the next set of items in the backward direction. The token</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- expires after 24 hours. This token is never null. If you have reached</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- the end of the stream, it returns the same token you passed in.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_nextBackwardToken"><span class="hs-identifier hs-type">getLogEventsResponse_nextBackwardToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="getLogEventsResponse_nextBackwardToken"><span class="annot"><span class="annottext">getLogEventsResponse_nextBackwardToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetLogEventsResponse -&gt; f GetLogEventsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_nextBackwardToken"><span class="hs-identifier hs-var hs-var">getLogEventsResponse_nextBackwardToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEventsResponse -&gt; Maybe Text)
+-&gt; (GetLogEventsResponse -&gt; Maybe Text -&gt; GetLogEventsResponse)
+-&gt; Lens
+     GetLogEventsResponse GetLogEventsResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-type">GetLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227286"><span class="annot"><span class="annottext">Maybe Text
+nextBackwardToken :: Maybe Text
+$sel:nextBackwardToken:GetLogEventsResponse' :: GetLogEventsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679227286"><span class="hs-identifier hs-var hs-var">nextBackwardToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227286"><span class="hs-identifier hs-var">nextBackwardToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227285"><span class="annot"><span class="annottext">s :: GetLogEventsResponse
+</span><a href="#local-6989586621679227285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-type">GetLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227284"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEventsResponse
+</span><a href="#local-6989586621679227285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextBackwardToken:GetLogEventsResponse' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AnextBackwardToken%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var">nextBackwardToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The token for the next set of items in the forward direction. The token</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- expires after 24 hours. If you have reached the end of the stream, it</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- returns the same token you passed in.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_nextForwardToken"><span class="hs-identifier hs-type">getLogEventsResponse_nextForwardToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="getLogEventsResponse_nextForwardToken"><span class="annot"><span class="annottext">getLogEventsResponse_nextForwardToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetLogEventsResponse -&gt; f GetLogEventsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_nextForwardToken"><span class="hs-identifier hs-var hs-var">getLogEventsResponse_nextForwardToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEventsResponse -&gt; Maybe Text)
+-&gt; (GetLogEventsResponse -&gt; Maybe Text -&gt; GetLogEventsResponse)
+-&gt; Lens
+     GetLogEventsResponse GetLogEventsResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-type">GetLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227283"><span class="annot"><span class="annottext">Maybe Text
+nextForwardToken :: Maybe Text
+$sel:nextForwardToken:GetLogEventsResponse' :: GetLogEventsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679227283"><span class="hs-identifier hs-var hs-var">nextForwardToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227283"><span class="hs-identifier hs-var">nextForwardToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227282"><span class="annot"><span class="annottext">s :: GetLogEventsResponse
+</span><a href="#local-6989586621679227282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-type">GetLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEventsResponse
+</span><a href="#local-6989586621679227282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextForwardToken:GetLogEventsResponse' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AnextForwardToken%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var">nextForwardToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | The events.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_events"><span class="hs-identifier hs-type">getLogEventsResponse_events</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.OutputLogEvent.html#OutputLogEvent"><span class="hs-identifier hs-type">OutputLogEvent</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="getLogEventsResponse_events"><span class="annot"><span class="annottext">getLogEventsResponse_events :: (Maybe [OutputLogEvent] -&gt; f (Maybe [OutputLogEvent]))
+-&gt; GetLogEventsResponse -&gt; f GetLogEventsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_events"><span class="hs-identifier hs-var hs-var">getLogEventsResponse_events</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEventsResponse -&gt; Maybe [OutputLogEvent])
+-&gt; (GetLogEventsResponse
+    -&gt; Maybe [OutputLogEvent] -&gt; GetLogEventsResponse)
+-&gt; Lens
+     GetLogEventsResponse
+     GetLogEventsResponse
+     (Maybe [OutputLogEvent])
+     (Maybe [OutputLogEvent])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-type">GetLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227280"><span class="annot"><span class="annottext">Maybe [OutputLogEvent]
+events :: Maybe [OutputLogEvent]
+$sel:events:GetLogEventsResponse' :: GetLogEventsResponse -&gt; Maybe [OutputLogEvent]
+</span><a href="#local-6989586621679227280"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputLogEvent]
+</span><a href="#local-6989586621679227280"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227279"><span class="annot"><span class="annottext">s :: GetLogEventsResponse
+</span><a href="#local-6989586621679227279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-type">GetLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227278"><span class="annot"><span class="annottext">Maybe [OutputLogEvent]
+</span><a href="#local-6989586621679227278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEventsResponse
+</span><a href="#local-6989586621679227279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:GetLogEventsResponse' :: Maybe [OutputLogEvent]
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3Aevents%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputLogEvent]
+</span><a href="#local-6989586621679227278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputLogEvent] -&gt; f (Maybe [OutputLogEvent]))
+ -&gt; GetLogEventsResponse -&gt; f GetLogEventsResponse)
+-&gt; ((Maybe [OutputLogEvent] -&gt; f (Maybe [OutputLogEvent]))
+    -&gt; Maybe [OutputLogEvent] -&gt; f (Maybe [OutputLogEvent]))
+-&gt; (Maybe [OutputLogEvent] -&gt; f (Maybe [OutputLogEvent]))
+-&gt; GetLogEventsResponse
+-&gt; f GetLogEventsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OutputLogEvent] [OutputLogEvent] [OutputLogEvent] [OutputLogEvent]
+-&gt; Iso
+     (Maybe [OutputLogEvent])
+     (Maybe [OutputLogEvent])
+     (Maybe [OutputLogEvent])
+     (Maybe [OutputLogEvent])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OutputLogEvent] [OutputLogEvent] [OutputLogEvent] [OutputLogEvent]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_httpStatus"><span class="hs-identifier hs-type">getLogEventsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-306"></span><span id="getLogEventsResponse_httpStatus"><span class="annot"><span class="annottext">getLogEventsResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetLogEventsResponse -&gt; f GetLogEventsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#getLogEventsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getLogEventsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLogEventsResponse -&gt; Int)
+-&gt; (GetLogEventsResponse -&gt; Int -&gt; GetLogEventsResponse)
+-&gt; Lens GetLogEventsResponse GetLogEventsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-type">GetLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227274"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetLogEventsResponse' :: GetLogEventsResponse -&gt; Int
+</span><a href="#local-6989586621679227274"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227274"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227273"><span class="annot"><span class="annottext">s :: GetLogEventsResponse
+</span><a href="#local-6989586621679227273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse%27"><span class="hs-identifier hs-type">GetLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227272"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLogEventsResponse
+</span><a href="#local-6989586621679227273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetLogEventsResponse' :: Int
+</span><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#%24sel%3AhttpStatus%3AGetLogEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetLogEvents.html#GetLogEventsResponse"><span class="hs-identifier hs-type">GetLogEventsResponse</span></a></span></span><span>
+</span><span id="line-309"></span></pre></body></html>

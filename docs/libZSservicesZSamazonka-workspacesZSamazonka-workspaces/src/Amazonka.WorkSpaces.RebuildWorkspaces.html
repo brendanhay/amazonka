@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkSpaces.RebuildWorkspaces</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Rebuilds the specified WorkSpace.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You cannot rebuild a WorkSpace unless its state is @AVAILABLE@, @ERROR@,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @UNHEALTHY@, @STOPPED@, or @REBOOTING@.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Rebuilding a WorkSpace is a potentially destructive action that can</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- result in the loss of data. For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html Rebuild a WorkSpace&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- This operation is asynchronous and returns before the WorkSpaces have</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- been completely rebuilt.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkSpaces.RebuildWorkspaces</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier">RebuildWorkspaces</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspaces"><span class="hs-identifier">newRebuildWorkspaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#rebuildWorkspaces_rebuildWorkspaceRequests"><span class="hs-identifier">rebuildWorkspaces_rebuildWorkspaceRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier">RebuildWorkspacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspacesResponse"><span class="hs-identifier">newRebuildWorkspacesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#rebuildWorkspacesResponse_failedRequests"><span class="hs-identifier">rebuildWorkspacesResponse_failedRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#rebuildWorkspacesResponse_httpStatus"><span class="hs-identifier">rebuildWorkspacesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.html"><span class="hs-identifier">Amazonka.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newRebuildWorkspaces' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679279313"><span id="local-6989586621679279314"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildWorkspaces"><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-var">RebuildWorkspaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildWorkspaces%27"><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-var">RebuildWorkspaces'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The WorkSpace to rebuild. You can specify a single WorkSpace.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3ArebuildWorkspaceRequests%3ARebuildWorkspaces%27"><span class="annot"><span class="annottext">RebuildWorkspaces -&gt; NonEmpty RebuildRequest
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#%24sel%3ArebuildWorkspaceRequests%3ARebuildWorkspaces%27"><span class="hs-identifier hs-var hs-var">rebuildWorkspaceRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.RebuildRequest.html#RebuildRequest"><span class="hs-identifier hs-type">RebuildRequest</span></a></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279307"><span id="local-6989586621679279309"><span class="annot"><span class="annottext">RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
+(RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool)
+-&gt; (RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool)
+-&gt; Eq RebuildWorkspaces
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
+$c/= :: RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
+== :: RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
+$c== :: RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279298"><span id="local-6989586621679279300"><span id="local-6989586621679279302"><span id="local-6989586621679279304"><span class="annot"><span class="annottext">ReadPrec [RebuildWorkspaces]
+ReadPrec RebuildWorkspaces
+Int -&gt; ReadS RebuildWorkspaces
+ReadS [RebuildWorkspaces]
+(Int -&gt; ReadS RebuildWorkspaces)
+-&gt; ReadS [RebuildWorkspaces]
+-&gt; ReadPrec RebuildWorkspaces
+-&gt; ReadPrec [RebuildWorkspaces]
+-&gt; Read RebuildWorkspaces
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RebuildWorkspaces]
+$creadListPrec :: ReadPrec [RebuildWorkspaces]
+readPrec :: ReadPrec RebuildWorkspaces
+$creadPrec :: ReadPrec RebuildWorkspaces
+readList :: ReadS [RebuildWorkspaces]
+$creadList :: ReadS [RebuildWorkspaces]
+readsPrec :: Int -&gt; ReadS RebuildWorkspaces
+$creadsPrec :: Int -&gt; ReadS RebuildWorkspaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279291"><span id="local-6989586621679279293"><span id="local-6989586621679279295"><span class="annot"><span class="annottext">Int -&gt; RebuildWorkspaces -&gt; ShowS
+[RebuildWorkspaces] -&gt; ShowS
+RebuildWorkspaces -&gt; String
+(Int -&gt; RebuildWorkspaces -&gt; ShowS)
+-&gt; (RebuildWorkspaces -&gt; String)
+-&gt; ([RebuildWorkspaces] -&gt; ShowS)
+-&gt; Show RebuildWorkspaces
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RebuildWorkspaces] -&gt; ShowS
+$cshowList :: [RebuildWorkspaces] -&gt; ShowS
+show :: RebuildWorkspaces -&gt; String
+$cshow :: RebuildWorkspaces -&gt; String
+showsPrec :: Int -&gt; RebuildWorkspaces -&gt; ShowS
+$cshowsPrec :: Int -&gt; RebuildWorkspaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RebuildWorkspaces -&gt; Rep RebuildWorkspaces x)
+-&gt; (forall x. Rep RebuildWorkspaces x -&gt; RebuildWorkspaces)
+-&gt; Generic RebuildWorkspaces
+forall x. Rep RebuildWorkspaces x -&gt; RebuildWorkspaces
+forall x. RebuildWorkspaces -&gt; Rep RebuildWorkspaces x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RebuildWorkspaces x -&gt; RebuildWorkspaces
+$cfrom :: forall x. RebuildWorkspaces -&gt; Rep RebuildWorkspaces x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'RebuildWorkspaces' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'rebuildWorkspaceRequests', 'rebuildWorkspaces_rebuildWorkspaceRequests' - The WorkSpace to rebuild. You can specify a single WorkSpace.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspaces"><span class="hs-identifier hs-type">newRebuildWorkspaces</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'rebuildWorkspaceRequests'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.RebuildRequest.html#RebuildRequest"><span class="hs-identifier hs-type">RebuildRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span>
+</span><span id="line-79"></span><span id="newRebuildWorkspaces"><span class="annot"><span class="annottext">newRebuildWorkspaces :: NonEmpty RebuildRequest -&gt; RebuildWorkspaces
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspaces"><span class="hs-identifier hs-var hs-var">newRebuildWorkspaces</span></a></span></span><span> </span><span id="local-6989586621679279286"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279286"><span class="hs-identifier hs-var">pRebuildWorkspaceRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">RebuildWorkspaces' :: NonEmpty RebuildRequest -&gt; RebuildWorkspaces
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rebuildWorkspaceRequests:RebuildWorkspaces' :: NonEmpty RebuildRequest
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#%24sel%3ArebuildWorkspaceRequests%3ARebuildWorkspaces%27"><span class="hs-identifier hs-var">rebuildWorkspaceRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty RebuildRequest) (Identity (NonEmpty RebuildRequest))
+-&gt; Tagged
+     (NonEmpty RebuildRequest) (Identity (NonEmpty RebuildRequest))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty RebuildRequest) (Identity (NonEmpty RebuildRequest))
+ -&gt; Tagged
+      (NonEmpty RebuildRequest) (Identity (NonEmpty RebuildRequest)))
+-&gt; NonEmpty RebuildRequest -&gt; NonEmpty RebuildRequest
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279286"><span class="hs-identifier hs-var">pRebuildWorkspaceRequests_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The WorkSpace to rebuild. You can specify a single WorkSpace.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#rebuildWorkspaces_rebuildWorkspaceRequests"><span class="hs-identifier hs-type">rebuildWorkspaces_rebuildWorkspaceRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.RebuildRequest.html#RebuildRequest"><span class="hs-identifier hs-type">RebuildRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="rebuildWorkspaces_rebuildWorkspaceRequests"><span class="annot"><span class="annottext">rebuildWorkspaces_rebuildWorkspaceRequests :: (NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
+-&gt; RebuildWorkspaces -&gt; f RebuildWorkspaces
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#rebuildWorkspaces_rebuildWorkspaceRequests"><span class="hs-identifier hs-var hs-var">rebuildWorkspaces_rebuildWorkspaceRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RebuildWorkspaces -&gt; NonEmpty RebuildRequest)
+-&gt; (RebuildWorkspaces
+    -&gt; NonEmpty RebuildRequest -&gt; RebuildWorkspaces)
+-&gt; Lens
+     RebuildWorkspaces
+     RebuildWorkspaces
+     (NonEmpty RebuildRequest)
+     (NonEmpty RebuildRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279281"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+rebuildWorkspaceRequests :: NonEmpty RebuildRequest
+$sel:rebuildWorkspaceRequests:RebuildWorkspaces' :: RebuildWorkspaces -&gt; NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279281"><span class="hs-identifier hs-var hs-var">rebuildWorkspaceRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279281"><span class="hs-identifier hs-var">rebuildWorkspaceRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279280"><span class="annot"><span class="annottext">s :: RebuildWorkspaces
+</span><a href="#local-6989586621679279280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279279"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildWorkspaces
+</span><a href="#local-6989586621679279280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rebuildWorkspaceRequests:RebuildWorkspaces' :: NonEmpty RebuildRequest
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#%24sel%3ArebuildWorkspaceRequests%3ARebuildWorkspaces%27"><span class="hs-identifier hs-var">rebuildWorkspaceRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
+ -&gt; RebuildWorkspaces -&gt; f RebuildWorkspaces)
+-&gt; ((NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
+    -&gt; NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
+-&gt; (NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
+-&gt; RebuildWorkspaces
+-&gt; f RebuildWorkspaces
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
+-&gt; NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679279274"><span class="annot"><span class="annottext">request :: RebuildWorkspaces -&gt; Request RebuildWorkspaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RebuildWorkspaces -&gt; Request RebuildWorkspaces
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679279270"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RebuildWorkspaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RebuildWorkspaces)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RebuildWorkspaces))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RebuildWorkspaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RebuildWorkspaces)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279267"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279266"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279266"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279265"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279265"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+-&gt; Int -&gt; RebuildWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">RebuildWorkspacesResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [FailedWorkspaceChangeRequest]
+ -&gt; Int -&gt; RebuildWorkspacesResponse)
+-&gt; Either String (Maybe [FailedWorkspaceChangeRequest])
+-&gt; Either String (Int -&gt; RebuildWorkspacesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key
+-&gt; Either String (Maybe (Maybe [FailedWorkspaceChangeRequest]))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;FailedRequests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FailedWorkspaceChangeRequest]))
+-&gt; Maybe [FailedWorkspaceChangeRequest]
+-&gt; Either String (Maybe [FailedWorkspaceChangeRequest])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RebuildWorkspacesResponse)
+-&gt; Either String Int -&gt; Either String RebuildWorkspacesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279267"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279256"><span id="local-6989586621679279258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679279249"><span class="annot"><span class="annottext">toHeaders :: RebuildWorkspaces -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RebuildWorkspaces -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkspacesService.RebuildWorkspaces&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279239"><span id="local-6989586621679279241"><span id="local-6989586621679279243"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679279237"><span class="annot"><span class="annottext">toJSON :: RebuildWorkspaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279235"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+rebuildWorkspaceRequests :: NonEmpty RebuildRequest
+$sel:rebuildWorkspaceRequests:RebuildWorkspaces' :: RebuildWorkspaces -&gt; NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279235"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;RebuildWorkspaceRequests&quot;</span></span><span>
+</span><span id="line-127"></span><span>                  </span><span class="annot"><span class="annottext">Key -&gt; NonEmpty RebuildRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279235"><span class="hs-identifier hs-var">rebuildWorkspaceRequests</span></a></span><span>
+</span><span id="line-128"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679279229"><span class="annot"><span class="annottext">toPath :: RebuildWorkspaces -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RebuildWorkspaces -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679279225"><span class="annot"><span class="annottext">toQuery :: RebuildWorkspaces -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RebuildWorkspaces -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newRebuildWorkspacesResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679279222"><span id="local-6989586621679279223"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildWorkspacesResponse"><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-var">RebuildWorkspacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildWorkspacesResponse%27"><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">RebuildWorkspacesResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the WorkSpace that could not be rebuilt.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AfailedRequests%3ARebuildWorkspacesResponse%27"><span class="annot"><span class="annottext">RebuildWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest]
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#%24sel%3AfailedRequests%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARebuildWorkspacesResponse%27"><span class="annot"><span class="annottext">RebuildWorkspacesResponse -&gt; Int
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#%24sel%3AhttpStatus%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279216"><span id="local-6989586621679279218"><span class="annot"><span class="annottext">RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
+(RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool)
+-&gt; (RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool)
+-&gt; Eq RebuildWorkspacesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
+$c/= :: RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
+== :: RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
+$c== :: RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279208"><span id="local-6989586621679279210"><span id="local-6989586621679279212"><span id="local-6989586621679279214"><span class="annot"><span class="annottext">ReadPrec [RebuildWorkspacesResponse]
+ReadPrec RebuildWorkspacesResponse
+Int -&gt; ReadS RebuildWorkspacesResponse
+ReadS [RebuildWorkspacesResponse]
+(Int -&gt; ReadS RebuildWorkspacesResponse)
+-&gt; ReadS [RebuildWorkspacesResponse]
+-&gt; ReadPrec RebuildWorkspacesResponse
+-&gt; ReadPrec [RebuildWorkspacesResponse]
+-&gt; Read RebuildWorkspacesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RebuildWorkspacesResponse]
+$creadListPrec :: ReadPrec [RebuildWorkspacesResponse]
+readPrec :: ReadPrec RebuildWorkspacesResponse
+$creadPrec :: ReadPrec RebuildWorkspacesResponse
+readList :: ReadS [RebuildWorkspacesResponse]
+$creadList :: ReadS [RebuildWorkspacesResponse]
+readsPrec :: Int -&gt; ReadS RebuildWorkspacesResponse
+$creadsPrec :: Int -&gt; ReadS RebuildWorkspacesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279202"><span id="local-6989586621679279204"><span id="local-6989586621679279206"><span class="annot"><span class="annottext">Int -&gt; RebuildWorkspacesResponse -&gt; ShowS
+[RebuildWorkspacesResponse] -&gt; ShowS
+RebuildWorkspacesResponse -&gt; String
+(Int -&gt; RebuildWorkspacesResponse -&gt; ShowS)
+-&gt; (RebuildWorkspacesResponse -&gt; String)
+-&gt; ([RebuildWorkspacesResponse] -&gt; ShowS)
+-&gt; Show RebuildWorkspacesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RebuildWorkspacesResponse] -&gt; ShowS
+$cshowList :: [RebuildWorkspacesResponse] -&gt; ShowS
+show :: RebuildWorkspacesResponse -&gt; String
+$cshow :: RebuildWorkspacesResponse -&gt; String
+showsPrec :: Int -&gt; RebuildWorkspacesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RebuildWorkspacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RebuildWorkspacesResponse -&gt; Rep RebuildWorkspacesResponse x)
+-&gt; (forall x.
+    Rep RebuildWorkspacesResponse x -&gt; RebuildWorkspacesResponse)
+-&gt; Generic RebuildWorkspacesResponse
+forall x.
+Rep RebuildWorkspacesResponse x -&gt; RebuildWorkspacesResponse
+forall x.
+RebuildWorkspacesResponse -&gt; Rep RebuildWorkspacesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RebuildWorkspacesResponse x -&gt; RebuildWorkspacesResponse
+$cfrom :: forall x.
+RebuildWorkspacesResponse -&gt; Rep RebuildWorkspacesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Create a value of 'RebuildWorkspacesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'failedRequests', 'rebuildWorkspacesResponse_failedRequests' - Information about the WorkSpace that could not be rebuilt.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'rebuildWorkspacesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspacesResponse"><span class="hs-identifier hs-type">newRebuildWorkspacesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newRebuildWorkspacesResponse"><span class="annot"><span class="annottext">newRebuildWorkspacesResponse :: Int -&gt; RebuildWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspacesResponse"><span class="hs-identifier hs-var hs-var">newRebuildWorkspacesResponse</span></a></span></span><span> </span><span id="local-6989586621679279199"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">RebuildWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
+-&gt; Int -&gt; RebuildWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failedRequests:RebuildWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#%24sel%3AfailedRequests%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">failedRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RebuildWorkspacesResponse' :: Int
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#%24sel%3AhttpStatus%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Information about the WorkSpace that could not be rebuilt.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#rebuildWorkspacesResponse_failedRequests"><span class="hs-identifier hs-type">rebuildWorkspacesResponse_failedRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="rebuildWorkspacesResponse_failedRequests"><span class="annot"><span class="annottext">rebuildWorkspacesResponse_failedRequests :: (Maybe [FailedWorkspaceChangeRequest]
+ -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+-&gt; RebuildWorkspacesResponse -&gt; f RebuildWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#rebuildWorkspacesResponse_failedRequests"><span class="hs-identifier hs-var hs-var">rebuildWorkspacesResponse_failedRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RebuildWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest])
+-&gt; (RebuildWorkspacesResponse
+    -&gt; Maybe [FailedWorkspaceChangeRequest]
+    -&gt; RebuildWorkspacesResponse)
+-&gt; Lens
+     RebuildWorkspacesResponse
+     RebuildWorkspacesResponse
+     (Maybe [FailedWorkspaceChangeRequest])
+     (Maybe [FailedWorkspaceChangeRequest])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279198"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+failedRequests :: Maybe [FailedWorkspaceChangeRequest]
+$sel:failedRequests:RebuildWorkspacesResponse' :: RebuildWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679279198"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679279198"><span class="hs-identifier hs-var">failedRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279197"><span class="annot"><span class="annottext">s :: RebuildWorkspacesResponse
+</span><a href="#local-6989586621679279197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279196"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679279196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildWorkspacesResponse
+</span><a href="#local-6989586621679279197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedRequests:RebuildWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#%24sel%3AfailedRequests%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">failedRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679279196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedWorkspaceChangeRequest]
+  -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+ -&gt; RebuildWorkspacesResponse -&gt; f RebuildWorkspacesResponse)
+-&gt; ((Maybe [FailedWorkspaceChangeRequest]
+     -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+    -&gt; Maybe [FailedWorkspaceChangeRequest]
+    -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+-&gt; (Maybe [FailedWorkspaceChangeRequest]
+    -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
+-&gt; RebuildWorkspacesResponse
+-&gt; f RebuildWorkspacesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+-&gt; Iso
+     (Maybe [FailedWorkspaceChangeRequest])
+     (Maybe [FailedWorkspaceChangeRequest])
+     (Maybe [FailedWorkspaceChangeRequest])
+     (Maybe [FailedWorkspaceChangeRequest])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+  [FailedWorkspaceChangeRequest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#rebuildWorkspacesResponse_httpStatus"><span class="hs-identifier hs-type">rebuildWorkspacesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span id="rebuildWorkspacesResponse_httpStatus"><span class="annot"><span class="annottext">rebuildWorkspacesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RebuildWorkspacesResponse -&gt; f RebuildWorkspacesResponse
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#rebuildWorkspacesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">rebuildWorkspacesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RebuildWorkspacesResponse -&gt; Int)
+-&gt; (RebuildWorkspacesResponse -&gt; Int -&gt; RebuildWorkspacesResponse)
+-&gt; Lens RebuildWorkspacesResponse RebuildWorkspacesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279194"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RebuildWorkspacesResponse' :: RebuildWorkspacesResponse -&gt; Int
+</span><a href="#local-6989586621679279194"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279194"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279193"><span class="annot"><span class="annottext">s :: RebuildWorkspacesResponse
+</span><a href="#local-6989586621679279193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279192"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildWorkspacesResponse
+</span><a href="#local-6989586621679279193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebuildWorkspacesResponse' :: Int
+</span><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#%24sel%3AhttpStatus%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span></span><span>
+</span><span id="line-178"></span></pre></body></html>

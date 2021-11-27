@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSOAdmin.Types.InstanceMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSOAdmin.Types.InstanceMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides information about the SSO instance.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInstanceMetadata' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679198293"><span id="local-6989586621679198294"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceMetadata"><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-var">InstanceMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMetadata%27"><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata%27"><span class="hs-identifier hs-var">InstanceMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the identity store that is connected to the SSO</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AidentityStoreId%3AInstanceMetadata%27"><span class="annot"><span class="annottext">InstanceMetadata -&gt; Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#%24sel%3AidentityStoreId%3AInstanceMetadata%27"><span class="hs-identifier hs-var hs-var">identityStoreId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AinstanceArn%3AInstanceMetadata%27"><span class="annot"><span class="annottext">InstanceMetadata -&gt; Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#%24sel%3AinstanceArn%3AInstanceMetadata%27"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198286"><span id="local-6989586621679198288"><span class="annot"><span class="annottext">InstanceMetadata -&gt; InstanceMetadata -&gt; Bool
+(InstanceMetadata -&gt; InstanceMetadata -&gt; Bool)
+-&gt; (InstanceMetadata -&gt; InstanceMetadata -&gt; Bool)
+-&gt; Eq InstanceMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceMetadata -&gt; InstanceMetadata -&gt; Bool
+$c/= :: InstanceMetadata -&gt; InstanceMetadata -&gt; Bool
+== :: InstanceMetadata -&gt; InstanceMetadata -&gt; Bool
+$c== :: InstanceMetadata -&gt; InstanceMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198277"><span id="local-6989586621679198279"><span id="local-6989586621679198281"><span id="local-6989586621679198283"><span class="annot"><span class="annottext">ReadPrec [InstanceMetadata]
+ReadPrec InstanceMetadata
+Int -&gt; ReadS InstanceMetadata
+ReadS [InstanceMetadata]
+(Int -&gt; ReadS InstanceMetadata)
+-&gt; ReadS [InstanceMetadata]
+-&gt; ReadPrec InstanceMetadata
+-&gt; ReadPrec [InstanceMetadata]
+-&gt; Read InstanceMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceMetadata]
+$creadListPrec :: ReadPrec [InstanceMetadata]
+readPrec :: ReadPrec InstanceMetadata
+$creadPrec :: ReadPrec InstanceMetadata
+readList :: ReadS [InstanceMetadata]
+$creadList :: ReadS [InstanceMetadata]
+readsPrec :: Int -&gt; ReadS InstanceMetadata
+$creadsPrec :: Int -&gt; ReadS InstanceMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198270"><span id="local-6989586621679198272"><span id="local-6989586621679198274"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadata -&gt; ShowS
+[InstanceMetadata] -&gt; ShowS
+InstanceMetadata -&gt; String
+(Int -&gt; InstanceMetadata -&gt; ShowS)
+-&gt; (InstanceMetadata -&gt; String)
+-&gt; ([InstanceMetadata] -&gt; ShowS)
+-&gt; Show InstanceMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceMetadata] -&gt; ShowS
+$cshowList :: [InstanceMetadata] -&gt; ShowS
+show :: InstanceMetadata -&gt; String
+$cshow :: InstanceMetadata -&gt; String
+showsPrec :: Int -&gt; InstanceMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InstanceMetadata -&gt; Rep InstanceMetadata x)
+-&gt; (forall x. Rep InstanceMetadata x -&gt; InstanceMetadata)
+-&gt; Generic InstanceMetadata
+forall x. Rep InstanceMetadata x -&gt; InstanceMetadata
+forall x. InstanceMetadata -&gt; Rep InstanceMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceMetadata x -&gt; InstanceMetadata
+$cfrom :: forall x. InstanceMetadata -&gt; Rep InstanceMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'InstanceMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'identityStoreId', 'instanceMetadata_identityStoreId' - The identifier of the identity store that is connected to the SSO</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'instanceArn', 'instanceMetadata_instanceArn' - The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#newInstanceMetadata"><span class="hs-identifier hs-type">newInstanceMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span><span>
+</span><span id="line-58"></span><span id="newInstanceMetadata"><span class="annot"><span class="annottext">newInstanceMetadata :: InstanceMetadata
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#newInstanceMetadata"><span class="hs-identifier hs-var hs-var">newInstanceMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">InstanceMetadata' :: Maybe Text -&gt; Maybe Text -&gt; InstanceMetadata
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata%27"><span class="hs-identifier hs-type">InstanceMetadata'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityStoreId:InstanceMetadata' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#%24sel%3AidentityStoreId%3AInstanceMetadata%27"><span class="hs-identifier hs-var">identityStoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceArn:InstanceMetadata' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#%24sel%3AinstanceArn%3AInstanceMetadata%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The identifier of the identity store that is connected to the SSO</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#instanceMetadata_identityStoreId"><span class="hs-identifier hs-type">instanceMetadata_identityStoreId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="instanceMetadata_identityStoreId"><span class="annot"><span class="annottext">instanceMetadata_identityStoreId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceMetadata -&gt; f InstanceMetadata
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#instanceMetadata_identityStoreId"><span class="hs-identifier hs-var hs-var">instanceMetadata_identityStoreId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceMetadata -&gt; Maybe Text)
+-&gt; (InstanceMetadata -&gt; Maybe Text -&gt; InstanceMetadata)
+-&gt; Lens InstanceMetadata InstanceMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata%27"><span class="hs-identifier hs-type">InstanceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198261"><span class="annot"><span class="annottext">Maybe Text
+identityStoreId :: Maybe Text
+$sel:identityStoreId:InstanceMetadata' :: InstanceMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679198261"><span class="hs-identifier hs-var hs-var">identityStoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198261"><span class="hs-identifier hs-var">identityStoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198260"><span class="annot"><span class="annottext">s :: InstanceMetadata
+</span><a href="#local-6989586621679198260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata%27"><span class="hs-identifier hs-type">InstanceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198259"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetadata
+</span><a href="#local-6989586621679198260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityStoreId:InstanceMetadata' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#%24sel%3AidentityStoreId%3AInstanceMetadata%27"><span class="hs-identifier hs-var">identityStoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#instanceMetadata_instanceArn"><span class="hs-identifier hs-type">instanceMetadata_instanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="instanceMetadata_instanceArn"><span class="annot"><span class="annottext">instanceMetadata_instanceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceMetadata -&gt; f InstanceMetadata
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#instanceMetadata_instanceArn"><span class="hs-identifier hs-var hs-var">instanceMetadata_instanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceMetadata -&gt; Maybe Text)
+-&gt; (InstanceMetadata -&gt; Maybe Text -&gt; InstanceMetadata)
+-&gt; Lens InstanceMetadata InstanceMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata%27"><span class="hs-identifier hs-type">InstanceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198257"><span class="annot"><span class="annottext">Maybe Text
+instanceArn :: Maybe Text
+$sel:instanceArn:InstanceMetadata' :: InstanceMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679198257"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198257"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198256"><span class="annot"><span class="annottext">s :: InstanceMetadata
+</span><a href="#local-6989586621679198256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata%27"><span class="hs-identifier hs-type">InstanceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198255"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetadata
+</span><a href="#local-6989586621679198256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceArn:InstanceMetadata' :: Maybe Text
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#%24sel%3AinstanceArn%3AInstanceMetadata%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198252"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679198250"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InstanceMetadata)
+-&gt; Value
+-&gt; Parser InstanceMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InstanceMetadata&quot;</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198247"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198247"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; InstanceMetadata
+</span><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata%27"><span class="hs-identifier hs-var">InstanceMetadata'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; InstanceMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; InstanceMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityStoreId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InstanceMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser InstanceMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198241"><span id="local-6989586621679198243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span></span><span>
+</span><span id="line-90"></span></pre></body></html>

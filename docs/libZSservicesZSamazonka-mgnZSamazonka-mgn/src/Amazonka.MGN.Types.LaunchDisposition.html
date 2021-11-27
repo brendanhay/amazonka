@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MGN.Types.LaunchDisposition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MGN.Types.LaunchDisposition</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition"><span class="hs-identifier">LaunchDisposition</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition_STARTED"><span class="hs-identifier">LaunchDisposition_STARTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition_STOPPED"><span class="hs-identifier">LaunchDisposition_STOPPED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679226631"><span id="local-6989586621679226632"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LaunchDisposition"><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition"><span class="hs-identifier hs-var">LaunchDisposition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchDisposition%27"><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition%27"><span class="hs-identifier hs-var">LaunchDisposition'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLaunchDisposition"><span class="annot"><span class="annottext">LaunchDisposition -&gt; Text
+</span><a href="Amazonka.MGN.Types.LaunchDisposition.html#fromLaunchDisposition"><span class="hs-identifier hs-var hs-var">fromLaunchDisposition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226623"><span id="local-6989586621679226625"><span id="local-6989586621679226627"><span class="annot"><span class="annottext">Int -&gt; LaunchDisposition -&gt; ShowS
+[LaunchDisposition] -&gt; ShowS
+LaunchDisposition -&gt; String
+(Int -&gt; LaunchDisposition -&gt; ShowS)
+-&gt; (LaunchDisposition -&gt; String)
+-&gt; ([LaunchDisposition] -&gt; ShowS)
+-&gt; Show LaunchDisposition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LaunchDisposition] -&gt; ShowS
+$cshowList :: [LaunchDisposition] -&gt; ShowS
+show :: LaunchDisposition -&gt; String
+$cshow :: LaunchDisposition -&gt; String
+showsPrec :: Int -&gt; LaunchDisposition -&gt; ShowS
+$cshowsPrec :: Int -&gt; LaunchDisposition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679226614"><span id="local-6989586621679226616"><span id="local-6989586621679226618"><span id="local-6989586621679226620"><span class="annot"><span class="annottext">ReadPrec [LaunchDisposition]
+ReadPrec LaunchDisposition
+Int -&gt; ReadS LaunchDisposition
+ReadS [LaunchDisposition]
+(Int -&gt; ReadS LaunchDisposition)
+-&gt; ReadS [LaunchDisposition]
+-&gt; ReadPrec LaunchDisposition
+-&gt; ReadPrec [LaunchDisposition]
+-&gt; Read LaunchDisposition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LaunchDisposition]
+$creadListPrec :: ReadPrec [LaunchDisposition]
+readPrec :: ReadPrec LaunchDisposition
+$creadPrec :: ReadPrec LaunchDisposition
+readList :: ReadS [LaunchDisposition]
+$creadList :: ReadS [LaunchDisposition]
+readsPrec :: Int -&gt; ReadS LaunchDisposition
+$creadsPrec :: Int -&gt; ReadS LaunchDisposition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679226609"><span id="local-6989586621679226611"><span class="annot"><span class="annottext">LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+(LaunchDisposition -&gt; LaunchDisposition -&gt; Bool)
+-&gt; (LaunchDisposition -&gt; LaunchDisposition -&gt; Bool)
+-&gt; Eq LaunchDisposition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+$c/= :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+== :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+$c== :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679226593"><span id="local-6989586621679226595"><span id="local-6989586621679226597"><span id="local-6989586621679226599"><span id="local-6989586621679226601"><span id="local-6989586621679226603"><span id="local-6989586621679226605"><span class="annot"><span class="annottext">Eq LaunchDisposition
+Eq LaunchDisposition
+-&gt; (LaunchDisposition -&gt; LaunchDisposition -&gt; Ordering)
+-&gt; (LaunchDisposition -&gt; LaunchDisposition -&gt; Bool)
+-&gt; (LaunchDisposition -&gt; LaunchDisposition -&gt; Bool)
+-&gt; (LaunchDisposition -&gt; LaunchDisposition -&gt; Bool)
+-&gt; (LaunchDisposition -&gt; LaunchDisposition -&gt; Bool)
+-&gt; (LaunchDisposition -&gt; LaunchDisposition -&gt; LaunchDisposition)
+-&gt; (LaunchDisposition -&gt; LaunchDisposition -&gt; LaunchDisposition)
+-&gt; Ord LaunchDisposition
+LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+LaunchDisposition -&gt; LaunchDisposition -&gt; Ordering
+LaunchDisposition -&gt; LaunchDisposition -&gt; LaunchDisposition
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LaunchDisposition -&gt; LaunchDisposition -&gt; LaunchDisposition
+$cmin :: LaunchDisposition -&gt; LaunchDisposition -&gt; LaunchDisposition
+max :: LaunchDisposition -&gt; LaunchDisposition -&gt; LaunchDisposition
+$cmax :: LaunchDisposition -&gt; LaunchDisposition -&gt; LaunchDisposition
+&gt;= :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+$c&gt;= :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+&gt; :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+$c&gt; :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+&lt;= :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+$c&lt;= :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+&lt; :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+$c&lt; :: LaunchDisposition -&gt; LaunchDisposition -&gt; Bool
+compare :: LaunchDisposition -&gt; LaunchDisposition -&gt; Ordering
+$ccompare :: LaunchDisposition -&gt; LaunchDisposition -&gt; Ordering
+$cp1Ord :: Eq LaunchDisposition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LaunchDisposition -&gt; Rep LaunchDisposition x)
+-&gt; (forall x. Rep LaunchDisposition x -&gt; LaunchDisposition)
+-&gt; Generic LaunchDisposition
+forall x. Rep LaunchDisposition x -&gt; LaunchDisposition
+forall x. LaunchDisposition -&gt; Rep LaunchDisposition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LaunchDisposition x -&gt; LaunchDisposition
+$cfrom :: forall x. LaunchDisposition -&gt; Rep LaunchDisposition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226585"><span id="local-6989586621679226587"><span class="annot"><span class="annottext">Int -&gt; LaunchDisposition -&gt; Int
+LaunchDisposition -&gt; Int
+(Int -&gt; LaunchDisposition -&gt; Int)
+-&gt; (LaunchDisposition -&gt; Int) -&gt; Hashable LaunchDisposition
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LaunchDisposition -&gt; Int
+$chash :: LaunchDisposition -&gt; Int
+hashWithSalt :: Int -&gt; LaunchDisposition -&gt; Int
+$chashWithSalt :: Int -&gt; LaunchDisposition -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679226582"><span class="annot"><span class="annottext">LaunchDisposition -&gt; ()
+(LaunchDisposition -&gt; ()) -&gt; NFData LaunchDisposition
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LaunchDisposition -&gt; ()
+$crnf :: LaunchDisposition -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679226579"><span class="annot"><span class="annottext">Text -&gt; Either String LaunchDisposition
+(Text -&gt; Either String LaunchDisposition)
+-&gt; FromText LaunchDisposition
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LaunchDisposition
+$cfromText :: Text -&gt; Either String LaunchDisposition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679226576"><span class="annot"><span class="annottext">LaunchDisposition -&gt; Text
+(LaunchDisposition -&gt; Text) -&gt; ToText LaunchDisposition
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LaunchDisposition -&gt; Text
+$ctoText :: LaunchDisposition -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679226573"><span class="annot"><span class="annottext">LaunchDisposition -&gt; ByteString
+(LaunchDisposition -&gt; ByteString) -&gt; ToByteString LaunchDisposition
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LaunchDisposition -&gt; ByteString
+$ctoBS :: LaunchDisposition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679226570"><span class="annot"><span class="annottext">LaunchDisposition -&gt; ByteStringBuilder
+(LaunchDisposition -&gt; ByteStringBuilder) -&gt; ToLog LaunchDisposition
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LaunchDisposition -&gt; ByteStringBuilder
+$cbuild :: LaunchDisposition -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679226567"><span class="annot"><span class="annottext">HeaderName -&gt; LaunchDisposition -&gt; [Header]
+(HeaderName -&gt; LaunchDisposition -&gt; [Header])
+-&gt; ToHeader LaunchDisposition
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LaunchDisposition -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LaunchDisposition -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679226564"><span class="annot"><span class="annottext">LaunchDisposition -&gt; QueryString
+(LaunchDisposition -&gt; QueryString) -&gt; ToQuery LaunchDisposition
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LaunchDisposition -&gt; QueryString
+$ctoQuery :: LaunchDisposition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679226559"><span id="local-6989586621679226561"><span class="annot"><span class="annottext">Value -&gt; Parser [LaunchDisposition]
+Value -&gt; Parser LaunchDisposition
+(Value -&gt; Parser LaunchDisposition)
+-&gt; (Value -&gt; Parser [LaunchDisposition])
+-&gt; FromJSON LaunchDisposition
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LaunchDisposition]
+$cparseJSONList :: Value -&gt; Parser [LaunchDisposition]
+parseJSON :: Value -&gt; Parser LaunchDisposition
+$cparseJSON :: Value -&gt; Parser LaunchDisposition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679226554"><span id="local-6989586621679226556"><span class="annot"><span class="annottext">FromJSONKeyFunction [LaunchDisposition]
+FromJSONKeyFunction LaunchDisposition
+FromJSONKeyFunction LaunchDisposition
+-&gt; FromJSONKeyFunction [LaunchDisposition]
+-&gt; FromJSONKey LaunchDisposition
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LaunchDisposition]
+$cfromJSONKeyList :: FromJSONKeyFunction [LaunchDisposition]
+fromJSONKey :: FromJSONKeyFunction LaunchDisposition
+$cfromJSONKey :: FromJSONKeyFunction LaunchDisposition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679226545"><span id="local-6989586621679226547"><span id="local-6989586621679226549"><span id="local-6989586621679226551"><span class="annot"><span class="annottext">[LaunchDisposition] -&gt; Encoding
+[LaunchDisposition] -&gt; Value
+LaunchDisposition -&gt; Encoding
+LaunchDisposition -&gt; Value
+(LaunchDisposition -&gt; Value)
+-&gt; (LaunchDisposition -&gt; Encoding)
+-&gt; ([LaunchDisposition] -&gt; Value)
+-&gt; ([LaunchDisposition] -&gt; Encoding)
+-&gt; ToJSON LaunchDisposition
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LaunchDisposition] -&gt; Encoding
+$ctoEncodingList :: [LaunchDisposition] -&gt; Encoding
+toJSONList :: [LaunchDisposition] -&gt; Value
+$ctoJSONList :: [LaunchDisposition] -&gt; Value
+toEncoding :: LaunchDisposition -&gt; Encoding
+$ctoEncoding :: LaunchDisposition -&gt; Encoding
+toJSON :: LaunchDisposition -&gt; Value
+$ctoJSON :: LaunchDisposition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679226540"><span id="local-6989586621679226542"><span class="annot"><span class="annottext">ToJSONKeyFunction [LaunchDisposition]
+ToJSONKeyFunction LaunchDisposition
+ToJSONKeyFunction LaunchDisposition
+-&gt; ToJSONKeyFunction [LaunchDisposition]
+-&gt; ToJSONKey LaunchDisposition
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LaunchDisposition]
+$ctoJSONKeyList :: ToJSONKeyFunction [LaunchDisposition]
+toJSONKey :: ToJSONKeyFunction LaunchDisposition
+$ctoJSONKey :: ToJSONKeyFunction LaunchDisposition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679226537"><span class="annot"><span class="annottext">[Node] -&gt; Either String LaunchDisposition
+([Node] -&gt; Either String LaunchDisposition)
+-&gt; FromXML LaunchDisposition
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LaunchDisposition
+$cparseXML :: [Node] -&gt; Either String LaunchDisposition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679226534"><span class="annot"><span class="annottext">LaunchDisposition -&gt; XML
+(LaunchDisposition -&gt; XML) -&gt; ToXML LaunchDisposition
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LaunchDisposition -&gt; XML
+$ctoXML :: LaunchDisposition -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition_STARTED"><span class="hs-identifier hs-type">LaunchDisposition_STARTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition"><span class="hs-identifier hs-type">LaunchDisposition</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLaunchDisposition_STARTED"><span id="%24mLaunchDisposition_STARTED"><span id="LaunchDisposition_STARTED"><span class="annot"><span class="annottext">$bLaunchDisposition_STARTED :: LaunchDisposition
+$mLaunchDisposition_STARTED :: forall r. LaunchDisposition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.LaunchDisposition.html#%24bLaunchDisposition_STARTED"><span class="hs-identifier hs-var hs-var hs-var">LaunchDisposition_STARTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition%27"><span class="hs-identifier hs-type">LaunchDisposition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STARTED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition_STOPPED"><span class="hs-identifier hs-type">LaunchDisposition_STOPPED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition"><span class="hs-identifier hs-type">LaunchDisposition</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLaunchDisposition_STOPPED"><span id="%24mLaunchDisposition_STOPPED"><span id="LaunchDisposition_STOPPED"><span class="annot"><span class="annottext">$bLaunchDisposition_STOPPED :: LaunchDisposition
+$mLaunchDisposition_STOPPED :: forall r. LaunchDisposition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.LaunchDisposition.html#%24bLaunchDisposition_STOPPED"><span class="hs-identifier hs-var hs-var hs-var">LaunchDisposition_STOPPED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition%27"><span class="hs-identifier hs-type">LaunchDisposition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition_STARTED"><span class="hs-pragma hs-type">LaunchDisposition_STARTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition_STOPPED"><span class="hs-pragma hs-type">LaunchDisposition_STOPPED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.LaunchDisposition.html#LaunchDisposition%27"><span class="hs-pragma hs-type">LaunchDisposition'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Checks the current state of the Amazon EC2 instances. The output is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- similar to @describeDevice@, but the results are sourced from the device</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- cache in the Amazon Web Services Cloud and include a subset of the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- available fields.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier">DescribeDeviceEc2Instances</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#newDescribeDeviceEc2Instances"><span class="hs-identifier">newDescribeDeviceEc2Instances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2Instances_instanceIds"><span class="hs-identifier">describeDeviceEc2Instances_instanceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2Instances_managedDeviceId"><span class="hs-identifier">describeDeviceEc2Instances_managedDeviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse"><span class="hs-identifier">DescribeDeviceEc2InstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#newDescribeDeviceEc2InstancesResponse"><span class="hs-identifier">newDescribeDeviceEc2InstancesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2InstancesResponse_instances"><span class="hs-identifier">describeDeviceEc2InstancesResponse_instances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2InstancesResponse_httpStatus"><span class="hs-identifier">describeDeviceEc2InstancesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.html"><span class="hs-identifier">Amazonka.SnowDeviceManagement.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeDeviceEc2Instances' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679186546"><span id="local-6989586621679186547"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDeviceEc2Instances"><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-var">DescribeDeviceEc2Instances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDeviceEc2Instances%27"><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances%27"><span class="hs-identifier hs-var">DescribeDeviceEc2Instances'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of instance IDs associated with the managed device.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AinstanceIds%3ADescribeDeviceEc2Instances%27"><span class="annot"><span class="annottext">DescribeDeviceEc2Instances -&gt; [Text]
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3AinstanceIds%3ADescribeDeviceEc2Instances%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ID of the managed device.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmanagedDeviceId%3ADescribeDeviceEc2Instances%27"><span class="annot"><span class="annottext">DescribeDeviceEc2Instances -&gt; Text
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3AmanagedDeviceId%3ADescribeDeviceEc2Instances%27"><span class="hs-identifier hs-var hs-var">managedDeviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186539"><span id="local-6989586621679186541"><span class="annot"><span class="annottext">DescribeDeviceEc2Instances -&gt; DescribeDeviceEc2Instances -&gt; Bool
+(DescribeDeviceEc2Instances -&gt; DescribeDeviceEc2Instances -&gt; Bool)
+-&gt; (DescribeDeviceEc2Instances
+    -&gt; DescribeDeviceEc2Instances -&gt; Bool)
+-&gt; Eq DescribeDeviceEc2Instances
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDeviceEc2Instances -&gt; DescribeDeviceEc2Instances -&gt; Bool
+$c/= :: DescribeDeviceEc2Instances -&gt; DescribeDeviceEc2Instances -&gt; Bool
+== :: DescribeDeviceEc2Instances -&gt; DescribeDeviceEc2Instances -&gt; Bool
+$c== :: DescribeDeviceEc2Instances -&gt; DescribeDeviceEc2Instances -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186530"><span id="local-6989586621679186532"><span id="local-6989586621679186534"><span id="local-6989586621679186536"><span class="annot"><span class="annottext">ReadPrec [DescribeDeviceEc2Instances]
+ReadPrec DescribeDeviceEc2Instances
+Int -&gt; ReadS DescribeDeviceEc2Instances
+ReadS [DescribeDeviceEc2Instances]
+(Int -&gt; ReadS DescribeDeviceEc2Instances)
+-&gt; ReadS [DescribeDeviceEc2Instances]
+-&gt; ReadPrec DescribeDeviceEc2Instances
+-&gt; ReadPrec [DescribeDeviceEc2Instances]
+-&gt; Read DescribeDeviceEc2Instances
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDeviceEc2Instances]
+$creadListPrec :: ReadPrec [DescribeDeviceEc2Instances]
+readPrec :: ReadPrec DescribeDeviceEc2Instances
+$creadPrec :: ReadPrec DescribeDeviceEc2Instances
+readList :: ReadS [DescribeDeviceEc2Instances]
+$creadList :: ReadS [DescribeDeviceEc2Instances]
+readsPrec :: Int -&gt; ReadS DescribeDeviceEc2Instances
+$creadsPrec :: Int -&gt; ReadS DescribeDeviceEc2Instances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186523"><span id="local-6989586621679186525"><span id="local-6989586621679186527"><span class="annot"><span class="annottext">Int -&gt; DescribeDeviceEc2Instances -&gt; ShowS
+[DescribeDeviceEc2Instances] -&gt; ShowS
+DescribeDeviceEc2Instances -&gt; String
+(Int -&gt; DescribeDeviceEc2Instances -&gt; ShowS)
+-&gt; (DescribeDeviceEc2Instances -&gt; String)
+-&gt; ([DescribeDeviceEc2Instances] -&gt; ShowS)
+-&gt; Show DescribeDeviceEc2Instances
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDeviceEc2Instances] -&gt; ShowS
+$cshowList :: [DescribeDeviceEc2Instances] -&gt; ShowS
+show :: DescribeDeviceEc2Instances -&gt; String
+$cshow :: DescribeDeviceEc2Instances -&gt; String
+showsPrec :: Int -&gt; DescribeDeviceEc2Instances -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDeviceEc2Instances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDeviceEc2Instances -&gt; Rep DescribeDeviceEc2Instances x)
+-&gt; (forall x.
+    Rep DescribeDeviceEc2Instances x -&gt; DescribeDeviceEc2Instances)
+-&gt; Generic DescribeDeviceEc2Instances
+forall x.
+Rep DescribeDeviceEc2Instances x -&gt; DescribeDeviceEc2Instances
+forall x.
+DescribeDeviceEc2Instances -&gt; Rep DescribeDeviceEc2Instances x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDeviceEc2Instances x -&gt; DescribeDeviceEc2Instances
+$cfrom :: forall x.
+DescribeDeviceEc2Instances -&gt; Rep DescribeDeviceEc2Instances x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DescribeDeviceEc2Instances' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'instanceIds', 'describeDeviceEc2Instances_instanceIds' - A list of instance IDs associated with the managed device.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'managedDeviceId', 'describeDeviceEc2Instances_managedDeviceId' - The ID of the managed device.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#newDescribeDeviceEc2Instances"><span class="hs-identifier hs-type">newDescribeDeviceEc2Instances</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'managedDeviceId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span>
+</span><span id="line-77"></span><span id="newDescribeDeviceEc2Instances"><span class="annot"><span class="annottext">newDescribeDeviceEc2Instances :: Text -&gt; DescribeDeviceEc2Instances
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#newDescribeDeviceEc2Instances"><span class="hs-identifier hs-var hs-var">newDescribeDeviceEc2Instances</span></a></span></span><span> </span><span id="local-6989586621679186518"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186518"><span class="hs-identifier hs-var">pManagedDeviceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeDeviceEc2Instances' :: [Text] -&gt; Text -&gt; DescribeDeviceEc2Instances
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances%27"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeDeviceEc2Instances' :: [Text]
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3AinstanceIds%3ADescribeDeviceEc2Instances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:managedDeviceId:DescribeDeviceEc2Instances' :: Text
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3AmanagedDeviceId%3ADescribeDeviceEc2Instances%27"><span class="hs-identifier hs-var">managedDeviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186518"><span class="hs-identifier hs-var">pManagedDeviceId_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | A list of instance IDs associated with the managed device.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2Instances_instanceIds"><span class="hs-identifier hs-type">describeDeviceEc2Instances_instanceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span id="describeDeviceEc2Instances_instanceIds"><span class="annot"><span class="annottext">describeDeviceEc2Instances_instanceIds :: ([Text] -&gt; f [Text])
+-&gt; DescribeDeviceEc2Instances -&gt; f DescribeDeviceEc2Instances
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2Instances_instanceIds"><span class="hs-identifier hs-var hs-var">describeDeviceEc2Instances_instanceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDeviceEc2Instances -&gt; [Text])
+-&gt; (DescribeDeviceEc2Instances
+    -&gt; [Text] -&gt; DescribeDeviceEc2Instances)
+-&gt; Lens
+     DescribeDeviceEc2Instances DescribeDeviceEc2Instances [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances%27"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186515"><span class="annot"><span class="annottext">[Text]
+instanceIds :: [Text]
+$sel:instanceIds:DescribeDeviceEc2Instances' :: DescribeDeviceEc2Instances -&gt; [Text]
+</span><a href="#local-6989586621679186515"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679186515"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186514"><span class="annot"><span class="annottext">s :: DescribeDeviceEc2Instances
+</span><a href="#local-6989586621679186514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances%27"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186513"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679186513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDeviceEc2Instances
+</span><a href="#local-6989586621679186514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeDeviceEc2Instances' :: [Text]
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3AinstanceIds%3ADescribeDeviceEc2Instances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679186513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DescribeDeviceEc2Instances -&gt; f DescribeDeviceEc2Instances)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DescribeDeviceEc2Instances
+-&gt; f DescribeDeviceEc2Instances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the managed device.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2Instances_managedDeviceId"><span class="hs-identifier hs-type">describeDeviceEc2Instances_managedDeviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="describeDeviceEc2Instances_managedDeviceId"><span class="annot"><span class="annottext">describeDeviceEc2Instances_managedDeviceId :: (Text -&gt; f Text)
+-&gt; DescribeDeviceEc2Instances -&gt; f DescribeDeviceEc2Instances
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2Instances_managedDeviceId"><span class="hs-identifier hs-var hs-var">describeDeviceEc2Instances_managedDeviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDeviceEc2Instances -&gt; Text)
+-&gt; (DescribeDeviceEc2Instances
+    -&gt; Text -&gt; DescribeDeviceEc2Instances)
+-&gt; Lens
+     DescribeDeviceEc2Instances DescribeDeviceEc2Instances Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances%27"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186510"><span class="annot"><span class="annottext">Text
+managedDeviceId :: Text
+$sel:managedDeviceId:DescribeDeviceEc2Instances' :: DescribeDeviceEc2Instances -&gt; Text
+</span><a href="#local-6989586621679186510"><span class="hs-identifier hs-var hs-var">managedDeviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186510"><span class="hs-identifier hs-var">managedDeviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186509"><span class="annot"><span class="annottext">s :: DescribeDeviceEc2Instances
+</span><a href="#local-6989586621679186509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances%27"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186508"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDeviceEc2Instances
+</span><a href="#local-6989586621679186509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedDeviceId:DescribeDeviceEc2Instances' :: Text
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3AmanagedDeviceId%3ADescribeDeviceEc2Instances%27"><span class="hs-identifier hs-var">managedDeviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679186504"><span class="annot"><span class="annottext">request :: DescribeDeviceEc2Instances -&gt; Request DescribeDeviceEc2Instances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeDeviceEc2Instances -&gt; Request DescribeDeviceEc2Instances
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SnowDeviceManagement.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679186500"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeDeviceEc2Instances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDeviceEc2Instances)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeDeviceEc2Instances))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeDeviceEc2Instances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDeviceEc2Instances)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186497"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186497"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186496"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679186496"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186495"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186495"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstanceSummary]
+-&gt; Int -&gt; DescribeDeviceEc2InstancesResponse
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-var">DescribeDeviceEc2InstancesResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InstanceSummary]
+ -&gt; Int -&gt; DescribeDeviceEc2InstancesResponse)
+-&gt; Either String (Maybe [InstanceSummary])
+-&gt; Either String (Int -&gt; DescribeDeviceEc2InstancesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InstanceSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InstanceSummary]))
+-&gt; Maybe [InstanceSummary]
+-&gt; Either String (Maybe [InstanceSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDeviceEc2InstancesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeDeviceEc2InstancesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186497"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186486"><span id="local-6989586621679186488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679186479"><span class="annot"><span class="annottext">toHeaders :: DescribeDeviceEc2Instances -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDeviceEc2Instances -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186469"><span id="local-6989586621679186471"><span id="local-6989586621679186473"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679186467"><span class="annot"><span class="annottext">toJSON :: DescribeDeviceEc2Instances -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances%27"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186464"><span id="local-6989586621679186465"><span class="annot"><span class="annottext">[Text]
+Text
+managedDeviceId :: Text
+instanceIds :: [Text]
+$sel:managedDeviceId:DescribeDeviceEc2Instances' :: DescribeDeviceEc2Instances -&gt; Text
+$sel:instanceIds:DescribeDeviceEc2Instances' :: DescribeDeviceEc2Instances -&gt; [Text]
+</span><a href="#local-6989586621679186464"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679186465"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679186458"><span class="annot"><span class="annottext">toPath :: DescribeDeviceEc2Instances -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances%27"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186455"><span id="local-6989586621679186456"><span class="annot"><span class="annottext">[Text]
+Text
+managedDeviceId :: Text
+instanceIds :: [Text]
+$sel:managedDeviceId:DescribeDeviceEc2Instances' :: DescribeDeviceEc2Instances -&gt; Text
+$sel:instanceIds:DescribeDeviceEc2Instances' :: DescribeDeviceEc2Instances -&gt; [Text]
+</span><a href="#local-6989586621679186455"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/managed-device/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186455"><span class="hs-identifier hs-var">managedDeviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/resources/ec2/describe&quot;</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2Instances"><span class="hs-identifier hs-type">DescribeDeviceEc2Instances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679186451"><span class="annot"><span class="annottext">toQuery :: DescribeDeviceEc2Instances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDeviceEc2Instances -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newDescribeDeviceEc2InstancesResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679186448"><span id="local-6989586621679186449"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDeviceEc2InstancesResponse"><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-var">DescribeDeviceEc2InstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDeviceEc2InstancesResponse%27"><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-var">DescribeDeviceEc2InstancesResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of structures containing information about each instance.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3Ainstances%3ADescribeDeviceEc2InstancesResponse%27"><span class="annot"><span class="annottext">DescribeDeviceEc2InstancesResponse -&gt; Maybe [InstanceSummary]
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3Ainstances%3ADescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.InstanceSummary.html#InstanceSummary"><span class="hs-identifier hs-type">InstanceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDeviceEc2InstancesResponse%27"><span class="annot"><span class="annottext">DescribeDeviceEc2InstancesResponse -&gt; Int
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3AhttpStatus%3ADescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186442"><span id="local-6989586621679186444"><span class="annot"><span class="annottext">DescribeDeviceEc2InstancesResponse
+-&gt; DescribeDeviceEc2InstancesResponse -&gt; Bool
+(DescribeDeviceEc2InstancesResponse
+ -&gt; DescribeDeviceEc2InstancesResponse -&gt; Bool)
+-&gt; (DescribeDeviceEc2InstancesResponse
+    -&gt; DescribeDeviceEc2InstancesResponse -&gt; Bool)
+-&gt; Eq DescribeDeviceEc2InstancesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDeviceEc2InstancesResponse
+-&gt; DescribeDeviceEc2InstancesResponse -&gt; Bool
+$c/= :: DescribeDeviceEc2InstancesResponse
+-&gt; DescribeDeviceEc2InstancesResponse -&gt; Bool
+== :: DescribeDeviceEc2InstancesResponse
+-&gt; DescribeDeviceEc2InstancesResponse -&gt; Bool
+$c== :: DescribeDeviceEc2InstancesResponse
+-&gt; DescribeDeviceEc2InstancesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186434"><span id="local-6989586621679186436"><span id="local-6989586621679186438"><span id="local-6989586621679186440"><span class="annot"><span class="annottext">ReadPrec [DescribeDeviceEc2InstancesResponse]
+ReadPrec DescribeDeviceEc2InstancesResponse
+Int -&gt; ReadS DescribeDeviceEc2InstancesResponse
+ReadS [DescribeDeviceEc2InstancesResponse]
+(Int -&gt; ReadS DescribeDeviceEc2InstancesResponse)
+-&gt; ReadS [DescribeDeviceEc2InstancesResponse]
+-&gt; ReadPrec DescribeDeviceEc2InstancesResponse
+-&gt; ReadPrec [DescribeDeviceEc2InstancesResponse]
+-&gt; Read DescribeDeviceEc2InstancesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDeviceEc2InstancesResponse]
+$creadListPrec :: ReadPrec [DescribeDeviceEc2InstancesResponse]
+readPrec :: ReadPrec DescribeDeviceEc2InstancesResponse
+$creadPrec :: ReadPrec DescribeDeviceEc2InstancesResponse
+readList :: ReadS [DescribeDeviceEc2InstancesResponse]
+$creadList :: ReadS [DescribeDeviceEc2InstancesResponse]
+readsPrec :: Int -&gt; ReadS DescribeDeviceEc2InstancesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeDeviceEc2InstancesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186428"><span id="local-6989586621679186430"><span id="local-6989586621679186432"><span class="annot"><span class="annottext">Int -&gt; DescribeDeviceEc2InstancesResponse -&gt; ShowS
+[DescribeDeviceEc2InstancesResponse] -&gt; ShowS
+DescribeDeviceEc2InstancesResponse -&gt; String
+(Int -&gt; DescribeDeviceEc2InstancesResponse -&gt; ShowS)
+-&gt; (DescribeDeviceEc2InstancesResponse -&gt; String)
+-&gt; ([DescribeDeviceEc2InstancesResponse] -&gt; ShowS)
+-&gt; Show DescribeDeviceEc2InstancesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDeviceEc2InstancesResponse] -&gt; ShowS
+$cshowList :: [DescribeDeviceEc2InstancesResponse] -&gt; ShowS
+show :: DescribeDeviceEc2InstancesResponse -&gt; String
+$cshow :: DescribeDeviceEc2InstancesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeDeviceEc2InstancesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDeviceEc2InstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDeviceEc2InstancesResponse
+ -&gt; Rep DescribeDeviceEc2InstancesResponse x)
+-&gt; (forall x.
+    Rep DescribeDeviceEc2InstancesResponse x
+    -&gt; DescribeDeviceEc2InstancesResponse)
+-&gt; Generic DescribeDeviceEc2InstancesResponse
+forall x.
+Rep DescribeDeviceEc2InstancesResponse x
+-&gt; DescribeDeviceEc2InstancesResponse
+forall x.
+DescribeDeviceEc2InstancesResponse
+-&gt; Rep DescribeDeviceEc2InstancesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDeviceEc2InstancesResponse x
+-&gt; DescribeDeviceEc2InstancesResponse
+$cfrom :: forall x.
+DescribeDeviceEc2InstancesResponse
+-&gt; Rep DescribeDeviceEc2InstancesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Create a value of 'DescribeDeviceEc2InstancesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'instances', 'describeDeviceEc2InstancesResponse_instances' - A list of structures containing information about each instance.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'describeDeviceEc2InstancesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#newDescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-type">newDescribeDeviceEc2InstancesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newDescribeDeviceEc2InstancesResponse"><span class="annot"><span class="annottext">newDescribeDeviceEc2InstancesResponse :: Int -&gt; DescribeDeviceEc2InstancesResponse
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#newDescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-var hs-var">newDescribeDeviceEc2InstancesResponse</span></a></span></span><span> </span><span id="local-6989586621679186425"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186425"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">DescribeDeviceEc2InstancesResponse' :: Maybe [InstanceSummary]
+-&gt; Int -&gt; DescribeDeviceEc2InstancesResponse
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instances:DescribeDeviceEc2InstancesResponse' :: Maybe [InstanceSummary]
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3Ainstances%3ADescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe [InstanceSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDeviceEc2InstancesResponse' :: Int
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3AhttpStatus%3ADescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186425"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | A list of structures containing information about each instance.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2InstancesResponse_instances"><span class="hs-identifier hs-type">describeDeviceEc2InstancesResponse_instances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.Types.InstanceSummary.html#InstanceSummary"><span class="hs-identifier hs-type">InstanceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="describeDeviceEc2InstancesResponse_instances"><span class="annot"><span class="annottext">describeDeviceEc2InstancesResponse_instances :: (Maybe [InstanceSummary] -&gt; f (Maybe [InstanceSummary]))
+-&gt; DescribeDeviceEc2InstancesResponse
+-&gt; f DescribeDeviceEc2InstancesResponse
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2InstancesResponse_instances"><span class="hs-identifier hs-var hs-var">describeDeviceEc2InstancesResponse_instances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDeviceEc2InstancesResponse -&gt; Maybe [InstanceSummary])
+-&gt; (DescribeDeviceEc2InstancesResponse
+    -&gt; Maybe [InstanceSummary] -&gt; DescribeDeviceEc2InstancesResponse)
+-&gt; Lens
+     DescribeDeviceEc2InstancesResponse
+     DescribeDeviceEc2InstancesResponse
+     (Maybe [InstanceSummary])
+     (Maybe [InstanceSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186424"><span class="annot"><span class="annottext">Maybe [InstanceSummary]
+instances :: Maybe [InstanceSummary]
+$sel:instances:DescribeDeviceEc2InstancesResponse' :: DescribeDeviceEc2InstancesResponse -&gt; Maybe [InstanceSummary]
+</span><a href="#local-6989586621679186424"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceSummary]
+</span><a href="#local-6989586621679186424"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186423"><span class="annot"><span class="annottext">s :: DescribeDeviceEc2InstancesResponse
+</span><a href="#local-6989586621679186423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186422"><span class="annot"><span class="annottext">Maybe [InstanceSummary]
+</span><a href="#local-6989586621679186422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDeviceEc2InstancesResponse
+</span><a href="#local-6989586621679186423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:DescribeDeviceEc2InstancesResponse' :: Maybe [InstanceSummary]
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3Ainstances%3ADescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceSummary]
+</span><a href="#local-6989586621679186422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceSummary] -&gt; f (Maybe [InstanceSummary]))
+ -&gt; DescribeDeviceEc2InstancesResponse
+ -&gt; f DescribeDeviceEc2InstancesResponse)
+-&gt; ((Maybe [InstanceSummary] -&gt; f (Maybe [InstanceSummary]))
+    -&gt; Maybe [InstanceSummary] -&gt; f (Maybe [InstanceSummary]))
+-&gt; (Maybe [InstanceSummary] -&gt; f (Maybe [InstanceSummary]))
+-&gt; DescribeDeviceEc2InstancesResponse
+-&gt; f DescribeDeviceEc2InstancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceSummary]
+  [InstanceSummary]
+  [InstanceSummary]
+  [InstanceSummary]
+-&gt; Iso
+     (Maybe [InstanceSummary])
+     (Maybe [InstanceSummary])
+     (Maybe [InstanceSummary])
+     (Maybe [InstanceSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceSummary]
+  [InstanceSummary]
+  [InstanceSummary]
+  [InstanceSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2InstancesResponse_httpStatus"><span class="hs-identifier hs-type">describeDeviceEc2InstancesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span id="describeDeviceEc2InstancesResponse_httpStatus"><span class="annot"><span class="annottext">describeDeviceEc2InstancesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeDeviceEc2InstancesResponse
+-&gt; f DescribeDeviceEc2InstancesResponse
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#describeDeviceEc2InstancesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeDeviceEc2InstancesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDeviceEc2InstancesResponse -&gt; Int)
+-&gt; (DescribeDeviceEc2InstancesResponse
+    -&gt; Int -&gt; DescribeDeviceEc2InstancesResponse)
+-&gt; Lens
+     DescribeDeviceEc2InstancesResponse
+     DescribeDeviceEc2InstancesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186420"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeDeviceEc2InstancesResponse' :: DescribeDeviceEc2InstancesResponse -&gt; Int
+</span><a href="#local-6989586621679186420"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186420"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186419"><span class="annot"><span class="annottext">s :: DescribeDeviceEc2InstancesResponse
+</span><a href="#local-6989586621679186419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186418"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDeviceEc2InstancesResponse
+</span><a href="#local-6989586621679186419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDeviceEc2InstancesResponse' :: Int
+</span><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#%24sel%3AhttpStatus%3ADescribeDeviceEc2InstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679186416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.html#DescribeDeviceEc2InstancesResponse"><span class="hs-identifier hs-type">DescribeDeviceEc2InstancesResponse</span></a></span></span><span>
+</span><span id="line-180"></span></pre></body></html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchLogs.TagLogGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds or updates the specified tags for the specified log group.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- To list the tags for a log group, use</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html ListTagsLogGroup&gt;.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- To remove tags, use</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html UntagLogGroup&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For more information about tags, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging Tag Log Groups in Amazon CloudWatch Logs&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon CloudWatch Logs User Guide/.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- CloudWatch Logs doesn&#8217;t support IAM policies that prevent users from</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- assigning specified tags to log groups using the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @aws:Resource\/key-name @ or @aws:TagKeys@ condition keys. For more</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- information about using tags to control access, see</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags&gt;.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchLogs.TagLogGroup</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier">TagLogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#newTagLogGroup"><span class="hs-identifier">newTagLogGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#tagLogGroup_logGroupName"><span class="hs-identifier">tagLogGroup_logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#tagLogGroup_tags"><span class="hs-identifier">tagLogGroup_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroupResponse"><span class="hs-identifier">TagLogGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#newTagLogGroupResponse"><span class="hs-identifier">newTagLogGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.html"><span class="hs-identifier">Amazonka.CloudWatchLogs.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newTagLogGroup' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679224030"><span id="local-6989586621679224031"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagLogGroup"><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-var">TagLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagLogGroup%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup%27"><span class="hs-identifier hs-var">TagLogGroup'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AlogGroupName%3ATagLogGroup%27"><span class="annot"><span class="annottext">TagLogGroup -&gt; Text
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#%24sel%3AlogGroupName%3ATagLogGroup%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The key-value pairs to use for the tags.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Atags%3ATagLogGroup%27"><span class="annot"><span class="annottext">TagLogGroup -&gt; HashMap Text Text
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#%24sel%3Atags%3ATagLogGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224023"><span id="local-6989586621679224025"><span class="annot"><span class="annottext">TagLogGroup -&gt; TagLogGroup -&gt; Bool
+(TagLogGroup -&gt; TagLogGroup -&gt; Bool)
+-&gt; (TagLogGroup -&gt; TagLogGroup -&gt; Bool) -&gt; Eq TagLogGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagLogGroup -&gt; TagLogGroup -&gt; Bool
+$c/= :: TagLogGroup -&gt; TagLogGroup -&gt; Bool
+== :: TagLogGroup -&gt; TagLogGroup -&gt; Bool
+$c== :: TagLogGroup -&gt; TagLogGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224014"><span id="local-6989586621679224016"><span id="local-6989586621679224018"><span id="local-6989586621679224020"><span class="annot"><span class="annottext">ReadPrec [TagLogGroup]
+ReadPrec TagLogGroup
+Int -&gt; ReadS TagLogGroup
+ReadS [TagLogGroup]
+(Int -&gt; ReadS TagLogGroup)
+-&gt; ReadS [TagLogGroup]
+-&gt; ReadPrec TagLogGroup
+-&gt; ReadPrec [TagLogGroup]
+-&gt; Read TagLogGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagLogGroup]
+$creadListPrec :: ReadPrec [TagLogGroup]
+readPrec :: ReadPrec TagLogGroup
+$creadPrec :: ReadPrec TagLogGroup
+readList :: ReadS [TagLogGroup]
+$creadList :: ReadS [TagLogGroup]
+readsPrec :: Int -&gt; ReadS TagLogGroup
+$creadsPrec :: Int -&gt; ReadS TagLogGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224007"><span id="local-6989586621679224009"><span id="local-6989586621679224011"><span class="annot"><span class="annottext">Int -&gt; TagLogGroup -&gt; ShowS
+[TagLogGroup] -&gt; ShowS
+TagLogGroup -&gt; String
+(Int -&gt; TagLogGroup -&gt; ShowS)
+-&gt; (TagLogGroup -&gt; String)
+-&gt; ([TagLogGroup] -&gt; ShowS)
+-&gt; Show TagLogGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagLogGroup] -&gt; ShowS
+$cshowList :: [TagLogGroup] -&gt; ShowS
+show :: TagLogGroup -&gt; String
+$cshow :: TagLogGroup -&gt; String
+showsPrec :: Int -&gt; TagLogGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagLogGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TagLogGroup -&gt; Rep TagLogGroup x)
+-&gt; (forall x. Rep TagLogGroup x -&gt; TagLogGroup)
+-&gt; Generic TagLogGroup
+forall x. Rep TagLogGroup x -&gt; TagLogGroup
+forall x. TagLogGroup -&gt; Rep TagLogGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TagLogGroup x -&gt; TagLogGroup
+$cfrom :: forall x. TagLogGroup -&gt; Rep TagLogGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'TagLogGroup' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'logGroupName', 'tagLogGroup_logGroupName' - The name of the log group.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'tags', 'tagLogGroup_tags' - The key-value pairs to use for the tags.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#newTagLogGroup"><span class="hs-identifier hs-type">newTagLogGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'logGroupName'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span>
+</span><span id="line-85"></span><span id="newTagLogGroup"><span class="annot"><span class="annottext">newTagLogGroup :: Text -&gt; TagLogGroup
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#newTagLogGroup"><span class="hs-identifier hs-var hs-var">newTagLogGroup</span></a></span></span><span> </span><span id="local-6989586621679224002"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224002"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">TagLogGroup' :: Text -&gt; HashMap Text Text -&gt; TagLogGroup
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup%27"><span class="hs-identifier hs-type">TagLogGroup'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logGroupName:TagLogGroup' :: Text
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#%24sel%3AlogGroupName%3ATagLogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224002"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagLogGroup' :: HashMap Text Text
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#%24sel%3Atags%3ATagLogGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#tagLogGroup_logGroupName"><span class="hs-identifier hs-type">tagLogGroup_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="tagLogGroup_logGroupName"><span class="annot"><span class="annottext">tagLogGroup_logGroupName :: (Text -&gt; f Text) -&gt; TagLogGroup -&gt; f TagLogGroup
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#tagLogGroup_logGroupName"><span class="hs-identifier hs-var hs-var">tagLogGroup_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagLogGroup -&gt; Text)
+-&gt; (TagLogGroup -&gt; Text -&gt; TagLogGroup)
+-&gt; Lens TagLogGroup TagLogGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup%27"><span class="hs-identifier hs-type">TagLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223999"><span class="annot"><span class="annottext">Text
+logGroupName :: Text
+$sel:logGroupName:TagLogGroup' :: TagLogGroup -&gt; Text
+</span><a href="#local-6989586621679223999"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223999"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223998"><span class="annot"><span class="annottext">s :: TagLogGroup
+</span><a href="#local-6989586621679223998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup%27"><span class="hs-identifier hs-type">TagLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagLogGroup
+</span><a href="#local-6989586621679223998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:TagLogGroup' :: Text
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#%24sel%3AlogGroupName%3ATagLogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The key-value pairs to use for the tags.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#tagLogGroup_tags"><span class="hs-identifier hs-type">tagLogGroup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="tagLogGroup_tags"><span class="annot"><span class="annottext">tagLogGroup_tags :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; TagLogGroup -&gt; f TagLogGroup
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#tagLogGroup_tags"><span class="hs-identifier hs-var hs-var">tagLogGroup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagLogGroup -&gt; HashMap Text Text)
+-&gt; (TagLogGroup -&gt; HashMap Text Text -&gt; TagLogGroup)
+-&gt; Lens
+     TagLogGroup TagLogGroup (HashMap Text Text) (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup%27"><span class="hs-identifier hs-type">TagLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223996"><span class="annot"><span class="annottext">HashMap Text Text
+tags :: HashMap Text Text
+$sel:tags:TagLogGroup' :: TagLogGroup -&gt; HashMap Text Text
+</span><a href="#local-6989586621679223996"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679223996"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223995"><span class="annot"><span class="annottext">s :: TagLogGroup
+</span><a href="#local-6989586621679223995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup%27"><span class="hs-identifier hs-type">TagLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223994"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679223994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagLogGroup
+</span><a href="#local-6989586621679223995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagLogGroup' :: HashMap Text Text
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#%24sel%3Atags%3ATagLogGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679223994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; TagLogGroup -&gt; f TagLogGroup)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; TagLogGroup
+-&gt; f TagLogGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroupResponse"><span class="hs-identifier hs-type">TagLogGroupResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679223988"><span class="annot"><span class="annottext">request :: TagLogGroup -&gt; Request TagLogGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagLogGroup -&gt; Request TagLogGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679223984"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy TagLogGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse TagLogGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse TagLogGroup
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy TagLogGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse TagLogGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse TagLogGroup
+TagLogGroupResponse
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroupResponse%27"><span class="hs-identifier hs-var">TagLogGroupResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223977"><span id="local-6989586621679223979"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679223970"><span class="annot"><span class="annottext">toHeaders :: TagLogGroup -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; TagLogGroup -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Logs_20140328.TagLogGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223960"><span id="local-6989586621679223962"><span id="local-6989586621679223964"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679223958"><span class="annot"><span class="annottext">toJSON :: TagLogGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup%27"><span class="hs-identifier hs-type">TagLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223955"><span id="local-6989586621679223956"><span class="annot"><span class="annottext">Text
+HashMap Text Text
+tags :: HashMap Text Text
+logGroupName :: Text
+$sel:tags:TagLogGroup' :: TagLogGroup -&gt; HashMap Text Text
+$sel:logGroupName:TagLogGroup' :: TagLogGroup -&gt; Text
+</span><a href="#local-6989586621679223955"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223956"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679223955"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679223949"><span class="annot"><span class="annottext">toPath :: TagLogGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagLogGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroup"><span class="hs-identifier hs-type">TagLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679223945"><span class="annot"><span class="annottext">toQuery :: TagLogGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TagLogGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newTagLogGroupResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679223942"><span id="local-6989586621679223943"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagLogGroupResponse"><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroupResponse"><span class="hs-identifier hs-var">TagLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagLogGroupResponse%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroupResponse%27"><span class="hs-identifier hs-var">TagLogGroupResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223938"><span id="local-6989586621679223940"><span class="annot"><span class="annottext">TagLogGroupResponse -&gt; TagLogGroupResponse -&gt; Bool
+(TagLogGroupResponse -&gt; TagLogGroupResponse -&gt; Bool)
+-&gt; (TagLogGroupResponse -&gt; TagLogGroupResponse -&gt; Bool)
+-&gt; Eq TagLogGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagLogGroupResponse -&gt; TagLogGroupResponse -&gt; Bool
+$c/= :: TagLogGroupResponse -&gt; TagLogGroupResponse -&gt; Bool
+== :: TagLogGroupResponse -&gt; TagLogGroupResponse -&gt; Bool
+$c== :: TagLogGroupResponse -&gt; TagLogGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223930"><span id="local-6989586621679223932"><span id="local-6989586621679223934"><span id="local-6989586621679223936"><span class="annot"><span class="annottext">ReadPrec [TagLogGroupResponse]
+ReadPrec TagLogGroupResponse
+Int -&gt; ReadS TagLogGroupResponse
+ReadS [TagLogGroupResponse]
+(Int -&gt; ReadS TagLogGroupResponse)
+-&gt; ReadS [TagLogGroupResponse]
+-&gt; ReadPrec TagLogGroupResponse
+-&gt; ReadPrec [TagLogGroupResponse]
+-&gt; Read TagLogGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagLogGroupResponse]
+$creadListPrec :: ReadPrec [TagLogGroupResponse]
+readPrec :: ReadPrec TagLogGroupResponse
+$creadPrec :: ReadPrec TagLogGroupResponse
+readList :: ReadS [TagLogGroupResponse]
+$creadList :: ReadS [TagLogGroupResponse]
+readsPrec :: Int -&gt; ReadS TagLogGroupResponse
+$creadsPrec :: Int -&gt; ReadS TagLogGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223924"><span id="local-6989586621679223926"><span id="local-6989586621679223928"><span class="annot"><span class="annottext">Int -&gt; TagLogGroupResponse -&gt; ShowS
+[TagLogGroupResponse] -&gt; ShowS
+TagLogGroupResponse -&gt; String
+(Int -&gt; TagLogGroupResponse -&gt; ShowS)
+-&gt; (TagLogGroupResponse -&gt; String)
+-&gt; ([TagLogGroupResponse] -&gt; ShowS)
+-&gt; Show TagLogGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagLogGroupResponse] -&gt; ShowS
+$cshowList :: [TagLogGroupResponse] -&gt; ShowS
+show :: TagLogGroupResponse -&gt; String
+$cshow :: TagLogGroupResponse -&gt; String
+showsPrec :: Int -&gt; TagLogGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagLogGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TagLogGroupResponse -&gt; Rep TagLogGroupResponse x)
+-&gt; (forall x. Rep TagLogGroupResponse x -&gt; TagLogGroupResponse)
+-&gt; Generic TagLogGroupResponse
+forall x. Rep TagLogGroupResponse x -&gt; TagLogGroupResponse
+forall x. TagLogGroupResponse -&gt; Rep TagLogGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TagLogGroupResponse x -&gt; TagLogGroupResponse
+$cfrom :: forall x. TagLogGroupResponse -&gt; Rep TagLogGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'TagLogGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#newTagLogGroupResponse"><span class="hs-identifier hs-type">newTagLogGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroupResponse"><span class="hs-identifier hs-type">TagLogGroupResponse</span></a></span><span>
+</span><span id="line-148"></span><span id="newTagLogGroupResponse"><span class="annot"><span class="annottext">newTagLogGroupResponse :: TagLogGroupResponse
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#newTagLogGroupResponse"><span class="hs-identifier hs-var hs-var">newTagLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TagLogGroupResponse
+</span><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroupResponse%27"><span class="hs-identifier hs-var">TagLogGroupResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.TagLogGroup.html#TagLogGroupResponse"><span class="hs-identifier hs-type">TagLogGroupResponse</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

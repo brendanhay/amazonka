@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.ModifyDBProxyTargetGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the properties of a @DBProxyTargetGroup@.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.ModifyDBProxyTargetGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#newModifyDBProxyTargetGroup"><span class="hs-identifier">newModifyDBProxyTargetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_connectionPoolConfig"><span class="hs-identifier">modifyDBProxyTargetGroup_connectionPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_newName"><span class="hs-identifier">modifyDBProxyTargetGroup_newName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_targetGroupName"><span class="hs-identifier">modifyDBProxyTargetGroup_targetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_dbProxyName"><span class="hs-identifier">modifyDBProxyTargetGroup_dbProxyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse"><span class="hs-identifier">ModifyDBProxyTargetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#newModifyDBProxyTargetGroupResponse"><span class="hs-identifier">newModifyDBProxyTargetGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroupResponse_dbProxyTargetGroup"><span class="hs-identifier">modifyDBProxyTargetGroupResponse_dbProxyTargetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroupResponse_httpStatus"><span class="hs-identifier">modifyDBProxyTargetGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newModifyDBProxyTargetGroup' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679781820"><span id="local-6989586621679781821"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBProxyTargetGroup"><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-var">ModifyDBProxyTargetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBProxyTargetGroup%27"><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var">ModifyDBProxyTargetGroup'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The settings that determine the size and behavior of the connection pool</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- for the target group.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AconnectionPoolConfig%3AModifyDBProxyTargetGroup%27"><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup -&gt; Maybe ConnectionPoolConfiguration
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AconnectionPoolConfig%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var hs-var">connectionPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ConnectionPoolConfiguration.html#ConnectionPoolConfiguration"><span class="hs-identifier hs-type">ConnectionPoolConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The new name for the modified @DBProxyTarget@. An identifier must begin</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- with a letter and must contain only ASCII letters, digits, and hyphens;</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- it can\'t end with a hyphen or contain two consecutive hyphens.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnewName%27%3AModifyDBProxyTargetGroup%27"><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup -&gt; Maybe Text
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AnewName%27%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var hs-var">newName'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the new target group to assign to the proxy.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AtargetGroupName%3AModifyDBProxyTargetGroup%27"><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup -&gt; Text
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AtargetGroupName%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var hs-var">targetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the new proxy to which to assign the target group.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdbProxyName%3AModifyDBProxyTargetGroup%27"><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup -&gt; Text
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AdbProxyName%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781811"><span id="local-6989586621679781813"><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup -&gt; ModifyDBProxyTargetGroup -&gt; Bool
+(ModifyDBProxyTargetGroup -&gt; ModifyDBProxyTargetGroup -&gt; Bool)
+-&gt; (ModifyDBProxyTargetGroup -&gt; ModifyDBProxyTargetGroup -&gt; Bool)
+-&gt; Eq ModifyDBProxyTargetGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyDBProxyTargetGroup -&gt; ModifyDBProxyTargetGroup -&gt; Bool
+$c/= :: ModifyDBProxyTargetGroup -&gt; ModifyDBProxyTargetGroup -&gt; Bool
+== :: ModifyDBProxyTargetGroup -&gt; ModifyDBProxyTargetGroup -&gt; Bool
+$c== :: ModifyDBProxyTargetGroup -&gt; ModifyDBProxyTargetGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781802"><span id="local-6989586621679781804"><span id="local-6989586621679781806"><span id="local-6989586621679781808"><span class="annot"><span class="annottext">ReadPrec [ModifyDBProxyTargetGroup]
+ReadPrec ModifyDBProxyTargetGroup
+Int -&gt; ReadS ModifyDBProxyTargetGroup
+ReadS [ModifyDBProxyTargetGroup]
+(Int -&gt; ReadS ModifyDBProxyTargetGroup)
+-&gt; ReadS [ModifyDBProxyTargetGroup]
+-&gt; ReadPrec ModifyDBProxyTargetGroup
+-&gt; ReadPrec [ModifyDBProxyTargetGroup]
+-&gt; Read ModifyDBProxyTargetGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyDBProxyTargetGroup]
+$creadListPrec :: ReadPrec [ModifyDBProxyTargetGroup]
+readPrec :: ReadPrec ModifyDBProxyTargetGroup
+$creadPrec :: ReadPrec ModifyDBProxyTargetGroup
+readList :: ReadS [ModifyDBProxyTargetGroup]
+$creadList :: ReadS [ModifyDBProxyTargetGroup]
+readsPrec :: Int -&gt; ReadS ModifyDBProxyTargetGroup
+$creadsPrec :: Int -&gt; ReadS ModifyDBProxyTargetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781795"><span id="local-6989586621679781797"><span id="local-6989586621679781799"><span class="annot"><span class="annottext">Int -&gt; ModifyDBProxyTargetGroup -&gt; ShowS
+[ModifyDBProxyTargetGroup] -&gt; ShowS
+ModifyDBProxyTargetGroup -&gt; String
+(Int -&gt; ModifyDBProxyTargetGroup -&gt; ShowS)
+-&gt; (ModifyDBProxyTargetGroup -&gt; String)
+-&gt; ([ModifyDBProxyTargetGroup] -&gt; ShowS)
+-&gt; Show ModifyDBProxyTargetGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyDBProxyTargetGroup] -&gt; ShowS
+$cshowList :: [ModifyDBProxyTargetGroup] -&gt; ShowS
+show :: ModifyDBProxyTargetGroup -&gt; String
+$cshow :: ModifyDBProxyTargetGroup -&gt; String
+showsPrec :: Int -&gt; ModifyDBProxyTargetGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyDBProxyTargetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyDBProxyTargetGroup -&gt; Rep ModifyDBProxyTargetGroup x)
+-&gt; (forall x.
+    Rep ModifyDBProxyTargetGroup x -&gt; ModifyDBProxyTargetGroup)
+-&gt; Generic ModifyDBProxyTargetGroup
+forall x.
+Rep ModifyDBProxyTargetGroup x -&gt; ModifyDBProxyTargetGroup
+forall x.
+ModifyDBProxyTargetGroup -&gt; Rep ModifyDBProxyTargetGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyDBProxyTargetGroup x -&gt; ModifyDBProxyTargetGroup
+$cfrom :: forall x.
+ModifyDBProxyTargetGroup -&gt; Rep ModifyDBProxyTargetGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ModifyDBProxyTargetGroup' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'connectionPoolConfig', 'modifyDBProxyTargetGroup_connectionPoolConfig' - The settings that determine the size and behavior of the connection pool</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for the target group.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'newName'', 'modifyDBProxyTargetGroup_newName' - The new name for the modified @DBProxyTarget@. An identifier must begin</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- with a letter and must contain only ASCII letters, digits, and hyphens;</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- it can\'t end with a hyphen or contain two consecutive hyphens.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'targetGroupName', 'modifyDBProxyTargetGroup_targetGroupName' - The name of the new target group to assign to the proxy.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'dbProxyName', 'modifyDBProxyTargetGroup_dbProxyName' - The name of the new proxy to which to assign the target group.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#newModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">newModifyDBProxyTargetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'targetGroupName'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'dbProxyName'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span>
+</span><span id="line-92"></span><span id="newModifyDBProxyTargetGroup"><span class="annot"><span class="annottext">newModifyDBProxyTargetGroup :: Text -&gt; Text -&gt; ModifyDBProxyTargetGroup
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#newModifyDBProxyTargetGroup"><span class="hs-identifier hs-var hs-var">newModifyDBProxyTargetGroup</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679781790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781790"><span class="hs-identifier hs-var">pTargetGroupName_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679781789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781789"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup' :: Maybe ConnectionPoolConfiguration
+-&gt; Maybe Text -&gt; Text -&gt; Text -&gt; ModifyDBProxyTargetGroup
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionPoolConfig:ModifyDBProxyTargetGroup' :: Maybe ConnectionPoolConfiguration
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AconnectionPoolConfig%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var">connectionPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConnectionPoolConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:newName':ModifyDBProxyTargetGroup' :: Maybe Text
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AnewName%27%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var">newName'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetGroupName:ModifyDBProxyTargetGroup' :: Text
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AtargetGroupName%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781790"><span class="hs-identifier hs-var">pTargetGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbProxyName:ModifyDBProxyTargetGroup' :: Text
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AdbProxyName%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781789"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The settings that determine the size and behavior of the connection pool</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for the target group.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_connectionPoolConfig"><span class="hs-identifier hs-type">modifyDBProxyTargetGroup_connectionPoolConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ConnectionPoolConfiguration.html#ConnectionPoolConfiguration"><span class="hs-identifier hs-type">ConnectionPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="modifyDBProxyTargetGroup_connectionPoolConfig"><span class="annot"><span class="annottext">modifyDBProxyTargetGroup_connectionPoolConfig :: (Maybe ConnectionPoolConfiguration
+ -&gt; f (Maybe ConnectionPoolConfiguration))
+-&gt; ModifyDBProxyTargetGroup -&gt; f ModifyDBProxyTargetGroup
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_connectionPoolConfig"><span class="hs-identifier hs-var hs-var">modifyDBProxyTargetGroup_connectionPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBProxyTargetGroup -&gt; Maybe ConnectionPoolConfiguration)
+-&gt; (ModifyDBProxyTargetGroup
+    -&gt; Maybe ConnectionPoolConfiguration -&gt; ModifyDBProxyTargetGroup)
+-&gt; Lens
+     ModifyDBProxyTargetGroup
+     ModifyDBProxyTargetGroup
+     (Maybe ConnectionPoolConfiguration)
+     (Maybe ConnectionPoolConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781786"><span class="annot"><span class="annottext">Maybe ConnectionPoolConfiguration
+connectionPoolConfig :: Maybe ConnectionPoolConfiguration
+$sel:connectionPoolConfig:ModifyDBProxyTargetGroup' :: ModifyDBProxyTargetGroup -&gt; Maybe ConnectionPoolConfiguration
+</span><a href="#local-6989586621679781786"><span class="hs-identifier hs-var hs-var">connectionPoolConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionPoolConfiguration
+</span><a href="#local-6989586621679781786"><span class="hs-identifier hs-var">connectionPoolConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781785"><span class="annot"><span class="annottext">s :: ModifyDBProxyTargetGroup
+</span><a href="#local-6989586621679781785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781784"><span class="annot"><span class="annottext">Maybe ConnectionPoolConfiguration
+</span><a href="#local-6989586621679781784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup
+</span><a href="#local-6989586621679781785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionPoolConfig:ModifyDBProxyTargetGroup' :: Maybe ConnectionPoolConfiguration
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AconnectionPoolConfig%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var">connectionPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionPoolConfiguration
+</span><a href="#local-6989586621679781784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The new name for the modified @DBProxyTarget@. An identifier must begin</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- with a letter and must contain only ASCII letters, digits, and hyphens;</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- it can\'t end with a hyphen or contain two consecutive hyphens.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_newName"><span class="hs-identifier hs-type">modifyDBProxyTargetGroup_newName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="modifyDBProxyTargetGroup_newName"><span class="annot"><span class="annottext">modifyDBProxyTargetGroup_newName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBProxyTargetGroup -&gt; f ModifyDBProxyTargetGroup
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_newName"><span class="hs-identifier hs-var hs-var">modifyDBProxyTargetGroup_newName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBProxyTargetGroup -&gt; Maybe Text)
+-&gt; (ModifyDBProxyTargetGroup
+    -&gt; Maybe Text -&gt; ModifyDBProxyTargetGroup)
+-&gt; Lens
+     ModifyDBProxyTargetGroup
+     ModifyDBProxyTargetGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781783"><span class="annot"><span class="annottext">Maybe Text
+newName' :: Maybe Text
+$sel:newName':ModifyDBProxyTargetGroup' :: ModifyDBProxyTargetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679781783"><span class="hs-identifier hs-var hs-var">newName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781783"><span class="hs-identifier hs-var">newName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781782"><span class="annot"><span class="annottext">s :: ModifyDBProxyTargetGroup
+</span><a href="#local-6989586621679781782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup
+</span><a href="#local-6989586621679781782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newName':ModifyDBProxyTargetGroup' :: Maybe Text
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AnewName%27%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var">newName'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The name of the new target group to assign to the proxy.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_targetGroupName"><span class="hs-identifier hs-type">modifyDBProxyTargetGroup_targetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="modifyDBProxyTargetGroup_targetGroupName"><span class="annot"><span class="annottext">modifyDBProxyTargetGroup_targetGroupName :: (Text -&gt; f Text)
+-&gt; ModifyDBProxyTargetGroup -&gt; f ModifyDBProxyTargetGroup
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_targetGroupName"><span class="hs-identifier hs-var hs-var">modifyDBProxyTargetGroup_targetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBProxyTargetGroup -&gt; Text)
+-&gt; (ModifyDBProxyTargetGroup -&gt; Text -&gt; ModifyDBProxyTargetGroup)
+-&gt; Lens ModifyDBProxyTargetGroup ModifyDBProxyTargetGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781780"><span class="annot"><span class="annottext">Text
+targetGroupName :: Text
+$sel:targetGroupName:ModifyDBProxyTargetGroup' :: ModifyDBProxyTargetGroup -&gt; Text
+</span><a href="#local-6989586621679781780"><span class="hs-identifier hs-var hs-var">targetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781780"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781779"><span class="annot"><span class="annottext">s :: ModifyDBProxyTargetGroup
+</span><a href="#local-6989586621679781779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781778"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup
+</span><a href="#local-6989586621679781779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupName:ModifyDBProxyTargetGroup' :: Text
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AtargetGroupName%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name of the new proxy to which to assign the target group.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_dbProxyName"><span class="hs-identifier hs-type">modifyDBProxyTargetGroup_dbProxyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="modifyDBProxyTargetGroup_dbProxyName"><span class="annot"><span class="annottext">modifyDBProxyTargetGroup_dbProxyName :: (Text -&gt; f Text)
+-&gt; ModifyDBProxyTargetGroup -&gt; f ModifyDBProxyTargetGroup
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroup_dbProxyName"><span class="hs-identifier hs-var hs-var">modifyDBProxyTargetGroup_dbProxyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBProxyTargetGroup -&gt; Text)
+-&gt; (ModifyDBProxyTargetGroup -&gt; Text -&gt; ModifyDBProxyTargetGroup)
+-&gt; Lens ModifyDBProxyTargetGroup ModifyDBProxyTargetGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781777"><span class="annot"><span class="annottext">Text
+dbProxyName :: Text
+$sel:dbProxyName:ModifyDBProxyTargetGroup' :: ModifyDBProxyTargetGroup -&gt; Text
+</span><a href="#local-6989586621679781777"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781777"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781776"><span class="annot"><span class="annottext">s :: ModifyDBProxyTargetGroup
+</span><a href="#local-6989586621679781776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781775"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBProxyTargetGroup
+</span><a href="#local-6989586621679781776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:ModifyDBProxyTargetGroup' :: Text
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AdbProxyName%3AModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679781771"><span class="annot"><span class="annottext">request :: ModifyDBProxyTargetGroup -&gt; Request ModifyDBProxyTargetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ModifyDBProxyTargetGroup -&gt; Request ModifyDBProxyTargetGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679781767"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyDBProxyTargetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyDBProxyTargetGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ModifyDBProxyTargetGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyDBProxyTargetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyDBProxyTargetGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModifyDBProxyTargetGroupResult&quot;</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679781764"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781764"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679781763"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679781763"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679781762"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679781762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBProxyTargetGroup -&gt; Int -&gt; ModifyDBProxyTargetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-var">ModifyDBProxyTargetGroupResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBProxyTargetGroup
+ -&gt; Int -&gt; ModifyDBProxyTargetGroupResponse)
+-&gt; Either String (Maybe DBProxyTargetGroup)
+-&gt; Either String (Int -&gt; ModifyDBProxyTargetGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679781762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBProxyTargetGroup)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBProxyTargetGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyDBProxyTargetGroupResponse)
+-&gt; Either String Int
+-&gt; Either String ModifyDBProxyTargetGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781764"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781754"><span id="local-6989586621679781756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679781747"><span class="annot"><span class="annottext">toHeaders :: ModifyDBProxyTargetGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyDBProxyTargetGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679781742"><span class="annot"><span class="annottext">toPath :: ModifyDBProxyTargetGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyDBProxyTargetGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679781738"><span class="annot"><span class="annottext">toQuery :: ModifyDBProxyTargetGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroup%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781733"><span id="local-6989586621679781734"><span id="local-6989586621679781735"><span id="local-6989586621679781736"><span class="annot"><span class="annottext">Maybe Text
+Maybe ConnectionPoolConfiguration
+Text
+dbProxyName :: Text
+targetGroupName :: Text
+newName' :: Maybe Text
+connectionPoolConfig :: Maybe ConnectionPoolConfiguration
+$sel:dbProxyName:ModifyDBProxyTargetGroup' :: ModifyDBProxyTargetGroup -&gt; Text
+$sel:targetGroupName:ModifyDBProxyTargetGroup' :: ModifyDBProxyTargetGroup -&gt; Text
+$sel:newName':ModifyDBProxyTargetGroup' :: ModifyDBProxyTargetGroup -&gt; Maybe Text
+$sel:connectionPoolConfig:ModifyDBProxyTargetGroup' :: ModifyDBProxyTargetGroup -&gt; Maybe ConnectionPoolConfiguration
+</span><a href="#local-6989586621679781733"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ModifyDBProxyTargetGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ConnectionPoolConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ConnectionPoolConfiguration -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionPoolConfiguration
+</span><a href="#local-6989586621679781736"><span class="hs-identifier hs-var">connectionPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NewName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781735"><span class="hs-identifier hs-var">newName'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TargetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781734"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBProxyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781733"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newModifyDBProxyTargetGroupResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679781730"><span id="local-6989586621679781731"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBProxyTargetGroupResponse"><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-var">ModifyDBProxyTargetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBProxyTargetGroupResponse%27"><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-var">ModifyDBProxyTargetGroupResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The settings of the modified @DBProxyTarget@.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AdbProxyTargetGroup%3AModifyDBProxyTargetGroupResponse%27"><span class="annot"><span class="annottext">ModifyDBProxyTargetGroupResponse -&gt; Maybe DBProxyTargetGroup
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AdbProxyTargetGroup%3AModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-var hs-var">dbProxyTargetGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBProxyTargetGroup.html#DBProxyTargetGroup"><span class="hs-identifier hs-type">DBProxyTargetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyDBProxyTargetGroupResponse%27"><span class="annot"><span class="annottext">ModifyDBProxyTargetGroupResponse -&gt; Int
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AhttpStatus%3AModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781724"><span id="local-6989586621679781726"><span class="annot"><span class="annottext">ModifyDBProxyTargetGroupResponse
+-&gt; ModifyDBProxyTargetGroupResponse -&gt; Bool
+(ModifyDBProxyTargetGroupResponse
+ -&gt; ModifyDBProxyTargetGroupResponse -&gt; Bool)
+-&gt; (ModifyDBProxyTargetGroupResponse
+    -&gt; ModifyDBProxyTargetGroupResponse -&gt; Bool)
+-&gt; Eq ModifyDBProxyTargetGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyDBProxyTargetGroupResponse
+-&gt; ModifyDBProxyTargetGroupResponse -&gt; Bool
+$c/= :: ModifyDBProxyTargetGroupResponse
+-&gt; ModifyDBProxyTargetGroupResponse -&gt; Bool
+== :: ModifyDBProxyTargetGroupResponse
+-&gt; ModifyDBProxyTargetGroupResponse -&gt; Bool
+$c== :: ModifyDBProxyTargetGroupResponse
+-&gt; ModifyDBProxyTargetGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781716"><span id="local-6989586621679781718"><span id="local-6989586621679781720"><span id="local-6989586621679781722"><span class="annot"><span class="annottext">ReadPrec [ModifyDBProxyTargetGroupResponse]
+ReadPrec ModifyDBProxyTargetGroupResponse
+Int -&gt; ReadS ModifyDBProxyTargetGroupResponse
+ReadS [ModifyDBProxyTargetGroupResponse]
+(Int -&gt; ReadS ModifyDBProxyTargetGroupResponse)
+-&gt; ReadS [ModifyDBProxyTargetGroupResponse]
+-&gt; ReadPrec ModifyDBProxyTargetGroupResponse
+-&gt; ReadPrec [ModifyDBProxyTargetGroupResponse]
+-&gt; Read ModifyDBProxyTargetGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyDBProxyTargetGroupResponse]
+$creadListPrec :: ReadPrec [ModifyDBProxyTargetGroupResponse]
+readPrec :: ReadPrec ModifyDBProxyTargetGroupResponse
+$creadPrec :: ReadPrec ModifyDBProxyTargetGroupResponse
+readList :: ReadS [ModifyDBProxyTargetGroupResponse]
+$creadList :: ReadS [ModifyDBProxyTargetGroupResponse]
+readsPrec :: Int -&gt; ReadS ModifyDBProxyTargetGroupResponse
+$creadsPrec :: Int -&gt; ReadS ModifyDBProxyTargetGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781710"><span id="local-6989586621679781712"><span id="local-6989586621679781714"><span class="annot"><span class="annottext">Int -&gt; ModifyDBProxyTargetGroupResponse -&gt; ShowS
+[ModifyDBProxyTargetGroupResponse] -&gt; ShowS
+ModifyDBProxyTargetGroupResponse -&gt; String
+(Int -&gt; ModifyDBProxyTargetGroupResponse -&gt; ShowS)
+-&gt; (ModifyDBProxyTargetGroupResponse -&gt; String)
+-&gt; ([ModifyDBProxyTargetGroupResponse] -&gt; ShowS)
+-&gt; Show ModifyDBProxyTargetGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyDBProxyTargetGroupResponse] -&gt; ShowS
+$cshowList :: [ModifyDBProxyTargetGroupResponse] -&gt; ShowS
+show :: ModifyDBProxyTargetGroupResponse -&gt; String
+$cshow :: ModifyDBProxyTargetGroupResponse -&gt; String
+showsPrec :: Int -&gt; ModifyDBProxyTargetGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyDBProxyTargetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyDBProxyTargetGroupResponse
+ -&gt; Rep ModifyDBProxyTargetGroupResponse x)
+-&gt; (forall x.
+    Rep ModifyDBProxyTargetGroupResponse x
+    -&gt; ModifyDBProxyTargetGroupResponse)
+-&gt; Generic ModifyDBProxyTargetGroupResponse
+forall x.
+Rep ModifyDBProxyTargetGroupResponse x
+-&gt; ModifyDBProxyTargetGroupResponse
+forall x.
+ModifyDBProxyTargetGroupResponse
+-&gt; Rep ModifyDBProxyTargetGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyDBProxyTargetGroupResponse x
+-&gt; ModifyDBProxyTargetGroupResponse
+$cfrom :: forall x.
+ModifyDBProxyTargetGroupResponse
+-&gt; Rep ModifyDBProxyTargetGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'ModifyDBProxyTargetGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'dbProxyTargetGroup', 'modifyDBProxyTargetGroupResponse_dbProxyTargetGroup' - The settings of the modified @DBProxyTarget@.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'modifyDBProxyTargetGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#newModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-type">newModifyDBProxyTargetGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newModifyDBProxyTargetGroupResponse"><span class="annot"><span class="annottext">newModifyDBProxyTargetGroupResponse :: Int -&gt; ModifyDBProxyTargetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#newModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-var hs-var">newModifyDBProxyTargetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679781707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">ModifyDBProxyTargetGroupResponse' :: Maybe DBProxyTargetGroup -&gt; Int -&gt; ModifyDBProxyTargetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse'</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbProxyTargetGroup:ModifyDBProxyTargetGroupResponse' :: Maybe DBProxyTargetGroup
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AdbProxyTargetGroup%3AModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-var">dbProxyTargetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe DBProxyTargetGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBProxyTargetGroupResponse' :: Int
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AhttpStatus%3AModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The settings of the modified @DBProxyTarget@.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroupResponse_dbProxyTargetGroup"><span class="hs-identifier hs-type">modifyDBProxyTargetGroupResponse_dbProxyTargetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.DBProxyTargetGroup.html#DBProxyTargetGroup"><span class="hs-identifier hs-type">DBProxyTargetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="modifyDBProxyTargetGroupResponse_dbProxyTargetGroup"><span class="annot"><span class="annottext">modifyDBProxyTargetGroupResponse_dbProxyTargetGroup :: (Maybe DBProxyTargetGroup -&gt; f (Maybe DBProxyTargetGroup))
+-&gt; ModifyDBProxyTargetGroupResponse
+-&gt; f ModifyDBProxyTargetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroupResponse_dbProxyTargetGroup"><span class="hs-identifier hs-var hs-var">modifyDBProxyTargetGroupResponse_dbProxyTargetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBProxyTargetGroupResponse -&gt; Maybe DBProxyTargetGroup)
+-&gt; (ModifyDBProxyTargetGroupResponse
+    -&gt; Maybe DBProxyTargetGroup -&gt; ModifyDBProxyTargetGroupResponse)
+-&gt; Lens
+     ModifyDBProxyTargetGroupResponse
+     ModifyDBProxyTargetGroupResponse
+     (Maybe DBProxyTargetGroup)
+     (Maybe DBProxyTargetGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781706"><span class="annot"><span class="annottext">Maybe DBProxyTargetGroup
+dbProxyTargetGroup :: Maybe DBProxyTargetGroup
+$sel:dbProxyTargetGroup:ModifyDBProxyTargetGroupResponse' :: ModifyDBProxyTargetGroupResponse -&gt; Maybe DBProxyTargetGroup
+</span><a href="#local-6989586621679781706"><span class="hs-identifier hs-var hs-var">dbProxyTargetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxyTargetGroup
+</span><a href="#local-6989586621679781706"><span class="hs-identifier hs-var">dbProxyTargetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781705"><span class="annot"><span class="annottext">s :: ModifyDBProxyTargetGroupResponse
+</span><a href="#local-6989586621679781705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781704"><span class="annot"><span class="annottext">Maybe DBProxyTargetGroup
+</span><a href="#local-6989586621679781704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBProxyTargetGroupResponse
+</span><a href="#local-6989586621679781705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyTargetGroup:ModifyDBProxyTargetGroupResponse' :: Maybe DBProxyTargetGroup
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AdbProxyTargetGroup%3AModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-var">dbProxyTargetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxyTargetGroup
+</span><a href="#local-6989586621679781704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroupResponse_httpStatus"><span class="hs-identifier hs-type">modifyDBProxyTargetGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span id="modifyDBProxyTargetGroupResponse_httpStatus"><span class="annot"><span class="annottext">modifyDBProxyTargetGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyDBProxyTargetGroupResponse
+-&gt; f ModifyDBProxyTargetGroupResponse
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#modifyDBProxyTargetGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyDBProxyTargetGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBProxyTargetGroupResponse -&gt; Int)
+-&gt; (ModifyDBProxyTargetGroupResponse
+    -&gt; Int -&gt; ModifyDBProxyTargetGroupResponse)
+-&gt; Lens
+     ModifyDBProxyTargetGroupResponse
+     ModifyDBProxyTargetGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781703"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyDBProxyTargetGroupResponse' :: ModifyDBProxyTargetGroupResponse -&gt; Int
+</span><a href="#local-6989586621679781703"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781703"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781702"><span class="annot"><span class="annottext">s :: ModifyDBProxyTargetGroupResponse
+</span><a href="#local-6989586621679781702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781701"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBProxyTargetGroupResponse
+</span><a href="#local-6989586621679781702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBProxyTargetGroupResponse' :: Int
+</span><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#%24sel%3AhttpStatus%3AModifyDBProxyTargetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679781699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ModifyDBProxyTargetGroup.html#ModifyDBProxyTargetGroupResponse"><span class="hs-identifier hs-type">ModifyDBProxyTargetGroupResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

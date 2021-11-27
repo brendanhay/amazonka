@@ -1,0 +1,968 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeArtifact.GetPackageVersionAsset</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns an asset (or file) that is in a package. For example, for a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Maven package version, use @GetPackageVersionAsset@ to download a @JAR@</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- file, a @POM@ file, or any other assets in the package version.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeArtifact.GetPackageVersionAsset</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier">GetPackageVersionAsset</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#newGetPackageVersionAsset"><span class="hs-identifier">newGetPackageVersionAsset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_namespace"><span class="hs-identifier">getPackageVersionAsset_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_domainOwner"><span class="hs-identifier">getPackageVersionAsset_domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_packageVersionRevision"><span class="hs-identifier">getPackageVersionAsset_packageVersionRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_domain"><span class="hs-identifier">getPackageVersionAsset_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_repository"><span class="hs-identifier">getPackageVersionAsset_repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_format"><span class="hs-identifier">getPackageVersionAsset_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_package"><span class="hs-identifier">getPackageVersionAsset_package</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_packageVersion"><span class="hs-identifier">getPackageVersionAsset_packageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_asset"><span class="hs-identifier">getPackageVersionAsset_asset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier">GetPackageVersionAssetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#newGetPackageVersionAssetResponse"><span class="hs-identifier">newGetPackageVersionAssetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_packageVersion"><span class="hs-identifier">getPackageVersionAssetResponse_packageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_assetName"><span class="hs-identifier">getPackageVersionAssetResponse_assetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_packageVersionRevision"><span class="hs-identifier">getPackageVersionAssetResponse_packageVersionRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_httpStatus"><span class="hs-identifier">getPackageVersionAssetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_asset"><span class="hs-identifier">getPackageVersionAssetResponse_asset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.html"><span class="hs-identifier">Amazonka.CodeArtifact.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newGetPackageVersionAsset' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679236598"><span id="local-6989586621679236599"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPackageVersionAsset"><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-var">GetPackageVersionAsset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPackageVersionAsset%27"><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-var">GetPackageVersionAsset'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Anamespace%3AGetPackageVersionAsset%27"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Anamespace%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AdomainOwner%3AGetPackageVersionAsset%27"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3AdomainOwner%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The name of the package version revision that contains the requested</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- asset.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3ApackageVersionRevision%3AGetPackageVersionAsset%27"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersionRevision%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var hs-var">packageVersionRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The name of the domain that contains the repository that contains the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- package version with the requested asset.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Adomain%3AGetPackageVersionAsset%27"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Adomain%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The repository that contains the package version with the requested</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- asset.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Arepository%3AGetPackageVersionAsset%27"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Arepository%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | A format that specifies the type of the package version with the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- requested asset file. The valid values are:</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Aformat%3AGetPackageVersionAsset%27"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; PackageFormat
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Aformat%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The name of the package that contains the requested asset.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Apackage%3AGetPackageVersionAsset%27"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Apackage%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | A string that contains the package version (for example, @3.5.2@).</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3ApackageVersion%3AGetPackageVersionAsset%27"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersion%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The name of the requested asset.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3Aasset%3AGetPackageVersionAsset%27"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Aasset%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var hs-var">asset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236584"><span id="local-6989586621679236586"><span class="annot"><span class="annottext">GetPackageVersionAsset -&gt; GetPackageVersionAsset -&gt; Bool
+(GetPackageVersionAsset -&gt; GetPackageVersionAsset -&gt; Bool)
+-&gt; (GetPackageVersionAsset -&gt; GetPackageVersionAsset -&gt; Bool)
+-&gt; Eq GetPackageVersionAsset
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPackageVersionAsset -&gt; GetPackageVersionAsset -&gt; Bool
+$c/= :: GetPackageVersionAsset -&gt; GetPackageVersionAsset -&gt; Bool
+== :: GetPackageVersionAsset -&gt; GetPackageVersionAsset -&gt; Bool
+$c== :: GetPackageVersionAsset -&gt; GetPackageVersionAsset -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236575"><span id="local-6989586621679236577"><span id="local-6989586621679236579"><span id="local-6989586621679236581"><span class="annot"><span class="annottext">ReadPrec [GetPackageVersionAsset]
+ReadPrec GetPackageVersionAsset
+Int -&gt; ReadS GetPackageVersionAsset
+ReadS [GetPackageVersionAsset]
+(Int -&gt; ReadS GetPackageVersionAsset)
+-&gt; ReadS [GetPackageVersionAsset]
+-&gt; ReadPrec GetPackageVersionAsset
+-&gt; ReadPrec [GetPackageVersionAsset]
+-&gt; Read GetPackageVersionAsset
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPackageVersionAsset]
+$creadListPrec :: ReadPrec [GetPackageVersionAsset]
+readPrec :: ReadPrec GetPackageVersionAsset
+$creadPrec :: ReadPrec GetPackageVersionAsset
+readList :: ReadS [GetPackageVersionAsset]
+$creadList :: ReadS [GetPackageVersionAsset]
+readsPrec :: Int -&gt; ReadS GetPackageVersionAsset
+$creadsPrec :: Int -&gt; ReadS GetPackageVersionAsset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236568"><span id="local-6989586621679236570"><span id="local-6989586621679236572"><span class="annot"><span class="annottext">Int -&gt; GetPackageVersionAsset -&gt; ShowS
+[GetPackageVersionAsset] -&gt; ShowS
+GetPackageVersionAsset -&gt; String
+(Int -&gt; GetPackageVersionAsset -&gt; ShowS)
+-&gt; (GetPackageVersionAsset -&gt; String)
+-&gt; ([GetPackageVersionAsset] -&gt; ShowS)
+-&gt; Show GetPackageVersionAsset
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPackageVersionAsset] -&gt; ShowS
+$cshowList :: [GetPackageVersionAsset] -&gt; ShowS
+show :: GetPackageVersionAsset -&gt; String
+$cshow :: GetPackageVersionAsset -&gt; String
+showsPrec :: Int -&gt; GetPackageVersionAsset -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPackageVersionAsset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPackageVersionAsset -&gt; Rep GetPackageVersionAsset x)
+-&gt; (forall x.
+    Rep GetPackageVersionAsset x -&gt; GetPackageVersionAsset)
+-&gt; Generic GetPackageVersionAsset
+forall x. Rep GetPackageVersionAsset x -&gt; GetPackageVersionAsset
+forall x. GetPackageVersionAsset -&gt; Rep GetPackageVersionAsset x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPackageVersionAsset x -&gt; GetPackageVersionAsset
+$cfrom :: forall x. GetPackageVersionAsset -&gt; Rep GetPackageVersionAsset x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Create a value of 'GetPackageVersionAsset' with all optional fields omitted.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'namespace', 'getPackageVersionAsset_namespace' - The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'domainOwner', 'getPackageVersionAsset_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'packageVersionRevision', 'getPackageVersionAsset_packageVersionRevision' - The name of the package version revision that contains the requested</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- asset.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'domain', 'getPackageVersionAsset_domain' - The name of the domain that contains the repository that contains the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- package version with the requested asset.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'repository', 'getPackageVersionAsset_repository' - The repository that contains the package version with the requested</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- asset.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'format', 'getPackageVersionAsset_format' - A format that specifies the type of the package version with the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- requested asset file. The valid values are:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'package', 'getPackageVersionAsset_package' - The name of the package that contains the requested asset.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'packageVersion', 'getPackageVersionAsset_packageVersion' - A string that contains the package version (for example, @3.5.2@).</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'asset', 'getPackageVersionAsset_asset' - The name of the requested asset.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#newGetPackageVersionAsset"><span class="hs-identifier hs-type">newGetPackageVersionAsset</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'repository'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'format'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'package'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'packageVersion'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'asset'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span>
+</span><span id="line-162"></span><span id="newGetPackageVersionAsset"><span class="annot"><span class="annottext">newGetPackageVersionAsset :: Text
+-&gt; Text
+-&gt; PackageFormat
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#newGetPackageVersionAsset"><span class="hs-identifier hs-var hs-var">newGetPackageVersionAsset</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679236563"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236563"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679236562"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236562"><span class="hs-identifier hs-var">pRepository_</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679236561"><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236561"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679236560"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236560"><span class="hs-identifier hs-var">pPackage_</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679236559"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236559"><span class="hs-identifier hs-var">pPackageVersion_</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679236558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236558"><span class="hs-identifier hs-var">pAsset_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">GetPackageVersionAsset' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; PackageFormat
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:namespace:GetPackageVersionAsset' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Anamespace%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainOwner:GetPackageVersionAsset' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3AdomainOwner%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageVersionRevision:GetPackageVersionAsset' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersionRevision%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">packageVersionRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:domain:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Adomain%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236563"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">$sel:repository:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Arepository%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236562"><span class="hs-identifier hs-var">pRepository_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:format:GetPackageVersionAsset' :: PackageFormat
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Aformat%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236561"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:package:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Apackage%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236560"><span class="hs-identifier hs-var">pPackage_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageVersion:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersion%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236559"><span class="hs-identifier hs-var">pPackageVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:asset:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Aasset%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">asset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236558"><span class="hs-identifier hs-var">pAsset_</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_namespace"><span class="hs-identifier hs-type">getPackageVersionAsset_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="getPackageVersionAsset_namespace"><span class="annot"><span class="annottext">getPackageVersionAsset_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionAsset -&gt; f GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_namespace"><span class="hs-identifier hs-var hs-var">getPackageVersionAsset_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAsset -&gt; Maybe Text)
+-&gt; (GetPackageVersionAsset -&gt; Maybe Text -&gt; GetPackageVersionAsset)
+-&gt; Lens
+     GetPackageVersionAsset
+     GetPackageVersionAsset
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236555"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Maybe Text
+</span><a href="#local-6989586621679236555"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236555"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236554"><span class="annot"><span class="annottext">s :: GetPackageVersionAsset
+</span><a href="#local-6989586621679236554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236553"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAsset
+</span><a href="#local-6989586621679236554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:GetPackageVersionAsset' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Anamespace%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_domainOwner"><span class="hs-identifier hs-type">getPackageVersionAsset_domainOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="getPackageVersionAsset_domainOwner"><span class="annot"><span class="annottext">getPackageVersionAsset_domainOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionAsset -&gt; f GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_domainOwner"><span class="hs-identifier hs-var hs-var">getPackageVersionAsset_domainOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAsset -&gt; Maybe Text)
+-&gt; (GetPackageVersionAsset -&gt; Maybe Text -&gt; GetPackageVersionAsset)
+-&gt; Lens
+     GetPackageVersionAsset
+     GetPackageVersionAsset
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236552"><span class="annot"><span class="annottext">Maybe Text
+domainOwner :: Maybe Text
+$sel:domainOwner:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Maybe Text
+</span><a href="#local-6989586621679236552"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236552"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236551"><span class="annot"><span class="annottext">s :: GetPackageVersionAsset
+</span><a href="#local-6989586621679236551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236550"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAsset
+</span><a href="#local-6989586621679236551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainOwner:GetPackageVersionAsset' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3AdomainOwner%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The name of the package version revision that contains the requested</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- asset.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_packageVersionRevision"><span class="hs-identifier hs-type">getPackageVersionAsset_packageVersionRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="getPackageVersionAsset_packageVersionRevision"><span class="annot"><span class="annottext">getPackageVersionAsset_packageVersionRevision :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionAsset -&gt; f GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_packageVersionRevision"><span class="hs-identifier hs-var hs-var">getPackageVersionAsset_packageVersionRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAsset -&gt; Maybe Text)
+-&gt; (GetPackageVersionAsset -&gt; Maybe Text -&gt; GetPackageVersionAsset)
+-&gt; Lens
+     GetPackageVersionAsset
+     GetPackageVersionAsset
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236549"><span class="annot"><span class="annottext">Maybe Text
+packageVersionRevision :: Maybe Text
+$sel:packageVersionRevision:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Maybe Text
+</span><a href="#local-6989586621679236549"><span class="hs-identifier hs-var hs-var">packageVersionRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236549"><span class="hs-identifier hs-var">packageVersionRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236548"><span class="annot"><span class="annottext">s :: GetPackageVersionAsset
+</span><a href="#local-6989586621679236548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236547"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAsset
+</span><a href="#local-6989586621679236548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersionRevision:GetPackageVersionAsset' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersionRevision%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">packageVersionRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The name of the domain that contains the repository that contains the</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- package version with the requested asset.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_domain"><span class="hs-identifier hs-type">getPackageVersionAsset_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-207"></span><span id="getPackageVersionAsset_domain"><span class="annot"><span class="annottext">getPackageVersionAsset_domain :: (Text -&gt; f Text)
+-&gt; GetPackageVersionAsset -&gt; f GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_domain"><span class="hs-identifier hs-var hs-var">getPackageVersionAsset_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAsset -&gt; Text)
+-&gt; (GetPackageVersionAsset -&gt; Text -&gt; GetPackageVersionAsset)
+-&gt; Lens GetPackageVersionAsset GetPackageVersionAsset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236546"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+</span><a href="#local-6989586621679236546"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236546"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236545"><span class="annot"><span class="annottext">s :: GetPackageVersionAsset
+</span><a href="#local-6989586621679236545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236544"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAsset
+</span><a href="#local-6989586621679236545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Adomain%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The repository that contains the package version with the requested</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- asset.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_repository"><span class="hs-identifier hs-type">getPackageVersionAsset_repository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-212"></span><span id="getPackageVersionAsset_repository"><span class="annot"><span class="annottext">getPackageVersionAsset_repository :: (Text -&gt; f Text)
+-&gt; GetPackageVersionAsset -&gt; f GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_repository"><span class="hs-identifier hs-var hs-var">getPackageVersionAsset_repository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAsset -&gt; Text)
+-&gt; (GetPackageVersionAsset -&gt; Text -&gt; GetPackageVersionAsset)
+-&gt; Lens GetPackageVersionAsset GetPackageVersionAsset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236543"><span class="annot"><span class="annottext">Text
+repository :: Text
+$sel:repository:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+</span><a href="#local-6989586621679236543"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236543"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236542"><span class="annot"><span class="annottext">s :: GetPackageVersionAsset
+</span><a href="#local-6989586621679236542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAsset
+</span><a href="#local-6989586621679236542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Arepository%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | A format that specifies the type of the package version with the</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- requested asset file. The valid values are:</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_format"><span class="hs-identifier hs-type">getPackageVersionAsset_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span>
+</span><span id="line-223"></span><span id="getPackageVersionAsset_format"><span class="annot"><span class="annottext">getPackageVersionAsset_format :: (PackageFormat -&gt; f PackageFormat)
+-&gt; GetPackageVersionAsset -&gt; f GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_format"><span class="hs-identifier hs-var hs-var">getPackageVersionAsset_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAsset -&gt; PackageFormat)
+-&gt; (GetPackageVersionAsset
+    -&gt; PackageFormat -&gt; GetPackageVersionAsset)
+-&gt; Lens
+     GetPackageVersionAsset
+     GetPackageVersionAsset
+     PackageFormat
+     PackageFormat
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236540"><span class="annot"><span class="annottext">PackageFormat
+format :: PackageFormat
+$sel:format:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; PackageFormat
+</span><a href="#local-6989586621679236540"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236540"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236539"><span class="annot"><span class="annottext">s :: GetPackageVersionAsset
+</span><a href="#local-6989586621679236539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236538"><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAsset
+</span><a href="#local-6989586621679236539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:GetPackageVersionAsset' :: PackageFormat
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Aformat%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The name of the package that contains the requested asset.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_package"><span class="hs-identifier hs-type">getPackageVersionAsset_package</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-227"></span><span id="getPackageVersionAsset_package"><span class="annot"><span class="annottext">getPackageVersionAsset_package :: (Text -&gt; f Text)
+-&gt; GetPackageVersionAsset -&gt; f GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_package"><span class="hs-identifier hs-var hs-var">getPackageVersionAsset_package</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAsset -&gt; Text)
+-&gt; (GetPackageVersionAsset -&gt; Text -&gt; GetPackageVersionAsset)
+-&gt; Lens GetPackageVersionAsset GetPackageVersionAsset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236537"><span class="annot"><span class="annottext">Text
+package :: Text
+$sel:package:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+</span><a href="#local-6989586621679236537"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236537"><span class="hs-identifier hs-var">package</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236536"><span class="annot"><span class="annottext">s :: GetPackageVersionAsset
+</span><a href="#local-6989586621679236536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236535"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAsset
+</span><a href="#local-6989586621679236536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:package:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Apackage%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | A string that contains the package version (for example, @3.5.2@).</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_packageVersion"><span class="hs-identifier hs-type">getPackageVersionAsset_packageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-231"></span><span id="getPackageVersionAsset_packageVersion"><span class="annot"><span class="annottext">getPackageVersionAsset_packageVersion :: (Text -&gt; f Text)
+-&gt; GetPackageVersionAsset -&gt; f GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_packageVersion"><span class="hs-identifier hs-var hs-var">getPackageVersionAsset_packageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAsset -&gt; Text)
+-&gt; (GetPackageVersionAsset -&gt; Text -&gt; GetPackageVersionAsset)
+-&gt; Lens GetPackageVersionAsset GetPackageVersionAsset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236534"><span class="annot"><span class="annottext">Text
+packageVersion :: Text
+$sel:packageVersion:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+</span><a href="#local-6989586621679236534"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236534"><span class="hs-identifier hs-var">packageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236533"><span class="annot"><span class="annottext">s :: GetPackageVersionAsset
+</span><a href="#local-6989586621679236533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236532"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAsset
+</span><a href="#local-6989586621679236533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersion:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersion%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The name of the requested asset.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_asset"><span class="hs-identifier hs-type">getPackageVersionAsset_asset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-235"></span><span id="getPackageVersionAsset_asset"><span class="annot"><span class="annottext">getPackageVersionAsset_asset :: (Text -&gt; f Text)
+-&gt; GetPackageVersionAsset -&gt; f GetPackageVersionAsset
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAsset_asset"><span class="hs-identifier hs-var hs-var">getPackageVersionAsset_asset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAsset -&gt; Text)
+-&gt; (GetPackageVersionAsset -&gt; Text -&gt; GetPackageVersionAsset)
+-&gt; Lens GetPackageVersionAsset GetPackageVersionAsset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236531"><span class="annot"><span class="annottext">Text
+asset :: Text
+$sel:asset:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+</span><a href="#local-6989586621679236531"><span class="hs-identifier hs-var hs-var">asset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236531"><span class="hs-identifier hs-var">asset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236530"><span class="annot"><span class="annottext">s :: GetPackageVersionAsset
+</span><a href="#local-6989586621679236530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236529"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAsset
+</span><a href="#local-6989586621679236530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asset:GetPackageVersionAsset' :: Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Aasset%3AGetPackageVersionAsset%27"><span class="hs-identifier hs-var">asset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-239"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679236525"><span class="annot"><span class="annottext">request :: GetPackageVersionAsset -&gt; Request GetPackageVersionAsset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPackageVersionAsset -&gt; Request GetPackageVersionAsset
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeArtifact.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679236521"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetPackageVersionAsset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPackageVersionAsset)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ResponseBody
+ -&gt; Either String (AWSResponse GetPackageVersionAsset))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetPackageVersionAsset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPackageVersionAsset)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int
+ -&gt; ResponseHeaders
+ -&gt; ResponseBody
+ -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveBody</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236518"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236518"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679236517"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679236517"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679236516"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679236516"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ResponseBody
+-&gt; GetPackageVersionAssetResponse
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">GetPackageVersionAssetResponse'</span></a></span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ResponseBody
+ -&gt; GetPackageVersionAssetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ResponseBody
+      -&gt; GetPackageVersionAssetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679236517"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-PackageVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ResponseBody
+   -&gt; GetPackageVersionAssetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Int -&gt; ResponseBody -&gt; GetPackageVersionAssetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679236517"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-AssetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Int -&gt; ResponseBody -&gt; GetPackageVersionAssetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; ResponseBody -&gt; GetPackageVersionAssetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679236517"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-PackageVersionRevision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; ResponseBody -&gt; GetPackageVersionAssetResponse)
+-&gt; Either String Int
+-&gt; Either String (ResponseBody -&gt; GetPackageVersionAssetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236518"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Either String (ResponseBody -&gt; GetPackageVersionAssetResponse)
+-&gt; Either String ResponseBody
+-&gt; Either String GetPackageVersionAssetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseBody -&gt; Either String ResponseBody
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679236516"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236508"><span id="local-6989586621679236510"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span></span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679236501"><span class="annot"><span class="annottext">toHeaders :: GetPackageVersionAsset -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPackageVersionAsset -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-261"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-263"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-264"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-266"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679236495"><span class="annot"><span class="annottext">toPath :: GetPackageVersionAsset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPackageVersionAsset -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/package/version/asset&quot;</span></span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset"><span class="hs-identifier hs-type">GetPackageVersionAsset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679236491"><span class="annot"><span class="annottext">toQuery :: GetPackageVersionAsset -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAsset%27"><span class="hs-identifier hs-type">GetPackageVersionAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236481"><span id="local-6989586621679236482"><span id="local-6989586621679236483"><span id="local-6989586621679236484"><span id="local-6989586621679236485"><span id="local-6989586621679236486"><span id="local-6989586621679236487"><span id="local-6989586621679236488"><span id="local-6989586621679236489"><span class="annot"><span class="annottext">Maybe Text
+Text
+PackageFormat
+asset :: Text
+packageVersion :: Text
+package :: Text
+format :: PackageFormat
+repository :: Text
+domain :: Text
+packageVersionRevision :: Maybe Text
+domainOwner :: Maybe Text
+namespace :: Maybe Text
+$sel:asset:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+$sel:packageVersion:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+$sel:package:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+$sel:format:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; PackageFormat
+$sel:repository:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+$sel:domain:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Text
+$sel:packageVersionRevision:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Maybe Text
+$sel:domainOwner:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Maybe Text
+$sel:namespace:GetPackageVersionAsset' :: GetPackageVersionAsset -&gt; Maybe Text
+</span><a href="#local-6989586621679236481"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236489"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain-owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236488"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;revision&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236487"><span class="hs-identifier hs-var">packageVersionRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236486"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;repository&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236485"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PackageFormat -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236484"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;package&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236483"><span class="hs-identifier hs-var">package</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236482"><span class="hs-identifier hs-var">packageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;asset&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236481"><span class="hs-identifier hs-var">asset</span></a></span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | /See:/ 'newGetPackageVersionAssetResponse' smart constructor.</span><span>
+</span><span id="line-286"></span><span id="local-6989586621679236478"><span id="local-6989586621679236479"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPackageVersionAssetResponse"><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-var">GetPackageVersionAssetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPackageVersionAssetResponse%27"><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">GetPackageVersionAssetResponse'</span></a></span></span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that contains the package version (for example, @3.5.2@).</span><span>
+</span><span id="line-288"></span><span>    </span><span id="%24sel%3ApackageVersion%3AGetPackageVersionAssetResponse%27"><span class="annot"><span class="annottext">GetPackageVersionAssetResponse -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersion%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-comment">-- | The name of the asset that is downloaded.</span><span>
+</span><span id="line-290"></span><span>    </span><span id="%24sel%3AassetName%3AGetPackageVersionAssetResponse%27"><span class="annot"><span class="annottext">GetPackageVersionAssetResponse -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3AassetName%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var hs-var">assetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- | The name of the package version revision that contains the downloaded</span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-comment">-- asset.</span><span>
+</span><span id="line-293"></span><span>    </span><span id="%24sel%3ApackageVersionRevision%3AGetPackageVersionAssetResponse%27"><span class="annot"><span class="annottext">GetPackageVersionAssetResponse -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersionRevision%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var hs-var">packageVersionRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-295"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPackageVersionAssetResponse%27"><span class="annot"><span class="annottext">GetPackageVersionAssetResponse -&gt; Int
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3AhttpStatus%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="hs-comment">-- | The binary file, or asset, that is downloaded.</span><span>
+</span><span id="line-297"></span><span>    </span><span id="%24sel%3Aasset%3AGetPackageVersionAssetResponse%27"><span class="annot"><span class="annottext">GetPackageVersionAssetResponse -&gt; ResponseBody
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Aasset%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var hs-var">asset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
+</span><span id="line-298"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236467"><span id="local-6989586621679236469"><span id="local-6989586621679236471"><span class="annot"><span class="annottext">Int -&gt; GetPackageVersionAssetResponse -&gt; ShowS
+[GetPackageVersionAssetResponse] -&gt; ShowS
+GetPackageVersionAssetResponse -&gt; String
+(Int -&gt; GetPackageVersionAssetResponse -&gt; ShowS)
+-&gt; (GetPackageVersionAssetResponse -&gt; String)
+-&gt; ([GetPackageVersionAssetResponse] -&gt; ShowS)
+-&gt; Show GetPackageVersionAssetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPackageVersionAssetResponse] -&gt; ShowS
+$cshowList :: [GetPackageVersionAssetResponse] -&gt; ShowS
+show :: GetPackageVersionAssetResponse -&gt; String
+$cshow :: GetPackageVersionAssetResponse -&gt; String
+showsPrec :: Int -&gt; GetPackageVersionAssetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPackageVersionAssetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetPackageVersionAssetResponse
+ -&gt; Rep GetPackageVersionAssetResponse x)
+-&gt; (forall x.
+    Rep GetPackageVersionAssetResponse x
+    -&gt; GetPackageVersionAssetResponse)
+-&gt; Generic GetPackageVersionAssetResponse
+forall x.
+Rep GetPackageVersionAssetResponse x
+-&gt; GetPackageVersionAssetResponse
+forall x.
+GetPackageVersionAssetResponse
+-&gt; Rep GetPackageVersionAssetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetPackageVersionAssetResponse x
+-&gt; GetPackageVersionAssetResponse
+$cfrom :: forall x.
+GetPackageVersionAssetResponse
+-&gt; Rep GetPackageVersionAssetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- Create a value of 'GetPackageVersionAssetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- 'packageVersion', 'getPackageVersionAssetResponse_packageVersion' - A string that contains the package version (for example, @3.5.2@).</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- 'assetName', 'getPackageVersionAssetResponse_assetName' - The name of the asset that is downloaded.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- 'packageVersionRevision', 'getPackageVersionAssetResponse_packageVersionRevision' - The name of the package version revision that contains the downloaded</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- asset.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- 'httpStatus', 'getPackageVersionAssetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- 'asset', 'getPackageVersionAssetResponse_asset' - The binary file, or asset, that is downloaded.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#newGetPackageVersionAssetResponse"><span class="hs-identifier hs-type">newGetPackageVersionAssetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-320"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-321"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-322"></span><span>  </span><span class="hs-comment">-- | 'asset'</span><span>
+</span><span id="line-323"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span>
+</span><span id="line-325"></span><span id="newGetPackageVersionAssetResponse"><span class="annot"><span class="annottext">newGetPackageVersionAssetResponse :: Int -&gt; ResponseBody -&gt; GetPackageVersionAssetResponse
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#newGetPackageVersionAssetResponse"><span class="hs-identifier hs-var hs-var">newGetPackageVersionAssetResponse</span></a></span></span><span>
+</span><span id="line-326"></span><span>  </span><span id="local-6989586621679236464"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236464"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-327"></span><span>  </span><span id="local-6989586621679236463"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679236463"><span class="hs-identifier hs-var">pAsset_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-328"></span><span>    </span><span class="annot"><span class="annottext">GetPackageVersionAssetResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ResponseBody
+-&gt; GetPackageVersionAssetResponse
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span>
+</span><span id="line-329"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:packageVersion:GetPackageVersionAssetResponse' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersion%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-330"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">$sel:assetName:GetPackageVersionAssetResponse' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3AassetName%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">assetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageVersionRevision:GetPackageVersionAssetResponse' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersionRevision%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">packageVersionRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPackageVersionAssetResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3AhttpStatus%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236464"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>        </span><span class="annot"><span class="annottext">$sel:asset:GetPackageVersionAssetResponse' :: ResponseBody
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Aasset%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">asset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679236463"><span class="hs-identifier hs-var">pAsset_</span></a></span><span>
+</span><span id="line-335"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | A string that contains the package version (for example, @3.5.2@).</span><span>
+</span><span id="line-338"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_packageVersion"><span class="hs-identifier hs-type">getPackageVersionAssetResponse_packageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span id="getPackageVersionAssetResponse_packageVersion"><span class="annot"><span class="annottext">getPackageVersionAssetResponse_packageVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionAssetResponse
+-&gt; f GetPackageVersionAssetResponse
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_packageVersion"><span class="hs-identifier hs-var hs-var">getPackageVersionAssetResponse_packageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAssetResponse -&gt; Maybe Text)
+-&gt; (GetPackageVersionAssetResponse
+    -&gt; Maybe Text -&gt; GetPackageVersionAssetResponse)
+-&gt; Lens
+     GetPackageVersionAssetResponse
+     GetPackageVersionAssetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236462"><span class="annot"><span class="annottext">Maybe Text
+packageVersion :: Maybe Text
+$sel:packageVersion:GetPackageVersionAssetResponse' :: GetPackageVersionAssetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236462"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236462"><span class="hs-identifier hs-var">packageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236461"><span class="annot"><span class="annottext">s :: GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236460"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersion:GetPackageVersionAssetResponse' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersion%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | The name of the asset that is downloaded.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_assetName"><span class="hs-identifier hs-type">getPackageVersionAssetResponse_assetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span id="getPackageVersionAssetResponse_assetName"><span class="annot"><span class="annottext">getPackageVersionAssetResponse_assetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionAssetResponse
+-&gt; f GetPackageVersionAssetResponse
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_assetName"><span class="hs-identifier hs-var hs-var">getPackageVersionAssetResponse_assetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAssetResponse -&gt; Maybe Text)
+-&gt; (GetPackageVersionAssetResponse
+    -&gt; Maybe Text -&gt; GetPackageVersionAssetResponse)
+-&gt; Lens
+     GetPackageVersionAssetResponse
+     GetPackageVersionAssetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236459"><span class="annot"><span class="annottext">Maybe Text
+assetName :: Maybe Text
+$sel:assetName:GetPackageVersionAssetResponse' :: GetPackageVersionAssetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236459"><span class="hs-identifier hs-var hs-var">assetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236459"><span class="hs-identifier hs-var">assetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236458"><span class="annot"><span class="annottext">s :: GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236457"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetName:GetPackageVersionAssetResponse' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3AassetName%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">assetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- | The name of the package version revision that contains the downloaded</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- asset.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_packageVersionRevision"><span class="hs-identifier hs-type">getPackageVersionAssetResponse_packageVersionRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="getPackageVersionAssetResponse_packageVersionRevision"><span class="annot"><span class="annottext">getPackageVersionAssetResponse_packageVersionRevision :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionAssetResponse
+-&gt; f GetPackageVersionAssetResponse
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_packageVersionRevision"><span class="hs-identifier hs-var hs-var">getPackageVersionAssetResponse_packageVersionRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAssetResponse -&gt; Maybe Text)
+-&gt; (GetPackageVersionAssetResponse
+    -&gt; Maybe Text -&gt; GetPackageVersionAssetResponse)
+-&gt; Lens
+     GetPackageVersionAssetResponse
+     GetPackageVersionAssetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236456"><span class="annot"><span class="annottext">Maybe Text
+packageVersionRevision :: Maybe Text
+$sel:packageVersionRevision:GetPackageVersionAssetResponse' :: GetPackageVersionAssetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236456"><span class="hs-identifier hs-var hs-var">packageVersionRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236456"><span class="hs-identifier hs-var">packageVersionRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236455"><span class="annot"><span class="annottext">s :: GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersionRevision:GetPackageVersionAssetResponse' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3ApackageVersionRevision%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">packageVersionRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_httpStatus"><span class="hs-identifier hs-type">getPackageVersionAssetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-352"></span><span id="getPackageVersionAssetResponse_httpStatus"><span class="annot"><span class="annottext">getPackageVersionAssetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetPackageVersionAssetResponse
+-&gt; f GetPackageVersionAssetResponse
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getPackageVersionAssetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAssetResponse -&gt; Int)
+-&gt; (GetPackageVersionAssetResponse
+    -&gt; Int -&gt; GetPackageVersionAssetResponse)
+-&gt; Lens
+     GetPackageVersionAssetResponse
+     GetPackageVersionAssetResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236453"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetPackageVersionAssetResponse' :: GetPackageVersionAssetResponse -&gt; Int
+</span><a href="#local-6989586621679236453"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236453"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236452"><span class="annot"><span class="annottext">s :: GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPackageVersionAssetResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3AhttpStatus%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | The binary file, or asset, that is downloaded.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_asset"><span class="hs-identifier hs-type">getPackageVersionAssetResponse_asset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
+</span><span id="line-356"></span><span id="getPackageVersionAssetResponse_asset"><span class="annot"><span class="annottext">getPackageVersionAssetResponse_asset :: (ResponseBody -&gt; f ResponseBody)
+-&gt; GetPackageVersionAssetResponse
+-&gt; f GetPackageVersionAssetResponse
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#getPackageVersionAssetResponse_asset"><span class="hs-identifier hs-var hs-var">getPackageVersionAssetResponse_asset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionAssetResponse -&gt; ResponseBody)
+-&gt; (GetPackageVersionAssetResponse
+    -&gt; ResponseBody -&gt; GetPackageVersionAssetResponse)
+-&gt; Lens
+     GetPackageVersionAssetResponse
+     GetPackageVersionAssetResponse
+     ResponseBody
+     ResponseBody
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236450"><span class="annot"><span class="annottext">ResponseBody
+asset :: ResponseBody
+$sel:asset:GetPackageVersionAssetResponse' :: GetPackageVersionAssetResponse -&gt; ResponseBody
+</span><a href="#local-6989586621679236450"><span class="hs-identifier hs-var hs-var">asset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679236450"><span class="hs-identifier hs-var">asset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236449"><span class="annot"><span class="annottext">s :: GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse%27"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236448"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679236448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionAssetResponse
+</span><a href="#local-6989586621679236449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asset:GetPackageVersionAssetResponse' :: ResponseBody
+</span><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#%24sel%3Aasset%3AGetPackageVersionAssetResponse%27"><span class="hs-identifier hs-var">asset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679236448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.GetPackageVersionAsset.html#GetPackageVersionAssetResponse"><span class="hs-identifier hs-type">GetPackageVersionAssetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span></pre></body></html>

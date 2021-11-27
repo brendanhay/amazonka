@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDB.ExportTableToPointInTime</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Exports table data to an S3 bucket. The table must have point in time</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- recovery enabled, and you can export data from any time within the point</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in time recovery window.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDB.ExportTableToPointInTime</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#newExportTableToPointInTime"><span class="hs-identifier">newExportTableToPointInTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3BucketOwner"><span class="hs-identifier">exportTableToPointInTime_s3BucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_exportFormat"><span class="hs-identifier">exportTableToPointInTime_exportFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3SseKmsKeyId"><span class="hs-identifier">exportTableToPointInTime_s3SseKmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_clientToken"><span class="hs-identifier">exportTableToPointInTime_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_exportTime"><span class="hs-identifier">exportTableToPointInTime_exportTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3SseAlgorithm"><span class="hs-identifier">exportTableToPointInTime_s3SseAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3Prefix"><span class="hs-identifier">exportTableToPointInTime_s3Prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_tableArn"><span class="hs-identifier">exportTableToPointInTime_tableArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3Bucket"><span class="hs-identifier">exportTableToPointInTime_s3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse"><span class="hs-identifier">ExportTableToPointInTimeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#newExportTableToPointInTimeResponse"><span class="hs-identifier">newExportTableToPointInTimeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTimeResponse_exportDescription"><span class="hs-identifier">exportTableToPointInTimeResponse_exportDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTimeResponse_httpStatus"><span class="hs-identifier">exportTableToPointInTimeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.html"><span class="hs-identifier">Amazonka.DynamoDB.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newExportTableToPointInTime' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679390027"><span id="local-6989586621679390028"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportTableToPointInTime"><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-var">ExportTableToPointInTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTableToPointInTime%27"><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-var">ExportTableToPointInTime'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the AWS account that owns the bucket the export will be stored</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- in.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3As3BucketOwner%3AExportTableToPointInTime%27"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3BucketOwner%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">s3BucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The format for the exported data. Valid values for @ExportFormat@ are</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @DYNAMODB_JSON@ or @ION@.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AexportFormat%3AExportTableToPointInTime%27"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; Maybe ExportFormat
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AexportFormat%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">exportFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ExportFormat.html#ExportFormat"><span class="hs-identifier hs-type">ExportFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- export data will be stored (if applicable).</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3As3SseKmsKeyId%3AExportTableToPointInTime%27"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3SseKmsKeyId%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">s3SseKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Providing a @ClientToken@ makes the call to</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @ExportTableToPointInTimeInput@ idempotent, meaning that multiple</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- identical calls have the same effect as one single call.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- A client token is valid for 8 hours after the first request that uses it</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- is completed. After 8 hours, any request with the same client token is</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- treated as a new request. Do not resubmit the same request with the same</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- client token for more than 8 hours, or the result might not be</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- idempotent.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- If you submit a request with the same client token but a change in other</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- parameters within the 8-hour idempotency window, DynamoDB returns an</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @IdempotentParameterMismatch@ exception.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AclientToken%3AExportTableToPointInTime%27"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AclientToken%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Time in the past from which to export table data. The table export will</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- be a snapshot of the table\'s state at this point in time.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AexportTime%3AExportTableToPointInTime%27"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; Maybe POSIX
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AexportTime%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">exportTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Type of encryption used on the bucket where export data will be stored.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Valid values for @S3SseAlgorithm@ are:</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   @AES256@ - server-side encryption with Amazon S3 managed keys</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   @KMS@ - server-side encryption with AWS KMS managed keys</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3As3SseAlgorithm%3AExportTableToPointInTime%27"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; Maybe S3SseAlgorithm
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3SseAlgorithm%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">s3SseAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.S3SseAlgorithm.html#S3SseAlgorithm"><span class="hs-identifier hs-type">S3SseAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 bucket prefix to use as the file name and path of the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- exported snapshot.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3As3Prefix%3AExportTableToPointInTime%27"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3Prefix%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) associated with the table to export.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AtableArn%3AExportTableToPointInTime%27"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AtableArn%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">tableArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon S3 bucket to export the snapshot to.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3As3Bucket%3AExportTableToPointInTime%27"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3Bucket%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390013"><span id="local-6989586621679390015"><span class="annot"><span class="annottext">ExportTableToPointInTime -&gt; ExportTableToPointInTime -&gt; Bool
+(ExportTableToPointInTime -&gt; ExportTableToPointInTime -&gt; Bool)
+-&gt; (ExportTableToPointInTime -&gt; ExportTableToPointInTime -&gt; Bool)
+-&gt; Eq ExportTableToPointInTime
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportTableToPointInTime -&gt; ExportTableToPointInTime -&gt; Bool
+$c/= :: ExportTableToPointInTime -&gt; ExportTableToPointInTime -&gt; Bool
+== :: ExportTableToPointInTime -&gt; ExportTableToPointInTime -&gt; Bool
+$c== :: ExportTableToPointInTime -&gt; ExportTableToPointInTime -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390004"><span id="local-6989586621679390006"><span id="local-6989586621679390008"><span id="local-6989586621679390010"><span class="annot"><span class="annottext">ReadPrec [ExportTableToPointInTime]
+ReadPrec ExportTableToPointInTime
+Int -&gt; ReadS ExportTableToPointInTime
+ReadS [ExportTableToPointInTime]
+(Int -&gt; ReadS ExportTableToPointInTime)
+-&gt; ReadS [ExportTableToPointInTime]
+-&gt; ReadPrec ExportTableToPointInTime
+-&gt; ReadPrec [ExportTableToPointInTime]
+-&gt; Read ExportTableToPointInTime
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportTableToPointInTime]
+$creadListPrec :: ReadPrec [ExportTableToPointInTime]
+readPrec :: ReadPrec ExportTableToPointInTime
+$creadPrec :: ReadPrec ExportTableToPointInTime
+readList :: ReadS [ExportTableToPointInTime]
+$creadList :: ReadS [ExportTableToPointInTime]
+readsPrec :: Int -&gt; ReadS ExportTableToPointInTime
+$creadsPrec :: Int -&gt; ReadS ExportTableToPointInTime
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389997"><span id="local-6989586621679389999"><span id="local-6989586621679390001"><span class="annot"><span class="annottext">Int -&gt; ExportTableToPointInTime -&gt; ShowS
+[ExportTableToPointInTime] -&gt; ShowS
+ExportTableToPointInTime -&gt; String
+(Int -&gt; ExportTableToPointInTime -&gt; ShowS)
+-&gt; (ExportTableToPointInTime -&gt; String)
+-&gt; ([ExportTableToPointInTime] -&gt; ShowS)
+-&gt; Show ExportTableToPointInTime
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportTableToPointInTime] -&gt; ShowS
+$cshowList :: [ExportTableToPointInTime] -&gt; ShowS
+show :: ExportTableToPointInTime -&gt; String
+$cshow :: ExportTableToPointInTime -&gt; String
+showsPrec :: Int -&gt; ExportTableToPointInTime -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportTableToPointInTime -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExportTableToPointInTime -&gt; Rep ExportTableToPointInTime x)
+-&gt; (forall x.
+    Rep ExportTableToPointInTime x -&gt; ExportTableToPointInTime)
+-&gt; Generic ExportTableToPointInTime
+forall x.
+Rep ExportTableToPointInTime x -&gt; ExportTableToPointInTime
+forall x.
+ExportTableToPointInTime -&gt; Rep ExportTableToPointInTime x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExportTableToPointInTime x -&gt; ExportTableToPointInTime
+$cfrom :: forall x.
+ExportTableToPointInTime -&gt; Rep ExportTableToPointInTime x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Create a value of 'ExportTableToPointInTime' with all optional fields omitted.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 's3BucketOwner', 'exportTableToPointInTime_s3BucketOwner' - The ID of the AWS account that owns the bucket the export will be stored</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- in.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'exportFormat', 'exportTableToPointInTime_exportFormat' - The format for the exported data. Valid values for @ExportFormat@ are</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @DYNAMODB_JSON@ or @ION@.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 's3SseKmsKeyId', 'exportTableToPointInTime_s3SseKmsKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- export data will be stored (if applicable).</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'clientToken', 'exportTableToPointInTime_clientToken' - Providing a @ClientToken@ makes the call to</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @ExportTableToPointInTimeInput@ idempotent, meaning that multiple</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- identical calls have the same effect as one single call.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- A client token is valid for 8 hours after the first request that uses it</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- is completed. After 8 hours, any request with the same client token is</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- treated as a new request. Do not resubmit the same request with the same</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- client token for more than 8 hours, or the result might not be</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- idempotent.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- If you submit a request with the same client token but a change in other</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- parameters within the 8-hour idempotency window, DynamoDB returns an</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @IdempotentParameterMismatch@ exception.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'exportTime', 'exportTableToPointInTime_exportTime' - Time in the past from which to export table data. The table export will</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- be a snapshot of the table\'s state at this point in time.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 's3SseAlgorithm', 'exportTableToPointInTime_s3SseAlgorithm' - Type of encryption used on the bucket where export data will be stored.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Valid values for @S3SseAlgorithm@ are:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @AES256@ - server-side encryption with Amazon S3 managed keys</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   @KMS@ - server-side encryption with AWS KMS managed keys</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 's3Prefix', 'exportTableToPointInTime_s3Prefix' - The Amazon S3 bucket prefix to use as the file name and path of the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- exported snapshot.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'tableArn', 'exportTableToPointInTime_tableArn' - The Amazon Resource Name (ARN) associated with the table to export.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 's3Bucket', 'exportTableToPointInTime_s3Bucket' - The name of the Amazon S3 bucket to export the snapshot to.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#newExportTableToPointInTime"><span class="hs-identifier hs-type">newExportTableToPointInTime</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'tableArn'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 's3Bucket'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span>
+</span><span id="line-157"></span><span id="newExportTableToPointInTime"><span class="annot"><span class="annottext">newExportTableToPointInTime :: Text -&gt; Text -&gt; ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#newExportTableToPointInTime"><span class="hs-identifier hs-var hs-var">newExportTableToPointInTime</span></a></span></span><span> </span><span id="local-6989586621679389992"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389992"><span class="hs-identifier hs-var">pTableArn_</span></a></span></span><span> </span><span id="local-6989586621679389991"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389991"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">ExportTableToPointInTime' :: Maybe Text
+-&gt; Maybe ExportFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe S3SseAlgorithm
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3BucketOwner:ExportTableToPointInTime' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3BucketOwner%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3BucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportFormat:ExportTableToPointInTime' :: Maybe ExportFormat
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AexportFormat%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">exportFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExportFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3SseKmsKeyId:ExportTableToPointInTime' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3SseKmsKeyId%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3SseKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:ExportTableToPointInTime' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AclientToken%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportTime:ExportTableToPointInTime' :: Maybe POSIX
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AexportTime%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">exportTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3SseAlgorithm:ExportTableToPointInTime' :: Maybe S3SseAlgorithm
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3SseAlgorithm%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3SseAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3SseAlgorithm
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Prefix:ExportTableToPointInTime' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3Prefix%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableArn:ExportTableToPointInTime' :: Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AtableArn%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">tableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389992"><span class="hs-identifier hs-var">pTableArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:ExportTableToPointInTime' :: Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3Bucket%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389991"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The ID of the AWS account that owns the bucket the export will be stored</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- in.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3BucketOwner"><span class="hs-identifier hs-type">exportTableToPointInTime_s3BucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="exportTableToPointInTime_s3BucketOwner"><span class="annot"><span class="annottext">exportTableToPointInTime_s3BucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3BucketOwner"><span class="hs-identifier hs-var hs-var">exportTableToPointInTime_s3BucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTime -&gt; Maybe Text)
+-&gt; (ExportTableToPointInTime
+    -&gt; Maybe Text -&gt; ExportTableToPointInTime)
+-&gt; Lens
+     ExportTableToPointInTime
+     ExportTableToPointInTime
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389988"><span class="annot"><span class="annottext">Maybe Text
+s3BucketOwner :: Maybe Text
+$sel:s3BucketOwner:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe Text
+</span><a href="#local-6989586621679389988"><span class="hs-identifier hs-var hs-var">s3BucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389988"><span class="hs-identifier hs-var">s3BucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389987"><span class="annot"><span class="annottext">s :: ExportTableToPointInTime
+</span><a href="#local-6989586621679389987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389986"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTime
+</span><a href="#local-6989586621679389987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketOwner:ExportTableToPointInTime' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3BucketOwner%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3BucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The format for the exported data. Valid values for @ExportFormat@ are</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- @DYNAMODB_JSON@ or @ION@.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_exportFormat"><span class="hs-identifier hs-type">exportTableToPointInTime_exportFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ExportFormat.html#ExportFormat"><span class="hs-identifier hs-type">ExportFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="exportTableToPointInTime_exportFormat"><span class="annot"><span class="annottext">exportTableToPointInTime_exportFormat :: (Maybe ExportFormat -&gt; f (Maybe ExportFormat))
+-&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_exportFormat"><span class="hs-identifier hs-var hs-var">exportTableToPointInTime_exportFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTime -&gt; Maybe ExportFormat)
+-&gt; (ExportTableToPointInTime
+    -&gt; Maybe ExportFormat -&gt; ExportTableToPointInTime)
+-&gt; Lens
+     ExportTableToPointInTime
+     ExportTableToPointInTime
+     (Maybe ExportFormat)
+     (Maybe ExportFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389985"><span class="annot"><span class="annottext">Maybe ExportFormat
+exportFormat :: Maybe ExportFormat
+$sel:exportFormat:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe ExportFormat
+</span><a href="#local-6989586621679389985"><span class="hs-identifier hs-var hs-var">exportFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExportFormat
+</span><a href="#local-6989586621679389985"><span class="hs-identifier hs-var">exportFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389984"><span class="annot"><span class="annottext">s :: ExportTableToPointInTime
+</span><a href="#local-6989586621679389984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389983"><span class="annot"><span class="annottext">Maybe ExportFormat
+</span><a href="#local-6989586621679389983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTime
+</span><a href="#local-6989586621679389984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportFormat:ExportTableToPointInTime' :: Maybe ExportFormat
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AexportFormat%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">exportFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExportFormat
+</span><a href="#local-6989586621679389983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- export data will be stored (if applicable).</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3SseKmsKeyId"><span class="hs-identifier hs-type">exportTableToPointInTime_s3SseKmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="exportTableToPointInTime_s3SseKmsKeyId"><span class="annot"><span class="annottext">exportTableToPointInTime_s3SseKmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3SseKmsKeyId"><span class="hs-identifier hs-var hs-var">exportTableToPointInTime_s3SseKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTime -&gt; Maybe Text)
+-&gt; (ExportTableToPointInTime
+    -&gt; Maybe Text -&gt; ExportTableToPointInTime)
+-&gt; Lens
+     ExportTableToPointInTime
+     ExportTableToPointInTime
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389982"><span class="annot"><span class="annottext">Maybe Text
+s3SseKmsKeyId :: Maybe Text
+$sel:s3SseKmsKeyId:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe Text
+</span><a href="#local-6989586621679389982"><span class="hs-identifier hs-var hs-var">s3SseKmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389982"><span class="hs-identifier hs-var">s3SseKmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389981"><span class="annot"><span class="annottext">s :: ExportTableToPointInTime
+</span><a href="#local-6989586621679389981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389980"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTime
+</span><a href="#local-6989586621679389981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3SseKmsKeyId:ExportTableToPointInTime' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3SseKmsKeyId%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3SseKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | Providing a @ClientToken@ makes the call to</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @ExportTableToPointInTimeInput@ idempotent, meaning that multiple</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- identical calls have the same effect as one single call.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- A client token is valid for 8 hours after the first request that uses it</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- is completed. After 8 hours, any request with the same client token is</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- treated as a new request. Do not resubmit the same request with the same</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- client token for more than 8 hours, or the result might not be</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- idempotent.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- If you submit a request with the same client token but a change in other</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- parameters within the 8-hour idempotency window, DynamoDB returns an</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- @IdempotentParameterMismatch@ exception.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_clientToken"><span class="hs-identifier hs-type">exportTableToPointInTime_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="exportTableToPointInTime_clientToken"><span class="annot"><span class="annottext">exportTableToPointInTime_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_clientToken"><span class="hs-identifier hs-var hs-var">exportTableToPointInTime_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTime -&gt; Maybe Text)
+-&gt; (ExportTableToPointInTime
+    -&gt; Maybe Text -&gt; ExportTableToPointInTime)
+-&gt; Lens
+     ExportTableToPointInTime
+     ExportTableToPointInTime
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389979"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe Text
+</span><a href="#local-6989586621679389979"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389979"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389978"><span class="annot"><span class="annottext">s :: ExportTableToPointInTime
+</span><a href="#local-6989586621679389978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389977"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTime
+</span><a href="#local-6989586621679389978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:ExportTableToPointInTime' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AclientToken%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | Time in the past from which to export table data. The table export will</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- be a snapshot of the table\'s state at this point in time.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_exportTime"><span class="hs-identifier hs-type">exportTableToPointInTime_exportTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="exportTableToPointInTime_exportTime"><span class="annot"><span class="annottext">exportTableToPointInTime_exportTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_exportTime"><span class="hs-identifier hs-var hs-var">exportTableToPointInTime_exportTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTime -&gt; Maybe POSIX)
+-&gt; (ExportTableToPointInTime
+    -&gt; Maybe POSIX -&gt; ExportTableToPointInTime)
+-&gt; Lens
+     ExportTableToPointInTime
+     ExportTableToPointInTime
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389976"><span class="annot"><span class="annottext">Maybe POSIX
+exportTime :: Maybe POSIX
+$sel:exportTime:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe POSIX
+</span><a href="#local-6989586621679389976"><span class="hs-identifier hs-var hs-var">exportTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389976"><span class="hs-identifier hs-var">exportTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389975"><span class="annot"><span class="annottext">s :: ExportTableToPointInTime
+</span><a href="#local-6989586621679389975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389974"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTime
+</span><a href="#local-6989586621679389975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportTime:ExportTableToPointInTime' :: Maybe POSIX
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AexportTime%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">exportTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ExportTableToPointInTime
+-&gt; f ExportTableToPointInTime
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Type of encryption used on the bucket where export data will be stored.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Valid values for @S3SseAlgorithm@ are:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -   @AES256@ - server-side encryption with Amazon S3 managed keys</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   @KMS@ - server-side encryption with AWS KMS managed keys</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3SseAlgorithm"><span class="hs-identifier hs-type">exportTableToPointInTime_s3SseAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.S3SseAlgorithm.html#S3SseAlgorithm"><span class="hs-identifier hs-type">S3SseAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="exportTableToPointInTime_s3SseAlgorithm"><span class="annot"><span class="annottext">exportTableToPointInTime_s3SseAlgorithm :: (Maybe S3SseAlgorithm -&gt; f (Maybe S3SseAlgorithm))
+-&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3SseAlgorithm"><span class="hs-identifier hs-var hs-var">exportTableToPointInTime_s3SseAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTime -&gt; Maybe S3SseAlgorithm)
+-&gt; (ExportTableToPointInTime
+    -&gt; Maybe S3SseAlgorithm -&gt; ExportTableToPointInTime)
+-&gt; Lens
+     ExportTableToPointInTime
+     ExportTableToPointInTime
+     (Maybe S3SseAlgorithm)
+     (Maybe S3SseAlgorithm)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389970"><span class="annot"><span class="annottext">Maybe S3SseAlgorithm
+s3SseAlgorithm :: Maybe S3SseAlgorithm
+$sel:s3SseAlgorithm:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe S3SseAlgorithm
+</span><a href="#local-6989586621679389970"><span class="hs-identifier hs-var hs-var">s3SseAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3SseAlgorithm
+</span><a href="#local-6989586621679389970"><span class="hs-identifier hs-var">s3SseAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389969"><span class="annot"><span class="annottext">s :: ExportTableToPointInTime
+</span><a href="#local-6989586621679389969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389968"><span class="annot"><span class="annottext">Maybe S3SseAlgorithm
+</span><a href="#local-6989586621679389968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTime
+</span><a href="#local-6989586621679389969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3SseAlgorithm:ExportTableToPointInTime' :: Maybe S3SseAlgorithm
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3SseAlgorithm%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3SseAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3SseAlgorithm
+</span><a href="#local-6989586621679389968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The Amazon S3 bucket prefix to use as the file name and path of the</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- exported snapshot.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3Prefix"><span class="hs-identifier hs-type">exportTableToPointInTime_s3Prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="exportTableToPointInTime_s3Prefix"><span class="annot"><span class="annottext">exportTableToPointInTime_s3Prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3Prefix"><span class="hs-identifier hs-var hs-var">exportTableToPointInTime_s3Prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTime -&gt; Maybe Text)
+-&gt; (ExportTableToPointInTime
+    -&gt; Maybe Text -&gt; ExportTableToPointInTime)
+-&gt; Lens
+     ExportTableToPointInTime
+     ExportTableToPointInTime
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389967"><span class="annot"><span class="annottext">Maybe Text
+s3Prefix :: Maybe Text
+$sel:s3Prefix:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe Text
+</span><a href="#local-6989586621679389967"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389967"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389966"><span class="annot"><span class="annottext">s :: ExportTableToPointInTime
+</span><a href="#local-6989586621679389966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389965"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTime
+</span><a href="#local-6989586621679389966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Prefix:ExportTableToPointInTime' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3Prefix%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) associated with the table to export.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_tableArn"><span class="hs-identifier hs-type">exportTableToPointInTime_tableArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-223"></span><span id="exportTableToPointInTime_tableArn"><span class="annot"><span class="annottext">exportTableToPointInTime_tableArn :: (Text -&gt; f Text)
+-&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_tableArn"><span class="hs-identifier hs-var hs-var">exportTableToPointInTime_tableArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTime -&gt; Text)
+-&gt; (ExportTableToPointInTime -&gt; Text -&gt; ExportTableToPointInTime)
+-&gt; Lens ExportTableToPointInTime ExportTableToPointInTime Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389964"><span class="annot"><span class="annottext">Text
+tableArn :: Text
+$sel:tableArn:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Text
+</span><a href="#local-6989586621679389964"><span class="hs-identifier hs-var hs-var">tableArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389964"><span class="hs-identifier hs-var">tableArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389963"><span class="annot"><span class="annottext">s :: ExportTableToPointInTime
+</span><a href="#local-6989586621679389963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389962"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTime
+</span><a href="#local-6989586621679389963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableArn:ExportTableToPointInTime' :: Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AtableArn%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">tableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket to export the snapshot to.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3Bucket"><span class="hs-identifier hs-type">exportTableToPointInTime_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-227"></span><span id="exportTableToPointInTime_s3Bucket"><span class="annot"><span class="annottext">exportTableToPointInTime_s3Bucket :: (Text -&gt; f Text)
+-&gt; ExportTableToPointInTime -&gt; f ExportTableToPointInTime
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTime_s3Bucket"><span class="hs-identifier hs-var hs-var">exportTableToPointInTime_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTime -&gt; Text)
+-&gt; (ExportTableToPointInTime -&gt; Text -&gt; ExportTableToPointInTime)
+-&gt; Lens ExportTableToPointInTime ExportTableToPointInTime Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389961"><span class="annot"><span class="annottext">Text
+s3Bucket :: Text
+$sel:s3Bucket:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Text
+</span><a href="#local-6989586621679389961"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389961"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389960"><span class="annot"><span class="annottext">s :: ExportTableToPointInTime
+</span><a href="#local-6989586621679389960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTime
+</span><a href="#local-6989586621679389960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ExportTableToPointInTime' :: Text
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3As3Bucket%3AExportTableToPointInTime%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-231"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse</span></a></span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679389955"><span class="annot"><span class="annottext">request :: ExportTableToPointInTime -&gt; Request ExportTableToPointInTime
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ExportTableToPointInTime -&gt; Request ExportTableToPointInTime
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679389951"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ExportTableToPointInTime
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ExportTableToPointInTime)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ExportTableToPointInTime))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ExportTableToPointInTime
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ExportTableToPointInTime)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389948"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389947"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389947"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389946"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExportDescription -&gt; Int -&gt; ExportTableToPointInTimeResponse
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">ExportTableToPointInTimeResponse'</span></a></span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExportDescription
+ -&gt; Int -&gt; ExportTableToPointInTimeResponse)
+-&gt; Either String (Maybe ExportDescription)
+-&gt; Either String (Int -&gt; ExportTableToPointInTimeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ExportDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExportDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ExportTableToPointInTimeResponse)
+-&gt; Either String Int
+-&gt; Either String ExportTableToPointInTimeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389948"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389938"><span id="local-6989586621679389940"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span></span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679389931"><span class="annot"><span class="annottext">toHeaders :: ExportTableToPointInTime -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ExportTableToPointInTime -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-250"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DynamoDB_20120810.ExportTableToPointInTime&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-252"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-253"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-256"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-257"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389921"><span id="local-6989586621679389923"><span id="local-6989586621679389925"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679389919"><span class="annot"><span class="annottext">toJSON :: ExportTableToPointInTime -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime%27"><span class="hs-identifier hs-type">ExportTableToPointInTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389909"><span id="local-6989586621679389910"><span id="local-6989586621679389911"><span id="local-6989586621679389912"><span id="local-6989586621679389913"><span id="local-6989586621679389914"><span id="local-6989586621679389915"><span id="local-6989586621679389916"><span id="local-6989586621679389917"><span class="annot"><span class="annottext">Maybe Text
+Maybe POSIX
+Maybe ExportFormat
+Maybe S3SseAlgorithm
+Text
+s3Bucket :: Text
+tableArn :: Text
+s3Prefix :: Maybe Text
+s3SseAlgorithm :: Maybe S3SseAlgorithm
+exportTime :: Maybe POSIX
+clientToken :: Maybe Text
+s3SseKmsKeyId :: Maybe Text
+exportFormat :: Maybe ExportFormat
+s3BucketOwner :: Maybe Text
+$sel:s3Bucket:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Text
+$sel:tableArn:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Text
+$sel:s3Prefix:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe Text
+$sel:s3SseAlgorithm:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe S3SseAlgorithm
+$sel:exportTime:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe POSIX
+$sel:clientToken:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe Text
+$sel:s3SseKmsKeyId:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe Text
+$sel:exportFormat:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe ExportFormat
+$sel:s3BucketOwner:ExportTableToPointInTime' :: ExportTableToPointInTime -&gt; Maybe Text
+</span><a href="#local-6989586621679389909"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-265"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BucketOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389917"><span class="hs-identifier hs-var">s3BucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExportFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExportFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ExportFormat -&gt; Pair) -&gt; Maybe ExportFormat -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExportFormat
+</span><a href="#local-6989586621679389916"><span class="hs-identifier hs-var">exportFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3SseKmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389915"><span class="hs-identifier hs-var">s3SseKmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389914"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExportTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389913"><span class="hs-identifier hs-var">exportTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3SseAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3SseAlgorithm -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>              </span><span class="annot"><span class="annottext">(S3SseAlgorithm -&gt; Pair) -&gt; Maybe S3SseAlgorithm -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3SseAlgorithm
+</span><a href="#local-6989586621679389912"><span class="hs-identifier hs-var">s3SseAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389911"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389910"><span class="hs-identifier hs-var">tableArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389909"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621679389903"><span class="annot"><span class="annottext">toPath :: ExportTableToPointInTime -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ExportTableToPointInTime -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTime"><span class="hs-identifier hs-type">ExportTableToPointInTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-282"></span><span>  </span><span id="local-6989586621679389899"><span class="annot"><span class="annottext">toQuery :: ExportTableToPointInTime -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ExportTableToPointInTime -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | /See:/ 'newExportTableToPointInTimeResponse' smart constructor.</span><span>
+</span><span id="line-285"></span><span id="local-6989586621679389896"><span id="local-6989586621679389897"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportTableToPointInTimeResponse"><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse"><span class="hs-identifier hs-var">ExportTableToPointInTimeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTableToPointInTimeResponse%27"><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">ExportTableToPointInTimeResponse'</span></a></span></span><span>
+</span><span id="line-286"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains a description of the table export.</span><span>
+</span><span id="line-287"></span><span>    </span><span id="%24sel%3AexportDescription%3AExportTableToPointInTimeResponse%27"><span class="annot"><span class="annottext">ExportTableToPointInTimeResponse -&gt; Maybe ExportDescription
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AexportDescription%3AExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-var hs-var">exportDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ExportDescription.html#ExportDescription"><span class="hs-identifier hs-type">ExportDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-289"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExportTableToPointInTimeResponse%27"><span class="annot"><span class="annottext">ExportTableToPointInTimeResponse -&gt; Int
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AhttpStatus%3AExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-290"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-291"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389890"><span id="local-6989586621679389892"><span class="annot"><span class="annottext">ExportTableToPointInTimeResponse
+-&gt; ExportTableToPointInTimeResponse -&gt; Bool
+(ExportTableToPointInTimeResponse
+ -&gt; ExportTableToPointInTimeResponse -&gt; Bool)
+-&gt; (ExportTableToPointInTimeResponse
+    -&gt; ExportTableToPointInTimeResponse -&gt; Bool)
+-&gt; Eq ExportTableToPointInTimeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportTableToPointInTimeResponse
+-&gt; ExportTableToPointInTimeResponse -&gt; Bool
+$c/= :: ExportTableToPointInTimeResponse
+-&gt; ExportTableToPointInTimeResponse -&gt; Bool
+== :: ExportTableToPointInTimeResponse
+-&gt; ExportTableToPointInTimeResponse -&gt; Bool
+$c== :: ExportTableToPointInTimeResponse
+-&gt; ExportTableToPointInTimeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389882"><span id="local-6989586621679389884"><span id="local-6989586621679389886"><span id="local-6989586621679389888"><span class="annot"><span class="annottext">ReadPrec [ExportTableToPointInTimeResponse]
+ReadPrec ExportTableToPointInTimeResponse
+Int -&gt; ReadS ExportTableToPointInTimeResponse
+ReadS [ExportTableToPointInTimeResponse]
+(Int -&gt; ReadS ExportTableToPointInTimeResponse)
+-&gt; ReadS [ExportTableToPointInTimeResponse]
+-&gt; ReadPrec ExportTableToPointInTimeResponse
+-&gt; ReadPrec [ExportTableToPointInTimeResponse]
+-&gt; Read ExportTableToPointInTimeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportTableToPointInTimeResponse]
+$creadListPrec :: ReadPrec [ExportTableToPointInTimeResponse]
+readPrec :: ReadPrec ExportTableToPointInTimeResponse
+$creadPrec :: ReadPrec ExportTableToPointInTimeResponse
+readList :: ReadS [ExportTableToPointInTimeResponse]
+$creadList :: ReadS [ExportTableToPointInTimeResponse]
+readsPrec :: Int -&gt; ReadS ExportTableToPointInTimeResponse
+$creadsPrec :: Int -&gt; ReadS ExportTableToPointInTimeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389876"><span id="local-6989586621679389878"><span id="local-6989586621679389880"><span class="annot"><span class="annottext">Int -&gt; ExportTableToPointInTimeResponse -&gt; ShowS
+[ExportTableToPointInTimeResponse] -&gt; ShowS
+ExportTableToPointInTimeResponse -&gt; String
+(Int -&gt; ExportTableToPointInTimeResponse -&gt; ShowS)
+-&gt; (ExportTableToPointInTimeResponse -&gt; String)
+-&gt; ([ExportTableToPointInTimeResponse] -&gt; ShowS)
+-&gt; Show ExportTableToPointInTimeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportTableToPointInTimeResponse] -&gt; ShowS
+$cshowList :: [ExportTableToPointInTimeResponse] -&gt; ShowS
+show :: ExportTableToPointInTimeResponse -&gt; String
+$cshow :: ExportTableToPointInTimeResponse -&gt; String
+showsPrec :: Int -&gt; ExportTableToPointInTimeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportTableToPointInTimeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExportTableToPointInTimeResponse
+ -&gt; Rep ExportTableToPointInTimeResponse x)
+-&gt; (forall x.
+    Rep ExportTableToPointInTimeResponse x
+    -&gt; ExportTableToPointInTimeResponse)
+-&gt; Generic ExportTableToPointInTimeResponse
+forall x.
+Rep ExportTableToPointInTimeResponse x
+-&gt; ExportTableToPointInTimeResponse
+forall x.
+ExportTableToPointInTimeResponse
+-&gt; Rep ExportTableToPointInTimeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExportTableToPointInTimeResponse x
+-&gt; ExportTableToPointInTimeResponse
+$cfrom :: forall x.
+ExportTableToPointInTimeResponse
+-&gt; Rep ExportTableToPointInTimeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- Create a value of 'ExportTableToPointInTimeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- 'exportDescription', 'exportTableToPointInTimeResponse_exportDescription' - Contains a description of the table export.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'httpStatus', 'exportTableToPointInTimeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#newExportTableToPointInTimeResponse"><span class="hs-identifier hs-type">newExportTableToPointInTimeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-305"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-306"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-307"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse</span></a></span><span>
+</span><span id="line-308"></span><span id="newExportTableToPointInTimeResponse"><span class="annot"><span class="annottext">newExportTableToPointInTimeResponse :: Int -&gt; ExportTableToPointInTimeResponse
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#newExportTableToPointInTimeResponse"><span class="hs-identifier hs-var hs-var">newExportTableToPointInTimeResponse</span></a></span></span><span> </span><span id="local-6989586621679389873"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><span class="annottext">ExportTableToPointInTimeResponse' :: Maybe ExportDescription -&gt; Int -&gt; ExportTableToPointInTimeResponse
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse'</span></a></span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:exportDescription:ExportTableToPointInTimeResponse' :: Maybe ExportDescription
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AexportDescription%3AExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">exportDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>        </span><span class="annot"><span class="annottext">Maybe ExportDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ExportTableToPointInTimeResponse' :: Int
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AhttpStatus%3AExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | Contains a description of the table export.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTimeResponse_exportDescription"><span class="hs-identifier hs-type">exportTableToPointInTimeResponse_exportDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ExportDescription.html#ExportDescription"><span class="hs-identifier hs-type">ExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="exportTableToPointInTimeResponse_exportDescription"><span class="annot"><span class="annottext">exportTableToPointInTimeResponse_exportDescription :: (Maybe ExportDescription -&gt; f (Maybe ExportDescription))
+-&gt; ExportTableToPointInTimeResponse
+-&gt; f ExportTableToPointInTimeResponse
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTimeResponse_exportDescription"><span class="hs-identifier hs-var hs-var">exportTableToPointInTimeResponse_exportDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTimeResponse -&gt; Maybe ExportDescription)
+-&gt; (ExportTableToPointInTimeResponse
+    -&gt; Maybe ExportDescription -&gt; ExportTableToPointInTimeResponse)
+-&gt; Lens
+     ExportTableToPointInTimeResponse
+     ExportTableToPointInTimeResponse
+     (Maybe ExportDescription)
+     (Maybe ExportDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389872"><span class="annot"><span class="annottext">Maybe ExportDescription
+exportDescription :: Maybe ExportDescription
+$sel:exportDescription:ExportTableToPointInTimeResponse' :: ExportTableToPointInTimeResponse -&gt; Maybe ExportDescription
+</span><a href="#local-6989586621679389872"><span class="hs-identifier hs-var hs-var">exportDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExportDescription
+</span><a href="#local-6989586621679389872"><span class="hs-identifier hs-var">exportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389871"><span class="annot"><span class="annottext">s :: ExportTableToPointInTimeResponse
+</span><a href="#local-6989586621679389871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389870"><span class="annot"><span class="annottext">Maybe ExportDescription
+</span><a href="#local-6989586621679389870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTimeResponse
+</span><a href="#local-6989586621679389871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportDescription:ExportTableToPointInTimeResponse' :: Maybe ExportDescription
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AexportDescription%3AExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">exportDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExportDescription
+</span><a href="#local-6989586621679389870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTimeResponse_httpStatus"><span class="hs-identifier hs-type">exportTableToPointInTimeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-321"></span><span id="exportTableToPointInTimeResponse_httpStatus"><span class="annot"><span class="annottext">exportTableToPointInTimeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ExportTableToPointInTimeResponse
+-&gt; f ExportTableToPointInTimeResponse
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#exportTableToPointInTimeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">exportTableToPointInTimeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTableToPointInTimeResponse -&gt; Int)
+-&gt; (ExportTableToPointInTimeResponse
+    -&gt; Int -&gt; ExportTableToPointInTimeResponse)
+-&gt; Lens
+     ExportTableToPointInTimeResponse
+     ExportTableToPointInTimeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389869"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ExportTableToPointInTimeResponse' :: ExportTableToPointInTimeResponse -&gt; Int
+</span><a href="#local-6989586621679389869"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389869"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389868"><span class="annot"><span class="annottext">s :: ExportTableToPointInTimeResponse
+</span><a href="#local-6989586621679389868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTableToPointInTimeResponse
+</span><a href="#local-6989586621679389868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExportTableToPointInTimeResponse' :: Int
+</span><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#%24sel%3AhttpStatus%3AExportTableToPointInTimeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679389865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.ExportTableToPointInTime.html#ExportTableToPointInTimeResponse"><span class="hs-identifier hs-type">ExportTableToPointInTimeResponse</span></a></span></span><span>
+</span><span id="line-326"></span></pre></body></html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Backup.ListFrameworks</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of all frameworks for an Amazon Web Services account and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon Web Services Region.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Backup.ListFrameworks</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier">ListFrameworks</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#newListFrameworks"><span class="hs-identifier">newListFrameworks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworks_nextToken"><span class="hs-identifier">listFrameworks_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworks_maxResults"><span class="hs-identifier">listFrameworks_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier">ListFrameworksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#newListFrameworksResponse"><span class="hs-identifier">newListFrameworksResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworksResponse_nextToken"><span class="hs-identifier">listFrameworksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworksResponse_frameworks"><span class="hs-identifier">listFrameworksResponse_frameworks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworksResponse_httpStatus"><span class="hs-identifier">listFrameworksResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.html"><span class="hs-identifier">Amazonka.Backup.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListFrameworks' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679314940"><span id="local-6989586621679314941"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFrameworks"><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-var">ListFrameworks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFrameworks%27"><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks%27"><span class="hs-identifier hs-var">ListFrameworks'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListFrameworks%27"><span class="annot"><span class="annottext">ListFrameworks -&gt; Maybe Text
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AnextToken%3AListFrameworks%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The number of desired results from 1 to 1000. Optional. If unspecified,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the query will return 1 MB of data.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListFrameworks%27"><span class="annot"><span class="annottext">ListFrameworks -&gt; Maybe Natural
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AmaxResults%3AListFrameworks%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314933"><span id="local-6989586621679314935"><span class="annot"><span class="annottext">ListFrameworks -&gt; ListFrameworks -&gt; Bool
+(ListFrameworks -&gt; ListFrameworks -&gt; Bool)
+-&gt; (ListFrameworks -&gt; ListFrameworks -&gt; Bool) -&gt; Eq ListFrameworks
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListFrameworks -&gt; ListFrameworks -&gt; Bool
+$c/= :: ListFrameworks -&gt; ListFrameworks -&gt; Bool
+== :: ListFrameworks -&gt; ListFrameworks -&gt; Bool
+$c== :: ListFrameworks -&gt; ListFrameworks -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314924"><span id="local-6989586621679314926"><span id="local-6989586621679314928"><span id="local-6989586621679314930"><span class="annot"><span class="annottext">ReadPrec [ListFrameworks]
+ReadPrec ListFrameworks
+Int -&gt; ReadS ListFrameworks
+ReadS [ListFrameworks]
+(Int -&gt; ReadS ListFrameworks)
+-&gt; ReadS [ListFrameworks]
+-&gt; ReadPrec ListFrameworks
+-&gt; ReadPrec [ListFrameworks]
+-&gt; Read ListFrameworks
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListFrameworks]
+$creadListPrec :: ReadPrec [ListFrameworks]
+readPrec :: ReadPrec ListFrameworks
+$creadPrec :: ReadPrec ListFrameworks
+readList :: ReadS [ListFrameworks]
+$creadList :: ReadS [ListFrameworks]
+readsPrec :: Int -&gt; ReadS ListFrameworks
+$creadsPrec :: Int -&gt; ReadS ListFrameworks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314917"><span id="local-6989586621679314919"><span id="local-6989586621679314921"><span class="annot"><span class="annottext">Int -&gt; ListFrameworks -&gt; ShowS
+[ListFrameworks] -&gt; ShowS
+ListFrameworks -&gt; String
+(Int -&gt; ListFrameworks -&gt; ShowS)
+-&gt; (ListFrameworks -&gt; String)
+-&gt; ([ListFrameworks] -&gt; ShowS)
+-&gt; Show ListFrameworks
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListFrameworks] -&gt; ShowS
+$cshowList :: [ListFrameworks] -&gt; ShowS
+show :: ListFrameworks -&gt; String
+$cshow :: ListFrameworks -&gt; String
+showsPrec :: Int -&gt; ListFrameworks -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListFrameworks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListFrameworks -&gt; Rep ListFrameworks x)
+-&gt; (forall x. Rep ListFrameworks x -&gt; ListFrameworks)
+-&gt; Generic ListFrameworks
+forall x. Rep ListFrameworks x -&gt; ListFrameworks
+forall x. ListFrameworks -&gt; Rep ListFrameworks x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListFrameworks x -&gt; ListFrameworks
+$cfrom :: forall x. ListFrameworks -&gt; Rep ListFrameworks x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ListFrameworks' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'nextToken', 'listFrameworks_nextToken' - An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listFrameworks_maxResults' - The number of desired results from 1 to 1000. Optional. If unspecified,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the query will return 1 MB of data.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#newListFrameworks"><span class="hs-identifier hs-type">newListFrameworks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span>
+</span><span id="line-80"></span><span id="newListFrameworks"><span class="annot"><span class="annottext">newListFrameworks :: ListFrameworks
+</span><a href="Amazonka.Backup.ListFrameworks.html#newListFrameworks"><span class="hs-identifier hs-var hs-var">newListFrameworks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ListFrameworks' :: Maybe Text -&gt; Maybe Natural -&gt; ListFrameworks
+</span><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks%27"><span class="hs-identifier hs-type">ListFrameworks'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListFrameworks' :: Maybe Text
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AnextToken%3AListFrameworks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListFrameworks' :: Maybe Natural
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AmaxResults%3AListFrameworks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworks_nextToken"><span class="hs-identifier hs-type">listFrameworks_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="listFrameworks_nextToken"><span class="annot"><span class="annottext">listFrameworks_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListFrameworks -&gt; f ListFrameworks
+</span><a href="Amazonka.Backup.ListFrameworks.html#listFrameworks_nextToken"><span class="hs-identifier hs-var hs-var">listFrameworks_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFrameworks -&gt; Maybe Text)
+-&gt; (ListFrameworks -&gt; Maybe Text -&gt; ListFrameworks)
+-&gt; Lens ListFrameworks ListFrameworks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks%27"><span class="hs-identifier hs-type">ListFrameworks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314910"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListFrameworks' :: ListFrameworks -&gt; Maybe Text
+</span><a href="#local-6989586621679314910"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314910"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314909"><span class="annot"><span class="annottext">s :: ListFrameworks
+</span><a href="#local-6989586621679314909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks%27"><span class="hs-identifier hs-type">ListFrameworks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314908"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFrameworks
+</span><a href="#local-6989586621679314909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFrameworks' :: Maybe Text
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AnextToken%3AListFrameworks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The number of desired results from 1 to 1000. Optional. If unspecified,</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the query will return 1 MB of data.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworks_maxResults"><span class="hs-identifier hs-type">listFrameworks_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="listFrameworks_maxResults"><span class="annot"><span class="annottext">listFrameworks_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListFrameworks -&gt; f ListFrameworks
+</span><a href="Amazonka.Backup.ListFrameworks.html#listFrameworks_maxResults"><span class="hs-identifier hs-var hs-var">listFrameworks_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFrameworks -&gt; Maybe Natural)
+-&gt; (ListFrameworks -&gt; Maybe Natural -&gt; ListFrameworks)
+-&gt; Lens
+     ListFrameworks ListFrameworks (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks%27"><span class="hs-identifier hs-type">ListFrameworks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314907"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListFrameworks' :: ListFrameworks -&gt; Maybe Natural
+</span><a href="#local-6989586621679314907"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679314907"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314906"><span class="annot"><span class="annottext">s :: ListFrameworks
+</span><a href="#local-6989586621679314906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks%27"><span class="hs-identifier hs-type">ListFrameworks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314905"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679314905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFrameworks
+</span><a href="#local-6989586621679314906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListFrameworks' :: Maybe Natural
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AmaxResults%3AListFrameworks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679314905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-type">ListFrameworksResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679314901"><span class="annot"><span class="annottext">request :: ListFrameworks -&gt; Request ListFrameworks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListFrameworks -&gt; Request ListFrameworks
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679314897"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListFrameworks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListFrameworks)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListFrameworks))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListFrameworks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListFrameworks)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314894"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314894"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314893"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679314893"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314892"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Framework] -&gt; Int -&gt; ListFrameworksResponse
+</span><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse%27"><span class="hs-identifier hs-var">ListFrameworksResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Framework] -&gt; Int -&gt; ListFrameworksResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Framework] -&gt; Int -&gt; ListFrameworksResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Framework] -&gt; Int -&gt; ListFrameworksResponse)
+-&gt; Either String (Maybe [Framework])
+-&gt; Either String (Int -&gt; ListFrameworksResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Framework]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Frameworks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Framework]))
+-&gt; Maybe [Framework] -&gt; Either String (Maybe [Framework])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Framework]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListFrameworksResponse)
+-&gt; Either String Int -&gt; Either String ListFrameworksResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314894"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314883"><span id="local-6989586621679314885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679314876"><span class="annot"><span class="annottext">toHeaders :: ListFrameworks -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListFrameworks -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679314870"><span class="annot"><span class="annottext">toPath :: ListFrameworks -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListFrameworks -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/audit/frameworks&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks"><span class="hs-identifier hs-type">ListFrameworks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679314866"><span class="annot"><span class="annottext">toQuery :: ListFrameworks -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworks%27"><span class="hs-identifier hs-type">ListFrameworks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314863"><span id="local-6989586621679314864"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListFrameworks' :: ListFrameworks -&gt; Maybe Natural
+$sel:nextToken:ListFrameworks' :: ListFrameworks -&gt; Maybe Text
+</span><a href="#local-6989586621679314863"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314864"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679314863"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newListFrameworksResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679314860"><span id="local-6989586621679314861"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFrameworksResponse"><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-var">ListFrameworksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFrameworksResponse%27"><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse%27"><span class="hs-identifier hs-var">ListFrameworksResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AnextToken%3AListFrameworksResponse%27"><span class="annot"><span class="annottext">ListFrameworksResponse -&gt; Maybe Text
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AnextToken%3AListFrameworksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | A list of frameworks with details for each framework, including the</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- framework name, Amazon Resource Name (ARN), description, number of</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- controls, creation time, and deployment status.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3Aframeworks%3AListFrameworksResponse%27"><span class="annot"><span class="annottext">ListFrameworksResponse -&gt; Maybe [Framework]
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3Aframeworks%3AListFrameworksResponse%27"><span class="hs-identifier hs-var hs-var">frameworks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Backup.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListFrameworksResponse%27"><span class="annot"><span class="annottext">ListFrameworksResponse -&gt; Int
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AhttpStatus%3AListFrameworksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314853"><span id="local-6989586621679314855"><span class="annot"><span class="annottext">ListFrameworksResponse -&gt; ListFrameworksResponse -&gt; Bool
+(ListFrameworksResponse -&gt; ListFrameworksResponse -&gt; Bool)
+-&gt; (ListFrameworksResponse -&gt; ListFrameworksResponse -&gt; Bool)
+-&gt; Eq ListFrameworksResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListFrameworksResponse -&gt; ListFrameworksResponse -&gt; Bool
+$c/= :: ListFrameworksResponse -&gt; ListFrameworksResponse -&gt; Bool
+== :: ListFrameworksResponse -&gt; ListFrameworksResponse -&gt; Bool
+$c== :: ListFrameworksResponse -&gt; ListFrameworksResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314845"><span id="local-6989586621679314847"><span id="local-6989586621679314849"><span id="local-6989586621679314851"><span class="annot"><span class="annottext">ReadPrec [ListFrameworksResponse]
+ReadPrec ListFrameworksResponse
+Int -&gt; ReadS ListFrameworksResponse
+ReadS [ListFrameworksResponse]
+(Int -&gt; ReadS ListFrameworksResponse)
+-&gt; ReadS [ListFrameworksResponse]
+-&gt; ReadPrec ListFrameworksResponse
+-&gt; ReadPrec [ListFrameworksResponse]
+-&gt; Read ListFrameworksResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListFrameworksResponse]
+$creadListPrec :: ReadPrec [ListFrameworksResponse]
+readPrec :: ReadPrec ListFrameworksResponse
+$creadPrec :: ReadPrec ListFrameworksResponse
+readList :: ReadS [ListFrameworksResponse]
+$creadList :: ReadS [ListFrameworksResponse]
+readsPrec :: Int -&gt; ReadS ListFrameworksResponse
+$creadsPrec :: Int -&gt; ReadS ListFrameworksResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314839"><span id="local-6989586621679314841"><span id="local-6989586621679314843"><span class="annot"><span class="annottext">Int -&gt; ListFrameworksResponse -&gt; ShowS
+[ListFrameworksResponse] -&gt; ShowS
+ListFrameworksResponse -&gt; String
+(Int -&gt; ListFrameworksResponse -&gt; ShowS)
+-&gt; (ListFrameworksResponse -&gt; String)
+-&gt; ([ListFrameworksResponse] -&gt; ShowS)
+-&gt; Show ListFrameworksResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListFrameworksResponse] -&gt; ShowS
+$cshowList :: [ListFrameworksResponse] -&gt; ShowS
+show :: ListFrameworksResponse -&gt; String
+$cshow :: ListFrameworksResponse -&gt; String
+showsPrec :: Int -&gt; ListFrameworksResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListFrameworksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListFrameworksResponse -&gt; Rep ListFrameworksResponse x)
+-&gt; (forall x.
+    Rep ListFrameworksResponse x -&gt; ListFrameworksResponse)
+-&gt; Generic ListFrameworksResponse
+forall x. Rep ListFrameworksResponse x -&gt; ListFrameworksResponse
+forall x. ListFrameworksResponse -&gt; Rep ListFrameworksResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListFrameworksResponse x -&gt; ListFrameworksResponse
+$cfrom :: forall x. ListFrameworksResponse -&gt; Rep ListFrameworksResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Create a value of 'ListFrameworksResponse' with all optional fields omitted.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'nextToken', 'listFrameworksResponse_nextToken' - An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'frameworks', 'listFrameworksResponse_frameworks' - A list of frameworks with details for each framework, including the</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- framework name, Amazon Resource Name (ARN), description, number of</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- controls, creation time, and deployment status.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'listFrameworksResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#newListFrameworksResponse"><span class="hs-identifier hs-type">newListFrameworksResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-type">ListFrameworksResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="newListFrameworksResponse"><span class="annot"><span class="annottext">newListFrameworksResponse :: Int -&gt; ListFrameworksResponse
+</span><a href="Amazonka.Backup.ListFrameworks.html#newListFrameworksResponse"><span class="hs-identifier hs-var hs-var">newListFrameworksResponse</span></a></span></span><span> </span><span id="local-6989586621679314836"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">ListFrameworksResponse' :: Maybe Text -&gt; Maybe [Framework] -&gt; Int -&gt; ListFrameworksResponse
+</span><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse%27"><span class="hs-identifier hs-type">ListFrameworksResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListFrameworksResponse' :: Maybe Text
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AnextToken%3AListFrameworksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameworks:ListFrameworksResponse' :: Maybe [Framework]
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3Aframeworks%3AListFrameworksResponse%27"><span class="hs-identifier hs-var">frameworks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Framework]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListFrameworksResponse' :: Int
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AhttpStatus%3AListFrameworksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworksResponse_nextToken"><span class="hs-identifier hs-type">listFrameworksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-type">ListFrameworksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="listFrameworksResponse_nextToken"><span class="annot"><span class="annottext">listFrameworksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListFrameworksResponse -&gt; f ListFrameworksResponse
+</span><a href="Amazonka.Backup.ListFrameworks.html#listFrameworksResponse_nextToken"><span class="hs-identifier hs-var hs-var">listFrameworksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFrameworksResponse -&gt; Maybe Text)
+-&gt; (ListFrameworksResponse -&gt; Maybe Text -&gt; ListFrameworksResponse)
+-&gt; Lens
+     ListFrameworksResponse
+     ListFrameworksResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse%27"><span class="hs-identifier hs-type">ListFrameworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314835"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListFrameworksResponse' :: ListFrameworksResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679314835"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314835"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314834"><span class="annot"><span class="annottext">s :: ListFrameworksResponse
+</span><a href="#local-6989586621679314834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse%27"><span class="hs-identifier hs-type">ListFrameworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314833"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFrameworksResponse
+</span><a href="#local-6989586621679314834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFrameworksResponse' :: Maybe Text
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AnextToken%3AListFrameworksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-type">ListFrameworksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | A list of frameworks with details for each framework, including the</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- framework name, Amazon Resource Name (ARN), description, number of</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- controls, creation time, and deployment status.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworksResponse_frameworks"><span class="hs-identifier hs-type">listFrameworksResponse_frameworks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-type">ListFrameworksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Backup.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listFrameworksResponse_frameworks"><span class="annot"><span class="annottext">listFrameworksResponse_frameworks :: (Maybe [Framework] -&gt; f (Maybe [Framework]))
+-&gt; ListFrameworksResponse -&gt; f ListFrameworksResponse
+</span><a href="Amazonka.Backup.ListFrameworks.html#listFrameworksResponse_frameworks"><span class="hs-identifier hs-var hs-var">listFrameworksResponse_frameworks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFrameworksResponse -&gt; Maybe [Framework])
+-&gt; (ListFrameworksResponse
+    -&gt; Maybe [Framework] -&gt; ListFrameworksResponse)
+-&gt; Lens
+     ListFrameworksResponse
+     ListFrameworksResponse
+     (Maybe [Framework])
+     (Maybe [Framework])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse%27"><span class="hs-identifier hs-type">ListFrameworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314832"><span class="annot"><span class="annottext">Maybe [Framework]
+frameworks :: Maybe [Framework]
+$sel:frameworks:ListFrameworksResponse' :: ListFrameworksResponse -&gt; Maybe [Framework]
+</span><a href="#local-6989586621679314832"><span class="hs-identifier hs-var hs-var">frameworks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Framework]
+</span><a href="#local-6989586621679314832"><span class="hs-identifier hs-var">frameworks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314831"><span class="annot"><span class="annottext">s :: ListFrameworksResponse
+</span><a href="#local-6989586621679314831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse%27"><span class="hs-identifier hs-type">ListFrameworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314830"><span class="annot"><span class="annottext">Maybe [Framework]
+</span><a href="#local-6989586621679314830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFrameworksResponse
+</span><a href="#local-6989586621679314831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworks:ListFrameworksResponse' :: Maybe [Framework]
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3Aframeworks%3AListFrameworksResponse%27"><span class="hs-identifier hs-var">frameworks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Framework]
+</span><a href="#local-6989586621679314830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-type">ListFrameworksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Framework] -&gt; f (Maybe [Framework]))
+ -&gt; ListFrameworksResponse -&gt; f ListFrameworksResponse)
+-&gt; ((Maybe [Framework] -&gt; f (Maybe [Framework]))
+    -&gt; Maybe [Framework] -&gt; f (Maybe [Framework]))
+-&gt; (Maybe [Framework] -&gt; f (Maybe [Framework]))
+-&gt; ListFrameworksResponse
+-&gt; f ListFrameworksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Framework] [Framework] [Framework] [Framework]
+-&gt; Iso
+     (Maybe [Framework])
+     (Maybe [Framework])
+     (Maybe [Framework])
+     (Maybe [Framework])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Framework] [Framework] [Framework] [Framework]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#listFrameworksResponse_httpStatus"><span class="hs-identifier hs-type">listFrameworksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-type">ListFrameworksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="listFrameworksResponse_httpStatus"><span class="annot"><span class="annottext">listFrameworksResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListFrameworksResponse -&gt; f ListFrameworksResponse
+</span><a href="Amazonka.Backup.ListFrameworks.html#listFrameworksResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listFrameworksResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFrameworksResponse -&gt; Int)
+-&gt; (ListFrameworksResponse -&gt; Int -&gt; ListFrameworksResponse)
+-&gt; Lens ListFrameworksResponse ListFrameworksResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse%27"><span class="hs-identifier hs-type">ListFrameworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314826"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListFrameworksResponse' :: ListFrameworksResponse -&gt; Int
+</span><a href="#local-6989586621679314826"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314826"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314825"><span class="annot"><span class="annottext">s :: ListFrameworksResponse
+</span><a href="#local-6989586621679314825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse%27"><span class="hs-identifier hs-type">ListFrameworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFrameworksResponse
+</span><a href="#local-6989586621679314825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFrameworksResponse' :: Int
+</span><a href="Amazonka.Backup.ListFrameworks.html#%24sel%3AhttpStatus%3AListFrameworksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-type">ListFrameworksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListFrameworks.html#ListFrameworksResponse"><span class="hs-identifier hs-type">ListFrameworksResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

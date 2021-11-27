@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MarketplaceMetering.Types.UsageRecord</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MarketplaceMetering.Types.UsageRecord</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageAllocation.html"><span class="hs-identifier">Amazonka.MarketplaceMetering.Types.UsageAllocation</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A UsageRecord indicates a quantity of usage for a given product,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- customer, dimension and time.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Multiple requests with the same UsageRecords as input will be</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- deduplicated to prevent double charges.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newUsageRecord' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679145189"><span id="local-6989586621679145190"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageRecord"><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-var">UsageRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageRecord%27"><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-var">UsageRecord'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The quantity of usage consumed by the customer for the given dimension</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- and time. Defaults to @0@ if not specified.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aquantity%3AUsageRecord%27"><span class="annot"><span class="annottext">UsageRecord -&gt; Maybe Natural
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Aquantity%3AUsageRecord%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The set of UsageAllocations to submit. The sum of all UsageAllocation</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- quantities must equal the Quantity of the UsageRecord.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AusageAllocations%3AUsageRecord%27"><span class="annot"><span class="annottext">UsageRecord -&gt; Maybe (NonEmpty UsageAllocation)
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3AusageAllocations%3AUsageRecord%27"><span class="hs-identifier hs-var hs-var">usageAllocations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Timestamp, in UTC, for which the usage is being reported.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Your application can meter usage for up to one hour in the past. Make</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- sure the timestamp value is not before the start of the software usage.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atimestamp%3AUsageRecord%27"><span class="annot"><span class="annottext">UsageRecord -&gt; POSIX
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Atimestamp%3AUsageRecord%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The CustomerIdentifier is obtained through the ResolveCustomer operation</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- and represents an individual buyer in your application.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcustomerIdentifier%3AUsageRecord%27"><span class="annot"><span class="annottext">UsageRecord -&gt; Text
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3AcustomerIdentifier%3AUsageRecord%27"><span class="hs-identifier hs-var hs-var">customerIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | During the process of registering a product on AWS Marketplace, up to</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- eight dimensions are specified. These represent different units of value</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- in your application.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Adimension%3AUsageRecord%27"><span class="annot"><span class="annottext">UsageRecord -&gt; Text
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Adimension%3AUsageRecord%27"><span class="hs-identifier hs-var hs-var">dimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679145179"><span id="local-6989586621679145181"><span class="annot"><span class="annottext">UsageRecord -&gt; UsageRecord -&gt; Bool
+(UsageRecord -&gt; UsageRecord -&gt; Bool)
+-&gt; (UsageRecord -&gt; UsageRecord -&gt; Bool) -&gt; Eq UsageRecord
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UsageRecord -&gt; UsageRecord -&gt; Bool
+$c/= :: UsageRecord -&gt; UsageRecord -&gt; Bool
+== :: UsageRecord -&gt; UsageRecord -&gt; Bool
+$c== :: UsageRecord -&gt; UsageRecord -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145170"><span id="local-6989586621679145172"><span id="local-6989586621679145174"><span id="local-6989586621679145176"><span class="annot"><span class="annottext">ReadPrec [UsageRecord]
+ReadPrec UsageRecord
+Int -&gt; ReadS UsageRecord
+ReadS [UsageRecord]
+(Int -&gt; ReadS UsageRecord)
+-&gt; ReadS [UsageRecord]
+-&gt; ReadPrec UsageRecord
+-&gt; ReadPrec [UsageRecord]
+-&gt; Read UsageRecord
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UsageRecord]
+$creadListPrec :: ReadPrec [UsageRecord]
+readPrec :: ReadPrec UsageRecord
+$creadPrec :: ReadPrec UsageRecord
+readList :: ReadS [UsageRecord]
+$creadList :: ReadS [UsageRecord]
+readsPrec :: Int -&gt; ReadS UsageRecord
+$creadsPrec :: Int -&gt; ReadS UsageRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145163"><span id="local-6989586621679145165"><span id="local-6989586621679145167"><span class="annot"><span class="annottext">Int -&gt; UsageRecord -&gt; ShowS
+[UsageRecord] -&gt; ShowS
+UsageRecord -&gt; String
+(Int -&gt; UsageRecord -&gt; ShowS)
+-&gt; (UsageRecord -&gt; String)
+-&gt; ([UsageRecord] -&gt; ShowS)
+-&gt; Show UsageRecord
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UsageRecord] -&gt; ShowS
+$cshowList :: [UsageRecord] -&gt; ShowS
+show :: UsageRecord -&gt; String
+$cshow :: UsageRecord -&gt; String
+showsPrec :: Int -&gt; UsageRecord -&gt; ShowS
+$cshowsPrec :: Int -&gt; UsageRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UsageRecord -&gt; Rep UsageRecord x)
+-&gt; (forall x. Rep UsageRecord x -&gt; UsageRecord)
+-&gt; Generic UsageRecord
+forall x. Rep UsageRecord x -&gt; UsageRecord
+forall x. UsageRecord -&gt; Rep UsageRecord x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UsageRecord x -&gt; UsageRecord
+$cfrom :: forall x. UsageRecord -&gt; Rep UsageRecord x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'UsageRecord' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'quantity', 'usageRecord_quantity' - The quantity of usage consumed by the customer for the given dimension</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- and time. Defaults to @0@ if not specified.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'usageAllocations', 'usageRecord_usageAllocations' - The set of UsageAllocations to submit. The sum of all UsageAllocation</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- quantities must equal the Quantity of the UsageRecord.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'timestamp', 'usageRecord_timestamp' - Timestamp, in UTC, for which the usage is being reported.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Your application can meter usage for up to one hour in the past. Make</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- sure the timestamp value is not before the start of the software usage.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'customerIdentifier', 'usageRecord_customerIdentifier' - The CustomerIdentifier is obtained through the ResolveCustomer operation</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- and represents an individual buyer in your application.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'dimension', 'usageRecord_dimension' - During the process of registering a product on AWS Marketplace, up to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- eight dimensions are specified. These represent different units of value</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- in your application.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#newUsageRecord"><span class="hs-identifier hs-type">newUsageRecord</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'timestamp'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'customerIdentifier'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'dimension'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span>
+</span><span id="line-89"></span><span id="newUsageRecord"><span class="annot"><span class="annottext">newUsageRecord :: UTCTime -&gt; Text -&gt; Text -&gt; UsageRecord
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#newUsageRecord"><span class="hs-identifier hs-var hs-var">newUsageRecord</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679145157"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679145157"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679145156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145156"><span class="hs-identifier hs-var">pCustomerIdentifier_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679145155"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145155"><span class="hs-identifier hs-var">pDimension_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">UsageRecord' :: Maybe Natural
+-&gt; Maybe (NonEmpty UsageAllocation)
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; UsageRecord
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:quantity:UsageRecord' :: Maybe Natural
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Aquantity%3AUsageRecord%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:usageAllocations:UsageRecord' :: Maybe (NonEmpty UsageAllocation)
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3AusageAllocations%3AUsageRecord%27"><span class="hs-identifier hs-var">usageAllocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:timestamp:UsageRecord' :: POSIX
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Atimestamp%3AUsageRecord%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679145157"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:customerIdentifier:UsageRecord' :: Text
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3AcustomerIdentifier%3AUsageRecord%27"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145156"><span class="hs-identifier hs-var">pCustomerIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:dimension:UsageRecord' :: Text
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Adimension%3AUsageRecord%27"><span class="hs-identifier hs-var">dimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145155"><span class="hs-identifier hs-var">pDimension_</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The quantity of usage consumed by the customer for the given dimension</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- and time. Defaults to @0@ if not specified.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_quantity"><span class="hs-identifier hs-type">usageRecord_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="usageRecord_quantity"><span class="annot"><span class="annottext">usageRecord_quantity :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UsageRecord -&gt; f UsageRecord
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_quantity"><span class="hs-identifier hs-var hs-var">usageRecord_quantity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageRecord -&gt; Maybe Natural)
+-&gt; (UsageRecord -&gt; Maybe Natural -&gt; UsageRecord)
+-&gt; Lens UsageRecord UsageRecord (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145149"><span class="annot"><span class="annottext">Maybe Natural
+quantity :: Maybe Natural
+$sel:quantity:UsageRecord' :: UsageRecord -&gt; Maybe Natural
+</span><a href="#local-6989586621679145149"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679145149"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145148"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145147"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679145147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:UsageRecord' :: Maybe Natural
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Aquantity%3AUsageRecord%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679145147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The set of UsageAllocations to submit. The sum of all UsageAllocation</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- quantities must equal the Quantity of the UsageRecord.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_usageAllocations"><span class="hs-identifier hs-type">usageRecord_usageAllocations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="usageRecord_usageAllocations"><span class="annot"><span class="annottext">usageRecord_usageAllocations :: (Maybe (NonEmpty UsageAllocation)
+ -&gt; f (Maybe (NonEmpty UsageAllocation)))
+-&gt; UsageRecord -&gt; f UsageRecord
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_usageAllocations"><span class="hs-identifier hs-var hs-var">usageRecord_usageAllocations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageRecord -&gt; Maybe (NonEmpty UsageAllocation))
+-&gt; (UsageRecord -&gt; Maybe (NonEmpty UsageAllocation) -&gt; UsageRecord)
+-&gt; Lens
+     UsageRecord
+     UsageRecord
+     (Maybe (NonEmpty UsageAllocation))
+     (Maybe (NonEmpty UsageAllocation))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145145"><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
+usageAllocations :: Maybe (NonEmpty UsageAllocation)
+$sel:usageAllocations:UsageRecord' :: UsageRecord -&gt; Maybe (NonEmpty UsageAllocation)
+</span><a href="#local-6989586621679145145"><span class="hs-identifier hs-var hs-var">usageAllocations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
+</span><a href="#local-6989586621679145145"><span class="hs-identifier hs-var">usageAllocations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145144"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145143"><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
+</span><a href="#local-6989586621679145143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageAllocations:UsageRecord' :: Maybe (NonEmpty UsageAllocation)
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3AusageAllocations%3AUsageRecord%27"><span class="hs-identifier hs-var">usageAllocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
+</span><a href="#local-6989586621679145143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty UsageAllocation)
+  -&gt; f (Maybe (NonEmpty UsageAllocation)))
+ -&gt; UsageRecord -&gt; f UsageRecord)
+-&gt; ((Maybe (NonEmpty UsageAllocation)
+     -&gt; f (Maybe (NonEmpty UsageAllocation)))
+    -&gt; Maybe (NonEmpty UsageAllocation)
+    -&gt; f (Maybe (NonEmpty UsageAllocation)))
+-&gt; (Maybe (NonEmpty UsageAllocation)
+    -&gt; f (Maybe (NonEmpty UsageAllocation)))
+-&gt; UsageRecord
+-&gt; f UsageRecord
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty UsageAllocation)
+  (NonEmpty UsageAllocation)
+  (NonEmpty UsageAllocation)
+  (NonEmpty UsageAllocation)
+-&gt; Iso
+     (Maybe (NonEmpty UsageAllocation))
+     (Maybe (NonEmpty UsageAllocation))
+     (Maybe (NonEmpty UsageAllocation))
+     (Maybe (NonEmpty UsageAllocation))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty UsageAllocation)
+  (NonEmpty UsageAllocation)
+  (NonEmpty UsageAllocation)
+  (NonEmpty UsageAllocation)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Timestamp, in UTC, for which the usage is being reported.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Your application can meter usage for up to one hour in the past. Make</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- sure the timestamp value is not before the start of the software usage.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_timestamp"><span class="hs-identifier hs-type">usageRecord_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-116"></span><span id="usageRecord_timestamp"><span class="annot"><span class="annottext">usageRecord_timestamp :: (UTCTime -&gt; f UTCTime) -&gt; UsageRecord -&gt; f UsageRecord
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_timestamp"><span class="hs-identifier hs-var hs-var">usageRecord_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageRecord -&gt; POSIX)
+-&gt; (UsageRecord -&gt; POSIX -&gt; UsageRecord)
+-&gt; Lens UsageRecord UsageRecord POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145138"><span class="annot"><span class="annottext">POSIX
+timestamp :: POSIX
+$sel:timestamp:UsageRecord' :: UsageRecord -&gt; POSIX
+</span><a href="#local-6989586621679145138"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679145138"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145137"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145136"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679145136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:UsageRecord' :: POSIX
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Atimestamp%3AUsageRecord%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679145136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; UsageRecord -&gt; f UsageRecord)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; UsageRecord
+-&gt; f UsageRecord
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The CustomerIdentifier is obtained through the ResolveCustomer operation</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- and represents an individual buyer in your application.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_customerIdentifier"><span class="hs-identifier hs-type">usageRecord_customerIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="usageRecord_customerIdentifier"><span class="annot"><span class="annottext">usageRecord_customerIdentifier :: (Text -&gt; f Text) -&gt; UsageRecord -&gt; f UsageRecord
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_customerIdentifier"><span class="hs-identifier hs-var hs-var">usageRecord_customerIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageRecord -&gt; Text)
+-&gt; (UsageRecord -&gt; Text -&gt; UsageRecord)
+-&gt; Lens UsageRecord UsageRecord Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145134"><span class="annot"><span class="annottext">Text
+customerIdentifier :: Text
+$sel:customerIdentifier:UsageRecord' :: UsageRecord -&gt; Text
+</span><a href="#local-6989586621679145134"><span class="hs-identifier hs-var hs-var">customerIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145134"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145133"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerIdentifier:UsageRecord' :: Text
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3AcustomerIdentifier%3AUsageRecord%27"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | During the process of registering a product on AWS Marketplace, up to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- eight dimensions are specified. These represent different units of value</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- in your application.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_dimension"><span class="hs-identifier hs-type">usageRecord_dimension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="usageRecord_dimension"><span class="annot"><span class="annottext">usageRecord_dimension :: (Text -&gt; f Text) -&gt; UsageRecord -&gt; f UsageRecord
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#usageRecord_dimension"><span class="hs-identifier hs-var hs-var">usageRecord_dimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageRecord -&gt; Text)
+-&gt; (UsageRecord -&gt; Text -&gt; UsageRecord)
+-&gt; Lens UsageRecord UsageRecord Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145130"><span class="annot"><span class="annottext">Text
+dimension :: Text
+$sel:dimension:UsageRecord' :: UsageRecord -&gt; Text
+</span><a href="#local-6989586621679145130"><span class="hs-identifier hs-var hs-var">dimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145130"><span class="hs-identifier hs-var">dimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145129"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimension:UsageRecord' :: Text
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Adimension%3AUsageRecord%27"><span class="hs-identifier hs-var">dimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145125"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679145123"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UsageRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser UsageRecord) -&gt; Value -&gt; Parser UsageRecord
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;UsageRecord&quot;</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679145120"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679145120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe (NonEmpty UsageAllocation)
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; UsageRecord
+</span><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-var">UsageRecord'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe (NonEmpty UsageAllocation)
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; UsageRecord)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe (NonEmpty UsageAllocation)
+      -&gt; POSIX -&gt; Text -&gt; Text -&gt; UsageRecord)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679145120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty UsageAllocation)
+   -&gt; POSIX -&gt; Text -&gt; Text -&gt; UsageRecord)
+-&gt; Parser (Maybe (NonEmpty UsageAllocation))
+-&gt; Parser (POSIX -&gt; Text -&gt; Text -&gt; UsageRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679145120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty UsageAllocation))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UsageAllocations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; Text -&gt; UsageRecord)
+-&gt; Parser POSIX -&gt; Parser (Text -&gt; Text -&gt; UsageRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679145120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; UsageRecord)
+-&gt; Parser Text -&gt; Parser (Text -&gt; UsageRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679145120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomerIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; UsageRecord) -&gt; Parser Text -&gt; Parser UsageRecord
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679145120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimension&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145113"><span id="local-6989586621679145115"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145102"><span id="local-6989586621679145104"><span id="local-6989586621679145106"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679145100"><span class="annot"><span class="annottext">toJSON :: UsageRecord -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145094"><span id="local-6989586621679145095"><span id="local-6989586621679145096"><span id="local-6989586621679145097"><span id="local-6989586621679145098"><span class="annot"><span class="annottext">Maybe Natural
+Maybe (NonEmpty UsageAllocation)
+Text
+POSIX
+dimension :: Text
+customerIdentifier :: Text
+timestamp :: POSIX
+usageAllocations :: Maybe (NonEmpty UsageAllocation)
+quantity :: Maybe Natural
+$sel:dimension:UsageRecord' :: UsageRecord -&gt; Text
+$sel:customerIdentifier:UsageRecord' :: UsageRecord -&gt; Text
+$sel:timestamp:UsageRecord' :: UsageRecord -&gt; POSIX
+$sel:usageAllocations:UsageRecord' :: UsageRecord -&gt; Maybe (NonEmpty UsageAllocation)
+$sel:quantity:UsageRecord' :: UsageRecord -&gt; Maybe Natural
+</span><a href="#local-6989586621679145094"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679145098"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UsageAllocations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty UsageAllocation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty UsageAllocation -&gt; Pair)
+-&gt; Maybe (NonEmpty UsageAllocation) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
+</span><a href="#local-6989586621679145097"><span class="hs-identifier hs-var">usageAllocations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679145096"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomerIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145095"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimension&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145094"><span class="hs-identifier hs-var">dimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span></pre></body></html>

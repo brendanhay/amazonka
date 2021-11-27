@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KafkaConnect.Types.CustomPluginState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KafkaConnect.Types.CustomPluginState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState"><span class="hs-identifier">CustomPluginState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_ACTIVE"><span class="hs-identifier">CustomPluginState_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_CREATE_FAILED"><span class="hs-identifier">CustomPluginState_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_CREATING"><span class="hs-identifier">CustomPluginState_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_DELETING"><span class="hs-identifier">CustomPluginState_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_UPDATE_FAILED"><span class="hs-identifier">CustomPluginState_UPDATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_UPDATING"><span class="hs-identifier">CustomPluginState_UPDATING</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679201177"><span id="local-6989586621679201178"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomPluginState"><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState"><span class="hs-identifier hs-var">CustomPluginState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomPluginState%27"><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState%27"><span class="hs-identifier hs-var">CustomPluginState'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCustomPluginState"><span class="annot"><span class="annottext">CustomPluginState -&gt; Text
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#fromCustomPluginState"><span class="hs-identifier hs-var hs-var">fromCustomPluginState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201169"><span id="local-6989586621679201171"><span id="local-6989586621679201173"><span class="annot"><span class="annottext">Int -&gt; CustomPluginState -&gt; ShowS
+[CustomPluginState] -&gt; ShowS
+CustomPluginState -&gt; String
+(Int -&gt; CustomPluginState -&gt; ShowS)
+-&gt; (CustomPluginState -&gt; String)
+-&gt; ([CustomPluginState] -&gt; ShowS)
+-&gt; Show CustomPluginState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomPluginState] -&gt; ShowS
+$cshowList :: [CustomPluginState] -&gt; ShowS
+show :: CustomPluginState -&gt; String
+$cshow :: CustomPluginState -&gt; String
+showsPrec :: Int -&gt; CustomPluginState -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomPluginState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679201160"><span id="local-6989586621679201162"><span id="local-6989586621679201164"><span id="local-6989586621679201166"><span class="annot"><span class="annottext">ReadPrec [CustomPluginState]
+ReadPrec CustomPluginState
+Int -&gt; ReadS CustomPluginState
+ReadS [CustomPluginState]
+(Int -&gt; ReadS CustomPluginState)
+-&gt; ReadS [CustomPluginState]
+-&gt; ReadPrec CustomPluginState
+-&gt; ReadPrec [CustomPluginState]
+-&gt; Read CustomPluginState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomPluginState]
+$creadListPrec :: ReadPrec [CustomPluginState]
+readPrec :: ReadPrec CustomPluginState
+$creadPrec :: ReadPrec CustomPluginState
+readList :: ReadS [CustomPluginState]
+$creadList :: ReadS [CustomPluginState]
+readsPrec :: Int -&gt; ReadS CustomPluginState
+$creadsPrec :: Int -&gt; ReadS CustomPluginState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679201155"><span id="local-6989586621679201157"><span class="annot"><span class="annottext">CustomPluginState -&gt; CustomPluginState -&gt; Bool
+(CustomPluginState -&gt; CustomPluginState -&gt; Bool)
+-&gt; (CustomPluginState -&gt; CustomPluginState -&gt; Bool)
+-&gt; Eq CustomPluginState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+$c/= :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+== :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+$c== :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679201139"><span id="local-6989586621679201141"><span id="local-6989586621679201143"><span id="local-6989586621679201145"><span id="local-6989586621679201147"><span id="local-6989586621679201149"><span id="local-6989586621679201151"><span class="annot"><span class="annottext">Eq CustomPluginState
+Eq CustomPluginState
+-&gt; (CustomPluginState -&gt; CustomPluginState -&gt; Ordering)
+-&gt; (CustomPluginState -&gt; CustomPluginState -&gt; Bool)
+-&gt; (CustomPluginState -&gt; CustomPluginState -&gt; Bool)
+-&gt; (CustomPluginState -&gt; CustomPluginState -&gt; Bool)
+-&gt; (CustomPluginState -&gt; CustomPluginState -&gt; Bool)
+-&gt; (CustomPluginState -&gt; CustomPluginState -&gt; CustomPluginState)
+-&gt; (CustomPluginState -&gt; CustomPluginState -&gt; CustomPluginState)
+-&gt; Ord CustomPluginState
+CustomPluginState -&gt; CustomPluginState -&gt; Bool
+CustomPluginState -&gt; CustomPluginState -&gt; Ordering
+CustomPluginState -&gt; CustomPluginState -&gt; CustomPluginState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CustomPluginState -&gt; CustomPluginState -&gt; CustomPluginState
+$cmin :: CustomPluginState -&gt; CustomPluginState -&gt; CustomPluginState
+max :: CustomPluginState -&gt; CustomPluginState -&gt; CustomPluginState
+$cmax :: CustomPluginState -&gt; CustomPluginState -&gt; CustomPluginState
+&gt;= :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+$c&gt;= :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+&gt; :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+$c&gt; :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+&lt;= :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+$c&lt;= :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+&lt; :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+$c&lt; :: CustomPluginState -&gt; CustomPluginState -&gt; Bool
+compare :: CustomPluginState -&gt; CustomPluginState -&gt; Ordering
+$ccompare :: CustomPluginState -&gt; CustomPluginState -&gt; Ordering
+$cp1Ord :: Eq CustomPluginState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CustomPluginState -&gt; Rep CustomPluginState x)
+-&gt; (forall x. Rep CustomPluginState x -&gt; CustomPluginState)
+-&gt; Generic CustomPluginState
+forall x. Rep CustomPluginState x -&gt; CustomPluginState
+forall x. CustomPluginState -&gt; Rep CustomPluginState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CustomPluginState x -&gt; CustomPluginState
+$cfrom :: forall x. CustomPluginState -&gt; Rep CustomPluginState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201131"><span id="local-6989586621679201133"><span class="annot"><span class="annottext">Int -&gt; CustomPluginState -&gt; Int
+CustomPluginState -&gt; Int
+(Int -&gt; CustomPluginState -&gt; Int)
+-&gt; (CustomPluginState -&gt; Int) -&gt; Hashable CustomPluginState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CustomPluginState -&gt; Int
+$chash :: CustomPluginState -&gt; Int
+hashWithSalt :: Int -&gt; CustomPluginState -&gt; Int
+$chashWithSalt :: Int -&gt; CustomPluginState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679201128"><span class="annot"><span class="annottext">CustomPluginState -&gt; ()
+(CustomPluginState -&gt; ()) -&gt; NFData CustomPluginState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CustomPluginState -&gt; ()
+$crnf :: CustomPluginState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679201125"><span class="annot"><span class="annottext">Text -&gt; Either String CustomPluginState
+(Text -&gt; Either String CustomPluginState)
+-&gt; FromText CustomPluginState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CustomPluginState
+$cfromText :: Text -&gt; Either String CustomPluginState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201122"><span class="annot"><span class="annottext">CustomPluginState -&gt; Text
+(CustomPluginState -&gt; Text) -&gt; ToText CustomPluginState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CustomPluginState -&gt; Text
+$ctoText :: CustomPluginState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201119"><span class="annot"><span class="annottext">CustomPluginState -&gt; ByteString
+(CustomPluginState -&gt; ByteString) -&gt; ToByteString CustomPluginState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CustomPluginState -&gt; ByteString
+$ctoBS :: CustomPluginState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201116"><span class="annot"><span class="annottext">CustomPluginState -&gt; ByteStringBuilder
+(CustomPluginState -&gt; ByteStringBuilder) -&gt; ToLog CustomPluginState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CustomPluginState -&gt; ByteStringBuilder
+$cbuild :: CustomPluginState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201113"><span class="annot"><span class="annottext">HeaderName -&gt; CustomPluginState -&gt; [Header]
+(HeaderName -&gt; CustomPluginState -&gt; [Header])
+-&gt; ToHeader CustomPluginState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CustomPluginState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CustomPluginState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201110"><span class="annot"><span class="annottext">CustomPluginState -&gt; QueryString
+(CustomPluginState -&gt; QueryString) -&gt; ToQuery CustomPluginState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CustomPluginState -&gt; QueryString
+$ctoQuery :: CustomPluginState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201105"><span id="local-6989586621679201107"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomPluginState]
+Value -&gt; Parser CustomPluginState
+(Value -&gt; Parser CustomPluginState)
+-&gt; (Value -&gt; Parser [CustomPluginState])
+-&gt; FromJSON CustomPluginState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CustomPluginState]
+$cparseJSONList :: Value -&gt; Parser [CustomPluginState]
+parseJSON :: Value -&gt; Parser CustomPluginState
+$cparseJSON :: Value -&gt; Parser CustomPluginState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201100"><span id="local-6989586621679201102"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomPluginState]
+FromJSONKeyFunction CustomPluginState
+FromJSONKeyFunction CustomPluginState
+-&gt; FromJSONKeyFunction [CustomPluginState]
+-&gt; FromJSONKey CustomPluginState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CustomPluginState]
+$cfromJSONKeyList :: FromJSONKeyFunction [CustomPluginState]
+fromJSONKey :: FromJSONKeyFunction CustomPluginState
+$cfromJSONKey :: FromJSONKeyFunction CustomPluginState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679201091"><span id="local-6989586621679201093"><span id="local-6989586621679201095"><span id="local-6989586621679201097"><span class="annot"><span class="annottext">[CustomPluginState] -&gt; Encoding
+[CustomPluginState] -&gt; Value
+CustomPluginState -&gt; Encoding
+CustomPluginState -&gt; Value
+(CustomPluginState -&gt; Value)
+-&gt; (CustomPluginState -&gt; Encoding)
+-&gt; ([CustomPluginState] -&gt; Value)
+-&gt; ([CustomPluginState] -&gt; Encoding)
+-&gt; ToJSON CustomPluginState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CustomPluginState] -&gt; Encoding
+$ctoEncodingList :: [CustomPluginState] -&gt; Encoding
+toJSONList :: [CustomPluginState] -&gt; Value
+$ctoJSONList :: [CustomPluginState] -&gt; Value
+toEncoding :: CustomPluginState -&gt; Encoding
+$ctoEncoding :: CustomPluginState -&gt; Encoding
+toJSON :: CustomPluginState -&gt; Value
+$ctoJSON :: CustomPluginState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679201086"><span id="local-6989586621679201088"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomPluginState]
+ToJSONKeyFunction CustomPluginState
+ToJSONKeyFunction CustomPluginState
+-&gt; ToJSONKeyFunction [CustomPluginState]
+-&gt; ToJSONKey CustomPluginState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CustomPluginState]
+$ctoJSONKeyList :: ToJSONKeyFunction [CustomPluginState]
+toJSONKey :: ToJSONKeyFunction CustomPluginState
+$ctoJSONKey :: ToJSONKeyFunction CustomPluginState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679201083"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomPluginState
+([Node] -&gt; Either String CustomPluginState)
+-&gt; FromXML CustomPluginState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CustomPluginState
+$cparseXML :: [Node] -&gt; Either String CustomPluginState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679201080"><span class="annot"><span class="annottext">CustomPluginState -&gt; XML
+(CustomPluginState -&gt; XML) -&gt; ToXML CustomPluginState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CustomPluginState -&gt; XML
+$ctoXML :: CustomPluginState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_ACTIVE"><span class="hs-identifier hs-type">CustomPluginState_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState"><span class="hs-identifier hs-type">CustomPluginState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomPluginState_ACTIVE"><span id="%24mCustomPluginState_ACTIVE"><span id="CustomPluginState_ACTIVE"><span class="annot"><span class="annottext">$bCustomPluginState_ACTIVE :: CustomPluginState
+$mCustomPluginState_ACTIVE :: forall r. CustomPluginState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#%24bCustomPluginState_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">CustomPluginState_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState%27"><span class="hs-identifier hs-type">CustomPluginState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_CREATE_FAILED"><span class="hs-identifier hs-type">CustomPluginState_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState"><span class="hs-identifier hs-type">CustomPluginState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomPluginState_CREATE_FAILED"><span id="%24mCustomPluginState_CREATE_FAILED"><span id="CustomPluginState_CREATE_FAILED"><span class="annot"><span class="annottext">$bCustomPluginState_CREATE_FAILED :: CustomPluginState
+$mCustomPluginState_CREATE_FAILED :: forall r. CustomPluginState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#%24bCustomPluginState_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">CustomPluginState_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState%27"><span class="hs-identifier hs-type">CustomPluginState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_CREATING"><span class="hs-identifier hs-type">CustomPluginState_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState"><span class="hs-identifier hs-type">CustomPluginState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomPluginState_CREATING"><span id="%24mCustomPluginState_CREATING"><span id="CustomPluginState_CREATING"><span class="annot"><span class="annottext">$bCustomPluginState_CREATING :: CustomPluginState
+$mCustomPluginState_CREATING :: forall r. CustomPluginState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#%24bCustomPluginState_CREATING"><span class="hs-identifier hs-var hs-var hs-var">CustomPluginState_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState%27"><span class="hs-identifier hs-type">CustomPluginState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_DELETING"><span class="hs-identifier hs-type">CustomPluginState_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState"><span class="hs-identifier hs-type">CustomPluginState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomPluginState_DELETING"><span id="%24mCustomPluginState_DELETING"><span id="CustomPluginState_DELETING"><span class="annot"><span class="annottext">$bCustomPluginState_DELETING :: CustomPluginState
+$mCustomPluginState_DELETING :: forall r. CustomPluginState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#%24bCustomPluginState_DELETING"><span class="hs-identifier hs-var hs-var hs-var">CustomPluginState_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState%27"><span class="hs-identifier hs-type">CustomPluginState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_UPDATE_FAILED"><span class="hs-identifier hs-type">CustomPluginState_UPDATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState"><span class="hs-identifier hs-type">CustomPluginState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomPluginState_UPDATE_FAILED"><span id="%24mCustomPluginState_UPDATE_FAILED"><span id="CustomPluginState_UPDATE_FAILED"><span class="annot"><span class="annottext">$bCustomPluginState_UPDATE_FAILED :: CustomPluginState
+$mCustomPluginState_UPDATE_FAILED :: forall r. CustomPluginState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#%24bCustomPluginState_UPDATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">CustomPluginState_UPDATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState%27"><span class="hs-identifier hs-type">CustomPluginState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_FAILED&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_UPDATING"><span class="hs-identifier hs-type">CustomPluginState_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState"><span class="hs-identifier hs-type">CustomPluginState</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomPluginState_UPDATING"><span id="%24mCustomPluginState_UPDATING"><span id="CustomPluginState_UPDATING"><span class="annot"><span class="annottext">$bCustomPluginState_UPDATING :: CustomPluginState
+$mCustomPluginState_UPDATING :: forall r. CustomPluginState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#%24bCustomPluginState_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">CustomPluginState_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState%27"><span class="hs-identifier hs-type">CustomPluginState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_ACTIVE"><span class="hs-pragma hs-type">CustomPluginState_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_CREATE_FAILED"><span class="hs-pragma hs-type">CustomPluginState_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_CREATING"><span class="hs-pragma hs-type">CustomPluginState_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_DELETING"><span class="hs-pragma hs-type">CustomPluginState_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_UPDATE_FAILED"><span class="hs-pragma hs-type">CustomPluginState_UPDATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState_UPDATING"><span class="hs-pragma hs-type">CustomPluginState_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginState.html#CustomPluginState%27"><span class="hs-pragma hs-type">CustomPluginState'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

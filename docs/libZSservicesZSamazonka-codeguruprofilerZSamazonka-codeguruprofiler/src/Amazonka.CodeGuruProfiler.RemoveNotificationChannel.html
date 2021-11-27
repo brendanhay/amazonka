@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeGuruProfiler.RemoveNotificationChannel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Remove one anomaly notifications channel for a profiling group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeGuruProfiler.RemoveNotificationChannel</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier">RemoveNotificationChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#newRemoveNotificationChannel"><span class="hs-identifier">newRemoveNotificationChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannel_channelId"><span class="hs-identifier">removeNotificationChannel_channelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannel_profilingGroupName"><span class="hs-identifier">removeNotificationChannel_profilingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse"><span class="hs-identifier">RemoveNotificationChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#newRemoveNotificationChannelResponse"><span class="hs-identifier">newRemoveNotificationChannelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannelResponse_notificationConfiguration"><span class="hs-identifier">removeNotificationChannelResponse_notificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannelResponse_httpStatus"><span class="hs-identifier">removeNotificationChannelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.html"><span class="hs-identifier">Amazonka.CodeGuruProfiler.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | The structure representing the RemoveNotificationChannelRequest.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newRemoveNotificationChannel' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679201448"><span id="local-6989586621679201449"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveNotificationChannel"><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-var">RemoveNotificationChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveNotificationChannel%27"><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel%27"><span class="hs-identifier hs-var">RemoveNotificationChannel'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The id of the channel that we want to stop receiving notifications.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AchannelId%3ARemoveNotificationChannel%27"><span class="annot"><span class="annottext">RemoveNotificationChannel -&gt; Text
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AchannelId%3ARemoveNotificationChannel%27"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The name of the profiling group we want to change notification</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- configuration for.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AprofilingGroupName%3ARemoveNotificationChannel%27"><span class="annot"><span class="annottext">RemoveNotificationChannel -&gt; Text
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AprofilingGroupName%3ARemoveNotificationChannel%27"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201441"><span id="local-6989586621679201443"><span class="annot"><span class="annottext">RemoveNotificationChannel -&gt; RemoveNotificationChannel -&gt; Bool
+(RemoveNotificationChannel -&gt; RemoveNotificationChannel -&gt; Bool)
+-&gt; (RemoveNotificationChannel -&gt; RemoveNotificationChannel -&gt; Bool)
+-&gt; Eq RemoveNotificationChannel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveNotificationChannel -&gt; RemoveNotificationChannel -&gt; Bool
+$c/= :: RemoveNotificationChannel -&gt; RemoveNotificationChannel -&gt; Bool
+== :: RemoveNotificationChannel -&gt; RemoveNotificationChannel -&gt; Bool
+$c== :: RemoveNotificationChannel -&gt; RemoveNotificationChannel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201432"><span id="local-6989586621679201434"><span id="local-6989586621679201436"><span id="local-6989586621679201438"><span class="annot"><span class="annottext">ReadPrec [RemoveNotificationChannel]
+ReadPrec RemoveNotificationChannel
+Int -&gt; ReadS RemoveNotificationChannel
+ReadS [RemoveNotificationChannel]
+(Int -&gt; ReadS RemoveNotificationChannel)
+-&gt; ReadS [RemoveNotificationChannel]
+-&gt; ReadPrec RemoveNotificationChannel
+-&gt; ReadPrec [RemoveNotificationChannel]
+-&gt; Read RemoveNotificationChannel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveNotificationChannel]
+$creadListPrec :: ReadPrec [RemoveNotificationChannel]
+readPrec :: ReadPrec RemoveNotificationChannel
+$creadPrec :: ReadPrec RemoveNotificationChannel
+readList :: ReadS [RemoveNotificationChannel]
+$creadList :: ReadS [RemoveNotificationChannel]
+readsPrec :: Int -&gt; ReadS RemoveNotificationChannel
+$creadsPrec :: Int -&gt; ReadS RemoveNotificationChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201425"><span id="local-6989586621679201427"><span id="local-6989586621679201429"><span class="annot"><span class="annottext">Int -&gt; RemoveNotificationChannel -&gt; ShowS
+[RemoveNotificationChannel] -&gt; ShowS
+RemoveNotificationChannel -&gt; String
+(Int -&gt; RemoveNotificationChannel -&gt; ShowS)
+-&gt; (RemoveNotificationChannel -&gt; String)
+-&gt; ([RemoveNotificationChannel] -&gt; ShowS)
+-&gt; Show RemoveNotificationChannel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveNotificationChannel] -&gt; ShowS
+$cshowList :: [RemoveNotificationChannel] -&gt; ShowS
+show :: RemoveNotificationChannel -&gt; String
+$cshow :: RemoveNotificationChannel -&gt; String
+showsPrec :: Int -&gt; RemoveNotificationChannel -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveNotificationChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveNotificationChannel -&gt; Rep RemoveNotificationChannel x)
+-&gt; (forall x.
+    Rep RemoveNotificationChannel x -&gt; RemoveNotificationChannel)
+-&gt; Generic RemoveNotificationChannel
+forall x.
+Rep RemoveNotificationChannel x -&gt; RemoveNotificationChannel
+forall x.
+RemoveNotificationChannel -&gt; Rep RemoveNotificationChannel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveNotificationChannel x -&gt; RemoveNotificationChannel
+$cfrom :: forall x.
+RemoveNotificationChannel -&gt; Rep RemoveNotificationChannel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'RemoveNotificationChannel' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'channelId', 'removeNotificationChannel_channelId' - The id of the channel that we want to stop receiving notifications.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'profilingGroupName', 'removeNotificationChannel_profilingGroupName' - The name of the profiling group we want to change notification</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- configuration for.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#newRemoveNotificationChannel"><span class="hs-identifier hs-type">newRemoveNotificationChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'channelId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'profilingGroupName'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span>
+</span><span id="line-80"></span><span id="newRemoveNotificationChannel"><span class="annot"><span class="annottext">newRemoveNotificationChannel :: Text -&gt; Text -&gt; RemoveNotificationChannel
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#newRemoveNotificationChannel"><span class="hs-identifier hs-var hs-var">newRemoveNotificationChannel</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679201420"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201420"><span class="hs-identifier hs-var">pChannelId_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679201419"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201419"><span class="hs-identifier hs-var">pProfilingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">RemoveNotificationChannel' :: Text -&gt; Text -&gt; RemoveNotificationChannel
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel%27"><span class="hs-identifier hs-type">RemoveNotificationChannel'</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelId:RemoveNotificationChannel' :: Text
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AchannelId%3ARemoveNotificationChannel%27"><span class="hs-identifier hs-var">channelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201420"><span class="hs-identifier hs-var">pChannelId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:profilingGroupName:RemoveNotificationChannel' :: Text
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AprofilingGroupName%3ARemoveNotificationChannel%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201419"><span class="hs-identifier hs-var">pProfilingGroupName_</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The id of the channel that we want to stop receiving notifications.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannel_channelId"><span class="hs-identifier hs-type">removeNotificationChannel_channelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="removeNotificationChannel_channelId"><span class="annot"><span class="annottext">removeNotificationChannel_channelId :: (Text -&gt; f Text)
+-&gt; RemoveNotificationChannel -&gt; f RemoveNotificationChannel
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannel_channelId"><span class="hs-identifier hs-var hs-var">removeNotificationChannel_channelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveNotificationChannel -&gt; Text)
+-&gt; (RemoveNotificationChannel -&gt; Text -&gt; RemoveNotificationChannel)
+-&gt; Lens
+     RemoveNotificationChannel RemoveNotificationChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel%27"><span class="hs-identifier hs-type">RemoveNotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201416"><span class="annot"><span class="annottext">Text
+channelId :: Text
+$sel:channelId:RemoveNotificationChannel' :: RemoveNotificationChannel -&gt; Text
+</span><a href="#local-6989586621679201416"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201416"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201415"><span class="annot"><span class="annottext">s :: RemoveNotificationChannel
+</span><a href="#local-6989586621679201415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel%27"><span class="hs-identifier hs-type">RemoveNotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201414"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveNotificationChannel
+</span><a href="#local-6989586621679201415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelId:RemoveNotificationChannel' :: Text
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AchannelId%3ARemoveNotificationChannel%27"><span class="hs-identifier hs-var">channelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the profiling group we want to change notification</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- configuration for.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannel_profilingGroupName"><span class="hs-identifier hs-type">removeNotificationChannel_profilingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="removeNotificationChannel_profilingGroupName"><span class="annot"><span class="annottext">removeNotificationChannel_profilingGroupName :: (Text -&gt; f Text)
+-&gt; RemoveNotificationChannel -&gt; f RemoveNotificationChannel
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannel_profilingGroupName"><span class="hs-identifier hs-var hs-var">removeNotificationChannel_profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveNotificationChannel -&gt; Text)
+-&gt; (RemoveNotificationChannel -&gt; Text -&gt; RemoveNotificationChannel)
+-&gt; Lens
+     RemoveNotificationChannel RemoveNotificationChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel%27"><span class="hs-identifier hs-type">RemoveNotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201413"><span class="annot"><span class="annottext">Text
+profilingGroupName :: Text
+$sel:profilingGroupName:RemoveNotificationChannel' :: RemoveNotificationChannel -&gt; Text
+</span><a href="#local-6989586621679201413"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201413"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201412"><span class="annot"><span class="annottext">s :: RemoveNotificationChannel
+</span><a href="#local-6989586621679201412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel%27"><span class="hs-identifier hs-type">RemoveNotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveNotificationChannel
+</span><a href="#local-6989586621679201412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingGroupName:RemoveNotificationChannel' :: Text
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AprofilingGroupName%3ARemoveNotificationChannel%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679201407"><span class="annot"><span class="annottext">request :: RemoveNotificationChannel -&gt; Request RemoveNotificationChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RemoveNotificationChannel -&gt; Request RemoveNotificationChannel
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeGuruProfiler.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679201403"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RemoveNotificationChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveNotificationChannel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RemoveNotificationChannel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RemoveNotificationChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveNotificationChannel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201400"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201400"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679201399"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679201399"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679201398"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+-&gt; Int -&gt; RemoveNotificationChannelResponse
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse%27"><span class="hs-identifier hs-var">RemoveNotificationChannelResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NotificationConfiguration
+ -&gt; Int -&gt; RemoveNotificationChannelResponse)
+-&gt; Either String (Maybe NotificationConfiguration)
+-&gt; Either String (Int -&gt; RemoveNotificationChannelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe NotificationConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;notificationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RemoveNotificationChannelResponse)
+-&gt; Either String Int
+-&gt; Either String RemoveNotificationChannelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201400"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201390"><span id="local-6989586621679201392"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679201383"><span class="annot"><span class="annottext">toHeaders :: RemoveNotificationChannel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveNotificationChannel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679201377"><span class="annot"><span class="annottext">toPath :: RemoveNotificationChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel%27"><span class="hs-identifier hs-type">RemoveNotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201374"><span id="local-6989586621679201375"><span class="annot"><span class="annottext">Text
+profilingGroupName :: Text
+channelId :: Text
+$sel:profilingGroupName:RemoveNotificationChannel' :: RemoveNotificationChannel -&gt; Text
+$sel:channelId:RemoveNotificationChannel' :: RemoveNotificationChannel -&gt; Text
+</span><a href="#local-6989586621679201374"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/profilingGroups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201374"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/notificationConfiguration/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201375"><span class="hs-identifier hs-var">channelId</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannel"><span class="hs-identifier hs-type">RemoveNotificationChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679201370"><span class="annot"><span class="annottext">toQuery :: RemoveNotificationChannel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveNotificationChannel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The structure representing the RemoveNotificationChannelResponse.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- /See:/ 'newRemoveNotificationChannelResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679201367"><span id="local-6989586621679201368"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveNotificationChannelResponse"><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse"><span class="hs-identifier hs-var">RemoveNotificationChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveNotificationChannelResponse%27"><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse%27"><span class="hs-identifier hs-var">RemoveNotificationChannelResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new notification configuration for this profiling group.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AnotificationConfiguration%3ARemoveNotificationChannelResponse%27"><span class="annot"><span class="annottext">RemoveNotificationChannelResponse
+-&gt; Maybe NotificationConfiguration
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AnotificationConfiguration%3ARemoveNotificationChannelResponse%27"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveNotificationChannelResponse%27"><span class="annot"><span class="annottext">RemoveNotificationChannelResponse -&gt; Int
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AhttpStatus%3ARemoveNotificationChannelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201361"><span id="local-6989586621679201363"><span class="annot"><span class="annottext">RemoveNotificationChannelResponse
+-&gt; RemoveNotificationChannelResponse -&gt; Bool
+(RemoveNotificationChannelResponse
+ -&gt; RemoveNotificationChannelResponse -&gt; Bool)
+-&gt; (RemoveNotificationChannelResponse
+    -&gt; RemoveNotificationChannelResponse -&gt; Bool)
+-&gt; Eq RemoveNotificationChannelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveNotificationChannelResponse
+-&gt; RemoveNotificationChannelResponse -&gt; Bool
+$c/= :: RemoveNotificationChannelResponse
+-&gt; RemoveNotificationChannelResponse -&gt; Bool
+== :: RemoveNotificationChannelResponse
+-&gt; RemoveNotificationChannelResponse -&gt; Bool
+$c== :: RemoveNotificationChannelResponse
+-&gt; RemoveNotificationChannelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201353"><span id="local-6989586621679201355"><span id="local-6989586621679201357"><span id="local-6989586621679201359"><span class="annot"><span class="annottext">ReadPrec [RemoveNotificationChannelResponse]
+ReadPrec RemoveNotificationChannelResponse
+Int -&gt; ReadS RemoveNotificationChannelResponse
+ReadS [RemoveNotificationChannelResponse]
+(Int -&gt; ReadS RemoveNotificationChannelResponse)
+-&gt; ReadS [RemoveNotificationChannelResponse]
+-&gt; ReadPrec RemoveNotificationChannelResponse
+-&gt; ReadPrec [RemoveNotificationChannelResponse]
+-&gt; Read RemoveNotificationChannelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveNotificationChannelResponse]
+$creadListPrec :: ReadPrec [RemoveNotificationChannelResponse]
+readPrec :: ReadPrec RemoveNotificationChannelResponse
+$creadPrec :: ReadPrec RemoveNotificationChannelResponse
+readList :: ReadS [RemoveNotificationChannelResponse]
+$creadList :: ReadS [RemoveNotificationChannelResponse]
+readsPrec :: Int -&gt; ReadS RemoveNotificationChannelResponse
+$creadsPrec :: Int -&gt; ReadS RemoveNotificationChannelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201347"><span id="local-6989586621679201349"><span id="local-6989586621679201351"><span class="annot"><span class="annottext">Int -&gt; RemoveNotificationChannelResponse -&gt; ShowS
+[RemoveNotificationChannelResponse] -&gt; ShowS
+RemoveNotificationChannelResponse -&gt; String
+(Int -&gt; RemoveNotificationChannelResponse -&gt; ShowS)
+-&gt; (RemoveNotificationChannelResponse -&gt; String)
+-&gt; ([RemoveNotificationChannelResponse] -&gt; ShowS)
+-&gt; Show RemoveNotificationChannelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveNotificationChannelResponse] -&gt; ShowS
+$cshowList :: [RemoveNotificationChannelResponse] -&gt; ShowS
+show :: RemoveNotificationChannelResponse -&gt; String
+$cshow :: RemoveNotificationChannelResponse -&gt; String
+showsPrec :: Int -&gt; RemoveNotificationChannelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveNotificationChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveNotificationChannelResponse
+ -&gt; Rep RemoveNotificationChannelResponse x)
+-&gt; (forall x.
+    Rep RemoveNotificationChannelResponse x
+    -&gt; RemoveNotificationChannelResponse)
+-&gt; Generic RemoveNotificationChannelResponse
+forall x.
+Rep RemoveNotificationChannelResponse x
+-&gt; RemoveNotificationChannelResponse
+forall x.
+RemoveNotificationChannelResponse
+-&gt; Rep RemoveNotificationChannelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveNotificationChannelResponse x
+-&gt; RemoveNotificationChannelResponse
+$cfrom :: forall x.
+RemoveNotificationChannelResponse
+-&gt; Rep RemoveNotificationChannelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'RemoveNotificationChannelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'notificationConfiguration', 'removeNotificationChannelResponse_notificationConfiguration' - The new notification configuration for this profiling group.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'removeNotificationChannelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#newRemoveNotificationChannelResponse"><span class="hs-identifier hs-type">newRemoveNotificationChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newRemoveNotificationChannelResponse"><span class="annot"><span class="annottext">newRemoveNotificationChannelResponse :: Int -&gt; RemoveNotificationChannelResponse
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#newRemoveNotificationChannelResponse"><span class="hs-identifier hs-var hs-var">newRemoveNotificationChannelResponse</span></a></span></span><span> </span><span id="local-6989586621679201344"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201344"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">RemoveNotificationChannelResponse' :: Maybe NotificationConfiguration
+-&gt; Int -&gt; RemoveNotificationChannelResponse
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse%27"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notificationConfiguration:RemoveNotificationChannelResponse' :: Maybe NotificationConfiguration
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AnotificationConfiguration%3ARemoveNotificationChannelResponse%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveNotificationChannelResponse' :: Int
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AhttpStatus%3ARemoveNotificationChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201344"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The new notification configuration for this profiling group.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannelResponse_notificationConfiguration"><span class="hs-identifier hs-type">removeNotificationChannelResponse_notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="removeNotificationChannelResponse_notificationConfiguration"><span class="annot"><span class="annottext">removeNotificationChannelResponse_notificationConfiguration :: (Maybe NotificationConfiguration
+ -&gt; f (Maybe NotificationConfiguration))
+-&gt; RemoveNotificationChannelResponse
+-&gt; f RemoveNotificationChannelResponse
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannelResponse_notificationConfiguration"><span class="hs-identifier hs-var hs-var">removeNotificationChannelResponse_notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveNotificationChannelResponse
+ -&gt; Maybe NotificationConfiguration)
+-&gt; (RemoveNotificationChannelResponse
+    -&gt; Maybe NotificationConfiguration
+    -&gt; RemoveNotificationChannelResponse)
+-&gt; Lens
+     RemoveNotificationChannelResponse
+     RemoveNotificationChannelResponse
+     (Maybe NotificationConfiguration)
+     (Maybe NotificationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse%27"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201343"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+notificationConfiguration :: Maybe NotificationConfiguration
+$sel:notificationConfiguration:RemoveNotificationChannelResponse' :: RemoveNotificationChannelResponse
+-&gt; Maybe NotificationConfiguration
+</span><a href="#local-6989586621679201343"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621679201343"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201342"><span class="annot"><span class="annottext">s :: RemoveNotificationChannelResponse
+</span><a href="#local-6989586621679201342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse%27"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201341"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621679201341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveNotificationChannelResponse
+</span><a href="#local-6989586621679201342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfiguration:RemoveNotificationChannelResponse' :: Maybe NotificationConfiguration
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AnotificationConfiguration%3ARemoveNotificationChannelResponse%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621679201341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannelResponse_httpStatus"><span class="hs-identifier hs-type">removeNotificationChannelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span id="removeNotificationChannelResponse_httpStatus"><span class="annot"><span class="annottext">removeNotificationChannelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RemoveNotificationChannelResponse
+-&gt; f RemoveNotificationChannelResponse
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#removeNotificationChannelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">removeNotificationChannelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveNotificationChannelResponse -&gt; Int)
+-&gt; (RemoveNotificationChannelResponse
+    -&gt; Int -&gt; RemoveNotificationChannelResponse)
+-&gt; Lens
+     RemoveNotificationChannelResponse
+     RemoveNotificationChannelResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse%27"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201340"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RemoveNotificationChannelResponse' :: RemoveNotificationChannelResponse -&gt; Int
+</span><a href="#local-6989586621679201340"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201340"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201339"><span class="annot"><span class="annottext">s :: RemoveNotificationChannelResponse
+</span><a href="#local-6989586621679201339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse%27"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201338"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveNotificationChannelResponse
+</span><a href="#local-6989586621679201339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveNotificationChannelResponse' :: Int
+</span><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#%24sel%3AhttpStatus%3ARemoveNotificationChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679201336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.RemoveNotificationChannel.html#RemoveNotificationChannelResponse"><span class="hs-identifier hs-type">RemoveNotificationChannelResponse</span></a></span></span><span>
+</span><span id="line-181"></span></pre></body></html>

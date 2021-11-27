@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LookoutEquipment.Types.InferenceExecutionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutEquipment.Types.InferenceExecutionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus"><span class="hs-identifier">InferenceExecutionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus_FAILED"><span class="hs-identifier">InferenceExecutionStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus_IN_PROGRESS"><span class="hs-identifier">InferenceExecutionStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus_SUCCESS"><span class="hs-identifier">InferenceExecutionStatus_SUCCESS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679207631"><span id="local-6989586621679207632"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InferenceExecutionStatus"><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus"><span class="hs-identifier hs-var">InferenceExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InferenceExecutionStatus%27"><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus%27"><span class="hs-identifier hs-var">InferenceExecutionStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInferenceExecutionStatus"><span class="annot"><span class="annottext">InferenceExecutionStatus -&gt; Text
+</span><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#fromInferenceExecutionStatus"><span class="hs-identifier hs-var hs-var">fromInferenceExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207623"><span id="local-6989586621679207625"><span id="local-6989586621679207627"><span class="annot"><span class="annottext">Int -&gt; InferenceExecutionStatus -&gt; ShowS
+[InferenceExecutionStatus] -&gt; ShowS
+InferenceExecutionStatus -&gt; String
+(Int -&gt; InferenceExecutionStatus -&gt; ShowS)
+-&gt; (InferenceExecutionStatus -&gt; String)
+-&gt; ([InferenceExecutionStatus] -&gt; ShowS)
+-&gt; Show InferenceExecutionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InferenceExecutionStatus] -&gt; ShowS
+$cshowList :: [InferenceExecutionStatus] -&gt; ShowS
+show :: InferenceExecutionStatus -&gt; String
+$cshow :: InferenceExecutionStatus -&gt; String
+showsPrec :: Int -&gt; InferenceExecutionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; InferenceExecutionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679207614"><span id="local-6989586621679207616"><span id="local-6989586621679207618"><span id="local-6989586621679207620"><span class="annot"><span class="annottext">ReadPrec [InferenceExecutionStatus]
+ReadPrec InferenceExecutionStatus
+Int -&gt; ReadS InferenceExecutionStatus
+ReadS [InferenceExecutionStatus]
+(Int -&gt; ReadS InferenceExecutionStatus)
+-&gt; ReadS [InferenceExecutionStatus]
+-&gt; ReadPrec InferenceExecutionStatus
+-&gt; ReadPrec [InferenceExecutionStatus]
+-&gt; Read InferenceExecutionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InferenceExecutionStatus]
+$creadListPrec :: ReadPrec [InferenceExecutionStatus]
+readPrec :: ReadPrec InferenceExecutionStatus
+$creadPrec :: ReadPrec InferenceExecutionStatus
+readList :: ReadS [InferenceExecutionStatus]
+$creadList :: ReadS [InferenceExecutionStatus]
+readsPrec :: Int -&gt; ReadS InferenceExecutionStatus
+$creadsPrec :: Int -&gt; ReadS InferenceExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679207609"><span id="local-6989586621679207611"><span class="annot"><span class="annottext">InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+(InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool)
+-&gt; (InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool)
+-&gt; Eq InferenceExecutionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+$c/= :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+== :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+$c== :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679207593"><span id="local-6989586621679207595"><span id="local-6989586621679207597"><span id="local-6989586621679207599"><span id="local-6989586621679207601"><span id="local-6989586621679207603"><span id="local-6989586621679207605"><span class="annot"><span class="annottext">Eq InferenceExecutionStatus
+Eq InferenceExecutionStatus
+-&gt; (InferenceExecutionStatus
+    -&gt; InferenceExecutionStatus -&gt; Ordering)
+-&gt; (InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool)
+-&gt; (InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool)
+-&gt; (InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool)
+-&gt; (InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool)
+-&gt; (InferenceExecutionStatus
+    -&gt; InferenceExecutionStatus -&gt; InferenceExecutionStatus)
+-&gt; (InferenceExecutionStatus
+    -&gt; InferenceExecutionStatus -&gt; InferenceExecutionStatus)
+-&gt; Ord InferenceExecutionStatus
+InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Ordering
+InferenceExecutionStatus
+-&gt; InferenceExecutionStatus -&gt; InferenceExecutionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InferenceExecutionStatus
+-&gt; InferenceExecutionStatus -&gt; InferenceExecutionStatus
+$cmin :: InferenceExecutionStatus
+-&gt; InferenceExecutionStatus -&gt; InferenceExecutionStatus
+max :: InferenceExecutionStatus
+-&gt; InferenceExecutionStatus -&gt; InferenceExecutionStatus
+$cmax :: InferenceExecutionStatus
+-&gt; InferenceExecutionStatus -&gt; InferenceExecutionStatus
+&gt;= :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+$c&gt;= :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+&gt; :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+$c&gt; :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+&lt;= :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+$c&lt;= :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+&lt; :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+$c&lt; :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Bool
+compare :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Ordering
+$ccompare :: InferenceExecutionStatus -&gt; InferenceExecutionStatus -&gt; Ordering
+$cp1Ord :: Eq InferenceExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ InferenceExecutionStatus -&gt; Rep InferenceExecutionStatus x)
+-&gt; (forall x.
+    Rep InferenceExecutionStatus x -&gt; InferenceExecutionStatus)
+-&gt; Generic InferenceExecutionStatus
+forall x.
+Rep InferenceExecutionStatus x -&gt; InferenceExecutionStatus
+forall x.
+InferenceExecutionStatus -&gt; Rep InferenceExecutionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InferenceExecutionStatus x -&gt; InferenceExecutionStatus
+$cfrom :: forall x.
+InferenceExecutionStatus -&gt; Rep InferenceExecutionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207585"><span id="local-6989586621679207587"><span class="annot"><span class="annottext">Int -&gt; InferenceExecutionStatus -&gt; Int
+InferenceExecutionStatus -&gt; Int
+(Int -&gt; InferenceExecutionStatus -&gt; Int)
+-&gt; (InferenceExecutionStatus -&gt; Int)
+-&gt; Hashable InferenceExecutionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InferenceExecutionStatus -&gt; Int
+$chash :: InferenceExecutionStatus -&gt; Int
+hashWithSalt :: Int -&gt; InferenceExecutionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; InferenceExecutionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679207582"><span class="annot"><span class="annottext">InferenceExecutionStatus -&gt; ()
+(InferenceExecutionStatus -&gt; ()) -&gt; NFData InferenceExecutionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InferenceExecutionStatus -&gt; ()
+$crnf :: InferenceExecutionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679207579"><span class="annot"><span class="annottext">Text -&gt; Either String InferenceExecutionStatus
+(Text -&gt; Either String InferenceExecutionStatus)
+-&gt; FromText InferenceExecutionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InferenceExecutionStatus
+$cfromText :: Text -&gt; Either String InferenceExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679207576"><span class="annot"><span class="annottext">InferenceExecutionStatus -&gt; Text
+(InferenceExecutionStatus -&gt; Text)
+-&gt; ToText InferenceExecutionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InferenceExecutionStatus -&gt; Text
+$ctoText :: InferenceExecutionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679207573"><span class="annot"><span class="annottext">InferenceExecutionStatus -&gt; ByteString
+(InferenceExecutionStatus -&gt; ByteString)
+-&gt; ToByteString InferenceExecutionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InferenceExecutionStatus -&gt; ByteString
+$ctoBS :: InferenceExecutionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679207570"><span class="annot"><span class="annottext">InferenceExecutionStatus -&gt; ByteStringBuilder
+(InferenceExecutionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog InferenceExecutionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InferenceExecutionStatus -&gt; ByteStringBuilder
+$cbuild :: InferenceExecutionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679207567"><span class="annot"><span class="annottext">HeaderName -&gt; InferenceExecutionStatus -&gt; [Header]
+(HeaderName -&gt; InferenceExecutionStatus -&gt; [Header])
+-&gt; ToHeader InferenceExecutionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InferenceExecutionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InferenceExecutionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679207564"><span class="annot"><span class="annottext">InferenceExecutionStatus -&gt; QueryString
+(InferenceExecutionStatus -&gt; QueryString)
+-&gt; ToQuery InferenceExecutionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InferenceExecutionStatus -&gt; QueryString
+$ctoQuery :: InferenceExecutionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679207559"><span id="local-6989586621679207561"><span class="annot"><span class="annottext">Value -&gt; Parser [InferenceExecutionStatus]
+Value -&gt; Parser InferenceExecutionStatus
+(Value -&gt; Parser InferenceExecutionStatus)
+-&gt; (Value -&gt; Parser [InferenceExecutionStatus])
+-&gt; FromJSON InferenceExecutionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InferenceExecutionStatus]
+$cparseJSONList :: Value -&gt; Parser [InferenceExecutionStatus]
+parseJSON :: Value -&gt; Parser InferenceExecutionStatus
+$cparseJSON :: Value -&gt; Parser InferenceExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679207554"><span id="local-6989586621679207556"><span class="annot"><span class="annottext">FromJSONKeyFunction [InferenceExecutionStatus]
+FromJSONKeyFunction InferenceExecutionStatus
+FromJSONKeyFunction InferenceExecutionStatus
+-&gt; FromJSONKeyFunction [InferenceExecutionStatus]
+-&gt; FromJSONKey InferenceExecutionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InferenceExecutionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [InferenceExecutionStatus]
+fromJSONKey :: FromJSONKeyFunction InferenceExecutionStatus
+$cfromJSONKey :: FromJSONKeyFunction InferenceExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679207545"><span id="local-6989586621679207547"><span id="local-6989586621679207549"><span id="local-6989586621679207551"><span class="annot"><span class="annottext">[InferenceExecutionStatus] -&gt; Encoding
+[InferenceExecutionStatus] -&gt; Value
+InferenceExecutionStatus -&gt; Encoding
+InferenceExecutionStatus -&gt; Value
+(InferenceExecutionStatus -&gt; Value)
+-&gt; (InferenceExecutionStatus -&gt; Encoding)
+-&gt; ([InferenceExecutionStatus] -&gt; Value)
+-&gt; ([InferenceExecutionStatus] -&gt; Encoding)
+-&gt; ToJSON InferenceExecutionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InferenceExecutionStatus] -&gt; Encoding
+$ctoEncodingList :: [InferenceExecutionStatus] -&gt; Encoding
+toJSONList :: [InferenceExecutionStatus] -&gt; Value
+$ctoJSONList :: [InferenceExecutionStatus] -&gt; Value
+toEncoding :: InferenceExecutionStatus -&gt; Encoding
+$ctoEncoding :: InferenceExecutionStatus -&gt; Encoding
+toJSON :: InferenceExecutionStatus -&gt; Value
+$ctoJSON :: InferenceExecutionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679207540"><span id="local-6989586621679207542"><span class="annot"><span class="annottext">ToJSONKeyFunction [InferenceExecutionStatus]
+ToJSONKeyFunction InferenceExecutionStatus
+ToJSONKeyFunction InferenceExecutionStatus
+-&gt; ToJSONKeyFunction [InferenceExecutionStatus]
+-&gt; ToJSONKey InferenceExecutionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InferenceExecutionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [InferenceExecutionStatus]
+toJSONKey :: ToJSONKeyFunction InferenceExecutionStatus
+$ctoJSONKey :: ToJSONKeyFunction InferenceExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679207537"><span class="annot"><span class="annottext">[Node] -&gt; Either String InferenceExecutionStatus
+([Node] -&gt; Either String InferenceExecutionStatus)
+-&gt; FromXML InferenceExecutionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InferenceExecutionStatus
+$cparseXML :: [Node] -&gt; Either String InferenceExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679207534"><span class="annot"><span class="annottext">InferenceExecutionStatus -&gt; XML
+(InferenceExecutionStatus -&gt; XML) -&gt; ToXML InferenceExecutionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InferenceExecutionStatus -&gt; XML
+$ctoXML :: InferenceExecutionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus_FAILED"><span class="hs-identifier hs-type">InferenceExecutionStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus"><span class="hs-identifier hs-type">InferenceExecutionStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInferenceExecutionStatus_FAILED"><span id="%24mInferenceExecutionStatus_FAILED"><span id="InferenceExecutionStatus_FAILED"><span class="annot"><span class="annottext">$bInferenceExecutionStatus_FAILED :: InferenceExecutionStatus
+$mInferenceExecutionStatus_FAILED :: forall r.
+InferenceExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#%24bInferenceExecutionStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">InferenceExecutionStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus%27"><span class="hs-identifier hs-type">InferenceExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus_IN_PROGRESS"><span class="hs-identifier hs-type">InferenceExecutionStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus"><span class="hs-identifier hs-type">InferenceExecutionStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInferenceExecutionStatus_IN_PROGRESS"><span id="%24mInferenceExecutionStatus_IN_PROGRESS"><span id="InferenceExecutionStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bInferenceExecutionStatus_IN_PROGRESS :: InferenceExecutionStatus
+$mInferenceExecutionStatus_IN_PROGRESS :: forall r.
+InferenceExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#%24bInferenceExecutionStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">InferenceExecutionStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus%27"><span class="hs-identifier hs-type">InferenceExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus_SUCCESS"><span class="hs-identifier hs-type">InferenceExecutionStatus_SUCCESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus"><span class="hs-identifier hs-type">InferenceExecutionStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInferenceExecutionStatus_SUCCESS"><span id="%24mInferenceExecutionStatus_SUCCESS"><span id="InferenceExecutionStatus_SUCCESS"><span class="annot"><span class="annottext">$bInferenceExecutionStatus_SUCCESS :: InferenceExecutionStatus
+$mInferenceExecutionStatus_SUCCESS :: forall r.
+InferenceExecutionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#%24bInferenceExecutionStatus_SUCCESS"><span class="hs-identifier hs-var hs-var hs-var">InferenceExecutionStatus_SUCCESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus%27"><span class="hs-identifier hs-type">InferenceExecutionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCESS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus_FAILED"><span class="hs-pragma hs-type">InferenceExecutionStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus_IN_PROGRESS"><span class="hs-pragma hs-type">InferenceExecutionStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus_SUCCESS"><span class="hs-pragma hs-type">InferenceExecutionStatus_SUCCESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus%27"><span class="hs-pragma hs-type">InferenceExecutionStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

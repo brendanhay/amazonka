@@ -1,0 +1,673 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Greengrass.UpdateGroupCertificateConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the Certificate expiry time for a group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Greengrass.UpdateGroupCertificateConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier">UpdateGroupCertificateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#newUpdateGroupCertificateConfiguration"><span class="hs-identifier">newUpdateGroupCertificateConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfiguration_certificateExpiryInMilliseconds"><span class="hs-identifier">updateGroupCertificateConfiguration_certificateExpiryInMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfiguration_groupId"><span class="hs-identifier">updateGroupCertificateConfiguration_groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier">UpdateGroupCertificateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#newUpdateGroupCertificateConfigurationResponse"><span class="hs-identifier">newUpdateGroupCertificateConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds"><span class="hs-identifier">updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_groupId"><span class="hs-identifier">updateGroupCertificateConfigurationResponse_groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds"><span class="hs-identifier">updateGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_httpStatus"><span class="hs-identifier">updateGroupCertificateConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.html"><span class="hs-identifier">Amazonka.Greengrass.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroupCertificateConfiguration' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679369660"><span id="local-6989586621679369661"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroupCertificateConfiguration"><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-var">UpdateGroupCertificateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroupCertificateConfiguration%27"><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-var">UpdateGroupCertificateConfiguration'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of time remaining before the certificate expires, in</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- milliseconds.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcertificateExpiryInMilliseconds%3AUpdateGroupCertificateConfiguration%27"><span class="annot"><span class="annottext">UpdateGroupCertificateConfiguration -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AcertificateExpiryInMilliseconds%3AUpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-var hs-var">certificateExpiryInMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ID of the Greengrass group.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AgroupId%3AUpdateGroupCertificateConfiguration%27"><span class="annot"><span class="annottext">UpdateGroupCertificateConfiguration -&gt; Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AgroupId%3AUpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369653"><span id="local-6989586621679369655"><span class="annot"><span class="annottext">UpdateGroupCertificateConfiguration
+-&gt; UpdateGroupCertificateConfiguration -&gt; Bool
+(UpdateGroupCertificateConfiguration
+ -&gt; UpdateGroupCertificateConfiguration -&gt; Bool)
+-&gt; (UpdateGroupCertificateConfiguration
+    -&gt; UpdateGroupCertificateConfiguration -&gt; Bool)
+-&gt; Eq UpdateGroupCertificateConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGroupCertificateConfiguration
+-&gt; UpdateGroupCertificateConfiguration -&gt; Bool
+$c/= :: UpdateGroupCertificateConfiguration
+-&gt; UpdateGroupCertificateConfiguration -&gt; Bool
+== :: UpdateGroupCertificateConfiguration
+-&gt; UpdateGroupCertificateConfiguration -&gt; Bool
+$c== :: UpdateGroupCertificateConfiguration
+-&gt; UpdateGroupCertificateConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369644"><span id="local-6989586621679369646"><span id="local-6989586621679369648"><span id="local-6989586621679369650"><span class="annot"><span class="annottext">ReadPrec [UpdateGroupCertificateConfiguration]
+ReadPrec UpdateGroupCertificateConfiguration
+Int -&gt; ReadS UpdateGroupCertificateConfiguration
+ReadS [UpdateGroupCertificateConfiguration]
+(Int -&gt; ReadS UpdateGroupCertificateConfiguration)
+-&gt; ReadS [UpdateGroupCertificateConfiguration]
+-&gt; ReadPrec UpdateGroupCertificateConfiguration
+-&gt; ReadPrec [UpdateGroupCertificateConfiguration]
+-&gt; Read UpdateGroupCertificateConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGroupCertificateConfiguration]
+$creadListPrec :: ReadPrec [UpdateGroupCertificateConfiguration]
+readPrec :: ReadPrec UpdateGroupCertificateConfiguration
+$creadPrec :: ReadPrec UpdateGroupCertificateConfiguration
+readList :: ReadS [UpdateGroupCertificateConfiguration]
+$creadList :: ReadS [UpdateGroupCertificateConfiguration]
+readsPrec :: Int -&gt; ReadS UpdateGroupCertificateConfiguration
+$creadsPrec :: Int -&gt; ReadS UpdateGroupCertificateConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369637"><span id="local-6989586621679369639"><span id="local-6989586621679369641"><span class="annot"><span class="annottext">Int -&gt; UpdateGroupCertificateConfiguration -&gt; ShowS
+[UpdateGroupCertificateConfiguration] -&gt; ShowS
+UpdateGroupCertificateConfiguration -&gt; String
+(Int -&gt; UpdateGroupCertificateConfiguration -&gt; ShowS)
+-&gt; (UpdateGroupCertificateConfiguration -&gt; String)
+-&gt; ([UpdateGroupCertificateConfiguration] -&gt; ShowS)
+-&gt; Show UpdateGroupCertificateConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGroupCertificateConfiguration] -&gt; ShowS
+$cshowList :: [UpdateGroupCertificateConfiguration] -&gt; ShowS
+show :: UpdateGroupCertificateConfiguration -&gt; String
+$cshow :: UpdateGroupCertificateConfiguration -&gt; String
+showsPrec :: Int -&gt; UpdateGroupCertificateConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGroupCertificateConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateGroupCertificateConfiguration
+ -&gt; Rep UpdateGroupCertificateConfiguration x)
+-&gt; (forall x.
+    Rep UpdateGroupCertificateConfiguration x
+    -&gt; UpdateGroupCertificateConfiguration)
+-&gt; Generic UpdateGroupCertificateConfiguration
+forall x.
+Rep UpdateGroupCertificateConfiguration x
+-&gt; UpdateGroupCertificateConfiguration
+forall x.
+UpdateGroupCertificateConfiguration
+-&gt; Rep UpdateGroupCertificateConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateGroupCertificateConfiguration x
+-&gt; UpdateGroupCertificateConfiguration
+$cfrom :: forall x.
+UpdateGroupCertificateConfiguration
+-&gt; Rep UpdateGroupCertificateConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'UpdateGroupCertificateConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'certificateExpiryInMilliseconds', 'updateGroupCertificateConfiguration_certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- milliseconds.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'groupId', 'updateGroupCertificateConfiguration_groupId' - The ID of the Greengrass group.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#newUpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">newUpdateGroupCertificateConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'groupId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span>
+</span><span id="line-78"></span><span id="newUpdateGroupCertificateConfiguration"><span class="annot"><span class="annottext">newUpdateGroupCertificateConfiguration :: Text -&gt; UpdateGroupCertificateConfiguration
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#newUpdateGroupCertificateConfiguration"><span class="hs-identifier hs-var hs-var">newUpdateGroupCertificateConfiguration</span></a></span></span><span> </span><span id="local-6989586621679369632"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369632"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">UpdateGroupCertificateConfiguration' :: Maybe Text -&gt; Text -&gt; UpdateGroupCertificateConfiguration
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateExpiryInMilliseconds:UpdateGroupCertificateConfiguration' :: Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AcertificateExpiryInMilliseconds%3AUpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-var">certificateExpiryInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:UpdateGroupCertificateConfiguration' :: Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AgroupId%3AUpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369632"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The amount of time remaining before the certificate expires, in</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- milliseconds.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfiguration_certificateExpiryInMilliseconds"><span class="hs-identifier hs-type">updateGroupCertificateConfiguration_certificateExpiryInMilliseconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="updateGroupCertificateConfiguration_certificateExpiryInMilliseconds"><span class="annot"><span class="annottext">updateGroupCertificateConfiguration_certificateExpiryInMilliseconds :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGroupCertificateConfiguration
+-&gt; f UpdateGroupCertificateConfiguration
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfiguration_certificateExpiryInMilliseconds"><span class="hs-identifier hs-var hs-var">updateGroupCertificateConfiguration_certificateExpiryInMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroupCertificateConfiguration -&gt; Maybe Text)
+-&gt; (UpdateGroupCertificateConfiguration
+    -&gt; Maybe Text -&gt; UpdateGroupCertificateConfiguration)
+-&gt; Lens
+     UpdateGroupCertificateConfiguration
+     UpdateGroupCertificateConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369629"><span class="annot"><span class="annottext">Maybe Text
+certificateExpiryInMilliseconds :: Maybe Text
+$sel:certificateExpiryInMilliseconds:UpdateGroupCertificateConfiguration' :: UpdateGroupCertificateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679369629"><span class="hs-identifier hs-var hs-var">certificateExpiryInMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369629"><span class="hs-identifier hs-var">certificateExpiryInMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369628"><span class="annot"><span class="annottext">s :: UpdateGroupCertificateConfiguration
+</span><a href="#local-6989586621679369628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369627"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupCertificateConfiguration
+</span><a href="#local-6989586621679369628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateExpiryInMilliseconds:UpdateGroupCertificateConfiguration' :: Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AcertificateExpiryInMilliseconds%3AUpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-var">certificateExpiryInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The ID of the Greengrass group.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfiguration_groupId"><span class="hs-identifier hs-type">updateGroupCertificateConfiguration_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="updateGroupCertificateConfiguration_groupId"><span class="annot"><span class="annottext">updateGroupCertificateConfiguration_groupId :: (Text -&gt; f Text)
+-&gt; UpdateGroupCertificateConfiguration
+-&gt; f UpdateGroupCertificateConfiguration
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfiguration_groupId"><span class="hs-identifier hs-var hs-var">updateGroupCertificateConfiguration_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroupCertificateConfiguration -&gt; Text)
+-&gt; (UpdateGroupCertificateConfiguration
+    -&gt; Text -&gt; UpdateGroupCertificateConfiguration)
+-&gt; Lens
+     UpdateGroupCertificateConfiguration
+     UpdateGroupCertificateConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369626"><span class="annot"><span class="annottext">Text
+groupId :: Text
+$sel:groupId:UpdateGroupCertificateConfiguration' :: UpdateGroupCertificateConfiguration -&gt; Text
+</span><a href="#local-6989586621679369626"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369626"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369625"><span class="annot"><span class="annottext">s :: UpdateGroupCertificateConfiguration
+</span><a href="#local-6989586621679369625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupCertificateConfiguration
+</span><a href="#local-6989586621679369625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:UpdateGroupCertificateConfiguration' :: Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AgroupId%3AUpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679369620"><span class="annot"><span class="annottext">request :: UpdateGroupCertificateConfiguration
+-&gt; Request UpdateGroupCertificateConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateGroupCertificateConfiguration
+-&gt; Request UpdateGroupCertificateConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679369616"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateGroupCertificateConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateGroupCertificateConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateGroupCertificateConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateGroupCertificateConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateGroupCertificateConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369613"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369613"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679369612"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679369612"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679369611"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateGroupCertificateConfigurationResponse
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateGroupCertificateConfigurationResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateGroupCertificateConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateGroupCertificateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369611"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-107"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertificateAuthorityExpiryInMilliseconds&quot;</span></span><span>
+</span><span id="line-108"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateGroupCertificateConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; UpdateGroupCertificateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; UpdateGroupCertificateConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; UpdateGroupCertificateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertificateExpiryInMilliseconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateGroupCertificateConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateGroupCertificateConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369613"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679369603"><span id="local-6989586621679369605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679369600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679369596"><span class="annot"><span class="annottext">toHeaders :: UpdateGroupCertificateConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; UpdateGroupCertificateConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679369586"><span id="local-6989586621679369588"><span id="local-6989586621679369590"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679369584"><span class="annot"><span class="annottext">toJSON :: UpdateGroupCertificateConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369581"><span id="local-6989586621679369582"><span class="annot"><span class="annottext">Maybe Text
+Text
+groupId :: Text
+certificateExpiryInMilliseconds :: Maybe Text
+$sel:groupId:UpdateGroupCertificateConfiguration' :: UpdateGroupCertificateConfiguration -&gt; Text
+$sel:certificateExpiryInMilliseconds:UpdateGroupCertificateConfiguration' :: UpdateGroupCertificateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679369581"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertificateExpiryInMilliseconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369582"><span class="hs-identifier hs-var">certificateExpiryInMilliseconds</span></a></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679369575"><span class="annot"><span class="annottext">toPath :: UpdateGroupCertificateConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369572"><span id="local-6989586621679369573"><span class="annot"><span class="annottext">Maybe Text
+Text
+groupId :: Text
+certificateExpiryInMilliseconds :: Maybe Text
+$sel:groupId:UpdateGroupCertificateConfiguration' :: UpdateGroupCertificateConfiguration -&gt; Text
+$sel:certificateExpiryInMilliseconds:UpdateGroupCertificateConfiguration' :: UpdateGroupCertificateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679369572"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/groups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369572"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/certificateauthorities/configuration/expiry&quot;</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfiguration"><span class="hs-identifier hs-type">UpdateGroupCertificateConfiguration</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679369568"><span class="annot"><span class="annottext">toQuery :: UpdateGroupCertificateConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGroupCertificateConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroupCertificateConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679369565"><span id="local-6989586621679369566"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroupCertificateConfigurationResponse"><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-var">UpdateGroupCertificateConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroupCertificateConfigurationResponse%27"><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateGroupCertificateConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of time remaining before the certificate authority expires,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- in milliseconds.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AcertificateAuthorityExpiryInMilliseconds%3AUpdateGroupCertificateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AcertificateAuthorityExpiryInMilliseconds%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">certificateAuthorityExpiryInMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The ID of the group certificate configuration.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AgroupId%3AUpdateGroupCertificateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AgroupId%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The amount of time remaining before the certificate expires, in</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- milliseconds.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AcertificateExpiryInMilliseconds%3AUpdateGroupCertificateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AcertificateExpiryInMilliseconds%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">certificateExpiryInMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGroupCertificateConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse -&gt; Int
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AhttpStatus%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369557"><span id="local-6989586621679369559"><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse
+-&gt; UpdateGroupCertificateConfigurationResponse -&gt; Bool
+(UpdateGroupCertificateConfigurationResponse
+ -&gt; UpdateGroupCertificateConfigurationResponse -&gt; Bool)
+-&gt; (UpdateGroupCertificateConfigurationResponse
+    -&gt; UpdateGroupCertificateConfigurationResponse -&gt; Bool)
+-&gt; Eq UpdateGroupCertificateConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGroupCertificateConfigurationResponse
+-&gt; UpdateGroupCertificateConfigurationResponse -&gt; Bool
+$c/= :: UpdateGroupCertificateConfigurationResponse
+-&gt; UpdateGroupCertificateConfigurationResponse -&gt; Bool
+== :: UpdateGroupCertificateConfigurationResponse
+-&gt; UpdateGroupCertificateConfigurationResponse -&gt; Bool
+$c== :: UpdateGroupCertificateConfigurationResponse
+-&gt; UpdateGroupCertificateConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369549"><span id="local-6989586621679369551"><span id="local-6989586621679369553"><span id="local-6989586621679369555"><span class="annot"><span class="annottext">ReadPrec [UpdateGroupCertificateConfigurationResponse]
+ReadPrec UpdateGroupCertificateConfigurationResponse
+Int -&gt; ReadS UpdateGroupCertificateConfigurationResponse
+ReadS [UpdateGroupCertificateConfigurationResponse]
+(Int -&gt; ReadS UpdateGroupCertificateConfigurationResponse)
+-&gt; ReadS [UpdateGroupCertificateConfigurationResponse]
+-&gt; ReadPrec UpdateGroupCertificateConfigurationResponse
+-&gt; ReadPrec [UpdateGroupCertificateConfigurationResponse]
+-&gt; Read UpdateGroupCertificateConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGroupCertificateConfigurationResponse]
+$creadListPrec :: ReadPrec [UpdateGroupCertificateConfigurationResponse]
+readPrec :: ReadPrec UpdateGroupCertificateConfigurationResponse
+$creadPrec :: ReadPrec UpdateGroupCertificateConfigurationResponse
+readList :: ReadS [UpdateGroupCertificateConfigurationResponse]
+$creadList :: ReadS [UpdateGroupCertificateConfigurationResponse]
+readsPrec :: Int -&gt; ReadS UpdateGroupCertificateConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS UpdateGroupCertificateConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369543"><span id="local-6989586621679369545"><span id="local-6989586621679369547"><span class="annot"><span class="annottext">Int -&gt; UpdateGroupCertificateConfigurationResponse -&gt; ShowS
+[UpdateGroupCertificateConfigurationResponse] -&gt; ShowS
+UpdateGroupCertificateConfigurationResponse -&gt; String
+(Int -&gt; UpdateGroupCertificateConfigurationResponse -&gt; ShowS)
+-&gt; (UpdateGroupCertificateConfigurationResponse -&gt; String)
+-&gt; ([UpdateGroupCertificateConfigurationResponse] -&gt; ShowS)
+-&gt; Show UpdateGroupCertificateConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGroupCertificateConfigurationResponse] -&gt; ShowS
+$cshowList :: [UpdateGroupCertificateConfigurationResponse] -&gt; ShowS
+show :: UpdateGroupCertificateConfigurationResponse -&gt; String
+$cshow :: UpdateGroupCertificateConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; UpdateGroupCertificateConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGroupCertificateConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateGroupCertificateConfigurationResponse
+ -&gt; Rep UpdateGroupCertificateConfigurationResponse x)
+-&gt; (forall x.
+    Rep UpdateGroupCertificateConfigurationResponse x
+    -&gt; UpdateGroupCertificateConfigurationResponse)
+-&gt; Generic UpdateGroupCertificateConfigurationResponse
+forall x.
+Rep UpdateGroupCertificateConfigurationResponse x
+-&gt; UpdateGroupCertificateConfigurationResponse
+forall x.
+UpdateGroupCertificateConfigurationResponse
+-&gt; Rep UpdateGroupCertificateConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateGroupCertificateConfigurationResponse x
+-&gt; UpdateGroupCertificateConfigurationResponse
+$cfrom :: forall x.
+UpdateGroupCertificateConfigurationResponse
+-&gt; Rep UpdateGroupCertificateConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'UpdateGroupCertificateConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'certificateAuthorityExpiryInMilliseconds', 'updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires,</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- in milliseconds.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'groupId', 'updateGroupCertificateConfigurationResponse_groupId' - The ID of the group certificate configuration.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'certificateExpiryInMilliseconds', 'updateGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- milliseconds.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'httpStatus', 'updateGroupCertificateConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#newUpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">newUpdateGroupCertificateConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span>
+</span><span id="line-201"></span><span id="newUpdateGroupCertificateConfigurationResponse"><span class="annot"><span class="annottext">newUpdateGroupCertificateConfigurationResponse :: Int -&gt; UpdateGroupCertificateConfigurationResponse
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#newUpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-var hs-var">newUpdateGroupCertificateConfigurationResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679369540"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateGroupCertificateConfigurationResponse
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateAuthorityExpiryInMilliseconds:UpdateGroupCertificateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AcertificateAuthorityExpiryInMilliseconds%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">certificateAuthorityExpiryInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupId:UpdateGroupCertificateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AgroupId%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateExpiryInMilliseconds:UpdateGroupCertificateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AcertificateExpiryInMilliseconds%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">certificateExpiryInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGroupCertificateConfigurationResponse' :: Int
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AhttpStatus%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The amount of time remaining before the certificate authority expires,</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- in milliseconds.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds"><span class="hs-identifier hs-type">updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds"><span class="annot"><span class="annottext">updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGroupCertificateConfigurationResponse
+-&gt; f UpdateGroupCertificateConfigurationResponse
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds"><span class="hs-identifier hs-var hs-var">updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroupCertificateConfigurationResponse -&gt; Maybe Text)
+-&gt; (UpdateGroupCertificateConfigurationResponse
+    -&gt; Maybe Text -&gt; UpdateGroupCertificateConfigurationResponse)
+-&gt; Lens
+     UpdateGroupCertificateConfigurationResponse
+     UpdateGroupCertificateConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369539"><span class="annot"><span class="annottext">Maybe Text
+certificateAuthorityExpiryInMilliseconds :: Maybe Text
+$sel:certificateAuthorityExpiryInMilliseconds:UpdateGroupCertificateConfigurationResponse' :: UpdateGroupCertificateConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679369539"><span class="hs-identifier hs-var hs-var">certificateAuthorityExpiryInMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369539"><span class="hs-identifier hs-var">certificateAuthorityExpiryInMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369538"><span class="annot"><span class="annottext">s :: UpdateGroupCertificateConfigurationResponse
+</span><a href="#local-6989586621679369538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse
+</span><a href="#local-6989586621679369538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityExpiryInMilliseconds:UpdateGroupCertificateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AcertificateAuthorityExpiryInMilliseconds%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">certificateAuthorityExpiryInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The ID of the group certificate configuration.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_groupId"><span class="hs-identifier hs-type">updateGroupCertificateConfigurationResponse_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="updateGroupCertificateConfigurationResponse_groupId"><span class="annot"><span class="annottext">updateGroupCertificateConfigurationResponse_groupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGroupCertificateConfigurationResponse
+-&gt; f UpdateGroupCertificateConfigurationResponse
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_groupId"><span class="hs-identifier hs-var hs-var">updateGroupCertificateConfigurationResponse_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroupCertificateConfigurationResponse -&gt; Maybe Text)
+-&gt; (UpdateGroupCertificateConfigurationResponse
+    -&gt; Maybe Text -&gt; UpdateGroupCertificateConfigurationResponse)
+-&gt; Lens
+     UpdateGroupCertificateConfigurationResponse
+     UpdateGroupCertificateConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369536"><span class="annot"><span class="annottext">Maybe Text
+groupId :: Maybe Text
+$sel:groupId:UpdateGroupCertificateConfigurationResponse' :: UpdateGroupCertificateConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679369536"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369536"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369535"><span class="annot"><span class="annottext">s :: UpdateGroupCertificateConfigurationResponse
+</span><a href="#local-6989586621679369535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369534"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse
+</span><a href="#local-6989586621679369535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:UpdateGroupCertificateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AgroupId%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The amount of time remaining before the certificate expires, in</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- milliseconds.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds"><span class="hs-identifier hs-type">updateGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="updateGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds"><span class="annot"><span class="annottext">updateGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGroupCertificateConfigurationResponse
+-&gt; f UpdateGroupCertificateConfigurationResponse
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds"><span class="hs-identifier hs-var hs-var">updateGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroupCertificateConfigurationResponse -&gt; Maybe Text)
+-&gt; (UpdateGroupCertificateConfigurationResponse
+    -&gt; Maybe Text -&gt; UpdateGroupCertificateConfigurationResponse)
+-&gt; Lens
+     UpdateGroupCertificateConfigurationResponse
+     UpdateGroupCertificateConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369533"><span class="annot"><span class="annottext">Maybe Text
+certificateExpiryInMilliseconds :: Maybe Text
+$sel:certificateExpiryInMilliseconds:UpdateGroupCertificateConfigurationResponse' :: UpdateGroupCertificateConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679369533"><span class="hs-identifier hs-var hs-var">certificateExpiryInMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369533"><span class="hs-identifier hs-var">certificateExpiryInMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369532"><span class="annot"><span class="annottext">s :: UpdateGroupCertificateConfigurationResponse
+</span><a href="#local-6989586621679369532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369531"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse
+</span><a href="#local-6989586621679369532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateExpiryInMilliseconds:UpdateGroupCertificateConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AcertificateExpiryInMilliseconds%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">certificateExpiryInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">updateGroupCertificateConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span id="updateGroupCertificateConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">updateGroupCertificateConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateGroupCertificateConfigurationResponse
+-&gt; f UpdateGroupCertificateConfigurationResponse
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#updateGroupCertificateConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateGroupCertificateConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroupCertificateConfigurationResponse -&gt; Int)
+-&gt; (UpdateGroupCertificateConfigurationResponse
+    -&gt; Int -&gt; UpdateGroupCertificateConfigurationResponse)
+-&gt; Lens
+     UpdateGroupCertificateConfigurationResponse
+     UpdateGroupCertificateConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369530"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateGroupCertificateConfigurationResponse' :: UpdateGroupCertificateConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679369530"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369530"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369529"><span class="annot"><span class="annottext">s :: UpdateGroupCertificateConfigurationResponse
+</span><a href="#local-6989586621679369529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369528"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupCertificateConfigurationResponse
+</span><a href="#local-6989586621679369529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGroupCertificateConfigurationResponse' :: Int
+</span><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#%24sel%3AhttpStatus%3AUpdateGroupCertificateConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679369526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.UpdateGroupCertificateConfiguration.html#UpdateGroupCertificateConfigurationResponse"><span class="hs-identifier hs-type">UpdateGroupCertificateConfigurationResponse</span></a></span></span><span>
+</span><span id="line-233"></span></pre></body></html>

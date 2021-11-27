@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.DeleteUserProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a user profile. When a user profile is deleted, the user loses</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- access to their EFS volume, including data, notebooks, and other</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- artifacts.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.DeleteUserProfile</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier">DeleteUserProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#newDeleteUserProfile"><span class="hs-identifier">newDeleteUserProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#deleteUserProfile_domainId"><span class="hs-identifier">deleteUserProfile_domainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#deleteUserProfile_userProfileName"><span class="hs-identifier">deleteUserProfile_userProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfileResponse"><span class="hs-identifier">DeleteUserProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#newDeleteUserProfileResponse"><span class="hs-identifier">newDeleteUserProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteUserProfile' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621680405024"><span id="local-6989586621680405025"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserProfile"><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-var">DeleteUserProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserProfile%27"><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile%27"><span class="hs-identifier hs-var">DeleteUserProfile'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain ID.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdomainId%3ADeleteUserProfile%27"><span class="annot"><span class="annottext">DeleteUserProfile -&gt; Text
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#%24sel%3AdomainId%3ADeleteUserProfile%27"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The user profile name.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AuserProfileName%3ADeleteUserProfile%27"><span class="annot"><span class="annottext">DeleteUserProfile -&gt; Text
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#%24sel%3AuserProfileName%3ADeleteUserProfile%27"><span class="hs-identifier hs-var hs-var">userProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680405017"><span id="local-6989586621680405019"><span class="annot"><span class="annottext">DeleteUserProfile -&gt; DeleteUserProfile -&gt; Bool
+(DeleteUserProfile -&gt; DeleteUserProfile -&gt; Bool)
+-&gt; (DeleteUserProfile -&gt; DeleteUserProfile -&gt; Bool)
+-&gt; Eq DeleteUserProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteUserProfile -&gt; DeleteUserProfile -&gt; Bool
+$c/= :: DeleteUserProfile -&gt; DeleteUserProfile -&gt; Bool
+== :: DeleteUserProfile -&gt; DeleteUserProfile -&gt; Bool
+$c== :: DeleteUserProfile -&gt; DeleteUserProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680405008"><span id="local-6989586621680405010"><span id="local-6989586621680405012"><span id="local-6989586621680405014"><span class="annot"><span class="annottext">ReadPrec [DeleteUserProfile]
+ReadPrec DeleteUserProfile
+Int -&gt; ReadS DeleteUserProfile
+ReadS [DeleteUserProfile]
+(Int -&gt; ReadS DeleteUserProfile)
+-&gt; ReadS [DeleteUserProfile]
+-&gt; ReadPrec DeleteUserProfile
+-&gt; ReadPrec [DeleteUserProfile]
+-&gt; Read DeleteUserProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteUserProfile]
+$creadListPrec :: ReadPrec [DeleteUserProfile]
+readPrec :: ReadPrec DeleteUserProfile
+$creadPrec :: ReadPrec DeleteUserProfile
+readList :: ReadS [DeleteUserProfile]
+$creadList :: ReadS [DeleteUserProfile]
+readsPrec :: Int -&gt; ReadS DeleteUserProfile
+$creadsPrec :: Int -&gt; ReadS DeleteUserProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680405001"><span id="local-6989586621680405003"><span id="local-6989586621680405005"><span class="annot"><span class="annottext">Int -&gt; DeleteUserProfile -&gt; ShowS
+[DeleteUserProfile] -&gt; ShowS
+DeleteUserProfile -&gt; String
+(Int -&gt; DeleteUserProfile -&gt; ShowS)
+-&gt; (DeleteUserProfile -&gt; String)
+-&gt; ([DeleteUserProfile] -&gt; ShowS)
+-&gt; Show DeleteUserProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteUserProfile] -&gt; ShowS
+$cshowList :: [DeleteUserProfile] -&gt; ShowS
+show :: DeleteUserProfile -&gt; String
+$cshow :: DeleteUserProfile -&gt; String
+showsPrec :: Int -&gt; DeleteUserProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteUserProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteUserProfile -&gt; Rep DeleteUserProfile x)
+-&gt; (forall x. Rep DeleteUserProfile x -&gt; DeleteUserProfile)
+-&gt; Generic DeleteUserProfile
+forall x. Rep DeleteUserProfile x -&gt; DeleteUserProfile
+forall x. DeleteUserProfile -&gt; Rep DeleteUserProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteUserProfile x -&gt; DeleteUserProfile
+$cfrom :: forall x. DeleteUserProfile -&gt; Rep DeleteUserProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeleteUserProfile' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'domainId', 'deleteUserProfile_domainId' - The domain ID.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'userProfileName', 'deleteUserProfile_userProfileName' - The user profile name.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#newDeleteUserProfile"><span class="hs-identifier hs-type">newDeleteUserProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'domainId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'userProfileName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span>
+</span><span id="line-74"></span><span id="newDeleteUserProfile"><span class="annot"><span class="annottext">newDeleteUserProfile :: Text -&gt; Text -&gt; DeleteUserProfile
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#newDeleteUserProfile"><span class="hs-identifier hs-var hs-var">newDeleteUserProfile</span></a></span></span><span> </span><span id="local-6989586621680404996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404996"><span class="hs-identifier hs-var">pDomainId_</span></a></span></span><span> </span><span id="local-6989586621680404995"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404995"><span class="hs-identifier hs-var">pUserProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteUserProfile' :: Text -&gt; Text -&gt; DeleteUserProfile
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile%27"><span class="hs-identifier hs-type">DeleteUserProfile'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainId:DeleteUserProfile' :: Text
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#%24sel%3AdomainId%3ADeleteUserProfile%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404996"><span class="hs-identifier hs-var">pDomainId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:userProfileName:DeleteUserProfile' :: Text
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#%24sel%3AuserProfileName%3ADeleteUserProfile%27"><span class="hs-identifier hs-var">userProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404995"><span class="hs-identifier hs-var">pUserProfileName_</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The domain ID.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#deleteUserProfile_domainId"><span class="hs-identifier hs-type">deleteUserProfile_domainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="deleteUserProfile_domainId"><span class="annot"><span class="annottext">deleteUserProfile_domainId :: (Text -&gt; f Text) -&gt; DeleteUserProfile -&gt; f DeleteUserProfile
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#deleteUserProfile_domainId"><span class="hs-identifier hs-var hs-var">deleteUserProfile_domainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUserProfile -&gt; Text)
+-&gt; (DeleteUserProfile -&gt; Text -&gt; DeleteUserProfile)
+-&gt; Lens DeleteUserProfile DeleteUserProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile%27"><span class="hs-identifier hs-type">DeleteUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404992"><span class="annot"><span class="annottext">Text
+domainId :: Text
+$sel:domainId:DeleteUserProfile' :: DeleteUserProfile -&gt; Text
+</span><a href="#local-6989586621680404992"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404992"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404991"><span class="annot"><span class="annottext">s :: DeleteUserProfile
+</span><a href="#local-6989586621680404991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile%27"><span class="hs-identifier hs-type">DeleteUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404990"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserProfile
+</span><a href="#local-6989586621680404991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainId:DeleteUserProfile' :: Text
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#%24sel%3AdomainId%3ADeleteUserProfile%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The user profile name.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#deleteUserProfile_userProfileName"><span class="hs-identifier hs-type">deleteUserProfile_userProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="deleteUserProfile_userProfileName"><span class="annot"><span class="annottext">deleteUserProfile_userProfileName :: (Text -&gt; f Text) -&gt; DeleteUserProfile -&gt; f DeleteUserProfile
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#deleteUserProfile_userProfileName"><span class="hs-identifier hs-var hs-var">deleteUserProfile_userProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteUserProfile -&gt; Text)
+-&gt; (DeleteUserProfile -&gt; Text -&gt; DeleteUserProfile)
+-&gt; Lens DeleteUserProfile DeleteUserProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile%27"><span class="hs-identifier hs-type">DeleteUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404989"><span class="annot"><span class="annottext">Text
+userProfileName :: Text
+$sel:userProfileName:DeleteUserProfile' :: DeleteUserProfile -&gt; Text
+</span><a href="#local-6989586621680404989"><span class="hs-identifier hs-var hs-var">userProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404989"><span class="hs-identifier hs-var">userProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404988"><span class="annot"><span class="annottext">s :: DeleteUserProfile
+</span><a href="#local-6989586621680404988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile%27"><span class="hs-identifier hs-type">DeleteUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404987"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserProfile
+</span><a href="#local-6989586621680404988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userProfileName:DeleteUserProfile' :: Text
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#%24sel%3AuserProfileName%3ADeleteUserProfile%27"><span class="hs-identifier hs-var">userProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfileResponse"><span class="hs-identifier hs-type">DeleteUserProfileResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680404983"><span class="annot"><span class="annottext">request :: DeleteUserProfile -&gt; Request DeleteUserProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUserProfile -&gt; Request DeleteUserProfile
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621680404979"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteUserProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteUserProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteUserProfile
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteUserProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteUserProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteUserProfile
+DeleteUserProfileResponse
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfileResponse%27"><span class="hs-identifier hs-var">DeleteUserProfileResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404972"><span id="local-6989586621680404974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621680404965"><span class="annot"><span class="annottext">toHeaders :: DeleteUserProfile -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteUserProfile -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.DeleteUserProfile&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404955"><span id="local-6989586621680404957"><span id="local-6989586621680404959"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621680404953"><span class="annot"><span class="annottext">toJSON :: DeleteUserProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile%27"><span class="hs-identifier hs-type">DeleteUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404950"><span id="local-6989586621680404951"><span class="annot"><span class="annottext">Text
+userProfileName :: Text
+domainId :: Text
+$sel:userProfileName:DeleteUserProfile' :: DeleteUserProfile -&gt; Text
+$sel:domainId:DeleteUserProfile' :: DeleteUserProfile -&gt; Text
+</span><a href="#local-6989586621680404950"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404951"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-121"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserProfileName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404950"><span class="hs-identifier hs-var">userProfileName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621680404944"><span class="annot"><span class="annottext">toPath :: DeleteUserProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteUserProfile -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfile"><span class="hs-identifier hs-type">DeleteUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621680404940"><span class="annot"><span class="annottext">toQuery :: DeleteUserProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUserProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newDeleteUserProfileResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621680404937"><span id="local-6989586621680404938"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserProfileResponse"><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfileResponse"><span class="hs-identifier hs-var">DeleteUserProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserProfileResponse%27"><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfileResponse%27"><span class="hs-identifier hs-var">DeleteUserProfileResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680404933"><span id="local-6989586621680404935"><span class="annot"><span class="annottext">DeleteUserProfileResponse -&gt; DeleteUserProfileResponse -&gt; Bool
+(DeleteUserProfileResponse -&gt; DeleteUserProfileResponse -&gt; Bool)
+-&gt; (DeleteUserProfileResponse -&gt; DeleteUserProfileResponse -&gt; Bool)
+-&gt; Eq DeleteUserProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteUserProfileResponse -&gt; DeleteUserProfileResponse -&gt; Bool
+$c/= :: DeleteUserProfileResponse -&gt; DeleteUserProfileResponse -&gt; Bool
+== :: DeleteUserProfileResponse -&gt; DeleteUserProfileResponse -&gt; Bool
+$c== :: DeleteUserProfileResponse -&gt; DeleteUserProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404925"><span id="local-6989586621680404927"><span id="local-6989586621680404929"><span id="local-6989586621680404931"><span class="annot"><span class="annottext">ReadPrec [DeleteUserProfileResponse]
+ReadPrec DeleteUserProfileResponse
+Int -&gt; ReadS DeleteUserProfileResponse
+ReadS [DeleteUserProfileResponse]
+(Int -&gt; ReadS DeleteUserProfileResponse)
+-&gt; ReadS [DeleteUserProfileResponse]
+-&gt; ReadPrec DeleteUserProfileResponse
+-&gt; ReadPrec [DeleteUserProfileResponse]
+-&gt; Read DeleteUserProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteUserProfileResponse]
+$creadListPrec :: ReadPrec [DeleteUserProfileResponse]
+readPrec :: ReadPrec DeleteUserProfileResponse
+$creadPrec :: ReadPrec DeleteUserProfileResponse
+readList :: ReadS [DeleteUserProfileResponse]
+$creadList :: ReadS [DeleteUserProfileResponse]
+readsPrec :: Int -&gt; ReadS DeleteUserProfileResponse
+$creadsPrec :: Int -&gt; ReadS DeleteUserProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404919"><span id="local-6989586621680404921"><span id="local-6989586621680404923"><span class="annot"><span class="annottext">Int -&gt; DeleteUserProfileResponse -&gt; ShowS
+[DeleteUserProfileResponse] -&gt; ShowS
+DeleteUserProfileResponse -&gt; String
+(Int -&gt; DeleteUserProfileResponse -&gt; ShowS)
+-&gt; (DeleteUserProfileResponse -&gt; String)
+-&gt; ([DeleteUserProfileResponse] -&gt; ShowS)
+-&gt; Show DeleteUserProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteUserProfileResponse] -&gt; ShowS
+$cshowList :: [DeleteUserProfileResponse] -&gt; ShowS
+show :: DeleteUserProfileResponse -&gt; String
+$cshow :: DeleteUserProfileResponse -&gt; String
+showsPrec :: Int -&gt; DeleteUserProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteUserProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteUserProfileResponse -&gt; Rep DeleteUserProfileResponse x)
+-&gt; (forall x.
+    Rep DeleteUserProfileResponse x -&gt; DeleteUserProfileResponse)
+-&gt; Generic DeleteUserProfileResponse
+forall x.
+Rep DeleteUserProfileResponse x -&gt; DeleteUserProfileResponse
+forall x.
+DeleteUserProfileResponse -&gt; Rep DeleteUserProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteUserProfileResponse x -&gt; DeleteUserProfileResponse
+$cfrom :: forall x.
+DeleteUserProfileResponse -&gt; Rep DeleteUserProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'DeleteUserProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#newDeleteUserProfileResponse"><span class="hs-identifier hs-type">newDeleteUserProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfileResponse"><span class="hs-identifier hs-type">DeleteUserProfileResponse</span></a></span><span>
+</span><span id="line-143"></span><span id="newDeleteUserProfileResponse"><span class="annot"><span class="annottext">newDeleteUserProfileResponse :: DeleteUserProfileResponse
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#newDeleteUserProfileResponse"><span class="hs-identifier hs-var hs-var">newDeleteUserProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">DeleteUserProfileResponse
+</span><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfileResponse%27"><span class="hs-identifier hs-var">DeleteUserProfileResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteUserProfile.html#DeleteUserProfileResponse"><span class="hs-identifier hs-type">DeleteUserProfileResponse</span></a></span></span><span>
+</span><span id="line-147"></span></pre></body></html>

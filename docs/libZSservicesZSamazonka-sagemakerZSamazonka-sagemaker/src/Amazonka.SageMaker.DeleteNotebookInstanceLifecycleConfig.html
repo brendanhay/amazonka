@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a notebook instance lifecycle configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier">DeleteNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#newDeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier">newDeleteNotebookInstanceLifecycleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName"><span class="hs-identifier">deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier">DeleteNotebookInstanceLifecycleConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#newDeleteNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier">newDeleteNotebookInstanceLifecycleConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteNotebookInstanceLifecycleConfig' smart constructor.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621680406406"><span id="local-6989586621680406407"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNotebookInstanceLifecycleConfig"><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-var">DeleteNotebookInstanceLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNotebookInstanceLifecycleConfig%27"><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">DeleteNotebookInstanceLifecycleConfig'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the lifecycle configuration to delete.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AnotebookInstanceLifecycleConfigName%3ADeleteNotebookInstanceLifecycleConfig%27"><span class="annot"><span class="annottext">DeleteNotebookInstanceLifecycleConfig -&gt; Text
+</span><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#%24sel%3AnotebookInstanceLifecycleConfigName%3ADeleteNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">notebookInstanceLifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680406400"><span id="local-6989586621680406402"><span class="annot"><span class="annottext">DeleteNotebookInstanceLifecycleConfig
+-&gt; DeleteNotebookInstanceLifecycleConfig -&gt; Bool
+(DeleteNotebookInstanceLifecycleConfig
+ -&gt; DeleteNotebookInstanceLifecycleConfig -&gt; Bool)
+-&gt; (DeleteNotebookInstanceLifecycleConfig
+    -&gt; DeleteNotebookInstanceLifecycleConfig -&gt; Bool)
+-&gt; Eq DeleteNotebookInstanceLifecycleConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteNotebookInstanceLifecycleConfig
+-&gt; DeleteNotebookInstanceLifecycleConfig -&gt; Bool
+$c/= :: DeleteNotebookInstanceLifecycleConfig
+-&gt; DeleteNotebookInstanceLifecycleConfig -&gt; Bool
+== :: DeleteNotebookInstanceLifecycleConfig
+-&gt; DeleteNotebookInstanceLifecycleConfig -&gt; Bool
+$c== :: DeleteNotebookInstanceLifecycleConfig
+-&gt; DeleteNotebookInstanceLifecycleConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680406391"><span id="local-6989586621680406393"><span id="local-6989586621680406395"><span id="local-6989586621680406397"><span class="annot"><span class="annottext">ReadPrec [DeleteNotebookInstanceLifecycleConfig]
+ReadPrec DeleteNotebookInstanceLifecycleConfig
+Int -&gt; ReadS DeleteNotebookInstanceLifecycleConfig
+ReadS [DeleteNotebookInstanceLifecycleConfig]
+(Int -&gt; ReadS DeleteNotebookInstanceLifecycleConfig)
+-&gt; ReadS [DeleteNotebookInstanceLifecycleConfig]
+-&gt; ReadPrec DeleteNotebookInstanceLifecycleConfig
+-&gt; ReadPrec [DeleteNotebookInstanceLifecycleConfig]
+-&gt; Read DeleteNotebookInstanceLifecycleConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteNotebookInstanceLifecycleConfig]
+$creadListPrec :: ReadPrec [DeleteNotebookInstanceLifecycleConfig]
+readPrec :: ReadPrec DeleteNotebookInstanceLifecycleConfig
+$creadPrec :: ReadPrec DeleteNotebookInstanceLifecycleConfig
+readList :: ReadS [DeleteNotebookInstanceLifecycleConfig]
+$creadList :: ReadS [DeleteNotebookInstanceLifecycleConfig]
+readsPrec :: Int -&gt; ReadS DeleteNotebookInstanceLifecycleConfig
+$creadsPrec :: Int -&gt; ReadS DeleteNotebookInstanceLifecycleConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680406384"><span id="local-6989586621680406386"><span id="local-6989586621680406388"><span class="annot"><span class="annottext">Int -&gt; DeleteNotebookInstanceLifecycleConfig -&gt; ShowS
+[DeleteNotebookInstanceLifecycleConfig] -&gt; ShowS
+DeleteNotebookInstanceLifecycleConfig -&gt; String
+(Int -&gt; DeleteNotebookInstanceLifecycleConfig -&gt; ShowS)
+-&gt; (DeleteNotebookInstanceLifecycleConfig -&gt; String)
+-&gt; ([DeleteNotebookInstanceLifecycleConfig] -&gt; ShowS)
+-&gt; Show DeleteNotebookInstanceLifecycleConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteNotebookInstanceLifecycleConfig] -&gt; ShowS
+$cshowList :: [DeleteNotebookInstanceLifecycleConfig] -&gt; ShowS
+show :: DeleteNotebookInstanceLifecycleConfig -&gt; String
+$cshow :: DeleteNotebookInstanceLifecycleConfig -&gt; String
+showsPrec :: Int -&gt; DeleteNotebookInstanceLifecycleConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteNotebookInstanceLifecycleConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteNotebookInstanceLifecycleConfig
+ -&gt; Rep DeleteNotebookInstanceLifecycleConfig x)
+-&gt; (forall x.
+    Rep DeleteNotebookInstanceLifecycleConfig x
+    -&gt; DeleteNotebookInstanceLifecycleConfig)
+-&gt; Generic DeleteNotebookInstanceLifecycleConfig
+forall x.
+Rep DeleteNotebookInstanceLifecycleConfig x
+-&gt; DeleteNotebookInstanceLifecycleConfig
+forall x.
+DeleteNotebookInstanceLifecycleConfig
+-&gt; Rep DeleteNotebookInstanceLifecycleConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteNotebookInstanceLifecycleConfig x
+-&gt; DeleteNotebookInstanceLifecycleConfig
+$cfrom :: forall x.
+DeleteNotebookInstanceLifecycleConfig
+-&gt; Rep DeleteNotebookInstanceLifecycleConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'DeleteNotebookInstanceLifecycleConfig' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'notebookInstanceLifecycleConfigName', 'deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration to delete.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#newDeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">newDeleteNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'notebookInstanceLifecycleConfigName'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-65"></span><span id="newDeleteNotebookInstanceLifecycleConfig"><span class="annot"><span class="annottext">newDeleteNotebookInstanceLifecycleConfig :: Text -&gt; DeleteNotebookInstanceLifecycleConfig
+</span><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#newDeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-var hs-var">newDeleteNotebookInstanceLifecycleConfig</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621680406379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680406379"><span class="hs-identifier hs-var">pNotebookInstanceLifecycleConfigName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">DeleteNotebookInstanceLifecycleConfig' :: Text -&gt; DeleteNotebookInstanceLifecycleConfig
+</span><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig'</span></a></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notebookInstanceLifecycleConfigName:DeleteNotebookInstanceLifecycleConfig' :: Text
+</span><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#%24sel%3AnotebookInstanceLifecycleConfigName%3ADeleteNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">notebookInstanceLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680406379"><span class="hs-identifier hs-var">pNotebookInstanceLifecycleConfigName_</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The name of the lifecycle configuration to delete.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName"><span class="hs-identifier hs-type">deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName"><span class="annot"><span class="annottext">deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName :: (Text -&gt; f Text)
+-&gt; DeleteNotebookInstanceLifecycleConfig
+-&gt; f DeleteNotebookInstanceLifecycleConfig
+</span><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName"><span class="hs-identifier hs-var hs-var">deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteNotebookInstanceLifecycleConfig -&gt; Text)
+-&gt; (DeleteNotebookInstanceLifecycleConfig
+    -&gt; Text -&gt; DeleteNotebookInstanceLifecycleConfig)
+-&gt; Lens
+     DeleteNotebookInstanceLifecycleConfig
+     DeleteNotebookInstanceLifecycleConfig
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680406376"><span class="annot"><span class="annottext">Text
+notebookInstanceLifecycleConfigName :: Text
+$sel:notebookInstanceLifecycleConfigName:DeleteNotebookInstanceLifecycleConfig' :: DeleteNotebookInstanceLifecycleConfig -&gt; Text
+</span><a href="#local-6989586621680406376"><span class="hs-identifier hs-var hs-var">notebookInstanceLifecycleConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680406376"><span class="hs-identifier hs-var">notebookInstanceLifecycleConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680406375"><span class="annot"><span class="annottext">s :: DeleteNotebookInstanceLifecycleConfig
+</span><a href="#local-6989586621680406375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680406374"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680406374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNotebookInstanceLifecycleConfig
+</span><a href="#local-6989586621680406375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookInstanceLifecycleConfigName:DeleteNotebookInstanceLifecycleConfig' :: Text
+</span><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#%24sel%3AnotebookInstanceLifecycleConfigName%3ADeleteNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-var">notebookInstanceLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680406374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfigResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621680406370"><span class="annot"><span class="annottext">request :: DeleteNotebookInstanceLifecycleConfig
+-&gt; Request DeleteNotebookInstanceLifecycleConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteNotebookInstanceLifecycleConfig
+-&gt; Request DeleteNotebookInstanceLifecycleConfig
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680406366"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteNotebookInstanceLifecycleConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DeleteNotebookInstanceLifecycleConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteNotebookInstanceLifecycleConfig
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteNotebookInstanceLifecycleConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DeleteNotebookInstanceLifecycleConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteNotebookInstanceLifecycleConfig
+DeleteNotebookInstanceLifecycleConfigResponse
+</span><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-var">DeleteNotebookInstanceLifecycleConfigResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621680406359"><span id="local-6989586621680406361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621680406356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621680406352"><span class="annot"><span class="annottext">toHeaders :: DeleteNotebookInstanceLifecycleConfig -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteNotebookInstanceLifecycleConfig -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.DeleteNotebookInstanceLifecycleConfig&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621680406342"><span id="local-6989586621680406344"><span id="local-6989586621680406346"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span></span></span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621680406340"><span class="annot"><span class="annottext">toJSON :: DeleteNotebookInstanceLifecycleConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig%27"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680406338"><span class="annot"><span class="annottext">Text
+notebookInstanceLifecycleConfigName :: Text
+$sel:notebookInstanceLifecycleConfigName:DeleteNotebookInstanceLifecycleConfig' :: DeleteNotebookInstanceLifecycleConfig -&gt; Text
+</span><a href="#local-6989586621680406338"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotebookInstanceLifecycleConfigName&quot;</span></span><span>
+</span><span id="line-124"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680406338"><span class="hs-identifier hs-var">notebookInstanceLifecycleConfigName</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680406332"><span class="annot"><span class="annottext">toPath :: DeleteNotebookInstanceLifecycleConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteNotebookInstanceLifecycleConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfig"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfig</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621680406328"><span class="annot"><span class="annottext">toQuery :: DeleteNotebookInstanceLifecycleConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteNotebookInstanceLifecycleConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDeleteNotebookInstanceLifecycleConfigResponse' smart constructor.</span><span>
+</span><span id="line-142"></span><span id="local-6989586621680406325"><span id="local-6989586621680406326"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNotebookInstanceLifecycleConfigResponse"><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-var">DeleteNotebookInstanceLifecycleConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNotebookInstanceLifecycleConfigResponse%27"><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-var">DeleteNotebookInstanceLifecycleConfigResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680406321"><span id="local-6989586621680406323"><span class="annot"><span class="annottext">DeleteNotebookInstanceLifecycleConfigResponse
+-&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; Bool
+(DeleteNotebookInstanceLifecycleConfigResponse
+ -&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; Bool)
+-&gt; (DeleteNotebookInstanceLifecycleConfigResponse
+    -&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; Bool)
+-&gt; Eq DeleteNotebookInstanceLifecycleConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteNotebookInstanceLifecycleConfigResponse
+-&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; Bool
+$c/= :: DeleteNotebookInstanceLifecycleConfigResponse
+-&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; Bool
+== :: DeleteNotebookInstanceLifecycleConfigResponse
+-&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; Bool
+$c== :: DeleteNotebookInstanceLifecycleConfigResponse
+-&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680406313"><span id="local-6989586621680406315"><span id="local-6989586621680406317"><span id="local-6989586621680406319"><span class="annot"><span class="annottext">ReadPrec [DeleteNotebookInstanceLifecycleConfigResponse]
+ReadPrec DeleteNotebookInstanceLifecycleConfigResponse
+Int -&gt; ReadS DeleteNotebookInstanceLifecycleConfigResponse
+ReadS [DeleteNotebookInstanceLifecycleConfigResponse]
+(Int -&gt; ReadS DeleteNotebookInstanceLifecycleConfigResponse)
+-&gt; ReadS [DeleteNotebookInstanceLifecycleConfigResponse]
+-&gt; ReadPrec DeleteNotebookInstanceLifecycleConfigResponse
+-&gt; ReadPrec [DeleteNotebookInstanceLifecycleConfigResponse]
+-&gt; Read DeleteNotebookInstanceLifecycleConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteNotebookInstanceLifecycleConfigResponse]
+$creadListPrec :: ReadPrec [DeleteNotebookInstanceLifecycleConfigResponse]
+readPrec :: ReadPrec DeleteNotebookInstanceLifecycleConfigResponse
+$creadPrec :: ReadPrec DeleteNotebookInstanceLifecycleConfigResponse
+readList :: ReadS [DeleteNotebookInstanceLifecycleConfigResponse]
+$creadList :: ReadS [DeleteNotebookInstanceLifecycleConfigResponse]
+readsPrec :: Int -&gt; ReadS DeleteNotebookInstanceLifecycleConfigResponse
+$creadsPrec :: Int -&gt; ReadS DeleteNotebookInstanceLifecycleConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680406307"><span id="local-6989586621680406309"><span id="local-6989586621680406311"><span class="annot"><span class="annottext">Int -&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; ShowS
+[DeleteNotebookInstanceLifecycleConfigResponse] -&gt; ShowS
+DeleteNotebookInstanceLifecycleConfigResponse -&gt; String
+(Int -&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; ShowS)
+-&gt; (DeleteNotebookInstanceLifecycleConfigResponse -&gt; String)
+-&gt; ([DeleteNotebookInstanceLifecycleConfigResponse] -&gt; ShowS)
+-&gt; Show DeleteNotebookInstanceLifecycleConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteNotebookInstanceLifecycleConfigResponse] -&gt; ShowS
+$cshowList :: [DeleteNotebookInstanceLifecycleConfigResponse] -&gt; ShowS
+show :: DeleteNotebookInstanceLifecycleConfigResponse -&gt; String
+$cshow :: DeleteNotebookInstanceLifecycleConfigResponse -&gt; String
+showsPrec :: Int -&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteNotebookInstanceLifecycleConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteNotebookInstanceLifecycleConfigResponse
+ -&gt; Rep DeleteNotebookInstanceLifecycleConfigResponse x)
+-&gt; (forall x.
+    Rep DeleteNotebookInstanceLifecycleConfigResponse x
+    -&gt; DeleteNotebookInstanceLifecycleConfigResponse)
+-&gt; Generic DeleteNotebookInstanceLifecycleConfigResponse
+forall x.
+Rep DeleteNotebookInstanceLifecycleConfigResponse x
+-&gt; DeleteNotebookInstanceLifecycleConfigResponse
+forall x.
+DeleteNotebookInstanceLifecycleConfigResponse
+-&gt; Rep DeleteNotebookInstanceLifecycleConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteNotebookInstanceLifecycleConfigResponse x
+-&gt; DeleteNotebookInstanceLifecycleConfigResponse
+$cfrom :: forall x.
+DeleteNotebookInstanceLifecycleConfigResponse
+-&gt; Rep DeleteNotebookInstanceLifecycleConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Create a value of 'DeleteNotebookInstanceLifecycleConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#newDeleteNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">newDeleteNotebookInstanceLifecycleConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfigResponse</span></a></span><span>
+</span><span id="line-153"></span><span id="newDeleteNotebookInstanceLifecycleConfigResponse"><span class="annot"><span class="annottext">newDeleteNotebookInstanceLifecycleConfigResponse :: DeleteNotebookInstanceLifecycleConfigResponse
+</span><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#newDeleteNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-var hs-var">newDeleteNotebookInstanceLifecycleConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">DeleteNotebookInstanceLifecycleConfigResponse
+</span><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfigResponse%27"><span class="hs-identifier hs-var">DeleteNotebookInstanceLifecycleConfigResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621680406303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig.html#DeleteNotebookInstanceLifecycleConfigResponse"><span class="hs-identifier hs-type">DeleteNotebookInstanceLifecycleConfigResponse</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

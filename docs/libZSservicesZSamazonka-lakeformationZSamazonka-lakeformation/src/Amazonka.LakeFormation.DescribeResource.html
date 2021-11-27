@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LakeFormation.DescribeResource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the current data access role for the given resource registered</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- in AWS Lake Formation.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LakeFormation.DescribeResource</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier">DescribeResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#newDescribeResource"><span class="hs-identifier">newDescribeResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#describeResource_resourceArn"><span class="hs-identifier">describeResource_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#newDescribeResourceResponse"><span class="hs-identifier">newDescribeResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#describeResourceResponse_resourceInfo"><span class="hs-identifier">describeResourceResponse_resourceInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#describeResourceResponse_httpStatus"><span class="hs-identifier">describeResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.html"><span class="hs-identifier">Amazonka.LakeFormation.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeResource' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679204183"><span id="local-6989586621679204184"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResource"><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-var">DescribeResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResource%27"><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-var">DescribeResource'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource ARN.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AresourceArn%3ADescribeResource%27"><span class="annot"><span class="annottext">DescribeResource -&gt; Text
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#%24sel%3AresourceArn%3ADescribeResource%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204177"><span id="local-6989586621679204179"><span class="annot"><span class="annottext">DescribeResource -&gt; DescribeResource -&gt; Bool
+(DescribeResource -&gt; DescribeResource -&gt; Bool)
+-&gt; (DescribeResource -&gt; DescribeResource -&gt; Bool)
+-&gt; Eq DescribeResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeResource -&gt; DescribeResource -&gt; Bool
+$c/= :: DescribeResource -&gt; DescribeResource -&gt; Bool
+== :: DescribeResource -&gt; DescribeResource -&gt; Bool
+$c== :: DescribeResource -&gt; DescribeResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204168"><span id="local-6989586621679204170"><span id="local-6989586621679204172"><span id="local-6989586621679204174"><span class="annot"><span class="annottext">ReadPrec [DescribeResource]
+ReadPrec DescribeResource
+Int -&gt; ReadS DescribeResource
+ReadS [DescribeResource]
+(Int -&gt; ReadS DescribeResource)
+-&gt; ReadS [DescribeResource]
+-&gt; ReadPrec DescribeResource
+-&gt; ReadPrec [DescribeResource]
+-&gt; Read DescribeResource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeResource]
+$creadListPrec :: ReadPrec [DescribeResource]
+readPrec :: ReadPrec DescribeResource
+$creadPrec :: ReadPrec DescribeResource
+readList :: ReadS [DescribeResource]
+$creadList :: ReadS [DescribeResource]
+readsPrec :: Int -&gt; ReadS DescribeResource
+$creadsPrec :: Int -&gt; ReadS DescribeResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204161"><span id="local-6989586621679204163"><span id="local-6989586621679204165"><span class="annot"><span class="annottext">Int -&gt; DescribeResource -&gt; ShowS
+[DescribeResource] -&gt; ShowS
+DescribeResource -&gt; String
+(Int -&gt; DescribeResource -&gt; ShowS)
+-&gt; (DescribeResource -&gt; String)
+-&gt; ([DescribeResource] -&gt; ShowS)
+-&gt; Show DescribeResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeResource] -&gt; ShowS
+$cshowList :: [DescribeResource] -&gt; ShowS
+show :: DescribeResource -&gt; String
+$cshow :: DescribeResource -&gt; String
+showsPrec :: Int -&gt; DescribeResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeResource -&gt; Rep DescribeResource x)
+-&gt; (forall x. Rep DescribeResource x -&gt; DescribeResource)
+-&gt; Generic DescribeResource
+forall x. Rep DescribeResource x -&gt; DescribeResource
+forall x. DescribeResource -&gt; Rep DescribeResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeResource x -&gt; DescribeResource
+$cfrom :: forall x. DescribeResource -&gt; Rep DescribeResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DescribeResource' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'resourceArn', 'describeResource_resourceArn' - The resource ARN.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#newDescribeResource"><span class="hs-identifier hs-type">newDescribeResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span>
+</span><span id="line-70"></span><span id="newDescribeResource"><span class="annot"><span class="annottext">newDescribeResource :: Text -&gt; DescribeResource
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#newDescribeResource"><span class="hs-identifier hs-var hs-var">newDescribeResource</span></a></span></span><span> </span><span id="local-6989586621679204156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204156"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DescribeResource' :: Text -&gt; DescribeResource
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:DescribeResource' :: Text
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#%24sel%3AresourceArn%3ADescribeResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204156"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The resource ARN.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#describeResource_resourceArn"><span class="hs-identifier hs-type">describeResource_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="describeResource_resourceArn"><span class="annot"><span class="annottext">describeResource_resourceArn :: (Text -&gt; f Text) -&gt; DescribeResource -&gt; f DescribeResource
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#describeResource_resourceArn"><span class="hs-identifier hs-var hs-var">describeResource_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResource -&gt; Text)
+-&gt; (DescribeResource -&gt; Text -&gt; DescribeResource)
+-&gt; Lens DescribeResource DescribeResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204153"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:DescribeResource' :: DescribeResource -&gt; Text
+</span><a href="#local-6989586621679204153"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204153"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204152"><span class="annot"><span class="annottext">s :: DescribeResource
+</span><a href="#local-6989586621679204152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResource
+</span><a href="#local-6989586621679204152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:DescribeResource' :: Text
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#%24sel%3AresourceArn%3ADescribeResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679204147"><span class="annot"><span class="annottext">request :: DescribeResource -&gt; Request DescribeResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeResource -&gt; Request DescribeResource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LakeFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679204143"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeResource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeResource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeResource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204140"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204140"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204139"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679204139"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204138"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204138"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceInfo -&gt; Int -&gt; DescribeResourceResponse
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-var">DescribeResourceResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourceInfo -&gt; Int -&gt; DescribeResourceResponse)
+-&gt; Either String (Maybe ResourceInfo)
+-&gt; Either String (Int -&gt; DescribeResourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResourceInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeResourceResponse)
+-&gt; Either String Int -&gt; Either String DescribeResourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204140"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204130"><span id="local-6989586621679204132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679204123"><span class="annot"><span class="annottext">toHeaders :: DescribeResource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeResource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLakeFormation.DescribeResource&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-105"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204113"><span id="local-6989586621679204115"><span id="local-6989586621679204117"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679204111"><span class="annot"><span class="annottext">toJSON :: DescribeResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204109"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:DescribeResource' :: DescribeResource -&gt; Text
+</span><a href="#local-6989586621679204109"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204109"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679204103"><span class="annot"><span class="annottext">toPath :: DescribeResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeResource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679204099"><span class="annot"><span class="annottext">toQuery :: DescribeResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeResource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newDescribeResourceResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679204096"><span id="local-6989586621679204097"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourceResponse"><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-var">DescribeResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourceResponse%27"><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-var">DescribeResourceResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure containing information about an AWS Lake Formation resource.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AresourceInfo%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Maybe ResourceInfo
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#%24sel%3AresourceInfo%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">resourceInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.ResourceInfo.html#ResourceInfo"><span class="hs-identifier hs-type">ResourceInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Int
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#%24sel%3AhttpStatus%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204090"><span id="local-6989586621679204092"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+(DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool)
+-&gt; (DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool)
+-&gt; Eq DescribeResourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+$c/= :: DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+== :: DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+$c== :: DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204082"><span id="local-6989586621679204084"><span id="local-6989586621679204086"><span id="local-6989586621679204088"><span class="annot"><span class="annottext">ReadPrec [DescribeResourceResponse]
+ReadPrec DescribeResourceResponse
+Int -&gt; ReadS DescribeResourceResponse
+ReadS [DescribeResourceResponse]
+(Int -&gt; ReadS DescribeResourceResponse)
+-&gt; ReadS [DescribeResourceResponse]
+-&gt; ReadPrec DescribeResourceResponse
+-&gt; ReadPrec [DescribeResourceResponse]
+-&gt; Read DescribeResourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeResourceResponse]
+$creadListPrec :: ReadPrec [DescribeResourceResponse]
+readPrec :: ReadPrec DescribeResourceResponse
+$creadPrec :: ReadPrec DescribeResourceResponse
+readList :: ReadS [DescribeResourceResponse]
+$creadList :: ReadS [DescribeResourceResponse]
+readsPrec :: Int -&gt; ReadS DescribeResourceResponse
+$creadsPrec :: Int -&gt; ReadS DescribeResourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204076"><span id="local-6989586621679204078"><span id="local-6989586621679204080"><span class="annot"><span class="annottext">Int -&gt; DescribeResourceResponse -&gt; ShowS
+[DescribeResourceResponse] -&gt; ShowS
+DescribeResourceResponse -&gt; String
+(Int -&gt; DescribeResourceResponse -&gt; ShowS)
+-&gt; (DescribeResourceResponse -&gt; String)
+-&gt; ([DescribeResourceResponse] -&gt; ShowS)
+-&gt; Show DescribeResourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeResourceResponse] -&gt; ShowS
+$cshowList :: [DescribeResourceResponse] -&gt; ShowS
+show :: DescribeResourceResponse -&gt; String
+$cshow :: DescribeResourceResponse -&gt; String
+showsPrec :: Int -&gt; DescribeResourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeResourceResponse -&gt; Rep DescribeResourceResponse x)
+-&gt; (forall x.
+    Rep DescribeResourceResponse x -&gt; DescribeResourceResponse)
+-&gt; Generic DescribeResourceResponse
+forall x.
+Rep DescribeResourceResponse x -&gt; DescribeResourceResponse
+forall x.
+DescribeResourceResponse -&gt; Rep DescribeResourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeResourceResponse x -&gt; DescribeResourceResponse
+$cfrom :: forall x.
+DescribeResourceResponse -&gt; Rep DescribeResourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'DescribeResourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'resourceInfo', 'describeResourceResponse_resourceInfo' - A structure containing information about an AWS Lake Formation resource.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'httpStatus', 'describeResourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#newDescribeResourceResponse"><span class="hs-identifier hs-type">newDescribeResourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span>
+</span><span id="line-146"></span><span id="newDescribeResourceResponse"><span class="annot"><span class="annottext">newDescribeResourceResponse :: Int -&gt; DescribeResourceResponse
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#newDescribeResourceResponse"><span class="hs-identifier hs-var hs-var">newDescribeResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679204073"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204073"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DescribeResourceResponse' :: Maybe ResourceInfo -&gt; Int -&gt; DescribeResourceResponse
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceInfo:DescribeResourceResponse' :: Maybe ResourceInfo
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#%24sel%3AresourceInfo%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">resourceInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResourceInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourceResponse' :: Int
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#%24sel%3AhttpStatus%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204073"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | A structure containing information about an AWS Lake Formation resource.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#describeResourceResponse_resourceInfo"><span class="hs-identifier hs-type">describeResourceResponse_resourceInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.Types.ResourceInfo.html#ResourceInfo"><span class="hs-identifier hs-type">ResourceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="describeResourceResponse_resourceInfo"><span class="annot"><span class="annottext">describeResourceResponse_resourceInfo :: (Maybe ResourceInfo -&gt; f (Maybe ResourceInfo))
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#describeResourceResponse_resourceInfo"><span class="hs-identifier hs-var hs-var">describeResourceResponse_resourceInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Maybe ResourceInfo)
+-&gt; (DescribeResourceResponse
+    -&gt; Maybe ResourceInfo -&gt; DescribeResourceResponse)
+-&gt; Lens
+     DescribeResourceResponse
+     DescribeResourceResponse
+     (Maybe ResourceInfo)
+     (Maybe ResourceInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204072"><span class="annot"><span class="annottext">Maybe ResourceInfo
+resourceInfo :: Maybe ResourceInfo
+$sel:resourceInfo:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Maybe ResourceInfo
+</span><a href="#local-6989586621679204072"><span class="hs-identifier hs-var hs-var">resourceInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceInfo
+</span><a href="#local-6989586621679204072"><span class="hs-identifier hs-var">resourceInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204071"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679204071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204070"><span class="annot"><span class="annottext">Maybe ResourceInfo
+</span><a href="#local-6989586621679204070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679204071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceInfo:DescribeResourceResponse' :: Maybe ResourceInfo
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#%24sel%3AresourceInfo%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">resourceInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceInfo
+</span><a href="#local-6989586621679204070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#describeResourceResponse_httpStatus"><span class="hs-identifier hs-type">describeResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span id="describeResourceResponse_httpStatus"><span class="annot"><span class="annottext">describeResourceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#describeResourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeResourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Int)
+-&gt; (DescribeResourceResponse -&gt; Int -&gt; DescribeResourceResponse)
+-&gt; Lens DescribeResourceResponse DescribeResourceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204069"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Int
+</span><a href="#local-6989586621679204069"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204069"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204068"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204067"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourceResponse' :: Int
+</span><a href="Amazonka.LakeFormation.DescribeResource.html#%24sel%3AhttpStatus%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LakeFormation.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

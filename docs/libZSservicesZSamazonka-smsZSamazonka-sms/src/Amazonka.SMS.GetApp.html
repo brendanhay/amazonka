@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SMS.GetApp</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieve information about the specified application.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SMS.GetApp</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier">GetApp</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#newGetApp"><span class="hs-identifier">newGetApp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getApp_appId"><span class="hs-identifier">getApp_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier">GetAppResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#newGetAppResponse"><span class="hs-identifier">newGetAppResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getAppResponse_appSummary"><span class="hs-identifier">getAppResponse_appSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getAppResponse_serverGroups"><span class="hs-identifier">getAppResponse_serverGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getAppResponse_tags"><span class="hs-identifier">getAppResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getAppResponse_httpStatus"><span class="hs-identifier">getAppResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.html"><span class="hs-identifier">Amazonka.SMS.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetApp' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679256419"><span id="local-6989586621679256420"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApp"><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-var">GetApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApp%27"><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-var">GetApp'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the application.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AappId%3AGetApp%27"><span class="annot"><span class="annottext">GetApp -&gt; Maybe Text
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AappId%3AGetApp%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256413"><span id="local-6989586621679256415"><span class="annot"><span class="annottext">GetApp -&gt; GetApp -&gt; Bool
+(GetApp -&gt; GetApp -&gt; Bool)
+-&gt; (GetApp -&gt; GetApp -&gt; Bool) -&gt; Eq GetApp
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetApp -&gt; GetApp -&gt; Bool
+$c/= :: GetApp -&gt; GetApp -&gt; Bool
+== :: GetApp -&gt; GetApp -&gt; Bool
+$c== :: GetApp -&gt; GetApp -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256404"><span id="local-6989586621679256406"><span id="local-6989586621679256408"><span id="local-6989586621679256410"><span class="annot"><span class="annottext">ReadPrec [GetApp]
+ReadPrec GetApp
+Int -&gt; ReadS GetApp
+ReadS [GetApp]
+(Int -&gt; ReadS GetApp)
+-&gt; ReadS [GetApp]
+-&gt; ReadPrec GetApp
+-&gt; ReadPrec [GetApp]
+-&gt; Read GetApp
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetApp]
+$creadListPrec :: ReadPrec [GetApp]
+readPrec :: ReadPrec GetApp
+$creadPrec :: ReadPrec GetApp
+readList :: ReadS [GetApp]
+$creadList :: ReadS [GetApp]
+readsPrec :: Int -&gt; ReadS GetApp
+$creadsPrec :: Int -&gt; ReadS GetApp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256397"><span id="local-6989586621679256399"><span id="local-6989586621679256401"><span class="annot"><span class="annottext">Int -&gt; GetApp -&gt; ShowS
+[GetApp] -&gt; ShowS
+GetApp -&gt; String
+(Int -&gt; GetApp -&gt; ShowS)
+-&gt; (GetApp -&gt; String) -&gt; ([GetApp] -&gt; ShowS) -&gt; Show GetApp
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetApp] -&gt; ShowS
+$cshowList :: [GetApp] -&gt; ShowS
+show :: GetApp -&gt; String
+$cshow :: GetApp -&gt; String
+showsPrec :: Int -&gt; GetApp -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetApp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetApp -&gt; Rep GetApp x)
+-&gt; (forall x. Rep GetApp x -&gt; GetApp) -&gt; Generic GetApp
+forall x. Rep GetApp x -&gt; GetApp
+forall x. GetApp -&gt; Rep GetApp x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetApp x -&gt; GetApp
+$cfrom :: forall x. GetApp -&gt; Rep GetApp x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetApp' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'appId', 'getApp_appId' - The ID of the application.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.SMS.GetApp.html#newGetApp"><span class="hs-identifier hs-type">newGetApp</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetApp"><span class="annot"><span class="annottext">newGetApp :: GetApp
+</span><a href="Amazonka.SMS.GetApp.html#newGetApp"><span class="hs-identifier hs-var hs-var">newGetApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetApp' :: Maybe Text -&gt; GetApp
+</span><a href="Amazonka.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:GetApp' :: Maybe Text
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AappId%3AGetApp%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ID of the application.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getApp_appId"><span class="hs-identifier hs-type">getApp_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="getApp_appId"><span class="annot"><span class="annottext">getApp_appId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetApp -&gt; f GetApp
+</span><a href="Amazonka.SMS.GetApp.html#getApp_appId"><span class="hs-identifier hs-var hs-var">getApp_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApp -&gt; Maybe Text)
+-&gt; (GetApp -&gt; Maybe Text -&gt; GetApp)
+-&gt; Lens GetApp GetApp (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256390"><span class="annot"><span class="annottext">Maybe Text
+appId :: Maybe Text
+$sel:appId:GetApp' :: GetApp -&gt; Maybe Text
+</span><a href="#local-6989586621679256390"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256390"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256389"><span class="annot"><span class="annottext">s :: GetApp
+</span><a href="#local-6989586621679256389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256388"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApp
+</span><a href="#local-6989586621679256389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:GetApp' :: Maybe Text
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AappId%3AGetApp%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679256384"><span class="annot"><span class="annottext">request :: GetApp -&gt; Request GetApp
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetApp -&gt; Request GetApp
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679256380"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetApp
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetApp)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse GetApp))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetApp
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetApp)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256377"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256376"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256376"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256375"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe AppSummary
+-&gt; Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; GetAppResponse
+</span><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-var">GetAppResponse'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AppSummary
+ -&gt; Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; GetAppResponse)
+-&gt; Either String (Maybe AppSummary)
+-&gt; Either
+     String
+     (Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; GetAppResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AppSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; GetAppResponse)
+-&gt; Either String (Maybe [ServerGroup])
+-&gt; Either String (Maybe [Tag] -&gt; Int -&gt; GetAppResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ServerGroup]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serverGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ServerGroup]))
+-&gt; Maybe [ServerGroup] -&gt; Either String (Maybe [ServerGroup])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Int -&gt; GetAppResponse)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String (Int -&gt; GetAppResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
+-&gt; Maybe [Tag] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetAppResponse)
+-&gt; Either String Int -&gt; Either String GetAppResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256377"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256366"><span id="local-6989586621679256368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679256359"><span class="annot"><span class="annottext">toHeaders :: GetApp -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetApp -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSServerMigrationService_V2016_10_24.GetApp&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-99"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256349"><span id="local-6989586621679256351"><span id="local-6989586621679256353"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679256347"><span class="annot"><span class="annottext">toJSON :: GetApp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256345"><span class="annot"><span class="annottext">Maybe Text
+appId :: Maybe Text
+$sel:appId:GetApp' :: GetApp -&gt; Maybe Text
+</span><a href="#local-6989586621679256345"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256345"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679256339"><span class="annot"><span class="annottext">toPath :: GetApp -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetApp -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679256335"><span class="annot"><span class="annottext">toQuery :: GetApp -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetApp -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newGetAppResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621679256332"><span id="local-6989586621679256333"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppResponse"><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-var">GetAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppResponse%27"><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-var">GetAppResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the application.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AappSummary%3AGetAppResponse%27"><span class="annot"><span class="annottext">GetAppResponse -&gt; Maybe AppSummary
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AappSummary%3AGetAppResponse%27"><span class="hs-identifier hs-var hs-var">appSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppSummary.html#AppSummary"><span class="hs-identifier hs-type">AppSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The server groups that belong to the application.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AserverGroups%3AGetAppResponse%27"><span class="annot"><span class="annottext">GetAppResponse -&gt; Maybe [ServerGroup]
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AserverGroups%3AGetAppResponse%27"><span class="hs-identifier hs-var hs-var">serverGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SMS.Types.ServerGroup.html#ServerGroup"><span class="hs-identifier hs-type">ServerGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The tags associated with the application.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3Atags%3AGetAppResponse%27"><span class="annot"><span class="annottext">GetAppResponse -&gt; Maybe [Tag]
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3Atags%3AGetAppResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="annot"><span class="annottext">GetAppResponse -&gt; Int
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256324"><span id="local-6989586621679256326"><span class="annot"><span class="annottext">GetAppResponse -&gt; GetAppResponse -&gt; Bool
+(GetAppResponse -&gt; GetAppResponse -&gt; Bool)
+-&gt; (GetAppResponse -&gt; GetAppResponse -&gt; Bool) -&gt; Eq GetAppResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
+$c/= :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
+== :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
+$c== :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256316"><span id="local-6989586621679256318"><span id="local-6989586621679256320"><span id="local-6989586621679256322"><span class="annot"><span class="annottext">ReadPrec [GetAppResponse]
+ReadPrec GetAppResponse
+Int -&gt; ReadS GetAppResponse
+ReadS [GetAppResponse]
+(Int -&gt; ReadS GetAppResponse)
+-&gt; ReadS [GetAppResponse]
+-&gt; ReadPrec GetAppResponse
+-&gt; ReadPrec [GetAppResponse]
+-&gt; Read GetAppResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAppResponse]
+$creadListPrec :: ReadPrec [GetAppResponse]
+readPrec :: ReadPrec GetAppResponse
+$creadPrec :: ReadPrec GetAppResponse
+readList :: ReadS [GetAppResponse]
+$creadList :: ReadS [GetAppResponse]
+readsPrec :: Int -&gt; ReadS GetAppResponse
+$creadsPrec :: Int -&gt; ReadS GetAppResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256310"><span id="local-6989586621679256312"><span id="local-6989586621679256314"><span class="annot"><span class="annottext">Int -&gt; GetAppResponse -&gt; ShowS
+[GetAppResponse] -&gt; ShowS
+GetAppResponse -&gt; String
+(Int -&gt; GetAppResponse -&gt; ShowS)
+-&gt; (GetAppResponse -&gt; String)
+-&gt; ([GetAppResponse] -&gt; ShowS)
+-&gt; Show GetAppResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAppResponse] -&gt; ShowS
+$cshowList :: [GetAppResponse] -&gt; ShowS
+show :: GetAppResponse -&gt; String
+$cshow :: GetAppResponse -&gt; String
+showsPrec :: Int -&gt; GetAppResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAppResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetAppResponse -&gt; Rep GetAppResponse x)
+-&gt; (forall x. Rep GetAppResponse x -&gt; GetAppResponse)
+-&gt; Generic GetAppResponse
+forall x. Rep GetAppResponse x -&gt; GetAppResponse
+forall x. GetAppResponse -&gt; Rep GetAppResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetAppResponse x -&gt; GetAppResponse
+$cfrom :: forall x. GetAppResponse -&gt; Rep GetAppResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Create a value of 'GetAppResponse' with all optional fields omitted.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'appSummary', 'getAppResponse_appSummary' - Information about the application.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'serverGroups', 'getAppResponse_serverGroups' - The server groups that belong to the application.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'tags', 'getAppResponse_tags' - The tags associated with the application.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'getAppResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.SMS.GetApp.html#newGetAppResponse"><span class="hs-identifier hs-type">newGetAppResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newGetAppResponse"><span class="annot"><span class="annottext">newGetAppResponse :: Int -&gt; GetAppResponse
+</span><a href="Amazonka.SMS.GetApp.html#newGetAppResponse"><span class="hs-identifier hs-var hs-var">newGetAppResponse</span></a></span></span><span> </span><span id="local-6989586621679256307"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256307"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">GetAppResponse' :: Maybe AppSummary
+-&gt; Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; GetAppResponse
+</span><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appSummary:GetAppResponse' :: Maybe AppSummary
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AappSummary%3AGetAppResponse%27"><span class="hs-identifier hs-var">appSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverGroups:GetAppResponse' :: Maybe [ServerGroup]
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AserverGroups%3AGetAppResponse%27"><span class="hs-identifier hs-var">serverGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetAppResponse' :: Maybe [Tag]
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3Atags%3AGetAppResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppResponse' :: Int
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256307"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Information about the application.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getAppResponse_appSummary"><span class="hs-identifier hs-type">getAppResponse_appSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppSummary.html#AppSummary"><span class="hs-identifier hs-type">AppSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="getAppResponse_appSummary"><span class="annot"><span class="annottext">getAppResponse_appSummary :: (Maybe AppSummary -&gt; f (Maybe AppSummary))
+-&gt; GetAppResponse -&gt; f GetAppResponse
+</span><a href="Amazonka.SMS.GetApp.html#getAppResponse_appSummary"><span class="hs-identifier hs-var hs-var">getAppResponse_appSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAppResponse -&gt; Maybe AppSummary)
+-&gt; (GetAppResponse -&gt; Maybe AppSummary -&gt; GetAppResponse)
+-&gt; Lens
+     GetAppResponse GetAppResponse (Maybe AppSummary) (Maybe AppSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256306"><span class="annot"><span class="annottext">Maybe AppSummary
+appSummary :: Maybe AppSummary
+$sel:appSummary:GetAppResponse' :: GetAppResponse -&gt; Maybe AppSummary
+</span><a href="#local-6989586621679256306"><span class="hs-identifier hs-var hs-var">appSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppSummary
+</span><a href="#local-6989586621679256306"><span class="hs-identifier hs-var">appSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256305"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679256305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256304"><span class="annot"><span class="annottext">Maybe AppSummary
+</span><a href="#local-6989586621679256304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679256305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSummary:GetAppResponse' :: Maybe AppSummary
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AappSummary%3AGetAppResponse%27"><span class="hs-identifier hs-var">appSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppSummary
+</span><a href="#local-6989586621679256304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The server groups that belong to the application.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getAppResponse_serverGroups"><span class="hs-identifier hs-type">getAppResponse_serverGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SMS.Types.ServerGroup.html#ServerGroup"><span class="hs-identifier hs-type">ServerGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="getAppResponse_serverGroups"><span class="annot"><span class="annottext">getAppResponse_serverGroups :: (Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
+-&gt; GetAppResponse -&gt; f GetAppResponse
+</span><a href="Amazonka.SMS.GetApp.html#getAppResponse_serverGroups"><span class="hs-identifier hs-var hs-var">getAppResponse_serverGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAppResponse -&gt; Maybe [ServerGroup])
+-&gt; (GetAppResponse -&gt; Maybe [ServerGroup] -&gt; GetAppResponse)
+-&gt; Lens
+     GetAppResponse
+     GetAppResponse
+     (Maybe [ServerGroup])
+     (Maybe [ServerGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256303"><span class="annot"><span class="annottext">Maybe [ServerGroup]
+serverGroups :: Maybe [ServerGroup]
+$sel:serverGroups:GetAppResponse' :: GetAppResponse -&gt; Maybe [ServerGroup]
+</span><a href="#local-6989586621679256303"><span class="hs-identifier hs-var hs-var">serverGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><a href="#local-6989586621679256303"><span class="hs-identifier hs-var">serverGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256302"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679256302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256301"><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><a href="#local-6989586621679256301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679256302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroups:GetAppResponse' :: Maybe [ServerGroup]
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AserverGroups%3AGetAppResponse%27"><span class="hs-identifier hs-var">serverGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><a href="#local-6989586621679256301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
+ -&gt; GetAppResponse -&gt; f GetAppResponse)
+-&gt; ((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
+    -&gt; Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
+-&gt; (Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
+-&gt; GetAppResponse
+-&gt; f GetAppResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ServerGroup] [ServerGroup] [ServerGroup] [ServerGroup]
+-&gt; Iso
+     (Maybe [ServerGroup])
+     (Maybe [ServerGroup])
+     (Maybe [ServerGroup])
+     (Maybe [ServerGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ServerGroup] [ServerGroup] [ServerGroup] [ServerGroup]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The tags associated with the application.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getAppResponse_tags"><span class="hs-identifier hs-type">getAppResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="getAppResponse_tags"><span class="annot"><span class="annottext">getAppResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; GetAppResponse -&gt; f GetAppResponse
+</span><a href="Amazonka.SMS.GetApp.html#getAppResponse_tags"><span class="hs-identifier hs-var hs-var">getAppResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAppResponse -&gt; Maybe [Tag])
+-&gt; (GetAppResponse -&gt; Maybe [Tag] -&gt; GetAppResponse)
+-&gt; Lens GetAppResponse GetAppResponse (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256297"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:GetAppResponse' :: GetAppResponse -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679256297"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679256297"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256296"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679256296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256295"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679256295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679256296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetAppResponse' :: Maybe [Tag]
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3Atags%3AGetAppResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679256295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; GetAppResponse -&gt; f GetAppResponse)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; GetAppResponse
+-&gt; f GetAppResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.SMS.GetApp.html#getAppResponse_httpStatus"><span class="hs-identifier hs-type">getAppResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span id="getAppResponse_httpStatus"><span class="annot"><span class="annottext">getAppResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetAppResponse -&gt; f GetAppResponse
+</span><a href="Amazonka.SMS.GetApp.html#getAppResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getAppResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAppResponse -&gt; Int)
+-&gt; (GetAppResponse -&gt; Int -&gt; GetAppResponse)
+-&gt; Lens GetAppResponse GetAppResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256294"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetAppResponse' :: GetAppResponse -&gt; Int
+</span><a href="#local-6989586621679256294"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256294"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256293"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679256293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256292"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679256293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppResponse' :: Int
+</span><a href="Amazonka.SMS.GetApp.html#%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

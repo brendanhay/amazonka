@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates a wireless gateway from its currently associated thing.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier">DisassociateWirelessGatewayFromThing</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#newDisassociateWirelessGatewayFromThing"><span class="hs-identifier">newDisassociateWirelessGatewayFromThing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#disassociateWirelessGatewayFromThing_id"><span class="hs-identifier">disassociateWirelessGatewayFromThing_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier">DisassociateWirelessGatewayFromThingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#newDisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier">newDisassociateWirelessGatewayFromThingResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#disassociateWirelessGatewayFromThingResponse_httpStatus"><span class="hs-identifier">disassociateWirelessGatewayFromThingResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.html"><span class="hs-identifier">Amazonka.IoTWireless.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDisassociateWirelessGatewayFromThing' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679287760"><span id="local-6989586621679287761"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateWirelessGatewayFromThing"><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-var">DisassociateWirelessGatewayFromThing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateWirelessGatewayFromThing%27"><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing%27"><span class="hs-identifier hs-var">DisassociateWirelessGatewayFromThing'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the resource to update.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aid%3ADisassociateWirelessGatewayFromThing%27"><span class="annot"><span class="annottext">DisassociateWirelessGatewayFromThing -&gt; Text
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#%24sel%3Aid%3ADisassociateWirelessGatewayFromThing%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287754"><span id="local-6989586621679287756"><span class="annot"><span class="annottext">DisassociateWirelessGatewayFromThing
+-&gt; DisassociateWirelessGatewayFromThing -&gt; Bool
+(DisassociateWirelessGatewayFromThing
+ -&gt; DisassociateWirelessGatewayFromThing -&gt; Bool)
+-&gt; (DisassociateWirelessGatewayFromThing
+    -&gt; DisassociateWirelessGatewayFromThing -&gt; Bool)
+-&gt; Eq DisassociateWirelessGatewayFromThing
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateWirelessGatewayFromThing
+-&gt; DisassociateWirelessGatewayFromThing -&gt; Bool
+$c/= :: DisassociateWirelessGatewayFromThing
+-&gt; DisassociateWirelessGatewayFromThing -&gt; Bool
+== :: DisassociateWirelessGatewayFromThing
+-&gt; DisassociateWirelessGatewayFromThing -&gt; Bool
+$c== :: DisassociateWirelessGatewayFromThing
+-&gt; DisassociateWirelessGatewayFromThing -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287745"><span id="local-6989586621679287747"><span id="local-6989586621679287749"><span id="local-6989586621679287751"><span class="annot"><span class="annottext">ReadPrec [DisassociateWirelessGatewayFromThing]
+ReadPrec DisassociateWirelessGatewayFromThing
+Int -&gt; ReadS DisassociateWirelessGatewayFromThing
+ReadS [DisassociateWirelessGatewayFromThing]
+(Int -&gt; ReadS DisassociateWirelessGatewayFromThing)
+-&gt; ReadS [DisassociateWirelessGatewayFromThing]
+-&gt; ReadPrec DisassociateWirelessGatewayFromThing
+-&gt; ReadPrec [DisassociateWirelessGatewayFromThing]
+-&gt; Read DisassociateWirelessGatewayFromThing
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateWirelessGatewayFromThing]
+$creadListPrec :: ReadPrec [DisassociateWirelessGatewayFromThing]
+readPrec :: ReadPrec DisassociateWirelessGatewayFromThing
+$creadPrec :: ReadPrec DisassociateWirelessGatewayFromThing
+readList :: ReadS [DisassociateWirelessGatewayFromThing]
+$creadList :: ReadS [DisassociateWirelessGatewayFromThing]
+readsPrec :: Int -&gt; ReadS DisassociateWirelessGatewayFromThing
+$creadsPrec :: Int -&gt; ReadS DisassociateWirelessGatewayFromThing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287738"><span id="local-6989586621679287740"><span id="local-6989586621679287742"><span class="annot"><span class="annottext">Int -&gt; DisassociateWirelessGatewayFromThing -&gt; ShowS
+[DisassociateWirelessGatewayFromThing] -&gt; ShowS
+DisassociateWirelessGatewayFromThing -&gt; String
+(Int -&gt; DisassociateWirelessGatewayFromThing -&gt; ShowS)
+-&gt; (DisassociateWirelessGatewayFromThing -&gt; String)
+-&gt; ([DisassociateWirelessGatewayFromThing] -&gt; ShowS)
+-&gt; Show DisassociateWirelessGatewayFromThing
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateWirelessGatewayFromThing] -&gt; ShowS
+$cshowList :: [DisassociateWirelessGatewayFromThing] -&gt; ShowS
+show :: DisassociateWirelessGatewayFromThing -&gt; String
+$cshow :: DisassociateWirelessGatewayFromThing -&gt; String
+showsPrec :: Int -&gt; DisassociateWirelessGatewayFromThing -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateWirelessGatewayFromThing -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateWirelessGatewayFromThing
+ -&gt; Rep DisassociateWirelessGatewayFromThing x)
+-&gt; (forall x.
+    Rep DisassociateWirelessGatewayFromThing x
+    -&gt; DisassociateWirelessGatewayFromThing)
+-&gt; Generic DisassociateWirelessGatewayFromThing
+forall x.
+Rep DisassociateWirelessGatewayFromThing x
+-&gt; DisassociateWirelessGatewayFromThing
+forall x.
+DisassociateWirelessGatewayFromThing
+-&gt; Rep DisassociateWirelessGatewayFromThing x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateWirelessGatewayFromThing x
+-&gt; DisassociateWirelessGatewayFromThing
+$cfrom :: forall x.
+DisassociateWirelessGatewayFromThing
+-&gt; Rep DisassociateWirelessGatewayFromThing x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DisassociateWirelessGatewayFromThing' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'id', 'disassociateWirelessGatewayFromThing_id' - The ID of the resource to update.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#newDisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">newDisassociateWirelessGatewayFromThing</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span><span>
+</span><span id="line-68"></span><span id="newDisassociateWirelessGatewayFromThing"><span class="annot"><span class="annottext">newDisassociateWirelessGatewayFromThing :: Text -&gt; DisassociateWirelessGatewayFromThing
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#newDisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-var hs-var">newDisassociateWirelessGatewayFromThing</span></a></span></span><span> </span><span id="local-6989586621679287733"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287733"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DisassociateWirelessGatewayFromThing' :: Text -&gt; DisassociateWirelessGatewayFromThing
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing%27"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DisassociateWirelessGatewayFromThing' :: Text
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#%24sel%3Aid%3ADisassociateWirelessGatewayFromThing%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287733"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ID of the resource to update.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#disassociateWirelessGatewayFromThing_id"><span class="hs-identifier hs-type">disassociateWirelessGatewayFromThing_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="disassociateWirelessGatewayFromThing_id"><span class="annot"><span class="annottext">disassociateWirelessGatewayFromThing_id :: (Text -&gt; f Text)
+-&gt; DisassociateWirelessGatewayFromThing
+-&gt; f DisassociateWirelessGatewayFromThing
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#disassociateWirelessGatewayFromThing_id"><span class="hs-identifier hs-var hs-var">disassociateWirelessGatewayFromThing_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateWirelessGatewayFromThing -&gt; Text)
+-&gt; (DisassociateWirelessGatewayFromThing
+    -&gt; Text -&gt; DisassociateWirelessGatewayFromThing)
+-&gt; Lens
+     DisassociateWirelessGatewayFromThing
+     DisassociateWirelessGatewayFromThing
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing%27"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287730"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DisassociateWirelessGatewayFromThing' :: DisassociateWirelessGatewayFromThing -&gt; Text
+</span><a href="#local-6989586621679287730"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287730"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287729"><span class="annot"><span class="annottext">s :: DisassociateWirelessGatewayFromThing
+</span><a href="#local-6989586621679287729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing%27"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateWirelessGatewayFromThing
+</span><a href="#local-6989586621679287729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DisassociateWirelessGatewayFromThing' :: Text
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#%24sel%3Aid%3ADisassociateWirelessGatewayFromThing%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThingResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679287724"><span class="annot"><span class="annottext">request :: DisassociateWirelessGatewayFromThing
+-&gt; Request DisassociateWirelessGatewayFromThing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisassociateWirelessGatewayFromThing
+-&gt; Request DisassociateWirelessGatewayFromThing
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679287720"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociateWirelessGatewayFromThing
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisassociateWirelessGatewayFromThing)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either
+      String (AWSResponse DisassociateWirelessGatewayFromThing))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociateWirelessGatewayFromThing
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisassociateWirelessGatewayFromThing)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287717"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287717"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679287716"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679287716"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679287715"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679287715"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DisassociateWirelessGatewayFromThingResponse
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse%27"><span class="hs-identifier hs-var">DisassociateWirelessGatewayFromThingResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DisassociateWirelessGatewayFromThingResponse)
+-&gt; Either String Int
+-&gt; Either String DisassociateWirelessGatewayFromThingResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287717"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679287708"><span id="local-6989586621679287710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679287705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679287701"><span class="annot"><span class="annottext">toHeaders :: DisassociateWirelessGatewayFromThing -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DisassociateWirelessGatewayFromThing -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679287696"><span class="annot"><span class="annottext">toPath :: DisassociateWirelessGatewayFromThing -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing%27"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287694"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DisassociateWirelessGatewayFromThing' :: DisassociateWirelessGatewayFromThing -&gt; Text
+</span><a href="#local-6989586621679287694"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/wireless-gateways/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287694"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/thing&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThing"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThing</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679287690"><span class="annot"><span class="annottext">toQuery :: DisassociateWirelessGatewayFromThing -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateWirelessGatewayFromThing -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newDisassociateWirelessGatewayFromThingResponse' smart constructor.</span><span>
+</span><span id="line-119"></span><span id="local-6989586621679287687"><span id="local-6989586621679287688"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateWirelessGatewayFromThingResponse"><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier hs-var">DisassociateWirelessGatewayFromThingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateWirelessGatewayFromThingResponse%27"><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse%27"><span class="hs-identifier hs-var">DisassociateWirelessGatewayFromThingResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociateWirelessGatewayFromThingResponse%27"><span class="annot"><span class="annottext">DisassociateWirelessGatewayFromThingResponse -&gt; Int
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#%24sel%3AhttpStatus%3ADisassociateWirelessGatewayFromThingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287682"><span id="local-6989586621679287684"><span class="annot"><span class="annottext">DisassociateWirelessGatewayFromThingResponse
+-&gt; DisassociateWirelessGatewayFromThingResponse -&gt; Bool
+(DisassociateWirelessGatewayFromThingResponse
+ -&gt; DisassociateWirelessGatewayFromThingResponse -&gt; Bool)
+-&gt; (DisassociateWirelessGatewayFromThingResponse
+    -&gt; DisassociateWirelessGatewayFromThingResponse -&gt; Bool)
+-&gt; Eq DisassociateWirelessGatewayFromThingResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateWirelessGatewayFromThingResponse
+-&gt; DisassociateWirelessGatewayFromThingResponse -&gt; Bool
+$c/= :: DisassociateWirelessGatewayFromThingResponse
+-&gt; DisassociateWirelessGatewayFromThingResponse -&gt; Bool
+== :: DisassociateWirelessGatewayFromThingResponse
+-&gt; DisassociateWirelessGatewayFromThingResponse -&gt; Bool
+$c== :: DisassociateWirelessGatewayFromThingResponse
+-&gt; DisassociateWirelessGatewayFromThingResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287674"><span id="local-6989586621679287676"><span id="local-6989586621679287678"><span id="local-6989586621679287680"><span class="annot"><span class="annottext">ReadPrec [DisassociateWirelessGatewayFromThingResponse]
+ReadPrec DisassociateWirelessGatewayFromThingResponse
+Int -&gt; ReadS DisassociateWirelessGatewayFromThingResponse
+ReadS [DisassociateWirelessGatewayFromThingResponse]
+(Int -&gt; ReadS DisassociateWirelessGatewayFromThingResponse)
+-&gt; ReadS [DisassociateWirelessGatewayFromThingResponse]
+-&gt; ReadPrec DisassociateWirelessGatewayFromThingResponse
+-&gt; ReadPrec [DisassociateWirelessGatewayFromThingResponse]
+-&gt; Read DisassociateWirelessGatewayFromThingResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateWirelessGatewayFromThingResponse]
+$creadListPrec :: ReadPrec [DisassociateWirelessGatewayFromThingResponse]
+readPrec :: ReadPrec DisassociateWirelessGatewayFromThingResponse
+$creadPrec :: ReadPrec DisassociateWirelessGatewayFromThingResponse
+readList :: ReadS [DisassociateWirelessGatewayFromThingResponse]
+$creadList :: ReadS [DisassociateWirelessGatewayFromThingResponse]
+readsPrec :: Int -&gt; ReadS DisassociateWirelessGatewayFromThingResponse
+$creadsPrec :: Int -&gt; ReadS DisassociateWirelessGatewayFromThingResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287668"><span id="local-6989586621679287670"><span id="local-6989586621679287672"><span class="annot"><span class="annottext">Int -&gt; DisassociateWirelessGatewayFromThingResponse -&gt; ShowS
+[DisassociateWirelessGatewayFromThingResponse] -&gt; ShowS
+DisassociateWirelessGatewayFromThingResponse -&gt; String
+(Int -&gt; DisassociateWirelessGatewayFromThingResponse -&gt; ShowS)
+-&gt; (DisassociateWirelessGatewayFromThingResponse -&gt; String)
+-&gt; ([DisassociateWirelessGatewayFromThingResponse] -&gt; ShowS)
+-&gt; Show DisassociateWirelessGatewayFromThingResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateWirelessGatewayFromThingResponse] -&gt; ShowS
+$cshowList :: [DisassociateWirelessGatewayFromThingResponse] -&gt; ShowS
+show :: DisassociateWirelessGatewayFromThingResponse -&gt; String
+$cshow :: DisassociateWirelessGatewayFromThingResponse -&gt; String
+showsPrec :: Int -&gt; DisassociateWirelessGatewayFromThingResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateWirelessGatewayFromThingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateWirelessGatewayFromThingResponse
+ -&gt; Rep DisassociateWirelessGatewayFromThingResponse x)
+-&gt; (forall x.
+    Rep DisassociateWirelessGatewayFromThingResponse x
+    -&gt; DisassociateWirelessGatewayFromThingResponse)
+-&gt; Generic DisassociateWirelessGatewayFromThingResponse
+forall x.
+Rep DisassociateWirelessGatewayFromThingResponse x
+-&gt; DisassociateWirelessGatewayFromThingResponse
+forall x.
+DisassociateWirelessGatewayFromThingResponse
+-&gt; Rep DisassociateWirelessGatewayFromThingResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateWirelessGatewayFromThingResponse x
+-&gt; DisassociateWirelessGatewayFromThingResponse
+$cfrom :: forall x.
+DisassociateWirelessGatewayFromThingResponse
+-&gt; Rep DisassociateWirelessGatewayFromThingResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Create a value of 'DisassociateWirelessGatewayFromThingResponse' with all optional fields omitted.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'httpStatus', 'disassociateWirelessGatewayFromThingResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#newDisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier hs-type">newDisassociateWirelessGatewayFromThingResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThingResponse</span></a></span><span>
+</span><span id="line-138"></span><span id="newDisassociateWirelessGatewayFromThingResponse"><span class="annot"><span class="annottext">newDisassociateWirelessGatewayFromThingResponse :: Int -&gt; DisassociateWirelessGatewayFromThingResponse
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#newDisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier hs-var hs-var">newDisassociateWirelessGatewayFromThingResponse</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679287665"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287665"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">DisassociateWirelessGatewayFromThingResponse' :: Int -&gt; DisassociateWirelessGatewayFromThingResponse
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse%27"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThingResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateWirelessGatewayFromThingResponse' :: Int
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#%24sel%3AhttpStatus%3ADisassociateWirelessGatewayFromThingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287665"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#disassociateWirelessGatewayFromThingResponse_httpStatus"><span class="hs-identifier hs-type">disassociateWirelessGatewayFromThingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span id="disassociateWirelessGatewayFromThingResponse_httpStatus"><span class="annot"><span class="annottext">disassociateWirelessGatewayFromThingResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisassociateWirelessGatewayFromThingResponse
+-&gt; f DisassociateWirelessGatewayFromThingResponse
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#disassociateWirelessGatewayFromThingResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disassociateWirelessGatewayFromThingResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateWirelessGatewayFromThingResponse -&gt; Int)
+-&gt; (DisassociateWirelessGatewayFromThingResponse
+    -&gt; Int -&gt; DisassociateWirelessGatewayFromThingResponse)
+-&gt; Lens
+     DisassociateWirelessGatewayFromThingResponse
+     DisassociateWirelessGatewayFromThingResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse%27"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287664"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisassociateWirelessGatewayFromThingResponse' :: DisassociateWirelessGatewayFromThingResponse -&gt; Int
+</span><a href="#local-6989586621679287664"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287664"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287663"><span class="annot"><span class="annottext">s :: DisassociateWirelessGatewayFromThingResponse
+</span><a href="#local-6989586621679287663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse%27"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287662"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateWirelessGatewayFromThingResponse
+</span><a href="#local-6989586621679287663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateWirelessGatewayFromThingResponse' :: Int
+</span><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#%24sel%3AhttpStatus%3ADisassociateWirelessGatewayFromThingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679287660"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing.html#DisassociateWirelessGatewayFromThingResponse"><span class="hs-identifier hs-type">DisassociateWirelessGatewayFromThingResponse</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

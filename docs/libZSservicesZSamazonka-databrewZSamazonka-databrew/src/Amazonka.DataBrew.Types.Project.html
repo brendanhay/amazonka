@@ -1,0 +1,937 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataBrew.Types.Project</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataBrew.Types.Project</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Sample.html"><span class="hs-identifier">Amazonka.DataBrew.Types.Sample</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents all of the attributes of a DataBrew project.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProject' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679299117"><span id="local-6989586621679299118"></span></span><span class="hs-keyword">data</span><span> </span><span id="Project"><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-var">Project</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Project%27"><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last modification date and time for the project.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AlastModifiedDate%3AProject%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The date and time when the project was opened.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AopenDate%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AopenDate%3AProject%27"><span class="hs-identifier hs-var hs-var">openDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date and time that the project was created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreateDate%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AcreateDate%3AProject%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who crated the project.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreatedBy%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AcreatedBy%3AProject%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the project.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AaccountId%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AaccountId%3AProject%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the project.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AresourceArn%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AresourceArn%3AProject%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The dataset that the project is to act upon.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdatasetName%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AdatasetName%3AProject%27"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who last modified the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AlastModifiedBy%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AlastModifiedBy%3AProject%27"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The sample size and sampling type to apply to the data. If this</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- parameter isn\'t specified, then the sample consists of the first 500</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- rows from the dataset.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Asample%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Sample
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3Asample%3AProject%27"><span class="hs-identifier hs-var hs-var">sample</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Sample.html#Sample"><span class="hs-identifier hs-type">Sample</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user that opened the project for</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AopenedBy%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AopenedBy%3AProject%27"><span class="hs-identifier hs-var hs-var">openedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Metadata tags that have been applied to the project.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atags%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3Atags%3AProject%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role that will be assumed for this</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AroleArn%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AroleArn%3AProject%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The unique name of a project.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aname%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of a recipe that will be developed during a project session.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ArecipeName%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3ArecipeName%3AProject%27"><span class="hs-identifier hs-var hs-var">recipeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299098"><span id="local-6989586621679299100"><span class="annot"><span class="annottext">Project -&gt; Project -&gt; Bool
+(Project -&gt; Project -&gt; Bool)
+-&gt; (Project -&gt; Project -&gt; Bool) -&gt; Eq Project
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Project -&gt; Project -&gt; Bool
+$c/= :: Project -&gt; Project -&gt; Bool
+== :: Project -&gt; Project -&gt; Bool
+$c== :: Project -&gt; Project -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299089"><span id="local-6989586621679299091"><span id="local-6989586621679299093"><span id="local-6989586621679299095"><span class="annot"><span class="annottext">ReadPrec [Project]
+ReadPrec Project
+Int -&gt; ReadS Project
+ReadS [Project]
+(Int -&gt; ReadS Project)
+-&gt; ReadS [Project]
+-&gt; ReadPrec Project
+-&gt; ReadPrec [Project]
+-&gt; Read Project
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Project]
+$creadListPrec :: ReadPrec [Project]
+readPrec :: ReadPrec Project
+$creadPrec :: ReadPrec Project
+readList :: ReadS [Project]
+$creadList :: ReadS [Project]
+readsPrec :: Int -&gt; ReadS Project
+$creadsPrec :: Int -&gt; ReadS Project
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299082"><span id="local-6989586621679299084"><span id="local-6989586621679299086"><span class="annot"><span class="annottext">Int -&gt; Project -&gt; ShowS
+[Project] -&gt; ShowS
+Project -&gt; String
+(Int -&gt; Project -&gt; ShowS)
+-&gt; (Project -&gt; String) -&gt; ([Project] -&gt; ShowS) -&gt; Show Project
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Project] -&gt; ShowS
+$cshowList :: [Project] -&gt; ShowS
+show :: Project -&gt; String
+$cshow :: Project -&gt; String
+showsPrec :: Int -&gt; Project -&gt; ShowS
+$cshowsPrec :: Int -&gt; Project -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Project -&gt; Rep Project x)
+-&gt; (forall x. Rep Project x -&gt; Project) -&gt; Generic Project
+forall x. Rep Project x -&gt; Project
+forall x. Project -&gt; Rep Project x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Project x -&gt; Project
+$cfrom :: forall x. Project -&gt; Rep Project x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'Project' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'lastModifiedDate', 'project_lastModifiedDate' - The last modification date and time for the project.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'openDate', 'project_openDate' - The date and time when the project was opened.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'createDate', 'project_createDate' - The date and time that the project was created.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'createdBy', 'project_createdBy' - The Amazon Resource Name (ARN) of the user who crated the project.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'accountId', 'project_accountId' - The ID of the Amazon Web Services account that owns the project.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'resourceArn', 'project_resourceArn' - The Amazon Resource Name (ARN) for the project.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'datasetName', 'project_datasetName' - The dataset that the project is to act upon.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'lastModifiedBy', 'project_lastModifiedBy' - The Amazon Resource Name (ARN) of the user who last modified the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'sample', 'project_sample' - The sample size and sampling type to apply to the data. If this</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- parameter isn\'t specified, then the sample consists of the first 500</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- rows from the dataset.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'openedBy', 'project_openedBy' - The Amazon Resource Name (ARN) of the user that opened the project for</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'tags', 'project_tags' - Metadata tags that have been applied to the project.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'roleArn', 'project_roleArn' - The Amazon Resource Name (ARN) of the role that will be assumed for this</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'name', 'project_name' - The unique name of a project.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'recipeName', 'project_recipeName' - The name of a recipe that will be developed during a project session.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#newProject"><span class="hs-identifier hs-type">newProject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'recipeName'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span>
+</span><span id="line-113"></span><span id="newProject"><span class="annot"><span class="annottext">newProject :: Text -&gt; Text -&gt; Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#newProject"><span class="hs-identifier hs-var hs-var">newProject</span></a></span></span><span> </span><span id="local-6989586621679299076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299076"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679299075"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299075"><span class="hs-identifier hs-var">pRecipeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">Project' :: Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Sample
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:Project' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AlastModifiedDate%3AProject%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:openDate:Project' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AopenDate%3AProject%27"><span class="hs-identifier hs-var">openDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:createDate:Project' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AcreateDate%3AProject%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AcreatedBy%3AProject%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AaccountId%3AProject%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AresourceArn%3AProject%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetName:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AdatasetName%3AProject%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedBy:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AlastModifiedBy%3AProject%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:sample:Project' :: Maybe Sample
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3Asample%3AProject%27"><span class="hs-identifier hs-var">sample</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Sample
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:openedBy:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AopenedBy%3AProject%27"><span class="hs-identifier hs-var">openedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Project' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3Atags%3AProject%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AroleArn%3AProject%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Project' :: Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299076"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:recipeName:Project' :: Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3ArecipeName%3AProject%27"><span class="hs-identifier hs-var">recipeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299075"><span class="hs-identifier hs-var">pRecipeName_</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The last modification date and time for the project.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_lastModifiedDate"><span class="hs-identifier hs-type">project_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="project_lastModifiedDate"><span class="annot"><span class="annottext">project_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_lastModifiedDate"><span class="hs-identifier hs-var hs-var">project_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe POSIX)
+-&gt; (Project -&gt; Maybe POSIX -&gt; Project)
+-&gt; Lens Project Project (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299071"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedDate :: Maybe POSIX
+$sel:lastModifiedDate:Project' :: Project -&gt; Maybe POSIX
+</span><a href="#local-6989586621679299071"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299071"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299070"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299069"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:Project' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AlastModifiedDate%3AProject%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Project -&gt; f Project)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Project
+-&gt; f Project
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The date and time when the project was opened.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_openDate"><span class="hs-identifier hs-type">project_openDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="project_openDate"><span class="annot"><span class="annottext">project_openDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_openDate"><span class="hs-identifier hs-var hs-var">project_openDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe POSIX)
+-&gt; (Project -&gt; Maybe POSIX -&gt; Project)
+-&gt; Lens Project Project (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299064"><span class="annot"><span class="annottext">Maybe POSIX
+openDate :: Maybe POSIX
+$sel:openDate:Project' :: Project -&gt; Maybe POSIX
+</span><a href="#local-6989586621679299064"><span class="hs-identifier hs-var hs-var">openDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299064"><span class="hs-identifier hs-var">openDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299063"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299062"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openDate:Project' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AopenDate%3AProject%27"><span class="hs-identifier hs-var">openDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Project -&gt; f Project)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Project
+-&gt; f Project
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The date and time that the project was created.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_createDate"><span class="hs-identifier hs-type">project_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="project_createDate"><span class="annot"><span class="annottext">project_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_createDate"><span class="hs-identifier hs-var hs-var">project_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe POSIX)
+-&gt; (Project -&gt; Maybe POSIX -&gt; Project)
+-&gt; Lens Project Project (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299060"><span class="annot"><span class="annottext">Maybe POSIX
+createDate :: Maybe POSIX
+$sel:createDate:Project' :: Project -&gt; Maybe POSIX
+</span><a href="#local-6989586621679299060"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299060"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299059"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299058"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:Project' :: Maybe POSIX
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AcreateDate%3AProject%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679299058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Project -&gt; f Project)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Project
+-&gt; f Project
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who crated the project.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_createdBy"><span class="hs-identifier hs-type">project_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="project_createdBy"><span class="annot"><span class="annottext">project_createdBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_createdBy"><span class="hs-identifier hs-var hs-var">project_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299056"><span class="annot"><span class="annottext">Maybe Text
+createdBy :: Maybe Text
+$sel:createdBy:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679299056"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299056"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299055"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299054"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AcreatedBy%3AProject%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the project.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_accountId"><span class="hs-identifier hs-type">project_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="project_accountId"><span class="annot"><span class="annottext">project_accountId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_accountId"><span class="hs-identifier hs-var hs-var">project_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299052"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679299052"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299052"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299051"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299050"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AaccountId%3AProject%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the project.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_resourceArn"><span class="hs-identifier hs-type">project_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="project_resourceArn"><span class="annot"><span class="annottext">project_resourceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_resourceArn"><span class="hs-identifier hs-var hs-var">project_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299048"><span class="annot"><span class="annottext">Maybe Text
+resourceArn :: Maybe Text
+$sel:resourceArn:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679299048"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299048"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299047"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299046"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AresourceArn%3AProject%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The dataset that the project is to act upon.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_datasetName"><span class="hs-identifier hs-type">project_datasetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="project_datasetName"><span class="annot"><span class="annottext">project_datasetName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_datasetName"><span class="hs-identifier hs-var hs-var">project_datasetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299044"><span class="annot"><span class="annottext">Maybe Text
+datasetName :: Maybe Text
+$sel:datasetName:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679299044"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299044"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299043"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AdatasetName%3AProject%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who last modified the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_lastModifiedBy"><span class="hs-identifier hs-type">project_lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="project_lastModifiedBy"><span class="annot"><span class="annottext">project_lastModifiedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_lastModifiedBy"><span class="hs-identifier hs-var hs-var">project_lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299040"><span class="annot"><span class="annottext">Maybe Text
+lastModifiedBy :: Maybe Text
+$sel:lastModifiedBy:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679299040"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299040"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299039"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299038"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBy:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AlastModifiedBy%3AProject%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The sample size and sampling type to apply to the data. If this</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- parameter isn\'t specified, then the sample consists of the first 500</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- rows from the dataset.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_sample"><span class="hs-identifier hs-type">project_sample</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Sample.html#Sample"><span class="hs-identifier hs-type">Sample</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="project_sample"><span class="annot"><span class="annottext">project_sample :: (Maybe Sample -&gt; f (Maybe Sample)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_sample"><span class="hs-identifier hs-var hs-var">project_sample</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Sample)
+-&gt; (Project -&gt; Maybe Sample -&gt; Project)
+-&gt; Lens Project Project (Maybe Sample) (Maybe Sample)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299036"><span class="annot"><span class="annottext">Maybe Sample
+sample :: Maybe Sample
+$sel:sample:Project' :: Project -&gt; Maybe Sample
+</span><a href="#local-6989586621679299036"><span class="hs-identifier hs-var hs-var">sample</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Sample
+</span><a href="#local-6989586621679299036"><span class="hs-identifier hs-var">sample</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299035"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299034"><span class="annot"><span class="annottext">Maybe Sample
+</span><a href="#local-6989586621679299034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sample:Project' :: Maybe Sample
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3Asample%3AProject%27"><span class="hs-identifier hs-var">sample</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Sample
+</span><a href="#local-6989586621679299034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user that opened the project for</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_openedBy"><span class="hs-identifier hs-type">project_openedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="project_openedBy"><span class="annot"><span class="annottext">project_openedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_openedBy"><span class="hs-identifier hs-var hs-var">project_openedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299032"><span class="annot"><span class="annottext">Maybe Text
+openedBy :: Maybe Text
+$sel:openedBy:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679299032"><span class="hs-identifier hs-var hs-var">openedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299032"><span class="hs-identifier hs-var">openedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299031"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openedBy:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AopenedBy%3AProject%27"><span class="hs-identifier hs-var">openedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Metadata tags that have been applied to the project.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_tags"><span class="hs-identifier hs-type">project_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="project_tags"><span class="annot"><span class="annottext">project_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_tags"><span class="hs-identifier hs-var hs-var">project_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe (HashMap Text Text))
+-&gt; (Project -&gt; Maybe (HashMap Text Text) -&gt; Project)
+-&gt; Lens
+     Project
+     Project
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299028"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:Project' :: Project -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679299028"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679299028"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299027"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299026"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679299026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Project' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3Atags%3AProject%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679299026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Project -&gt; f Project)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Project
+-&gt; f Project
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role that will be assumed for this</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_roleArn"><span class="hs-identifier hs-type">project_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="project_roleArn"><span class="annot"><span class="annottext">project_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_roleArn"><span class="hs-identifier hs-var hs-var">project_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299023"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679299023"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299023"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299022"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299021"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Project' :: Maybe Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3AroleArn%3AProject%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The unique name of a project.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_name"><span class="hs-identifier hs-type">project_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-186"></span><span id="project_name"><span class="annot"><span class="annottext">project_name :: (Text -&gt; f Text) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_name"><span class="hs-identifier hs-var hs-var">project_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Text)
+-&gt; (Project -&gt; Text -&gt; Project) -&gt; Lens Project Project Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299019"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:Project' :: Project -&gt; Text
+</span><a href="#local-6989586621679299019"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299019"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299018"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299017"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Project' :: Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The name of a recipe that will be developed during a project session.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#project_recipeName"><span class="hs-identifier hs-type">project_recipeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-190"></span><span id="project_recipeName"><span class="annot"><span class="annottext">project_recipeName :: (Text -&gt; f Text) -&gt; Project -&gt; f Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#project_recipeName"><span class="hs-identifier hs-var hs-var">project_recipeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Text)
+-&gt; (Project -&gt; Text -&gt; Project) -&gt; Lens Project Project Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299015"><span class="annot"><span class="annottext">Text
+recipeName :: Text
+$sel:recipeName:Project' :: Project -&gt; Text
+</span><a href="#local-6989586621679299015"><span class="hs-identifier hs-var hs-var">recipeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299015"><span class="hs-identifier hs-var">recipeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299014"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679299014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299013"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679299014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recipeName:Project' :: Text
+</span><a href="Amazonka.DataBrew.Types.Project.html#%24sel%3ArecipeName%3AProject%27"><span class="hs-identifier hs-var">recipeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299010"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679299008"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Project
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Project) -&gt; Value -&gt; Parser Project
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Project&quot;</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299005"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Sample
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Project
+</span><a href="Amazonka.DataBrew.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Sample
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Project)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Sample
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Sample
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Project)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Sample
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OpenDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Sample
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Project)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Sample
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Sample
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Sample
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Sample
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Sample
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Sample
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Sample
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Sample
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Sample
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatasetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Sample
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Sample
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Sample
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Project)
+-&gt; Parser (Maybe Sample)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Sample)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sample&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OpenedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Project)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Project)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Project)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Project) -&gt; Parser Text -&gt; Parser Project
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecipeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298997"><span id="local-6989586621679298999"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataBrew.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span>
+</span><span id="line-217"></span></pre></body></html>

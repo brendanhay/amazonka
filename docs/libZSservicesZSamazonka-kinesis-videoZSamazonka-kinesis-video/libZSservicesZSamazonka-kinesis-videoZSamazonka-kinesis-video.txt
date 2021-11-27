@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.KinesisVideo.Types.APIName
+module Amazonka.KinesisVideo.Types.APIName
 newtype APIName
 APIName' :: Text -> APIName
 [fromAPIName] :: APIName -> Text
@@ -16,134 +16,134 @@ pattern APIName_GET_MEDIA :: APIName
 pattern APIName_GET_MEDIA_FOR_FRAGMENT_LIST :: APIName
 pattern APIName_LIST_FRAGMENTS :: APIName
 pattern APIName_PUT_MEDIA :: APIName
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.APIName.APIName
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.APIName.APIName
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.APIName.APIName
-instance GHC.Classes.Ord Network.AWS.KinesisVideo.Types.APIName.APIName
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.APIName.APIName
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.APIName.APIName
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.APIName.APIName
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideo.Types.APIName.APIName
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideo.Types.APIName.APIName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideo.Types.APIName.APIName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.APIName.APIName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideo.Types.APIName.APIName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.APIName.APIName
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.Types.APIName.APIName
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideo.Types.APIName.APIName
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideo.Types.APIName.APIName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideo.Types.APIName.APIName
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideo.Types.APIName.APIName
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideo.Types.APIName.APIName
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.APIName.APIName
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.APIName.APIName
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.APIName.APIName
+instance GHC.Classes.Ord Amazonka.KinesisVideo.Types.APIName.APIName
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.APIName.APIName
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.APIName.APIName
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.APIName.APIName
 
 
-module Network.AWS.KinesisVideo.Types.ChannelProtocol
+module Amazonka.KinesisVideo.Types.ChannelProtocol
 newtype ChannelProtocol
 ChannelProtocol' :: Text -> ChannelProtocol
 [fromChannelProtocol] :: ChannelProtocol -> Text
 pattern ChannelProtocol_HTTPS :: ChannelProtocol
 pattern ChannelProtocol_WSS :: ChannelProtocol
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance GHC.Classes.Ord Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance GHC.Classes.Ord Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.ChannelProtocol.ChannelProtocol
 
 
-module Network.AWS.KinesisVideo.Types.ChannelRole
+module Amazonka.KinesisVideo.Types.ChannelRole
 newtype ChannelRole
 ChannelRole' :: Text -> ChannelRole
 [fromChannelRole] :: ChannelRole -> Text
 pattern ChannelRole_MASTER :: ChannelRole
 pattern ChannelRole_VIEWER :: ChannelRole
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance GHC.Classes.Ord Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance GHC.Classes.Ord Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.ChannelRole.ChannelRole
 
 
-module Network.AWS.KinesisVideo.Types.ChannelType
+module Amazonka.KinesisVideo.Types.ChannelType
 newtype ChannelType
 ChannelType' :: Text -> ChannelType
 [fromChannelType] :: ChannelType -> Text
 pattern ChannelType_SINGLE_MASTER :: ChannelType
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance GHC.Classes.Ord Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.ChannelType.ChannelType
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance GHC.Classes.Ord Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.ChannelType.ChannelType
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.ChannelType.ChannelType
 
 
-module Network.AWS.KinesisVideo.Types.ComparisonOperator
+module Amazonka.KinesisVideo.Types.ComparisonOperator
 newtype ComparisonOperator
 ComparisonOperator' :: Text -> ComparisonOperator
 [fromComparisonOperator] :: ComparisonOperator -> Text
 pattern ComparisonOperator_BEGINS_WITH :: ComparisonOperator
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Classes.Ord Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Classes.Ord Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.ComparisonOperator.ComparisonOperator
 
 
-module Network.AWS.KinesisVideo.Types.ChannelNameCondition
+module Amazonka.KinesisVideo.Types.ChannelNameCondition
 
 -- | An optional input parameter for the <tt>ListSignalingChannels</tt>
 --   API. When this parameter is specified while invoking
@@ -188,16 +188,16 @@ channelNameCondition_comparisonOperator :: Lens' ChannelNameCondition (Maybe Com
 
 -- | A value to compare.
 channelNameCondition_comparisonValue :: Lens' ChannelNameCondition (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.ChannelNameCondition.ChannelNameCondition
 
 
-module Network.AWS.KinesisVideo.Types.ResourceEndpointListItem
+module Amazonka.KinesisVideo.Types.ResourceEndpointListItem
 
 -- | An object that describes the endpoint of the signaling channel
 --   returned by the <tt>GetSignalingChannelEndpoint</tt> API.
@@ -241,16 +241,16 @@ resourceEndpointListItem_protocol :: Lens' ResourceEndpointListItem (Maybe Chann
 -- | The endpoint of the signaling channel returned by the
 --   <tt>GetSignalingChannelEndpoint</tt> API.
 resourceEndpointListItem_resourceEndpoint :: Lens' ResourceEndpointListItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
 
 
-module Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
+module Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
 
 -- | An object that contains the endpoint configuration for the
 --   <tt>SINGLE_MASTER</tt> channel type.
@@ -316,16 +316,16 @@ singleMasterChannelEndpointConfiguration_protocols :: Lens' SingleMasterChannelE
 --   an endpoint that a client can use only to send offers to another
 --   <tt>MASTER</tt> client on this signaling channel.
 singleMasterChannelEndpointConfiguration_role :: Lens' SingleMasterChannelEndpointConfiguration (Maybe ChannelRole)
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration.SingleMasterChannelEndpointConfiguration
 
 
-module Network.AWS.KinesisVideo.Types.SingleMasterConfiguration
+module Amazonka.KinesisVideo.Types.SingleMasterConfiguration
 
 -- | A structure that contains the configuration for the
 --   <tt>SINGLE_MASTER</tt> channel type.
@@ -356,17 +356,17 @@ newSingleMasterConfiguration :: SingleMasterConfiguration
 -- | The period of time a signaling channel retains underlivered messages
 --   before they are discarded.
 singleMasterConfiguration_messageTtlSeconds :: Lens' SingleMasterConfiguration (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.SingleMasterConfiguration.SingleMasterConfiguration
 
 
-module Network.AWS.KinesisVideo.Types.StreamNameCondition
+module Amazonka.KinesisVideo.Types.StreamNameCondition
 
 -- | Specifies the condition that streams must satisfy to be returned when
 --   you list streams (see the <tt>ListStreams</tt> API). A condition has a
@@ -411,16 +411,16 @@ streamNameCondition_comparisonOperator :: Lens' StreamNameCondition (Maybe Compa
 
 -- | A value to compare.
 streamNameCondition_comparisonValue :: Lens' StreamNameCondition (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.StreamNameCondition.StreamNameCondition
 
 
-module Network.AWS.KinesisVideo.Types.StreamStatus
+module Amazonka.KinesisVideo.Types.StreamStatus
 newtype StreamStatus
 StreamStatus' :: Text -> StreamStatus
 [fromStreamStatus] :: StreamStatus -> Text
@@ -428,28 +428,28 @@ pattern StreamStatus_ACTIVE :: StreamStatus
 pattern StreamStatus_CREATING :: StreamStatus
 pattern StreamStatus_DELETING :: StreamStatus
 pattern StreamStatus_UPDATING :: StreamStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance GHC.Classes.Ord Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance GHC.Classes.Ord Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.StreamStatus.StreamStatus
 
 
-module Network.AWS.KinesisVideo.Types.StreamInfo
+module Amazonka.KinesisVideo.Types.StreamInfo
 
 -- | An object describing a Kinesis video stream.
 --   
@@ -550,16 +550,16 @@ streamInfo_version :: Lens' StreamInfo (Maybe Text)
 
 -- | The name of the stream.
 streamInfo_streamName :: Lens' StreamInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.StreamInfo.StreamInfo
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.StreamInfo.StreamInfo
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.StreamInfo.StreamInfo
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.StreamInfo.StreamInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.StreamInfo.StreamInfo
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.StreamInfo.StreamInfo
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.StreamInfo.StreamInfo
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.StreamInfo.StreamInfo
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.StreamInfo.StreamInfo
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.StreamInfo.StreamInfo
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.StreamInfo.StreamInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.StreamInfo.StreamInfo
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.StreamInfo.StreamInfo
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.StreamInfo.StreamInfo
 
 
-module Network.AWS.KinesisVideo.Types.ChannelInfo
+module Amazonka.KinesisVideo.Types.ChannelInfo
 
 -- | A structure that encapsulates a signaling channel's metadata and
 --   properties.
@@ -644,16 +644,16 @@ channelInfo_version :: Lens' ChannelInfo (Maybe Text)
 
 -- | The type of the signaling channel.
 channelInfo_channelType :: Lens' ChannelInfo (Maybe ChannelType)
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.ChannelInfo.ChannelInfo
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.ChannelInfo.ChannelInfo
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.ChannelInfo.ChannelInfo
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.ChannelInfo.ChannelInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.ChannelInfo.ChannelInfo
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.ChannelInfo.ChannelInfo
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.ChannelInfo.ChannelInfo
 
 
-module Network.AWS.KinesisVideo.Types.Tag
+module Amazonka.KinesisVideo.Types.Tag
 
 -- | A key and value pair that is associated with the specified signaling
 --   channel.
@@ -692,43 +692,43 @@ tag_key :: Lens' Tag Text
 -- | The value of the tag that is associated with the specified signaling
 --   channel.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.Tag.Tag
 
 
-module Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation
+module Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation
 newtype UpdateDataRetentionOperation
 UpdateDataRetentionOperation' :: Text -> UpdateDataRetentionOperation
 [fromUpdateDataRetentionOperation] :: UpdateDataRetentionOperation -> Text
 pattern UpdateDataRetentionOperation_DECREASE_DATA_RETENTION :: UpdateDataRetentionOperation
 pattern UpdateDataRetentionOperation_INCREASE_DATA_RETENTION :: UpdateDataRetentionOperation
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance GHC.Classes.Ord Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance GHC.Read.Read Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
-instance GHC.Show.Show Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance GHC.Generics.Generic Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance GHC.Classes.Ord Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance GHC.Classes.Eq Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance GHC.Read.Read Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
+instance GHC.Show.Show Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation.UpdateDataRetentionOperation
 
 
-module Network.AWS.KinesisVideo.Types
+module Amazonka.KinesisVideo.Types
 
 -- | API version <tt>2017-09-30</tt> of the Amazon Kinesis Video Streams
 --   SDK configuration.
@@ -1280,7 +1280,7 @@ tag_value :: Lens' Tag Text
 --   <tt>KinesisVideo:TagStream</tt> action.
 --   
 --   Kinesis video streams support up to 50 tags.
-module Network.AWS.KinesisVideo.TagStream
+module Amazonka.KinesisVideo.TagStream
 
 -- | <i>See:</i> <a>newTagStream</a> smart constructor.
 data TagStream
@@ -1350,22 +1350,22 @@ newTagStreamResponse :: Int -> TagStreamResponse
 
 -- | The response's http status code.
 tagStreamResponse_httpStatus :: Lens' TagStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.TagStream.TagStream
-instance GHC.Show.Show Network.AWS.KinesisVideo.TagStream.TagStream
-instance GHC.Read.Read Network.AWS.KinesisVideo.TagStream.TagStream
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.TagStream.TagStream
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.TagStream.TagStreamResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.TagStream.TagStreamResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.TagStream.TagStreamResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.TagStream.TagStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.TagStream.TagStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.TagStream.TagStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.TagStream.TagStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.TagStream.TagStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.TagStream.TagStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.TagStream.TagStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.TagStream.TagStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.TagStream.TagStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.TagStream.TagStream
+instance GHC.Show.Show Amazonka.KinesisVideo.TagStream.TagStream
+instance GHC.Read.Read Amazonka.KinesisVideo.TagStream.TagStream
+instance GHC.Classes.Eq Amazonka.KinesisVideo.TagStream.TagStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.TagStream.TagStreamResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.TagStream.TagStreamResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.TagStream.TagStreamResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.TagStream.TagStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.TagStream.TagStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.TagStream.TagStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.TagStream.TagStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.TagStream.TagStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.TagStream.TagStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.TagStream.TagStream
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.TagStream.TagStream
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.TagStream.TagStream
 
 
 -- | Adds one or more tags to a signaling channel. A <i>tag</i> is a
@@ -1374,7 +1374,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.TagStream.TagSt
 --   value is replaced with the value that you specify in the request. For
 --   more information, see <a>Using Cost Allocation Tags</a> in the <i>AWS
 --   Billing and Cost Management User Guide</i>.
-module Network.AWS.KinesisVideo.TagResource
+module Amazonka.KinesisVideo.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1436,29 +1436,29 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.KinesisVideo.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.KinesisVideo.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.KinesisVideo.TagResource.TagResource
+instance GHC.Show.Show Amazonka.KinesisVideo.TagResource.TagResource
+instance GHC.Read.Read Amazonka.KinesisVideo.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.KinesisVideo.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.KinesisVideo.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.TagResource.TagResource
 
 
 -- | Returns a list of tags associated with the specified stream.
 --   
 --   In the request, you must specify either the <tt>StreamName</tt> or the
 --   <tt>StreamARN</tt>.
-module Network.AWS.KinesisVideo.ListTagsForStream
+module Amazonka.KinesisVideo.ListTagsForStream
 
 -- | <i>See:</i> <a>newListTagsForStream</a> smart constructor.
 data ListTagsForStream
@@ -1563,27 +1563,27 @@ listTagsForStreamResponse_tags :: Lens' ListTagsForStreamResponse (Maybe (HashMa
 
 -- | The response's http status code.
 listTagsForStreamResponse_httpStatus :: Lens' ListTagsForStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance GHC.Show.Show Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance GHC.Read.Read Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance GHC.Show.Show Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance GHC.Read.Read Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance GHC.Classes.Eq Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.ListTagsForStream.ListTagsForStream
 
 
 -- | Returns a list of tags associated with the specified signaling
 --   channel.
-module Network.AWS.KinesisVideo.ListTagsForResource
+module Amazonka.KinesisVideo.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1682,22 +1682,22 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns an array of <tt>StreamInfo</tt> objects. Each object describes
@@ -1705,7 +1705,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.ListTagsForReso
 --   you can specify a <tt>StreamNameCondition</tt>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.KinesisVideo.ListStreams
+module Amazonka.KinesisVideo.ListStreams
 
 -- | <i>See:</i> <a>newListStreams</a> smart constructor.
 data ListStreams
@@ -1813,23 +1813,23 @@ listStreamsResponse_nextToken :: Lens' ListStreamsResponse (Maybe Text)
 
 -- | The response's http status code.
 listStreamsResponse_httpStatus :: Lens' ListStreamsResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance GHC.Show.Show Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance GHC.Read.Read Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.ListStreams.ListStreamsResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.ListStreams.ListStreamsResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.ListStreams.ListStreamsResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.ListStreams.ListStreamsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.ListStreams.ListStreamsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.ListStreams.ListStreams
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.ListStreams.ListStreams
+instance GHC.Generics.Generic Amazonka.KinesisVideo.ListStreams.ListStreams
+instance GHC.Show.Show Amazonka.KinesisVideo.ListStreams.ListStreams
+instance GHC.Read.Read Amazonka.KinesisVideo.ListStreams.ListStreams
+instance GHC.Classes.Eq Amazonka.KinesisVideo.ListStreams.ListStreams
+instance GHC.Generics.Generic Amazonka.KinesisVideo.ListStreams.ListStreamsResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.ListStreams.ListStreamsResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.ListStreams.ListStreamsResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.ListStreams.ListStreamsResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.ListStreams.ListStreams
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.ListStreams.ListStreamsResponse
+instance Amazonka.Pager.AWSPager Amazonka.KinesisVideo.ListStreams.ListStreams
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.ListStreams.ListStreams
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.ListStreams.ListStreams
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.ListStreams.ListStreams
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.ListStreams.ListStreams
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.ListStreams.ListStreams
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.ListStreams.ListStreams
 
 
 -- | Returns an array of <tt>ChannelInfo</tt> objects. Each object
@@ -1838,7 +1838,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.ListStreams.Lis
 --   <tt>ChannelNameCondition</tt>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.KinesisVideo.ListSignalingChannels
+module Amazonka.KinesisVideo.ListSignalingChannels
 
 -- | <i>See:</i> <a>newListSignalingChannels</a> smart constructor.
 data ListSignalingChannels
@@ -1943,23 +1943,23 @@ listSignalingChannelsResponse_nextToken :: Lens' ListSignalingChannelsResponse (
 
 -- | The response's http status code.
 listSignalingChannelsResponse_httpStatus :: Lens' ListSignalingChannelsResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance GHC.Show.Show Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance GHC.Read.Read Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance GHC.Generics.Generic Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance GHC.Show.Show Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance GHC.Read.Read Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance GHC.Classes.Eq Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance GHC.Generics.Generic Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannelsResponse
+instance Amazonka.Pager.AWSPager Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.ListSignalingChannels.ListSignalingChannels
 
 
 -- | Provides an endpoint for the specified signaling channel to send and
@@ -1977,7 +1977,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.ListSignalingCh
 --   to communicate with any of the viewers on the channel. A
 --   <tt>VIEWER</tt> role results in this API generating an endpoint that a
 --   client can use to communicate only with a <tt>MASTER</tt>.
-module Network.AWS.KinesisVideo.GetSignalingChannelEndpoint
+module Amazonka.KinesisVideo.GetSignalingChannelEndpoint
 
 -- | <i>See:</i> <a>newGetSignalingChannelEndpoint</a> smart constructor.
 data GetSignalingChannelEndpoint
@@ -2054,22 +2054,22 @@ getSignalingChannelEndpointResponse_resourceEndpointList :: Lens' GetSignalingCh
 
 -- | The response's http status code.
 getSignalingChannelEndpointResponse_httpStatus :: Lens' GetSignalingChannelEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance GHC.Show.Show Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance GHC.Read.Read Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance GHC.Generics.Generic Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance GHC.Show.Show Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance GHC.Read.Read Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance GHC.Classes.Eq Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance GHC.Generics.Generic Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.GetSignalingChannelEndpoint.GetSignalingChannelEndpoint
 
 
 -- | Gets an endpoint for a specified stream for either reading or writing.
@@ -2083,7 +2083,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.GetSignalingCha
 --   
 --   In the request, specify the stream either by <tt>StreamName</tt> or
 --   <tt>StreamARN</tt>.
-module Network.AWS.KinesisVideo.GetDataEndpoint
+module Amazonka.KinesisVideo.GetDataEndpoint
 
 -- | <i>See:</i> <a>newGetDataEndpoint</a> smart constructor.
 data GetDataEndpoint
@@ -2172,27 +2172,27 @@ getDataEndpointResponse_dataEndpoint :: Lens' GetDataEndpointResponse (Maybe Tex
 
 -- | The response's http status code.
 getDataEndpointResponse_httpStatus :: Lens' GetDataEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance GHC.Show.Show Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance GHC.Read.Read Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance GHC.Generics.Generic Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance GHC.Show.Show Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance GHC.Read.Read Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance GHC.Classes.Eq Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance GHC.Generics.Generic Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.GetDataEndpoint.GetDataEndpoint
 
 
 -- | Returns the most current information about the specified stream. You
 --   must specify either the <tt>StreamName</tt> or the <tt>StreamARN</tt>.
-module Network.AWS.KinesisVideo.DescribeStream
+module Amazonka.KinesisVideo.DescribeStream
 
 -- | <i>See:</i> <a>newDescribeStream</a> smart constructor.
 data DescribeStream
@@ -2259,28 +2259,28 @@ describeStreamResponse_streamInfo :: Lens' DescribeStreamResponse (Maybe StreamI
 
 -- | The response's http status code.
 describeStreamResponse_httpStatus :: Lens' DescribeStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance GHC.Show.Show Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance GHC.Read.Read Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.DescribeStream.DescribeStreamResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.DescribeStream.DescribeStreamResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.DescribeStream.DescribeStreamResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.DescribeStream.DescribeStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.DescribeStream.DescribeStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.DescribeStream.DescribeStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.DescribeStream.DescribeStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance GHC.Show.Show Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance GHC.Read.Read Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance GHC.Classes.Eq Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.DescribeStream.DescribeStreamResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.DescribeStream.DescribeStreamResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.DescribeStream.DescribeStreamResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.DescribeStream.DescribeStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.DescribeStream.DescribeStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.DescribeStream.DescribeStream
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.DescribeStream.DescribeStream
 
 
 -- | Returns the most current information about the signaling channel. You
 --   must specify either the name or the Amazon Resource Name (ARN) of the
 --   channel that you want to describe.
-module Network.AWS.KinesisVideo.DescribeSignalingChannel
+module Amazonka.KinesisVideo.DescribeSignalingChannel
 
 -- | <i>See:</i> <a>newDescribeSignalingChannel</a> smart constructor.
 data DescribeSignalingChannel
@@ -2353,22 +2353,22 @@ describeSignalingChannelResponse_channelInfo :: Lens' DescribeSignalingChannelRe
 
 -- | The response's http status code.
 describeSignalingChannelResponse_httpStatus :: Lens' DescribeSignalingChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance GHC.Show.Show Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance GHC.Read.Read Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance GHC.Generics.Generic Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance GHC.Show.Show Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance GHC.Read.Read Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance GHC.Classes.Eq Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance GHC.Generics.Generic Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.DescribeSignalingChannel.DescribeSignalingChannel
 
 
 -- | Deletes a Kinesis video stream and the data contained in the stream.
@@ -2384,7 +2384,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.DescribeSignali
 --   
 --   This operation requires permission for the
 --   <tt>KinesisVideo:DeleteStream</tt> action.
-module Network.AWS.KinesisVideo.DeleteStream
+module Amazonka.KinesisVideo.DeleteStream
 
 -- | <i>See:</i> <a>newDeleteStream</a> smart constructor.
 data DeleteStream
@@ -2463,28 +2463,28 @@ newDeleteStreamResponse :: Int -> DeleteStreamResponse
 
 -- | The response's http status code.
 deleteStreamResponse_httpStatus :: Lens' DeleteStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance GHC.Show.Show Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance GHC.Read.Read Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.DeleteStream.DeleteStreamResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.DeleteStream.DeleteStreamResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.DeleteStream.DeleteStreamResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.DeleteStream.DeleteStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.DeleteStream.DeleteStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.DeleteStream.DeleteStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.DeleteStream.DeleteStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance GHC.Show.Show Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance GHC.Read.Read Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance GHC.Classes.Eq Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.DeleteStream.DeleteStreamResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.DeleteStream.DeleteStreamResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.DeleteStream.DeleteStreamResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.DeleteStream.DeleteStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.DeleteStream.DeleteStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.DeleteStream.DeleteStream
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.DeleteStream.DeleteStream
 
 
 -- | Deletes a specified signaling channel. <tt>DeleteSignalingChannel</tt>
 --   is an asynchronous operation. If you don't specify the channel's
 --   current version, the most recent version is deleted.
-module Network.AWS.KinesisVideo.DeleteSignalingChannel
+module Amazonka.KinesisVideo.DeleteSignalingChannel
 
 -- | <i>See:</i> <a>newDeleteSignalingChannel</a> smart constructor.
 data DeleteSignalingChannel
@@ -2554,22 +2554,22 @@ newDeleteSignalingChannelResponse :: Int -> DeleteSignalingChannelResponse
 
 -- | The response's http status code.
 deleteSignalingChannelResponse_httpStatus :: Lens' DeleteSignalingChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance GHC.Show.Show Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance GHC.Read.Read Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance GHC.Generics.Generic Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance GHC.Show.Show Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance GHC.Read.Read Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance GHC.Classes.Eq Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance GHC.Generics.Generic Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.DeleteSignalingChannel.DeleteSignalingChannel
 
 
 -- | Creates a new Kinesis video stream.
@@ -2584,7 +2584,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.DeleteSignaling
 --   
 --   You must have permissions for the <tt>KinesisVideo:CreateStream</tt>
 --   action.
-module Network.AWS.KinesisVideo.CreateStream
+module Amazonka.KinesisVideo.CreateStream
 
 -- | <i>See:</i> <a>newCreateStream</a> smart constructor.
 data CreateStream
@@ -2783,28 +2783,28 @@ createStreamResponse_streamARN :: Lens' CreateStreamResponse (Maybe Text)
 
 -- | The response's http status code.
 createStreamResponse_httpStatus :: Lens' CreateStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance GHC.Show.Show Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance GHC.Read.Read Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.CreateStream.CreateStreamResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.CreateStream.CreateStreamResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.CreateStream.CreateStreamResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.CreateStream.CreateStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.CreateStream.CreateStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.CreateStream.CreateStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.CreateStream.CreateStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.CreateStream.CreateStream
+instance GHC.Show.Show Amazonka.KinesisVideo.CreateStream.CreateStream
+instance GHC.Read.Read Amazonka.KinesisVideo.CreateStream.CreateStream
+instance GHC.Classes.Eq Amazonka.KinesisVideo.CreateStream.CreateStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.CreateStream.CreateStreamResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.CreateStream.CreateStreamResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.CreateStream.CreateStreamResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.CreateStream.CreateStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.CreateStream.CreateStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.CreateStream.CreateStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.CreateStream.CreateStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.CreateStream.CreateStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.CreateStream.CreateStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.CreateStream.CreateStream
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.CreateStream.CreateStream
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.CreateStream.CreateStream
 
 
 -- | Creates a signaling channel.
 --   
 --   <tt>CreateSignalingChannel</tt> is an asynchronous operation.
-module Network.AWS.KinesisVideo.CreateSignalingChannel
+module Amazonka.KinesisVideo.CreateSignalingChannel
 
 -- | <i>See:</i> <a>newCreateSignalingChannel</a> smart constructor.
 data CreateSignalingChannel
@@ -2905,28 +2905,28 @@ createSignalingChannelResponse_channelARN :: Lens' CreateSignalingChannelRespons
 
 -- | The response's http status code.
 createSignalingChannelResponse_httpStatus :: Lens' CreateSignalingChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance GHC.Show.Show Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance GHC.Read.Read Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance GHC.Generics.Generic Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance GHC.Show.Show Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance GHC.Read.Read Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance GHC.Classes.Eq Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance GHC.Generics.Generic Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.CreateSignalingChannel.CreateSignalingChannel
 
 
 -- | Removes one or more tags from a signaling channel. In the request,
 --   specify only a tag key or keys; don't specify the value. If you
 --   specify a tag key that does not exist, it's ignored.
-module Network.AWS.KinesisVideo.UntagResource
+module Amazonka.KinesisVideo.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -2986,22 +2986,22 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.KinesisVideo.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.KinesisVideo.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.UntagResource.UntagResource
 
 
 -- | Removes one or more tags from a stream. In the request, specify only a
@@ -3010,7 +3010,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UntagResource.U
 --   
 --   In the request, you must provide the <tt>StreamName</tt> or
 --   <tt>StreamARN</tt>.
-module Network.AWS.KinesisVideo.UntagStream
+module Amazonka.KinesisVideo.UntagStream
 
 -- | <i>See:</i> <a>newUntagStream</a> smart constructor.
 data UntagStream
@@ -3078,22 +3078,22 @@ newUntagStreamResponse :: Int -> UntagStreamResponse
 
 -- | The response's http status code.
 untagStreamResponse_httpStatus :: Lens' UntagStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance GHC.Show.Show Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance GHC.Read.Read Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UntagStream.UntagStreamResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.UntagStream.UntagStreamResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.UntagStream.UntagStreamResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UntagStream.UntagStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UntagStream.UntagStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.UntagStream.UntagStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UntagStream.UntagStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UntagStream.UntagStream
+instance GHC.Show.Show Amazonka.KinesisVideo.UntagStream.UntagStream
+instance GHC.Read.Read Amazonka.KinesisVideo.UntagStream.UntagStream
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UntagStream.UntagStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UntagStream.UntagStreamResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.UntagStream.UntagStreamResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.UntagStream.UntagStreamResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UntagStream.UntagStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.UntagStream.UntagStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UntagStream.UntagStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.UntagStream.UntagStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UntagStream.UntagStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.UntagStream.UntagStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.UntagStream.UntagStream
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.UntagStream.UntagStream
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.UntagStream.UntagStream
 
 
 -- | Increases or decreases the stream's data retention period by the value
@@ -3121,7 +3121,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UntagStream.Unt
 --   existing data is retained for one hour, and any data older than one
 --   hour is deleted immediately.</li>
 --   </ul>
-module Network.AWS.KinesisVideo.UpdateDataRetention
+module Amazonka.KinesisVideo.UpdateDataRetention
 
 -- | <i>See:</i> <a>newUpdateDataRetention</a> smart constructor.
 data UpdateDataRetention
@@ -3224,22 +3224,22 @@ newUpdateDataRetentionResponse :: Int -> UpdateDataRetentionResponse
 
 -- | The response's http status code.
 updateDataRetentionResponse_httpStatus :: Lens' UpdateDataRetentionResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance GHC.Show.Show Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance GHC.Read.Read Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance GHC.Show.Show Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance GHC.Read.Read Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetentionResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.UpdateDataRetention.UpdateDataRetention
 
 
 -- | Updates the existing signaling channel. This is an asynchronous
@@ -3249,7 +3249,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UpdateDataReten
 --   or reduced), it only applies to new messages sent via this channel
 --   after it's been updated. Existing messages are still expired as per
 --   the previous <tt>MessageTtlSeconds</tt> value.
-module Network.AWS.KinesisVideo.UpdateSignalingChannel
+module Amazonka.KinesisVideo.UpdateSignalingChannel
 
 -- | <i>See:</i> <a>newUpdateSignalingChannel</a> smart constructor.
 data UpdateSignalingChannel
@@ -3326,22 +3326,22 @@ newUpdateSignalingChannelResponse :: Int -> UpdateSignalingChannelResponse
 
 -- | The response's http status code.
 updateSignalingChannelResponse_httpStatus :: Lens' UpdateSignalingChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance GHC.Show.Show Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance GHC.Read.Read Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance GHC.Show.Show Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance GHC.Read.Read Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.UpdateSignalingChannel.UpdateSignalingChannel
 
 
 -- | Updates stream metadata, such as the device name and media type.
@@ -3357,7 +3357,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UpdateSignaling
 --   
 --   <tt>UpdateStream</tt> is an asynchronous operation, and takes time to
 --   complete.
-module Network.AWS.KinesisVideo.UpdateStream
+module Amazonka.KinesisVideo.UpdateStream
 
 -- | <i>See:</i> <a>newUpdateStream</a> smart constructor.
 data UpdateStream
@@ -3484,25 +3484,25 @@ newUpdateStreamResponse :: Int -> UpdateStreamResponse
 
 -- | The response's http status code.
 updateStreamResponse_httpStatus :: Lens' UpdateStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance GHC.Show.Show Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance GHC.Read.Read Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance GHC.Generics.Generic Network.AWS.KinesisVideo.UpdateStream.UpdateStreamResponse
-instance GHC.Show.Show Network.AWS.KinesisVideo.UpdateStream.UpdateStreamResponse
-instance GHC.Read.Read Network.AWS.KinesisVideo.UpdateStream.UpdateStreamResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideo.UpdateStream.UpdateStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UpdateStream.UpdateStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideo.UpdateStream.UpdateStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UpdateStream.UpdateStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance GHC.Show.Show Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance GHC.Read.Read Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance GHC.Generics.Generic Amazonka.KinesisVideo.UpdateStream.UpdateStreamResponse
+instance GHC.Show.Show Amazonka.KinesisVideo.UpdateStream.UpdateStreamResponse
+instance GHC.Read.Read Amazonka.KinesisVideo.UpdateStream.UpdateStreamResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideo.UpdateStream.UpdateStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UpdateStream.UpdateStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance Control.DeepSeq.NFData Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideo.UpdateStream.UpdateStream
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideo.UpdateStream.UpdateStream
 
 
-module Network.AWS.KinesisVideo.Lens
+module Amazonka.KinesisVideo.Lens
 
 -- | Optional: Returns only the channels that satisfy a specific condition.
 listSignalingChannels_channelNameCondition :: Lens' ListSignalingChannels (Maybe ChannelNameCondition)
@@ -3987,12 +3987,12 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.KinesisVideo.Waiters
+module Amazonka.KinesisVideo.Waiters
 
 
 -- | Derived from API version <tt>2017-09-30</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
-module Network.AWS.KinesisVideo
+module Amazonka.KinesisVideo
 
 -- | API version <tt>2017-09-30</tt> of the Amazon Kinesis Video Streams
 --   SDK configuration.

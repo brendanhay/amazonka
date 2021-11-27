@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.RouteOrigin</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.RouteOrigin</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin"><span class="hs-identifier">RouteOrigin</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin_CreateRoute"><span class="hs-identifier">RouteOrigin_CreateRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin_CreateRouteTable"><span class="hs-identifier">RouteOrigin_CreateRouteTable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin_EnableVgwRoutePropagation"><span class="hs-identifier">RouteOrigin_EnableVgwRoutePropagation</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681145067"><span id="local-6989586621681145068"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RouteOrigin"><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin"><span class="hs-identifier hs-var">RouteOrigin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteOrigin%27"><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin%27"><span class="hs-identifier hs-var">RouteOrigin'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRouteOrigin"><span class="annot"><span class="annottext">RouteOrigin -&gt; Text
+</span><a href="Amazonka.EC2.Types.RouteOrigin.html#fromRouteOrigin"><span class="hs-identifier hs-var hs-var">fromRouteOrigin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681145059"><span id="local-6989586621681145061"><span id="local-6989586621681145063"><span class="annot"><span class="annottext">Int -&gt; RouteOrigin -&gt; ShowS
+[RouteOrigin] -&gt; ShowS
+RouteOrigin -&gt; String
+(Int -&gt; RouteOrigin -&gt; ShowS)
+-&gt; (RouteOrigin -&gt; String)
+-&gt; ([RouteOrigin] -&gt; ShowS)
+-&gt; Show RouteOrigin
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RouteOrigin] -&gt; ShowS
+$cshowList :: [RouteOrigin] -&gt; ShowS
+show :: RouteOrigin -&gt; String
+$cshow :: RouteOrigin -&gt; String
+showsPrec :: Int -&gt; RouteOrigin -&gt; ShowS
+$cshowsPrec :: Int -&gt; RouteOrigin -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681145050"><span id="local-6989586621681145052"><span id="local-6989586621681145054"><span id="local-6989586621681145056"><span class="annot"><span class="annottext">ReadPrec [RouteOrigin]
+ReadPrec RouteOrigin
+Int -&gt; ReadS RouteOrigin
+ReadS [RouteOrigin]
+(Int -&gt; ReadS RouteOrigin)
+-&gt; ReadS [RouteOrigin]
+-&gt; ReadPrec RouteOrigin
+-&gt; ReadPrec [RouteOrigin]
+-&gt; Read RouteOrigin
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RouteOrigin]
+$creadListPrec :: ReadPrec [RouteOrigin]
+readPrec :: ReadPrec RouteOrigin
+$creadPrec :: ReadPrec RouteOrigin
+readList :: ReadS [RouteOrigin]
+$creadList :: ReadS [RouteOrigin]
+readsPrec :: Int -&gt; ReadS RouteOrigin
+$creadsPrec :: Int -&gt; ReadS RouteOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681145045"><span id="local-6989586621681145047"><span class="annot"><span class="annottext">RouteOrigin -&gt; RouteOrigin -&gt; Bool
+(RouteOrigin -&gt; RouteOrigin -&gt; Bool)
+-&gt; (RouteOrigin -&gt; RouteOrigin -&gt; Bool) -&gt; Eq RouteOrigin
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+$c/= :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+== :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+$c== :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681145029"><span id="local-6989586621681145031"><span id="local-6989586621681145033"><span id="local-6989586621681145035"><span id="local-6989586621681145037"><span id="local-6989586621681145039"><span id="local-6989586621681145041"><span class="annot"><span class="annottext">Eq RouteOrigin
+Eq RouteOrigin
+-&gt; (RouteOrigin -&gt; RouteOrigin -&gt; Ordering)
+-&gt; (RouteOrigin -&gt; RouteOrigin -&gt; Bool)
+-&gt; (RouteOrigin -&gt; RouteOrigin -&gt; Bool)
+-&gt; (RouteOrigin -&gt; RouteOrigin -&gt; Bool)
+-&gt; (RouteOrigin -&gt; RouteOrigin -&gt; Bool)
+-&gt; (RouteOrigin -&gt; RouteOrigin -&gt; RouteOrigin)
+-&gt; (RouteOrigin -&gt; RouteOrigin -&gt; RouteOrigin)
+-&gt; Ord RouteOrigin
+RouteOrigin -&gt; RouteOrigin -&gt; Bool
+RouteOrigin -&gt; RouteOrigin -&gt; Ordering
+RouteOrigin -&gt; RouteOrigin -&gt; RouteOrigin
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RouteOrigin -&gt; RouteOrigin -&gt; RouteOrigin
+$cmin :: RouteOrigin -&gt; RouteOrigin -&gt; RouteOrigin
+max :: RouteOrigin -&gt; RouteOrigin -&gt; RouteOrigin
+$cmax :: RouteOrigin -&gt; RouteOrigin -&gt; RouteOrigin
+&gt;= :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+$c&gt;= :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+&gt; :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+$c&gt; :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+&lt;= :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+$c&lt;= :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+&lt; :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+$c&lt; :: RouteOrigin -&gt; RouteOrigin -&gt; Bool
+compare :: RouteOrigin -&gt; RouteOrigin -&gt; Ordering
+$ccompare :: RouteOrigin -&gt; RouteOrigin -&gt; Ordering
+$cp1Ord :: Eq RouteOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RouteOrigin -&gt; Rep RouteOrigin x)
+-&gt; (forall x. Rep RouteOrigin x -&gt; RouteOrigin)
+-&gt; Generic RouteOrigin
+forall x. Rep RouteOrigin x -&gt; RouteOrigin
+forall x. RouteOrigin -&gt; Rep RouteOrigin x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RouteOrigin x -&gt; RouteOrigin
+$cfrom :: forall x. RouteOrigin -&gt; Rep RouteOrigin x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681145021"><span id="local-6989586621681145023"><span class="annot"><span class="annottext">Int -&gt; RouteOrigin -&gt; Int
+RouteOrigin -&gt; Int
+(Int -&gt; RouteOrigin -&gt; Int)
+-&gt; (RouteOrigin -&gt; Int) -&gt; Hashable RouteOrigin
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RouteOrigin -&gt; Int
+$chash :: RouteOrigin -&gt; Int
+hashWithSalt :: Int -&gt; RouteOrigin -&gt; Int
+$chashWithSalt :: Int -&gt; RouteOrigin -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681145018"><span class="annot"><span class="annottext">RouteOrigin -&gt; ()
+(RouteOrigin -&gt; ()) -&gt; NFData RouteOrigin
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RouteOrigin -&gt; ()
+$crnf :: RouteOrigin -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681145015"><span class="annot"><span class="annottext">Text -&gt; Either String RouteOrigin
+(Text -&gt; Either String RouteOrigin) -&gt; FromText RouteOrigin
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RouteOrigin
+$cfromText :: Text -&gt; Either String RouteOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681145012"><span class="annot"><span class="annottext">RouteOrigin -&gt; Text
+(RouteOrigin -&gt; Text) -&gt; ToText RouteOrigin
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RouteOrigin -&gt; Text
+$ctoText :: RouteOrigin -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681145009"><span class="annot"><span class="annottext">RouteOrigin -&gt; ByteString
+(RouteOrigin -&gt; ByteString) -&gt; ToByteString RouteOrigin
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RouteOrigin -&gt; ByteString
+$ctoBS :: RouteOrigin -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681145006"><span class="annot"><span class="annottext">RouteOrigin -&gt; ByteStringBuilder
+(RouteOrigin -&gt; ByteStringBuilder) -&gt; ToLog RouteOrigin
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RouteOrigin -&gt; ByteStringBuilder
+$cbuild :: RouteOrigin -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681145003"><span class="annot"><span class="annottext">HeaderName -&gt; RouteOrigin -&gt; [Header]
+(HeaderName -&gt; RouteOrigin -&gt; [Header]) -&gt; ToHeader RouteOrigin
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RouteOrigin -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RouteOrigin -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681145000"><span class="annot"><span class="annottext">RouteOrigin -&gt; QueryString
+(RouteOrigin -&gt; QueryString) -&gt; ToQuery RouteOrigin
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RouteOrigin -&gt; QueryString
+$ctoQuery :: RouteOrigin -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681144995"><span id="local-6989586621681144997"><span class="annot"><span class="annottext">Value -&gt; Parser [RouteOrigin]
+Value -&gt; Parser RouteOrigin
+(Value -&gt; Parser RouteOrigin)
+-&gt; (Value -&gt; Parser [RouteOrigin]) -&gt; FromJSON RouteOrigin
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RouteOrigin]
+$cparseJSONList :: Value -&gt; Parser [RouteOrigin]
+parseJSON :: Value -&gt; Parser RouteOrigin
+$cparseJSON :: Value -&gt; Parser RouteOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681144990"><span id="local-6989586621681144992"><span class="annot"><span class="annottext">FromJSONKeyFunction [RouteOrigin]
+FromJSONKeyFunction RouteOrigin
+FromJSONKeyFunction RouteOrigin
+-&gt; FromJSONKeyFunction [RouteOrigin] -&gt; FromJSONKey RouteOrigin
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RouteOrigin]
+$cfromJSONKeyList :: FromJSONKeyFunction [RouteOrigin]
+fromJSONKey :: FromJSONKeyFunction RouteOrigin
+$cfromJSONKey :: FromJSONKeyFunction RouteOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681144981"><span id="local-6989586621681144983"><span id="local-6989586621681144985"><span id="local-6989586621681144987"><span class="annot"><span class="annottext">[RouteOrigin] -&gt; Encoding
+[RouteOrigin] -&gt; Value
+RouteOrigin -&gt; Encoding
+RouteOrigin -&gt; Value
+(RouteOrigin -&gt; Value)
+-&gt; (RouteOrigin -&gt; Encoding)
+-&gt; ([RouteOrigin] -&gt; Value)
+-&gt; ([RouteOrigin] -&gt; Encoding)
+-&gt; ToJSON RouteOrigin
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RouteOrigin] -&gt; Encoding
+$ctoEncodingList :: [RouteOrigin] -&gt; Encoding
+toJSONList :: [RouteOrigin] -&gt; Value
+$ctoJSONList :: [RouteOrigin] -&gt; Value
+toEncoding :: RouteOrigin -&gt; Encoding
+$ctoEncoding :: RouteOrigin -&gt; Encoding
+toJSON :: RouteOrigin -&gt; Value
+$ctoJSON :: RouteOrigin -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681144976"><span id="local-6989586621681144978"><span class="annot"><span class="annottext">ToJSONKeyFunction [RouteOrigin]
+ToJSONKeyFunction RouteOrigin
+ToJSONKeyFunction RouteOrigin
+-&gt; ToJSONKeyFunction [RouteOrigin] -&gt; ToJSONKey RouteOrigin
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RouteOrigin]
+$ctoJSONKeyList :: ToJSONKeyFunction [RouteOrigin]
+toJSONKey :: ToJSONKeyFunction RouteOrigin
+$ctoJSONKey :: ToJSONKeyFunction RouteOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681144973"><span class="annot"><span class="annottext">[Node] -&gt; Either String RouteOrigin
+([Node] -&gt; Either String RouteOrigin) -&gt; FromXML RouteOrigin
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RouteOrigin
+$cparseXML :: [Node] -&gt; Either String RouteOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681144970"><span class="annot"><span class="annottext">RouteOrigin -&gt; XML
+(RouteOrigin -&gt; XML) -&gt; ToXML RouteOrigin
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RouteOrigin -&gt; XML
+$ctoXML :: RouteOrigin -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin_CreateRoute"><span class="hs-identifier hs-type">RouteOrigin_CreateRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin"><span class="hs-identifier hs-type">RouteOrigin</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRouteOrigin_CreateRoute"><span id="%24mRouteOrigin_CreateRoute"><span id="RouteOrigin_CreateRoute"><span class="annot"><span class="annottext">$bRouteOrigin_CreateRoute :: RouteOrigin
+$mRouteOrigin_CreateRoute :: forall r. RouteOrigin -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.RouteOrigin.html#%24bRouteOrigin_CreateRoute"><span class="hs-identifier hs-var hs-var hs-var">RouteOrigin_CreateRoute</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin%27"><span class="hs-identifier hs-type">RouteOrigin'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreateRoute&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin_CreateRouteTable"><span class="hs-identifier hs-type">RouteOrigin_CreateRouteTable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin"><span class="hs-identifier hs-type">RouteOrigin</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRouteOrigin_CreateRouteTable"><span id="%24mRouteOrigin_CreateRouteTable"><span id="RouteOrigin_CreateRouteTable"><span class="annot"><span class="annottext">$bRouteOrigin_CreateRouteTable :: RouteOrigin
+$mRouteOrigin_CreateRouteTable :: forall r. RouteOrigin -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.RouteOrigin.html#%24bRouteOrigin_CreateRouteTable"><span class="hs-identifier hs-var hs-var hs-var">RouteOrigin_CreateRouteTable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin%27"><span class="hs-identifier hs-type">RouteOrigin'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreateRouteTable&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin_EnableVgwRoutePropagation"><span class="hs-identifier hs-type">RouteOrigin_EnableVgwRoutePropagation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin"><span class="hs-identifier hs-type">RouteOrigin</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRouteOrigin_EnableVgwRoutePropagation"><span id="%24mRouteOrigin_EnableVgwRoutePropagation"><span id="RouteOrigin_EnableVgwRoutePropagation"><span class="annot"><span class="annottext">$bRouteOrigin_EnableVgwRoutePropagation :: RouteOrigin
+$mRouteOrigin_EnableVgwRoutePropagation :: forall r. RouteOrigin -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.RouteOrigin.html#%24bRouteOrigin_EnableVgwRoutePropagation"><span class="hs-identifier hs-var hs-var hs-var">RouteOrigin_EnableVgwRoutePropagation</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin%27"><span class="hs-identifier hs-type">RouteOrigin'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EnableVgwRoutePropagation&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin_CreateRoute"><span class="hs-pragma hs-type">RouteOrigin_CreateRoute</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin_CreateRouteTable"><span class="hs-pragma hs-type">RouteOrigin_CreateRouteTable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin_EnableVgwRoutePropagation"><span class="hs-pragma hs-type">RouteOrigin_EnableVgwRoutePropagation</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.RouteOrigin.html#RouteOrigin%27"><span class="hs-pragma hs-type">RouteOrigin'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

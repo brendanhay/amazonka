@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.Types.ExpressionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.Types.ExpressionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier">ExpressionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType_MqttTopic"><span class="hs-identifier">ExpressionType_MqttTopic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType_RuleName"><span class="hs-identifier">ExpressionType_RuleName</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679273762"><span id="local-6989586621679273763"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExpressionType"><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-var">ExpressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpressionType%27"><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType%27"><span class="hs-identifier hs-var">ExpressionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExpressionType"><span class="annot"><span class="annottext">ExpressionType -&gt; Text
+</span><a href="Amazonka.IoTWireless.Types.ExpressionType.html#fromExpressionType"><span class="hs-identifier hs-var hs-var">fromExpressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273754"><span id="local-6989586621679273756"><span id="local-6989586621679273758"><span class="annot"><span class="annottext">Int -&gt; ExpressionType -&gt; ShowS
+[ExpressionType] -&gt; ShowS
+ExpressionType -&gt; String
+(Int -&gt; ExpressionType -&gt; ShowS)
+-&gt; (ExpressionType -&gt; String)
+-&gt; ([ExpressionType] -&gt; ShowS)
+-&gt; Show ExpressionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExpressionType] -&gt; ShowS
+$cshowList :: [ExpressionType] -&gt; ShowS
+show :: ExpressionType -&gt; String
+$cshow :: ExpressionType -&gt; String
+showsPrec :: Int -&gt; ExpressionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExpressionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679273745"><span id="local-6989586621679273747"><span id="local-6989586621679273749"><span id="local-6989586621679273751"><span class="annot"><span class="annottext">ReadPrec [ExpressionType]
+ReadPrec ExpressionType
+Int -&gt; ReadS ExpressionType
+ReadS [ExpressionType]
+(Int -&gt; ReadS ExpressionType)
+-&gt; ReadS [ExpressionType]
+-&gt; ReadPrec ExpressionType
+-&gt; ReadPrec [ExpressionType]
+-&gt; Read ExpressionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExpressionType]
+$creadListPrec :: ReadPrec [ExpressionType]
+readPrec :: ReadPrec ExpressionType
+$creadPrec :: ReadPrec ExpressionType
+readList :: ReadS [ExpressionType]
+$creadList :: ReadS [ExpressionType]
+readsPrec :: Int -&gt; ReadS ExpressionType
+$creadsPrec :: Int -&gt; ReadS ExpressionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273740"><span id="local-6989586621679273742"><span class="annot"><span class="annottext">ExpressionType -&gt; ExpressionType -&gt; Bool
+(ExpressionType -&gt; ExpressionType -&gt; Bool)
+-&gt; (ExpressionType -&gt; ExpressionType -&gt; Bool) -&gt; Eq ExpressionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExpressionType -&gt; ExpressionType -&gt; Bool
+$c/= :: ExpressionType -&gt; ExpressionType -&gt; Bool
+== :: ExpressionType -&gt; ExpressionType -&gt; Bool
+$c== :: ExpressionType -&gt; ExpressionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273724"><span id="local-6989586621679273726"><span id="local-6989586621679273728"><span id="local-6989586621679273730"><span id="local-6989586621679273732"><span id="local-6989586621679273734"><span id="local-6989586621679273736"><span class="annot"><span class="annottext">Eq ExpressionType
+Eq ExpressionType
+-&gt; (ExpressionType -&gt; ExpressionType -&gt; Ordering)
+-&gt; (ExpressionType -&gt; ExpressionType -&gt; Bool)
+-&gt; (ExpressionType -&gt; ExpressionType -&gt; Bool)
+-&gt; (ExpressionType -&gt; ExpressionType -&gt; Bool)
+-&gt; (ExpressionType -&gt; ExpressionType -&gt; Bool)
+-&gt; (ExpressionType -&gt; ExpressionType -&gt; ExpressionType)
+-&gt; (ExpressionType -&gt; ExpressionType -&gt; ExpressionType)
+-&gt; Ord ExpressionType
+ExpressionType -&gt; ExpressionType -&gt; Bool
+ExpressionType -&gt; ExpressionType -&gt; Ordering
+ExpressionType -&gt; ExpressionType -&gt; ExpressionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExpressionType -&gt; ExpressionType -&gt; ExpressionType
+$cmin :: ExpressionType -&gt; ExpressionType -&gt; ExpressionType
+max :: ExpressionType -&gt; ExpressionType -&gt; ExpressionType
+$cmax :: ExpressionType -&gt; ExpressionType -&gt; ExpressionType
+&gt;= :: ExpressionType -&gt; ExpressionType -&gt; Bool
+$c&gt;= :: ExpressionType -&gt; ExpressionType -&gt; Bool
+&gt; :: ExpressionType -&gt; ExpressionType -&gt; Bool
+$c&gt; :: ExpressionType -&gt; ExpressionType -&gt; Bool
+&lt;= :: ExpressionType -&gt; ExpressionType -&gt; Bool
+$c&lt;= :: ExpressionType -&gt; ExpressionType -&gt; Bool
+&lt; :: ExpressionType -&gt; ExpressionType -&gt; Bool
+$c&lt; :: ExpressionType -&gt; ExpressionType -&gt; Bool
+compare :: ExpressionType -&gt; ExpressionType -&gt; Ordering
+$ccompare :: ExpressionType -&gt; ExpressionType -&gt; Ordering
+$cp1Ord :: Eq ExpressionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExpressionType -&gt; Rep ExpressionType x)
+-&gt; (forall x. Rep ExpressionType x -&gt; ExpressionType)
+-&gt; Generic ExpressionType
+forall x. Rep ExpressionType x -&gt; ExpressionType
+forall x. ExpressionType -&gt; Rep ExpressionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExpressionType x -&gt; ExpressionType
+$cfrom :: forall x. ExpressionType -&gt; Rep ExpressionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273716"><span id="local-6989586621679273718"><span class="annot"><span class="annottext">Int -&gt; ExpressionType -&gt; Int
+ExpressionType -&gt; Int
+(Int -&gt; ExpressionType -&gt; Int)
+-&gt; (ExpressionType -&gt; Int) -&gt; Hashable ExpressionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExpressionType -&gt; Int
+$chash :: ExpressionType -&gt; Int
+hashWithSalt :: Int -&gt; ExpressionType -&gt; Int
+$chashWithSalt :: Int -&gt; ExpressionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679273713"><span class="annot"><span class="annottext">ExpressionType -&gt; ()
+(ExpressionType -&gt; ()) -&gt; NFData ExpressionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExpressionType -&gt; ()
+$crnf :: ExpressionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273710"><span class="annot"><span class="annottext">Text -&gt; Either String ExpressionType
+(Text -&gt; Either String ExpressionType) -&gt; FromText ExpressionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExpressionType
+$cfromText :: Text -&gt; Either String ExpressionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273707"><span class="annot"><span class="annottext">ExpressionType -&gt; Text
+(ExpressionType -&gt; Text) -&gt; ToText ExpressionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExpressionType -&gt; Text
+$ctoText :: ExpressionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273704"><span class="annot"><span class="annottext">ExpressionType -&gt; ByteString
+(ExpressionType -&gt; ByteString) -&gt; ToByteString ExpressionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExpressionType -&gt; ByteString
+$ctoBS :: ExpressionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273701"><span class="annot"><span class="annottext">ExpressionType -&gt; ByteStringBuilder
+(ExpressionType -&gt; ByteStringBuilder) -&gt; ToLog ExpressionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExpressionType -&gt; ByteStringBuilder
+$cbuild :: ExpressionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273698"><span class="annot"><span class="annottext">HeaderName -&gt; ExpressionType -&gt; [Header]
+(HeaderName -&gt; ExpressionType -&gt; [Header])
+-&gt; ToHeader ExpressionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExpressionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExpressionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273695"><span class="annot"><span class="annottext">ExpressionType -&gt; QueryString
+(ExpressionType -&gt; QueryString) -&gt; ToQuery ExpressionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExpressionType -&gt; QueryString
+$ctoQuery :: ExpressionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273690"><span id="local-6989586621679273692"><span class="annot"><span class="annottext">Value -&gt; Parser [ExpressionType]
+Value -&gt; Parser ExpressionType
+(Value -&gt; Parser ExpressionType)
+-&gt; (Value -&gt; Parser [ExpressionType]) -&gt; FromJSON ExpressionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExpressionType]
+$cparseJSONList :: Value -&gt; Parser [ExpressionType]
+parseJSON :: Value -&gt; Parser ExpressionType
+$cparseJSON :: Value -&gt; Parser ExpressionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273685"><span id="local-6989586621679273687"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExpressionType]
+FromJSONKeyFunction ExpressionType
+FromJSONKeyFunction ExpressionType
+-&gt; FromJSONKeyFunction [ExpressionType]
+-&gt; FromJSONKey ExpressionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExpressionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExpressionType]
+fromJSONKey :: FromJSONKeyFunction ExpressionType
+$cfromJSONKey :: FromJSONKeyFunction ExpressionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273676"><span id="local-6989586621679273678"><span id="local-6989586621679273680"><span id="local-6989586621679273682"><span class="annot"><span class="annottext">[ExpressionType] -&gt; Encoding
+[ExpressionType] -&gt; Value
+ExpressionType -&gt; Encoding
+ExpressionType -&gt; Value
+(ExpressionType -&gt; Value)
+-&gt; (ExpressionType -&gt; Encoding)
+-&gt; ([ExpressionType] -&gt; Value)
+-&gt; ([ExpressionType] -&gt; Encoding)
+-&gt; ToJSON ExpressionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExpressionType] -&gt; Encoding
+$ctoEncodingList :: [ExpressionType] -&gt; Encoding
+toJSONList :: [ExpressionType] -&gt; Value
+$ctoJSONList :: [ExpressionType] -&gt; Value
+toEncoding :: ExpressionType -&gt; Encoding
+$ctoEncoding :: ExpressionType -&gt; Encoding
+toJSON :: ExpressionType -&gt; Value
+$ctoJSON :: ExpressionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273671"><span id="local-6989586621679273673"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExpressionType]
+ToJSONKeyFunction ExpressionType
+ToJSONKeyFunction ExpressionType
+-&gt; ToJSONKeyFunction [ExpressionType] -&gt; ToJSONKey ExpressionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExpressionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExpressionType]
+toJSONKey :: ToJSONKeyFunction ExpressionType
+$ctoJSONKey :: ToJSONKeyFunction ExpressionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273668"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExpressionType
+([Node] -&gt; Either String ExpressionType) -&gt; FromXML ExpressionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExpressionType
+$cparseXML :: [Node] -&gt; Either String ExpressionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273665"><span class="annot"><span class="annottext">ExpressionType -&gt; XML
+(ExpressionType -&gt; XML) -&gt; ToXML ExpressionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExpressionType -&gt; XML
+$ctoXML :: ExpressionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType_MqttTopic"><span class="hs-identifier hs-type">ExpressionType_MqttTopic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-type">ExpressionType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExpressionType_MqttTopic"><span id="%24mExpressionType_MqttTopic"><span id="ExpressionType_MqttTopic"><span class="annot"><span class="annottext">$bExpressionType_MqttTopic :: ExpressionType
+$mExpressionType_MqttTopic :: forall r. ExpressionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.ExpressionType.html#%24bExpressionType_MqttTopic"><span class="hs-identifier hs-var hs-var hs-var">ExpressionType_MqttTopic</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType%27"><span class="hs-identifier hs-type">ExpressionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MqttTopic&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType_RuleName"><span class="hs-identifier hs-type">ExpressionType_RuleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-type">ExpressionType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExpressionType_RuleName"><span id="%24mExpressionType_RuleName"><span id="ExpressionType_RuleName"><span class="annot"><span class="annottext">$bExpressionType_RuleName :: ExpressionType
+$mExpressionType_RuleName :: forall r. ExpressionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.ExpressionType.html#%24bExpressionType_RuleName"><span class="hs-identifier hs-var hs-var hs-var">ExpressionType_RuleName</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType%27"><span class="hs-identifier hs-type">ExpressionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RuleName&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType_MqttTopic"><span class="hs-pragma hs-type">ExpressionType_MqttTopic</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType_RuleName"><span class="hs-pragma hs-type">ExpressionType_RuleName</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.ExpressionType.html#ExpressionType%27"><span class="hs-pragma hs-type">ExpressionType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ResourceGroups.Types.QueryErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ResourceGroups.Types.QueryErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode"><span class="hs-identifier">QueryErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE"><span class="hs-identifier">QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING"><span class="hs-identifier">QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679176161"><span id="local-6989586621679176162"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QueryErrorCode"><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode"><span class="hs-identifier hs-var">QueryErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryErrorCode%27"><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode%27"><span class="hs-identifier hs-var">QueryErrorCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQueryErrorCode"><span class="annot"><span class="annottext">QueryErrorCode -&gt; Text
+</span><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#fromQueryErrorCode"><span class="hs-identifier hs-var hs-var">fromQueryErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176153"><span id="local-6989586621679176155"><span id="local-6989586621679176157"><span class="annot"><span class="annottext">Int -&gt; QueryErrorCode -&gt; ShowS
+[QueryErrorCode] -&gt; ShowS
+QueryErrorCode -&gt; String
+(Int -&gt; QueryErrorCode -&gt; ShowS)
+-&gt; (QueryErrorCode -&gt; String)
+-&gt; ([QueryErrorCode] -&gt; ShowS)
+-&gt; Show QueryErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [QueryErrorCode] -&gt; ShowS
+$cshowList :: [QueryErrorCode] -&gt; ShowS
+show :: QueryErrorCode -&gt; String
+$cshow :: QueryErrorCode -&gt; String
+showsPrec :: Int -&gt; QueryErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; QueryErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679176144"><span id="local-6989586621679176146"><span id="local-6989586621679176148"><span id="local-6989586621679176150"><span class="annot"><span class="annottext">ReadPrec [QueryErrorCode]
+ReadPrec QueryErrorCode
+Int -&gt; ReadS QueryErrorCode
+ReadS [QueryErrorCode]
+(Int -&gt; ReadS QueryErrorCode)
+-&gt; ReadS [QueryErrorCode]
+-&gt; ReadPrec QueryErrorCode
+-&gt; ReadPrec [QueryErrorCode]
+-&gt; Read QueryErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [QueryErrorCode]
+$creadListPrec :: ReadPrec [QueryErrorCode]
+readPrec :: ReadPrec QueryErrorCode
+$creadPrec :: ReadPrec QueryErrorCode
+readList :: ReadS [QueryErrorCode]
+$creadList :: ReadS [QueryErrorCode]
+readsPrec :: Int -&gt; ReadS QueryErrorCode
+$creadsPrec :: Int -&gt; ReadS QueryErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679176139"><span id="local-6989586621679176141"><span class="annot"><span class="annottext">QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+(QueryErrorCode -&gt; QueryErrorCode -&gt; Bool)
+-&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; Bool) -&gt; Eq QueryErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+$c/= :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+== :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+$c== :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679176123"><span id="local-6989586621679176125"><span id="local-6989586621679176127"><span id="local-6989586621679176129"><span id="local-6989586621679176131"><span id="local-6989586621679176133"><span id="local-6989586621679176135"><span class="annot"><span class="annottext">Eq QueryErrorCode
+Eq QueryErrorCode
+-&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; Ordering)
+-&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; Bool)
+-&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; Bool)
+-&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; Bool)
+-&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; Bool)
+-&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; QueryErrorCode)
+-&gt; (QueryErrorCode -&gt; QueryErrorCode -&gt; QueryErrorCode)
+-&gt; Ord QueryErrorCode
+QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+QueryErrorCode -&gt; QueryErrorCode -&gt; Ordering
+QueryErrorCode -&gt; QueryErrorCode -&gt; QueryErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: QueryErrorCode -&gt; QueryErrorCode -&gt; QueryErrorCode
+$cmin :: QueryErrorCode -&gt; QueryErrorCode -&gt; QueryErrorCode
+max :: QueryErrorCode -&gt; QueryErrorCode -&gt; QueryErrorCode
+$cmax :: QueryErrorCode -&gt; QueryErrorCode -&gt; QueryErrorCode
+&gt;= :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+$c&gt;= :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+&gt; :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+$c&gt; :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+&lt;= :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+$c&lt;= :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+&lt; :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+$c&lt; :: QueryErrorCode -&gt; QueryErrorCode -&gt; Bool
+compare :: QueryErrorCode -&gt; QueryErrorCode -&gt; Ordering
+$ccompare :: QueryErrorCode -&gt; QueryErrorCode -&gt; Ordering
+$cp1Ord :: Eq QueryErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. QueryErrorCode -&gt; Rep QueryErrorCode x)
+-&gt; (forall x. Rep QueryErrorCode x -&gt; QueryErrorCode)
+-&gt; Generic QueryErrorCode
+forall x. Rep QueryErrorCode x -&gt; QueryErrorCode
+forall x. QueryErrorCode -&gt; Rep QueryErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep QueryErrorCode x -&gt; QueryErrorCode
+$cfrom :: forall x. QueryErrorCode -&gt; Rep QueryErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176115"><span id="local-6989586621679176117"><span class="annot"><span class="annottext">Int -&gt; QueryErrorCode -&gt; Int
+QueryErrorCode -&gt; Int
+(Int -&gt; QueryErrorCode -&gt; Int)
+-&gt; (QueryErrorCode -&gt; Int) -&gt; Hashable QueryErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: QueryErrorCode -&gt; Int
+$chash :: QueryErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; QueryErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; QueryErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679176112"><span class="annot"><span class="annottext">QueryErrorCode -&gt; ()
+(QueryErrorCode -&gt; ()) -&gt; NFData QueryErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: QueryErrorCode -&gt; ()
+$crnf :: QueryErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679176109"><span class="annot"><span class="annottext">Text -&gt; Either String QueryErrorCode
+(Text -&gt; Either String QueryErrorCode) -&gt; FromText QueryErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String QueryErrorCode
+$cfromText :: Text -&gt; Either String QueryErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176106"><span class="annot"><span class="annottext">QueryErrorCode -&gt; Text
+(QueryErrorCode -&gt; Text) -&gt; ToText QueryErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: QueryErrorCode -&gt; Text
+$ctoText :: QueryErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176103"><span class="annot"><span class="annottext">QueryErrorCode -&gt; ByteString
+(QueryErrorCode -&gt; ByteString) -&gt; ToByteString QueryErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: QueryErrorCode -&gt; ByteString
+$ctoBS :: QueryErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176100"><span class="annot"><span class="annottext">QueryErrorCode -&gt; ByteStringBuilder
+(QueryErrorCode -&gt; ByteStringBuilder) -&gt; ToLog QueryErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: QueryErrorCode -&gt; ByteStringBuilder
+$cbuild :: QueryErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176097"><span class="annot"><span class="annottext">HeaderName -&gt; QueryErrorCode -&gt; [Header]
+(HeaderName -&gt; QueryErrorCode -&gt; [Header])
+-&gt; ToHeader QueryErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; QueryErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; QueryErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679176094"><span class="annot"><span class="annottext">QueryErrorCode -&gt; QueryString
+(QueryErrorCode -&gt; QueryString) -&gt; ToQuery QueryErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: QueryErrorCode -&gt; QueryString
+$ctoQuery :: QueryErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679176089"><span id="local-6989586621679176091"><span class="annot"><span class="annottext">Value -&gt; Parser [QueryErrorCode]
+Value -&gt; Parser QueryErrorCode
+(Value -&gt; Parser QueryErrorCode)
+-&gt; (Value -&gt; Parser [QueryErrorCode]) -&gt; FromJSON QueryErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [QueryErrorCode]
+$cparseJSONList :: Value -&gt; Parser [QueryErrorCode]
+parseJSON :: Value -&gt; Parser QueryErrorCode
+$cparseJSON :: Value -&gt; Parser QueryErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679176084"><span id="local-6989586621679176086"><span class="annot"><span class="annottext">FromJSONKeyFunction [QueryErrorCode]
+FromJSONKeyFunction QueryErrorCode
+FromJSONKeyFunction QueryErrorCode
+-&gt; FromJSONKeyFunction [QueryErrorCode]
+-&gt; FromJSONKey QueryErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [QueryErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [QueryErrorCode]
+fromJSONKey :: FromJSONKeyFunction QueryErrorCode
+$cfromJSONKey :: FromJSONKeyFunction QueryErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679176075"><span id="local-6989586621679176077"><span id="local-6989586621679176079"><span id="local-6989586621679176081"><span class="annot"><span class="annottext">[QueryErrorCode] -&gt; Encoding
+[QueryErrorCode] -&gt; Value
+QueryErrorCode -&gt; Encoding
+QueryErrorCode -&gt; Value
+(QueryErrorCode -&gt; Value)
+-&gt; (QueryErrorCode -&gt; Encoding)
+-&gt; ([QueryErrorCode] -&gt; Value)
+-&gt; ([QueryErrorCode] -&gt; Encoding)
+-&gt; ToJSON QueryErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [QueryErrorCode] -&gt; Encoding
+$ctoEncodingList :: [QueryErrorCode] -&gt; Encoding
+toJSONList :: [QueryErrorCode] -&gt; Value
+$ctoJSONList :: [QueryErrorCode] -&gt; Value
+toEncoding :: QueryErrorCode -&gt; Encoding
+$ctoEncoding :: QueryErrorCode -&gt; Encoding
+toJSON :: QueryErrorCode -&gt; Value
+$ctoJSON :: QueryErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679176070"><span id="local-6989586621679176072"><span class="annot"><span class="annottext">ToJSONKeyFunction [QueryErrorCode]
+ToJSONKeyFunction QueryErrorCode
+ToJSONKeyFunction QueryErrorCode
+-&gt; ToJSONKeyFunction [QueryErrorCode] -&gt; ToJSONKey QueryErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [QueryErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [QueryErrorCode]
+toJSONKey :: ToJSONKeyFunction QueryErrorCode
+$ctoJSONKey :: ToJSONKeyFunction QueryErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679176067"><span class="annot"><span class="annottext">[Node] -&gt; Either String QueryErrorCode
+([Node] -&gt; Either String QueryErrorCode) -&gt; FromXML QueryErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String QueryErrorCode
+$cparseXML :: [Node] -&gt; Either String QueryErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679176064"><span class="annot"><span class="annottext">QueryErrorCode -&gt; XML
+(QueryErrorCode -&gt; XML) -&gt; ToXML QueryErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: QueryErrorCode -&gt; XML
+$ctoXML :: QueryErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE"><span class="hs-identifier hs-type">QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode"><span class="hs-identifier hs-type">QueryErrorCode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQueryErrorCode_CLOUDFORMATION_STACK_INACTIVE"><span id="%24mQueryErrorCode_CLOUDFORMATION_STACK_INACTIVE"><span id="QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE"><span class="annot"><span class="annottext">$bQueryErrorCode_CLOUDFORMATION_STACK_INACTIVE :: QueryErrorCode
+$mQueryErrorCode_CLOUDFORMATION_STACK_INACTIVE :: forall r. QueryErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#%24bQueryErrorCode_CLOUDFORMATION_STACK_INACTIVE"><span class="hs-identifier hs-var hs-var hs-var">QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode%27"><span class="hs-identifier hs-type">QueryErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLOUDFORMATION_STACK_INACTIVE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING"><span class="hs-identifier hs-type">QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode"><span class="hs-identifier hs-type">QueryErrorCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bQueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING"><span id="%24mQueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING"><span id="QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING"><span class="annot"><span class="annottext">$bQueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING :: QueryErrorCode
+$mQueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING :: forall r. QueryErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#%24bQueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING"><span class="hs-identifier hs-var hs-var hs-var">QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode%27"><span class="hs-identifier hs-type">QueryErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLOUDFORMATION_STACK_NOT_EXISTING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE"><span class="hs-pragma hs-type">QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING"><span class="hs-pragma hs-type">QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.QueryErrorCode.html#QueryErrorCode%27"><span class="hs-pragma hs-type">QueryErrorCode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

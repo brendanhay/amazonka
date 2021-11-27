@@ -1,0 +1,877 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.NetworkFirewall.UpdateFirewallDescription</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the description for the specified firewall. Use the description</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to help you identify the firewall when you\'re working with it.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkFirewall.UpdateFirewallDescription</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#newUpdateFirewallDescription"><span class="hs-identifier">newUpdateFirewallDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_updateToken"><span class="hs-identifier">updateFirewallDescription_updateToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_firewallArn"><span class="hs-identifier">updateFirewallDescription_firewallArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_description"><span class="hs-identifier">updateFirewallDescription_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_firewallName"><span class="hs-identifier">updateFirewallDescription_firewallName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier">UpdateFirewallDescriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#newUpdateFirewallDescriptionResponse"><span class="hs-identifier">newUpdateFirewallDescriptionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_updateToken"><span class="hs-identifier">updateFirewallDescriptionResponse_updateToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_firewallArn"><span class="hs-identifier">updateFirewallDescriptionResponse_firewallArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_description"><span class="hs-identifier">updateFirewallDescriptionResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_firewallName"><span class="hs-identifier">updateFirewallDescriptionResponse_firewallName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_httpStatus"><span class="hs-identifier">updateFirewallDescriptionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newUpdateFirewallDescription' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679249730"><span id="local-6989586621679249731"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFirewallDescription"><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-var">UpdateFirewallDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFirewallDescription%27"><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-var">UpdateFirewallDescription'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional token that you can use for optimistic locking. Network</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Firewall returns a token to your requests that access the firewall. The</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- token marks the state of the firewall resource at the time of the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- To make an unconditional change to the firewall, omit the token in your</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- update request. Without the token, Network Firewall performs your</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- updates regardless of whether the firewall has changed since you last</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- retrieved it.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- To make a conditional change to the firewall, provide the token in your</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- update request. Network Firewall uses the token to ensure that the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- firewall hasn\'t changed since you last retrieved it. If it has changed,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the operation fails with an @InvalidTokenException@. If this happens,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- retrieve the firewall again to get a current copy of it with a new</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- token. Reapply your changes as needed, then try the operation again</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- using the new token.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AupdateToken%3AUpdateFirewallDescription%27"><span class="annot"><span class="annottext">UpdateFirewallDescription -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AupdateToken%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var hs-var">updateToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- You must specify the ARN or the name, and you can specify both.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AfirewallArn%3AUpdateFirewallDescription%27"><span class="annot"><span class="annottext">UpdateFirewallDescription -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallArn%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var hs-var">firewallArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The new description for the firewall. If you omit this setting, Network</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Firewall removes the description for the firewall.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateFirewallDescription%27"><span class="annot"><span class="annottext">UpdateFirewallDescription -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3Adescription%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The descriptive name of the firewall. You can\'t change the name of a</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- firewall after you create it.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- You must specify the ARN or the name, and you can specify both.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AfirewallName%3AUpdateFirewallDescription%27"><span class="annot"><span class="annottext">UpdateFirewallDescription -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallName%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var hs-var">firewallName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249721"><span id="local-6989586621679249723"><span class="annot"><span class="annottext">UpdateFirewallDescription -&gt; UpdateFirewallDescription -&gt; Bool
+(UpdateFirewallDescription -&gt; UpdateFirewallDescription -&gt; Bool)
+-&gt; (UpdateFirewallDescription -&gt; UpdateFirewallDescription -&gt; Bool)
+-&gt; Eq UpdateFirewallDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFirewallDescription -&gt; UpdateFirewallDescription -&gt; Bool
+$c/= :: UpdateFirewallDescription -&gt; UpdateFirewallDescription -&gt; Bool
+== :: UpdateFirewallDescription -&gt; UpdateFirewallDescription -&gt; Bool
+$c== :: UpdateFirewallDescription -&gt; UpdateFirewallDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249712"><span id="local-6989586621679249714"><span id="local-6989586621679249716"><span id="local-6989586621679249718"><span class="annot"><span class="annottext">ReadPrec [UpdateFirewallDescription]
+ReadPrec UpdateFirewallDescription
+Int -&gt; ReadS UpdateFirewallDescription
+ReadS [UpdateFirewallDescription]
+(Int -&gt; ReadS UpdateFirewallDescription)
+-&gt; ReadS [UpdateFirewallDescription]
+-&gt; ReadPrec UpdateFirewallDescription
+-&gt; ReadPrec [UpdateFirewallDescription]
+-&gt; Read UpdateFirewallDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFirewallDescription]
+$creadListPrec :: ReadPrec [UpdateFirewallDescription]
+readPrec :: ReadPrec UpdateFirewallDescription
+$creadPrec :: ReadPrec UpdateFirewallDescription
+readList :: ReadS [UpdateFirewallDescription]
+$creadList :: ReadS [UpdateFirewallDescription]
+readsPrec :: Int -&gt; ReadS UpdateFirewallDescription
+$creadsPrec :: Int -&gt; ReadS UpdateFirewallDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249705"><span id="local-6989586621679249707"><span id="local-6989586621679249709"><span class="annot"><span class="annottext">Int -&gt; UpdateFirewallDescription -&gt; ShowS
+[UpdateFirewallDescription] -&gt; ShowS
+UpdateFirewallDescription -&gt; String
+(Int -&gt; UpdateFirewallDescription -&gt; ShowS)
+-&gt; (UpdateFirewallDescription -&gt; String)
+-&gt; ([UpdateFirewallDescription] -&gt; ShowS)
+-&gt; Show UpdateFirewallDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFirewallDescription] -&gt; ShowS
+$cshowList :: [UpdateFirewallDescription] -&gt; ShowS
+show :: UpdateFirewallDescription -&gt; String
+$cshow :: UpdateFirewallDescription -&gt; String
+showsPrec :: Int -&gt; UpdateFirewallDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFirewallDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateFirewallDescription -&gt; Rep UpdateFirewallDescription x)
+-&gt; (forall x.
+    Rep UpdateFirewallDescription x -&gt; UpdateFirewallDescription)
+-&gt; Generic UpdateFirewallDescription
+forall x.
+Rep UpdateFirewallDescription x -&gt; UpdateFirewallDescription
+forall x.
+UpdateFirewallDescription -&gt; Rep UpdateFirewallDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateFirewallDescription x -&gt; UpdateFirewallDescription
+$cfrom :: forall x.
+UpdateFirewallDescription -&gt; Rep UpdateFirewallDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Create a value of 'UpdateFirewallDescription' with all optional fields omitted.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'updateToken', 'updateFirewallDescription_updateToken' - An optional token that you can use for optimistic locking. Network</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Firewall returns a token to your requests that access the firewall. The</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- token marks the state of the firewall resource at the time of the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- To make an unconditional change to the firewall, omit the token in your</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- update request. Without the token, Network Firewall performs your</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- updates regardless of whether the firewall has changed since you last</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- retrieved it.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- To make a conditional change to the firewall, provide the token in your</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- update request. Network Firewall uses the token to ensure that the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- firewall hasn\'t changed since you last retrieved it. If it has changed,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the operation fails with an @InvalidTokenException@. If this happens,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- retrieve the firewall again to get a current copy of it with a new</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- token. Reapply your changes as needed, then try the operation again</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- using the new token.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'firewallArn', 'updateFirewallDescription_firewallArn' - The Amazon Resource Name (ARN) of the firewall.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- You must specify the ARN or the name, and you can specify both.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'description', 'updateFirewallDescription_description' - The new description for the firewall. If you omit this setting, Network</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Firewall removes the description for the firewall.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'firewallName', 'updateFirewallDescription_firewallName' - The descriptive name of the firewall. You can\'t change the name of a</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- firewall after you create it.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- You must specify the ARN or the name, and you can specify both.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#newUpdateFirewallDescription"><span class="hs-identifier hs-type">newUpdateFirewallDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span>
+</span><span id="line-130"></span><span id="newUpdateFirewallDescription"><span class="annot"><span class="annottext">newUpdateFirewallDescription :: UpdateFirewallDescription
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#newUpdateFirewallDescription"><span class="hs-identifier hs-var hs-var">newUpdateFirewallDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">UpdateFirewallDescription' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; UpdateFirewallDescription
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:updateToken:UpdateFirewallDescription' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AupdateToken%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var">updateToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:firewallArn:UpdateFirewallDescription' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallArn%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var">firewallArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateFirewallDescription' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3Adescription%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:firewallName:UpdateFirewallDescription' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallName%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var">firewallName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | An optional token that you can use for optimistic locking. Network</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Firewall returns a token to your requests that access the firewall. The</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- token marks the state of the firewall resource at the time of the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- To make an unconditional change to the firewall, omit the token in your</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- update request. Without the token, Network Firewall performs your</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- updates regardless of whether the firewall has changed since you last</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- retrieved it.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- To make a conditional change to the firewall, provide the token in your</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- update request. Network Firewall uses the token to ensure that the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- firewall hasn\'t changed since you last retrieved it. If it has changed,</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the operation fails with an @InvalidTokenException@. If this happens,</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- retrieve the firewall again to get a current copy of it with a new</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- token. Reapply your changes as needed, then try the operation again</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- using the new token.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_updateToken"><span class="hs-identifier hs-type">updateFirewallDescription_updateToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="updateFirewallDescription_updateToken"><span class="annot"><span class="annottext">updateFirewallDescription_updateToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallDescription -&gt; f UpdateFirewallDescription
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_updateToken"><span class="hs-identifier hs-var hs-var">updateFirewallDescription_updateToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallDescription -&gt; Maybe Text)
+-&gt; (UpdateFirewallDescription
+    -&gt; Maybe Text -&gt; UpdateFirewallDescription)
+-&gt; Lens
+     UpdateFirewallDescription
+     UpdateFirewallDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249698"><span class="annot"><span class="annottext">Maybe Text
+updateToken :: Maybe Text
+$sel:updateToken:UpdateFirewallDescription' :: UpdateFirewallDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679249698"><span class="hs-identifier hs-var hs-var">updateToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249698"><span class="hs-identifier hs-var">updateToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249697"><span class="annot"><span class="annottext">s :: UpdateFirewallDescription
+</span><a href="#local-6989586621679249697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249696"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallDescription
+</span><a href="#local-6989586621679249697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateToken:UpdateFirewallDescription' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AupdateToken%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var">updateToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- You must specify the ARN or the name, and you can specify both.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_firewallArn"><span class="hs-identifier hs-type">updateFirewallDescription_firewallArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="updateFirewallDescription_firewallArn"><span class="annot"><span class="annottext">updateFirewallDescription_firewallArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallDescription -&gt; f UpdateFirewallDescription
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_firewallArn"><span class="hs-identifier hs-var hs-var">updateFirewallDescription_firewallArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallDescription -&gt; Maybe Text)
+-&gt; (UpdateFirewallDescription
+    -&gt; Maybe Text -&gt; UpdateFirewallDescription)
+-&gt; Lens
+     UpdateFirewallDescription
+     UpdateFirewallDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249695"><span class="annot"><span class="annottext">Maybe Text
+firewallArn :: Maybe Text
+$sel:firewallArn:UpdateFirewallDescription' :: UpdateFirewallDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679249695"><span class="hs-identifier hs-var hs-var">firewallArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249695"><span class="hs-identifier hs-var">firewallArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249694"><span class="annot"><span class="annottext">s :: UpdateFirewallDescription
+</span><a href="#local-6989586621679249694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249693"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallDescription
+</span><a href="#local-6989586621679249694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallArn:UpdateFirewallDescription' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallArn%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var">firewallArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The new description for the firewall. If you omit this setting, Network</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Firewall removes the description for the firewall.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_description"><span class="hs-identifier hs-type">updateFirewallDescription_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="updateFirewallDescription_description"><span class="annot"><span class="annottext">updateFirewallDescription_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallDescription -&gt; f UpdateFirewallDescription
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_description"><span class="hs-identifier hs-var hs-var">updateFirewallDescription_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallDescription -&gt; Maybe Text)
+-&gt; (UpdateFirewallDescription
+    -&gt; Maybe Text -&gt; UpdateFirewallDescription)
+-&gt; Lens
+     UpdateFirewallDescription
+     UpdateFirewallDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249692"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateFirewallDescription' :: UpdateFirewallDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679249692"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249692"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249691"><span class="annot"><span class="annottext">s :: UpdateFirewallDescription
+</span><a href="#local-6989586621679249691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249690"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallDescription
+</span><a href="#local-6989586621679249691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateFirewallDescription' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3Adescription%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The descriptive name of the firewall. You can\'t change the name of a</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- firewall after you create it.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- You must specify the ARN or the name, and you can specify both.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_firewallName"><span class="hs-identifier hs-type">updateFirewallDescription_firewallName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="updateFirewallDescription_firewallName"><span class="annot"><span class="annottext">updateFirewallDescription_firewallName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallDescription -&gt; f UpdateFirewallDescription
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescription_firewallName"><span class="hs-identifier hs-var hs-var">updateFirewallDescription_firewallName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallDescription -&gt; Maybe Text)
+-&gt; (UpdateFirewallDescription
+    -&gt; Maybe Text -&gt; UpdateFirewallDescription)
+-&gt; Lens
+     UpdateFirewallDescription
+     UpdateFirewallDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249689"><span class="annot"><span class="annottext">Maybe Text
+firewallName :: Maybe Text
+$sel:firewallName:UpdateFirewallDescription' :: UpdateFirewallDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679249689"><span class="hs-identifier hs-var hs-var">firewallName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249689"><span class="hs-identifier hs-var">firewallName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249688"><span class="annot"><span class="annottext">s :: UpdateFirewallDescription
+</span><a href="#local-6989586621679249688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249687"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallDescription
+</span><a href="#local-6989586621679249688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallName:UpdateFirewallDescription' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallName%3AUpdateFirewallDescription%27"><span class="hs-identifier hs-var">firewallName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679249683"><span class="annot"><span class="annottext">request :: UpdateFirewallDescription -&gt; Request UpdateFirewallDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateFirewallDescription -&gt; Request UpdateFirewallDescription
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679249679"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateFirewallDescription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFirewallDescription)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateFirewallDescription))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateFirewallDescription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFirewallDescription)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249676"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249676"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249675"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679249675"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249674"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249674"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateFirewallDescriptionResponse
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateFirewallDescriptionResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateFirewallDescriptionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; UpdateFirewallDescriptionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; UpdateFirewallDescriptionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateFirewallDescriptionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateFirewallDescriptionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249676"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249666"><span id="local-6989586621679249668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span></span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679249659"><span class="annot"><span class="annottext">toHeaders :: UpdateFirewallDescription -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateFirewallDescription -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NetworkFirewall_20201112.UpdateFirewallDescription&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-204"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-208"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249649"><span id="local-6989586621679249651"><span id="local-6989586621679249653"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679249647"><span class="annot"><span class="annottext">toJSON :: UpdateFirewallDescription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription%27"><span class="hs-identifier hs-type">UpdateFirewallDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249642"><span id="local-6989586621679249643"><span id="local-6989586621679249644"><span id="local-6989586621679249645"><span class="annot"><span class="annottext">Maybe Text
+firewallName :: Maybe Text
+description :: Maybe Text
+firewallArn :: Maybe Text
+updateToken :: Maybe Text
+$sel:firewallName:UpdateFirewallDescription' :: UpdateFirewallDescription -&gt; Maybe Text
+$sel:description:UpdateFirewallDescription' :: UpdateFirewallDescription -&gt; Maybe Text
+$sel:firewallArn:UpdateFirewallDescription' :: UpdateFirewallDescription -&gt; Maybe Text
+$sel:updateToken:UpdateFirewallDescription' :: UpdateFirewallDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679249642"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249645"><span class="hs-identifier hs-var">updateToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249644"><span class="hs-identifier hs-var">firewallArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249643"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249642"><span class="hs-identifier hs-var">firewallName</span></a></span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679249636"><span class="annot"><span class="annottext">toPath :: UpdateFirewallDescription -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateFirewallDescription -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescription"><span class="hs-identifier hs-type">UpdateFirewallDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679249632"><span class="annot"><span class="annottext">toQuery :: UpdateFirewallDescription -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateFirewallDescription -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | /See:/ 'newUpdateFirewallDescriptionResponse' smart constructor.</span><span>
+</span><span id="line-230"></span><span id="local-6989586621679249629"><span id="local-6989586621679249630"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFirewallDescriptionResponse"><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-var">UpdateFirewallDescriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFirewallDescriptionResponse%27"><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateFirewallDescriptionResponse'</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional token that you can use for optimistic locking. Network</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- Firewall returns a token to your requests that access the firewall. The</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- token marks the state of the firewall resource at the time of the</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- To make an unconditional change to the firewall, omit the token in your</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- update request. Without the token, Network Firewall performs your</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- updates regardless of whether the firewall has changed since you last</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- retrieved it.</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- To make a conditional change to the firewall, provide the token in your</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- update request. Network Firewall uses the token to ensure that the</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- firewall hasn\'t changed since you last retrieved it. If it has changed,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- the operation fails with an @InvalidTokenException@. If this happens,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">-- retrieve the firewall again to get a current copy of it with a new</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">-- token. Reapply your changes as needed, then try the operation again</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- using the new token.</span><span>
+</span><span id="line-248"></span><span>    </span><span id="%24sel%3AupdateToken%3AUpdateFirewallDescriptionResponse%27"><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AupdateToken%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">updateToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3AfirewallArn%3AUpdateFirewallDescriptionResponse%27"><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallArn%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">firewallArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- | A description of the firewall.</span><span>
+</span><span id="line-252"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateFirewallDescriptionResponse%27"><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3Adescription%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- | The descriptive name of the firewall. You can\'t change the name of a</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- firewall after you create it.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AfirewallName%3AUpdateFirewallDescriptionResponse%27"><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallName%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">firewallName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateFirewallDescriptionResponse%27"><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse -&gt; Int
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AhttpStatus%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249620"><span id="local-6989586621679249622"><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse
+-&gt; UpdateFirewallDescriptionResponse -&gt; Bool
+(UpdateFirewallDescriptionResponse
+ -&gt; UpdateFirewallDescriptionResponse -&gt; Bool)
+-&gt; (UpdateFirewallDescriptionResponse
+    -&gt; UpdateFirewallDescriptionResponse -&gt; Bool)
+-&gt; Eq UpdateFirewallDescriptionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFirewallDescriptionResponse
+-&gt; UpdateFirewallDescriptionResponse -&gt; Bool
+$c/= :: UpdateFirewallDescriptionResponse
+-&gt; UpdateFirewallDescriptionResponse -&gt; Bool
+== :: UpdateFirewallDescriptionResponse
+-&gt; UpdateFirewallDescriptionResponse -&gt; Bool
+$c== :: UpdateFirewallDescriptionResponse
+-&gt; UpdateFirewallDescriptionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249612"><span id="local-6989586621679249614"><span id="local-6989586621679249616"><span id="local-6989586621679249618"><span class="annot"><span class="annottext">ReadPrec [UpdateFirewallDescriptionResponse]
+ReadPrec UpdateFirewallDescriptionResponse
+Int -&gt; ReadS UpdateFirewallDescriptionResponse
+ReadS [UpdateFirewallDescriptionResponse]
+(Int -&gt; ReadS UpdateFirewallDescriptionResponse)
+-&gt; ReadS [UpdateFirewallDescriptionResponse]
+-&gt; ReadPrec UpdateFirewallDescriptionResponse
+-&gt; ReadPrec [UpdateFirewallDescriptionResponse]
+-&gt; Read UpdateFirewallDescriptionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFirewallDescriptionResponse]
+$creadListPrec :: ReadPrec [UpdateFirewallDescriptionResponse]
+readPrec :: ReadPrec UpdateFirewallDescriptionResponse
+$creadPrec :: ReadPrec UpdateFirewallDescriptionResponse
+readList :: ReadS [UpdateFirewallDescriptionResponse]
+$creadList :: ReadS [UpdateFirewallDescriptionResponse]
+readsPrec :: Int -&gt; ReadS UpdateFirewallDescriptionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateFirewallDescriptionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249606"><span id="local-6989586621679249608"><span id="local-6989586621679249610"><span class="annot"><span class="annottext">Int -&gt; UpdateFirewallDescriptionResponse -&gt; ShowS
+[UpdateFirewallDescriptionResponse] -&gt; ShowS
+UpdateFirewallDescriptionResponse -&gt; String
+(Int -&gt; UpdateFirewallDescriptionResponse -&gt; ShowS)
+-&gt; (UpdateFirewallDescriptionResponse -&gt; String)
+-&gt; ([UpdateFirewallDescriptionResponse] -&gt; ShowS)
+-&gt; Show UpdateFirewallDescriptionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFirewallDescriptionResponse] -&gt; ShowS
+$cshowList :: [UpdateFirewallDescriptionResponse] -&gt; ShowS
+show :: UpdateFirewallDescriptionResponse -&gt; String
+$cshow :: UpdateFirewallDescriptionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateFirewallDescriptionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFirewallDescriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateFirewallDescriptionResponse
+ -&gt; Rep UpdateFirewallDescriptionResponse x)
+-&gt; (forall x.
+    Rep UpdateFirewallDescriptionResponse x
+    -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Generic UpdateFirewallDescriptionResponse
+forall x.
+Rep UpdateFirewallDescriptionResponse x
+-&gt; UpdateFirewallDescriptionResponse
+forall x.
+UpdateFirewallDescriptionResponse
+-&gt; Rep UpdateFirewallDescriptionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateFirewallDescriptionResponse x
+-&gt; UpdateFirewallDescriptionResponse
+$cfrom :: forall x.
+UpdateFirewallDescriptionResponse
+-&gt; Rep UpdateFirewallDescriptionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Create a value of 'UpdateFirewallDescriptionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'updateToken', 'updateFirewallDescriptionResponse_updateToken' - An optional token that you can use for optimistic locking. Network</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- Firewall returns a token to your requests that access the firewall. The</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- token marks the state of the firewall resource at the time of the</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- To make an unconditional change to the firewall, omit the token in your</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- update request. Without the token, Network Firewall performs your</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- updates regardless of whether the firewall has changed since you last</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- retrieved it.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- To make a conditional change to the firewall, provide the token in your</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- update request. Network Firewall uses the token to ensure that the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- firewall hasn\'t changed since you last retrieved it. If it has changed,</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- the operation fails with an @InvalidTokenException@. If this happens,</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- retrieve the firewall again to get a current copy of it with a new</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- token. Reapply your changes as needed, then try the operation again</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- using the new token.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- 'firewallArn', 'updateFirewallDescriptionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- 'description', 'updateFirewallDescriptionResponse_description' - A description of the firewall.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 'firewallName', 'updateFirewallDescriptionResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- firewall after you create it.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- 'httpStatus', 'updateFirewallDescriptionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#newUpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">newUpdateFirewallDescriptionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-298"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span>
+</span><span id="line-299"></span><span id="newUpdateFirewallDescriptionResponse"><span class="annot"><span class="annottext">newUpdateFirewallDescriptionResponse :: Int -&gt; UpdateFirewallDescriptionResponse
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#newUpdateFirewallDescriptionResponse"><span class="hs-identifier hs-var hs-var">newUpdateFirewallDescriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679249603"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>  </span><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateFirewallDescriptionResponse
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:updateToken:UpdateFirewallDescriptionResponse' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AupdateToken%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">updateToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:firewallArn:UpdateFirewallDescriptionResponse' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallArn%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">firewallArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateFirewallDescriptionResponse' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3Adescription%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:firewallName:UpdateFirewallDescriptionResponse' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallName%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">firewallName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFirewallDescriptionResponse' :: Int
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AhttpStatus%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | An optional token that you can use for optimistic locking. Network</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- Firewall returns a token to your requests that access the firewall. The</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- token marks the state of the firewall resource at the time of the</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- To make an unconditional change to the firewall, omit the token in your</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- update request. Without the token, Network Firewall performs your</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- updates regardless of whether the firewall has changed since you last</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- retrieved it.</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- To make a conditional change to the firewall, provide the token in your</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- update request. Network Firewall uses the token to ensure that the</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- firewall hasn\'t changed since you last retrieved it. If it has changed,</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- the operation fails with an @InvalidTokenException@. If this happens,</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- retrieve the firewall again to get a current copy of it with a new</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- token. Reapply your changes as needed, then try the operation again</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- using the new token.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_updateToken"><span class="hs-identifier hs-type">updateFirewallDescriptionResponse_updateToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span id="updateFirewallDescriptionResponse_updateToken"><span class="annot"><span class="annottext">updateFirewallDescriptionResponse_updateToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallDescriptionResponse
+-&gt; f UpdateFirewallDescriptionResponse
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_updateToken"><span class="hs-identifier hs-var hs-var">updateFirewallDescriptionResponse_updateToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallDescriptionResponse -&gt; Maybe Text)
+-&gt; (UpdateFirewallDescriptionResponse
+    -&gt; Maybe Text -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Lens
+     UpdateFirewallDescriptionResponse
+     UpdateFirewallDescriptionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249602"><span class="annot"><span class="annottext">Maybe Text
+updateToken :: Maybe Text
+$sel:updateToken:UpdateFirewallDescriptionResponse' :: UpdateFirewallDescriptionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679249602"><span class="hs-identifier hs-var hs-var">updateToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249602"><span class="hs-identifier hs-var">updateToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249601"><span class="annot"><span class="annottext">s :: UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateToken:UpdateFirewallDescriptionResponse' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AupdateToken%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">updateToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall.</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_firewallArn"><span class="hs-identifier hs-type">updateFirewallDescriptionResponse_firewallArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span id="updateFirewallDescriptionResponse_firewallArn"><span class="annot"><span class="annottext">updateFirewallDescriptionResponse_firewallArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallDescriptionResponse
+-&gt; f UpdateFirewallDescriptionResponse
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_firewallArn"><span class="hs-identifier hs-var hs-var">updateFirewallDescriptionResponse_firewallArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallDescriptionResponse -&gt; Maybe Text)
+-&gt; (UpdateFirewallDescriptionResponse
+    -&gt; Maybe Text -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Lens
+     UpdateFirewallDescriptionResponse
+     UpdateFirewallDescriptionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249599"><span class="annot"><span class="annottext">Maybe Text
+firewallArn :: Maybe Text
+$sel:firewallArn:UpdateFirewallDescriptionResponse' :: UpdateFirewallDescriptionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679249599"><span class="hs-identifier hs-var hs-var">firewallArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249599"><span class="hs-identifier hs-var">firewallArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249598"><span class="annot"><span class="annottext">s :: UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249597"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallArn:UpdateFirewallDescriptionResponse' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallArn%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">firewallArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- | A description of the firewall.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_description"><span class="hs-identifier hs-type">updateFirewallDescriptionResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="updateFirewallDescriptionResponse_description"><span class="annot"><span class="annottext">updateFirewallDescriptionResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallDescriptionResponse
+-&gt; f UpdateFirewallDescriptionResponse
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_description"><span class="hs-identifier hs-var hs-var">updateFirewallDescriptionResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallDescriptionResponse -&gt; Maybe Text)
+-&gt; (UpdateFirewallDescriptionResponse
+    -&gt; Maybe Text -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Lens
+     UpdateFirewallDescriptionResponse
+     UpdateFirewallDescriptionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249596"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateFirewallDescriptionResponse' :: UpdateFirewallDescriptionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679249596"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249596"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249595"><span class="annot"><span class="annottext">s :: UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateFirewallDescriptionResponse' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3Adescription%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | The descriptive name of the firewall. You can\'t change the name of a</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- firewall after you create it.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_firewallName"><span class="hs-identifier hs-type">updateFirewallDescriptionResponse_firewallName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span id="updateFirewallDescriptionResponse_firewallName"><span class="annot"><span class="annottext">updateFirewallDescriptionResponse_firewallName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFirewallDescriptionResponse
+-&gt; f UpdateFirewallDescriptionResponse
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_firewallName"><span class="hs-identifier hs-var hs-var">updateFirewallDescriptionResponse_firewallName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallDescriptionResponse -&gt; Maybe Text)
+-&gt; (UpdateFirewallDescriptionResponse
+    -&gt; Maybe Text -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Lens
+     UpdateFirewallDescriptionResponse
+     UpdateFirewallDescriptionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249593"><span class="annot"><span class="annottext">Maybe Text
+firewallName :: Maybe Text
+$sel:firewallName:UpdateFirewallDescriptionResponse' :: UpdateFirewallDescriptionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679249593"><span class="hs-identifier hs-var hs-var">firewallName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249593"><span class="hs-identifier hs-var">firewallName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249592"><span class="annot"><span class="annottext">s :: UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249591"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallName:UpdateFirewallDescriptionResponse' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AfirewallName%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">firewallName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-343"></span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_httpStatus"><span class="hs-identifier hs-type">updateFirewallDescriptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-344"></span><span id="updateFirewallDescriptionResponse_httpStatus"><span class="annot"><span class="annottext">updateFirewallDescriptionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateFirewallDescriptionResponse
+-&gt; f UpdateFirewallDescriptionResponse
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#updateFirewallDescriptionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateFirewallDescriptionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFirewallDescriptionResponse -&gt; Int)
+-&gt; (UpdateFirewallDescriptionResponse
+    -&gt; Int -&gt; UpdateFirewallDescriptionResponse)
+-&gt; Lens
+     UpdateFirewallDescriptionResponse
+     UpdateFirewallDescriptionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249590"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateFirewallDescriptionResponse' :: UpdateFirewallDescriptionResponse -&gt; Int
+</span><a href="#local-6989586621679249590"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249590"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249589"><span class="annot"><span class="annottext">s :: UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249588"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFirewallDescriptionResponse
+</span><a href="#local-6989586621679249589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFirewallDescriptionResponse' :: Int
+</span><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#%24sel%3AhttpStatus%3AUpdateFirewallDescriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-347"></span><span>  </span><span id="local-6989586621679249586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><a href="Amazonka.NetworkFirewall.UpdateFirewallDescription.html#UpdateFirewallDescriptionResponse"><span class="hs-identifier hs-type">UpdateFirewallDescriptionResponse</span></a></span></span><span>
+</span><span id="line-349"></span></pre></body></html>

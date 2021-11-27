@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.OriginGroups</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.OriginGroups</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html"><span class="hs-identifier">Amazonka.CloudFront.Types.OriginGroup</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A complex data type for the origin groups specified for a distribution.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOriginGroups' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679403013"><span id="local-6989586621679403014"></span></span><span class="hs-keyword">data</span><span> </span><span id="OriginGroups"><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-var">OriginGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginGroups%27"><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups%27"><span class="hs-identifier hs-var">OriginGroups'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The items (origin groups) in a distribution.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aitems%3AOriginGroups%27"><span class="annot"><span class="annottext">OriginGroups -&gt; Maybe [OriginGroup]
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#%24sel%3Aitems%3AOriginGroups%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The number of origin groups.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aquantity%3AOriginGroups%27"><span class="annot"><span class="annottext">OriginGroups -&gt; Int
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#%24sel%3Aquantity%3AOriginGroups%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403006"><span id="local-6989586621679403008"><span class="annot"><span class="annottext">OriginGroups -&gt; OriginGroups -&gt; Bool
+(OriginGroups -&gt; OriginGroups -&gt; Bool)
+-&gt; (OriginGroups -&gt; OriginGroups -&gt; Bool) -&gt; Eq OriginGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OriginGroups -&gt; OriginGroups -&gt; Bool
+$c/= :: OriginGroups -&gt; OriginGroups -&gt; Bool
+== :: OriginGroups -&gt; OriginGroups -&gt; Bool
+$c== :: OriginGroups -&gt; OriginGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402997"><span id="local-6989586621679402999"><span id="local-6989586621679403001"><span id="local-6989586621679403003"><span class="annot"><span class="annottext">ReadPrec [OriginGroups]
+ReadPrec OriginGroups
+Int -&gt; ReadS OriginGroups
+ReadS [OriginGroups]
+(Int -&gt; ReadS OriginGroups)
+-&gt; ReadS [OriginGroups]
+-&gt; ReadPrec OriginGroups
+-&gt; ReadPrec [OriginGroups]
+-&gt; Read OriginGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OriginGroups]
+$creadListPrec :: ReadPrec [OriginGroups]
+readPrec :: ReadPrec OriginGroups
+$creadPrec :: ReadPrec OriginGroups
+readList :: ReadS [OriginGroups]
+$creadList :: ReadS [OriginGroups]
+readsPrec :: Int -&gt; ReadS OriginGroups
+$creadsPrec :: Int -&gt; ReadS OriginGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402990"><span id="local-6989586621679402992"><span id="local-6989586621679402994"><span class="annot"><span class="annottext">Int -&gt; OriginGroups -&gt; ShowS
+[OriginGroups] -&gt; ShowS
+OriginGroups -&gt; String
+(Int -&gt; OriginGroups -&gt; ShowS)
+-&gt; (OriginGroups -&gt; String)
+-&gt; ([OriginGroups] -&gt; ShowS)
+-&gt; Show OriginGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OriginGroups] -&gt; ShowS
+$cshowList :: [OriginGroups] -&gt; ShowS
+show :: OriginGroups -&gt; String
+$cshow :: OriginGroups -&gt; String
+showsPrec :: Int -&gt; OriginGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; OriginGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OriginGroups -&gt; Rep OriginGroups x)
+-&gt; (forall x. Rep OriginGroups x -&gt; OriginGroups)
+-&gt; Generic OriginGroups
+forall x. Rep OriginGroups x -&gt; OriginGroups
+forall x. OriginGroups -&gt; Rep OriginGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OriginGroups x -&gt; OriginGroups
+$cfrom :: forall x. OriginGroups -&gt; Rep OriginGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'OriginGroups' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'items', 'originGroups_items' - The items (origin groups) in a distribution.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'quantity', 'originGroups_quantity' - The number of origin groups.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#newOriginGroups"><span class="hs-identifier hs-type">newOriginGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'quantity'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span><span>
+</span><span id="line-53"></span><span id="newOriginGroups"><span class="annot"><span class="annottext">newOriginGroups :: Int -&gt; OriginGroups
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#newOriginGroups"><span class="hs-identifier hs-var hs-var">newOriginGroups</span></a></span></span><span> </span><span id="local-6989586621679402984"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402984"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">OriginGroups' :: Maybe [OriginGroup] -&gt; Int -&gt; OriginGroups
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups%27"><span class="hs-identifier hs-type">OriginGroups'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:OriginGroups' :: Maybe [OriginGroup]
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#%24sel%3Aitems%3AOriginGroups%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OriginGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:OriginGroups' :: Int
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#%24sel%3Aquantity%3AOriginGroups%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402984"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The items (origin groups) in a distribution.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#originGroups_items"><span class="hs-identifier hs-type">originGroups_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="originGroups_items"><span class="annot"><span class="annottext">originGroups_items :: (Maybe [OriginGroup] -&gt; f (Maybe [OriginGroup]))
+-&gt; OriginGroups -&gt; f OriginGroups
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#originGroups_items"><span class="hs-identifier hs-var hs-var">originGroups_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginGroups -&gt; Maybe [OriginGroup])
+-&gt; (OriginGroups -&gt; Maybe [OriginGroup] -&gt; OriginGroups)
+-&gt; Lens
+     OriginGroups
+     OriginGroups
+     (Maybe [OriginGroup])
+     (Maybe [OriginGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups%27"><span class="hs-identifier hs-type">OriginGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402980"><span class="annot"><span class="annottext">Maybe [OriginGroup]
+items :: Maybe [OriginGroup]
+$sel:items:OriginGroups' :: OriginGroups -&gt; Maybe [OriginGroup]
+</span><a href="#local-6989586621679402980"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OriginGroup]
+</span><a href="#local-6989586621679402980"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402979"><span class="annot"><span class="annottext">s :: OriginGroups
+</span><a href="#local-6989586621679402979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups%27"><span class="hs-identifier hs-type">OriginGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402978"><span class="annot"><span class="annottext">Maybe [OriginGroup]
+</span><a href="#local-6989586621679402978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginGroups
+</span><a href="#local-6989586621679402979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:OriginGroups' :: Maybe [OriginGroup]
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#%24sel%3Aitems%3AOriginGroups%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OriginGroup]
+</span><a href="#local-6989586621679402978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OriginGroup] -&gt; f (Maybe [OriginGroup]))
+ -&gt; OriginGroups -&gt; f OriginGroups)
+-&gt; ((Maybe [OriginGroup] -&gt; f (Maybe [OriginGroup]))
+    -&gt; Maybe [OriginGroup] -&gt; f (Maybe [OriginGroup]))
+-&gt; (Maybe [OriginGroup] -&gt; f (Maybe [OriginGroup]))
+-&gt; OriginGroups
+-&gt; f OriginGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [OriginGroup] [OriginGroup] [OriginGroup] [OriginGroup]
+-&gt; Iso
+     (Maybe [OriginGroup])
+     (Maybe [OriginGroup])
+     (Maybe [OriginGroup])
+     (Maybe [OriginGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [OriginGroup] [OriginGroup] [OriginGroup] [OriginGroup]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The number of origin groups.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#originGroups_quantity"><span class="hs-identifier hs-type">originGroups_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-65"></span><span id="originGroups_quantity"><span class="annot"><span class="annottext">originGroups_quantity :: (Int -&gt; f Int) -&gt; OriginGroups -&gt; f OriginGroups
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#originGroups_quantity"><span class="hs-identifier hs-var hs-var">originGroups_quantity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginGroups -&gt; Int)
+-&gt; (OriginGroups -&gt; Int -&gt; OriginGroups)
+-&gt; Lens OriginGroups OriginGroups Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups%27"><span class="hs-identifier hs-type">OriginGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402973"><span class="annot"><span class="annottext">Int
+quantity :: Int
+$sel:quantity:OriginGroups' :: OriginGroups -&gt; Int
+</span><a href="#local-6989586621679402973"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402973"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402972"><span class="annot"><span class="annottext">s :: OriginGroups
+</span><a href="#local-6989586621679402972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups%27"><span class="hs-identifier hs-type">OriginGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402971"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginGroups
+</span><a href="#local-6989586621679402972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:OriginGroups' :: Int
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#%24sel%3Aquantity%3AOriginGroups%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679402968"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OriginGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402966"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402966"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe [OriginGroup] -&gt; Int -&gt; OriginGroups
+</span><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups%27"><span class="hs-identifier hs-var">OriginGroups'</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [OriginGroup] -&gt; Int -&gt; OriginGroups)
+-&gt; Either String (Maybe [OriginGroup])
+-&gt; Either String (Int -&gt; OriginGroups)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-71"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [OriginGroup]))
+-&gt; Either String (Maybe [OriginGroup])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [OriginGroup])
+-&gt; [Node] -&gt; Either String (Maybe [OriginGroup])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [OriginGroup]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OriginGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">Either String (Int -&gt; OriginGroups)
+-&gt; Either String Int -&gt; Either String OriginGroups
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402956"><span id="local-6989586621679402958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups"><span class="hs-identifier hs-type">OriginGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679402949"><span class="annot"><span class="annottext">toXML :: OriginGroups -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroups.html#OriginGroups%27"><span class="hs-identifier hs-type">OriginGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402946"><span id="local-6989586621679402947"><span class="annot"><span class="annottext">Int
+Maybe [OriginGroup]
+quantity :: Int
+items :: Maybe [OriginGroup]
+$sel:quantity:OriginGroups' :: OriginGroups -&gt; Int
+$sel:items:OriginGroups' :: OriginGroups -&gt; Maybe [OriginGroup]
+</span><a href="#local-6989586621679402946"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Items&quot;</span></span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
+forall a. ToXML a =&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
+</span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [OriginGroup] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;OriginGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">([OriginGroup] -&gt; XML) -&gt; Maybe [OriginGroup] -&gt; Maybe XML
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OriginGroup]
+</span><a href="#local-6989586621679402947"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402946"><span class="hs-identifier hs-var">quantity</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-87"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.EBS.Types.Block
+module Amazonka.EBS.Types.Block
 
 -- | A block of data in an Amazon Elastic Block Store snapshot.
 --   
@@ -39,16 +39,16 @@ block_blockIndex :: Lens' Block (Maybe Natural)
 
 -- | The block token for the block index.
 block_blockToken :: Lens' Block (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.EBS.Types.Block.Block
-instance GHC.Show.Show Network.AWS.EBS.Types.Block.Block
-instance GHC.Read.Read Network.AWS.EBS.Types.Block.Block
-instance GHC.Classes.Eq Network.AWS.EBS.Types.Block.Block
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EBS.Types.Block.Block
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.Types.Block.Block
-instance Control.DeepSeq.NFData Network.AWS.EBS.Types.Block.Block
+instance GHC.Generics.Generic Amazonka.EBS.Types.Block.Block
+instance GHC.Show.Show Amazonka.EBS.Types.Block.Block
+instance GHC.Read.Read Amazonka.EBS.Types.Block.Block
+instance GHC.Classes.Eq Amazonka.EBS.Types.Block.Block
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EBS.Types.Block.Block
+instance Data.Hashable.Class.Hashable Amazonka.EBS.Types.Block.Block
+instance Control.DeepSeq.NFData Amazonka.EBS.Types.Block.Block
 
 
-module Network.AWS.EBS.Types.ChangedBlock
+module Amazonka.EBS.Types.ChangedBlock
 
 -- | A block of data in an Amazon Elastic Block Store snapshot that is
 --   different from another snapshot of the same volume/snapshot lineage.
@@ -107,95 +107,95 @@ changedBlock_secondBlockToken :: Lens' ChangedBlock (Maybe Text)
 --   absent if the first snapshot does not have the changed block that is
 --   on the second snapshot.
 changedBlock_firstBlockToken :: Lens' ChangedBlock (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.EBS.Types.ChangedBlock.ChangedBlock
-instance GHC.Show.Show Network.AWS.EBS.Types.ChangedBlock.ChangedBlock
-instance GHC.Classes.Eq Network.AWS.EBS.Types.ChangedBlock.ChangedBlock
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EBS.Types.ChangedBlock.ChangedBlock
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.Types.ChangedBlock.ChangedBlock
-instance Control.DeepSeq.NFData Network.AWS.EBS.Types.ChangedBlock.ChangedBlock
+instance GHC.Generics.Generic Amazonka.EBS.Types.ChangedBlock.ChangedBlock
+instance GHC.Show.Show Amazonka.EBS.Types.ChangedBlock.ChangedBlock
+instance GHC.Classes.Eq Amazonka.EBS.Types.ChangedBlock.ChangedBlock
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EBS.Types.ChangedBlock.ChangedBlock
+instance Data.Hashable.Class.Hashable Amazonka.EBS.Types.ChangedBlock.ChangedBlock
+instance Control.DeepSeq.NFData Amazonka.EBS.Types.ChangedBlock.ChangedBlock
 
 
-module Network.AWS.EBS.Types.ChecksumAggregationMethod
+module Amazonka.EBS.Types.ChecksumAggregationMethod
 newtype ChecksumAggregationMethod
 ChecksumAggregationMethod' :: Text -> ChecksumAggregationMethod
 [fromChecksumAggregationMethod] :: ChecksumAggregationMethod -> Text
 pattern ChecksumAggregationMethod_LINEAR :: ChecksumAggregationMethod
-instance Network.AWS.Data.XML.ToXML Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Network.AWS.Data.XML.FromXML Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Network.AWS.Data.Log.ToLog Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Network.AWS.Data.Text.ToText Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Network.AWS.Data.Text.FromText Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Control.DeepSeq.NFData Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance GHC.Generics.Generic Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance GHC.Classes.Ord Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance GHC.Classes.Eq Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance GHC.Read.Read Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
-instance GHC.Show.Show Network.AWS.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Amazonka.Data.XML.ToXML Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Amazonka.Data.XML.FromXML Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Amazonka.Data.Query.ToQuery Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Amazonka.Data.Headers.ToHeader Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Amazonka.Data.Log.ToLog Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Amazonka.Data.Text.ToText Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Amazonka.Data.Text.FromText Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Control.DeepSeq.NFData Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance Data.Hashable.Class.Hashable Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance GHC.Generics.Generic Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance GHC.Classes.Ord Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance GHC.Classes.Eq Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance GHC.Read.Read Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
+instance GHC.Show.Show Amazonka.EBS.Types.ChecksumAggregationMethod.ChecksumAggregationMethod
 
 
-module Network.AWS.EBS.Types.ChecksumAlgorithm
+module Amazonka.EBS.Types.ChecksumAlgorithm
 newtype ChecksumAlgorithm
 ChecksumAlgorithm' :: Text -> ChecksumAlgorithm
 [fromChecksumAlgorithm] :: ChecksumAlgorithm -> Text
 pattern ChecksumAlgorithm_SHA256 :: ChecksumAlgorithm
-instance Network.AWS.Data.XML.ToXML Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Network.AWS.Data.XML.FromXML Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Network.AWS.Data.Log.ToLog Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Network.AWS.Data.Text.ToText Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Network.AWS.Data.Text.FromText Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Control.DeepSeq.NFData Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance GHC.Generics.Generic Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance GHC.Classes.Ord Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance GHC.Classes.Eq Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance GHC.Read.Read Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
-instance GHC.Show.Show Network.AWS.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Amazonka.Data.XML.ToXML Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Amazonka.Data.XML.FromXML Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Amazonka.Data.Query.ToQuery Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Amazonka.Data.Headers.ToHeader Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Amazonka.Data.Log.ToLog Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Amazonka.Data.Text.ToText Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Amazonka.Data.Text.FromText Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Control.DeepSeq.NFData Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance Data.Hashable.Class.Hashable Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance GHC.Generics.Generic Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance GHC.Classes.Ord Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance GHC.Classes.Eq Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance GHC.Read.Read Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
+instance GHC.Show.Show Amazonka.EBS.Types.ChecksumAlgorithm.ChecksumAlgorithm
 
 
-module Network.AWS.EBS.Types.Status
+module Amazonka.EBS.Types.Status
 newtype Status
 Status' :: Text -> Status
 [fromStatus] :: Status -> Text
 pattern Status_Completed :: Status
 pattern Status_Error :: Status
 pattern Status_Pending :: Status
-instance Network.AWS.Data.XML.ToXML Network.AWS.EBS.Types.Status.Status
-instance Network.AWS.Data.XML.FromXML Network.AWS.EBS.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EBS.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EBS.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EBS.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EBS.Types.Status.Status
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.Types.Status.Status
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EBS.Types.Status.Status
-instance Network.AWS.Data.Log.ToLog Network.AWS.EBS.Types.Status.Status
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EBS.Types.Status.Status
-instance Network.AWS.Data.Text.ToText Network.AWS.EBS.Types.Status.Status
-instance Network.AWS.Data.Text.FromText Network.AWS.EBS.Types.Status.Status
-instance Control.DeepSeq.NFData Network.AWS.EBS.Types.Status.Status
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.Types.Status.Status
-instance GHC.Generics.Generic Network.AWS.EBS.Types.Status.Status
-instance GHC.Classes.Ord Network.AWS.EBS.Types.Status.Status
-instance GHC.Classes.Eq Network.AWS.EBS.Types.Status.Status
-instance GHC.Read.Read Network.AWS.EBS.Types.Status.Status
-instance GHC.Show.Show Network.AWS.EBS.Types.Status.Status
+instance Amazonka.Data.XML.ToXML Amazonka.EBS.Types.Status.Status
+instance Amazonka.Data.XML.FromXML Amazonka.EBS.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EBS.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EBS.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EBS.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EBS.Types.Status.Status
+instance Amazonka.Data.Query.ToQuery Amazonka.EBS.Types.Status.Status
+instance Amazonka.Data.Headers.ToHeader Amazonka.EBS.Types.Status.Status
+instance Amazonka.Data.Log.ToLog Amazonka.EBS.Types.Status.Status
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EBS.Types.Status.Status
+instance Amazonka.Data.Text.ToText Amazonka.EBS.Types.Status.Status
+instance Amazonka.Data.Text.FromText Amazonka.EBS.Types.Status.Status
+instance Control.DeepSeq.NFData Amazonka.EBS.Types.Status.Status
+instance Data.Hashable.Class.Hashable Amazonka.EBS.Types.Status.Status
+instance GHC.Generics.Generic Amazonka.EBS.Types.Status.Status
+instance GHC.Classes.Ord Amazonka.EBS.Types.Status.Status
+instance GHC.Classes.Eq Amazonka.EBS.Types.Status.Status
+instance GHC.Read.Read Amazonka.EBS.Types.Status.Status
+instance GHC.Show.Show Amazonka.EBS.Types.Status.Status
 
 
-module Network.AWS.EBS.Types.Tag
+module Amazonka.EBS.Types.Tag
 
 -- | Describes a tag.
 --   
@@ -227,17 +227,17 @@ tag_value :: Lens' Tag (Maybe Text)
 
 -- | The key of the tag.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.EBS.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.EBS.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.EBS.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.EBS.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EBS.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.EBS.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EBS.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.EBS.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.EBS.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.EBS.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.EBS.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EBS.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.EBS.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.EBS.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EBS.Types.Tag.Tag
 
 
-module Network.AWS.EBS.Types
+module Amazonka.EBS.Types
 
 -- | API version <tt>2019-11-02</tt> of the Amazon Elastic Block Store SDK
 --   configuration.
@@ -413,7 +413,7 @@ tag_key :: Lens' Tag (Maybe Text)
 --   
 --   After creating the snapshot, use <a>PutSnapshotBlock</a> to write
 --   blocks of data to the snapshot.
-module Network.AWS.EBS.StartSnapshot
+module Amazonka.EBS.StartSnapshot
 
 -- | <i>See:</i> <a>newStartSnapshot</a> smart constructor.
 data StartSnapshot
@@ -795,20 +795,20 @@ startSnapshotResponse_snapshotId :: Lens' StartSnapshotResponse (Maybe Text)
 
 -- | The response's http status code.
 startSnapshotResponse_httpStatus :: Lens' StartSnapshotResponse Int
-instance GHC.Generics.Generic Network.AWS.EBS.StartSnapshot.StartSnapshot
-instance GHC.Show.Show Network.AWS.EBS.StartSnapshot.StartSnapshot
-instance GHC.Classes.Eq Network.AWS.EBS.StartSnapshot.StartSnapshot
-instance GHC.Generics.Generic Network.AWS.EBS.StartSnapshot.StartSnapshotResponse
-instance GHC.Show.Show Network.AWS.EBS.StartSnapshot.StartSnapshotResponse
-instance GHC.Classes.Eq Network.AWS.EBS.StartSnapshot.StartSnapshotResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EBS.StartSnapshot.StartSnapshot
-instance Control.DeepSeq.NFData Network.AWS.EBS.StartSnapshot.StartSnapshotResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.StartSnapshot.StartSnapshot
-instance Control.DeepSeq.NFData Network.AWS.EBS.StartSnapshot.StartSnapshot
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EBS.StartSnapshot.StartSnapshot
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EBS.StartSnapshot.StartSnapshot
-instance Network.AWS.Data.Path.ToPath Network.AWS.EBS.StartSnapshot.StartSnapshot
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.StartSnapshot.StartSnapshot
+instance GHC.Generics.Generic Amazonka.EBS.StartSnapshot.StartSnapshot
+instance GHC.Show.Show Amazonka.EBS.StartSnapshot.StartSnapshot
+instance GHC.Classes.Eq Amazonka.EBS.StartSnapshot.StartSnapshot
+instance GHC.Generics.Generic Amazonka.EBS.StartSnapshot.StartSnapshotResponse
+instance GHC.Show.Show Amazonka.EBS.StartSnapshot.StartSnapshotResponse
+instance GHC.Classes.Eq Amazonka.EBS.StartSnapshot.StartSnapshotResponse
+instance Amazonka.Types.AWSRequest Amazonka.EBS.StartSnapshot.StartSnapshot
+instance Control.DeepSeq.NFData Amazonka.EBS.StartSnapshot.StartSnapshotResponse
+instance Data.Hashable.Class.Hashable Amazonka.EBS.StartSnapshot.StartSnapshot
+instance Control.DeepSeq.NFData Amazonka.EBS.StartSnapshot.StartSnapshot
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EBS.StartSnapshot.StartSnapshot
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EBS.StartSnapshot.StartSnapshot
+instance Amazonka.Data.Path.ToPath Amazonka.EBS.StartSnapshot.StartSnapshot
+instance Amazonka.Data.Query.ToQuery Amazonka.EBS.StartSnapshot.StartSnapshot
 
 
 -- | Writes a block of data to a snapshot. If the specified block contains
@@ -816,7 +816,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.StartSnapshot.StartSnaps
 --   the <tt>pending</tt> state.
 --   
 --   Data written to a snapshot must be aligned with 512-KiB sectors.
-module Network.AWS.EBS.PutSnapshotBlock
+module Amazonka.EBS.PutSnapshotBlock
 
 -- | <i>See:</i> <a>newPutSnapshotBlock</a> smart constructor.
 data PutSnapshotBlock
@@ -1005,23 +1005,23 @@ putSnapshotBlockResponse_checksum :: Lens' PutSnapshotBlockResponse (Maybe Text)
 
 -- | The response's http status code.
 putSnapshotBlockResponse_httpStatus :: Lens' PutSnapshotBlockResponse Int
-instance GHC.Generics.Generic Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlock
-instance GHC.Show.Show Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlock
-instance GHC.Generics.Generic Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
-instance GHC.Show.Show Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
-instance GHC.Read.Read Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
-instance GHC.Classes.Eq Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlock
-instance Control.DeepSeq.NFData Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
-instance Network.AWS.Data.Body.ToBody Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlock
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlock
-instance Network.AWS.Data.Path.ToPath Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlock
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.PutSnapshotBlock.PutSnapshotBlock
+instance GHC.Generics.Generic Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlock
+instance GHC.Show.Show Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlock
+instance GHC.Generics.Generic Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
+instance GHC.Show.Show Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
+instance GHC.Read.Read Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
+instance GHC.Classes.Eq Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
+instance Amazonka.Types.AWSRequest Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlock
+instance Control.DeepSeq.NFData Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlockResponse
+instance Amazonka.Data.Body.ToBody Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlock
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlock
+instance Amazonka.Data.Path.ToPath Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlock
+instance Amazonka.Data.Query.ToQuery Amazonka.EBS.PutSnapshotBlock.PutSnapshotBlock
 
 
 -- | Returns information about the blocks in an Amazon Elastic Block Store
 --   snapshot.
-module Network.AWS.EBS.ListSnapshotBlocks
+module Amazonka.EBS.ListSnapshotBlocks
 
 -- | <i>See:</i> <a>newListSnapshotBlocks</a> smart constructor.
 data ListSnapshotBlocks
@@ -1160,26 +1160,26 @@ listSnapshotBlocksResponse_nextToken :: Lens' ListSnapshotBlocksResponse (Maybe 
 
 -- | The response's http status code.
 listSnapshotBlocksResponse_httpStatus :: Lens' ListSnapshotBlocksResponse Int
-instance GHC.Generics.Generic Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
-instance GHC.Show.Show Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
-instance GHC.Read.Read Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
-instance GHC.Classes.Eq Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
-instance GHC.Generics.Generic Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocksResponse
-instance GHC.Show.Show Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocksResponse
-instance GHC.Classes.Eq Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
-instance Control.DeepSeq.NFData Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocksResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
-instance Control.DeepSeq.NFData Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
-instance Network.AWS.Data.Path.ToPath Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance GHC.Generics.Generic Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance GHC.Show.Show Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance GHC.Read.Read Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance GHC.Classes.Eq Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance GHC.Generics.Generic Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocksResponse
+instance GHC.Show.Show Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocksResponse
+instance GHC.Classes.Eq Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocksResponse
+instance Amazonka.Types.AWSRequest Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance Control.DeepSeq.NFData Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocksResponse
+instance Data.Hashable.Class.Hashable Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance Control.DeepSeq.NFData Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance Amazonka.Data.Path.ToPath Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
+instance Amazonka.Data.Query.ToQuery Amazonka.EBS.ListSnapshotBlocks.ListSnapshotBlocks
 
 
 -- | Returns information about the blocks that are different between two
 --   Amazon Elastic Block Store snapshots of the same volume/snapshot
 --   lineage.
-module Network.AWS.EBS.ListChangedBlocks
+module Amazonka.EBS.ListChangedBlocks
 
 -- | <i>See:</i> <a>newListChangedBlocks</a> smart constructor.
 data ListChangedBlocks
@@ -1347,24 +1347,24 @@ listChangedBlocksResponse_nextToken :: Lens' ListChangedBlocksResponse (Maybe Te
 
 -- | The response's http status code.
 listChangedBlocksResponse_httpStatus :: Lens' ListChangedBlocksResponse Int
-instance GHC.Generics.Generic Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
-instance GHC.Show.Show Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
-instance GHC.Read.Read Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
-instance GHC.Classes.Eq Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
-instance GHC.Generics.Generic Network.AWS.EBS.ListChangedBlocks.ListChangedBlocksResponse
-instance GHC.Show.Show Network.AWS.EBS.ListChangedBlocks.ListChangedBlocksResponse
-instance GHC.Classes.Eq Network.AWS.EBS.ListChangedBlocks.ListChangedBlocksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
-instance Control.DeepSeq.NFData Network.AWS.EBS.ListChangedBlocks.ListChangedBlocksResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
-instance Control.DeepSeq.NFData Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
-instance Network.AWS.Data.Path.ToPath Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.ListChangedBlocks.ListChangedBlocks
+instance GHC.Generics.Generic Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
+instance GHC.Show.Show Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
+instance GHC.Read.Read Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
+instance GHC.Classes.Eq Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
+instance GHC.Generics.Generic Amazonka.EBS.ListChangedBlocks.ListChangedBlocksResponse
+instance GHC.Show.Show Amazonka.EBS.ListChangedBlocks.ListChangedBlocksResponse
+instance GHC.Classes.Eq Amazonka.EBS.ListChangedBlocks.ListChangedBlocksResponse
+instance Amazonka.Types.AWSRequest Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
+instance Control.DeepSeq.NFData Amazonka.EBS.ListChangedBlocks.ListChangedBlocksResponse
+instance Data.Hashable.Class.Hashable Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
+instance Control.DeepSeq.NFData Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
+instance Amazonka.Data.Path.ToPath Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
+instance Amazonka.Data.Query.ToQuery Amazonka.EBS.ListChangedBlocks.ListChangedBlocks
 
 
 -- | Returns the data in a block in an Amazon Elastic Block Store snapshot.
-module Network.AWS.EBS.GetSnapshotBlock
+module Amazonka.EBS.GetSnapshotBlock
 
 -- | <i>See:</i> <a>newGetSnapshotBlock</a> smart constructor.
 data GetSnapshotBlock
@@ -1493,25 +1493,25 @@ getSnapshotBlockResponse_httpStatus :: Lens' GetSnapshotBlockResponse Int
 
 -- | The data content of the block.
 getSnapshotBlockResponse_blockData :: Lens' GetSnapshotBlockResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
-instance GHC.Show.Show Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
-instance GHC.Read.Read Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
-instance GHC.Classes.Eq Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
-instance GHC.Generics.Generic Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlockResponse
-instance GHC.Show.Show Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlockResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
-instance Control.DeepSeq.NFData Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
-instance Network.AWS.Data.Path.ToPath Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance GHC.Generics.Generic Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance GHC.Show.Show Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance GHC.Read.Read Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance GHC.Classes.Eq Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance GHC.Generics.Generic Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlockResponse
+instance GHC.Show.Show Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlockResponse
+instance Amazonka.Types.AWSRequest Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance Data.Hashable.Class.Hashable Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance Control.DeepSeq.NFData Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance Amazonka.Data.Path.ToPath Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
+instance Amazonka.Data.Query.ToQuery Amazonka.EBS.GetSnapshotBlock.GetSnapshotBlock
 
 
 -- | Seals and completes the snapshot after all of the required blocks of
 --   data have been written to it. Completing the snapshot changes the
 --   status to <tt>completed</tt>. You cannot write new blocks to a
 --   snapshot after it has been completed.
-module Network.AWS.EBS.CompleteSnapshot
+module Amazonka.EBS.CompleteSnapshot
 
 -- | <i>See:</i> <a>newCompleteSnapshot</a> smart constructor.
 data CompleteSnapshot
@@ -1634,25 +1634,25 @@ completeSnapshotResponse_status :: Lens' CompleteSnapshotResponse (Maybe Status)
 
 -- | The response's http status code.
 completeSnapshotResponse_httpStatus :: Lens' CompleteSnapshotResponse Int
-instance GHC.Generics.Generic Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance GHC.Show.Show Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance GHC.Read.Read Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance GHC.Classes.Eq Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance GHC.Generics.Generic Network.AWS.EBS.CompleteSnapshot.CompleteSnapshotResponse
-instance GHC.Show.Show Network.AWS.EBS.CompleteSnapshot.CompleteSnapshotResponse
-instance GHC.Read.Read Network.AWS.EBS.CompleteSnapshot.CompleteSnapshotResponse
-instance GHC.Classes.Eq Network.AWS.EBS.CompleteSnapshot.CompleteSnapshotResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance Control.DeepSeq.NFData Network.AWS.EBS.CompleteSnapshot.CompleteSnapshotResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance Control.DeepSeq.NFData Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance Network.AWS.Data.Path.ToPath Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EBS.CompleteSnapshot.CompleteSnapshot
+instance GHC.Generics.Generic Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance GHC.Show.Show Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance GHC.Read.Read Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance GHC.Classes.Eq Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance GHC.Generics.Generic Amazonka.EBS.CompleteSnapshot.CompleteSnapshotResponse
+instance GHC.Show.Show Amazonka.EBS.CompleteSnapshot.CompleteSnapshotResponse
+instance GHC.Read.Read Amazonka.EBS.CompleteSnapshot.CompleteSnapshotResponse
+instance GHC.Classes.Eq Amazonka.EBS.CompleteSnapshot.CompleteSnapshotResponse
+instance Amazonka.Types.AWSRequest Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance Control.DeepSeq.NFData Amazonka.EBS.CompleteSnapshot.CompleteSnapshotResponse
+instance Data.Hashable.Class.Hashable Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance Control.DeepSeq.NFData Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance Amazonka.Data.Path.ToPath Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
+instance Amazonka.Data.Query.ToQuery Amazonka.EBS.CompleteSnapshot.CompleteSnapshot
 
 
-module Network.AWS.EBS.Lens
+module Amazonka.EBS.Lens
 
 -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
 --   to be used to encrypt the snapshot. If you do not specify a KMS key,
@@ -1984,7 +1984,7 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag (Maybe Text)
 
 
-module Network.AWS.EBS.Waiters
+module Amazonka.EBS.Waiters
 
 
 -- | Derived from API version <tt>2019-11-02</tt> of the AWS service
@@ -2017,7 +2017,7 @@ module Network.AWS.EBS.Waiters
 --   Services Regions, endpoints, and service quotas for the EBS direct
 --   APIs, see <a>Amazon Elastic Block Store Endpoints and Quotas</a> in
 --   the <i>Amazon Web Services General Reference</i>.
-module Network.AWS.EBS
+module Amazonka.EBS
 
 -- | API version <tt>2019-11-02</tt> of the Amazon Elastic Block Store SDK
 --   configuration.

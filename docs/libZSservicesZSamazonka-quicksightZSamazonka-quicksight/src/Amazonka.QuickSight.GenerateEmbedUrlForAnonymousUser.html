@@ -1,0 +1,913 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Generates an embed URL that you can use to embed an Amazon QuickSight</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- dashboard in your website, without having to register any reader users.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Before you use this action, make sure that you have configured the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- dashboards and permissions.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- The following rules apply to the generated URL:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   It contains a temporary bearer token. It is valid for 5 minutes</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     after it is generated. Once redeemed within this period, it cannot</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     be re-used again.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   The URL validity period should not be confused with the actual</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     session lifetime that can be customized using the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     @ SessionLifetimeInMinutes @ parameter.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     The resulting user session is valid for 15 minutes (default) to 10</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     hours (maximum).</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   You are charged only when the URL is used or there is interaction</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     with Amazon QuickSight.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html Embedded Analytics&gt;</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- in the /Amazon QuickSight User Guide/.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- For more information about the high-level steps for embedding and for an</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- interactive demo of the ways you can customize embedding, visit the</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html Amazon QuickSight Developer Portal&gt;.</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier">GenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#newGenerateEmbedUrlForAnonymousUser"><span class="hs-identifier">newGenerateEmbedUrlForAnonymousUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes"><span class="hs-identifier">generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_sessionTags"><span class="hs-identifier">generateEmbedUrlForAnonymousUser_sessionTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_awsAccountId"><span class="hs-identifier">generateEmbedUrlForAnonymousUser_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_namespace"><span class="hs-identifier">generateEmbedUrlForAnonymousUser_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_authorizedResourceArns"><span class="hs-identifier">generateEmbedUrlForAnonymousUser_authorizedResourceArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_experienceConfiguration"><span class="hs-identifier">generateEmbedUrlForAnonymousUser_experienceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier">GenerateEmbedUrlForAnonymousUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#newGenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier">newGenerateEmbedUrlForAnonymousUserResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUserResponse_status"><span class="hs-identifier">generateEmbedUrlForAnonymousUserResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUserResponse_embedUrl"><span class="hs-identifier">generateEmbedUrlForAnonymousUserResponse_embedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUserResponse_requestId"><span class="hs-identifier">generateEmbedUrlForAnonymousUserResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | /See:/ 'newGenerateEmbedUrlForAnonymousUser' smart constructor.</span><span>
+</span><span id="line-83"></span><span id="local-6989586621679583012"><span id="local-6989586621679583013"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateEmbedUrlForAnonymousUser"><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-var">GenerateEmbedUrlForAnonymousUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateEmbedUrlForAnonymousUser%27"><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">GenerateEmbedUrlForAnonymousUser'</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How many minutes the session is valid. The session lifetime must be in</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- [15-600] minutes range.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AsessionLifetimeInMinutes%3AGenerateEmbedUrlForAnonymousUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser -&gt; Maybe Natural
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AsessionLifetimeInMinutes%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var hs-var">sessionLifetimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The session tags used for row-level security. Before you use this</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- parameter, make sure that you have configured the relevant datasets</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- session tags can be used to provide row-level security.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- These are not the tags used for the Amazon Web Services resource tagging</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- feature. For more information, see</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags&gt;.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AsessionTags%3AGenerateEmbedUrlForAnonymousUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser -&gt; Maybe (NonEmpty SessionTag)
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AsessionTags%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var hs-var">sessionTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.SessionTag.html#SessionTag"><span class="hs-identifier hs-type">SessionTag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The ID for the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- that you\'re embedding.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AawsAccountId%3AGenerateEmbedUrlForAnonymousUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser -&gt; Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AawsAccountId%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The Amazon QuickSight namespace that the anonymous user virtually</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- belongs to. If you are not using an Amazon QuickSight custom namespace,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- set this to @default@.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3Anamespace%3AGenerateEmbedUrlForAnonymousUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser -&gt; Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3Anamespace%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names for the Amazon QuickSight resources that the</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- user is authorized to access during the lifetime of the session. If you</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- choose @Dashboard@ embedding experience, pass the list of dashboard ARNs</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- in the account that you want the user to be able to view.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AauthorizedResourceArns%3AGenerateEmbedUrlForAnonymousUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser -&gt; [Text]
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AauthorizedResourceArns%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var hs-var">authorizedResourceArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | The configuration of the experience you are embedding.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AexperienceConfiguration%3AGenerateEmbedUrlForAnonymousUser%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser
+-&gt; AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AexperienceConfiguration%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var hs-var">experienceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration.html#AnonymousUserEmbeddingExperienceConfiguration"><span class="hs-identifier hs-type">AnonymousUserEmbeddingExperienceConfiguration</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679583001"><span id="local-6989586621679583003"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser
+-&gt; GenerateEmbedUrlForAnonymousUser -&gt; Bool
+(GenerateEmbedUrlForAnonymousUser
+ -&gt; GenerateEmbedUrlForAnonymousUser -&gt; Bool)
+-&gt; (GenerateEmbedUrlForAnonymousUser
+    -&gt; GenerateEmbedUrlForAnonymousUser -&gt; Bool)
+-&gt; Eq GenerateEmbedUrlForAnonymousUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GenerateEmbedUrlForAnonymousUser
+-&gt; GenerateEmbedUrlForAnonymousUser -&gt; Bool
+$c/= :: GenerateEmbedUrlForAnonymousUser
+-&gt; GenerateEmbedUrlForAnonymousUser -&gt; Bool
+== :: GenerateEmbedUrlForAnonymousUser
+-&gt; GenerateEmbedUrlForAnonymousUser -&gt; Bool
+$c== :: GenerateEmbedUrlForAnonymousUser
+-&gt; GenerateEmbedUrlForAnonymousUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582994"><span id="local-6989586621679582996"><span id="local-6989586621679582998"><span class="annot"><span class="annottext">Int -&gt; GenerateEmbedUrlForAnonymousUser -&gt; ShowS
+[GenerateEmbedUrlForAnonymousUser] -&gt; ShowS
+GenerateEmbedUrlForAnonymousUser -&gt; String
+(Int -&gt; GenerateEmbedUrlForAnonymousUser -&gt; ShowS)
+-&gt; (GenerateEmbedUrlForAnonymousUser -&gt; String)
+-&gt; ([GenerateEmbedUrlForAnonymousUser] -&gt; ShowS)
+-&gt; Show GenerateEmbedUrlForAnonymousUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GenerateEmbedUrlForAnonymousUser] -&gt; ShowS
+$cshowList :: [GenerateEmbedUrlForAnonymousUser] -&gt; ShowS
+show :: GenerateEmbedUrlForAnonymousUser -&gt; String
+$cshow :: GenerateEmbedUrlForAnonymousUser -&gt; String
+showsPrec :: Int -&gt; GenerateEmbedUrlForAnonymousUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; GenerateEmbedUrlForAnonymousUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GenerateEmbedUrlForAnonymousUser
+ -&gt; Rep GenerateEmbedUrlForAnonymousUser x)
+-&gt; (forall x.
+    Rep GenerateEmbedUrlForAnonymousUser x
+    -&gt; GenerateEmbedUrlForAnonymousUser)
+-&gt; Generic GenerateEmbedUrlForAnonymousUser
+forall x.
+Rep GenerateEmbedUrlForAnonymousUser x
+-&gt; GenerateEmbedUrlForAnonymousUser
+forall x.
+GenerateEmbedUrlForAnonymousUser
+-&gt; Rep GenerateEmbedUrlForAnonymousUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GenerateEmbedUrlForAnonymousUser x
+-&gt; GenerateEmbedUrlForAnonymousUser
+$cfrom :: forall x.
+GenerateEmbedUrlForAnonymousUser
+-&gt; Rep GenerateEmbedUrlForAnonymousUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'GenerateEmbedUrlForAnonymousUser' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'sessionLifetimeInMinutes', 'generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be in</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- [15-600] minutes range.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'sessionTags', 'generateEmbedUrlForAnonymousUser_sessionTags' - The session tags used for row-level security. Before you use this</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- parameter, make sure that you have configured the relevant datasets</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- session tags can be used to provide row-level security.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- These are not the tags used for the Amazon Web Services resource tagging</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- feature. For more information, see</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags&gt;.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'awsAccountId', 'generateEmbedUrlForAnonymousUser_awsAccountId' - The ID for the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- that you\'re embedding.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'namespace', 'generateEmbedUrlForAnonymousUser_namespace' - The Amazon QuickSight namespace that the anonymous user virtually</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- belongs to. If you are not using an Amazon QuickSight custom namespace,</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- set this to @default@.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'authorizedResourceArns', 'generateEmbedUrlForAnonymousUser_authorizedResourceArns' - The Amazon Resource Names for the Amazon QuickSight resources that the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- user is authorized to access during the lifetime of the session. If you</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- choose @Dashboard@ embedding experience, pass the list of dashboard ARNs</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- in the account that you want the user to be able to view.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'experienceConfiguration', 'generateEmbedUrlForAnonymousUser_experienceConfiguration' - The configuration of the experience you are embedding.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#newGenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">newGenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'namespace'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'experienceConfiguration'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration.html#AnonymousUserEmbeddingExperienceConfiguration"><span class="hs-identifier hs-type">AnonymousUserEmbeddingExperienceConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span>
+</span><span id="line-154"></span><span id="newGenerateEmbedUrlForAnonymousUser"><span class="annot"><span class="annottext">newGenerateEmbedUrlForAnonymousUser :: Text
+-&gt; Text
+-&gt; AnonymousUserEmbeddingExperienceConfiguration
+-&gt; GenerateEmbedUrlForAnonymousUser
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#newGenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-var hs-var">newGenerateEmbedUrlForAnonymousUser</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679582989"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582989"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679582988"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582988"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679582987"><span class="annot"><span class="annottext">AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679582987"><span class="hs-identifier hs-var">pExperienceConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser' :: Maybe Natural
+-&gt; Maybe (NonEmpty SessionTag)
+-&gt; Text
+-&gt; Text
+-&gt; [Text]
+-&gt; AnonymousUserEmbeddingExperienceConfiguration
+-&gt; GenerateEmbedUrlForAnonymousUser
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForAnonymousUser' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AsessionLifetimeInMinutes%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:sessionTags:GenerateEmbedUrlForAnonymousUser' :: Maybe (NonEmpty SessionTag)
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AsessionTags%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">sessionTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SessionTag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsAccountId:GenerateEmbedUrlForAnonymousUser' :: Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AawsAccountId%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582989"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespace:GenerateEmbedUrlForAnonymousUser' :: Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3Anamespace%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582988"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:authorizedResourceArns:GenerateEmbedUrlForAnonymousUser' :: [Text]
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AauthorizedResourceArns%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">authorizedResourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:experienceConfiguration:GenerateEmbedUrlForAnonymousUser' :: AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AexperienceConfiguration%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">experienceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679582987"><span class="hs-identifier hs-var">pExperienceConfiguration_</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | How many minutes the session is valid. The session lifetime must be in</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- [15-600] minutes range.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes"><span class="hs-identifier hs-type">generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes"><span class="annot"><span class="annottext">generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GenerateEmbedUrlForAnonymousUser
+-&gt; f GenerateEmbedUrlForAnonymousUser
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForAnonymousUser -&gt; Maybe Natural)
+-&gt; (GenerateEmbedUrlForAnonymousUser
+    -&gt; Maybe Natural -&gt; GenerateEmbedUrlForAnonymousUser)
+-&gt; Lens
+     GenerateEmbedUrlForAnonymousUser
+     GenerateEmbedUrlForAnonymousUser
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582984"><span class="annot"><span class="annottext">Maybe Natural
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Maybe Natural
+</span><a href="#local-6989586621679582984"><span class="hs-identifier hs-var hs-var">sessionLifetimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582984"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582983"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582982"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForAnonymousUser' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AsessionLifetimeInMinutes%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The session tags used for row-level security. Before you use this</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- parameter, make sure that you have configured the relevant datasets</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- session tags can be used to provide row-level security.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- These are not the tags used for the Amazon Web Services resource tagging</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- feature. For more information, see</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags&gt;.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_sessionTags"><span class="hs-identifier hs-type">generateEmbedUrlForAnonymousUser_sessionTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.SessionTag.html#SessionTag"><span class="hs-identifier hs-type">SessionTag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="generateEmbedUrlForAnonymousUser_sessionTags"><span class="annot"><span class="annottext">generateEmbedUrlForAnonymousUser_sessionTags :: (Maybe (NonEmpty SessionTag) -&gt; f (Maybe (NonEmpty SessionTag)))
+-&gt; GenerateEmbedUrlForAnonymousUser
+-&gt; f GenerateEmbedUrlForAnonymousUser
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_sessionTags"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForAnonymousUser_sessionTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForAnonymousUser -&gt; Maybe (NonEmpty SessionTag))
+-&gt; (GenerateEmbedUrlForAnonymousUser
+    -&gt; Maybe (NonEmpty SessionTag) -&gt; GenerateEmbedUrlForAnonymousUser)
+-&gt; Lens
+     GenerateEmbedUrlForAnonymousUser
+     GenerateEmbedUrlForAnonymousUser
+     (Maybe (NonEmpty SessionTag))
+     (Maybe (NonEmpty SessionTag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582981"><span class="annot"><span class="annottext">Maybe (NonEmpty SessionTag)
+sessionTags :: Maybe (NonEmpty SessionTag)
+$sel:sessionTags:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Maybe (NonEmpty SessionTag)
+</span><a href="#local-6989586621679582981"><span class="hs-identifier hs-var hs-var">sessionTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SessionTag)
+</span><a href="#local-6989586621679582981"><span class="hs-identifier hs-var">sessionTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582980"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582979"><span class="annot"><span class="annottext">Maybe (NonEmpty SessionTag)
+</span><a href="#local-6989586621679582979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionTags:GenerateEmbedUrlForAnonymousUser' :: Maybe (NonEmpty SessionTag)
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AsessionTags%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">sessionTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SessionTag)
+</span><a href="#local-6989586621679582979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty SessionTag) -&gt; f (Maybe (NonEmpty SessionTag)))
+ -&gt; GenerateEmbedUrlForAnonymousUser
+ -&gt; f GenerateEmbedUrlForAnonymousUser)
+-&gt; ((Maybe (NonEmpty SessionTag)
+     -&gt; f (Maybe (NonEmpty SessionTag)))
+    -&gt; Maybe (NonEmpty SessionTag) -&gt; f (Maybe (NonEmpty SessionTag)))
+-&gt; (Maybe (NonEmpty SessionTag) -&gt; f (Maybe (NonEmpty SessionTag)))
+-&gt; GenerateEmbedUrlForAnonymousUser
+-&gt; f GenerateEmbedUrlForAnonymousUser
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty SessionTag)
+  (NonEmpty SessionTag)
+  (NonEmpty SessionTag)
+  (NonEmpty SessionTag)
+-&gt; Iso
+     (Maybe (NonEmpty SessionTag))
+     (Maybe (NonEmpty SessionTag))
+     (Maybe (NonEmpty SessionTag))
+     (Maybe (NonEmpty SessionTag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty SessionTag)
+  (NonEmpty SessionTag)
+  (NonEmpty SessionTag)
+  (NonEmpty SessionTag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The ID for the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- that you\'re embedding.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_awsAccountId"><span class="hs-identifier hs-type">generateEmbedUrlForAnonymousUser_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-188"></span><span id="generateEmbedUrlForAnonymousUser_awsAccountId"><span class="annot"><span class="annottext">generateEmbedUrlForAnonymousUser_awsAccountId :: (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForAnonymousUser
+-&gt; f GenerateEmbedUrlForAnonymousUser
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_awsAccountId"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForAnonymousUser_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForAnonymousUser -&gt; Text)
+-&gt; (GenerateEmbedUrlForAnonymousUser
+    -&gt; Text -&gt; GenerateEmbedUrlForAnonymousUser)
+-&gt; Lens
+     GenerateEmbedUrlForAnonymousUser
+     GenerateEmbedUrlForAnonymousUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582975"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Text
+</span><a href="#local-6989586621679582975"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582975"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582974"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582973"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:GenerateEmbedUrlForAnonymousUser' :: Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AawsAccountId%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The Amazon QuickSight namespace that the anonymous user virtually</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- belongs to. If you are not using an Amazon QuickSight custom namespace,</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- set this to @default@.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_namespace"><span class="hs-identifier hs-type">generateEmbedUrlForAnonymousUser_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-194"></span><span id="generateEmbedUrlForAnonymousUser_namespace"><span class="annot"><span class="annottext">generateEmbedUrlForAnonymousUser_namespace :: (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForAnonymousUser
+-&gt; f GenerateEmbedUrlForAnonymousUser
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_namespace"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForAnonymousUser_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForAnonymousUser -&gt; Text)
+-&gt; (GenerateEmbedUrlForAnonymousUser
+    -&gt; Text -&gt; GenerateEmbedUrlForAnonymousUser)
+-&gt; Lens
+     GenerateEmbedUrlForAnonymousUser
+     GenerateEmbedUrlForAnonymousUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582972"><span class="annot"><span class="annottext">Text
+namespace :: Text
+$sel:namespace:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Text
+</span><a href="#local-6989586621679582972"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582972"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582971"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:GenerateEmbedUrlForAnonymousUser' :: Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3Anamespace%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The Amazon Resource Names for the Amazon QuickSight resources that the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- user is authorized to access during the lifetime of the session. If you</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- choose @Dashboard@ embedding experience, pass the list of dashboard ARNs</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- in the account that you want the user to be able to view.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_authorizedResourceArns"><span class="hs-identifier hs-type">generateEmbedUrlForAnonymousUser_authorizedResourceArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span id="generateEmbedUrlForAnonymousUser_authorizedResourceArns"><span class="annot"><span class="annottext">generateEmbedUrlForAnonymousUser_authorizedResourceArns :: ([Text] -&gt; f [Text])
+-&gt; GenerateEmbedUrlForAnonymousUser
+-&gt; f GenerateEmbedUrlForAnonymousUser
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_authorizedResourceArns"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForAnonymousUser_authorizedResourceArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForAnonymousUser -&gt; [Text])
+-&gt; (GenerateEmbedUrlForAnonymousUser
+    -&gt; [Text] -&gt; GenerateEmbedUrlForAnonymousUser)
+-&gt; Lens
+     GenerateEmbedUrlForAnonymousUser
+     GenerateEmbedUrlForAnonymousUser
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582969"><span class="annot"><span class="annottext">[Text]
+authorizedResourceArns :: [Text]
+$sel:authorizedResourceArns:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; [Text]
+</span><a href="#local-6989586621679582969"><span class="hs-identifier hs-var hs-var">authorizedResourceArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679582969"><span class="hs-identifier hs-var">authorizedResourceArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582968"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582967"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679582967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizedResourceArns:GenerateEmbedUrlForAnonymousUser' :: [Text]
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AauthorizedResourceArns%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">authorizedResourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679582967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; GenerateEmbedUrlForAnonymousUser
+ -&gt; f GenerateEmbedUrlForAnonymousUser)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GenerateEmbedUrlForAnonymousUser
+-&gt; f GenerateEmbedUrlForAnonymousUser
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The configuration of the experience you are embedding.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_experienceConfiguration"><span class="hs-identifier hs-type">generateEmbedUrlForAnonymousUser_experienceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration.html#AnonymousUserEmbeddingExperienceConfiguration"><span class="hs-identifier hs-type">AnonymousUserEmbeddingExperienceConfiguration</span></a></span><span>
+</span><span id="line-205"></span><span id="generateEmbedUrlForAnonymousUser_experienceConfiguration"><span class="annot"><span class="annottext">generateEmbedUrlForAnonymousUser_experienceConfiguration :: (AnonymousUserEmbeddingExperienceConfiguration
+ -&gt; f AnonymousUserEmbeddingExperienceConfiguration)
+-&gt; GenerateEmbedUrlForAnonymousUser
+-&gt; f GenerateEmbedUrlForAnonymousUser
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUser_experienceConfiguration"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForAnonymousUser_experienceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForAnonymousUser
+ -&gt; AnonymousUserEmbeddingExperienceConfiguration)
+-&gt; (GenerateEmbedUrlForAnonymousUser
+    -&gt; AnonymousUserEmbeddingExperienceConfiguration
+    -&gt; GenerateEmbedUrlForAnonymousUser)
+-&gt; Lens
+     GenerateEmbedUrlForAnonymousUser
+     GenerateEmbedUrlForAnonymousUser
+     AnonymousUserEmbeddingExperienceConfiguration
+     AnonymousUserEmbeddingExperienceConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582966"><span class="annot"><span class="annottext">AnonymousUserEmbeddingExperienceConfiguration
+experienceConfiguration :: AnonymousUserEmbeddingExperienceConfiguration
+$sel:experienceConfiguration:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser
+-&gt; AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679582966"><span class="hs-identifier hs-var hs-var">experienceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679582966"><span class="hs-identifier hs-var">experienceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582965"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582964"><span class="annot"><span class="annottext">AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679582964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUser
+</span><a href="#local-6989586621679582965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experienceConfiguration:GenerateEmbedUrlForAnonymousUser' :: AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AexperienceConfiguration%3AGenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-var">experienceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679582964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-212"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse</span></a></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679582960"><span class="annot"><span class="annottext">request :: GenerateEmbedUrlForAnonymousUser
+-&gt; Request GenerateEmbedUrlForAnonymousUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GenerateEmbedUrlForAnonymousUser
+-&gt; Request GenerateEmbedUrlForAnonymousUser
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679582956"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GenerateEmbedUrlForAnonymousUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GenerateEmbedUrlForAnonymousUser)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GenerateEmbedUrlForAnonymousUser))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GenerateEmbedUrlForAnonymousUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GenerateEmbedUrlForAnonymousUser)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679582953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582953"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679582952"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679582952"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679582951"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; Sensitive Text
+-&gt; Text
+-&gt; GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var">GenerateEmbedUrlForAnonymousUserResponse'</span></a></span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; Sensitive Text
+ -&gt; Text
+ -&gt; GenerateEmbedUrlForAnonymousUserResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Sensitive Text
+      -&gt; Text -&gt; GenerateEmbedUrlForAnonymousUserResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582953"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Sensitive Text
+   -&gt; Text -&gt; GenerateEmbedUrlForAnonymousUserResponse)
+-&gt; Either String (Sensitive Text)
+-&gt; Either String (Text -&gt; GenerateEmbedUrlForAnonymousUserResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmbedUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; GenerateEmbedUrlForAnonymousUserResponse)
+-&gt; Either String Text
+-&gt; Either String GenerateEmbedUrlForAnonymousUserResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679582951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679582943"><span id="local-6989586621679582945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span></span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679582940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679582936"><span class="annot"><span class="annottext">toHeaders :: GenerateEmbedUrlForAnonymousUser -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GenerateEmbedUrlForAnonymousUser -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-239"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-241"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-242"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582926"><span id="local-6989586621679582928"><span id="local-6989586621679582930"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679582924"><span class="annot"><span class="annottext">toJSON :: GenerateEmbedUrlForAnonymousUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582917"><span id="local-6989586621679582918"><span id="local-6989586621679582919"><span id="local-6989586621679582920"><span id="local-6989586621679582921"><span id="local-6989586621679582922"><span class="annot"><span class="annottext">[Text]
+Maybe Natural
+Maybe (NonEmpty SessionTag)
+Text
+AnonymousUserEmbeddingExperienceConfiguration
+experienceConfiguration :: AnonymousUserEmbeddingExperienceConfiguration
+authorizedResourceArns :: [Text]
+namespace :: Text
+awsAccountId :: Text
+sessionTags :: Maybe (NonEmpty SessionTag)
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:experienceConfiguration:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser
+-&gt; AnonymousUserEmbeddingExperienceConfiguration
+$sel:authorizedResourceArns:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; [Text]
+$sel:namespace:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Text
+$sel:awsAccountId:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Text
+$sel:sessionTags:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Maybe (NonEmpty SessionTag)
+$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Maybe Natural
+</span><a href="#local-6989586621679582917"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-250"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionLifetimeInMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679582922"><span class="hs-identifier hs-var">sessionLifetimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty SessionTag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty SessionTag -&gt; Pair)
+-&gt; Maybe (NonEmpty SessionTag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SessionTag)
+</span><a href="#local-6989586621679582921"><span class="hs-identifier hs-var">sessionTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582919"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-255"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthorizedResourceArns&quot;</span></span><span>
+</span><span id="line-256"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679582918"><span class="hs-identifier hs-var">authorizedResourceArns</span></a></span><span>
+</span><span id="line-257"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-259"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExperienceConfiguration&quot;</span></span><span>
+</span><span id="line-260"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; AnonymousUserEmbeddingExperienceConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AnonymousUserEmbeddingExperienceConfiguration
+</span><a href="#local-6989586621679582917"><span class="hs-identifier hs-var">experienceConfiguration</span></a></span><span>
+</span><span id="line-261"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679582911"><span class="annot"><span class="annottext">toPath :: GenerateEmbedUrlForAnonymousUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582904"><span id="local-6989586621679582905"><span id="local-6989586621679582906"><span id="local-6989586621679582907"><span id="local-6989586621679582908"><span id="local-6989586621679582909"><span class="annot"><span class="annottext">[Text]
+Maybe Natural
+Maybe (NonEmpty SessionTag)
+Text
+AnonymousUserEmbeddingExperienceConfiguration
+experienceConfiguration :: AnonymousUserEmbeddingExperienceConfiguration
+authorizedResourceArns :: [Text]
+namespace :: Text
+awsAccountId :: Text
+sessionTags :: Maybe (NonEmpty SessionTag)
+sessionLifetimeInMinutes :: Maybe Natural
+$sel:experienceConfiguration:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser
+-&gt; AnonymousUserEmbeddingExperienceConfiguration
+$sel:authorizedResourceArns:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; [Text]
+$sel:namespace:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Text
+$sel:awsAccountId:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Text
+$sel:sessionTags:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Maybe (NonEmpty SessionTag)
+$sel:sessionLifetimeInMinutes:GenerateEmbedUrlForAnonymousUser' :: GenerateEmbedUrlForAnonymousUser -&gt; Maybe Natural
+</span><a href="#local-6989586621679582904"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582907"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/embed-url/anonymous-user&quot;</span></span><span>
+</span><span id="line-271"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUser"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUser</span></a></span><span>
+</span><span id="line-276"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679582900"><span class="annot"><span class="annottext">toQuery :: GenerateEmbedUrlForAnonymousUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GenerateEmbedUrlForAnonymousUser -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | /See:/ 'newGenerateEmbedUrlForAnonymousUserResponse' smart constructor.</span><span>
+</span><span id="line-280"></span><span id="local-6989586621679582897"><span id="local-6989586621679582898"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateEmbedUrlForAnonymousUserResponse"><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-var">GenerateEmbedUrlForAnonymousUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateEmbedUrlForAnonymousUserResponse%27"><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var">GenerateEmbedUrlForAnonymousUserResponse'</span></a></span></span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-282"></span><span>    </span><span id="%24sel%3Astatus%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUserResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3Astatus%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-comment">-- | The embed URL for the dashboard.</span><span>
+</span><span id="line-284"></span><span>    </span><span id="%24sel%3AembedUrl%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUserResponse -&gt; Sensitive Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AembedUrl%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var hs-var">embedUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-286"></span><span>    </span><span id="%24sel%3ArequestId%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUserResponse -&gt; Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3ArequestId%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679582890"><span id="local-6989586621679582892"><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUserResponse
+-&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; Bool
+(GenerateEmbedUrlForAnonymousUserResponse
+ -&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; Bool)
+-&gt; (GenerateEmbedUrlForAnonymousUserResponse
+    -&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; Bool)
+-&gt; Eq GenerateEmbedUrlForAnonymousUserResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GenerateEmbedUrlForAnonymousUserResponse
+-&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; Bool
+$c/= :: GenerateEmbedUrlForAnonymousUserResponse
+-&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; Bool
+== :: GenerateEmbedUrlForAnonymousUserResponse
+-&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; Bool
+$c== :: GenerateEmbedUrlForAnonymousUserResponse
+-&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582884"><span id="local-6989586621679582886"><span id="local-6989586621679582888"><span class="annot"><span class="annottext">Int -&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; ShowS
+[GenerateEmbedUrlForAnonymousUserResponse] -&gt; ShowS
+GenerateEmbedUrlForAnonymousUserResponse -&gt; String
+(Int -&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; ShowS)
+-&gt; (GenerateEmbedUrlForAnonymousUserResponse -&gt; String)
+-&gt; ([GenerateEmbedUrlForAnonymousUserResponse] -&gt; ShowS)
+-&gt; Show GenerateEmbedUrlForAnonymousUserResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GenerateEmbedUrlForAnonymousUserResponse] -&gt; ShowS
+$cshowList :: [GenerateEmbedUrlForAnonymousUserResponse] -&gt; ShowS
+show :: GenerateEmbedUrlForAnonymousUserResponse -&gt; String
+$cshow :: GenerateEmbedUrlForAnonymousUserResponse -&gt; String
+showsPrec :: Int -&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GenerateEmbedUrlForAnonymousUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GenerateEmbedUrlForAnonymousUserResponse
+ -&gt; Rep GenerateEmbedUrlForAnonymousUserResponse x)
+-&gt; (forall x.
+    Rep GenerateEmbedUrlForAnonymousUserResponse x
+    -&gt; GenerateEmbedUrlForAnonymousUserResponse)
+-&gt; Generic GenerateEmbedUrlForAnonymousUserResponse
+forall x.
+Rep GenerateEmbedUrlForAnonymousUserResponse x
+-&gt; GenerateEmbedUrlForAnonymousUserResponse
+forall x.
+GenerateEmbedUrlForAnonymousUserResponse
+-&gt; Rep GenerateEmbedUrlForAnonymousUserResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GenerateEmbedUrlForAnonymousUserResponse x
+-&gt; GenerateEmbedUrlForAnonymousUserResponse
+$cfrom :: forall x.
+GenerateEmbedUrlForAnonymousUserResponse
+-&gt; Rep GenerateEmbedUrlForAnonymousUserResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- Create a value of 'GenerateEmbedUrlForAnonymousUserResponse' with all optional fields omitted.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- 'status', 'generateEmbedUrlForAnonymousUserResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- 'embedUrl', 'generateEmbedUrlForAnonymousUserResponse_embedUrl' - The embed URL for the dashboard.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- 'requestId', 'generateEmbedUrlForAnonymousUserResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#newGenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">newGenerateEmbedUrlForAnonymousUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-304"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-305"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>  </span><span class="hs-comment">-- | 'embedUrl'</span><span>
+</span><span id="line-307"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-308"></span><span>  </span><span class="hs-comment">-- | 'requestId'</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-310"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse</span></a></span><span>
+</span><span id="line-311"></span><span id="newGenerateEmbedUrlForAnonymousUserResponse"><span class="annot"><span class="annottext">newGenerateEmbedUrlForAnonymousUserResponse :: Int -&gt; Text -&gt; Text -&gt; GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#newGenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-var hs-var">newGenerateEmbedUrlForAnonymousUserResponse</span></a></span></span><span>
+</span><span id="line-312"></span><span>  </span><span id="local-6989586621679582881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582881"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-313"></span><span>  </span><span id="local-6989586621679582880"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582880"><span class="hs-identifier hs-var">pEmbedUrl_</span></a></span></span><span>
+</span><span id="line-314"></span><span>  </span><span id="local-6989586621679582879"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582879"><span class="hs-identifier hs-var">pRequestId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUserResponse' :: Int
+-&gt; Sensitive Text
+-&gt; Text
+-&gt; GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse'</span></a></span><span>
+</span><span id="line-316"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:GenerateEmbedUrlForAnonymousUserResponse' :: Int
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3Astatus%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-317"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582881"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>        </span><span class="annot"><span class="annottext">$sel:embedUrl:GenerateEmbedUrlForAnonymousUserResponse' :: Sensitive Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AembedUrl%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var">embedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-319"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582880"><span class="hs-identifier hs-var">pEmbedUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>        </span><span class="annot"><span class="annottext">$sel:requestId:GenerateEmbedUrlForAnonymousUserResponse' :: Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3ArequestId%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582879"><span class="hs-identifier hs-var">pRequestId_</span></a></span><span>
+</span><span id="line-322"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUserResponse_status"><span class="hs-identifier hs-type">generateEmbedUrlForAnonymousUserResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-326"></span><span id="generateEmbedUrlForAnonymousUserResponse_status"><span class="annot"><span class="annottext">generateEmbedUrlForAnonymousUserResponse_status :: (Int -&gt; f Int)
+-&gt; GenerateEmbedUrlForAnonymousUserResponse
+-&gt; f GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUserResponse_status"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForAnonymousUserResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForAnonymousUserResponse -&gt; Int)
+-&gt; (GenerateEmbedUrlForAnonymousUserResponse
+    -&gt; Int -&gt; GenerateEmbedUrlForAnonymousUserResponse)
+-&gt; Lens
+     GenerateEmbedUrlForAnonymousUserResponse
+     GenerateEmbedUrlForAnonymousUserResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582876"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:GenerateEmbedUrlForAnonymousUserResponse' :: GenerateEmbedUrlForAnonymousUserResponse -&gt; Int
+</span><a href="#local-6989586621679582876"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582876"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582875"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="#local-6989586621679582875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582874"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="#local-6989586621679582875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GenerateEmbedUrlForAnonymousUserResponse' :: Int
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3Astatus%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | The embed URL for the dashboard.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUserResponse_embedUrl"><span class="hs-identifier hs-type">generateEmbedUrlForAnonymousUserResponse_embedUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-330"></span><span id="generateEmbedUrlForAnonymousUserResponse_embedUrl"><span class="annot"><span class="annottext">generateEmbedUrlForAnonymousUserResponse_embedUrl :: (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForAnonymousUserResponse
+-&gt; f GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUserResponse_embedUrl"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForAnonymousUserResponse_embedUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForAnonymousUserResponse -&gt; Sensitive Text)
+-&gt; (GenerateEmbedUrlForAnonymousUserResponse
+    -&gt; Sensitive Text -&gt; GenerateEmbedUrlForAnonymousUserResponse)
+-&gt; Lens
+     GenerateEmbedUrlForAnonymousUserResponse
+     GenerateEmbedUrlForAnonymousUserResponse
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582873"><span class="annot"><span class="annottext">Sensitive Text
+embedUrl :: Sensitive Text
+$sel:embedUrl:GenerateEmbedUrlForAnonymousUserResponse' :: GenerateEmbedUrlForAnonymousUserResponse -&gt; Sensitive Text
+</span><a href="#local-6989586621679582873"><span class="hs-identifier hs-var hs-var">embedUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679582873"><span class="hs-identifier hs-var">embedUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582872"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="#local-6989586621679582872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582871"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679582871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="#local-6989586621679582872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embedUrl:GenerateEmbedUrlForAnonymousUserResponse' :: Sensitive Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3AembedUrl%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var">embedUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679582871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; GenerateEmbedUrlForAnonymousUserResponse
+ -&gt; f GenerateEmbedUrlForAnonymousUserResponse)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForAnonymousUserResponse
+-&gt; f GenerateEmbedUrlForAnonymousUserResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-333"></span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUserResponse_requestId"><span class="hs-identifier hs-type">generateEmbedUrlForAnonymousUserResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-334"></span><span id="generateEmbedUrlForAnonymousUserResponse_requestId"><span class="annot"><span class="annottext">generateEmbedUrlForAnonymousUserResponse_requestId :: (Text -&gt; f Text)
+-&gt; GenerateEmbedUrlForAnonymousUserResponse
+-&gt; f GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#generateEmbedUrlForAnonymousUserResponse_requestId"><span class="hs-identifier hs-var hs-var">generateEmbedUrlForAnonymousUserResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateEmbedUrlForAnonymousUserResponse -&gt; Text)
+-&gt; (GenerateEmbedUrlForAnonymousUserResponse
+    -&gt; Text -&gt; GenerateEmbedUrlForAnonymousUserResponse)
+-&gt; Lens
+     GenerateEmbedUrlForAnonymousUserResponse
+     GenerateEmbedUrlForAnonymousUserResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582870"><span class="annot"><span class="annottext">Text
+requestId :: Text
+$sel:requestId:GenerateEmbedUrlForAnonymousUserResponse' :: GenerateEmbedUrlForAnonymousUserResponse -&gt; Text
+</span><a href="#local-6989586621679582870"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582870"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582869"><span class="annot"><span class="annottext">s :: GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="#local-6989586621679582869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateEmbedUrlForAnonymousUserResponse
+</span><a href="#local-6989586621679582869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:GenerateEmbedUrlForAnonymousUserResponse' :: Text
+</span><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#%24sel%3ArequestId%3AGenerateEmbedUrlForAnonymousUserResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679582868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-337"></span><span>  </span><span id="local-6989586621679582866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-338"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser.html#GenerateEmbedUrlForAnonymousUserResponse"><span class="hs-identifier hs-type">GenerateEmbedUrlForAnonymousUserResponse</span></a></span></span><span>
+</span><span id="line-339"></span></pre></body></html>

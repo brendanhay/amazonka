@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.DeleteAsset</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an asset. This action can\'t be undone. For more information,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html Deleting assets and models&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- You can\'t delete an asset that\'s associated to another asset. For more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html DisassociateAssets&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.DeleteAsset</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier">DeleteAsset</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#newDeleteAsset"><span class="hs-identifier">newDeleteAsset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAsset_clientToken"><span class="hs-identifier">deleteAsset_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAsset_assetId"><span class="hs-identifier">deleteAsset_assetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse"><span class="hs-identifier">DeleteAssetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#newDeleteAssetResponse"><span class="hs-identifier">newDeleteAssetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAssetResponse_httpStatus"><span class="hs-identifier">deleteAssetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAssetResponse_assetStatus"><span class="hs-identifier">deleteAssetResponse_assetStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.html"><span class="hs-identifier">Amazonka.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDeleteAsset' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679357164"><span id="local-6989586621679357165"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAsset"><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-var">DeleteAsset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAsset%27"><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset%27"><span class="hs-identifier hs-var">DeleteAsset'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AclientToken%3ADeleteAsset%27"><span class="annot"><span class="annottext">DeleteAsset -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AclientToken%3ADeleteAsset%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of the asset to delete.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AassetId%3ADeleteAsset%27"><span class="annot"><span class="annottext">DeleteAsset -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AassetId%3ADeleteAsset%27"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357157"><span id="local-6989586621679357159"><span class="annot"><span class="annottext">DeleteAsset -&gt; DeleteAsset -&gt; Bool
+(DeleteAsset -&gt; DeleteAsset -&gt; Bool)
+-&gt; (DeleteAsset -&gt; DeleteAsset -&gt; Bool) -&gt; Eq DeleteAsset
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAsset -&gt; DeleteAsset -&gt; Bool
+$c/= :: DeleteAsset -&gt; DeleteAsset -&gt; Bool
+== :: DeleteAsset -&gt; DeleteAsset -&gt; Bool
+$c== :: DeleteAsset -&gt; DeleteAsset -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357148"><span id="local-6989586621679357150"><span id="local-6989586621679357152"><span id="local-6989586621679357154"><span class="annot"><span class="annottext">ReadPrec [DeleteAsset]
+ReadPrec DeleteAsset
+Int -&gt; ReadS DeleteAsset
+ReadS [DeleteAsset]
+(Int -&gt; ReadS DeleteAsset)
+-&gt; ReadS [DeleteAsset]
+-&gt; ReadPrec DeleteAsset
+-&gt; ReadPrec [DeleteAsset]
+-&gt; Read DeleteAsset
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAsset]
+$creadListPrec :: ReadPrec [DeleteAsset]
+readPrec :: ReadPrec DeleteAsset
+$creadPrec :: ReadPrec DeleteAsset
+readList :: ReadS [DeleteAsset]
+$creadList :: ReadS [DeleteAsset]
+readsPrec :: Int -&gt; ReadS DeleteAsset
+$creadsPrec :: Int -&gt; ReadS DeleteAsset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357141"><span id="local-6989586621679357143"><span id="local-6989586621679357145"><span class="annot"><span class="annottext">Int -&gt; DeleteAsset -&gt; ShowS
+[DeleteAsset] -&gt; ShowS
+DeleteAsset -&gt; String
+(Int -&gt; DeleteAsset -&gt; ShowS)
+-&gt; (DeleteAsset -&gt; String)
+-&gt; ([DeleteAsset] -&gt; ShowS)
+-&gt; Show DeleteAsset
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAsset] -&gt; ShowS
+$cshowList :: [DeleteAsset] -&gt; ShowS
+show :: DeleteAsset -&gt; String
+$cshow :: DeleteAsset -&gt; String
+showsPrec :: Int -&gt; DeleteAsset -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAsset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAsset -&gt; Rep DeleteAsset x)
+-&gt; (forall x. Rep DeleteAsset x -&gt; DeleteAsset)
+-&gt; Generic DeleteAsset
+forall x. Rep DeleteAsset x -&gt; DeleteAsset
+forall x. DeleteAsset -&gt; Rep DeleteAsset x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAsset x -&gt; DeleteAsset
+$cfrom :: forall x. DeleteAsset -&gt; Rep DeleteAsset x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DeleteAsset' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'clientToken', 'deleteAsset_clientToken' - A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'assetId', 'deleteAsset_assetId' - The ID of the asset to delete.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#newDeleteAsset"><span class="hs-identifier hs-type">newDeleteAsset</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'assetId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span>
+</span><span id="line-85"></span><span id="newDeleteAsset"><span class="annot"><span class="annottext">newDeleteAsset :: Text -&gt; DeleteAsset
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#newDeleteAsset"><span class="hs-identifier hs-var hs-var">newDeleteAsset</span></a></span></span><span> </span><span id="local-6989586621679357136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357136"><span class="hs-identifier hs-var">pAssetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DeleteAsset' :: Maybe Text -&gt; Text -&gt; DeleteAsset
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset%27"><span class="hs-identifier hs-type">DeleteAsset'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:DeleteAsset' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AclientToken%3ADeleteAsset%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:assetId:DeleteAsset' :: Text
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AassetId%3ADeleteAsset%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357136"><span class="hs-identifier hs-var">pAssetId_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAsset_clientToken"><span class="hs-identifier hs-type">deleteAsset_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="deleteAsset_clientToken"><span class="annot"><span class="annottext">deleteAsset_clientToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteAsset -&gt; f DeleteAsset
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAsset_clientToken"><span class="hs-identifier hs-var hs-var">deleteAsset_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAsset -&gt; Maybe Text)
+-&gt; (DeleteAsset -&gt; Maybe Text -&gt; DeleteAsset)
+-&gt; Lens DeleteAsset DeleteAsset (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset%27"><span class="hs-identifier hs-type">DeleteAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357133"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:DeleteAsset' :: DeleteAsset -&gt; Maybe Text
+</span><a href="#local-6989586621679357133"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357133"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357132"><span class="annot"><span class="annottext">s :: DeleteAsset
+</span><a href="#local-6989586621679357132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset%27"><span class="hs-identifier hs-type">DeleteAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAsset
+</span><a href="#local-6989586621679357132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:DeleteAsset' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AclientToken%3ADeleteAsset%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the asset to delete.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAsset_assetId"><span class="hs-identifier hs-type">deleteAsset_assetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="deleteAsset_assetId"><span class="annot"><span class="annottext">deleteAsset_assetId :: (Text -&gt; f Text) -&gt; DeleteAsset -&gt; f DeleteAsset
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAsset_assetId"><span class="hs-identifier hs-var hs-var">deleteAsset_assetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAsset -&gt; Text)
+-&gt; (DeleteAsset -&gt; Text -&gt; DeleteAsset)
+-&gt; Lens DeleteAsset DeleteAsset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset%27"><span class="hs-identifier hs-type">DeleteAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357130"><span class="annot"><span class="annottext">Text
+assetId :: Text
+$sel:assetId:DeleteAsset' :: DeleteAsset -&gt; Text
+</span><a href="#local-6989586621679357130"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357130"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357129"><span class="annot"><span class="annottext">s :: DeleteAsset
+</span><a href="#local-6989586621679357129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset%27"><span class="hs-identifier hs-type">DeleteAsset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAsset
+</span><a href="#local-6989586621679357129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetId:DeleteAsset' :: Text
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AassetId%3ADeleteAsset%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse"><span class="hs-identifier hs-type">DeleteAssetResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679357124"><span class="annot"><span class="annottext">request :: DeleteAsset -&gt; Request DeleteAsset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAsset -&gt; Request DeleteAsset
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679357120"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAsset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAsset)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteAsset))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAsset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAsset)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357117"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357117"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679357116"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679357116"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679357115"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssetStatus -&gt; DeleteAssetResponse
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse%27"><span class="hs-identifier hs-var">DeleteAssetResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssetStatus -&gt; DeleteAssetResponse)
+-&gt; Either String Int
+-&gt; Either String (AssetStatus -&gt; DeleteAssetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357117"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (AssetStatus -&gt; DeleteAssetResponse)
+-&gt; Either String AssetStatus -&gt; Either String DeleteAssetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String AssetStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357107"><span id="local-6989586621679357109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679357100"><span class="annot"><span class="annottext">toHeaders :: DeleteAsset -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAsset -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-123"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679357094"><span class="annot"><span class="annottext">toPath :: DeleteAsset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset%27"><span class="hs-identifier hs-type">DeleteAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357091"><span id="local-6989586621679357092"><span class="annot"><span class="annottext">Maybe Text
+Text
+assetId :: Text
+clientToken :: Maybe Text
+$sel:assetId:DeleteAsset' :: DeleteAsset -&gt; Text
+$sel:clientToken:DeleteAsset' :: DeleteAsset -&gt; Maybe Text
+</span><a href="#local-6989586621679357091"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357091"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset"><span class="hs-identifier hs-type">DeleteAsset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679357087"><span class="annot"><span class="annottext">toQuery :: DeleteAsset -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAsset%27"><span class="hs-identifier hs-type">DeleteAsset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357084"><span id="local-6989586621679357085"><span class="annot"><span class="annottext">Maybe Text
+Text
+assetId :: Text
+clientToken :: Maybe Text
+$sel:assetId:DeleteAsset' :: DeleteAsset -&gt; Text
+$sel:clientToken:DeleteAsset' :: DeleteAsset -&gt; Maybe Text
+</span><a href="#local-6989586621679357084"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357085"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDeleteAssetResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679357081"><span id="local-6989586621679357082"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAssetResponse"><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse"><span class="hs-identifier hs-var">DeleteAssetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAssetResponse%27"><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse%27"><span class="hs-identifier hs-var">DeleteAssetResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAssetResponse%27"><span class="annot"><span class="annottext">DeleteAssetResponse -&gt; Int
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AhttpStatus%3ADeleteAssetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The status of the asset, which contains a state (@DELETING@ after</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- successfully calling this operation) and any error message.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AassetStatus%3ADeleteAssetResponse%27"><span class="annot"><span class="annottext">DeleteAssetResponse -&gt; AssetStatus
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AassetStatus%3ADeleteAssetResponse%27"><span class="hs-identifier hs-var hs-var">assetStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetStatus.html#AssetStatus"><span class="hs-identifier hs-type">AssetStatus</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357075"><span id="local-6989586621679357077"><span class="annot"><span class="annottext">DeleteAssetResponse -&gt; DeleteAssetResponse -&gt; Bool
+(DeleteAssetResponse -&gt; DeleteAssetResponse -&gt; Bool)
+-&gt; (DeleteAssetResponse -&gt; DeleteAssetResponse -&gt; Bool)
+-&gt; Eq DeleteAssetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAssetResponse -&gt; DeleteAssetResponse -&gt; Bool
+$c/= :: DeleteAssetResponse -&gt; DeleteAssetResponse -&gt; Bool
+== :: DeleteAssetResponse -&gt; DeleteAssetResponse -&gt; Bool
+$c== :: DeleteAssetResponse -&gt; DeleteAssetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357067"><span id="local-6989586621679357069"><span id="local-6989586621679357071"><span id="local-6989586621679357073"><span class="annot"><span class="annottext">ReadPrec [DeleteAssetResponse]
+ReadPrec DeleteAssetResponse
+Int -&gt; ReadS DeleteAssetResponse
+ReadS [DeleteAssetResponse]
+(Int -&gt; ReadS DeleteAssetResponse)
+-&gt; ReadS [DeleteAssetResponse]
+-&gt; ReadPrec DeleteAssetResponse
+-&gt; ReadPrec [DeleteAssetResponse]
+-&gt; Read DeleteAssetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAssetResponse]
+$creadListPrec :: ReadPrec [DeleteAssetResponse]
+readPrec :: ReadPrec DeleteAssetResponse
+$creadPrec :: ReadPrec DeleteAssetResponse
+readList :: ReadS [DeleteAssetResponse]
+$creadList :: ReadS [DeleteAssetResponse]
+readsPrec :: Int -&gt; ReadS DeleteAssetResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAssetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357061"><span id="local-6989586621679357063"><span id="local-6989586621679357065"><span class="annot"><span class="annottext">Int -&gt; DeleteAssetResponse -&gt; ShowS
+[DeleteAssetResponse] -&gt; ShowS
+DeleteAssetResponse -&gt; String
+(Int -&gt; DeleteAssetResponse -&gt; ShowS)
+-&gt; (DeleteAssetResponse -&gt; String)
+-&gt; ([DeleteAssetResponse] -&gt; ShowS)
+-&gt; Show DeleteAssetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAssetResponse] -&gt; ShowS
+$cshowList :: [DeleteAssetResponse] -&gt; ShowS
+show :: DeleteAssetResponse -&gt; String
+$cshow :: DeleteAssetResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAssetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAssetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAssetResponse -&gt; Rep DeleteAssetResponse x)
+-&gt; (forall x. Rep DeleteAssetResponse x -&gt; DeleteAssetResponse)
+-&gt; Generic DeleteAssetResponse
+forall x. Rep DeleteAssetResponse x -&gt; DeleteAssetResponse
+forall x. DeleteAssetResponse -&gt; Rep DeleteAssetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAssetResponse x -&gt; DeleteAssetResponse
+$cfrom :: forall x. DeleteAssetResponse -&gt; Rep DeleteAssetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Create a value of 'DeleteAssetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'httpStatus', 'deleteAssetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'assetStatus', 'deleteAssetResponse_assetStatus' - The status of the asset, which contains a state (@DELETING@ after</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- successfully calling this operation) and any error message.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#newDeleteAssetResponse"><span class="hs-identifier hs-type">newDeleteAssetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'assetStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetStatus.html#AssetStatus"><span class="hs-identifier hs-type">AssetStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse"><span class="hs-identifier hs-type">DeleteAssetResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newDeleteAssetResponse"><span class="annot"><span class="annottext">newDeleteAssetResponse :: Int -&gt; AssetStatus -&gt; DeleteAssetResponse
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#newDeleteAssetResponse"><span class="hs-identifier hs-var hs-var">newDeleteAssetResponse</span></a></span></span><span> </span><span id="local-6989586621679357058"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357058"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679357057"><span class="annot"><span class="annottext">AssetStatus
+</span><a href="#local-6989586621679357057"><span class="hs-identifier hs-var">pAssetStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">DeleteAssetResponse' :: Int -&gt; AssetStatus -&gt; DeleteAssetResponse
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse%27"><span class="hs-identifier hs-type">DeleteAssetResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAssetResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AhttpStatus%3ADeleteAssetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357058"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:assetStatus:DeleteAssetResponse' :: AssetStatus
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AassetStatus%3ADeleteAssetResponse%27"><span class="hs-identifier hs-var">assetStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssetStatus
+</span><a href="#local-6989586621679357057"><span class="hs-identifier hs-var">pAssetStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAssetResponse_httpStatus"><span class="hs-identifier hs-type">deleteAssetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse"><span class="hs-identifier hs-type">DeleteAssetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span id="deleteAssetResponse_httpStatus"><span class="annot"><span class="annottext">deleteAssetResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteAssetResponse -&gt; f DeleteAssetResponse
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAssetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteAssetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAssetResponse -&gt; Int)
+-&gt; (DeleteAssetResponse -&gt; Int -&gt; DeleteAssetResponse)
+-&gt; Lens DeleteAssetResponse DeleteAssetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse%27"><span class="hs-identifier hs-type">DeleteAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357056"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteAssetResponse' :: DeleteAssetResponse -&gt; Int
+</span><a href="#local-6989586621679357056"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357056"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357055"><span class="annot"><span class="annottext">s :: DeleteAssetResponse
+</span><a href="#local-6989586621679357055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse%27"><span class="hs-identifier hs-type">DeleteAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357054"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAssetResponse
+</span><a href="#local-6989586621679357055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAssetResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AhttpStatus%3ADeleteAssetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse"><span class="hs-identifier hs-type">DeleteAssetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The status of the asset, which contains a state (@DELETING@ after</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- successfully calling this operation) and any error message.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAssetResponse_assetStatus"><span class="hs-identifier hs-type">deleteAssetResponse_assetStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse"><span class="hs-identifier hs-type">DeleteAssetResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetStatus.html#AssetStatus"><span class="hs-identifier hs-type">AssetStatus</span></a></span><span>
+</span><span id="line-176"></span><span id="deleteAssetResponse_assetStatus"><span class="annot"><span class="annottext">deleteAssetResponse_assetStatus :: (AssetStatus -&gt; f AssetStatus)
+-&gt; DeleteAssetResponse -&gt; f DeleteAssetResponse
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#deleteAssetResponse_assetStatus"><span class="hs-identifier hs-var hs-var">deleteAssetResponse_assetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAssetResponse -&gt; AssetStatus)
+-&gt; (DeleteAssetResponse -&gt; AssetStatus -&gt; DeleteAssetResponse)
+-&gt; Lens
+     DeleteAssetResponse DeleteAssetResponse AssetStatus AssetStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse%27"><span class="hs-identifier hs-type">DeleteAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357053"><span class="annot"><span class="annottext">AssetStatus
+assetStatus :: AssetStatus
+$sel:assetStatus:DeleteAssetResponse' :: DeleteAssetResponse -&gt; AssetStatus
+</span><a href="#local-6989586621679357053"><span class="hs-identifier hs-var hs-var">assetStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetStatus
+</span><a href="#local-6989586621679357053"><span class="hs-identifier hs-var">assetStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357052"><span class="annot"><span class="annottext">s :: DeleteAssetResponse
+</span><a href="#local-6989586621679357052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse%27"><span class="hs-identifier hs-type">DeleteAssetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357051"><span class="annot"><span class="annottext">AssetStatus
+</span><a href="#local-6989586621679357051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAssetResponse
+</span><a href="#local-6989586621679357052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetStatus:DeleteAssetResponse' :: AssetStatus
+</span><a href="Amazonka.IoTSiteWise.DeleteAsset.html#%24sel%3AassetStatus%3ADeleteAssetResponse%27"><span class="hs-identifier hs-var">assetStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssetStatus
+</span><a href="#local-6989586621679357051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse"><span class="hs-identifier hs-type">DeleteAssetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DeleteAsset.html#DeleteAssetResponse"><span class="hs-identifier hs-type">DeleteAssetResponse</span></a></span></span><span>
+</span><span id="line-179"></span></pre></body></html>

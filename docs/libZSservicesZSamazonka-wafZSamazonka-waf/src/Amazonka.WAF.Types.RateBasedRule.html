@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WAF.Types.RateBasedRule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WAF.Types.RateBasedRule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.Predicate.html"><span class="hs-identifier">Amazonka.WAF.Types.Predicate</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html"><span class="hs-identifier">Amazonka.WAF.Types.RateKey</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | This is __AWS WAF Classic__ documentation. For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- With the latest version, AWS WAF has a single set of endpoints for</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- regional and global use.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- A @RateBasedRule@ is identical to a regular Rule, with one addition: a</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @RateBasedRule@ counts the number of requests that arrive from a</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- specified IP address every five minutes. For example, based on recent</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- requests that you\'ve seen from an attacker, you might create a</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- @RateBasedRule@ that includes the following conditions:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- -   The requests come from 192.0.2.44.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- -   They contain the value @BadBot@ in the @User-Agent@ header.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- In the rule, you also define the rate limit as 1,000.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Requests that meet both of these conditions and exceed 1,000 requests</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- every five minutes trigger the rule\'s action (block or count), which is</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- defined in the web ACL.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newRateBasedRule' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679302947"><span id="local-6989586621679302948"></span></span><span class="hs-keyword">data</span><span> </span><span id="RateBasedRule"><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-var">RateBasedRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RateBasedRule%27"><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-var">RateBasedRule'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A friendly name or description for the metrics for a @RateBasedRule@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- maximum length 128 and minimum length one. It can\'t contain whitespace</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- or metric names reserved for AWS WAF, including \&quot;All\&quot; and</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- \&quot;Default_Action.\&quot; You can\'t change the name of the metric after you</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- create the @RateBasedRule@.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmetricName%3ARateBasedRule%27"><span class="annot"><span class="annottext">RateBasedRule -&gt; Maybe Text
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3AmetricName%3ARateBasedRule%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A friendly name or description for a @RateBasedRule@. You can\'t change</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the name of a @RateBasedRule@ after you create it.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aname%3ARateBasedRule%27"><span class="annot"><span class="annottext">RateBasedRule -&gt; Maybe Text
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3Aname%3ARateBasedRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A unique identifier for a @RateBasedRule@. You use @RuleId@ to get more</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- information about a @RateBasedRule@ (see GetRateBasedRule), update a</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @RateBasedRule@ (see UpdateRateBasedRule), insert a @RateBasedRule@ into</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- a @WebACL@ or delete one from a @WebACL@ (see UpdateWebACL), or delete a</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @RateBasedRule@ from AWS WAF (see DeleteRateBasedRule).</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AruleId%3ARateBasedRule%27"><span class="annot"><span class="annottext">RateBasedRule -&gt; Text
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3AruleId%3ARateBasedRule%27"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The @Predicates@ object contains one @Predicate@ element for each</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- include in a @RateBasedRule@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmatchPredicates%3ARateBasedRule%27"><span class="annot"><span class="annottext">RateBasedRule -&gt; [Predicate]
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3AmatchPredicates%3ARateBasedRule%27"><span class="hs-identifier hs-var hs-var">matchPredicates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WAF.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The field that AWS WAF uses to determine if requests are likely arriving</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- from single source and thus subject to rate monitoring. The only valid</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- value for @RateKey@ is @IP@. @IP@ indicates that requests arriving from</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- the same IP address are subject to the @RateLimit@ that is specified in</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- the @RateBasedRule@.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3ArateKey%3ARateBasedRule%27"><span class="annot"><span class="annottext">RateBasedRule -&gt; RateKey
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3ArateKey%3ARateBasedRule%27"><span class="hs-identifier hs-var hs-var">rateKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey"><span class="hs-identifier hs-type">RateKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The maximum number of requests, which have an identical value in the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- field specified by the @RateKey@, allowed in a five-minute period. If</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- the number of requests exceeds the @RateLimit@ and the other predicates</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- specified in the rule are also met, AWS WAF triggers the action that is</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- specified for this rule.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3ArateLimit%3ARateBasedRule%27"><span class="annot"><span class="annottext">RateBasedRule -&gt; Natural
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3ArateLimit%3ARateBasedRule%27"><span class="hs-identifier hs-var hs-var">rateLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302936"><span id="local-6989586621679302938"><span class="annot"><span class="annottext">RateBasedRule -&gt; RateBasedRule -&gt; Bool
+(RateBasedRule -&gt; RateBasedRule -&gt; Bool)
+-&gt; (RateBasedRule -&gt; RateBasedRule -&gt; Bool) -&gt; Eq RateBasedRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RateBasedRule -&gt; RateBasedRule -&gt; Bool
+$c/= :: RateBasedRule -&gt; RateBasedRule -&gt; Bool
+== :: RateBasedRule -&gt; RateBasedRule -&gt; Bool
+$c== :: RateBasedRule -&gt; RateBasedRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302927"><span id="local-6989586621679302929"><span id="local-6989586621679302931"><span id="local-6989586621679302933"><span class="annot"><span class="annottext">ReadPrec [RateBasedRule]
+ReadPrec RateBasedRule
+Int -&gt; ReadS RateBasedRule
+ReadS [RateBasedRule]
+(Int -&gt; ReadS RateBasedRule)
+-&gt; ReadS [RateBasedRule]
+-&gt; ReadPrec RateBasedRule
+-&gt; ReadPrec [RateBasedRule]
+-&gt; Read RateBasedRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RateBasedRule]
+$creadListPrec :: ReadPrec [RateBasedRule]
+readPrec :: ReadPrec RateBasedRule
+$creadPrec :: ReadPrec RateBasedRule
+readList :: ReadS [RateBasedRule]
+$creadList :: ReadS [RateBasedRule]
+readsPrec :: Int -&gt; ReadS RateBasedRule
+$creadsPrec :: Int -&gt; ReadS RateBasedRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302920"><span id="local-6989586621679302922"><span id="local-6989586621679302924"><span class="annot"><span class="annottext">Int -&gt; RateBasedRule -&gt; ShowS
+[RateBasedRule] -&gt; ShowS
+RateBasedRule -&gt; String
+(Int -&gt; RateBasedRule -&gt; ShowS)
+-&gt; (RateBasedRule -&gt; String)
+-&gt; ([RateBasedRule] -&gt; ShowS)
+-&gt; Show RateBasedRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RateBasedRule] -&gt; ShowS
+$cshowList :: [RateBasedRule] -&gt; ShowS
+show :: RateBasedRule -&gt; String
+$cshow :: RateBasedRule -&gt; String
+showsPrec :: Int -&gt; RateBasedRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; RateBasedRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RateBasedRule -&gt; Rep RateBasedRule x)
+-&gt; (forall x. Rep RateBasedRule x -&gt; RateBasedRule)
+-&gt; Generic RateBasedRule
+forall x. Rep RateBasedRule x -&gt; RateBasedRule
+forall x. RateBasedRule -&gt; Rep RateBasedRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RateBasedRule x -&gt; RateBasedRule
+$cfrom :: forall x. RateBasedRule -&gt; Rep RateBasedRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Create a value of 'RateBasedRule' with all optional fields omitted.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'metricName', 'rateBasedRule_metricName' - A friendly name or description for the metrics for a @RateBasedRule@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- maximum length 128 and minimum length one. It can\'t contain whitespace</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- or metric names reserved for AWS WAF, including \&quot;All\&quot; and</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- \&quot;Default_Action.\&quot; You can\'t change the name of the metric after you</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- create the @RateBasedRule@.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'name', 'rateBasedRule_name' - A friendly name or description for a @RateBasedRule@. You can\'t change</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the name of a @RateBasedRule@ after you create it.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'ruleId', 'rateBasedRule_ruleId' - A unique identifier for a @RateBasedRule@. You use @RuleId@ to get more</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- information about a @RateBasedRule@ (see GetRateBasedRule), update a</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @RateBasedRule@ (see UpdateRateBasedRule), insert a @RateBasedRule@ into</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- a @WebACL@ or delete one from a @WebACL@ (see UpdateWebACL), or delete a</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @RateBasedRule@ from AWS WAF (see DeleteRateBasedRule).</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'matchPredicates', 'rateBasedRule_matchPredicates' - The @Predicates@ object contains one @Predicate@ element for each</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- include in a @RateBasedRule@.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'rateKey', 'rateBasedRule_rateKey' - The field that AWS WAF uses to determine if requests are likely arriving</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- from single source and thus subject to rate monitoring. The only valid</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- value for @RateKey@ is @IP@. @IP@ indicates that requests arriving from</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- the same IP address are subject to the @RateLimit@ that is specified in</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- the @RateBasedRule@.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'rateLimit', 'rateBasedRule_rateLimit' - The maximum number of requests, which have an identical value in the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- field specified by the @RateKey@, allowed in a five-minute period. If</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- the number of requests exceeds the @RateLimit@ and the other predicates</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- specified in the rule are also met, AWS WAF triggers the action that is</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- specified for this rule.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#newRateBasedRule"><span class="hs-identifier hs-type">newRateBasedRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'ruleId'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'rateKey'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey"><span class="hs-identifier hs-type">RateKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'rateLimit'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span>
+</span><span id="line-137"></span><span id="newRateBasedRule"><span class="annot"><span class="annottext">newRateBasedRule :: Text -&gt; RateKey -&gt; Natural -&gt; RateBasedRule
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#newRateBasedRule"><span class="hs-identifier hs-var hs-var">newRateBasedRule</span></a></span></span><span> </span><span id="local-6989586621679302914"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302914"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span id="local-6989586621679302913"><span class="annot"><span class="annottext">RateKey
+</span><a href="#local-6989586621679302913"><span class="hs-identifier hs-var">pRateKey_</span></a></span></span><span> </span><span id="local-6989586621679302912"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302912"><span class="hs-identifier hs-var">pRateLimit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">RateBasedRule' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; [Predicate]
+-&gt; RateKey
+-&gt; Natural
+-&gt; RateBasedRule
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricName:RateBasedRule' :: Maybe Text
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3AmetricName%3ARateBasedRule%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RateBasedRule' :: Maybe Text
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3Aname%3ARateBasedRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleId:RateBasedRule' :: Text
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3AruleId%3ARateBasedRule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302914"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchPredicates:RateBasedRule' :: [Predicate]
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3AmatchPredicates%3ARateBasedRule%27"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Predicate]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:rateKey:RateBasedRule' :: RateKey
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3ArateKey%3ARateBasedRule%27"><span class="hs-identifier hs-var">rateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RateKey
+</span><a href="#local-6989586621679302913"><span class="hs-identifier hs-var">pRateKey_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:rateLimit:RateBasedRule' :: Natural
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3ArateLimit%3ARateBasedRule%27"><span class="hs-identifier hs-var">rateLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302912"><span class="hs-identifier hs-var">pRateLimit_</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | A friendly name or description for the metrics for a @RateBasedRule@.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- maximum length 128 and minimum length one. It can\'t contain whitespace</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- or metric names reserved for AWS WAF, including \&quot;All\&quot; and</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- \&quot;Default_Action.\&quot; You can\'t change the name of the metric after you</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- create the @RateBasedRule@.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_metricName"><span class="hs-identifier hs-type">rateBasedRule_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="rateBasedRule_metricName"><span class="annot"><span class="annottext">rateBasedRule_metricName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RateBasedRule -&gt; f RateBasedRule
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_metricName"><span class="hs-identifier hs-var hs-var">rateBasedRule_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RateBasedRule -&gt; Maybe Text)
+-&gt; (RateBasedRule -&gt; Maybe Text -&gt; RateBasedRule)
+-&gt; Lens RateBasedRule RateBasedRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302908"><span class="annot"><span class="annottext">Maybe Text
+metricName :: Maybe Text
+$sel:metricName:RateBasedRule' :: RateBasedRule -&gt; Maybe Text
+</span><a href="#local-6989586621679302908"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302908"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302907"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679302907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302906"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679302907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:RateBasedRule' :: Maybe Text
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3AmetricName%3ARateBasedRule%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | A friendly name or description for a @RateBasedRule@. You can\'t change</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- the name of a @RateBasedRule@ after you create it.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_name"><span class="hs-identifier hs-type">rateBasedRule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="rateBasedRule_name"><span class="annot"><span class="annottext">rateBasedRule_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RateBasedRule -&gt; f RateBasedRule
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_name"><span class="hs-identifier hs-var hs-var">rateBasedRule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RateBasedRule -&gt; Maybe Text)
+-&gt; (RateBasedRule -&gt; Maybe Text -&gt; RateBasedRule)
+-&gt; Lens RateBasedRule RateBasedRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302904"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:RateBasedRule' :: RateBasedRule -&gt; Maybe Text
+</span><a href="#local-6989586621679302904"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302904"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302903"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302902"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RateBasedRule' :: Maybe Text
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3Aname%3ARateBasedRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | A unique identifier for a @RateBasedRule@. You use @RuleId@ to get more</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- information about a @RateBasedRule@ (see GetRateBasedRule), update a</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- @RateBasedRule@ (see UpdateRateBasedRule), insert a @RateBasedRule@ into</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- a @WebACL@ or delete one from a @WebACL@ (see UpdateWebACL), or delete a</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- @RateBasedRule@ from AWS WAF (see DeleteRateBasedRule).</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_ruleId"><span class="hs-identifier hs-type">rateBasedRule_ruleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-167"></span><span id="rateBasedRule_ruleId"><span class="annot"><span class="annottext">rateBasedRule_ruleId :: (Text -&gt; f Text) -&gt; RateBasedRule -&gt; f RateBasedRule
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_ruleId"><span class="hs-identifier hs-var hs-var">rateBasedRule_ruleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RateBasedRule -&gt; Text)
+-&gt; (RateBasedRule -&gt; Text -&gt; RateBasedRule)
+-&gt; Lens RateBasedRule RateBasedRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302900"><span class="annot"><span class="annottext">Text
+ruleId :: Text
+$sel:ruleId:RateBasedRule' :: RateBasedRule -&gt; Text
+</span><a href="#local-6989586621679302900"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302900"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302899"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679302899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679302899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:RateBasedRule' :: Text
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3AruleId%3ARateBasedRule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The @Predicates@ object contains one @Predicate@ element for each</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- include in a @RateBasedRule@.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_matchPredicates"><span class="hs-identifier hs-type">rateBasedRule_matchPredicates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WAF.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span id="rateBasedRule_matchPredicates"><span class="annot"><span class="annottext">rateBasedRule_matchPredicates :: ([Predicate] -&gt; f [Predicate]) -&gt; RateBasedRule -&gt; f RateBasedRule
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_matchPredicates"><span class="hs-identifier hs-var hs-var">rateBasedRule_matchPredicates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RateBasedRule -&gt; [Predicate])
+-&gt; (RateBasedRule -&gt; [Predicate] -&gt; RateBasedRule)
+-&gt; Lens RateBasedRule RateBasedRule [Predicate] [Predicate]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302896"><span class="annot"><span class="annottext">[Predicate]
+matchPredicates :: [Predicate]
+$sel:matchPredicates:RateBasedRule' :: RateBasedRule -&gt; [Predicate]
+</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var hs-var">matchPredicates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Predicate]
+</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302895"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679302895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302894"><span class="annot"><span class="annottext">[Predicate]
+</span><a href="#local-6989586621679302894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679302895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchPredicates:RateBasedRule' :: [Predicate]
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3AmatchPredicates%3ARateBasedRule%27"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Predicate]
+</span><a href="#local-6989586621679302894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Predicate] -&gt; f [Predicate])
+ -&gt; RateBasedRule -&gt; f RateBasedRule)
+-&gt; (([Predicate] -&gt; f [Predicate]) -&gt; [Predicate] -&gt; f [Predicate])
+-&gt; ([Predicate] -&gt; f [Predicate])
+-&gt; RateBasedRule
+-&gt; f RateBasedRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Predicate] -&gt; f [Predicate]) -&gt; [Predicate] -&gt; f [Predicate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The field that AWS WAF uses to determine if requests are likely arriving</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- from single source and thus subject to rate monitoring. The only valid</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- value for @RateKey@ is @IP@. @IP@ indicates that requests arriving from</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- the same IP address are subject to the @RateLimit@ that is specified in</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- the @RateBasedRule@.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_rateKey"><span class="hs-identifier hs-type">rateBasedRule_rateKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey"><span class="hs-identifier hs-type">RateKey</span></a></span><span>
+</span><span id="line-181"></span><span id="rateBasedRule_rateKey"><span class="annot"><span class="annottext">rateBasedRule_rateKey :: (RateKey -&gt; f RateKey) -&gt; RateBasedRule -&gt; f RateBasedRule
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_rateKey"><span class="hs-identifier hs-var hs-var">rateBasedRule_rateKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RateBasedRule -&gt; RateKey)
+-&gt; (RateBasedRule -&gt; RateKey -&gt; RateBasedRule)
+-&gt; Lens RateBasedRule RateBasedRule RateKey RateKey
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302890"><span class="annot"><span class="annottext">RateKey
+rateKey :: RateKey
+$sel:rateKey:RateBasedRule' :: RateBasedRule -&gt; RateKey
+</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var hs-var">rateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateKey
+</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">rateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302889"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302888"><span class="annot"><span class="annottext">RateKey
+</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679302889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateKey:RateBasedRule' :: RateKey
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3ArateKey%3ARateBasedRule%27"><span class="hs-identifier hs-var">rateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RateKey
+</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The maximum number of requests, which have an identical value in the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- field specified by the @RateKey@, allowed in a five-minute period. If</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- the number of requests exceeds the @RateLimit@ and the other predicates</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- specified in the rule are also met, AWS WAF triggers the action that is</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- specified for this rule.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_rateLimit"><span class="hs-identifier hs-type">rateBasedRule_rateLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-189"></span><span id="rateBasedRule_rateLimit"><span class="annot"><span class="annottext">rateBasedRule_rateLimit :: (Natural -&gt; f Natural) -&gt; RateBasedRule -&gt; f RateBasedRule
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#rateBasedRule_rateLimit"><span class="hs-identifier hs-var hs-var">rateBasedRule_rateLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RateBasedRule -&gt; Natural)
+-&gt; (RateBasedRule -&gt; Natural -&gt; RateBasedRule)
+-&gt; Lens RateBasedRule RateBasedRule Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302886"><span class="annot"><span class="annottext">Natural
+rateLimit :: Natural
+$sel:rateLimit:RateBasedRule' :: RateBasedRule -&gt; Natural
+</span><a href="#local-6989586621679302886"><span class="hs-identifier hs-var hs-var">rateLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302886"><span class="hs-identifier hs-var">rateLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302885"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679302885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302884"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679302885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateLimit:RateBasedRule' :: Natural
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#%24sel%3ArateLimit%3ARateBasedRule%27"><span class="hs-identifier hs-var">rateLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302881"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679302879"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RateBasedRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RateBasedRule)
+-&gt; Value
+-&gt; Parser RateBasedRule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RateBasedRule&quot;</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302876"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; [Predicate]
+-&gt; RateKey
+-&gt; Natural
+-&gt; RateBasedRule
+</span><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-var">RateBasedRule'</span></a></span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; [Predicate]
+ -&gt; RateKey
+ -&gt; Natural
+ -&gt; RateBasedRule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Text -&gt; [Predicate] -&gt; RateKey -&gt; Natural -&gt; RateBasedRule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Text -&gt; [Predicate] -&gt; RateKey -&gt; Natural -&gt; RateBasedRule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text -&gt; [Predicate] -&gt; RateKey -&gt; Natural -&gt; RateBasedRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [Predicate] -&gt; RateKey -&gt; Natural -&gt; RateBasedRule)
+-&gt; Parser Text
+-&gt; Parser ([Predicate] -&gt; RateKey -&gt; Natural -&gt; RateBasedRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Predicate] -&gt; RateKey -&gt; Natural -&gt; RateBasedRule)
+-&gt; Parser [Predicate]
+-&gt; Parser (RateKey -&gt; Natural -&gt; RateBasedRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Predicate])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchPredicates&quot;</span></span><span>
+</span><span id="line-201"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [Predicate]) -&gt; [Predicate] -&gt; Parser [Predicate]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Predicate]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-202"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser (RateKey -&gt; Natural -&gt; RateBasedRule)
+-&gt; Parser RateKey -&gt; Parser (Natural -&gt; RateBasedRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RateKey
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RateKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; RateBasedRule)
+-&gt; Parser Natural -&gt; Parser RateBasedRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RateLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302868"><span id="local-6989586621679302870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span></span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span></span><span>
+</span><span id="line-210"></span></pre></body></html>

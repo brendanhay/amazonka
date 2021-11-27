@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchLogs.GetQueryResults</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the results from the specified query.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Only the fields requested in the query are returned, along with a</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @\@ptr@ field, which is the identifier for the log record. You can use</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the value of @\@ptr@ in a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html GetLogRecord&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- operation to get the full log record.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @GetQueryResults@ does not start a query execution. To run a query, use</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html StartQuery&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- If the value of the @Status@ field in the output is @Running@, this</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- operation returns only partial results. If you see a value of</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @Scheduled@ or @Running@ for the status, you can retry the operation</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- later to see the final results.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchLogs.GetQueryResults</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier">GetQueryResults</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#newGetQueryResults"><span class="hs-identifier">newGetQueryResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResults_queryId"><span class="hs-identifier">getQueryResults_queryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier">GetQueryResultsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#newGetQueryResultsResponse"><span class="hs-identifier">newGetQueryResultsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_status"><span class="hs-identifier">getQueryResultsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_results"><span class="hs-identifier">getQueryResultsResponse_results</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_statistics"><span class="hs-identifier">getQueryResultsResponse_statistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_httpStatus"><span class="hs-identifier">getQueryResultsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.html"><span class="hs-identifier">Amazonka.CloudWatchLogs.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newGetQueryResults' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679226692"><span id="local-6989586621679226693"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryResults"><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-var">GetQueryResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryResults%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-var">GetQueryResults'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID number of the query.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AqueryId%3AGetQueryResults%27"><span class="annot"><span class="annottext">GetQueryResults -&gt; Text
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3AqueryId%3AGetQueryResults%27"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226686"><span id="local-6989586621679226688"><span class="annot"><span class="annottext">GetQueryResults -&gt; GetQueryResults -&gt; Bool
+(GetQueryResults -&gt; GetQueryResults -&gt; Bool)
+-&gt; (GetQueryResults -&gt; GetQueryResults -&gt; Bool)
+-&gt; Eq GetQueryResults
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetQueryResults -&gt; GetQueryResults -&gt; Bool
+$c/= :: GetQueryResults -&gt; GetQueryResults -&gt; Bool
+== :: GetQueryResults -&gt; GetQueryResults -&gt; Bool
+$c== :: GetQueryResults -&gt; GetQueryResults -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226677"><span id="local-6989586621679226679"><span id="local-6989586621679226681"><span id="local-6989586621679226683"><span class="annot"><span class="annottext">ReadPrec [GetQueryResults]
+ReadPrec GetQueryResults
+Int -&gt; ReadS GetQueryResults
+ReadS [GetQueryResults]
+(Int -&gt; ReadS GetQueryResults)
+-&gt; ReadS [GetQueryResults]
+-&gt; ReadPrec GetQueryResults
+-&gt; ReadPrec [GetQueryResults]
+-&gt; Read GetQueryResults
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetQueryResults]
+$creadListPrec :: ReadPrec [GetQueryResults]
+readPrec :: ReadPrec GetQueryResults
+$creadPrec :: ReadPrec GetQueryResults
+readList :: ReadS [GetQueryResults]
+$creadList :: ReadS [GetQueryResults]
+readsPrec :: Int -&gt; ReadS GetQueryResults
+$creadsPrec :: Int -&gt; ReadS GetQueryResults
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226670"><span id="local-6989586621679226672"><span id="local-6989586621679226674"><span class="annot"><span class="annottext">Int -&gt; GetQueryResults -&gt; ShowS
+[GetQueryResults] -&gt; ShowS
+GetQueryResults -&gt; String
+(Int -&gt; GetQueryResults -&gt; ShowS)
+-&gt; (GetQueryResults -&gt; String)
+-&gt; ([GetQueryResults] -&gt; ShowS)
+-&gt; Show GetQueryResults
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetQueryResults] -&gt; ShowS
+$cshowList :: [GetQueryResults] -&gt; ShowS
+show :: GetQueryResults -&gt; String
+$cshow :: GetQueryResults -&gt; String
+showsPrec :: Int -&gt; GetQueryResults -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetQueryResults -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetQueryResults -&gt; Rep GetQueryResults x)
+-&gt; (forall x. Rep GetQueryResults x -&gt; GetQueryResults)
+-&gt; Generic GetQueryResults
+forall x. Rep GetQueryResults x -&gt; GetQueryResults
+forall x. GetQueryResults -&gt; Rep GetQueryResults x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetQueryResults x -&gt; GetQueryResults
+$cfrom :: forall x. GetQueryResults -&gt; Rep GetQueryResults x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'GetQueryResults' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'queryId', 'getQueryResults_queryId' - The ID number of the query.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#newGetQueryResults"><span class="hs-identifier hs-type">newGetQueryResults</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'queryId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span>
+</span><span id="line-85"></span><span id="newGetQueryResults"><span class="annot"><span class="annottext">newGetQueryResults :: Text -&gt; GetQueryResults
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#newGetQueryResults"><span class="hs-identifier hs-var hs-var">newGetQueryResults</span></a></span></span><span> </span><span id="local-6989586621679226665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226665"><span class="hs-identifier hs-var">pQueryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">GetQueryResults' :: Text -&gt; GetQueryResults
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:GetQueryResults' :: Text
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3AqueryId%3AGetQueryResults%27"><span class="hs-identifier hs-var">queryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226665"><span class="hs-identifier hs-var">pQueryId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ID number of the query.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResults_queryId"><span class="hs-identifier hs-type">getQueryResults_queryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="getQueryResults_queryId"><span class="annot"><span class="annottext">getQueryResults_queryId :: (Text -&gt; f Text) -&gt; GetQueryResults -&gt; f GetQueryResults
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResults_queryId"><span class="hs-identifier hs-var hs-var">getQueryResults_queryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQueryResults -&gt; Text)
+-&gt; (GetQueryResults -&gt; Text -&gt; GetQueryResults)
+-&gt; Lens GetQueryResults GetQueryResults Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226662"><span class="annot"><span class="annottext">Text
+queryId :: Text
+$sel:queryId:GetQueryResults' :: GetQueryResults -&gt; Text
+</span><a href="#local-6989586621679226662"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226662"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226661"><span class="annot"><span class="annottext">s :: GetQueryResults
+</span><a href="#local-6989586621679226661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226660"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResults
+</span><a href="#local-6989586621679226661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:GetQueryResults' :: Text
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3AqueryId%3AGetQueryResults%27"><span class="hs-identifier hs-var">queryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679226656"><span class="annot"><span class="annottext">request :: GetQueryResults -&gt; Request GetQueryResults
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetQueryResults -&gt; Request GetQueryResults
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679226652"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetQueryResults
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetQueryResults)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetQueryResults))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetQueryResults
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetQueryResults)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226649"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226649"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226648"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226648"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226647"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226647"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryStatus
+-&gt; Maybe [[ResultField]]
+-&gt; Maybe QueryStatistics
+-&gt; Int
+-&gt; GetQueryResultsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-var">GetQueryResultsResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe QueryStatus
+ -&gt; Maybe [[ResultField]]
+ -&gt; Maybe QueryStatistics
+ -&gt; Int
+ -&gt; GetQueryResultsResponse)
+-&gt; Either String (Maybe QueryStatus)
+-&gt; Either
+     String
+     (Maybe [[ResultField]]
+      -&gt; Maybe QueryStatistics -&gt; Int -&gt; GetQueryResultsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [[ResultField]]
+   -&gt; Maybe QueryStatistics -&gt; Int -&gt; GetQueryResultsResponse)
+-&gt; Either String (Maybe [[ResultField]])
+-&gt; Either
+     String (Maybe QueryStatistics -&gt; Int -&gt; GetQueryResultsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [[ResultField]]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;results&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [[ResultField]]))
+-&gt; Maybe [[ResultField]] -&gt; Either String (Maybe [[ResultField]])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [[ResultField]]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe QueryStatistics -&gt; Int -&gt; GetQueryResultsResponse)
+-&gt; Either String (Maybe QueryStatistics)
+-&gt; Either String (Int -&gt; GetQueryResultsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryStatistics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statistics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetQueryResultsResponse)
+-&gt; Either String Int -&gt; Either String GetQueryResultsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226649"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226638"><span id="local-6989586621679226640"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679226631"><span class="annot"><span class="annottext">toHeaders :: GetQueryResults -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetQueryResults -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Logs_20140328.GetQueryResults&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226621"><span id="local-6989586621679226623"><span id="local-6989586621679226625"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679226619"><span class="annot"><span class="annottext">toJSON :: GetQueryResults -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults%27"><span class="hs-identifier hs-type">GetQueryResults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226617"><span class="annot"><span class="annottext">Text
+queryId :: Text
+$sel:queryId:GetQueryResults' :: GetQueryResults -&gt; Text
+</span><a href="#local-6989586621679226617"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;queryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226617"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679226611"><span class="annot"><span class="annottext">toPath :: GetQueryResults -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetQueryResults -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResults"><span class="hs-identifier hs-type">GetQueryResults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679226607"><span class="annot"><span class="annottext">toQuery :: GetQueryResults -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetQueryResults -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newGetQueryResultsResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679226604"><span id="local-6989586621679226605"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryResultsResponse"><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-var">GetQueryResultsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryResultsResponse%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-var">GetQueryResultsResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the most recent running of the query. Possible values are</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- and @Unknown@.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- Queries time out after 15 minutes of execution. To avoid having your</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- queries time out, reduce the time range being searched or partition your</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- query into a number of queries.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3Astatus%3AGetQueryResultsResponse%27"><span class="annot"><span class="annottext">GetQueryResultsResponse -&gt; Maybe QueryStatus
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3Astatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.QueryStatus.html#QueryStatus"><span class="hs-identifier hs-type">QueryStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The log events that matched the query criteria during the most recent</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- time it ran.</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- The @results@ value is an array of arrays. Each log event is one object</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- in the top-level array. Each of these log event objects is an array of</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- @field@\/@value@ pairs.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3Aresults%3AGetQueryResultsResponse%27"><span class="annot"><span class="annottext">GetQueryResultsResponse -&gt; Maybe [[ResultField]]
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3Aresults%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span><span class="hs-special">]</span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | Includes the number of log events scanned by the query, the number of</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- log events that matched the query criteria, and the total number of</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- bytes in the log events that were scanned. These values reflect the full</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- raw results of the query.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3Astatistics%3AGetQueryResultsResponse%27"><span class="annot"><span class="annottext">GetQueryResultsResponse -&gt; Maybe QueryStatistics
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3Astatistics%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.QueryStatistics.html#QueryStatistics"><span class="hs-identifier hs-type">QueryStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetQueryResultsResponse%27"><span class="annot"><span class="annottext">GetQueryResultsResponse -&gt; Int
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3AhttpStatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226596"><span id="local-6989586621679226598"><span class="annot"><span class="annottext">GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
+(GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool)
+-&gt; (GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool)
+-&gt; Eq GetQueryResultsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
+$c/= :: GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
+== :: GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
+$c== :: GetQueryResultsResponse -&gt; GetQueryResultsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226588"><span id="local-6989586621679226590"><span id="local-6989586621679226592"><span id="local-6989586621679226594"><span class="annot"><span class="annottext">ReadPrec [GetQueryResultsResponse]
+ReadPrec GetQueryResultsResponse
+Int -&gt; ReadS GetQueryResultsResponse
+ReadS [GetQueryResultsResponse]
+(Int -&gt; ReadS GetQueryResultsResponse)
+-&gt; ReadS [GetQueryResultsResponse]
+-&gt; ReadPrec GetQueryResultsResponse
+-&gt; ReadPrec [GetQueryResultsResponse]
+-&gt; Read GetQueryResultsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetQueryResultsResponse]
+$creadListPrec :: ReadPrec [GetQueryResultsResponse]
+readPrec :: ReadPrec GetQueryResultsResponse
+$creadPrec :: ReadPrec GetQueryResultsResponse
+readList :: ReadS [GetQueryResultsResponse]
+$creadList :: ReadS [GetQueryResultsResponse]
+readsPrec :: Int -&gt; ReadS GetQueryResultsResponse
+$creadsPrec :: Int -&gt; ReadS GetQueryResultsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226582"><span id="local-6989586621679226584"><span id="local-6989586621679226586"><span class="annot"><span class="annottext">Int -&gt; GetQueryResultsResponse -&gt; ShowS
+[GetQueryResultsResponse] -&gt; ShowS
+GetQueryResultsResponse -&gt; String
+(Int -&gt; GetQueryResultsResponse -&gt; ShowS)
+-&gt; (GetQueryResultsResponse -&gt; String)
+-&gt; ([GetQueryResultsResponse] -&gt; ShowS)
+-&gt; Show GetQueryResultsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetQueryResultsResponse] -&gt; ShowS
+$cshowList :: [GetQueryResultsResponse] -&gt; ShowS
+show :: GetQueryResultsResponse -&gt; String
+$cshow :: GetQueryResultsResponse -&gt; String
+showsPrec :: Int -&gt; GetQueryResultsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetQueryResultsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetQueryResultsResponse -&gt; Rep GetQueryResultsResponse x)
+-&gt; (forall x.
+    Rep GetQueryResultsResponse x -&gt; GetQueryResultsResponse)
+-&gt; Generic GetQueryResultsResponse
+forall x. Rep GetQueryResultsResponse x -&gt; GetQueryResultsResponse
+forall x. GetQueryResultsResponse -&gt; Rep GetQueryResultsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetQueryResultsResponse x -&gt; GetQueryResultsResponse
+$cfrom :: forall x. GetQueryResultsResponse -&gt; Rep GetQueryResultsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'GetQueryResultsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'status', 'getQueryResultsResponse_status' - The status of the most recent running of the query. Possible values are</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- and @Unknown@.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Queries time out after 15 minutes of execution. To avoid having your</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- queries time out, reduce the time range being searched or partition your</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- query into a number of queries.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'results', 'getQueryResultsResponse_results' - The log events that matched the query criteria during the most recent</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- time it ran.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The @results@ value is an array of arrays. Each log event is one object</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- in the top-level array. Each of these log event objects is an array of</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @field@\/@value@ pairs.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'statistics', 'getQueryResultsResponse_statistics' - Includes the number of log events scanned by the query, the number of</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- log events that matched the query criteria, and the total number of</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- bytes in the log events that were scanned. These values reflect the full</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- raw results of the query.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'getQueryResultsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#newGetQueryResultsResponse"><span class="hs-identifier hs-type">newGetQueryResultsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newGetQueryResultsResponse"><span class="annot"><span class="annottext">newGetQueryResultsResponse :: Int -&gt; GetQueryResultsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#newGetQueryResultsResponse"><span class="hs-identifier hs-var hs-var">newGetQueryResultsResponse</span></a></span></span><span> </span><span id="local-6989586621679226579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">GetQueryResultsResponse' :: Maybe QueryStatus
+-&gt; Maybe [[ResultField]]
+-&gt; Maybe QueryStatistics
+-&gt; Int
+-&gt; GetQueryResultsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:GetQueryResultsResponse' :: Maybe QueryStatus
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3Astatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:results:GetQueryResultsResponse' :: Maybe [[ResultField]]
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3Aresults%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">results</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [[ResultField]]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:statistics:GetQueryResultsResponse' :: Maybe QueryStatistics
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3Astatistics%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatistics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueryResultsResponse' :: Int
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3AhttpStatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The status of the most recent running of the query. Possible values are</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- and @Unknown@.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Queries time out after 15 minutes of execution. To avoid having your</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- queries time out, reduce the time range being searched or partition your</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- query into a number of queries.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_status"><span class="hs-identifier hs-type">getQueryResultsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.QueryStatus.html#QueryStatus"><span class="hs-identifier hs-type">QueryStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="getQueryResultsResponse_status"><span class="annot"><span class="annottext">getQueryResultsResponse_status :: (Maybe QueryStatus -&gt; f (Maybe QueryStatus))
+-&gt; GetQueryResultsResponse -&gt; f GetQueryResultsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_status"><span class="hs-identifier hs-var hs-var">getQueryResultsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQueryResultsResponse -&gt; Maybe QueryStatus)
+-&gt; (GetQueryResultsResponse
+    -&gt; Maybe QueryStatus -&gt; GetQueryResultsResponse)
+-&gt; Lens
+     GetQueryResultsResponse
+     GetQueryResultsResponse
+     (Maybe QueryStatus)
+     (Maybe QueryStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226578"><span class="annot"><span class="annottext">Maybe QueryStatus
+status :: Maybe QueryStatus
+$sel:status:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Maybe QueryStatus
+</span><a href="#local-6989586621679226578"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
+</span><a href="#local-6989586621679226578"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226577"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
+</span><a href="#local-6989586621679226577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226576"><span class="annot"><span class="annottext">Maybe QueryStatus
+</span><a href="#local-6989586621679226576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
+</span><a href="#local-6989586621679226577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetQueryResultsResponse' :: Maybe QueryStatus
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3Astatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
+</span><a href="#local-6989586621679226576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The log events that matched the query criteria during the most recent</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- time it ran.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- The @results@ value is an array of arrays. Each log event is one object</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- in the top-level array. Each of these log event objects is an array of</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- @field@\/@value@ pairs.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_results"><span class="hs-identifier hs-type">getQueryResultsResponse_results</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span><span class="hs-special">]</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="getQueryResultsResponse_results"><span class="annot"><span class="annottext">getQueryResultsResponse_results :: (Maybe [[ResultField]] -&gt; f (Maybe [[ResultField]]))
+-&gt; GetQueryResultsResponse -&gt; f GetQueryResultsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_results"><span class="hs-identifier hs-var hs-var">getQueryResultsResponse_results</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQueryResultsResponse -&gt; Maybe [[ResultField]])
+-&gt; (GetQueryResultsResponse
+    -&gt; Maybe [[ResultField]] -&gt; GetQueryResultsResponse)
+-&gt; Lens
+     GetQueryResultsResponse
+     GetQueryResultsResponse
+     (Maybe [[ResultField]])
+     (Maybe [[ResultField]])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226575"><span class="annot"><span class="annottext">Maybe [[ResultField]]
+results :: Maybe [[ResultField]]
+$sel:results:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Maybe [[ResultField]]
+</span><a href="#local-6989586621679226575"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [[ResultField]]
+</span><a href="#local-6989586621679226575"><span class="hs-identifier hs-var">results</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226574"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
+</span><a href="#local-6989586621679226574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226573"><span class="annot"><span class="annottext">Maybe [[ResultField]]
+</span><a href="#local-6989586621679226573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
+</span><a href="#local-6989586621679226574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:results:GetQueryResultsResponse' :: Maybe [[ResultField]]
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3Aresults%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">results</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [[ResultField]]
+</span><a href="#local-6989586621679226573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [[ResultField]] -&gt; f (Maybe [[ResultField]]))
+ -&gt; GetQueryResultsResponse -&gt; f GetQueryResultsResponse)
+-&gt; ((Maybe [[ResultField]] -&gt; f (Maybe [[ResultField]]))
+    -&gt; Maybe [[ResultField]] -&gt; f (Maybe [[ResultField]]))
+-&gt; (Maybe [[ResultField]] -&gt; f (Maybe [[ResultField]]))
+-&gt; GetQueryResultsResponse
+-&gt; f GetQueryResultsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [[ResultField]] [[ResultField]] [[ResultField]] [[ResultField]]
+-&gt; Iso
+     (Maybe [[ResultField]])
+     (Maybe [[ResultField]])
+     (Maybe [[ResultField]])
+     (Maybe [[ResultField]])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [[ResultField]] [[ResultField]] [[ResultField]] [[ResultField]]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Includes the number of log events scanned by the query, the number of</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- log events that matched the query criteria, and the total number of</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- bytes in the log events that were scanned. These values reflect the full</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- raw results of the query.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_statistics"><span class="hs-identifier hs-type">getQueryResultsResponse_statistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.QueryStatistics.html#QueryStatistics"><span class="hs-identifier hs-type">QueryStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="getQueryResultsResponse_statistics"><span class="annot"><span class="annottext">getQueryResultsResponse_statistics :: (Maybe QueryStatistics -&gt; f (Maybe QueryStatistics))
+-&gt; GetQueryResultsResponse -&gt; f GetQueryResultsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_statistics"><span class="hs-identifier hs-var hs-var">getQueryResultsResponse_statistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQueryResultsResponse -&gt; Maybe QueryStatistics)
+-&gt; (GetQueryResultsResponse
+    -&gt; Maybe QueryStatistics -&gt; GetQueryResultsResponse)
+-&gt; Lens
+     GetQueryResultsResponse
+     GetQueryResultsResponse
+     (Maybe QueryStatistics)
+     (Maybe QueryStatistics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226569"><span class="annot"><span class="annottext">Maybe QueryStatistics
+statistics :: Maybe QueryStatistics
+$sel:statistics:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Maybe QueryStatistics
+</span><a href="#local-6989586621679226569"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatistics
+</span><a href="#local-6989586621679226569"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226568"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
+</span><a href="#local-6989586621679226568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226567"><span class="annot"><span class="annottext">Maybe QueryStatistics
+</span><a href="#local-6989586621679226567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
+</span><a href="#local-6989586621679226568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:GetQueryResultsResponse' :: Maybe QueryStatistics
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3Astatistics%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatistics
+</span><a href="#local-6989586621679226567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_httpStatus"><span class="hs-identifier hs-type">getQueryResultsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-235"></span><span id="getQueryResultsResponse_httpStatus"><span class="annot"><span class="annottext">getQueryResultsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetQueryResultsResponse -&gt; f GetQueryResultsResponse
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#getQueryResultsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getQueryResultsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQueryResultsResponse -&gt; Int)
+-&gt; (GetQueryResultsResponse -&gt; Int -&gt; GetQueryResultsResponse)
+-&gt; Lens GetQueryResultsResponse GetQueryResultsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226566"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetQueryResultsResponse' :: GetQueryResultsResponse -&gt; Int
+</span><a href="#local-6989586621679226566"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226566"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226565"><span class="annot"><span class="annottext">s :: GetQueryResultsResponse
+</span><a href="#local-6989586621679226565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse%27"><span class="hs-identifier hs-type">GetQueryResultsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226564"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryResultsResponse
+</span><a href="#local-6989586621679226565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueryResultsResponse' :: Int
+</span><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#%24sel%3AhttpStatus%3AGetQueryResultsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.GetQueryResults.html#GetQueryResultsResponse"><span class="hs-identifier hs-type">GetQueryResultsResponse</span></a></span></span><span>
+</span><span id="line-238"></span></pre></body></html>

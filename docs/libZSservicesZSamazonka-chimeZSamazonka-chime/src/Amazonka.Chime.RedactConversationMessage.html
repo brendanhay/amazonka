@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.RedactConversationMessage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Redacts the specified message from the specified Amazon Chime</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- conversation.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.RedactConversationMessage</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier">RedactConversationMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#newRedactConversationMessage"><span class="hs-identifier">newRedactConversationMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessage_accountId"><span class="hs-identifier">redactConversationMessage_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessage_conversationId"><span class="hs-identifier">redactConversationMessage_conversationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessage_messageId"><span class="hs-identifier">redactConversationMessage_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse"><span class="hs-identifier">RedactConversationMessageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#newRedactConversationMessageResponse"><span class="hs-identifier">newRedactConversationMessageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessageResponse_httpStatus"><span class="hs-identifier">redactConversationMessageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newRedactConversationMessage' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679527205"><span id="local-6989586621679527206"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedactConversationMessage"><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-var">RedactConversationMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedactConversationMessage%27"><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage%27"><span class="hs-identifier hs-var">RedactConversationMessage'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AaccountId%3ARedactConversationMessage%27"><span class="annot"><span class="annottext">RedactConversationMessage -&gt; Text
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AaccountId%3ARedactConversationMessage%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The conversation ID.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AconversationId%3ARedactConversationMessage%27"><span class="annot"><span class="annottext">RedactConversationMessage -&gt; Text
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AconversationId%3ARedactConversationMessage%27"><span class="hs-identifier hs-var hs-var">conversationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The message ID.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmessageId%3ARedactConversationMessage%27"><span class="annot"><span class="annottext">RedactConversationMessage -&gt; Text
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AmessageId%3ARedactConversationMessage%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679527197"><span id="local-6989586621679527199"><span class="annot"><span class="annottext">RedactConversationMessage -&gt; RedactConversationMessage -&gt; Bool
+(RedactConversationMessage -&gt; RedactConversationMessage -&gt; Bool)
+-&gt; (RedactConversationMessage -&gt; RedactConversationMessage -&gt; Bool)
+-&gt; Eq RedactConversationMessage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RedactConversationMessage -&gt; RedactConversationMessage -&gt; Bool
+$c/= :: RedactConversationMessage -&gt; RedactConversationMessage -&gt; Bool
+== :: RedactConversationMessage -&gt; RedactConversationMessage -&gt; Bool
+$c== :: RedactConversationMessage -&gt; RedactConversationMessage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527188"><span id="local-6989586621679527190"><span id="local-6989586621679527192"><span id="local-6989586621679527194"><span class="annot"><span class="annottext">ReadPrec [RedactConversationMessage]
+ReadPrec RedactConversationMessage
+Int -&gt; ReadS RedactConversationMessage
+ReadS [RedactConversationMessage]
+(Int -&gt; ReadS RedactConversationMessage)
+-&gt; ReadS [RedactConversationMessage]
+-&gt; ReadPrec RedactConversationMessage
+-&gt; ReadPrec [RedactConversationMessage]
+-&gt; Read RedactConversationMessage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RedactConversationMessage]
+$creadListPrec :: ReadPrec [RedactConversationMessage]
+readPrec :: ReadPrec RedactConversationMessage
+$creadPrec :: ReadPrec RedactConversationMessage
+readList :: ReadS [RedactConversationMessage]
+$creadList :: ReadS [RedactConversationMessage]
+readsPrec :: Int -&gt; ReadS RedactConversationMessage
+$creadsPrec :: Int -&gt; ReadS RedactConversationMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527181"><span id="local-6989586621679527183"><span id="local-6989586621679527185"><span class="annot"><span class="annottext">Int -&gt; RedactConversationMessage -&gt; ShowS
+[RedactConversationMessage] -&gt; ShowS
+RedactConversationMessage -&gt; String
+(Int -&gt; RedactConversationMessage -&gt; ShowS)
+-&gt; (RedactConversationMessage -&gt; String)
+-&gt; ([RedactConversationMessage] -&gt; ShowS)
+-&gt; Show RedactConversationMessage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RedactConversationMessage] -&gt; ShowS
+$cshowList :: [RedactConversationMessage] -&gt; ShowS
+show :: RedactConversationMessage -&gt; String
+$cshow :: RedactConversationMessage -&gt; String
+showsPrec :: Int -&gt; RedactConversationMessage -&gt; ShowS
+$cshowsPrec :: Int -&gt; RedactConversationMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RedactConversationMessage -&gt; Rep RedactConversationMessage x)
+-&gt; (forall x.
+    Rep RedactConversationMessage x -&gt; RedactConversationMessage)
+-&gt; Generic RedactConversationMessage
+forall x.
+Rep RedactConversationMessage x -&gt; RedactConversationMessage
+forall x.
+RedactConversationMessage -&gt; Rep RedactConversationMessage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RedactConversationMessage x -&gt; RedactConversationMessage
+$cfrom :: forall x.
+RedactConversationMessage -&gt; Rep RedactConversationMessage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'RedactConversationMessage' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'accountId', 'redactConversationMessage_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'conversationId', 'redactConversationMessage_conversationId' - The conversation ID.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'messageId', 'redactConversationMessage_messageId' - The message ID.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#newRedactConversationMessage"><span class="hs-identifier hs-type">newRedactConversationMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'conversationId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'messageId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span>
+</span><span id="line-83"></span><span id="newRedactConversationMessage"><span class="annot"><span class="annottext">newRedactConversationMessage :: Text -&gt; Text -&gt; Text -&gt; RedactConversationMessage
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#newRedactConversationMessage"><span class="hs-identifier hs-var hs-var">newRedactConversationMessage</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679527176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527176"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679527175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527175"><span class="hs-identifier hs-var">pConversationId_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679527174"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527174"><span class="hs-identifier hs-var">pMessageId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">RedactConversationMessage' :: Text -&gt; Text -&gt; Text -&gt; RedactConversationMessage
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage%27"><span class="hs-identifier hs-type">RedactConversationMessage'</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:RedactConversationMessage' :: Text
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AaccountId%3ARedactConversationMessage%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527176"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:conversationId:RedactConversationMessage' :: Text
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AconversationId%3ARedactConversationMessage%27"><span class="hs-identifier hs-var">conversationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527175"><span class="hs-identifier hs-var">pConversationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:messageId:RedactConversationMessage' :: Text
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AmessageId%3ARedactConversationMessage%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527174"><span class="hs-identifier hs-var">pMessageId_</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessage_accountId"><span class="hs-identifier hs-type">redactConversationMessage_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="redactConversationMessage_accountId"><span class="annot"><span class="annottext">redactConversationMessage_accountId :: (Text -&gt; f Text)
+-&gt; RedactConversationMessage -&gt; f RedactConversationMessage
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessage_accountId"><span class="hs-identifier hs-var hs-var">redactConversationMessage_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedactConversationMessage -&gt; Text)
+-&gt; (RedactConversationMessage -&gt; Text -&gt; RedactConversationMessage)
+-&gt; Lens
+     RedactConversationMessage RedactConversationMessage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage%27"><span class="hs-identifier hs-type">RedactConversationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527171"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:RedactConversationMessage' :: RedactConversationMessage -&gt; Text
+</span><a href="#local-6989586621679527171"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527171"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527170"><span class="annot"><span class="annottext">s :: RedactConversationMessage
+</span><a href="#local-6989586621679527170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage%27"><span class="hs-identifier hs-type">RedactConversationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527169"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactConversationMessage
+</span><a href="#local-6989586621679527170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:RedactConversationMessage' :: Text
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AaccountId%3ARedactConversationMessage%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The conversation ID.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessage_conversationId"><span class="hs-identifier hs-type">redactConversationMessage_conversationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="redactConversationMessage_conversationId"><span class="annot"><span class="annottext">redactConversationMessage_conversationId :: (Text -&gt; f Text)
+-&gt; RedactConversationMessage -&gt; f RedactConversationMessage
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessage_conversationId"><span class="hs-identifier hs-var hs-var">redactConversationMessage_conversationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedactConversationMessage -&gt; Text)
+-&gt; (RedactConversationMessage -&gt; Text -&gt; RedactConversationMessage)
+-&gt; Lens
+     RedactConversationMessage RedactConversationMessage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage%27"><span class="hs-identifier hs-type">RedactConversationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527168"><span class="annot"><span class="annottext">Text
+conversationId :: Text
+$sel:conversationId:RedactConversationMessage' :: RedactConversationMessage -&gt; Text
+</span><a href="#local-6989586621679527168"><span class="hs-identifier hs-var hs-var">conversationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527168"><span class="hs-identifier hs-var">conversationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527167"><span class="annot"><span class="annottext">s :: RedactConversationMessage
+</span><a href="#local-6989586621679527167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage%27"><span class="hs-identifier hs-type">RedactConversationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527166"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactConversationMessage
+</span><a href="#local-6989586621679527167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conversationId:RedactConversationMessage' :: Text
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AconversationId%3ARedactConversationMessage%27"><span class="hs-identifier hs-var">conversationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The message ID.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessage_messageId"><span class="hs-identifier hs-type">redactConversationMessage_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="redactConversationMessage_messageId"><span class="annot"><span class="annottext">redactConversationMessage_messageId :: (Text -&gt; f Text)
+-&gt; RedactConversationMessage -&gt; f RedactConversationMessage
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessage_messageId"><span class="hs-identifier hs-var hs-var">redactConversationMessage_messageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedactConversationMessage -&gt; Text)
+-&gt; (RedactConversationMessage -&gt; Text -&gt; RedactConversationMessage)
+-&gt; Lens
+     RedactConversationMessage RedactConversationMessage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage%27"><span class="hs-identifier hs-type">RedactConversationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527165"><span class="annot"><span class="annottext">Text
+messageId :: Text
+$sel:messageId:RedactConversationMessage' :: RedactConversationMessage -&gt; Text
+</span><a href="#local-6989586621679527165"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527165"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527164"><span class="annot"><span class="annottext">s :: RedactConversationMessage
+</span><a href="#local-6989586621679527164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage%27"><span class="hs-identifier hs-type">RedactConversationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactConversationMessage
+</span><a href="#local-6989586621679527164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:RedactConversationMessage' :: Text
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AmessageId%3ARedactConversationMessage%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse"><span class="hs-identifier hs-type">RedactConversationMessageResponse</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679527159"><span class="annot"><span class="annottext">request :: RedactConversationMessage -&gt; Request RedactConversationMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RedactConversationMessage -&gt; Request RedactConversationMessage
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679527155"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RedactConversationMessage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RedactConversationMessage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse RedactConversationMessage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RedactConversationMessage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RedactConversationMessage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679527152"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527152"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679527151"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679527151"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679527150"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679527150"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RedactConversationMessageResponse
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse%27"><span class="hs-identifier hs-var">RedactConversationMessageResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RedactConversationMessageResponse)
+-&gt; Either String Int
+-&gt; Either String RedactConversationMessageResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527152"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679527143"><span id="local-6989586621679527145"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679527140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679527136"><span class="annot"><span class="annottext">toHeaders :: RedactConversationMessage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RedactConversationMessage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679527127"><span id="local-6989586621679527129"><span id="local-6989586621679527131"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679527125"><span class="annot"><span class="annottext">toJSON :: RedactConversationMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; RedactConversationMessage -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679527120"><span class="annot"><span class="annottext">toPath :: RedactConversationMessage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage%27"><span class="hs-identifier hs-type">RedactConversationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527116"><span id="local-6989586621679527117"><span id="local-6989586621679527118"><span class="annot"><span class="annottext">Text
+messageId :: Text
+conversationId :: Text
+accountId :: Text
+$sel:messageId:RedactConversationMessage' :: RedactConversationMessage -&gt; Text
+$sel:conversationId:RedactConversationMessage' :: RedactConversationMessage -&gt; Text
+$sel:accountId:RedactConversationMessage' :: RedactConversationMessage -&gt; Text
+</span><a href="#local-6989586621679527116"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527118"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/conversations/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527117"><span class="hs-identifier hs-var">conversationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/messages/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527116"><span class="hs-identifier hs-var">messageId</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessage"><span class="hs-identifier hs-type">RedactConversationMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679527112"><span class="annot"><span class="annottext">toQuery :: RedactConversationMessage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; RedactConversationMessage -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;operation=redact&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newRedactConversationMessageResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679527109"><span id="local-6989586621679527110"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedactConversationMessageResponse"><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse"><span class="hs-identifier hs-var">RedactConversationMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedactConversationMessageResponse%27"><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse%27"><span class="hs-identifier hs-var">RedactConversationMessageResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARedactConversationMessageResponse%27"><span class="annot"><span class="annottext">RedactConversationMessageResponse -&gt; Int
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AhttpStatus%3ARedactConversationMessageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679527104"><span id="local-6989586621679527106"><span class="annot"><span class="annottext">RedactConversationMessageResponse
+-&gt; RedactConversationMessageResponse -&gt; Bool
+(RedactConversationMessageResponse
+ -&gt; RedactConversationMessageResponse -&gt; Bool)
+-&gt; (RedactConversationMessageResponse
+    -&gt; RedactConversationMessageResponse -&gt; Bool)
+-&gt; Eq RedactConversationMessageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RedactConversationMessageResponse
+-&gt; RedactConversationMessageResponse -&gt; Bool
+$c/= :: RedactConversationMessageResponse
+-&gt; RedactConversationMessageResponse -&gt; Bool
+== :: RedactConversationMessageResponse
+-&gt; RedactConversationMessageResponse -&gt; Bool
+$c== :: RedactConversationMessageResponse
+-&gt; RedactConversationMessageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527096"><span id="local-6989586621679527098"><span id="local-6989586621679527100"><span id="local-6989586621679527102"><span class="annot"><span class="annottext">ReadPrec [RedactConversationMessageResponse]
+ReadPrec RedactConversationMessageResponse
+Int -&gt; ReadS RedactConversationMessageResponse
+ReadS [RedactConversationMessageResponse]
+(Int -&gt; ReadS RedactConversationMessageResponse)
+-&gt; ReadS [RedactConversationMessageResponse]
+-&gt; ReadPrec RedactConversationMessageResponse
+-&gt; ReadPrec [RedactConversationMessageResponse]
+-&gt; Read RedactConversationMessageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RedactConversationMessageResponse]
+$creadListPrec :: ReadPrec [RedactConversationMessageResponse]
+readPrec :: ReadPrec RedactConversationMessageResponse
+$creadPrec :: ReadPrec RedactConversationMessageResponse
+readList :: ReadS [RedactConversationMessageResponse]
+$creadList :: ReadS [RedactConversationMessageResponse]
+readsPrec :: Int -&gt; ReadS RedactConversationMessageResponse
+$creadsPrec :: Int -&gt; ReadS RedactConversationMessageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527090"><span id="local-6989586621679527092"><span id="local-6989586621679527094"><span class="annot"><span class="annottext">Int -&gt; RedactConversationMessageResponse -&gt; ShowS
+[RedactConversationMessageResponse] -&gt; ShowS
+RedactConversationMessageResponse -&gt; String
+(Int -&gt; RedactConversationMessageResponse -&gt; ShowS)
+-&gt; (RedactConversationMessageResponse -&gt; String)
+-&gt; ([RedactConversationMessageResponse] -&gt; ShowS)
+-&gt; Show RedactConversationMessageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RedactConversationMessageResponse] -&gt; ShowS
+$cshowList :: [RedactConversationMessageResponse] -&gt; ShowS
+show :: RedactConversationMessageResponse -&gt; String
+$cshow :: RedactConversationMessageResponse -&gt; String
+showsPrec :: Int -&gt; RedactConversationMessageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RedactConversationMessageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RedactConversationMessageResponse
+ -&gt; Rep RedactConversationMessageResponse x)
+-&gt; (forall x.
+    Rep RedactConversationMessageResponse x
+    -&gt; RedactConversationMessageResponse)
+-&gt; Generic RedactConversationMessageResponse
+forall x.
+Rep RedactConversationMessageResponse x
+-&gt; RedactConversationMessageResponse
+forall x.
+RedactConversationMessageResponse
+-&gt; Rep RedactConversationMessageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RedactConversationMessageResponse x
+-&gt; RedactConversationMessageResponse
+$cfrom :: forall x.
+RedactConversationMessageResponse
+-&gt; Rep RedactConversationMessageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Create a value of 'RedactConversationMessageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'redactConversationMessageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#newRedactConversationMessageResponse"><span class="hs-identifier hs-type">newRedactConversationMessageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse"><span class="hs-identifier hs-type">RedactConversationMessageResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newRedactConversationMessageResponse"><span class="annot"><span class="annottext">newRedactConversationMessageResponse :: Int -&gt; RedactConversationMessageResponse
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#newRedactConversationMessageResponse"><span class="hs-identifier hs-var hs-var">newRedactConversationMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679527087"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">RedactConversationMessageResponse' :: Int -&gt; RedactConversationMessageResponse
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse%27"><span class="hs-identifier hs-type">RedactConversationMessageResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RedactConversationMessageResponse' :: Int
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AhttpStatus%3ARedactConversationMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessageResponse_httpStatus"><span class="hs-identifier hs-type">redactConversationMessageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse"><span class="hs-identifier hs-type">RedactConversationMessageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span id="redactConversationMessageResponse_httpStatus"><span class="annot"><span class="annottext">redactConversationMessageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RedactConversationMessageResponse
+-&gt; f RedactConversationMessageResponse
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#redactConversationMessageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">redactConversationMessageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedactConversationMessageResponse -&gt; Int)
+-&gt; (RedactConversationMessageResponse
+    -&gt; Int -&gt; RedactConversationMessageResponse)
+-&gt; Lens
+     RedactConversationMessageResponse
+     RedactConversationMessageResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse%27"><span class="hs-identifier hs-type">RedactConversationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527086"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RedactConversationMessageResponse' :: RedactConversationMessageResponse -&gt; Int
+</span><a href="#local-6989586621679527086"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527086"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527085"><span class="annot"><span class="annottext">s :: RedactConversationMessageResponse
+</span><a href="#local-6989586621679527085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse%27"><span class="hs-identifier hs-type">RedactConversationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527084"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactConversationMessageResponse
+</span><a href="#local-6989586621679527085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RedactConversationMessageResponse' :: Int
+</span><a href="Amazonka.Chime.RedactConversationMessage.html#%24sel%3AhttpStatus%3ARedactConversationMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse"><span class="hs-identifier hs-type">RedactConversationMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679527082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.RedactConversationMessage.html#RedactConversationMessageResponse"><span class="hs-identifier hs-type">RedactConversationMessageResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppIntegrationS.Types.EventIntegrationAssociation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppIntegrationS.Types.EventIntegrationAssociation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The event integration association.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEventIntegrationAssociation' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679162928"><span id="local-6989586621679162929"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventIntegrationAssociation"><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-var">EventIntegrationAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventIntegrationAssociation%27"><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-var">EventIntegrationAssociation'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the client that is associated with the event</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- integration.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AclientId%3AEventIntegrationAssociation%27"><span class="annot"><span class="annottext">EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AclientId%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the event integration.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AeventIntegrationName%3AEventIntegrationAssociation%27"><span class="annot"><span class="annottext">EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventIntegrationName%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var hs-var">eventIntegrationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The metadata associated with the client.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AclientAssociationMetadata%3AEventIntegrationAssociation%27"><span class="annot"><span class="annottext">EventIntegrationAssociation -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AclientAssociationMetadata%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var hs-var">clientAssociationMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The identifier for the event integration association.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AeventIntegrationAssociationId%3AEventIntegrationAssociation%27"><span class="annot"><span class="annottext">EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventIntegrationAssociationId%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the event integration association.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AeventIntegrationAssociationArn%3AEventIntegrationAssociation%27"><span class="annot"><span class="annottext">EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventIntegrationAssociationArn%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the EventBridge rule.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AeventBridgeRuleName%3AEventIntegrationAssociation%27"><span class="annot"><span class="annottext">EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventBridgeRuleName%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var hs-var">eventBridgeRuleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679162917"><span id="local-6989586621679162919"><span class="annot"><span class="annottext">EventIntegrationAssociation -&gt; EventIntegrationAssociation -&gt; Bool
+(EventIntegrationAssociation
+ -&gt; EventIntegrationAssociation -&gt; Bool)
+-&gt; (EventIntegrationAssociation
+    -&gt; EventIntegrationAssociation -&gt; Bool)
+-&gt; Eq EventIntegrationAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EventIntegrationAssociation -&gt; EventIntegrationAssociation -&gt; Bool
+$c/= :: EventIntegrationAssociation -&gt; EventIntegrationAssociation -&gt; Bool
+== :: EventIntegrationAssociation -&gt; EventIntegrationAssociation -&gt; Bool
+$c== :: EventIntegrationAssociation -&gt; EventIntegrationAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162908"><span id="local-6989586621679162910"><span id="local-6989586621679162912"><span id="local-6989586621679162914"><span class="annot"><span class="annottext">ReadPrec [EventIntegrationAssociation]
+ReadPrec EventIntegrationAssociation
+Int -&gt; ReadS EventIntegrationAssociation
+ReadS [EventIntegrationAssociation]
+(Int -&gt; ReadS EventIntegrationAssociation)
+-&gt; ReadS [EventIntegrationAssociation]
+-&gt; ReadPrec EventIntegrationAssociation
+-&gt; ReadPrec [EventIntegrationAssociation]
+-&gt; Read EventIntegrationAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EventIntegrationAssociation]
+$creadListPrec :: ReadPrec [EventIntegrationAssociation]
+readPrec :: ReadPrec EventIntegrationAssociation
+$creadPrec :: ReadPrec EventIntegrationAssociation
+readList :: ReadS [EventIntegrationAssociation]
+$creadList :: ReadS [EventIntegrationAssociation]
+readsPrec :: Int -&gt; ReadS EventIntegrationAssociation
+$creadsPrec :: Int -&gt; ReadS EventIntegrationAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162901"><span id="local-6989586621679162903"><span id="local-6989586621679162905"><span class="annot"><span class="annottext">Int -&gt; EventIntegrationAssociation -&gt; ShowS
+[EventIntegrationAssociation] -&gt; ShowS
+EventIntegrationAssociation -&gt; String
+(Int -&gt; EventIntegrationAssociation -&gt; ShowS)
+-&gt; (EventIntegrationAssociation -&gt; String)
+-&gt; ([EventIntegrationAssociation] -&gt; ShowS)
+-&gt; Show EventIntegrationAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EventIntegrationAssociation] -&gt; ShowS
+$cshowList :: [EventIntegrationAssociation] -&gt; ShowS
+show :: EventIntegrationAssociation -&gt; String
+$cshow :: EventIntegrationAssociation -&gt; String
+showsPrec :: Int -&gt; EventIntegrationAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; EventIntegrationAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EventIntegrationAssociation -&gt; Rep EventIntegrationAssociation x)
+-&gt; (forall x.
+    Rep EventIntegrationAssociation x -&gt; EventIntegrationAssociation)
+-&gt; Generic EventIntegrationAssociation
+forall x.
+Rep EventIntegrationAssociation x -&gt; EventIntegrationAssociation
+forall x.
+EventIntegrationAssociation -&gt; Rep EventIntegrationAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EventIntegrationAssociation x -&gt; EventIntegrationAssociation
+$cfrom :: forall x.
+EventIntegrationAssociation -&gt; Rep EventIntegrationAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'EventIntegrationAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'clientId', 'eventIntegrationAssociation_clientId' - The identifier for the client that is associated with the event</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- integration.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'eventIntegrationName', 'eventIntegrationAssociation_eventIntegrationName' - The name of the event integration.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'clientAssociationMetadata', 'eventIntegrationAssociation_clientAssociationMetadata' - The metadata associated with the client.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'eventIntegrationAssociationId', 'eventIntegrationAssociation_eventIntegrationAssociationId' - The identifier for the event integration association.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'eventIntegrationAssociationArn', 'eventIntegrationAssociation_eventIntegrationAssociationArn' - The Amazon Resource Name (ARN) for the event integration association.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'eventBridgeRuleName', 'eventIntegrationAssociation_eventBridgeRuleName' - The name of the EventBridge rule.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#newEventIntegrationAssociation"><span class="hs-identifier hs-type">newEventIntegrationAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span>
+</span><span id="line-68"></span><span id="newEventIntegrationAssociation"><span class="annot"><span class="annottext">newEventIntegrationAssociation :: EventIntegrationAssociation
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#newEventIntegrationAssociation"><span class="hs-identifier hs-var hs-var">newEventIntegrationAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">EventIntegrationAssociation' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; EventIntegrationAssociation
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientId:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AclientId%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventIntegrationName:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventIntegrationName%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">eventIntegrationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientAssociationMetadata:EventIntegrationAssociation' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AclientAssociationMetadata%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">clientAssociationMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventIntegrationAssociationId:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventIntegrationAssociationId%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">eventIntegrationAssociationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventIntegrationAssociationArn:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventIntegrationAssociationArn%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">eventIntegrationAssociationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventBridgeRuleName:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventBridgeRuleName%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">eventBridgeRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The identifier for the client that is associated with the event</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- integration.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_clientId"><span class="hs-identifier hs-type">eventIntegrationAssociation_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="eventIntegrationAssociation_clientId"><span class="annot"><span class="annottext">eventIntegrationAssociation_clientId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventIntegrationAssociation -&gt; f EventIntegrationAssociation
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_clientId"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociation_clientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventIntegrationAssociation -&gt; Maybe Text)
+-&gt; (EventIntegrationAssociation
+    -&gt; Maybe Text -&gt; EventIntegrationAssociation)
+-&gt; Lens
+     EventIntegrationAssociation
+     EventIntegrationAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162892"><span class="annot"><span class="annottext">Maybe Text
+clientId :: Maybe Text
+$sel:clientId:EventIntegrationAssociation' :: EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679162892"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162892"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162891"><span class="annot"><span class="annottext">s :: EventIntegrationAssociation
+</span><a href="#local-6989586621679162891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162890"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventIntegrationAssociation
+</span><a href="#local-6989586621679162891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AclientId%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The name of the event integration.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_eventIntegrationName"><span class="hs-identifier hs-type">eventIntegrationAssociation_eventIntegrationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="eventIntegrationAssociation_eventIntegrationName"><span class="annot"><span class="annottext">eventIntegrationAssociation_eventIntegrationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventIntegrationAssociation -&gt; f EventIntegrationAssociation
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_eventIntegrationName"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociation_eventIntegrationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventIntegrationAssociation -&gt; Maybe Text)
+-&gt; (EventIntegrationAssociation
+    -&gt; Maybe Text -&gt; EventIntegrationAssociation)
+-&gt; Lens
+     EventIntegrationAssociation
+     EventIntegrationAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162888"><span class="annot"><span class="annottext">Maybe Text
+eventIntegrationName :: Maybe Text
+$sel:eventIntegrationName:EventIntegrationAssociation' :: EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679162888"><span class="hs-identifier hs-var hs-var">eventIntegrationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162888"><span class="hs-identifier hs-var">eventIntegrationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162887"><span class="annot"><span class="annottext">s :: EventIntegrationAssociation
+</span><a href="#local-6989586621679162887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162886"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventIntegrationAssociation
+</span><a href="#local-6989586621679162887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventIntegrationName:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventIntegrationName%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">eventIntegrationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The metadata associated with the client.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_clientAssociationMetadata"><span class="hs-identifier hs-type">eventIntegrationAssociation_clientAssociationMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="eventIntegrationAssociation_clientAssociationMetadata"><span class="annot"><span class="annottext">eventIntegrationAssociation_clientAssociationMetadata :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; EventIntegrationAssociation -&gt; f EventIntegrationAssociation
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_clientAssociationMetadata"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociation_clientAssociationMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventIntegrationAssociation -&gt; Maybe (HashMap Text Text))
+-&gt; (EventIntegrationAssociation
+    -&gt; Maybe (HashMap Text Text) -&gt; EventIntegrationAssociation)
+-&gt; Lens
+     EventIntegrationAssociation
+     EventIntegrationAssociation
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162884"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+clientAssociationMetadata :: Maybe (HashMap Text Text)
+$sel:clientAssociationMetadata:EventIntegrationAssociation' :: EventIntegrationAssociation -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679162884"><span class="hs-identifier hs-var hs-var">clientAssociationMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679162884"><span class="hs-identifier hs-var">clientAssociationMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162883"><span class="annot"><span class="annottext">s :: EventIntegrationAssociation
+</span><a href="#local-6989586621679162883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162882"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679162882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventIntegrationAssociation
+</span><a href="#local-6989586621679162883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientAssociationMetadata:EventIntegrationAssociation' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AclientAssociationMetadata%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">clientAssociationMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679162882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; EventIntegrationAssociation -&gt; f EventIntegrationAssociation)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; EventIntegrationAssociation
+-&gt; f EventIntegrationAssociation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The identifier for the event integration association.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_eventIntegrationAssociationId"><span class="hs-identifier hs-type">eventIntegrationAssociation_eventIntegrationAssociationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="eventIntegrationAssociation_eventIntegrationAssociationId"><span class="annot"><span class="annottext">eventIntegrationAssociation_eventIntegrationAssociationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventIntegrationAssociation -&gt; f EventIntegrationAssociation
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_eventIntegrationAssociationId"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociation_eventIntegrationAssociationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventIntegrationAssociation -&gt; Maybe Text)
+-&gt; (EventIntegrationAssociation
+    -&gt; Maybe Text -&gt; EventIntegrationAssociation)
+-&gt; Lens
+     EventIntegrationAssociation
+     EventIntegrationAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162877"><span class="annot"><span class="annottext">Maybe Text
+eventIntegrationAssociationId :: Maybe Text
+$sel:eventIntegrationAssociationId:EventIntegrationAssociation' :: EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679162877"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162877"><span class="hs-identifier hs-var">eventIntegrationAssociationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162876"><span class="annot"><span class="annottext">s :: EventIntegrationAssociation
+</span><a href="#local-6989586621679162876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162875"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventIntegrationAssociation
+</span><a href="#local-6989586621679162876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventIntegrationAssociationId:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventIntegrationAssociationId%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">eventIntegrationAssociationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the event integration association.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_eventIntegrationAssociationArn"><span class="hs-identifier hs-type">eventIntegrationAssociation_eventIntegrationAssociationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="eventIntegrationAssociation_eventIntegrationAssociationArn"><span class="annot"><span class="annottext">eventIntegrationAssociation_eventIntegrationAssociationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventIntegrationAssociation -&gt; f EventIntegrationAssociation
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_eventIntegrationAssociationArn"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociation_eventIntegrationAssociationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventIntegrationAssociation -&gt; Maybe Text)
+-&gt; (EventIntegrationAssociation
+    -&gt; Maybe Text -&gt; EventIntegrationAssociation)
+-&gt; Lens
+     EventIntegrationAssociation
+     EventIntegrationAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162873"><span class="annot"><span class="annottext">Maybe Text
+eventIntegrationAssociationArn :: Maybe Text
+$sel:eventIntegrationAssociationArn:EventIntegrationAssociation' :: EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679162873"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162873"><span class="hs-identifier hs-var">eventIntegrationAssociationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162872"><span class="annot"><span class="annottext">s :: EventIntegrationAssociation
+</span><a href="#local-6989586621679162872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162871"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventIntegrationAssociation
+</span><a href="#local-6989586621679162872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventIntegrationAssociationArn:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventIntegrationAssociationArn%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">eventIntegrationAssociationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the EventBridge rule.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_eventBridgeRuleName"><span class="hs-identifier hs-type">eventIntegrationAssociation_eventBridgeRuleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="eventIntegrationAssociation_eventBridgeRuleName"><span class="annot"><span class="annottext">eventIntegrationAssociation_eventBridgeRuleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventIntegrationAssociation -&gt; f EventIntegrationAssociation
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#eventIntegrationAssociation_eventBridgeRuleName"><span class="hs-identifier hs-var hs-var">eventIntegrationAssociation_eventBridgeRuleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventIntegrationAssociation -&gt; Maybe Text)
+-&gt; (EventIntegrationAssociation
+    -&gt; Maybe Text -&gt; EventIntegrationAssociation)
+-&gt; Lens
+     EventIntegrationAssociation
+     EventIntegrationAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162869"><span class="annot"><span class="annottext">Maybe Text
+eventBridgeRuleName :: Maybe Text
+$sel:eventBridgeRuleName:EventIntegrationAssociation' :: EventIntegrationAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679162869"><span class="hs-identifier hs-var hs-var">eventBridgeRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162869"><span class="hs-identifier hs-var">eventBridgeRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162868"><span class="annot"><span class="annottext">s :: EventIntegrationAssociation
+</span><a href="#local-6989586621679162868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-type">EventIntegrationAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventIntegrationAssociation
+</span><a href="#local-6989586621679162868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBridgeRuleName:EventIntegrationAssociation' :: Maybe Text
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#%24sel%3AeventBridgeRuleName%3AEventIntegrationAssociation%27"><span class="hs-identifier hs-var">eventBridgeRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162864"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679162862"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventIntegrationAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EventIntegrationAssociation)
+-&gt; Value
+-&gt; Parser EventIntegrationAssociation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EventIntegrationAssociation&quot;</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679162859"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; EventIntegrationAssociation
+</span><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation%27"><span class="hs-identifier hs-var">EventIntegrationAssociation'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; EventIntegrationAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; EventIntegrationAssociation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; EventIntegrationAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; EventIntegrationAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventIntegrationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; EventIntegrationAssociation)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; EventIntegrationAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientAssociationMetadata&quot;</span></span><span>
+</span><span id="line-115"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-116"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; EventIntegrationAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; EventIntegrationAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventIntegrationAssociationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; EventIntegrationAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; EventIntegrationAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventIntegrationAssociationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; EventIntegrationAssociation)
+-&gt; Parser (Maybe Text) -&gt; Parser EventIntegrationAssociation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventBridgeRuleName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162852"><span id="local-6989586621679162854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.html#EventIntegrationAssociation"><span class="hs-identifier hs-type">EventIntegrationAssociation</span></a></span></span><span>
+</span><span id="line-125"></span></pre></body></html>

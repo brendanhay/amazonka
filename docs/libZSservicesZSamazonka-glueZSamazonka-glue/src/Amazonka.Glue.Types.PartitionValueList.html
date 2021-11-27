@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.PartitionValueList</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.PartitionValueList</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains a list of values defining partitions.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPartitionValueList' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679692459"><span id="local-6989586621679692460"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartitionValueList"><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-var">PartitionValueList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionValueList%27"><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-var">PartitionValueList'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of values.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Avalues%3APartitionValueList%27"><span class="annot"><span class="annottext">PartitionValueList -&gt; [Text]
+</span><a href="Amazonka.Glue.Types.PartitionValueList.html#%24sel%3Avalues%3APartitionValueList%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692453"><span id="local-6989586621679692455"><span class="annot"><span class="annottext">PartitionValueList -&gt; PartitionValueList -&gt; Bool
+(PartitionValueList -&gt; PartitionValueList -&gt; Bool)
+-&gt; (PartitionValueList -&gt; PartitionValueList -&gt; Bool)
+-&gt; Eq PartitionValueList
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PartitionValueList -&gt; PartitionValueList -&gt; Bool
+$c/= :: PartitionValueList -&gt; PartitionValueList -&gt; Bool
+== :: PartitionValueList -&gt; PartitionValueList -&gt; Bool
+$c== :: PartitionValueList -&gt; PartitionValueList -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692444"><span id="local-6989586621679692446"><span id="local-6989586621679692448"><span id="local-6989586621679692450"><span class="annot"><span class="annottext">ReadPrec [PartitionValueList]
+ReadPrec PartitionValueList
+Int -&gt; ReadS PartitionValueList
+ReadS [PartitionValueList]
+(Int -&gt; ReadS PartitionValueList)
+-&gt; ReadS [PartitionValueList]
+-&gt; ReadPrec PartitionValueList
+-&gt; ReadPrec [PartitionValueList]
+-&gt; Read PartitionValueList
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PartitionValueList]
+$creadListPrec :: ReadPrec [PartitionValueList]
+readPrec :: ReadPrec PartitionValueList
+$creadPrec :: ReadPrec PartitionValueList
+readList :: ReadS [PartitionValueList]
+$creadList :: ReadS [PartitionValueList]
+readsPrec :: Int -&gt; ReadS PartitionValueList
+$creadsPrec :: Int -&gt; ReadS PartitionValueList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692437"><span id="local-6989586621679692439"><span id="local-6989586621679692441"><span class="annot"><span class="annottext">Int -&gt; PartitionValueList -&gt; ShowS
+[PartitionValueList] -&gt; ShowS
+PartitionValueList -&gt; String
+(Int -&gt; PartitionValueList -&gt; ShowS)
+-&gt; (PartitionValueList -&gt; String)
+-&gt; ([PartitionValueList] -&gt; ShowS)
+-&gt; Show PartitionValueList
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PartitionValueList] -&gt; ShowS
+$cshowList :: [PartitionValueList] -&gt; ShowS
+show :: PartitionValueList -&gt; String
+$cshow :: PartitionValueList -&gt; String
+showsPrec :: Int -&gt; PartitionValueList -&gt; ShowS
+$cshowsPrec :: Int -&gt; PartitionValueList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PartitionValueList -&gt; Rep PartitionValueList x)
+-&gt; (forall x. Rep PartitionValueList x -&gt; PartitionValueList)
+-&gt; Generic PartitionValueList
+forall x. Rep PartitionValueList x -&gt; PartitionValueList
+forall x. PartitionValueList -&gt; Rep PartitionValueList x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PartitionValueList x -&gt; PartitionValueList
+$cfrom :: forall x. PartitionValueList -&gt; Rep PartitionValueList x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Create a value of 'PartitionValueList' with all optional fields omitted.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- 'values', 'partitionValueList_values' - The list of values.</span><span>
+</span><span id="line-44"></span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#newPartitionValueList"><span class="hs-identifier hs-type">newPartitionValueList</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span><span>
+</span><span id="line-46"></span><span id="newPartitionValueList"><span class="annot"><span class="annottext">newPartitionValueList :: PartitionValueList
+</span><a href="Amazonka.Glue.Types.PartitionValueList.html#newPartitionValueList"><span class="hs-identifier hs-var hs-var">newPartitionValueList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-47"></span><span>  </span><span class="annot"><span class="annottext">PartitionValueList' :: [Text] -&gt; PartitionValueList
+</span><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:PartitionValueList' :: [Text]
+</span><a href="Amazonka.Glue.Types.PartitionValueList.html#%24sel%3Avalues%3APartitionValueList%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | The list of values.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#partitionValueList_values"><span class="hs-identifier hs-type">partitionValueList_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-51"></span><span id="partitionValueList_values"><span class="annot"><span class="annottext">partitionValueList_values :: ([Text] -&gt; f [Text]) -&gt; PartitionValueList -&gt; f PartitionValueList
+</span><a href="Amazonka.Glue.Types.PartitionValueList.html#partitionValueList_values"><span class="hs-identifier hs-var hs-var">partitionValueList_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PartitionValueList -&gt; [Text])
+-&gt; (PartitionValueList -&gt; [Text] -&gt; PartitionValueList)
+-&gt; Lens PartitionValueList PartitionValueList [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692428"><span class="annot"><span class="annottext">[Text]
+values :: [Text]
+$sel:values:PartitionValueList' :: PartitionValueList -&gt; [Text]
+</span><a href="#local-6989586621679692428"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679692428"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692427"><span class="annot"><span class="annottext">s :: PartitionValueList
+</span><a href="#local-6989586621679692427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692426"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679692426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionValueList
+</span><a href="#local-6989586621679692427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:PartitionValueList' :: [Text]
+</span><a href="Amazonka.Glue.Types.PartitionValueList.html#%24sel%3Avalues%3APartitionValueList%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679692426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; PartitionValueList -&gt; f PartitionValueList)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; PartitionValueList
+-&gt; f PartitionValueList
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692421"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679692419"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartitionValueList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PartitionValueList)
+-&gt; Value
+-&gt; Parser PartitionValueList
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PartitionValueList&quot;</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692416"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679692416"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">[Text] -&gt; PartitionValueList
+</span><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-var">PartitionValueList'</span></a></span><span>
+</span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">([Text] -&gt; PartitionValueList)
+-&gt; Parser [Text] -&gt; Parser PartitionValueList
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679692416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692409"><span id="local-6989586621679692411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692398"><span id="local-6989586621679692400"><span id="local-6989586621679692402"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679692396"><span class="annot"><span class="annottext">toJSON :: PartitionValueList -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692394"><span class="annot"><span class="annottext">[Text]
+values :: [Text]
+$sel:values:PartitionValueList' :: PartitionValueList -&gt; [Text]
+</span><a href="#local-6989586621679692394"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-70"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679692394"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span></pre></body></html>

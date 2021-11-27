@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.PlatformValues</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.PlatformValues</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier">PlatformValues</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues_Windows"><span class="hs-identifier">PlatformValues_Windows</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681136049"><span id="local-6989586621681136050"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlatformValues"><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-var">PlatformValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformValues%27"><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues%27"><span class="hs-identifier hs-var">PlatformValues'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlatformValues"><span class="annot"><span class="annottext">PlatformValues -&gt; Text
+</span><a href="Amazonka.EC2.Types.PlatformValues.html#fromPlatformValues"><span class="hs-identifier hs-var hs-var">fromPlatformValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681136041"><span id="local-6989586621681136043"><span id="local-6989586621681136045"><span class="annot"><span class="annottext">Int -&gt; PlatformValues -&gt; ShowS
+[PlatformValues] -&gt; ShowS
+PlatformValues -&gt; String
+(Int -&gt; PlatformValues -&gt; ShowS)
+-&gt; (PlatformValues -&gt; String)
+-&gt; ([PlatformValues] -&gt; ShowS)
+-&gt; Show PlatformValues
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PlatformValues] -&gt; ShowS
+$cshowList :: [PlatformValues] -&gt; ShowS
+show :: PlatformValues -&gt; String
+$cshow :: PlatformValues -&gt; String
+showsPrec :: Int -&gt; PlatformValues -&gt; ShowS
+$cshowsPrec :: Int -&gt; PlatformValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681136032"><span id="local-6989586621681136034"><span id="local-6989586621681136036"><span id="local-6989586621681136038"><span class="annot"><span class="annottext">ReadPrec [PlatformValues]
+ReadPrec PlatformValues
+Int -&gt; ReadS PlatformValues
+ReadS [PlatformValues]
+(Int -&gt; ReadS PlatformValues)
+-&gt; ReadS [PlatformValues]
+-&gt; ReadPrec PlatformValues
+-&gt; ReadPrec [PlatformValues]
+-&gt; Read PlatformValues
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PlatformValues]
+$creadListPrec :: ReadPrec [PlatformValues]
+readPrec :: ReadPrec PlatformValues
+$creadPrec :: ReadPrec PlatformValues
+readList :: ReadS [PlatformValues]
+$creadList :: ReadS [PlatformValues]
+readsPrec :: Int -&gt; ReadS PlatformValues
+$creadsPrec :: Int -&gt; ReadS PlatformValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681136027"><span id="local-6989586621681136029"><span class="annot"><span class="annottext">PlatformValues -&gt; PlatformValues -&gt; Bool
+(PlatformValues -&gt; PlatformValues -&gt; Bool)
+-&gt; (PlatformValues -&gt; PlatformValues -&gt; Bool) -&gt; Eq PlatformValues
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PlatformValues -&gt; PlatformValues -&gt; Bool
+$c/= :: PlatformValues -&gt; PlatformValues -&gt; Bool
+== :: PlatformValues -&gt; PlatformValues -&gt; Bool
+$c== :: PlatformValues -&gt; PlatformValues -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681136011"><span id="local-6989586621681136013"><span id="local-6989586621681136015"><span id="local-6989586621681136017"><span id="local-6989586621681136019"><span id="local-6989586621681136021"><span id="local-6989586621681136023"><span class="annot"><span class="annottext">Eq PlatformValues
+Eq PlatformValues
+-&gt; (PlatformValues -&gt; PlatformValues -&gt; Ordering)
+-&gt; (PlatformValues -&gt; PlatformValues -&gt; Bool)
+-&gt; (PlatformValues -&gt; PlatformValues -&gt; Bool)
+-&gt; (PlatformValues -&gt; PlatformValues -&gt; Bool)
+-&gt; (PlatformValues -&gt; PlatformValues -&gt; Bool)
+-&gt; (PlatformValues -&gt; PlatformValues -&gt; PlatformValues)
+-&gt; (PlatformValues -&gt; PlatformValues -&gt; PlatformValues)
+-&gt; Ord PlatformValues
+PlatformValues -&gt; PlatformValues -&gt; Bool
+PlatformValues -&gt; PlatformValues -&gt; Ordering
+PlatformValues -&gt; PlatformValues -&gt; PlatformValues
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PlatformValues -&gt; PlatformValues -&gt; PlatformValues
+$cmin :: PlatformValues -&gt; PlatformValues -&gt; PlatformValues
+max :: PlatformValues -&gt; PlatformValues -&gt; PlatformValues
+$cmax :: PlatformValues -&gt; PlatformValues -&gt; PlatformValues
+&gt;= :: PlatformValues -&gt; PlatformValues -&gt; Bool
+$c&gt;= :: PlatformValues -&gt; PlatformValues -&gt; Bool
+&gt; :: PlatformValues -&gt; PlatformValues -&gt; Bool
+$c&gt; :: PlatformValues -&gt; PlatformValues -&gt; Bool
+&lt;= :: PlatformValues -&gt; PlatformValues -&gt; Bool
+$c&lt;= :: PlatformValues -&gt; PlatformValues -&gt; Bool
+&lt; :: PlatformValues -&gt; PlatformValues -&gt; Bool
+$c&lt; :: PlatformValues -&gt; PlatformValues -&gt; Bool
+compare :: PlatformValues -&gt; PlatformValues -&gt; Ordering
+$ccompare :: PlatformValues -&gt; PlatformValues -&gt; Ordering
+$cp1Ord :: Eq PlatformValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PlatformValues -&gt; Rep PlatformValues x)
+-&gt; (forall x. Rep PlatformValues x -&gt; PlatformValues)
+-&gt; Generic PlatformValues
+forall x. Rep PlatformValues x -&gt; PlatformValues
+forall x. PlatformValues -&gt; Rep PlatformValues x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PlatformValues x -&gt; PlatformValues
+$cfrom :: forall x. PlatformValues -&gt; Rep PlatformValues x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681136003"><span id="local-6989586621681136005"><span class="annot"><span class="annottext">Int -&gt; PlatformValues -&gt; Int
+PlatformValues -&gt; Int
+(Int -&gt; PlatformValues -&gt; Int)
+-&gt; (PlatformValues -&gt; Int) -&gt; Hashable PlatformValues
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PlatformValues -&gt; Int
+$chash :: PlatformValues -&gt; Int
+hashWithSalt :: Int -&gt; PlatformValues -&gt; Int
+$chashWithSalt :: Int -&gt; PlatformValues -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681136000"><span class="annot"><span class="annottext">PlatformValues -&gt; ()
+(PlatformValues -&gt; ()) -&gt; NFData PlatformValues
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PlatformValues -&gt; ()
+$crnf :: PlatformValues -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681135997"><span class="annot"><span class="annottext">Text -&gt; Either String PlatformValues
+(Text -&gt; Either String PlatformValues) -&gt; FromText PlatformValues
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PlatformValues
+$cfromText :: Text -&gt; Either String PlatformValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681135994"><span class="annot"><span class="annottext">PlatformValues -&gt; Text
+(PlatformValues -&gt; Text) -&gt; ToText PlatformValues
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PlatformValues -&gt; Text
+$ctoText :: PlatformValues -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681135991"><span class="annot"><span class="annottext">PlatformValues -&gt; ByteString
+(PlatformValues -&gt; ByteString) -&gt; ToByteString PlatformValues
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PlatformValues -&gt; ByteString
+$ctoBS :: PlatformValues -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681135988"><span class="annot"><span class="annottext">PlatformValues -&gt; ByteStringBuilder
+(PlatformValues -&gt; ByteStringBuilder) -&gt; ToLog PlatformValues
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PlatformValues -&gt; ByteStringBuilder
+$cbuild :: PlatformValues -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681135985"><span class="annot"><span class="annottext">HeaderName -&gt; PlatformValues -&gt; [Header]
+(HeaderName -&gt; PlatformValues -&gt; [Header])
+-&gt; ToHeader PlatformValues
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PlatformValues -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PlatformValues -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681135982"><span class="annot"><span class="annottext">PlatformValues -&gt; QueryString
+(PlatformValues -&gt; QueryString) -&gt; ToQuery PlatformValues
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PlatformValues -&gt; QueryString
+$ctoQuery :: PlatformValues -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681135977"><span id="local-6989586621681135979"><span class="annot"><span class="annottext">Value -&gt; Parser [PlatformValues]
+Value -&gt; Parser PlatformValues
+(Value -&gt; Parser PlatformValues)
+-&gt; (Value -&gt; Parser [PlatformValues]) -&gt; FromJSON PlatformValues
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PlatformValues]
+$cparseJSONList :: Value -&gt; Parser [PlatformValues]
+parseJSON :: Value -&gt; Parser PlatformValues
+$cparseJSON :: Value -&gt; Parser PlatformValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681135972"><span id="local-6989586621681135974"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlatformValues]
+FromJSONKeyFunction PlatformValues
+FromJSONKeyFunction PlatformValues
+-&gt; FromJSONKeyFunction [PlatformValues]
+-&gt; FromJSONKey PlatformValues
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PlatformValues]
+$cfromJSONKeyList :: FromJSONKeyFunction [PlatformValues]
+fromJSONKey :: FromJSONKeyFunction PlatformValues
+$cfromJSONKey :: FromJSONKeyFunction PlatformValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681135963"><span id="local-6989586621681135965"><span id="local-6989586621681135967"><span id="local-6989586621681135969"><span class="annot"><span class="annottext">[PlatformValues] -&gt; Encoding
+[PlatformValues] -&gt; Value
+PlatformValues -&gt; Encoding
+PlatformValues -&gt; Value
+(PlatformValues -&gt; Value)
+-&gt; (PlatformValues -&gt; Encoding)
+-&gt; ([PlatformValues] -&gt; Value)
+-&gt; ([PlatformValues] -&gt; Encoding)
+-&gt; ToJSON PlatformValues
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PlatformValues] -&gt; Encoding
+$ctoEncodingList :: [PlatformValues] -&gt; Encoding
+toJSONList :: [PlatformValues] -&gt; Value
+$ctoJSONList :: [PlatformValues] -&gt; Value
+toEncoding :: PlatformValues -&gt; Encoding
+$ctoEncoding :: PlatformValues -&gt; Encoding
+toJSON :: PlatformValues -&gt; Value
+$ctoJSON :: PlatformValues -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681135958"><span id="local-6989586621681135960"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlatformValues]
+ToJSONKeyFunction PlatformValues
+ToJSONKeyFunction PlatformValues
+-&gt; ToJSONKeyFunction [PlatformValues] -&gt; ToJSONKey PlatformValues
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PlatformValues]
+$ctoJSONKeyList :: ToJSONKeyFunction [PlatformValues]
+toJSONKey :: ToJSONKeyFunction PlatformValues
+$ctoJSONKey :: ToJSONKeyFunction PlatformValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681135955"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlatformValues
+([Node] -&gt; Either String PlatformValues) -&gt; FromXML PlatformValues
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PlatformValues
+$cparseXML :: [Node] -&gt; Either String PlatformValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681135952"><span class="annot"><span class="annottext">PlatformValues -&gt; XML
+(PlatformValues -&gt; XML) -&gt; ToXML PlatformValues
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PlatformValues -&gt; XML
+$ctoXML :: PlatformValues -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues_Windows"><span class="hs-identifier hs-type">PlatformValues_Windows</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-type">PlatformValues</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformValues_Windows"><span id="%24mPlatformValues_Windows"><span id="PlatformValues_Windows"><span class="annot"><span class="annottext">$bPlatformValues_Windows :: PlatformValues
+$mPlatformValues_Windows :: forall r. PlatformValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.PlatformValues.html#%24bPlatformValues_Windows"><span class="hs-identifier hs-var hs-var hs-var">PlatformValues_Windows</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues%27"><span class="hs-identifier hs-type">PlatformValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Windows&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues_Windows"><span class="hs-pragma hs-type">PlatformValues_Windows</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.PlatformValues.html#PlatformValues%27"><span class="hs-pragma hs-type">PlatformValues'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

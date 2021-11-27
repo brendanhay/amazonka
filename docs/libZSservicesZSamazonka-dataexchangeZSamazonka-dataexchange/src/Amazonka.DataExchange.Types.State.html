@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataExchange.Types.State</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataExchange.Types.State</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier">State</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_CANCELLED"><span class="hs-identifier">State_CANCELLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_COMPLETED"><span class="hs-identifier">State_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_ERROR"><span class="hs-identifier">State_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_IN_PROGRESS"><span class="hs-identifier">State_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_TIMED_OUT"><span class="hs-identifier">State_TIMED_OUT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_WAITING"><span class="hs-identifier">State_WAITING</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679239268"><span id="local-6989586621679239269"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="State"><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-var">State</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="State%27"><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State%27"><span class="hs-identifier hs-var">State'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromState"><span class="annot"><span class="annottext">State -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.State.html#fromState"><span class="hs-identifier hs-var hs-var">fromState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239260"><span id="local-6989586621679239262"><span id="local-6989586621679239264"><span class="annot"><span class="annottext">Int -&gt; State -&gt; ShowS
+[State] -&gt; ShowS
+State -&gt; String
+(Int -&gt; State -&gt; ShowS)
+-&gt; (State -&gt; String) -&gt; ([State] -&gt; ShowS) -&gt; Show State
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [State] -&gt; ShowS
+$cshowList :: [State] -&gt; ShowS
+show :: State -&gt; String
+$cshow :: State -&gt; String
+showsPrec :: Int -&gt; State -&gt; ShowS
+$cshowsPrec :: Int -&gt; State -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679239251"><span id="local-6989586621679239253"><span id="local-6989586621679239255"><span id="local-6989586621679239257"><span class="annot"><span class="annottext">ReadPrec [State]
+ReadPrec State
+Int -&gt; ReadS State
+ReadS [State]
+(Int -&gt; ReadS State)
+-&gt; ReadS [State]
+-&gt; ReadPrec State
+-&gt; ReadPrec [State]
+-&gt; Read State
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [State]
+$creadListPrec :: ReadPrec [State]
+readPrec :: ReadPrec State
+$creadPrec :: ReadPrec State
+readList :: ReadS [State]
+$creadList :: ReadS [State]
+readsPrec :: Int -&gt; ReadS State
+$creadsPrec :: Int -&gt; ReadS State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679239246"><span id="local-6989586621679239248"><span class="annot"><span class="annottext">State -&gt; State -&gt; Bool
+(State -&gt; State -&gt; Bool) -&gt; (State -&gt; State -&gt; Bool) -&gt; Eq State
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: State -&gt; State -&gt; Bool
+$c/= :: State -&gt; State -&gt; Bool
+== :: State -&gt; State -&gt; Bool
+$c== :: State -&gt; State -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679239230"><span id="local-6989586621679239232"><span id="local-6989586621679239234"><span id="local-6989586621679239236"><span id="local-6989586621679239238"><span id="local-6989586621679239240"><span id="local-6989586621679239242"><span class="annot"><span class="annottext">Eq State
+Eq State
+-&gt; (State -&gt; State -&gt; Ordering)
+-&gt; (State -&gt; State -&gt; Bool)
+-&gt; (State -&gt; State -&gt; Bool)
+-&gt; (State -&gt; State -&gt; Bool)
+-&gt; (State -&gt; State -&gt; Bool)
+-&gt; (State -&gt; State -&gt; State)
+-&gt; (State -&gt; State -&gt; State)
+-&gt; Ord State
+State -&gt; State -&gt; Bool
+State -&gt; State -&gt; Ordering
+State -&gt; State -&gt; State
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: State -&gt; State -&gt; State
+$cmin :: State -&gt; State -&gt; State
+max :: State -&gt; State -&gt; State
+$cmax :: State -&gt; State -&gt; State
+&gt;= :: State -&gt; State -&gt; Bool
+$c&gt;= :: State -&gt; State -&gt; Bool
+&gt; :: State -&gt; State -&gt; Bool
+$c&gt; :: State -&gt; State -&gt; Bool
+&lt;= :: State -&gt; State -&gt; Bool
+$c&lt;= :: State -&gt; State -&gt; Bool
+&lt; :: State -&gt; State -&gt; Bool
+$c&lt; :: State -&gt; State -&gt; Bool
+compare :: State -&gt; State -&gt; Ordering
+$ccompare :: State -&gt; State -&gt; Ordering
+$cp1Ord :: Eq State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. State -&gt; Rep State x)
+-&gt; (forall x. Rep State x -&gt; State) -&gt; Generic State
+forall x. Rep State x -&gt; State
+forall x. State -&gt; Rep State x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep State x -&gt; State
+$cfrom :: forall x. State -&gt; Rep State x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239222"><span id="local-6989586621679239224"><span class="annot"><span class="annottext">Int -&gt; State -&gt; Int
+State -&gt; Int
+(Int -&gt; State -&gt; Int) -&gt; (State -&gt; Int) -&gt; Hashable State
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: State -&gt; Int
+$chash :: State -&gt; Int
+hashWithSalt :: Int -&gt; State -&gt; Int
+$chashWithSalt :: Int -&gt; State -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679239219"><span class="annot"><span class="annottext">State -&gt; ()
+(State -&gt; ()) -&gt; NFData State
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: State -&gt; ()
+$crnf :: State -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679239216"><span class="annot"><span class="annottext">Text -&gt; Either String State
+(Text -&gt; Either String State) -&gt; FromText State
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String State
+$cfromText :: Text -&gt; Either String State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679239213"><span class="annot"><span class="annottext">State -&gt; Text
+(State -&gt; Text) -&gt; ToText State
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: State -&gt; Text
+$ctoText :: State -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679239210"><span class="annot"><span class="annottext">State -&gt; ByteString
+(State -&gt; ByteString) -&gt; ToByteString State
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: State -&gt; ByteString
+$ctoBS :: State -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679239207"><span class="annot"><span class="annottext">State -&gt; ByteStringBuilder
+(State -&gt; ByteStringBuilder) -&gt; ToLog State
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: State -&gt; ByteStringBuilder
+$cbuild :: State -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679239204"><span class="annot"><span class="annottext">HeaderName -&gt; State -&gt; [Header]
+(HeaderName -&gt; State -&gt; [Header]) -&gt; ToHeader State
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; State -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; State -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679239201"><span class="annot"><span class="annottext">State -&gt; QueryString
+(State -&gt; QueryString) -&gt; ToQuery State
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: State -&gt; QueryString
+$ctoQuery :: State -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679239196"><span id="local-6989586621679239198"><span class="annot"><span class="annottext">Value -&gt; Parser [State]
+Value -&gt; Parser State
+(Value -&gt; Parser State)
+-&gt; (Value -&gt; Parser [State]) -&gt; FromJSON State
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [State]
+$cparseJSONList :: Value -&gt; Parser [State]
+parseJSON :: Value -&gt; Parser State
+$cparseJSON :: Value -&gt; Parser State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679239191"><span id="local-6989586621679239193"><span class="annot"><span class="annottext">FromJSONKeyFunction [State]
+FromJSONKeyFunction State
+FromJSONKeyFunction State
+-&gt; FromJSONKeyFunction [State] -&gt; FromJSONKey State
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [State]
+$cfromJSONKeyList :: FromJSONKeyFunction [State]
+fromJSONKey :: FromJSONKeyFunction State
+$cfromJSONKey :: FromJSONKeyFunction State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679239182"><span id="local-6989586621679239184"><span id="local-6989586621679239186"><span id="local-6989586621679239188"><span class="annot"><span class="annottext">[State] -&gt; Encoding
+[State] -&gt; Value
+State -&gt; Encoding
+State -&gt; Value
+(State -&gt; Value)
+-&gt; (State -&gt; Encoding)
+-&gt; ([State] -&gt; Value)
+-&gt; ([State] -&gt; Encoding)
+-&gt; ToJSON State
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [State] -&gt; Encoding
+$ctoEncodingList :: [State] -&gt; Encoding
+toJSONList :: [State] -&gt; Value
+$ctoJSONList :: [State] -&gt; Value
+toEncoding :: State -&gt; Encoding
+$ctoEncoding :: State -&gt; Encoding
+toJSON :: State -&gt; Value
+$ctoJSON :: State -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679239177"><span id="local-6989586621679239179"><span class="annot"><span class="annottext">ToJSONKeyFunction [State]
+ToJSONKeyFunction State
+ToJSONKeyFunction State
+-&gt; ToJSONKeyFunction [State] -&gt; ToJSONKey State
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [State]
+$ctoJSONKeyList :: ToJSONKeyFunction [State]
+toJSONKey :: ToJSONKeyFunction State
+$ctoJSONKey :: ToJSONKeyFunction State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679239174"><span class="annot"><span class="annottext">[Node] -&gt; Either String State
+([Node] -&gt; Either String State) -&gt; FromXML State
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String State
+$cparseXML :: [Node] -&gt; Either String State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679239171"><span class="annot"><span class="annottext">State -&gt; XML
+(State -&gt; XML) -&gt; ToXML State
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: State -&gt; XML
+$ctoXML :: State -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_CANCELLED"><span class="hs-identifier hs-type">State_CANCELLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_CANCELLED"><span id="%24mState_CANCELLED"><span id="State_CANCELLED"><span class="annot"><span class="annottext">$bState_CANCELLED :: State
+$mState_CANCELLED :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.State.html#%24bState_CANCELLED"><span class="hs-identifier hs-var hs-var hs-var">State_CANCELLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_COMPLETED"><span class="hs-identifier hs-type">State_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_COMPLETED"><span id="%24mState_COMPLETED"><span id="State_COMPLETED"><span class="annot"><span class="annottext">$bState_COMPLETED :: State
+$mState_COMPLETED :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.State.html#%24bState_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">State_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_ERROR"><span class="hs-identifier hs-type">State_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_ERROR"><span id="%24mState_ERROR"><span id="State_ERROR"><span class="annot"><span class="annottext">$bState_ERROR :: State
+$mState_ERROR :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.State.html#%24bState_ERROR"><span class="hs-identifier hs-var hs-var hs-var">State_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_IN_PROGRESS"><span class="hs-identifier hs-type">State_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_IN_PROGRESS"><span id="%24mState_IN_PROGRESS"><span id="State_IN_PROGRESS"><span class="annot"><span class="annottext">$bState_IN_PROGRESS :: State
+$mState_IN_PROGRESS :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.State.html#%24bState_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">State_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_TIMED_OUT"><span class="hs-identifier hs-type">State_TIMED_OUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_TIMED_OUT"><span id="%24mState_TIMED_OUT"><span id="State_TIMED_OUT"><span class="annot"><span class="annottext">$bState_TIMED_OUT :: State
+$mState_TIMED_OUT :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.State.html#%24bState_TIMED_OUT"><span class="hs-identifier hs-var hs-var hs-var">State_TIMED_OUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIMED_OUT&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_WAITING"><span class="hs-identifier hs-type">State_WAITING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_WAITING"><span id="%24mState_WAITING"><span id="State_WAITING"><span class="annot"><span class="annottext">$bState_WAITING :: State
+$mState_WAITING :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.State.html#%24bState_WAITING"><span class="hs-identifier hs-var hs-var hs-var">State_WAITING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WAITING&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_CANCELLED"><span class="hs-pragma hs-type">State_CANCELLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_COMPLETED"><span class="hs-pragma hs-type">State_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_ERROR"><span class="hs-pragma hs-type">State_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_IN_PROGRESS"><span class="hs-pragma hs-type">State_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_TIMED_OUT"><span class="hs-pragma hs-type">State_TIMED_OUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State_WAITING"><span class="hs-pragma hs-type">State_WAITING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State%27"><span class="hs-pragma hs-type">State'</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-88"></span></pre></body></html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.GetVariables</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets all of the variables or the specific variable. This is a paginated</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- API. Providing null @maxSizePerPage@ results in retrieving maximum of</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- 100 records per page. If you provide @maxSizePerPage@ the value must be</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- between 50 and 100. To get the next page result, a provide a pagination</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- token from @GetVariablesResult@ as part of your request. Null pagination</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- token fetches the records from the beginning.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.GetVariables</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier">GetVariables</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#newGetVariables"><span class="hs-identifier">newGetVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariables_nextToken"><span class="hs-identifier">getVariables_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariables_name"><span class="hs-identifier">getVariables_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariables_maxResults"><span class="hs-identifier">getVariables_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier">GetVariablesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#newGetVariablesResponse"><span class="hs-identifier">newGetVariablesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariablesResponse_variables"><span class="hs-identifier">getVariablesResponse_variables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariablesResponse_nextToken"><span class="hs-identifier">getVariablesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariablesResponse_httpStatus"><span class="hs-identifier">getVariablesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html"><span class="hs-identifier">Amazonka.FraudDetector.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetVariables' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679312076"><span id="local-6989586621679312077"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVariables"><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-var">GetVariables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVariables%27"><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables%27"><span class="hs-identifier hs-var">GetVariables'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The next page token of the get variable request.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AGetVariables%27"><span class="annot"><span class="annottext">GetVariables -&gt; Maybe Text
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AnextToken%3AGetVariables%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the variable.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aname%3AGetVariables%27"><span class="annot"><span class="annottext">GetVariables -&gt; Maybe Text
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3Aname%3AGetVariables%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The max size per page determined for the get variable request.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetVariables%27"><span class="annot"><span class="annottext">GetVariables -&gt; Maybe Natural
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AmaxResults%3AGetVariables%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312068"><span id="local-6989586621679312070"><span class="annot"><span class="annottext">GetVariables -&gt; GetVariables -&gt; Bool
+(GetVariables -&gt; GetVariables -&gt; Bool)
+-&gt; (GetVariables -&gt; GetVariables -&gt; Bool) -&gt; Eq GetVariables
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVariables -&gt; GetVariables -&gt; Bool
+$c/= :: GetVariables -&gt; GetVariables -&gt; Bool
+== :: GetVariables -&gt; GetVariables -&gt; Bool
+$c== :: GetVariables -&gt; GetVariables -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312059"><span id="local-6989586621679312061"><span id="local-6989586621679312063"><span id="local-6989586621679312065"><span class="annot"><span class="annottext">ReadPrec [GetVariables]
+ReadPrec GetVariables
+Int -&gt; ReadS GetVariables
+ReadS [GetVariables]
+(Int -&gt; ReadS GetVariables)
+-&gt; ReadS [GetVariables]
+-&gt; ReadPrec GetVariables
+-&gt; ReadPrec [GetVariables]
+-&gt; Read GetVariables
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVariables]
+$creadListPrec :: ReadPrec [GetVariables]
+readPrec :: ReadPrec GetVariables
+$creadPrec :: ReadPrec GetVariables
+readList :: ReadS [GetVariables]
+$creadList :: ReadS [GetVariables]
+readsPrec :: Int -&gt; ReadS GetVariables
+$creadsPrec :: Int -&gt; ReadS GetVariables
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312052"><span id="local-6989586621679312054"><span id="local-6989586621679312056"><span class="annot"><span class="annottext">Int -&gt; GetVariables -&gt; ShowS
+[GetVariables] -&gt; ShowS
+GetVariables -&gt; String
+(Int -&gt; GetVariables -&gt; ShowS)
+-&gt; (GetVariables -&gt; String)
+-&gt; ([GetVariables] -&gt; ShowS)
+-&gt; Show GetVariables
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVariables] -&gt; ShowS
+$cshowList :: [GetVariables] -&gt; ShowS
+show :: GetVariables -&gt; String
+$cshow :: GetVariables -&gt; String
+showsPrec :: Int -&gt; GetVariables -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVariables -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetVariables -&gt; Rep GetVariables x)
+-&gt; (forall x. Rep GetVariables x -&gt; GetVariables)
+-&gt; Generic GetVariables
+forall x. Rep GetVariables x -&gt; GetVariables
+forall x. GetVariables -&gt; Rep GetVariables x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetVariables x -&gt; GetVariables
+$cfrom :: forall x. GetVariables -&gt; Rep GetVariables x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'GetVariables' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'getVariables_nextToken' - The next page token of the get variable request.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'name', 'getVariables_name' - The name of the variable.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'maxResults', 'getVariables_maxResults' - The max size per page determined for the get variable request.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#newGetVariables"><span class="hs-identifier hs-type">newGetVariables</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span>
+</span><span id="line-83"></span><span id="newGetVariables"><span class="annot"><span class="annottext">newGetVariables :: GetVariables
+</span><a href="Amazonka.FraudDetector.GetVariables.html#newGetVariables"><span class="hs-identifier hs-var hs-var">newGetVariables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">GetVariables' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; GetVariables
+</span><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables%27"><span class="hs-identifier hs-type">GetVariables'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetVariables' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AnextToken%3AGetVariables%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetVariables' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3Aname%3AGetVariables%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetVariables' :: Maybe Natural
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AmaxResults%3AGetVariables%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The next page token of the get variable request.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariables_nextToken"><span class="hs-identifier hs-type">getVariables_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="getVariables_nextToken"><span class="annot"><span class="annottext">getVariables_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetVariables -&gt; f GetVariables
+</span><a href="Amazonka.FraudDetector.GetVariables.html#getVariables_nextToken"><span class="hs-identifier hs-var hs-var">getVariables_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVariables -&gt; Maybe Text)
+-&gt; (GetVariables -&gt; Maybe Text -&gt; GetVariables)
+-&gt; Lens GetVariables GetVariables (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables%27"><span class="hs-identifier hs-type">GetVariables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312045"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetVariables' :: GetVariables -&gt; Maybe Text
+</span><a href="#local-6989586621679312045"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312045"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312044"><span class="annot"><span class="annottext">s :: GetVariables
+</span><a href="#local-6989586621679312044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables%27"><span class="hs-identifier hs-type">GetVariables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312043"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVariables
+</span><a href="#local-6989586621679312044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetVariables' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AnextToken%3AGetVariables%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the variable.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariables_name"><span class="hs-identifier hs-type">getVariables_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="getVariables_name"><span class="annot"><span class="annottext">getVariables_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetVariables -&gt; f GetVariables
+</span><a href="Amazonka.FraudDetector.GetVariables.html#getVariables_name"><span class="hs-identifier hs-var hs-var">getVariables_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVariables -&gt; Maybe Text)
+-&gt; (GetVariables -&gt; Maybe Text -&gt; GetVariables)
+-&gt; Lens GetVariables GetVariables (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables%27"><span class="hs-identifier hs-type">GetVariables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312042"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetVariables' :: GetVariables -&gt; Maybe Text
+</span><a href="#local-6989586621679312042"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312042"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312041"><span class="annot"><span class="annottext">s :: GetVariables
+</span><a href="#local-6989586621679312041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables%27"><span class="hs-identifier hs-type">GetVariables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312040"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVariables
+</span><a href="#local-6989586621679312041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetVariables' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3Aname%3AGetVariables%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The max size per page determined for the get variable request.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariables_maxResults"><span class="hs-identifier hs-type">getVariables_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="getVariables_maxResults"><span class="annot"><span class="annottext">getVariables_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetVariables -&gt; f GetVariables
+</span><a href="Amazonka.FraudDetector.GetVariables.html#getVariables_maxResults"><span class="hs-identifier hs-var hs-var">getVariables_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVariables -&gt; Maybe Natural)
+-&gt; (GetVariables -&gt; Maybe Natural -&gt; GetVariables)
+-&gt; Lens GetVariables GetVariables (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables%27"><span class="hs-identifier hs-type">GetVariables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312039"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetVariables' :: GetVariables -&gt; Maybe Natural
+</span><a href="#local-6989586621679312039"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312039"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312038"><span class="annot"><span class="annottext">s :: GetVariables
+</span><a href="#local-6989586621679312038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables%27"><span class="hs-identifier hs-type">GetVariables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312037"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVariables
+</span><a href="#local-6989586621679312038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetVariables' :: Maybe Natural
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AmaxResults%3AGetVariables%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-type">GetVariablesResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679312033"><span class="annot"><span class="annottext">request :: GetVariables -&gt; Request GetVariables
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetVariables -&gt; Request GetVariables
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679312029"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetVariables
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetVariables)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetVariables))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetVariables
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetVariables)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312026"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312026"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312025"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312025"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312024"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312024"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Variable] -&gt; Maybe Text -&gt; Int -&gt; GetVariablesResponse
+</span><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse%27"><span class="hs-identifier hs-var">GetVariablesResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Variable] -&gt; Maybe Text -&gt; Int -&gt; GetVariablesResponse)
+-&gt; Either String (Maybe [Variable])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetVariablesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Variable]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;variables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Variable]))
+-&gt; Maybe [Variable] -&gt; Either String (Maybe [Variable])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Variable]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetVariablesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetVariablesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetVariablesResponse)
+-&gt; Either String Int -&gt; Either String GetVariablesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312026"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312015"><span id="local-6989586621679312017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679312008"><span class="annot"><span class="annottext">toHeaders :: GetVariables -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetVariables -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.GetVariables&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311998"><span id="local-6989586621679312000"><span id="local-6989586621679312002"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679311996"><span class="annot"><span class="annottext">toJSON :: GetVariables -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables%27"><span class="hs-identifier hs-type">GetVariables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311992"><span id="local-6989586621679311993"><span id="local-6989586621679311994"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+name :: Maybe Text
+nextToken :: Maybe Text
+$sel:maxResults:GetVariables' :: GetVariables -&gt; Maybe Natural
+$sel:name:GetVariables' :: GetVariables -&gt; Maybe Text
+$sel:nextToken:GetVariables' :: GetVariables -&gt; Maybe Text
+</span><a href="#local-6989586621679311992"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311994"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311993"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679311992"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679311986"><span class="annot"><span class="annottext">toPath :: GetVariables -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetVariables -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariables"><span class="hs-identifier hs-type">GetVariables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679311982"><span class="annot"><span class="annottext">toQuery :: GetVariables -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetVariables -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newGetVariablesResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679311979"><span id="local-6989586621679311980"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVariablesResponse"><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-var">GetVariablesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVariablesResponse%27"><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse%27"><span class="hs-identifier hs-var">GetVariablesResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of the variables returned.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Avariables%3AGetVariablesResponse%27"><span class="annot"><span class="annottext">GetVariablesResponse -&gt; Maybe [Variable]
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3Avariables%3AGetVariablesResponse%27"><span class="hs-identifier hs-var hs-var">variables</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The next page token to be used in subsequent requests.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AnextToken%3AGetVariablesResponse%27"><span class="annot"><span class="annottext">GetVariablesResponse -&gt; Maybe Text
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AnextToken%3AGetVariablesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetVariablesResponse%27"><span class="annot"><span class="annottext">GetVariablesResponse -&gt; Int
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AhttpStatus%3AGetVariablesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311972"><span id="local-6989586621679311974"><span class="annot"><span class="annottext">GetVariablesResponse -&gt; GetVariablesResponse -&gt; Bool
+(GetVariablesResponse -&gt; GetVariablesResponse -&gt; Bool)
+-&gt; (GetVariablesResponse -&gt; GetVariablesResponse -&gt; Bool)
+-&gt; Eq GetVariablesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVariablesResponse -&gt; GetVariablesResponse -&gt; Bool
+$c/= :: GetVariablesResponse -&gt; GetVariablesResponse -&gt; Bool
+== :: GetVariablesResponse -&gt; GetVariablesResponse -&gt; Bool
+$c== :: GetVariablesResponse -&gt; GetVariablesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311964"><span id="local-6989586621679311966"><span id="local-6989586621679311968"><span id="local-6989586621679311970"><span class="annot"><span class="annottext">ReadPrec [GetVariablesResponse]
+ReadPrec GetVariablesResponse
+Int -&gt; ReadS GetVariablesResponse
+ReadS [GetVariablesResponse]
+(Int -&gt; ReadS GetVariablesResponse)
+-&gt; ReadS [GetVariablesResponse]
+-&gt; ReadPrec GetVariablesResponse
+-&gt; ReadPrec [GetVariablesResponse]
+-&gt; Read GetVariablesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVariablesResponse]
+$creadListPrec :: ReadPrec [GetVariablesResponse]
+readPrec :: ReadPrec GetVariablesResponse
+$creadPrec :: ReadPrec GetVariablesResponse
+readList :: ReadS [GetVariablesResponse]
+$creadList :: ReadS [GetVariablesResponse]
+readsPrec :: Int -&gt; ReadS GetVariablesResponse
+$creadsPrec :: Int -&gt; ReadS GetVariablesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311958"><span id="local-6989586621679311960"><span id="local-6989586621679311962"><span class="annot"><span class="annottext">Int -&gt; GetVariablesResponse -&gt; ShowS
+[GetVariablesResponse] -&gt; ShowS
+GetVariablesResponse -&gt; String
+(Int -&gt; GetVariablesResponse -&gt; ShowS)
+-&gt; (GetVariablesResponse -&gt; String)
+-&gt; ([GetVariablesResponse] -&gt; ShowS)
+-&gt; Show GetVariablesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVariablesResponse] -&gt; ShowS
+$cshowList :: [GetVariablesResponse] -&gt; ShowS
+show :: GetVariablesResponse -&gt; String
+$cshow :: GetVariablesResponse -&gt; String
+showsPrec :: Int -&gt; GetVariablesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVariablesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetVariablesResponse -&gt; Rep GetVariablesResponse x)
+-&gt; (forall x. Rep GetVariablesResponse x -&gt; GetVariablesResponse)
+-&gt; Generic GetVariablesResponse
+forall x. Rep GetVariablesResponse x -&gt; GetVariablesResponse
+forall x. GetVariablesResponse -&gt; Rep GetVariablesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetVariablesResponse x -&gt; GetVariablesResponse
+$cfrom :: forall x. GetVariablesResponse -&gt; Rep GetVariablesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'GetVariablesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'variables', 'getVariablesResponse_variables' - The names of the variables returned.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'nextToken', 'getVariablesResponse_nextToken' - The next page token to be used in subsequent requests.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'httpStatus', 'getVariablesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#newGetVariablesResponse"><span class="hs-identifier hs-type">newGetVariablesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-type">GetVariablesResponse</span></a></span><span>
+</span><span id="line-177"></span><span id="newGetVariablesResponse"><span class="annot"><span class="annottext">newGetVariablesResponse :: Int -&gt; GetVariablesResponse
+</span><a href="Amazonka.FraudDetector.GetVariables.html#newGetVariablesResponse"><span class="hs-identifier hs-var hs-var">newGetVariablesResponse</span></a></span></span><span> </span><span id="local-6989586621679311955"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311955"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">GetVariablesResponse' :: Maybe [Variable] -&gt; Maybe Text -&gt; Int -&gt; GetVariablesResponse
+</span><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse%27"><span class="hs-identifier hs-type">GetVariablesResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:variables:GetVariablesResponse' :: Maybe [Variable]
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3Avariables%3AGetVariablesResponse%27"><span class="hs-identifier hs-var">variables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Variable]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetVariablesResponse' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AnextToken%3AGetVariablesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetVariablesResponse' :: Int
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AhttpStatus%3AGetVariablesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311955"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The names of the variables returned.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariablesResponse_variables"><span class="hs-identifier hs-type">getVariablesResponse_variables</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-type">GetVariablesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="getVariablesResponse_variables"><span class="annot"><span class="annottext">getVariablesResponse_variables :: (Maybe [Variable] -&gt; f (Maybe [Variable]))
+-&gt; GetVariablesResponse -&gt; f GetVariablesResponse
+</span><a href="Amazonka.FraudDetector.GetVariables.html#getVariablesResponse_variables"><span class="hs-identifier hs-var hs-var">getVariablesResponse_variables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVariablesResponse -&gt; Maybe [Variable])
+-&gt; (GetVariablesResponse
+    -&gt; Maybe [Variable] -&gt; GetVariablesResponse)
+-&gt; Lens
+     GetVariablesResponse
+     GetVariablesResponse
+     (Maybe [Variable])
+     (Maybe [Variable])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse%27"><span class="hs-identifier hs-type">GetVariablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311954"><span class="annot"><span class="annottext">Maybe [Variable]
+variables :: Maybe [Variable]
+$sel:variables:GetVariablesResponse' :: GetVariablesResponse -&gt; Maybe [Variable]
+</span><a href="#local-6989586621679311954"><span class="hs-identifier hs-var hs-var">variables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Variable]
+</span><a href="#local-6989586621679311954"><span class="hs-identifier hs-var">variables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311953"><span class="annot"><span class="annottext">s :: GetVariablesResponse
+</span><a href="#local-6989586621679311953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse%27"><span class="hs-identifier hs-type">GetVariablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311952"><span class="annot"><span class="annottext">Maybe [Variable]
+</span><a href="#local-6989586621679311952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVariablesResponse
+</span><a href="#local-6989586621679311953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variables:GetVariablesResponse' :: Maybe [Variable]
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3Avariables%3AGetVariablesResponse%27"><span class="hs-identifier hs-var">variables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Variable]
+</span><a href="#local-6989586621679311952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-type">GetVariablesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Variable] -&gt; f (Maybe [Variable]))
+ -&gt; GetVariablesResponse -&gt; f GetVariablesResponse)
+-&gt; ((Maybe [Variable] -&gt; f (Maybe [Variable]))
+    -&gt; Maybe [Variable] -&gt; f (Maybe [Variable]))
+-&gt; (Maybe [Variable] -&gt; f (Maybe [Variable]))
+-&gt; GetVariablesResponse
+-&gt; f GetVariablesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Variable] [Variable] [Variable] [Variable]
+-&gt; Iso
+     (Maybe [Variable])
+     (Maybe [Variable])
+     (Maybe [Variable])
+     (Maybe [Variable])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Variable] [Variable] [Variable] [Variable]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The next page token to be used in subsequent requests.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariablesResponse_nextToken"><span class="hs-identifier hs-type">getVariablesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-type">GetVariablesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="getVariablesResponse_nextToken"><span class="annot"><span class="annottext">getVariablesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetVariablesResponse -&gt; f GetVariablesResponse
+</span><a href="Amazonka.FraudDetector.GetVariables.html#getVariablesResponse_nextToken"><span class="hs-identifier hs-var hs-var">getVariablesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVariablesResponse -&gt; Maybe Text)
+-&gt; (GetVariablesResponse -&gt; Maybe Text -&gt; GetVariablesResponse)
+-&gt; Lens
+     GetVariablesResponse GetVariablesResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse%27"><span class="hs-identifier hs-type">GetVariablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311948"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetVariablesResponse' :: GetVariablesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679311948"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311948"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311947"><span class="annot"><span class="annottext">s :: GetVariablesResponse
+</span><a href="#local-6989586621679311947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse%27"><span class="hs-identifier hs-type">GetVariablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311946"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVariablesResponse
+</span><a href="#local-6989586621679311947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetVariablesResponse' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AnextToken%3AGetVariablesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-type">GetVariablesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#getVariablesResponse_httpStatus"><span class="hs-identifier hs-type">getVariablesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-type">GetVariablesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="getVariablesResponse_httpStatus"><span class="annot"><span class="annottext">getVariablesResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetVariablesResponse -&gt; f GetVariablesResponse
+</span><a href="Amazonka.FraudDetector.GetVariables.html#getVariablesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getVariablesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVariablesResponse -&gt; Int)
+-&gt; (GetVariablesResponse -&gt; Int -&gt; GetVariablesResponse)
+-&gt; Lens GetVariablesResponse GetVariablesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse%27"><span class="hs-identifier hs-type">GetVariablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311945"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetVariablesResponse' :: GetVariablesResponse -&gt; Int
+</span><a href="#local-6989586621679311945"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311945"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311944"><span class="annot"><span class="annottext">s :: GetVariablesResponse
+</span><a href="#local-6989586621679311944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse%27"><span class="hs-identifier hs-type">GetVariablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVariablesResponse
+</span><a href="#local-6989586621679311944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetVariablesResponse' :: Int
+</span><a href="Amazonka.FraudDetector.GetVariables.html#%24sel%3AhttpStatus%3AGetVariablesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-type">GetVariablesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311941"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetVariables.html#GetVariablesResponse"><span class="hs-identifier hs-type">GetVariablesResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

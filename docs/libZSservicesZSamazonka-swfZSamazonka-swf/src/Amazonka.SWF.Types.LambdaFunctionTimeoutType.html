@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.LambdaFunctionTimeoutType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.LambdaFunctionTimeoutType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType"><span class="hs-identifier">LambdaFunctionTimeoutType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType_START_TO_CLOSE"><span class="hs-identifier">LambdaFunctionTimeoutType_START_TO_CLOSE</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679346534"><span id="local-6989586621679346535"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LambdaFunctionTimeoutType"><span class="annot"><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType"><span class="hs-identifier hs-var">LambdaFunctionTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionTimeoutType%27"><span class="annot"><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType%27"><span class="hs-identifier hs-var">LambdaFunctionTimeoutType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLambdaFunctionTimeoutType"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; Text
+</span><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#fromLambdaFunctionTimeoutType"><span class="hs-identifier hs-var hs-var">fromLambdaFunctionTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346526"><span id="local-6989586621679346528"><span id="local-6989586621679346530"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionTimeoutType -&gt; ShowS
+[LambdaFunctionTimeoutType] -&gt; ShowS
+LambdaFunctionTimeoutType -&gt; String
+(Int -&gt; LambdaFunctionTimeoutType -&gt; ShowS)
+-&gt; (LambdaFunctionTimeoutType -&gt; String)
+-&gt; ([LambdaFunctionTimeoutType] -&gt; ShowS)
+-&gt; Show LambdaFunctionTimeoutType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaFunctionTimeoutType] -&gt; ShowS
+$cshowList :: [LambdaFunctionTimeoutType] -&gt; ShowS
+show :: LambdaFunctionTimeoutType -&gt; String
+$cshow :: LambdaFunctionTimeoutType -&gt; String
+showsPrec :: Int -&gt; LambdaFunctionTimeoutType -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaFunctionTimeoutType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679346517"><span id="local-6989586621679346519"><span id="local-6989586621679346521"><span id="local-6989586621679346523"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionTimeoutType]
+ReadPrec LambdaFunctionTimeoutType
+Int -&gt; ReadS LambdaFunctionTimeoutType
+ReadS [LambdaFunctionTimeoutType]
+(Int -&gt; ReadS LambdaFunctionTimeoutType)
+-&gt; ReadS [LambdaFunctionTimeoutType]
+-&gt; ReadPrec LambdaFunctionTimeoutType
+-&gt; ReadPrec [LambdaFunctionTimeoutType]
+-&gt; Read LambdaFunctionTimeoutType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LambdaFunctionTimeoutType]
+$creadListPrec :: ReadPrec [LambdaFunctionTimeoutType]
+readPrec :: ReadPrec LambdaFunctionTimeoutType
+$creadPrec :: ReadPrec LambdaFunctionTimeoutType
+readList :: ReadS [LambdaFunctionTimeoutType]
+$creadList :: ReadS [LambdaFunctionTimeoutType]
+readsPrec :: Int -&gt; ReadS LambdaFunctionTimeoutType
+$creadsPrec :: Int -&gt; ReadS LambdaFunctionTimeoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679346512"><span id="local-6989586621679346514"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+(LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool)
+-&gt; (LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool)
+-&gt; Eq LambdaFunctionTimeoutType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+$c/= :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+== :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+$c== :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679346496"><span id="local-6989586621679346498"><span id="local-6989586621679346500"><span id="local-6989586621679346502"><span id="local-6989586621679346504"><span id="local-6989586621679346506"><span id="local-6989586621679346508"><span class="annot"><span class="annottext">Eq LambdaFunctionTimeoutType
+Eq LambdaFunctionTimeoutType
+-&gt; (LambdaFunctionTimeoutType
+    -&gt; LambdaFunctionTimeoutType -&gt; Ordering)
+-&gt; (LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool)
+-&gt; (LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool)
+-&gt; (LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool)
+-&gt; (LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool)
+-&gt; (LambdaFunctionTimeoutType
+    -&gt; LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType)
+-&gt; (LambdaFunctionTimeoutType
+    -&gt; LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType)
+-&gt; Ord LambdaFunctionTimeoutType
+LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Ordering
+LambdaFunctionTimeoutType
+-&gt; LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LambdaFunctionTimeoutType
+-&gt; LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType
+$cmin :: LambdaFunctionTimeoutType
+-&gt; LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType
+max :: LambdaFunctionTimeoutType
+-&gt; LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType
+$cmax :: LambdaFunctionTimeoutType
+-&gt; LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType
+&gt;= :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+$c&gt;= :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+&gt; :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+$c&gt; :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+&lt;= :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+$c&lt;= :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+&lt; :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+$c&lt; :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+compare :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Ordering
+$ccompare :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Ordering
+$cp1Ord :: Eq LambdaFunctionTimeoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ LambdaFunctionTimeoutType -&gt; Rep LambdaFunctionTimeoutType x)
+-&gt; (forall x.
+    Rep LambdaFunctionTimeoutType x -&gt; LambdaFunctionTimeoutType)
+-&gt; Generic LambdaFunctionTimeoutType
+forall x.
+Rep LambdaFunctionTimeoutType x -&gt; LambdaFunctionTimeoutType
+forall x.
+LambdaFunctionTimeoutType -&gt; Rep LambdaFunctionTimeoutType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LambdaFunctionTimeoutType x -&gt; LambdaFunctionTimeoutType
+$cfrom :: forall x.
+LambdaFunctionTimeoutType -&gt; Rep LambdaFunctionTimeoutType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346488"><span id="local-6989586621679346490"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionTimeoutType -&gt; Int
+LambdaFunctionTimeoutType -&gt; Int
+(Int -&gt; LambdaFunctionTimeoutType -&gt; Int)
+-&gt; (LambdaFunctionTimeoutType -&gt; Int)
+-&gt; Hashable LambdaFunctionTimeoutType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LambdaFunctionTimeoutType -&gt; Int
+$chash :: LambdaFunctionTimeoutType -&gt; Int
+hashWithSalt :: Int -&gt; LambdaFunctionTimeoutType -&gt; Int
+$chashWithSalt :: Int -&gt; LambdaFunctionTimeoutType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679346485"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; ()
+(LambdaFunctionTimeoutType -&gt; ())
+-&gt; NFData LambdaFunctionTimeoutType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LambdaFunctionTimeoutType -&gt; ()
+$crnf :: LambdaFunctionTimeoutType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679346482"><span class="annot"><span class="annottext">Text -&gt; Either String LambdaFunctionTimeoutType
+(Text -&gt; Either String LambdaFunctionTimeoutType)
+-&gt; FromText LambdaFunctionTimeoutType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LambdaFunctionTimeoutType
+$cfromText :: Text -&gt; Either String LambdaFunctionTimeoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679346479"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; Text
+(LambdaFunctionTimeoutType -&gt; Text)
+-&gt; ToText LambdaFunctionTimeoutType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LambdaFunctionTimeoutType -&gt; Text
+$ctoText :: LambdaFunctionTimeoutType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679346476"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; ByteString
+(LambdaFunctionTimeoutType -&gt; ByteString)
+-&gt; ToByteString LambdaFunctionTimeoutType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LambdaFunctionTimeoutType -&gt; ByteString
+$ctoBS :: LambdaFunctionTimeoutType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679346473"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; ByteStringBuilder
+(LambdaFunctionTimeoutType -&gt; ByteStringBuilder)
+-&gt; ToLog LambdaFunctionTimeoutType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LambdaFunctionTimeoutType -&gt; ByteStringBuilder
+$cbuild :: LambdaFunctionTimeoutType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679346470"><span class="annot"><span class="annottext">HeaderName -&gt; LambdaFunctionTimeoutType -&gt; [Header]
+(HeaderName -&gt; LambdaFunctionTimeoutType -&gt; [Header])
+-&gt; ToHeader LambdaFunctionTimeoutType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LambdaFunctionTimeoutType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LambdaFunctionTimeoutType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679346467"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; QueryString
+(LambdaFunctionTimeoutType -&gt; QueryString)
+-&gt; ToQuery LambdaFunctionTimeoutType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LambdaFunctionTimeoutType -&gt; QueryString
+$ctoQuery :: LambdaFunctionTimeoutType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679346462"><span id="local-6989586621679346464"><span class="annot"><span class="annottext">Value -&gt; Parser [LambdaFunctionTimeoutType]
+Value -&gt; Parser LambdaFunctionTimeoutType
+(Value -&gt; Parser LambdaFunctionTimeoutType)
+-&gt; (Value -&gt; Parser [LambdaFunctionTimeoutType])
+-&gt; FromJSON LambdaFunctionTimeoutType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LambdaFunctionTimeoutType]
+$cparseJSONList :: Value -&gt; Parser [LambdaFunctionTimeoutType]
+parseJSON :: Value -&gt; Parser LambdaFunctionTimeoutType
+$cparseJSON :: Value -&gt; Parser LambdaFunctionTimeoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679346457"><span id="local-6989586621679346459"><span class="annot"><span class="annottext">FromJSONKeyFunction [LambdaFunctionTimeoutType]
+FromJSONKeyFunction LambdaFunctionTimeoutType
+FromJSONKeyFunction LambdaFunctionTimeoutType
+-&gt; FromJSONKeyFunction [LambdaFunctionTimeoutType]
+-&gt; FromJSONKey LambdaFunctionTimeoutType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LambdaFunctionTimeoutType]
+$cfromJSONKeyList :: FromJSONKeyFunction [LambdaFunctionTimeoutType]
+fromJSONKey :: FromJSONKeyFunction LambdaFunctionTimeoutType
+$cfromJSONKey :: FromJSONKeyFunction LambdaFunctionTimeoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679346448"><span id="local-6989586621679346450"><span id="local-6989586621679346452"><span id="local-6989586621679346454"><span class="annot"><span class="annottext">[LambdaFunctionTimeoutType] -&gt; Encoding
+[LambdaFunctionTimeoutType] -&gt; Value
+LambdaFunctionTimeoutType -&gt; Encoding
+LambdaFunctionTimeoutType -&gt; Value
+(LambdaFunctionTimeoutType -&gt; Value)
+-&gt; (LambdaFunctionTimeoutType -&gt; Encoding)
+-&gt; ([LambdaFunctionTimeoutType] -&gt; Value)
+-&gt; ([LambdaFunctionTimeoutType] -&gt; Encoding)
+-&gt; ToJSON LambdaFunctionTimeoutType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LambdaFunctionTimeoutType] -&gt; Encoding
+$ctoEncodingList :: [LambdaFunctionTimeoutType] -&gt; Encoding
+toJSONList :: [LambdaFunctionTimeoutType] -&gt; Value
+$ctoJSONList :: [LambdaFunctionTimeoutType] -&gt; Value
+toEncoding :: LambdaFunctionTimeoutType -&gt; Encoding
+$ctoEncoding :: LambdaFunctionTimeoutType -&gt; Encoding
+toJSON :: LambdaFunctionTimeoutType -&gt; Value
+$ctoJSON :: LambdaFunctionTimeoutType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679346443"><span id="local-6989586621679346445"><span class="annot"><span class="annottext">ToJSONKeyFunction [LambdaFunctionTimeoutType]
+ToJSONKeyFunction LambdaFunctionTimeoutType
+ToJSONKeyFunction LambdaFunctionTimeoutType
+-&gt; ToJSONKeyFunction [LambdaFunctionTimeoutType]
+-&gt; ToJSONKey LambdaFunctionTimeoutType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LambdaFunctionTimeoutType]
+$ctoJSONKeyList :: ToJSONKeyFunction [LambdaFunctionTimeoutType]
+toJSONKey :: ToJSONKeyFunction LambdaFunctionTimeoutType
+$ctoJSONKey :: ToJSONKeyFunction LambdaFunctionTimeoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679346440"><span class="annot"><span class="annottext">[Node] -&gt; Either String LambdaFunctionTimeoutType
+([Node] -&gt; Either String LambdaFunctionTimeoutType)
+-&gt; FromXML LambdaFunctionTimeoutType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LambdaFunctionTimeoutType
+$cparseXML :: [Node] -&gt; Either String LambdaFunctionTimeoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679346437"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; XML
+(LambdaFunctionTimeoutType -&gt; XML)
+-&gt; ToXML LambdaFunctionTimeoutType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LambdaFunctionTimeoutType -&gt; XML
+$ctoXML :: LambdaFunctionTimeoutType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType_START_TO_CLOSE"><span class="hs-identifier hs-type">LambdaFunctionTimeoutType_START_TO_CLOSE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType"><span class="hs-identifier hs-type">LambdaFunctionTimeoutType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLambdaFunctionTimeoutType_START_TO_CLOSE"><span id="%24mLambdaFunctionTimeoutType_START_TO_CLOSE"><span id="LambdaFunctionTimeoutType_START_TO_CLOSE"><span class="annot"><span class="annottext">$bLambdaFunctionTimeoutType_START_TO_CLOSE :: LambdaFunctionTimeoutType
+$mLambdaFunctionTimeoutType_START_TO_CLOSE :: forall r.
+LambdaFunctionTimeoutType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#%24bLambdaFunctionTimeoutType_START_TO_CLOSE"><span class="hs-identifier hs-var hs-var hs-var">LambdaFunctionTimeoutType_START_TO_CLOSE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType%27"><span class="hs-identifier hs-type">LambdaFunctionTimeoutType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;START_TO_CLOSE&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType_START_TO_CLOSE"><span class="hs-pragma hs-type">LambdaFunctionTimeoutType_START_TO_CLOSE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType%27"><span class="hs-pragma hs-type">LambdaFunctionTimeoutType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.Partition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.Partition</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition"><span class="hs-identifier">Partition</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition_Aws"><span class="hs-identifier">Partition_Aws</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition_Aws_cn"><span class="hs-identifier">Partition_Aws_cn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition_Aws_us_gov"><span class="hs-identifier">Partition_Aws_us_gov</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679981499"><span id="local-6989586621679981500"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Partition"><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition"><span class="hs-identifier hs-var">Partition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Partition%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition%27"><span class="hs-identifier hs-var">Partition'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPartition"><span class="annot"><span class="annottext">Partition -&gt; Text
+</span><a href="Amazonka.SecurityHub.Types.Partition.html#fromPartition"><span class="hs-identifier hs-var hs-var">fromPartition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981491"><span id="local-6989586621679981493"><span id="local-6989586621679981495"><span class="annot"><span class="annottext">Int -&gt; Partition -&gt; ShowS
+[Partition] -&gt; ShowS
+Partition -&gt; String
+(Int -&gt; Partition -&gt; ShowS)
+-&gt; (Partition -&gt; String)
+-&gt; ([Partition] -&gt; ShowS)
+-&gt; Show Partition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Partition] -&gt; ShowS
+$cshowList :: [Partition] -&gt; ShowS
+show :: Partition -&gt; String
+$cshow :: Partition -&gt; String
+showsPrec :: Int -&gt; Partition -&gt; ShowS
+$cshowsPrec :: Int -&gt; Partition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679981482"><span id="local-6989586621679981484"><span id="local-6989586621679981486"><span id="local-6989586621679981488"><span class="annot"><span class="annottext">ReadPrec [Partition]
+ReadPrec Partition
+Int -&gt; ReadS Partition
+ReadS [Partition]
+(Int -&gt; ReadS Partition)
+-&gt; ReadS [Partition]
+-&gt; ReadPrec Partition
+-&gt; ReadPrec [Partition]
+-&gt; Read Partition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Partition]
+$creadListPrec :: ReadPrec [Partition]
+readPrec :: ReadPrec Partition
+$creadPrec :: ReadPrec Partition
+readList :: ReadS [Partition]
+$creadList :: ReadS [Partition]
+readsPrec :: Int -&gt; ReadS Partition
+$creadsPrec :: Int -&gt; ReadS Partition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679981477"><span id="local-6989586621679981479"><span class="annot"><span class="annottext">Partition -&gt; Partition -&gt; Bool
+(Partition -&gt; Partition -&gt; Bool)
+-&gt; (Partition -&gt; Partition -&gt; Bool) -&gt; Eq Partition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Partition -&gt; Partition -&gt; Bool
+$c/= :: Partition -&gt; Partition -&gt; Bool
+== :: Partition -&gt; Partition -&gt; Bool
+$c== :: Partition -&gt; Partition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679981461"><span id="local-6989586621679981463"><span id="local-6989586621679981465"><span id="local-6989586621679981467"><span id="local-6989586621679981469"><span id="local-6989586621679981471"><span id="local-6989586621679981473"><span class="annot"><span class="annottext">Eq Partition
+Eq Partition
+-&gt; (Partition -&gt; Partition -&gt; Ordering)
+-&gt; (Partition -&gt; Partition -&gt; Bool)
+-&gt; (Partition -&gt; Partition -&gt; Bool)
+-&gt; (Partition -&gt; Partition -&gt; Bool)
+-&gt; (Partition -&gt; Partition -&gt; Bool)
+-&gt; (Partition -&gt; Partition -&gt; Partition)
+-&gt; (Partition -&gt; Partition -&gt; Partition)
+-&gt; Ord Partition
+Partition -&gt; Partition -&gt; Bool
+Partition -&gt; Partition -&gt; Ordering
+Partition -&gt; Partition -&gt; Partition
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Partition -&gt; Partition -&gt; Partition
+$cmin :: Partition -&gt; Partition -&gt; Partition
+max :: Partition -&gt; Partition -&gt; Partition
+$cmax :: Partition -&gt; Partition -&gt; Partition
+&gt;= :: Partition -&gt; Partition -&gt; Bool
+$c&gt;= :: Partition -&gt; Partition -&gt; Bool
+&gt; :: Partition -&gt; Partition -&gt; Bool
+$c&gt; :: Partition -&gt; Partition -&gt; Bool
+&lt;= :: Partition -&gt; Partition -&gt; Bool
+$c&lt;= :: Partition -&gt; Partition -&gt; Bool
+&lt; :: Partition -&gt; Partition -&gt; Bool
+$c&lt; :: Partition -&gt; Partition -&gt; Bool
+compare :: Partition -&gt; Partition -&gt; Ordering
+$ccompare :: Partition -&gt; Partition -&gt; Ordering
+$cp1Ord :: Eq Partition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Partition -&gt; Rep Partition x)
+-&gt; (forall x. Rep Partition x -&gt; Partition) -&gt; Generic Partition
+forall x. Rep Partition x -&gt; Partition
+forall x. Partition -&gt; Rep Partition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Partition x -&gt; Partition
+$cfrom :: forall x. Partition -&gt; Rep Partition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981453"><span id="local-6989586621679981455"><span class="annot"><span class="annottext">Int -&gt; Partition -&gt; Int
+Partition -&gt; Int
+(Int -&gt; Partition -&gt; Int)
+-&gt; (Partition -&gt; Int) -&gt; Hashable Partition
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Partition -&gt; Int
+$chash :: Partition -&gt; Int
+hashWithSalt :: Int -&gt; Partition -&gt; Int
+$chashWithSalt :: Int -&gt; Partition -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679981450"><span class="annot"><span class="annottext">Partition -&gt; ()
+(Partition -&gt; ()) -&gt; NFData Partition
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Partition -&gt; ()
+$crnf :: Partition -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679981447"><span class="annot"><span class="annottext">Text -&gt; Either String Partition
+(Text -&gt; Either String Partition) -&gt; FromText Partition
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Partition
+$cfromText :: Text -&gt; Either String Partition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679981444"><span class="annot"><span class="annottext">Partition -&gt; Text
+(Partition -&gt; Text) -&gt; ToText Partition
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Partition -&gt; Text
+$ctoText :: Partition -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679981441"><span class="annot"><span class="annottext">Partition -&gt; ByteString
+(Partition -&gt; ByteString) -&gt; ToByteString Partition
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Partition -&gt; ByteString
+$ctoBS :: Partition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679981438"><span class="annot"><span class="annottext">Partition -&gt; ByteStringBuilder
+(Partition -&gt; ByteStringBuilder) -&gt; ToLog Partition
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Partition -&gt; ByteStringBuilder
+$cbuild :: Partition -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679981435"><span class="annot"><span class="annottext">HeaderName -&gt; Partition -&gt; [Header]
+(HeaderName -&gt; Partition -&gt; [Header]) -&gt; ToHeader Partition
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Partition -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Partition -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679981432"><span class="annot"><span class="annottext">Partition -&gt; QueryString
+(Partition -&gt; QueryString) -&gt; ToQuery Partition
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Partition -&gt; QueryString
+$ctoQuery :: Partition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679981427"><span id="local-6989586621679981429"><span class="annot"><span class="annottext">Value -&gt; Parser [Partition]
+Value -&gt; Parser Partition
+(Value -&gt; Parser Partition)
+-&gt; (Value -&gt; Parser [Partition]) -&gt; FromJSON Partition
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Partition]
+$cparseJSONList :: Value -&gt; Parser [Partition]
+parseJSON :: Value -&gt; Parser Partition
+$cparseJSON :: Value -&gt; Parser Partition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679981422"><span id="local-6989586621679981424"><span class="annot"><span class="annottext">FromJSONKeyFunction [Partition]
+FromJSONKeyFunction Partition
+FromJSONKeyFunction Partition
+-&gt; FromJSONKeyFunction [Partition] -&gt; FromJSONKey Partition
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Partition]
+$cfromJSONKeyList :: FromJSONKeyFunction [Partition]
+fromJSONKey :: FromJSONKeyFunction Partition
+$cfromJSONKey :: FromJSONKeyFunction Partition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679981413"><span id="local-6989586621679981415"><span id="local-6989586621679981417"><span id="local-6989586621679981419"><span class="annot"><span class="annottext">[Partition] -&gt; Encoding
+[Partition] -&gt; Value
+Partition -&gt; Encoding
+Partition -&gt; Value
+(Partition -&gt; Value)
+-&gt; (Partition -&gt; Encoding)
+-&gt; ([Partition] -&gt; Value)
+-&gt; ([Partition] -&gt; Encoding)
+-&gt; ToJSON Partition
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Partition] -&gt; Encoding
+$ctoEncodingList :: [Partition] -&gt; Encoding
+toJSONList :: [Partition] -&gt; Value
+$ctoJSONList :: [Partition] -&gt; Value
+toEncoding :: Partition -&gt; Encoding
+$ctoEncoding :: Partition -&gt; Encoding
+toJSON :: Partition -&gt; Value
+$ctoJSON :: Partition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679981408"><span id="local-6989586621679981410"><span class="annot"><span class="annottext">ToJSONKeyFunction [Partition]
+ToJSONKeyFunction Partition
+ToJSONKeyFunction Partition
+-&gt; ToJSONKeyFunction [Partition] -&gt; ToJSONKey Partition
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Partition]
+$ctoJSONKeyList :: ToJSONKeyFunction [Partition]
+toJSONKey :: ToJSONKeyFunction Partition
+$ctoJSONKey :: ToJSONKeyFunction Partition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679981405"><span class="annot"><span class="annottext">[Node] -&gt; Either String Partition
+([Node] -&gt; Either String Partition) -&gt; FromXML Partition
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Partition
+$cparseXML :: [Node] -&gt; Either String Partition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679981402"><span class="annot"><span class="annottext">Partition -&gt; XML
+(Partition -&gt; XML) -&gt; ToXML Partition
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Partition -&gt; XML
+$ctoXML :: Partition -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition_Aws"><span class="hs-identifier hs-type">Partition_Aws</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartition_Aws"><span id="%24mPartition_Aws"><span id="Partition_Aws"><span class="annot"><span class="annottext">$bPartition_Aws :: Partition
+$mPartition_Aws :: forall r. Partition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SecurityHub.Types.Partition.html#%24bPartition_Aws"><span class="hs-identifier hs-var hs-var hs-var">Partition_Aws</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;aws&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition_Aws_cn"><span class="hs-identifier hs-type">Partition_Aws_cn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartition_Aws_cn"><span id="%24mPartition_Aws_cn"><span id="Partition_Aws_cn"><span class="annot"><span class="annottext">$bPartition_Aws_cn :: Partition
+$mPartition_Aws_cn :: forall r. Partition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SecurityHub.Types.Partition.html#%24bPartition_Aws_cn"><span class="hs-identifier hs-var hs-var hs-var">Partition_Aws_cn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;aws-cn&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition_Aws_us_gov"><span class="hs-identifier hs-type">Partition_Aws_us_gov</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPartition_Aws_us_gov"><span id="%24mPartition_Aws_us_gov"><span id="Partition_Aws_us_gov"><span class="annot"><span class="annottext">$bPartition_Aws_us_gov :: Partition
+$mPartition_Aws_us_gov :: forall r. Partition -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SecurityHub.Types.Partition.html#%24bPartition_Aws_us_gov"><span class="hs-identifier hs-var hs-var hs-var">Partition_Aws_us_gov</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;aws-us-gov&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition_Aws"><span class="hs-pragma hs-type">Partition_Aws</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition_Aws_cn"><span class="hs-pragma hs-type">Partition_Aws_cn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition_Aws_us_gov"><span class="hs-pragma hs-type">Partition_Aws_us_gov</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.Partition.html#Partition%27"><span class="hs-pragma hs-type">Partition'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

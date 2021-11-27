@@ -5,33 +5,33 @@
 @version 2.0
 
 
-module Network.AWS.MigrationHubConfig.Types.TargetType
+module Amazonka.MigrationHubConfig.Types.TargetType
 newtype TargetType
 TargetType' :: Text -> TargetType
 [fromTargetType] :: TargetType -> Text
 pattern TargetType_ACCOUNT :: TargetType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Network.AWS.Data.Text.ToText Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Network.AWS.Data.Text.FromText Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Control.DeepSeq.NFData Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance GHC.Generics.Generic Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance GHC.Classes.Ord Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance GHC.Classes.Eq Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance GHC.Read.Read Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
-instance GHC.Show.Show Network.AWS.MigrationHubConfig.Types.TargetType.TargetType
+instance Amazonka.Data.XML.ToXML Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Amazonka.Data.XML.FromXML Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Amazonka.Data.Log.ToLog Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Amazonka.Data.Text.ToText Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Amazonka.Data.Text.FromText Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Control.DeepSeq.NFData Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance GHC.Generics.Generic Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance GHC.Classes.Ord Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance GHC.Classes.Eq Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance GHC.Read.Read Amazonka.MigrationHubConfig.Types.TargetType.TargetType
+instance GHC.Show.Show Amazonka.MigrationHubConfig.Types.TargetType.TargetType
 
 
-module Network.AWS.MigrationHubConfig.Types.Target
+module Amazonka.MigrationHubConfig.Types.Target
 
 -- | The target parameter specifies the identifier to which the home region
 --   is applied, which is always an <tt>ACCOUNT</tt>. It applies the home
@@ -72,17 +72,17 @@ target_id :: Lens' Target (Maybe Text)
 
 -- | The target type is always an <tt>ACCOUNT</tt>.
 target_type :: Lens' Target TargetType
-instance GHC.Generics.Generic Network.AWS.MigrationHubConfig.Types.Target.Target
-instance GHC.Show.Show Network.AWS.MigrationHubConfig.Types.Target.Target
-instance GHC.Read.Read Network.AWS.MigrationHubConfig.Types.Target.Target
-instance GHC.Classes.Eq Network.AWS.MigrationHubConfig.Types.Target.Target
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHubConfig.Types.Target.Target
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHubConfig.Types.Target.Target
-instance Control.DeepSeq.NFData Network.AWS.MigrationHubConfig.Types.Target.Target
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHubConfig.Types.Target.Target
+instance GHC.Generics.Generic Amazonka.MigrationHubConfig.Types.Target.Target
+instance GHC.Show.Show Amazonka.MigrationHubConfig.Types.Target.Target
+instance GHC.Read.Read Amazonka.MigrationHubConfig.Types.Target.Target
+instance GHC.Classes.Eq Amazonka.MigrationHubConfig.Types.Target.Target
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHubConfig.Types.Target.Target
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHubConfig.Types.Target.Target
+instance Control.DeepSeq.NFData Amazonka.MigrationHubConfig.Types.Target.Target
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHubConfig.Types.Target.Target
 
 
-module Network.AWS.MigrationHubConfig.Types.HomeRegionControl
+module Amazonka.MigrationHubConfig.Types.HomeRegionControl
 
 -- | A home region control is an object that specifies the home region for
 --   an account, with some additional information. It contains a target
@@ -160,16 +160,16 @@ homeRegionControl_controlId :: Lens' HomeRegionControl (Maybe Text)
 --   is applied, which is always an <tt>ACCOUNT</tt>. It applies the home
 --   region to the current <tt>ACCOUNT</tt>.
 homeRegionControl_target :: Lens' HomeRegionControl (Maybe Target)
-instance GHC.Generics.Generic Network.AWS.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
-instance GHC.Show.Show Network.AWS.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
-instance GHC.Read.Read Network.AWS.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
-instance GHC.Classes.Eq Network.AWS.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
-instance Control.DeepSeq.NFData Network.AWS.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
+instance GHC.Generics.Generic Amazonka.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
+instance GHC.Show.Show Amazonka.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
+instance GHC.Read.Read Amazonka.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
+instance GHC.Classes.Eq Amazonka.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
+instance Control.DeepSeq.NFData Amazonka.MigrationHubConfig.Types.HomeRegionControl.HomeRegionControl
 
 
-module Network.AWS.MigrationHubConfig.Types
+module Amazonka.MigrationHubConfig.Types
 
 -- | API version <tt>2019-06-30</tt> of the Amazon Migration Hub Config SDK
 --   configuration.
@@ -325,7 +325,7 @@ target_type :: Lens' Target TargetType
 --   call <tt>GetHomeRegion</tt> at least once before you call any other
 --   AWS Application Discovery Service and AWS Migration Hub APIs, to
 --   obtain the account's Migration Hub home region.
-module Network.AWS.MigrationHubConfig.GetHomeRegion
+module Amazonka.MigrationHubConfig.GetHomeRegion
 
 -- | <i>See:</i> <a>newGetHomeRegion</a> smart constructor.
 data GetHomeRegion
@@ -371,27 +371,27 @@ getHomeRegionResponse_homeRegion :: Lens' GetHomeRegionResponse (Maybe Text)
 
 -- | The response's http status code.
 getHomeRegionResponse_httpStatus :: Lens' GetHomeRegionResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance GHC.Show.Show Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance GHC.Read.Read Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance GHC.Classes.Eq Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance GHC.Generics.Generic Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
-instance GHC.Show.Show Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
-instance GHC.Read.Read Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance Control.DeepSeq.NFData Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance Control.DeepSeq.NFData Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance GHC.Generics.Generic Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance GHC.Show.Show Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance GHC.Read.Read Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance GHC.Classes.Eq Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance GHC.Generics.Generic Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
+instance GHC.Show.Show Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
+instance GHC.Read.Read Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
+instance GHC.Classes.Eq Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance Control.DeepSeq.NFData Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegionResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance Control.DeepSeq.NFData Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHubConfig.GetHomeRegion.GetHomeRegion
 
 
 -- | This API permits filtering on the <tt>ControlId</tt> and
 --   <tt>HomeRegion</tt> fields.
-module Network.AWS.MigrationHubConfig.DescribeHomeRegionControls
+module Amazonka.MigrationHubConfig.DescribeHomeRegionControls
 
 -- | <i>See:</i> <a>newDescribeHomeRegionControls</a> smart constructor.
 data DescribeHomeRegionControls
@@ -522,26 +522,26 @@ describeHomeRegionControlsResponse_homeRegionControls :: Lens' DescribeHomeRegio
 
 -- | The response's http status code.
 describeHomeRegionControlsResponse_httpStatus :: Lens' DescribeHomeRegionControlsResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance GHC.Show.Show Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance GHC.Read.Read Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance GHC.Classes.Eq Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance GHC.Generics.Generic Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
-instance GHC.Show.Show Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
-instance GHC.Read.Read Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance Control.DeepSeq.NFData Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance Control.DeepSeq.NFData Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance GHC.Generics.Generic Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance GHC.Show.Show Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance GHC.Read.Read Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance GHC.Classes.Eq Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance GHC.Generics.Generic Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
+instance GHC.Show.Show Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
+instance GHC.Read.Read Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
+instance GHC.Classes.Eq Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance Control.DeepSeq.NFData Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControlsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance Control.DeepSeq.NFData Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHubConfig.DescribeHomeRegionControls.DescribeHomeRegionControls
 
 
 -- | This API sets up the home region for the calling account only.
-module Network.AWS.MigrationHubConfig.CreateHomeRegionControl
+module Amazonka.MigrationHubConfig.CreateHomeRegionControl
 
 -- | <i>See:</i> <a>newCreateHomeRegionControl</a> smart constructor.
 data CreateHomeRegionControl
@@ -630,25 +630,25 @@ createHomeRegionControlResponse_homeRegionControl :: Lens' CreateHomeRegionContr
 
 -- | The response's http status code.
 createHomeRegionControlResponse_httpStatus :: Lens' CreateHomeRegionControlResponse Int
-instance GHC.Generics.Generic Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance GHC.Show.Show Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance GHC.Read.Read Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance GHC.Classes.Eq Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance GHC.Generics.Generic Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
-instance GHC.Show.Show Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
-instance GHC.Read.Read Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
-instance GHC.Classes.Eq Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance Control.DeepSeq.NFData Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance Control.DeepSeq.NFData Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance Network.AWS.Data.Path.ToPath Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance GHC.Generics.Generic Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance GHC.Show.Show Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance GHC.Read.Read Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance GHC.Classes.Eq Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance GHC.Generics.Generic Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
+instance GHC.Show.Show Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
+instance GHC.Read.Read Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
+instance GHC.Classes.Eq Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
+instance Amazonka.Types.AWSRequest Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance Control.DeepSeq.NFData Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControlResponse
+instance Data.Hashable.Class.Hashable Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance Control.DeepSeq.NFData Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance Amazonka.Data.Path.ToPath Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
+instance Amazonka.Data.Query.ToQuery Amazonka.MigrationHubConfig.CreateHomeRegionControl.CreateHomeRegionControl
 
 
-module Network.AWS.MigrationHubConfig.Lens
+module Amazonka.MigrationHubConfig.Lens
 
 -- | The name of the home region of the calling account.
 getHomeRegionResponse_homeRegion :: Lens' GetHomeRegionResponse (Maybe Text)
@@ -733,7 +733,7 @@ target_id :: Lens' Target (Maybe Text)
 target_type :: Lens' Target TargetType
 
 
-module Network.AWS.MigrationHubConfig.Waiters
+module Amazonka.MigrationHubConfig.Waiters
 
 
 -- | Derived from API version <tt>2019-06-30</tt> of the AWS service
@@ -758,7 +758,7 @@ module Network.AWS.MigrationHubConfig.Waiters
 --   
 --   For specific API usage, see the sections that follow in this AWS
 --   Migration Hub Home Region API reference.
-module Network.AWS.MigrationHubConfig
+module Amazonka.MigrationHubConfig
 
 -- | API version <tt>2019-06-30</tt> of the Amazon Migration Hub Config SDK
 --   configuration.

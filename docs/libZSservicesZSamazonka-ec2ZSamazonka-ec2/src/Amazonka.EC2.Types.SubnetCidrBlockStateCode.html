@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.SubnetCidrBlockStateCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.SubnetCidrBlockStateCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier">SubnetCidrBlockStateCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Associated"><span class="hs-identifier">SubnetCidrBlockStateCode_Associated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Associating"><span class="hs-identifier">SubnetCidrBlockStateCode_Associating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Disassociated"><span class="hs-identifier">SubnetCidrBlockStateCode_Disassociated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Disassociating"><span class="hs-identifier">SubnetCidrBlockStateCode_Disassociating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Failed"><span class="hs-identifier">SubnetCidrBlockStateCode_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Failing"><span class="hs-identifier">SubnetCidrBlockStateCode_Failing</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621681154349"><span id="local-6989586621681154350"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubnetCidrBlockStateCode"><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-var">SubnetCidrBlockStateCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetCidrBlockStateCode%27"><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode%27"><span class="hs-identifier hs-var">SubnetCidrBlockStateCode'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSubnetCidrBlockStateCode"><span class="annot"><span class="annottext">SubnetCidrBlockStateCode -&gt; Text
+</span><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#fromSubnetCidrBlockStateCode"><span class="hs-identifier hs-var hs-var">fromSubnetCidrBlockStateCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681154341"><span id="local-6989586621681154343"><span id="local-6989586621681154345"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrBlockStateCode -&gt; ShowS
+[SubnetCidrBlockStateCode] -&gt; ShowS
+SubnetCidrBlockStateCode -&gt; String
+(Int -&gt; SubnetCidrBlockStateCode -&gt; ShowS)
+-&gt; (SubnetCidrBlockStateCode -&gt; String)
+-&gt; ([SubnetCidrBlockStateCode] -&gt; ShowS)
+-&gt; Show SubnetCidrBlockStateCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SubnetCidrBlockStateCode] -&gt; ShowS
+$cshowList :: [SubnetCidrBlockStateCode] -&gt; ShowS
+show :: SubnetCidrBlockStateCode -&gt; String
+$cshow :: SubnetCidrBlockStateCode -&gt; String
+showsPrec :: Int -&gt; SubnetCidrBlockStateCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; SubnetCidrBlockStateCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681154332"><span id="local-6989586621681154334"><span id="local-6989586621681154336"><span id="local-6989586621681154338"><span class="annot"><span class="annottext">ReadPrec [SubnetCidrBlockStateCode]
+ReadPrec SubnetCidrBlockStateCode
+Int -&gt; ReadS SubnetCidrBlockStateCode
+ReadS [SubnetCidrBlockStateCode]
+(Int -&gt; ReadS SubnetCidrBlockStateCode)
+-&gt; ReadS [SubnetCidrBlockStateCode]
+-&gt; ReadPrec SubnetCidrBlockStateCode
+-&gt; ReadPrec [SubnetCidrBlockStateCode]
+-&gt; Read SubnetCidrBlockStateCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SubnetCidrBlockStateCode]
+$creadListPrec :: ReadPrec [SubnetCidrBlockStateCode]
+readPrec :: ReadPrec SubnetCidrBlockStateCode
+$creadPrec :: ReadPrec SubnetCidrBlockStateCode
+readList :: ReadS [SubnetCidrBlockStateCode]
+$creadList :: ReadS [SubnetCidrBlockStateCode]
+readsPrec :: Int -&gt; ReadS SubnetCidrBlockStateCode
+$creadsPrec :: Int -&gt; ReadS SubnetCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681154327"><span id="local-6989586621681154329"><span class="annot"><span class="annottext">SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+(SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool)
+-&gt; (SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool)
+-&gt; Eq SubnetCidrBlockStateCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+$c/= :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+== :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+$c== :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681154311"><span id="local-6989586621681154313"><span id="local-6989586621681154315"><span id="local-6989586621681154317"><span id="local-6989586621681154319"><span id="local-6989586621681154321"><span id="local-6989586621681154323"><span class="annot"><span class="annottext">Eq SubnetCidrBlockStateCode
+Eq SubnetCidrBlockStateCode
+-&gt; (SubnetCidrBlockStateCode
+    -&gt; SubnetCidrBlockStateCode -&gt; Ordering)
+-&gt; (SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool)
+-&gt; (SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool)
+-&gt; (SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool)
+-&gt; (SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool)
+-&gt; (SubnetCidrBlockStateCode
+    -&gt; SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode)
+-&gt; (SubnetCidrBlockStateCode
+    -&gt; SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode)
+-&gt; Ord SubnetCidrBlockStateCode
+SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Ordering
+SubnetCidrBlockStateCode
+-&gt; SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SubnetCidrBlockStateCode
+-&gt; SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode
+$cmin :: SubnetCidrBlockStateCode
+-&gt; SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode
+max :: SubnetCidrBlockStateCode
+-&gt; SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode
+$cmax :: SubnetCidrBlockStateCode
+-&gt; SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode
+&gt;= :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+$c&gt;= :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+&gt; :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+$c&gt; :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+&lt;= :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+$c&lt;= :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+&lt; :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+$c&lt; :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Bool
+compare :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Ordering
+$ccompare :: SubnetCidrBlockStateCode -&gt; SubnetCidrBlockStateCode -&gt; Ordering
+$cp1Ord :: Eq SubnetCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SubnetCidrBlockStateCode -&gt; Rep SubnetCidrBlockStateCode x)
+-&gt; (forall x.
+    Rep SubnetCidrBlockStateCode x -&gt; SubnetCidrBlockStateCode)
+-&gt; Generic SubnetCidrBlockStateCode
+forall x.
+Rep SubnetCidrBlockStateCode x -&gt; SubnetCidrBlockStateCode
+forall x.
+SubnetCidrBlockStateCode -&gt; Rep SubnetCidrBlockStateCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SubnetCidrBlockStateCode x -&gt; SubnetCidrBlockStateCode
+$cfrom :: forall x.
+SubnetCidrBlockStateCode -&gt; Rep SubnetCidrBlockStateCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681154303"><span id="local-6989586621681154305"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrBlockStateCode -&gt; Int
+SubnetCidrBlockStateCode -&gt; Int
+(Int -&gt; SubnetCidrBlockStateCode -&gt; Int)
+-&gt; (SubnetCidrBlockStateCode -&gt; Int)
+-&gt; Hashable SubnetCidrBlockStateCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SubnetCidrBlockStateCode -&gt; Int
+$chash :: SubnetCidrBlockStateCode -&gt; Int
+hashWithSalt :: Int -&gt; SubnetCidrBlockStateCode -&gt; Int
+$chashWithSalt :: Int -&gt; SubnetCidrBlockStateCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681154300"><span class="annot"><span class="annottext">SubnetCidrBlockStateCode -&gt; ()
+(SubnetCidrBlockStateCode -&gt; ()) -&gt; NFData SubnetCidrBlockStateCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SubnetCidrBlockStateCode -&gt; ()
+$crnf :: SubnetCidrBlockStateCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681154297"><span class="annot"><span class="annottext">Text -&gt; Either String SubnetCidrBlockStateCode
+(Text -&gt; Either String SubnetCidrBlockStateCode)
+-&gt; FromText SubnetCidrBlockStateCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SubnetCidrBlockStateCode
+$cfromText :: Text -&gt; Either String SubnetCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681154294"><span class="annot"><span class="annottext">SubnetCidrBlockStateCode -&gt; Text
+(SubnetCidrBlockStateCode -&gt; Text)
+-&gt; ToText SubnetCidrBlockStateCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SubnetCidrBlockStateCode -&gt; Text
+$ctoText :: SubnetCidrBlockStateCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681154291"><span class="annot"><span class="annottext">SubnetCidrBlockStateCode -&gt; ByteString
+(SubnetCidrBlockStateCode -&gt; ByteString)
+-&gt; ToByteString SubnetCidrBlockStateCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SubnetCidrBlockStateCode -&gt; ByteString
+$ctoBS :: SubnetCidrBlockStateCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681154288"><span class="annot"><span class="annottext">SubnetCidrBlockStateCode -&gt; ByteStringBuilder
+(SubnetCidrBlockStateCode -&gt; ByteStringBuilder)
+-&gt; ToLog SubnetCidrBlockStateCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SubnetCidrBlockStateCode -&gt; ByteStringBuilder
+$cbuild :: SubnetCidrBlockStateCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681154285"><span class="annot"><span class="annottext">HeaderName -&gt; SubnetCidrBlockStateCode -&gt; [Header]
+(HeaderName -&gt; SubnetCidrBlockStateCode -&gt; [Header])
+-&gt; ToHeader SubnetCidrBlockStateCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SubnetCidrBlockStateCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SubnetCidrBlockStateCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681154282"><span class="annot"><span class="annottext">SubnetCidrBlockStateCode -&gt; QueryString
+(SubnetCidrBlockStateCode -&gt; QueryString)
+-&gt; ToQuery SubnetCidrBlockStateCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SubnetCidrBlockStateCode -&gt; QueryString
+$ctoQuery :: SubnetCidrBlockStateCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681154277"><span id="local-6989586621681154279"><span class="annot"><span class="annottext">Value -&gt; Parser [SubnetCidrBlockStateCode]
+Value -&gt; Parser SubnetCidrBlockStateCode
+(Value -&gt; Parser SubnetCidrBlockStateCode)
+-&gt; (Value -&gt; Parser [SubnetCidrBlockStateCode])
+-&gt; FromJSON SubnetCidrBlockStateCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SubnetCidrBlockStateCode]
+$cparseJSONList :: Value -&gt; Parser [SubnetCidrBlockStateCode]
+parseJSON :: Value -&gt; Parser SubnetCidrBlockStateCode
+$cparseJSON :: Value -&gt; Parser SubnetCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681154272"><span id="local-6989586621681154274"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubnetCidrBlockStateCode]
+FromJSONKeyFunction SubnetCidrBlockStateCode
+FromJSONKeyFunction SubnetCidrBlockStateCode
+-&gt; FromJSONKeyFunction [SubnetCidrBlockStateCode]
+-&gt; FromJSONKey SubnetCidrBlockStateCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SubnetCidrBlockStateCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [SubnetCidrBlockStateCode]
+fromJSONKey :: FromJSONKeyFunction SubnetCidrBlockStateCode
+$cfromJSONKey :: FromJSONKeyFunction SubnetCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681154263"><span id="local-6989586621681154265"><span id="local-6989586621681154267"><span id="local-6989586621681154269"><span class="annot"><span class="annottext">[SubnetCidrBlockStateCode] -&gt; Encoding
+[SubnetCidrBlockStateCode] -&gt; Value
+SubnetCidrBlockStateCode -&gt; Encoding
+SubnetCidrBlockStateCode -&gt; Value
+(SubnetCidrBlockStateCode -&gt; Value)
+-&gt; (SubnetCidrBlockStateCode -&gt; Encoding)
+-&gt; ([SubnetCidrBlockStateCode] -&gt; Value)
+-&gt; ([SubnetCidrBlockStateCode] -&gt; Encoding)
+-&gt; ToJSON SubnetCidrBlockStateCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SubnetCidrBlockStateCode] -&gt; Encoding
+$ctoEncodingList :: [SubnetCidrBlockStateCode] -&gt; Encoding
+toJSONList :: [SubnetCidrBlockStateCode] -&gt; Value
+$ctoJSONList :: [SubnetCidrBlockStateCode] -&gt; Value
+toEncoding :: SubnetCidrBlockStateCode -&gt; Encoding
+$ctoEncoding :: SubnetCidrBlockStateCode -&gt; Encoding
+toJSON :: SubnetCidrBlockStateCode -&gt; Value
+$ctoJSON :: SubnetCidrBlockStateCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681154258"><span id="local-6989586621681154260"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubnetCidrBlockStateCode]
+ToJSONKeyFunction SubnetCidrBlockStateCode
+ToJSONKeyFunction SubnetCidrBlockStateCode
+-&gt; ToJSONKeyFunction [SubnetCidrBlockStateCode]
+-&gt; ToJSONKey SubnetCidrBlockStateCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SubnetCidrBlockStateCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [SubnetCidrBlockStateCode]
+toJSONKey :: ToJSONKeyFunction SubnetCidrBlockStateCode
+$ctoJSONKey :: ToJSONKeyFunction SubnetCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681154255"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubnetCidrBlockStateCode
+([Node] -&gt; Either String SubnetCidrBlockStateCode)
+-&gt; FromXML SubnetCidrBlockStateCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SubnetCidrBlockStateCode
+$cparseXML :: [Node] -&gt; Either String SubnetCidrBlockStateCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681154252"><span class="annot"><span class="annottext">SubnetCidrBlockStateCode -&gt; XML
+(SubnetCidrBlockStateCode -&gt; XML) -&gt; ToXML SubnetCidrBlockStateCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SubnetCidrBlockStateCode -&gt; XML
+$ctoXML :: SubnetCidrBlockStateCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Associated"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode_Associated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubnetCidrBlockStateCode_Associated"><span id="%24mSubnetCidrBlockStateCode_Associated"><span id="SubnetCidrBlockStateCode_Associated"><span class="annot"><span class="annottext">$bSubnetCidrBlockStateCode_Associated :: SubnetCidrBlockStateCode
+$mSubnetCidrBlockStateCode_Associated :: forall r.
+SubnetCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#%24bSubnetCidrBlockStateCode_Associated"><span class="hs-identifier hs-var hs-var hs-var">SubnetCidrBlockStateCode_Associated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode%27"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;associated&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Associating"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode_Associating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubnetCidrBlockStateCode_Associating"><span id="%24mSubnetCidrBlockStateCode_Associating"><span id="SubnetCidrBlockStateCode_Associating"><span class="annot"><span class="annottext">$bSubnetCidrBlockStateCode_Associating :: SubnetCidrBlockStateCode
+$mSubnetCidrBlockStateCode_Associating :: forall r.
+SubnetCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#%24bSubnetCidrBlockStateCode_Associating"><span class="hs-identifier hs-var hs-var hs-var">SubnetCidrBlockStateCode_Associating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode%27"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;associating&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Disassociated"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode_Disassociated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubnetCidrBlockStateCode_Disassociated"><span id="%24mSubnetCidrBlockStateCode_Disassociated"><span id="SubnetCidrBlockStateCode_Disassociated"><span class="annot"><span class="annottext">$bSubnetCidrBlockStateCode_Disassociated :: SubnetCidrBlockStateCode
+$mSubnetCidrBlockStateCode_Disassociated :: forall r.
+SubnetCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#%24bSubnetCidrBlockStateCode_Disassociated"><span class="hs-identifier hs-var hs-var hs-var">SubnetCidrBlockStateCode_Disassociated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode%27"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disassociated&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Disassociating"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode_Disassociating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubnetCidrBlockStateCode_Disassociating"><span id="%24mSubnetCidrBlockStateCode_Disassociating"><span id="SubnetCidrBlockStateCode_Disassociating"><span class="annot"><span class="annottext">$bSubnetCidrBlockStateCode_Disassociating :: SubnetCidrBlockStateCode
+$mSubnetCidrBlockStateCode_Disassociating :: forall r.
+SubnetCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#%24bSubnetCidrBlockStateCode_Disassociating"><span class="hs-identifier hs-var hs-var hs-var">SubnetCidrBlockStateCode_Disassociating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode%27"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disassociating&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Failed"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubnetCidrBlockStateCode_Failed"><span id="%24mSubnetCidrBlockStateCode_Failed"><span id="SubnetCidrBlockStateCode_Failed"><span class="annot"><span class="annottext">$bSubnetCidrBlockStateCode_Failed :: SubnetCidrBlockStateCode
+$mSubnetCidrBlockStateCode_Failed :: forall r.
+SubnetCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#%24bSubnetCidrBlockStateCode_Failed"><span class="hs-identifier hs-var hs-var hs-var">SubnetCidrBlockStateCode_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode%27"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Failing"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode_Failing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubnetCidrBlockStateCode_Failing"><span id="%24mSubnetCidrBlockStateCode_Failing"><span id="SubnetCidrBlockStateCode_Failing"><span class="annot"><span class="annottext">$bSubnetCidrBlockStateCode_Failing :: SubnetCidrBlockStateCode
+$mSubnetCidrBlockStateCode_Failing :: forall r.
+SubnetCidrBlockStateCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#%24bSubnetCidrBlockStateCode_Failing"><span class="hs-identifier hs-var hs-var hs-var">SubnetCidrBlockStateCode_Failing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode%27"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failing&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Associated"><span class="hs-pragma hs-type">SubnetCidrBlockStateCode_Associated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Associating"><span class="hs-pragma hs-type">SubnetCidrBlockStateCode_Associating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Disassociated"><span class="hs-pragma hs-type">SubnetCidrBlockStateCode_Disassociated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Disassociating"><span class="hs-pragma hs-type">SubnetCidrBlockStateCode_Disassociating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Failed"><span class="hs-pragma hs-type">SubnetCidrBlockStateCode_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode_Failing"><span class="hs-pragma hs-type">SubnetCidrBlockStateCode_Failing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode%27"><span class="hs-pragma hs-type">SubnetCidrBlockStateCode'</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-92"></span></pre></body></html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchLogs.AssociateKmsKey</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates the specified Key Management Service customer master key</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (CMK) with the specified log group.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Associating an KMS CMK with a log group overrides any existing</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- associations between the log group and a CMK. After a CMK is associated</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- with a log group, all newly ingested data for the log group is encrypted</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- using the CMK. This association is stored as long as the data encrypted</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- with the CMK is still within CloudWatch Logs. This enables CloudWatch</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Logs to decrypt this data whenever it is requested.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- CloudWatch Logs supports only symmetric CMKs. Do not use an associate an</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- asymmetric CMK with your log group. For more information, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- It can take up to 5 minutes for this operation to take effect.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- If you attempt to associate a CMK with a log group but the CMK does not</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- exist or the CMK is disabled, you receive an @InvalidParameterException@</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchLogs.AssociateKmsKey</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier">AssociateKmsKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#newAssociateKmsKey"><span class="hs-identifier">newAssociateKmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#associateKmsKey_logGroupName"><span class="hs-identifier">associateKmsKey_logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#associateKmsKey_kmsKeyId"><span class="hs-identifier">associateKmsKey_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier">AssociateKmsKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#newAssociateKmsKeyResponse"><span class="hs-identifier">newAssociateKmsKeyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.html"><span class="hs-identifier">Amazonka.CloudWatchLogs.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newAssociateKmsKey' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679233048"><span id="local-6989586621679233049"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateKmsKey"><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-var">AssociateKmsKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateKmsKey%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-var">AssociateKmsKey'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AlogGroupName%3AAssociateKmsKey%27"><span class="annot"><span class="annottext">AssociateKmsKey -&gt; Text
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AlogGroupName%3AAssociateKmsKey%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- data. This must be a symmetric CMK. For more information, see</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service&gt;</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys&gt;.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AAssociateKmsKey%27"><span class="annot"><span class="annottext">AssociateKmsKey -&gt; Text
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AkmsKeyId%3AAssociateKmsKey%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233041"><span id="local-6989586621679233043"><span class="annot"><span class="annottext">AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
+(AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool)
+-&gt; (AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool)
+-&gt; Eq AssociateKmsKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
+$c/= :: AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
+== :: AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
+$c== :: AssociateKmsKey -&gt; AssociateKmsKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233032"><span id="local-6989586621679233034"><span id="local-6989586621679233036"><span id="local-6989586621679233038"><span class="annot"><span class="annottext">ReadPrec [AssociateKmsKey]
+ReadPrec AssociateKmsKey
+Int -&gt; ReadS AssociateKmsKey
+ReadS [AssociateKmsKey]
+(Int -&gt; ReadS AssociateKmsKey)
+-&gt; ReadS [AssociateKmsKey]
+-&gt; ReadPrec AssociateKmsKey
+-&gt; ReadPrec [AssociateKmsKey]
+-&gt; Read AssociateKmsKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateKmsKey]
+$creadListPrec :: ReadPrec [AssociateKmsKey]
+readPrec :: ReadPrec AssociateKmsKey
+$creadPrec :: ReadPrec AssociateKmsKey
+readList :: ReadS [AssociateKmsKey]
+$creadList :: ReadS [AssociateKmsKey]
+readsPrec :: Int -&gt; ReadS AssociateKmsKey
+$creadsPrec :: Int -&gt; ReadS AssociateKmsKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233025"><span id="local-6989586621679233027"><span id="local-6989586621679233029"><span class="annot"><span class="annottext">Int -&gt; AssociateKmsKey -&gt; ShowS
+[AssociateKmsKey] -&gt; ShowS
+AssociateKmsKey -&gt; String
+(Int -&gt; AssociateKmsKey -&gt; ShowS)
+-&gt; (AssociateKmsKey -&gt; String)
+-&gt; ([AssociateKmsKey] -&gt; ShowS)
+-&gt; Show AssociateKmsKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateKmsKey] -&gt; ShowS
+$cshowList :: [AssociateKmsKey] -&gt; ShowS
+show :: AssociateKmsKey -&gt; String
+$cshow :: AssociateKmsKey -&gt; String
+showsPrec :: Int -&gt; AssociateKmsKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateKmsKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssociateKmsKey -&gt; Rep AssociateKmsKey x)
+-&gt; (forall x. Rep AssociateKmsKey x -&gt; AssociateKmsKey)
+-&gt; Generic AssociateKmsKey
+forall x. Rep AssociateKmsKey x -&gt; AssociateKmsKey
+forall x. AssociateKmsKey -&gt; Rep AssociateKmsKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateKmsKey x -&gt; AssociateKmsKey
+$cfrom :: forall x. AssociateKmsKey -&gt; Rep AssociateKmsKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'AssociateKmsKey' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'logGroupName', 'associateKmsKey_logGroupName' - The name of the log group.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'kmsKeyId', 'associateKmsKey_kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- data. This must be a symmetric CMK. For more information, see</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service&gt;</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys&gt;.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#newAssociateKmsKey"><span class="hs-identifier hs-type">newAssociateKmsKey</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'logGroupName'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'kmsKeyId'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span>
+</span><span id="line-98"></span><span id="newAssociateKmsKey"><span class="annot"><span class="annottext">newAssociateKmsKey :: Text -&gt; Text -&gt; AssociateKmsKey
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#newAssociateKmsKey"><span class="hs-identifier hs-var hs-var">newAssociateKmsKey</span></a></span></span><span> </span><span id="local-6989586621679233020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233020"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span id="local-6989586621679233019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233019"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">AssociateKmsKey' :: Text -&gt; Text -&gt; AssociateKmsKey
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logGroupName:AssociateKmsKey' :: Text
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AlogGroupName%3AAssociateKmsKey%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233020"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:AssociateKmsKey' :: Text
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AkmsKeyId%3AAssociateKmsKey%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233019"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#associateKmsKey_logGroupName"><span class="hs-identifier hs-type">associateKmsKey_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="associateKmsKey_logGroupName"><span class="annot"><span class="annottext">associateKmsKey_logGroupName :: (Text -&gt; f Text) -&gt; AssociateKmsKey -&gt; f AssociateKmsKey
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#associateKmsKey_logGroupName"><span class="hs-identifier hs-var hs-var">associateKmsKey_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateKmsKey -&gt; Text)
+-&gt; (AssociateKmsKey -&gt; Text -&gt; AssociateKmsKey)
+-&gt; Lens AssociateKmsKey AssociateKmsKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233016"><span class="annot"><span class="annottext">Text
+logGroupName :: Text
+$sel:logGroupName:AssociateKmsKey' :: AssociateKmsKey -&gt; Text
+</span><a href="#local-6989586621679233016"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233016"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233015"><span class="annot"><span class="annottext">s :: AssociateKmsKey
+</span><a href="#local-6989586621679233015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233014"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateKmsKey
+</span><a href="#local-6989586621679233015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:AssociateKmsKey' :: Text
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AlogGroupName%3AAssociateKmsKey%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- data. This must be a symmetric CMK. For more information, see</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service&gt;</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys&gt;.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#associateKmsKey_kmsKeyId"><span class="hs-identifier hs-type">associateKmsKey_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="associateKmsKey_kmsKeyId"><span class="annot"><span class="annottext">associateKmsKey_kmsKeyId :: (Text -&gt; f Text) -&gt; AssociateKmsKey -&gt; f AssociateKmsKey
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#associateKmsKey_kmsKeyId"><span class="hs-identifier hs-var hs-var">associateKmsKey_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateKmsKey -&gt; Text)
+-&gt; (AssociateKmsKey -&gt; Text -&gt; AssociateKmsKey)
+-&gt; Lens AssociateKmsKey AssociateKmsKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233013"><span class="annot"><span class="annottext">Text
+kmsKeyId :: Text
+$sel:kmsKeyId:AssociateKmsKey' :: AssociateKmsKey -&gt; Text
+</span><a href="#local-6989586621679233013"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233013"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233012"><span class="annot"><span class="annottext">s :: AssociateKmsKey
+</span><a href="#local-6989586621679233012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateKmsKey
+</span><a href="#local-6989586621679233012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:AssociateKmsKey' :: Text
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#%24sel%3AkmsKeyId%3AAssociateKmsKey%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier hs-type">AssociateKmsKeyResponse</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679233007"><span class="annot"><span class="annottext">request :: AssociateKmsKey -&gt; Request AssociateKmsKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateKmsKey -&gt; Request AssociateKmsKey
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679233003"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateKmsKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AssociateKmsKey)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse AssociateKmsKey
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateKmsKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AssociateKmsKey)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse AssociateKmsKey
+AssociateKmsKeyResponse
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse%27"><span class="hs-identifier hs-var">AssociateKmsKeyResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232996"><span id="local-6989586621679232998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679232989"><span class="annot"><span class="annottext">toHeaders :: AssociateKmsKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; AssociateKmsKey -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Logs_20140328.AssociateKmsKey&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232979"><span id="local-6989586621679232981"><span id="local-6989586621679232983"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679232977"><span class="annot"><span class="annottext">toJSON :: AssociateKmsKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey%27"><span class="hs-identifier hs-type">AssociateKmsKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232974"><span id="local-6989586621679232975"><span class="annot"><span class="annottext">Text
+kmsKeyId :: Text
+logGroupName :: Text
+$sel:kmsKeyId:AssociateKmsKey' :: AssociateKmsKey -&gt; Text
+$sel:logGroupName:AssociateKmsKey' :: AssociateKmsKey -&gt; Text
+</span><a href="#local-6989586621679232974"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232975"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232974"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679232968"><span class="annot"><span class="annottext">toPath :: AssociateKmsKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateKmsKey -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKey"><span class="hs-identifier hs-type">AssociateKmsKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679232964"><span class="annot"><span class="annottext">toQuery :: AssociateKmsKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateKmsKey -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newAssociateKmsKeyResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679232961"><span id="local-6989586621679232962"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateKmsKeyResponse"><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier hs-var">AssociateKmsKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateKmsKeyResponse%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse%27"><span class="hs-identifier hs-var">AssociateKmsKeyResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232957"><span id="local-6989586621679232959"><span class="annot"><span class="annottext">AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
+(AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool)
+-&gt; (AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool)
+-&gt; Eq AssociateKmsKeyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
+$c/= :: AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
+== :: AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
+$c== :: AssociateKmsKeyResponse -&gt; AssociateKmsKeyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232949"><span id="local-6989586621679232951"><span id="local-6989586621679232953"><span id="local-6989586621679232955"><span class="annot"><span class="annottext">ReadPrec [AssociateKmsKeyResponse]
+ReadPrec AssociateKmsKeyResponse
+Int -&gt; ReadS AssociateKmsKeyResponse
+ReadS [AssociateKmsKeyResponse]
+(Int -&gt; ReadS AssociateKmsKeyResponse)
+-&gt; ReadS [AssociateKmsKeyResponse]
+-&gt; ReadPrec AssociateKmsKeyResponse
+-&gt; ReadPrec [AssociateKmsKeyResponse]
+-&gt; Read AssociateKmsKeyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateKmsKeyResponse]
+$creadListPrec :: ReadPrec [AssociateKmsKeyResponse]
+readPrec :: ReadPrec AssociateKmsKeyResponse
+$creadPrec :: ReadPrec AssociateKmsKeyResponse
+readList :: ReadS [AssociateKmsKeyResponse]
+$creadList :: ReadS [AssociateKmsKeyResponse]
+readsPrec :: Int -&gt; ReadS AssociateKmsKeyResponse
+$creadsPrec :: Int -&gt; ReadS AssociateKmsKeyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232943"><span id="local-6989586621679232945"><span id="local-6989586621679232947"><span class="annot"><span class="annottext">Int -&gt; AssociateKmsKeyResponse -&gt; ShowS
+[AssociateKmsKeyResponse] -&gt; ShowS
+AssociateKmsKeyResponse -&gt; String
+(Int -&gt; AssociateKmsKeyResponse -&gt; ShowS)
+-&gt; (AssociateKmsKeyResponse -&gt; String)
+-&gt; ([AssociateKmsKeyResponse] -&gt; ShowS)
+-&gt; Show AssociateKmsKeyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateKmsKeyResponse] -&gt; ShowS
+$cshowList :: [AssociateKmsKeyResponse] -&gt; ShowS
+show :: AssociateKmsKeyResponse -&gt; String
+$cshow :: AssociateKmsKeyResponse -&gt; String
+showsPrec :: Int -&gt; AssociateKmsKeyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateKmsKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateKmsKeyResponse -&gt; Rep AssociateKmsKeyResponse x)
+-&gt; (forall x.
+    Rep AssociateKmsKeyResponse x -&gt; AssociateKmsKeyResponse)
+-&gt; Generic AssociateKmsKeyResponse
+forall x. Rep AssociateKmsKeyResponse x -&gt; AssociateKmsKeyResponse
+forall x. AssociateKmsKeyResponse -&gt; Rep AssociateKmsKeyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateKmsKeyResponse x -&gt; AssociateKmsKeyResponse
+$cfrom :: forall x. AssociateKmsKeyResponse -&gt; Rep AssociateKmsKeyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Create a value of 'AssociateKmsKeyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#newAssociateKmsKeyResponse"><span class="hs-identifier hs-type">newAssociateKmsKeyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier hs-type">AssociateKmsKeyResponse</span></a></span><span>
+</span><span id="line-170"></span><span id="newAssociateKmsKeyResponse"><span class="annot"><span class="annottext">newAssociateKmsKeyResponse :: AssociateKmsKeyResponse
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#newAssociateKmsKeyResponse"><span class="hs-identifier hs-var hs-var">newAssociateKmsKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssociateKmsKeyResponse
+</span><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse%27"><span class="hs-identifier hs-var">AssociateKmsKeyResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.AssociateKmsKey.html#AssociateKmsKeyResponse"><span class="hs-identifier hs-type">AssociateKmsKeyResponse</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

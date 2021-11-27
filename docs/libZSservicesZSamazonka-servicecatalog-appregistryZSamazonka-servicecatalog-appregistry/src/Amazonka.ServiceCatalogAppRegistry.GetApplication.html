@@ -1,0 +1,960 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ServiceCatalogAppRegistry.GetApplication</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves metadata information about one of your applications. The</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- application can be specified either by its unique ID or by its name</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- (which is unique within one account in one region at a given point in</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- time). Specify by ID in automated workflows if you want to make sure</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- that the exact same application is returned or a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @ResourceNotFoundException@ is thrown, avoiding the ABA addressing</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- problem.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServiceCatalogAppRegistry.GetApplication</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier">GetApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#newGetApplication"><span class="hs-identifier">newGetApplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplication_application"><span class="hs-identifier">getApplication_application</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#newGetApplicationResponse"><span class="hs-identifier">newGetApplicationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_creationTime"><span class="hs-identifier">getApplicationResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_arn"><span class="hs-identifier">getApplicationResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_integrations"><span class="hs-identifier">getApplicationResponse_integrations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_associatedResourceCount"><span class="hs-identifier">getApplicationResponse_associatedResourceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_name"><span class="hs-identifier">getApplicationResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_id"><span class="hs-identifier">getApplicationResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_lastUpdateTime"><span class="hs-identifier">getApplicationResponse_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_description"><span class="hs-identifier">getApplicationResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_tags"><span class="hs-identifier">getApplicationResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_httpStatus"><span class="hs-identifier">getApplicationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.html"><span class="hs-identifier">Amazonka.ServiceCatalogAppRegistry.Types</span></a></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newGetApplication' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679182306"><span id="local-6989586621679182307"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplication"><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-var">GetApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplication%27"><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-var">GetApplication'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or ID of the application.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aapplication%3AGetApplication%27"><span class="annot"><span class="annottext">GetApplication -&gt; Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aapplication%3AGetApplication%27"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182300"><span id="local-6989586621679182302"><span class="annot"><span class="annottext">GetApplication -&gt; GetApplication -&gt; Bool
+(GetApplication -&gt; GetApplication -&gt; Bool)
+-&gt; (GetApplication -&gt; GetApplication -&gt; Bool) -&gt; Eq GetApplication
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetApplication -&gt; GetApplication -&gt; Bool
+$c/= :: GetApplication -&gt; GetApplication -&gt; Bool
+== :: GetApplication -&gt; GetApplication -&gt; Bool
+$c== :: GetApplication -&gt; GetApplication -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182291"><span id="local-6989586621679182293"><span id="local-6989586621679182295"><span id="local-6989586621679182297"><span class="annot"><span class="annottext">ReadPrec [GetApplication]
+ReadPrec GetApplication
+Int -&gt; ReadS GetApplication
+ReadS [GetApplication]
+(Int -&gt; ReadS GetApplication)
+-&gt; ReadS [GetApplication]
+-&gt; ReadPrec GetApplication
+-&gt; ReadPrec [GetApplication]
+-&gt; Read GetApplication
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetApplication]
+$creadListPrec :: ReadPrec [GetApplication]
+readPrec :: ReadPrec GetApplication
+$creadPrec :: ReadPrec GetApplication
+readList :: ReadS [GetApplication]
+$creadList :: ReadS [GetApplication]
+readsPrec :: Int -&gt; ReadS GetApplication
+$creadsPrec :: Int -&gt; ReadS GetApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182284"><span id="local-6989586621679182286"><span id="local-6989586621679182288"><span class="annot"><span class="annottext">Int -&gt; GetApplication -&gt; ShowS
+[GetApplication] -&gt; ShowS
+GetApplication -&gt; String
+(Int -&gt; GetApplication -&gt; ShowS)
+-&gt; (GetApplication -&gt; String)
+-&gt; ([GetApplication] -&gt; ShowS)
+-&gt; Show GetApplication
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetApplication] -&gt; ShowS
+$cshowList :: [GetApplication] -&gt; ShowS
+show :: GetApplication -&gt; String
+$cshow :: GetApplication -&gt; String
+showsPrec :: Int -&gt; GetApplication -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetApplication -&gt; Rep GetApplication x)
+-&gt; (forall x. Rep GetApplication x -&gt; GetApplication)
+-&gt; Generic GetApplication
+forall x. Rep GetApplication x -&gt; GetApplication
+forall x. GetApplication -&gt; Rep GetApplication x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetApplication x -&gt; GetApplication
+$cfrom :: forall x. GetApplication -&gt; Rep GetApplication x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'GetApplication' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'application', 'getApplication_application' - The name or ID of the application.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#newGetApplication"><span class="hs-identifier hs-type">newGetApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'application'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span>
+</span><span id="line-83"></span><span id="newGetApplication"><span class="annot"><span class="annottext">newGetApplication :: Text -&gt; GetApplication
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#newGetApplication"><span class="hs-identifier hs-var hs-var">newGetApplication</span></a></span></span><span> </span><span id="local-6989586621679182279"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182279"><span class="hs-identifier hs-var">pApplication_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">GetApplication' :: Text -&gt; GetApplication
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:application:GetApplication' :: Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aapplication%3AGetApplication%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182279"><span class="hs-identifier hs-var">pApplication_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The name or ID of the application.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplication_application"><span class="hs-identifier hs-type">getApplication_application</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="getApplication_application"><span class="annot"><span class="annottext">getApplication_application :: (Text -&gt; f Text) -&gt; GetApplication -&gt; f GetApplication
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplication_application"><span class="hs-identifier hs-var hs-var">getApplication_application</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplication -&gt; Text)
+-&gt; (GetApplication -&gt; Text -&gt; GetApplication)
+-&gt; Lens GetApplication GetApplication Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182276"><span class="annot"><span class="annottext">Text
+application :: Text
+$sel:application:GetApplication' :: GetApplication -&gt; Text
+</span><a href="#local-6989586621679182276"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182276"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182275"><span class="annot"><span class="annottext">s :: GetApplication
+</span><a href="#local-6989586621679182275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182274"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplication
+</span><a href="#local-6989586621679182275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:application:GetApplication' :: Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aapplication%3AGetApplication%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679182270"><span class="annot"><span class="annottext">request :: GetApplication -&gt; Request GetApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetApplication -&gt; Request GetApplication
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ServiceCatalogAppRegistry.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679182266"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetApplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetApplication)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetApplication))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetApplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetApplication)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182263"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679182262"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679182262"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679182261"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Integrations
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-var">GetApplicationResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Integrations
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; GetApplicationResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Integrations
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetApplicationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Integrations
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetApplicationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Integrations
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integrations
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetApplicationResponse)
+-&gt; Either String (Maybe Integrations)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integrations)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;integrations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetApplicationResponse)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associatedResourceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetApplicationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetApplicationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetApplicationResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; GetApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; GetApplicationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe (HashMap Text Text) -&gt; Int -&gt; GetApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (HashMap Text Text) -&gt; Int -&gt; GetApplicationResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; GetApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetApplicationResponse)
+-&gt; Either String Int -&gt; Either String GetApplicationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182263"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182252"><span id="local-6989586621679182254"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679182245"><span class="annot"><span class="annottext">toHeaders :: GetApplication -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetApplication -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679182239"><span class="annot"><span class="annottext">toPath :: GetApplication -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182237"><span class="annot"><span class="annottext">Text
+application :: Text
+$sel:application:GetApplication' :: GetApplication -&gt; Text
+</span><a href="#local-6989586621679182237"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/applications/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182237"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679182233"><span class="annot"><span class="annottext">toQuery :: GetApplication -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetApplication -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newGetApplicationResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679182230"><span id="local-6989586621679182231"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationResponse"><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-var">GetApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationResponse%27"><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-var">GetApplicationResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ISO-8601 formatted timestamp of the moment when the application was</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AcreationTime%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AcreationTime%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The Amazon resource name (ARN) that specifies the application across</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- services.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3Aarn%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aarn%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The information about the integration of the application with other</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- services, such as Resource Groups.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3Aintegrations%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe Integrations
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aintegrations%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">integrations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.Integrations.html#Integrations"><span class="hs-identifier hs-type">Integrations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The number of top-level resources that were registered as part of this</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AassociatedResourceCount%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe Natural
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AassociatedResourceCount%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">associatedResourceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The name of the application. The name must be unique in the region in</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- which you are creating the application.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3Aname%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aname%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The identifier of the application.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Aid%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aid%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The ISO-8601 formatted timestamp of the moment when the application was</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AlastUpdateTime%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The description of the application.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3Adescription%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Adescription%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | Key-value pairs associated with the application.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3Atags%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Atags%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Int
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AhttpStatus%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182216"><span id="local-6989586621679182218"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
+(GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool)
+-&gt; (GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool)
+-&gt; Eq GetApplicationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
+$c/= :: GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
+== :: GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
+$c== :: GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182208"><span id="local-6989586621679182210"><span id="local-6989586621679182212"><span id="local-6989586621679182214"><span class="annot"><span class="annottext">ReadPrec [GetApplicationResponse]
+ReadPrec GetApplicationResponse
+Int -&gt; ReadS GetApplicationResponse
+ReadS [GetApplicationResponse]
+(Int -&gt; ReadS GetApplicationResponse)
+-&gt; ReadS [GetApplicationResponse]
+-&gt; ReadPrec GetApplicationResponse
+-&gt; ReadPrec [GetApplicationResponse]
+-&gt; Read GetApplicationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetApplicationResponse]
+$creadListPrec :: ReadPrec [GetApplicationResponse]
+readPrec :: ReadPrec GetApplicationResponse
+$creadPrec :: ReadPrec GetApplicationResponse
+readList :: ReadS [GetApplicationResponse]
+$creadList :: ReadS [GetApplicationResponse]
+readsPrec :: Int -&gt; ReadS GetApplicationResponse
+$creadsPrec :: Int -&gt; ReadS GetApplicationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182202"><span id="local-6989586621679182204"><span id="local-6989586621679182206"><span class="annot"><span class="annottext">Int -&gt; GetApplicationResponse -&gt; ShowS
+[GetApplicationResponse] -&gt; ShowS
+GetApplicationResponse -&gt; String
+(Int -&gt; GetApplicationResponse -&gt; ShowS)
+-&gt; (GetApplicationResponse -&gt; String)
+-&gt; ([GetApplicationResponse] -&gt; ShowS)
+-&gt; Show GetApplicationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetApplicationResponse] -&gt; ShowS
+$cshowList :: [GetApplicationResponse] -&gt; ShowS
+show :: GetApplicationResponse -&gt; String
+$cshow :: GetApplicationResponse -&gt; String
+showsPrec :: Int -&gt; GetApplicationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetApplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetApplicationResponse -&gt; Rep GetApplicationResponse x)
+-&gt; (forall x.
+    Rep GetApplicationResponse x -&gt; GetApplicationResponse)
+-&gt; Generic GetApplicationResponse
+forall x. Rep GetApplicationResponse x -&gt; GetApplicationResponse
+forall x. GetApplicationResponse -&gt; Rep GetApplicationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetApplicationResponse x -&gt; GetApplicationResponse
+$cfrom :: forall x. GetApplicationResponse -&gt; Rep GetApplicationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Create a value of 'GetApplicationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'creationTime', 'getApplicationResponse_creationTime' - The ISO-8601 formatted timestamp of the moment when the application was</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'arn', 'getApplicationResponse_arn' - The Amazon resource name (ARN) that specifies the application across</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- services.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'integrations', 'getApplicationResponse_integrations' - The information about the integration of the application with other</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- services, such as Resource Groups.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'associatedResourceCount', 'getApplicationResponse_associatedResourceCount' - The number of top-level resources that were registered as part of this</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'name', 'getApplicationResponse_name' - The name of the application. The name must be unique in the region in</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- which you are creating the application.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'id', 'getApplicationResponse_id' - The identifier of the application.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'lastUpdateTime', 'getApplicationResponse_lastUpdateTime' - The ISO-8601 formatted timestamp of the moment when the application was</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'description', 'getApplicationResponse_description' - The description of the application.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'tags', 'getApplicationResponse_tags' - Key-value pairs associated with the application.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'httpStatus', 'getApplicationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#newGetApplicationResponse"><span class="hs-identifier hs-type">newGetApplicationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span>
+</span><span id="line-202"></span><span id="newGetApplicationResponse"><span class="annot"><span class="annottext">newGetApplicationResponse :: Int -&gt; GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#newGetApplicationResponse"><span class="hs-identifier hs-var hs-var">newGetApplicationResponse</span></a></span></span><span> </span><span id="local-6989586621679182199"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">GetApplicationResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Integrations
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:GetApplicationResponse' :: Maybe POSIX
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AcreationTime%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetApplicationResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aarn%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:integrations:GetApplicationResponse' :: Maybe Integrations
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aintegrations%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">integrations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integrations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedResourceCount:GetApplicationResponse' :: Maybe Natural
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AassociatedResourceCount%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">associatedResourceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetApplicationResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aname%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:GetApplicationResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aid%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:GetApplicationResponse' :: Maybe POSIX
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AlastUpdateTime%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:GetApplicationResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Adescription%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetApplicationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Atags%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationResponse' :: Int
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AhttpStatus%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The ISO-8601 formatted timestamp of the moment when the application was</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_creationTime"><span class="hs-identifier hs-type">getApplicationResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="getApplicationResponse_creationTime"><span class="annot"><span class="annottext">getApplicationResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_creationTime"><span class="hs-identifier hs-var hs-var">getApplicationResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Maybe POSIX)
+-&gt; (GetApplicationResponse
+    -&gt; Maybe POSIX -&gt; GetApplicationResponse)
+-&gt; Lens
+     GetApplicationResponse
+     GetApplicationResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182198"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679182198"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182198"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182197"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182196"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:GetApplicationResponse' :: Maybe POSIX
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AcreationTime%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetApplicationResponse -&gt; f GetApplicationResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetApplicationResponse
+-&gt; f GetApplicationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The Amazon resource name (ARN) that specifies the application across</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- services.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_arn"><span class="hs-identifier hs-type">getApplicationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="getApplicationResponse_arn"><span class="annot"><span class="annottext">getApplicationResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_arn"><span class="hs-identifier hs-var hs-var">getApplicationResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Maybe Text)
+-&gt; (GetApplicationResponse -&gt; Maybe Text -&gt; GetApplicationResponse)
+-&gt; Lens
+     GetApplicationResponse
+     GetApplicationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182192"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679182192"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182192"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182191"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182190"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetApplicationResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aarn%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The information about the integration of the application with other</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- services, such as Resource Groups.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_integrations"><span class="hs-identifier hs-type">getApplicationResponse_integrations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.Types.Integrations.html#Integrations"><span class="hs-identifier hs-type">Integrations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="getApplicationResponse_integrations"><span class="annot"><span class="annottext">getApplicationResponse_integrations :: (Maybe Integrations -&gt; f (Maybe Integrations))
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_integrations"><span class="hs-identifier hs-var hs-var">getApplicationResponse_integrations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Maybe Integrations)
+-&gt; (GetApplicationResponse
+    -&gt; Maybe Integrations -&gt; GetApplicationResponse)
+-&gt; Lens
+     GetApplicationResponse
+     GetApplicationResponse
+     (Maybe Integrations)
+     (Maybe Integrations)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182189"><span class="annot"><span class="annottext">Maybe Integrations
+integrations :: Maybe Integrations
+$sel:integrations:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe Integrations
+</span><a href="#local-6989586621679182189"><span class="hs-identifier hs-var hs-var">integrations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integrations
+</span><a href="#local-6989586621679182189"><span class="hs-identifier hs-var">integrations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182188"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182187"><span class="annot"><span class="annottext">Maybe Integrations
+</span><a href="#local-6989586621679182187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrations:GetApplicationResponse' :: Maybe Integrations
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aintegrations%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">integrations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integrations
+</span><a href="#local-6989586621679182187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The number of top-level resources that were registered as part of this</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_associatedResourceCount"><span class="hs-identifier hs-type">getApplicationResponse_associatedResourceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="getApplicationResponse_associatedResourceCount"><span class="annot"><span class="annottext">getApplicationResponse_associatedResourceCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_associatedResourceCount"><span class="hs-identifier hs-var hs-var">getApplicationResponse_associatedResourceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Maybe Natural)
+-&gt; (GetApplicationResponse
+    -&gt; Maybe Natural -&gt; GetApplicationResponse)
+-&gt; Lens
+     GetApplicationResponse
+     GetApplicationResponse
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182186"><span class="annot"><span class="annottext">Maybe Natural
+associatedResourceCount :: Maybe Natural
+$sel:associatedResourceCount:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621679182186"><span class="hs-identifier hs-var hs-var">associatedResourceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679182186"><span class="hs-identifier hs-var">associatedResourceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182185"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182184"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679182184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedResourceCount:GetApplicationResponse' :: Maybe Natural
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AassociatedResourceCount%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">associatedResourceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679182184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The name of the application. The name must be unique in the region in</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- which you are creating the application.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_name"><span class="hs-identifier hs-type">getApplicationResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="getApplicationResponse_name"><span class="annot"><span class="annottext">getApplicationResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_name"><span class="hs-identifier hs-var hs-var">getApplicationResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Maybe Text)
+-&gt; (GetApplicationResponse -&gt; Maybe Text -&gt; GetApplicationResponse)
+-&gt; Lens
+     GetApplicationResponse
+     GetApplicationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182183"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679182183"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182183"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182182"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetApplicationResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aname%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The identifier of the application.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_id"><span class="hs-identifier hs-type">getApplicationResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="getApplicationResponse_id"><span class="annot"><span class="annottext">getApplicationResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_id"><span class="hs-identifier hs-var hs-var">getApplicationResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Maybe Text)
+-&gt; (GetApplicationResponse -&gt; Maybe Text -&gt; GetApplicationResponse)
+-&gt; Lens
+     GetApplicationResponse
+     GetApplicationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182180"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679182180"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182180"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182179"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetApplicationResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Aid%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The ISO-8601 formatted timestamp of the moment when the application was</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_lastUpdateTime"><span class="hs-identifier hs-type">getApplicationResponse_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="getApplicationResponse_lastUpdateTime"><span class="annot"><span class="annottext">getApplicationResponse_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_lastUpdateTime"><span class="hs-identifier hs-var hs-var">getApplicationResponse_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Maybe POSIX)
+-&gt; (GetApplicationResponse
+    -&gt; Maybe POSIX -&gt; GetApplicationResponse)
+-&gt; Lens
+     GetApplicationResponse
+     GetApplicationResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182177"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdateTime :: Maybe POSIX
+$sel:lastUpdateTime:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679182177"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182177"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182176"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182175"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:GetApplicationResponse' :: Maybe POSIX
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AlastUpdateTime%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetApplicationResponse -&gt; f GetApplicationResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetApplicationResponse
+-&gt; f GetApplicationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The description of the application.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_description"><span class="hs-identifier hs-type">getApplicationResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="getApplicationResponse_description"><span class="annot"><span class="annottext">getApplicationResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_description"><span class="hs-identifier hs-var hs-var">getApplicationResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Maybe Text)
+-&gt; (GetApplicationResponse -&gt; Maybe Text -&gt; GetApplicationResponse)
+-&gt; Lens
+     GetApplicationResponse
+     GetApplicationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182174"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679182174"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182174"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182173"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182172"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:GetApplicationResponse' :: Maybe Text
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Adescription%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | Key-value pairs associated with the application.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_tags"><span class="hs-identifier hs-type">getApplicationResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="getApplicationResponse_tags"><span class="annot"><span class="annottext">getApplicationResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_tags"><span class="hs-identifier hs-var hs-var">getApplicationResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetApplicationResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetApplicationResponse)
+-&gt; Lens
+     GetApplicationResponse
+     GetApplicationResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182171"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679182171"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679182171"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182170"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182169"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679182169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetApplicationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3Atags%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679182169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetApplicationResponse -&gt; f GetApplicationResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetApplicationResponse
+-&gt; f GetApplicationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_httpStatus"><span class="hs-identifier hs-type">getApplicationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-261"></span><span id="getApplicationResponse_httpStatus"><span class="annot"><span class="annottext">getApplicationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetApplicationResponse -&gt; f GetApplicationResponse
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#getApplicationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getApplicationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApplicationResponse -&gt; Int)
+-&gt; (GetApplicationResponse -&gt; Int -&gt; GetApplicationResponse)
+-&gt; Lens GetApplicationResponse GetApplicationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182167"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetApplicationResponse' :: GetApplicationResponse -&gt; Int
+</span><a href="#local-6989586621679182167"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182167"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182166"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679182166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679182166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationResponse' :: Int
+</span><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#%24sel%3AhttpStatus%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679182165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceCatalogAppRegistry.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

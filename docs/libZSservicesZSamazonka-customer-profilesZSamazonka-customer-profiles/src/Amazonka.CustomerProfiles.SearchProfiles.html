@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CustomerProfiles.SearchProfiles</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Searches for profiles within a specific domain name using name, phone</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- number, email address, account number, or a custom defined index.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CustomerProfiles.SearchProfiles</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier">SearchProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#newSearchProfiles"><span class="hs-identifier">newSearchProfiles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_nextToken"><span class="hs-identifier">searchProfiles_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_maxResults"><span class="hs-identifier">searchProfiles_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_domainName"><span class="hs-identifier">searchProfiles_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_keyName"><span class="hs-identifier">searchProfiles_keyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_values"><span class="hs-identifier">searchProfiles_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier">SearchProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#newSearchProfilesResponse"><span class="hs-identifier">newSearchProfilesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfilesResponse_items"><span class="hs-identifier">searchProfilesResponse_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfilesResponse_nextToken"><span class="hs-identifier">searchProfilesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfilesResponse_httpStatus"><span class="hs-identifier">searchProfilesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.html"><span class="hs-identifier">Amazonka.CustomerProfiles.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newSearchProfiles' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679272790"><span id="local-6989586621679272791"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchProfiles"><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-var">SearchProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchProfiles%27"><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-var">SearchProfiles'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token from the previous SearchProfiles API call.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchProfiles%27"><span class="annot"><span class="annottext">SearchProfiles -&gt; Maybe Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AnextToken%3ASearchProfiles%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of objects returned per page.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchProfiles%27"><span class="annot"><span class="annottext">SearchProfiles -&gt; Maybe Natural
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AmaxResults%3ASearchProfiles%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The unique name of the domain.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdomainName%3ASearchProfiles%27"><span class="annot"><span class="annottext">SearchProfiles -&gt; Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AdomainName%3ASearchProfiles%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A searchable identifier of a customer profile. The predefined keys you</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- can use to search include: _account, _profileId, _fullName, _phone,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- _email, _ctrContactId, _marketoLeadId, _salesforceAccountId,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- _salesforceContactId, _zendeskUserId, _zendeskExternalId,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- _serviceNowSystemId.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AkeyName%3ASearchProfiles%27"><span class="annot"><span class="annottext">SearchProfiles -&gt; Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AkeyName%3ASearchProfiles%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A list of key values.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Avalues%3ASearchProfiles%27"><span class="annot"><span class="annottext">SearchProfiles -&gt; [Text]
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3Avalues%3ASearchProfiles%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272780"><span id="local-6989586621679272782"><span class="annot"><span class="annottext">SearchProfiles -&gt; SearchProfiles -&gt; Bool
+(SearchProfiles -&gt; SearchProfiles -&gt; Bool)
+-&gt; (SearchProfiles -&gt; SearchProfiles -&gt; Bool) -&gt; Eq SearchProfiles
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchProfiles -&gt; SearchProfiles -&gt; Bool
+$c/= :: SearchProfiles -&gt; SearchProfiles -&gt; Bool
+== :: SearchProfiles -&gt; SearchProfiles -&gt; Bool
+$c== :: SearchProfiles -&gt; SearchProfiles -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272771"><span id="local-6989586621679272773"><span id="local-6989586621679272775"><span id="local-6989586621679272777"><span class="annot"><span class="annottext">ReadPrec [SearchProfiles]
+ReadPrec SearchProfiles
+Int -&gt; ReadS SearchProfiles
+ReadS [SearchProfiles]
+(Int -&gt; ReadS SearchProfiles)
+-&gt; ReadS [SearchProfiles]
+-&gt; ReadPrec SearchProfiles
+-&gt; ReadPrec [SearchProfiles]
+-&gt; Read SearchProfiles
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchProfiles]
+$creadListPrec :: ReadPrec [SearchProfiles]
+readPrec :: ReadPrec SearchProfiles
+$creadPrec :: ReadPrec SearchProfiles
+readList :: ReadS [SearchProfiles]
+$creadList :: ReadS [SearchProfiles]
+readsPrec :: Int -&gt; ReadS SearchProfiles
+$creadsPrec :: Int -&gt; ReadS SearchProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272764"><span id="local-6989586621679272766"><span id="local-6989586621679272768"><span class="annot"><span class="annottext">Int -&gt; SearchProfiles -&gt; ShowS
+[SearchProfiles] -&gt; ShowS
+SearchProfiles -&gt; String
+(Int -&gt; SearchProfiles -&gt; ShowS)
+-&gt; (SearchProfiles -&gt; String)
+-&gt; ([SearchProfiles] -&gt; ShowS)
+-&gt; Show SearchProfiles
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchProfiles] -&gt; ShowS
+$cshowList :: [SearchProfiles] -&gt; ShowS
+show :: SearchProfiles -&gt; String
+$cshow :: SearchProfiles -&gt; String
+showsPrec :: Int -&gt; SearchProfiles -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchProfiles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchProfiles -&gt; Rep SearchProfiles x)
+-&gt; (forall x. Rep SearchProfiles x -&gt; SearchProfiles)
+-&gt; Generic SearchProfiles
+forall x. Rep SearchProfiles x -&gt; SearchProfiles
+forall x. SearchProfiles -&gt; Rep SearchProfiles x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchProfiles x -&gt; SearchProfiles
+$cfrom :: forall x. SearchProfiles -&gt; Rep SearchProfiles x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'SearchProfiles' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nextToken', 'searchProfiles_nextToken' - The pagination token from the previous SearchProfiles API call.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'maxResults', 'searchProfiles_maxResults' - The maximum number of objects returned per page.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'domainName', 'searchProfiles_domainName' - The unique name of the domain.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'keyName', 'searchProfiles_keyName' - A searchable identifier of a customer profile. The predefined keys you</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- can use to search include: _account, _profileId, _fullName, _phone,</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- _email, _ctrContactId, _marketoLeadId, _salesforceAccountId,</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- _salesforceContactId, _zendeskUserId, _zendeskExternalId,</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- _serviceNowSystemId.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'values', 'searchProfiles_values' - A list of key values.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#newSearchProfiles"><span class="hs-identifier hs-type">newSearchProfiles</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'keyName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span>
+</span><span id="line-101"></span><span id="newSearchProfiles"><span class="annot"><span class="annottext">newSearchProfiles :: Text -&gt; Text -&gt; SearchProfiles
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#newSearchProfiles"><span class="hs-identifier hs-var hs-var">newSearchProfiles</span></a></span></span><span> </span><span id="local-6989586621679272759"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272759"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679272758"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272758"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">SearchProfiles' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; [Text] -&gt; SearchProfiles
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SearchProfiles' :: Maybe Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AnextToken%3ASearchProfiles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchProfiles' :: Maybe Natural
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AmaxResults%3ASearchProfiles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:SearchProfiles' :: Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AdomainName%3ASearchProfiles%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272759"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:SearchProfiles' :: Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AkeyName%3ASearchProfiles%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272758"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:SearchProfiles' :: [Text]
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3Avalues%3ASearchProfiles%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The pagination token from the previous SearchProfiles API call.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_nextToken"><span class="hs-identifier hs-type">searchProfiles_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="searchProfiles_nextToken"><span class="annot"><span class="annottext">searchProfiles_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchProfiles -&gt; f SearchProfiles
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_nextToken"><span class="hs-identifier hs-var hs-var">searchProfiles_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchProfiles -&gt; Maybe Text)
+-&gt; (SearchProfiles -&gt; Maybe Text -&gt; SearchProfiles)
+-&gt; Lens SearchProfiles SearchProfiles (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272755"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchProfiles' :: SearchProfiles -&gt; Maybe Text
+</span><a href="#local-6989586621679272755"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272755"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272754"><span class="annot"><span class="annottext">s :: SearchProfiles
+</span><a href="#local-6989586621679272754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchProfiles
+</span><a href="#local-6989586621679272754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchProfiles' :: Maybe Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AnextToken%3ASearchProfiles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The maximum number of objects returned per page.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_maxResults"><span class="hs-identifier hs-type">searchProfiles_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="searchProfiles_maxResults"><span class="annot"><span class="annottext">searchProfiles_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchProfiles -&gt; f SearchProfiles
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_maxResults"><span class="hs-identifier hs-var hs-var">searchProfiles_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchProfiles -&gt; Maybe Natural)
+-&gt; (SearchProfiles -&gt; Maybe Natural -&gt; SearchProfiles)
+-&gt; Lens
+     SearchProfiles SearchProfiles (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272752"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchProfiles' :: SearchProfiles -&gt; Maybe Natural
+</span><a href="#local-6989586621679272752"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679272752"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272751"><span class="annot"><span class="annottext">s :: SearchProfiles
+</span><a href="#local-6989586621679272751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272750"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679272750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchProfiles
+</span><a href="#local-6989586621679272751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchProfiles' :: Maybe Natural
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AmaxResults%3ASearchProfiles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679272750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The unique name of the domain.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_domainName"><span class="hs-identifier hs-type">searchProfiles_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="searchProfiles_domainName"><span class="annot"><span class="annottext">searchProfiles_domainName :: (Text -&gt; f Text) -&gt; SearchProfiles -&gt; f SearchProfiles
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_domainName"><span class="hs-identifier hs-var hs-var">searchProfiles_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchProfiles -&gt; Text)
+-&gt; (SearchProfiles -&gt; Text -&gt; SearchProfiles)
+-&gt; Lens SearchProfiles SearchProfiles Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272749"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:SearchProfiles' :: SearchProfiles -&gt; Text
+</span><a href="#local-6989586621679272749"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272749"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272748"><span class="annot"><span class="annottext">s :: SearchProfiles
+</span><a href="#local-6989586621679272748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272747"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchProfiles
+</span><a href="#local-6989586621679272748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:SearchProfiles' :: Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AdomainName%3ASearchProfiles%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | A searchable identifier of a customer profile. The predefined keys you</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- can use to search include: _account, _profileId, _fullName, _phone,</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- _email, _ctrContactId, _marketoLeadId, _salesforceAccountId,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- _salesforceContactId, _zendeskUserId, _zendeskExternalId,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- _serviceNowSystemId.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_keyName"><span class="hs-identifier hs-type">searchProfiles_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="searchProfiles_keyName"><span class="annot"><span class="annottext">searchProfiles_keyName :: (Text -&gt; f Text) -&gt; SearchProfiles -&gt; f SearchProfiles
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_keyName"><span class="hs-identifier hs-var hs-var">searchProfiles_keyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchProfiles -&gt; Text)
+-&gt; (SearchProfiles -&gt; Text -&gt; SearchProfiles)
+-&gt; Lens SearchProfiles SearchProfiles Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272746"><span class="annot"><span class="annottext">Text
+keyName :: Text
+$sel:keyName:SearchProfiles' :: SearchProfiles -&gt; Text
+</span><a href="#local-6989586621679272746"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272746"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272745"><span class="annot"><span class="annottext">s :: SearchProfiles
+</span><a href="#local-6989586621679272745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272744"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchProfiles
+</span><a href="#local-6989586621679272745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:SearchProfiles' :: Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AkeyName%3ASearchProfiles%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | A list of key values.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_values"><span class="hs-identifier hs-type">searchProfiles_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span id="searchProfiles_values"><span class="annot"><span class="annottext">searchProfiles_values :: ([Text] -&gt; f [Text]) -&gt; SearchProfiles -&gt; f SearchProfiles
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfiles_values"><span class="hs-identifier hs-var hs-var">searchProfiles_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchProfiles -&gt; [Text])
+-&gt; (SearchProfiles -&gt; [Text] -&gt; SearchProfiles)
+-&gt; Lens SearchProfiles SearchProfiles [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272743"><span class="annot"><span class="annottext">[Text]
+values :: [Text]
+$sel:values:SearchProfiles' :: SearchProfiles -&gt; [Text]
+</span><a href="#local-6989586621679272743"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679272743"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272742"><span class="annot"><span class="annottext">s :: SearchProfiles
+</span><a href="#local-6989586621679272742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272741"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679272741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchProfiles
+</span><a href="#local-6989586621679272742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:SearchProfiles' :: [Text]
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3Avalues%3ASearchProfiles%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679272741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; SearchProfiles -&gt; f SearchProfiles)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; SearchProfiles
+-&gt; f SearchProfiles
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-type">SearchProfilesResponse</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679272735"><span class="annot"><span class="annottext">request :: SearchProfiles -&gt; Request SearchProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchProfiles -&gt; Request SearchProfiles
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679272731"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SearchProfiles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchProfiles)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SearchProfiles))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SearchProfiles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchProfiles)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272728"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679272727"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679272727"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679272726"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272726"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Profile] -&gt; Maybe Text -&gt; Int -&gt; SearchProfilesResponse
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse%27"><span class="hs-identifier hs-var">SearchProfilesResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Profile] -&gt; Maybe Text -&gt; Int -&gt; SearchProfilesResponse)
+-&gt; Either String (Maybe [Profile])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; SearchProfilesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272726"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Profile]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Profile]))
+-&gt; Maybe [Profile] -&gt; Either String (Maybe [Profile])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Profile]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; SearchProfilesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; SearchProfilesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272726"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SearchProfilesResponse)
+-&gt; Either String Int -&gt; Either String SearchProfilesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272728"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272717"><span id="local-6989586621679272719"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679272710"><span class="annot"><span class="annottext">toHeaders :: SearchProfiles -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchProfiles -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272700"><span id="local-6989586621679272702"><span id="local-6989586621679272704"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679272698"><span class="annot"><span class="annottext">toJSON :: SearchProfiles -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272692"><span id="local-6989586621679272693"><span id="local-6989586621679272694"><span id="local-6989586621679272695"><span id="local-6989586621679272696"><span class="annot"><span class="annottext">[Text]
+Maybe Natural
+Maybe Text
+Text
+values :: [Text]
+keyName :: Text
+domainName :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:values:SearchProfiles' :: SearchProfiles -&gt; [Text]
+$sel:keyName:SearchProfiles' :: SearchProfiles -&gt; Text
+$sel:domainName:SearchProfiles' :: SearchProfiles -&gt; Text
+$sel:maxResults:SearchProfiles' :: SearchProfiles -&gt; Maybe Natural
+$sel:nextToken:SearchProfiles' :: SearchProfiles -&gt; Maybe Text
+</span><a href="#local-6989586621679272692"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272693"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679272692"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679272686"><span class="annot"><span class="annottext">toPath :: SearchProfiles -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272680"><span id="local-6989586621679272681"><span id="local-6989586621679272682"><span id="local-6989586621679272683"><span id="local-6989586621679272684"><span class="annot"><span class="annottext">[Text]
+Maybe Natural
+Maybe Text
+Text
+values :: [Text]
+keyName :: Text
+domainName :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:values:SearchProfiles' :: SearchProfiles -&gt; [Text]
+$sel:keyName:SearchProfiles' :: SearchProfiles -&gt; Text
+$sel:domainName:SearchProfiles' :: SearchProfiles -&gt; Text
+$sel:maxResults:SearchProfiles' :: SearchProfiles -&gt; Maybe Natural
+$sel:nextToken:SearchProfiles' :: SearchProfiles -&gt; Maybe Text
+</span><a href="#local-6989586621679272680"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/domains/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272682"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/profiles/search&quot;</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles"><span class="hs-identifier hs-type">SearchProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679272676"><span class="annot"><span class="annottext">toQuery :: SearchProfiles -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfiles%27"><span class="hs-identifier hs-type">SearchProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272670"><span id="local-6989586621679272671"><span id="local-6989586621679272672"><span id="local-6989586621679272673"><span id="local-6989586621679272674"><span class="annot"><span class="annottext">[Text]
+Maybe Natural
+Maybe Text
+Text
+values :: [Text]
+keyName :: Text
+domainName :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:values:SearchProfiles' :: SearchProfiles -&gt; [Text]
+$sel:keyName:SearchProfiles' :: SearchProfiles -&gt; Text
+$sel:domainName:SearchProfiles' :: SearchProfiles -&gt; Text
+$sel:maxResults:SearchProfiles' :: SearchProfiles -&gt; Maybe Natural
+$sel:nextToken:SearchProfiles' :: SearchProfiles -&gt; Maybe Text
+</span><a href="#local-6989586621679272670"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272674"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;max-results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679272673"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newSearchProfilesResponse' smart constructor.</span><span>
+</span><span id="line-188"></span><span id="local-6989586621679272667"><span id="local-6989586621679272668"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchProfilesResponse"><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-var">SearchProfilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchProfilesResponse%27"><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse%27"><span class="hs-identifier hs-var">SearchProfilesResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of SearchProfiles instances.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3Aitems%3ASearchProfilesResponse%27"><span class="annot"><span class="annottext">SearchProfilesResponse -&gt; Maybe [Profile]
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3Aitems%3ASearchProfilesResponse%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The pagination token from the previous SearchProfiles API call.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchProfilesResponse%27"><span class="annot"><span class="annottext">SearchProfilesResponse -&gt; Maybe Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AnextToken%3ASearchProfilesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchProfilesResponse%27"><span class="annot"><span class="annottext">SearchProfilesResponse -&gt; Int
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AhttpStatus%3ASearchProfilesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272660"><span id="local-6989586621679272662"><span class="annot"><span class="annottext">SearchProfilesResponse -&gt; SearchProfilesResponse -&gt; Bool
+(SearchProfilesResponse -&gt; SearchProfilesResponse -&gt; Bool)
+-&gt; (SearchProfilesResponse -&gt; SearchProfilesResponse -&gt; Bool)
+-&gt; Eq SearchProfilesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchProfilesResponse -&gt; SearchProfilesResponse -&gt; Bool
+$c/= :: SearchProfilesResponse -&gt; SearchProfilesResponse -&gt; Bool
+== :: SearchProfilesResponse -&gt; SearchProfilesResponse -&gt; Bool
+$c== :: SearchProfilesResponse -&gt; SearchProfilesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272652"><span id="local-6989586621679272654"><span id="local-6989586621679272656"><span id="local-6989586621679272658"><span class="annot"><span class="annottext">ReadPrec [SearchProfilesResponse]
+ReadPrec SearchProfilesResponse
+Int -&gt; ReadS SearchProfilesResponse
+ReadS [SearchProfilesResponse]
+(Int -&gt; ReadS SearchProfilesResponse)
+-&gt; ReadS [SearchProfilesResponse]
+-&gt; ReadPrec SearchProfilesResponse
+-&gt; ReadPrec [SearchProfilesResponse]
+-&gt; Read SearchProfilesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchProfilesResponse]
+$creadListPrec :: ReadPrec [SearchProfilesResponse]
+readPrec :: ReadPrec SearchProfilesResponse
+$creadPrec :: ReadPrec SearchProfilesResponse
+readList :: ReadS [SearchProfilesResponse]
+$creadList :: ReadS [SearchProfilesResponse]
+readsPrec :: Int -&gt; ReadS SearchProfilesResponse
+$creadsPrec :: Int -&gt; ReadS SearchProfilesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272646"><span id="local-6989586621679272648"><span id="local-6989586621679272650"><span class="annot"><span class="annottext">Int -&gt; SearchProfilesResponse -&gt; ShowS
+[SearchProfilesResponse] -&gt; ShowS
+SearchProfilesResponse -&gt; String
+(Int -&gt; SearchProfilesResponse -&gt; ShowS)
+-&gt; (SearchProfilesResponse -&gt; String)
+-&gt; ([SearchProfilesResponse] -&gt; ShowS)
+-&gt; Show SearchProfilesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchProfilesResponse] -&gt; ShowS
+$cshowList :: [SearchProfilesResponse] -&gt; ShowS
+show :: SearchProfilesResponse -&gt; String
+$cshow :: SearchProfilesResponse -&gt; String
+showsPrec :: Int -&gt; SearchProfilesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchProfilesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchProfilesResponse -&gt; Rep SearchProfilesResponse x)
+-&gt; (forall x.
+    Rep SearchProfilesResponse x -&gt; SearchProfilesResponse)
+-&gt; Generic SearchProfilesResponse
+forall x. Rep SearchProfilesResponse x -&gt; SearchProfilesResponse
+forall x. SearchProfilesResponse -&gt; Rep SearchProfilesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchProfilesResponse x -&gt; SearchProfilesResponse
+$cfrom :: forall x. SearchProfilesResponse -&gt; Rep SearchProfilesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Create a value of 'SearchProfilesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'items', 'searchProfilesResponse_items' - The list of SearchProfiles instances.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'nextToken', 'searchProfilesResponse_nextToken' - The pagination token from the previous SearchProfiles API call.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'httpStatus', 'searchProfilesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#newSearchProfilesResponse"><span class="hs-identifier hs-type">newSearchProfilesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-type">SearchProfilesResponse</span></a></span><span>
+</span><span id="line-215"></span><span id="newSearchProfilesResponse"><span class="annot"><span class="annottext">newSearchProfilesResponse :: Int -&gt; SearchProfilesResponse
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#newSearchProfilesResponse"><span class="hs-identifier hs-var hs-var">newSearchProfilesResponse</span></a></span></span><span> </span><span id="local-6989586621679272643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">SearchProfilesResponse' :: Maybe [Profile] -&gt; Maybe Text -&gt; Int -&gt; SearchProfilesResponse
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse%27"><span class="hs-identifier hs-type">SearchProfilesResponse'</span></a></span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:SearchProfilesResponse' :: Maybe [Profile]
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3Aitems%3ASearchProfilesResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Profile]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchProfilesResponse' :: Maybe Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AnextToken%3ASearchProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchProfilesResponse' :: Int
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AhttpStatus%3ASearchProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The list of SearchProfiles instances.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfilesResponse_items"><span class="hs-identifier hs-type">searchProfilesResponse_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-type">SearchProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="searchProfilesResponse_items"><span class="annot"><span class="annottext">searchProfilesResponse_items :: (Maybe [Profile] -&gt; f (Maybe [Profile]))
+-&gt; SearchProfilesResponse -&gt; f SearchProfilesResponse
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfilesResponse_items"><span class="hs-identifier hs-var hs-var">searchProfilesResponse_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchProfilesResponse -&gt; Maybe [Profile])
+-&gt; (SearchProfilesResponse
+    -&gt; Maybe [Profile] -&gt; SearchProfilesResponse)
+-&gt; Lens
+     SearchProfilesResponse
+     SearchProfilesResponse
+     (Maybe [Profile])
+     (Maybe [Profile])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse%27"><span class="hs-identifier hs-type">SearchProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272642"><span class="annot"><span class="annottext">Maybe [Profile]
+items :: Maybe [Profile]
+$sel:items:SearchProfilesResponse' :: SearchProfilesResponse -&gt; Maybe [Profile]
+</span><a href="#local-6989586621679272642"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Profile]
+</span><a href="#local-6989586621679272642"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272641"><span class="annot"><span class="annottext">s :: SearchProfilesResponse
+</span><a href="#local-6989586621679272641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse%27"><span class="hs-identifier hs-type">SearchProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272640"><span class="annot"><span class="annottext">Maybe [Profile]
+</span><a href="#local-6989586621679272640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchProfilesResponse
+</span><a href="#local-6989586621679272641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:SearchProfilesResponse' :: Maybe [Profile]
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3Aitems%3ASearchProfilesResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Profile]
+</span><a href="#local-6989586621679272640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-type">SearchProfilesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Profile] -&gt; f (Maybe [Profile]))
+ -&gt; SearchProfilesResponse -&gt; f SearchProfilesResponse)
+-&gt; ((Maybe [Profile] -&gt; f (Maybe [Profile]))
+    -&gt; Maybe [Profile] -&gt; f (Maybe [Profile]))
+-&gt; (Maybe [Profile] -&gt; f (Maybe [Profile]))
+-&gt; SearchProfilesResponse
+-&gt; f SearchProfilesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Profile] [Profile] [Profile] [Profile]
+-&gt; Iso
+     (Maybe [Profile])
+     (Maybe [Profile])
+     (Maybe [Profile])
+     (Maybe [Profile])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Profile] [Profile] [Profile] [Profile]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The pagination token from the previous SearchProfiles API call.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfilesResponse_nextToken"><span class="hs-identifier hs-type">searchProfilesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-type">SearchProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="searchProfilesResponse_nextToken"><span class="annot"><span class="annottext">searchProfilesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchProfilesResponse -&gt; f SearchProfilesResponse
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfilesResponse_nextToken"><span class="hs-identifier hs-var hs-var">searchProfilesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchProfilesResponse -&gt; Maybe Text)
+-&gt; (SearchProfilesResponse -&gt; Maybe Text -&gt; SearchProfilesResponse)
+-&gt; Lens
+     SearchProfilesResponse
+     SearchProfilesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse%27"><span class="hs-identifier hs-type">SearchProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272638"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchProfilesResponse' :: SearchProfilesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679272638"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272638"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272637"><span class="annot"><span class="annottext">s :: SearchProfilesResponse
+</span><a href="#local-6989586621679272637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse%27"><span class="hs-identifier hs-type">SearchProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272636"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchProfilesResponse
+</span><a href="#local-6989586621679272637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchProfilesResponse' :: Maybe Text
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AnextToken%3ASearchProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-type">SearchProfilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfilesResponse_httpStatus"><span class="hs-identifier hs-type">searchProfilesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-type">SearchProfilesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-232"></span><span id="searchProfilesResponse_httpStatus"><span class="annot"><span class="annottext">searchProfilesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SearchProfilesResponse -&gt; f SearchProfilesResponse
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#searchProfilesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">searchProfilesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchProfilesResponse -&gt; Int)
+-&gt; (SearchProfilesResponse -&gt; Int -&gt; SearchProfilesResponse)
+-&gt; Lens SearchProfilesResponse SearchProfilesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse%27"><span class="hs-identifier hs-type">SearchProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272635"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SearchProfilesResponse' :: SearchProfilesResponse -&gt; Int
+</span><a href="#local-6989586621679272635"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272635"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272634"><span class="annot"><span class="annottext">s :: SearchProfilesResponse
+</span><a href="#local-6989586621679272634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse%27"><span class="hs-identifier hs-type">SearchProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272633"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchProfilesResponse
+</span><a href="#local-6989586621679272634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchProfilesResponse' :: Int
+</span><a href="Amazonka.CustomerProfiles.SearchProfiles.html#%24sel%3AhttpStatus%3ASearchProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-type">SearchProfilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.SearchProfiles.html#SearchProfilesResponse"><span class="hs-identifier hs-type">SearchProfilesResponse</span></a></span></span><span>
+</span><span id="line-235"></span></pre></body></html>

@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.User</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.User</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AlexaForBusinessMetadata.html"><span class="hs-identifier">Amazonka.Chime.Types.AlexaForBusinessMetadata</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.InviteStatus.html"><span class="hs-identifier">Amazonka.Chime.Types.InviteStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.License.html"><span class="hs-identifier">Amazonka.Chime.Types.License</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RegistrationStatus.html"><span class="hs-identifier">Amazonka.Chime.Types.RegistrationStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UserType.html"><span class="hs-identifier">Amazonka.Chime.Types.UserType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | The user on the Amazon Chime account.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newUser' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679521804"><span id="local-6989586621679521805"></span></span><span class="hs-keyword">data</span><span> </span><span id="User"><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-var">User</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="User%27"><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-var">User'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user invite status.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AuserInvitationStatus%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe InviteStatus
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserInvitationStatus%3AUser%27"><span class="hs-identifier hs-var hs-var">userInvitationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.InviteStatus.html#InviteStatus"><span class="hs-identifier hs-type">InviteStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The user\'s personal meeting PIN.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApersonalPIN%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3ApersonalPIN%3AUser%27"><span class="hs-identifier hs-var hs-var">personalPIN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The primary phone number associated with the user.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AprimaryProvisionedNumber%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AprimaryProvisionedNumber%3AUser%27"><span class="hs-identifier hs-var hs-var">primaryProvisionedNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The license type for the user.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlicenseType%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe License
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AlicenseType%3AUser%27"><span class="hs-identifier hs-var hs-var">licenseType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Date and time when the user is registered, in ISO 8601 format.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AregisteredOn%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe POSIX
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AregisteredOn%3AUser%27"><span class="hs-identifier hs-var hs-var">registeredOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AaccountId%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AaccountId%3AUser%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The user registration status.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AuserRegistrationStatus%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe RegistrationStatus
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserRegistrationStatus%3AUser%27"><span class="hs-identifier hs-var hs-var">userRegistrationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RegistrationStatus.html#RegistrationStatus"><span class="hs-identifier hs-type">RegistrationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Date and time when the user is invited to the Amazon Chime account, in</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- ISO 8601 format.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AinvitedOn%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe POSIX
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AinvitedOn%3AUser%27"><span class="hs-identifier hs-var hs-var">invitedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The display name of the user.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdisplayName%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AdisplayName%3AUser%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The primary email address of the user.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AprimaryEmail%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AprimaryEmail%3AUser%27"><span class="hs-identifier hs-var hs-var">primaryEmail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The user type.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AuserType%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe UserType
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserType%3AUser%27"><span class="hs-identifier hs-var hs-var">userType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UserType.html#UserType"><span class="hs-identifier hs-type">UserType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The Alexa for Business metadata.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AalexaForBusinessMetadata%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Maybe AlexaForBusinessMetadata
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AalexaForBusinessMetadata%3AUser%27"><span class="hs-identifier hs-var hs-var">alexaForBusinessMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AlexaForBusinessMetadata.html#AlexaForBusinessMetadata"><span class="hs-identifier hs-type">AlexaForBusinessMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The user ID.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AuserId%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Text
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserId%3AUser%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521786"><span id="local-6989586621679521788"><span class="annot"><span class="annottext">User -&gt; User -&gt; Bool
+(User -&gt; User -&gt; Bool) -&gt; (User -&gt; User -&gt; Bool) -&gt; Eq User
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: User -&gt; User -&gt; Bool
+$c/= :: User -&gt; User -&gt; Bool
+== :: User -&gt; User -&gt; Bool
+$c== :: User -&gt; User -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521779"><span id="local-6989586621679521781"><span id="local-6989586621679521783"><span class="annot"><span class="annottext">Int -&gt; User -&gt; ShowS
+[User] -&gt; ShowS
+User -&gt; String
+(Int -&gt; User -&gt; ShowS)
+-&gt; (User -&gt; String) -&gt; ([User] -&gt; ShowS) -&gt; Show User
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [User] -&gt; ShowS
+$cshowList :: [User] -&gt; ShowS
+show :: User -&gt; String
+$cshow :: User -&gt; String
+showsPrec :: Int -&gt; User -&gt; ShowS
+$cshowsPrec :: Int -&gt; User -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. User -&gt; Rep User x)
+-&gt; (forall x. Rep User x -&gt; User) -&gt; Generic User
+forall x. Rep User x -&gt; User
+forall x. User -&gt; Rep User x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep User x -&gt; User
+$cfrom :: forall x. User -&gt; Rep User x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'User' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'userInvitationStatus', 'user_userInvitationStatus' - The user invite status.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'personalPIN', 'user_personalPIN' - The user\'s personal meeting PIN.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'primaryProvisionedNumber', 'user_primaryProvisionedNumber' - The primary phone number associated with the user.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'licenseType', 'user_licenseType' - The license type for the user.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'registeredOn', 'user_registeredOn' - Date and time when the user is registered, in ISO 8601 format.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'accountId', 'user_accountId' - The Amazon Chime account ID.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'userRegistrationStatus', 'user_userRegistrationStatus' - The user registration status.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'invitedOn', 'user_invitedOn' - Date and time when the user is invited to the Amazon Chime account, in</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- ISO 8601 format.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'displayName', 'user_displayName' - The display name of the user.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'primaryEmail', 'user_primaryEmail' - The primary email address of the user.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'userType', 'user_userType' - The user type.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'alexaForBusinessMetadata', 'user_alexaForBusinessMetadata' - The Alexa for Business metadata.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'userId', 'user_userId' - The user ID.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#newUser"><span class="hs-identifier hs-type">newUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'userId'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span>
+</span><span id="line-103"></span><span id="newUser"><span class="annot"><span class="annottext">newUser :: Text -&gt; User
+</span><a href="Amazonka.Chime.Types.User.html#newUser"><span class="hs-identifier hs-var hs-var">newUser</span></a></span></span><span> </span><span id="local-6989586621679521773"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521773"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">User' :: Maybe InviteStatus
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe License
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe RegistrationStatus
+-&gt; Maybe POSIX
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe UserType
+-&gt; Maybe AlexaForBusinessMetadata
+-&gt; Text
+-&gt; User
+</span><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userInvitationStatus:User' :: Maybe InviteStatus
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserInvitationStatus%3AUser%27"><span class="hs-identifier hs-var">userInvitationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InviteStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:personalPIN:User' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3ApersonalPIN%3AUser%27"><span class="hs-identifier hs-var">personalPIN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:primaryProvisionedNumber:User' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AprimaryProvisionedNumber%3AUser%27"><span class="hs-identifier hs-var">primaryProvisionedNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseType:User' :: Maybe License
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AlicenseType%3AUser%27"><span class="hs-identifier hs-var">licenseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe License
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:registeredOn:User' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AregisteredOn%3AUser%27"><span class="hs-identifier hs-var">registeredOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:User' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AaccountId%3AUser%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:userRegistrationStatus:User' :: Maybe RegistrationStatus
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserRegistrationStatus%3AUser%27"><span class="hs-identifier hs-var">userRegistrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:invitedOn:User' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AinvitedOn%3AUser%27"><span class="hs-identifier hs-var">invitedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:User' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AdisplayName%3AUser%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:primaryEmail:User' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AprimaryEmail%3AUser%27"><span class="hs-identifier hs-var">primaryEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:userType:User' :: Maybe UserType
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserType%3AUser%27"><span class="hs-identifier hs-var">userType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:alexaForBusinessMetadata:User' :: Maybe AlexaForBusinessMetadata
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AalexaForBusinessMetadata%3AUser%27"><span class="hs-identifier hs-var">alexaForBusinessMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlexaForBusinessMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:User' :: Text
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserId%3AUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521773"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The user invite status.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_userInvitationStatus"><span class="hs-identifier hs-type">user_userInvitationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.InviteStatus.html#InviteStatus"><span class="hs-identifier hs-type">InviteStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="user_userInvitationStatus"><span class="annot"><span class="annottext">user_userInvitationStatus :: (Maybe InviteStatus -&gt; f (Maybe InviteStatus)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_userInvitationStatus"><span class="hs-identifier hs-var hs-var">user_userInvitationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe InviteStatus)
+-&gt; (User -&gt; Maybe InviteStatus -&gt; User)
+-&gt; Lens User User (Maybe InviteStatus) (Maybe InviteStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521769"><span class="annot"><span class="annottext">Maybe InviteStatus
+userInvitationStatus :: Maybe InviteStatus
+$sel:userInvitationStatus:User' :: User -&gt; Maybe InviteStatus
+</span><a href="#local-6989586621679521769"><span class="hs-identifier hs-var hs-var">userInvitationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InviteStatus
+</span><a href="#local-6989586621679521769"><span class="hs-identifier hs-var">userInvitationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521768"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521767"><span class="annot"><span class="annottext">Maybe InviteStatus
+</span><a href="#local-6989586621679521767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userInvitationStatus:User' :: Maybe InviteStatus
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserInvitationStatus%3AUser%27"><span class="hs-identifier hs-var">userInvitationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InviteStatus
+</span><a href="#local-6989586621679521767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The user\'s personal meeting PIN.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_personalPIN"><span class="hs-identifier hs-type">user_personalPIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="user_personalPIN"><span class="annot"><span class="annottext">user_personalPIN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_personalPIN"><span class="hs-identifier hs-var hs-var">user_personalPIN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe Text)
+-&gt; (User -&gt; Maybe Text -&gt; User)
+-&gt; Lens User User (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521765"><span class="annot"><span class="annottext">Maybe Text
+personalPIN :: Maybe Text
+$sel:personalPIN:User' :: User -&gt; Maybe Text
+</span><a href="#local-6989586621679521765"><span class="hs-identifier hs-var hs-var">personalPIN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521765"><span class="hs-identifier hs-var">personalPIN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521764"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521763"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:personalPIN:User' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3ApersonalPIN%3AUser%27"><span class="hs-identifier hs-var">personalPIN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The primary phone number associated with the user.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_primaryProvisionedNumber"><span class="hs-identifier hs-type">user_primaryProvisionedNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="user_primaryProvisionedNumber"><span class="annot"><span class="annottext">user_primaryProvisionedNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_primaryProvisionedNumber"><span class="hs-identifier hs-var hs-var">user_primaryProvisionedNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe (Sensitive Text))
+-&gt; (User -&gt; Maybe (Sensitive Text) -&gt; User)
+-&gt; Lens User User (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521761"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+primaryProvisionedNumber :: Maybe (Sensitive Text)
+$sel:primaryProvisionedNumber:User' :: User -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521761"><span class="hs-identifier hs-var hs-var">primaryProvisionedNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521761"><span class="hs-identifier hs-var">primaryProvisionedNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521760"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521759"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryProvisionedNumber:User' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AprimaryProvisionedNumber%3AUser%27"><span class="hs-identifier hs-var">primaryProvisionedNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; User -&gt; f User)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; User
+-&gt; f User
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The license type for the user.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_licenseType"><span class="hs-identifier hs-type">user_licenseType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="user_licenseType"><span class="annot"><span class="annottext">user_licenseType :: (Maybe License -&gt; f (Maybe License)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_licenseType"><span class="hs-identifier hs-var hs-var">user_licenseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe License)
+-&gt; (User -&gt; Maybe License -&gt; User)
+-&gt; Lens User User (Maybe License) (Maybe License)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521754"><span class="annot"><span class="annottext">Maybe License
+licenseType :: Maybe License
+$sel:licenseType:User' :: User -&gt; Maybe License
+</span><a href="#local-6989586621679521754"><span class="hs-identifier hs-var hs-var">licenseType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe License
+</span><a href="#local-6989586621679521754"><span class="hs-identifier hs-var">licenseType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521753"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521752"><span class="annot"><span class="annottext">Maybe License
+</span><a href="#local-6989586621679521752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseType:User' :: Maybe License
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AlicenseType%3AUser%27"><span class="hs-identifier hs-var">licenseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe License
+</span><a href="#local-6989586621679521752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Date and time when the user is registered, in ISO 8601 format.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_registeredOn"><span class="hs-identifier hs-type">user_registeredOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="user_registeredOn"><span class="annot"><span class="annottext">user_registeredOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_registeredOn"><span class="hs-identifier hs-var hs-var">user_registeredOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe POSIX)
+-&gt; (User -&gt; Maybe POSIX -&gt; User)
+-&gt; Lens User User (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521750"><span class="annot"><span class="annottext">Maybe POSIX
+registeredOn :: Maybe POSIX
+$sel:registeredOn:User' :: User -&gt; Maybe POSIX
+</span><a href="#local-6989586621679521750"><span class="hs-identifier hs-var hs-var">registeredOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679521750"><span class="hs-identifier hs-var">registeredOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521749"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521748"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679521748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registeredOn:User' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AregisteredOn%3AUser%27"><span class="hs-identifier hs-var">registeredOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679521748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; User -&gt; f User)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; User
+-&gt; f User
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The Amazon Chime account ID.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_accountId"><span class="hs-identifier hs-type">user_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="user_accountId"><span class="annot"><span class="annottext">user_accountId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_accountId"><span class="hs-identifier hs-var hs-var">user_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe Text)
+-&gt; (User -&gt; Maybe Text -&gt; User)
+-&gt; Lens User User (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521745"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:User' :: User -&gt; Maybe Text
+</span><a href="#local-6989586621679521745"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521745"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521744"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521743"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:User' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AaccountId%3AUser%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679521743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The user registration status.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_userRegistrationStatus"><span class="hs-identifier hs-type">user_userRegistrationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RegistrationStatus.html#RegistrationStatus"><span class="hs-identifier hs-type">RegistrationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="user_userRegistrationStatus"><span class="annot"><span class="annottext">user_userRegistrationStatus :: (Maybe RegistrationStatus -&gt; f (Maybe RegistrationStatus))
+-&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_userRegistrationStatus"><span class="hs-identifier hs-var hs-var">user_userRegistrationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe RegistrationStatus)
+-&gt; (User -&gt; Maybe RegistrationStatus -&gt; User)
+-&gt; Lens
+     User User (Maybe RegistrationStatus) (Maybe RegistrationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521741"><span class="annot"><span class="annottext">Maybe RegistrationStatus
+userRegistrationStatus :: Maybe RegistrationStatus
+$sel:userRegistrationStatus:User' :: User -&gt; Maybe RegistrationStatus
+</span><a href="#local-6989586621679521741"><span class="hs-identifier hs-var hs-var">userRegistrationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationStatus
+</span><a href="#local-6989586621679521741"><span class="hs-identifier hs-var">userRegistrationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521740"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521739"><span class="annot"><span class="annottext">Maybe RegistrationStatus
+</span><a href="#local-6989586621679521739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userRegistrationStatus:User' :: Maybe RegistrationStatus
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserRegistrationStatus%3AUser%27"><span class="hs-identifier hs-var">userRegistrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationStatus
+</span><a href="#local-6989586621679521739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Date and time when the user is invited to the Amazon Chime account, in</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- ISO 8601 format.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_invitedOn"><span class="hs-identifier hs-type">user_invitedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="user_invitedOn"><span class="annot"><span class="annottext">user_invitedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_invitedOn"><span class="hs-identifier hs-var hs-var">user_invitedOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe POSIX)
+-&gt; (User -&gt; Maybe POSIX -&gt; User)
+-&gt; Lens User User (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521737"><span class="annot"><span class="annottext">Maybe POSIX
+invitedOn :: Maybe POSIX
+$sel:invitedOn:User' :: User -&gt; Maybe POSIX
+</span><a href="#local-6989586621679521737"><span class="hs-identifier hs-var hs-var">invitedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679521737"><span class="hs-identifier hs-var">invitedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521736"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521735"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679521735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitedOn:User' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AinvitedOn%3AUser%27"><span class="hs-identifier hs-var">invitedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679521735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; User -&gt; f User)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; User
+-&gt; f User
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The display name of the user.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_displayName"><span class="hs-identifier hs-type">user_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="user_displayName"><span class="annot"><span class="annottext">user_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_displayName"><span class="hs-identifier hs-var hs-var">user_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe (Sensitive Text))
+-&gt; (User -&gt; Maybe (Sensitive Text) -&gt; User)
+-&gt; Lens User User (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521733"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+displayName :: Maybe (Sensitive Text)
+$sel:displayName:User' :: User -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521733"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521733"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521732"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521731"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:User' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AdisplayName%3AUser%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; User -&gt; f User)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; User
+-&gt; f User
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The primary email address of the user.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_primaryEmail"><span class="hs-identifier hs-type">user_primaryEmail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="user_primaryEmail"><span class="annot"><span class="annottext">user_primaryEmail :: (Maybe Text -&gt; f (Maybe Text)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_primaryEmail"><span class="hs-identifier hs-var hs-var">user_primaryEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe (Sensitive Text))
+-&gt; (User -&gt; Maybe (Sensitive Text) -&gt; User)
+-&gt; Lens User User (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521729"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+primaryEmail :: Maybe (Sensitive Text)
+$sel:primaryEmail:User' :: User -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521729"><span class="hs-identifier hs-var hs-var">primaryEmail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521729"><span class="hs-identifier hs-var">primaryEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521728"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521727"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryEmail:User' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AprimaryEmail%3AUser%27"><span class="hs-identifier hs-var">primaryEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; User -&gt; f User)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; User
+-&gt; f User
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The user type.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_userType"><span class="hs-identifier hs-type">user_userType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UserType.html#UserType"><span class="hs-identifier hs-type">UserType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="user_userType"><span class="annot"><span class="annottext">user_userType :: (Maybe UserType -&gt; f (Maybe UserType)) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_userType"><span class="hs-identifier hs-var hs-var">user_userType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe UserType)
+-&gt; (User -&gt; Maybe UserType -&gt; User)
+-&gt; Lens User User (Maybe UserType) (Maybe UserType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521725"><span class="annot"><span class="annottext">Maybe UserType
+userType :: Maybe UserType
+$sel:userType:User' :: User -&gt; Maybe UserType
+</span><a href="#local-6989586621679521725"><span class="hs-identifier hs-var hs-var">userType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserType
+</span><a href="#local-6989586621679521725"><span class="hs-identifier hs-var">userType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521724"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521723"><span class="annot"><span class="annottext">Maybe UserType
+</span><a href="#local-6989586621679521723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userType:User' :: Maybe UserType
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserType%3AUser%27"><span class="hs-identifier hs-var">userType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserType
+</span><a href="#local-6989586621679521723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The Alexa for Business metadata.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_alexaForBusinessMetadata"><span class="hs-identifier hs-type">user_alexaForBusinessMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AlexaForBusinessMetadata.html#AlexaForBusinessMetadata"><span class="hs-identifier hs-type">AlexaForBusinessMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="user_alexaForBusinessMetadata"><span class="annot"><span class="annottext">user_alexaForBusinessMetadata :: (Maybe AlexaForBusinessMetadata
+ -&gt; f (Maybe AlexaForBusinessMetadata))
+-&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_alexaForBusinessMetadata"><span class="hs-identifier hs-var hs-var">user_alexaForBusinessMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Maybe AlexaForBusinessMetadata)
+-&gt; (User -&gt; Maybe AlexaForBusinessMetadata -&gt; User)
+-&gt; Lens
+     User
+     User
+     (Maybe AlexaForBusinessMetadata)
+     (Maybe AlexaForBusinessMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521721"><span class="annot"><span class="annottext">Maybe AlexaForBusinessMetadata
+alexaForBusinessMetadata :: Maybe AlexaForBusinessMetadata
+$sel:alexaForBusinessMetadata:User' :: User -&gt; Maybe AlexaForBusinessMetadata
+</span><a href="#local-6989586621679521721"><span class="hs-identifier hs-var hs-var">alexaForBusinessMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlexaForBusinessMetadata
+</span><a href="#local-6989586621679521721"><span class="hs-identifier hs-var">alexaForBusinessMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521720"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521719"><span class="annot"><span class="annottext">Maybe AlexaForBusinessMetadata
+</span><a href="#local-6989586621679521719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alexaForBusinessMetadata:User' :: Maybe AlexaForBusinessMetadata
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AalexaForBusinessMetadata%3AUser%27"><span class="hs-identifier hs-var">alexaForBusinessMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlexaForBusinessMetadata
+</span><a href="#local-6989586621679521719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The user ID.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Chime.Types.User.html#user_userId"><span class="hs-identifier hs-type">user_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-171"></span><span id="user_userId"><span class="annot"><span class="annottext">user_userId :: (Text -&gt; f Text) -&gt; User -&gt; f User
+</span><a href="Amazonka.Chime.Types.User.html#user_userId"><span class="hs-identifier hs-var hs-var">user_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Text)
+-&gt; (User -&gt; Text -&gt; User) -&gt; Lens User User Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521717"><span class="annot"><span class="annottext">Text
+userId :: Text
+$sel:userId:User' :: User -&gt; Text
+</span><a href="#local-6989586621679521717"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521717"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521716"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679521716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679521716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:User' :: Text
+</span><a href="Amazonka.Chime.Types.User.html#%24sel%3AuserId%3AUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521712"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679521710"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser User
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser User) -&gt; Value -&gt; Parser User
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;User&quot;</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679521707"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe InviteStatus
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe License
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe RegistrationStatus
+-&gt; Maybe POSIX
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe UserType
+-&gt; Maybe AlexaForBusinessMetadata
+-&gt; Text
+-&gt; User
+</span><a href="Amazonka.Chime.Types.User.html#User%27"><span class="hs-identifier hs-var">User'</span></a></span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InviteStatus
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe License
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe RegistrationStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe UserType
+ -&gt; Maybe AlexaForBusinessMetadata
+ -&gt; Text
+ -&gt; User)
+-&gt; Parser (Maybe InviteStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe License
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe RegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe UserType
+      -&gt; Maybe AlexaForBusinessMetadata
+      -&gt; Text
+      -&gt; User)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InviteStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserInvitationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe License
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe RegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe UserType
+   -&gt; Maybe AlexaForBusinessMetadata
+   -&gt; Text
+   -&gt; User)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe License
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe RegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe UserType
+      -&gt; Maybe AlexaForBusinessMetadata
+      -&gt; Text
+      -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PersonalPIN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe License
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe RegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe UserType
+   -&gt; Maybe AlexaForBusinessMetadata
+   -&gt; Text
+   -&gt; User)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe License
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe RegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe UserType
+      -&gt; Maybe AlexaForBusinessMetadata
+      -&gt; Text
+      -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrimaryProvisionedNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe License
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe RegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe UserType
+   -&gt; Maybe AlexaForBusinessMetadata
+   -&gt; Text
+   -&gt; User)
+-&gt; Parser (Maybe License)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe RegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe UserType
+      -&gt; Maybe AlexaForBusinessMetadata
+      -&gt; Text
+      -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe License)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe RegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe UserType
+   -&gt; Maybe AlexaForBusinessMetadata
+   -&gt; Text
+   -&gt; User)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe RegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe UserType
+      -&gt; Maybe AlexaForBusinessMetadata
+      -&gt; Text
+      -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RegisteredOn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe RegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe UserType
+   -&gt; Maybe AlexaForBusinessMetadata
+   -&gt; Text
+   -&gt; User)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe RegistrationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe UserType
+      -&gt; Maybe AlexaForBusinessMetadata
+      -&gt; Text
+      -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RegistrationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe UserType
+   -&gt; Maybe AlexaForBusinessMetadata
+   -&gt; Text
+   -&gt; User)
+-&gt; Parser (Maybe RegistrationStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe UserType
+      -&gt; Maybe AlexaForBusinessMetadata
+      -&gt; Text
+      -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RegistrationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserRegistrationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe UserType
+   -&gt; Maybe AlexaForBusinessMetadata
+   -&gt; Text
+   -&gt; User)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe UserType
+      -&gt; Maybe AlexaForBusinessMetadata
+      -&gt; Text
+      -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InvitedOn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe UserType
+   -&gt; Maybe AlexaForBusinessMetadata
+   -&gt; Text
+   -&gt; User)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe UserType
+      -&gt; Maybe AlexaForBusinessMetadata
+      -&gt; Text
+      -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe UserType
+   -&gt; Maybe AlexaForBusinessMetadata
+   -&gt; Text
+   -&gt; User)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe UserType -&gt; Maybe AlexaForBusinessMetadata -&gt; Text -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrimaryEmail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UserType -&gt; Maybe AlexaForBusinessMetadata -&gt; Text -&gt; User)
+-&gt; Parser (Maybe UserType)
+-&gt; Parser (Maybe AlexaForBusinessMetadata -&gt; Text -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UserType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AlexaForBusinessMetadata -&gt; Text -&gt; User)
+-&gt; Parser (Maybe AlexaForBusinessMetadata) -&gt; Parser (Text -&gt; User)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AlexaForBusinessMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlexaForBusinessMetadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; User) -&gt; Parser Text -&gt; Parser User
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679521707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521700"><span id="local-6989586621679521702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

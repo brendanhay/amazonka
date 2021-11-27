@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Summary information about a monitoring job.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMonitoringJobDefinitionSummary' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621680321085"><span id="local-6989586621680321086"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringJobDefinitionSummary"><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-var">MonitoringJobDefinitionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringJobDefinitionSummary%27"><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">MonitoringJobDefinitionSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the monitoring job.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AmonitoringJobDefinitionName%3AMonitoringJobDefinitionSummary%27"><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the monitoring job.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmonitoringJobDefinitionArn%3AMonitoringJobDefinitionSummary%27"><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AmonitoringJobDefinitionArn%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The time that the monitoring job was created.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationTime%3AMonitoringJobDefinitionSummary%27"><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary -&gt; POSIX
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AcreationTime%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the endpoint that the job monitors.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AendpointName%3AMonitoringJobDefinitionSummary%27"><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AendpointName%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680321076"><span id="local-6989586621680321078"><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary
+-&gt; MonitoringJobDefinitionSummary -&gt; Bool
+(MonitoringJobDefinitionSummary
+ -&gt; MonitoringJobDefinitionSummary -&gt; Bool)
+-&gt; (MonitoringJobDefinitionSummary
+    -&gt; MonitoringJobDefinitionSummary -&gt; Bool)
+-&gt; Eq MonitoringJobDefinitionSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MonitoringJobDefinitionSummary
+-&gt; MonitoringJobDefinitionSummary -&gt; Bool
+$c/= :: MonitoringJobDefinitionSummary
+-&gt; MonitoringJobDefinitionSummary -&gt; Bool
+== :: MonitoringJobDefinitionSummary
+-&gt; MonitoringJobDefinitionSummary -&gt; Bool
+$c== :: MonitoringJobDefinitionSummary
+-&gt; MonitoringJobDefinitionSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321067"><span id="local-6989586621680321069"><span id="local-6989586621680321071"><span id="local-6989586621680321073"><span class="annot"><span class="annottext">ReadPrec [MonitoringJobDefinitionSummary]
+ReadPrec MonitoringJobDefinitionSummary
+Int -&gt; ReadS MonitoringJobDefinitionSummary
+ReadS [MonitoringJobDefinitionSummary]
+(Int -&gt; ReadS MonitoringJobDefinitionSummary)
+-&gt; ReadS [MonitoringJobDefinitionSummary]
+-&gt; ReadPrec MonitoringJobDefinitionSummary
+-&gt; ReadPrec [MonitoringJobDefinitionSummary]
+-&gt; Read MonitoringJobDefinitionSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MonitoringJobDefinitionSummary]
+$creadListPrec :: ReadPrec [MonitoringJobDefinitionSummary]
+readPrec :: ReadPrec MonitoringJobDefinitionSummary
+$creadPrec :: ReadPrec MonitoringJobDefinitionSummary
+readList :: ReadS [MonitoringJobDefinitionSummary]
+$creadList :: ReadS [MonitoringJobDefinitionSummary]
+readsPrec :: Int -&gt; ReadS MonitoringJobDefinitionSummary
+$creadsPrec :: Int -&gt; ReadS MonitoringJobDefinitionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321060"><span id="local-6989586621680321062"><span id="local-6989586621680321064"><span class="annot"><span class="annottext">Int -&gt; MonitoringJobDefinitionSummary -&gt; ShowS
+[MonitoringJobDefinitionSummary] -&gt; ShowS
+MonitoringJobDefinitionSummary -&gt; String
+(Int -&gt; MonitoringJobDefinitionSummary -&gt; ShowS)
+-&gt; (MonitoringJobDefinitionSummary -&gt; String)
+-&gt; ([MonitoringJobDefinitionSummary] -&gt; ShowS)
+-&gt; Show MonitoringJobDefinitionSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MonitoringJobDefinitionSummary] -&gt; ShowS
+$cshowList :: [MonitoringJobDefinitionSummary] -&gt; ShowS
+show :: MonitoringJobDefinitionSummary -&gt; String
+$cshow :: MonitoringJobDefinitionSummary -&gt; String
+showsPrec :: Int -&gt; MonitoringJobDefinitionSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; MonitoringJobDefinitionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ MonitoringJobDefinitionSummary
+ -&gt; Rep MonitoringJobDefinitionSummary x)
+-&gt; (forall x.
+    Rep MonitoringJobDefinitionSummary x
+    -&gt; MonitoringJobDefinitionSummary)
+-&gt; Generic MonitoringJobDefinitionSummary
+forall x.
+Rep MonitoringJobDefinitionSummary x
+-&gt; MonitoringJobDefinitionSummary
+forall x.
+MonitoringJobDefinitionSummary
+-&gt; Rep MonitoringJobDefinitionSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MonitoringJobDefinitionSummary x
+-&gt; MonitoringJobDefinitionSummary
+$cfrom :: forall x.
+MonitoringJobDefinitionSummary
+-&gt; Rep MonitoringJobDefinitionSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'MonitoringJobDefinitionSummary' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'monitoringJobDefinitionName', 'monitoringJobDefinitionSummary_monitoringJobDefinitionName' - The name of the monitoring job.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'monitoringJobDefinitionArn', 'monitoringJobDefinitionSummary_monitoringJobDefinitionArn' - The Amazon Resource Name (ARN) of the monitoring job.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'creationTime', 'monitoringJobDefinitionSummary_creationTime' - The time that the monitoring job was created.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'endpointName', 'monitoringJobDefinitionSummary_endpointName' - The name of the endpoint that the job monitors.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#newMonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">newMonitoringJobDefinitionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'monitoringJobDefinitionName'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'monitoringJobDefinitionArn'</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'creationTime'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'endpointName'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span><span>
+</span><span id="line-66"></span><span id="newMonitoringJobDefinitionSummary"><span class="annot"><span class="annottext">newMonitoringJobDefinitionSummary :: Text -&gt; Text -&gt; UTCTime -&gt; Text -&gt; MonitoringJobDefinitionSummary
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#newMonitoringJobDefinitionSummary"><span class="hs-identifier hs-var hs-var">newMonitoringJobDefinitionSummary</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621680321054"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321054"><span class="hs-identifier hs-var">pMonitoringJobDefinitionName_</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621680321053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321053"><span class="hs-identifier hs-var">pMonitoringJobDefinitionArn_</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621680321052"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680321052"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621680321051"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321051"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary' :: Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; MonitoringJobDefinitionSummary
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary'</span></a></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringJobDefinitionSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321054"><span class="hs-identifier hs-var">pMonitoringJobDefinitionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionArn:MonitoringJobDefinitionSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AmonitoringJobDefinitionArn%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">monitoringJobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321053"><span class="hs-identifier hs-var">pMonitoringJobDefinitionArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:MonitoringJobDefinitionSummary' :: POSIX
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AcreationTime%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680321052"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpointName:MonitoringJobDefinitionSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AendpointName%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321051"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The name of the monitoring job.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#monitoringJobDefinitionSummary_monitoringJobDefinitionName"><span class="hs-identifier hs-type">monitoringJobDefinitionSummary_monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="monitoringJobDefinitionSummary_monitoringJobDefinitionName"><span class="annot"><span class="annottext">monitoringJobDefinitionSummary_monitoringJobDefinitionName :: (Text -&gt; f Text)
+-&gt; MonitoringJobDefinitionSummary
+-&gt; f MonitoringJobDefinitionSummary
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#monitoringJobDefinitionSummary_monitoringJobDefinitionName"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionSummary_monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringJobDefinitionSummary -&gt; Text)
+-&gt; (MonitoringJobDefinitionSummary
+    -&gt; Text -&gt; MonitoringJobDefinitionSummary)
+-&gt; Lens
+     MonitoringJobDefinitionSummary
+     MonitoringJobDefinitionSummary
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321045"><span class="annot"><span class="annottext">Text
+monitoringJobDefinitionName :: Text
+$sel:monitoringJobDefinitionName:MonitoringJobDefinitionSummary' :: MonitoringJobDefinitionSummary -&gt; Text
+</span><a href="#local-6989586621680321045"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321045"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321044"><span class="annot"><span class="annottext">s :: MonitoringJobDefinitionSummary
+</span><a href="#local-6989586621680321044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321043"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary
+</span><a href="#local-6989586621680321044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringJobDefinitionSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the monitoring job.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#monitoringJobDefinitionSummary_monitoringJobDefinitionArn"><span class="hs-identifier hs-type">monitoringJobDefinitionSummary_monitoringJobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="monitoringJobDefinitionSummary_monitoringJobDefinitionArn"><span class="annot"><span class="annottext">monitoringJobDefinitionSummary_monitoringJobDefinitionArn :: (Text -&gt; f Text)
+-&gt; MonitoringJobDefinitionSummary
+-&gt; f MonitoringJobDefinitionSummary
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#monitoringJobDefinitionSummary_monitoringJobDefinitionArn"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionSummary_monitoringJobDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringJobDefinitionSummary -&gt; Text)
+-&gt; (MonitoringJobDefinitionSummary
+    -&gt; Text -&gt; MonitoringJobDefinitionSummary)
+-&gt; Lens
+     MonitoringJobDefinitionSummary
+     MonitoringJobDefinitionSummary
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321041"><span class="annot"><span class="annottext">Text
+monitoringJobDefinitionArn :: Text
+$sel:monitoringJobDefinitionArn:MonitoringJobDefinitionSummary' :: MonitoringJobDefinitionSummary -&gt; Text
+</span><a href="#local-6989586621680321041"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321041"><span class="hs-identifier hs-var">monitoringJobDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321040"><span class="annot"><span class="annottext">s :: MonitoringJobDefinitionSummary
+</span><a href="#local-6989586621680321040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321039"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary
+</span><a href="#local-6989586621680321040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionArn:MonitoringJobDefinitionSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AmonitoringJobDefinitionArn%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">monitoringJobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The time that the monitoring job was created.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#monitoringJobDefinitionSummary_creationTime"><span class="hs-identifier hs-type">monitoringJobDefinitionSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-91"></span><span id="monitoringJobDefinitionSummary_creationTime"><span class="annot"><span class="annottext">monitoringJobDefinitionSummary_creationTime :: (UTCTime -&gt; f UTCTime)
+-&gt; MonitoringJobDefinitionSummary
+-&gt; f MonitoringJobDefinitionSummary
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#monitoringJobDefinitionSummary_creationTime"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringJobDefinitionSummary -&gt; POSIX)
+-&gt; (MonitoringJobDefinitionSummary
+    -&gt; POSIX -&gt; MonitoringJobDefinitionSummary)
+-&gt; Lens
+     MonitoringJobDefinitionSummary
+     MonitoringJobDefinitionSummary
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321037"><span class="annot"><span class="annottext">POSIX
+creationTime :: POSIX
+$sel:creationTime:MonitoringJobDefinitionSummary' :: MonitoringJobDefinitionSummary -&gt; POSIX
+</span><a href="#local-6989586621680321037"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680321037"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321036"><span class="annot"><span class="annottext">s :: MonitoringJobDefinitionSummary
+</span><a href="#local-6989586621680321036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321035"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680321035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary
+</span><a href="#local-6989586621680321036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:MonitoringJobDefinitionSummary' :: POSIX
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AcreationTime%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680321035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; MonitoringJobDefinitionSummary
+ -&gt; f MonitoringJobDefinitionSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; MonitoringJobDefinitionSummary
+-&gt; f MonitoringJobDefinitionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The name of the endpoint that the job monitors.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#monitoringJobDefinitionSummary_endpointName"><span class="hs-identifier hs-type">monitoringJobDefinitionSummary_endpointName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="monitoringJobDefinitionSummary_endpointName"><span class="annot"><span class="annottext">monitoringJobDefinitionSummary_endpointName :: (Text -&gt; f Text)
+-&gt; MonitoringJobDefinitionSummary
+-&gt; f MonitoringJobDefinitionSummary
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#monitoringJobDefinitionSummary_endpointName"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionSummary_endpointName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringJobDefinitionSummary -&gt; Text)
+-&gt; (MonitoringJobDefinitionSummary
+    -&gt; Text -&gt; MonitoringJobDefinitionSummary)
+-&gt; Lens
+     MonitoringJobDefinitionSummary
+     MonitoringJobDefinitionSummary
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321032"><span class="annot"><span class="annottext">Text
+endpointName :: Text
+$sel:endpointName:MonitoringJobDefinitionSummary' :: MonitoringJobDefinitionSummary -&gt; Text
+</span><a href="#local-6989586621680321032"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321032"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321031"><span class="annot"><span class="annottext">s :: MonitoringJobDefinitionSummary
+</span><a href="#local-6989586621680321031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringJobDefinitionSummary
+</span><a href="#local-6989586621680321031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:MonitoringJobDefinitionSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#%24sel%3AendpointName%3AMonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321027"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680321025"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringJobDefinitionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MonitoringJobDefinitionSummary)
+-&gt; Value
+-&gt; Parser MonitoringJobDefinitionSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MonitoringJobDefinitionSummary&quot;</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680321022"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; MonitoringJobDefinitionSummary
+</span><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary%27"><span class="hs-identifier hs-var">MonitoringJobDefinitionSummary'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; MonitoringJobDefinitionSummary)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; POSIX -&gt; Text -&gt; MonitoringJobDefinitionSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringJobDefinitionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; Text -&gt; MonitoringJobDefinitionSummary)
+-&gt; Parser Text
+-&gt; Parser (POSIX -&gt; Text -&gt; MonitoringJobDefinitionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringJobDefinitionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; MonitoringJobDefinitionSummary)
+-&gt; Parser POSIX -&gt; Parser (Text -&gt; MonitoringJobDefinitionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; MonitoringJobDefinitionSummary)
+-&gt; Parser Text -&gt; Parser MonitoringJobDefinitionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621680321016"><span id="local-6989586621680321018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621680321013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringJobDefinitionSummary.html#MonitoringJobDefinitionSummary"><span class="hs-identifier hs-type">MonitoringJobDefinitionSummary</span></a></span></span><span>
+</span><span id="line-116"></span></pre></body></html>

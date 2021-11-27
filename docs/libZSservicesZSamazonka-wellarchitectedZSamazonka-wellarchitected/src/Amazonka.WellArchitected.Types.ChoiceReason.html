@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WellArchitected.Types.ChoiceReason</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WellArchitected.Types.ChoiceReason</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason"><span class="hs-identifier">ChoiceReason</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_ARCHITECTURE_CONSTRAINTS"><span class="hs-identifier">ChoiceReason_ARCHITECTURE_CONSTRAINTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_BUSINESS_PRIORITIES"><span class="hs-identifier">ChoiceReason_BUSINESS_PRIORITIES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_NONE"><span class="hs-identifier">ChoiceReason_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_OTHER"><span class="hs-identifier">ChoiceReason_OTHER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_OUT_OF_SCOPE"><span class="hs-identifier">ChoiceReason_OUT_OF_SCOPE</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679240582"><span id="local-6989586621679240583"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChoiceReason"><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason"><span class="hs-identifier hs-var">ChoiceReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChoiceReason%27"><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason%27"><span class="hs-identifier hs-var">ChoiceReason'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChoiceReason"><span class="annot"><span class="annottext">ChoiceReason -&gt; Text
+</span><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#fromChoiceReason"><span class="hs-identifier hs-var hs-var">fromChoiceReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240574"><span id="local-6989586621679240576"><span id="local-6989586621679240578"><span class="annot"><span class="annottext">Int -&gt; ChoiceReason -&gt; ShowS
+[ChoiceReason] -&gt; ShowS
+ChoiceReason -&gt; String
+(Int -&gt; ChoiceReason -&gt; ShowS)
+-&gt; (ChoiceReason -&gt; String)
+-&gt; ([ChoiceReason] -&gt; ShowS)
+-&gt; Show ChoiceReason
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChoiceReason] -&gt; ShowS
+$cshowList :: [ChoiceReason] -&gt; ShowS
+show :: ChoiceReason -&gt; String
+$cshow :: ChoiceReason -&gt; String
+showsPrec :: Int -&gt; ChoiceReason -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChoiceReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679240565"><span id="local-6989586621679240567"><span id="local-6989586621679240569"><span id="local-6989586621679240571"><span class="annot"><span class="annottext">ReadPrec [ChoiceReason]
+ReadPrec ChoiceReason
+Int -&gt; ReadS ChoiceReason
+ReadS [ChoiceReason]
+(Int -&gt; ReadS ChoiceReason)
+-&gt; ReadS [ChoiceReason]
+-&gt; ReadPrec ChoiceReason
+-&gt; ReadPrec [ChoiceReason]
+-&gt; Read ChoiceReason
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChoiceReason]
+$creadListPrec :: ReadPrec [ChoiceReason]
+readPrec :: ReadPrec ChoiceReason
+$creadPrec :: ReadPrec ChoiceReason
+readList :: ReadS [ChoiceReason]
+$creadList :: ReadS [ChoiceReason]
+readsPrec :: Int -&gt; ReadS ChoiceReason
+$creadsPrec :: Int -&gt; ReadS ChoiceReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679240560"><span id="local-6989586621679240562"><span class="annot"><span class="annottext">ChoiceReason -&gt; ChoiceReason -&gt; Bool
+(ChoiceReason -&gt; ChoiceReason -&gt; Bool)
+-&gt; (ChoiceReason -&gt; ChoiceReason -&gt; Bool) -&gt; Eq ChoiceReason
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+$c/= :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+== :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+$c== :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679240544"><span id="local-6989586621679240546"><span id="local-6989586621679240548"><span id="local-6989586621679240550"><span id="local-6989586621679240552"><span id="local-6989586621679240554"><span id="local-6989586621679240556"><span class="annot"><span class="annottext">Eq ChoiceReason
+Eq ChoiceReason
+-&gt; (ChoiceReason -&gt; ChoiceReason -&gt; Ordering)
+-&gt; (ChoiceReason -&gt; ChoiceReason -&gt; Bool)
+-&gt; (ChoiceReason -&gt; ChoiceReason -&gt; Bool)
+-&gt; (ChoiceReason -&gt; ChoiceReason -&gt; Bool)
+-&gt; (ChoiceReason -&gt; ChoiceReason -&gt; Bool)
+-&gt; (ChoiceReason -&gt; ChoiceReason -&gt; ChoiceReason)
+-&gt; (ChoiceReason -&gt; ChoiceReason -&gt; ChoiceReason)
+-&gt; Ord ChoiceReason
+ChoiceReason -&gt; ChoiceReason -&gt; Bool
+ChoiceReason -&gt; ChoiceReason -&gt; Ordering
+ChoiceReason -&gt; ChoiceReason -&gt; ChoiceReason
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ChoiceReason -&gt; ChoiceReason -&gt; ChoiceReason
+$cmin :: ChoiceReason -&gt; ChoiceReason -&gt; ChoiceReason
+max :: ChoiceReason -&gt; ChoiceReason -&gt; ChoiceReason
+$cmax :: ChoiceReason -&gt; ChoiceReason -&gt; ChoiceReason
+&gt;= :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+$c&gt;= :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+&gt; :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+$c&gt; :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+&lt;= :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+$c&lt;= :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+&lt; :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+$c&lt; :: ChoiceReason -&gt; ChoiceReason -&gt; Bool
+compare :: ChoiceReason -&gt; ChoiceReason -&gt; Ordering
+$ccompare :: ChoiceReason -&gt; ChoiceReason -&gt; Ordering
+$cp1Ord :: Eq ChoiceReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ChoiceReason -&gt; Rep ChoiceReason x)
+-&gt; (forall x. Rep ChoiceReason x -&gt; ChoiceReason)
+-&gt; Generic ChoiceReason
+forall x. Rep ChoiceReason x -&gt; ChoiceReason
+forall x. ChoiceReason -&gt; Rep ChoiceReason x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChoiceReason x -&gt; ChoiceReason
+$cfrom :: forall x. ChoiceReason -&gt; Rep ChoiceReason x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240536"><span id="local-6989586621679240538"><span class="annot"><span class="annottext">Int -&gt; ChoiceReason -&gt; Int
+ChoiceReason -&gt; Int
+(Int -&gt; ChoiceReason -&gt; Int)
+-&gt; (ChoiceReason -&gt; Int) -&gt; Hashable ChoiceReason
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ChoiceReason -&gt; Int
+$chash :: ChoiceReason -&gt; Int
+hashWithSalt :: Int -&gt; ChoiceReason -&gt; Int
+$chashWithSalt :: Int -&gt; ChoiceReason -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679240533"><span class="annot"><span class="annottext">ChoiceReason -&gt; ()
+(ChoiceReason -&gt; ()) -&gt; NFData ChoiceReason
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ChoiceReason -&gt; ()
+$crnf :: ChoiceReason -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679240530"><span class="annot"><span class="annottext">Text -&gt; Either String ChoiceReason
+(Text -&gt; Either String ChoiceReason) -&gt; FromText ChoiceReason
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ChoiceReason
+$cfromText :: Text -&gt; Either String ChoiceReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679240527"><span class="annot"><span class="annottext">ChoiceReason -&gt; Text
+(ChoiceReason -&gt; Text) -&gt; ToText ChoiceReason
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ChoiceReason -&gt; Text
+$ctoText :: ChoiceReason -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679240524"><span class="annot"><span class="annottext">ChoiceReason -&gt; ByteString
+(ChoiceReason -&gt; ByteString) -&gt; ToByteString ChoiceReason
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ChoiceReason -&gt; ByteString
+$ctoBS :: ChoiceReason -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679240521"><span class="annot"><span class="annottext">ChoiceReason -&gt; ByteStringBuilder
+(ChoiceReason -&gt; ByteStringBuilder) -&gt; ToLog ChoiceReason
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ChoiceReason -&gt; ByteStringBuilder
+$cbuild :: ChoiceReason -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679240518"><span class="annot"><span class="annottext">HeaderName -&gt; ChoiceReason -&gt; [Header]
+(HeaderName -&gt; ChoiceReason -&gt; [Header]) -&gt; ToHeader ChoiceReason
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ChoiceReason -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ChoiceReason -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679240515"><span class="annot"><span class="annottext">ChoiceReason -&gt; QueryString
+(ChoiceReason -&gt; QueryString) -&gt; ToQuery ChoiceReason
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ChoiceReason -&gt; QueryString
+$ctoQuery :: ChoiceReason -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679240510"><span id="local-6989586621679240512"><span class="annot"><span class="annottext">Value -&gt; Parser [ChoiceReason]
+Value -&gt; Parser ChoiceReason
+(Value -&gt; Parser ChoiceReason)
+-&gt; (Value -&gt; Parser [ChoiceReason]) -&gt; FromJSON ChoiceReason
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ChoiceReason]
+$cparseJSONList :: Value -&gt; Parser [ChoiceReason]
+parseJSON :: Value -&gt; Parser ChoiceReason
+$cparseJSON :: Value -&gt; Parser ChoiceReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679240505"><span id="local-6989586621679240507"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChoiceReason]
+FromJSONKeyFunction ChoiceReason
+FromJSONKeyFunction ChoiceReason
+-&gt; FromJSONKeyFunction [ChoiceReason] -&gt; FromJSONKey ChoiceReason
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ChoiceReason]
+$cfromJSONKeyList :: FromJSONKeyFunction [ChoiceReason]
+fromJSONKey :: FromJSONKeyFunction ChoiceReason
+$cfromJSONKey :: FromJSONKeyFunction ChoiceReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679240496"><span id="local-6989586621679240498"><span id="local-6989586621679240500"><span id="local-6989586621679240502"><span class="annot"><span class="annottext">[ChoiceReason] -&gt; Encoding
+[ChoiceReason] -&gt; Value
+ChoiceReason -&gt; Encoding
+ChoiceReason -&gt; Value
+(ChoiceReason -&gt; Value)
+-&gt; (ChoiceReason -&gt; Encoding)
+-&gt; ([ChoiceReason] -&gt; Value)
+-&gt; ([ChoiceReason] -&gt; Encoding)
+-&gt; ToJSON ChoiceReason
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ChoiceReason] -&gt; Encoding
+$ctoEncodingList :: [ChoiceReason] -&gt; Encoding
+toJSONList :: [ChoiceReason] -&gt; Value
+$ctoJSONList :: [ChoiceReason] -&gt; Value
+toEncoding :: ChoiceReason -&gt; Encoding
+$ctoEncoding :: ChoiceReason -&gt; Encoding
+toJSON :: ChoiceReason -&gt; Value
+$ctoJSON :: ChoiceReason -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679240491"><span id="local-6989586621679240493"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChoiceReason]
+ToJSONKeyFunction ChoiceReason
+ToJSONKeyFunction ChoiceReason
+-&gt; ToJSONKeyFunction [ChoiceReason] -&gt; ToJSONKey ChoiceReason
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ChoiceReason]
+$ctoJSONKeyList :: ToJSONKeyFunction [ChoiceReason]
+toJSONKey :: ToJSONKeyFunction ChoiceReason
+$ctoJSONKey :: ToJSONKeyFunction ChoiceReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679240488"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChoiceReason
+([Node] -&gt; Either String ChoiceReason) -&gt; FromXML ChoiceReason
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ChoiceReason
+$cparseXML :: [Node] -&gt; Either String ChoiceReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679240485"><span class="annot"><span class="annottext">ChoiceReason -&gt; XML
+(ChoiceReason -&gt; XML) -&gt; ToXML ChoiceReason
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ChoiceReason -&gt; XML
+$ctoXML :: ChoiceReason -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_ARCHITECTURE_CONSTRAINTS"><span class="hs-identifier hs-type">ChoiceReason_ARCHITECTURE_CONSTRAINTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason"><span class="hs-identifier hs-type">ChoiceReason</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChoiceReason_ARCHITECTURE_CONSTRAINTS"><span id="%24mChoiceReason_ARCHITECTURE_CONSTRAINTS"><span id="ChoiceReason_ARCHITECTURE_CONSTRAINTS"><span class="annot"><span class="annottext">$bChoiceReason_ARCHITECTURE_CONSTRAINTS :: ChoiceReason
+$mChoiceReason_ARCHITECTURE_CONSTRAINTS :: forall r. ChoiceReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#%24bChoiceReason_ARCHITECTURE_CONSTRAINTS"><span class="hs-identifier hs-var hs-var hs-var">ChoiceReason_ARCHITECTURE_CONSTRAINTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason%27"><span class="hs-identifier hs-type">ChoiceReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ARCHITECTURE_CONSTRAINTS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_BUSINESS_PRIORITIES"><span class="hs-identifier hs-type">ChoiceReason_BUSINESS_PRIORITIES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason"><span class="hs-identifier hs-type">ChoiceReason</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChoiceReason_BUSINESS_PRIORITIES"><span id="%24mChoiceReason_BUSINESS_PRIORITIES"><span id="ChoiceReason_BUSINESS_PRIORITIES"><span class="annot"><span class="annottext">$bChoiceReason_BUSINESS_PRIORITIES :: ChoiceReason
+$mChoiceReason_BUSINESS_PRIORITIES :: forall r. ChoiceReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#%24bChoiceReason_BUSINESS_PRIORITIES"><span class="hs-identifier hs-var hs-var hs-var">ChoiceReason_BUSINESS_PRIORITIES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason%27"><span class="hs-identifier hs-type">ChoiceReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BUSINESS_PRIORITIES&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_NONE"><span class="hs-identifier hs-type">ChoiceReason_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason"><span class="hs-identifier hs-type">ChoiceReason</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChoiceReason_NONE"><span id="%24mChoiceReason_NONE"><span id="ChoiceReason_NONE"><span class="annot"><span class="annottext">$bChoiceReason_NONE :: ChoiceReason
+$mChoiceReason_NONE :: forall r. ChoiceReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#%24bChoiceReason_NONE"><span class="hs-identifier hs-var hs-var hs-var">ChoiceReason_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason%27"><span class="hs-identifier hs-type">ChoiceReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_OTHER"><span class="hs-identifier hs-type">ChoiceReason_OTHER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason"><span class="hs-identifier hs-type">ChoiceReason</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChoiceReason_OTHER"><span id="%24mChoiceReason_OTHER"><span id="ChoiceReason_OTHER"><span class="annot"><span class="annottext">$bChoiceReason_OTHER :: ChoiceReason
+$mChoiceReason_OTHER :: forall r. ChoiceReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#%24bChoiceReason_OTHER"><span class="hs-identifier hs-var hs-var hs-var">ChoiceReason_OTHER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason%27"><span class="hs-identifier hs-type">ChoiceReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OTHER&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_OUT_OF_SCOPE"><span class="hs-identifier hs-type">ChoiceReason_OUT_OF_SCOPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason"><span class="hs-identifier hs-type">ChoiceReason</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChoiceReason_OUT_OF_SCOPE"><span id="%24mChoiceReason_OUT_OF_SCOPE"><span id="ChoiceReason_OUT_OF_SCOPE"><span class="annot"><span class="annottext">$bChoiceReason_OUT_OF_SCOPE :: ChoiceReason
+$mChoiceReason_OUT_OF_SCOPE :: forall r. ChoiceReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#%24bChoiceReason_OUT_OF_SCOPE"><span class="hs-identifier hs-var hs-var hs-var">ChoiceReason_OUT_OF_SCOPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason%27"><span class="hs-identifier hs-type">ChoiceReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OUT_OF_SCOPE&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_ARCHITECTURE_CONSTRAINTS"><span class="hs-pragma hs-type">ChoiceReason_ARCHITECTURE_CONSTRAINTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_BUSINESS_PRIORITIES"><span class="hs-pragma hs-type">ChoiceReason_BUSINESS_PRIORITIES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_NONE"><span class="hs-pragma hs-type">ChoiceReason_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_OTHER"><span class="hs-pragma hs-type">ChoiceReason_OTHER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason_OUT_OF_SCOPE"><span class="hs-pragma hs-type">ChoiceReason_OUT_OF_SCOPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.WellArchitected.Types.ChoiceReason.html#ChoiceReason%27"><span class="hs-pragma hs-type">ChoiceReason'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

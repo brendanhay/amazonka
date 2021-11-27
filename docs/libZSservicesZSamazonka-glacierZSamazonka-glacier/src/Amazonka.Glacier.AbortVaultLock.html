@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Glacier.AbortVaultLock</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation aborts the vault locking process if the vault lock is not</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- in the @Locked@ state. If the vault lock is in the @Locked@ state when</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- this operation is requested, the operation returns an</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @AccessDeniedException@ error. Aborting the vault locking process</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- removes the vault lock policy from the specified vault.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- A vault lock is put into the @InProgress@ state by calling</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- InitiateVaultLock. A vault lock is put into the @Locked@ state by</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- calling CompleteVaultLock. You can get the state of a vault lock by</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- calling GetVaultLock. For more information about the vault locking</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- process, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock&gt;.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- For more information about vault lock policies, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies&gt;.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- This operation is idempotent. You can successfully invoke this operation</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- multiple times, if the vault lock is in the @InProgress@ state or if</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- there is no policy associated with the vault.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glacier.AbortVaultLock</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier">AbortVaultLock</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#newAbortVaultLock"><span class="hs-identifier">newAbortVaultLock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#abortVaultLock_accountId"><span class="hs-identifier">abortVaultLock_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#abortVaultLock_vaultName"><span class="hs-identifier">abortVaultLock_vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLockResponse"><span class="hs-identifier">AbortVaultLockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#newAbortVaultLockResponse"><span class="hs-identifier">newAbortVaultLockResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.html"><span class="hs-identifier">Amazonka.Glacier.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The input values for @AbortVaultLock@.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- /See:/ 'newAbortVaultLock' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679225957"><span id="local-6989586621679225958"></span></span><span class="hs-keyword">data</span><span> </span><span id="AbortVaultLock"><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-var">AbortVaultLock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AbortVaultLock%27"><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock%27"><span class="hs-identifier hs-var">AbortVaultLock'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID. This value must match the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- AWS account ID associated with the credentials used to sign the request.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- You can either specify an AWS account ID or optionally a single \'@-@\'</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- (hyphen), in which case Amazon Glacier uses the AWS account ID</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- associated with the credentials used to sign the request. If you specify</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- your account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AaccountId%3AAbortVaultLock%27"><span class="annot"><span class="annottext">AbortVaultLock -&gt; Text
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#%24sel%3AaccountId%3AAbortVaultLock%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AvaultName%3AAbortVaultLock%27"><span class="annot"><span class="annottext">AbortVaultLock -&gt; Text
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#%24sel%3AvaultName%3AAbortVaultLock%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225950"><span id="local-6989586621679225952"><span class="annot"><span class="annottext">AbortVaultLock -&gt; AbortVaultLock -&gt; Bool
+(AbortVaultLock -&gt; AbortVaultLock -&gt; Bool)
+-&gt; (AbortVaultLock -&gt; AbortVaultLock -&gt; Bool) -&gt; Eq AbortVaultLock
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AbortVaultLock -&gt; AbortVaultLock -&gt; Bool
+$c/= :: AbortVaultLock -&gt; AbortVaultLock -&gt; Bool
+== :: AbortVaultLock -&gt; AbortVaultLock -&gt; Bool
+$c== :: AbortVaultLock -&gt; AbortVaultLock -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225941"><span id="local-6989586621679225943"><span id="local-6989586621679225945"><span id="local-6989586621679225947"><span class="annot"><span class="annottext">ReadPrec [AbortVaultLock]
+ReadPrec AbortVaultLock
+Int -&gt; ReadS AbortVaultLock
+ReadS [AbortVaultLock]
+(Int -&gt; ReadS AbortVaultLock)
+-&gt; ReadS [AbortVaultLock]
+-&gt; ReadPrec AbortVaultLock
+-&gt; ReadPrec [AbortVaultLock]
+-&gt; Read AbortVaultLock
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AbortVaultLock]
+$creadListPrec :: ReadPrec [AbortVaultLock]
+readPrec :: ReadPrec AbortVaultLock
+$creadPrec :: ReadPrec AbortVaultLock
+readList :: ReadS [AbortVaultLock]
+$creadList :: ReadS [AbortVaultLock]
+readsPrec :: Int -&gt; ReadS AbortVaultLock
+$creadsPrec :: Int -&gt; ReadS AbortVaultLock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225934"><span id="local-6989586621679225936"><span id="local-6989586621679225938"><span class="annot"><span class="annottext">Int -&gt; AbortVaultLock -&gt; ShowS
+[AbortVaultLock] -&gt; ShowS
+AbortVaultLock -&gt; String
+(Int -&gt; AbortVaultLock -&gt; ShowS)
+-&gt; (AbortVaultLock -&gt; String)
+-&gt; ([AbortVaultLock] -&gt; ShowS)
+-&gt; Show AbortVaultLock
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AbortVaultLock] -&gt; ShowS
+$cshowList :: [AbortVaultLock] -&gt; ShowS
+show :: AbortVaultLock -&gt; String
+$cshow :: AbortVaultLock -&gt; String
+showsPrec :: Int -&gt; AbortVaultLock -&gt; ShowS
+$cshowsPrec :: Int -&gt; AbortVaultLock -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AbortVaultLock -&gt; Rep AbortVaultLock x)
+-&gt; (forall x. Rep AbortVaultLock x -&gt; AbortVaultLock)
+-&gt; Generic AbortVaultLock
+forall x. Rep AbortVaultLock x -&gt; AbortVaultLock
+forall x. AbortVaultLock -&gt; Rep AbortVaultLock x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AbortVaultLock x -&gt; AbortVaultLock
+$cfrom :: forall x. AbortVaultLock -&gt; Rep AbortVaultLock x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'AbortVaultLock' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'accountId', 'abortVaultLock_accountId' - The @AccountId@ value is the AWS account ID. This value must match the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- AWS account ID associated with the credentials used to sign the request.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- You can either specify an AWS account ID or optionally a single \'@-@\'</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- (hyphen), in which case Amazon Glacier uses the AWS account ID</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- associated with the credentials used to sign the request. If you specify</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- your account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'vaultName', 'abortVaultLock_vaultName' - The name of the vault.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#newAbortVaultLock"><span class="hs-identifier hs-type">newAbortVaultLock</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'vaultName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span>
+</span><span id="line-101"></span><span id="newAbortVaultLock"><span class="annot"><span class="annottext">newAbortVaultLock :: Text -&gt; Text -&gt; AbortVaultLock
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#newAbortVaultLock"><span class="hs-identifier hs-var hs-var">newAbortVaultLock</span></a></span></span><span> </span><span id="local-6989586621679225929"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225929"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679225928"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225928"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">AbortVaultLock' :: Text -&gt; Text -&gt; AbortVaultLock
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock%27"><span class="hs-identifier hs-type">AbortVaultLock'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:AbortVaultLock' :: Text
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#%24sel%3AaccountId%3AAbortVaultLock%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225929"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:AbortVaultLock' :: Text
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#%24sel%3AvaultName%3AAbortVaultLock%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225928"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID. This value must match the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- AWS account ID associated with the credentials used to sign the request.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- You can either specify an AWS account ID or optionally a single \'@-@\'</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- (hyphen), in which case Amazon Glacier uses the AWS account ID</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- associated with the credentials used to sign the request. If you specify</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- your account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#abortVaultLock_accountId"><span class="hs-identifier hs-type">abortVaultLock_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="abortVaultLock_accountId"><span class="annot"><span class="annottext">abortVaultLock_accountId :: (Text -&gt; f Text) -&gt; AbortVaultLock -&gt; f AbortVaultLock
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#abortVaultLock_accountId"><span class="hs-identifier hs-var hs-var">abortVaultLock_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AbortVaultLock -&gt; Text)
+-&gt; (AbortVaultLock -&gt; Text -&gt; AbortVaultLock)
+-&gt; Lens AbortVaultLock AbortVaultLock Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock%27"><span class="hs-identifier hs-type">AbortVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225925"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:AbortVaultLock' :: AbortVaultLock -&gt; Text
+</span><a href="#local-6989586621679225925"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225925"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225924"><span class="annot"><span class="annottext">s :: AbortVaultLock
+</span><a href="#local-6989586621679225924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock%27"><span class="hs-identifier hs-type">AbortVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225923"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortVaultLock
+</span><a href="#local-6989586621679225924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AbortVaultLock' :: Text
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#%24sel%3AaccountId%3AAbortVaultLock%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#abortVaultLock_vaultName"><span class="hs-identifier hs-type">abortVaultLock_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="abortVaultLock_vaultName"><span class="annot"><span class="annottext">abortVaultLock_vaultName :: (Text -&gt; f Text) -&gt; AbortVaultLock -&gt; f AbortVaultLock
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#abortVaultLock_vaultName"><span class="hs-identifier hs-var hs-var">abortVaultLock_vaultName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AbortVaultLock -&gt; Text)
+-&gt; (AbortVaultLock -&gt; Text -&gt; AbortVaultLock)
+-&gt; Lens AbortVaultLock AbortVaultLock Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock%27"><span class="hs-identifier hs-type">AbortVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225922"><span class="annot"><span class="annottext">Text
+vaultName :: Text
+$sel:vaultName:AbortVaultLock' :: AbortVaultLock -&gt; Text
+</span><a href="#local-6989586621679225922"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225922"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225921"><span class="annot"><span class="annottext">s :: AbortVaultLock
+</span><a href="#local-6989586621679225921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock%27"><span class="hs-identifier hs-type">AbortVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225920"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AbortVaultLock
+</span><a href="#local-6989586621679225921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:AbortVaultLock' :: Text
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#%24sel%3AvaultName%3AAbortVaultLock%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLockResponse"><span class="hs-identifier hs-type">AbortVaultLockResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679225916"><span class="annot"><span class="annottext">request :: AbortVaultLock -&gt; Request AbortVaultLock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request AbortVaultLock -&gt; Request AbortVaultLock
+forall a. ByteString -&gt; Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.glacierVersionHeader</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Service -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var">Core._serviceVersion</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">(Request AbortVaultLock -&gt; Request AbortVaultLock)
+-&gt; (AbortVaultLock -&gt; Request AbortVaultLock)
+-&gt; AbortVaultLock
+-&gt; Request AbortVaultLock
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; AbortVaultLock -&gt; Request AbortVaultLock
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679225909"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AbortVaultLock
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AbortVaultLock)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse AbortVaultLock
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AbortVaultLock
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AbortVaultLock)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse AbortVaultLock
+AbortVaultLockResponse
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLockResponse%27"><span class="hs-identifier hs-var">AbortVaultLockResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225902"><span id="local-6989586621679225904"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679225895"><span class="annot"><span class="annottext">toHeaders :: AbortVaultLock -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; AbortVaultLock -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679225890"><span class="annot"><span class="annottext">toPath :: AbortVaultLock -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock%27"><span class="hs-identifier hs-type">AbortVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225887"><span id="local-6989586621679225888"><span class="annot"><span class="annottext">Text
+vaultName :: Text
+accountId :: Text
+$sel:vaultName:AbortVaultLock' :: AbortVaultLock -&gt; Text
+$sel:accountId:AbortVaultLock' :: AbortVaultLock -&gt; Text
+</span><a href="#local-6989586621679225887"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225888"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225887"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/lock-policy&quot;</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLock"><span class="hs-identifier hs-type">AbortVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679225883"><span class="annot"><span class="annottext">toQuery :: AbortVaultLock -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AbortVaultLock -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newAbortVaultLockResponse' smart constructor.</span><span>
+</span><span id="line-151"></span><span id="local-6989586621679225880"><span id="local-6989586621679225881"></span></span><span class="hs-keyword">data</span><span> </span><span id="AbortVaultLockResponse"><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLockResponse"><span class="hs-identifier hs-var">AbortVaultLockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AbortVaultLockResponse%27"><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLockResponse%27"><span class="hs-identifier hs-var">AbortVaultLockResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225876"><span id="local-6989586621679225878"><span class="annot"><span class="annottext">AbortVaultLockResponse -&gt; AbortVaultLockResponse -&gt; Bool
+(AbortVaultLockResponse -&gt; AbortVaultLockResponse -&gt; Bool)
+-&gt; (AbortVaultLockResponse -&gt; AbortVaultLockResponse -&gt; Bool)
+-&gt; Eq AbortVaultLockResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AbortVaultLockResponse -&gt; AbortVaultLockResponse -&gt; Bool
+$c/= :: AbortVaultLockResponse -&gt; AbortVaultLockResponse -&gt; Bool
+== :: AbortVaultLockResponse -&gt; AbortVaultLockResponse -&gt; Bool
+$c== :: AbortVaultLockResponse -&gt; AbortVaultLockResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225868"><span id="local-6989586621679225870"><span id="local-6989586621679225872"><span id="local-6989586621679225874"><span class="annot"><span class="annottext">ReadPrec [AbortVaultLockResponse]
+ReadPrec AbortVaultLockResponse
+Int -&gt; ReadS AbortVaultLockResponse
+ReadS [AbortVaultLockResponse]
+(Int -&gt; ReadS AbortVaultLockResponse)
+-&gt; ReadS [AbortVaultLockResponse]
+-&gt; ReadPrec AbortVaultLockResponse
+-&gt; ReadPrec [AbortVaultLockResponse]
+-&gt; Read AbortVaultLockResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AbortVaultLockResponse]
+$creadListPrec :: ReadPrec [AbortVaultLockResponse]
+readPrec :: ReadPrec AbortVaultLockResponse
+$creadPrec :: ReadPrec AbortVaultLockResponse
+readList :: ReadS [AbortVaultLockResponse]
+$creadList :: ReadS [AbortVaultLockResponse]
+readsPrec :: Int -&gt; ReadS AbortVaultLockResponse
+$creadsPrec :: Int -&gt; ReadS AbortVaultLockResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225862"><span id="local-6989586621679225864"><span id="local-6989586621679225866"><span class="annot"><span class="annottext">Int -&gt; AbortVaultLockResponse -&gt; ShowS
+[AbortVaultLockResponse] -&gt; ShowS
+AbortVaultLockResponse -&gt; String
+(Int -&gt; AbortVaultLockResponse -&gt; ShowS)
+-&gt; (AbortVaultLockResponse -&gt; String)
+-&gt; ([AbortVaultLockResponse] -&gt; ShowS)
+-&gt; Show AbortVaultLockResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AbortVaultLockResponse] -&gt; ShowS
+$cshowList :: [AbortVaultLockResponse] -&gt; ShowS
+show :: AbortVaultLockResponse -&gt; String
+$cshow :: AbortVaultLockResponse -&gt; String
+showsPrec :: Int -&gt; AbortVaultLockResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AbortVaultLockResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AbortVaultLockResponse -&gt; Rep AbortVaultLockResponse x)
+-&gt; (forall x.
+    Rep AbortVaultLockResponse x -&gt; AbortVaultLockResponse)
+-&gt; Generic AbortVaultLockResponse
+forall x. Rep AbortVaultLockResponse x -&gt; AbortVaultLockResponse
+forall x. AbortVaultLockResponse -&gt; Rep AbortVaultLockResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AbortVaultLockResponse x -&gt; AbortVaultLockResponse
+$cfrom :: forall x. AbortVaultLockResponse -&gt; Rep AbortVaultLockResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Create a value of 'AbortVaultLockResponse' with all optional fields omitted.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#newAbortVaultLockResponse"><span class="hs-identifier hs-type">newAbortVaultLockResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLockResponse"><span class="hs-identifier hs-type">AbortVaultLockResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newAbortVaultLockResponse"><span class="annot"><span class="annottext">newAbortVaultLockResponse :: AbortVaultLockResponse
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#newAbortVaultLockResponse"><span class="hs-identifier hs-var hs-var">newAbortVaultLockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AbortVaultLockResponse
+</span><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLockResponse%27"><span class="hs-identifier hs-var">AbortVaultLockResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.AbortVaultLock.html#AbortVaultLockResponse"><span class="hs-identifier hs-type">AbortVaultLockResponse</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

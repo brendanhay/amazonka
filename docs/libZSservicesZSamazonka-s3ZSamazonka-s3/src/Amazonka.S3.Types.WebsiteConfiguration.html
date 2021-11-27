@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.WebsiteConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.WebsiteConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ErrorDocument.html"><span class="hs-identifier">Amazonka.S3.Types.ErrorDocument</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.IndexDocument.html"><span class="hs-identifier">Amazonka.S3.Types.IndexDocument</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RedirectAllRequestsTo.html"><span class="hs-identifier">Amazonka.S3.Types.RedirectAllRequestsTo</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RoutingRule.html"><span class="hs-identifier">Amazonka.S3.Types.RoutingRule</span></a></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Specifies website configuration parameters for an Amazon S3 bucket.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newWebsiteConfiguration' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679559734"><span id="local-6989586621679559735"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebsiteConfiguration"><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-var">WebsiteConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebsiteConfiguration%27"><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-var">WebsiteConfiguration'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The redirect behavior for every request to this bucket\'s website</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- If you specify this property, you can\'t specify any other property.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AredirectAllRequestsTo%3AWebsiteConfiguration%27"><span class="annot"><span class="annottext">WebsiteConfiguration -&gt; Maybe RedirectAllRequestsTo
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AredirectAllRequestsTo%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var hs-var">redirectAllRequestsTo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RedirectAllRequestsTo.html#RedirectAllRequestsTo"><span class="hs-identifier hs-type">RedirectAllRequestsTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the error document for the website.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AerrorDocument%3AWebsiteConfiguration%27"><span class="annot"><span class="annottext">WebsiteConfiguration -&gt; Maybe ErrorDocument
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AerrorDocument%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var hs-var">errorDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the index document for the website.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AindexDocument%3AWebsiteConfiguration%27"><span class="annot"><span class="annottext">WebsiteConfiguration -&gt; Maybe IndexDocument
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AindexDocument%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var hs-var">indexDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.IndexDocument.html#IndexDocument"><span class="hs-identifier hs-type">IndexDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Rules that define when a redirect is applied and the redirect behavior.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AroutingRules%3AWebsiteConfiguration%27"><span class="annot"><span class="annottext">WebsiteConfiguration -&gt; Maybe [RoutingRule]
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AroutingRules%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var hs-var">routingRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559725"><span id="local-6989586621679559727"><span class="annot"><span class="annottext">WebsiteConfiguration -&gt; WebsiteConfiguration -&gt; Bool
+(WebsiteConfiguration -&gt; WebsiteConfiguration -&gt; Bool)
+-&gt; (WebsiteConfiguration -&gt; WebsiteConfiguration -&gt; Bool)
+-&gt; Eq WebsiteConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WebsiteConfiguration -&gt; WebsiteConfiguration -&gt; Bool
+$c/= :: WebsiteConfiguration -&gt; WebsiteConfiguration -&gt; Bool
+== :: WebsiteConfiguration -&gt; WebsiteConfiguration -&gt; Bool
+$c== :: WebsiteConfiguration -&gt; WebsiteConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559716"><span id="local-6989586621679559718"><span id="local-6989586621679559720"><span id="local-6989586621679559722"><span class="annot"><span class="annottext">ReadPrec [WebsiteConfiguration]
+ReadPrec WebsiteConfiguration
+Int -&gt; ReadS WebsiteConfiguration
+ReadS [WebsiteConfiguration]
+(Int -&gt; ReadS WebsiteConfiguration)
+-&gt; ReadS [WebsiteConfiguration]
+-&gt; ReadPrec WebsiteConfiguration
+-&gt; ReadPrec [WebsiteConfiguration]
+-&gt; Read WebsiteConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WebsiteConfiguration]
+$creadListPrec :: ReadPrec [WebsiteConfiguration]
+readPrec :: ReadPrec WebsiteConfiguration
+$creadPrec :: ReadPrec WebsiteConfiguration
+readList :: ReadS [WebsiteConfiguration]
+$creadList :: ReadS [WebsiteConfiguration]
+readsPrec :: Int -&gt; ReadS WebsiteConfiguration
+$creadsPrec :: Int -&gt; ReadS WebsiteConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559709"><span id="local-6989586621679559711"><span id="local-6989586621679559713"><span class="annot"><span class="annottext">Int -&gt; WebsiteConfiguration -&gt; ShowS
+[WebsiteConfiguration] -&gt; ShowS
+WebsiteConfiguration -&gt; String
+(Int -&gt; WebsiteConfiguration -&gt; ShowS)
+-&gt; (WebsiteConfiguration -&gt; String)
+-&gt; ([WebsiteConfiguration] -&gt; ShowS)
+-&gt; Show WebsiteConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WebsiteConfiguration] -&gt; ShowS
+$cshowList :: [WebsiteConfiguration] -&gt; ShowS
+show :: WebsiteConfiguration -&gt; String
+$cshow :: WebsiteConfiguration -&gt; String
+showsPrec :: Int -&gt; WebsiteConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; WebsiteConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WebsiteConfiguration -&gt; Rep WebsiteConfiguration x)
+-&gt; (forall x. Rep WebsiteConfiguration x -&gt; WebsiteConfiguration)
+-&gt; Generic WebsiteConfiguration
+forall x. Rep WebsiteConfiguration x -&gt; WebsiteConfiguration
+forall x. WebsiteConfiguration -&gt; Rep WebsiteConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WebsiteConfiguration x -&gt; WebsiteConfiguration
+$cfrom :: forall x. WebsiteConfiguration -&gt; Rep WebsiteConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'WebsiteConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'redirectAllRequestsTo', 'websiteConfiguration_redirectAllRequestsTo' - The redirect behavior for every request to this bucket\'s website</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- If you specify this property, you can\'t specify any other property.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'errorDocument', 'websiteConfiguration_errorDocument' - The name of the error document for the website.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'indexDocument', 'websiteConfiguration_indexDocument' - The name of the index document for the website.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'routingRules', 'websiteConfiguration_routingRules' - Rules that define when a redirect is applied and the redirect behavior.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#newWebsiteConfiguration"><span class="hs-identifier hs-type">newWebsiteConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span>
+</span><span id="line-69"></span><span id="newWebsiteConfiguration"><span class="annot"><span class="annottext">newWebsiteConfiguration :: WebsiteConfiguration
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#newWebsiteConfiguration"><span class="hs-identifier hs-var hs-var">newWebsiteConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">WebsiteConfiguration' :: Maybe RedirectAllRequestsTo
+-&gt; Maybe ErrorDocument
+-&gt; Maybe IndexDocument
+-&gt; Maybe [RoutingRule]
+-&gt; WebsiteConfiguration
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:redirectAllRequestsTo:WebsiteConfiguration' :: Maybe RedirectAllRequestsTo
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AredirectAllRequestsTo%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var">redirectAllRequestsTo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorDocument:WebsiteConfiguration' :: Maybe ErrorDocument
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AerrorDocument%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var">errorDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDocument
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexDocument:WebsiteConfiguration' :: Maybe IndexDocument
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AindexDocument%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var">indexDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IndexDocument
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:routingRules:WebsiteConfiguration' :: Maybe [RoutingRule]
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AroutingRules%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var">routingRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The redirect behavior for every request to this bucket\'s website</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- If you specify this property, you can\'t specify any other property.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#websiteConfiguration_redirectAllRequestsTo"><span class="hs-identifier hs-type">websiteConfiguration_redirectAllRequestsTo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.RedirectAllRequestsTo.html#RedirectAllRequestsTo"><span class="hs-identifier hs-type">RedirectAllRequestsTo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="websiteConfiguration_redirectAllRequestsTo"><span class="annot"><span class="annottext">websiteConfiguration_redirectAllRequestsTo :: (Maybe RedirectAllRequestsTo -&gt; f (Maybe RedirectAllRequestsTo))
+-&gt; WebsiteConfiguration -&gt; f WebsiteConfiguration
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#websiteConfiguration_redirectAllRequestsTo"><span class="hs-identifier hs-var hs-var">websiteConfiguration_redirectAllRequestsTo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebsiteConfiguration -&gt; Maybe RedirectAllRequestsTo)
+-&gt; (WebsiteConfiguration
+    -&gt; Maybe RedirectAllRequestsTo -&gt; WebsiteConfiguration)
+-&gt; Lens
+     WebsiteConfiguration
+     WebsiteConfiguration
+     (Maybe RedirectAllRequestsTo)
+     (Maybe RedirectAllRequestsTo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559700"><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+redirectAllRequestsTo :: Maybe RedirectAllRequestsTo
+$sel:redirectAllRequestsTo:WebsiteConfiguration' :: WebsiteConfiguration -&gt; Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679559700"><span class="hs-identifier hs-var hs-var">redirectAllRequestsTo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679559700"><span class="hs-identifier hs-var">redirectAllRequestsTo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559699"><span class="annot"><span class="annottext">s :: WebsiteConfiguration
+</span><a href="#local-6989586621679559699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559698"><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679559698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebsiteConfiguration
+</span><a href="#local-6989586621679559699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redirectAllRequestsTo:WebsiteConfiguration' :: Maybe RedirectAllRequestsTo
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AredirectAllRequestsTo%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var">redirectAllRequestsTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679559698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The name of the error document for the website.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#websiteConfiguration_errorDocument"><span class="hs-identifier hs-type">websiteConfiguration_errorDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="websiteConfiguration_errorDocument"><span class="annot"><span class="annottext">websiteConfiguration_errorDocument :: (Maybe ErrorDocument -&gt; f (Maybe ErrorDocument))
+-&gt; WebsiteConfiguration -&gt; f WebsiteConfiguration
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#websiteConfiguration_errorDocument"><span class="hs-identifier hs-var hs-var">websiteConfiguration_errorDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebsiteConfiguration -&gt; Maybe ErrorDocument)
+-&gt; (WebsiteConfiguration
+    -&gt; Maybe ErrorDocument -&gt; WebsiteConfiguration)
+-&gt; Lens
+     WebsiteConfiguration
+     WebsiteConfiguration
+     (Maybe ErrorDocument)
+     (Maybe ErrorDocument)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559696"><span class="annot"><span class="annottext">Maybe ErrorDocument
+errorDocument :: Maybe ErrorDocument
+$sel:errorDocument:WebsiteConfiguration' :: WebsiteConfiguration -&gt; Maybe ErrorDocument
+</span><a href="#local-6989586621679559696"><span class="hs-identifier hs-var hs-var">errorDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDocument
+</span><a href="#local-6989586621679559696"><span class="hs-identifier hs-var">errorDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559695"><span class="annot"><span class="annottext">s :: WebsiteConfiguration
+</span><a href="#local-6989586621679559695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559694"><span class="annot"><span class="annottext">Maybe ErrorDocument
+</span><a href="#local-6989586621679559694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebsiteConfiguration
+</span><a href="#local-6989586621679559695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDocument:WebsiteConfiguration' :: Maybe ErrorDocument
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AerrorDocument%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var">errorDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDocument
+</span><a href="#local-6989586621679559694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The name of the index document for the website.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#websiteConfiguration_indexDocument"><span class="hs-identifier hs-type">websiteConfiguration_indexDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.IndexDocument.html#IndexDocument"><span class="hs-identifier hs-type">IndexDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="websiteConfiguration_indexDocument"><span class="annot"><span class="annottext">websiteConfiguration_indexDocument :: (Maybe IndexDocument -&gt; f (Maybe IndexDocument))
+-&gt; WebsiteConfiguration -&gt; f WebsiteConfiguration
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#websiteConfiguration_indexDocument"><span class="hs-identifier hs-var hs-var">websiteConfiguration_indexDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebsiteConfiguration -&gt; Maybe IndexDocument)
+-&gt; (WebsiteConfiguration
+    -&gt; Maybe IndexDocument -&gt; WebsiteConfiguration)
+-&gt; Lens
+     WebsiteConfiguration
+     WebsiteConfiguration
+     (Maybe IndexDocument)
+     (Maybe IndexDocument)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559692"><span class="annot"><span class="annottext">Maybe IndexDocument
+indexDocument :: Maybe IndexDocument
+$sel:indexDocument:WebsiteConfiguration' :: WebsiteConfiguration -&gt; Maybe IndexDocument
+</span><a href="#local-6989586621679559692"><span class="hs-identifier hs-var hs-var">indexDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IndexDocument
+</span><a href="#local-6989586621679559692"><span class="hs-identifier hs-var">indexDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559691"><span class="annot"><span class="annottext">s :: WebsiteConfiguration
+</span><a href="#local-6989586621679559691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559690"><span class="annot"><span class="annottext">Maybe IndexDocument
+</span><a href="#local-6989586621679559690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebsiteConfiguration
+</span><a href="#local-6989586621679559691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexDocument:WebsiteConfiguration' :: Maybe IndexDocument
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AindexDocument%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var">indexDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IndexDocument
+</span><a href="#local-6989586621679559690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Rules that define when a redirect is applied and the redirect behavior.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#websiteConfiguration_routingRules"><span class="hs-identifier hs-type">websiteConfiguration_routingRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="websiteConfiguration_routingRules"><span class="annot"><span class="annottext">websiteConfiguration_routingRules :: (Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+-&gt; WebsiteConfiguration -&gt; f WebsiteConfiguration
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#websiteConfiguration_routingRules"><span class="hs-identifier hs-var hs-var">websiteConfiguration_routingRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebsiteConfiguration -&gt; Maybe [RoutingRule])
+-&gt; (WebsiteConfiguration
+    -&gt; Maybe [RoutingRule] -&gt; WebsiteConfiguration)
+-&gt; Lens
+     WebsiteConfiguration
+     WebsiteConfiguration
+     (Maybe [RoutingRule])
+     (Maybe [RoutingRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559688"><span class="annot"><span class="annottext">Maybe [RoutingRule]
+routingRules :: Maybe [RoutingRule]
+$sel:routingRules:WebsiteConfiguration' :: WebsiteConfiguration -&gt; Maybe [RoutingRule]
+</span><a href="#local-6989586621679559688"><span class="hs-identifier hs-var hs-var">routingRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingRule]
+</span><a href="#local-6989586621679559688"><span class="hs-identifier hs-var">routingRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559687"><span class="annot"><span class="annottext">s :: WebsiteConfiguration
+</span><a href="#local-6989586621679559687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559686"><span class="annot"><span class="annottext">Maybe [RoutingRule]
+</span><a href="#local-6989586621679559686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebsiteConfiguration
+</span><a href="#local-6989586621679559687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingRules:WebsiteConfiguration' :: Maybe [RoutingRule]
+</span><a href="Amazonka.S3.Types.WebsiteConfiguration.html#%24sel%3AroutingRules%3AWebsiteConfiguration%27"><span class="hs-identifier hs-var">routingRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingRule]
+</span><a href="#local-6989586621679559686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+ -&gt; WebsiteConfiguration -&gt; f WebsiteConfiguration)
+-&gt; ((Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+    -&gt; Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+-&gt; (Maybe [RoutingRule] -&gt; f (Maybe [RoutingRule]))
+-&gt; WebsiteConfiguration
+-&gt; f WebsiteConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RoutingRule] [RoutingRule] [RoutingRule] [RoutingRule]
+-&gt; Iso
+     (Maybe [RoutingRule])
+     (Maybe [RoutingRule])
+     (Maybe [RoutingRule])
+     (Maybe [RoutingRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RoutingRule] [RoutingRule] [RoutingRule] [RoutingRule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559679"><span id="local-6989586621679559681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration"><span class="hs-identifier hs-type">WebsiteConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679559672"><span class="annot"><span class="annottext">toXML :: WebsiteConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.WebsiteConfiguration.html#WebsiteConfiguration%27"><span class="hs-identifier hs-type">WebsiteConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559667"><span id="local-6989586621679559668"><span id="local-6989586621679559669"><span id="local-6989586621679559670"><span class="annot"><span class="annottext">Maybe [RoutingRule]
+Maybe ErrorDocument
+Maybe IndexDocument
+Maybe RedirectAllRequestsTo
+routingRules :: Maybe [RoutingRule]
+indexDocument :: Maybe IndexDocument
+errorDocument :: Maybe ErrorDocument
+redirectAllRequestsTo :: Maybe RedirectAllRequestsTo
+$sel:routingRules:WebsiteConfiguration' :: WebsiteConfiguration -&gt; Maybe [RoutingRule]
+$sel:indexDocument:WebsiteConfiguration' :: WebsiteConfiguration -&gt; Maybe IndexDocument
+$sel:errorDocument:WebsiteConfiguration' :: WebsiteConfiguration -&gt; Maybe ErrorDocument
+$sel:redirectAllRequestsTo:WebsiteConfiguration' :: WebsiteConfiguration -&gt; Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679559667"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;RedirectAllRequestsTo&quot;</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe RedirectAllRequestsTo -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe RedirectAllRequestsTo
+</span><a href="#local-6989586621679559670"><span class="hs-identifier hs-var">redirectAllRequestsTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ErrorDocument&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ErrorDocument -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDocument
+</span><a href="#local-6989586621679559669"><span class="hs-identifier hs-var">errorDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;IndexDocument&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe IndexDocument -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe IndexDocument
+</span><a href="#local-6989586621679559668"><span class="hs-identifier hs-var">indexDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;RoutingRules&quot;</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
+forall a. ToXML a =&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Name -&gt; [RoutingRule] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;RoutingRule&quot;</span></span><span>
+</span><span id="line-111"></span><span>                </span><span class="annot"><span class="annottext">([RoutingRule] -&gt; XML) -&gt; Maybe [RoutingRule] -&gt; Maybe XML
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingRule]
+</span><a href="#local-6989586621679559667"><span class="hs-identifier hs-var">routingRules</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span></pre></body></html>

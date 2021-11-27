@@ -1,0 +1,810 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Kafka.DescribeConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a description of this MSK configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kafka.DescribeConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier">DescribeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#newDescribeConfiguration"><span class="hs-identifier">newDescribeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfiguration_arn"><span class="hs-identifier">describeConfiguration_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier">DescribeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#newDescribeConfigurationResponse"><span class="hs-identifier">newDescribeConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_creationTime"><span class="hs-identifier">describeConfigurationResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_state"><span class="hs-identifier">describeConfigurationResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_kafkaVersions"><span class="hs-identifier">describeConfigurationResponse_kafkaVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_arn"><span class="hs-identifier">describeConfigurationResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_latestRevision"><span class="hs-identifier">describeConfigurationResponse_latestRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_name"><span class="hs-identifier">describeConfigurationResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_description"><span class="hs-identifier">describeConfigurationResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_httpStatus"><span class="hs-identifier">describeConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.html"><span class="hs-identifier">Amazonka.Kafka.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeConfiguration' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679237972"><span id="local-6989586621679237973"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfiguration"><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-var">DescribeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfiguration%27"><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration%27"><span class="hs-identifier hs-var">DescribeConfiguration'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies an MSK</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- configuration and all of its revisions.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aarn%3ADescribeConfiguration%27"><span class="annot"><span class="annottext">DescribeConfiguration -&gt; Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Aarn%3ADescribeConfiguration%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237966"><span id="local-6989586621679237968"><span class="annot"><span class="annottext">DescribeConfiguration -&gt; DescribeConfiguration -&gt; Bool
+(DescribeConfiguration -&gt; DescribeConfiguration -&gt; Bool)
+-&gt; (DescribeConfiguration -&gt; DescribeConfiguration -&gt; Bool)
+-&gt; Eq DescribeConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeConfiguration -&gt; DescribeConfiguration -&gt; Bool
+$c/= :: DescribeConfiguration -&gt; DescribeConfiguration -&gt; Bool
+== :: DescribeConfiguration -&gt; DescribeConfiguration -&gt; Bool
+$c== :: DescribeConfiguration -&gt; DescribeConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237957"><span id="local-6989586621679237959"><span id="local-6989586621679237961"><span id="local-6989586621679237963"><span class="annot"><span class="annottext">ReadPrec [DescribeConfiguration]
+ReadPrec DescribeConfiguration
+Int -&gt; ReadS DescribeConfiguration
+ReadS [DescribeConfiguration]
+(Int -&gt; ReadS DescribeConfiguration)
+-&gt; ReadS [DescribeConfiguration]
+-&gt; ReadPrec DescribeConfiguration
+-&gt; ReadPrec [DescribeConfiguration]
+-&gt; Read DescribeConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeConfiguration]
+$creadListPrec :: ReadPrec [DescribeConfiguration]
+readPrec :: ReadPrec DescribeConfiguration
+$creadPrec :: ReadPrec DescribeConfiguration
+readList :: ReadS [DescribeConfiguration]
+$creadList :: ReadS [DescribeConfiguration]
+readsPrec :: Int -&gt; ReadS DescribeConfiguration
+$creadsPrec :: Int -&gt; ReadS DescribeConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237950"><span id="local-6989586621679237952"><span id="local-6989586621679237954"><span class="annot"><span class="annottext">Int -&gt; DescribeConfiguration -&gt; ShowS
+[DescribeConfiguration] -&gt; ShowS
+DescribeConfiguration -&gt; String
+(Int -&gt; DescribeConfiguration -&gt; ShowS)
+-&gt; (DescribeConfiguration -&gt; String)
+-&gt; ([DescribeConfiguration] -&gt; ShowS)
+-&gt; Show DescribeConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeConfiguration] -&gt; ShowS
+$cshowList :: [DescribeConfiguration] -&gt; ShowS
+show :: DescribeConfiguration -&gt; String
+$cshow :: DescribeConfiguration -&gt; String
+showsPrec :: Int -&gt; DescribeConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeConfiguration -&gt; Rep DescribeConfiguration x)
+-&gt; (forall x. Rep DescribeConfiguration x -&gt; DescribeConfiguration)
+-&gt; Generic DescribeConfiguration
+forall x. Rep DescribeConfiguration x -&gt; DescribeConfiguration
+forall x. DescribeConfiguration -&gt; Rep DescribeConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeConfiguration x -&gt; DescribeConfiguration
+$cfrom :: forall x. DescribeConfiguration -&gt; Rep DescribeConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'arn', 'describeConfiguration_arn' - The Amazon Resource Name (ARN) that uniquely identifies an MSK</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- configuration and all of its revisions.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#newDescribeConfiguration"><span class="hs-identifier hs-type">newDescribeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span><span>
+</span><span id="line-77"></span><span id="newDescribeConfiguration"><span class="annot"><span class="annottext">newDescribeConfiguration :: Text -&gt; DescribeConfiguration
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#newDescribeConfiguration"><span class="hs-identifier hs-var hs-var">newDescribeConfiguration</span></a></span></span><span> </span><span id="local-6989586621679237945"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237945"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeConfiguration' :: Text -&gt; DescribeConfiguration
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration%27"><span class="hs-identifier hs-type">DescribeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DescribeConfiguration' :: Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Aarn%3ADescribeConfiguration%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237945"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies an MSK</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- configuration and all of its revisions.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfiguration_arn"><span class="hs-identifier hs-type">describeConfiguration_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="describeConfiguration_arn"><span class="annot"><span class="annottext">describeConfiguration_arn :: (Text -&gt; f Text)
+-&gt; DescribeConfiguration -&gt; f DescribeConfiguration
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfiguration_arn"><span class="hs-identifier hs-var hs-var">describeConfiguration_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfiguration -&gt; Text)
+-&gt; (DescribeConfiguration -&gt; Text -&gt; DescribeConfiguration)
+-&gt; Lens DescribeConfiguration DescribeConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration%27"><span class="hs-identifier hs-type">DescribeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237942"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:DescribeConfiguration' :: DescribeConfiguration -&gt; Text
+</span><a href="#local-6989586621679237942"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237942"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237941"><span class="annot"><span class="annottext">s :: DescribeConfiguration
+</span><a href="#local-6989586621679237941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration%27"><span class="hs-identifier hs-type">DescribeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237940"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfiguration
+</span><a href="#local-6989586621679237941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DescribeConfiguration' :: Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Aarn%3ADescribeConfiguration%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679237936"><span class="annot"><span class="annottext">request :: DescribeConfiguration -&gt; Request DescribeConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeConfiguration -&gt; Request DescribeConfiguration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Kafka.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679237932"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237929"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237929"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237928"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679237928"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237927"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe ConfigurationState
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe ConfigurationRevision
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe ConfigurationState
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe ConfigurationRevision
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeConfigurationResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe ConfigurationState
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe ConfigurationRevision
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ConfigurationState
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe ConfigurationRevision
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeConfigurationResponse)
+-&gt; Either String (Maybe ConfigurationState)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe ConfigurationRevision
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConfigurationState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe ConfigurationRevision
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeConfigurationResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ConfigurationRevision
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kafkaVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ConfigurationRevision
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ConfigurationRevision
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ConfigurationRevision
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeConfigurationResponse)
+-&gt; Either String (Maybe ConfigurationRevision)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConfigurationRevision)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;latestRevision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeConfigurationResponse)
+-&gt; Either String Int -&gt; Either String DescribeConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237929"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237918"><span id="local-6989586621679237920"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679237911"><span class="annot"><span class="annottext">toHeaders :: DescribeConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679237905"><span class="annot"><span class="annottext">toPath :: DescribeConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration%27"><span class="hs-identifier hs-type">DescribeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237903"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:DescribeConfiguration' :: DescribeConfiguration -&gt; Text
+</span><a href="#local-6989586621679237903"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/configurations/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237903"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfiguration"><span class="hs-identifier hs-type">DescribeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679237899"><span class="annot"><span class="annottext">toQuery :: DescribeConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDescribeConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679237896"><span id="local-6989586621679237897"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationResponse"><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-var">DescribeConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationResponse%27"><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the configuration was created.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AcreationTime%3ADescribeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AcreationTime%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The state of the configuration. The possible states are ACTIVE,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- DELETING, and DELETE_FAILED.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3Astate%3ADescribeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationResponse -&gt; Maybe ConfigurationState
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Astate%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ConfigurationState.html#ConfigurationState"><span class="hs-identifier hs-type">ConfigurationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The versions of Apache Kafka with which you can use this MSK</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AkafkaVersions%3ADescribeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AkafkaVersions%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">kafkaVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the configuration.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3Aarn%3ADescribeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Aarn%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | Latest revision of the configuration.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AlatestRevision%3ADescribeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationResponse -&gt; Maybe ConfigurationRevision
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AlatestRevision%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The name of the configuration.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Aname%3ADescribeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Aname%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The description of the configuration.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3Adescription%3ADescribeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Adescription%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationResponse -&gt; Int
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AhttpStatus%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237884"><span id="local-6989586621679237886"><span class="annot"><span class="annottext">DescribeConfigurationResponse
+-&gt; DescribeConfigurationResponse -&gt; Bool
+(DescribeConfigurationResponse
+ -&gt; DescribeConfigurationResponse -&gt; Bool)
+-&gt; (DescribeConfigurationResponse
+    -&gt; DescribeConfigurationResponse -&gt; Bool)
+-&gt; Eq DescribeConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeConfigurationResponse
+-&gt; DescribeConfigurationResponse -&gt; Bool
+$c/= :: DescribeConfigurationResponse
+-&gt; DescribeConfigurationResponse -&gt; Bool
+== :: DescribeConfigurationResponse
+-&gt; DescribeConfigurationResponse -&gt; Bool
+$c== :: DescribeConfigurationResponse
+-&gt; DescribeConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237876"><span id="local-6989586621679237878"><span id="local-6989586621679237880"><span id="local-6989586621679237882"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationResponse]
+ReadPrec DescribeConfigurationResponse
+Int -&gt; ReadS DescribeConfigurationResponse
+ReadS [DescribeConfigurationResponse]
+(Int -&gt; ReadS DescribeConfigurationResponse)
+-&gt; ReadS [DescribeConfigurationResponse]
+-&gt; ReadPrec DescribeConfigurationResponse
+-&gt; ReadPrec [DescribeConfigurationResponse]
+-&gt; Read DescribeConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeConfigurationResponse]
+$creadListPrec :: ReadPrec [DescribeConfigurationResponse]
+readPrec :: ReadPrec DescribeConfigurationResponse
+$creadPrec :: ReadPrec DescribeConfigurationResponse
+readList :: ReadS [DescribeConfigurationResponse]
+$creadList :: ReadS [DescribeConfigurationResponse]
+readsPrec :: Int -&gt; ReadS DescribeConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS DescribeConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237870"><span id="local-6989586621679237872"><span id="local-6989586621679237874"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationResponse -&gt; ShowS
+[DescribeConfigurationResponse] -&gt; ShowS
+DescribeConfigurationResponse -&gt; String
+(Int -&gt; DescribeConfigurationResponse -&gt; ShowS)
+-&gt; (DescribeConfigurationResponse -&gt; String)
+-&gt; ([DescribeConfigurationResponse] -&gt; ShowS)
+-&gt; Show DescribeConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeConfigurationResponse] -&gt; ShowS
+$cshowList :: [DescribeConfigurationResponse] -&gt; ShowS
+show :: DescribeConfigurationResponse -&gt; String
+$cshow :: DescribeConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; DescribeConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeConfigurationResponse
+ -&gt; Rep DescribeConfigurationResponse x)
+-&gt; (forall x.
+    Rep DescribeConfigurationResponse x
+    -&gt; DescribeConfigurationResponse)
+-&gt; Generic DescribeConfigurationResponse
+forall x.
+Rep DescribeConfigurationResponse x
+-&gt; DescribeConfigurationResponse
+forall x.
+DescribeConfigurationResponse
+-&gt; Rep DescribeConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeConfigurationResponse x
+-&gt; DescribeConfigurationResponse
+$cfrom :: forall x.
+DescribeConfigurationResponse
+-&gt; Rep DescribeConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Create a value of 'DescribeConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'creationTime', 'describeConfigurationResponse_creationTime' - The time when the configuration was created.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'state', 'describeConfigurationResponse_state' - The state of the configuration. The possible states are ACTIVE,</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- DELETING, and DELETE_FAILED.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'kafkaVersions', 'describeConfigurationResponse_kafkaVersions' - The versions of Apache Kafka with which you can use this MSK</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'arn', 'describeConfigurationResponse_arn' - The Amazon Resource Name (ARN) of the configuration.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'latestRevision', 'describeConfigurationResponse_latestRevision' - Latest revision of the configuration.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'name', 'describeConfigurationResponse_name' - The name of the configuration.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'description', 'describeConfigurationResponse_description' - The description of the configuration.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'describeConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#newDescribeConfigurationResponse"><span class="hs-identifier hs-type">newDescribeConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newDescribeConfigurationResponse"><span class="annot"><span class="annottext">newDescribeConfigurationResponse :: Int -&gt; DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#newDescribeConfigurationResponse"><span class="hs-identifier hs-var hs-var">newDescribeConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679237867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">DescribeConfigurationResponse' :: Maybe POSIX
+-&gt; Maybe ConfigurationState
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe ConfigurationRevision
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DescribeConfigurationResponse' :: Maybe POSIX
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AcreationTime%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:DescribeConfigurationResponse' :: Maybe ConfigurationState
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Astate%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:kafkaVersions:DescribeConfigurationResponse' :: Maybe [Text]
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AkafkaVersions%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">kafkaVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DescribeConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Aarn%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestRevision:DescribeConfigurationResponse' :: Maybe ConfigurationRevision
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AlatestRevision%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DescribeConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Aname%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:DescribeConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Adescription%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationResponse' :: Int
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AhttpStatus%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The time when the configuration was created.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_creationTime"><span class="hs-identifier hs-type">describeConfigurationResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="describeConfigurationResponse_creationTime"><span class="annot"><span class="annottext">describeConfigurationResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeConfigurationResponse -&gt; f DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_creationTime"><span class="hs-identifier hs-var hs-var">describeConfigurationResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigurationResponse -&gt; Maybe POSIX)
+-&gt; (DescribeConfigurationResponse
+    -&gt; Maybe POSIX -&gt; DescribeConfigurationResponse)
+-&gt; Lens
+     DescribeConfigurationResponse
+     DescribeConfigurationResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237866"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:DescribeConfigurationResponse' :: DescribeConfigurationResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679237866"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679237866"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237865"><span class="annot"><span class="annottext">s :: DescribeConfigurationResponse
+</span><a href="#local-6989586621679237865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237864"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679237864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationResponse
+</span><a href="#local-6989586621679237865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribeConfigurationResponse' :: Maybe POSIX
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AcreationTime%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679237864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeConfigurationResponse
+ -&gt; f DescribeConfigurationResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeConfigurationResponse
+-&gt; f DescribeConfigurationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The state of the configuration. The possible states are ACTIVE,</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- DELETING, and DELETE_FAILED.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_state"><span class="hs-identifier hs-type">describeConfigurationResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ConfigurationState.html#ConfigurationState"><span class="hs-identifier hs-type">ConfigurationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="describeConfigurationResponse_state"><span class="annot"><span class="annottext">describeConfigurationResponse_state :: (Maybe ConfigurationState -&gt; f (Maybe ConfigurationState))
+-&gt; DescribeConfigurationResponse -&gt; f DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_state"><span class="hs-identifier hs-var hs-var">describeConfigurationResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigurationResponse -&gt; Maybe ConfigurationState)
+-&gt; (DescribeConfigurationResponse
+    -&gt; Maybe ConfigurationState -&gt; DescribeConfigurationResponse)
+-&gt; Lens
+     DescribeConfigurationResponse
+     DescribeConfigurationResponse
+     (Maybe ConfigurationState)
+     (Maybe ConfigurationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237860"><span class="annot"><span class="annottext">Maybe ConfigurationState
+state :: Maybe ConfigurationState
+$sel:state:DescribeConfigurationResponse' :: DescribeConfigurationResponse -&gt; Maybe ConfigurationState
+</span><a href="#local-6989586621679237860"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationState
+</span><a href="#local-6989586621679237860"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237859"><span class="annot"><span class="annottext">s :: DescribeConfigurationResponse
+</span><a href="#local-6989586621679237859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237858"><span class="annot"><span class="annottext">Maybe ConfigurationState
+</span><a href="#local-6989586621679237858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationResponse
+</span><a href="#local-6989586621679237859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:DescribeConfigurationResponse' :: Maybe ConfigurationState
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Astate%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationState
+</span><a href="#local-6989586621679237858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The versions of Apache Kafka with which you can use this MSK</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_kafkaVersions"><span class="hs-identifier hs-type">describeConfigurationResponse_kafkaVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="describeConfigurationResponse_kafkaVersions"><span class="annot"><span class="annottext">describeConfigurationResponse_kafkaVersions :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeConfigurationResponse -&gt; f DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_kafkaVersions"><span class="hs-identifier hs-var hs-var">describeConfigurationResponse_kafkaVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigurationResponse -&gt; Maybe [Text])
+-&gt; (DescribeConfigurationResponse
+    -&gt; Maybe [Text] -&gt; DescribeConfigurationResponse)
+-&gt; Lens
+     DescribeConfigurationResponse
+     DescribeConfigurationResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237857"><span class="annot"><span class="annottext">Maybe [Text]
+kafkaVersions :: Maybe [Text]
+$sel:kafkaVersions:DescribeConfigurationResponse' :: DescribeConfigurationResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679237857"><span class="hs-identifier hs-var hs-var">kafkaVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679237857"><span class="hs-identifier hs-var">kafkaVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237856"><span class="annot"><span class="annottext">s :: DescribeConfigurationResponse
+</span><a href="#local-6989586621679237856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237855"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679237855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationResponse
+</span><a href="#local-6989586621679237856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kafkaVersions:DescribeConfigurationResponse' :: Maybe [Text]
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AkafkaVersions%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">kafkaVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679237855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeConfigurationResponse
+ -&gt; f DescribeConfigurationResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeConfigurationResponse
+-&gt; f DescribeConfigurationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the configuration.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_arn"><span class="hs-identifier hs-type">describeConfigurationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="describeConfigurationResponse_arn"><span class="annot"><span class="annottext">describeConfigurationResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeConfigurationResponse -&gt; f DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_arn"><span class="hs-identifier hs-var hs-var">describeConfigurationResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigurationResponse -&gt; Maybe Text)
+-&gt; (DescribeConfigurationResponse
+    -&gt; Maybe Text -&gt; DescribeConfigurationResponse)
+-&gt; Lens
+     DescribeConfigurationResponse
+     DescribeConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237853"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DescribeConfigurationResponse' :: DescribeConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679237853"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237853"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237852"><span class="annot"><span class="annottext">s :: DescribeConfigurationResponse
+</span><a href="#local-6989586621679237852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237851"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationResponse
+</span><a href="#local-6989586621679237852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DescribeConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Aarn%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Latest revision of the configuration.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_latestRevision"><span class="hs-identifier hs-type">describeConfigurationResponse_latestRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="describeConfigurationResponse_latestRevision"><span class="annot"><span class="annottext">describeConfigurationResponse_latestRevision :: (Maybe ConfigurationRevision -&gt; f (Maybe ConfigurationRevision))
+-&gt; DescribeConfigurationResponse -&gt; f DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_latestRevision"><span class="hs-identifier hs-var hs-var">describeConfigurationResponse_latestRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigurationResponse -&gt; Maybe ConfigurationRevision)
+-&gt; (DescribeConfigurationResponse
+    -&gt; Maybe ConfigurationRevision -&gt; DescribeConfigurationResponse)
+-&gt; Lens
+     DescribeConfigurationResponse
+     DescribeConfigurationResponse
+     (Maybe ConfigurationRevision)
+     (Maybe ConfigurationRevision)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237850"><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+latestRevision :: Maybe ConfigurationRevision
+$sel:latestRevision:DescribeConfigurationResponse' :: DescribeConfigurationResponse -&gt; Maybe ConfigurationRevision
+</span><a href="#local-6989586621679237850"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+</span><a href="#local-6989586621679237850"><span class="hs-identifier hs-var">latestRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237849"><span class="annot"><span class="annottext">s :: DescribeConfigurationResponse
+</span><a href="#local-6989586621679237849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237848"><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+</span><a href="#local-6989586621679237848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationResponse
+</span><a href="#local-6989586621679237849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestRevision:DescribeConfigurationResponse' :: Maybe ConfigurationRevision
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AlatestRevision%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+</span><a href="#local-6989586621679237848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The name of the configuration.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_name"><span class="hs-identifier hs-type">describeConfigurationResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="describeConfigurationResponse_name"><span class="annot"><span class="annottext">describeConfigurationResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeConfigurationResponse -&gt; f DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_name"><span class="hs-identifier hs-var hs-var">describeConfigurationResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigurationResponse -&gt; Maybe Text)
+-&gt; (DescribeConfigurationResponse
+    -&gt; Maybe Text -&gt; DescribeConfigurationResponse)
+-&gt; Lens
+     DescribeConfigurationResponse
+     DescribeConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237847"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DescribeConfigurationResponse' :: DescribeConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679237847"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237847"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237846"><span class="annot"><span class="annottext">s :: DescribeConfigurationResponse
+</span><a href="#local-6989586621679237846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237845"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationResponse
+</span><a href="#local-6989586621679237846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Aname%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The description of the configuration.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_description"><span class="hs-identifier hs-type">describeConfigurationResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="describeConfigurationResponse_description"><span class="annot"><span class="annottext">describeConfigurationResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeConfigurationResponse -&gt; f DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_description"><span class="hs-identifier hs-var hs-var">describeConfigurationResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigurationResponse -&gt; Maybe Text)
+-&gt; (DescribeConfigurationResponse
+    -&gt; Maybe Text -&gt; DescribeConfigurationResponse)
+-&gt; Lens
+     DescribeConfigurationResponse
+     DescribeConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237844"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:DescribeConfigurationResponse' :: DescribeConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679237844"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237844"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237843"><span class="annot"><span class="annottext">s :: DescribeConfigurationResponse
+</span><a href="#local-6989586621679237843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationResponse
+</span><a href="#local-6989586621679237843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DescribeConfigurationResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3Adescription%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">describeConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="describeConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">describeConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeConfigurationResponse -&gt; f DescribeConfigurationResponse
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#describeConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigurationResponse -&gt; Int)
+-&gt; (DescribeConfigurationResponse
+    -&gt; Int -&gt; DescribeConfigurationResponse)
+-&gt; Lens
+     DescribeConfigurationResponse DescribeConfigurationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237841"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeConfigurationResponse' :: DescribeConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679237841"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237841"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237840"><span class="annot"><span class="annottext">s :: DescribeConfigurationResponse
+</span><a href="#local-6989586621679237840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237839"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationResponse
+</span><a href="#local-6989586621679237840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationResponse' :: Int
+</span><a href="Amazonka.Kafka.DescribeConfiguration.html#%24sel%3AhttpStatus%3ADescribeConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.DescribeConfiguration.html#DescribeConfigurationResponse"><span class="hs-identifier hs-type">DescribeConfigurationResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

@@ -1,0 +1,1366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComputeOptimizer.Types.InstanceRecommendation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.InstanceRecommendation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Finding.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.Finding</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.RecommendationSource.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.RecommendationSource</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.UtilizationMetric.html"><span class="hs-identifier">Amazonka.ComputeOptimizer.Types.UtilizationMetric</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Describes an Amazon EC2 instance recommendation.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newInstanceRecommendation' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679243460"><span id="local-6989586621679243461"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceRecommendation"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-var">InstanceRecommendation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRecommendation%27"><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-var">InstanceRecommendation'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the current instance.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AinstanceArn%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AinstanceArn%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The finding classification of the instance.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Findings for instances include:</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   __@Underprovisioned@__ &#8212;An instance is considered under-provisioned</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     when at least one specification of your instance, such as CPU,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     memory, or network, does not meet the performance requirements of</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     your workload. Under-provisioned instances may lead to poor</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     application performance.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   __@Overprovisioned@__ &#8212;An instance is considered over-provisioned</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     when at least one specification of your instance, such as CPU,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     memory, or network, can be sized down while still meeting the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     performance requirements of your workload, and no specification is</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     under-provisioned. Over-provisioned instances may lead to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     unnecessary infrastructure cost.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   __@Optimized@__ &#8212;An instance is considered optimized when all</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     specifications of your instance, such as CPU, memory, and network,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     meet the performance requirements of your workload and is not over</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     provisioned. For optimized resources, Compute Optimizer might</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     recommend a new generation instance type.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Afinding%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe Finding
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3Afinding%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">finding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Finding.html#Finding"><span class="hs-identifier hs-type">Finding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The instance type of the current instance.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcurrentInstanceType%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AcurrentInstanceType%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">currentInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The timestamp of when the instance recommendation was last refreshed.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AlastRefreshTimestamp%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe POSIX
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AlastRefreshTimestamp%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">lastRefreshTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID of the instance.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AaccountId%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AaccountId%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The reason for the finding classification of the instance.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Finding reason codes for instances include:</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   __@CPUOverprovisioned@__ &#8212; The instance&#8217;s CPU configuration can be</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     sized down while still meeting the performance requirements of your</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     workload. This is identified by analyzing the @CPUUtilization@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     metric of the current instance during the look-back period.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   __@CPUUnderprovisioned@__ &#8212; The instance&#8217;s CPU configuration</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     doesn\'t meet the performance requirements of your workload and</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     there is an alternative instance type that provides better CPU</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     performance. This is identified by analyzing the @CPUUtilization@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     metric of the current instance during the look-back period.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   __@MemoryOverprovisioned@__ &#8212; The instance&#8217;s memory configuration</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     can be sized down while still meeting the performance requirements</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     of your workload. This is identified by analyzing the memory</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     utilization metric of the current instance during the look-back</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     period.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   __@MemoryUnderprovisioned@__ &#8212; The instance&#8217;s memory configuration</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     doesn\'t meet the performance requirements of your workload and</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     there is an alternative instance type that provides better memory</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     performance. This is identified by analyzing the memory utilization</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     metric of the current instance during the look-back period.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     Memory utilization is analyzed only for resources that have the</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     unified CloudWatch agent installed on them. For more information,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     see</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling memory utilization with the Amazon CloudWatch Agent&gt;</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     in the /Compute Optimizer User Guide/. On Linux instances, Compute</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     Optimizer analyses the @mem_used_percent@ metric in the @CWAgent@</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     namespace, or the legacy @MemoryUtilization@ metric in the</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     @System\/Linux@ namespace. On Windows instances, Compute Optimizer</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     analyses the @Memory % Committed Bytes In Use@ metric in the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     @CWAgent@ namespace.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   __@EBSThroughputOverprovisioned@__ &#8212; The instance&#8217;s EBS throughput</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     configuration can be sized down while still meeting the performance</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     requirements of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes attached</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     to the current instance during the look-back period.</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- -   __@EBSThroughputUnderprovisioned@__ &#8212; The instance&#8217;s EBS throughput</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--     configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--     better EBS throughput performance. This is identified by analyzing</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--     the @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     attached to the current instance during the look-back period.</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   __@EBSIOPSOverprovisioned@__ &#8212; The instance&#8217;s EBS IOPS configuration</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--     can be sized down while still meeting the performance requirements</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--     of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--     attached to the current instance during the look-back period.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- -   __@EBSIOPSUnderprovisioned@__ &#8212; The instance&#8217;s EBS IOPS</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--     configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--     better EBS IOPS performance. This is identified by analyzing the</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--     attached to the current instance during the look-back period.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   __@NetworkBandwidthOverprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     bandwidth configuration can be sized down while still meeting the</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--     performance requirements of your workload. This is identified by</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--     analyzing the @NetworkIn@ and @NetworkOut@ metrics of the current</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--     instance during the look-back period.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- -   __@NetworkBandwidthUnderprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--     bandwidth configuration doesn\'t meet the performance requirements</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--     of your workload and there is an alternative instance type that</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--     provides better network bandwidth performance. This is identified by</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--     analyzing the @NetworkIn@ and @NetworkOut@ metrics of the current</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--     instance during the look-back period. This finding reason happens</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--     when the @NetworkIn@ or @NetworkOut@ performance of an instance is</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--     impacted.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- -   __@NetworkPPSOverprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--     (packets per second) configuration can be sized down while still</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--     meeting the performance requirements of your workload. This is</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--     identified by analyzing the @NetworkPacketsIn@ and</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--     @NetworkPacketsIn@ metrics of the current instance during the</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--     look-back period.</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- -   __@NetworkPPSUnderprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--     (packets per second) configuration doesn\'t meet the performance</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--     requirements of your workload and there is an alternative instance</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--     type that provides better network PPS performance. This is</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">--     identified by analyzing the @NetworkPacketsIn@ and</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--     @NetworkPacketsIn@ metrics of the current instance during the</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">--     look-back period.</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- -   __@DiskIOPSOverprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">--     configuration can be sized down while still meeting the performance</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--     requirements of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">--     @DiskReadOps@ and @DiskWriteOps@ metrics of the current instance</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--     during the look-back period.</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- -   __@DiskIOPSUnderprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--     configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">--     workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">--     better disk IOPS performance. This is identified by analyzing the</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--     @DiskReadOps@ and @DiskWriteOps@ metrics of the current instance</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">--     during the look-back period.</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- -   __@DiskThroughputOverprovisioned@__ &#8212; The instance&#8217;s disk throughput</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">--     configuration can be sized down while still meeting the performance</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--     requirements of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">--     @DiskReadBytes@ and @DiskWriteBytes@ metrics of the current instance</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">--     during the look-back period.</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- -   __@DiskThroughputUnderprovisioned@__ &#8212; The instance&#8217;s disk</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">--     throughput configuration doesn\'t meet the performance requirements</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">--     of your workload and there is an alternative instance type that</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">--     provides better disk throughput performance. This is identified by</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">--     analyzing the @DiskReadBytes@ and @DiskWriteBytes@ metrics of the</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">--     current instance during the look-back period.</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- For more information about instance metrics, see</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html List the available CloudWatch metrics for your instances&gt;</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/. For more information</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- about EBS volume metrics, see</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html Amazon CloudWatch metrics for Amazon EBS&gt;</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AfindingReasonCodes%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation
+-&gt; Maybe [InstanceRecommendationFindingReasonCode]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AfindingReasonCodes%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">findingReasonCodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode.html#InstanceRecommendationFindingReasonCode"><span class="hs-identifier hs-type">InstanceRecommendationFindingReasonCode</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the source resource of the</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- recommendation.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3ArecommendationSources%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe [RecommendationSource]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3ArecommendationSources%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">recommendationSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.RecommendationSource.html#RecommendationSource"><span class="hs-identifier hs-type">RecommendationSource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the utilization metrics of the</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AutilizationMetrics%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe [UtilizationMetric]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AutilizationMetrics%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">utilizationMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.UtilizationMetric.html#UtilizationMetric"><span class="hs-identifier hs-type">UtilizationMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- | The name of the current instance.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AinstanceName%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AinstanceName%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the recommendation options for the</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3ArecommendationOptions%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe [InstanceRecommendationOption]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3ArecommendationOptions%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">recommendationOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The number of days for which utilization metrics were analyzed for the</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AlookBackPeriodInDays%3AInstanceRecommendation%27"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; Maybe Double
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AlookBackPeriodInDays%3AInstanceRecommendation%27"><span class="hs-identifier hs-var hs-var">lookBackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243444"><span id="local-6989586621679243446"><span class="annot"><span class="annottext">InstanceRecommendation -&gt; InstanceRecommendation -&gt; Bool
+(InstanceRecommendation -&gt; InstanceRecommendation -&gt; Bool)
+-&gt; (InstanceRecommendation -&gt; InstanceRecommendation -&gt; Bool)
+-&gt; Eq InstanceRecommendation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceRecommendation -&gt; InstanceRecommendation -&gt; Bool
+$c/= :: InstanceRecommendation -&gt; InstanceRecommendation -&gt; Bool
+== :: InstanceRecommendation -&gt; InstanceRecommendation -&gt; Bool
+$c== :: InstanceRecommendation -&gt; InstanceRecommendation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243435"><span id="local-6989586621679243437"><span id="local-6989586621679243439"><span id="local-6989586621679243441"><span class="annot"><span class="annottext">ReadPrec [InstanceRecommendation]
+ReadPrec InstanceRecommendation
+Int -&gt; ReadS InstanceRecommendation
+ReadS [InstanceRecommendation]
+(Int -&gt; ReadS InstanceRecommendation)
+-&gt; ReadS [InstanceRecommendation]
+-&gt; ReadPrec InstanceRecommendation
+-&gt; ReadPrec [InstanceRecommendation]
+-&gt; Read InstanceRecommendation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceRecommendation]
+$creadListPrec :: ReadPrec [InstanceRecommendation]
+readPrec :: ReadPrec InstanceRecommendation
+$creadPrec :: ReadPrec InstanceRecommendation
+readList :: ReadS [InstanceRecommendation]
+$creadList :: ReadS [InstanceRecommendation]
+readsPrec :: Int -&gt; ReadS InstanceRecommendation
+$creadsPrec :: Int -&gt; ReadS InstanceRecommendation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243428"><span id="local-6989586621679243430"><span id="local-6989586621679243432"><span class="annot"><span class="annottext">Int -&gt; InstanceRecommendation -&gt; ShowS
+[InstanceRecommendation] -&gt; ShowS
+InstanceRecommendation -&gt; String
+(Int -&gt; InstanceRecommendation -&gt; ShowS)
+-&gt; (InstanceRecommendation -&gt; String)
+-&gt; ([InstanceRecommendation] -&gt; ShowS)
+-&gt; Show InstanceRecommendation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceRecommendation] -&gt; ShowS
+$cshowList :: [InstanceRecommendation] -&gt; ShowS
+show :: InstanceRecommendation -&gt; String
+$cshow :: InstanceRecommendation -&gt; String
+showsPrec :: Int -&gt; InstanceRecommendation -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceRecommendation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InstanceRecommendation -&gt; Rep InstanceRecommendation x)
+-&gt; (forall x.
+    Rep InstanceRecommendation x -&gt; InstanceRecommendation)
+-&gt; Generic InstanceRecommendation
+forall x. Rep InstanceRecommendation x -&gt; InstanceRecommendation
+forall x. InstanceRecommendation -&gt; Rep InstanceRecommendation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceRecommendation x -&gt; InstanceRecommendation
+$cfrom :: forall x. InstanceRecommendation -&gt; Rep InstanceRecommendation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Create a value of 'InstanceRecommendation' with all optional fields omitted.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'instanceArn', 'instanceRecommendation_instanceArn' - The Amazon Resource Name (ARN) of the current instance.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'finding', 'instanceRecommendation_finding' - The finding classification of the instance.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Findings for instances include:</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- -   __@Underprovisioned@__ &#8212;An instance is considered under-provisioned</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--     when at least one specification of your instance, such as CPU,</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     memory, or network, does not meet the performance requirements of</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     your workload. Under-provisioned instances may lead to poor</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     application performance.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   __@Overprovisioned@__ &#8212;An instance is considered over-provisioned</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     when at least one specification of your instance, such as CPU,</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     memory, or network, can be sized down while still meeting the</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     performance requirements of your workload, and no specification is</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     under-provisioned. Over-provisioned instances may lead to</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     unnecessary infrastructure cost.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   __@Optimized@__ &#8212;An instance is considered optimized when all</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     specifications of your instance, such as CPU, memory, and network,</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     meet the performance requirements of your workload and is not over</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     provisioned. For optimized resources, Compute Optimizer might</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     recommend a new generation instance type.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'currentInstanceType', 'instanceRecommendation_currentInstanceType' - The instance type of the current instance.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'lastRefreshTimestamp', 'instanceRecommendation_lastRefreshTimestamp' - The timestamp of when the instance recommendation was last refreshed.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- 'accountId', 'instanceRecommendation_accountId' - The Amazon Web Services account ID of the instance.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'findingReasonCodes', 'instanceRecommendation_findingReasonCodes' - The reason for the finding classification of the instance.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- Finding reason codes for instances include:</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- -   __@CPUOverprovisioned@__ &#8212; The instance&#8217;s CPU configuration can be</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--     sized down while still meeting the performance requirements of your</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     workload. This is identified by analyzing the @CPUUtilization@</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     metric of the current instance during the look-back period.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- -   __@CPUUnderprovisioned@__ &#8212; The instance&#8217;s CPU configuration</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     doesn\'t meet the performance requirements of your workload and</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--     there is an alternative instance type that provides better CPU</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     performance. This is identified by analyzing the @CPUUtilization@</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     metric of the current instance during the look-back period.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- -   __@MemoryOverprovisioned@__ &#8212; The instance&#8217;s memory configuration</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--     can be sized down while still meeting the performance requirements</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--     of your workload. This is identified by analyzing the memory</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     utilization metric of the current instance during the look-back</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--     period.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- -   __@MemoryUnderprovisioned@__ &#8212; The instance&#8217;s memory configuration</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     doesn\'t meet the performance requirements of your workload and</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--     there is an alternative instance type that provides better memory</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     performance. This is identified by analyzing the memory utilization</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     metric of the current instance during the look-back period.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--     Memory utilization is analyzed only for resources that have the</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     unified CloudWatch agent installed on them. For more information,</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling memory utilization with the Amazon CloudWatch Agent&gt;</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     in the /Compute Optimizer User Guide/. On Linux instances, Compute</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     Optimizer analyses the @mem_used_percent@ metric in the @CWAgent@</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--     namespace, or the legacy @MemoryUtilization@ metric in the</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--     @System\/Linux@ namespace. On Windows instances, Compute Optimizer</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     analyses the @Memory % Committed Bytes In Use@ metric in the</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--     @CWAgent@ namespace.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- -   __@EBSThroughputOverprovisioned@__ &#8212; The instance&#8217;s EBS throughput</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--     configuration can be sized down while still meeting the performance</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--     requirements of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--     @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes attached</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--     to the current instance during the look-back period.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- -   __@EBSThroughputUnderprovisioned@__ &#8212; The instance&#8217;s EBS throughput</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--     configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--     workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--     better EBS throughput performance. This is identified by analyzing</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--     the @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--     attached to the current instance during the look-back period.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- -   __@EBSIOPSOverprovisioned@__ &#8212; The instance&#8217;s EBS IOPS configuration</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--     can be sized down while still meeting the performance requirements</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--     of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--     attached to the current instance during the look-back period.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- -   __@EBSIOPSUnderprovisioned@__ &#8212; The instance&#8217;s EBS IOPS</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--     better EBS IOPS performance. This is identified by analyzing the</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--     attached to the current instance during the look-back period.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- -   __@NetworkBandwidthOverprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--     bandwidth configuration can be sized down while still meeting the</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--     performance requirements of your workload. This is identified by</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     analyzing the @NetworkIn@ and @NetworkOut@ metrics of the current</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--     instance during the look-back period.</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- -   __@NetworkBandwidthUnderprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     bandwidth configuration doesn\'t meet the performance requirements</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     of your workload and there is an alternative instance type that</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--     provides better network bandwidth performance. This is identified by</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--     analyzing the @NetworkIn@ and @NetworkOut@ metrics of the current</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--     instance during the look-back period. This finding reason happens</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--     when the @NetworkIn@ or @NetworkOut@ performance of an instance is</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     impacted.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- -   __@NetworkPPSOverprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     (packets per second) configuration can be sized down while still</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--     meeting the performance requirements of your workload. This is</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--     identified by analyzing the @NetworkPacketsIn@ and</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--     @NetworkPacketsIn@ metrics of the current instance during the</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     look-back period.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- -   __@NetworkPPSUnderprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--     (packets per second) configuration doesn\'t meet the performance</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--     requirements of your workload and there is an alternative instance</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--     type that provides better network PPS performance. This is</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--     identified by analyzing the @NetworkPacketsIn@ and</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--     @NetworkPacketsIn@ metrics of the current instance during the</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--     look-back period.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- -   __@DiskIOPSOverprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--     configuration can be sized down while still meeting the performance</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--     requirements of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--     @DiskReadOps@ and @DiskWriteOps@ metrics of the current instance</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--     during the look-back period.</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- -   __@DiskIOPSUnderprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--     configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--     workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--     better disk IOPS performance. This is identified by analyzing the</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--     @DiskReadOps@ and @DiskWriteOps@ metrics of the current instance</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--     during the look-back period.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- -   __@DiskThroughputOverprovisioned@__ &#8212; The instance&#8217;s disk throughput</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--     configuration can be sized down while still meeting the performance</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--     requirements of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--     @DiskReadBytes@ and @DiskWriteBytes@ metrics of the current instance</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--     during the look-back period.</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- -   __@DiskThroughputUnderprovisioned@__ &#8212; The instance&#8217;s disk</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--     throughput configuration doesn\'t meet the performance requirements</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--     of your workload and there is an alternative instance type that</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--     provides better disk throughput performance. This is identified by</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--     analyzing the @DiskReadBytes@ and @DiskWriteBytes@ metrics of the</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--     current instance during the look-back period.</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- For more information about instance metrics, see</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html List the available CloudWatch metrics for your instances&gt;</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/. For more information</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- about EBS volume metrics, see</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html Amazon CloudWatch metrics for Amazon EBS&gt;</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- 'recommendationSources', 'instanceRecommendation_recommendationSources' - An array of objects that describe the source resource of the</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- recommendation.</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- 'utilizationMetrics', 'instanceRecommendation_utilizationMetrics' - An array of objects that describe the utilization metrics of the</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- 'instanceName', 'instanceRecommendation_instanceName' - The name of the current instance.</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- 'recommendationOptions', 'instanceRecommendation_recommendationOptions' - An array of objects that describe the recommendation options for the</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-386"></span><span class="hs-comment">--</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- 'lookBackPeriodInDays', 'instanceRecommendation_lookBackPeriodInDays' - The number of days for which utilization metrics were analyzed for the</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-389"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#newInstanceRecommendation"><span class="hs-identifier hs-type">newInstanceRecommendation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-390"></span><span>  </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span>
+</span><span id="line-391"></span><span id="newInstanceRecommendation"><span class="annot"><span class="annottext">newInstanceRecommendation :: InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#newInstanceRecommendation"><span class="hs-identifier hs-var hs-var">newInstanceRecommendation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-392"></span><span>  </span><span class="annot"><span class="annottext">InstanceRecommendation' :: Maybe Text
+-&gt; Maybe Finding
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe [InstanceRecommendationFindingReasonCode]
+-&gt; Maybe [RecommendationSource]
+-&gt; Maybe [UtilizationMetric]
+-&gt; Maybe Text
+-&gt; Maybe [InstanceRecommendationOption]
+-&gt; Maybe Double
+-&gt; InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span>
+</span><span id="line-393"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceArn:InstanceRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AinstanceArn%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-394"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>      </span><span class="annot"><span class="annottext">$sel:finding:InstanceRecommendation' :: Maybe Finding
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3Afinding%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">finding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Finding
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentInstanceType:InstanceRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AcurrentInstanceType%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">currentInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-397"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastRefreshTimestamp:InstanceRecommendation' :: Maybe POSIX
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AlastRefreshTimestamp%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">lastRefreshTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:InstanceRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AaccountId%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-399"></span><span>      </span><span class="annot"><span class="annottext">$sel:findingReasonCodes:InstanceRecommendation' :: Maybe [InstanceRecommendationFindingReasonCode]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AfindingReasonCodes%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">findingReasonCodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRecommendationFindingReasonCode]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>      </span><span class="annot"><span class="annottext">$sel:recommendationSources:InstanceRecommendation' :: Maybe [RecommendationSource]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3ArecommendationSources%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">recommendationSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecommendationSource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>      </span><span class="annot"><span class="annottext">$sel:utilizationMetrics:InstanceRecommendation' :: Maybe [UtilizationMetric]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AutilizationMetrics%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">utilizationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-402"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceName:InstanceRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AinstanceName%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-403"></span><span>      </span><span class="annot"><span class="annottext">$sel:recommendationOptions:InstanceRecommendation' :: Maybe [InstanceRecommendationOption]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3ArecommendationOptions%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">recommendationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRecommendationOption]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>      </span><span class="annot"><span class="annottext">$sel:lookBackPeriodInDays:InstanceRecommendation' :: Maybe Double
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AlookBackPeriodInDays%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">lookBackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-405"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-406"></span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the current instance.</span><span>
+</span><span id="line-408"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_instanceArn"><span class="hs-identifier hs-type">instanceRecommendation_instanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span id="instanceRecommendation_instanceArn"><span class="annot"><span class="annottext">instanceRecommendation_instanceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_instanceArn"><span class="hs-identifier hs-var hs-var">instanceRecommendation_instanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe Text)
+-&gt; (InstanceRecommendation -&gt; Maybe Text -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243419"><span class="annot"><span class="annottext">Maybe Text
+instanceArn :: Maybe Text
+$sel:instanceArn:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe Text
+</span><a href="#local-6989586621679243419"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243419"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243418"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243417"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceArn:InstanceRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AinstanceArn%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- | The finding classification of the instance.</span><span>
+</span><span id="line-412"></span><span class="hs-comment">--</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- Findings for instances include:</span><span>
+</span><span id="line-414"></span><span class="hs-comment">--</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- -   __@Underprovisioned@__ &#8212;An instance is considered under-provisioned</span><span>
+</span><span id="line-416"></span><span class="hs-comment">--     when at least one specification of your instance, such as CPU,</span><span>
+</span><span id="line-417"></span><span class="hs-comment">--     memory, or network, does not meet the performance requirements of</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--     your workload. Under-provisioned instances may lead to poor</span><span>
+</span><span id="line-419"></span><span class="hs-comment">--     application performance.</span><span>
+</span><span id="line-420"></span><span class="hs-comment">--</span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- -   __@Overprovisioned@__ &#8212;An instance is considered over-provisioned</span><span>
+</span><span id="line-422"></span><span class="hs-comment">--     when at least one specification of your instance, such as CPU,</span><span>
+</span><span id="line-423"></span><span class="hs-comment">--     memory, or network, can be sized down while still meeting the</span><span>
+</span><span id="line-424"></span><span class="hs-comment">--     performance requirements of your workload, and no specification is</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--     under-provisioned. Over-provisioned instances may lead to</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--     unnecessary infrastructure cost.</span><span>
+</span><span id="line-427"></span><span class="hs-comment">--</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- -   __@Optimized@__ &#8212;An instance is considered optimized when all</span><span>
+</span><span id="line-429"></span><span class="hs-comment">--     specifications of your instance, such as CPU, memory, and network,</span><span>
+</span><span id="line-430"></span><span class="hs-comment">--     meet the performance requirements of your workload and is not over</span><span>
+</span><span id="line-431"></span><span class="hs-comment">--     provisioned. For optimized resources, Compute Optimizer might</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--     recommend a new generation instance type.</span><span>
+</span><span id="line-433"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_finding"><span class="hs-identifier hs-type">instanceRecommendation_finding</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.Finding.html#Finding"><span class="hs-identifier hs-type">Finding</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-434"></span><span id="instanceRecommendation_finding"><span class="annot"><span class="annottext">instanceRecommendation_finding :: (Maybe Finding -&gt; f (Maybe Finding))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_finding"><span class="hs-identifier hs-var hs-var">instanceRecommendation_finding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe Finding)
+-&gt; (InstanceRecommendation
+    -&gt; Maybe Finding -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe Finding)
+     (Maybe Finding)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243415"><span class="annot"><span class="annottext">Maybe Finding
+finding :: Maybe Finding
+$sel:finding:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe Finding
+</span><a href="#local-6989586621679243415"><span class="hs-identifier hs-var hs-var">finding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Finding
+</span><a href="#local-6989586621679243415"><span class="hs-identifier hs-var">finding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243414"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243413"><span class="annot"><span class="annottext">Maybe Finding
+</span><a href="#local-6989586621679243413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finding:InstanceRecommendation' :: Maybe Finding
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3Afinding%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">finding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Finding
+</span><a href="#local-6989586621679243413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-435"></span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- | The instance type of the current instance.</span><span>
+</span><span id="line-437"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_currentInstanceType"><span class="hs-identifier hs-type">instanceRecommendation_currentInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-438"></span><span id="instanceRecommendation_currentInstanceType"><span class="annot"><span class="annottext">instanceRecommendation_currentInstanceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_currentInstanceType"><span class="hs-identifier hs-var hs-var">instanceRecommendation_currentInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe Text)
+-&gt; (InstanceRecommendation -&gt; Maybe Text -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243411"><span class="annot"><span class="annottext">Maybe Text
+currentInstanceType :: Maybe Text
+$sel:currentInstanceType:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe Text
+</span><a href="#local-6989586621679243411"><span class="hs-identifier hs-var hs-var">currentInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243411"><span class="hs-identifier hs-var">currentInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243410"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243409"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentInstanceType:InstanceRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AcurrentInstanceType%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">currentInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- | The timestamp of when the instance recommendation was last refreshed.</span><span>
+</span><span id="line-441"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_lastRefreshTimestamp"><span class="hs-identifier hs-type">instanceRecommendation_lastRefreshTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-442"></span><span id="instanceRecommendation_lastRefreshTimestamp"><span class="annot"><span class="annottext">instanceRecommendation_lastRefreshTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_lastRefreshTimestamp"><span class="hs-identifier hs-var hs-var">instanceRecommendation_lastRefreshTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe POSIX)
+-&gt; (InstanceRecommendation
+    -&gt; Maybe POSIX -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243407"><span class="annot"><span class="annottext">Maybe POSIX
+lastRefreshTimestamp :: Maybe POSIX
+$sel:lastRefreshTimestamp:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679243407"><span class="hs-identifier hs-var hs-var">lastRefreshTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679243407"><span class="hs-identifier hs-var">lastRefreshTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243406"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243405"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679243405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastRefreshTimestamp:InstanceRecommendation' :: Maybe POSIX
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AlastRefreshTimestamp%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">lastRefreshTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679243405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; InstanceRecommendation -&gt; f InstanceRecommendation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceRecommendation
+-&gt; f InstanceRecommendation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-443"></span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- | The Amazon Web Services account ID of the instance.</span><span>
+</span><span id="line-445"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_accountId"><span class="hs-identifier hs-type">instanceRecommendation_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-446"></span><span id="instanceRecommendation_accountId"><span class="annot"><span class="annottext">instanceRecommendation_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_accountId"><span class="hs-identifier hs-var hs-var">instanceRecommendation_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe Text)
+-&gt; (InstanceRecommendation -&gt; Maybe Text -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243400"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe Text
+</span><a href="#local-6989586621679243400"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243400"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243399"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243398"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InstanceRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AaccountId%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-447"></span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- | The reason for the finding classification of the instance.</span><span>
+</span><span id="line-449"></span><span class="hs-comment">--</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- Finding reason codes for instances include:</span><span>
+</span><span id="line-451"></span><span class="hs-comment">--</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- -   __@CPUOverprovisioned@__ &#8212; The instance&#8217;s CPU configuration can be</span><span>
+</span><span id="line-453"></span><span class="hs-comment">--     sized down while still meeting the performance requirements of your</span><span>
+</span><span id="line-454"></span><span class="hs-comment">--     workload. This is identified by analyzing the @CPUUtilization@</span><span>
+</span><span id="line-455"></span><span class="hs-comment">--     metric of the current instance during the look-back period.</span><span>
+</span><span id="line-456"></span><span class="hs-comment">--</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- -   __@CPUUnderprovisioned@__ &#8212; The instance&#8217;s CPU configuration</span><span>
+</span><span id="line-458"></span><span class="hs-comment">--     doesn\'t meet the performance requirements of your workload and</span><span>
+</span><span id="line-459"></span><span class="hs-comment">--     there is an alternative instance type that provides better CPU</span><span>
+</span><span id="line-460"></span><span class="hs-comment">--     performance. This is identified by analyzing the @CPUUtilization@</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--     metric of the current instance during the look-back period.</span><span>
+</span><span id="line-462"></span><span class="hs-comment">--</span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- -   __@MemoryOverprovisioned@__ &#8212; The instance&#8217;s memory configuration</span><span>
+</span><span id="line-464"></span><span class="hs-comment">--     can be sized down while still meeting the performance requirements</span><span>
+</span><span id="line-465"></span><span class="hs-comment">--     of your workload. This is identified by analyzing the memory</span><span>
+</span><span id="line-466"></span><span class="hs-comment">--     utilization metric of the current instance during the look-back</span><span>
+</span><span id="line-467"></span><span class="hs-comment">--     period.</span><span>
+</span><span id="line-468"></span><span class="hs-comment">--</span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- -   __@MemoryUnderprovisioned@__ &#8212; The instance&#8217;s memory configuration</span><span>
+</span><span id="line-470"></span><span class="hs-comment">--     doesn\'t meet the performance requirements of your workload and</span><span>
+</span><span id="line-471"></span><span class="hs-comment">--     there is an alternative instance type that provides better memory</span><span>
+</span><span id="line-472"></span><span class="hs-comment">--     performance. This is identified by analyzing the memory utilization</span><span>
+</span><span id="line-473"></span><span class="hs-comment">--     metric of the current instance during the look-back period.</span><span>
+</span><span id="line-474"></span><span class="hs-comment">--</span><span>
+</span><span id="line-475"></span><span class="hs-comment">--     Memory utilization is analyzed only for resources that have the</span><span>
+</span><span id="line-476"></span><span class="hs-comment">--     unified CloudWatch agent installed on them. For more information,</span><span>
+</span><span id="line-477"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-478"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling memory utilization with the Amazon CloudWatch Agent&gt;</span><span>
+</span><span id="line-479"></span><span class="hs-comment">--     in the /Compute Optimizer User Guide/. On Linux instances, Compute</span><span>
+</span><span id="line-480"></span><span class="hs-comment">--     Optimizer analyses the @mem_used_percent@ metric in the @CWAgent@</span><span>
+</span><span id="line-481"></span><span class="hs-comment">--     namespace, or the legacy @MemoryUtilization@ metric in the</span><span>
+</span><span id="line-482"></span><span class="hs-comment">--     @System\/Linux@ namespace. On Windows instances, Compute Optimizer</span><span>
+</span><span id="line-483"></span><span class="hs-comment">--     analyses the @Memory % Committed Bytes In Use@ metric in the</span><span>
+</span><span id="line-484"></span><span class="hs-comment">--     @CWAgent@ namespace.</span><span>
+</span><span id="line-485"></span><span class="hs-comment">--</span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- -   __@EBSThroughputOverprovisioned@__ &#8212; The instance&#8217;s EBS throughput</span><span>
+</span><span id="line-487"></span><span class="hs-comment">--     configuration can be sized down while still meeting the performance</span><span>
+</span><span id="line-488"></span><span class="hs-comment">--     requirements of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-489"></span><span class="hs-comment">--     @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes attached</span><span>
+</span><span id="line-490"></span><span class="hs-comment">--     to the current instance during the look-back period.</span><span>
+</span><span id="line-491"></span><span class="hs-comment">--</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- -   __@EBSThroughputUnderprovisioned@__ &#8212; The instance&#8217;s EBS throughput</span><span>
+</span><span id="line-493"></span><span class="hs-comment">--     configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-494"></span><span class="hs-comment">--     workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-495"></span><span class="hs-comment">--     better EBS throughput performance. This is identified by analyzing</span><span>
+</span><span id="line-496"></span><span class="hs-comment">--     the @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes</span><span>
+</span><span id="line-497"></span><span class="hs-comment">--     attached to the current instance during the look-back period.</span><span>
+</span><span id="line-498"></span><span class="hs-comment">--</span><span>
+</span><span id="line-499"></span><span class="hs-comment">-- -   __@EBSIOPSOverprovisioned@__ &#8212; The instance&#8217;s EBS IOPS configuration</span><span>
+</span><span id="line-500"></span><span class="hs-comment">--     can be sized down while still meeting the performance requirements</span><span>
+</span><span id="line-501"></span><span class="hs-comment">--     of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-502"></span><span class="hs-comment">--     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes</span><span>
+</span><span id="line-503"></span><span class="hs-comment">--     attached to the current instance during the look-back period.</span><span>
+</span><span id="line-504"></span><span class="hs-comment">--</span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- -   __@EBSIOPSUnderprovisioned@__ &#8212; The instance&#8217;s EBS IOPS</span><span>
+</span><span id="line-506"></span><span class="hs-comment">--     configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-507"></span><span class="hs-comment">--     workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-508"></span><span class="hs-comment">--     better EBS IOPS performance. This is identified by analyzing the</span><span>
+</span><span id="line-509"></span><span class="hs-comment">--     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes</span><span>
+</span><span id="line-510"></span><span class="hs-comment">--     attached to the current instance during the look-back period.</span><span>
+</span><span id="line-511"></span><span class="hs-comment">--</span><span>
+</span><span id="line-512"></span><span class="hs-comment">-- -   __@NetworkBandwidthOverprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-513"></span><span class="hs-comment">--     bandwidth configuration can be sized down while still meeting the</span><span>
+</span><span id="line-514"></span><span class="hs-comment">--     performance requirements of your workload. This is identified by</span><span>
+</span><span id="line-515"></span><span class="hs-comment">--     analyzing the @NetworkIn@ and @NetworkOut@ metrics of the current</span><span>
+</span><span id="line-516"></span><span class="hs-comment">--     instance during the look-back period.</span><span>
+</span><span id="line-517"></span><span class="hs-comment">--</span><span>
+</span><span id="line-518"></span><span class="hs-comment">-- -   __@NetworkBandwidthUnderprovisioned@__ &#8212; The instance&#8217;s network</span><span>
+</span><span id="line-519"></span><span class="hs-comment">--     bandwidth configuration doesn\'t meet the performance requirements</span><span>
+</span><span id="line-520"></span><span class="hs-comment">--     of your workload and there is an alternative instance type that</span><span>
+</span><span id="line-521"></span><span class="hs-comment">--     provides better network bandwidth performance. This is identified by</span><span>
+</span><span id="line-522"></span><span class="hs-comment">--     analyzing the @NetworkIn@ and @NetworkOut@ metrics of the current</span><span>
+</span><span id="line-523"></span><span class="hs-comment">--     instance during the look-back period. This finding reason happens</span><span>
+</span><span id="line-524"></span><span class="hs-comment">--     when the @NetworkIn@ or @NetworkOut@ performance of an instance is</span><span>
+</span><span id="line-525"></span><span class="hs-comment">--     impacted.</span><span>
+</span><span id="line-526"></span><span class="hs-comment">--</span><span>
+</span><span id="line-527"></span><span class="hs-comment">-- -   __@NetworkPPSOverprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-528"></span><span class="hs-comment">--     (packets per second) configuration can be sized down while still</span><span>
+</span><span id="line-529"></span><span class="hs-comment">--     meeting the performance requirements of your workload. This is</span><span>
+</span><span id="line-530"></span><span class="hs-comment">--     identified by analyzing the @NetworkPacketsIn@ and</span><span>
+</span><span id="line-531"></span><span class="hs-comment">--     @NetworkPacketsIn@ metrics of the current instance during the</span><span>
+</span><span id="line-532"></span><span class="hs-comment">--     look-back period.</span><span>
+</span><span id="line-533"></span><span class="hs-comment">--</span><span>
+</span><span id="line-534"></span><span class="hs-comment">-- -   __@NetworkPPSUnderprovisioned@__ &#8212; The instance&#8217;s network PPS</span><span>
+</span><span id="line-535"></span><span class="hs-comment">--     (packets per second) configuration doesn\'t meet the performance</span><span>
+</span><span id="line-536"></span><span class="hs-comment">--     requirements of your workload and there is an alternative instance</span><span>
+</span><span id="line-537"></span><span class="hs-comment">--     type that provides better network PPS performance. This is</span><span>
+</span><span id="line-538"></span><span class="hs-comment">--     identified by analyzing the @NetworkPacketsIn@ and</span><span>
+</span><span id="line-539"></span><span class="hs-comment">--     @NetworkPacketsIn@ metrics of the current instance during the</span><span>
+</span><span id="line-540"></span><span class="hs-comment">--     look-back period.</span><span>
+</span><span id="line-541"></span><span class="hs-comment">--</span><span>
+</span><span id="line-542"></span><span class="hs-comment">-- -   __@DiskIOPSOverprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-543"></span><span class="hs-comment">--     configuration can be sized down while still meeting the performance</span><span>
+</span><span id="line-544"></span><span class="hs-comment">--     requirements of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-545"></span><span class="hs-comment">--     @DiskReadOps@ and @DiskWriteOps@ metrics of the current instance</span><span>
+</span><span id="line-546"></span><span class="hs-comment">--     during the look-back period.</span><span>
+</span><span id="line-547"></span><span class="hs-comment">--</span><span>
+</span><span id="line-548"></span><span class="hs-comment">-- -   __@DiskIOPSUnderprovisioned@__ &#8212; The instance&#8217;s disk IOPS</span><span>
+</span><span id="line-549"></span><span class="hs-comment">--     configuration doesn\'t meet the performance requirements of your</span><span>
+</span><span id="line-550"></span><span class="hs-comment">--     workload and there is an alternative instance type that provides</span><span>
+</span><span id="line-551"></span><span class="hs-comment">--     better disk IOPS performance. This is identified by analyzing the</span><span>
+</span><span id="line-552"></span><span class="hs-comment">--     @DiskReadOps@ and @DiskWriteOps@ metrics of the current instance</span><span>
+</span><span id="line-553"></span><span class="hs-comment">--     during the look-back period.</span><span>
+</span><span id="line-554"></span><span class="hs-comment">--</span><span>
+</span><span id="line-555"></span><span class="hs-comment">-- -   __@DiskThroughputOverprovisioned@__ &#8212; The instance&#8217;s disk throughput</span><span>
+</span><span id="line-556"></span><span class="hs-comment">--     configuration can be sized down while still meeting the performance</span><span>
+</span><span id="line-557"></span><span class="hs-comment">--     requirements of your workload. This is identified by analyzing the</span><span>
+</span><span id="line-558"></span><span class="hs-comment">--     @DiskReadBytes@ and @DiskWriteBytes@ metrics of the current instance</span><span>
+</span><span id="line-559"></span><span class="hs-comment">--     during the look-back period.</span><span>
+</span><span id="line-560"></span><span class="hs-comment">--</span><span>
+</span><span id="line-561"></span><span class="hs-comment">-- -   __@DiskThroughputUnderprovisioned@__ &#8212; The instance&#8217;s disk</span><span>
+</span><span id="line-562"></span><span class="hs-comment">--     throughput configuration doesn\'t meet the performance requirements</span><span>
+</span><span id="line-563"></span><span class="hs-comment">--     of your workload and there is an alternative instance type that</span><span>
+</span><span id="line-564"></span><span class="hs-comment">--     provides better disk throughput performance. This is identified by</span><span>
+</span><span id="line-565"></span><span class="hs-comment">--     analyzing the @DiskReadBytes@ and @DiskWriteBytes@ metrics of the</span><span>
+</span><span id="line-566"></span><span class="hs-comment">--     current instance during the look-back period.</span><span>
+</span><span id="line-567"></span><span class="hs-comment">--</span><span>
+</span><span id="line-568"></span><span class="hs-comment">-- For more information about instance metrics, see</span><span>
+</span><span id="line-569"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html List the available CloudWatch metrics for your instances&gt;</span><span>
+</span><span id="line-570"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/. For more information</span><span>
+</span><span id="line-571"></span><span class="hs-comment">-- about EBS volume metrics, see</span><span>
+</span><span id="line-572"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html Amazon CloudWatch metrics for Amazon EBS&gt;</span><span>
+</span><span id="line-573"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-574"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_findingReasonCodes"><span class="hs-identifier hs-type">instanceRecommendation_findingReasonCodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode.html#InstanceRecommendationFindingReasonCode"><span class="hs-identifier hs-type">InstanceRecommendationFindingReasonCode</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-575"></span><span id="instanceRecommendation_findingReasonCodes"><span class="annot"><span class="annottext">instanceRecommendation_findingReasonCodes :: (Maybe [InstanceRecommendationFindingReasonCode]
+ -&gt; f (Maybe [InstanceRecommendationFindingReasonCode]))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_findingReasonCodes"><span class="hs-identifier hs-var hs-var">instanceRecommendation_findingReasonCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation
+ -&gt; Maybe [InstanceRecommendationFindingReasonCode])
+-&gt; (InstanceRecommendation
+    -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+    -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe [InstanceRecommendationFindingReasonCode])
+     (Maybe [InstanceRecommendationFindingReasonCode])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243396"><span class="annot"><span class="annottext">Maybe [InstanceRecommendationFindingReasonCode]
+findingReasonCodes :: Maybe [InstanceRecommendationFindingReasonCode]
+$sel:findingReasonCodes:InstanceRecommendation' :: InstanceRecommendation
+-&gt; Maybe [InstanceRecommendationFindingReasonCode]
+</span><a href="#local-6989586621679243396"><span class="hs-identifier hs-var hs-var">findingReasonCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRecommendationFindingReasonCode]
+</span><a href="#local-6989586621679243396"><span class="hs-identifier hs-var">findingReasonCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243395"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243394"><span class="annot"><span class="annottext">Maybe [InstanceRecommendationFindingReasonCode]
+</span><a href="#local-6989586621679243394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingReasonCodes:InstanceRecommendation' :: Maybe [InstanceRecommendationFindingReasonCode]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AfindingReasonCodes%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">findingReasonCodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRecommendationFindingReasonCode]
+</span><a href="#local-6989586621679243394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceRecommendationFindingReasonCode]
+  -&gt; f (Maybe [InstanceRecommendationFindingReasonCode]))
+ -&gt; InstanceRecommendation -&gt; f InstanceRecommendation)
+-&gt; ((Maybe [InstanceRecommendationFindingReasonCode]
+     -&gt; f (Maybe [InstanceRecommendationFindingReasonCode]))
+    -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+    -&gt; f (Maybe [InstanceRecommendationFindingReasonCode]))
+-&gt; (Maybe [InstanceRecommendationFindingReasonCode]
+    -&gt; f (Maybe [InstanceRecommendationFindingReasonCode]))
+-&gt; InstanceRecommendation
+-&gt; f InstanceRecommendation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceRecommendationFindingReasonCode]
+  [InstanceRecommendationFindingReasonCode]
+  [InstanceRecommendationFindingReasonCode]
+  [InstanceRecommendationFindingReasonCode]
+-&gt; Iso
+     (Maybe [InstanceRecommendationFindingReasonCode])
+     (Maybe [InstanceRecommendationFindingReasonCode])
+     (Maybe [InstanceRecommendationFindingReasonCode])
+     (Maybe [InstanceRecommendationFindingReasonCode])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceRecommendationFindingReasonCode]
+  [InstanceRecommendationFindingReasonCode]
+  [InstanceRecommendationFindingReasonCode]
+  [InstanceRecommendationFindingReasonCode]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-576"></span><span>
+</span><span id="line-577"></span><span class="hs-comment">-- | An array of objects that describe the source resource of the</span><span>
+</span><span id="line-578"></span><span class="hs-comment">-- recommendation.</span><span>
+</span><span id="line-579"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_recommendationSources"><span class="hs-identifier hs-type">instanceRecommendation_recommendationSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.RecommendationSource.html#RecommendationSource"><span class="hs-identifier hs-type">RecommendationSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-580"></span><span id="instanceRecommendation_recommendationSources"><span class="annot"><span class="annottext">instanceRecommendation_recommendationSources :: (Maybe [RecommendationSource] -&gt; f (Maybe [RecommendationSource]))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_recommendationSources"><span class="hs-identifier hs-var hs-var">instanceRecommendation_recommendationSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe [RecommendationSource])
+-&gt; (InstanceRecommendation
+    -&gt; Maybe [RecommendationSource] -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe [RecommendationSource])
+     (Maybe [RecommendationSource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243391"><span class="annot"><span class="annottext">Maybe [RecommendationSource]
+recommendationSources :: Maybe [RecommendationSource]
+$sel:recommendationSources:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe [RecommendationSource]
+</span><a href="#local-6989586621679243391"><span class="hs-identifier hs-var hs-var">recommendationSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RecommendationSource]
+</span><a href="#local-6989586621679243391"><span class="hs-identifier hs-var">recommendationSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243390"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243389"><span class="annot"><span class="annottext">Maybe [RecommendationSource]
+</span><a href="#local-6989586621679243389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendationSources:InstanceRecommendation' :: Maybe [RecommendationSource]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3ArecommendationSources%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">recommendationSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecommendationSource]
+</span><a href="#local-6989586621679243389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RecommendationSource] -&gt; f (Maybe [RecommendationSource]))
+ -&gt; InstanceRecommendation -&gt; f InstanceRecommendation)
+-&gt; ((Maybe [RecommendationSource]
+     -&gt; f (Maybe [RecommendationSource]))
+    -&gt; Maybe [RecommendationSource]
+    -&gt; f (Maybe [RecommendationSource]))
+-&gt; (Maybe [RecommendationSource]
+    -&gt; f (Maybe [RecommendationSource]))
+-&gt; InstanceRecommendation
+-&gt; f InstanceRecommendation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RecommendationSource]
+  [RecommendationSource]
+  [RecommendationSource]
+  [RecommendationSource]
+-&gt; Iso
+     (Maybe [RecommendationSource])
+     (Maybe [RecommendationSource])
+     (Maybe [RecommendationSource])
+     (Maybe [RecommendationSource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RecommendationSource]
+  [RecommendationSource]
+  [RecommendationSource]
+  [RecommendationSource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-581"></span><span>
+</span><span id="line-582"></span><span class="hs-comment">-- | An array of objects that describe the utilization metrics of the</span><span>
+</span><span id="line-583"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-584"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_utilizationMetrics"><span class="hs-identifier hs-type">instanceRecommendation_utilizationMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.UtilizationMetric.html#UtilizationMetric"><span class="hs-identifier hs-type">UtilizationMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-585"></span><span id="instanceRecommendation_utilizationMetrics"><span class="annot"><span class="annottext">instanceRecommendation_utilizationMetrics :: (Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_utilizationMetrics"><span class="hs-identifier hs-var hs-var">instanceRecommendation_utilizationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe [UtilizationMetric])
+-&gt; (InstanceRecommendation
+    -&gt; Maybe [UtilizationMetric] -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe [UtilizationMetric])
+     (Maybe [UtilizationMetric])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243387"><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+utilizationMetrics :: Maybe [UtilizationMetric]
+$sel:utilizationMetrics:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe [UtilizationMetric]
+</span><a href="#local-6989586621679243387"><span class="hs-identifier hs-var hs-var">utilizationMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+</span><a href="#local-6989586621679243387"><span class="hs-identifier hs-var">utilizationMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243386"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243385"><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+</span><a href="#local-6989586621679243385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utilizationMetrics:InstanceRecommendation' :: Maybe [UtilizationMetric]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AutilizationMetrics%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">utilizationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+</span><a href="#local-6989586621679243385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+ -&gt; InstanceRecommendation -&gt; f InstanceRecommendation)
+-&gt; ((Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+    -&gt; Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+-&gt; (Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+-&gt; InstanceRecommendation
+-&gt; f InstanceRecommendation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UtilizationMetric]
+  [UtilizationMetric]
+  [UtilizationMetric]
+  [UtilizationMetric]
+-&gt; Iso
+     (Maybe [UtilizationMetric])
+     (Maybe [UtilizationMetric])
+     (Maybe [UtilizationMetric])
+     (Maybe [UtilizationMetric])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UtilizationMetric]
+  [UtilizationMetric]
+  [UtilizationMetric]
+  [UtilizationMetric]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-586"></span><span>
+</span><span id="line-587"></span><span class="hs-comment">-- | The name of the current instance.</span><span>
+</span><span id="line-588"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_instanceName"><span class="hs-identifier hs-type">instanceRecommendation_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-589"></span><span id="instanceRecommendation_instanceName"><span class="annot"><span class="annottext">instanceRecommendation_instanceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_instanceName"><span class="hs-identifier hs-var hs-var">instanceRecommendation_instanceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe Text)
+-&gt; (InstanceRecommendation -&gt; Maybe Text -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243383"><span class="annot"><span class="annottext">Maybe Text
+instanceName :: Maybe Text
+$sel:instanceName:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe Text
+</span><a href="#local-6989586621679243383"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243383"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243382"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:InstanceRecommendation' :: Maybe Text
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AinstanceName%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-590"></span><span>
+</span><span id="line-591"></span><span class="hs-comment">-- | An array of objects that describe the recommendation options for the</span><span>
+</span><span id="line-592"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-593"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_recommendationOptions"><span class="hs-identifier hs-type">instanceRecommendation_recommendationOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-594"></span><span id="instanceRecommendation_recommendationOptions"><span class="annot"><span class="annottext">instanceRecommendation_recommendationOptions :: (Maybe [InstanceRecommendationOption]
+ -&gt; f (Maybe [InstanceRecommendationOption]))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_recommendationOptions"><span class="hs-identifier hs-var hs-var">instanceRecommendation_recommendationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe [InstanceRecommendationOption])
+-&gt; (InstanceRecommendation
+    -&gt; Maybe [InstanceRecommendationOption] -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe [InstanceRecommendationOption])
+     (Maybe [InstanceRecommendationOption])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243379"><span class="annot"><span class="annottext">Maybe [InstanceRecommendationOption]
+recommendationOptions :: Maybe [InstanceRecommendationOption]
+$sel:recommendationOptions:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe [InstanceRecommendationOption]
+</span><a href="#local-6989586621679243379"><span class="hs-identifier hs-var hs-var">recommendationOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRecommendationOption]
+</span><a href="#local-6989586621679243379"><span class="hs-identifier hs-var">recommendationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243378"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243377"><span class="annot"><span class="annottext">Maybe [InstanceRecommendationOption]
+</span><a href="#local-6989586621679243377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendationOptions:InstanceRecommendation' :: Maybe [InstanceRecommendationOption]
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3ArecommendationOptions%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">recommendationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRecommendationOption]
+</span><a href="#local-6989586621679243377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceRecommendationOption]
+  -&gt; f (Maybe [InstanceRecommendationOption]))
+ -&gt; InstanceRecommendation -&gt; f InstanceRecommendation)
+-&gt; ((Maybe [InstanceRecommendationOption]
+     -&gt; f (Maybe [InstanceRecommendationOption]))
+    -&gt; Maybe [InstanceRecommendationOption]
+    -&gt; f (Maybe [InstanceRecommendationOption]))
+-&gt; (Maybe [InstanceRecommendationOption]
+    -&gt; f (Maybe [InstanceRecommendationOption]))
+-&gt; InstanceRecommendation
+-&gt; f InstanceRecommendation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceRecommendationOption]
+  [InstanceRecommendationOption]
+  [InstanceRecommendationOption]
+  [InstanceRecommendationOption]
+-&gt; Iso
+     (Maybe [InstanceRecommendationOption])
+     (Maybe [InstanceRecommendationOption])
+     (Maybe [InstanceRecommendationOption])
+     (Maybe [InstanceRecommendationOption])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceRecommendationOption]
+  [InstanceRecommendationOption]
+  [InstanceRecommendationOption]
+  [InstanceRecommendationOption]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-595"></span><span>
+</span><span id="line-596"></span><span class="hs-comment">-- | The number of days for which utilization metrics were analyzed for the</span><span>
+</span><span id="line-597"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-598"></span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_lookBackPeriodInDays"><span class="hs-identifier hs-type">instanceRecommendation_lookBackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-599"></span><span id="instanceRecommendation_lookBackPeriodInDays"><span class="annot"><span class="annottext">instanceRecommendation_lookBackPeriodInDays :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; InstanceRecommendation -&gt; f InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#instanceRecommendation_lookBackPeriodInDays"><span class="hs-identifier hs-var hs-var">instanceRecommendation_lookBackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendation -&gt; Maybe Double)
+-&gt; (InstanceRecommendation
+    -&gt; Maybe Double -&gt; InstanceRecommendation)
+-&gt; Lens
+     InstanceRecommendation
+     InstanceRecommendation
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243375"><span class="annot"><span class="annottext">Maybe Double
+lookBackPeriodInDays :: Maybe Double
+$sel:lookBackPeriodInDays:InstanceRecommendation' :: InstanceRecommendation -&gt; Maybe Double
+</span><a href="#local-6989586621679243375"><span class="hs-identifier hs-var hs-var">lookBackPeriodInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679243375"><span class="hs-identifier hs-var">lookBackPeriodInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243374"><span class="annot"><span class="annottext">s :: InstanceRecommendation
+</span><a href="#local-6989586621679243374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-type">InstanceRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243373"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679243373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendation
+</span><a href="#local-6989586621679243374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lookBackPeriodInDays:InstanceRecommendation' :: Maybe Double
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#%24sel%3AlookBackPeriodInDays%3AInstanceRecommendation%27"><span class="hs-identifier hs-var">lookBackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679243373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-600"></span><span>
+</span><span id="line-601"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243370"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-602"></span><span>  </span><span id="local-6989586621679243368"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceRecommendation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-603"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InstanceRecommendation)
+-&gt; Value
+-&gt; Parser InstanceRecommendation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-604"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InstanceRecommendation&quot;</span></span><span>
+</span><span id="line-605"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243365"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-606"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Finding
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe [InstanceRecommendationFindingReasonCode]
+-&gt; Maybe [RecommendationSource]
+-&gt; Maybe [UtilizationMetric]
+-&gt; Maybe Text
+-&gt; Maybe [InstanceRecommendationOption]
+-&gt; Maybe Double
+-&gt; InstanceRecommendation
+</span><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation%27"><span class="hs-identifier hs-var">InstanceRecommendation'</span></a></span><span>
+</span><span id="line-607"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Finding
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+ -&gt; Maybe [RecommendationSource]
+ -&gt; Maybe [UtilizationMetric]
+ -&gt; Maybe Text
+ -&gt; Maybe [InstanceRecommendationOption]
+ -&gt; Maybe Double
+ -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Finding
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+      -&gt; Maybe [RecommendationSource]
+      -&gt; Maybe [UtilizationMetric]
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-608"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Finding
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+   -&gt; Maybe [RecommendationSource]
+   -&gt; Maybe [UtilizationMetric]
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe Finding)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+      -&gt; Maybe [RecommendationSource]
+      -&gt; Maybe [UtilizationMetric]
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Finding)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;finding&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-609"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+   -&gt; Maybe [RecommendationSource]
+   -&gt; Maybe [UtilizationMetric]
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+      -&gt; Maybe [RecommendationSource]
+      -&gt; Maybe [UtilizationMetric]
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;currentInstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-610"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+   -&gt; Maybe [RecommendationSource]
+   -&gt; Maybe [UtilizationMetric]
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+      -&gt; Maybe [RecommendationSource]
+      -&gt; Maybe [UtilizationMetric]
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastRefreshTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-611"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [InstanceRecommendationFindingReasonCode]
+   -&gt; Maybe [RecommendationSource]
+   -&gt; Maybe [UtilizationMetric]
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [InstanceRecommendationFindingReasonCode]
+      -&gt; Maybe [RecommendationSource]
+      -&gt; Maybe [UtilizationMetric]
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-612"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [InstanceRecommendationFindingReasonCode]
+   -&gt; Maybe [RecommendationSource]
+   -&gt; Maybe [UtilizationMetric]
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe [InstanceRecommendationFindingReasonCode])
+-&gt; Parser
+     (Maybe [RecommendationSource]
+      -&gt; Maybe [UtilizationMetric]
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [InstanceRecommendationFindingReasonCode]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;findingReasonCodes&quot;</span></span><span>
+</span><span id="line-613"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InstanceRecommendationFindingReasonCode]))
+-&gt; Maybe [InstanceRecommendationFindingReasonCode]
+-&gt; Parser (Maybe [InstanceRecommendationFindingReasonCode])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRecommendationFindingReasonCode]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-614"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-615"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [RecommendationSource]
+   -&gt; Maybe [UtilizationMetric]
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe [RecommendationSource])
+-&gt; Parser
+     (Maybe [UtilizationMetric]
+      -&gt; Maybe Text
+      -&gt; Maybe [InstanceRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RecommendationSource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;recommendationSources&quot;</span></span><span>
+</span><span id="line-616"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RecommendationSource]))
+-&gt; Maybe [RecommendationSource]
+-&gt; Parser (Maybe [RecommendationSource])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RecommendationSource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-617"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-618"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [UtilizationMetric]
+   -&gt; Maybe Text
+   -&gt; Maybe [InstanceRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe [UtilizationMetric])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [InstanceRecommendationOption]
+      -&gt; Maybe Double
+      -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UtilizationMetric]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;utilizationMetrics&quot;</span></span><span>
+</span><span id="line-619"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UtilizationMetric]))
+-&gt; Maybe [UtilizationMetric] -&gt; Parser (Maybe [UtilizationMetric])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-620"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-621"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [InstanceRecommendationOption]
+   -&gt; Maybe Double
+   -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [InstanceRecommendationOption]
+      -&gt; Maybe Double -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-622"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [InstanceRecommendationOption]
+   -&gt; Maybe Double -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe [InstanceRecommendationOption])
+-&gt; Parser (Maybe Double -&gt; InstanceRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [InstanceRecommendationOption]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;recommendationOptions&quot;</span></span><span>
+</span><span id="line-623"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InstanceRecommendationOption]))
+-&gt; Maybe [InstanceRecommendationOption]
+-&gt; Parser (Maybe [InstanceRecommendationOption])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRecommendationOption]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-624"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-625"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; InstanceRecommendation)
+-&gt; Parser (Maybe Double) -&gt; Parser InstanceRecommendation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lookBackPeriodInDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-626"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-627"></span><span>
+</span><span id="line-628"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243358"><span id="local-6989586621679243360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span></span></span><span>
+</span><span id="line-629"></span><span>
+</span><span id="line-630"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ComputeOptimizer.Types.InstanceRecommendation.html#InstanceRecommendation"><span class="hs-identifier hs-type">InstanceRecommendation</span></a></span></span><span>
+</span><span id="line-631"></span></pre></body></html>

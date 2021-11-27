@@ -1,0 +1,963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DevOpsGuru.SearchInsights</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of insights in your AWS account. You can specify which</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- insights are returned by their start time, one or more statuses</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- (@ONGOING@, @CLOSED@, and @CLOSED@), one or more severities (@LOW@,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @MEDIUM@, and @HIGH@), and type (@REACTIVE@ or @PROACTIVE@).</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Use the @Filters@ parameter to specify status and severity search</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- parameters. Use the @Type@ parameter to specify @REACTIVE@ or</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @PROACTIVE@ in your search.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DevOpsGuru.SearchInsights</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier">SearchInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#newSearchInsights"><span class="hs-identifier">newSearchInsights</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_filters"><span class="hs-identifier">searchInsights_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_nextToken"><span class="hs-identifier">searchInsights_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_maxResults"><span class="hs-identifier">searchInsights_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_startTimeRange"><span class="hs-identifier">searchInsights_startTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_type"><span class="hs-identifier">searchInsights_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier">SearchInsightsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#newSearchInsightsResponse"><span class="hs-identifier">newSearchInsightsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_reactiveInsights"><span class="hs-identifier">searchInsightsResponse_reactiveInsights</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_nextToken"><span class="hs-identifier">searchInsightsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_proactiveInsights"><span class="hs-identifier">searchInsightsResponse_proactiveInsights</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_httpStatus"><span class="hs-identifier">searchInsightsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.html"><span class="hs-identifier">Amazonka.DevOpsGuru.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newSearchInsights' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679240034"><span id="local-6989586621679240035"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchInsights"><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-var">SearchInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchInsights%27"><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-var">SearchInsights'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @SearchInsightsFilters@ object that is used to set the severity and</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- status filters on your insight search.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Afilters%3ASearchInsights%27"><span class="annot"><span class="annottext">SearchInsights -&gt; Maybe SearchInsightsFilters
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3Afilters%3ASearchInsights%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.SearchInsightsFilters.html#SearchInsightsFilters"><span class="hs-identifier hs-type">SearchInsightsFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchInsights%27"><span class="annot"><span class="annottext">SearchInsights -&gt; Maybe Text
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AnextToken%3ASearchInsights%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchInsights%27"><span class="annot"><span class="annottext">SearchInsights -&gt; Maybe Natural
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AmaxResults%3ASearchInsights%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The start of the time range passed in. Returned insights occurred after</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- this time.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AstartTimeRange%3ASearchInsights%27"><span class="annot"><span class="annottext">SearchInsights -&gt; StartTimeRange
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AstartTimeRange%3ASearchInsights%27"><span class="hs-identifier hs-var hs-var">startTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.StartTimeRange.html#StartTimeRange"><span class="hs-identifier hs-type">StartTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The type of insights you are searching for (@REACTIVE@ or @PROACTIVE@).</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Atype%27%3ASearchInsights%27"><span class="annot"><span class="annottext">SearchInsights -&gt; InsightType
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3Atype%27%3ASearchInsights%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.InsightType.html#InsightType"><span class="hs-identifier hs-type">InsightType</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240024"><span id="local-6989586621679240026"><span class="annot"><span class="annottext">SearchInsights -&gt; SearchInsights -&gt; Bool
+(SearchInsights -&gt; SearchInsights -&gt; Bool)
+-&gt; (SearchInsights -&gt; SearchInsights -&gt; Bool) -&gt; Eq SearchInsights
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchInsights -&gt; SearchInsights -&gt; Bool
+$c/= :: SearchInsights -&gt; SearchInsights -&gt; Bool
+== :: SearchInsights -&gt; SearchInsights -&gt; Bool
+$c== :: SearchInsights -&gt; SearchInsights -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240015"><span id="local-6989586621679240017"><span id="local-6989586621679240019"><span id="local-6989586621679240021"><span class="annot"><span class="annottext">ReadPrec [SearchInsights]
+ReadPrec SearchInsights
+Int -&gt; ReadS SearchInsights
+ReadS [SearchInsights]
+(Int -&gt; ReadS SearchInsights)
+-&gt; ReadS [SearchInsights]
+-&gt; ReadPrec SearchInsights
+-&gt; ReadPrec [SearchInsights]
+-&gt; Read SearchInsights
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchInsights]
+$creadListPrec :: ReadPrec [SearchInsights]
+readPrec :: ReadPrec SearchInsights
+$creadPrec :: ReadPrec SearchInsights
+readList :: ReadS [SearchInsights]
+$creadList :: ReadS [SearchInsights]
+readsPrec :: Int -&gt; ReadS SearchInsights
+$creadsPrec :: Int -&gt; ReadS SearchInsights
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240008"><span id="local-6989586621679240010"><span id="local-6989586621679240012"><span class="annot"><span class="annottext">Int -&gt; SearchInsights -&gt; ShowS
+[SearchInsights] -&gt; ShowS
+SearchInsights -&gt; String
+(Int -&gt; SearchInsights -&gt; ShowS)
+-&gt; (SearchInsights -&gt; String)
+-&gt; ([SearchInsights] -&gt; ShowS)
+-&gt; Show SearchInsights
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchInsights] -&gt; ShowS
+$cshowList :: [SearchInsights] -&gt; ShowS
+show :: SearchInsights -&gt; String
+$cshow :: SearchInsights -&gt; String
+showsPrec :: Int -&gt; SearchInsights -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchInsights -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchInsights -&gt; Rep SearchInsights x)
+-&gt; (forall x. Rep SearchInsights x -&gt; SearchInsights)
+-&gt; Generic SearchInsights
+forall x. Rep SearchInsights x -&gt; SearchInsights
+forall x. SearchInsights -&gt; Rep SearchInsights x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchInsights x -&gt; SearchInsights
+$cfrom :: forall x. SearchInsights -&gt; Rep SearchInsights x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'SearchInsights' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'filters', 'searchInsights_filters' - A @SearchInsightsFilters@ object that is used to set the severity and</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- status filters on your insight search.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'nextToken', 'searchInsights_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxResults', 'searchInsights_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'startTimeRange', 'searchInsights_startTimeRange' - The start of the time range passed in. Returned insights occurred after</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- this time.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'type'', 'searchInsights_type' - The type of insights you are searching for (@REACTIVE@ or @PROACTIVE@).</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#newSearchInsights"><span class="hs-identifier hs-type">newSearchInsights</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'startTimeRange'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.StartTimeRange.html#StartTimeRange"><span class="hs-identifier hs-type">StartTimeRange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.InsightType.html#InsightType"><span class="hs-identifier hs-type">InsightType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span>
+</span><span id="line-112"></span><span id="newSearchInsights"><span class="annot"><span class="annottext">newSearchInsights :: StartTimeRange -&gt; InsightType -&gt; SearchInsights
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#newSearchInsights"><span class="hs-identifier hs-var hs-var">newSearchInsights</span></a></span></span><span> </span><span id="local-6989586621679240003"><span class="annot"><span class="annottext">StartTimeRange
+</span><a href="#local-6989586621679240003"><span class="hs-identifier hs-var">pStartTimeRange_</span></a></span></span><span> </span><span id="local-6989586621679240002"><span class="annot"><span class="annottext">InsightType
+</span><a href="#local-6989586621679240002"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">SearchInsights' :: Maybe SearchInsightsFilters
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; StartTimeRange
+-&gt; InsightType
+-&gt; SearchInsights
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:SearchInsights' :: Maybe SearchInsightsFilters
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3Afilters%3ASearchInsights%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SearchInsightsFilters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchInsights' :: Maybe Text
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AnextToken%3ASearchInsights%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchInsights' :: Maybe Natural
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AmaxResults%3ASearchInsights%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTimeRange:SearchInsights' :: StartTimeRange
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AstartTimeRange%3ASearchInsights%27"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartTimeRange
+</span><a href="#local-6989586621679240003"><span class="hs-identifier hs-var">pStartTimeRange_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':SearchInsights' :: InsightType
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3Atype%27%3ASearchInsights%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InsightType
+</span><a href="#local-6989586621679240002"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A @SearchInsightsFilters@ object that is used to set the severity and</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- status filters on your insight search.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_filters"><span class="hs-identifier hs-type">searchInsights_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.SearchInsightsFilters.html#SearchInsightsFilters"><span class="hs-identifier hs-type">SearchInsightsFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="searchInsights_filters"><span class="annot"><span class="annottext">searchInsights_filters :: (Maybe SearchInsightsFilters -&gt; f (Maybe SearchInsightsFilters))
+-&gt; SearchInsights -&gt; f SearchInsights
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_filters"><span class="hs-identifier hs-var hs-var">searchInsights_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchInsights -&gt; Maybe SearchInsightsFilters)
+-&gt; (SearchInsights
+    -&gt; Maybe SearchInsightsFilters -&gt; SearchInsights)
+-&gt; Lens
+     SearchInsights
+     SearchInsights
+     (Maybe SearchInsightsFilters)
+     (Maybe SearchInsightsFilters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240000"><span class="annot"><span class="annottext">Maybe SearchInsightsFilters
+filters :: Maybe SearchInsightsFilters
+$sel:filters:SearchInsights' :: SearchInsights -&gt; Maybe SearchInsightsFilters
+</span><a href="#local-6989586621679240000"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SearchInsightsFilters
+</span><a href="#local-6989586621679240000"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239999"><span class="annot"><span class="annottext">s :: SearchInsights
+</span><a href="#local-6989586621679239999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239998"><span class="annot"><span class="annottext">Maybe SearchInsightsFilters
+</span><a href="#local-6989586621679239998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchInsights
+</span><a href="#local-6989586621679239999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchInsights' :: Maybe SearchInsightsFilters
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3Afilters%3ASearchInsights%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SearchInsightsFilters
+</span><a href="#local-6989586621679239998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_nextToken"><span class="hs-identifier hs-type">searchInsights_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="searchInsights_nextToken"><span class="annot"><span class="annottext">searchInsights_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchInsights -&gt; f SearchInsights
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_nextToken"><span class="hs-identifier hs-var hs-var">searchInsights_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchInsights -&gt; Maybe Text)
+-&gt; (SearchInsights -&gt; Maybe Text -&gt; SearchInsights)
+-&gt; Lens SearchInsights SearchInsights (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239997"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchInsights' :: SearchInsights -&gt; Maybe Text
+</span><a href="#local-6989586621679239997"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239997"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239996"><span class="annot"><span class="annottext">s :: SearchInsights
+</span><a href="#local-6989586621679239996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239995"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchInsights
+</span><a href="#local-6989586621679239996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchInsights' :: Maybe Text
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AnextToken%3ASearchInsights%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_maxResults"><span class="hs-identifier hs-type">searchInsights_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="searchInsights_maxResults"><span class="annot"><span class="annottext">searchInsights_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchInsights -&gt; f SearchInsights
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_maxResults"><span class="hs-identifier hs-var hs-var">searchInsights_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchInsights -&gt; Maybe Natural)
+-&gt; (SearchInsights -&gt; Maybe Natural -&gt; SearchInsights)
+-&gt; Lens
+     SearchInsights SearchInsights (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239994"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchInsights' :: SearchInsights -&gt; Maybe Natural
+</span><a href="#local-6989586621679239994"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679239994"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239993"><span class="annot"><span class="annottext">s :: SearchInsights
+</span><a href="#local-6989586621679239993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239992"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679239992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchInsights
+</span><a href="#local-6989586621679239993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchInsights' :: Maybe Natural
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AmaxResults%3ASearchInsights%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679239992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The start of the time range passed in. Returned insights occurred after</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- this time.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_startTimeRange"><span class="hs-identifier hs-type">searchInsights_startTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.StartTimeRange.html#StartTimeRange"><span class="hs-identifier hs-type">StartTimeRange</span></a></span><span>
+</span><span id="line-140"></span><span id="searchInsights_startTimeRange"><span class="annot"><span class="annottext">searchInsights_startTimeRange :: (StartTimeRange -&gt; f StartTimeRange)
+-&gt; SearchInsights -&gt; f SearchInsights
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_startTimeRange"><span class="hs-identifier hs-var hs-var">searchInsights_startTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchInsights -&gt; StartTimeRange)
+-&gt; (SearchInsights -&gt; StartTimeRange -&gt; SearchInsights)
+-&gt; Lens SearchInsights SearchInsights StartTimeRange StartTimeRange
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239991"><span class="annot"><span class="annottext">StartTimeRange
+startTimeRange :: StartTimeRange
+$sel:startTimeRange:SearchInsights' :: SearchInsights -&gt; StartTimeRange
+</span><a href="#local-6989586621679239991"><span class="hs-identifier hs-var hs-var">startTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimeRange
+</span><a href="#local-6989586621679239991"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239990"><span class="annot"><span class="annottext">s :: SearchInsights
+</span><a href="#local-6989586621679239990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239989"><span class="annot"><span class="annottext">StartTimeRange
+</span><a href="#local-6989586621679239989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchInsights
+</span><a href="#local-6989586621679239990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimeRange:SearchInsights' :: StartTimeRange
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AstartTimeRange%3ASearchInsights%27"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartTimeRange
+</span><a href="#local-6989586621679239989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The type of insights you are searching for (@REACTIVE@ or @PROACTIVE@).</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_type"><span class="hs-identifier hs-type">searchInsights_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.InsightType.html#InsightType"><span class="hs-identifier hs-type">InsightType</span></a></span><span>
+</span><span id="line-144"></span><span id="searchInsights_type"><span class="annot"><span class="annottext">searchInsights_type :: (InsightType -&gt; f InsightType)
+-&gt; SearchInsights -&gt; f SearchInsights
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_type"><span class="hs-identifier hs-var hs-var">searchInsights_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchInsights -&gt; InsightType)
+-&gt; (SearchInsights -&gt; InsightType -&gt; SearchInsights)
+-&gt; Lens SearchInsights SearchInsights InsightType InsightType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239988"><span class="annot"><span class="annottext">InsightType
+type' :: InsightType
+$sel:type':SearchInsights' :: SearchInsights -&gt; InsightType
+</span><a href="#local-6989586621679239988"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightType
+</span><a href="#local-6989586621679239988"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239987"><span class="annot"><span class="annottext">s :: SearchInsights
+</span><a href="#local-6989586621679239987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239986"><span class="annot"><span class="annottext">InsightType
+</span><a href="#local-6989586621679239986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchInsights
+</span><a href="#local-6989586621679239987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SearchInsights' :: InsightType
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3Atype%27%3ASearchInsights%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InsightType
+</span><a href="#local-6989586621679239986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679239982"><span class="annot"><span class="annottext">page :: SearchInsights
+-&gt; AWSResponse SearchInsights -&gt; Maybe SearchInsights
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679239980"><span class="annot"><span class="annottext">SearchInsights
+</span><a href="#local-6989586621679239980"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679239979"><span class="annot"><span class="annottext">AWSResponse SearchInsights
+</span><a href="#local-6989586621679239979"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-149"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchInsights
+SearchInsightsResponse
+</span><a href="#local-6989586621679239979"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">SearchInsightsResponse
+-&gt; Getting (First Text) SearchInsightsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchInsightsResponse
+-&gt; Const (First Text) SearchInsightsResponse
+Lens' SearchInsightsResponse (Maybe Text)
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_nextToken"><span class="hs-identifier hs-var">searchInsightsResponse_nextToken</span></a></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchInsightsResponse
+ -&gt; Const (First Text) SearchInsightsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchInsightsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-152"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchInsights
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ProactiveInsightSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-155"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchInsights
+SearchInsightsResponse
+</span><a href="#local-6989586621679239979"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">SearchInsightsResponse
+-&gt; Getting
+     (First [ProactiveInsightSummary])
+     SearchInsightsResponse
+     [ProactiveInsightSummary]
+-&gt; Maybe [ProactiveInsightSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ProactiveInsightSummary]
+ -&gt; Const
+      (First [ProactiveInsightSummary])
+      (Maybe [ProactiveInsightSummary]))
+-&gt; SearchInsightsResponse
+-&gt; Const (First [ProactiveInsightSummary]) SearchInsightsResponse
+Lens' SearchInsightsResponse (Maybe [ProactiveInsightSummary])
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_proactiveInsights"><span class="hs-identifier hs-var">searchInsightsResponse_proactiveInsights</span></a></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ProactiveInsightSummary]
+  -&gt; Const
+       (First [ProactiveInsightSummary])
+       (Maybe [ProactiveInsightSummary]))
+ -&gt; SearchInsightsResponse
+ -&gt; Const (First [ProactiveInsightSummary]) SearchInsightsResponse)
+-&gt; (([ProactiveInsightSummary]
+     -&gt; Const
+          (First [ProactiveInsightSummary]) [ProactiveInsightSummary])
+    -&gt; Maybe [ProactiveInsightSummary]
+    -&gt; Const
+         (First [ProactiveInsightSummary])
+         (Maybe [ProactiveInsightSummary]))
+-&gt; Getting
+     (First [ProactiveInsightSummary])
+     SearchInsightsResponse
+     [ProactiveInsightSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ProactiveInsightSummary]
+ -&gt; Const
+      (First [ProactiveInsightSummary]) [ProactiveInsightSummary])
+-&gt; Maybe [ProactiveInsightSummary]
+-&gt; Const
+     (First [ProactiveInsightSummary]) (Maybe [ProactiveInsightSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-158"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchInsights
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ReactiveInsightSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-161"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchInsights
+SearchInsightsResponse
+</span><a href="#local-6989586621679239979"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">SearchInsightsResponse
+-&gt; Getting
+     (First [ReactiveInsightSummary])
+     SearchInsightsResponse
+     [ReactiveInsightSummary]
+-&gt; Maybe [ReactiveInsightSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ReactiveInsightSummary]
+ -&gt; Const
+      (First [ReactiveInsightSummary]) (Maybe [ReactiveInsightSummary]))
+-&gt; SearchInsightsResponse
+-&gt; Const (First [ReactiveInsightSummary]) SearchInsightsResponse
+Lens' SearchInsightsResponse (Maybe [ReactiveInsightSummary])
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_reactiveInsights"><span class="hs-identifier hs-var">searchInsightsResponse_reactiveInsights</span></a></span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ReactiveInsightSummary]
+  -&gt; Const
+       (First [ReactiveInsightSummary]) (Maybe [ReactiveInsightSummary]))
+ -&gt; SearchInsightsResponse
+ -&gt; Const (First [ReactiveInsightSummary]) SearchInsightsResponse)
+-&gt; (([ReactiveInsightSummary]
+     -&gt; Const (First [ReactiveInsightSummary]) [ReactiveInsightSummary])
+    -&gt; Maybe [ReactiveInsightSummary]
+    -&gt; Const
+         (First [ReactiveInsightSummary]) (Maybe [ReactiveInsightSummary]))
+-&gt; Getting
+     (First [ReactiveInsightSummary])
+     SearchInsightsResponse
+     [ReactiveInsightSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ReactiveInsightSummary]
+ -&gt; Const (First [ReactiveInsightSummary]) [ReactiveInsightSummary])
+-&gt; Maybe [ReactiveInsightSummary]
+-&gt; Const
+     (First [ReactiveInsightSummary]) (Maybe [ReactiveInsightSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-164"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchInsights
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">SearchInsights -&gt; Maybe SearchInsights
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(SearchInsights -&gt; Maybe SearchInsights)
+-&gt; SearchInsights -&gt; Maybe SearchInsights
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">SearchInsights
+</span><a href="#local-6989586621679239980"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">SearchInsights
+-&gt; (SearchInsights -&gt; SearchInsights) -&gt; SearchInsights
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; SearchInsights -&gt; Identity SearchInsights
+Lens SearchInsights SearchInsights (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsights_nextToken"><span class="hs-identifier hs-var">searchInsights_nextToken</span></a></span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; SearchInsights -&gt; Identity SearchInsights)
+-&gt; Maybe Text -&gt; SearchInsights -&gt; SearchInsights
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchInsights
+SearchInsightsResponse
+</span><a href="#local-6989586621679239979"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">SearchInsightsResponse
+-&gt; Getting (First Text) SearchInsightsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchInsightsResponse
+-&gt; Const (First Text) SearchInsightsResponse
+Lens' SearchInsightsResponse (Maybe Text)
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_nextToken"><span class="hs-identifier hs-var">searchInsightsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchInsightsResponse
+ -&gt; Const (First Text) SearchInsightsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchInsightsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-175"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679239969"><span class="annot"><span class="annottext">request :: SearchInsights -&gt; Request SearchInsights
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchInsights -&gt; Request SearchInsights
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DevOpsGuru.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679239965"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SearchInsights
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchInsights)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SearchInsights))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SearchInsights
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchInsights)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239962"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679239961"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679239961"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679239960"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReactiveInsightSummary]
+-&gt; Maybe Text
+-&gt; Maybe [ProactiveInsightSummary]
+-&gt; Int
+-&gt; SearchInsightsResponse
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-var">SearchInsightsResponse'</span></a></span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ReactiveInsightSummary]
+ -&gt; Maybe Text
+ -&gt; Maybe [ProactiveInsightSummary]
+ -&gt; Int
+ -&gt; SearchInsightsResponse)
+-&gt; Either String (Maybe [ReactiveInsightSummary])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [ProactiveInsightSummary]
+      -&gt; Int
+      -&gt; SearchInsightsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ReactiveInsightSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReactiveInsights&quot;</span></span><span>
+</span><span id="line-183"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ReactiveInsightSummary]))
+-&gt; Maybe [ReactiveInsightSummary]
+-&gt; Either String (Maybe [ReactiveInsightSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReactiveInsightSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [ProactiveInsightSummary]
+   -&gt; Int
+   -&gt; SearchInsightsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ProactiveInsightSummary] -&gt; Int -&gt; SearchInsightsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ProactiveInsightSummary] -&gt; Int -&gt; SearchInsightsResponse)
+-&gt; Either String (Maybe [ProactiveInsightSummary])
+-&gt; Either String (Int -&gt; SearchInsightsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ProactiveInsightSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProactiveInsights&quot;</span></span><span>
+</span><span id="line-187"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ProactiveInsightSummary]))
+-&gt; Maybe [ProactiveInsightSummary]
+-&gt; Either String (Maybe [ProactiveInsightSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProactiveInsightSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-188"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SearchInsightsResponse)
+-&gt; Either String Int -&gt; Either String SearchInsightsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239962"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239951"><span id="local-6989586621679239953"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span></span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679239944"><span class="annot"><span class="annottext">toHeaders :: SearchInsights -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchInsights -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-203"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239934"><span id="local-6989586621679239936"><span id="local-6989586621679239938"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679239932"><span class="annot"><span class="annottext">toJSON :: SearchInsights -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights%27"><span class="hs-identifier hs-type">SearchInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239926"><span id="local-6989586621679239927"><span id="local-6989586621679239928"><span id="local-6989586621679239929"><span id="local-6989586621679239930"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe SearchInsightsFilters
+InsightType
+StartTimeRange
+type' :: InsightType
+startTimeRange :: StartTimeRange
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+filters :: Maybe SearchInsightsFilters
+$sel:type':SearchInsights' :: SearchInsights -&gt; InsightType
+$sel:startTimeRange:SearchInsights' :: SearchInsights -&gt; StartTimeRange
+$sel:maxResults:SearchInsights' :: SearchInsights -&gt; Maybe Natural
+$sel:nextToken:SearchInsights' :: SearchInsights -&gt; Maybe Text
+$sel:filters:SearchInsights' :: SearchInsights -&gt; Maybe SearchInsightsFilters
+</span><a href="#local-6989586621679239926"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SearchInsightsFilters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SearchInsightsFilters -&gt; Pair)
+-&gt; Maybe SearchInsightsFilters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SearchInsightsFilters
+</span><a href="#local-6989586621679239930"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239929"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679239928"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-215"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StartTimeRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StartTimeRange
+</span><a href="#local-6989586621679239927"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InsightType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InsightType
+</span><a href="#local-6989586621679239926"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679239920"><span class="annot"><span class="annottext">toPath :: SearchInsights -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SearchInsights -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/insights/search&quot;</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsights"><span class="hs-identifier hs-type">SearchInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679239916"><span class="annot"><span class="annottext">toQuery :: SearchInsights -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchInsights -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | /See:/ 'newSearchInsightsResponse' smart constructor.</span><span>
+</span><span id="line-227"></span><span id="local-6989586621679239913"><span id="local-6989586621679239914"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchInsightsResponse"><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-var">SearchInsightsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchInsightsResponse%27"><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-var">SearchInsightsResponse'</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The returned reactive insights.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AreactiveInsights%3ASearchInsightsResponse%27"><span class="annot"><span class="annottext">SearchInsightsResponse -&gt; Maybe [ReactiveInsightSummary]
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AreactiveInsights%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var hs-var">reactiveInsights</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchInsightsResponse%27"><span class="annot"><span class="annottext">SearchInsightsResponse -&gt; Maybe Text
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AnextToken%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- | The returned proactive insights.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AproactiveInsights%3ASearchInsightsResponse%27"><span class="annot"><span class="annottext">SearchInsightsResponse -&gt; Maybe [ProactiveInsightSummary]
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AproactiveInsights%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var hs-var">proactiveInsights</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchInsightsResponse%27"><span class="annot"><span class="annottext">SearchInsightsResponse -&gt; Int
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AhttpStatus%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239905"><span id="local-6989586621679239907"><span class="annot"><span class="annottext">SearchInsightsResponse -&gt; SearchInsightsResponse -&gt; Bool
+(SearchInsightsResponse -&gt; SearchInsightsResponse -&gt; Bool)
+-&gt; (SearchInsightsResponse -&gt; SearchInsightsResponse -&gt; Bool)
+-&gt; Eq SearchInsightsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchInsightsResponse -&gt; SearchInsightsResponse -&gt; Bool
+$c/= :: SearchInsightsResponse -&gt; SearchInsightsResponse -&gt; Bool
+== :: SearchInsightsResponse -&gt; SearchInsightsResponse -&gt; Bool
+$c== :: SearchInsightsResponse -&gt; SearchInsightsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239897"><span id="local-6989586621679239899"><span id="local-6989586621679239901"><span id="local-6989586621679239903"><span class="annot"><span class="annottext">ReadPrec [SearchInsightsResponse]
+ReadPrec SearchInsightsResponse
+Int -&gt; ReadS SearchInsightsResponse
+ReadS [SearchInsightsResponse]
+(Int -&gt; ReadS SearchInsightsResponse)
+-&gt; ReadS [SearchInsightsResponse]
+-&gt; ReadPrec SearchInsightsResponse
+-&gt; ReadPrec [SearchInsightsResponse]
+-&gt; Read SearchInsightsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchInsightsResponse]
+$creadListPrec :: ReadPrec [SearchInsightsResponse]
+readPrec :: ReadPrec SearchInsightsResponse
+$creadPrec :: ReadPrec SearchInsightsResponse
+readList :: ReadS [SearchInsightsResponse]
+$creadList :: ReadS [SearchInsightsResponse]
+readsPrec :: Int -&gt; ReadS SearchInsightsResponse
+$creadsPrec :: Int -&gt; ReadS SearchInsightsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239891"><span id="local-6989586621679239893"><span id="local-6989586621679239895"><span class="annot"><span class="annottext">Int -&gt; SearchInsightsResponse -&gt; ShowS
+[SearchInsightsResponse] -&gt; ShowS
+SearchInsightsResponse -&gt; String
+(Int -&gt; SearchInsightsResponse -&gt; ShowS)
+-&gt; (SearchInsightsResponse -&gt; String)
+-&gt; ([SearchInsightsResponse] -&gt; ShowS)
+-&gt; Show SearchInsightsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchInsightsResponse] -&gt; ShowS
+$cshowList :: [SearchInsightsResponse] -&gt; ShowS
+show :: SearchInsightsResponse -&gt; String
+$cshow :: SearchInsightsResponse -&gt; String
+showsPrec :: Int -&gt; SearchInsightsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchInsightsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchInsightsResponse -&gt; Rep SearchInsightsResponse x)
+-&gt; (forall x.
+    Rep SearchInsightsResponse x -&gt; SearchInsightsResponse)
+-&gt; Generic SearchInsightsResponse
+forall x. Rep SearchInsightsResponse x -&gt; SearchInsightsResponse
+forall x. SearchInsightsResponse -&gt; Rep SearchInsightsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchInsightsResponse x -&gt; SearchInsightsResponse
+$cfrom :: forall x. SearchInsightsResponse -&gt; Rep SearchInsightsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- Create a value of 'SearchInsightsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'reactiveInsights', 'searchInsightsResponse_reactiveInsights' - The returned reactive insights.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- 'nextToken', 'searchInsightsResponse_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'proactiveInsights', 'searchInsightsResponse_proactiveInsights' - The returned proactive insights.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'httpStatus', 'searchInsightsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#newSearchInsightsResponse"><span class="hs-identifier hs-type">newSearchInsightsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-258"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-259"></span><span>  </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span>
+</span><span id="line-260"></span><span id="newSearchInsightsResponse"><span class="annot"><span class="annottext">newSearchInsightsResponse :: Int -&gt; SearchInsightsResponse
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#newSearchInsightsResponse"><span class="hs-identifier hs-var hs-var">newSearchInsightsResponse</span></a></span></span><span> </span><span id="local-6989586621679239888"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239888"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="annottext">SearchInsightsResponse' :: Maybe [ReactiveInsightSummary]
+-&gt; Maybe Text
+-&gt; Maybe [ProactiveInsightSummary]
+-&gt; Int
+-&gt; SearchInsightsResponse
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-type">SearchInsightsResponse'</span></a></span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reactiveInsights:SearchInsightsResponse' :: Maybe [ReactiveInsightSummary]
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AreactiveInsights%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var">reactiveInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ReactiveInsightSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchInsightsResponse' :: Maybe Text
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AnextToken%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:proactiveInsights:SearchInsightsResponse' :: Maybe [ProactiveInsightSummary]
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AproactiveInsights%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var">proactiveInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProactiveInsightSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchInsightsResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AhttpStatus%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239888"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The returned reactive insights.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_reactiveInsights"><span class="hs-identifier hs-type">searchInsightsResponse_reactiveInsights</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="searchInsightsResponse_reactiveInsights"><span class="annot"><span class="annottext">searchInsightsResponse_reactiveInsights :: (Maybe [ReactiveInsightSummary]
+ -&gt; f (Maybe [ReactiveInsightSummary]))
+-&gt; SearchInsightsResponse -&gt; f SearchInsightsResponse
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_reactiveInsights"><span class="hs-identifier hs-var hs-var">searchInsightsResponse_reactiveInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchInsightsResponse -&gt; Maybe [ReactiveInsightSummary])
+-&gt; (SearchInsightsResponse
+    -&gt; Maybe [ReactiveInsightSummary] -&gt; SearchInsightsResponse)
+-&gt; Lens' SearchInsightsResponse (Maybe [ReactiveInsightSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-type">SearchInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239887"><span class="annot"><span class="annottext">Maybe [ReactiveInsightSummary]
+reactiveInsights :: Maybe [ReactiveInsightSummary]
+$sel:reactiveInsights:SearchInsightsResponse' :: SearchInsightsResponse -&gt; Maybe [ReactiveInsightSummary]
+</span><a href="#local-6989586621679239887"><span class="hs-identifier hs-var hs-var">reactiveInsights</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReactiveInsightSummary]
+</span><a href="#local-6989586621679239887"><span class="hs-identifier hs-var">reactiveInsights</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239886"><span class="annot"><span class="annottext">s :: SearchInsightsResponse
+</span><a href="#local-6989586621679239886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-type">SearchInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239885"><span class="annot"><span class="annottext">Maybe [ReactiveInsightSummary]
+</span><a href="#local-6989586621679239885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchInsightsResponse
+</span><a href="#local-6989586621679239886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reactiveInsights:SearchInsightsResponse' :: Maybe [ReactiveInsightSummary]
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AreactiveInsights%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var">reactiveInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReactiveInsightSummary]
+</span><a href="#local-6989586621679239885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReactiveInsightSummary]
+  -&gt; f (Maybe [ReactiveInsightSummary]))
+ -&gt; SearchInsightsResponse -&gt; f SearchInsightsResponse)
+-&gt; ((Maybe [ReactiveInsightSummary]
+     -&gt; f (Maybe [ReactiveInsightSummary]))
+    -&gt; Maybe [ReactiveInsightSummary]
+    -&gt; f (Maybe [ReactiveInsightSummary]))
+-&gt; (Maybe [ReactiveInsightSummary]
+    -&gt; f (Maybe [ReactiveInsightSummary]))
+-&gt; SearchInsightsResponse
+-&gt; f SearchInsightsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReactiveInsightSummary]
+  [ReactiveInsightSummary]
+  [ReactiveInsightSummary]
+  [ReactiveInsightSummary]
+-&gt; Iso
+     (Maybe [ReactiveInsightSummary])
+     (Maybe [ReactiveInsightSummary])
+     (Maybe [ReactiveInsightSummary])
+     (Maybe [ReactiveInsightSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReactiveInsightSummary]
+  [ReactiveInsightSummary]
+  [ReactiveInsightSummary]
+  [ReactiveInsightSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_nextToken"><span class="hs-identifier hs-type">searchInsightsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="searchInsightsResponse_nextToken"><span class="annot"><span class="annottext">searchInsightsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchInsightsResponse -&gt; f SearchInsightsResponse
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_nextToken"><span class="hs-identifier hs-var hs-var">searchInsightsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchInsightsResponse -&gt; Maybe Text)
+-&gt; (SearchInsightsResponse -&gt; Maybe Text -&gt; SearchInsightsResponse)
+-&gt; Lens' SearchInsightsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-type">SearchInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239882"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchInsightsResponse' :: SearchInsightsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679239882"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239882"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239881"><span class="annot"><span class="annottext">s :: SearchInsightsResponse
+</span><a href="#local-6989586621679239881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-type">SearchInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239880"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchInsightsResponse
+</span><a href="#local-6989586621679239881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchInsightsResponse' :: Maybe Text
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AnextToken%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The returned proactive insights.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_proactiveInsights"><span class="hs-identifier hs-type">searchInsightsResponse_proactiveInsights</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="searchInsightsResponse_proactiveInsights"><span class="annot"><span class="annottext">searchInsightsResponse_proactiveInsights :: (Maybe [ProactiveInsightSummary]
+ -&gt; f (Maybe [ProactiveInsightSummary]))
+-&gt; SearchInsightsResponse -&gt; f SearchInsightsResponse
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_proactiveInsights"><span class="hs-identifier hs-var hs-var">searchInsightsResponse_proactiveInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchInsightsResponse -&gt; Maybe [ProactiveInsightSummary])
+-&gt; (SearchInsightsResponse
+    -&gt; Maybe [ProactiveInsightSummary] -&gt; SearchInsightsResponse)
+-&gt; Lens' SearchInsightsResponse (Maybe [ProactiveInsightSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-type">SearchInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239879"><span class="annot"><span class="annottext">Maybe [ProactiveInsightSummary]
+proactiveInsights :: Maybe [ProactiveInsightSummary]
+$sel:proactiveInsights:SearchInsightsResponse' :: SearchInsightsResponse -&gt; Maybe [ProactiveInsightSummary]
+</span><a href="#local-6989586621679239879"><span class="hs-identifier hs-var hs-var">proactiveInsights</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProactiveInsightSummary]
+</span><a href="#local-6989586621679239879"><span class="hs-identifier hs-var">proactiveInsights</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239878"><span class="annot"><span class="annottext">s :: SearchInsightsResponse
+</span><a href="#local-6989586621679239878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-type">SearchInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239877"><span class="annot"><span class="annottext">Maybe [ProactiveInsightSummary]
+</span><a href="#local-6989586621679239877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchInsightsResponse
+</span><a href="#local-6989586621679239878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proactiveInsights:SearchInsightsResponse' :: Maybe [ProactiveInsightSummary]
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AproactiveInsights%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var">proactiveInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProactiveInsightSummary]
+</span><a href="#local-6989586621679239877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProactiveInsightSummary]
+  -&gt; f (Maybe [ProactiveInsightSummary]))
+ -&gt; SearchInsightsResponse -&gt; f SearchInsightsResponse)
+-&gt; ((Maybe [ProactiveInsightSummary]
+     -&gt; f (Maybe [ProactiveInsightSummary]))
+    -&gt; Maybe [ProactiveInsightSummary]
+    -&gt; f (Maybe [ProactiveInsightSummary]))
+-&gt; (Maybe [ProactiveInsightSummary]
+    -&gt; f (Maybe [ProactiveInsightSummary]))
+-&gt; SearchInsightsResponse
+-&gt; f SearchInsightsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProactiveInsightSummary]
+  [ProactiveInsightSummary]
+  [ProactiveInsightSummary]
+  [ProactiveInsightSummary]
+-&gt; Iso
+     (Maybe [ProactiveInsightSummary])
+     (Maybe [ProactiveInsightSummary])
+     (Maybe [ProactiveInsightSummary])
+     (Maybe [ProactiveInsightSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProactiveInsightSummary]
+  [ProactiveInsightSummary]
+  [ProactiveInsightSummary]
+  [ProactiveInsightSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_httpStatus"><span class="hs-identifier hs-type">searchInsightsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-284"></span><span id="searchInsightsResponse_httpStatus"><span class="annot"><span class="annottext">searchInsightsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SearchInsightsResponse -&gt; f SearchInsightsResponse
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#searchInsightsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">searchInsightsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchInsightsResponse -&gt; Int)
+-&gt; (SearchInsightsResponse -&gt; Int -&gt; SearchInsightsResponse)
+-&gt; Lens SearchInsightsResponse SearchInsightsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-type">SearchInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239876"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SearchInsightsResponse' :: SearchInsightsResponse -&gt; Int
+</span><a href="#local-6989586621679239876"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239876"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239875"><span class="annot"><span class="annottext">s :: SearchInsightsResponse
+</span><a href="#local-6989586621679239875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse%27"><span class="hs-identifier hs-type">SearchInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239874"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchInsightsResponse
+</span><a href="#local-6989586621679239875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchInsightsResponse' :: Int
+</span><a href="Amazonka.DevOpsGuru.SearchInsights.html#%24sel%3AhttpStatus%3ASearchInsightsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DevOpsGuru.SearchInsights.html#SearchInsightsResponse"><span class="hs-identifier hs-type">SearchInsightsResponse</span></a></span></span><span>
+</span><span id="line-287"></span></pre></body></html>

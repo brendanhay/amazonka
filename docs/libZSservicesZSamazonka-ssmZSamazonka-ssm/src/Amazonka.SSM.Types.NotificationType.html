@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.NotificationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.NotificationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType"><span class="hs-identifier">NotificationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType_Command"><span class="hs-identifier">NotificationType_Command</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType_Invocation"><span class="hs-identifier">NotificationType_Invocation</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679800769"><span id="local-6989586621679800770"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotificationType"><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType"><span class="hs-identifier hs-var">NotificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationType%27"><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType%27"><span class="hs-identifier hs-var">NotificationType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNotificationType"><span class="annot"><span class="annottext">NotificationType -&gt; Text
+</span><a href="Amazonka.SSM.Types.NotificationType.html#fromNotificationType"><span class="hs-identifier hs-var hs-var">fromNotificationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679800761"><span id="local-6989586621679800763"><span id="local-6989586621679800765"><span class="annot"><span class="annottext">Int -&gt; NotificationType -&gt; ShowS
+[NotificationType] -&gt; ShowS
+NotificationType -&gt; String
+(Int -&gt; NotificationType -&gt; ShowS)
+-&gt; (NotificationType -&gt; String)
+-&gt; ([NotificationType] -&gt; ShowS)
+-&gt; Show NotificationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotificationType] -&gt; ShowS
+$cshowList :: [NotificationType] -&gt; ShowS
+show :: NotificationType -&gt; String
+$cshow :: NotificationType -&gt; String
+showsPrec :: Int -&gt; NotificationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotificationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679800752"><span id="local-6989586621679800754"><span id="local-6989586621679800756"><span id="local-6989586621679800758"><span class="annot"><span class="annottext">ReadPrec [NotificationType]
+ReadPrec NotificationType
+Int -&gt; ReadS NotificationType
+ReadS [NotificationType]
+(Int -&gt; ReadS NotificationType)
+-&gt; ReadS [NotificationType]
+-&gt; ReadPrec NotificationType
+-&gt; ReadPrec [NotificationType]
+-&gt; Read NotificationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotificationType]
+$creadListPrec :: ReadPrec [NotificationType]
+readPrec :: ReadPrec NotificationType
+$creadPrec :: ReadPrec NotificationType
+readList :: ReadS [NotificationType]
+$creadList :: ReadS [NotificationType]
+readsPrec :: Int -&gt; ReadS NotificationType
+$creadsPrec :: Int -&gt; ReadS NotificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679800747"><span id="local-6989586621679800749"><span class="annot"><span class="annottext">NotificationType -&gt; NotificationType -&gt; Bool
+(NotificationType -&gt; NotificationType -&gt; Bool)
+-&gt; (NotificationType -&gt; NotificationType -&gt; Bool)
+-&gt; Eq NotificationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotificationType -&gt; NotificationType -&gt; Bool
+$c/= :: NotificationType -&gt; NotificationType -&gt; Bool
+== :: NotificationType -&gt; NotificationType -&gt; Bool
+$c== :: NotificationType -&gt; NotificationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679800731"><span id="local-6989586621679800733"><span id="local-6989586621679800735"><span id="local-6989586621679800737"><span id="local-6989586621679800739"><span id="local-6989586621679800741"><span id="local-6989586621679800743"><span class="annot"><span class="annottext">Eq NotificationType
+Eq NotificationType
+-&gt; (NotificationType -&gt; NotificationType -&gt; Ordering)
+-&gt; (NotificationType -&gt; NotificationType -&gt; Bool)
+-&gt; (NotificationType -&gt; NotificationType -&gt; Bool)
+-&gt; (NotificationType -&gt; NotificationType -&gt; Bool)
+-&gt; (NotificationType -&gt; NotificationType -&gt; Bool)
+-&gt; (NotificationType -&gt; NotificationType -&gt; NotificationType)
+-&gt; (NotificationType -&gt; NotificationType -&gt; NotificationType)
+-&gt; Ord NotificationType
+NotificationType -&gt; NotificationType -&gt; Bool
+NotificationType -&gt; NotificationType -&gt; Ordering
+NotificationType -&gt; NotificationType -&gt; NotificationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NotificationType -&gt; NotificationType -&gt; NotificationType
+$cmin :: NotificationType -&gt; NotificationType -&gt; NotificationType
+max :: NotificationType -&gt; NotificationType -&gt; NotificationType
+$cmax :: NotificationType -&gt; NotificationType -&gt; NotificationType
+&gt;= :: NotificationType -&gt; NotificationType -&gt; Bool
+$c&gt;= :: NotificationType -&gt; NotificationType -&gt; Bool
+&gt; :: NotificationType -&gt; NotificationType -&gt; Bool
+$c&gt; :: NotificationType -&gt; NotificationType -&gt; Bool
+&lt;= :: NotificationType -&gt; NotificationType -&gt; Bool
+$c&lt;= :: NotificationType -&gt; NotificationType -&gt; Bool
+&lt; :: NotificationType -&gt; NotificationType -&gt; Bool
+$c&lt; :: NotificationType -&gt; NotificationType -&gt; Bool
+compare :: NotificationType -&gt; NotificationType -&gt; Ordering
+$ccompare :: NotificationType -&gt; NotificationType -&gt; Ordering
+$cp1Ord :: Eq NotificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NotificationType -&gt; Rep NotificationType x)
+-&gt; (forall x. Rep NotificationType x -&gt; NotificationType)
+-&gt; Generic NotificationType
+forall x. Rep NotificationType x -&gt; NotificationType
+forall x. NotificationType -&gt; Rep NotificationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NotificationType x -&gt; NotificationType
+$cfrom :: forall x. NotificationType -&gt; Rep NotificationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679800723"><span id="local-6989586621679800725"><span class="annot"><span class="annottext">Int -&gt; NotificationType -&gt; Int
+NotificationType -&gt; Int
+(Int -&gt; NotificationType -&gt; Int)
+-&gt; (NotificationType -&gt; Int) -&gt; Hashable NotificationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NotificationType -&gt; Int
+$chash :: NotificationType -&gt; Int
+hashWithSalt :: Int -&gt; NotificationType -&gt; Int
+$chashWithSalt :: Int -&gt; NotificationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679800720"><span class="annot"><span class="annottext">NotificationType -&gt; ()
+(NotificationType -&gt; ()) -&gt; NFData NotificationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NotificationType -&gt; ()
+$crnf :: NotificationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679800717"><span class="annot"><span class="annottext">Text -&gt; Either String NotificationType
+(Text -&gt; Either String NotificationType)
+-&gt; FromText NotificationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NotificationType
+$cfromText :: Text -&gt; Either String NotificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679800714"><span class="annot"><span class="annottext">NotificationType -&gt; Text
+(NotificationType -&gt; Text) -&gt; ToText NotificationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NotificationType -&gt; Text
+$ctoText :: NotificationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679800711"><span class="annot"><span class="annottext">NotificationType -&gt; ByteString
+(NotificationType -&gt; ByteString) -&gt; ToByteString NotificationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NotificationType -&gt; ByteString
+$ctoBS :: NotificationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679800708"><span class="annot"><span class="annottext">NotificationType -&gt; ByteStringBuilder
+(NotificationType -&gt; ByteStringBuilder) -&gt; ToLog NotificationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NotificationType -&gt; ByteStringBuilder
+$cbuild :: NotificationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679800705"><span class="annot"><span class="annottext">HeaderName -&gt; NotificationType -&gt; [Header]
+(HeaderName -&gt; NotificationType -&gt; [Header])
+-&gt; ToHeader NotificationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NotificationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NotificationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679800702"><span class="annot"><span class="annottext">NotificationType -&gt; QueryString
+(NotificationType -&gt; QueryString) -&gt; ToQuery NotificationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NotificationType -&gt; QueryString
+$ctoQuery :: NotificationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679800697"><span id="local-6989586621679800699"><span class="annot"><span class="annottext">Value -&gt; Parser [NotificationType]
+Value -&gt; Parser NotificationType
+(Value -&gt; Parser NotificationType)
+-&gt; (Value -&gt; Parser [NotificationType])
+-&gt; FromJSON NotificationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NotificationType]
+$cparseJSONList :: Value -&gt; Parser [NotificationType]
+parseJSON :: Value -&gt; Parser NotificationType
+$cparseJSON :: Value -&gt; Parser NotificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679800692"><span id="local-6989586621679800694"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotificationType]
+FromJSONKeyFunction NotificationType
+FromJSONKeyFunction NotificationType
+-&gt; FromJSONKeyFunction [NotificationType]
+-&gt; FromJSONKey NotificationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NotificationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [NotificationType]
+fromJSONKey :: FromJSONKeyFunction NotificationType
+$cfromJSONKey :: FromJSONKeyFunction NotificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679800683"><span id="local-6989586621679800685"><span id="local-6989586621679800687"><span id="local-6989586621679800689"><span class="annot"><span class="annottext">[NotificationType] -&gt; Encoding
+[NotificationType] -&gt; Value
+NotificationType -&gt; Encoding
+NotificationType -&gt; Value
+(NotificationType -&gt; Value)
+-&gt; (NotificationType -&gt; Encoding)
+-&gt; ([NotificationType] -&gt; Value)
+-&gt; ([NotificationType] -&gt; Encoding)
+-&gt; ToJSON NotificationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NotificationType] -&gt; Encoding
+$ctoEncodingList :: [NotificationType] -&gt; Encoding
+toJSONList :: [NotificationType] -&gt; Value
+$ctoJSONList :: [NotificationType] -&gt; Value
+toEncoding :: NotificationType -&gt; Encoding
+$ctoEncoding :: NotificationType -&gt; Encoding
+toJSON :: NotificationType -&gt; Value
+$ctoJSON :: NotificationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679800678"><span id="local-6989586621679800680"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotificationType]
+ToJSONKeyFunction NotificationType
+ToJSONKeyFunction NotificationType
+-&gt; ToJSONKeyFunction [NotificationType]
+-&gt; ToJSONKey NotificationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NotificationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [NotificationType]
+toJSONKey :: ToJSONKeyFunction NotificationType
+$ctoJSONKey :: ToJSONKeyFunction NotificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679800675"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotificationType
+([Node] -&gt; Either String NotificationType)
+-&gt; FromXML NotificationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NotificationType
+$cparseXML :: [Node] -&gt; Either String NotificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679800672"><span class="annot"><span class="annottext">NotificationType -&gt; XML
+(NotificationType -&gt; XML) -&gt; ToXML NotificationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NotificationType -&gt; XML
+$ctoXML :: NotificationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType_Command"><span class="hs-identifier hs-type">NotificationType_Command</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType"><span class="hs-identifier hs-type">NotificationType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotificationType_Command"><span id="%24mNotificationType_Command"><span id="NotificationType_Command"><span class="annot"><span class="annottext">$bNotificationType_Command :: NotificationType
+$mNotificationType_Command :: forall r. NotificationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.NotificationType.html#%24bNotificationType_Command"><span class="hs-identifier hs-var hs-var hs-var">NotificationType_Command</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType%27"><span class="hs-identifier hs-type">NotificationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Command&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType_Invocation"><span class="hs-identifier hs-type">NotificationType_Invocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType"><span class="hs-identifier hs-type">NotificationType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotificationType_Invocation"><span id="%24mNotificationType_Invocation"><span id="NotificationType_Invocation"><span class="annot"><span class="annottext">$bNotificationType_Invocation :: NotificationType
+$mNotificationType_Invocation :: forall r. NotificationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.NotificationType.html#%24bNotificationType_Invocation"><span class="hs-identifier hs-var hs-var hs-var">NotificationType_Invocation</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType%27"><span class="hs-identifier hs-type">NotificationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Invocation&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType_Command"><span class="hs-pragma hs-type">NotificationType_Command</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType_Invocation"><span class="hs-pragma hs-type">NotificationType_Invocation</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.NotificationType.html#NotificationType%27"><span class="hs-pragma hs-type">NotificationType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

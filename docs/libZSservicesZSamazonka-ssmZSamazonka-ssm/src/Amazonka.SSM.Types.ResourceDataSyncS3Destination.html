@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.ResourceDataSyncS3Destination</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.ResourceDataSyncS3Destination</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncDestinationDataSharing.html"><span class="hs-identifier">Amazonka.SSM.Types.ResourceDataSyncDestinationDataSharing</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Format.html"><span class="hs-identifier">Amazonka.SSM.Types.ResourceDataSyncS3Format</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about the target S3 bucket for the resource data sync.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResourceDataSyncS3Destination' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679812155"><span id="local-6989586621679812156"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceDataSyncS3Destination"><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-var">ResourceDataSyncS3Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceDataSyncS3Destination%27"><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">ResourceDataSyncS3Destination'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An Amazon S3 prefix for the bucket.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aprefix%3AResourceDataSyncS3Destination%27"><span class="annot"><span class="annottext">ResourceDataSyncS3Destination -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3Aprefix%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Enables destination data sharing. By default, this field is @null@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdestinationDataSharing%3AResourceDataSyncS3Destination%27"><span class="annot"><span class="annottext">ResourceDataSyncS3Destination
+-&gt; Maybe ResourceDataSyncDestinationDataSharing
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AdestinationDataSharing%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var hs-var">destinationDataSharing</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncDestinationDataSharing.html#ResourceDataSyncDestinationDataSharing"><span class="hs-identifier hs-type">ResourceDataSyncDestinationDataSharing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ARN of an encryption key for a destination in Amazon S3. Must belong</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- to the same Region as the destination S3 bucket.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AaWSKMSKeyARN%3AResourceDataSyncS3Destination%27"><span class="annot"><span class="annottext">ResourceDataSyncS3Destination -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AaWSKMSKeyARN%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var hs-var">aWSKMSKeyARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the S3 bucket where the aggregated data is stored.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AbucketName%3AResourceDataSyncS3Destination%27"><span class="annot"><span class="annottext">ResourceDataSyncS3Destination -&gt; Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AbucketName%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A supported sync format. The following format is currently supported:</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- JsonSerDe</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsyncFormat%3AResourceDataSyncS3Destination%27"><span class="annot"><span class="annottext">ResourceDataSyncS3Destination -&gt; ResourceDataSyncS3Format
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AsyncFormat%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var hs-var">syncFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format"><span class="hs-identifier hs-type">ResourceDataSyncS3Format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Region with the S3 bucket targeted by the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- resource data sync.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aregion%3AResourceDataSyncS3Destination%27"><span class="annot"><span class="annottext">ResourceDataSyncS3Destination -&gt; Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3Aregion%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679812144"><span id="local-6989586621679812146"><span class="annot"><span class="annottext">ResourceDataSyncS3Destination
+-&gt; ResourceDataSyncS3Destination -&gt; Bool
+(ResourceDataSyncS3Destination
+ -&gt; ResourceDataSyncS3Destination -&gt; Bool)
+-&gt; (ResourceDataSyncS3Destination
+    -&gt; ResourceDataSyncS3Destination -&gt; Bool)
+-&gt; Eq ResourceDataSyncS3Destination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceDataSyncS3Destination
+-&gt; ResourceDataSyncS3Destination -&gt; Bool
+$c/= :: ResourceDataSyncS3Destination
+-&gt; ResourceDataSyncS3Destination -&gt; Bool
+== :: ResourceDataSyncS3Destination
+-&gt; ResourceDataSyncS3Destination -&gt; Bool
+$c== :: ResourceDataSyncS3Destination
+-&gt; ResourceDataSyncS3Destination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812135"><span id="local-6989586621679812137"><span id="local-6989586621679812139"><span id="local-6989586621679812141"><span class="annot"><span class="annottext">ReadPrec [ResourceDataSyncS3Destination]
+ReadPrec ResourceDataSyncS3Destination
+Int -&gt; ReadS ResourceDataSyncS3Destination
+ReadS [ResourceDataSyncS3Destination]
+(Int -&gt; ReadS ResourceDataSyncS3Destination)
+-&gt; ReadS [ResourceDataSyncS3Destination]
+-&gt; ReadPrec ResourceDataSyncS3Destination
+-&gt; ReadPrec [ResourceDataSyncS3Destination]
+-&gt; Read ResourceDataSyncS3Destination
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceDataSyncS3Destination]
+$creadListPrec :: ReadPrec [ResourceDataSyncS3Destination]
+readPrec :: ReadPrec ResourceDataSyncS3Destination
+$creadPrec :: ReadPrec ResourceDataSyncS3Destination
+readList :: ReadS [ResourceDataSyncS3Destination]
+$creadList :: ReadS [ResourceDataSyncS3Destination]
+readsPrec :: Int -&gt; ReadS ResourceDataSyncS3Destination
+$creadsPrec :: Int -&gt; ReadS ResourceDataSyncS3Destination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812128"><span id="local-6989586621679812130"><span id="local-6989586621679812132"><span class="annot"><span class="annottext">Int -&gt; ResourceDataSyncS3Destination -&gt; ShowS
+[ResourceDataSyncS3Destination] -&gt; ShowS
+ResourceDataSyncS3Destination -&gt; String
+(Int -&gt; ResourceDataSyncS3Destination -&gt; ShowS)
+-&gt; (ResourceDataSyncS3Destination -&gt; String)
+-&gt; ([ResourceDataSyncS3Destination] -&gt; ShowS)
+-&gt; Show ResourceDataSyncS3Destination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceDataSyncS3Destination] -&gt; ShowS
+$cshowList :: [ResourceDataSyncS3Destination] -&gt; ShowS
+show :: ResourceDataSyncS3Destination -&gt; String
+$cshow :: ResourceDataSyncS3Destination -&gt; String
+showsPrec :: Int -&gt; ResourceDataSyncS3Destination -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceDataSyncS3Destination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResourceDataSyncS3Destination
+ -&gt; Rep ResourceDataSyncS3Destination x)
+-&gt; (forall x.
+    Rep ResourceDataSyncS3Destination x
+    -&gt; ResourceDataSyncS3Destination)
+-&gt; Generic ResourceDataSyncS3Destination
+forall x.
+Rep ResourceDataSyncS3Destination x
+-&gt; ResourceDataSyncS3Destination
+forall x.
+ResourceDataSyncS3Destination
+-&gt; Rep ResourceDataSyncS3Destination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResourceDataSyncS3Destination x
+-&gt; ResourceDataSyncS3Destination
+$cfrom :: forall x.
+ResourceDataSyncS3Destination
+-&gt; Rep ResourceDataSyncS3Destination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'ResourceDataSyncS3Destination' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'prefix', 'resourceDataSyncS3Destination_prefix' - An Amazon S3 prefix for the bucket.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'destinationDataSharing', 'resourceDataSyncS3Destination_destinationDataSharing' - Enables destination data sharing. By default, this field is @null@.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'aWSKMSKeyARN', 'resourceDataSyncS3Destination_aWSKMSKeyARN' - The ARN of an encryption key for a destination in Amazon S3. Must belong</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- to the same Region as the destination S3 bucket.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'bucketName', 'resourceDataSyncS3Destination_bucketName' - The name of the S3 bucket where the aggregated data is stored.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'syncFormat', 'resourceDataSyncS3Destination_syncFormat' - A supported sync format. The following format is currently supported:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- JsonSerDe</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'region', 'resourceDataSyncS3Destination_region' - The Amazon Web Services Region with the S3 bucket targeted by the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- resource data sync.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#newResourceDataSyncS3Destination"><span class="hs-identifier hs-type">newResourceDataSyncS3Destination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'bucketName'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'syncFormat'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format"><span class="hs-identifier hs-type">ResourceDataSyncS3Format</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'region'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span>
+</span><span id="line-80"></span><span id="newResourceDataSyncS3Destination"><span class="annot"><span class="annottext">newResourceDataSyncS3Destination :: Text
+-&gt; ResourceDataSyncS3Format
+-&gt; Text
+-&gt; ResourceDataSyncS3Destination
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#newResourceDataSyncS3Destination"><span class="hs-identifier hs-var hs-var">newResourceDataSyncS3Destination</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679812122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812122"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679812121"><span class="annot"><span class="annottext">ResourceDataSyncS3Format
+</span><a href="#local-6989586621679812121"><span class="hs-identifier hs-var">pSyncFormat_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679812120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812120"><span class="hs-identifier hs-var">pRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">ResourceDataSyncS3Destination' :: Maybe Text
+-&gt; Maybe ResourceDataSyncDestinationDataSharing
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ResourceDataSyncS3Format
+-&gt; Text
+-&gt; ResourceDataSyncS3Destination
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prefix:ResourceDataSyncS3Destination' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3Aprefix%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationDataSharing:ResourceDataSyncS3Destination' :: Maybe ResourceDataSyncDestinationDataSharing
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AdestinationDataSharing%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">destinationDataSharing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncDestinationDataSharing
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:aWSKMSKeyARN:ResourceDataSyncS3Destination' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AaWSKMSKeyARN%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucketName:ResourceDataSyncS3Destination' :: Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AbucketName%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812122"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:syncFormat:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Format
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AsyncFormat%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">syncFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Format
+</span><a href="#local-6989586621679812121"><span class="hs-identifier hs-var">pSyncFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:region:ResourceDataSyncS3Destination' :: Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3Aregion%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812120"><span class="hs-identifier hs-var">pRegion_</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | An Amazon S3 prefix for the bucket.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_prefix"><span class="hs-identifier hs-type">resourceDataSyncS3Destination_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="resourceDataSyncS3Destination_prefix"><span class="annot"><span class="annottext">resourceDataSyncS3Destination_prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceDataSyncS3Destination -&gt; f ResourceDataSyncS3Destination
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_prefix"><span class="hs-identifier hs-var hs-var">resourceDataSyncS3Destination_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncS3Destination -&gt; Maybe Text)
+-&gt; (ResourceDataSyncS3Destination
+    -&gt; Maybe Text -&gt; ResourceDataSyncS3Destination)
+-&gt; Lens
+     ResourceDataSyncS3Destination
+     ResourceDataSyncS3Destination
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812116"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; Maybe Text
+</span><a href="#local-6989586621679812116"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812116"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812115"><span class="annot"><span class="annottext">s :: ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812114"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:ResourceDataSyncS3Destination' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3Aprefix%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Enables destination data sharing. By default, this field is @null@.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_destinationDataSharing"><span class="hs-identifier hs-type">resourceDataSyncS3Destination_destinationDataSharing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncDestinationDataSharing.html#ResourceDataSyncDestinationDataSharing"><span class="hs-identifier hs-type">ResourceDataSyncDestinationDataSharing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="resourceDataSyncS3Destination_destinationDataSharing"><span class="annot"><span class="annottext">resourceDataSyncS3Destination_destinationDataSharing :: (Maybe ResourceDataSyncDestinationDataSharing
+ -&gt; f (Maybe ResourceDataSyncDestinationDataSharing))
+-&gt; ResourceDataSyncS3Destination -&gt; f ResourceDataSyncS3Destination
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_destinationDataSharing"><span class="hs-identifier hs-var hs-var">resourceDataSyncS3Destination_destinationDataSharing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncS3Destination
+ -&gt; Maybe ResourceDataSyncDestinationDataSharing)
+-&gt; (ResourceDataSyncS3Destination
+    -&gt; Maybe ResourceDataSyncDestinationDataSharing
+    -&gt; ResourceDataSyncS3Destination)
+-&gt; Lens
+     ResourceDataSyncS3Destination
+     ResourceDataSyncS3Destination
+     (Maybe ResourceDataSyncDestinationDataSharing)
+     (Maybe ResourceDataSyncDestinationDataSharing)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812112"><span class="annot"><span class="annottext">Maybe ResourceDataSyncDestinationDataSharing
+destinationDataSharing :: Maybe ResourceDataSyncDestinationDataSharing
+$sel:destinationDataSharing:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination
+-&gt; Maybe ResourceDataSyncDestinationDataSharing
+</span><a href="#local-6989586621679812112"><span class="hs-identifier hs-var hs-var">destinationDataSharing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncDestinationDataSharing
+</span><a href="#local-6989586621679812112"><span class="hs-identifier hs-var">destinationDataSharing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812111"><span class="annot"><span class="annottext">s :: ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812110"><span class="annot"><span class="annottext">Maybe ResourceDataSyncDestinationDataSharing
+</span><a href="#local-6989586621679812110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationDataSharing:ResourceDataSyncS3Destination' :: Maybe ResourceDataSyncDestinationDataSharing
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AdestinationDataSharing%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">destinationDataSharing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncDestinationDataSharing
+</span><a href="#local-6989586621679812110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The ARN of an encryption key for a destination in Amazon S3. Must belong</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- to the same Region as the destination S3 bucket.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_aWSKMSKeyARN"><span class="hs-identifier hs-type">resourceDataSyncS3Destination_aWSKMSKeyARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="resourceDataSyncS3Destination_aWSKMSKeyARN"><span class="annot"><span class="annottext">resourceDataSyncS3Destination_aWSKMSKeyARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceDataSyncS3Destination -&gt; f ResourceDataSyncS3Destination
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_aWSKMSKeyARN"><span class="hs-identifier hs-var hs-var">resourceDataSyncS3Destination_aWSKMSKeyARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncS3Destination -&gt; Maybe Text)
+-&gt; (ResourceDataSyncS3Destination
+    -&gt; Maybe Text -&gt; ResourceDataSyncS3Destination)
+-&gt; Lens
+     ResourceDataSyncS3Destination
+     ResourceDataSyncS3Destination
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812108"><span class="annot"><span class="annottext">Maybe Text
+aWSKMSKeyARN :: Maybe Text
+$sel:aWSKMSKeyARN:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; Maybe Text
+</span><a href="#local-6989586621679812108"><span class="hs-identifier hs-var hs-var">aWSKMSKeyARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812108"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812107"><span class="annot"><span class="annottext">s :: ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812106"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aWSKMSKeyARN:ResourceDataSyncS3Destination' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AaWSKMSKeyARN%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name of the S3 bucket where the aggregated data is stored.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_bucketName"><span class="hs-identifier hs-type">resourceDataSyncS3Destination_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="resourceDataSyncS3Destination_bucketName"><span class="annot"><span class="annottext">resourceDataSyncS3Destination_bucketName :: (Text -&gt; f Text)
+-&gt; ResourceDataSyncS3Destination -&gt; f ResourceDataSyncS3Destination
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_bucketName"><span class="hs-identifier hs-var hs-var">resourceDataSyncS3Destination_bucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncS3Destination -&gt; Text)
+-&gt; (ResourceDataSyncS3Destination
+    -&gt; Text -&gt; ResourceDataSyncS3Destination)
+-&gt; Lens
+     ResourceDataSyncS3Destination
+     ResourceDataSyncS3Destination
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812104"><span class="annot"><span class="annottext">Text
+bucketName :: Text
+$sel:bucketName:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; Text
+</span><a href="#local-6989586621679812104"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812104"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812103"><span class="annot"><span class="annottext">s :: ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:ResourceDataSyncS3Destination' :: Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AbucketName%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A supported sync format. The following format is currently supported:</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- JsonSerDe</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_syncFormat"><span class="hs-identifier hs-type">resourceDataSyncS3Destination_syncFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format"><span class="hs-identifier hs-type">ResourceDataSyncS3Format</span></a></span><span>
+</span><span id="line-114"></span><span id="resourceDataSyncS3Destination_syncFormat"><span class="annot"><span class="annottext">resourceDataSyncS3Destination_syncFormat :: (ResourceDataSyncS3Format -&gt; f ResourceDataSyncS3Format)
+-&gt; ResourceDataSyncS3Destination -&gt; f ResourceDataSyncS3Destination
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_syncFormat"><span class="hs-identifier hs-var hs-var">resourceDataSyncS3Destination_syncFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncS3Destination -&gt; ResourceDataSyncS3Format)
+-&gt; (ResourceDataSyncS3Destination
+    -&gt; ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Destination)
+-&gt; Lens
+     ResourceDataSyncS3Destination
+     ResourceDataSyncS3Destination
+     ResourceDataSyncS3Format
+     ResourceDataSyncS3Format
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812100"><span class="annot"><span class="annottext">ResourceDataSyncS3Format
+syncFormat :: ResourceDataSyncS3Format
+$sel:syncFormat:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; ResourceDataSyncS3Format
+</span><a href="#local-6989586621679812100"><span class="hs-identifier hs-var hs-var">syncFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Format
+</span><a href="#local-6989586621679812100"><span class="hs-identifier hs-var">syncFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812099"><span class="annot"><span class="annottext">s :: ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812098"><span class="annot"><span class="annottext">ResourceDataSyncS3Format
+</span><a href="#local-6989586621679812098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncFormat:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Format
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3AsyncFormat%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">syncFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Format
+</span><a href="#local-6989586621679812098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The Amazon Web Services Region with the S3 bucket targeted by the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- resource data sync.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_region"><span class="hs-identifier hs-type">resourceDataSyncS3Destination_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="resourceDataSyncS3Destination_region"><span class="annot"><span class="annottext">resourceDataSyncS3Destination_region :: (Text -&gt; f Text)
+-&gt; ResourceDataSyncS3Destination -&gt; f ResourceDataSyncS3Destination
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#resourceDataSyncS3Destination_region"><span class="hs-identifier hs-var hs-var">resourceDataSyncS3Destination_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncS3Destination -&gt; Text)
+-&gt; (ResourceDataSyncS3Destination
+    -&gt; Text -&gt; ResourceDataSyncS3Destination)
+-&gt; Lens
+     ResourceDataSyncS3Destination
+     ResourceDataSyncS3Destination
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812096"><span class="annot"><span class="annottext">Text
+region :: Text
+$sel:region:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; Text
+</span><a href="#local-6989586621679812096"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812096"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812095"><span class="annot"><span class="annottext">s :: ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Destination
+</span><a href="#local-6989586621679812095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:ResourceDataSyncS3Destination' :: Text
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#%24sel%3Aregion%3AResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812091"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679812089"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceDataSyncS3Destination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResourceDataSyncS3Destination)
+-&gt; Value
+-&gt; Parser ResourceDataSyncS3Destination
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResourceDataSyncS3Destination&quot;</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679812086"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ResourceDataSyncDestinationDataSharing
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ResourceDataSyncS3Format
+-&gt; Text
+-&gt; ResourceDataSyncS3Destination
+</span><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-var">ResourceDataSyncS3Destination'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ResourceDataSyncDestinationDataSharing
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; ResourceDataSyncS3Format
+ -&gt; Text
+ -&gt; ResourceDataSyncS3Destination)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ResourceDataSyncDestinationDataSharing
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ResourceDataSyncS3Format
+      -&gt; Text
+      -&gt; ResourceDataSyncS3Destination)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceDataSyncDestinationDataSharing
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ResourceDataSyncS3Format
+   -&gt; Text
+   -&gt; ResourceDataSyncS3Destination)
+-&gt; Parser (Maybe ResourceDataSyncDestinationDataSharing)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Text
+      -&gt; ResourceDataSyncS3Format
+      -&gt; Text
+      -&gt; ResourceDataSyncS3Destination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe ResourceDataSyncDestinationDataSharing)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationDataSharing&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Text
+   -&gt; ResourceDataSyncS3Format
+   -&gt; Text
+   -&gt; ResourceDataSyncS3Destination)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text
+      -&gt; ResourceDataSyncS3Format
+      -&gt; Text
+      -&gt; ResourceDataSyncS3Destination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AWSKMSKeyARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; ResourceDataSyncS3Format
+   -&gt; Text
+   -&gt; ResourceDataSyncS3Destination)
+-&gt; Parser Text
+-&gt; Parser
+     (ResourceDataSyncS3Format -&gt; Text -&gt; ResourceDataSyncS3Destination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ResourceDataSyncS3Format -&gt; Text -&gt; ResourceDataSyncS3Destination)
+-&gt; Parser ResourceDataSyncS3Format
+-&gt; Parser (Text -&gt; ResourceDataSyncS3Destination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceDataSyncS3Format
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SyncFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ResourceDataSyncS3Destination)
+-&gt; Parser Text -&gt; Parser ResourceDataSyncS3Destination
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679812086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679812079"><span id="local-6989586621679812081"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812076"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812068"><span id="local-6989586621679812070"><span id="local-6989586621679812072"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679812066"><span class="annot"><span class="annottext">toJSON :: ResourceDataSyncS3Destination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.ResourceDataSyncS3Destination.html#ResourceDataSyncS3Destination%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812059"><span id="local-6989586621679812060"><span id="local-6989586621679812061"><span id="local-6989586621679812062"><span id="local-6989586621679812063"><span id="local-6989586621679812064"><span class="annot"><span class="annottext">Maybe Text
+Maybe ResourceDataSyncDestinationDataSharing
+Text
+ResourceDataSyncS3Format
+region :: Text
+syncFormat :: ResourceDataSyncS3Format
+bucketName :: Text
+aWSKMSKeyARN :: Maybe Text
+destinationDataSharing :: Maybe ResourceDataSyncDestinationDataSharing
+prefix :: Maybe Text
+$sel:region:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; Text
+$sel:syncFormat:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; ResourceDataSyncS3Format
+$sel:bucketName:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; Text
+$sel:aWSKMSKeyARN:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; Maybe Text
+$sel:destinationDataSharing:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination
+-&gt; Maybe ResourceDataSyncDestinationDataSharing
+$sel:prefix:ResourceDataSyncS3Destination' :: ResourceDataSyncS3Destination -&gt; Maybe Text
+</span><a href="#local-6989586621679812059"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812064"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationDataSharing&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceDataSyncDestinationDataSharing -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(ResourceDataSyncDestinationDataSharing -&gt; Pair)
+-&gt; Maybe ResourceDataSyncDestinationDataSharing -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncDestinationDataSharing
+</span><a href="#local-6989586621679812063"><span class="hs-identifier hs-var">destinationDataSharing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AWSKMSKeyARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679812062"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812061"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SyncFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceDataSyncS3Format -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncS3Format
+</span><a href="#local-6989586621679812060"><span class="hs-identifier hs-var">syncFormat</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812059"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span></pre></body></html>

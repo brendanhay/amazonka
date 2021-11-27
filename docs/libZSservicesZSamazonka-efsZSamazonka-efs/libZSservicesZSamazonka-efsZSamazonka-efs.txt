@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.EFS.Types.BackupStatus
+module Amazonka.EFS.Types.BackupStatus
 newtype BackupStatus
 BackupStatus' :: Text -> BackupStatus
 [fromBackupStatus] :: BackupStatus -> Text
@@ -13,28 +13,28 @@ pattern BackupStatus_DISABLED :: BackupStatus
 pattern BackupStatus_DISABLING :: BackupStatus
 pattern BackupStatus_ENABLED :: BackupStatus
 pattern BackupStatus_ENABLING :: BackupStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance GHC.Generics.Generic Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance GHC.Classes.Ord Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance GHC.Classes.Eq Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance GHC.Read.Read Network.AWS.EFS.Types.BackupStatus.BackupStatus
-instance GHC.Show.Show Network.AWS.EFS.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.XML.ToXML Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.XML.FromXML Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Log.ToLog Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Text.ToText Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Text.FromText Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance GHC.Generics.Generic Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance GHC.Classes.Ord Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance GHC.Classes.Eq Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance GHC.Read.Read Amazonka.EFS.Types.BackupStatus.BackupStatus
+instance GHC.Show.Show Amazonka.EFS.Types.BackupStatus.BackupStatus
 
 
-module Network.AWS.EFS.Types.BackupPolicy
+module Amazonka.EFS.Types.BackupPolicy
 
 -- | The backup policy for the file system used to create automatic daily
 --   backups. If status has a value of <tt>ENABLED</tt>, the file system is
@@ -96,17 +96,17 @@ newBackupPolicy :: BackupStatus -> BackupPolicy
 --   for the file system.</li>
 --   </ul>
 backupPolicy_status :: Lens' BackupPolicy BackupStatus
-instance GHC.Generics.Generic Network.AWS.EFS.Types.BackupPolicy.BackupPolicy
-instance GHC.Show.Show Network.AWS.EFS.Types.BackupPolicy.BackupPolicy
-instance GHC.Read.Read Network.AWS.EFS.Types.BackupPolicy.BackupPolicy
-instance GHC.Classes.Eq Network.AWS.EFS.Types.BackupPolicy.BackupPolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.BackupPolicy.BackupPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.BackupPolicy.BackupPolicy
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.BackupPolicy.BackupPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.BackupPolicy.BackupPolicy
+instance GHC.Generics.Generic Amazonka.EFS.Types.BackupPolicy.BackupPolicy
+instance GHC.Show.Show Amazonka.EFS.Types.BackupPolicy.BackupPolicy
+instance GHC.Read.Read Amazonka.EFS.Types.BackupPolicy.BackupPolicy
+instance GHC.Classes.Eq Amazonka.EFS.Types.BackupPolicy.BackupPolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.BackupPolicy.BackupPolicy
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.BackupPolicy.BackupPolicy
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.BackupPolicy.BackupPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.BackupPolicy.BackupPolicy
 
 
-module Network.AWS.EFS.Types.BackupPolicyDescription
+module Amazonka.EFS.Types.BackupPolicyDescription
 
 -- | <i>See:</i> <a>newBackupPolicyDescription</a> smart constructor.
 data BackupPolicyDescription
@@ -134,16 +134,16 @@ newBackupPolicyDescription :: BackupPolicyDescription
 -- | Describes the file system's backup policy, indicating whether
 --   automatic backups are turned on or off..
 backupPolicyDescription_backupPolicy :: Lens' BackupPolicyDescription (Maybe BackupPolicy)
-instance GHC.Generics.Generic Network.AWS.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
-instance GHC.Show.Show Network.AWS.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
-instance GHC.Read.Read Network.AWS.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
-instance GHC.Classes.Eq Network.AWS.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
+instance GHC.Generics.Generic Amazonka.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
+instance GHC.Show.Show Amazonka.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
+instance GHC.Read.Read Amazonka.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
+instance GHC.Classes.Eq Amazonka.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.BackupPolicyDescription.BackupPolicyDescription
 
 
-module Network.AWS.EFS.Types.CreationInfo
+module Amazonka.EFS.Types.CreationInfo
 
 -- | Required if the <tt>RootDirectory</tt> &gt; <tt>Path</tt> specified
 --   does not exist. Specifies the POSIX IDs and permissions to apply to
@@ -214,17 +214,17 @@ creationInfo_ownerGid :: Lens' CreationInfo Natural
 --   <tt>RootDirectory</tt>, in the format of an octal number representing
 --   the file's mode bits.
 creationInfo_permissions :: Lens' CreationInfo Text
-instance GHC.Generics.Generic Network.AWS.EFS.Types.CreationInfo.CreationInfo
-instance GHC.Show.Show Network.AWS.EFS.Types.CreationInfo.CreationInfo
-instance GHC.Read.Read Network.AWS.EFS.Types.CreationInfo.CreationInfo
-instance GHC.Classes.Eq Network.AWS.EFS.Types.CreationInfo.CreationInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.CreationInfo.CreationInfo
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.CreationInfo.CreationInfo
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.CreationInfo.CreationInfo
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.CreationInfo.CreationInfo
+instance GHC.Generics.Generic Amazonka.EFS.Types.CreationInfo.CreationInfo
+instance GHC.Show.Show Amazonka.EFS.Types.CreationInfo.CreationInfo
+instance GHC.Read.Read Amazonka.EFS.Types.CreationInfo.CreationInfo
+instance GHC.Classes.Eq Amazonka.EFS.Types.CreationInfo.CreationInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.CreationInfo.CreationInfo
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.CreationInfo.CreationInfo
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.CreationInfo.CreationInfo
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.CreationInfo.CreationInfo
 
 
-module Network.AWS.EFS.Types.FileSystemPolicyDescription
+module Amazonka.EFS.Types.FileSystemPolicyDescription
 
 -- | <i>See:</i> <a>newFileSystemPolicyDescription</a> smart constructor.
 data FileSystemPolicyDescription
@@ -261,16 +261,16 @@ fileSystemPolicyDescription_fileSystemId :: Lens' FileSystemPolicyDescription (M
 
 -- | The JSON formatted <tt>FileSystemPolicy</tt> for the EFS file system.
 fileSystemPolicyDescription_policy :: Lens' FileSystemPolicyDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
-instance GHC.Show.Show Network.AWS.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
-instance GHC.Read.Read Network.AWS.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
-instance GHC.Classes.Eq Network.AWS.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
+instance GHC.Generics.Generic Amazonka.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
+instance GHC.Show.Show Amazonka.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
+instance GHC.Read.Read Amazonka.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
+instance GHC.Classes.Eq Amazonka.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.FileSystemPolicyDescription.FileSystemPolicyDescription
 
 
-module Network.AWS.EFS.Types.FileSystemSize
+module Amazonka.EFS.Types.FileSystemSize
 
 -- | The latest known metered size (in bytes) of data stored in the file
 --   system, in its <tt>Value</tt> field, and the time at which that size
@@ -346,16 +346,16 @@ fileSystemSize_timestamp :: Lens' FileSystemSize (Maybe UTCTime)
 -- | The latest known metered size (in bytes) of data stored in the file
 --   system.
 fileSystemSize_value :: Lens' FileSystemSize Natural
-instance GHC.Generics.Generic Network.AWS.EFS.Types.FileSystemSize.FileSystemSize
-instance GHC.Show.Show Network.AWS.EFS.Types.FileSystemSize.FileSystemSize
-instance GHC.Read.Read Network.AWS.EFS.Types.FileSystemSize.FileSystemSize
-instance GHC.Classes.Eq Network.AWS.EFS.Types.FileSystemSize.FileSystemSize
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.FileSystemSize.FileSystemSize
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.FileSystemSize.FileSystemSize
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.FileSystemSize.FileSystemSize
+instance GHC.Generics.Generic Amazonka.EFS.Types.FileSystemSize.FileSystemSize
+instance GHC.Show.Show Amazonka.EFS.Types.FileSystemSize.FileSystemSize
+instance GHC.Read.Read Amazonka.EFS.Types.FileSystemSize.FileSystemSize
+instance GHC.Classes.Eq Amazonka.EFS.Types.FileSystemSize.FileSystemSize
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.FileSystemSize.FileSystemSize
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.FileSystemSize.FileSystemSize
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.FileSystemSize.FileSystemSize
 
 
-module Network.AWS.EFS.Types.LifeCycleState
+module Amazonka.EFS.Types.LifeCycleState
 newtype LifeCycleState
 LifeCycleState' :: Text -> LifeCycleState
 [fromLifeCycleState] :: LifeCycleState -> Text
@@ -365,28 +365,28 @@ pattern LifeCycleState_Deleted :: LifeCycleState
 pattern LifeCycleState_Deleting :: LifeCycleState
 pattern LifeCycleState_Error :: LifeCycleState
 pattern LifeCycleState_Updating :: LifeCycleState
-instance Network.AWS.Data.XML.ToXML Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Network.AWS.Data.XML.FromXML Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Network.AWS.Data.Log.ToLog Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Network.AWS.Data.Text.ToText Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Network.AWS.Data.Text.FromText Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance GHC.Generics.Generic Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance GHC.Classes.Ord Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance GHC.Classes.Eq Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance GHC.Read.Read Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
-instance GHC.Show.Show Network.AWS.EFS.Types.LifeCycleState.LifeCycleState
+instance Amazonka.Data.XML.ToXML Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Amazonka.Data.XML.FromXML Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Amazonka.Data.Headers.ToHeader Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Amazonka.Data.Log.ToLog Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Amazonka.Data.Text.ToText Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Amazonka.Data.Text.FromText Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance GHC.Generics.Generic Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance GHC.Classes.Ord Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance GHC.Classes.Eq Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance GHC.Read.Read Amazonka.EFS.Types.LifeCycleState.LifeCycleState
+instance GHC.Show.Show Amazonka.EFS.Types.LifeCycleState.LifeCycleState
 
 
-module Network.AWS.EFS.Types.MountTargetDescription
+module Amazonka.EFS.Types.MountTargetDescription
 
 -- | Provides a description of a mount target.
 --   
@@ -533,43 +533,43 @@ mountTargetDescription_subnetId :: Lens' MountTargetDescription Text
 
 -- | Lifecycle state of the mount target.
 mountTargetDescription_lifeCycleState :: Lens' MountTargetDescription LifeCycleState
-instance GHC.Generics.Generic Network.AWS.EFS.Types.MountTargetDescription.MountTargetDescription
-instance GHC.Show.Show Network.AWS.EFS.Types.MountTargetDescription.MountTargetDescription
-instance GHC.Read.Read Network.AWS.EFS.Types.MountTargetDescription.MountTargetDescription
-instance GHC.Classes.Eq Network.AWS.EFS.Types.MountTargetDescription.MountTargetDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.MountTargetDescription.MountTargetDescription
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.MountTargetDescription.MountTargetDescription
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.MountTargetDescription.MountTargetDescription
+instance GHC.Generics.Generic Amazonka.EFS.Types.MountTargetDescription.MountTargetDescription
+instance GHC.Show.Show Amazonka.EFS.Types.MountTargetDescription.MountTargetDescription
+instance GHC.Read.Read Amazonka.EFS.Types.MountTargetDescription.MountTargetDescription
+instance GHC.Classes.Eq Amazonka.EFS.Types.MountTargetDescription.MountTargetDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.MountTargetDescription.MountTargetDescription
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.MountTargetDescription.MountTargetDescription
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.MountTargetDescription.MountTargetDescription
 
 
-module Network.AWS.EFS.Types.PerformanceMode
+module Amazonka.EFS.Types.PerformanceMode
 newtype PerformanceMode
 PerformanceMode' :: Text -> PerformanceMode
 [fromPerformanceMode] :: PerformanceMode -> Text
 pattern PerformanceMode_GeneralPurpose :: PerformanceMode
 pattern PerformanceMode_MaxIO :: PerformanceMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Network.AWS.Data.Text.ToText Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Network.AWS.Data.Text.FromText Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance GHC.Generics.Generic Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance GHC.Classes.Ord Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance GHC.Classes.Eq Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance GHC.Read.Read Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
-instance GHC.Show.Show Network.AWS.EFS.Types.PerformanceMode.PerformanceMode
+instance Amazonka.Data.XML.ToXML Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Amazonka.Data.XML.FromXML Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Amazonka.Data.Log.ToLog Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Amazonka.Data.Text.ToText Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Amazonka.Data.Text.FromText Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance GHC.Generics.Generic Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance GHC.Classes.Ord Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance GHC.Classes.Eq Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance GHC.Read.Read Amazonka.EFS.Types.PerformanceMode.PerformanceMode
+instance GHC.Show.Show Amazonka.EFS.Types.PerformanceMode.PerformanceMode
 
 
-module Network.AWS.EFS.Types.PosixUser
+module Amazonka.EFS.Types.PosixUser
 
 -- | The full POSIX identity, including the user ID, group ID, and any
 --   secondary group IDs, on the access point that is used for all file
@@ -621,17 +621,17 @@ posixUser_uid :: Lens' PosixUser Natural
 -- | The POSIX group ID used for all file system operations using this
 --   access point.
 posixUser_gid :: Lens' PosixUser Natural
-instance GHC.Generics.Generic Network.AWS.EFS.Types.PosixUser.PosixUser
-instance GHC.Show.Show Network.AWS.EFS.Types.PosixUser.PosixUser
-instance GHC.Read.Read Network.AWS.EFS.Types.PosixUser.PosixUser
-instance GHC.Classes.Eq Network.AWS.EFS.Types.PosixUser.PosixUser
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.PosixUser.PosixUser
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.PosixUser.PosixUser
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.PosixUser.PosixUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.PosixUser.PosixUser
+instance GHC.Generics.Generic Amazonka.EFS.Types.PosixUser.PosixUser
+instance GHC.Show.Show Amazonka.EFS.Types.PosixUser.PosixUser
+instance GHC.Read.Read Amazonka.EFS.Types.PosixUser.PosixUser
+instance GHC.Classes.Eq Amazonka.EFS.Types.PosixUser.PosixUser
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.PosixUser.PosixUser
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.PosixUser.PosixUser
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.PosixUser.PosixUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.PosixUser.PosixUser
 
 
-module Network.AWS.EFS.Types.Resource
+module Amazonka.EFS.Types.Resource
 
 -- | An EFS resource, for example a file system or a mount target.
 newtype Resource
@@ -639,28 +639,28 @@ Resource' :: Text -> Resource
 [fromResource] :: Resource -> Text
 pattern Resource_FILE_SYSTEM :: Resource
 pattern Resource_MOUNT_TARGET :: Resource
-instance Network.AWS.Data.XML.ToXML Network.AWS.EFS.Types.Resource.Resource
-instance Network.AWS.Data.XML.FromXML Network.AWS.EFS.Types.Resource.Resource
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EFS.Types.Resource.Resource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.Resource.Resource
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EFS.Types.Resource.Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.Resource.Resource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.Types.Resource.Resource
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EFS.Types.Resource.Resource
-instance Network.AWS.Data.Log.ToLog Network.AWS.EFS.Types.Resource.Resource
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EFS.Types.Resource.Resource
-instance Network.AWS.Data.Text.ToText Network.AWS.EFS.Types.Resource.Resource
-instance Network.AWS.Data.Text.FromText Network.AWS.EFS.Types.Resource.Resource
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.Resource.Resource
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.Resource.Resource
-instance GHC.Generics.Generic Network.AWS.EFS.Types.Resource.Resource
-instance GHC.Classes.Ord Network.AWS.EFS.Types.Resource.Resource
-instance GHC.Classes.Eq Network.AWS.EFS.Types.Resource.Resource
-instance GHC.Read.Read Network.AWS.EFS.Types.Resource.Resource
-instance GHC.Show.Show Network.AWS.EFS.Types.Resource.Resource
+instance Amazonka.Data.XML.ToXML Amazonka.EFS.Types.Resource.Resource
+instance Amazonka.Data.XML.FromXML Amazonka.EFS.Types.Resource.Resource
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EFS.Types.Resource.Resource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.Resource.Resource
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EFS.Types.Resource.Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.Resource.Resource
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.Types.Resource.Resource
+instance Amazonka.Data.Headers.ToHeader Amazonka.EFS.Types.Resource.Resource
+instance Amazonka.Data.Log.ToLog Amazonka.EFS.Types.Resource.Resource
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EFS.Types.Resource.Resource
+instance Amazonka.Data.Text.ToText Amazonka.EFS.Types.Resource.Resource
+instance Amazonka.Data.Text.FromText Amazonka.EFS.Types.Resource.Resource
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.Resource.Resource
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.Resource.Resource
+instance GHC.Generics.Generic Amazonka.EFS.Types.Resource.Resource
+instance GHC.Classes.Ord Amazonka.EFS.Types.Resource.Resource
+instance GHC.Classes.Eq Amazonka.EFS.Types.Resource.Resource
+instance GHC.Read.Read Amazonka.EFS.Types.Resource.Resource
+instance GHC.Show.Show Amazonka.EFS.Types.Resource.Resource
 
 
-module Network.AWS.EFS.Types.ResourceIdType
+module Amazonka.EFS.Types.ResourceIdType
 
 -- | A preference indicating a choice to use 63bit/32bit IDs for all
 --   applicable resources.
@@ -669,28 +669,28 @@ ResourceIdType' :: Text -> ResourceIdType
 [fromResourceIdType] :: ResourceIdType -> Text
 pattern ResourceIdType_LONG_ID :: ResourceIdType
 pattern ResourceIdType_SHORT_ID :: ResourceIdType
-instance Network.AWS.Data.XML.ToXML Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Network.AWS.Data.XML.FromXML Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Network.AWS.Data.Log.ToLog Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Network.AWS.Data.Text.ToText Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Network.AWS.Data.Text.FromText Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance GHC.Generics.Generic Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance GHC.Classes.Ord Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance GHC.Classes.Eq Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance GHC.Read.Read Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
-instance GHC.Show.Show Network.AWS.EFS.Types.ResourceIdType.ResourceIdType
+instance Amazonka.Data.XML.ToXML Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Amazonka.Data.XML.FromXML Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Amazonka.Data.Headers.ToHeader Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Amazonka.Data.Log.ToLog Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Amazonka.Data.Text.ToText Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Amazonka.Data.Text.FromText Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance GHC.Generics.Generic Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance GHC.Classes.Ord Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance GHC.Classes.Eq Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance GHC.Read.Read Amazonka.EFS.Types.ResourceIdType.ResourceIdType
+instance GHC.Show.Show Amazonka.EFS.Types.ResourceIdType.ResourceIdType
 
 
-module Network.AWS.EFS.Types.ResourceIdPreference
+module Amazonka.EFS.Types.ResourceIdPreference
 
 -- | Describes the resource type and its ID preference for the user's
 --   Amazon Web Services account, in the current Amazon Web Services
@@ -735,16 +735,16 @@ resourceIdPreference_resources :: Lens' ResourceIdPreference (Maybe [Resource])
 -- | Identifies the EFS resource ID preference, either <tt>LONG_ID</tt> (17
 --   characters) or <tt>SHORT_ID</tt> (8 characters).
 resourceIdPreference_resourceIdType :: Lens' ResourceIdPreference (Maybe ResourceIdType)
-instance GHC.Generics.Generic Network.AWS.EFS.Types.ResourceIdPreference.ResourceIdPreference
-instance GHC.Show.Show Network.AWS.EFS.Types.ResourceIdPreference.ResourceIdPreference
-instance GHC.Read.Read Network.AWS.EFS.Types.ResourceIdPreference.ResourceIdPreference
-instance GHC.Classes.Eq Network.AWS.EFS.Types.ResourceIdPreference.ResourceIdPreference
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.ResourceIdPreference.ResourceIdPreference
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.ResourceIdPreference.ResourceIdPreference
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.ResourceIdPreference.ResourceIdPreference
+instance GHC.Generics.Generic Amazonka.EFS.Types.ResourceIdPreference.ResourceIdPreference
+instance GHC.Show.Show Amazonka.EFS.Types.ResourceIdPreference.ResourceIdPreference
+instance GHC.Read.Read Amazonka.EFS.Types.ResourceIdPreference.ResourceIdPreference
+instance GHC.Classes.Eq Amazonka.EFS.Types.ResourceIdPreference.ResourceIdPreference
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.ResourceIdPreference.ResourceIdPreference
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.ResourceIdPreference.ResourceIdPreference
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.ResourceIdPreference.ResourceIdPreference
 
 
-module Network.AWS.EFS.Types.RootDirectory
+module Amazonka.EFS.Types.RootDirectory
 
 -- | Specifies the directory on the Amazon EFS file system that the access
 --   point provides access to. The access point exposes the specified file
@@ -822,17 +822,17 @@ rootDirectory_creationInfo :: Lens' RootDirectory (Maybe CreationInfo)
 --   path does not exist, you are required to provide the
 --   <tt>CreationInfo</tt>.
 rootDirectory_path :: Lens' RootDirectory (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.EFS.Types.RootDirectory.RootDirectory
-instance GHC.Show.Show Network.AWS.EFS.Types.RootDirectory.RootDirectory
-instance GHC.Read.Read Network.AWS.EFS.Types.RootDirectory.RootDirectory
-instance GHC.Classes.Eq Network.AWS.EFS.Types.RootDirectory.RootDirectory
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.RootDirectory.RootDirectory
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.RootDirectory.RootDirectory
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.RootDirectory.RootDirectory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.RootDirectory.RootDirectory
+instance GHC.Generics.Generic Amazonka.EFS.Types.RootDirectory.RootDirectory
+instance GHC.Show.Show Amazonka.EFS.Types.RootDirectory.RootDirectory
+instance GHC.Read.Read Amazonka.EFS.Types.RootDirectory.RootDirectory
+instance GHC.Classes.Eq Amazonka.EFS.Types.RootDirectory.RootDirectory
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.RootDirectory.RootDirectory
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.RootDirectory.RootDirectory
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.RootDirectory.RootDirectory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.RootDirectory.RootDirectory
 
 
-module Network.AWS.EFS.Types.Tag
+module Amazonka.EFS.Types.Tag
 
 -- | A tag is a key-value pair. Allowed characters are letters, white
 --   space, and numbers that can be represented in UTF-8, and the following
@@ -867,17 +867,17 @@ tag_key :: Lens' Tag Text
 
 -- | The value of the tag key.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.EFS.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.EFS.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.EFS.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.EFS.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.EFS.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.EFS.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.EFS.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.EFS.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.Tag.Tag
 
 
-module Network.AWS.EFS.Types.AccessPointDescription
+module Amazonka.EFS.Types.AccessPointDescription
 
 -- | Provides a description of an EFS file system access point.
 --   
@@ -1013,43 +1013,43 @@ accessPointDescription_lifeCycleState :: Lens' AccessPointDescription (Maybe Lif
 -- | The tags associated with the access point, presented as an array of
 --   Tag objects.
 accessPointDescription_tags :: Lens' AccessPointDescription (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.EFS.Types.AccessPointDescription.AccessPointDescription
-instance GHC.Show.Show Network.AWS.EFS.Types.AccessPointDescription.AccessPointDescription
-instance GHC.Read.Read Network.AWS.EFS.Types.AccessPointDescription.AccessPointDescription
-instance GHC.Classes.Eq Network.AWS.EFS.Types.AccessPointDescription.AccessPointDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.AccessPointDescription.AccessPointDescription
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.AccessPointDescription.AccessPointDescription
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.AccessPointDescription.AccessPointDescription
+instance GHC.Generics.Generic Amazonka.EFS.Types.AccessPointDescription.AccessPointDescription
+instance GHC.Show.Show Amazonka.EFS.Types.AccessPointDescription.AccessPointDescription
+instance GHC.Read.Read Amazonka.EFS.Types.AccessPointDescription.AccessPointDescription
+instance GHC.Classes.Eq Amazonka.EFS.Types.AccessPointDescription.AccessPointDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.AccessPointDescription.AccessPointDescription
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.AccessPointDescription.AccessPointDescription
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.AccessPointDescription.AccessPointDescription
 
 
-module Network.AWS.EFS.Types.ThroughputMode
+module Amazonka.EFS.Types.ThroughputMode
 newtype ThroughputMode
 ThroughputMode' :: Text -> ThroughputMode
 [fromThroughputMode] :: ThroughputMode -> Text
 pattern ThroughputMode_Bursting :: ThroughputMode
 pattern ThroughputMode_Provisioned :: ThroughputMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Network.AWS.Data.Text.ToText Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Network.AWS.Data.Text.FromText Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance GHC.Generics.Generic Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance GHC.Classes.Ord Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance GHC.Classes.Eq Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance GHC.Read.Read Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
-instance GHC.Show.Show Network.AWS.EFS.Types.ThroughputMode.ThroughputMode
+instance Amazonka.Data.XML.ToXML Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Amazonka.Data.XML.FromXML Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Amazonka.Data.Log.ToLog Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Amazonka.Data.Text.ToText Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Amazonka.Data.Text.FromText Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance GHC.Generics.Generic Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance GHC.Classes.Ord Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance GHC.Classes.Eq Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance GHC.Read.Read Amazonka.EFS.Types.ThroughputMode.ThroughputMode
+instance GHC.Show.Show Amazonka.EFS.Types.ThroughputMode.ThroughputMode
 
 
-module Network.AWS.EFS.Types.FileSystemDescription
+module Amazonka.EFS.Types.FileSystemDescription
 
 -- | A description of the file system.
 --   
@@ -1325,16 +1325,16 @@ fileSystemDescription_performanceMode :: Lens' FileSystemDescription Performance
 -- | The tags associated with the file system, presented as an array of
 --   <tt>Tag</tt> objects.
 fileSystemDescription_tags :: Lens' FileSystemDescription [Tag]
-instance GHC.Generics.Generic Network.AWS.EFS.Types.FileSystemDescription.FileSystemDescription
-instance GHC.Show.Show Network.AWS.EFS.Types.FileSystemDescription.FileSystemDescription
-instance GHC.Read.Read Network.AWS.EFS.Types.FileSystemDescription.FileSystemDescription
-instance GHC.Classes.Eq Network.AWS.EFS.Types.FileSystemDescription.FileSystemDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.FileSystemDescription.FileSystemDescription
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.FileSystemDescription.FileSystemDescription
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.FileSystemDescription.FileSystemDescription
+instance GHC.Generics.Generic Amazonka.EFS.Types.FileSystemDescription.FileSystemDescription
+instance GHC.Show.Show Amazonka.EFS.Types.FileSystemDescription.FileSystemDescription
+instance GHC.Read.Read Amazonka.EFS.Types.FileSystemDescription.FileSystemDescription
+instance GHC.Classes.Eq Amazonka.EFS.Types.FileSystemDescription.FileSystemDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.FileSystemDescription.FileSystemDescription
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.FileSystemDescription.FileSystemDescription
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.FileSystemDescription.FileSystemDescription
 
 
-module Network.AWS.EFS.Types.TransitionToIARules
+module Amazonka.EFS.Types.TransitionToIARules
 newtype TransitionToIARules
 TransitionToIARules' :: Text -> TransitionToIARules
 [fromTransitionToIARules] :: TransitionToIARules -> Text
@@ -1343,54 +1343,54 @@ pattern TransitionToIARules_AFTER_30_DAYS :: TransitionToIARules
 pattern TransitionToIARules_AFTER_60_DAYS :: TransitionToIARules
 pattern TransitionToIARules_AFTER_7_DAYS :: TransitionToIARules
 pattern TransitionToIARules_AFTER_90_DAYS :: TransitionToIARules
-instance Network.AWS.Data.XML.ToXML Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Network.AWS.Data.XML.FromXML Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Network.AWS.Data.Log.ToLog Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Network.AWS.Data.Text.ToText Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Network.AWS.Data.Text.FromText Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance GHC.Generics.Generic Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance GHC.Classes.Ord Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance GHC.Classes.Eq Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance GHC.Read.Read Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
-instance GHC.Show.Show Network.AWS.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Amazonka.Data.XML.ToXML Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Amazonka.Data.XML.FromXML Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Amazonka.Data.Headers.ToHeader Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Amazonka.Data.Log.ToLog Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Amazonka.Data.Text.ToText Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Amazonka.Data.Text.FromText Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance GHC.Generics.Generic Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance GHC.Classes.Ord Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance GHC.Classes.Eq Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance GHC.Read.Read Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
+instance GHC.Show.Show Amazonka.EFS.Types.TransitionToIARules.TransitionToIARules
 
 
-module Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules
+module Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules
 newtype TransitionToPrimaryStorageClassRules
 TransitionToPrimaryStorageClassRules' :: Text -> TransitionToPrimaryStorageClassRules
 [fromTransitionToPrimaryStorageClassRules] :: TransitionToPrimaryStorageClassRules -> Text
 pattern TransitionToPrimaryStorageClassRules_AFTER_1_ACCESS :: TransitionToPrimaryStorageClassRules
-instance Network.AWS.Data.XML.ToXML Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Network.AWS.Data.XML.FromXML Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Network.AWS.Data.Log.ToLog Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Network.AWS.Data.Text.ToText Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Network.AWS.Data.Text.FromText Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance GHC.Generics.Generic Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance GHC.Classes.Ord Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance GHC.Classes.Eq Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance GHC.Read.Read Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
-instance GHC.Show.Show Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Amazonka.Data.XML.ToXML Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Amazonka.Data.XML.FromXML Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Amazonka.Data.Headers.ToHeader Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Amazonka.Data.Log.ToLog Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Amazonka.Data.Text.ToText Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Amazonka.Data.Text.FromText Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance GHC.Generics.Generic Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance GHC.Classes.Ord Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance GHC.Classes.Eq Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance GHC.Read.Read Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
+instance GHC.Show.Show Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules.TransitionToPrimaryStorageClassRules
 
 
-module Network.AWS.EFS.Types.LifecyclePolicy
+module Amazonka.EFS.Types.LifecyclePolicy
 
 -- | Describes a policy used by EFS lifecycle management and EFS
 --   intelligent tiering that specifies when to transition files into and
@@ -1453,17 +1453,17 @@ lifecyclePolicy_transitionToIA :: Lens' LifecyclePolicy (Maybe TransitionToIARul
 --   storage. Metadata operations such as listing the contents of a
 --   directory don't count as file access events.
 lifecyclePolicy_transitionToPrimaryStorageClass :: Lens' LifecyclePolicy (Maybe TransitionToPrimaryStorageClassRules)
-instance GHC.Generics.Generic Network.AWS.EFS.Types.LifecyclePolicy.LifecyclePolicy
-instance GHC.Show.Show Network.AWS.EFS.Types.LifecyclePolicy.LifecyclePolicy
-instance GHC.Read.Read Network.AWS.EFS.Types.LifecyclePolicy.LifecyclePolicy
-instance GHC.Classes.Eq Network.AWS.EFS.Types.LifecyclePolicy.LifecyclePolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.LifecyclePolicy.LifecyclePolicy
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.LifecyclePolicy.LifecyclePolicy
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.LifecyclePolicy.LifecyclePolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.Types.LifecyclePolicy.LifecyclePolicy
+instance GHC.Generics.Generic Amazonka.EFS.Types.LifecyclePolicy.LifecyclePolicy
+instance GHC.Show.Show Amazonka.EFS.Types.LifecyclePolicy.LifecyclePolicy
+instance GHC.Read.Read Amazonka.EFS.Types.LifecyclePolicy.LifecyclePolicy
+instance GHC.Classes.Eq Amazonka.EFS.Types.LifecyclePolicy.LifecyclePolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.LifecyclePolicy.LifecyclePolicy
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.LifecyclePolicy.LifecyclePolicy
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.LifecyclePolicy.LifecyclePolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.Types.LifecyclePolicy.LifecyclePolicy
 
 
-module Network.AWS.EFS.Types.LifecycleConfigurationDescription
+module Amazonka.EFS.Types.LifecycleConfigurationDescription
 
 -- | <i>See:</i> <a>newLifecycleConfigurationDescription</a> smart
 --   constructor.
@@ -1492,16 +1492,16 @@ newLifecycleConfigurationDescription :: LifecycleConfigurationDescription
 -- | An array of lifecycle management policies. EFS supports a maximum of
 --   one policy per file system.
 lifecycleConfigurationDescription_lifecyclePolicies :: Lens' LifecycleConfigurationDescription (Maybe [LifecyclePolicy])
-instance GHC.Generics.Generic Network.AWS.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
-instance GHC.Show.Show Network.AWS.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
-instance GHC.Read.Read Network.AWS.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
-instance GHC.Classes.Eq Network.AWS.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
-instance Control.DeepSeq.NFData Network.AWS.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
+instance GHC.Generics.Generic Amazonka.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
+instance GHC.Show.Show Amazonka.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
+instance GHC.Read.Read Amazonka.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
+instance GHC.Classes.Eq Amazonka.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
+instance Data.Hashable.Class.Hashable Amazonka.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
+instance Control.DeepSeq.NFData Amazonka.EFS.Types.LifecycleConfigurationDescription.LifecycleConfigurationDescription
 
 
-module Network.AWS.EFS.Types
+module Amazonka.EFS.Types
 
 -- | API version <tt>2015-02-01</tt> of the Amazon Elastic File System SDK
 --   configuration.
@@ -2809,7 +2809,7 @@ tag_value :: Lens' Tag Text
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:TagResource</tt> action.
-module Network.AWS.EFS.TagResource
+module Amazonka.EFS.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2855,22 +2855,22 @@ TagResourceResponse' :: TagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTagResourceResponse :: TagResourceResponse
-instance GHC.Generics.Generic Network.AWS.EFS.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.EFS.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.EFS.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.EFS.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.EFS.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.EFS.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.EFS.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.EFS.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.EFS.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.EFS.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.EFS.TagResource.TagResource
+instance GHC.Show.Show Amazonka.EFS.TagResource.TagResource
+instance GHC.Read.Read Amazonka.EFS.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.EFS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.EFS.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.EFS.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.EFS.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.EFS.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.EFS.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.EFS.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.TagResource.TagResource
 
 
 -- | Enables lifecycle management by creating a new
@@ -2912,7 +2912,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.TagResource.TagResource
 --   To apply a <tt>LifecycleConfiguration</tt> object to an encrypted file
 --   system, you need the same Key Management Service permissions as when
 --   you created the encrypted file system.
-module Network.AWS.EFS.PutLifecycleConfiguration
+module Amazonka.EFS.PutLifecycleConfiguration
 
 -- | <i>See:</i> <a>newPutLifecycleConfiguration</a> smart constructor.
 data PutLifecycleConfiguration
@@ -3032,17 +3032,17 @@ newLifecycleConfigurationDescription :: LifecycleConfigurationDescription
 -- | An array of lifecycle management policies. EFS supports a maximum of
 --   one policy per file system.
 lifecycleConfigurationDescription_lifecyclePolicies :: Lens' LifecycleConfigurationDescription (Maybe [LifecyclePolicy])
-instance GHC.Generics.Generic Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance GHC.Show.Show Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance GHC.Read.Read Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance GHC.Classes.Eq Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance Control.DeepSeq.NFData Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance GHC.Generics.Generic Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance GHC.Show.Show Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance GHC.Read.Read Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance GHC.Classes.Eq Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance Amazonka.Types.AWSRequest Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance Control.DeepSeq.NFData Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.PutLifecycleConfiguration.PutLifecycleConfiguration
 
 
 -- | Applies an Amazon EFS <tt>FileSystemPolicy</tt> to an Amazon EFS file
@@ -3058,7 +3058,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.PutLifecycleConfiguratio
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:PutFileSystemPolicy</tt> action.
-module Network.AWS.EFS.PutFileSystemPolicy
+module Amazonka.EFS.PutFileSystemPolicy
 
 -- | <i>See:</i> <a>newPutFileSystemPolicy</a> smart constructor.
 data PutFileSystemPolicy
@@ -3175,22 +3175,22 @@ fileSystemPolicyDescription_fileSystemId :: Lens' FileSystemPolicyDescription (M
 
 -- | The JSON formatted <tt>FileSystemPolicy</tt> for the EFS file system.
 fileSystemPolicyDescription_policy :: Lens' FileSystemPolicyDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance GHC.Show.Show Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance GHC.Read.Read Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance GHC.Classes.Eq Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance Control.DeepSeq.NFData Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance GHC.Generics.Generic Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance GHC.Show.Show Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance GHC.Read.Read Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance GHC.Classes.Eq Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance Amazonka.Types.AWSRequest Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance Data.Hashable.Class.Hashable Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance Control.DeepSeq.NFData Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.PutFileSystemPolicy.PutFileSystemPolicy
 
 
 -- | Updates the file system's backup policy. Use this action to start or
 --   stop automatic backups of the file system.
-module Network.AWS.EFS.PutBackupPolicy
+module Amazonka.EFS.PutBackupPolicy
 
 -- | <i>See:</i> <a>newPutBackupPolicy</a> smart constructor.
 data PutBackupPolicy
@@ -3252,17 +3252,17 @@ newBackupPolicyDescription :: BackupPolicyDescription
 -- | Describes the file system's backup policy, indicating whether
 --   automatic backups are turned on or off..
 backupPolicyDescription_backupPolicy :: Lens' BackupPolicyDescription (Maybe BackupPolicy)
-instance GHC.Generics.Generic Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance GHC.Show.Show Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance GHC.Read.Read Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance GHC.Classes.Eq Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance Control.DeepSeq.NFData Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.PutBackupPolicy.PutBackupPolicy
+instance GHC.Generics.Generic Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance GHC.Show.Show Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance GHC.Read.Read Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance GHC.Classes.Eq Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance Amazonka.Types.AWSRequest Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance Data.Hashable.Class.Hashable Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance Control.DeepSeq.NFData Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.PutBackupPolicy.PutBackupPolicy
 
 
 -- | Use this operation to set the account preference in the current Amazon
@@ -3277,7 +3277,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.PutBackupPolicy.PutBacku
 --   the account preference to use the short 8 character format resource
 --   ID. Contact Amazon Web Services support if you receive an error and
 --   need to use short IDs for file system and mount target resources.
-module Network.AWS.EFS.PutAccountPreferences
+module Amazonka.EFS.PutAccountPreferences
 
 -- | <i>See:</i> <a>newPutAccountPreferences</a> smart constructor.
 data PutAccountPreferences
@@ -3357,22 +3357,22 @@ putAccountPreferencesResponse_resourceIdPreference :: Lens' PutAccountPreference
 
 -- | The response's http status code.
 putAccountPreferencesResponse_httpStatus :: Lens' PutAccountPreferencesResponse Int
-instance GHC.Generics.Generic Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance GHC.Show.Show Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance GHC.Read.Read Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance GHC.Classes.Eq Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance GHC.Generics.Generic Network.AWS.EFS.PutAccountPreferences.PutAccountPreferencesResponse
-instance GHC.Show.Show Network.AWS.EFS.PutAccountPreferences.PutAccountPreferencesResponse
-instance GHC.Read.Read Network.AWS.EFS.PutAccountPreferences.PutAccountPreferencesResponse
-instance GHC.Classes.Eq Network.AWS.EFS.PutAccountPreferences.PutAccountPreferencesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance Control.DeepSeq.NFData Network.AWS.EFS.PutAccountPreferences.PutAccountPreferencesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance Control.DeepSeq.NFData Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.PutAccountPreferences.PutAccountPreferences
+instance GHC.Generics.Generic Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance GHC.Show.Show Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance GHC.Read.Read Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance GHC.Classes.Eq Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance GHC.Generics.Generic Amazonka.EFS.PutAccountPreferences.PutAccountPreferencesResponse
+instance GHC.Show.Show Amazonka.EFS.PutAccountPreferences.PutAccountPreferencesResponse
+instance GHC.Read.Read Amazonka.EFS.PutAccountPreferences.PutAccountPreferencesResponse
+instance GHC.Classes.Eq Amazonka.EFS.PutAccountPreferences.PutAccountPreferencesResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance Control.DeepSeq.NFData Amazonka.EFS.PutAccountPreferences.PutAccountPreferencesResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance Control.DeepSeq.NFData Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.PutAccountPreferences.PutAccountPreferences
 
 
 -- | Modifies the set of security groups in effect for a mount target.
@@ -3393,7 +3393,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.PutAccountPreferences.Pu
 --   <li><tt>ec2:ModifyNetworkInterfaceAttribute</tt> action on the mount
 --   target's network interface.</li>
 --   </ul>
-module Network.AWS.EFS.ModifyMountTargetSecurityGroups
+module Amazonka.EFS.ModifyMountTargetSecurityGroups
 
 -- | <i>See:</i> <a>newModifyMountTargetSecurityGroups</a> smart
 --   constructor.
@@ -3441,22 +3441,22 @@ ModifyMountTargetSecurityGroupsResponse' :: ModifyMountTargetSecurityGroupsRespo
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newModifyMountTargetSecurityGroupsResponse :: ModifyMountTargetSecurityGroupsResponse
-instance GHC.Generics.Generic Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance GHC.Show.Show Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance GHC.Read.Read Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance GHC.Classes.Eq Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance GHC.Generics.Generic Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
-instance GHC.Show.Show Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
-instance GHC.Read.Read Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
-instance GHC.Classes.Eq Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance Control.DeepSeq.NFData Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance Control.DeepSeq.NFData Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance GHC.Generics.Generic Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance GHC.Show.Show Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance GHC.Read.Read Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance GHC.Classes.Eq Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance GHC.Generics.Generic Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
+instance GHC.Show.Show Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
+instance GHC.Read.Read Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
+instance GHC.Classes.Eq Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance Control.DeepSeq.NFData Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroupsResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance Control.DeepSeq.NFData Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.ModifyMountTargetSecurityGroups.ModifyMountTargetSecurityGroups
 
 
 -- | Lists all tags for a top-level EFS resource. You must provide the ID
@@ -3464,7 +3464,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.ModifyMountTargetSecurit
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:DescribeAccessPoints</tt> action.
-module Network.AWS.EFS.ListTagsForResource
+module Amazonka.EFS.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3572,21 +3572,21 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.EFS.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.EFS.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.EFS.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.EFS.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.EFS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.EFS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.EFS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.EFS.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.EFS.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.EFS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.EFS.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.EFS.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.EFS.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.EFS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.EFS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.EFS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.EFS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.EFS.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.EFS.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.EFS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns the descriptions of all the current mount targets, or a
@@ -3601,7 +3601,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.ListTagsForResource.List
 --   <tt>MountTargetId</tt>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.EFS.DescribeMountTargets
+module Amazonka.EFS.DescribeMountTargets
 
 -- | <i>See:</i> <a>newDescribeMountTargets</a> smart constructor.
 data DescribeMountTargets
@@ -3771,22 +3771,22 @@ describeMountTargetsResponse_nextMarker :: Lens' DescribeMountTargetsResponse (M
 
 -- | The response's http status code.
 describeMountTargetsResponse_httpStatus :: Lens' DescribeMountTargetsResponse Int
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance GHC.Show.Show Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance GHC.Read.Read Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeMountTargets.DescribeMountTargetsResponse
-instance GHC.Show.Show Network.AWS.EFS.DescribeMountTargets.DescribeMountTargetsResponse
-instance GHC.Read.Read Network.AWS.EFS.DescribeMountTargets.DescribeMountTargetsResponse
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeMountTargets.DescribeMountTargetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeMountTargets.DescribeMountTargetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeMountTargets.DescribeMountTargets
+instance GHC.Generics.Generic Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance GHC.Show.Show Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance GHC.Read.Read Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance GHC.Classes.Eq Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance GHC.Generics.Generic Amazonka.EFS.DescribeMountTargets.DescribeMountTargetsResponse
+instance GHC.Show.Show Amazonka.EFS.DescribeMountTargets.DescribeMountTargetsResponse
+instance GHC.Read.Read Amazonka.EFS.DescribeMountTargets.DescribeMountTargetsResponse
+instance GHC.Classes.Eq Amazonka.EFS.DescribeMountTargets.DescribeMountTargetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeMountTargets.DescribeMountTargetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DescribeMountTargets.DescribeMountTargets
 
 
 -- | Returns the security groups currently in effect for a mount target.
@@ -3802,7 +3802,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeMountTargets.Des
 --   <li><tt>ec2:DescribeNetworkInterfaceAttribute</tt> action on the mount
 --   target's network interface.</li>
 --   </ul>
-module Network.AWS.EFS.DescribeMountTargetSecurityGroups
+module Amazonka.EFS.DescribeMountTargetSecurityGroups
 
 -- | <i>See:</i> <a>newDescribeMountTargetSecurityGroups</a> smart
 --   constructor.
@@ -3863,21 +3863,21 @@ describeMountTargetSecurityGroupsResponse_httpStatus :: Lens' DescribeMountTarge
 
 -- | An array of security groups.
 describeMountTargetSecurityGroupsResponse_securityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
-instance GHC.Show.Show Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
-instance GHC.Read.Read Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
-instance GHC.Show.Show Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
-instance GHC.Read.Read Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance GHC.Generics.Generic Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance GHC.Show.Show Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance GHC.Read.Read Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance GHC.Classes.Eq Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance GHC.Generics.Generic Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
+instance GHC.Show.Show Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
+instance GHC.Read.Read Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
+instance GHC.Classes.Eq Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroupsResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DescribeMountTargetSecurityGroups.DescribeMountTargetSecurityGroups
 
 
 -- | Returns the current <tt>LifecycleConfiguration</tt> object for the
@@ -3893,7 +3893,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeMountTargetSecur
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:DescribeLifecycleConfiguration</tt> operation.
-module Network.AWS.EFS.DescribeLifecycleConfiguration
+module Amazonka.EFS.DescribeLifecycleConfiguration
 
 -- | <i>See:</i> <a>newDescribeLifecycleConfiguration</a> smart
 --   constructor.
@@ -3950,16 +3950,16 @@ newLifecycleConfigurationDescription :: LifecycleConfigurationDescription
 -- | An array of lifecycle management policies. EFS supports a maximum of
 --   one policy per file system.
 lifecycleConfigurationDescription_lifecyclePolicies :: Lens' LifecycleConfigurationDescription (Maybe [LifecyclePolicy])
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
-instance GHC.Show.Show Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
-instance GHC.Read.Read Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance GHC.Generics.Generic Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance GHC.Show.Show Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance GHC.Read.Read Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance GHC.Classes.Eq Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DescribeLifecycleConfiguration.DescribeLifecycleConfiguration
 
 
 -- | Returns the description of a specific Amazon EFS file system if either
@@ -3992,7 +3992,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeLifecycleConfigu
 --   <tt>elasticfilesystem:DescribeFileSystems</tt> action.
 --   
 --   This operation returns paginated results.
-module Network.AWS.EFS.DescribeFileSystems
+module Amazonka.EFS.DescribeFileSystems
 
 -- | <i>See:</i> <a>newDescribeFileSystems</a> smart constructor.
 data DescribeFileSystems
@@ -4128,22 +4128,22 @@ describeFileSystemsResponse_nextMarker :: Lens' DescribeFileSystemsResponse (May
 
 -- | The response's http status code.
 describeFileSystemsResponse_httpStatus :: Lens' DescribeFileSystemsResponse Int
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance GHC.Show.Show Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance GHC.Read.Read Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeFileSystems.DescribeFileSystemsResponse
-instance GHC.Show.Show Network.AWS.EFS.DescribeFileSystems.DescribeFileSystemsResponse
-instance GHC.Read.Read Network.AWS.EFS.DescribeFileSystems.DescribeFileSystemsResponse
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeFileSystems.DescribeFileSystemsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeFileSystems.DescribeFileSystemsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeFileSystems.DescribeFileSystems
+instance GHC.Generics.Generic Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance GHC.Show.Show Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance GHC.Read.Read Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance GHC.Classes.Eq Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance GHC.Generics.Generic Amazonka.EFS.DescribeFileSystems.DescribeFileSystemsResponse
+instance GHC.Show.Show Amazonka.EFS.DescribeFileSystems.DescribeFileSystemsResponse
+instance GHC.Read.Read Amazonka.EFS.DescribeFileSystems.DescribeFileSystemsResponse
+instance GHC.Classes.Eq Amazonka.EFS.DescribeFileSystems.DescribeFileSystemsResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeFileSystems.DescribeFileSystemsResponse
+instance Amazonka.Pager.AWSPager Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DescribeFileSystems.DescribeFileSystems
 
 
 -- | Returns the <tt>FileSystemPolicy</tt> for the specified EFS file
@@ -4151,7 +4151,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeFileSystems.Desc
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:DescribeFileSystemPolicy</tt> action.
-module Network.AWS.EFS.DescribeFileSystemPolicy
+module Amazonka.EFS.DescribeFileSystemPolicy
 
 -- | <i>See:</i> <a>newDescribeFileSystemPolicy</a> smart constructor.
 data DescribeFileSystemPolicy
@@ -4214,20 +4214,20 @@ fileSystemPolicyDescription_fileSystemId :: Lens' FileSystemPolicyDescription (M
 
 -- | The JSON formatted <tt>FileSystemPolicy</tt> for the EFS file system.
 fileSystemPolicyDescription_policy :: Lens' FileSystemPolicyDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
-instance GHC.Show.Show Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
-instance GHC.Read.Read Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance GHC.Generics.Generic Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance GHC.Show.Show Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance GHC.Read.Read Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance GHC.Classes.Eq Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DescribeFileSystemPolicy.DescribeFileSystemPolicy
 
 
 -- | Returns the backup policy for the specified EFS file system.
-module Network.AWS.EFS.DescribeBackupPolicy
+module Amazonka.EFS.DescribeBackupPolicy
 
 -- | <i>See:</i> <a>newDescribeBackupPolicy</a> smart constructor.
 data DescribeBackupPolicy
@@ -4281,23 +4281,23 @@ newBackupPolicyDescription :: BackupPolicyDescription
 -- | Describes the file system's backup policy, indicating whether
 --   automatic backups are turned on or off..
 backupPolicyDescription_backupPolicy :: Lens' BackupPolicyDescription (Maybe BackupPolicy)
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
-instance GHC.Show.Show Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
-instance GHC.Read.Read Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance GHC.Generics.Generic Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance GHC.Show.Show Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance GHC.Read.Read Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance GHC.Classes.Eq Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DescribeBackupPolicy.DescribeBackupPolicy
 
 
 -- | Returns the account preferences settings for the Amazon Web Services
 --   account associated with the user making the request, in the current
 --   Amazon Web Services Region. For more information, see <a>Managing
 --   Amazon EFS resource IDs</a>.
-module Network.AWS.EFS.DescribeAccountPreferences
+module Amazonka.EFS.DescribeAccountPreferences
 
 -- | <i>See:</i> <a>newDescribeAccountPreferences</a> smart constructor.
 data DescribeAccountPreferences
@@ -4401,21 +4401,21 @@ describeAccountPreferencesResponse_nextToken :: Lens' DescribeAccountPreferences
 
 -- | The response's http status code.
 describeAccountPreferencesResponse_httpStatus :: Lens' DescribeAccountPreferencesResponse Int
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
-instance GHC.Show.Show Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
-instance GHC.Read.Read Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
-instance GHC.Show.Show Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
-instance GHC.Read.Read Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance GHC.Generics.Generic Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance GHC.Show.Show Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance GHC.Read.Read Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance GHC.Classes.Eq Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance GHC.Generics.Generic Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
+instance GHC.Show.Show Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
+instance GHC.Read.Read Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
+instance GHC.Classes.Eq Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferencesResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DescribeAccountPreferences.DescribeAccountPreferences
 
 
 -- | Returns the description of a specific Amazon EFS access point if the
@@ -4426,7 +4426,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeAccountPreferenc
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:DescribeAccessPoints</tt> action.
-module Network.AWS.EFS.DescribeAccessPoints
+module Amazonka.EFS.DescribeAccessPoints
 
 -- | <i>See:</i> <a>newDescribeAccessPoints</a> smart constructor.
 data DescribeAccessPoints
@@ -4551,21 +4551,21 @@ describeAccessPointsResponse_nextToken :: Lens' DescribeAccessPointsResponse (Ma
 
 -- | The response's http status code.
 describeAccessPointsResponse_httpStatus :: Lens' DescribeAccessPointsResponse Int
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
-instance GHC.Show.Show Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
-instance GHC.Read.Read Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
-instance GHC.Generics.Generic Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
-instance GHC.Show.Show Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
-instance GHC.Read.Read Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
-instance GHC.Classes.Eq Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
-instance Control.DeepSeq.NFData Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance GHC.Generics.Generic Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance GHC.Show.Show Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance GHC.Read.Read Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance GHC.Classes.Eq Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance GHC.Generics.Generic Amazonka.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
+instance GHC.Show.Show Amazonka.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
+instance GHC.Read.Read Amazonka.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
+instance GHC.Classes.Eq Amazonka.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeAccessPoints.DescribeAccessPointsResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance Control.DeepSeq.NFData Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DescribeAccessPoints.DescribeAccessPoints
 
 
 -- | Deletes the specified mount target.
@@ -4598,7 +4598,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DescribeAccessPoints.Des
 --   <ul>
 --   <li><pre>ec2:DeleteNetworkInterface</pre></li>
 --   </ul>
-module Network.AWS.EFS.DeleteMountTarget
+module Amazonka.EFS.DeleteMountTarget
 
 -- | <i>See:</i> <a>newDeleteMountTarget</a> smart constructor.
 data DeleteMountTarget
@@ -4634,21 +4634,21 @@ DeleteMountTargetResponse' :: DeleteMountTargetResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteMountTargetResponse :: DeleteMountTargetResponse
-instance GHC.Generics.Generic Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
-instance GHC.Show.Show Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
-instance GHC.Read.Read Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
-instance GHC.Classes.Eq Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
-instance GHC.Generics.Generic Network.AWS.EFS.DeleteMountTarget.DeleteMountTargetResponse
-instance GHC.Show.Show Network.AWS.EFS.DeleteMountTarget.DeleteMountTargetResponse
-instance GHC.Read.Read Network.AWS.EFS.DeleteMountTarget.DeleteMountTargetResponse
-instance GHC.Classes.Eq Network.AWS.EFS.DeleteMountTarget.DeleteMountTargetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
-instance Control.DeepSeq.NFData Network.AWS.EFS.DeleteMountTarget.DeleteMountTargetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
-instance Control.DeepSeq.NFData Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DeleteMountTarget.DeleteMountTarget
+instance GHC.Generics.Generic Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
+instance GHC.Show.Show Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
+instance GHC.Read.Read Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
+instance GHC.Classes.Eq Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
+instance GHC.Generics.Generic Amazonka.EFS.DeleteMountTarget.DeleteMountTargetResponse
+instance GHC.Show.Show Amazonka.EFS.DeleteMountTarget.DeleteMountTargetResponse
+instance GHC.Read.Read Amazonka.EFS.DeleteMountTarget.DeleteMountTargetResponse
+instance GHC.Classes.Eq Amazonka.EFS.DeleteMountTarget.DeleteMountTargetResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
+instance Control.DeepSeq.NFData Amazonka.EFS.DeleteMountTarget.DeleteMountTargetResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
+instance Control.DeepSeq.NFData Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DeleteMountTarget.DeleteMountTarget
 
 
 -- | Deletes the <tt>FileSystemPolicy</tt> for the specified file system.
@@ -4658,7 +4658,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DeleteMountTarget.Delete
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:DeleteFileSystemPolicy</tt> action.
-module Network.AWS.EFS.DeleteFileSystemPolicy
+module Amazonka.EFS.DeleteFileSystemPolicy
 
 -- | <i>See:</i> <a>newDeleteFileSystemPolicy</a> smart constructor.
 data DeleteFileSystemPolicy
@@ -4697,21 +4697,21 @@ DeleteFileSystemPolicyResponse' :: DeleteFileSystemPolicyResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteFileSystemPolicyResponse :: DeleteFileSystemPolicyResponse
-instance GHC.Generics.Generic Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
-instance GHC.Show.Show Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
-instance GHC.Read.Read Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
-instance GHC.Classes.Eq Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
-instance GHC.Generics.Generic Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
-instance GHC.Show.Show Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
-instance GHC.Read.Read Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
-instance GHC.Classes.Eq Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
-instance Control.DeepSeq.NFData Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
-instance Control.DeepSeq.NFData Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance GHC.Generics.Generic Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance GHC.Show.Show Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance GHC.Read.Read Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance GHC.Classes.Eq Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance GHC.Generics.Generic Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
+instance GHC.Show.Show Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
+instance GHC.Read.Read Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
+instance GHC.Classes.Eq Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance Control.DeepSeq.NFData Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance Control.DeepSeq.NFData Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DeleteFileSystemPolicy.DeleteFileSystemPolicy
 
 
 -- | Deletes a file system, permanently severing access to its contents.
@@ -4731,7 +4731,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DeleteFileSystemPolicy.D
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:DeleteFileSystem</tt> action.
-module Network.AWS.EFS.DeleteFileSystem
+module Amazonka.EFS.DeleteFileSystem
 
 -- | <i>See:</i> <a>newDeleteFileSystem</a> smart constructor.
 data DeleteFileSystem
@@ -4767,21 +4767,21 @@ DeleteFileSystemResponse' :: DeleteFileSystemResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteFileSystemResponse :: DeleteFileSystemResponse
-instance GHC.Generics.Generic Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
-instance GHC.Show.Show Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
-instance GHC.Read.Read Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
-instance GHC.Classes.Eq Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
-instance GHC.Generics.Generic Network.AWS.EFS.DeleteFileSystem.DeleteFileSystemResponse
-instance GHC.Show.Show Network.AWS.EFS.DeleteFileSystem.DeleteFileSystemResponse
-instance GHC.Read.Read Network.AWS.EFS.DeleteFileSystem.DeleteFileSystemResponse
-instance GHC.Classes.Eq Network.AWS.EFS.DeleteFileSystem.DeleteFileSystemResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
-instance Control.DeepSeq.NFData Network.AWS.EFS.DeleteFileSystem.DeleteFileSystemResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
-instance Control.DeepSeq.NFData Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DeleteFileSystem.DeleteFileSystem
+instance GHC.Generics.Generic Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
+instance GHC.Show.Show Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
+instance GHC.Read.Read Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
+instance GHC.Classes.Eq Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
+instance GHC.Generics.Generic Amazonka.EFS.DeleteFileSystem.DeleteFileSystemResponse
+instance GHC.Show.Show Amazonka.EFS.DeleteFileSystem.DeleteFileSystemResponse
+instance GHC.Read.Read Amazonka.EFS.DeleteFileSystem.DeleteFileSystemResponse
+instance GHC.Classes.Eq Amazonka.EFS.DeleteFileSystem.DeleteFileSystemResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
+instance Control.DeepSeq.NFData Amazonka.EFS.DeleteFileSystem.DeleteFileSystemResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
+instance Control.DeepSeq.NFData Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DeleteFileSystem.DeleteFileSystem
 
 
 -- | Deletes the specified access point. After deletion is complete, new
@@ -4791,7 +4791,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DeleteFileSystem.DeleteF
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:DeleteAccessPoint</tt> action.
-module Network.AWS.EFS.DeleteAccessPoint
+module Amazonka.EFS.DeleteAccessPoint
 
 -- | <i>See:</i> <a>newDeleteAccessPoint</a> smart constructor.
 data DeleteAccessPoint
@@ -4827,21 +4827,21 @@ DeleteAccessPointResponse' :: DeleteAccessPointResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteAccessPointResponse :: DeleteAccessPointResponse
-instance GHC.Generics.Generic Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
-instance GHC.Show.Show Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
-instance GHC.Read.Read Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
-instance GHC.Classes.Eq Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
-instance GHC.Generics.Generic Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPointResponse
-instance GHC.Show.Show Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPointResponse
-instance GHC.Read.Read Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPointResponse
-instance GHC.Classes.Eq Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
-instance Control.DeepSeq.NFData Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
-instance Control.DeepSeq.NFData Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance GHC.Generics.Generic Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance GHC.Show.Show Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance GHC.Read.Read Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance GHC.Classes.Eq Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance GHC.Generics.Generic Amazonka.EFS.DeleteAccessPoint.DeleteAccessPointResponse
+instance GHC.Show.Show Amazonka.EFS.DeleteAccessPoint.DeleteAccessPointResponse
+instance GHC.Read.Read Amazonka.EFS.DeleteAccessPoint.DeleteAccessPointResponse
+instance GHC.Classes.Eq Amazonka.EFS.DeleteAccessPoint.DeleteAccessPointResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance Control.DeepSeq.NFData Amazonka.EFS.DeleteAccessPoint.DeleteAccessPointResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance Control.DeepSeq.NFData Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.DeleteAccessPoint.DeleteAccessPoint
 
 
 -- | Creates a mount target for a file system. You can then mount the file
@@ -4961,7 +4961,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.DeleteAccessPoint.Delete
 --   <li><pre>ec2:DescribeNetworkInterfaces</pre></li>
 --   <li><pre>ec2:CreateNetworkInterface</pre></li>
 --   </ul>
-module Network.AWS.EFS.CreateMountTarget
+module Amazonka.EFS.CreateMountTarget
 
 -- | <i>See:</i> <a>newCreateMountTarget</a> smart constructor.
 data CreateMountTarget
@@ -5171,17 +5171,17 @@ mountTargetDescription_subnetId :: Lens' MountTargetDescription Text
 
 -- | Lifecycle state of the mount target.
 mountTargetDescription_lifeCycleState :: Lens' MountTargetDescription LifeCycleState
-instance GHC.Generics.Generic Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance GHC.Show.Show Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance GHC.Read.Read Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance GHC.Classes.Eq Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance Control.DeepSeq.NFData Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.CreateMountTarget.CreateMountTarget
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.CreateMountTarget.CreateMountTarget
+instance GHC.Generics.Generic Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance GHC.Show.Show Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance GHC.Read.Read Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance GHC.Classes.Eq Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance Amazonka.Types.AWSRequest Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance Data.Hashable.Class.Hashable Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance Control.DeepSeq.NFData Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.CreateMountTarget.CreateMountTarget
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.CreateMountTarget.CreateMountTarget
 
 
 -- | Creates a new, empty file system. The operation requires a creation
@@ -5244,7 +5244,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.CreateMountTarget.Create
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:CreateFileSystem</tt> action.
-module Network.AWS.EFS.CreateFileSystem
+module Amazonka.EFS.CreateFileSystem
 
 -- | <i>See:</i> <a>newCreateFileSystem</a> smart constructor.
 data CreateFileSystem
@@ -5845,17 +5845,17 @@ fileSystemDescription_performanceMode :: Lens' FileSystemDescription Performance
 -- | The tags associated with the file system, presented as an array of
 --   <tt>Tag</tt> objects.
 fileSystemDescription_tags :: Lens' FileSystemDescription [Tag]
-instance GHC.Generics.Generic Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance GHC.Show.Show Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance GHC.Read.Read Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance GHC.Classes.Eq Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance Control.DeepSeq.NFData Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.CreateFileSystem.CreateFileSystem
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.CreateFileSystem.CreateFileSystem
+instance GHC.Generics.Generic Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance GHC.Show.Show Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance GHC.Read.Read Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance GHC.Classes.Eq Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance Amazonka.Types.AWSRequest Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance Data.Hashable.Class.Hashable Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance Control.DeepSeq.NFData Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.CreateFileSystem.CreateFileSystem
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.CreateFileSystem.CreateFileSystem
 
 
 -- | Creates an EFS access point. An access point is an
@@ -5870,7 +5870,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.CreateFileSystem.CreateF
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:CreateAccessPoint</tt> action.
-module Network.AWS.EFS.CreateAccessPoint
+module Amazonka.EFS.CreateAccessPoint
 
 -- | <i>See:</i> <a>newCreateAccessPoint</a> smart constructor.
 data CreateAccessPoint
@@ -6123,17 +6123,17 @@ accessPointDescription_lifeCycleState :: Lens' AccessPointDescription (Maybe Lif
 -- | The tags associated with the access point, presented as an array of
 --   Tag objects.
 accessPointDescription_tags :: Lens' AccessPointDescription (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance GHC.Show.Show Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance GHC.Read.Read Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance GHC.Classes.Eq Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance Control.DeepSeq.NFData Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.CreateAccessPoint.CreateAccessPoint
+instance GHC.Generics.Generic Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance GHC.Show.Show Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance GHC.Read.Read Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance GHC.Classes.Eq Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance Amazonka.Types.AWSRequest Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance Data.Hashable.Class.Hashable Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance Control.DeepSeq.NFData Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.CreateAccessPoint.CreateAccessPoint
 
 
 -- | Removes tags from an EFS resource. You can remove tags from EFS file
@@ -6141,7 +6141,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.CreateAccessPoint.Create
 --   
 --   This operation requires permissions for the
 --   <tt>elasticfilesystem:UntagResource</tt> action.
-module Network.AWS.EFS.UntagResource
+module Amazonka.EFS.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6188,26 +6188,26 @@ UntagResourceResponse' :: UntagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagResourceResponse :: UntagResourceResponse
-instance GHC.Generics.Generic Network.AWS.EFS.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.EFS.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.EFS.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.EFS.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.EFS.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.EFS.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.EFS.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.EFS.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.EFS.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.EFS.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.EFS.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.EFS.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.EFS.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.EFS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.EFS.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.EFS.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.EFS.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.EFS.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.EFS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.EFS.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.EFS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.EFS.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.UntagResource.UntagResource
 
 
 -- | Updates the throughput mode or the amount of provisioned throughput of
 --   an existing file system.
-module Network.AWS.EFS.UpdateFileSystem
+module Amazonka.EFS.UpdateFileSystem
 
 -- | <i>See:</i> <a>newUpdateFileSystem</a> smart constructor.
 data UpdateFileSystem
@@ -6550,20 +6550,20 @@ fileSystemDescription_performanceMode :: Lens' FileSystemDescription Performance
 -- | The tags associated with the file system, presented as an array of
 --   <tt>Tag</tt> objects.
 fileSystemDescription_tags :: Lens' FileSystemDescription [Tag]
-instance GHC.Generics.Generic Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance GHC.Show.Show Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance GHC.Read.Read Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance GHC.Classes.Eq Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance Network.AWS.Types.AWSRequest Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance Data.Hashable.Class.Hashable Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance Control.DeepSeq.NFData Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance Network.AWS.Data.Path.ToPath Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EFS.UpdateFileSystem.UpdateFileSystem
+instance GHC.Generics.Generic Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance GHC.Show.Show Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance GHC.Read.Read Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance GHC.Classes.Eq Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance Amazonka.Types.AWSRequest Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance Data.Hashable.Class.Hashable Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance Control.DeepSeq.NFData Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance Amazonka.Data.Path.ToPath Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
+instance Amazonka.Data.Query.ToQuery Amazonka.EFS.UpdateFileSystem.UpdateFileSystem
 
 
-module Network.AWS.EFS.Lens
+module Amazonka.EFS.Lens
 
 -- | The operating system user and group applied to all file system
 --   requests made using the access point.
@@ -7563,7 +7563,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.EFS.Waiters
+module Amazonka.EFS.Waiters
 
 
 -- | Derived from API version <tt>2015-02-01</tt> of the AWS service
@@ -7578,7 +7578,7 @@ module Network.AWS.EFS.Waiters
 --   applications have the storage they need, when they need it. For more
 --   information, see the <a>Amazon Elastic File System API Reference</a>
 --   and the <a>Amazon Elastic File System User Guide</a>.
-module Network.AWS.EFS
+module Amazonka.EFS
 
 -- | API version <tt>2015-02-01</tt> of the Amazon Elastic File System SDK
 --   configuration.

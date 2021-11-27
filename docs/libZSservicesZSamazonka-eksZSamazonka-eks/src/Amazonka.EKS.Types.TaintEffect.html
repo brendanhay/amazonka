@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EKS.Types.TaintEffect</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EKS.Types.TaintEffect</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect"><span class="hs-identifier">TaintEffect</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect_NO_EXECUTE"><span class="hs-identifier">TaintEffect_NO_EXECUTE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect_NO_SCHEDULE"><span class="hs-identifier">TaintEffect_NO_SCHEDULE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect_PREFER_NO_SCHEDULE"><span class="hs-identifier">TaintEffect_PREFER_NO_SCHEDULE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679268912"><span id="local-6989586621679268913"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaintEffect"><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect"><span class="hs-identifier hs-var">TaintEffect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaintEffect%27"><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect%27"><span class="hs-identifier hs-var">TaintEffect'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaintEffect"><span class="annot"><span class="annottext">TaintEffect -&gt; Text
+</span><a href="Amazonka.EKS.Types.TaintEffect.html#fromTaintEffect"><span class="hs-identifier hs-var hs-var">fromTaintEffect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268904"><span id="local-6989586621679268906"><span id="local-6989586621679268908"><span class="annot"><span class="annottext">Int -&gt; TaintEffect -&gt; ShowS
+[TaintEffect] -&gt; ShowS
+TaintEffect -&gt; String
+(Int -&gt; TaintEffect -&gt; ShowS)
+-&gt; (TaintEffect -&gt; String)
+-&gt; ([TaintEffect] -&gt; ShowS)
+-&gt; Show TaintEffect
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TaintEffect] -&gt; ShowS
+$cshowList :: [TaintEffect] -&gt; ShowS
+show :: TaintEffect -&gt; String
+$cshow :: TaintEffect -&gt; String
+showsPrec :: Int -&gt; TaintEffect -&gt; ShowS
+$cshowsPrec :: Int -&gt; TaintEffect -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679268895"><span id="local-6989586621679268897"><span id="local-6989586621679268899"><span id="local-6989586621679268901"><span class="annot"><span class="annottext">ReadPrec [TaintEffect]
+ReadPrec TaintEffect
+Int -&gt; ReadS TaintEffect
+ReadS [TaintEffect]
+(Int -&gt; ReadS TaintEffect)
+-&gt; ReadS [TaintEffect]
+-&gt; ReadPrec TaintEffect
+-&gt; ReadPrec [TaintEffect]
+-&gt; Read TaintEffect
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TaintEffect]
+$creadListPrec :: ReadPrec [TaintEffect]
+readPrec :: ReadPrec TaintEffect
+$creadPrec :: ReadPrec TaintEffect
+readList :: ReadS [TaintEffect]
+$creadList :: ReadS [TaintEffect]
+readsPrec :: Int -&gt; ReadS TaintEffect
+$creadsPrec :: Int -&gt; ReadS TaintEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679268890"><span id="local-6989586621679268892"><span class="annot"><span class="annottext">TaintEffect -&gt; TaintEffect -&gt; Bool
+(TaintEffect -&gt; TaintEffect -&gt; Bool)
+-&gt; (TaintEffect -&gt; TaintEffect -&gt; Bool) -&gt; Eq TaintEffect
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TaintEffect -&gt; TaintEffect -&gt; Bool
+$c/= :: TaintEffect -&gt; TaintEffect -&gt; Bool
+== :: TaintEffect -&gt; TaintEffect -&gt; Bool
+$c== :: TaintEffect -&gt; TaintEffect -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679268874"><span id="local-6989586621679268876"><span id="local-6989586621679268878"><span id="local-6989586621679268880"><span id="local-6989586621679268882"><span id="local-6989586621679268884"><span id="local-6989586621679268886"><span class="annot"><span class="annottext">Eq TaintEffect
+Eq TaintEffect
+-&gt; (TaintEffect -&gt; TaintEffect -&gt; Ordering)
+-&gt; (TaintEffect -&gt; TaintEffect -&gt; Bool)
+-&gt; (TaintEffect -&gt; TaintEffect -&gt; Bool)
+-&gt; (TaintEffect -&gt; TaintEffect -&gt; Bool)
+-&gt; (TaintEffect -&gt; TaintEffect -&gt; Bool)
+-&gt; (TaintEffect -&gt; TaintEffect -&gt; TaintEffect)
+-&gt; (TaintEffect -&gt; TaintEffect -&gt; TaintEffect)
+-&gt; Ord TaintEffect
+TaintEffect -&gt; TaintEffect -&gt; Bool
+TaintEffect -&gt; TaintEffect -&gt; Ordering
+TaintEffect -&gt; TaintEffect -&gt; TaintEffect
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TaintEffect -&gt; TaintEffect -&gt; TaintEffect
+$cmin :: TaintEffect -&gt; TaintEffect -&gt; TaintEffect
+max :: TaintEffect -&gt; TaintEffect -&gt; TaintEffect
+$cmax :: TaintEffect -&gt; TaintEffect -&gt; TaintEffect
+&gt;= :: TaintEffect -&gt; TaintEffect -&gt; Bool
+$c&gt;= :: TaintEffect -&gt; TaintEffect -&gt; Bool
+&gt; :: TaintEffect -&gt; TaintEffect -&gt; Bool
+$c&gt; :: TaintEffect -&gt; TaintEffect -&gt; Bool
+&lt;= :: TaintEffect -&gt; TaintEffect -&gt; Bool
+$c&lt;= :: TaintEffect -&gt; TaintEffect -&gt; Bool
+&lt; :: TaintEffect -&gt; TaintEffect -&gt; Bool
+$c&lt; :: TaintEffect -&gt; TaintEffect -&gt; Bool
+compare :: TaintEffect -&gt; TaintEffect -&gt; Ordering
+$ccompare :: TaintEffect -&gt; TaintEffect -&gt; Ordering
+$cp1Ord :: Eq TaintEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TaintEffect -&gt; Rep TaintEffect x)
+-&gt; (forall x. Rep TaintEffect x -&gt; TaintEffect)
+-&gt; Generic TaintEffect
+forall x. Rep TaintEffect x -&gt; TaintEffect
+forall x. TaintEffect -&gt; Rep TaintEffect x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TaintEffect x -&gt; TaintEffect
+$cfrom :: forall x. TaintEffect -&gt; Rep TaintEffect x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268866"><span id="local-6989586621679268868"><span class="annot"><span class="annottext">Int -&gt; TaintEffect -&gt; Int
+TaintEffect -&gt; Int
+(Int -&gt; TaintEffect -&gt; Int)
+-&gt; (TaintEffect -&gt; Int) -&gt; Hashable TaintEffect
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TaintEffect -&gt; Int
+$chash :: TaintEffect -&gt; Int
+hashWithSalt :: Int -&gt; TaintEffect -&gt; Int
+$chashWithSalt :: Int -&gt; TaintEffect -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679268863"><span class="annot"><span class="annottext">TaintEffect -&gt; ()
+(TaintEffect -&gt; ()) -&gt; NFData TaintEffect
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TaintEffect -&gt; ()
+$crnf :: TaintEffect -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679268860"><span class="annot"><span class="annottext">Text -&gt; Either String TaintEffect
+(Text -&gt; Either String TaintEffect) -&gt; FromText TaintEffect
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TaintEffect
+$cfromText :: Text -&gt; Either String TaintEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679268857"><span class="annot"><span class="annottext">TaintEffect -&gt; Text
+(TaintEffect -&gt; Text) -&gt; ToText TaintEffect
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TaintEffect -&gt; Text
+$ctoText :: TaintEffect -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679268854"><span class="annot"><span class="annottext">TaintEffect -&gt; ByteString
+(TaintEffect -&gt; ByteString) -&gt; ToByteString TaintEffect
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TaintEffect -&gt; ByteString
+$ctoBS :: TaintEffect -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679268851"><span class="annot"><span class="annottext">TaintEffect -&gt; ByteStringBuilder
+(TaintEffect -&gt; ByteStringBuilder) -&gt; ToLog TaintEffect
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TaintEffect -&gt; ByteStringBuilder
+$cbuild :: TaintEffect -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679268848"><span class="annot"><span class="annottext">HeaderName -&gt; TaintEffect -&gt; [Header]
+(HeaderName -&gt; TaintEffect -&gt; [Header]) -&gt; ToHeader TaintEffect
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TaintEffect -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TaintEffect -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679268845"><span class="annot"><span class="annottext">TaintEffect -&gt; QueryString
+(TaintEffect -&gt; QueryString) -&gt; ToQuery TaintEffect
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TaintEffect -&gt; QueryString
+$ctoQuery :: TaintEffect -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679268840"><span id="local-6989586621679268842"><span class="annot"><span class="annottext">Value -&gt; Parser [TaintEffect]
+Value -&gt; Parser TaintEffect
+(Value -&gt; Parser TaintEffect)
+-&gt; (Value -&gt; Parser [TaintEffect]) -&gt; FromJSON TaintEffect
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TaintEffect]
+$cparseJSONList :: Value -&gt; Parser [TaintEffect]
+parseJSON :: Value -&gt; Parser TaintEffect
+$cparseJSON :: Value -&gt; Parser TaintEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679268835"><span id="local-6989586621679268837"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaintEffect]
+FromJSONKeyFunction TaintEffect
+FromJSONKeyFunction TaintEffect
+-&gt; FromJSONKeyFunction [TaintEffect] -&gt; FromJSONKey TaintEffect
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TaintEffect]
+$cfromJSONKeyList :: FromJSONKeyFunction [TaintEffect]
+fromJSONKey :: FromJSONKeyFunction TaintEffect
+$cfromJSONKey :: FromJSONKeyFunction TaintEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679268826"><span id="local-6989586621679268828"><span id="local-6989586621679268830"><span id="local-6989586621679268832"><span class="annot"><span class="annottext">[TaintEffect] -&gt; Encoding
+[TaintEffect] -&gt; Value
+TaintEffect -&gt; Encoding
+TaintEffect -&gt; Value
+(TaintEffect -&gt; Value)
+-&gt; (TaintEffect -&gt; Encoding)
+-&gt; ([TaintEffect] -&gt; Value)
+-&gt; ([TaintEffect] -&gt; Encoding)
+-&gt; ToJSON TaintEffect
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TaintEffect] -&gt; Encoding
+$ctoEncodingList :: [TaintEffect] -&gt; Encoding
+toJSONList :: [TaintEffect] -&gt; Value
+$ctoJSONList :: [TaintEffect] -&gt; Value
+toEncoding :: TaintEffect -&gt; Encoding
+$ctoEncoding :: TaintEffect -&gt; Encoding
+toJSON :: TaintEffect -&gt; Value
+$ctoJSON :: TaintEffect -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679268821"><span id="local-6989586621679268823"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaintEffect]
+ToJSONKeyFunction TaintEffect
+ToJSONKeyFunction TaintEffect
+-&gt; ToJSONKeyFunction [TaintEffect] -&gt; ToJSONKey TaintEffect
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TaintEffect]
+$ctoJSONKeyList :: ToJSONKeyFunction [TaintEffect]
+toJSONKey :: ToJSONKeyFunction TaintEffect
+$ctoJSONKey :: ToJSONKeyFunction TaintEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679268818"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaintEffect
+([Node] -&gt; Either String TaintEffect) -&gt; FromXML TaintEffect
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TaintEffect
+$cparseXML :: [Node] -&gt; Either String TaintEffect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679268815"><span class="annot"><span class="annottext">TaintEffect -&gt; XML
+(TaintEffect -&gt; XML) -&gt; ToXML TaintEffect
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TaintEffect -&gt; XML
+$ctoXML :: TaintEffect -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect_NO_EXECUTE"><span class="hs-identifier hs-type">TaintEffect_NO_EXECUTE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect"><span class="hs-identifier hs-type">TaintEffect</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaintEffect_NO_EXECUTE"><span id="%24mTaintEffect_NO_EXECUTE"><span id="TaintEffect_NO_EXECUTE"><span class="annot"><span class="annottext">$bTaintEffect_NO_EXECUTE :: TaintEffect
+$mTaintEffect_NO_EXECUTE :: forall r. TaintEffect -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.TaintEffect.html#%24bTaintEffect_NO_EXECUTE"><span class="hs-identifier hs-var hs-var hs-var">TaintEffect_NO_EXECUTE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect%27"><span class="hs-identifier hs-type">TaintEffect'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_EXECUTE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect_NO_SCHEDULE"><span class="hs-identifier hs-type">TaintEffect_NO_SCHEDULE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect"><span class="hs-identifier hs-type">TaintEffect</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaintEffect_NO_SCHEDULE"><span id="%24mTaintEffect_NO_SCHEDULE"><span id="TaintEffect_NO_SCHEDULE"><span class="annot"><span class="annottext">$bTaintEffect_NO_SCHEDULE :: TaintEffect
+$mTaintEffect_NO_SCHEDULE :: forall r. TaintEffect -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.TaintEffect.html#%24bTaintEffect_NO_SCHEDULE"><span class="hs-identifier hs-var hs-var hs-var">TaintEffect_NO_SCHEDULE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect%27"><span class="hs-identifier hs-type">TaintEffect'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_SCHEDULE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect_PREFER_NO_SCHEDULE"><span class="hs-identifier hs-type">TaintEffect_PREFER_NO_SCHEDULE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect"><span class="hs-identifier hs-type">TaintEffect</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaintEffect_PREFER_NO_SCHEDULE"><span id="%24mTaintEffect_PREFER_NO_SCHEDULE"><span id="TaintEffect_PREFER_NO_SCHEDULE"><span class="annot"><span class="annottext">$bTaintEffect_PREFER_NO_SCHEDULE :: TaintEffect
+$mTaintEffect_PREFER_NO_SCHEDULE :: forall r. TaintEffect -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EKS.Types.TaintEffect.html#%24bTaintEffect_PREFER_NO_SCHEDULE"><span class="hs-identifier hs-var hs-var hs-var">TaintEffect_PREFER_NO_SCHEDULE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect%27"><span class="hs-identifier hs-type">TaintEffect'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PREFER_NO_SCHEDULE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect_NO_EXECUTE"><span class="hs-pragma hs-type">TaintEffect_NO_EXECUTE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect_NO_SCHEDULE"><span class="hs-pragma hs-type">TaintEffect_NO_SCHEDULE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect_PREFER_NO_SCHEDULE"><span class="hs-pragma hs-type">TaintEffect_PREFER_NO_SCHEDULE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.TaintEffect.html#TaintEffect%27"><span class="hs-pragma hs-type">TaintEffect'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

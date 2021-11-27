@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchLogs.Types.LogStream</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchLogs.Types.LogStream</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Represents a log stream, which is a sequence of log events from a single</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- emitter of logs.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLogStream' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679221231"><span id="local-6989586621679221232"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogStream"><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-var">LogStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogStream%27"><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-var">LogStream'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The creation time of the stream, expressed as the number of milliseconds</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationTime%3ALogStream%27"><span class="annot"><span class="annottext">LogStream -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AcreationTime%3ALogStream%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The sequence token.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AuploadSequenceToken%3ALogStream%27"><span class="annot"><span class="annottext">LogStream -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AuploadSequenceToken%3ALogStream%27"><span class="hs-identifier hs-var hs-var">uploadSequenceToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the log stream.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aarn%3ALogStream%27"><span class="annot"><span class="annottext">LogStream -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3Aarn%3ALogStream%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time of the first event, expressed as the number of milliseconds</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AfirstEventTimestamp%3ALogStream%27"><span class="annot"><span class="annottext">LogStream -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AfirstEventTimestamp%3ALogStream%27"><span class="hs-identifier hs-var hs-var">firstEventTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the log stream.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlogStreamName%3ALogStream%27"><span class="annot"><span class="annottext">LogStream -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AlogStreamName%3ALogStream%27"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of bytes stored.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- __Important:__ On June 17, 2019, this parameter was deprecated for log</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- streams, and is always reported as zero. This change applies only to log</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- streams. The @storedBytes@ parameter for log groups is not affected.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AstoredBytes%3ALogStream%27"><span class="annot"><span class="annottext">LogStream -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AstoredBytes%3ALogStream%27"><span class="hs-identifier hs-var hs-var">storedBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The ingestion time, expressed as the number of milliseconds after Jan 1,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- 1970 00:00:00 UTC.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AlastIngestionTime%3ALogStream%27"><span class="annot"><span class="annottext">LogStream -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AlastIngestionTime%3ALogStream%27"><span class="hs-identifier hs-var hs-var">lastIngestionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The time of the most recent log event in the log stream in CloudWatch</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Logs. This number is expressed as the number of milliseconds after Jan</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- consistency basis. It typically updates in less than an hour from</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- ingestion, but in rare situations might take longer.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AlastEventTimestamp%3ALogStream%27"><span class="annot"><span class="annottext">LogStream -&gt; Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AlastEventTimestamp%3ALogStream%27"><span class="hs-identifier hs-var hs-var">lastEventTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221218"><span id="local-6989586621679221220"><span class="annot"><span class="annottext">LogStream -&gt; LogStream -&gt; Bool
+(LogStream -&gt; LogStream -&gt; Bool)
+-&gt; (LogStream -&gt; LogStream -&gt; Bool) -&gt; Eq LogStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LogStream -&gt; LogStream -&gt; Bool
+$c/= :: LogStream -&gt; LogStream -&gt; Bool
+== :: LogStream -&gt; LogStream -&gt; Bool
+$c== :: LogStream -&gt; LogStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221209"><span id="local-6989586621679221211"><span id="local-6989586621679221213"><span id="local-6989586621679221215"><span class="annot"><span class="annottext">ReadPrec [LogStream]
+ReadPrec LogStream
+Int -&gt; ReadS LogStream
+ReadS [LogStream]
+(Int -&gt; ReadS LogStream)
+-&gt; ReadS [LogStream]
+-&gt; ReadPrec LogStream
+-&gt; ReadPrec [LogStream]
+-&gt; Read LogStream
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LogStream]
+$creadListPrec :: ReadPrec [LogStream]
+readPrec :: ReadPrec LogStream
+$creadPrec :: ReadPrec LogStream
+readList :: ReadS [LogStream]
+$creadList :: ReadS [LogStream]
+readsPrec :: Int -&gt; ReadS LogStream
+$creadsPrec :: Int -&gt; ReadS LogStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221202"><span id="local-6989586621679221204"><span id="local-6989586621679221206"><span class="annot"><span class="annottext">Int -&gt; LogStream -&gt; ShowS
+[LogStream] -&gt; ShowS
+LogStream -&gt; String
+(Int -&gt; LogStream -&gt; ShowS)
+-&gt; (LogStream -&gt; String)
+-&gt; ([LogStream] -&gt; ShowS)
+-&gt; Show LogStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LogStream] -&gt; ShowS
+$cshowList :: [LogStream] -&gt; ShowS
+show :: LogStream -&gt; String
+$cshow :: LogStream -&gt; String
+showsPrec :: Int -&gt; LogStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; LogStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LogStream -&gt; Rep LogStream x)
+-&gt; (forall x. Rep LogStream x -&gt; LogStream) -&gt; Generic LogStream
+forall x. Rep LogStream x -&gt; LogStream
+forall x. LogStream -&gt; Rep LogStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LogStream x -&gt; LogStream
+$cfrom :: forall x. LogStream -&gt; Rep LogStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'LogStream' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'creationTime', 'logStream_creationTime' - The creation time of the stream, expressed as the number of milliseconds</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'uploadSequenceToken', 'logStream_uploadSequenceToken' - The sequence token.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'arn', 'logStream_arn' - The Amazon Resource Name (ARN) of the log stream.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'firstEventTimestamp', 'logStream_firstEventTimestamp' - The time of the first event, expressed as the number of milliseconds</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'logStreamName', 'logStream_logStreamName' - The name of the log stream.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'storedBytes', 'logStream_storedBytes' - The number of bytes stored.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- __Important:__ On June 17, 2019, this parameter was deprecated for log</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- streams, and is always reported as zero. This change applies only to log</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- streams. The @storedBytes@ parameter for log groups is not affected.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'lastIngestionTime', 'logStream_lastIngestionTime' - The ingestion time, expressed as the number of milliseconds after Jan 1,</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 1970 00:00:00 UTC.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'lastEventTimestamp', 'logStream_lastEventTimestamp' - The time of the most recent log event in the log stream in CloudWatch</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Logs. This number is expressed as the number of milliseconds after Jan</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- consistency basis. It typically updates in less than an hour from</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- ingestion, but in rare situations might take longer.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#newLogStream"><span class="hs-identifier hs-type">newLogStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span>
+</span><span id="line-97"></span><span id="newLogStream"><span class="annot"><span class="annottext">newLogStream :: LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#newLogStream"><span class="hs-identifier hs-var hs-var">newLogStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">LogStream' :: Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AcreationTime%3ALogStream%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadSequenceToken:LogStream' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AuploadSequenceToken%3ALogStream%27"><span class="hs-identifier hs-var">uploadSequenceToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:LogStream' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3Aarn%3ALogStream%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:firstEventTimestamp:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AfirstEventTimestamp%3ALogStream%27"><span class="hs-identifier hs-var">firstEventTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:logStreamName:LogStream' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AlogStreamName%3ALogStream%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:storedBytes:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AstoredBytes%3ALogStream%27"><span class="hs-identifier hs-var">storedBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastIngestionTime:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AlastIngestionTime%3ALogStream%27"><span class="hs-identifier hs-var">lastIngestionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastEventTimestamp:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AlastEventTimestamp%3ALogStream%27"><span class="hs-identifier hs-var">lastEventTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The creation time of the stream, expressed as the number of milliseconds</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_creationTime"><span class="hs-identifier hs-type">logStream_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="logStream_creationTime"><span class="annot"><span class="annottext">logStream_creationTime :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; LogStream -&gt; f LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_creationTime"><span class="hs-identifier hs-var hs-var">logStream_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogStream -&gt; Maybe Natural)
+-&gt; (LogStream -&gt; Maybe Natural -&gt; LogStream)
+-&gt; Lens LogStream LogStream (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221193"><span class="annot"><span class="annottext">Maybe Natural
+creationTime :: Maybe Natural
+$sel:creationTime:LogStream' :: LogStream -&gt; Maybe Natural
+</span><a href="#local-6989586621679221193"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221193"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221192"><span class="annot"><span class="annottext">s :: LogStream
+</span><a href="#local-6989586621679221192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221191"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogStream
+</span><a href="#local-6989586621679221192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AcreationTime%3ALogStream%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The sequence token.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_uploadSequenceToken"><span class="hs-identifier hs-type">logStream_uploadSequenceToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="logStream_uploadSequenceToken"><span class="annot"><span class="annottext">logStream_uploadSequenceToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LogStream -&gt; f LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_uploadSequenceToken"><span class="hs-identifier hs-var hs-var">logStream_uploadSequenceToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogStream -&gt; Maybe Text)
+-&gt; (LogStream -&gt; Maybe Text -&gt; LogStream)
+-&gt; Lens LogStream LogStream (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221189"><span class="annot"><span class="annottext">Maybe Text
+uploadSequenceToken :: Maybe Text
+$sel:uploadSequenceToken:LogStream' :: LogStream -&gt; Maybe Text
+</span><a href="#local-6989586621679221189"><span class="hs-identifier hs-var hs-var">uploadSequenceToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221189"><span class="hs-identifier hs-var">uploadSequenceToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221188"><span class="annot"><span class="annottext">s :: LogStream
+</span><a href="#local-6989586621679221188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogStream
+</span><a href="#local-6989586621679221188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadSequenceToken:LogStream' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AuploadSequenceToken%3ALogStream%27"><span class="hs-identifier hs-var">uploadSequenceToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the log stream.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_arn"><span class="hs-identifier hs-type">logStream_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="logStream_arn"><span class="annot"><span class="annottext">logStream_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LogStream -&gt; f LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_arn"><span class="hs-identifier hs-var hs-var">logStream_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogStream -&gt; Maybe Text)
+-&gt; (LogStream -&gt; Maybe Text -&gt; LogStream)
+-&gt; Lens LogStream LogStream (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221185"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:LogStream' :: LogStream -&gt; Maybe Text
+</span><a href="#local-6989586621679221185"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221185"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221184"><span class="annot"><span class="annottext">s :: LogStream
+</span><a href="#local-6989586621679221184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221183"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogStream
+</span><a href="#local-6989586621679221184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:LogStream' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3Aarn%3ALogStream%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The time of the first event, expressed as the number of milliseconds</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_firstEventTimestamp"><span class="hs-identifier hs-type">logStream_firstEventTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="logStream_firstEventTimestamp"><span class="annot"><span class="annottext">logStream_firstEventTimestamp :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; LogStream -&gt; f LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_firstEventTimestamp"><span class="hs-identifier hs-var hs-var">logStream_firstEventTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogStream -&gt; Maybe Natural)
+-&gt; (LogStream -&gt; Maybe Natural -&gt; LogStream)
+-&gt; Lens LogStream LogStream (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221181"><span class="annot"><span class="annottext">Maybe Natural
+firstEventTimestamp :: Maybe Natural
+$sel:firstEventTimestamp:LogStream' :: LogStream -&gt; Maybe Natural
+</span><a href="#local-6989586621679221181"><span class="hs-identifier hs-var hs-var">firstEventTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221181"><span class="hs-identifier hs-var">firstEventTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221180"><span class="annot"><span class="annottext">s :: LogStream
+</span><a href="#local-6989586621679221180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221179"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogStream
+</span><a href="#local-6989586621679221180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstEventTimestamp:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AfirstEventTimestamp%3ALogStream%27"><span class="hs-identifier hs-var">firstEventTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The name of the log stream.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_logStreamName"><span class="hs-identifier hs-type">logStream_logStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="logStream_logStreamName"><span class="annot"><span class="annottext">logStream_logStreamName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LogStream -&gt; f LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_logStreamName"><span class="hs-identifier hs-var hs-var">logStream_logStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogStream -&gt; Maybe Text)
+-&gt; (LogStream -&gt; Maybe Text -&gt; LogStream)
+-&gt; Lens LogStream LogStream (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221177"><span class="annot"><span class="annottext">Maybe Text
+logStreamName :: Maybe Text
+$sel:logStreamName:LogStream' :: LogStream -&gt; Maybe Text
+</span><a href="#local-6989586621679221177"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221177"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221176"><span class="annot"><span class="annottext">s :: LogStream
+</span><a href="#local-6989586621679221176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221175"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogStream
+</span><a href="#local-6989586621679221176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamName:LogStream' :: Maybe Text
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AlogStreamName%3ALogStream%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The number of bytes stored.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- __Important:__ On June 17, 2019, this parameter was deprecated for log</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- streams, and is always reported as zero. This change applies only to log</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- streams. The @storedBytes@ parameter for log groups is not affected.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_storedBytes"><span class="hs-identifier hs-type">logStream_storedBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="logStream_storedBytes"><span class="annot"><span class="annottext">logStream_storedBytes :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; LogStream -&gt; f LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_storedBytes"><span class="hs-identifier hs-var hs-var">logStream_storedBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogStream -&gt; Maybe Natural)
+-&gt; (LogStream -&gt; Maybe Natural -&gt; LogStream)
+-&gt; Lens LogStream LogStream (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221173"><span class="annot"><span class="annottext">Maybe Natural
+storedBytes :: Maybe Natural
+$sel:storedBytes:LogStream' :: LogStream -&gt; Maybe Natural
+</span><a href="#local-6989586621679221173"><span class="hs-identifier hs-var hs-var">storedBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221173"><span class="hs-identifier hs-var">storedBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221172"><span class="annot"><span class="annottext">s :: LogStream
+</span><a href="#local-6989586621679221172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221171"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogStream
+</span><a href="#local-6989586621679221172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storedBytes:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AstoredBytes%3ALogStream%27"><span class="hs-identifier hs-var">storedBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The ingestion time, expressed as the number of milliseconds after Jan 1,</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 1970 00:00:00 UTC.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_lastIngestionTime"><span class="hs-identifier hs-type">logStream_lastIngestionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="logStream_lastIngestionTime"><span class="annot"><span class="annottext">logStream_lastIngestionTime :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; LogStream -&gt; f LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_lastIngestionTime"><span class="hs-identifier hs-var hs-var">logStream_lastIngestionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogStream -&gt; Maybe Natural)
+-&gt; (LogStream -&gt; Maybe Natural -&gt; LogStream)
+-&gt; Lens LogStream LogStream (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221169"><span class="annot"><span class="annottext">Maybe Natural
+lastIngestionTime :: Maybe Natural
+$sel:lastIngestionTime:LogStream' :: LogStream -&gt; Maybe Natural
+</span><a href="#local-6989586621679221169"><span class="hs-identifier hs-var hs-var">lastIngestionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221169"><span class="hs-identifier hs-var">lastIngestionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221168"><span class="annot"><span class="annottext">s :: LogStream
+</span><a href="#local-6989586621679221168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221167"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogStream
+</span><a href="#local-6989586621679221168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastIngestionTime:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AlastIngestionTime%3ALogStream%27"><span class="hs-identifier hs-var">lastIngestionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The time of the most recent log event in the log stream in CloudWatch</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Logs. This number is expressed as the number of milliseconds after Jan</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- consistency basis. It typically updates in less than an hour from</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- ingestion, but in rare situations might take longer.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_lastEventTimestamp"><span class="hs-identifier hs-type">logStream_lastEventTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="logStream_lastEventTimestamp"><span class="annot"><span class="annottext">logStream_lastEventTimestamp :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; LogStream -&gt; f LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#logStream_lastEventTimestamp"><span class="hs-identifier hs-var hs-var">logStream_lastEventTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogStream -&gt; Maybe Natural)
+-&gt; (LogStream -&gt; Maybe Natural -&gt; LogStream)
+-&gt; Lens LogStream LogStream (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221165"><span class="annot"><span class="annottext">Maybe Natural
+lastEventTimestamp :: Maybe Natural
+$sel:lastEventTimestamp:LogStream' :: LogStream -&gt; Maybe Natural
+</span><a href="#local-6989586621679221165"><span class="hs-identifier hs-var hs-var">lastEventTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221165"><span class="hs-identifier hs-var">lastEventTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221164"><span class="annot"><span class="annottext">s :: LogStream
+</span><a href="#local-6989586621679221164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-type">LogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221163"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogStream
+</span><a href="#local-6989586621679221164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEventTimestamp:LogStream' :: Maybe Natural
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#%24sel%3AlastEventTimestamp%3ALogStream%27"><span class="hs-identifier hs-var">lastEventTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221160"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679221158"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser LogStream) -&gt; Value -&gt; Parser LogStream
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LogStream&quot;</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221155"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221155"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; LogStream
+</span><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream%27"><span class="hs-identifier hs-var">LogStream'</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; LogStream)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; LogStream)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; LogStream)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; LogStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uploadSequenceToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; LogStream)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; LogStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; LogStream)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; LogStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;firstEventTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; LogStream)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; LogStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logStreamName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; LogStream)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; LogStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;storedBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; LogStream)
+-&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; LogStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastIngestionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; LogStream)
+-&gt; Parser (Maybe Natural) -&gt; Parser LogStream
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastEventTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221149"><span id="local-6989586621679221151"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

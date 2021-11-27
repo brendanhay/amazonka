@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.Types.ClassificationResult</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.Types.ClassificationResult</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResultStatus.html"><span class="hs-identifier">Amazonka.MacieV2.Types.ClassificationResultStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.CustomDataIdentifiers.html"><span class="hs-identifier">Amazonka.MacieV2.Types.CustomDataIdentifiers</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.SensitiveDataItem.html"><span class="hs-identifier">Amazonka.MacieV2.Types.SensitiveDataItem</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Provides the details of a sensitive data finding, including the types,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- number of occurrences, and locations of the sensitive data that was</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- detected.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newClassificationResult' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679395804"><span id="local-6989586621679395805"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassificationResult"><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-var">ClassificationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassificationResult%27"><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-var">ClassificationResult'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The category, types, and number of occurrences of the sensitive data</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- that produced the finding.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsensitiveData%3AClassificationResult%27"><span class="annot"><span class="annottext">ClassificationResult -&gt; Maybe [SensitiveDataItem]
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AsensitiveData%3AClassificationResult%27"><span class="hs-identifier hs-var hs-var">sensitiveData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MacieV2.Types.SensitiveDataItem.html#SensitiveDataItem"><span class="hs-identifier hs-type">SensitiveDataItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The status of the finding.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astatus%3AClassificationResult%27"><span class="annot"><span class="annottext">ClassificationResult -&gt; Maybe ClassificationResultStatus
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3Astatus%3AClassificationResult%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResultStatus.html#ClassificationResultStatus"><span class="hs-identifier hs-type">ClassificationResultStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The type of content, as a MIME type, that the finding applies to. For</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- example, application\/gzip, for a GNU Gzip compressed archive file, or</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- application\/pdf, for an Adobe Portable Document Format file.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmimeType%3AClassificationResult%27"><span class="annot"><span class="annottext">ClassificationResult -&gt; Maybe Text
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AmimeType%3AClassificationResult%27"><span class="hs-identifier hs-var hs-var">mimeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The total size, in bytes, of the data that the finding applies to.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsizeClassified%3AClassificationResult%27"><span class="annot"><span class="annottext">ClassificationResult -&gt; Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AsizeClassified%3AClassificationResult%27"><span class="hs-identifier hs-var hs-var">sizeClassified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Specifies whether Amazon Macie detected additional occurrences of</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- sensitive data in the S3 object. A finding includes location data for a</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- maximum of 15 occurrences of sensitive data.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- This value can help you determine whether to investigate additional</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- occurrences of sensitive data in an object. You can do this by referring</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- to the corresponding sensitive data discovery result for the finding</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- (ClassificationDetails.detailedResultsLocation).</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AadditionalOccurrences%3AClassificationResult%27"><span class="annot"><span class="annottext">ClassificationResult -&gt; Maybe Bool
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AadditionalOccurrences%3AClassificationResult%27"><span class="hs-identifier hs-var hs-var">additionalOccurrences</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The custom data identifiers that detected the sensitive data and the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- number of occurrences of the data that they detected.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AcustomDataIdentifiers%3AClassificationResult%27"><span class="annot"><span class="annottext">ClassificationResult -&gt; Maybe CustomDataIdentifiers
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AcustomDataIdentifiers%3AClassificationResult%27"><span class="hs-identifier hs-var hs-var">customDataIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.CustomDataIdentifiers.html#CustomDataIdentifiers"><span class="hs-identifier hs-type">CustomDataIdentifiers</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395793"><span id="local-6989586621679395795"><span class="annot"><span class="annottext">ClassificationResult -&gt; ClassificationResult -&gt; Bool
+(ClassificationResult -&gt; ClassificationResult -&gt; Bool)
+-&gt; (ClassificationResult -&gt; ClassificationResult -&gt; Bool)
+-&gt; Eq ClassificationResult
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClassificationResult -&gt; ClassificationResult -&gt; Bool
+$c/= :: ClassificationResult -&gt; ClassificationResult -&gt; Bool
+== :: ClassificationResult -&gt; ClassificationResult -&gt; Bool
+$c== :: ClassificationResult -&gt; ClassificationResult -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395784"><span id="local-6989586621679395786"><span id="local-6989586621679395788"><span id="local-6989586621679395790"><span class="annot"><span class="annottext">ReadPrec [ClassificationResult]
+ReadPrec ClassificationResult
+Int -&gt; ReadS ClassificationResult
+ReadS [ClassificationResult]
+(Int -&gt; ReadS ClassificationResult)
+-&gt; ReadS [ClassificationResult]
+-&gt; ReadPrec ClassificationResult
+-&gt; ReadPrec [ClassificationResult]
+-&gt; Read ClassificationResult
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClassificationResult]
+$creadListPrec :: ReadPrec [ClassificationResult]
+readPrec :: ReadPrec ClassificationResult
+$creadPrec :: ReadPrec ClassificationResult
+readList :: ReadS [ClassificationResult]
+$creadList :: ReadS [ClassificationResult]
+readsPrec :: Int -&gt; ReadS ClassificationResult
+$creadsPrec :: Int -&gt; ReadS ClassificationResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395777"><span id="local-6989586621679395779"><span id="local-6989586621679395781"><span class="annot"><span class="annottext">Int -&gt; ClassificationResult -&gt; ShowS
+[ClassificationResult] -&gt; ShowS
+ClassificationResult -&gt; String
+(Int -&gt; ClassificationResult -&gt; ShowS)
+-&gt; (ClassificationResult -&gt; String)
+-&gt; ([ClassificationResult] -&gt; ShowS)
+-&gt; Show ClassificationResult
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClassificationResult] -&gt; ShowS
+$cshowList :: [ClassificationResult] -&gt; ShowS
+show :: ClassificationResult -&gt; String
+$cshow :: ClassificationResult -&gt; String
+showsPrec :: Int -&gt; ClassificationResult -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClassificationResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ClassificationResult -&gt; Rep ClassificationResult x)
+-&gt; (forall x. Rep ClassificationResult x -&gt; ClassificationResult)
+-&gt; Generic ClassificationResult
+forall x. Rep ClassificationResult x -&gt; ClassificationResult
+forall x. ClassificationResult -&gt; Rep ClassificationResult x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ClassificationResult x -&gt; ClassificationResult
+$cfrom :: forall x. ClassificationResult -&gt; Rep ClassificationResult x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'ClassificationResult' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'sensitiveData', 'classificationResult_sensitiveData' - The category, types, and number of occurrences of the sensitive data</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- that produced the finding.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'status', 'classificationResult_status' - The status of the finding.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'mimeType', 'classificationResult_mimeType' - The type of content, as a MIME type, that the finding applies to. For</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- example, application\/gzip, for a GNU Gzip compressed archive file, or</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- application\/pdf, for an Adobe Portable Document Format file.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'sizeClassified', 'classificationResult_sizeClassified' - The total size, in bytes, of the data that the finding applies to.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'additionalOccurrences', 'classificationResult_additionalOccurrences' - Specifies whether Amazon Macie detected additional occurrences of</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- sensitive data in the S3 object. A finding includes location data for a</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- maximum of 15 occurrences of sensitive data.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- This value can help you determine whether to investigate additional</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- occurrences of sensitive data in an object. You can do this by referring</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- to the corresponding sensitive data discovery result for the finding</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- (ClassificationDetails.detailedResultsLocation).</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'customDataIdentifiers', 'classificationResult_customDataIdentifiers' - The custom data identifiers that detected the sensitive data and the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- number of occurrences of the data that they detected.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#newClassificationResult"><span class="hs-identifier hs-type">newClassificationResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span>
+</span><span id="line-93"></span><span id="newClassificationResult"><span class="annot"><span class="annottext">newClassificationResult :: ClassificationResult
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#newClassificationResult"><span class="hs-identifier hs-var hs-var">newClassificationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">ClassificationResult' :: Maybe [SensitiveDataItem]
+-&gt; Maybe ClassificationResultStatus
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Bool
+-&gt; Maybe CustomDataIdentifiers
+-&gt; ClassificationResult
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sensitiveData:ClassificationResult' :: Maybe [SensitiveDataItem]
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AsensitiveData%3AClassificationResult%27"><span class="hs-identifier hs-var">sensitiveData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SensitiveDataItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ClassificationResult' :: Maybe ClassificationResultStatus
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3Astatus%3AClassificationResult%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClassificationResultStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:mimeType:ClassificationResult' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AmimeType%3AClassificationResult%27"><span class="hs-identifier hs-var">mimeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeClassified:ClassificationResult' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AsizeClassified%3AClassificationResult%27"><span class="hs-identifier hs-var">sizeClassified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalOccurrences:ClassificationResult' :: Maybe Bool
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AadditionalOccurrences%3AClassificationResult%27"><span class="hs-identifier hs-var">additionalOccurrences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:customDataIdentifiers:ClassificationResult' :: Maybe CustomDataIdentifiers
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AcustomDataIdentifiers%3AClassificationResult%27"><span class="hs-identifier hs-var">customDataIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDataIdentifiers
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The category, types, and number of occurrences of the sensitive data</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- that produced the finding.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_sensitiveData"><span class="hs-identifier hs-type">classificationResult_sensitiveData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MacieV2.Types.SensitiveDataItem.html#SensitiveDataItem"><span class="hs-identifier hs-type">SensitiveDataItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="classificationResult_sensitiveData"><span class="annot"><span class="annottext">classificationResult_sensitiveData :: (Maybe [SensitiveDataItem] -&gt; f (Maybe [SensitiveDataItem]))
+-&gt; ClassificationResult -&gt; f ClassificationResult
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_sensitiveData"><span class="hs-identifier hs-var hs-var">classificationResult_sensitiveData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassificationResult -&gt; Maybe [SensitiveDataItem])
+-&gt; (ClassificationResult
+    -&gt; Maybe [SensitiveDataItem] -&gt; ClassificationResult)
+-&gt; Lens
+     ClassificationResult
+     ClassificationResult
+     (Maybe [SensitiveDataItem])
+     (Maybe [SensitiveDataItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395768"><span class="annot"><span class="annottext">Maybe [SensitiveDataItem]
+sensitiveData :: Maybe [SensitiveDataItem]
+$sel:sensitiveData:ClassificationResult' :: ClassificationResult -&gt; Maybe [SensitiveDataItem]
+</span><a href="#local-6989586621679395768"><span class="hs-identifier hs-var hs-var">sensitiveData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SensitiveDataItem]
+</span><a href="#local-6989586621679395768"><span class="hs-identifier hs-var">sensitiveData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395767"><span class="annot"><span class="annottext">s :: ClassificationResult
+</span><a href="#local-6989586621679395767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395766"><span class="annot"><span class="annottext">Maybe [SensitiveDataItem]
+</span><a href="#local-6989586621679395766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassificationResult
+</span><a href="#local-6989586621679395767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sensitiveData:ClassificationResult' :: Maybe [SensitiveDataItem]
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AsensitiveData%3AClassificationResult%27"><span class="hs-identifier hs-var">sensitiveData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SensitiveDataItem]
+</span><a href="#local-6989586621679395766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SensitiveDataItem] -&gt; f (Maybe [SensitiveDataItem]))
+ -&gt; ClassificationResult -&gt; f ClassificationResult)
+-&gt; ((Maybe [SensitiveDataItem] -&gt; f (Maybe [SensitiveDataItem]))
+    -&gt; Maybe [SensitiveDataItem] -&gt; f (Maybe [SensitiveDataItem]))
+-&gt; (Maybe [SensitiveDataItem] -&gt; f (Maybe [SensitiveDataItem]))
+-&gt; ClassificationResult
+-&gt; f ClassificationResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SensitiveDataItem]
+  [SensitiveDataItem]
+  [SensitiveDataItem]
+  [SensitiveDataItem]
+-&gt; Iso
+     (Maybe [SensitiveDataItem])
+     (Maybe [SensitiveDataItem])
+     (Maybe [SensitiveDataItem])
+     (Maybe [SensitiveDataItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SensitiveDataItem]
+  [SensitiveDataItem]
+  [SensitiveDataItem]
+  [SensitiveDataItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The status of the finding.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_status"><span class="hs-identifier hs-type">classificationResult_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResultStatus.html#ClassificationResultStatus"><span class="hs-identifier hs-type">ClassificationResultStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="classificationResult_status"><span class="annot"><span class="annottext">classificationResult_status :: (Maybe ClassificationResultStatus
+ -&gt; f (Maybe ClassificationResultStatus))
+-&gt; ClassificationResult -&gt; f ClassificationResult
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_status"><span class="hs-identifier hs-var hs-var">classificationResult_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassificationResult -&gt; Maybe ClassificationResultStatus)
+-&gt; (ClassificationResult
+    -&gt; Maybe ClassificationResultStatus -&gt; ClassificationResult)
+-&gt; Lens
+     ClassificationResult
+     ClassificationResult
+     (Maybe ClassificationResultStatus)
+     (Maybe ClassificationResultStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395761"><span class="annot"><span class="annottext">Maybe ClassificationResultStatus
+status :: Maybe ClassificationResultStatus
+$sel:status:ClassificationResult' :: ClassificationResult -&gt; Maybe ClassificationResultStatus
+</span><a href="#local-6989586621679395761"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClassificationResultStatus
+</span><a href="#local-6989586621679395761"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395760"><span class="annot"><span class="annottext">s :: ClassificationResult
+</span><a href="#local-6989586621679395760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395759"><span class="annot"><span class="annottext">Maybe ClassificationResultStatus
+</span><a href="#local-6989586621679395759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassificationResult
+</span><a href="#local-6989586621679395760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ClassificationResult' :: Maybe ClassificationResultStatus
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3Astatus%3AClassificationResult%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClassificationResultStatus
+</span><a href="#local-6989586621679395759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The type of content, as a MIME type, that the finding applies to. For</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- example, application\/gzip, for a GNU Gzip compressed archive file, or</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- application\/pdf, for an Adobe Portable Document Format file.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_mimeType"><span class="hs-identifier hs-type">classificationResult_mimeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="classificationResult_mimeType"><span class="annot"><span class="annottext">classificationResult_mimeType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClassificationResult -&gt; f ClassificationResult
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_mimeType"><span class="hs-identifier hs-var hs-var">classificationResult_mimeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassificationResult -&gt; Maybe Text)
+-&gt; (ClassificationResult -&gt; Maybe Text -&gt; ClassificationResult)
+-&gt; Lens
+     ClassificationResult ClassificationResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395757"><span class="annot"><span class="annottext">Maybe Text
+mimeType :: Maybe Text
+$sel:mimeType:ClassificationResult' :: ClassificationResult -&gt; Maybe Text
+</span><a href="#local-6989586621679395757"><span class="hs-identifier hs-var hs-var">mimeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395757"><span class="hs-identifier hs-var">mimeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395756"><span class="annot"><span class="annottext">s :: ClassificationResult
+</span><a href="#local-6989586621679395756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395755"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassificationResult
+</span><a href="#local-6989586621679395756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mimeType:ClassificationResult' :: Maybe Text
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AmimeType%3AClassificationResult%27"><span class="hs-identifier hs-var">mimeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The total size, in bytes, of the data that the finding applies to.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_sizeClassified"><span class="hs-identifier hs-type">classificationResult_sizeClassified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="classificationResult_sizeClassified"><span class="annot"><span class="annottext">classificationResult_sizeClassified :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ClassificationResult -&gt; f ClassificationResult
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_sizeClassified"><span class="hs-identifier hs-var hs-var">classificationResult_sizeClassified</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassificationResult -&gt; Maybe Integer)
+-&gt; (ClassificationResult -&gt; Maybe Integer -&gt; ClassificationResult)
+-&gt; Lens
+     ClassificationResult
+     ClassificationResult
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395753"><span class="annot"><span class="annottext">Maybe Integer
+sizeClassified :: Maybe Integer
+$sel:sizeClassified:ClassificationResult' :: ClassificationResult -&gt; Maybe Integer
+</span><a href="#local-6989586621679395753"><span class="hs-identifier hs-var hs-var">sizeClassified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679395753"><span class="hs-identifier hs-var">sizeClassified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395752"><span class="annot"><span class="annottext">s :: ClassificationResult
+</span><a href="#local-6989586621679395752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395751"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679395751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassificationResult
+</span><a href="#local-6989586621679395752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeClassified:ClassificationResult' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AsizeClassified%3AClassificationResult%27"><span class="hs-identifier hs-var">sizeClassified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679395751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Specifies whether Amazon Macie detected additional occurrences of</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- sensitive data in the S3 object. A finding includes location data for a</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- maximum of 15 occurrences of sensitive data.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- This value can help you determine whether to investigate additional</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- occurrences of sensitive data in an object. You can do this by referring</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- to the corresponding sensitive data discovery result for the finding</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- (ClassificationDetails.detailedResultsLocation).</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_additionalOccurrences"><span class="hs-identifier hs-type">classificationResult_additionalOccurrences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="classificationResult_additionalOccurrences"><span class="annot"><span class="annottext">classificationResult_additionalOccurrences :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ClassificationResult -&gt; f ClassificationResult
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_additionalOccurrences"><span class="hs-identifier hs-var hs-var">classificationResult_additionalOccurrences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassificationResult -&gt; Maybe Bool)
+-&gt; (ClassificationResult -&gt; Maybe Bool -&gt; ClassificationResult)
+-&gt; Lens
+     ClassificationResult ClassificationResult (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395749"><span class="annot"><span class="annottext">Maybe Bool
+additionalOccurrences :: Maybe Bool
+$sel:additionalOccurrences:ClassificationResult' :: ClassificationResult -&gt; Maybe Bool
+</span><a href="#local-6989586621679395749"><span class="hs-identifier hs-var hs-var">additionalOccurrences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679395749"><span class="hs-identifier hs-var">additionalOccurrences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395748"><span class="annot"><span class="annottext">s :: ClassificationResult
+</span><a href="#local-6989586621679395748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395747"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679395747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassificationResult
+</span><a href="#local-6989586621679395748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalOccurrences:ClassificationResult' :: Maybe Bool
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AadditionalOccurrences%3AClassificationResult%27"><span class="hs-identifier hs-var">additionalOccurrences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679395747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The custom data identifiers that detected the sensitive data and the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- number of occurrences of the data that they detected.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_customDataIdentifiers"><span class="hs-identifier hs-type">classificationResult_customDataIdentifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.CustomDataIdentifiers.html#CustomDataIdentifiers"><span class="hs-identifier hs-type">CustomDataIdentifiers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="classificationResult_customDataIdentifiers"><span class="annot"><span class="annottext">classificationResult_customDataIdentifiers :: (Maybe CustomDataIdentifiers -&gt; f (Maybe CustomDataIdentifiers))
+-&gt; ClassificationResult -&gt; f ClassificationResult
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#classificationResult_customDataIdentifiers"><span class="hs-identifier hs-var hs-var">classificationResult_customDataIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassificationResult -&gt; Maybe CustomDataIdentifiers)
+-&gt; (ClassificationResult
+    -&gt; Maybe CustomDataIdentifiers -&gt; ClassificationResult)
+-&gt; Lens
+     ClassificationResult
+     ClassificationResult
+     (Maybe CustomDataIdentifiers)
+     (Maybe CustomDataIdentifiers)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395745"><span class="annot"><span class="annottext">Maybe CustomDataIdentifiers
+customDataIdentifiers :: Maybe CustomDataIdentifiers
+$sel:customDataIdentifiers:ClassificationResult' :: ClassificationResult -&gt; Maybe CustomDataIdentifiers
+</span><a href="#local-6989586621679395745"><span class="hs-identifier hs-var hs-var">customDataIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDataIdentifiers
+</span><a href="#local-6989586621679395745"><span class="hs-identifier hs-var">customDataIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395744"><span class="annot"><span class="annottext">s :: ClassificationResult
+</span><a href="#local-6989586621679395744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-type">ClassificationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395743"><span class="annot"><span class="annottext">Maybe CustomDataIdentifiers
+</span><a href="#local-6989586621679395743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassificationResult
+</span><a href="#local-6989586621679395744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customDataIdentifiers:ClassificationResult' :: Maybe CustomDataIdentifiers
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#%24sel%3AcustomDataIdentifiers%3AClassificationResult%27"><span class="hs-identifier hs-var">customDataIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDataIdentifiers
+</span><a href="#local-6989586621679395743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395740"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679395738"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClassificationResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ClassificationResult)
+-&gt; Value
+-&gt; Parser ClassificationResult
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ClassificationResult&quot;</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395735"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395735"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SensitiveDataItem]
+-&gt; Maybe ClassificationResultStatus
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Bool
+-&gt; Maybe CustomDataIdentifiers
+-&gt; ClassificationResult
+</span><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult%27"><span class="hs-identifier hs-var">ClassificationResult'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SensitiveDataItem]
+ -&gt; Maybe ClassificationResultStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Bool
+ -&gt; Maybe CustomDataIdentifiers
+ -&gt; ClassificationResult)
+-&gt; Parser (Maybe [SensitiveDataItem])
+-&gt; Parser
+     (Maybe ClassificationResultStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Bool
+      -&gt; Maybe CustomDataIdentifiers
+      -&gt; ClassificationResult)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SensitiveDataItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sensitiveData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SensitiveDataItem]))
+-&gt; Maybe [SensitiveDataItem] -&gt; Parser (Maybe [SensitiveDataItem])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SensitiveDataItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ClassificationResultStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Bool
+   -&gt; Maybe CustomDataIdentifiers
+   -&gt; ClassificationResult)
+-&gt; Parser (Maybe ClassificationResultStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Bool
+      -&gt; Maybe CustomDataIdentifiers
+      -&gt; ClassificationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClassificationResultStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Bool
+   -&gt; Maybe CustomDataIdentifiers
+   -&gt; ClassificationResult)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Bool
+      -&gt; Maybe CustomDataIdentifiers
+      -&gt; ClassificationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mimeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Bool
+   -&gt; Maybe CustomDataIdentifiers
+   -&gt; ClassificationResult)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe CustomDataIdentifiers -&gt; ClassificationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sizeClassified&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool -&gt; Maybe CustomDataIdentifiers -&gt; ClassificationResult)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe CustomDataIdentifiers -&gt; ClassificationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;additionalOccurrences&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CustomDataIdentifiers -&gt; ClassificationResult)
+-&gt; Parser (Maybe CustomDataIdentifiers)
+-&gt; Parser ClassificationResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomDataIdentifiers)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customDataIdentifiers&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395728"><span id="local-6989586621679395730"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.ClassificationResult.html#ClassificationResult"><span class="hs-identifier hs-type">ClassificationResult</span></a></span></span><span>
+</span><span id="line-156"></span></pre></body></html>

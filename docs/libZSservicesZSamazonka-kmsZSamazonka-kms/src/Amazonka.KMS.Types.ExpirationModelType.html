@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KMS.Types.ExpirationModelType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KMS.Types.ExpirationModelType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType"><span class="hs-identifier">ExpirationModelType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE"><span class="hs-identifier">ExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType_KEY_MATERIAL_EXPIRES"><span class="hs-identifier">ExpirationModelType_KEY_MATERIAL_EXPIRES</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679247501"><span id="local-6989586621679247502"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExpirationModelType"><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType"><span class="hs-identifier hs-var">ExpirationModelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpirationModelType%27"><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType%27"><span class="hs-identifier hs-var">ExpirationModelType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExpirationModelType"><span class="annot"><span class="annottext">ExpirationModelType -&gt; Text
+</span><a href="Amazonka.KMS.Types.ExpirationModelType.html#fromExpirationModelType"><span class="hs-identifier hs-var hs-var">fromExpirationModelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247493"><span id="local-6989586621679247495"><span id="local-6989586621679247497"><span class="annot"><span class="annottext">Int -&gt; ExpirationModelType -&gt; ShowS
+[ExpirationModelType] -&gt; ShowS
+ExpirationModelType -&gt; String
+(Int -&gt; ExpirationModelType -&gt; ShowS)
+-&gt; (ExpirationModelType -&gt; String)
+-&gt; ([ExpirationModelType] -&gt; ShowS)
+-&gt; Show ExpirationModelType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExpirationModelType] -&gt; ShowS
+$cshowList :: [ExpirationModelType] -&gt; ShowS
+show :: ExpirationModelType -&gt; String
+$cshow :: ExpirationModelType -&gt; String
+showsPrec :: Int -&gt; ExpirationModelType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExpirationModelType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679247484"><span id="local-6989586621679247486"><span id="local-6989586621679247488"><span id="local-6989586621679247490"><span class="annot"><span class="annottext">ReadPrec [ExpirationModelType]
+ReadPrec ExpirationModelType
+Int -&gt; ReadS ExpirationModelType
+ReadS [ExpirationModelType]
+(Int -&gt; ReadS ExpirationModelType)
+-&gt; ReadS [ExpirationModelType]
+-&gt; ReadPrec ExpirationModelType
+-&gt; ReadPrec [ExpirationModelType]
+-&gt; Read ExpirationModelType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExpirationModelType]
+$creadListPrec :: ReadPrec [ExpirationModelType]
+readPrec :: ReadPrec ExpirationModelType
+$creadPrec :: ReadPrec ExpirationModelType
+readList :: ReadS [ExpirationModelType]
+$creadList :: ReadS [ExpirationModelType]
+readsPrec :: Int -&gt; ReadS ExpirationModelType
+$creadsPrec :: Int -&gt; ReadS ExpirationModelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679247479"><span id="local-6989586621679247481"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+(ExpirationModelType -&gt; ExpirationModelType -&gt; Bool)
+-&gt; (ExpirationModelType -&gt; ExpirationModelType -&gt; Bool)
+-&gt; Eq ExpirationModelType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+$c/= :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+== :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+$c== :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679247463"><span id="local-6989586621679247465"><span id="local-6989586621679247467"><span id="local-6989586621679247469"><span id="local-6989586621679247471"><span id="local-6989586621679247473"><span id="local-6989586621679247475"><span class="annot"><span class="annottext">Eq ExpirationModelType
+Eq ExpirationModelType
+-&gt; (ExpirationModelType -&gt; ExpirationModelType -&gt; Ordering)
+-&gt; (ExpirationModelType -&gt; ExpirationModelType -&gt; Bool)
+-&gt; (ExpirationModelType -&gt; ExpirationModelType -&gt; Bool)
+-&gt; (ExpirationModelType -&gt; ExpirationModelType -&gt; Bool)
+-&gt; (ExpirationModelType -&gt; ExpirationModelType -&gt; Bool)
+-&gt; (ExpirationModelType
+    -&gt; ExpirationModelType -&gt; ExpirationModelType)
+-&gt; (ExpirationModelType
+    -&gt; ExpirationModelType -&gt; ExpirationModelType)
+-&gt; Ord ExpirationModelType
+ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+ExpirationModelType -&gt; ExpirationModelType -&gt; Ordering
+ExpirationModelType -&gt; ExpirationModelType -&gt; ExpirationModelType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExpirationModelType -&gt; ExpirationModelType -&gt; ExpirationModelType
+$cmin :: ExpirationModelType -&gt; ExpirationModelType -&gt; ExpirationModelType
+max :: ExpirationModelType -&gt; ExpirationModelType -&gt; ExpirationModelType
+$cmax :: ExpirationModelType -&gt; ExpirationModelType -&gt; ExpirationModelType
+&gt;= :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+$c&gt;= :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+&gt; :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+$c&gt; :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+&lt;= :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+$c&lt;= :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+&lt; :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+$c&lt; :: ExpirationModelType -&gt; ExpirationModelType -&gt; Bool
+compare :: ExpirationModelType -&gt; ExpirationModelType -&gt; Ordering
+$ccompare :: ExpirationModelType -&gt; ExpirationModelType -&gt; Ordering
+$cp1Ord :: Eq ExpirationModelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExpirationModelType -&gt; Rep ExpirationModelType x)
+-&gt; (forall x. Rep ExpirationModelType x -&gt; ExpirationModelType)
+-&gt; Generic ExpirationModelType
+forall x. Rep ExpirationModelType x -&gt; ExpirationModelType
+forall x. ExpirationModelType -&gt; Rep ExpirationModelType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExpirationModelType x -&gt; ExpirationModelType
+$cfrom :: forall x. ExpirationModelType -&gt; Rep ExpirationModelType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247455"><span id="local-6989586621679247457"><span class="annot"><span class="annottext">Int -&gt; ExpirationModelType -&gt; Int
+ExpirationModelType -&gt; Int
+(Int -&gt; ExpirationModelType -&gt; Int)
+-&gt; (ExpirationModelType -&gt; Int) -&gt; Hashable ExpirationModelType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExpirationModelType -&gt; Int
+$chash :: ExpirationModelType -&gt; Int
+hashWithSalt :: Int -&gt; ExpirationModelType -&gt; Int
+$chashWithSalt :: Int -&gt; ExpirationModelType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679247452"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ()
+(ExpirationModelType -&gt; ()) -&gt; NFData ExpirationModelType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExpirationModelType -&gt; ()
+$crnf :: ExpirationModelType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679247449"><span class="annot"><span class="annottext">Text -&gt; Either String ExpirationModelType
+(Text -&gt; Either String ExpirationModelType)
+-&gt; FromText ExpirationModelType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExpirationModelType
+$cfromText :: Text -&gt; Either String ExpirationModelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679247446"><span class="annot"><span class="annottext">ExpirationModelType -&gt; Text
+(ExpirationModelType -&gt; Text) -&gt; ToText ExpirationModelType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExpirationModelType -&gt; Text
+$ctoText :: ExpirationModelType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247443"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ByteString
+(ExpirationModelType -&gt; ByteString)
+-&gt; ToByteString ExpirationModelType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExpirationModelType -&gt; ByteString
+$ctoBS :: ExpirationModelType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247440"><span class="annot"><span class="annottext">ExpirationModelType -&gt; ByteStringBuilder
+(ExpirationModelType -&gt; ByteStringBuilder)
+-&gt; ToLog ExpirationModelType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExpirationModelType -&gt; ByteStringBuilder
+$cbuild :: ExpirationModelType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247437"><span class="annot"><span class="annottext">HeaderName -&gt; ExpirationModelType -&gt; [Header]
+(HeaderName -&gt; ExpirationModelType -&gt; [Header])
+-&gt; ToHeader ExpirationModelType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExpirationModelType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExpirationModelType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247434"><span class="annot"><span class="annottext">ExpirationModelType -&gt; QueryString
+(ExpirationModelType -&gt; QueryString) -&gt; ToQuery ExpirationModelType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExpirationModelType -&gt; QueryString
+$ctoQuery :: ExpirationModelType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247429"><span id="local-6989586621679247431"><span class="annot"><span class="annottext">Value -&gt; Parser [ExpirationModelType]
+Value -&gt; Parser ExpirationModelType
+(Value -&gt; Parser ExpirationModelType)
+-&gt; (Value -&gt; Parser [ExpirationModelType])
+-&gt; FromJSON ExpirationModelType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExpirationModelType]
+$cparseJSONList :: Value -&gt; Parser [ExpirationModelType]
+parseJSON :: Value -&gt; Parser ExpirationModelType
+$cparseJSON :: Value -&gt; Parser ExpirationModelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247424"><span id="local-6989586621679247426"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExpirationModelType]
+FromJSONKeyFunction ExpirationModelType
+FromJSONKeyFunction ExpirationModelType
+-&gt; FromJSONKeyFunction [ExpirationModelType]
+-&gt; FromJSONKey ExpirationModelType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExpirationModelType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExpirationModelType]
+fromJSONKey :: FromJSONKeyFunction ExpirationModelType
+$cfromJSONKey :: FromJSONKeyFunction ExpirationModelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247415"><span id="local-6989586621679247417"><span id="local-6989586621679247419"><span id="local-6989586621679247421"><span class="annot"><span class="annottext">[ExpirationModelType] -&gt; Encoding
+[ExpirationModelType] -&gt; Value
+ExpirationModelType -&gt; Encoding
+ExpirationModelType -&gt; Value
+(ExpirationModelType -&gt; Value)
+-&gt; (ExpirationModelType -&gt; Encoding)
+-&gt; ([ExpirationModelType] -&gt; Value)
+-&gt; ([ExpirationModelType] -&gt; Encoding)
+-&gt; ToJSON ExpirationModelType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExpirationModelType] -&gt; Encoding
+$ctoEncodingList :: [ExpirationModelType] -&gt; Encoding
+toJSONList :: [ExpirationModelType] -&gt; Value
+$ctoJSONList :: [ExpirationModelType] -&gt; Value
+toEncoding :: ExpirationModelType -&gt; Encoding
+$ctoEncoding :: ExpirationModelType -&gt; Encoding
+toJSON :: ExpirationModelType -&gt; Value
+$ctoJSON :: ExpirationModelType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247410"><span id="local-6989586621679247412"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExpirationModelType]
+ToJSONKeyFunction ExpirationModelType
+ToJSONKeyFunction ExpirationModelType
+-&gt; ToJSONKeyFunction [ExpirationModelType]
+-&gt; ToJSONKey ExpirationModelType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExpirationModelType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExpirationModelType]
+toJSONKey :: ToJSONKeyFunction ExpirationModelType
+$ctoJSONKey :: ToJSONKeyFunction ExpirationModelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247407"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExpirationModelType
+([Node] -&gt; Either String ExpirationModelType)
+-&gt; FromXML ExpirationModelType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExpirationModelType
+$cparseXML :: [Node] -&gt; Either String ExpirationModelType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247404"><span class="annot"><span class="annottext">ExpirationModelType -&gt; XML
+(ExpirationModelType -&gt; XML) -&gt; ToXML ExpirationModelType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExpirationModelType -&gt; XML
+$ctoXML :: ExpirationModelType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE"><span class="hs-identifier hs-type">ExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType"><span class="hs-identifier hs-type">ExpirationModelType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE"><span id="%24mExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE"><span id="ExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE"><span class="annot"><span class="annottext">$bExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE :: ExpirationModelType
+$mExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE :: forall r. ExpirationModelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.ExpirationModelType.html#%24bExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE"><span class="hs-identifier hs-var hs-var hs-var">ExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType%27"><span class="hs-identifier hs-type">ExpirationModelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KEY_MATERIAL_DOES_NOT_EXPIRE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType_KEY_MATERIAL_EXPIRES"><span class="hs-identifier hs-type">ExpirationModelType_KEY_MATERIAL_EXPIRES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType"><span class="hs-identifier hs-type">ExpirationModelType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExpirationModelType_KEY_MATERIAL_EXPIRES"><span id="%24mExpirationModelType_KEY_MATERIAL_EXPIRES"><span id="ExpirationModelType_KEY_MATERIAL_EXPIRES"><span class="annot"><span class="annottext">$bExpirationModelType_KEY_MATERIAL_EXPIRES :: ExpirationModelType
+$mExpirationModelType_KEY_MATERIAL_EXPIRES :: forall r. ExpirationModelType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.ExpirationModelType.html#%24bExpirationModelType_KEY_MATERIAL_EXPIRES"><span class="hs-identifier hs-var hs-var hs-var">ExpirationModelType_KEY_MATERIAL_EXPIRES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType%27"><span class="hs-identifier hs-type">ExpirationModelType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KEY_MATERIAL_EXPIRES&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE"><span class="hs-pragma hs-type">ExpirationModelType_KEY_MATERIAL_DOES_NOT_EXPIRE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType_KEY_MATERIAL_EXPIRES"><span class="hs-pragma hs-type">ExpirationModelType_KEY_MATERIAL_EXPIRES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.ExpirationModelType.html#ExpirationModelType%27"><span class="hs-pragma hs-type">ExpirationModelType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

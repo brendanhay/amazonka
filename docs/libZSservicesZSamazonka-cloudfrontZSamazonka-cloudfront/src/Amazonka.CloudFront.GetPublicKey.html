@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.GetPublicKey</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a public key.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.GetPublicKey</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier">GetPublicKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#newGetPublicKey"><span class="hs-identifier">newGetPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKey_id"><span class="hs-identifier">getPublicKey_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier">GetPublicKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#newGetPublicKeyResponse"><span class="hs-identifier">newGetPublicKeyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKeyResponse_eTag"><span class="hs-identifier">getPublicKeyResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKeyResponse_publicKey"><span class="hs-identifier">getPublicKeyResponse_publicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKeyResponse_httpStatus"><span class="hs-identifier">getPublicKeyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.html"><span class="hs-identifier">Amazonka.CloudFront.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetPublicKey' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679413811"><span id="local-6989586621679413812"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPublicKey"><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-var">GetPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPublicKey%27"><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey%27"><span class="hs-identifier hs-var">GetPublicKey'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the public key you are getting.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aid%3AGetPublicKey%27"><span class="annot"><span class="annottext">GetPublicKey -&gt; Text
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3Aid%3AGetPublicKey%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413805"><span id="local-6989586621679413807"><span class="annot"><span class="annottext">GetPublicKey -&gt; GetPublicKey -&gt; Bool
+(GetPublicKey -&gt; GetPublicKey -&gt; Bool)
+-&gt; (GetPublicKey -&gt; GetPublicKey -&gt; Bool) -&gt; Eq GetPublicKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPublicKey -&gt; GetPublicKey -&gt; Bool
+$c/= :: GetPublicKey -&gt; GetPublicKey -&gt; Bool
+== :: GetPublicKey -&gt; GetPublicKey -&gt; Bool
+$c== :: GetPublicKey -&gt; GetPublicKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413796"><span id="local-6989586621679413798"><span id="local-6989586621679413800"><span id="local-6989586621679413802"><span class="annot"><span class="annottext">ReadPrec [GetPublicKey]
+ReadPrec GetPublicKey
+Int -&gt; ReadS GetPublicKey
+ReadS [GetPublicKey]
+(Int -&gt; ReadS GetPublicKey)
+-&gt; ReadS [GetPublicKey]
+-&gt; ReadPrec GetPublicKey
+-&gt; ReadPrec [GetPublicKey]
+-&gt; Read GetPublicKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPublicKey]
+$creadListPrec :: ReadPrec [GetPublicKey]
+readPrec :: ReadPrec GetPublicKey
+$creadPrec :: ReadPrec GetPublicKey
+readList :: ReadS [GetPublicKey]
+$creadList :: ReadS [GetPublicKey]
+readsPrec :: Int -&gt; ReadS GetPublicKey
+$creadsPrec :: Int -&gt; ReadS GetPublicKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413789"><span id="local-6989586621679413791"><span id="local-6989586621679413793"><span class="annot"><span class="annottext">Int -&gt; GetPublicKey -&gt; ShowS
+[GetPublicKey] -&gt; ShowS
+GetPublicKey -&gt; String
+(Int -&gt; GetPublicKey -&gt; ShowS)
+-&gt; (GetPublicKey -&gt; String)
+-&gt; ([GetPublicKey] -&gt; ShowS)
+-&gt; Show GetPublicKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPublicKey] -&gt; ShowS
+$cshowList :: [GetPublicKey] -&gt; ShowS
+show :: GetPublicKey -&gt; String
+$cshow :: GetPublicKey -&gt; String
+showsPrec :: Int -&gt; GetPublicKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPublicKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPublicKey -&gt; Rep GetPublicKey x)
+-&gt; (forall x. Rep GetPublicKey x -&gt; GetPublicKey)
+-&gt; Generic GetPublicKey
+forall x. Rep GetPublicKey x -&gt; GetPublicKey
+forall x. GetPublicKey -&gt; Rep GetPublicKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPublicKey x -&gt; GetPublicKey
+$cfrom :: forall x. GetPublicKey -&gt; Rep GetPublicKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'GetPublicKey' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'id', 'getPublicKey_id' - The identifier of the public key you are getting.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#newGetPublicKey"><span class="hs-identifier hs-type">newGetPublicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span><span>
+</span><span id="line-70"></span><span id="newGetPublicKey"><span class="annot"><span class="annottext">newGetPublicKey :: Text -&gt; GetPublicKey
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#newGetPublicKey"><span class="hs-identifier hs-var hs-var">newGetPublicKey</span></a></span></span><span> </span><span id="local-6989586621679413784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413784"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetPublicKey' :: Text -&gt; GetPublicKey
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey%27"><span class="hs-identifier hs-type">GetPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetPublicKey' :: Text
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3Aid%3AGetPublicKey%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413784"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The identifier of the public key you are getting.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKey_id"><span class="hs-identifier hs-type">getPublicKey_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="getPublicKey_id"><span class="annot"><span class="annottext">getPublicKey_id :: (Text -&gt; f Text) -&gt; GetPublicKey -&gt; f GetPublicKey
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKey_id"><span class="hs-identifier hs-var hs-var">getPublicKey_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPublicKey -&gt; Text)
+-&gt; (GetPublicKey -&gt; Text -&gt; GetPublicKey)
+-&gt; Lens GetPublicKey GetPublicKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey%27"><span class="hs-identifier hs-type">GetPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413781"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetPublicKey' :: GetPublicKey -&gt; Text
+</span><a href="#local-6989586621679413781"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413781"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413780"><span class="annot"><span class="annottext">s :: GetPublicKey
+</span><a href="#local-6989586621679413780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey%27"><span class="hs-identifier hs-type">GetPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPublicKey
+</span><a href="#local-6989586621679413780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetPublicKey' :: Text
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3Aid%3AGetPublicKey%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-type">GetPublicKeyResponse</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679413775"><span class="annot"><span class="annottext">request :: GetPublicKey -&gt; Request GetPublicKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPublicKey -&gt; Request GetPublicKey
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679413771"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetPublicKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetPublicKey)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetPublicKey))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetPublicKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetPublicKey)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679413768"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413768"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679413767"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679413767"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679413766"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679413766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe PublicKey -&gt; Int -&gt; GetPublicKeyResponse
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse%27"><span class="hs-identifier hs-var">GetPublicKeyResponse'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe PublicKey -&gt; Int -&gt; GetPublicKeyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe PublicKey -&gt; Int -&gt; GetPublicKeyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679413767"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe PublicKey -&gt; Int -&gt; GetPublicKeyResponse)
+-&gt; Either String (Maybe PublicKey)
+-&gt; Either String (Int -&gt; GetPublicKeyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe PublicKey)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679413766"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetPublicKeyResponse)
+-&gt; Either String Int -&gt; Either String GetPublicKeyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413768"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413757"><span id="local-6989586621679413759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679413750"><span class="annot"><span class="annottext">toHeaders :: GetPublicKey -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPublicKey -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679413745"><span class="annot"><span class="annottext">toPath :: GetPublicKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey%27"><span class="hs-identifier hs-type">GetPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413743"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetPublicKey' :: GetPublicKey -&gt; Text
+</span><a href="#local-6989586621679413743"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/public-key/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413743"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKey"><span class="hs-identifier hs-type">GetPublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679413739"><span class="annot"><span class="annottext">toQuery :: GetPublicKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPublicKey -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newGetPublicKeyResponse' smart constructor.</span><span>
+</span><span id="line-104"></span><span id="local-6989586621679413736"><span id="local-6989586621679413737"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPublicKeyResponse"><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-var">GetPublicKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPublicKeyResponse%27"><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse%27"><span class="hs-identifier hs-var">GetPublicKeyResponse'</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for this version of the public key.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AeTag%3AGetPublicKeyResponse%27"><span class="annot"><span class="annottext">GetPublicKeyResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3AeTag%3AGetPublicKeyResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The public key.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3ApublicKey%3AGetPublicKeyResponse%27"><span class="annot"><span class="annottext">GetPublicKeyResponse -&gt; Maybe PublicKey
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3ApublicKey%3AGetPublicKeyResponse%27"><span class="hs-identifier hs-var hs-var">publicKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPublicKeyResponse%27"><span class="annot"><span class="annottext">GetPublicKeyResponse -&gt; Int
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3AhttpStatus%3AGetPublicKeyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413729"><span id="local-6989586621679413731"><span class="annot"><span class="annottext">GetPublicKeyResponse -&gt; GetPublicKeyResponse -&gt; Bool
+(GetPublicKeyResponse -&gt; GetPublicKeyResponse -&gt; Bool)
+-&gt; (GetPublicKeyResponse -&gt; GetPublicKeyResponse -&gt; Bool)
+-&gt; Eq GetPublicKeyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPublicKeyResponse -&gt; GetPublicKeyResponse -&gt; Bool
+$c/= :: GetPublicKeyResponse -&gt; GetPublicKeyResponse -&gt; Bool
+== :: GetPublicKeyResponse -&gt; GetPublicKeyResponse -&gt; Bool
+$c== :: GetPublicKeyResponse -&gt; GetPublicKeyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413721"><span id="local-6989586621679413723"><span id="local-6989586621679413725"><span id="local-6989586621679413727"><span class="annot"><span class="annottext">ReadPrec [GetPublicKeyResponse]
+ReadPrec GetPublicKeyResponse
+Int -&gt; ReadS GetPublicKeyResponse
+ReadS [GetPublicKeyResponse]
+(Int -&gt; ReadS GetPublicKeyResponse)
+-&gt; ReadS [GetPublicKeyResponse]
+-&gt; ReadPrec GetPublicKeyResponse
+-&gt; ReadPrec [GetPublicKeyResponse]
+-&gt; Read GetPublicKeyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPublicKeyResponse]
+$creadListPrec :: ReadPrec [GetPublicKeyResponse]
+readPrec :: ReadPrec GetPublicKeyResponse
+$creadPrec :: ReadPrec GetPublicKeyResponse
+readList :: ReadS [GetPublicKeyResponse]
+$creadList :: ReadS [GetPublicKeyResponse]
+readsPrec :: Int -&gt; ReadS GetPublicKeyResponse
+$creadsPrec :: Int -&gt; ReadS GetPublicKeyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413715"><span id="local-6989586621679413717"><span id="local-6989586621679413719"><span class="annot"><span class="annottext">Int -&gt; GetPublicKeyResponse -&gt; ShowS
+[GetPublicKeyResponse] -&gt; ShowS
+GetPublicKeyResponse -&gt; String
+(Int -&gt; GetPublicKeyResponse -&gt; ShowS)
+-&gt; (GetPublicKeyResponse -&gt; String)
+-&gt; ([GetPublicKeyResponse] -&gt; ShowS)
+-&gt; Show GetPublicKeyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPublicKeyResponse] -&gt; ShowS
+$cshowList :: [GetPublicKeyResponse] -&gt; ShowS
+show :: GetPublicKeyResponse -&gt; String
+$cshow :: GetPublicKeyResponse -&gt; String
+showsPrec :: Int -&gt; GetPublicKeyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPublicKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPublicKeyResponse -&gt; Rep GetPublicKeyResponse x)
+-&gt; (forall x. Rep GetPublicKeyResponse x -&gt; GetPublicKeyResponse)
+-&gt; Generic GetPublicKeyResponse
+forall x. Rep GetPublicKeyResponse x -&gt; GetPublicKeyResponse
+forall x. GetPublicKeyResponse -&gt; Rep GetPublicKeyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPublicKeyResponse x -&gt; GetPublicKeyResponse
+$cfrom :: forall x. GetPublicKeyResponse -&gt; Rep GetPublicKeyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Create a value of 'GetPublicKeyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'eTag', 'getPublicKeyResponse_eTag' - The identifier for this version of the public key.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'publicKey', 'getPublicKeyResponse_publicKey' - The public key.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'httpStatus', 'getPublicKeyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#newGetPublicKeyResponse"><span class="hs-identifier hs-type">newGetPublicKeyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-type">GetPublicKeyResponse</span></a></span><span>
+</span><span id="line-131"></span><span id="newGetPublicKeyResponse"><span class="annot"><span class="annottext">newGetPublicKeyResponse :: Int -&gt; GetPublicKeyResponse
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#newGetPublicKeyResponse"><span class="hs-identifier hs-var hs-var">newGetPublicKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679413712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">GetPublicKeyResponse' :: Maybe Text -&gt; Maybe PublicKey -&gt; Int -&gt; GetPublicKeyResponse
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse%27"><span class="hs-identifier hs-type">GetPublicKeyResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eTag:GetPublicKeyResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3AeTag%3AGetPublicKeyResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicKey:GetPublicKeyResponse' :: Maybe PublicKey
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3ApublicKey%3AGetPublicKeyResponse%27"><span class="hs-identifier hs-var">publicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PublicKey
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPublicKeyResponse' :: Int
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3AhttpStatus%3AGetPublicKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The identifier for this version of the public key.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKeyResponse_eTag"><span class="hs-identifier hs-type">getPublicKeyResponse_eTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-type">GetPublicKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="getPublicKeyResponse_eTag"><span class="annot"><span class="annottext">getPublicKeyResponse_eTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPublicKeyResponse -&gt; f GetPublicKeyResponse
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKeyResponse_eTag"><span class="hs-identifier hs-var hs-var">getPublicKeyResponse_eTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPublicKeyResponse -&gt; Maybe Text)
+-&gt; (GetPublicKeyResponse -&gt; Maybe Text -&gt; GetPublicKeyResponse)
+-&gt; Lens
+     GetPublicKeyResponse GetPublicKeyResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse%27"><span class="hs-identifier hs-type">GetPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413711"><span class="annot"><span class="annottext">Maybe Text
+eTag :: Maybe Text
+$sel:eTag:GetPublicKeyResponse' :: GetPublicKeyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679413711"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413711"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413710"><span class="annot"><span class="annottext">s :: GetPublicKeyResponse
+</span><a href="#local-6989586621679413710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse%27"><span class="hs-identifier hs-type">GetPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPublicKeyResponse
+</span><a href="#local-6989586621679413710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetPublicKeyResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3AeTag%3AGetPublicKeyResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-type">GetPublicKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The public key.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKeyResponse_publicKey"><span class="hs-identifier hs-type">getPublicKeyResponse_publicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-type">GetPublicKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="getPublicKeyResponse_publicKey"><span class="annot"><span class="annottext">getPublicKeyResponse_publicKey :: (Maybe PublicKey -&gt; f (Maybe PublicKey))
+-&gt; GetPublicKeyResponse -&gt; f GetPublicKeyResponse
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKeyResponse_publicKey"><span class="hs-identifier hs-var hs-var">getPublicKeyResponse_publicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPublicKeyResponse -&gt; Maybe PublicKey)
+-&gt; (GetPublicKeyResponse
+    -&gt; Maybe PublicKey -&gt; GetPublicKeyResponse)
+-&gt; Lens
+     GetPublicKeyResponse
+     GetPublicKeyResponse
+     (Maybe PublicKey)
+     (Maybe PublicKey)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse%27"><span class="hs-identifier hs-type">GetPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413708"><span class="annot"><span class="annottext">Maybe PublicKey
+publicKey :: Maybe PublicKey
+$sel:publicKey:GetPublicKeyResponse' :: GetPublicKeyResponse -&gt; Maybe PublicKey
+</span><a href="#local-6989586621679413708"><span class="hs-identifier hs-var hs-var">publicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PublicKey
+</span><a href="#local-6989586621679413708"><span class="hs-identifier hs-var">publicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413707"><span class="annot"><span class="annottext">s :: GetPublicKeyResponse
+</span><a href="#local-6989586621679413707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse%27"><span class="hs-identifier hs-type">GetPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413706"><span class="annot"><span class="annottext">Maybe PublicKey
+</span><a href="#local-6989586621679413706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPublicKeyResponse
+</span><a href="#local-6989586621679413707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKey:GetPublicKeyResponse' :: Maybe PublicKey
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3ApublicKey%3AGetPublicKeyResponse%27"><span class="hs-identifier hs-var">publicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PublicKey
+</span><a href="#local-6989586621679413706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-type">GetPublicKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKeyResponse_httpStatus"><span class="hs-identifier hs-type">getPublicKeyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-type">GetPublicKeyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span id="getPublicKeyResponse_httpStatus"><span class="annot"><span class="annottext">getPublicKeyResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetPublicKeyResponse -&gt; f GetPublicKeyResponse
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#getPublicKeyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getPublicKeyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPublicKeyResponse -&gt; Int)
+-&gt; (GetPublicKeyResponse -&gt; Int -&gt; GetPublicKeyResponse)
+-&gt; Lens GetPublicKeyResponse GetPublicKeyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse%27"><span class="hs-identifier hs-type">GetPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413705"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetPublicKeyResponse' :: GetPublicKeyResponse -&gt; Int
+</span><a href="#local-6989586621679413705"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413705"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413704"><span class="annot"><span class="annottext">s :: GetPublicKeyResponse
+</span><a href="#local-6989586621679413704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse%27"><span class="hs-identifier hs-type">GetPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413703"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPublicKeyResponse
+</span><a href="#local-6989586621679413704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPublicKeyResponse' :: Int
+</span><a href="Amazonka.CloudFront.GetPublicKey.html#%24sel%3AhttpStatus%3AGetPublicKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-type">GetPublicKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.GetPublicKey.html#GetPublicKeyResponse"><span class="hs-identifier hs-type">GetPublicKeyResponse</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

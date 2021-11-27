@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LookoutMetrics.Types.CsvFormatDescriptor</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutMetrics.Types.CsvFormatDescriptor</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CSVFileCompression.html"><span class="hs-identifier">Amazonka.LookoutMetrics.Types.CSVFileCompression</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about how a source CSV data file should be</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- analyzed.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCsvFormatDescriptor' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679222040"><span id="local-6989586621679222041"></span></span><span class="hs-keyword">data</span><span> </span><span id="CsvFormatDescriptor"><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-var">CsvFormatDescriptor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CsvFormatDescriptor%27"><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-var">CsvFormatDescriptor'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The character used as a quote character.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AquoteSymbol%3ACsvFormatDescriptor%27"><span class="annot"><span class="annottext">CsvFormatDescriptor -&gt; Maybe Text
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AquoteSymbol%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var hs-var">quoteSymbol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Whether or not the source CSV file contains a header.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcontainsHeader%3ACsvFormatDescriptor%27"><span class="annot"><span class="annottext">CsvFormatDescriptor -&gt; Maybe Bool
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AcontainsHeader%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var hs-var">containsHeader</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The character set in which the source CSV file is written.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acharset%3ACsvFormatDescriptor%27"><span class="annot"><span class="annottext">CsvFormatDescriptor -&gt; Maybe Text
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3Acharset%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var hs-var">charset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A list of the source CSV file\'s headers, if any.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AheaderList%3ACsvFormatDescriptor%27"><span class="annot"><span class="annottext">CsvFormatDescriptor -&gt; Maybe [Text]
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AheaderList%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var hs-var">headerList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The level of compression of the source CSV file.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AfileCompression%3ACsvFormatDescriptor%27"><span class="annot"><span class="annottext">CsvFormatDescriptor -&gt; Maybe CSVFileCompression
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AfileCompression%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var hs-var">fileCompression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CSVFileCompression.html#CSVFileCompression"><span class="hs-identifier hs-type">CSVFileCompression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The character used to delimit the source CSV file.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adelimiter%3ACsvFormatDescriptor%27"><span class="annot"><span class="annottext">CsvFormatDescriptor -&gt; Maybe Text
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3Adelimiter%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var hs-var">delimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222029"><span id="local-6989586621679222031"><span class="annot"><span class="annottext">CsvFormatDescriptor -&gt; CsvFormatDescriptor -&gt; Bool
+(CsvFormatDescriptor -&gt; CsvFormatDescriptor -&gt; Bool)
+-&gt; (CsvFormatDescriptor -&gt; CsvFormatDescriptor -&gt; Bool)
+-&gt; Eq CsvFormatDescriptor
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CsvFormatDescriptor -&gt; CsvFormatDescriptor -&gt; Bool
+$c/= :: CsvFormatDescriptor -&gt; CsvFormatDescriptor -&gt; Bool
+== :: CsvFormatDescriptor -&gt; CsvFormatDescriptor -&gt; Bool
+$c== :: CsvFormatDescriptor -&gt; CsvFormatDescriptor -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222020"><span id="local-6989586621679222022"><span id="local-6989586621679222024"><span id="local-6989586621679222026"><span class="annot"><span class="annottext">ReadPrec [CsvFormatDescriptor]
+ReadPrec CsvFormatDescriptor
+Int -&gt; ReadS CsvFormatDescriptor
+ReadS [CsvFormatDescriptor]
+(Int -&gt; ReadS CsvFormatDescriptor)
+-&gt; ReadS [CsvFormatDescriptor]
+-&gt; ReadPrec CsvFormatDescriptor
+-&gt; ReadPrec [CsvFormatDescriptor]
+-&gt; Read CsvFormatDescriptor
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CsvFormatDescriptor]
+$creadListPrec :: ReadPrec [CsvFormatDescriptor]
+readPrec :: ReadPrec CsvFormatDescriptor
+$creadPrec :: ReadPrec CsvFormatDescriptor
+readList :: ReadS [CsvFormatDescriptor]
+$creadList :: ReadS [CsvFormatDescriptor]
+readsPrec :: Int -&gt; ReadS CsvFormatDescriptor
+$creadsPrec :: Int -&gt; ReadS CsvFormatDescriptor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222013"><span id="local-6989586621679222015"><span id="local-6989586621679222017"><span class="annot"><span class="annottext">Int -&gt; CsvFormatDescriptor -&gt; ShowS
+[CsvFormatDescriptor] -&gt; ShowS
+CsvFormatDescriptor -&gt; String
+(Int -&gt; CsvFormatDescriptor -&gt; ShowS)
+-&gt; (CsvFormatDescriptor -&gt; String)
+-&gt; ([CsvFormatDescriptor] -&gt; ShowS)
+-&gt; Show CsvFormatDescriptor
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CsvFormatDescriptor] -&gt; ShowS
+$cshowList :: [CsvFormatDescriptor] -&gt; ShowS
+show :: CsvFormatDescriptor -&gt; String
+$cshow :: CsvFormatDescriptor -&gt; String
+showsPrec :: Int -&gt; CsvFormatDescriptor -&gt; ShowS
+$cshowsPrec :: Int -&gt; CsvFormatDescriptor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CsvFormatDescriptor -&gt; Rep CsvFormatDescriptor x)
+-&gt; (forall x. Rep CsvFormatDescriptor x -&gt; CsvFormatDescriptor)
+-&gt; Generic CsvFormatDescriptor
+forall x. Rep CsvFormatDescriptor x -&gt; CsvFormatDescriptor
+forall x. CsvFormatDescriptor -&gt; Rep CsvFormatDescriptor x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CsvFormatDescriptor x -&gt; CsvFormatDescriptor
+$cfrom :: forall x. CsvFormatDescriptor -&gt; Rep CsvFormatDescriptor x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'CsvFormatDescriptor' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'quoteSymbol', 'csvFormatDescriptor_quoteSymbol' - The character used as a quote character.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'containsHeader', 'csvFormatDescriptor_containsHeader' - Whether or not the source CSV file contains a header.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'charset', 'csvFormatDescriptor_charset' - The character set in which the source CSV file is written.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'headerList', 'csvFormatDescriptor_headerList' - A list of the source CSV file\'s headers, if any.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'fileCompression', 'csvFormatDescriptor_fileCompression' - The level of compression of the source CSV file.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'delimiter', 'csvFormatDescriptor_delimiter' - The character used to delimit the source CSV file.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#newCsvFormatDescriptor"><span class="hs-identifier hs-type">newCsvFormatDescriptor</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span>
+</span><span id="line-68"></span><span id="newCsvFormatDescriptor"><span class="annot"><span class="annottext">newCsvFormatDescriptor :: CsvFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#newCsvFormatDescriptor"><span class="hs-identifier hs-var hs-var">newCsvFormatDescriptor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">CsvFormatDescriptor' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe CSVFileCompression
+-&gt; Maybe Text
+-&gt; CsvFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:quoteSymbol:CsvFormatDescriptor' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AquoteSymbol%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">quoteSymbol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:containsHeader:CsvFormatDescriptor' :: Maybe Bool
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AcontainsHeader%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">containsHeader</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:charset:CsvFormatDescriptor' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3Acharset%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">charset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:headerList:CsvFormatDescriptor' :: Maybe [Text]
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AheaderList%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">headerList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileCompression:CsvFormatDescriptor' :: Maybe CSVFileCompression
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AfileCompression%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">fileCompression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CSVFileCompression
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:delimiter:CsvFormatDescriptor' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3Adelimiter%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">delimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The character used as a quote character.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_quoteSymbol"><span class="hs-identifier hs-type">csvFormatDescriptor_quoteSymbol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="csvFormatDescriptor_quoteSymbol"><span class="annot"><span class="annottext">csvFormatDescriptor_quoteSymbol :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CsvFormatDescriptor -&gt; f CsvFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_quoteSymbol"><span class="hs-identifier hs-var hs-var">csvFormatDescriptor_quoteSymbol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvFormatDescriptor -&gt; Maybe Text)
+-&gt; (CsvFormatDescriptor -&gt; Maybe Text -&gt; CsvFormatDescriptor)
+-&gt; Lens
+     CsvFormatDescriptor CsvFormatDescriptor (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222004"><span class="annot"><span class="annottext">Maybe Text
+quoteSymbol :: Maybe Text
+$sel:quoteSymbol:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe Text
+</span><a href="#local-6989586621679222004"><span class="hs-identifier hs-var hs-var">quoteSymbol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222004"><span class="hs-identifier hs-var">quoteSymbol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222003"><span class="annot"><span class="annottext">s :: CsvFormatDescriptor
+</span><a href="#local-6989586621679222003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222002"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvFormatDescriptor
+</span><a href="#local-6989586621679222003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quoteSymbol:CsvFormatDescriptor' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AquoteSymbol%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">quoteSymbol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Whether or not the source CSV file contains a header.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_containsHeader"><span class="hs-identifier hs-type">csvFormatDescriptor_containsHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="csvFormatDescriptor_containsHeader"><span class="annot"><span class="annottext">csvFormatDescriptor_containsHeader :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CsvFormatDescriptor -&gt; f CsvFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_containsHeader"><span class="hs-identifier hs-var hs-var">csvFormatDescriptor_containsHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvFormatDescriptor -&gt; Maybe Bool)
+-&gt; (CsvFormatDescriptor -&gt; Maybe Bool -&gt; CsvFormatDescriptor)
+-&gt; Lens
+     CsvFormatDescriptor CsvFormatDescriptor (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222000"><span class="annot"><span class="annottext">Maybe Bool
+containsHeader :: Maybe Bool
+$sel:containsHeader:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe Bool
+</span><a href="#local-6989586621679222000"><span class="hs-identifier hs-var hs-var">containsHeader</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679222000"><span class="hs-identifier hs-var">containsHeader</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221999"><span class="annot"><span class="annottext">s :: CsvFormatDescriptor
+</span><a href="#local-6989586621679221999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221998"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679221998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvFormatDescriptor
+</span><a href="#local-6989586621679221999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containsHeader:CsvFormatDescriptor' :: Maybe Bool
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AcontainsHeader%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">containsHeader</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679221998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The character set in which the source CSV file is written.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_charset"><span class="hs-identifier hs-type">csvFormatDescriptor_charset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="csvFormatDescriptor_charset"><span class="annot"><span class="annottext">csvFormatDescriptor_charset :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CsvFormatDescriptor -&gt; f CsvFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_charset"><span class="hs-identifier hs-var hs-var">csvFormatDescriptor_charset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvFormatDescriptor -&gt; Maybe Text)
+-&gt; (CsvFormatDescriptor -&gt; Maybe Text -&gt; CsvFormatDescriptor)
+-&gt; Lens
+     CsvFormatDescriptor CsvFormatDescriptor (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221996"><span class="annot"><span class="annottext">Maybe Text
+charset :: Maybe Text
+$sel:charset:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe Text
+</span><a href="#local-6989586621679221996"><span class="hs-identifier hs-var hs-var">charset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221996"><span class="hs-identifier hs-var">charset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221995"><span class="annot"><span class="annottext">s :: CsvFormatDescriptor
+</span><a href="#local-6989586621679221995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvFormatDescriptor
+</span><a href="#local-6989586621679221995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:charset:CsvFormatDescriptor' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3Acharset%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">charset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | A list of the source CSV file\'s headers, if any.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_headerList"><span class="hs-identifier hs-type">csvFormatDescriptor_headerList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="csvFormatDescriptor_headerList"><span class="annot"><span class="annottext">csvFormatDescriptor_headerList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CsvFormatDescriptor -&gt; f CsvFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_headerList"><span class="hs-identifier hs-var hs-var">csvFormatDescriptor_headerList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvFormatDescriptor -&gt; Maybe [Text])
+-&gt; (CsvFormatDescriptor -&gt; Maybe [Text] -&gt; CsvFormatDescriptor)
+-&gt; Lens
+     CsvFormatDescriptor
+     CsvFormatDescriptor
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221992"><span class="annot"><span class="annottext">Maybe [Text]
+headerList :: Maybe [Text]
+$sel:headerList:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe [Text]
+</span><a href="#local-6989586621679221992"><span class="hs-identifier hs-var hs-var">headerList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679221992"><span class="hs-identifier hs-var">headerList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221991"><span class="annot"><span class="annottext">s :: CsvFormatDescriptor
+</span><a href="#local-6989586621679221991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221990"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679221990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvFormatDescriptor
+</span><a href="#local-6989586621679221991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerList:CsvFormatDescriptor' :: Maybe [Text]
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AheaderList%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">headerList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679221990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CsvFormatDescriptor -&gt; f CsvFormatDescriptor)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CsvFormatDescriptor
+-&gt; f CsvFormatDescriptor
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The level of compression of the source CSV file.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_fileCompression"><span class="hs-identifier hs-type">csvFormatDescriptor_fileCompression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CSVFileCompression.html#CSVFileCompression"><span class="hs-identifier hs-type">CSVFileCompression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="csvFormatDescriptor_fileCompression"><span class="annot"><span class="annottext">csvFormatDescriptor_fileCompression :: (Maybe CSVFileCompression -&gt; f (Maybe CSVFileCompression))
+-&gt; CsvFormatDescriptor -&gt; f CsvFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_fileCompression"><span class="hs-identifier hs-var hs-var">csvFormatDescriptor_fileCompression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvFormatDescriptor -&gt; Maybe CSVFileCompression)
+-&gt; (CsvFormatDescriptor
+    -&gt; Maybe CSVFileCompression -&gt; CsvFormatDescriptor)
+-&gt; Lens
+     CsvFormatDescriptor
+     CsvFormatDescriptor
+     (Maybe CSVFileCompression)
+     (Maybe CSVFileCompression)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221985"><span class="annot"><span class="annottext">Maybe CSVFileCompression
+fileCompression :: Maybe CSVFileCompression
+$sel:fileCompression:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe CSVFileCompression
+</span><a href="#local-6989586621679221985"><span class="hs-identifier hs-var hs-var">fileCompression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CSVFileCompression
+</span><a href="#local-6989586621679221985"><span class="hs-identifier hs-var">fileCompression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221984"><span class="annot"><span class="annottext">s :: CsvFormatDescriptor
+</span><a href="#local-6989586621679221984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221983"><span class="annot"><span class="annottext">Maybe CSVFileCompression
+</span><a href="#local-6989586621679221983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvFormatDescriptor
+</span><a href="#local-6989586621679221984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileCompression:CsvFormatDescriptor' :: Maybe CSVFileCompression
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3AfileCompression%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">fileCompression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CSVFileCompression
+</span><a href="#local-6989586621679221983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The character used to delimit the source CSV file.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_delimiter"><span class="hs-identifier hs-type">csvFormatDescriptor_delimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="csvFormatDescriptor_delimiter"><span class="annot"><span class="annottext">csvFormatDescriptor_delimiter :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CsvFormatDescriptor -&gt; f CsvFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_delimiter"><span class="hs-identifier hs-var hs-var">csvFormatDescriptor_delimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvFormatDescriptor -&gt; Maybe Text)
+-&gt; (CsvFormatDescriptor -&gt; Maybe Text -&gt; CsvFormatDescriptor)
+-&gt; Lens
+     CsvFormatDescriptor CsvFormatDescriptor (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221981"><span class="annot"><span class="annottext">Maybe Text
+delimiter :: Maybe Text
+$sel:delimiter:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe Text
+</span><a href="#local-6989586621679221981"><span class="hs-identifier hs-var hs-var">delimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221981"><span class="hs-identifier hs-var">delimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221980"><span class="annot"><span class="annottext">s :: CsvFormatDescriptor
+</span><a href="#local-6989586621679221980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221979"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvFormatDescriptor
+</span><a href="#local-6989586621679221980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delimiter:CsvFormatDescriptor' :: Maybe Text
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#%24sel%3Adelimiter%3ACsvFormatDescriptor%27"><span class="hs-identifier hs-var">delimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221976"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679221974"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CsvFormatDescriptor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CsvFormatDescriptor)
+-&gt; Value
+-&gt; Parser CsvFormatDescriptor
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CsvFormatDescriptor&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221971"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221971"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe CSVFileCompression
+-&gt; Maybe Text
+-&gt; CsvFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-var">CsvFormatDescriptor'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe CSVFileCompression
+ -&gt; Maybe Text
+ -&gt; CsvFormatDescriptor)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe CSVFileCompression
+      -&gt; Maybe Text
+      -&gt; CsvFormatDescriptor)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuoteSymbol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe CSVFileCompression
+   -&gt; Maybe Text
+   -&gt; CsvFormatDescriptor)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe CSVFileCompression
+      -&gt; Maybe Text
+      -&gt; CsvFormatDescriptor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainsHeader&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe CSVFileCompression
+   -&gt; Maybe Text
+   -&gt; CsvFormatDescriptor)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe CSVFileCompression -&gt; Maybe Text -&gt; CsvFormatDescriptor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Charset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe CSVFileCompression -&gt; Maybe Text -&gt; CsvFormatDescriptor)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe CSVFileCompression -&gt; Maybe Text -&gt; CsvFormatDescriptor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HeaderList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CSVFileCompression -&gt; Maybe Text -&gt; CsvFormatDescriptor)
+-&gt; Parser (Maybe CSVFileCompression)
+-&gt; Parser (Maybe Text -&gt; CsvFormatDescriptor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CSVFileCompression)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileCompression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CsvFormatDescriptor)
+-&gt; Parser (Maybe Text) -&gt; Parser CsvFormatDescriptor
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Delimiter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221964"><span id="local-6989586621679221966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221953"><span id="local-6989586621679221955"><span id="local-6989586621679221957"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier hs-type">CsvFormatDescriptor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679221951"><span class="annot"><span class="annottext">toJSON :: CsvFormatDescriptor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor%27"><span class="hs-identifier hs-type">CsvFormatDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221944"><span id="local-6989586621679221945"><span id="local-6989586621679221946"><span id="local-6989586621679221947"><span id="local-6989586621679221948"><span id="local-6989586621679221949"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe Text
+Maybe CSVFileCompression
+delimiter :: Maybe Text
+fileCompression :: Maybe CSVFileCompression
+headerList :: Maybe [Text]
+charset :: Maybe Text
+containsHeader :: Maybe Bool
+quoteSymbol :: Maybe Text
+$sel:delimiter:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe Text
+$sel:fileCompression:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe CSVFileCompression
+$sel:headerList:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe [Text]
+$sel:charset:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe Text
+$sel:containsHeader:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe Bool
+$sel:quoteSymbol:CsvFormatDescriptor' :: CsvFormatDescriptor -&gt; Maybe Text
+</span><a href="#local-6989586621679221944"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuoteSymbol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221949"><span class="hs-identifier hs-var">quoteSymbol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainsHeader&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679221948"><span class="hs-identifier hs-var">containsHeader</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Charset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221947"><span class="hs-identifier hs-var">charset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HeaderList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679221946"><span class="hs-identifier hs-var">headerList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileCompression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CSVFileCompression -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">(CSVFileCompression -&gt; Pair)
+-&gt; Maybe CSVFileCompression -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CSVFileCompression
+</span><a href="#local-6989586621679221945"><span class="hs-identifier hs-var">fileCompression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Delimiter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221944"><span class="hs-identifier hs-var">delimiter</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span></pre></body></html>

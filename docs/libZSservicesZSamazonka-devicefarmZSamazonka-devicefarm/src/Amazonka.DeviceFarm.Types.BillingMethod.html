@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.Types.BillingMethod</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.Types.BillingMethod</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod"><span class="hs-identifier">BillingMethod</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod_METERED"><span class="hs-identifier">BillingMethod_METERED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod_UNMETERED"><span class="hs-identifier">BillingMethod_UNMETERED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679360684"><span id="local-6989586621679360685"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BillingMethod"><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod"><span class="hs-identifier hs-var">BillingMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BillingMethod%27"><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod%27"><span class="hs-identifier hs-var">BillingMethod'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBillingMethod"><span class="annot"><span class="annottext">BillingMethod -&gt; Text
+</span><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#fromBillingMethod"><span class="hs-identifier hs-var hs-var">fromBillingMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360676"><span id="local-6989586621679360678"><span id="local-6989586621679360680"><span class="annot"><span class="annottext">Int -&gt; BillingMethod -&gt; ShowS
+[BillingMethod] -&gt; ShowS
+BillingMethod -&gt; String
+(Int -&gt; BillingMethod -&gt; ShowS)
+-&gt; (BillingMethod -&gt; String)
+-&gt; ([BillingMethod] -&gt; ShowS)
+-&gt; Show BillingMethod
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BillingMethod] -&gt; ShowS
+$cshowList :: [BillingMethod] -&gt; ShowS
+show :: BillingMethod -&gt; String
+$cshow :: BillingMethod -&gt; String
+showsPrec :: Int -&gt; BillingMethod -&gt; ShowS
+$cshowsPrec :: Int -&gt; BillingMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679360667"><span id="local-6989586621679360669"><span id="local-6989586621679360671"><span id="local-6989586621679360673"><span class="annot"><span class="annottext">ReadPrec [BillingMethod]
+ReadPrec BillingMethod
+Int -&gt; ReadS BillingMethod
+ReadS [BillingMethod]
+(Int -&gt; ReadS BillingMethod)
+-&gt; ReadS [BillingMethod]
+-&gt; ReadPrec BillingMethod
+-&gt; ReadPrec [BillingMethod]
+-&gt; Read BillingMethod
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BillingMethod]
+$creadListPrec :: ReadPrec [BillingMethod]
+readPrec :: ReadPrec BillingMethod
+$creadPrec :: ReadPrec BillingMethod
+readList :: ReadS [BillingMethod]
+$creadList :: ReadS [BillingMethod]
+readsPrec :: Int -&gt; ReadS BillingMethod
+$creadsPrec :: Int -&gt; ReadS BillingMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679360662"><span id="local-6989586621679360664"><span class="annot"><span class="annottext">BillingMethod -&gt; BillingMethod -&gt; Bool
+(BillingMethod -&gt; BillingMethod -&gt; Bool)
+-&gt; (BillingMethod -&gt; BillingMethod -&gt; Bool) -&gt; Eq BillingMethod
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BillingMethod -&gt; BillingMethod -&gt; Bool
+$c/= :: BillingMethod -&gt; BillingMethod -&gt; Bool
+== :: BillingMethod -&gt; BillingMethod -&gt; Bool
+$c== :: BillingMethod -&gt; BillingMethod -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679360646"><span id="local-6989586621679360648"><span id="local-6989586621679360650"><span id="local-6989586621679360652"><span id="local-6989586621679360654"><span id="local-6989586621679360656"><span id="local-6989586621679360658"><span class="annot"><span class="annottext">Eq BillingMethod
+Eq BillingMethod
+-&gt; (BillingMethod -&gt; BillingMethod -&gt; Ordering)
+-&gt; (BillingMethod -&gt; BillingMethod -&gt; Bool)
+-&gt; (BillingMethod -&gt; BillingMethod -&gt; Bool)
+-&gt; (BillingMethod -&gt; BillingMethod -&gt; Bool)
+-&gt; (BillingMethod -&gt; BillingMethod -&gt; Bool)
+-&gt; (BillingMethod -&gt; BillingMethod -&gt; BillingMethod)
+-&gt; (BillingMethod -&gt; BillingMethod -&gt; BillingMethod)
+-&gt; Ord BillingMethod
+BillingMethod -&gt; BillingMethod -&gt; Bool
+BillingMethod -&gt; BillingMethod -&gt; Ordering
+BillingMethod -&gt; BillingMethod -&gt; BillingMethod
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BillingMethod -&gt; BillingMethod -&gt; BillingMethod
+$cmin :: BillingMethod -&gt; BillingMethod -&gt; BillingMethod
+max :: BillingMethod -&gt; BillingMethod -&gt; BillingMethod
+$cmax :: BillingMethod -&gt; BillingMethod -&gt; BillingMethod
+&gt;= :: BillingMethod -&gt; BillingMethod -&gt; Bool
+$c&gt;= :: BillingMethod -&gt; BillingMethod -&gt; Bool
+&gt; :: BillingMethod -&gt; BillingMethod -&gt; Bool
+$c&gt; :: BillingMethod -&gt; BillingMethod -&gt; Bool
+&lt;= :: BillingMethod -&gt; BillingMethod -&gt; Bool
+$c&lt;= :: BillingMethod -&gt; BillingMethod -&gt; Bool
+&lt; :: BillingMethod -&gt; BillingMethod -&gt; Bool
+$c&lt; :: BillingMethod -&gt; BillingMethod -&gt; Bool
+compare :: BillingMethod -&gt; BillingMethod -&gt; Ordering
+$ccompare :: BillingMethod -&gt; BillingMethod -&gt; Ordering
+$cp1Ord :: Eq BillingMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BillingMethod -&gt; Rep BillingMethod x)
+-&gt; (forall x. Rep BillingMethod x -&gt; BillingMethod)
+-&gt; Generic BillingMethod
+forall x. Rep BillingMethod x -&gt; BillingMethod
+forall x. BillingMethod -&gt; Rep BillingMethod x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BillingMethod x -&gt; BillingMethod
+$cfrom :: forall x. BillingMethod -&gt; Rep BillingMethod x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360638"><span id="local-6989586621679360640"><span class="annot"><span class="annottext">Int -&gt; BillingMethod -&gt; Int
+BillingMethod -&gt; Int
+(Int -&gt; BillingMethod -&gt; Int)
+-&gt; (BillingMethod -&gt; Int) -&gt; Hashable BillingMethod
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BillingMethod -&gt; Int
+$chash :: BillingMethod -&gt; Int
+hashWithSalt :: Int -&gt; BillingMethod -&gt; Int
+$chashWithSalt :: Int -&gt; BillingMethod -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679360635"><span class="annot"><span class="annottext">BillingMethod -&gt; ()
+(BillingMethod -&gt; ()) -&gt; NFData BillingMethod
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BillingMethod -&gt; ()
+$crnf :: BillingMethod -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679360632"><span class="annot"><span class="annottext">Text -&gt; Either String BillingMethod
+(Text -&gt; Either String BillingMethod) -&gt; FromText BillingMethod
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BillingMethod
+$cfromText :: Text -&gt; Either String BillingMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679360629"><span class="annot"><span class="annottext">BillingMethod -&gt; Text
+(BillingMethod -&gt; Text) -&gt; ToText BillingMethod
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BillingMethod -&gt; Text
+$ctoText :: BillingMethod -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679360626"><span class="annot"><span class="annottext">BillingMethod -&gt; ByteString
+(BillingMethod -&gt; ByteString) -&gt; ToByteString BillingMethod
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BillingMethod -&gt; ByteString
+$ctoBS :: BillingMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679360623"><span class="annot"><span class="annottext">BillingMethod -&gt; ByteStringBuilder
+(BillingMethod -&gt; ByteStringBuilder) -&gt; ToLog BillingMethod
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BillingMethod -&gt; ByteStringBuilder
+$cbuild :: BillingMethod -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679360620"><span class="annot"><span class="annottext">HeaderName -&gt; BillingMethod -&gt; [Header]
+(HeaderName -&gt; BillingMethod -&gt; [Header]) -&gt; ToHeader BillingMethod
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BillingMethod -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BillingMethod -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679360617"><span class="annot"><span class="annottext">BillingMethod -&gt; QueryString
+(BillingMethod -&gt; QueryString) -&gt; ToQuery BillingMethod
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BillingMethod -&gt; QueryString
+$ctoQuery :: BillingMethod -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679360612"><span id="local-6989586621679360614"><span class="annot"><span class="annottext">Value -&gt; Parser [BillingMethod]
+Value -&gt; Parser BillingMethod
+(Value -&gt; Parser BillingMethod)
+-&gt; (Value -&gt; Parser [BillingMethod]) -&gt; FromJSON BillingMethod
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BillingMethod]
+$cparseJSONList :: Value -&gt; Parser [BillingMethod]
+parseJSON :: Value -&gt; Parser BillingMethod
+$cparseJSON :: Value -&gt; Parser BillingMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679360607"><span id="local-6989586621679360609"><span class="annot"><span class="annottext">FromJSONKeyFunction [BillingMethod]
+FromJSONKeyFunction BillingMethod
+FromJSONKeyFunction BillingMethod
+-&gt; FromJSONKeyFunction [BillingMethod] -&gt; FromJSONKey BillingMethod
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BillingMethod]
+$cfromJSONKeyList :: FromJSONKeyFunction [BillingMethod]
+fromJSONKey :: FromJSONKeyFunction BillingMethod
+$cfromJSONKey :: FromJSONKeyFunction BillingMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679360598"><span id="local-6989586621679360600"><span id="local-6989586621679360602"><span id="local-6989586621679360604"><span class="annot"><span class="annottext">[BillingMethod] -&gt; Encoding
+[BillingMethod] -&gt; Value
+BillingMethod -&gt; Encoding
+BillingMethod -&gt; Value
+(BillingMethod -&gt; Value)
+-&gt; (BillingMethod -&gt; Encoding)
+-&gt; ([BillingMethod] -&gt; Value)
+-&gt; ([BillingMethod] -&gt; Encoding)
+-&gt; ToJSON BillingMethod
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BillingMethod] -&gt; Encoding
+$ctoEncodingList :: [BillingMethod] -&gt; Encoding
+toJSONList :: [BillingMethod] -&gt; Value
+$ctoJSONList :: [BillingMethod] -&gt; Value
+toEncoding :: BillingMethod -&gt; Encoding
+$ctoEncoding :: BillingMethod -&gt; Encoding
+toJSON :: BillingMethod -&gt; Value
+$ctoJSON :: BillingMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679360593"><span id="local-6989586621679360595"><span class="annot"><span class="annottext">ToJSONKeyFunction [BillingMethod]
+ToJSONKeyFunction BillingMethod
+ToJSONKeyFunction BillingMethod
+-&gt; ToJSONKeyFunction [BillingMethod] -&gt; ToJSONKey BillingMethod
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BillingMethod]
+$ctoJSONKeyList :: ToJSONKeyFunction [BillingMethod]
+toJSONKey :: ToJSONKeyFunction BillingMethod
+$ctoJSONKey :: ToJSONKeyFunction BillingMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679360590"><span class="annot"><span class="annottext">[Node] -&gt; Either String BillingMethod
+([Node] -&gt; Either String BillingMethod) -&gt; FromXML BillingMethod
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BillingMethod
+$cparseXML :: [Node] -&gt; Either String BillingMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679360587"><span class="annot"><span class="annottext">BillingMethod -&gt; XML
+(BillingMethod -&gt; XML) -&gt; ToXML BillingMethod
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BillingMethod -&gt; XML
+$ctoXML :: BillingMethod -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod_METERED"><span class="hs-identifier hs-type">BillingMethod_METERED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod"><span class="hs-identifier hs-type">BillingMethod</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBillingMethod_METERED"><span id="%24mBillingMethod_METERED"><span id="BillingMethod_METERED"><span class="annot"><span class="annottext">$bBillingMethod_METERED :: BillingMethod
+$mBillingMethod_METERED :: forall r. BillingMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#%24bBillingMethod_METERED"><span class="hs-identifier hs-var hs-var hs-var">BillingMethod_METERED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod%27"><span class="hs-identifier hs-type">BillingMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;METERED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod_UNMETERED"><span class="hs-identifier hs-type">BillingMethod_UNMETERED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod"><span class="hs-identifier hs-type">BillingMethod</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBillingMethod_UNMETERED"><span id="%24mBillingMethod_UNMETERED"><span id="BillingMethod_UNMETERED"><span class="annot"><span class="annottext">$bBillingMethod_UNMETERED :: BillingMethod
+$mBillingMethod_UNMETERED :: forall r. BillingMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#%24bBillingMethod_UNMETERED"><span class="hs-identifier hs-var hs-var hs-var">BillingMethod_UNMETERED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod%27"><span class="hs-identifier hs-type">BillingMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNMETERED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod_METERED"><span class="hs-pragma hs-type">BillingMethod_METERED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod_UNMETERED"><span class="hs-pragma hs-type">BillingMethod_UNMETERED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.BillingMethod.html#BillingMethod%27"><span class="hs-pragma hs-type">BillingMethod'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

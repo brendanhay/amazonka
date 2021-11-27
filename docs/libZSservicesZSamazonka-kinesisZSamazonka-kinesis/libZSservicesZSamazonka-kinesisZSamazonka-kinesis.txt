@@ -5,35 +5,35 @@
 @version 2.0
 
 
-module Network.AWS.Kinesis.Types.ConsumerStatus
+module Amazonka.Kinesis.Types.ConsumerStatus
 newtype ConsumerStatus
 ConsumerStatus' :: Text -> ConsumerStatus
 [fromConsumerStatus] :: ConsumerStatus -> Text
 pattern ConsumerStatus_ACTIVE :: ConsumerStatus
 pattern ConsumerStatus_CREATING :: ConsumerStatus
 pattern ConsumerStatus_DELETING :: ConsumerStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance GHC.Classes.Ord Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance GHC.Read.Read Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
-instance GHC.Show.Show Network.AWS.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Amazonka.Data.Text.ToText Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Amazonka.Data.Text.FromText Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance GHC.Classes.Ord Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance GHC.Read.Read Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
+instance GHC.Show.Show Amazonka.Kinesis.Types.ConsumerStatus.ConsumerStatus
 
 
-module Network.AWS.Kinesis.Types.ConsumerDescription
+module Amazonka.Kinesis.Types.ConsumerDescription
 
 -- | An object that represents the details of a registered consumer. This
 --   type of object is returned by DescribeStreamConsumer.
@@ -119,16 +119,16 @@ consumerDescription_consumerCreationTimestamp :: Lens' ConsumerDescription UTCTi
 
 -- | The ARN of the stream with which you registered the consumer.
 consumerDescription_streamARN :: Lens' ConsumerDescription Text
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.ConsumerDescription.ConsumerDescription
-instance GHC.Show.Show Network.AWS.Kinesis.Types.ConsumerDescription.ConsumerDescription
-instance GHC.Read.Read Network.AWS.Kinesis.Types.ConsumerDescription.ConsumerDescription
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.ConsumerDescription.ConsumerDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.ConsumerDescription.ConsumerDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.ConsumerDescription.ConsumerDescription
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.ConsumerDescription.ConsumerDescription
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.ConsumerDescription.ConsumerDescription
+instance GHC.Show.Show Amazonka.Kinesis.Types.ConsumerDescription.ConsumerDescription
+instance GHC.Read.Read Amazonka.Kinesis.Types.ConsumerDescription.ConsumerDescription
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.ConsumerDescription.ConsumerDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.ConsumerDescription.ConsumerDescription
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.ConsumerDescription.ConsumerDescription
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.ConsumerDescription.ConsumerDescription
 
 
-module Network.AWS.Kinesis.Types.Consumer
+module Amazonka.Kinesis.Types.Consumer
 
 -- | An object that represents the details of the consumer you registered.
 --   This type of object is returned by RegisterStreamConsumer.
@@ -202,43 +202,43 @@ consumer_consumerARN :: Lens' Consumer Text
 consumer_consumerStatus :: Lens' Consumer ConsumerStatus
 
 consumer_consumerCreationTimestamp :: Lens' Consumer UTCTime
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.Consumer.Consumer
-instance GHC.Show.Show Network.AWS.Kinesis.Types.Consumer.Consumer
-instance GHC.Read.Read Network.AWS.Kinesis.Types.Consumer.Consumer
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.Consumer.Consumer
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.Consumer.Consumer
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.Consumer.Consumer
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.Consumer.Consumer
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.Consumer.Consumer
+instance GHC.Show.Show Amazonka.Kinesis.Types.Consumer.Consumer
+instance GHC.Read.Read Amazonka.Kinesis.Types.Consumer.Consumer
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.Consumer.Consumer
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.Consumer.Consumer
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.Consumer.Consumer
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.Consumer.Consumer
 
 
-module Network.AWS.Kinesis.Types.EncryptionType
+module Amazonka.Kinesis.Types.EncryptionType
 newtype EncryptionType
 EncryptionType' :: Text -> EncryptionType
 [fromEncryptionType] :: EncryptionType -> Text
 pattern EncryptionType_KMS :: EncryptionType
 pattern EncryptionType_NONE :: EncryptionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Text.ToText Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Text.FromText Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance GHC.Classes.Ord Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance GHC.Read.Read Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
-instance GHC.Show.Show Network.AWS.Kinesis.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.XML.ToXML Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.XML.FromXML Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Log.ToLog Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Text.ToText Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Text.FromText Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance GHC.Classes.Ord Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance GHC.Read.Read Amazonka.Kinesis.Types.EncryptionType.EncryptionType
+instance GHC.Show.Show Amazonka.Kinesis.Types.EncryptionType.EncryptionType
 
 
-module Network.AWS.Kinesis.Types.HashKeyRange
+module Amazonka.Kinesis.Types.HashKeyRange
 
 -- | The range of possible hash key values for the shard, which is a set of
 --   ordered contiguous positive integers.
@@ -276,16 +276,16 @@ hashKeyRange_startingHashKey :: Lens' HashKeyRange Text
 
 -- | The ending hash key of the hash key range.
 hashKeyRange_endingHashKey :: Lens' HashKeyRange Text
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.HashKeyRange.HashKeyRange
-instance GHC.Show.Show Network.AWS.Kinesis.Types.HashKeyRange.HashKeyRange
-instance GHC.Read.Read Network.AWS.Kinesis.Types.HashKeyRange.HashKeyRange
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.HashKeyRange.HashKeyRange
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.HashKeyRange.HashKeyRange
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.HashKeyRange.HashKeyRange
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.HashKeyRange.HashKeyRange
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.HashKeyRange.HashKeyRange
+instance GHC.Show.Show Amazonka.Kinesis.Types.HashKeyRange.HashKeyRange
+instance GHC.Read.Read Amazonka.Kinesis.Types.HashKeyRange.HashKeyRange
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.HashKeyRange.HashKeyRange
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.HashKeyRange.HashKeyRange
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.HashKeyRange.HashKeyRange
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.HashKeyRange.HashKeyRange
 
 
-module Network.AWS.Kinesis.Types.ChildShard
+module Amazonka.Kinesis.Types.ChildShard
 
 -- | <i>See:</i> <a>newChildShard</a> smart constructor.
 data ChildShard
@@ -320,16 +320,16 @@ childShard_parentShards :: Lens' ChildShard [Text]
 
 -- | Undocumented member.
 childShard_hashKeyRange :: Lens' ChildShard HashKeyRange
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.ChildShard.ChildShard
-instance GHC.Show.Show Network.AWS.Kinesis.Types.ChildShard.ChildShard
-instance GHC.Read.Read Network.AWS.Kinesis.Types.ChildShard.ChildShard
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.ChildShard.ChildShard
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.ChildShard.ChildShard
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.ChildShard.ChildShard
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.ChildShard.ChildShard
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.ChildShard.ChildShard
+instance GHC.Show.Show Amazonka.Kinesis.Types.ChildShard.ChildShard
+instance GHC.Read.Read Amazonka.Kinesis.Types.ChildShard.ChildShard
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.ChildShard.ChildShard
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.ChildShard.ChildShard
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.ChildShard.ChildShard
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.ChildShard.ChildShard
 
 
-module Network.AWS.Kinesis.Types.MetricsName
+module Amazonka.Kinesis.Types.MetricsName
 newtype MetricsName
 MetricsName' :: Text -> MetricsName
 [fromMetricsName] :: MetricsName -> Text
@@ -341,28 +341,28 @@ pattern MetricsName_OutgoingBytes :: MetricsName
 pattern MetricsName_OutgoingRecords :: MetricsName
 pattern MetricsName_ReadProvisionedThroughputExceeded :: MetricsName
 pattern MetricsName_WriteProvisionedThroughputExceeded :: MetricsName
-instance Network.AWS.Data.XML.ToXML Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Network.AWS.Data.XML.FromXML Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Network.AWS.Data.Log.ToLog Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Network.AWS.Data.Text.ToText Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Network.AWS.Data.Text.FromText Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance GHC.Classes.Ord Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance GHC.Read.Read Network.AWS.Kinesis.Types.MetricsName.MetricsName
-instance GHC.Show.Show Network.AWS.Kinesis.Types.MetricsName.MetricsName
+instance Amazonka.Data.XML.ToXML Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Amazonka.Data.XML.FromXML Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Amazonka.Data.Headers.ToHeader Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Amazonka.Data.Log.ToLog Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Amazonka.Data.Text.ToText Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Amazonka.Data.Text.FromText Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance GHC.Classes.Ord Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance GHC.Read.Read Amazonka.Kinesis.Types.MetricsName.MetricsName
+instance GHC.Show.Show Amazonka.Kinesis.Types.MetricsName.MetricsName
 
 
-module Network.AWS.Kinesis.Types.EnhancedMonitoringOutput
+module Amazonka.Kinesis.Types.EnhancedMonitoringOutput
 
 -- | Represents the output for EnableEnhancedMonitoring and
 --   DisableEnhancedMonitoring.
@@ -416,16 +416,16 @@ enhancedMonitoringOutput_currentShardLevelMetrics :: Lens' EnhancedMonitoringOut
 
 -- | The name of the Kinesis data stream.
 enhancedMonitoringOutput_streamName :: Lens' EnhancedMonitoringOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
-instance GHC.Show.Show Network.AWS.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
-instance GHC.Read.Read Network.AWS.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
+instance GHC.Show.Show Amazonka.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
+instance GHC.Read.Read Amazonka.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.EnhancedMonitoringOutput.EnhancedMonitoringOutput
 
 
-module Network.AWS.Kinesis.Types.EnhancedMetrics
+module Amazonka.Kinesis.Types.EnhancedMetrics
 
 -- | Represents enhanced metrics types.
 --   
@@ -506,16 +506,16 @@ newEnhancedMetrics :: EnhancedMetrics
 --   Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis
 --   Data Streams Developer Guide</i>.
 enhancedMetrics_shardLevelMetrics :: Lens' EnhancedMetrics (Maybe [MetricsName])
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
-instance GHC.Show.Show Network.AWS.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
-instance GHC.Read.Read Network.AWS.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
+instance GHC.Show.Show Amazonka.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
+instance GHC.Read.Read Amazonka.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.EnhancedMetrics.EnhancedMetrics
 
 
-module Network.AWS.Kinesis.Types.PutRecordsRequestEntry
+module Amazonka.Kinesis.Types.PutRecordsRequestEntry
 
 -- | Represents the output for <tt>PutRecords</tt>.
 --   
@@ -606,16 +606,16 @@ putRecordsRequestEntry_data :: Lens' PutRecordsRequestEntry ByteString
 --   mechanism, all data records with the same partition key map to the
 --   same shard within the stream.
 putRecordsRequestEntry_partitionKey :: Lens' PutRecordsRequestEntry Text
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
-instance GHC.Show.Show Network.AWS.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
-instance GHC.Read.Read Network.AWS.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
+instance GHC.Show.Show Amazonka.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
+instance GHC.Read.Read Amazonka.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.PutRecordsRequestEntry.PutRecordsRequestEntry
 
 
-module Network.AWS.Kinesis.Types.PutRecordsResultEntry
+module Amazonka.Kinesis.Types.PutRecordsResultEntry
 
 -- | Represents the result of an individual record from a
 --   <tt>PutRecords</tt> request. A record that is successfully added to a
@@ -696,16 +696,16 @@ putRecordsResultEntry_errorMessage :: Lens' PutRecordsResultEntry (Maybe Text)
 
 -- | The shard ID for an individual record result.
 putRecordsResultEntry_shardId :: Lens' PutRecordsResultEntry (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
-instance GHC.Show.Show Network.AWS.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
-instance GHC.Read.Read Network.AWS.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
+instance GHC.Show.Show Amazonka.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
+instance GHC.Read.Read Amazonka.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.PutRecordsResultEntry.PutRecordsResultEntry
 
 
-module Network.AWS.Kinesis.Types.Record
+module Amazonka.Kinesis.Types.Record
 
 -- | The unit of data of the Kinesis data stream, which is composed of a
 --   sequence number, a partition key, and a data blob.
@@ -811,42 +811,42 @@ record_data :: Lens' Record ByteString
 
 -- | Identifies which shard in the stream the data record is assigned to.
 record_partitionKey :: Lens' Record Text
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.Record.Record
-instance GHC.Show.Show Network.AWS.Kinesis.Types.Record.Record
-instance GHC.Read.Read Network.AWS.Kinesis.Types.Record.Record
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.Record.Record
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.Record.Record
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.Record.Record
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.Record.Record
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.Record.Record
+instance GHC.Show.Show Amazonka.Kinesis.Types.Record.Record
+instance GHC.Read.Read Amazonka.Kinesis.Types.Record.Record
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.Record.Record
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.Record.Record
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.Record.Record
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.Record.Record
 
 
-module Network.AWS.Kinesis.Types.ScalingType
+module Amazonka.Kinesis.Types.ScalingType
 newtype ScalingType
 ScalingType' :: Text -> ScalingType
 [fromScalingType] :: ScalingType -> Text
 pattern ScalingType_UNIFORM_SCALING :: ScalingType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Network.AWS.Data.Text.ToText Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Network.AWS.Data.Text.FromText Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance GHC.Classes.Ord Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance GHC.Read.Read Network.AWS.Kinesis.Types.ScalingType.ScalingType
-instance GHC.Show.Show Network.AWS.Kinesis.Types.ScalingType.ScalingType
+instance Amazonka.Data.XML.ToXML Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Amazonka.Data.XML.FromXML Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Amazonka.Data.Log.ToLog Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Amazonka.Data.Text.ToText Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Amazonka.Data.Text.FromText Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance GHC.Classes.Ord Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance GHC.Read.Read Amazonka.Kinesis.Types.ScalingType.ScalingType
+instance GHC.Show.Show Amazonka.Kinesis.Types.ScalingType.ScalingType
 
 
-module Network.AWS.Kinesis.Types.SequenceNumberRange
+module Amazonka.Kinesis.Types.SequenceNumberRange
 
 -- | The range of possible sequence numbers for the shard.
 --   
@@ -886,16 +886,16 @@ sequenceNumberRange_endingSequenceNumber :: Lens' SequenceNumberRange (Maybe Tex
 
 -- | The starting sequence number for the range.
 sequenceNumberRange_startingSequenceNumber :: Lens' SequenceNumberRange Text
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
-instance GHC.Show.Show Network.AWS.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
-instance GHC.Read.Read Network.AWS.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
+instance GHC.Show.Show Amazonka.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
+instance GHC.Read.Read Amazonka.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.SequenceNumberRange.SequenceNumberRange
 
 
-module Network.AWS.Kinesis.Types.Shard
+module Amazonka.Kinesis.Types.Shard
 
 -- | A uniquely identified group of data records in a Kinesis data stream.
 --   
@@ -961,16 +961,16 @@ shard_hashKeyRange :: Lens' Shard HashKeyRange
 
 -- | The range of possible sequence numbers for the shard.
 shard_sequenceNumberRange :: Lens' Shard SequenceNumberRange
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.Shard.Shard
-instance GHC.Show.Show Network.AWS.Kinesis.Types.Shard.Shard
-instance GHC.Read.Read Network.AWS.Kinesis.Types.Shard.Shard
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.Shard.Shard
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.Shard.Shard
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.Shard.Shard
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.Shard.Shard
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.Shard.Shard
+instance GHC.Show.Show Amazonka.Kinesis.Types.Shard.Shard
+instance GHC.Read.Read Amazonka.Kinesis.Types.Shard.Shard
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.Shard.Shard
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.Shard.Shard
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.Shard.Shard
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.Shard.Shard
 
 
-module Network.AWS.Kinesis.Types.ShardFilterType
+module Amazonka.Kinesis.Types.ShardFilterType
 newtype ShardFilterType
 ShardFilterType' :: Text -> ShardFilterType
 [fromShardFilterType] :: ShardFilterType -> Text
@@ -980,28 +980,28 @@ pattern ShardFilterType_AT_TIMESTAMP :: ShardFilterType
 pattern ShardFilterType_AT_TRIM_HORIZON :: ShardFilterType
 pattern ShardFilterType_FROM_TIMESTAMP :: ShardFilterType
 pattern ShardFilterType_FROM_TRIM_HORIZON :: ShardFilterType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Network.AWS.Data.Text.ToText Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Network.AWS.Data.Text.FromText Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance GHC.Classes.Ord Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance GHC.Read.Read Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
-instance GHC.Show.Show Network.AWS.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Amazonka.Data.XML.ToXML Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Amazonka.Data.XML.FromXML Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Amazonka.Data.Log.ToLog Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Amazonka.Data.Text.ToText Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Amazonka.Data.Text.FromText Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance GHC.Classes.Ord Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance GHC.Read.Read Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
+instance GHC.Show.Show Amazonka.Kinesis.Types.ShardFilterType.ShardFilterType
 
 
-module Network.AWS.Kinesis.Types.ShardFilter
+module Amazonka.Kinesis.Types.ShardFilter
 
 -- | <i>See:</i> <a>newShardFilter</a> smart constructor.
 data ShardFilter
@@ -1036,16 +1036,16 @@ shardFilter_shardId :: Lens' ShardFilter (Maybe Text)
 
 -- | Undocumented member.
 shardFilter_type :: Lens' ShardFilter ShardFilterType
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.ShardFilter.ShardFilter
-instance GHC.Show.Show Network.AWS.Kinesis.Types.ShardFilter.ShardFilter
-instance GHC.Read.Read Network.AWS.Kinesis.Types.ShardFilter.ShardFilter
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.ShardFilter.ShardFilter
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.ShardFilter.ShardFilter
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.ShardFilter.ShardFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.ShardFilter.ShardFilter
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.ShardFilter.ShardFilter
+instance GHC.Show.Show Amazonka.Kinesis.Types.ShardFilter.ShardFilter
+instance GHC.Read.Read Amazonka.Kinesis.Types.ShardFilter.ShardFilter
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.ShardFilter.ShardFilter
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.ShardFilter.ShardFilter
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.ShardFilter.ShardFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.ShardFilter.ShardFilter
 
 
-module Network.AWS.Kinesis.Types.ShardIteratorType
+module Amazonka.Kinesis.Types.ShardIteratorType
 newtype ShardIteratorType
 ShardIteratorType' :: Text -> ShardIteratorType
 [fromShardIteratorType] :: ShardIteratorType -> Text
@@ -1054,28 +1054,28 @@ pattern ShardIteratorType_AT_SEQUENCE_NUMBER :: ShardIteratorType
 pattern ShardIteratorType_AT_TIMESTAMP :: ShardIteratorType
 pattern ShardIteratorType_LATEST :: ShardIteratorType
 pattern ShardIteratorType_TRIM_HORIZON :: ShardIteratorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Text.ToText Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Network.AWS.Data.Text.FromText Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Classes.Ord Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Read.Read Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
-instance GHC.Show.Show Network.AWS.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.XML.ToXML Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.XML.FromXML Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Log.ToLog Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Text.ToText Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Amazonka.Data.Text.FromText Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Classes.Ord Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Read.Read Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
+instance GHC.Show.Show Amazonka.Kinesis.Types.ShardIteratorType.ShardIteratorType
 
 
-module Network.AWS.Kinesis.Types.StartingPosition
+module Amazonka.Kinesis.Types.StartingPosition
 
 -- | <i>See:</i> <a>newStartingPosition</a> smart constructor.
 data StartingPosition
@@ -1198,16 +1198,16 @@ startingPosition_timestamp :: Lens' StartingPosition (Maybe UTCTime)
 --   <tt>LATEST</tt>: Start streaming just after the most recent record in
 --   the shard, so that you always read the most recent data in the shard.
 startingPosition_type :: Lens' StartingPosition ShardIteratorType
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.StartingPosition.StartingPosition
-instance GHC.Show.Show Network.AWS.Kinesis.Types.StartingPosition.StartingPosition
-instance GHC.Read.Read Network.AWS.Kinesis.Types.StartingPosition.StartingPosition
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.StartingPosition.StartingPosition
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.StartingPosition.StartingPosition
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.StartingPosition.StartingPosition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.StartingPosition.StartingPosition
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.StartingPosition.StartingPosition
+instance GHC.Show.Show Amazonka.Kinesis.Types.StartingPosition.StartingPosition
+instance GHC.Read.Read Amazonka.Kinesis.Types.StartingPosition.StartingPosition
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.StartingPosition.StartingPosition
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.StartingPosition.StartingPosition
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.StartingPosition.StartingPosition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.StartingPosition.StartingPosition
 
 
-module Network.AWS.Kinesis.Types.StreamStatus
+module Amazonka.Kinesis.Types.StreamStatus
 newtype StreamStatus
 StreamStatus' :: Text -> StreamStatus
 [fromStreamStatus] :: StreamStatus -> Text
@@ -1215,28 +1215,28 @@ pattern StreamStatus_ACTIVE :: StreamStatus
 pattern StreamStatus_CREATING :: StreamStatus
 pattern StreamStatus_DELETING :: StreamStatus
 pattern StreamStatus_UPDATING :: StreamStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance GHC.Classes.Ord Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance GHC.Read.Read Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
-instance GHC.Show.Show Network.AWS.Kinesis.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Text.ToText Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Amazonka.Data.Text.FromText Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance GHC.Classes.Ord Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance GHC.Read.Read Amazonka.Kinesis.Types.StreamStatus.StreamStatus
+instance GHC.Show.Show Amazonka.Kinesis.Types.StreamStatus.StreamStatus
 
 
-module Network.AWS.Kinesis.Types.StreamDescriptionSummary
+module Amazonka.Kinesis.Types.StreamDescriptionSummary
 
 -- | Represents the output for DescribeStreamSummary
 --   
@@ -1464,16 +1464,16 @@ streamDescriptionSummary_enhancedMonitoring :: Lens' StreamDescriptionSummary [E
 
 -- | The number of open shards in the stream.
 streamDescriptionSummary_openShardCount :: Lens' StreamDescriptionSummary Natural
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
-instance GHC.Show.Show Network.AWS.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
-instance GHC.Read.Read Network.AWS.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
+instance GHC.Show.Show Amazonka.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
+instance GHC.Read.Read Amazonka.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.StreamDescriptionSummary.StreamDescriptionSummary
 
 
-module Network.AWS.Kinesis.Types.StreamDescription
+module Amazonka.Kinesis.Types.StreamDescription
 
 -- | Represents the output for DescribeStream.
 --   
@@ -1709,16 +1709,16 @@ streamDescription_streamCreationTimestamp :: Lens' StreamDescription UTCTime
 
 -- | Represents the current enhanced monitoring settings of the stream.
 streamDescription_enhancedMonitoring :: Lens' StreamDescription [EnhancedMetrics]
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.StreamDescription.StreamDescription
-instance GHC.Show.Show Network.AWS.Kinesis.Types.StreamDescription.StreamDescription
-instance GHC.Read.Read Network.AWS.Kinesis.Types.StreamDescription.StreamDescription
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.StreamDescription.StreamDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.StreamDescription.StreamDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.StreamDescription.StreamDescription
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.StreamDescription.StreamDescription
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.StreamDescription.StreamDescription
+instance GHC.Show.Show Amazonka.Kinesis.Types.StreamDescription.StreamDescription
+instance GHC.Read.Read Amazonka.Kinesis.Types.StreamDescription.StreamDescription
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.StreamDescription.StreamDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.StreamDescription.StreamDescription
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.StreamDescription.StreamDescription
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.StreamDescription.StreamDescription
 
 
-module Network.AWS.Kinesis.Types.SubscribeToShardEvent
+module Amazonka.Kinesis.Types.SubscribeToShardEvent
 
 -- | After you call SubscribeToShard, Kinesis Data Streams sends events of
 --   this type over an HTTP/2 connection to your consumer.
@@ -1793,16 +1793,16 @@ subscribeToShardEvent_continuationSequenceNumber :: Lens' SubscribeToShardEvent 
 --   value of zero indicates that record processing is caught up, and there
 --   are no new records to process at this moment.
 subscribeToShardEvent_millisBehindLatest :: Lens' SubscribeToShardEvent Natural
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
-instance GHC.Show.Show Network.AWS.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
-instance GHC.Read.Read Network.AWS.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
+instance GHC.Show.Show Amazonka.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
+instance GHC.Read.Read Amazonka.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.SubscribeToShardEvent.SubscribeToShardEvent
 
 
-module Network.AWS.Kinesis.Types.Tag
+module Amazonka.Kinesis.Types.Tag
 
 -- | Metadata assigned to the stream, consisting of a key-value pair.
 --   
@@ -1845,16 +1845,16 @@ tag_value :: Lens' Tag (Maybe Text)
 -- | A unique identifier for the tag. Maximum length: 128 characters. Valid
 --   characters: Unicode letters, digits, white space, _ . / = + - % @
 tag_key :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.Kinesis.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.Kinesis.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.Kinesis.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.Kinesis.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Kinesis.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.Kinesis.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.Kinesis.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.Kinesis.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.Kinesis.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Kinesis.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.Kinesis.Types.Tag.Tag
 
 
-module Network.AWS.Kinesis.Types
+module Amazonka.Kinesis.Types
 
 -- | API version <tt>2013-12-02</tt> of the Amazon Kinesis SDK
 --   configuration.
@@ -3477,7 +3477,7 @@ tag_key :: Lens' Tag Text
 --   
 --   For an example of how to use this operations, see <a>Enhanced Fan-Out
 --   Using the Kinesis Data Streams API</a>.
-module Network.AWS.Kinesis.SubscribeToShard
+module Amazonka.Kinesis.SubscribeToShard
 
 -- | <i>See:</i> <a>newSubscribeToShard</a> smart constructor.
 data SubscribeToShard
@@ -3558,19 +3558,19 @@ subscribeToShardResponse_httpStatus :: Lens' SubscribeToShardResponse Int
 -- | The event stream that your consumer can use to read records from the
 --   shard.
 subscribeToShardResponse_eventStream :: Lens' SubscribeToShardResponse Value
-instance GHC.Generics.Generic Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance GHC.Show.Show Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance GHC.Read.Read Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance GHC.Classes.Eq Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance GHC.Generics.Generic Network.AWS.Kinesis.SubscribeToShard.SubscribeToShardResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.SubscribeToShard.SubscribeToShardResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.SubscribeToShard.SubscribeToShard
+instance GHC.Generics.Generic Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance GHC.Show.Show Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance GHC.Read.Read Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance GHC.Classes.Eq Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance GHC.Generics.Generic Amazonka.Kinesis.SubscribeToShard.SubscribeToShardResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance Control.DeepSeq.NFData Amazonka.Kinesis.SubscribeToShard.SubscribeToShardResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance Control.DeepSeq.NFData Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.SubscribeToShard.SubscribeToShard
 
 
 -- | Disables server-side encryption for a specified stream.
@@ -3593,7 +3593,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.SubscribeToShard.Sub
 --   longer subject to encryption. After you disabled encryption, you can
 --   verify that encryption is not applied by inspecting the API response
 --   from <tt>PutRecord</tt> or <tt>PutRecords</tt>.
-module Network.AWS.Kinesis.StopStreamEncryption
+module Amazonka.Kinesis.StopStreamEncryption
 
 -- | <i>See:</i> <a>newStopStreamEncryption</a> smart constructor.
 data StopStreamEncryption
@@ -3697,22 +3697,22 @@ StopStreamEncryptionResponse' :: StopStreamEncryptionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newStopStreamEncryptionResponse :: StopStreamEncryptionResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance GHC.Show.Show Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance GHC.Read.Read Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance GHC.Classes.Eq Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance GHC.Generics.Generic Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
-instance GHC.Show.Show Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
-instance GHC.Read.Read Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance GHC.Generics.Generic Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance GHC.Show.Show Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance GHC.Read.Read Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance GHC.Classes.Eq Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance GHC.Generics.Generic Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
+instance GHC.Show.Show Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
+instance GHC.Read.Read Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance Control.DeepSeq.NFData Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryptionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance Control.DeepSeq.NFData Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.StopStreamEncryption.StopStreamEncryption
 
 
 -- | Enables or updates server-side encryption using an AWS KMS key for a
@@ -3736,7 +3736,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.StopStreamEncryption
 --   encrypted. After you enable encryption, you can verify that encryption
 --   is applied by inspecting the API response from <tt>PutRecord</tt> or
 --   <tt>PutRecords</tt>.
-module Network.AWS.Kinesis.StartStreamEncryption
+module Amazonka.Kinesis.StartStreamEncryption
 
 -- | <i>See:</i> <a>newStartStreamEncryption</a> smart constructor.
 data StartStreamEncryption
@@ -3840,22 +3840,22 @@ StartStreamEncryptionResponse' :: StartStreamEncryptionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newStartStreamEncryptionResponse :: StartStreamEncryptionResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance GHC.Show.Show Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance GHC.Read.Read Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance GHC.Classes.Eq Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance GHC.Generics.Generic Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
-instance GHC.Show.Show Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
-instance GHC.Read.Read Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance GHC.Generics.Generic Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance GHC.Show.Show Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance GHC.Read.Read Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance GHC.Classes.Eq Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance GHC.Generics.Generic Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
+instance GHC.Show.Show Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
+instance GHC.Read.Read Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance Control.DeepSeq.NFData Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryptionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance Control.DeepSeq.NFData Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.StartStreamEncryption.StartStreamEncryption
 
 
 -- | Splits a shard into two new shards in the Kinesis data stream, to
@@ -3912,7 +3912,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.StartStreamEncryptio
 --   
 --   <tt>SplitShard</tt> has a limit of five transactions per second per
 --   account.
-module Network.AWS.Kinesis.SplitShard
+module Amazonka.Kinesis.SplitShard
 
 -- | Represents the input for <tt>SplitShard</tt>.
 --   
@@ -3988,22 +3988,22 @@ SplitShardResponse' :: SplitShardResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSplitShardResponse :: SplitShardResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.SplitShard.SplitShard
-instance GHC.Show.Show Network.AWS.Kinesis.SplitShard.SplitShard
-instance GHC.Read.Read Network.AWS.Kinesis.SplitShard.SplitShard
-instance GHC.Classes.Eq Network.AWS.Kinesis.SplitShard.SplitShard
-instance GHC.Generics.Generic Network.AWS.Kinesis.SplitShard.SplitShardResponse
-instance GHC.Show.Show Network.AWS.Kinesis.SplitShard.SplitShardResponse
-instance GHC.Read.Read Network.AWS.Kinesis.SplitShard.SplitShardResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.SplitShard.SplitShardResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.SplitShard.SplitShard
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.SplitShard.SplitShardResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.SplitShard.SplitShard
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.SplitShard.SplitShard
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.SplitShard.SplitShard
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.SplitShard.SplitShard
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.SplitShard.SplitShard
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.SplitShard.SplitShard
+instance GHC.Generics.Generic Amazonka.Kinesis.SplitShard.SplitShard
+instance GHC.Show.Show Amazonka.Kinesis.SplitShard.SplitShard
+instance GHC.Read.Read Amazonka.Kinesis.SplitShard.SplitShard
+instance GHC.Classes.Eq Amazonka.Kinesis.SplitShard.SplitShard
+instance GHC.Generics.Generic Amazonka.Kinesis.SplitShard.SplitShardResponse
+instance GHC.Show.Show Amazonka.Kinesis.SplitShard.SplitShardResponse
+instance GHC.Read.Read Amazonka.Kinesis.SplitShard.SplitShardResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.SplitShard.SplitShardResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.SplitShard.SplitShard
+instance Control.DeepSeq.NFData Amazonka.Kinesis.SplitShard.SplitShardResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.SplitShard.SplitShard
+instance Control.DeepSeq.NFData Amazonka.Kinesis.SplitShard.SplitShard
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.SplitShard.SplitShard
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.SplitShard.SplitShard
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.SplitShard.SplitShard
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.SplitShard.SplitShard
 
 
 -- | Removes tags from the specified Kinesis data stream. Removed tags are
@@ -4014,7 +4014,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.SplitShard.SplitShar
 --   
 --   RemoveTagsFromStream has a limit of five transactions per second per
 --   account.
-module Network.AWS.Kinesis.RemoveTagsFromStream
+module Amazonka.Kinesis.RemoveTagsFromStream
 
 -- | Represents the input for <tt>RemoveTagsFromStream</tt>.
 --   
@@ -4061,22 +4061,22 @@ RemoveTagsFromStreamResponse' :: RemoveTagsFromStreamResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newRemoveTagsFromStreamResponse :: RemoveTagsFromStreamResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance GHC.Show.Show Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance GHC.Read.Read Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance GHC.Classes.Eq Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance GHC.Generics.Generic Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
-instance GHC.Show.Show Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
-instance GHC.Read.Read Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance GHC.Generics.Generic Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance GHC.Show.Show Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance GHC.Read.Read Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance GHC.Classes.Eq Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance GHC.Generics.Generic Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
+instance GHC.Show.Show Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
+instance GHC.Read.Read Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.RemoveTagsFromStream.RemoveTagsFromStream
 
 
 -- | Registers a consumer with a Kinesis data stream. When you use this
@@ -4098,7 +4098,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.RemoveTagsFromStream
 --   <tt>CREATING</tt> status at the same time. Registering a 6th consumer
 --   while there are 5 in a <tt>CREATING</tt> status results in a
 --   <tt>LimitExceededException</tt>.
-module Network.AWS.Kinesis.RegisterStreamConsumer
+module Amazonka.Kinesis.RegisterStreamConsumer
 
 -- | <i>See:</i> <a>newRegisterStreamConsumer</a> smart constructor.
 data RegisterStreamConsumer
@@ -4184,22 +4184,22 @@ registerStreamConsumerResponse_httpStatus :: Lens' RegisterStreamConsumerRespons
 --   When you register a consumer, it gets an ARN that is generated by
 --   Kinesis Data Streams.
 registerStreamConsumerResponse_consumer :: Lens' RegisterStreamConsumerResponse Consumer
-instance GHC.Generics.Generic Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance GHC.Show.Show Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance GHC.Read.Read Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance GHC.Classes.Eq Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance GHC.Generics.Generic Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
-instance GHC.Show.Show Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
-instance GHC.Read.Read Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance GHC.Generics.Generic Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance GHC.Show.Show Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance GHC.Read.Read Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance GHC.Classes.Eq Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance GHC.Generics.Generic Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
+instance GHC.Show.Show Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
+instance GHC.Read.Read Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance Control.DeepSeq.NFData Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumerResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance Control.DeepSeq.NFData Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.RegisterStreamConsumer.RegisterStreamConsumer
 
 
 -- | Writes multiple data records into a Kinesis data stream in a single
@@ -4280,7 +4280,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.RegisterStreamConsum
 --   that they are added to a stream. You can use
 --   IncreaseStreamRetentionPeriod or DecreaseStreamRetentionPeriod to
 --   modify this retention period.
-module Network.AWS.Kinesis.PutRecords
+module Amazonka.Kinesis.PutRecords
 
 -- | A <tt>PutRecords</tt> request.
 --   
@@ -4406,22 +4406,22 @@ putRecordsResponse_httpStatus :: Lens' PutRecordsResponse Int
 --   stream includes <tt>ErrorCode</tt> and <tt>ErrorMessage</tt> in the
 --   result.
 putRecordsResponse_records :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
-instance GHC.Generics.Generic Network.AWS.Kinesis.PutRecords.PutRecords
-instance GHC.Show.Show Network.AWS.Kinesis.PutRecords.PutRecords
-instance GHC.Read.Read Network.AWS.Kinesis.PutRecords.PutRecords
-instance GHC.Classes.Eq Network.AWS.Kinesis.PutRecords.PutRecords
-instance GHC.Generics.Generic Network.AWS.Kinesis.PutRecords.PutRecordsResponse
-instance GHC.Show.Show Network.AWS.Kinesis.PutRecords.PutRecordsResponse
-instance GHC.Read.Read Network.AWS.Kinesis.PutRecords.PutRecordsResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.PutRecords.PutRecordsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.PutRecords.PutRecords
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.PutRecords.PutRecordsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.PutRecords.PutRecords
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.PutRecords.PutRecords
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.PutRecords.PutRecords
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.PutRecords.PutRecords
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.PutRecords.PutRecords
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.PutRecords.PutRecords
+instance GHC.Generics.Generic Amazonka.Kinesis.PutRecords.PutRecords
+instance GHC.Show.Show Amazonka.Kinesis.PutRecords.PutRecords
+instance GHC.Read.Read Amazonka.Kinesis.PutRecords.PutRecords
+instance GHC.Classes.Eq Amazonka.Kinesis.PutRecords.PutRecords
+instance GHC.Generics.Generic Amazonka.Kinesis.PutRecords.PutRecordsResponse
+instance GHC.Show.Show Amazonka.Kinesis.PutRecords.PutRecordsResponse
+instance GHC.Read.Read Amazonka.Kinesis.PutRecords.PutRecordsResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.PutRecords.PutRecordsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.PutRecords.PutRecords
+instance Control.DeepSeq.NFData Amazonka.Kinesis.PutRecords.PutRecordsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.PutRecords.PutRecords
+instance Control.DeepSeq.NFData Amazonka.Kinesis.PutRecords.PutRecords
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.PutRecords.PutRecords
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.PutRecords.PutRecords
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.PutRecords.PutRecords
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.PutRecords.PutRecords
 
 
 -- | Writes a single data record into an Amazon Kinesis data stream. Call
@@ -4474,7 +4474,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.PutRecords.PutRecord
 --   that they are added to a stream. You can use
 --   IncreaseStreamRetentionPeriod or DecreaseStreamRetentionPeriod to
 --   modify this retention period.
-module Network.AWS.Kinesis.PutRecord
+module Amazonka.Kinesis.PutRecord
 
 -- | Represents the input for <tt>PutRecord</tt>.
 --   
@@ -4682,22 +4682,22 @@ putRecordResponse_shardId :: Lens' PutRecordResponse Text
 --   records in the stream. A sequence number is the identifier associated
 --   with every record put into the stream.
 putRecordResponse_sequenceNumber :: Lens' PutRecordResponse Text
-instance GHC.Generics.Generic Network.AWS.Kinesis.PutRecord.PutRecord
-instance GHC.Show.Show Network.AWS.Kinesis.PutRecord.PutRecord
-instance GHC.Read.Read Network.AWS.Kinesis.PutRecord.PutRecord
-instance GHC.Classes.Eq Network.AWS.Kinesis.PutRecord.PutRecord
-instance GHC.Generics.Generic Network.AWS.Kinesis.PutRecord.PutRecordResponse
-instance GHC.Show.Show Network.AWS.Kinesis.PutRecord.PutRecordResponse
-instance GHC.Read.Read Network.AWS.Kinesis.PutRecord.PutRecordResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.PutRecord.PutRecordResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.PutRecord.PutRecord
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.PutRecord.PutRecordResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.PutRecord.PutRecord
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.PutRecord.PutRecord
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.PutRecord.PutRecord
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.PutRecord.PutRecord
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.PutRecord.PutRecord
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.PutRecord.PutRecord
+instance GHC.Generics.Generic Amazonka.Kinesis.PutRecord.PutRecord
+instance GHC.Show.Show Amazonka.Kinesis.PutRecord.PutRecord
+instance GHC.Read.Read Amazonka.Kinesis.PutRecord.PutRecord
+instance GHC.Classes.Eq Amazonka.Kinesis.PutRecord.PutRecord
+instance GHC.Generics.Generic Amazonka.Kinesis.PutRecord.PutRecordResponse
+instance GHC.Show.Show Amazonka.Kinesis.PutRecord.PutRecordResponse
+instance GHC.Read.Read Amazonka.Kinesis.PutRecord.PutRecordResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.PutRecord.PutRecordResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.PutRecord.PutRecord
+instance Control.DeepSeq.NFData Amazonka.Kinesis.PutRecord.PutRecordResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.PutRecord.PutRecord
+instance Control.DeepSeq.NFData Amazonka.Kinesis.PutRecord.PutRecord
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.PutRecord.PutRecord
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.PutRecord.PutRecord
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.PutRecord.PutRecord
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.PutRecord.PutRecord
 
 
 -- | Merges two adjacent shards in a Kinesis data stream and combines them
@@ -4745,7 +4745,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.PutRecord.PutRecord
 --   
 --   <tt>MergeShards</tt> has a limit of five transactions per second per
 --   account.
-module Network.AWS.Kinesis.MergeShards
+module Amazonka.Kinesis.MergeShards
 
 -- | Represents the input for <tt>MergeShards</tt>.
 --   
@@ -4803,27 +4803,27 @@ MergeShardsResponse' :: MergeShardsResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newMergeShardsResponse :: MergeShardsResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.MergeShards.MergeShards
-instance GHC.Show.Show Network.AWS.Kinesis.MergeShards.MergeShards
-instance GHC.Read.Read Network.AWS.Kinesis.MergeShards.MergeShards
-instance GHC.Classes.Eq Network.AWS.Kinesis.MergeShards.MergeShards
-instance GHC.Generics.Generic Network.AWS.Kinesis.MergeShards.MergeShardsResponse
-instance GHC.Show.Show Network.AWS.Kinesis.MergeShards.MergeShardsResponse
-instance GHC.Read.Read Network.AWS.Kinesis.MergeShards.MergeShardsResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.MergeShards.MergeShardsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.MergeShards.MergeShards
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.MergeShards.MergeShardsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.MergeShards.MergeShards
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.MergeShards.MergeShards
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.MergeShards.MergeShards
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.MergeShards.MergeShards
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.MergeShards.MergeShards
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.MergeShards.MergeShards
+instance GHC.Generics.Generic Amazonka.Kinesis.MergeShards.MergeShards
+instance GHC.Show.Show Amazonka.Kinesis.MergeShards.MergeShards
+instance GHC.Read.Read Amazonka.Kinesis.MergeShards.MergeShards
+instance GHC.Classes.Eq Amazonka.Kinesis.MergeShards.MergeShards
+instance GHC.Generics.Generic Amazonka.Kinesis.MergeShards.MergeShardsResponse
+instance GHC.Show.Show Amazonka.Kinesis.MergeShards.MergeShardsResponse
+instance GHC.Read.Read Amazonka.Kinesis.MergeShards.MergeShardsResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.MergeShards.MergeShardsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.MergeShards.MergeShards
+instance Control.DeepSeq.NFData Amazonka.Kinesis.MergeShards.MergeShardsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.MergeShards.MergeShards
+instance Control.DeepSeq.NFData Amazonka.Kinesis.MergeShards.MergeShards
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.MergeShards.MergeShards
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.MergeShards.MergeShards
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.MergeShards.MergeShards
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.MergeShards.MergeShards
 
 
 -- | Lists the tags for the specified Kinesis data stream. This operation
 --   has a limit of five transactions per second per account.
-module Network.AWS.Kinesis.ListTagsForStream
+module Amazonka.Kinesis.ListTagsForStream
 
 -- | Represents the input for <tt>ListTagsForStream</tt>.
 --   
@@ -4939,22 +4939,22 @@ listTagsForStreamResponse_tags :: Lens' ListTagsForStreamResponse [Tag]
 --   additional tags, set <tt>ExclusiveStartTagKey</tt> to the key of the
 --   last tag returned.
 listTagsForStreamResponse_hasMoreTags :: Lens' ListTagsForStreamResponse Bool
-instance GHC.Generics.Generic Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance GHC.Show.Show Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance GHC.Read.Read Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance GHC.Classes.Eq Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance GHC.Generics.Generic Network.AWS.Kinesis.ListTagsForStream.ListTagsForStreamResponse
-instance GHC.Show.Show Network.AWS.Kinesis.ListTagsForStream.ListTagsForStreamResponse
-instance GHC.Read.Read Network.AWS.Kinesis.ListTagsForStream.ListTagsForStreamResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.ListTagsForStream.ListTagsForStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.ListTagsForStream.ListTagsForStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.ListTagsForStream.ListTagsForStream
+instance GHC.Generics.Generic Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance GHC.Show.Show Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance GHC.Read.Read Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance GHC.Classes.Eq Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance GHC.Generics.Generic Amazonka.Kinesis.ListTagsForStream.ListTagsForStreamResponse
+instance GHC.Show.Show Amazonka.Kinesis.ListTagsForStream.ListTagsForStreamResponse
+instance GHC.Read.Read Amazonka.Kinesis.ListTagsForStream.ListTagsForStreamResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.ListTagsForStream.ListTagsForStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.ListTagsForStream.ListTagsForStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.ListTagsForStream.ListTagsForStream
 
 
 -- | Lists your Kinesis data streams.
@@ -4978,7 +4978,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.ListTagsForStream.Li
 --   ListStreams has a limit of five transactions per second per account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Kinesis.ListStreams
+module Amazonka.Kinesis.ListStreams
 
 -- | Represents the input for <tt>ListStreams</tt>.
 --   
@@ -5062,23 +5062,23 @@ listStreamsResponse_streamNames :: Lens' ListStreamsResponse [Text]
 
 -- | If set to <tt>true</tt>, there are more streams available to list.
 listStreamsResponse_hasMoreStreams :: Lens' ListStreamsResponse Bool
-instance GHC.Generics.Generic Network.AWS.Kinesis.ListStreams.ListStreams
-instance GHC.Show.Show Network.AWS.Kinesis.ListStreams.ListStreams
-instance GHC.Read.Read Network.AWS.Kinesis.ListStreams.ListStreams
-instance GHC.Classes.Eq Network.AWS.Kinesis.ListStreams.ListStreams
-instance GHC.Generics.Generic Network.AWS.Kinesis.ListStreams.ListStreamsResponse
-instance GHC.Show.Show Network.AWS.Kinesis.ListStreams.ListStreamsResponse
-instance GHC.Read.Read Network.AWS.Kinesis.ListStreams.ListStreamsResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.ListStreams.ListStreamsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.ListStreams.ListStreams
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.ListStreams.ListStreamsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Kinesis.ListStreams.ListStreams
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.ListStreams.ListStreams
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.ListStreams.ListStreams
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.ListStreams.ListStreams
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.ListStreams.ListStreams
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.ListStreams.ListStreams
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.ListStreams.ListStreams
+instance GHC.Generics.Generic Amazonka.Kinesis.ListStreams.ListStreams
+instance GHC.Show.Show Amazonka.Kinesis.ListStreams.ListStreams
+instance GHC.Read.Read Amazonka.Kinesis.ListStreams.ListStreams
+instance GHC.Classes.Eq Amazonka.Kinesis.ListStreams.ListStreams
+instance GHC.Generics.Generic Amazonka.Kinesis.ListStreams.ListStreamsResponse
+instance GHC.Show.Show Amazonka.Kinesis.ListStreams.ListStreamsResponse
+instance GHC.Read.Read Amazonka.Kinesis.ListStreams.ListStreamsResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.ListStreams.ListStreamsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.ListStreams.ListStreams
+instance Control.DeepSeq.NFData Amazonka.Kinesis.ListStreams.ListStreamsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Kinesis.ListStreams.ListStreams
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.ListStreams.ListStreams
+instance Control.DeepSeq.NFData Amazonka.Kinesis.ListStreams.ListStreams
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.ListStreams.ListStreams
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.ListStreams.ListStreams
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.ListStreams.ListStreams
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.ListStreams.ListStreams
 
 
 -- | Lists the consumers registered to receive data from a stream using
@@ -5087,7 +5087,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.ListStreams.ListStre
 --   This operation has a limit of 5 transactions per second per stream.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Kinesis.ListStreamConsumers
+module Amazonka.Kinesis.ListStreamConsumers
 
 -- | <i>See:</i> <a>newListStreamConsumers</a> smart constructor.
 data ListStreamConsumers
@@ -5349,23 +5349,23 @@ listStreamConsumersResponse_consumers :: Lens' ListStreamConsumersResponse (Mayb
 
 -- | The response's http status code.
 listStreamConsumersResponse_httpStatus :: Lens' ListStreamConsumersResponse Int
-instance GHC.Generics.Generic Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance GHC.Show.Show Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance GHC.Read.Read Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance GHC.Classes.Eq Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance GHC.Generics.Generic Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
-instance GHC.Show.Show Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
-instance GHC.Read.Read Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance GHC.Generics.Generic Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance GHC.Show.Show Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance GHC.Read.Read Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance GHC.Classes.Eq Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance GHC.Generics.Generic Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
+instance GHC.Show.Show Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
+instance GHC.Read.Read Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance Control.DeepSeq.NFData Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumersResponse
+instance Amazonka.Pager.AWSPager Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance Control.DeepSeq.NFData Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.ListStreamConsumers.ListStreamConsumers
 
 
 -- | Lists the shards in a stream and provides information about each
@@ -5379,7 +5379,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.ListStreamConsumers.
 --   Kinesis Data Streams Resources Using IAM</a>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Kinesis.ListShards
+module Amazonka.Kinesis.ListShards
 
 -- | <i>See:</i> <a>newListShards</a> smart constructor.
 data ListShards
@@ -5689,23 +5689,23 @@ listShardsResponse_shards :: Lens' ListShardsResponse (Maybe [Shard])
 
 -- | The response's http status code.
 listShardsResponse_httpStatus :: Lens' ListShardsResponse Int
-instance GHC.Generics.Generic Network.AWS.Kinesis.ListShards.ListShards
-instance GHC.Show.Show Network.AWS.Kinesis.ListShards.ListShards
-instance GHC.Read.Read Network.AWS.Kinesis.ListShards.ListShards
-instance GHC.Classes.Eq Network.AWS.Kinesis.ListShards.ListShards
-instance GHC.Generics.Generic Network.AWS.Kinesis.ListShards.ListShardsResponse
-instance GHC.Show.Show Network.AWS.Kinesis.ListShards.ListShardsResponse
-instance GHC.Read.Read Network.AWS.Kinesis.ListShards.ListShardsResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.ListShards.ListShardsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.ListShards.ListShards
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.ListShards.ListShardsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Kinesis.ListShards.ListShards
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.ListShards.ListShards
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.ListShards.ListShards
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.ListShards.ListShards
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.ListShards.ListShards
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.ListShards.ListShards
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.ListShards.ListShards
+instance GHC.Generics.Generic Amazonka.Kinesis.ListShards.ListShards
+instance GHC.Show.Show Amazonka.Kinesis.ListShards.ListShards
+instance GHC.Read.Read Amazonka.Kinesis.ListShards.ListShards
+instance GHC.Classes.Eq Amazonka.Kinesis.ListShards.ListShards
+instance GHC.Generics.Generic Amazonka.Kinesis.ListShards.ListShardsResponse
+instance GHC.Show.Show Amazonka.Kinesis.ListShards.ListShardsResponse
+instance GHC.Read.Read Amazonka.Kinesis.ListShards.ListShardsResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.ListShards.ListShardsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.ListShards.ListShards
+instance Control.DeepSeq.NFData Amazonka.Kinesis.ListShards.ListShardsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Kinesis.ListShards.ListShards
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.ListShards.ListShards
+instance Control.DeepSeq.NFData Amazonka.Kinesis.ListShards.ListShards
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.ListShards.ListShards
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.ListShards.ListShards
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.ListShards.ListShards
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.ListShards.ListShards
 
 
 -- | Increases the Kinesis data stream's retention period, which is the
@@ -5721,7 +5721,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.ListShards.ListShard
 --   retention period is set to 24 hours and is increased to 168 hours, any
 --   data that is older than 24 hours remains inaccessible to consumer
 --   applications.
-module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
+module Amazonka.Kinesis.IncreaseStreamRetentionPeriod
 
 -- | Represents the input for IncreaseStreamRetentionPeriod.
 --   
@@ -5773,22 +5773,22 @@ IncreaseStreamRetentionPeriodResponse' :: IncreaseStreamRetentionPeriodResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newIncreaseStreamRetentionPeriodResponse :: IncreaseStreamRetentionPeriodResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance GHC.Show.Show Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance GHC.Read.Read Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance GHC.Classes.Eq Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance GHC.Generics.Generic Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
-instance GHC.Show.Show Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
-instance GHC.Read.Read Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance GHC.Generics.Generic Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance GHC.Show.Show Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance GHC.Read.Read Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance GHC.Classes.Eq Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance GHC.Generics.Generic Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
+instance GHC.Show.Show Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
+instance GHC.Read.Read Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance Control.DeepSeq.NFData Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriodResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance Control.DeepSeq.NFData Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.IncreaseStreamRetentionPeriod.IncreaseStreamRetentionPeriod
 
 
 -- | Gets an Amazon Kinesis shard iterator. A shard iterator expires 5
@@ -5835,7 +5835,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.IncreaseStreamRetent
 --   
 --   GetShardIterator has a limit of five transactions per second per
 --   account per open shard.
-module Network.AWS.Kinesis.GetShardIterator
+module Amazonka.Kinesis.GetShardIterator
 
 -- | Represents the input for <tt>GetShardIterator</tt>.
 --   
@@ -6027,22 +6027,22 @@ getShardIteratorResponse_shardIterator :: Lens' GetShardIteratorResponse (Maybe 
 
 -- | The response's http status code.
 getShardIteratorResponse_httpStatus :: Lens' GetShardIteratorResponse Int
-instance GHC.Generics.Generic Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance GHC.Show.Show Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance GHC.Read.Read Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance GHC.Classes.Eq Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance GHC.Generics.Generic Network.AWS.Kinesis.GetShardIterator.GetShardIteratorResponse
-instance GHC.Show.Show Network.AWS.Kinesis.GetShardIterator.GetShardIteratorResponse
-instance GHC.Read.Read Network.AWS.Kinesis.GetShardIterator.GetShardIteratorResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.GetShardIterator.GetShardIteratorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.GetShardIterator.GetShardIteratorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.GetShardIterator.GetShardIterator
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.GetShardIterator.GetShardIterator
+instance GHC.Generics.Generic Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance GHC.Show.Show Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance GHC.Read.Read Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance GHC.Classes.Eq Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance GHC.Generics.Generic Amazonka.Kinesis.GetShardIterator.GetShardIteratorResponse
+instance GHC.Show.Show Amazonka.Kinesis.GetShardIterator.GetShardIteratorResponse
+instance GHC.Read.Read Amazonka.Kinesis.GetShardIterator.GetShardIteratorResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.GetShardIterator.GetShardIteratorResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance Control.DeepSeq.NFData Amazonka.Kinesis.GetShardIterator.GetShardIteratorResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance Control.DeepSeq.NFData Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.GetShardIterator.GetShardIterator
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.GetShardIterator.GetShardIterator
 
 
 -- | Gets data records from a Kinesis data stream's shard.
@@ -6108,7 +6108,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.GetShardIterator.Get
 --   shard or across a stream might have time stamps that are out of order.
 --   
 --   This operation has a limit of five transactions per second per shard.
-module Network.AWS.Kinesis.GetRecords
+module Amazonka.Kinesis.GetRecords
 
 -- | Represents the input for GetRecords.
 --   
@@ -6232,27 +6232,27 @@ getRecordsResponse_httpStatus :: Lens' GetRecordsResponse Int
 
 -- | The data records retrieved from the shard.
 getRecordsResponse_records :: Lens' GetRecordsResponse [Record]
-instance GHC.Generics.Generic Network.AWS.Kinesis.GetRecords.GetRecords
-instance GHC.Show.Show Network.AWS.Kinesis.GetRecords.GetRecords
-instance GHC.Read.Read Network.AWS.Kinesis.GetRecords.GetRecords
-instance GHC.Classes.Eq Network.AWS.Kinesis.GetRecords.GetRecords
-instance GHC.Generics.Generic Network.AWS.Kinesis.GetRecords.GetRecordsResponse
-instance GHC.Show.Show Network.AWS.Kinesis.GetRecords.GetRecordsResponse
-instance GHC.Read.Read Network.AWS.Kinesis.GetRecords.GetRecordsResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.GetRecords.GetRecordsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.GetRecords.GetRecords
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.GetRecords.GetRecordsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.GetRecords.GetRecords
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.GetRecords.GetRecords
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.GetRecords.GetRecords
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.GetRecords.GetRecords
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.GetRecords.GetRecords
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.GetRecords.GetRecords
+instance GHC.Generics.Generic Amazonka.Kinesis.GetRecords.GetRecords
+instance GHC.Show.Show Amazonka.Kinesis.GetRecords.GetRecords
+instance GHC.Read.Read Amazonka.Kinesis.GetRecords.GetRecords
+instance GHC.Classes.Eq Amazonka.Kinesis.GetRecords.GetRecords
+instance GHC.Generics.Generic Amazonka.Kinesis.GetRecords.GetRecordsResponse
+instance GHC.Show.Show Amazonka.Kinesis.GetRecords.GetRecordsResponse
+instance GHC.Read.Read Amazonka.Kinesis.GetRecords.GetRecordsResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.GetRecords.GetRecordsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.GetRecords.GetRecords
+instance Control.DeepSeq.NFData Amazonka.Kinesis.GetRecords.GetRecordsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.GetRecords.GetRecords
+instance Control.DeepSeq.NFData Amazonka.Kinesis.GetRecords.GetRecords
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.GetRecords.GetRecords
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.GetRecords.GetRecords
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.GetRecords.GetRecords
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.GetRecords.GetRecords
 
 
 -- | Enables enhanced Kinesis data stream monitoring for shard-level
 --   metrics.
-module Network.AWS.Kinesis.EnableEnhancedMonitoring
+module Amazonka.Kinesis.EnableEnhancedMonitoring
 
 -- | Represents the input for EnableEnhancedMonitoring.
 --   
@@ -6396,21 +6396,21 @@ enhancedMonitoringOutput_currentShardLevelMetrics :: Lens' EnhancedMonitoringOut
 
 -- | The name of the Kinesis data stream.
 enhancedMonitoringOutput_streamName :: Lens' EnhancedMonitoringOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance GHC.Show.Show Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance GHC.Read.Read Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance GHC.Classes.Eq Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance GHC.Generics.Generic Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance GHC.Show.Show Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance GHC.Read.Read Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance GHC.Classes.Eq Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance Control.DeepSeq.NFData Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.EnableEnhancedMonitoring.EnableEnhancedMonitoring
 
 
 -- | Disables enhanced monitoring.
-module Network.AWS.Kinesis.DisableEnhancedMonitoring
+module Amazonka.Kinesis.DisableEnhancedMonitoring
 
 -- | Represents the input for DisableEnhancedMonitoring.
 --   
@@ -6556,17 +6556,17 @@ enhancedMonitoringOutput_currentShardLevelMetrics :: Lens' EnhancedMonitoringOut
 
 -- | The name of the Kinesis data stream.
 enhancedMonitoringOutput_streamName :: Lens' EnhancedMonitoringOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance GHC.Show.Show Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance GHC.Read.Read Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance GHC.Classes.Eq Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance GHC.Generics.Generic Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance GHC.Show.Show Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance GHC.Read.Read Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance GHC.Classes.Eq Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.DisableEnhancedMonitoring.DisableEnhancedMonitoring
 
 
 -- | Provides a summarized description of the specified Kinesis data stream
@@ -6578,7 +6578,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DisableEnhancedMonit
 --   
 --   DescribeStreamSummary has a limit of 20 transactions per second per
 --   account.
-module Network.AWS.Kinesis.DescribeStreamSummary
+module Amazonka.Kinesis.DescribeStreamSummary
 
 -- | <i>See:</i> <a>newDescribeStreamSummary</a> smart constructor.
 data DescribeStreamSummary
@@ -6637,22 +6637,22 @@ describeStreamSummaryResponse_httpStatus :: Lens' DescribeStreamSummaryResponse 
 
 -- | A StreamDescriptionSummary containing information about the stream.
 describeStreamSummaryResponse_streamDescriptionSummary :: Lens' DescribeStreamSummaryResponse StreamDescriptionSummary
-instance GHC.Generics.Generic Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance GHC.Show.Show Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance GHC.Read.Read Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance GHC.Classes.Eq Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance GHC.Generics.Generic Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
-instance GHC.Show.Show Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
-instance GHC.Read.Read Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance GHC.Generics.Generic Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance GHC.Show.Show Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance GHC.Read.Read Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance GHC.Classes.Eq Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance GHC.Generics.Generic Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
+instance GHC.Show.Show Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
+instance GHC.Read.Read Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.DescribeStreamSummary.DescribeStreamSummary
 
 
 -- | To get the description of a registered consumer, provide the ARN of
@@ -6665,7 +6665,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DescribeStreamSummar
 --   are currently registered with a given data stream.
 --   
 --   This operation has a limit of 20 transactions per second per stream.
-module Network.AWS.Kinesis.DescribeStreamConsumer
+module Amazonka.Kinesis.DescribeStreamConsumer
 
 -- | <i>See:</i> <a>newDescribeStreamConsumer</a> smart constructor.
 data DescribeStreamConsumer
@@ -6752,22 +6752,22 @@ describeStreamConsumerResponse_httpStatus :: Lens' DescribeStreamConsumerRespons
 
 -- | An object that represents the details of the consumer.
 describeStreamConsumerResponse_consumerDescription :: Lens' DescribeStreamConsumerResponse ConsumerDescription
-instance GHC.Generics.Generic Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance GHC.Show.Show Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance GHC.Read.Read Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance GHC.Classes.Eq Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance GHC.Generics.Generic Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
-instance GHC.Show.Show Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
-instance GHC.Read.Read Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance GHC.Generics.Generic Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance GHC.Show.Show Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance GHC.Read.Read Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance GHC.Classes.Eq Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance GHC.Generics.Generic Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
+instance GHC.Show.Show Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
+instance GHC.Read.Read Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumerResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.DescribeStreamConsumer.DescribeStreamConsumer
 
 
 -- | Describes the specified Kinesis data stream.
@@ -6792,7 +6792,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DescribeStreamConsum
 --   This operation has a limit of 10 transactions per second per account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Kinesis.DescribeStream
+module Amazonka.Kinesis.DescribeStream
 
 -- | Represents the input for <tt>DescribeStream</tt>.
 --   
@@ -6885,23 +6885,23 @@ describeStreamResponse_httpStatus :: Lens' DescribeStreamResponse Int
 --   (ARN), an array of shard objects that comprise the stream, and whether
 --   there are more shards available.
 describeStreamResponse_streamDescription :: Lens' DescribeStreamResponse StreamDescription
-instance GHC.Generics.Generic Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance GHC.Show.Show Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance GHC.Read.Read Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance GHC.Classes.Eq Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance GHC.Generics.Generic Network.AWS.Kinesis.DescribeStream.DescribeStreamResponse
-instance GHC.Show.Show Network.AWS.Kinesis.DescribeStream.DescribeStreamResponse
-instance GHC.Read.Read Network.AWS.Kinesis.DescribeStream.DescribeStreamResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.DescribeStream.DescribeStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DescribeStream.DescribeStreamResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.DescribeStream.DescribeStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DescribeStream.DescribeStream
+instance GHC.Generics.Generic Amazonka.Kinesis.DescribeStream.DescribeStream
+instance GHC.Show.Show Amazonka.Kinesis.DescribeStream.DescribeStream
+instance GHC.Read.Read Amazonka.Kinesis.DescribeStream.DescribeStream
+instance GHC.Classes.Eq Amazonka.Kinesis.DescribeStream.DescribeStream
+instance GHC.Generics.Generic Amazonka.Kinesis.DescribeStream.DescribeStreamResponse
+instance GHC.Show.Show Amazonka.Kinesis.DescribeStream.DescribeStreamResponse
+instance GHC.Read.Read Amazonka.Kinesis.DescribeStream.DescribeStreamResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.DescribeStream.DescribeStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.DescribeStream.DescribeStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DescribeStream.DescribeStreamResponse
+instance Amazonka.Pager.AWSPager Amazonka.Kinesis.DescribeStream.DescribeStream
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.DescribeStream.DescribeStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DescribeStream.DescribeStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.DescribeStream.DescribeStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.DescribeStream.DescribeStream
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.DescribeStream.DescribeStream
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.DescribeStream.DescribeStream
 
 
 -- | Describes the shard limits and usage for the account.
@@ -6910,7 +6910,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DescribeStream.Descr
 --   for a few minutes.
 --   
 --   This operation has a limit of one transaction per second per account.
-module Network.AWS.Kinesis.DescribeLimits
+module Amazonka.Kinesis.DescribeLimits
 
 -- | <i>See:</i> <a>newDescribeLimits</a> smart constructor.
 data DescribeLimits
@@ -6966,22 +6966,22 @@ describeLimitsResponse_shardLimit :: Lens' DescribeLimitsResponse Natural
 
 -- | The number of open shards.
 describeLimitsResponse_openShardCount :: Lens' DescribeLimitsResponse Natural
-instance GHC.Generics.Generic Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance GHC.Show.Show Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance GHC.Read.Read Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance GHC.Classes.Eq Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance GHC.Generics.Generic Network.AWS.Kinesis.DescribeLimits.DescribeLimitsResponse
-instance GHC.Show.Show Network.AWS.Kinesis.DescribeLimits.DescribeLimitsResponse
-instance GHC.Read.Read Network.AWS.Kinesis.DescribeLimits.DescribeLimitsResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.DescribeLimits.DescribeLimitsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DescribeLimits.DescribeLimitsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.DescribeLimits.DescribeLimits
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DescribeLimits.DescribeLimits
+instance GHC.Generics.Generic Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance GHC.Show.Show Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance GHC.Read.Read Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance GHC.Classes.Eq Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance GHC.Generics.Generic Amazonka.Kinesis.DescribeLimits.DescribeLimitsResponse
+instance GHC.Show.Show Amazonka.Kinesis.DescribeLimits.DescribeLimitsResponse
+instance GHC.Read.Read Amazonka.Kinesis.DescribeLimits.DescribeLimitsResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.DescribeLimits.DescribeLimitsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DescribeLimits.DescribeLimitsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.DescribeLimits.DescribeLimits
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.DescribeLimits.DescribeLimits
 
 
 -- | To deregister a consumer, provide its ARN. Alternatively, you can
@@ -6994,7 +6994,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DescribeLimits.Descr
 --   stream. The description of a consumer contains its name and ARN.
 --   
 --   This operation has a limit of five transactions per second per stream.
-module Network.AWS.Kinesis.DeregisterStreamConsumer
+module Amazonka.Kinesis.DeregisterStreamConsumer
 
 -- | <i>See:</i> <a>newDeregisterStreamConsumer</a> smart constructor.
 data DeregisterStreamConsumer
@@ -7071,22 +7071,22 @@ DeregisterStreamConsumerResponse' :: DeregisterStreamConsumerResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeregisterStreamConsumerResponse :: DeregisterStreamConsumerResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance GHC.Show.Show Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance GHC.Read.Read Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance GHC.Classes.Eq Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance GHC.Generics.Generic Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
-instance GHC.Show.Show Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
-instance GHC.Read.Read Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance GHC.Generics.Generic Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance GHC.Show.Show Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance GHC.Read.Read Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance GHC.Classes.Eq Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance GHC.Generics.Generic Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
+instance GHC.Show.Show Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
+instance GHC.Read.Read Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumerResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.DeregisterStreamConsumer.DeregisterStreamConsumer
 
 
 -- | Deletes a Kinesis data stream and all its shards and data. You must
@@ -7111,7 +7111,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DeregisterStreamCons
 --   stream, which is returned in <tt>StreamStatus</tt>.
 --   
 --   DeleteStream has a limit of five transactions per second per account.
-module Network.AWS.Kinesis.DeleteStream
+module Amazonka.Kinesis.DeleteStream
 
 -- | Represents the input for DeleteStream.
 --   
@@ -7164,22 +7164,22 @@ DeleteStreamResponse' :: DeleteStreamResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteStreamResponse :: DeleteStreamResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance GHC.Show.Show Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance GHC.Read.Read Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance GHC.Classes.Eq Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance GHC.Generics.Generic Network.AWS.Kinesis.DeleteStream.DeleteStreamResponse
-instance GHC.Show.Show Network.AWS.Kinesis.DeleteStream.DeleteStreamResponse
-instance GHC.Read.Read Network.AWS.Kinesis.DeleteStream.DeleteStreamResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.DeleteStream.DeleteStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DeleteStream.DeleteStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.DeleteStream.DeleteStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DeleteStream.DeleteStream
+instance GHC.Generics.Generic Amazonka.Kinesis.DeleteStream.DeleteStream
+instance GHC.Show.Show Amazonka.Kinesis.DeleteStream.DeleteStream
+instance GHC.Read.Read Amazonka.Kinesis.DeleteStream.DeleteStream
+instance GHC.Classes.Eq Amazonka.Kinesis.DeleteStream.DeleteStream
+instance GHC.Generics.Generic Amazonka.Kinesis.DeleteStream.DeleteStreamResponse
+instance GHC.Show.Show Amazonka.Kinesis.DeleteStream.DeleteStreamResponse
+instance GHC.Read.Read Amazonka.Kinesis.DeleteStream.DeleteStreamResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.DeleteStream.DeleteStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.DeleteStream.DeleteStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DeleteStream.DeleteStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.DeleteStream.DeleteStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DeleteStream.DeleteStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.DeleteStream.DeleteStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.DeleteStream.DeleteStream
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.DeleteStream.DeleteStream
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.DeleteStream.DeleteStream
 
 
 -- | Decreases the Kinesis data stream's retention period, which is the
@@ -7189,7 +7189,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DeleteStream.DeleteS
 --   This operation may result in lost data. For example, if the stream's
 --   retention period is 48 hours and is decreased to 24 hours, any data
 --   already in the stream that is older than 24 hours is inaccessible.
-module Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
+module Amazonka.Kinesis.DecreaseStreamRetentionPeriod
 
 -- | Represents the input for DecreaseStreamRetentionPeriod.
 --   
@@ -7241,22 +7241,22 @@ DecreaseStreamRetentionPeriodResponse' :: DecreaseStreamRetentionPeriodResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDecreaseStreamRetentionPeriodResponse :: DecreaseStreamRetentionPeriodResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance GHC.Show.Show Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance GHC.Read.Read Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance GHC.Classes.Eq Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance GHC.Generics.Generic Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
-instance GHC.Show.Show Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
-instance GHC.Read.Read Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance GHC.Generics.Generic Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance GHC.Show.Show Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance GHC.Read.Read Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance GHC.Classes.Eq Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance GHC.Generics.Generic Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
+instance GHC.Show.Show Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
+instance GHC.Read.Read Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriodResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance Control.DeepSeq.NFData Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.DecreaseStreamRetentionPeriod.DecreaseStreamRetentionPeriod
 
 
 -- | Creates a Kinesis data stream. A stream captures and transports data
@@ -7303,7 +7303,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.DecreaseStreamRetent
 --   is returned in <tt>StreamStatus</tt>.
 --   
 --   CreateStream has a limit of five transactions per second per account.
-module Network.AWS.Kinesis.CreateStream
+module Amazonka.Kinesis.CreateStream
 
 -- | Represents the input for <tt>CreateStream</tt>.
 --   
@@ -7367,22 +7367,22 @@ CreateStreamResponse' :: CreateStreamResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newCreateStreamResponse :: CreateStreamResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.CreateStream.CreateStream
-instance GHC.Show.Show Network.AWS.Kinesis.CreateStream.CreateStream
-instance GHC.Read.Read Network.AWS.Kinesis.CreateStream.CreateStream
-instance GHC.Classes.Eq Network.AWS.Kinesis.CreateStream.CreateStream
-instance GHC.Generics.Generic Network.AWS.Kinesis.CreateStream.CreateStreamResponse
-instance GHC.Show.Show Network.AWS.Kinesis.CreateStream.CreateStreamResponse
-instance GHC.Read.Read Network.AWS.Kinesis.CreateStream.CreateStreamResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.CreateStream.CreateStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.CreateStream.CreateStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.CreateStream.CreateStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.CreateStream.CreateStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.CreateStream.CreateStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.CreateStream.CreateStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.CreateStream.CreateStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.CreateStream.CreateStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.CreateStream.CreateStream
+instance GHC.Generics.Generic Amazonka.Kinesis.CreateStream.CreateStream
+instance GHC.Show.Show Amazonka.Kinesis.CreateStream.CreateStream
+instance GHC.Read.Read Amazonka.Kinesis.CreateStream.CreateStream
+instance GHC.Classes.Eq Amazonka.Kinesis.CreateStream.CreateStream
+instance GHC.Generics.Generic Amazonka.Kinesis.CreateStream.CreateStreamResponse
+instance GHC.Show.Show Amazonka.Kinesis.CreateStream.CreateStreamResponse
+instance GHC.Read.Read Amazonka.Kinesis.CreateStream.CreateStreamResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.CreateStream.CreateStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.CreateStream.CreateStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.CreateStream.CreateStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.CreateStream.CreateStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.CreateStream.CreateStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.CreateStream.CreateStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.CreateStream.CreateStream
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.CreateStream.CreateStream
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.CreateStream.CreateStream
 
 
 -- | Adds or updates tags for the specified Kinesis data stream. Each time
@@ -7396,7 +7396,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.CreateStream.CreateS
 --   
 --   AddTagsToStream has a limit of five transactions per second per
 --   account.
-module Network.AWS.Kinesis.AddTagsToStream
+module Amazonka.Kinesis.AddTagsToStream
 
 -- | Represents the input for <tt>AddTagsToStream</tt>.
 --   
@@ -7442,22 +7442,22 @@ AddTagsToStreamResponse' :: AddTagsToStreamResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAddTagsToStreamResponse :: AddTagsToStreamResponse
-instance GHC.Generics.Generic Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance GHC.Show.Show Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance GHC.Read.Read Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance GHC.Classes.Eq Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance GHC.Generics.Generic Network.AWS.Kinesis.AddTagsToStream.AddTagsToStreamResponse
-instance GHC.Show.Show Network.AWS.Kinesis.AddTagsToStream.AddTagsToStreamResponse
-instance GHC.Read.Read Network.AWS.Kinesis.AddTagsToStream.AddTagsToStreamResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.AddTagsToStream.AddTagsToStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.AddTagsToStream.AddTagsToStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.AddTagsToStream.AddTagsToStream
+instance GHC.Generics.Generic Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance GHC.Show.Show Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance GHC.Read.Read Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance GHC.Classes.Eq Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance GHC.Generics.Generic Amazonka.Kinesis.AddTagsToStream.AddTagsToStreamResponse
+instance GHC.Show.Show Amazonka.Kinesis.AddTagsToStream.AddTagsToStreamResponse
+instance GHC.Read.Read Amazonka.Kinesis.AddTagsToStream.AddTagsToStreamResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.AddTagsToStream.AddTagsToStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.AddTagsToStream.AddTagsToStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance Control.DeepSeq.NFData Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.AddTagsToStream.AddTagsToStream
 
 
 -- | Updates the shard count of the specified stream to the specified
@@ -7501,7 +7501,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.AddTagsToStream.AddT
 --   in the <i>Amazon Kinesis Data Streams Developer Guide</i>. To request
 --   an increase in the call rate limit, the shard limit for this API, or
 --   your overall shard limit, use the <a>limits form</a>.
-module Network.AWS.Kinesis.UpdateShardCount
+module Amazonka.Kinesis.UpdateShardCount
 
 -- | <i>See:</i> <a>newUpdateShardCount</a> smart constructor.
 data UpdateShardCount
@@ -7637,25 +7637,25 @@ updateShardCountResponse_currentShardCount :: Lens' UpdateShardCountResponse (Ma
 
 -- | The response's http status code.
 updateShardCountResponse_httpStatus :: Lens' UpdateShardCountResponse Int
-instance GHC.Generics.Generic Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance GHC.Show.Show Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance GHC.Read.Read Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance GHC.Classes.Eq Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance GHC.Generics.Generic Network.AWS.Kinesis.UpdateShardCount.UpdateShardCountResponse
-instance GHC.Show.Show Network.AWS.Kinesis.UpdateShardCount.UpdateShardCountResponse
-instance GHC.Read.Read Network.AWS.Kinesis.UpdateShardCount.UpdateShardCountResponse
-instance GHC.Classes.Eq Network.AWS.Kinesis.UpdateShardCount.UpdateShardCountResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.UpdateShardCount.UpdateShardCountResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance Control.DeepSeq.NFData Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance Network.AWS.Data.Path.ToPath Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Kinesis.UpdateShardCount.UpdateShardCount
+instance GHC.Generics.Generic Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance GHC.Show.Show Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance GHC.Read.Read Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance GHC.Classes.Eq Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance GHC.Generics.Generic Amazonka.Kinesis.UpdateShardCount.UpdateShardCountResponse
+instance GHC.Show.Show Amazonka.Kinesis.UpdateShardCount.UpdateShardCountResponse
+instance GHC.Read.Read Amazonka.Kinesis.UpdateShardCount.UpdateShardCountResponse
+instance GHC.Classes.Eq Amazonka.Kinesis.UpdateShardCount.UpdateShardCountResponse
+instance Amazonka.Types.AWSRequest Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance Control.DeepSeq.NFData Amazonka.Kinesis.UpdateShardCount.UpdateShardCountResponse
+instance Data.Hashable.Class.Hashable Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance Control.DeepSeq.NFData Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance Amazonka.Data.Path.ToPath Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
+instance Amazonka.Data.Query.ToQuery Amazonka.Kinesis.UpdateShardCount.UpdateShardCount
 
 
-module Network.AWS.Kinesis.Lens
+module Amazonka.Kinesis.Lens
 
 -- | The hash value used to explicitly determine the shard the data record
 --   is assigned to by overriding the partition key hash.
@@ -8774,7 +8774,7 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag Text
 
 
-module Network.AWS.Kinesis.Waiters
+module Amazonka.Kinesis.Waiters
 
 -- | Polls <a>DescribeStream</a> every 10 seconds until a successful state
 --   is reached. An error is returned after 18 failed checks.
@@ -8792,7 +8792,7 @@ newStreamNotExists :: Wait DescribeStream
 --   
 --   Amazon Kinesis Data Streams is a managed service that scales
 --   elastically for real-time processing of streaming big data.
-module Network.AWS.Kinesis
+module Amazonka.Kinesis
 
 -- | API version <tt>2013-12-02</tt> of the Amazon Kinesis SDK
 --   configuration.

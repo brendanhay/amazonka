@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentity.SetIdentityPoolRoles</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the roles for an identity pool. These roles are used when making</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- calls to GetCredentialsForIdentity action.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You must use AWS Developer credentials to call this API.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentity.SetIdentityPoolRoles</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#newSetIdentityPoolRoles"><span class="hs-identifier">newSetIdentityPoolRoles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_roleMappings"><span class="hs-identifier">setIdentityPoolRoles_roleMappings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_identityPoolId"><span class="hs-identifier">setIdentityPoolRoles_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_roles"><span class="hs-identifier">setIdentityPoolRoles_roles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier">SetIdentityPoolRolesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#newSetIdentityPoolRolesResponse"><span class="hs-identifier">newSetIdentityPoolRolesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.html"><span class="hs-identifier">Amazonka.CognitoIdentity.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | Input to the @SetIdentityPoolRoles@ action.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newSetIdentityPoolRoles' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679184742"><span id="local-6989586621679184743"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityPoolRoles"><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-var">SetIdentityPoolRoles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityPoolRoles%27"><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-var">SetIdentityPoolRoles'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How users for a specific identity provider are to mapped to roles. This</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- is a string to RoleMapping object map. The string identifies the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- identity provider, for example, \&quot;graph.facebook.com\&quot; or</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- \&quot;cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\&quot;.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Up to 25 rules can be specified per identity provider.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AroleMappings%3ASetIdentityPoolRoles%27"><span class="annot"><span class="annottext">SetIdentityPoolRoles -&gt; Maybe (HashMap Text RoleMapping)
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3AroleMappings%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var hs-var">roleMappings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.RoleMapping.html#RoleMapping"><span class="hs-identifier hs-type">RoleMapping</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | An identity pool ID in the format REGION:GUID.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AidentityPoolId%3ASetIdentityPoolRoles%27"><span class="annot"><span class="annottext">SetIdentityPoolRoles -&gt; Text
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3AidentityPoolId%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The map of roles associated with this pool. For a given role, the key</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- will be either \&quot;authenticated\&quot; or \&quot;unauthenticated\&quot; and the value</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- will be the Role ARN.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aroles%3ASetIdentityPoolRoles%27"><span class="annot"><span class="annottext">SetIdentityPoolRoles -&gt; HashMap Text Text
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3Aroles%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184734"><span id="local-6989586621679184736"><span class="annot"><span class="annottext">SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
+(SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool)
+-&gt; (SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool)
+-&gt; Eq SetIdentityPoolRoles
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
+$c/= :: SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
+== :: SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
+$c== :: SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184725"><span id="local-6989586621679184727"><span id="local-6989586621679184729"><span id="local-6989586621679184731"><span class="annot"><span class="annottext">ReadPrec [SetIdentityPoolRoles]
+ReadPrec SetIdentityPoolRoles
+Int -&gt; ReadS SetIdentityPoolRoles
+ReadS [SetIdentityPoolRoles]
+(Int -&gt; ReadS SetIdentityPoolRoles)
+-&gt; ReadS [SetIdentityPoolRoles]
+-&gt; ReadPrec SetIdentityPoolRoles
+-&gt; ReadPrec [SetIdentityPoolRoles]
+-&gt; Read SetIdentityPoolRoles
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetIdentityPoolRoles]
+$creadListPrec :: ReadPrec [SetIdentityPoolRoles]
+readPrec :: ReadPrec SetIdentityPoolRoles
+$creadPrec :: ReadPrec SetIdentityPoolRoles
+readList :: ReadS [SetIdentityPoolRoles]
+$creadList :: ReadS [SetIdentityPoolRoles]
+readsPrec :: Int -&gt; ReadS SetIdentityPoolRoles
+$creadsPrec :: Int -&gt; ReadS SetIdentityPoolRoles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184718"><span id="local-6989586621679184720"><span id="local-6989586621679184722"><span class="annot"><span class="annottext">Int -&gt; SetIdentityPoolRoles -&gt; ShowS
+[SetIdentityPoolRoles] -&gt; ShowS
+SetIdentityPoolRoles -&gt; String
+(Int -&gt; SetIdentityPoolRoles -&gt; ShowS)
+-&gt; (SetIdentityPoolRoles -&gt; String)
+-&gt; ([SetIdentityPoolRoles] -&gt; ShowS)
+-&gt; Show SetIdentityPoolRoles
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetIdentityPoolRoles] -&gt; ShowS
+$cshowList :: [SetIdentityPoolRoles] -&gt; ShowS
+show :: SetIdentityPoolRoles -&gt; String
+$cshow :: SetIdentityPoolRoles -&gt; String
+showsPrec :: Int -&gt; SetIdentityPoolRoles -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetIdentityPoolRoles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SetIdentityPoolRoles -&gt; Rep SetIdentityPoolRoles x)
+-&gt; (forall x. Rep SetIdentityPoolRoles x -&gt; SetIdentityPoolRoles)
+-&gt; Generic SetIdentityPoolRoles
+forall x. Rep SetIdentityPoolRoles x -&gt; SetIdentityPoolRoles
+forall x. SetIdentityPoolRoles -&gt; Rep SetIdentityPoolRoles x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SetIdentityPoolRoles x -&gt; SetIdentityPoolRoles
+$cfrom :: forall x. SetIdentityPoolRoles -&gt; Rep SetIdentityPoolRoles x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'SetIdentityPoolRoles' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'roleMappings', 'setIdentityPoolRoles_roleMappings' - How users for a specific identity provider are to mapped to roles. This</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- is a string to RoleMapping object map. The string identifies the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- identity provider, for example, \&quot;graph.facebook.com\&quot; or</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- \&quot;cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\&quot;.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Up to 25 rules can be specified per identity provider.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'identityPoolId', 'setIdentityPoolRoles_identityPoolId' - An identity pool ID in the format REGION:GUID.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'roles', 'setIdentityPoolRoles_roles' - The map of roles associated with this pool. For a given role, the key</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- will be either \&quot;authenticated\&quot; or \&quot;unauthenticated\&quot; and the value</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- will be the Role ARN.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#newSetIdentityPoolRoles"><span class="hs-identifier hs-type">newSetIdentityPoolRoles</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'identityPoolId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span>
+</span><span id="line-94"></span><span id="newSetIdentityPoolRoles"><span class="annot"><span class="annottext">newSetIdentityPoolRoles :: Text -&gt; SetIdentityPoolRoles
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#newSetIdentityPoolRoles"><span class="hs-identifier hs-var hs-var">newSetIdentityPoolRoles</span></a></span></span><span> </span><span id="local-6989586621679184713"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184713"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityPoolRoles' :: Maybe (HashMap Text RoleMapping)
+-&gt; Text -&gt; HashMap Text Text -&gt; SetIdentityPoolRoles
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleMappings:SetIdentityPoolRoles' :: Maybe (HashMap Text RoleMapping)
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3AroleMappings%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">roleMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityPoolId:SetIdentityPoolRoles' :: Text
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3AidentityPoolId%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184713"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:roles:SetIdentityPoolRoles' :: HashMap Text Text
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3Aroles%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | How users for a specific identity provider are to mapped to roles. This</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- is a string to RoleMapping object map. The string identifies the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- identity provider, for example, \&quot;graph.facebook.com\&quot; or</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- \&quot;cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\&quot;.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Up to 25 rules can be specified per identity provider.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_roleMappings"><span class="hs-identifier hs-type">setIdentityPoolRoles_roleMappings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.Types.RoleMapping.html#RoleMapping"><span class="hs-identifier hs-type">RoleMapping</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="setIdentityPoolRoles_roleMappings"><span class="annot"><span class="annottext">setIdentityPoolRoles_roleMappings :: (Maybe (HashMap Text RoleMapping)
+ -&gt; f (Maybe (HashMap Text RoleMapping)))
+-&gt; SetIdentityPoolRoles -&gt; f SetIdentityPoolRoles
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_roleMappings"><span class="hs-identifier hs-var hs-var">setIdentityPoolRoles_roleMappings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetIdentityPoolRoles -&gt; Maybe (HashMap Text RoleMapping))
+-&gt; (SetIdentityPoolRoles
+    -&gt; Maybe (HashMap Text RoleMapping) -&gt; SetIdentityPoolRoles)
+-&gt; Lens
+     SetIdentityPoolRoles
+     SetIdentityPoolRoles
+     (Maybe (HashMap Text RoleMapping))
+     (Maybe (HashMap Text RoleMapping))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184710"><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+roleMappings :: Maybe (HashMap Text RoleMapping)
+$sel:roleMappings:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184710"><span class="hs-identifier hs-var hs-var">roleMappings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184710"><span class="hs-identifier hs-var">roleMappings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184709"><span class="annot"><span class="annottext">s :: SetIdentityPoolRoles
+</span><a href="#local-6989586621679184709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184708"><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityPoolRoles
+</span><a href="#local-6989586621679184709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleMappings:SetIdentityPoolRoles' :: Maybe (HashMap Text RoleMapping)
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3AroleMappings%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">roleMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text RoleMapping)
+  -&gt; f (Maybe (HashMap Text RoleMapping)))
+ -&gt; SetIdentityPoolRoles -&gt; f SetIdentityPoolRoles)
+-&gt; ((Maybe (HashMap Text RoleMapping)
+     -&gt; f (Maybe (HashMap Text RoleMapping)))
+    -&gt; Maybe (HashMap Text RoleMapping)
+    -&gt; f (Maybe (HashMap Text RoleMapping)))
+-&gt; (Maybe (HashMap Text RoleMapping)
+    -&gt; f (Maybe (HashMap Text RoleMapping)))
+-&gt; SetIdentityPoolRoles
+-&gt; f SetIdentityPoolRoles
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text RoleMapping)
+  (HashMap Text RoleMapping)
+  (HashMap Text RoleMapping)
+  (HashMap Text RoleMapping)
+-&gt; Iso
+     (Maybe (HashMap Text RoleMapping))
+     (Maybe (HashMap Text RoleMapping))
+     (Maybe (HashMap Text RoleMapping))
+     (Maybe (HashMap Text RoleMapping))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text RoleMapping)
+  (HashMap Text RoleMapping)
+  (HashMap Text RoleMapping)
+  (HashMap Text RoleMapping)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | An identity pool ID in the format REGION:GUID.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_identityPoolId"><span class="hs-identifier hs-type">setIdentityPoolRoles_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="setIdentityPoolRoles_identityPoolId"><span class="annot"><span class="annottext">setIdentityPoolRoles_identityPoolId :: (Text -&gt; f Text) -&gt; SetIdentityPoolRoles -&gt; f SetIdentityPoolRoles
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_identityPoolId"><span class="hs-identifier hs-var hs-var">setIdentityPoolRoles_identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetIdentityPoolRoles -&gt; Text)
+-&gt; (SetIdentityPoolRoles -&gt; Text -&gt; SetIdentityPoolRoles)
+-&gt; Lens SetIdentityPoolRoles SetIdentityPoolRoles Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184704"><span class="annot"><span class="annottext">Text
+identityPoolId :: Text
+$sel:identityPoolId:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; Text
+</span><a href="#local-6989586621679184704"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184704"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184703"><span class="annot"><span class="annottext">s :: SetIdentityPoolRoles
+</span><a href="#local-6989586621679184703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityPoolRoles
+</span><a href="#local-6989586621679184703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:SetIdentityPoolRoles' :: Text
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3AidentityPoolId%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The map of roles associated with this pool. For a given role, the key</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- will be either \&quot;authenticated\&quot; or \&quot;unauthenticated\&quot; and the value</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- will be the Role ARN.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_roles"><span class="hs-identifier hs-type">setIdentityPoolRoles_roles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="setIdentityPoolRoles_roles"><span class="annot"><span class="annottext">setIdentityPoolRoles_roles :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; SetIdentityPoolRoles -&gt; f SetIdentityPoolRoles
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_roles"><span class="hs-identifier hs-var hs-var">setIdentityPoolRoles_roles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetIdentityPoolRoles -&gt; HashMap Text Text)
+-&gt; (SetIdentityPoolRoles
+    -&gt; HashMap Text Text -&gt; SetIdentityPoolRoles)
+-&gt; Lens
+     SetIdentityPoolRoles
+     SetIdentityPoolRoles
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184701"><span class="annot"><span class="annottext">HashMap Text Text
+roles :: HashMap Text Text
+$sel:roles:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; HashMap Text Text
+</span><a href="#local-6989586621679184701"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679184701"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184700"><span class="annot"><span class="annottext">s :: SetIdentityPoolRoles
+</span><a href="#local-6989586621679184700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184699"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679184699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityPoolRoles
+</span><a href="#local-6989586621679184700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:SetIdentityPoolRoles' :: HashMap Text Text
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3Aroles%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679184699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; SetIdentityPoolRoles -&gt; f SetIdentityPoolRoles)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; SetIdentityPoolRoles
+-&gt; f SetIdentityPoolRoles
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier hs-type">SetIdentityPoolRolesResponse</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679184695"><span class="annot"><span class="annottext">request :: SetIdentityPoolRoles -&gt; Request SetIdentityPoolRoles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetIdentityPoolRoles -&gt; Request SetIdentityPoolRoles
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CognitoIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679184691"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetIdentityPoolRoles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetIdentityPoolRoles)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse SetIdentityPoolRoles
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetIdentityPoolRoles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetIdentityPoolRoles)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SetIdentityPoolRoles
+SetIdentityPoolRolesResponse
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse%27"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184684"><span id="local-6989586621679184686"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679184677"><span class="annot"><span class="annottext">toHeaders :: SetIdentityPoolRoles -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; SetIdentityPoolRoles -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityService.SetIdentityPoolRoles&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-144"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184667"><span id="local-6989586621679184669"><span id="local-6989586621679184671"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679184665"><span class="annot"><span class="annottext">toJSON :: SetIdentityPoolRoles -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184661"><span id="local-6989586621679184662"><span id="local-6989586621679184663"><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+Text
+HashMap Text Text
+roles :: HashMap Text Text
+identityPoolId :: Text
+roleMappings :: Maybe (HashMap Text RoleMapping)
+$sel:roles:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; HashMap Text Text
+$sel:identityPoolId:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; Text
+$sel:roleMappings:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184661"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleMappings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text RoleMapping -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text RoleMapping -&gt; Pair)
+-&gt; Maybe (HashMap Text RoleMapping) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184663"><span class="hs-identifier hs-var">roleMappings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184662"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Roles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679184661"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679184654"><span class="annot"><span class="annottext">toPath :: SetIdentityPoolRoles -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetIdentityPoolRoles -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679184650"><span class="annot"><span class="annottext">toQuery :: SetIdentityPoolRoles -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetIdentityPoolRoles -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newSetIdentityPoolRolesResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679184647"><span id="local-6989586621679184648"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityPoolRolesResponse"><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityPoolRolesResponse%27"><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse%27"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184643"><span id="local-6989586621679184645"><span class="annot"><span class="annottext">SetIdentityPoolRolesResponse
+-&gt; SetIdentityPoolRolesResponse -&gt; Bool
+(SetIdentityPoolRolesResponse
+ -&gt; SetIdentityPoolRolesResponse -&gt; Bool)
+-&gt; (SetIdentityPoolRolesResponse
+    -&gt; SetIdentityPoolRolesResponse -&gt; Bool)
+-&gt; Eq SetIdentityPoolRolesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetIdentityPoolRolesResponse
+-&gt; SetIdentityPoolRolesResponse -&gt; Bool
+$c/= :: SetIdentityPoolRolesResponse
+-&gt; SetIdentityPoolRolesResponse -&gt; Bool
+== :: SetIdentityPoolRolesResponse
+-&gt; SetIdentityPoolRolesResponse -&gt; Bool
+$c== :: SetIdentityPoolRolesResponse
+-&gt; SetIdentityPoolRolesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184635"><span id="local-6989586621679184637"><span id="local-6989586621679184639"><span id="local-6989586621679184641"><span class="annot"><span class="annottext">ReadPrec [SetIdentityPoolRolesResponse]
+ReadPrec SetIdentityPoolRolesResponse
+Int -&gt; ReadS SetIdentityPoolRolesResponse
+ReadS [SetIdentityPoolRolesResponse]
+(Int -&gt; ReadS SetIdentityPoolRolesResponse)
+-&gt; ReadS [SetIdentityPoolRolesResponse]
+-&gt; ReadPrec SetIdentityPoolRolesResponse
+-&gt; ReadPrec [SetIdentityPoolRolesResponse]
+-&gt; Read SetIdentityPoolRolesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetIdentityPoolRolesResponse]
+$creadListPrec :: ReadPrec [SetIdentityPoolRolesResponse]
+readPrec :: ReadPrec SetIdentityPoolRolesResponse
+$creadPrec :: ReadPrec SetIdentityPoolRolesResponse
+readList :: ReadS [SetIdentityPoolRolesResponse]
+$creadList :: ReadS [SetIdentityPoolRolesResponse]
+readsPrec :: Int -&gt; ReadS SetIdentityPoolRolesResponse
+$creadsPrec :: Int -&gt; ReadS SetIdentityPoolRolesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184629"><span id="local-6989586621679184631"><span id="local-6989586621679184633"><span class="annot"><span class="annottext">Int -&gt; SetIdentityPoolRolesResponse -&gt; ShowS
+[SetIdentityPoolRolesResponse] -&gt; ShowS
+SetIdentityPoolRolesResponse -&gt; String
+(Int -&gt; SetIdentityPoolRolesResponse -&gt; ShowS)
+-&gt; (SetIdentityPoolRolesResponse -&gt; String)
+-&gt; ([SetIdentityPoolRolesResponse] -&gt; ShowS)
+-&gt; Show SetIdentityPoolRolesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetIdentityPoolRolesResponse] -&gt; ShowS
+$cshowList :: [SetIdentityPoolRolesResponse] -&gt; ShowS
+show :: SetIdentityPoolRolesResponse -&gt; String
+$cshow :: SetIdentityPoolRolesResponse -&gt; String
+showsPrec :: Int -&gt; SetIdentityPoolRolesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetIdentityPoolRolesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetIdentityPoolRolesResponse -&gt; Rep SetIdentityPoolRolesResponse x)
+-&gt; (forall x.
+    Rep SetIdentityPoolRolesResponse x -&gt; SetIdentityPoolRolesResponse)
+-&gt; Generic SetIdentityPoolRolesResponse
+forall x.
+Rep SetIdentityPoolRolesResponse x -&gt; SetIdentityPoolRolesResponse
+forall x.
+SetIdentityPoolRolesResponse -&gt; Rep SetIdentityPoolRolesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetIdentityPoolRolesResponse x -&gt; SetIdentityPoolRolesResponse
+$cfrom :: forall x.
+SetIdentityPoolRolesResponse -&gt; Rep SetIdentityPoolRolesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'SetIdentityPoolRolesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#newSetIdentityPoolRolesResponse"><span class="hs-identifier hs-type">newSetIdentityPoolRolesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier hs-type">SetIdentityPoolRolesResponse</span></a></span><span>
+</span><span id="line-177"></span><span id="newSetIdentityPoolRolesResponse"><span class="annot"><span class="annottext">newSetIdentityPoolRolesResponse :: SetIdentityPoolRolesResponse
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#newSetIdentityPoolRolesResponse"><span class="hs-identifier hs-var hs-var">newSetIdentityPoolRolesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityPoolRolesResponse
+</span><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse%27"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier hs-type">SetIdentityPoolRolesResponse</span></a></span></span><span>
+</span><span id="line-181"></span></pre></body></html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.GetEvidenceFolder</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns an evidence folder from the specified assessment in Audit</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Manager.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.GetEvidenceFolder</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier">GetEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#newGetEvidenceFolder"><span class="hs-identifier">newGetEvidenceFolder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolder_assessmentId"><span class="hs-identifier">getEvidenceFolder_assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolder_controlSetId"><span class="hs-identifier">getEvidenceFolder_controlSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolder_evidenceFolderId"><span class="hs-identifier">getEvidenceFolder_evidenceFolderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse"><span class="hs-identifier">GetEvidenceFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#newGetEvidenceFolderResponse"><span class="hs-identifier">newGetEvidenceFolderResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolderResponse_evidenceFolder"><span class="hs-identifier">getEvidenceFolderResponse_evidenceFolder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolderResponse_httpStatus"><span class="hs-identifier">getEvidenceFolderResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.html"><span class="hs-identifier">Amazonka.AuditManager.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetEvidenceFolder' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679301846"><span id="local-6989586621679301847"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEvidenceFolder"><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-var">GetEvidenceFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEvidenceFolder%27"><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder%27"><span class="hs-identifier hs-var">GetEvidenceFolder'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the specified assessment.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AassessmentId%3AGetEvidenceFolder%27"><span class="annot"><span class="annottext">GetEvidenceFolder -&gt; Text
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AassessmentId%3AGetEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The identifier for the specified control set.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AcontrolSetId%3AGetEvidenceFolder%27"><span class="annot"><span class="annottext">GetEvidenceFolder -&gt; Text
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AcontrolSetId%3AGetEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">controlSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The identifier for the folder in which the evidence is stored.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AevidenceFolderId%3AGetEvidenceFolder%27"><span class="annot"><span class="annottext">GetEvidenceFolder -&gt; Text
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AevidenceFolderId%3AGetEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">evidenceFolderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301838"><span id="local-6989586621679301840"><span class="annot"><span class="annottext">GetEvidenceFolder -&gt; GetEvidenceFolder -&gt; Bool
+(GetEvidenceFolder -&gt; GetEvidenceFolder -&gt; Bool)
+-&gt; (GetEvidenceFolder -&gt; GetEvidenceFolder -&gt; Bool)
+-&gt; Eq GetEvidenceFolder
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEvidenceFolder -&gt; GetEvidenceFolder -&gt; Bool
+$c/= :: GetEvidenceFolder -&gt; GetEvidenceFolder -&gt; Bool
+== :: GetEvidenceFolder -&gt; GetEvidenceFolder -&gt; Bool
+$c== :: GetEvidenceFolder -&gt; GetEvidenceFolder -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301829"><span id="local-6989586621679301831"><span id="local-6989586621679301833"><span id="local-6989586621679301835"><span class="annot"><span class="annottext">ReadPrec [GetEvidenceFolder]
+ReadPrec GetEvidenceFolder
+Int -&gt; ReadS GetEvidenceFolder
+ReadS [GetEvidenceFolder]
+(Int -&gt; ReadS GetEvidenceFolder)
+-&gt; ReadS [GetEvidenceFolder]
+-&gt; ReadPrec GetEvidenceFolder
+-&gt; ReadPrec [GetEvidenceFolder]
+-&gt; Read GetEvidenceFolder
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEvidenceFolder]
+$creadListPrec :: ReadPrec [GetEvidenceFolder]
+readPrec :: ReadPrec GetEvidenceFolder
+$creadPrec :: ReadPrec GetEvidenceFolder
+readList :: ReadS [GetEvidenceFolder]
+$creadList :: ReadS [GetEvidenceFolder]
+readsPrec :: Int -&gt; ReadS GetEvidenceFolder
+$creadsPrec :: Int -&gt; ReadS GetEvidenceFolder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301822"><span id="local-6989586621679301824"><span id="local-6989586621679301826"><span class="annot"><span class="annottext">Int -&gt; GetEvidenceFolder -&gt; ShowS
+[GetEvidenceFolder] -&gt; ShowS
+GetEvidenceFolder -&gt; String
+(Int -&gt; GetEvidenceFolder -&gt; ShowS)
+-&gt; (GetEvidenceFolder -&gt; String)
+-&gt; ([GetEvidenceFolder] -&gt; ShowS)
+-&gt; Show GetEvidenceFolder
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEvidenceFolder] -&gt; ShowS
+$cshowList :: [GetEvidenceFolder] -&gt; ShowS
+show :: GetEvidenceFolder -&gt; String
+$cshow :: GetEvidenceFolder -&gt; String
+showsPrec :: Int -&gt; GetEvidenceFolder -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEvidenceFolder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEvidenceFolder -&gt; Rep GetEvidenceFolder x)
+-&gt; (forall x. Rep GetEvidenceFolder x -&gt; GetEvidenceFolder)
+-&gt; Generic GetEvidenceFolder
+forall x. Rep GetEvidenceFolder x -&gt; GetEvidenceFolder
+forall x. GetEvidenceFolder -&gt; Rep GetEvidenceFolder x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEvidenceFolder x -&gt; GetEvidenceFolder
+$cfrom :: forall x. GetEvidenceFolder -&gt; Rep GetEvidenceFolder x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'GetEvidenceFolder' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'assessmentId', 'getEvidenceFolder_assessmentId' - The identifier for the specified assessment.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'controlSetId', 'getEvidenceFolder_controlSetId' - The identifier for the specified control set.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'evidenceFolderId', 'getEvidenceFolder_evidenceFolderId' - The identifier for the folder in which the evidence is stored.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#newGetEvidenceFolder"><span class="hs-identifier hs-type">newGetEvidenceFolder</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'assessmentId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'controlSetId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'evidenceFolderId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span>
+</span><span id="line-84"></span><span id="newGetEvidenceFolder"><span class="annot"><span class="annottext">newGetEvidenceFolder :: Text -&gt; Text -&gt; Text -&gt; GetEvidenceFolder
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#newGetEvidenceFolder"><span class="hs-identifier hs-var hs-var">newGetEvidenceFolder</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679301817"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301817"><span class="hs-identifier hs-var">pAssessmentId_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679301816"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301816"><span class="hs-identifier hs-var">pControlSetId_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679301815"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301815"><span class="hs-identifier hs-var">pEvidenceFolderId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">GetEvidenceFolder' :: Text -&gt; Text -&gt; Text -&gt; GetEvidenceFolder
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder%27"><span class="hs-identifier hs-type">GetEvidenceFolder'</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assessmentId:GetEvidenceFolder' :: Text
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AassessmentId%3AGetEvidenceFolder%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301817"><span class="hs-identifier hs-var">pAssessmentId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:controlSetId:GetEvidenceFolder' :: Text
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AcontrolSetId%3AGetEvidenceFolder%27"><span class="hs-identifier hs-var">controlSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301816"><span class="hs-identifier hs-var">pControlSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:evidenceFolderId:GetEvidenceFolder' :: Text
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AevidenceFolderId%3AGetEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceFolderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301815"><span class="hs-identifier hs-var">pEvidenceFolderId_</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The identifier for the specified assessment.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolder_assessmentId"><span class="hs-identifier hs-type">getEvidenceFolder_assessmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="getEvidenceFolder_assessmentId"><span class="annot"><span class="annottext">getEvidenceFolder_assessmentId :: (Text -&gt; f Text) -&gt; GetEvidenceFolder -&gt; f GetEvidenceFolder
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolder_assessmentId"><span class="hs-identifier hs-var hs-var">getEvidenceFolder_assessmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEvidenceFolder -&gt; Text)
+-&gt; (GetEvidenceFolder -&gt; Text -&gt; GetEvidenceFolder)
+-&gt; Lens GetEvidenceFolder GetEvidenceFolder Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder%27"><span class="hs-identifier hs-type">GetEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301812"><span class="annot"><span class="annottext">Text
+assessmentId :: Text
+$sel:assessmentId:GetEvidenceFolder' :: GetEvidenceFolder -&gt; Text
+</span><a href="#local-6989586621679301812"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301812"><span class="hs-identifier hs-var">assessmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301811"><span class="annot"><span class="annottext">s :: GetEvidenceFolder
+</span><a href="#local-6989586621679301811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder%27"><span class="hs-identifier hs-type">GetEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301810"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEvidenceFolder
+</span><a href="#local-6989586621679301811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentId:GetEvidenceFolder' :: Text
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AassessmentId%3AGetEvidenceFolder%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The identifier for the specified control set.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolder_controlSetId"><span class="hs-identifier hs-type">getEvidenceFolder_controlSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="getEvidenceFolder_controlSetId"><span class="annot"><span class="annottext">getEvidenceFolder_controlSetId :: (Text -&gt; f Text) -&gt; GetEvidenceFolder -&gt; f GetEvidenceFolder
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolder_controlSetId"><span class="hs-identifier hs-var hs-var">getEvidenceFolder_controlSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEvidenceFolder -&gt; Text)
+-&gt; (GetEvidenceFolder -&gt; Text -&gt; GetEvidenceFolder)
+-&gt; Lens GetEvidenceFolder GetEvidenceFolder Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder%27"><span class="hs-identifier hs-type">GetEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301809"><span class="annot"><span class="annottext">Text
+controlSetId :: Text
+$sel:controlSetId:GetEvidenceFolder' :: GetEvidenceFolder -&gt; Text
+</span><a href="#local-6989586621679301809"><span class="hs-identifier hs-var hs-var">controlSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301809"><span class="hs-identifier hs-var">controlSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301808"><span class="annot"><span class="annottext">s :: GetEvidenceFolder
+</span><a href="#local-6989586621679301808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder%27"><span class="hs-identifier hs-type">GetEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301807"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEvidenceFolder
+</span><a href="#local-6989586621679301808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlSetId:GetEvidenceFolder' :: Text
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AcontrolSetId%3AGetEvidenceFolder%27"><span class="hs-identifier hs-var">controlSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The identifier for the folder in which the evidence is stored.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolder_evidenceFolderId"><span class="hs-identifier hs-type">getEvidenceFolder_evidenceFolderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="getEvidenceFolder_evidenceFolderId"><span class="annot"><span class="annottext">getEvidenceFolder_evidenceFolderId :: (Text -&gt; f Text) -&gt; GetEvidenceFolder -&gt; f GetEvidenceFolder
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolder_evidenceFolderId"><span class="hs-identifier hs-var hs-var">getEvidenceFolder_evidenceFolderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEvidenceFolder -&gt; Text)
+-&gt; (GetEvidenceFolder -&gt; Text -&gt; GetEvidenceFolder)
+-&gt; Lens GetEvidenceFolder GetEvidenceFolder Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder%27"><span class="hs-identifier hs-type">GetEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301806"><span class="annot"><span class="annottext">Text
+evidenceFolderId :: Text
+$sel:evidenceFolderId:GetEvidenceFolder' :: GetEvidenceFolder -&gt; Text
+</span><a href="#local-6989586621679301806"><span class="hs-identifier hs-var hs-var">evidenceFolderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301806"><span class="hs-identifier hs-var">evidenceFolderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301805"><span class="annot"><span class="annottext">s :: GetEvidenceFolder
+</span><a href="#local-6989586621679301805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder%27"><span class="hs-identifier hs-type">GetEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEvidenceFolder
+</span><a href="#local-6989586621679301805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceFolderId:GetEvidenceFolder' :: Text
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AevidenceFolderId%3AGetEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceFolderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse"><span class="hs-identifier hs-type">GetEvidenceFolderResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679301800"><span class="annot"><span class="annottext">request :: GetEvidenceFolder -&gt; Request GetEvidenceFolder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEvidenceFolder -&gt; Request GetEvidenceFolder
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679301796"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetEvidenceFolder
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetEvidenceFolder)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetEvidenceFolder))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetEvidenceFolder
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetEvidenceFolder)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301793"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301793"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679301792"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679301792"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679301791"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301791"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe AssessmentEvidenceFolder -&gt; Int -&gt; GetEvidenceFolderResponse
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse%27"><span class="hs-identifier hs-var">GetEvidenceFolderResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AssessmentEvidenceFolder
+ -&gt; Int -&gt; GetEvidenceFolderResponse)
+-&gt; Either String (Maybe AssessmentEvidenceFolder)
+-&gt; Either String (Int -&gt; GetEvidenceFolderResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AssessmentEvidenceFolder)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceFolder&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetEvidenceFolderResponse)
+-&gt; Either String Int -&gt; Either String GetEvidenceFolderResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301793"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301783"><span id="local-6989586621679301785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679301776"><span class="annot"><span class="annottext">toHeaders :: GetEvidenceFolder -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEvidenceFolder -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679301770"><span class="annot"><span class="annottext">toPath :: GetEvidenceFolder -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder%27"><span class="hs-identifier hs-type">GetEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301766"><span id="local-6989586621679301767"><span id="local-6989586621679301768"><span class="annot"><span class="annottext">Text
+evidenceFolderId :: Text
+controlSetId :: Text
+assessmentId :: Text
+$sel:evidenceFolderId:GetEvidenceFolder' :: GetEvidenceFolder -&gt; Text
+$sel:controlSetId:GetEvidenceFolder' :: GetEvidenceFolder -&gt; Text
+$sel:assessmentId:GetEvidenceFolder' :: GetEvidenceFolder -&gt; Text
+</span><a href="#local-6989586621679301766"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assessments/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301768"><span class="hs-identifier hs-var">assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/controlSets/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301767"><span class="hs-identifier hs-var">controlSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/evidenceFolders/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301766"><span class="hs-identifier hs-var">evidenceFolderId</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolder"><span class="hs-identifier hs-type">GetEvidenceFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679301762"><span class="annot"><span class="annottext">toQuery :: GetEvidenceFolder -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetEvidenceFolder -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newGetEvidenceFolderResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679301759"><span id="local-6989586621679301760"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEvidenceFolderResponse"><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse"><span class="hs-identifier hs-var">GetEvidenceFolderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEvidenceFolderResponse%27"><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse%27"><span class="hs-identifier hs-var">GetEvidenceFolderResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The folder in which evidence is stored.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AevidenceFolder%3AGetEvidenceFolderResponse%27"><span class="annot"><span class="annottext">GetEvidenceFolderResponse -&gt; Maybe AssessmentEvidenceFolder
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AevidenceFolder%3AGetEvidenceFolderResponse%27"><span class="hs-identifier hs-var hs-var">evidenceFolder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEvidenceFolderResponse%27"><span class="annot"><span class="annottext">GetEvidenceFolderResponse -&gt; Int
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AhttpStatus%3AGetEvidenceFolderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301753"><span id="local-6989586621679301755"><span class="annot"><span class="annottext">GetEvidenceFolderResponse -&gt; GetEvidenceFolderResponse -&gt; Bool
+(GetEvidenceFolderResponse -&gt; GetEvidenceFolderResponse -&gt; Bool)
+-&gt; (GetEvidenceFolderResponse -&gt; GetEvidenceFolderResponse -&gt; Bool)
+-&gt; Eq GetEvidenceFolderResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEvidenceFolderResponse -&gt; GetEvidenceFolderResponse -&gt; Bool
+$c/= :: GetEvidenceFolderResponse -&gt; GetEvidenceFolderResponse -&gt; Bool
+== :: GetEvidenceFolderResponse -&gt; GetEvidenceFolderResponse -&gt; Bool
+$c== :: GetEvidenceFolderResponse -&gt; GetEvidenceFolderResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301745"><span id="local-6989586621679301747"><span id="local-6989586621679301749"><span id="local-6989586621679301751"><span class="annot"><span class="annottext">ReadPrec [GetEvidenceFolderResponse]
+ReadPrec GetEvidenceFolderResponse
+Int -&gt; ReadS GetEvidenceFolderResponse
+ReadS [GetEvidenceFolderResponse]
+(Int -&gt; ReadS GetEvidenceFolderResponse)
+-&gt; ReadS [GetEvidenceFolderResponse]
+-&gt; ReadPrec GetEvidenceFolderResponse
+-&gt; ReadPrec [GetEvidenceFolderResponse]
+-&gt; Read GetEvidenceFolderResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEvidenceFolderResponse]
+$creadListPrec :: ReadPrec [GetEvidenceFolderResponse]
+readPrec :: ReadPrec GetEvidenceFolderResponse
+$creadPrec :: ReadPrec GetEvidenceFolderResponse
+readList :: ReadS [GetEvidenceFolderResponse]
+$creadList :: ReadS [GetEvidenceFolderResponse]
+readsPrec :: Int -&gt; ReadS GetEvidenceFolderResponse
+$creadsPrec :: Int -&gt; ReadS GetEvidenceFolderResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301739"><span id="local-6989586621679301741"><span id="local-6989586621679301743"><span class="annot"><span class="annottext">Int -&gt; GetEvidenceFolderResponse -&gt; ShowS
+[GetEvidenceFolderResponse] -&gt; ShowS
+GetEvidenceFolderResponse -&gt; String
+(Int -&gt; GetEvidenceFolderResponse -&gt; ShowS)
+-&gt; (GetEvidenceFolderResponse -&gt; String)
+-&gt; ([GetEvidenceFolderResponse] -&gt; ShowS)
+-&gt; Show GetEvidenceFolderResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEvidenceFolderResponse] -&gt; ShowS
+$cshowList :: [GetEvidenceFolderResponse] -&gt; ShowS
+show :: GetEvidenceFolderResponse -&gt; String
+$cshow :: GetEvidenceFolderResponse -&gt; String
+showsPrec :: Int -&gt; GetEvidenceFolderResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEvidenceFolderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetEvidenceFolderResponse -&gt; Rep GetEvidenceFolderResponse x)
+-&gt; (forall x.
+    Rep GetEvidenceFolderResponse x -&gt; GetEvidenceFolderResponse)
+-&gt; Generic GetEvidenceFolderResponse
+forall x.
+Rep GetEvidenceFolderResponse x -&gt; GetEvidenceFolderResponse
+forall x.
+GetEvidenceFolderResponse -&gt; Rep GetEvidenceFolderResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetEvidenceFolderResponse x -&gt; GetEvidenceFolderResponse
+$cfrom :: forall x.
+GetEvidenceFolderResponse -&gt; Rep GetEvidenceFolderResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'GetEvidenceFolderResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'evidenceFolder', 'getEvidenceFolderResponse_evidenceFolder' - The folder in which evidence is stored.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'getEvidenceFolderResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#newGetEvidenceFolderResponse"><span class="hs-identifier hs-type">newGetEvidenceFolderResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse"><span class="hs-identifier hs-type">GetEvidenceFolderResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="newGetEvidenceFolderResponse"><span class="annot"><span class="annottext">newGetEvidenceFolderResponse :: Int -&gt; GetEvidenceFolderResponse
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#newGetEvidenceFolderResponse"><span class="hs-identifier hs-var hs-var">newGetEvidenceFolderResponse</span></a></span></span><span> </span><span id="local-6989586621679301736"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301736"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">GetEvidenceFolderResponse' :: Maybe AssessmentEvidenceFolder -&gt; Int -&gt; GetEvidenceFolderResponse
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse%27"><span class="hs-identifier hs-type">GetEvidenceFolderResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evidenceFolder:GetEvidenceFolderResponse' :: Maybe AssessmentEvidenceFolder
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AevidenceFolder%3AGetEvidenceFolderResponse%27"><span class="hs-identifier hs-var">evidenceFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe AssessmentEvidenceFolder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEvidenceFolderResponse' :: Int
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AhttpStatus%3AGetEvidenceFolderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301736"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The folder in which evidence is stored.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolderResponse_evidenceFolder"><span class="hs-identifier hs-type">getEvidenceFolderResponse_evidenceFolder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse"><span class="hs-identifier hs-type">GetEvidenceFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="getEvidenceFolderResponse_evidenceFolder"><span class="annot"><span class="annottext">getEvidenceFolderResponse_evidenceFolder :: (Maybe AssessmentEvidenceFolder
+ -&gt; f (Maybe AssessmentEvidenceFolder))
+-&gt; GetEvidenceFolderResponse -&gt; f GetEvidenceFolderResponse
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolderResponse_evidenceFolder"><span class="hs-identifier hs-var hs-var">getEvidenceFolderResponse_evidenceFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEvidenceFolderResponse -&gt; Maybe AssessmentEvidenceFolder)
+-&gt; (GetEvidenceFolderResponse
+    -&gt; Maybe AssessmentEvidenceFolder -&gt; GetEvidenceFolderResponse)
+-&gt; Lens
+     GetEvidenceFolderResponse
+     GetEvidenceFolderResponse
+     (Maybe AssessmentEvidenceFolder)
+     (Maybe AssessmentEvidenceFolder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse%27"><span class="hs-identifier hs-type">GetEvidenceFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301735"><span class="annot"><span class="annottext">Maybe AssessmentEvidenceFolder
+evidenceFolder :: Maybe AssessmentEvidenceFolder
+$sel:evidenceFolder:GetEvidenceFolderResponse' :: GetEvidenceFolderResponse -&gt; Maybe AssessmentEvidenceFolder
+</span><a href="#local-6989586621679301735"><span class="hs-identifier hs-var hs-var">evidenceFolder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentEvidenceFolder
+</span><a href="#local-6989586621679301735"><span class="hs-identifier hs-var">evidenceFolder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301734"><span class="annot"><span class="annottext">s :: GetEvidenceFolderResponse
+</span><a href="#local-6989586621679301734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse%27"><span class="hs-identifier hs-type">GetEvidenceFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301733"><span class="annot"><span class="annottext">Maybe AssessmentEvidenceFolder
+</span><a href="#local-6989586621679301733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEvidenceFolderResponse
+</span><a href="#local-6989586621679301734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceFolder:GetEvidenceFolderResponse' :: Maybe AssessmentEvidenceFolder
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AevidenceFolder%3AGetEvidenceFolderResponse%27"><span class="hs-identifier hs-var">evidenceFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentEvidenceFolder
+</span><a href="#local-6989586621679301733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse"><span class="hs-identifier hs-type">GetEvidenceFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolderResponse_httpStatus"><span class="hs-identifier hs-type">getEvidenceFolderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse"><span class="hs-identifier hs-type">GetEvidenceFolderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="getEvidenceFolderResponse_httpStatus"><span class="annot"><span class="annottext">getEvidenceFolderResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetEvidenceFolderResponse -&gt; f GetEvidenceFolderResponse
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#getEvidenceFolderResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getEvidenceFolderResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEvidenceFolderResponse -&gt; Int)
+-&gt; (GetEvidenceFolderResponse -&gt; Int -&gt; GetEvidenceFolderResponse)
+-&gt; Lens GetEvidenceFolderResponse GetEvidenceFolderResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse%27"><span class="hs-identifier hs-type">GetEvidenceFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301732"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetEvidenceFolderResponse' :: GetEvidenceFolderResponse -&gt; Int
+</span><a href="#local-6989586621679301732"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301732"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301731"><span class="annot"><span class="annottext">s :: GetEvidenceFolderResponse
+</span><a href="#local-6989586621679301731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse%27"><span class="hs-identifier hs-type">GetEvidenceFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301730"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEvidenceFolderResponse
+</span><a href="#local-6989586621679301731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEvidenceFolderResponse' :: Int
+</span><a href="Amazonka.AuditManager.GetEvidenceFolder.html#%24sel%3AhttpStatus%3AGetEvidenceFolderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse"><span class="hs-identifier hs-type">GetEvidenceFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.GetEvidenceFolder.html#GetEvidenceFolderResponse"><span class="hs-identifier hs-type">GetEvidenceFolderResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Shield.Types.SummarizedCounter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Shield.Types.SummarizedCounter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The counter that describes a DDoS attack.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSummarizedCounter' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679204025"><span id="local-6989586621679204026"></span></span><span class="hs-keyword">data</span><span> </span><span id="SummarizedCounter"><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-var">SummarizedCounter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SummarizedCounter%27"><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-var">SummarizedCounter'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum value of the counter for a specified time period.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Amax%3ASummarizedCounter%27"><span class="annot"><span class="annottext">SummarizedCounter -&gt; Maybe Double
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Amax%3ASummarizedCounter%27"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The average value of the counter for a specified time period.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aaverage%3ASummarizedCounter%27"><span class="annot"><span class="annottext">SummarizedCounter -&gt; Maybe Double
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Aaverage%3ASummarizedCounter%27"><span class="hs-identifier hs-var hs-var">average</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The number of counters for a specified time period.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3An%3ASummarizedCounter%27"><span class="annot"><span class="annottext">SummarizedCounter -&gt; Maybe Int
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3An%3ASummarizedCounter%27"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The counter name.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3ASummarizedCounter%27"><span class="annot"><span class="annottext">SummarizedCounter -&gt; Maybe Text
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Aname%3ASummarizedCounter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The total of counter values for a specified time period.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Asum%3ASummarizedCounter%27"><span class="annot"><span class="annottext">SummarizedCounter -&gt; Maybe Double
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Asum%3ASummarizedCounter%27"><span class="hs-identifier hs-var hs-var">sum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The unit of the counters.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aunit%3ASummarizedCounter%27"><span class="annot"><span class="annottext">SummarizedCounter -&gt; Maybe Text
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Aunit%3ASummarizedCounter%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204014"><span id="local-6989586621679204016"><span class="annot"><span class="annottext">SummarizedCounter -&gt; SummarizedCounter -&gt; Bool
+(SummarizedCounter -&gt; SummarizedCounter -&gt; Bool)
+-&gt; (SummarizedCounter -&gt; SummarizedCounter -&gt; Bool)
+-&gt; Eq SummarizedCounter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SummarizedCounter -&gt; SummarizedCounter -&gt; Bool
+$c/= :: SummarizedCounter -&gt; SummarizedCounter -&gt; Bool
+== :: SummarizedCounter -&gt; SummarizedCounter -&gt; Bool
+$c== :: SummarizedCounter -&gt; SummarizedCounter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204005"><span id="local-6989586621679204007"><span id="local-6989586621679204009"><span id="local-6989586621679204011"><span class="annot"><span class="annottext">ReadPrec [SummarizedCounter]
+ReadPrec SummarizedCounter
+Int -&gt; ReadS SummarizedCounter
+ReadS [SummarizedCounter]
+(Int -&gt; ReadS SummarizedCounter)
+-&gt; ReadS [SummarizedCounter]
+-&gt; ReadPrec SummarizedCounter
+-&gt; ReadPrec [SummarizedCounter]
+-&gt; Read SummarizedCounter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SummarizedCounter]
+$creadListPrec :: ReadPrec [SummarizedCounter]
+readPrec :: ReadPrec SummarizedCounter
+$creadPrec :: ReadPrec SummarizedCounter
+readList :: ReadS [SummarizedCounter]
+$creadList :: ReadS [SummarizedCounter]
+readsPrec :: Int -&gt; ReadS SummarizedCounter
+$creadsPrec :: Int -&gt; ReadS SummarizedCounter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203998"><span id="local-6989586621679204000"><span id="local-6989586621679204002"><span class="annot"><span class="annottext">Int -&gt; SummarizedCounter -&gt; ShowS
+[SummarizedCounter] -&gt; ShowS
+SummarizedCounter -&gt; String
+(Int -&gt; SummarizedCounter -&gt; ShowS)
+-&gt; (SummarizedCounter -&gt; String)
+-&gt; ([SummarizedCounter] -&gt; ShowS)
+-&gt; Show SummarizedCounter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SummarizedCounter] -&gt; ShowS
+$cshowList :: [SummarizedCounter] -&gt; ShowS
+show :: SummarizedCounter -&gt; String
+$cshow :: SummarizedCounter -&gt; String
+showsPrec :: Int -&gt; SummarizedCounter -&gt; ShowS
+$cshowsPrec :: Int -&gt; SummarizedCounter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SummarizedCounter -&gt; Rep SummarizedCounter x)
+-&gt; (forall x. Rep SummarizedCounter x -&gt; SummarizedCounter)
+-&gt; Generic SummarizedCounter
+forall x. Rep SummarizedCounter x -&gt; SummarizedCounter
+forall x. SummarizedCounter -&gt; Rep SummarizedCounter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SummarizedCounter x -&gt; SummarizedCounter
+$cfrom :: forall x. SummarizedCounter -&gt; Rep SummarizedCounter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'SummarizedCounter' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'max', 'summarizedCounter_max' - The maximum value of the counter for a specified time period.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'average', 'summarizedCounter_average' - The average value of the counter for a specified time period.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'n', 'summarizedCounter_n' - The number of counters for a specified time period.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'name', 'summarizedCounter_name' - The counter name.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'sum', 'summarizedCounter_sum' - The total of counter values for a specified time period.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'unit', 'summarizedCounter_unit' - The unit of the counters.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#newSummarizedCounter"><span class="hs-identifier hs-type">newSummarizedCounter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span>
+</span><span id="line-66"></span><span id="newSummarizedCounter"><span class="annot"><span class="annottext">newSummarizedCounter :: SummarizedCounter
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#newSummarizedCounter"><span class="hs-identifier hs-var hs-var">newSummarizedCounter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">SummarizedCounter' :: Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; SummarizedCounter
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:max:SummarizedCounter' :: Maybe Double
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Amax%3ASummarizedCounter%27"><span class="hs-identifier hs-var">max</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:average:SummarizedCounter' :: Maybe Double
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Aaverage%3ASummarizedCounter%27"><span class="hs-identifier hs-var">average</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:n:SummarizedCounter' :: Maybe Int
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3An%3ASummarizedCounter%27"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:SummarizedCounter' :: Maybe Text
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Aname%3ASummarizedCounter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:sum:SummarizedCounter' :: Maybe Double
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Asum%3ASummarizedCounter%27"><span class="hs-identifier hs-var">sum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:unit:SummarizedCounter' :: Maybe Text
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Aunit%3ASummarizedCounter%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The maximum value of the counter for a specified time period.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_max"><span class="hs-identifier hs-type">summarizedCounter_max</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="summarizedCounter_max"><span class="annot"><span class="annottext">summarizedCounter_max :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; SummarizedCounter -&gt; f SummarizedCounter
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_max"><span class="hs-identifier hs-var hs-var">summarizedCounter_max</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SummarizedCounter -&gt; Maybe Double)
+-&gt; (SummarizedCounter -&gt; Maybe Double -&gt; SummarizedCounter)
+-&gt; Lens
+     SummarizedCounter SummarizedCounter (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203989"><span class="annot"><span class="annottext">Maybe Double
+max :: Maybe Double
+$sel:max:SummarizedCounter' :: SummarizedCounter -&gt; Maybe Double
+</span><a href="#local-6989586621679203989"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679203989"><span class="hs-identifier hs-var">max</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203988"><span class="annot"><span class="annottext">s :: SummarizedCounter
+</span><a href="#local-6989586621679203988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203987"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679203987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SummarizedCounter
+</span><a href="#local-6989586621679203988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max:SummarizedCounter' :: Maybe Double
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Amax%3ASummarizedCounter%27"><span class="hs-identifier hs-var">max</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679203987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The average value of the counter for a specified time period.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_average"><span class="hs-identifier hs-type">summarizedCounter_average</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="summarizedCounter_average"><span class="annot"><span class="annottext">summarizedCounter_average :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; SummarizedCounter -&gt; f SummarizedCounter
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_average"><span class="hs-identifier hs-var hs-var">summarizedCounter_average</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SummarizedCounter -&gt; Maybe Double)
+-&gt; (SummarizedCounter -&gt; Maybe Double -&gt; SummarizedCounter)
+-&gt; Lens
+     SummarizedCounter SummarizedCounter (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203985"><span class="annot"><span class="annottext">Maybe Double
+average :: Maybe Double
+$sel:average:SummarizedCounter' :: SummarizedCounter -&gt; Maybe Double
+</span><a href="#local-6989586621679203985"><span class="hs-identifier hs-var hs-var">average</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679203985"><span class="hs-identifier hs-var">average</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203984"><span class="annot"><span class="annottext">s :: SummarizedCounter
+</span><a href="#local-6989586621679203984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203983"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679203983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SummarizedCounter
+</span><a href="#local-6989586621679203984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:average:SummarizedCounter' :: Maybe Double
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Aaverage%3ASummarizedCounter%27"><span class="hs-identifier hs-var">average</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679203983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The number of counters for a specified time period.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_n"><span class="hs-identifier hs-type">summarizedCounter_n</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="summarizedCounter_n"><span class="annot"><span class="annottext">summarizedCounter_n :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SummarizedCounter -&gt; f SummarizedCounter
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_n"><span class="hs-identifier hs-var hs-var">summarizedCounter_n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SummarizedCounter -&gt; Maybe Int)
+-&gt; (SummarizedCounter -&gt; Maybe Int -&gt; SummarizedCounter)
+-&gt; Lens SummarizedCounter SummarizedCounter (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203981"><span class="annot"><span class="annottext">Maybe Int
+n :: Maybe Int
+$sel:n:SummarizedCounter' :: SummarizedCounter -&gt; Maybe Int
+</span><a href="#local-6989586621679203981"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679203981"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203980"><span class="annot"><span class="annottext">s :: SummarizedCounter
+</span><a href="#local-6989586621679203980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203979"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679203979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SummarizedCounter
+</span><a href="#local-6989586621679203980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:n:SummarizedCounter' :: Maybe Int
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3An%3ASummarizedCounter%27"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679203979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The counter name.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_name"><span class="hs-identifier hs-type">summarizedCounter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="summarizedCounter_name"><span class="annot"><span class="annottext">summarizedCounter_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SummarizedCounter -&gt; f SummarizedCounter
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_name"><span class="hs-identifier hs-var hs-var">summarizedCounter_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SummarizedCounter -&gt; Maybe Text)
+-&gt; (SummarizedCounter -&gt; Maybe Text -&gt; SummarizedCounter)
+-&gt; Lens
+     SummarizedCounter SummarizedCounter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203977"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:SummarizedCounter' :: SummarizedCounter -&gt; Maybe Text
+</span><a href="#local-6989586621679203977"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203977"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203976"><span class="annot"><span class="annottext">s :: SummarizedCounter
+</span><a href="#local-6989586621679203976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203975"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SummarizedCounter
+</span><a href="#local-6989586621679203976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SummarizedCounter' :: Maybe Text
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Aname%3ASummarizedCounter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The total of counter values for a specified time period.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_sum"><span class="hs-identifier hs-type">summarizedCounter_sum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="summarizedCounter_sum"><span class="annot"><span class="annottext">summarizedCounter_sum :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; SummarizedCounter -&gt; f SummarizedCounter
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_sum"><span class="hs-identifier hs-var hs-var">summarizedCounter_sum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SummarizedCounter -&gt; Maybe Double)
+-&gt; (SummarizedCounter -&gt; Maybe Double -&gt; SummarizedCounter)
+-&gt; Lens
+     SummarizedCounter SummarizedCounter (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203973"><span class="annot"><span class="annottext">Maybe Double
+sum :: Maybe Double
+$sel:sum:SummarizedCounter' :: SummarizedCounter -&gt; Maybe Double
+</span><a href="#local-6989586621679203973"><span class="hs-identifier hs-var hs-var">sum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679203973"><span class="hs-identifier hs-var">sum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203972"><span class="annot"><span class="annottext">s :: SummarizedCounter
+</span><a href="#local-6989586621679203972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203971"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679203971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SummarizedCounter
+</span><a href="#local-6989586621679203972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sum:SummarizedCounter' :: Maybe Double
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Asum%3ASummarizedCounter%27"><span class="hs-identifier hs-var">sum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679203971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The unit of the counters.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_unit"><span class="hs-identifier hs-type">summarizedCounter_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="summarizedCounter_unit"><span class="annot"><span class="annottext">summarizedCounter_unit :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SummarizedCounter -&gt; f SummarizedCounter
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#summarizedCounter_unit"><span class="hs-identifier hs-var hs-var">summarizedCounter_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SummarizedCounter -&gt; Maybe Text)
+-&gt; (SummarizedCounter -&gt; Maybe Text -&gt; SummarizedCounter)
+-&gt; Lens
+     SummarizedCounter SummarizedCounter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203969"><span class="annot"><span class="annottext">Maybe Text
+unit :: Maybe Text
+$sel:unit:SummarizedCounter' :: SummarizedCounter -&gt; Maybe Text
+</span><a href="#local-6989586621679203969"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203969"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203968"><span class="annot"><span class="annottext">s :: SummarizedCounter
+</span><a href="#local-6989586621679203968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-type">SummarizedCounter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203967"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SummarizedCounter
+</span><a href="#local-6989586621679203968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:SummarizedCounter' :: Maybe Text
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#%24sel%3Aunit%3ASummarizedCounter%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203964"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679203962"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SummarizedCounter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SummarizedCounter)
+-&gt; Value
+-&gt; Parser SummarizedCounter
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SummarizedCounter&quot;</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203959"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203959"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; SummarizedCounter
+</span><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter%27"><span class="hs-identifier hs-var">SummarizedCounter'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double
+ -&gt; Maybe Double
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe Text
+ -&gt; SummarizedCounter)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; SummarizedCounter)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Max&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; SummarizedCounter)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe Text -&gt; SummarizedCounter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Average&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe Text -&gt; SummarizedCounter)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Double -&gt; Maybe Text -&gt; SummarizedCounter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;N&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Double -&gt; Maybe Text -&gt; SummarizedCounter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Double -&gt; Maybe Text -&gt; SummarizedCounter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Text -&gt; SummarizedCounter)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Text -&gt; SummarizedCounter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sum&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SummarizedCounter)
+-&gt; Parser (Maybe Text) -&gt; Parser SummarizedCounter
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Unit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203953"><span id="local-6989586621679203955"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.SummarizedCounter.html#SummarizedCounter"><span class="hs-identifier hs-type">SummarizedCounter</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RobOMaker.Types.DeploymentJob</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RobOMaker.Types.DeploymentJob</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentApplicationConfig.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.DeploymentApplicationConfig</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentConfig.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.DeploymentConfig</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJobErrorCode.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.DeploymentJobErrorCode</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentStatus.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.DeploymentStatus</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Information about a deployment job.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDeploymentJob' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679370029"><span id="local-6989586621679370030"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentJob"><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-var">DeploymentJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentJob%27"><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-var">DeploymentJob'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A short description of the reason why the deployment job failed.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfailureReason%3ADeploymentJob%27"><span class="annot"><span class="annottext">DeploymentJob -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AfailureReason%3ADeploymentJob%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The status of the deployment job.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3ADeploymentJob%27"><span class="annot"><span class="annottext">DeploymentJob -&gt; Maybe DeploymentStatus
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3Astatus%3ADeploymentJob%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The deployment application configuration.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdeploymentApplicationConfigs%3ADeploymentJob%27"><span class="annot"><span class="annottext">DeploymentJob -&gt; Maybe (NonEmpty DeploymentApplicationConfig)
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AdeploymentApplicationConfigs%3ADeploymentJob%27"><span class="hs-identifier hs-var hs-var">deploymentApplicationConfigs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentApplicationConfig.html#DeploymentApplicationConfig"><span class="hs-identifier hs-type">DeploymentApplicationConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the deployment job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aarn%3ADeploymentJob%27"><span class="annot"><span class="annottext">DeploymentJob -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3Aarn%3ADeploymentJob%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the deployment job was</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreatedAt%3ADeploymentJob%27"><span class="annot"><span class="annottext">DeploymentJob -&gt; Maybe POSIX
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AcreatedAt%3ADeploymentJob%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The deployment job failure code.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AfailureCode%3ADeploymentJob%27"><span class="annot"><span class="annottext">DeploymentJob -&gt; Maybe DeploymentJobErrorCode
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AfailureCode%3ADeploymentJob%27"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The deployment configuration.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdeploymentConfig%3ADeploymentJob%27"><span class="annot"><span class="annottext">DeploymentJob -&gt; Maybe DeploymentConfig
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AdeploymentConfig%3ADeploymentJob%27"><span class="hs-identifier hs-var hs-var">deploymentConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentConfig.html#DeploymentConfig"><span class="hs-identifier hs-type">DeploymentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Afleet%3ADeploymentJob%27"><span class="annot"><span class="annottext">DeploymentJob -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3Afleet%3ADeploymentJob%27"><span class="hs-identifier hs-var hs-var">fleet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370016"><span id="local-6989586621679370018"><span class="annot"><span class="annottext">DeploymentJob -&gt; DeploymentJob -&gt; Bool
+(DeploymentJob -&gt; DeploymentJob -&gt; Bool)
+-&gt; (DeploymentJob -&gt; DeploymentJob -&gt; Bool) -&gt; Eq DeploymentJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentJob -&gt; DeploymentJob -&gt; Bool
+$c/= :: DeploymentJob -&gt; DeploymentJob -&gt; Bool
+== :: DeploymentJob -&gt; DeploymentJob -&gt; Bool
+$c== :: DeploymentJob -&gt; DeploymentJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370007"><span id="local-6989586621679370009"><span id="local-6989586621679370011"><span id="local-6989586621679370013"><span class="annot"><span class="annottext">ReadPrec [DeploymentJob]
+ReadPrec DeploymentJob
+Int -&gt; ReadS DeploymentJob
+ReadS [DeploymentJob]
+(Int -&gt; ReadS DeploymentJob)
+-&gt; ReadS [DeploymentJob]
+-&gt; ReadPrec DeploymentJob
+-&gt; ReadPrec [DeploymentJob]
+-&gt; Read DeploymentJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentJob]
+$creadListPrec :: ReadPrec [DeploymentJob]
+readPrec :: ReadPrec DeploymentJob
+$creadPrec :: ReadPrec DeploymentJob
+readList :: ReadS [DeploymentJob]
+$creadList :: ReadS [DeploymentJob]
+readsPrec :: Int -&gt; ReadS DeploymentJob
+$creadsPrec :: Int -&gt; ReadS DeploymentJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370000"><span id="local-6989586621679370002"><span id="local-6989586621679370004"><span class="annot"><span class="annottext">Int -&gt; DeploymentJob -&gt; ShowS
+[DeploymentJob] -&gt; ShowS
+DeploymentJob -&gt; String
+(Int -&gt; DeploymentJob -&gt; ShowS)
+-&gt; (DeploymentJob -&gt; String)
+-&gt; ([DeploymentJob] -&gt; ShowS)
+-&gt; Show DeploymentJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentJob] -&gt; ShowS
+$cshowList :: [DeploymentJob] -&gt; ShowS
+show :: DeploymentJob -&gt; String
+$cshow :: DeploymentJob -&gt; String
+showsPrec :: Int -&gt; DeploymentJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeploymentJob -&gt; Rep DeploymentJob x)
+-&gt; (forall x. Rep DeploymentJob x -&gt; DeploymentJob)
+-&gt; Generic DeploymentJob
+forall x. Rep DeploymentJob x -&gt; DeploymentJob
+forall x. DeploymentJob -&gt; Rep DeploymentJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeploymentJob x -&gt; DeploymentJob
+$cfrom :: forall x. DeploymentJob -&gt; Rep DeploymentJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'DeploymentJob' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'failureReason', 'deploymentJob_failureReason' - A short description of the reason why the deployment job failed.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'status', 'deploymentJob_status' - The status of the deployment job.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'deploymentApplicationConfigs', 'deploymentJob_deploymentApplicationConfigs' - The deployment application configuration.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'arn', 'deploymentJob_arn' - The Amazon Resource Name (ARN) of the deployment job.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'createdAt', 'deploymentJob_createdAt' - The time, in milliseconds since the epoch, when the deployment job was</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'failureCode', 'deploymentJob_failureCode' - The deployment job failure code.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'deploymentConfig', 'deploymentJob_deploymentConfig' - The deployment configuration.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'fleet', 'deploymentJob_fleet' - The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#newDeploymentJob"><span class="hs-identifier hs-type">newDeploymentJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span>
+</span><span id="line-80"></span><span id="newDeploymentJob"><span class="annot"><span class="annottext">newDeploymentJob :: DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#newDeploymentJob"><span class="hs-identifier hs-var hs-var">newDeploymentJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DeploymentJob' :: Maybe Text
+-&gt; Maybe DeploymentStatus
+-&gt; Maybe (NonEmpty DeploymentApplicationConfig)
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DeploymentJobErrorCode
+-&gt; Maybe DeploymentConfig
+-&gt; Maybe Text
+-&gt; DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:DeploymentJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AfailureReason%3ADeploymentJob%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DeploymentJob' :: Maybe DeploymentStatus
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3Astatus%3ADeploymentJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentApplicationConfigs:DeploymentJob' :: Maybe (NonEmpty DeploymentApplicationConfig)
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AdeploymentApplicationConfigs%3ADeploymentJob%27"><span class="hs-identifier hs-var">deploymentApplicationConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DeploymentApplicationConfig)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DeploymentJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3Aarn%3ADeploymentJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:DeploymentJob' :: Maybe POSIX
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AcreatedAt%3ADeploymentJob%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureCode:DeploymentJob' :: Maybe DeploymentJobErrorCode
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AfailureCode%3ADeploymentJob%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentJobErrorCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentConfig:DeploymentJob' :: Maybe DeploymentConfig
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AdeploymentConfig%3ADeploymentJob%27"><span class="hs-identifier hs-var">deploymentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleet:DeploymentJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3Afleet%3ADeploymentJob%27"><span class="hs-identifier hs-var">fleet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A short description of the reason why the deployment job failed.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_failureReason"><span class="hs-identifier hs-type">deploymentJob_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="deploymentJob_failureReason"><span class="annot"><span class="annottext">deploymentJob_failureReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeploymentJob -&gt; f DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_failureReason"><span class="hs-identifier hs-var hs-var">deploymentJob_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentJob -&gt; Maybe Text)
+-&gt; (DeploymentJob -&gt; Maybe Text -&gt; DeploymentJob)
+-&gt; Lens DeploymentJob DeploymentJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369991"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:DeploymentJob' :: DeploymentJob -&gt; Maybe Text
+</span><a href="#local-6989586621679369991"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369991"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369990"><span class="annot"><span class="annottext">s :: DeploymentJob
+</span><a href="#local-6989586621679369990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369989"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentJob
+</span><a href="#local-6989586621679369990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:DeploymentJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AfailureReason%3ADeploymentJob%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The status of the deployment job.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_status"><span class="hs-identifier hs-type">deploymentJob_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="deploymentJob_status"><span class="annot"><span class="annottext">deploymentJob_status :: (Maybe DeploymentStatus -&gt; f (Maybe DeploymentStatus))
+-&gt; DeploymentJob -&gt; f DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_status"><span class="hs-identifier hs-var hs-var">deploymentJob_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentJob -&gt; Maybe DeploymentStatus)
+-&gt; (DeploymentJob -&gt; Maybe DeploymentStatus -&gt; DeploymentJob)
+-&gt; Lens
+     DeploymentJob
+     DeploymentJob
+     (Maybe DeploymentStatus)
+     (Maybe DeploymentStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369987"><span class="annot"><span class="annottext">Maybe DeploymentStatus
+status :: Maybe DeploymentStatus
+$sel:status:DeploymentJob' :: DeploymentJob -&gt; Maybe DeploymentStatus
+</span><a href="#local-6989586621679369987"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentStatus
+</span><a href="#local-6989586621679369987"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369986"><span class="annot"><span class="annottext">s :: DeploymentJob
+</span><a href="#local-6989586621679369986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369985"><span class="annot"><span class="annottext">Maybe DeploymentStatus
+</span><a href="#local-6989586621679369985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentJob
+</span><a href="#local-6989586621679369986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeploymentJob' :: Maybe DeploymentStatus
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3Astatus%3ADeploymentJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentStatus
+</span><a href="#local-6989586621679369985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The deployment application configuration.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_deploymentApplicationConfigs"><span class="hs-identifier hs-type">deploymentJob_deploymentApplicationConfigs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentApplicationConfig.html#DeploymentApplicationConfig"><span class="hs-identifier hs-type">DeploymentApplicationConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="deploymentJob_deploymentApplicationConfigs"><span class="annot"><span class="annottext">deploymentJob_deploymentApplicationConfigs :: (Maybe (NonEmpty DeploymentApplicationConfig)
+ -&gt; f (Maybe (NonEmpty DeploymentApplicationConfig)))
+-&gt; DeploymentJob -&gt; f DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_deploymentApplicationConfigs"><span class="hs-identifier hs-var hs-var">deploymentJob_deploymentApplicationConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentJob -&gt; Maybe (NonEmpty DeploymentApplicationConfig))
+-&gt; (DeploymentJob
+    -&gt; Maybe (NonEmpty DeploymentApplicationConfig) -&gt; DeploymentJob)
+-&gt; Lens
+     DeploymentJob
+     DeploymentJob
+     (Maybe (NonEmpty DeploymentApplicationConfig))
+     (Maybe (NonEmpty DeploymentApplicationConfig))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369983"><span class="annot"><span class="annottext">Maybe (NonEmpty DeploymentApplicationConfig)
+deploymentApplicationConfigs :: Maybe (NonEmpty DeploymentApplicationConfig)
+$sel:deploymentApplicationConfigs:DeploymentJob' :: DeploymentJob -&gt; Maybe (NonEmpty DeploymentApplicationConfig)
+</span><a href="#local-6989586621679369983"><span class="hs-identifier hs-var hs-var">deploymentApplicationConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DeploymentApplicationConfig)
+</span><a href="#local-6989586621679369983"><span class="hs-identifier hs-var">deploymentApplicationConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369982"><span class="annot"><span class="annottext">s :: DeploymentJob
+</span><a href="#local-6989586621679369982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369981"><span class="annot"><span class="annottext">Maybe (NonEmpty DeploymentApplicationConfig)
+</span><a href="#local-6989586621679369981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentJob
+</span><a href="#local-6989586621679369982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentApplicationConfigs:DeploymentJob' :: Maybe (NonEmpty DeploymentApplicationConfig)
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AdeploymentApplicationConfigs%3ADeploymentJob%27"><span class="hs-identifier hs-var">deploymentApplicationConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DeploymentApplicationConfig)
+</span><a href="#local-6989586621679369981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty DeploymentApplicationConfig)
+  -&gt; f (Maybe (NonEmpty DeploymentApplicationConfig)))
+ -&gt; DeploymentJob -&gt; f DeploymentJob)
+-&gt; ((Maybe (NonEmpty DeploymentApplicationConfig)
+     -&gt; f (Maybe (NonEmpty DeploymentApplicationConfig)))
+    -&gt; Maybe (NonEmpty DeploymentApplicationConfig)
+    -&gt; f (Maybe (NonEmpty DeploymentApplicationConfig)))
+-&gt; (Maybe (NonEmpty DeploymentApplicationConfig)
+    -&gt; f (Maybe (NonEmpty DeploymentApplicationConfig)))
+-&gt; DeploymentJob
+-&gt; f DeploymentJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty DeploymentApplicationConfig)
+  (NonEmpty DeploymentApplicationConfig)
+  (NonEmpty DeploymentApplicationConfig)
+  (NonEmpty DeploymentApplicationConfig)
+-&gt; Iso
+     (Maybe (NonEmpty DeploymentApplicationConfig))
+     (Maybe (NonEmpty DeploymentApplicationConfig))
+     (Maybe (NonEmpty DeploymentApplicationConfig))
+     (Maybe (NonEmpty DeploymentApplicationConfig))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty DeploymentApplicationConfig)
+  (NonEmpty DeploymentApplicationConfig)
+  (NonEmpty DeploymentApplicationConfig)
+  (NonEmpty DeploymentApplicationConfig)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the deployment job.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_arn"><span class="hs-identifier hs-type">deploymentJob_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="deploymentJob_arn"><span class="annot"><span class="annottext">deploymentJob_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeploymentJob -&gt; f DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_arn"><span class="hs-identifier hs-var hs-var">deploymentJob_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentJob -&gt; Maybe Text)
+-&gt; (DeploymentJob -&gt; Maybe Text -&gt; DeploymentJob)
+-&gt; Lens DeploymentJob DeploymentJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369976"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DeploymentJob' :: DeploymentJob -&gt; Maybe Text
+</span><a href="#local-6989586621679369976"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369976"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369975"><span class="annot"><span class="annottext">s :: DeploymentJob
+</span><a href="#local-6989586621679369975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentJob
+</span><a href="#local-6989586621679369975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeploymentJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3Aarn%3ADeploymentJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the deployment job was</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_createdAt"><span class="hs-identifier hs-type">deploymentJob_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="deploymentJob_createdAt"><span class="annot"><span class="annottext">deploymentJob_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeploymentJob -&gt; f DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_createdAt"><span class="hs-identifier hs-var hs-var">deploymentJob_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentJob -&gt; Maybe POSIX)
+-&gt; (DeploymentJob -&gt; Maybe POSIX -&gt; DeploymentJob)
+-&gt; Lens DeploymentJob DeploymentJob (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369972"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:DeploymentJob' :: DeploymentJob -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369972"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369972"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369971"><span class="annot"><span class="annottext">s :: DeploymentJob
+</span><a href="#local-6989586621679369971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369970"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentJob
+</span><a href="#local-6989586621679369971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:DeploymentJob' :: Maybe POSIX
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AcreatedAt%3ADeploymentJob%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DeploymentJob -&gt; f DeploymentJob)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeploymentJob
+-&gt; f DeploymentJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The deployment job failure code.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_failureCode"><span class="hs-identifier hs-type">deploymentJob_failureCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJobErrorCode.html#DeploymentJobErrorCode"><span class="hs-identifier hs-type">DeploymentJobErrorCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="deploymentJob_failureCode"><span class="annot"><span class="annottext">deploymentJob_failureCode :: (Maybe DeploymentJobErrorCode -&gt; f (Maybe DeploymentJobErrorCode))
+-&gt; DeploymentJob -&gt; f DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_failureCode"><span class="hs-identifier hs-var hs-var">deploymentJob_failureCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentJob -&gt; Maybe DeploymentJobErrorCode)
+-&gt; (DeploymentJob -&gt; Maybe DeploymentJobErrorCode -&gt; DeploymentJob)
+-&gt; Lens
+     DeploymentJob
+     DeploymentJob
+     (Maybe DeploymentJobErrorCode)
+     (Maybe DeploymentJobErrorCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369967"><span class="annot"><span class="annottext">Maybe DeploymentJobErrorCode
+failureCode :: Maybe DeploymentJobErrorCode
+$sel:failureCode:DeploymentJob' :: DeploymentJob -&gt; Maybe DeploymentJobErrorCode
+</span><a href="#local-6989586621679369967"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentJobErrorCode
+</span><a href="#local-6989586621679369967"><span class="hs-identifier hs-var">failureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369966"><span class="annot"><span class="annottext">s :: DeploymentJob
+</span><a href="#local-6989586621679369966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369965"><span class="annot"><span class="annottext">Maybe DeploymentJobErrorCode
+</span><a href="#local-6989586621679369965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentJob
+</span><a href="#local-6989586621679369966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureCode:DeploymentJob' :: Maybe DeploymentJobErrorCode
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AfailureCode%3ADeploymentJob%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentJobErrorCode
+</span><a href="#local-6989586621679369965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The deployment configuration.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_deploymentConfig"><span class="hs-identifier hs-type">deploymentJob_deploymentConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentConfig.html#DeploymentConfig"><span class="hs-identifier hs-type">DeploymentConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="deploymentJob_deploymentConfig"><span class="annot"><span class="annottext">deploymentJob_deploymentConfig :: (Maybe DeploymentConfig -&gt; f (Maybe DeploymentConfig))
+-&gt; DeploymentJob -&gt; f DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_deploymentConfig"><span class="hs-identifier hs-var hs-var">deploymentJob_deploymentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentJob -&gt; Maybe DeploymentConfig)
+-&gt; (DeploymentJob -&gt; Maybe DeploymentConfig -&gt; DeploymentJob)
+-&gt; Lens
+     DeploymentJob
+     DeploymentJob
+     (Maybe DeploymentConfig)
+     (Maybe DeploymentConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369963"><span class="annot"><span class="annottext">Maybe DeploymentConfig
+deploymentConfig :: Maybe DeploymentConfig
+$sel:deploymentConfig:DeploymentJob' :: DeploymentJob -&gt; Maybe DeploymentConfig
+</span><a href="#local-6989586621679369963"><span class="hs-identifier hs-var hs-var">deploymentConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfig
+</span><a href="#local-6989586621679369963"><span class="hs-identifier hs-var">deploymentConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369962"><span class="annot"><span class="annottext">s :: DeploymentJob
+</span><a href="#local-6989586621679369962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369961"><span class="annot"><span class="annottext">Maybe DeploymentConfig
+</span><a href="#local-6989586621679369961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentJob
+</span><a href="#local-6989586621679369962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentConfig:DeploymentJob' :: Maybe DeploymentConfig
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3AdeploymentConfig%3ADeploymentJob%27"><span class="hs-identifier hs-var">deploymentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentConfig
+</span><a href="#local-6989586621679369961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_fleet"><span class="hs-identifier hs-type">deploymentJob_fleet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="deploymentJob_fleet"><span class="annot"><span class="annottext">deploymentJob_fleet :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeploymentJob -&gt; f DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#deploymentJob_fleet"><span class="hs-identifier hs-var hs-var">deploymentJob_fleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentJob -&gt; Maybe Text)
+-&gt; (DeploymentJob -&gt; Maybe Text -&gt; DeploymentJob)
+-&gt; Lens DeploymentJob DeploymentJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369959"><span class="annot"><span class="annottext">Maybe Text
+fleet :: Maybe Text
+$sel:fleet:DeploymentJob' :: DeploymentJob -&gt; Maybe Text
+</span><a href="#local-6989586621679369959"><span class="hs-identifier hs-var hs-var">fleet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369959"><span class="hs-identifier hs-var">fleet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369958"><span class="annot"><span class="annottext">s :: DeploymentJob
+</span><a href="#local-6989586621679369958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-type">DeploymentJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369957"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentJob
+</span><a href="#local-6989586621679369958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleet:DeploymentJob' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#%24sel%3Afleet%3ADeploymentJob%27"><span class="hs-identifier hs-var">fleet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369954"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679369952"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DeploymentJob)
+-&gt; Value
+-&gt; Parser DeploymentJob
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DeploymentJob&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369949"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe DeploymentStatus
+-&gt; Maybe (NonEmpty DeploymentApplicationConfig)
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DeploymentJobErrorCode
+-&gt; Maybe DeploymentConfig
+-&gt; Maybe Text
+-&gt; DeploymentJob
+</span><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob%27"><span class="hs-identifier hs-var">DeploymentJob'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe DeploymentStatus
+ -&gt; Maybe (NonEmpty DeploymentApplicationConfig)
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe DeploymentJobErrorCode
+ -&gt; Maybe DeploymentConfig
+ -&gt; Maybe Text
+ -&gt; DeploymentJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DeploymentStatus
+      -&gt; Maybe (NonEmpty DeploymentApplicationConfig)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentJobErrorCode
+      -&gt; Maybe DeploymentConfig
+      -&gt; Maybe Text
+      -&gt; DeploymentJob)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DeploymentStatus
+   -&gt; Maybe (NonEmpty DeploymentApplicationConfig)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentJobErrorCode
+   -&gt; Maybe DeploymentConfig
+   -&gt; Maybe Text
+   -&gt; DeploymentJob)
+-&gt; Parser (Maybe DeploymentStatus)
+-&gt; Parser
+     (Maybe (NonEmpty DeploymentApplicationConfig)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentJobErrorCode
+      -&gt; Maybe DeploymentConfig
+      -&gt; Maybe Text
+      -&gt; DeploymentJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty DeploymentApplicationConfig)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentJobErrorCode
+   -&gt; Maybe DeploymentConfig
+   -&gt; Maybe Text
+   -&gt; DeploymentJob)
+-&gt; Parser (Maybe (NonEmpty DeploymentApplicationConfig))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentJobErrorCode
+      -&gt; Maybe DeploymentConfig
+      -&gt; Maybe Text
+      -&gt; DeploymentJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (NonEmpty DeploymentApplicationConfig))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentApplicationConfigs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentJobErrorCode
+   -&gt; Maybe DeploymentConfig
+   -&gt; Maybe Text
+   -&gt; DeploymentJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe DeploymentJobErrorCode
+      -&gt; Maybe DeploymentConfig
+      -&gt; Maybe Text
+      -&gt; DeploymentJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe DeploymentJobErrorCode
+   -&gt; Maybe DeploymentConfig
+   -&gt; Maybe Text
+   -&gt; DeploymentJob)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe DeploymentJobErrorCode
+      -&gt; Maybe DeploymentConfig -&gt; Maybe Text -&gt; DeploymentJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DeploymentJobErrorCode
+   -&gt; Maybe DeploymentConfig -&gt; Maybe Text -&gt; DeploymentJob)
+-&gt; Parser (Maybe DeploymentJobErrorCode)
+-&gt; Parser (Maybe DeploymentConfig -&gt; Maybe Text -&gt; DeploymentJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentJobErrorCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DeploymentConfig -&gt; Maybe Text -&gt; DeploymentJob)
+-&gt; Parser (Maybe DeploymentConfig)
+-&gt; Parser (Maybe Text -&gt; DeploymentJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DeploymentJob)
+-&gt; Parser (Maybe Text) -&gt; Parser DeploymentJob
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fleet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369943"><span id="local-6989586621679369945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.DeploymentJob.html#DeploymentJob"><span class="hs-identifier hs-type">DeploymentJob</span></a></span></span><span>
+</span><span id="line-144"></span></pre></body></html>

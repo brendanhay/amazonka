@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.ColumnGroupSchema</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.ColumnGroupSchema</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupColumnSchema.html"><span class="hs-identifier">Amazonka.QuickSight.Types.ColumnGroupColumnSchema</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The column group schema.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newColumnGroupSchema' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679550354"><span id="local-6989586621679550355"></span></span><span class="hs-keyword">data</span><span> </span><span id="ColumnGroupSchema"><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema"><span class="hs-identifier hs-var">ColumnGroupSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColumnGroupSchema%27"><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema%27"><span class="hs-identifier hs-var">ColumnGroupSchema'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure containing the list of schemas for column group columns.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcolumnGroupColumnSchemaList%3AColumnGroupSchema%27"><span class="annot"><span class="annottext">ColumnGroupSchema -&gt; Maybe [ColumnGroupColumnSchema]
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#%24sel%3AcolumnGroupColumnSchemaList%3AColumnGroupSchema%27"><span class="hs-identifier hs-var hs-var">columnGroupColumnSchemaList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupColumnSchema.html#ColumnGroupColumnSchema"><span class="hs-identifier hs-type">ColumnGroupColumnSchema</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the column group schema.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AColumnGroupSchema%27"><span class="annot"><span class="annottext">ColumnGroupSchema -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#%24sel%3Aname%3AColumnGroupSchema%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679550347"><span id="local-6989586621679550349"><span class="annot"><span class="annottext">ColumnGroupSchema -&gt; ColumnGroupSchema -&gt; Bool
+(ColumnGroupSchema -&gt; ColumnGroupSchema -&gt; Bool)
+-&gt; (ColumnGroupSchema -&gt; ColumnGroupSchema -&gt; Bool)
+-&gt; Eq ColumnGroupSchema
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ColumnGroupSchema -&gt; ColumnGroupSchema -&gt; Bool
+$c/= :: ColumnGroupSchema -&gt; ColumnGroupSchema -&gt; Bool
+== :: ColumnGroupSchema -&gt; ColumnGroupSchema -&gt; Bool
+$c== :: ColumnGroupSchema -&gt; ColumnGroupSchema -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550338"><span id="local-6989586621679550340"><span id="local-6989586621679550342"><span id="local-6989586621679550344"><span class="annot"><span class="annottext">ReadPrec [ColumnGroupSchema]
+ReadPrec ColumnGroupSchema
+Int -&gt; ReadS ColumnGroupSchema
+ReadS [ColumnGroupSchema]
+(Int -&gt; ReadS ColumnGroupSchema)
+-&gt; ReadS [ColumnGroupSchema]
+-&gt; ReadPrec ColumnGroupSchema
+-&gt; ReadPrec [ColumnGroupSchema]
+-&gt; Read ColumnGroupSchema
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ColumnGroupSchema]
+$creadListPrec :: ReadPrec [ColumnGroupSchema]
+readPrec :: ReadPrec ColumnGroupSchema
+$creadPrec :: ReadPrec ColumnGroupSchema
+readList :: ReadS [ColumnGroupSchema]
+$creadList :: ReadS [ColumnGroupSchema]
+readsPrec :: Int -&gt; ReadS ColumnGroupSchema
+$creadsPrec :: Int -&gt; ReadS ColumnGroupSchema
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550331"><span id="local-6989586621679550333"><span id="local-6989586621679550335"><span class="annot"><span class="annottext">Int -&gt; ColumnGroupSchema -&gt; ShowS
+[ColumnGroupSchema] -&gt; ShowS
+ColumnGroupSchema -&gt; String
+(Int -&gt; ColumnGroupSchema -&gt; ShowS)
+-&gt; (ColumnGroupSchema -&gt; String)
+-&gt; ([ColumnGroupSchema] -&gt; ShowS)
+-&gt; Show ColumnGroupSchema
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ColumnGroupSchema] -&gt; ShowS
+$cshowList :: [ColumnGroupSchema] -&gt; ShowS
+show :: ColumnGroupSchema -&gt; String
+$cshow :: ColumnGroupSchema -&gt; String
+showsPrec :: Int -&gt; ColumnGroupSchema -&gt; ShowS
+$cshowsPrec :: Int -&gt; ColumnGroupSchema -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ColumnGroupSchema -&gt; Rep ColumnGroupSchema x)
+-&gt; (forall x. Rep ColumnGroupSchema x -&gt; ColumnGroupSchema)
+-&gt; Generic ColumnGroupSchema
+forall x. Rep ColumnGroupSchema x -&gt; ColumnGroupSchema
+forall x. ColumnGroupSchema -&gt; Rep ColumnGroupSchema x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ColumnGroupSchema x -&gt; ColumnGroupSchema
+$cfrom :: forall x. ColumnGroupSchema -&gt; Rep ColumnGroupSchema x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'ColumnGroupSchema' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'columnGroupColumnSchemaList', 'columnGroupSchema_columnGroupColumnSchemaList' - A structure containing the list of schemas for column group columns.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'name', 'columnGroupSchema_name' - The name of the column group schema.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#newColumnGroupSchema"><span class="hs-identifier hs-type">newColumnGroupSchema</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema"><span class="hs-identifier hs-type">ColumnGroupSchema</span></a></span><span>
+</span><span id="line-51"></span><span id="newColumnGroupSchema"><span class="annot"><span class="annottext">newColumnGroupSchema :: ColumnGroupSchema
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#newColumnGroupSchema"><span class="hs-identifier hs-var hs-var">newColumnGroupSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ColumnGroupSchema' :: Maybe [ColumnGroupColumnSchema] -&gt; Maybe Text -&gt; ColumnGroupSchema
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema%27"><span class="hs-identifier hs-type">ColumnGroupSchema'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:columnGroupColumnSchemaList:ColumnGroupSchema' :: Maybe [ColumnGroupColumnSchema]
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#%24sel%3AcolumnGroupColumnSchemaList%3AColumnGroupSchema%27"><span class="hs-identifier hs-var">columnGroupColumnSchemaList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ColumnGroupColumnSchema]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ColumnGroupSchema' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#%24sel%3Aname%3AColumnGroupSchema%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | A structure containing the list of schemas for column group columns.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#columnGroupSchema_columnGroupColumnSchemaList"><span class="hs-identifier hs-type">columnGroupSchema_columnGroupColumnSchemaList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema"><span class="hs-identifier hs-type">ColumnGroupSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupColumnSchema.html#ColumnGroupColumnSchema"><span class="hs-identifier hs-type">ColumnGroupColumnSchema</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="columnGroupSchema_columnGroupColumnSchemaList"><span class="annot"><span class="annottext">columnGroupSchema_columnGroupColumnSchemaList :: (Maybe [ColumnGroupColumnSchema]
+ -&gt; f (Maybe [ColumnGroupColumnSchema]))
+-&gt; ColumnGroupSchema -&gt; f ColumnGroupSchema
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#columnGroupSchema_columnGroupColumnSchemaList"><span class="hs-identifier hs-var hs-var">columnGroupSchema_columnGroupColumnSchemaList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnGroupSchema -&gt; Maybe [ColumnGroupColumnSchema])
+-&gt; (ColumnGroupSchema
+    -&gt; Maybe [ColumnGroupColumnSchema] -&gt; ColumnGroupSchema)
+-&gt; Lens
+     ColumnGroupSchema
+     ColumnGroupSchema
+     (Maybe [ColumnGroupColumnSchema])
+     (Maybe [ColumnGroupColumnSchema])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema%27"><span class="hs-identifier hs-type">ColumnGroupSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550322"><span class="annot"><span class="annottext">Maybe [ColumnGroupColumnSchema]
+columnGroupColumnSchemaList :: Maybe [ColumnGroupColumnSchema]
+$sel:columnGroupColumnSchemaList:ColumnGroupSchema' :: ColumnGroupSchema -&gt; Maybe [ColumnGroupColumnSchema]
+</span><a href="#local-6989586621679550322"><span class="hs-identifier hs-var hs-var">columnGroupColumnSchemaList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnGroupColumnSchema]
+</span><a href="#local-6989586621679550322"><span class="hs-identifier hs-var">columnGroupColumnSchemaList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679550321"><span class="annot"><span class="annottext">s :: ColumnGroupSchema
+</span><a href="#local-6989586621679550321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema%27"><span class="hs-identifier hs-type">ColumnGroupSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679550320"><span class="annot"><span class="annottext">Maybe [ColumnGroupColumnSchema]
+</span><a href="#local-6989586621679550320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnGroupSchema
+</span><a href="#local-6989586621679550321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnGroupColumnSchemaList:ColumnGroupSchema' :: Maybe [ColumnGroupColumnSchema]
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#%24sel%3AcolumnGroupColumnSchemaList%3AColumnGroupSchema%27"><span class="hs-identifier hs-var">columnGroupColumnSchemaList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnGroupColumnSchema]
+</span><a href="#local-6989586621679550320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema"><span class="hs-identifier hs-type">ColumnGroupSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ColumnGroupColumnSchema]
+  -&gt; f (Maybe [ColumnGroupColumnSchema]))
+ -&gt; ColumnGroupSchema -&gt; f ColumnGroupSchema)
+-&gt; ((Maybe [ColumnGroupColumnSchema]
+     -&gt; f (Maybe [ColumnGroupColumnSchema]))
+    -&gt; Maybe [ColumnGroupColumnSchema]
+    -&gt; f (Maybe [ColumnGroupColumnSchema]))
+-&gt; (Maybe [ColumnGroupColumnSchema]
+    -&gt; f (Maybe [ColumnGroupColumnSchema]))
+-&gt; ColumnGroupSchema
+-&gt; f ColumnGroupSchema
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ColumnGroupColumnSchema]
+  [ColumnGroupColumnSchema]
+  [ColumnGroupColumnSchema]
+  [ColumnGroupColumnSchema]
+-&gt; Iso
+     (Maybe [ColumnGroupColumnSchema])
+     (Maybe [ColumnGroupColumnSchema])
+     (Maybe [ColumnGroupColumnSchema])
+     (Maybe [ColumnGroupColumnSchema])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ColumnGroupColumnSchema]
+  [ColumnGroupColumnSchema]
+  [ColumnGroupColumnSchema]
+  [ColumnGroupColumnSchema]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The name of the column group schema.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#columnGroupSchema_name"><span class="hs-identifier hs-type">columnGroupSchema_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema"><span class="hs-identifier hs-type">ColumnGroupSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="columnGroupSchema_name"><span class="annot"><span class="annottext">columnGroupSchema_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ColumnGroupSchema -&gt; f ColumnGroupSchema
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#columnGroupSchema_name"><span class="hs-identifier hs-var hs-var">columnGroupSchema_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnGroupSchema -&gt; Maybe Text)
+-&gt; (ColumnGroupSchema -&gt; Maybe Text -&gt; ColumnGroupSchema)
+-&gt; Lens
+     ColumnGroupSchema ColumnGroupSchema (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema%27"><span class="hs-identifier hs-type">ColumnGroupSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550315"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ColumnGroupSchema' :: ColumnGroupSchema -&gt; Maybe Text
+</span><a href="#local-6989586621679550315"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679550315"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679550314"><span class="annot"><span class="annottext">s :: ColumnGroupSchema
+</span><a href="#local-6989586621679550314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema%27"><span class="hs-identifier hs-type">ColumnGroupSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679550313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679550313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnGroupSchema
+</span><a href="#local-6989586621679550314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ColumnGroupSchema' :: Maybe Text
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#%24sel%3Aname%3AColumnGroupSchema%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679550313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema"><span class="hs-identifier hs-type">ColumnGroupSchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550310"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema"><span class="hs-identifier hs-type">ColumnGroupSchema</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679550308"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ColumnGroupSchema
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ColumnGroupSchema)
+-&gt; Value
+-&gt; Parser ColumnGroupSchema
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ColumnGroupSchema&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679550305"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679550305"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ColumnGroupColumnSchema] -&gt; Maybe Text -&gt; ColumnGroupSchema
+</span><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema%27"><span class="hs-identifier hs-var">ColumnGroupSchema'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ColumnGroupColumnSchema]
+ -&gt; Maybe Text -&gt; ColumnGroupSchema)
+-&gt; Parser (Maybe [ColumnGroupColumnSchema])
+-&gt; Parser (Maybe Text -&gt; ColumnGroupSchema)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679550305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ColumnGroupColumnSchema]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ColumnGroupColumnSchemaList&quot;</span></span><span>
+</span><span id="line-73"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ColumnGroupColumnSchema]))
+-&gt; Maybe [ColumnGroupColumnSchema]
+-&gt; Parser (Maybe [ColumnGroupColumnSchema])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnGroupColumnSchema]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-74"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ColumnGroupSchema)
+-&gt; Parser (Maybe Text) -&gt; Parser ColumnGroupSchema
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679550305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550298"><span id="local-6989586621679550300"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema"><span class="hs-identifier hs-type">ColumnGroupSchema</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ColumnGroupSchema.html#ColumnGroupSchema"><span class="hs-identifier hs-type">ColumnGroupSchema</span></a></span></span><span>
+</span><span id="line-81"></span></pre></body></html>

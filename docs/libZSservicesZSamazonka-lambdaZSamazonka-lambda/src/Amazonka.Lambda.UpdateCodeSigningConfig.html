@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lambda.UpdateCodeSigningConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Update the code signing configuration. Changes to the code signing</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- configuration take effect the next time a user tries to deploy a code</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- package to the function.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lambda.UpdateCodeSigningConfig</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier">UpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#newUpdateCodeSigningConfig"><span class="hs-identifier">newUpdateCodeSigningConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_allowedPublishers"><span class="hs-identifier">updateCodeSigningConfig_allowedPublishers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_codeSigningPolicies"><span class="hs-identifier">updateCodeSigningConfig_codeSigningPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_description"><span class="hs-identifier">updateCodeSigningConfig_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_codeSigningConfigArn"><span class="hs-identifier">updateCodeSigningConfig_codeSigningConfigArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse"><span class="hs-identifier">UpdateCodeSigningConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#newUpdateCodeSigningConfigResponse"><span class="hs-identifier">newUpdateCodeSigningConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfigResponse_httpStatus"><span class="hs-identifier">updateCodeSigningConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfigResponse_codeSigningConfig"><span class="hs-identifier">updateCodeSigningConfigResponse_codeSigningConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.html"><span class="hs-identifier">Amazonka.Lambda.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateCodeSigningConfig' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679312636"><span id="local-6989586621679312637"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCodeSigningConfig"><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-var">UpdateCodeSigningConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCodeSigningConfig%27"><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-var">UpdateCodeSigningConfig'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Signing profiles for this code signing configuration.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AallowedPublishers%3AUpdateCodeSigningConfig%27"><span class="annot"><span class="annottext">UpdateCodeSigningConfig -&gt; Maybe AllowedPublishers
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AallowedPublishers%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">allowedPublishers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The code signing policy.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AcodeSigningPolicies%3AUpdateCodeSigningConfig%27"><span class="annot"><span class="annottext">UpdateCodeSigningConfig -&gt; Maybe CodeSigningPolicies
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AcodeSigningPolicies%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">codeSigningPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Descriptive name for this code signing configuration.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateCodeSigningConfig%27"><span class="annot"><span class="annottext">UpdateCodeSigningConfig -&gt; Maybe Text
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3Adescription%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The The Amazon Resource Name (ARN) of the code signing configuration.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcodeSigningConfigArn%3AUpdateCodeSigningConfig%27"><span class="annot"><span class="annottext">UpdateCodeSigningConfig -&gt; Text
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312627"><span id="local-6989586621679312629"><span class="annot"><span class="annottext">UpdateCodeSigningConfig -&gt; UpdateCodeSigningConfig -&gt; Bool
+(UpdateCodeSigningConfig -&gt; UpdateCodeSigningConfig -&gt; Bool)
+-&gt; (UpdateCodeSigningConfig -&gt; UpdateCodeSigningConfig -&gt; Bool)
+-&gt; Eq UpdateCodeSigningConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateCodeSigningConfig -&gt; UpdateCodeSigningConfig -&gt; Bool
+$c/= :: UpdateCodeSigningConfig -&gt; UpdateCodeSigningConfig -&gt; Bool
+== :: UpdateCodeSigningConfig -&gt; UpdateCodeSigningConfig -&gt; Bool
+$c== :: UpdateCodeSigningConfig -&gt; UpdateCodeSigningConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312618"><span id="local-6989586621679312620"><span id="local-6989586621679312622"><span id="local-6989586621679312624"><span class="annot"><span class="annottext">ReadPrec [UpdateCodeSigningConfig]
+ReadPrec UpdateCodeSigningConfig
+Int -&gt; ReadS UpdateCodeSigningConfig
+ReadS [UpdateCodeSigningConfig]
+(Int -&gt; ReadS UpdateCodeSigningConfig)
+-&gt; ReadS [UpdateCodeSigningConfig]
+-&gt; ReadPrec UpdateCodeSigningConfig
+-&gt; ReadPrec [UpdateCodeSigningConfig]
+-&gt; Read UpdateCodeSigningConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateCodeSigningConfig]
+$creadListPrec :: ReadPrec [UpdateCodeSigningConfig]
+readPrec :: ReadPrec UpdateCodeSigningConfig
+$creadPrec :: ReadPrec UpdateCodeSigningConfig
+readList :: ReadS [UpdateCodeSigningConfig]
+$creadList :: ReadS [UpdateCodeSigningConfig]
+readsPrec :: Int -&gt; ReadS UpdateCodeSigningConfig
+$creadsPrec :: Int -&gt; ReadS UpdateCodeSigningConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312611"><span id="local-6989586621679312613"><span id="local-6989586621679312615"><span class="annot"><span class="annottext">Int -&gt; UpdateCodeSigningConfig -&gt; ShowS
+[UpdateCodeSigningConfig] -&gt; ShowS
+UpdateCodeSigningConfig -&gt; String
+(Int -&gt; UpdateCodeSigningConfig -&gt; ShowS)
+-&gt; (UpdateCodeSigningConfig -&gt; String)
+-&gt; ([UpdateCodeSigningConfig] -&gt; ShowS)
+-&gt; Show UpdateCodeSigningConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateCodeSigningConfig] -&gt; ShowS
+$cshowList :: [UpdateCodeSigningConfig] -&gt; ShowS
+show :: UpdateCodeSigningConfig -&gt; String
+$cshow :: UpdateCodeSigningConfig -&gt; String
+showsPrec :: Int -&gt; UpdateCodeSigningConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateCodeSigningConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateCodeSigningConfig -&gt; Rep UpdateCodeSigningConfig x)
+-&gt; (forall x.
+    Rep UpdateCodeSigningConfig x -&gt; UpdateCodeSigningConfig)
+-&gt; Generic UpdateCodeSigningConfig
+forall x. Rep UpdateCodeSigningConfig x -&gt; UpdateCodeSigningConfig
+forall x. UpdateCodeSigningConfig -&gt; Rep UpdateCodeSigningConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateCodeSigningConfig x -&gt; UpdateCodeSigningConfig
+$cfrom :: forall x. UpdateCodeSigningConfig -&gt; Rep UpdateCodeSigningConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'UpdateCodeSigningConfig' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'allowedPublishers', 'updateCodeSigningConfig_allowedPublishers' - Signing profiles for this code signing configuration.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'codeSigningPolicies', 'updateCodeSigningConfig_codeSigningPolicies' - The code signing policy.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'description', 'updateCodeSigningConfig_description' - Descriptive name for this code signing configuration.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'codeSigningConfigArn', 'updateCodeSigningConfig_codeSigningConfigArn' - The The Amazon Resource Name (ARN) of the code signing configuration.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#newUpdateCodeSigningConfig"><span class="hs-identifier hs-type">newUpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'codeSigningConfigArn'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span>
+</span><span id="line-86"></span><span id="newUpdateCodeSigningConfig"><span class="annot"><span class="annottext">newUpdateCodeSigningConfig :: Text -&gt; UpdateCodeSigningConfig
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#newUpdateCodeSigningConfig"><span class="hs-identifier hs-var hs-var">newUpdateCodeSigningConfig</span></a></span></span><span> </span><span id="local-6989586621679312606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312606"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">UpdateCodeSigningConfig' :: Maybe AllowedPublishers
+-&gt; Maybe CodeSigningPolicies
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdateCodeSigningConfig
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowedPublishers:UpdateCodeSigningConfig' :: Maybe AllowedPublishers
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AallowedPublishers%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var">allowedPublishers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe AllowedPublishers
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:codeSigningPolicies:UpdateCodeSigningConfig' :: Maybe CodeSigningPolicies
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AcodeSigningPolicies%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningPolicies
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateCodeSigningConfig' :: Maybe Text
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3Adescription%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:UpdateCodeSigningConfig' :: Text
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312606"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Signing profiles for this code signing configuration.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_allowedPublishers"><span class="hs-identifier hs-type">updateCodeSigningConfig_allowedPublishers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="updateCodeSigningConfig_allowedPublishers"><span class="annot"><span class="annottext">updateCodeSigningConfig_allowedPublishers :: (Maybe AllowedPublishers -&gt; f (Maybe AllowedPublishers))
+-&gt; UpdateCodeSigningConfig -&gt; f UpdateCodeSigningConfig
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_allowedPublishers"><span class="hs-identifier hs-var hs-var">updateCodeSigningConfig_allowedPublishers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeSigningConfig -&gt; Maybe AllowedPublishers)
+-&gt; (UpdateCodeSigningConfig
+    -&gt; Maybe AllowedPublishers -&gt; UpdateCodeSigningConfig)
+-&gt; Lens
+     UpdateCodeSigningConfig
+     UpdateCodeSigningConfig
+     (Maybe AllowedPublishers)
+     (Maybe AllowedPublishers)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312603"><span class="annot"><span class="annottext">Maybe AllowedPublishers
+allowedPublishers :: Maybe AllowedPublishers
+$sel:allowedPublishers:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Maybe AllowedPublishers
+</span><a href="#local-6989586621679312603"><span class="hs-identifier hs-var hs-var">allowedPublishers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AllowedPublishers
+</span><a href="#local-6989586621679312603"><span class="hs-identifier hs-var">allowedPublishers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312602"><span class="annot"><span class="annottext">s :: UpdateCodeSigningConfig
+</span><a href="#local-6989586621679312602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312601"><span class="annot"><span class="annottext">Maybe AllowedPublishers
+</span><a href="#local-6989586621679312601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeSigningConfig
+</span><a href="#local-6989586621679312602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedPublishers:UpdateCodeSigningConfig' :: Maybe AllowedPublishers
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AallowedPublishers%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var">allowedPublishers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AllowedPublishers
+</span><a href="#local-6989586621679312601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The code signing policy.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_codeSigningPolicies"><span class="hs-identifier hs-type">updateCodeSigningConfig_codeSigningPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="updateCodeSigningConfig_codeSigningPolicies"><span class="annot"><span class="annottext">updateCodeSigningConfig_codeSigningPolicies :: (Maybe CodeSigningPolicies -&gt; f (Maybe CodeSigningPolicies))
+-&gt; UpdateCodeSigningConfig -&gt; f UpdateCodeSigningConfig
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_codeSigningPolicies"><span class="hs-identifier hs-var hs-var">updateCodeSigningConfig_codeSigningPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeSigningConfig -&gt; Maybe CodeSigningPolicies)
+-&gt; (UpdateCodeSigningConfig
+    -&gt; Maybe CodeSigningPolicies -&gt; UpdateCodeSigningConfig)
+-&gt; Lens
+     UpdateCodeSigningConfig
+     UpdateCodeSigningConfig
+     (Maybe CodeSigningPolicies)
+     (Maybe CodeSigningPolicies)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312600"><span class="annot"><span class="annottext">Maybe CodeSigningPolicies
+codeSigningPolicies :: Maybe CodeSigningPolicies
+$sel:codeSigningPolicies:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Maybe CodeSigningPolicies
+</span><a href="#local-6989586621679312600"><span class="hs-identifier hs-var hs-var">codeSigningPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningPolicies
+</span><a href="#local-6989586621679312600"><span class="hs-identifier hs-var">codeSigningPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312599"><span class="annot"><span class="annottext">s :: UpdateCodeSigningConfig
+</span><a href="#local-6989586621679312599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312598"><span class="annot"><span class="annottext">Maybe CodeSigningPolicies
+</span><a href="#local-6989586621679312598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeSigningConfig
+</span><a href="#local-6989586621679312599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningPolicies:UpdateCodeSigningConfig' :: Maybe CodeSigningPolicies
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AcodeSigningPolicies%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningPolicies
+</span><a href="#local-6989586621679312598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Descriptive name for this code signing configuration.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_description"><span class="hs-identifier hs-type">updateCodeSigningConfig_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="updateCodeSigningConfig_description"><span class="annot"><span class="annottext">updateCodeSigningConfig_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateCodeSigningConfig -&gt; f UpdateCodeSigningConfig
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_description"><span class="hs-identifier hs-var hs-var">updateCodeSigningConfig_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeSigningConfig -&gt; Maybe Text)
+-&gt; (UpdateCodeSigningConfig
+    -&gt; Maybe Text -&gt; UpdateCodeSigningConfig)
+-&gt; Lens
+     UpdateCodeSigningConfig
+     UpdateCodeSigningConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312597"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679312597"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312597"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312596"><span class="annot"><span class="annottext">s :: UpdateCodeSigningConfig
+</span><a href="#local-6989586621679312596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312595"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeSigningConfig
+</span><a href="#local-6989586621679312596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateCodeSigningConfig' :: Maybe Text
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3Adescription%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The The Amazon Resource Name (ARN) of the code signing configuration.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_codeSigningConfigArn"><span class="hs-identifier hs-type">updateCodeSigningConfig_codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="updateCodeSigningConfig_codeSigningConfigArn"><span class="annot"><span class="annottext">updateCodeSigningConfig_codeSigningConfigArn :: (Text -&gt; f Text)
+-&gt; UpdateCodeSigningConfig -&gt; f UpdateCodeSigningConfig
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfig_codeSigningConfigArn"><span class="hs-identifier hs-var hs-var">updateCodeSigningConfig_codeSigningConfigArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeSigningConfig -&gt; Text)
+-&gt; (UpdateCodeSigningConfig -&gt; Text -&gt; UpdateCodeSigningConfig)
+-&gt; Lens UpdateCodeSigningConfig UpdateCodeSigningConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312594"><span class="annot"><span class="annottext">Text
+codeSigningConfigArn :: Text
+$sel:codeSigningConfigArn:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Text
+</span><a href="#local-6989586621679312594"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312594"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312593"><span class="annot"><span class="annottext">s :: UpdateCodeSigningConfig
+</span><a href="#local-6989586621679312593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312592"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeSigningConfig
+</span><a href="#local-6989586621679312593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:UpdateCodeSigningConfig' :: Text
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3AUpdateCodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679312588"><span class="annot"><span class="annottext">request :: UpdateCodeSigningConfig -&gt; Request UpdateCodeSigningConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateCodeSigningConfig -&gt; Request UpdateCodeSigningConfig
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679312584"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateCodeSigningConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateCodeSigningConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateCodeSigningConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateCodeSigningConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateCodeSigningConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312581"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312581"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312580"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312580"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312579"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312579"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CodeSigningConfig -&gt; UpdateCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">UpdateCodeSigningConfigResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CodeSigningConfig -&gt; UpdateCodeSigningConfigResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (CodeSigningConfig -&gt; UpdateCodeSigningConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312581"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (CodeSigningConfig -&gt; UpdateCodeSigningConfigResponse)
+-&gt; Either String CodeSigningConfig
+-&gt; Either String UpdateCodeSigningConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String CodeSigningConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeSigningConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312571"><span id="local-6989586621679312573"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679312564"><span class="annot"><span class="annottext">toHeaders :: UpdateCodeSigningConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateCodeSigningConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312555"><span id="local-6989586621679312557"><span id="local-6989586621679312559"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679312553"><span class="annot"><span class="annottext">toJSON :: UpdateCodeSigningConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312548"><span id="local-6989586621679312549"><span id="local-6989586621679312550"><span id="local-6989586621679312551"><span class="annot"><span class="annottext">Maybe Text
+Maybe AllowedPublishers
+Maybe CodeSigningPolicies
+Text
+codeSigningConfigArn :: Text
+description :: Maybe Text
+codeSigningPolicies :: Maybe CodeSigningPolicies
+allowedPublishers :: Maybe AllowedPublishers
+$sel:codeSigningConfigArn:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Text
+$sel:description:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Maybe Text
+$sel:codeSigningPolicies:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Maybe CodeSigningPolicies
+$sel:allowedPublishers:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Maybe AllowedPublishers
+</span><a href="#local-6989586621679312548"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllowedPublishers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AllowedPublishers -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">(AllowedPublishers -&gt; Pair)
+-&gt; Maybe AllowedPublishers -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AllowedPublishers
+</span><a href="#local-6989586621679312551"><span class="hs-identifier hs-var">allowedPublishers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeSigningPolicies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CodeSigningPolicies -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(CodeSigningPolicies -&gt; Pair)
+-&gt; Maybe CodeSigningPolicies -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningPolicies
+</span><a href="#local-6989586621679312550"><span class="hs-identifier hs-var">codeSigningPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312549"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679312542"><span class="annot"><span class="annottext">toPath :: UpdateCodeSigningConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312537"><span id="local-6989586621679312538"><span id="local-6989586621679312539"><span id="local-6989586621679312540"><span class="annot"><span class="annottext">Maybe Text
+Maybe AllowedPublishers
+Maybe CodeSigningPolicies
+Text
+codeSigningConfigArn :: Text
+description :: Maybe Text
+codeSigningPolicies :: Maybe CodeSigningPolicies
+allowedPublishers :: Maybe AllowedPublishers
+$sel:codeSigningConfigArn:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Text
+$sel:description:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Maybe Text
+$sel:codeSigningPolicies:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Maybe CodeSigningPolicies
+$sel:allowedPublishers:UpdateCodeSigningConfig' :: UpdateCodeSigningConfig -&gt; Maybe AllowedPublishers
+</span><a href="#local-6989586621679312537"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-04-22/code-signing-configs/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312537"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfig"><span class="hs-identifier hs-type">UpdateCodeSigningConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679312533"><span class="annot"><span class="annottext">toQuery :: UpdateCodeSigningConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateCodeSigningConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newUpdateCodeSigningConfigResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621679312530"><span id="local-6989586621679312531"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCodeSigningConfigResponse"><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse"><span class="hs-identifier hs-var">UpdateCodeSigningConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCodeSigningConfigResponse%27"><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">UpdateCodeSigningConfigResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateCodeSigningConfigResponse%27"><span class="annot"><span class="annottext">UpdateCodeSigningConfigResponse -&gt; Int
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AhttpStatus%3AUpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The code signing configuration</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AcodeSigningConfig%3AUpdateCodeSigningConfigResponse%27"><span class="annot"><span class="annottext">UpdateCodeSigningConfigResponse -&gt; CodeSigningConfig
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AcodeSigningConfig%3AUpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-var hs-var">codeSigningConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312524"><span id="local-6989586621679312526"><span class="annot"><span class="annottext">UpdateCodeSigningConfigResponse
+-&gt; UpdateCodeSigningConfigResponse -&gt; Bool
+(UpdateCodeSigningConfigResponse
+ -&gt; UpdateCodeSigningConfigResponse -&gt; Bool)
+-&gt; (UpdateCodeSigningConfigResponse
+    -&gt; UpdateCodeSigningConfigResponse -&gt; Bool)
+-&gt; Eq UpdateCodeSigningConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateCodeSigningConfigResponse
+-&gt; UpdateCodeSigningConfigResponse -&gt; Bool
+$c/= :: UpdateCodeSigningConfigResponse
+-&gt; UpdateCodeSigningConfigResponse -&gt; Bool
+== :: UpdateCodeSigningConfigResponse
+-&gt; UpdateCodeSigningConfigResponse -&gt; Bool
+$c== :: UpdateCodeSigningConfigResponse
+-&gt; UpdateCodeSigningConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312516"><span id="local-6989586621679312518"><span id="local-6989586621679312520"><span id="local-6989586621679312522"><span class="annot"><span class="annottext">ReadPrec [UpdateCodeSigningConfigResponse]
+ReadPrec UpdateCodeSigningConfigResponse
+Int -&gt; ReadS UpdateCodeSigningConfigResponse
+ReadS [UpdateCodeSigningConfigResponse]
+(Int -&gt; ReadS UpdateCodeSigningConfigResponse)
+-&gt; ReadS [UpdateCodeSigningConfigResponse]
+-&gt; ReadPrec UpdateCodeSigningConfigResponse
+-&gt; ReadPrec [UpdateCodeSigningConfigResponse]
+-&gt; Read UpdateCodeSigningConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateCodeSigningConfigResponse]
+$creadListPrec :: ReadPrec [UpdateCodeSigningConfigResponse]
+readPrec :: ReadPrec UpdateCodeSigningConfigResponse
+$creadPrec :: ReadPrec UpdateCodeSigningConfigResponse
+readList :: ReadS [UpdateCodeSigningConfigResponse]
+$creadList :: ReadS [UpdateCodeSigningConfigResponse]
+readsPrec :: Int -&gt; ReadS UpdateCodeSigningConfigResponse
+$creadsPrec :: Int -&gt; ReadS UpdateCodeSigningConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312510"><span id="local-6989586621679312512"><span id="local-6989586621679312514"><span class="annot"><span class="annottext">Int -&gt; UpdateCodeSigningConfigResponse -&gt; ShowS
+[UpdateCodeSigningConfigResponse] -&gt; ShowS
+UpdateCodeSigningConfigResponse -&gt; String
+(Int -&gt; UpdateCodeSigningConfigResponse -&gt; ShowS)
+-&gt; (UpdateCodeSigningConfigResponse -&gt; String)
+-&gt; ([UpdateCodeSigningConfigResponse] -&gt; ShowS)
+-&gt; Show UpdateCodeSigningConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateCodeSigningConfigResponse] -&gt; ShowS
+$cshowList :: [UpdateCodeSigningConfigResponse] -&gt; ShowS
+show :: UpdateCodeSigningConfigResponse -&gt; String
+$cshow :: UpdateCodeSigningConfigResponse -&gt; String
+showsPrec :: Int -&gt; UpdateCodeSigningConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateCodeSigningConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateCodeSigningConfigResponse
+ -&gt; Rep UpdateCodeSigningConfigResponse x)
+-&gt; (forall x.
+    Rep UpdateCodeSigningConfigResponse x
+    -&gt; UpdateCodeSigningConfigResponse)
+-&gt; Generic UpdateCodeSigningConfigResponse
+forall x.
+Rep UpdateCodeSigningConfigResponse x
+-&gt; UpdateCodeSigningConfigResponse
+forall x.
+UpdateCodeSigningConfigResponse
+-&gt; Rep UpdateCodeSigningConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateCodeSigningConfigResponse x
+-&gt; UpdateCodeSigningConfigResponse
+$cfrom :: forall x.
+UpdateCodeSigningConfigResponse
+-&gt; Rep UpdateCodeSigningConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'UpdateCodeSigningConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'updateCodeSigningConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'codeSigningConfig', 'updateCodeSigningConfigResponse_codeSigningConfig' - The code signing configuration</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#newUpdateCodeSigningConfigResponse"><span class="hs-identifier hs-type">newUpdateCodeSigningConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'codeSigningConfig'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newUpdateCodeSigningConfigResponse"><span class="annot"><span class="annottext">newUpdateCodeSigningConfigResponse :: Int -&gt; CodeSigningConfig -&gt; UpdateCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#newUpdateCodeSigningConfigResponse"><span class="hs-identifier hs-var hs-var">newUpdateCodeSigningConfigResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679312507"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312507"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679312506"><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679312506"><span class="hs-identifier hs-var">pCodeSigningConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">UpdateCodeSigningConfigResponse' :: Int -&gt; CodeSigningConfig -&gt; UpdateCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCodeSigningConfigResponse' :: Int
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AhttpStatus%3AUpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312507"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeSigningConfig:UpdateCodeSigningConfigResponse' :: CodeSigningConfig
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AcodeSigningConfig%3AUpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">codeSigningConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679312506"><span class="hs-identifier hs-var">pCodeSigningConfig_</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfigResponse_httpStatus"><span class="hs-identifier hs-type">updateCodeSigningConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span id="updateCodeSigningConfigResponse_httpStatus"><span class="annot"><span class="annottext">updateCodeSigningConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateCodeSigningConfigResponse
+-&gt; f UpdateCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateCodeSigningConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeSigningConfigResponse -&gt; Int)
+-&gt; (UpdateCodeSigningConfigResponse
+    -&gt; Int -&gt; UpdateCodeSigningConfigResponse)
+-&gt; Lens
+     UpdateCodeSigningConfigResponse
+     UpdateCodeSigningConfigResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312505"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateCodeSigningConfigResponse' :: UpdateCodeSigningConfigResponse -&gt; Int
+</span><a href="#local-6989586621679312505"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312505"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312504"><span class="annot"><span class="annottext">s :: UpdateCodeSigningConfigResponse
+</span><a href="#local-6989586621679312504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312503"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeSigningConfigResponse
+</span><a href="#local-6989586621679312504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCodeSigningConfigResponse' :: Int
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AhttpStatus%3AUpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The code signing configuration</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfigResponse_codeSigningConfig"><span class="hs-identifier hs-type">updateCodeSigningConfigResponse_codeSigningConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span>
+</span><span id="line-194"></span><span id="updateCodeSigningConfigResponse_codeSigningConfig"><span class="annot"><span class="annottext">updateCodeSigningConfigResponse_codeSigningConfig :: (CodeSigningConfig -&gt; f CodeSigningConfig)
+-&gt; UpdateCodeSigningConfigResponse
+-&gt; f UpdateCodeSigningConfigResponse
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#updateCodeSigningConfigResponse_codeSigningConfig"><span class="hs-identifier hs-var hs-var">updateCodeSigningConfigResponse_codeSigningConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCodeSigningConfigResponse -&gt; CodeSigningConfig)
+-&gt; (UpdateCodeSigningConfigResponse
+    -&gt; CodeSigningConfig -&gt; UpdateCodeSigningConfigResponse)
+-&gt; Lens
+     UpdateCodeSigningConfigResponse
+     UpdateCodeSigningConfigResponse
+     CodeSigningConfig
+     CodeSigningConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312502"><span class="annot"><span class="annottext">CodeSigningConfig
+codeSigningConfig :: CodeSigningConfig
+$sel:codeSigningConfig:UpdateCodeSigningConfigResponse' :: UpdateCodeSigningConfigResponse -&gt; CodeSigningConfig
+</span><a href="#local-6989586621679312502"><span class="hs-identifier hs-var hs-var">codeSigningConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679312502"><span class="hs-identifier hs-var">codeSigningConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312501"><span class="annot"><span class="annottext">s :: UpdateCodeSigningConfigResponse
+</span><a href="#local-6989586621679312501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312500"><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679312500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCodeSigningConfigResponse
+</span><a href="#local-6989586621679312501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfig:UpdateCodeSigningConfigResponse' :: CodeSigningConfig
+</span><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#%24sel%3AcodeSigningConfig%3AUpdateCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">codeSigningConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679312500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679312498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.UpdateCodeSigningConfig.html#UpdateCodeSigningConfigResponse"><span class="hs-identifier hs-type">UpdateCodeSigningConfigResponse</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

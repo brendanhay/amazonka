@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudFormation.ListStacks</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the summary information for stacks whose status matches the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified StackStatusFilter. Summary information for stacks that have</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- been deleted is kept for 90 days after the stack is deleted. If no</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- StackStatusFilter is specified, summary information for all stacks is</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- returned (including existing stacks and stacks that have been deleted).</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFormation.ListStacks</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier">ListStacks</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#newListStacks"><span class="hs-identifier">newListStacks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacks_nextToken"><span class="hs-identifier">listStacks_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacks_stackStatusFilter"><span class="hs-identifier">listStacks_stackStatusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier">ListStacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#newListStacksResponse"><span class="hs-identifier">newListStacksResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_nextToken"><span class="hs-identifier">listStacksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_stackSummaries"><span class="hs-identifier">listStacksResponse_stackSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_httpStatus"><span class="hs-identifier">listStacksResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.html"><span class="hs-identifier">Amazonka.CloudFormation.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The input for ListStacks action.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newListStacks' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679432895"><span id="local-6989586621679432896"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStacks"><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-var">ListStacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStacks%27"><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks%27"><span class="hs-identifier hs-var">ListStacks'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that identifies the next page of stacks that you want to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- retrieve.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListStacks%27"><span class="annot"><span class="annottext">ListStacks -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AnextToken%3AListStacks%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Stack status to use as a filter. Specify one or more stack status codes</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- to list only stacks with the specified status codes. For a complete list</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- of stack status codes, see the @StackStatus@ parameter of the Stack data</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstackStatusFilter%3AListStacks%27"><span class="annot"><span class="annottext">ListStacks -&gt; Maybe [StackStatus]
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AstackStatusFilter%3AListStacks%27"><span class="hs-identifier hs-var hs-var">stackStatusFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432888"><span id="local-6989586621679432890"><span class="annot"><span class="annottext">ListStacks -&gt; ListStacks -&gt; Bool
+(ListStacks -&gt; ListStacks -&gt; Bool)
+-&gt; (ListStacks -&gt; ListStacks -&gt; Bool) -&gt; Eq ListStacks
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListStacks -&gt; ListStacks -&gt; Bool
+$c/= :: ListStacks -&gt; ListStacks -&gt; Bool
+== :: ListStacks -&gt; ListStacks -&gt; Bool
+$c== :: ListStacks -&gt; ListStacks -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432879"><span id="local-6989586621679432881"><span id="local-6989586621679432883"><span id="local-6989586621679432885"><span class="annot"><span class="annottext">ReadPrec [ListStacks]
+ReadPrec ListStacks
+Int -&gt; ReadS ListStacks
+ReadS [ListStacks]
+(Int -&gt; ReadS ListStacks)
+-&gt; ReadS [ListStacks]
+-&gt; ReadPrec ListStacks
+-&gt; ReadPrec [ListStacks]
+-&gt; Read ListStacks
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListStacks]
+$creadListPrec :: ReadPrec [ListStacks]
+readPrec :: ReadPrec ListStacks
+$creadPrec :: ReadPrec ListStacks
+readList :: ReadS [ListStacks]
+$creadList :: ReadS [ListStacks]
+readsPrec :: Int -&gt; ReadS ListStacks
+$creadsPrec :: Int -&gt; ReadS ListStacks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432872"><span id="local-6989586621679432874"><span id="local-6989586621679432876"><span class="annot"><span class="annottext">Int -&gt; ListStacks -&gt; ShowS
+[ListStacks] -&gt; ShowS
+ListStacks -&gt; String
+(Int -&gt; ListStacks -&gt; ShowS)
+-&gt; (ListStacks -&gt; String)
+-&gt; ([ListStacks] -&gt; ShowS)
+-&gt; Show ListStacks
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListStacks] -&gt; ShowS
+$cshowList :: [ListStacks] -&gt; ShowS
+show :: ListStacks -&gt; String
+$cshow :: ListStacks -&gt; String
+showsPrec :: Int -&gt; ListStacks -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListStacks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListStacks -&gt; Rep ListStacks x)
+-&gt; (forall x. Rep ListStacks x -&gt; ListStacks) -&gt; Generic ListStacks
+forall x. Rep ListStacks x -&gt; ListStacks
+forall x. ListStacks -&gt; Rep ListStacks x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListStacks x -&gt; ListStacks
+$cfrom :: forall x. ListStacks -&gt; Rep ListStacks x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'ListStacks' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'listStacks_nextToken' - A string that identifies the next page of stacks that you want to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- retrieve.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'stackStatusFilter', 'listStacks_stackStatusFilter' - Stack status to use as a filter. Specify one or more stack status codes</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- to list only stacks with the specified status codes. For a complete list</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- of stack status codes, see the @StackStatus@ parameter of the Stack data</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#newListStacks"><span class="hs-identifier hs-type">newListStacks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span>
+</span><span id="line-89"></span><span id="newListStacks"><span class="annot"><span class="annottext">newListStacks :: ListStacks
+</span><a href="Amazonka.CloudFormation.ListStacks.html#newListStacks"><span class="hs-identifier hs-var hs-var">newListStacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ListStacks' :: Maybe Text -&gt; Maybe [StackStatus] -&gt; ListStacks
+</span><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks%27"><span class="hs-identifier hs-type">ListStacks'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListStacks' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AnextToken%3AListStacks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackStatusFilter:ListStacks' :: Maybe [StackStatus]
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AstackStatusFilter%3AListStacks%27"><span class="hs-identifier hs-var">stackStatusFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StackStatus]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | A string that identifies the next page of stacks that you want to</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- retrieve.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacks_nextToken"><span class="hs-identifier hs-type">listStacks_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listStacks_nextToken"><span class="annot"><span class="annottext">listStacks_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListStacks -&gt; f ListStacks
+</span><a href="Amazonka.CloudFormation.ListStacks.html#listStacks_nextToken"><span class="hs-identifier hs-var hs-var">listStacks_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStacks -&gt; Maybe Text)
+-&gt; (ListStacks -&gt; Maybe Text -&gt; ListStacks)
+-&gt; Lens ListStacks ListStacks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks%27"><span class="hs-identifier hs-type">ListStacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432866"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListStacks' :: ListStacks -&gt; Maybe Text
+</span><a href="#local-6989586621679432866"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432866"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432865"><span class="annot"><span class="annottext">s :: ListStacks
+</span><a href="#local-6989586621679432865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks%27"><span class="hs-identifier hs-type">ListStacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStacks
+</span><a href="#local-6989586621679432865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStacks' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AnextToken%3AListStacks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Stack status to use as a filter. Specify one or more stack status codes</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- to list only stacks with the specified status codes. For a complete list</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- of stack status codes, see the @StackStatus@ parameter of the Stack data</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacks_stackStatusFilter"><span class="hs-identifier hs-type">listStacks_stackStatusFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-type">StackStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="listStacks_stackStatusFilter"><span class="annot"><span class="annottext">listStacks_stackStatusFilter :: (Maybe [StackStatus] -&gt; f (Maybe [StackStatus]))
+-&gt; ListStacks -&gt; f ListStacks
+</span><a href="Amazonka.CloudFormation.ListStacks.html#listStacks_stackStatusFilter"><span class="hs-identifier hs-var hs-var">listStacks_stackStatusFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStacks -&gt; Maybe [StackStatus])
+-&gt; (ListStacks -&gt; Maybe [StackStatus] -&gt; ListStacks)
+-&gt; Lens
+     ListStacks ListStacks (Maybe [StackStatus]) (Maybe [StackStatus])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks%27"><span class="hs-identifier hs-type">ListStacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432863"><span class="annot"><span class="annottext">Maybe [StackStatus]
+stackStatusFilter :: Maybe [StackStatus]
+$sel:stackStatusFilter:ListStacks' :: ListStacks -&gt; Maybe [StackStatus]
+</span><a href="#local-6989586621679432863"><span class="hs-identifier hs-var hs-var">stackStatusFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StackStatus]
+</span><a href="#local-6989586621679432863"><span class="hs-identifier hs-var">stackStatusFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432862"><span class="annot"><span class="annottext">s :: ListStacks
+</span><a href="#local-6989586621679432862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks%27"><span class="hs-identifier hs-type">ListStacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432861"><span class="annot"><span class="annottext">Maybe [StackStatus]
+</span><a href="#local-6989586621679432861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStacks
+</span><a href="#local-6989586621679432862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackStatusFilter:ListStacks' :: Maybe [StackStatus]
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AstackStatusFilter%3AListStacks%27"><span class="hs-identifier hs-var">stackStatusFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StackStatus]
+</span><a href="#local-6989586621679432861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StackStatus] -&gt; f (Maybe [StackStatus]))
+ -&gt; ListStacks -&gt; f ListStacks)
+-&gt; ((Maybe [StackStatus] -&gt; f (Maybe [StackStatus]))
+    -&gt; Maybe [StackStatus] -&gt; f (Maybe [StackStatus]))
+-&gt; (Maybe [StackStatus] -&gt; f (Maybe [StackStatus]))
+-&gt; ListStacks
+-&gt; f ListStacks
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [StackStatus] [StackStatus] [StackStatus] [StackStatus]
+-&gt; Iso
+     (Maybe [StackStatus])
+     (Maybe [StackStatus])
+     (Maybe [StackStatus])
+     (Maybe [StackStatus])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [StackStatus] [StackStatus] [StackStatus] [StackStatus]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679432854"><span class="annot"><span class="annottext">page :: ListStacks -&gt; AWSResponse ListStacks -&gt; Maybe ListStacks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679432852"><span class="annot"><span class="annottext">ListStacks
+</span><a href="#local-6989586621679432852"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679432851"><span class="annot"><span class="annottext">AWSResponse ListStacks
+</span><a href="#local-6989586621679432851"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStacks
+ListStacksResponse
+</span><a href="#local-6989586621679432851"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListStacksResponse
+-&gt; Getting (First Text) ListStacksResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListStacksResponse -&gt; Const (First Text) ListStacksResponse
+Lens' ListStacksResponse (Maybe Text)
+</span><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_nextToken"><span class="hs-identifier hs-var">listStacksResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListStacksResponse -&gt; Const (First Text) ListStacksResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListStacksResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListStacks
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [StackSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStacks
+ListStacksResponse
+</span><a href="#local-6989586621679432851"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListStacksResponse
+-&gt; Getting (First [StackSummary]) ListStacksResponse [StackSummary]
+-&gt; Maybe [StackSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [StackSummary]
+ -&gt; Const (First [StackSummary]) (Maybe [StackSummary]))
+-&gt; ListStacksResponse
+-&gt; Const (First [StackSummary]) ListStacksResponse
+Lens' ListStacksResponse (Maybe [StackSummary])
+</span><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_stackSummaries"><span class="hs-identifier hs-var">listStacksResponse_stackSummaries</span></a></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [StackSummary]
+  -&gt; Const (First [StackSummary]) (Maybe [StackSummary]))
+ -&gt; ListStacksResponse
+ -&gt; Const (First [StackSummary]) ListStacksResponse)
+-&gt; (([StackSummary] -&gt; Const (First [StackSummary]) [StackSummary])
+    -&gt; Maybe [StackSummary]
+    -&gt; Const (First [StackSummary]) (Maybe [StackSummary]))
+-&gt; Getting (First [StackSummary]) ListStacksResponse [StackSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([StackSummary] -&gt; Const (First [StackSummary]) [StackSummary])
+-&gt; Maybe [StackSummary]
+-&gt; Const (First [StackSummary]) (Maybe [StackSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListStacks
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">ListStacks -&gt; Maybe ListStacks
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListStacks -&gt; Maybe ListStacks) -&gt; ListStacks -&gt; Maybe ListStacks
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ListStacks
+</span><a href="#local-6989586621679432852"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListStacks -&gt; (ListStacks -&gt; ListStacks) -&gt; ListStacks
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListStacks -&gt; Identity ListStacks
+Lens ListStacks ListStacks (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.CloudFormation.ListStacks.html#listStacks_nextToken"><span class="hs-identifier hs-var">listStacks_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListStacks -&gt; Identity ListStacks)
+-&gt; Maybe Text -&gt; ListStacks -&gt; ListStacks
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStacks
+ListStacksResponse
+</span><a href="#local-6989586621679432851"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ListStacksResponse
+-&gt; Getting (First Text) ListStacksResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListStacksResponse -&gt; Const (First Text) ListStacksResponse
+Lens' ListStacksResponse (Maybe Text)
+</span><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_nextToken"><span class="hs-identifier hs-var">listStacksResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListStacksResponse -&gt; Const (First Text) ListStacksResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListStacksResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-type">ListStacksResponse</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679432842"><span class="annot"><span class="annottext">request :: ListStacks -&gt; Request ListStacks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListStacks -&gt; Request ListStacks
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679432838"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListStacks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListStacks)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ListStacks))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListStacks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListStacks)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListStacksResult&quot;</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679432835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432835"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679432834"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679432834"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679432833"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679432833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [StackSummary] -&gt; Int -&gt; ListStacksResponse
+</span><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse%27"><span class="hs-identifier hs-var">ListStacksResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [StackSummary] -&gt; Int -&gt; ListStacksResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [StackSummary] -&gt; Int -&gt; ListStacksResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679432833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [StackSummary] -&gt; Int -&gt; ListStacksResponse)
+-&gt; Either String (Maybe [StackSummary])
+-&gt; Either String (Int -&gt; ListStacksResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679432833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackSummaries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [StackSummary]))
+-&gt; Either String (Maybe [StackSummary])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [StackSummary])
+-&gt; [Node] -&gt; Either String (Maybe [StackSummary])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [StackSummary]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListStacksResponse)
+-&gt; Either String Int -&gt; Either String ListStacksResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432835"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432822"><span id="local-6989586621679432824"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679432815"><span class="annot"><span class="annottext">toHeaders :: ListStacks -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListStacks -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679432810"><span class="annot"><span class="annottext">toPath :: ListStacks -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListStacks -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks"><span class="hs-identifier hs-type">ListStacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679432806"><span class="annot"><span class="annottext">toQuery :: ListStacks -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacks%27"><span class="hs-identifier hs-type">ListStacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432803"><span id="local-6989586621679432804"><span class="annot"><span class="annottext">Maybe [StackStatus]
+Maybe Text
+stackStatusFilter :: Maybe [StackStatus]
+nextToken :: Maybe Text
+$sel:stackStatusFilter:ListStacks' :: ListStacks -&gt; Maybe [StackStatus]
+$sel:nextToken:ListStacks' :: ListStacks -&gt; Maybe Text
+</span><a href="#local-6989586621679432803"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ListStacks&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432804"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StackStatusFilter&quot;</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [StackStatus] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-163"></span><span>                </span><span class="annot"><span class="annottext">([StackStatus] -&gt; QueryString)
+-&gt; Maybe [StackStatus] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [StackStatus]
+</span><a href="#local-6989586621679432803"><span class="hs-identifier hs-var">stackStatusFilter</span></a></span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The output for ListStacks action.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- /See:/ 'newListStacksResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679432799"><span id="local-6989586621679432800"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStacksResponse"><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-var">ListStacksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStacksResponse%27"><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse%27"><span class="hs-identifier hs-var">ListStacksResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the output exceeds 1 MB in size, a string that identifies the next</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- page of stacks. If no additional page exists, this value is null.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AnextToken%3AListStacksResponse%27"><span class="annot"><span class="annottext">ListStacksResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AnextToken%3AListStacksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | A list of @StackSummary@ structures containing information about the</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- specified stacks.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AstackSummaries%3AListStacksResponse%27"><span class="annot"><span class="annottext">ListStacksResponse -&gt; Maybe [StackSummary]
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AstackSummaries%3AListStacksResponse%27"><span class="hs-identifier hs-var hs-var">stackSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListStacksResponse%27"><span class="annot"><span class="annottext">ListStacksResponse -&gt; Int
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AhttpStatus%3AListStacksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432792"><span id="local-6989586621679432794"><span class="annot"><span class="annottext">ListStacksResponse -&gt; ListStacksResponse -&gt; Bool
+(ListStacksResponse -&gt; ListStacksResponse -&gt; Bool)
+-&gt; (ListStacksResponse -&gt; ListStacksResponse -&gt; Bool)
+-&gt; Eq ListStacksResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListStacksResponse -&gt; ListStacksResponse -&gt; Bool
+$c/= :: ListStacksResponse -&gt; ListStacksResponse -&gt; Bool
+== :: ListStacksResponse -&gt; ListStacksResponse -&gt; Bool
+$c== :: ListStacksResponse -&gt; ListStacksResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432784"><span id="local-6989586621679432786"><span id="local-6989586621679432788"><span id="local-6989586621679432790"><span class="annot"><span class="annottext">ReadPrec [ListStacksResponse]
+ReadPrec ListStacksResponse
+Int -&gt; ReadS ListStacksResponse
+ReadS [ListStacksResponse]
+(Int -&gt; ReadS ListStacksResponse)
+-&gt; ReadS [ListStacksResponse]
+-&gt; ReadPrec ListStacksResponse
+-&gt; ReadPrec [ListStacksResponse]
+-&gt; Read ListStacksResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListStacksResponse]
+$creadListPrec :: ReadPrec [ListStacksResponse]
+readPrec :: ReadPrec ListStacksResponse
+$creadPrec :: ReadPrec ListStacksResponse
+readList :: ReadS [ListStacksResponse]
+$creadList :: ReadS [ListStacksResponse]
+readsPrec :: Int -&gt; ReadS ListStacksResponse
+$creadsPrec :: Int -&gt; ReadS ListStacksResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432778"><span id="local-6989586621679432780"><span id="local-6989586621679432782"><span class="annot"><span class="annottext">Int -&gt; ListStacksResponse -&gt; ShowS
+[ListStacksResponse] -&gt; ShowS
+ListStacksResponse -&gt; String
+(Int -&gt; ListStacksResponse -&gt; ShowS)
+-&gt; (ListStacksResponse -&gt; String)
+-&gt; ([ListStacksResponse] -&gt; ShowS)
+-&gt; Show ListStacksResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListStacksResponse] -&gt; ShowS
+$cshowList :: [ListStacksResponse] -&gt; ShowS
+show :: ListStacksResponse -&gt; String
+$cshow :: ListStacksResponse -&gt; String
+showsPrec :: Int -&gt; ListStacksResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListStacksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListStacksResponse -&gt; Rep ListStacksResponse x)
+-&gt; (forall x. Rep ListStacksResponse x -&gt; ListStacksResponse)
+-&gt; Generic ListStacksResponse
+forall x. Rep ListStacksResponse x -&gt; ListStacksResponse
+forall x. ListStacksResponse -&gt; Rep ListStacksResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListStacksResponse x -&gt; ListStacksResponse
+$cfrom :: forall x. ListStacksResponse -&gt; Rep ListStacksResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'ListStacksResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'listStacksResponse_nextToken' - If the output exceeds 1 MB in size, a string that identifies the next</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- page of stacks. If no additional page exists, this value is null.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'stackSummaries', 'listStacksResponse_stackSummaries' - A list of @StackSummary@ structures containing information about the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- specified stacks.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'httpStatus', 'listStacksResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#newListStacksResponse"><span class="hs-identifier hs-type">newListStacksResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-type">ListStacksResponse</span></a></span><span>
+</span><span id="line-201"></span><span id="newListStacksResponse"><span class="annot"><span class="annottext">newListStacksResponse :: Int -&gt; ListStacksResponse
+</span><a href="Amazonka.CloudFormation.ListStacks.html#newListStacksResponse"><span class="hs-identifier hs-var hs-var">newListStacksResponse</span></a></span></span><span> </span><span id="local-6989586621679432775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432775"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">ListStacksResponse' :: Maybe Text -&gt; Maybe [StackSummary] -&gt; Int -&gt; ListStacksResponse
+</span><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse%27"><span class="hs-identifier hs-type">ListStacksResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListStacksResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AnextToken%3AListStacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackSummaries:ListStacksResponse' :: Maybe [StackSummary]
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AstackSummaries%3AListStacksResponse%27"><span class="hs-identifier hs-var">stackSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StackSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListStacksResponse' :: Int
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AhttpStatus%3AListStacksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432775"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | If the output exceeds 1 MB in size, a string that identifies the next</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- page of stacks. If no additional page exists, this value is null.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_nextToken"><span class="hs-identifier hs-type">listStacksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-type">ListStacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="listStacksResponse_nextToken"><span class="annot"><span class="annottext">listStacksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListStacksResponse -&gt; f ListStacksResponse
+</span><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_nextToken"><span class="hs-identifier hs-var hs-var">listStacksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStacksResponse -&gt; Maybe Text)
+-&gt; (ListStacksResponse -&gt; Maybe Text -&gt; ListStacksResponse)
+-&gt; Lens' ListStacksResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse%27"><span class="hs-identifier hs-type">ListStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432774"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListStacksResponse' :: ListStacksResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679432774"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432774"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432773"><span class="annot"><span class="annottext">s :: ListStacksResponse
+</span><a href="#local-6989586621679432773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse%27"><span class="hs-identifier hs-type">ListStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStacksResponse
+</span><a href="#local-6989586621679432773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStacksResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AnextToken%3AListStacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-type">ListStacksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | A list of @StackSummary@ structures containing information about the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- specified stacks.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_stackSummaries"><span class="hs-identifier hs-type">listStacksResponse_stackSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-type">ListStacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackSummary.html#StackSummary"><span class="hs-identifier hs-type">StackSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="listStacksResponse_stackSummaries"><span class="annot"><span class="annottext">listStacksResponse_stackSummaries :: (Maybe [StackSummary] -&gt; f (Maybe [StackSummary]))
+-&gt; ListStacksResponse -&gt; f ListStacksResponse
+</span><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_stackSummaries"><span class="hs-identifier hs-var hs-var">listStacksResponse_stackSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStacksResponse -&gt; Maybe [StackSummary])
+-&gt; (ListStacksResponse
+    -&gt; Maybe [StackSummary] -&gt; ListStacksResponse)
+-&gt; Lens' ListStacksResponse (Maybe [StackSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse%27"><span class="hs-identifier hs-type">ListStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432771"><span class="annot"><span class="annottext">Maybe [StackSummary]
+stackSummaries :: Maybe [StackSummary]
+$sel:stackSummaries:ListStacksResponse' :: ListStacksResponse -&gt; Maybe [StackSummary]
+</span><a href="#local-6989586621679432771"><span class="hs-identifier hs-var hs-var">stackSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StackSummary]
+</span><a href="#local-6989586621679432771"><span class="hs-identifier hs-var">stackSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432770"><span class="annot"><span class="annottext">s :: ListStacksResponse
+</span><a href="#local-6989586621679432770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse%27"><span class="hs-identifier hs-type">ListStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432769"><span class="annot"><span class="annottext">Maybe [StackSummary]
+</span><a href="#local-6989586621679432769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStacksResponse
+</span><a href="#local-6989586621679432770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackSummaries:ListStacksResponse' :: Maybe [StackSummary]
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AstackSummaries%3AListStacksResponse%27"><span class="hs-identifier hs-var">stackSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StackSummary]
+</span><a href="#local-6989586621679432769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-type">ListStacksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StackSummary] -&gt; f (Maybe [StackSummary]))
+ -&gt; ListStacksResponse -&gt; f ListStacksResponse)
+-&gt; ((Maybe [StackSummary] -&gt; f (Maybe [StackSummary]))
+    -&gt; Maybe [StackSummary] -&gt; f (Maybe [StackSummary]))
+-&gt; (Maybe [StackSummary] -&gt; f (Maybe [StackSummary]))
+-&gt; ListStacksResponse
+-&gt; f ListStacksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [StackSummary] [StackSummary] [StackSummary] [StackSummary]
+-&gt; Iso
+     (Maybe [StackSummary])
+     (Maybe [StackSummary])
+     (Maybe [StackSummary])
+     (Maybe [StackSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [StackSummary] [StackSummary] [StackSummary] [StackSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_httpStatus"><span class="hs-identifier hs-type">listStacksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-type">ListStacksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span id="listStacksResponse_httpStatus"><span class="annot"><span class="annottext">listStacksResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListStacksResponse -&gt; f ListStacksResponse
+</span><a href="Amazonka.CloudFormation.ListStacks.html#listStacksResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listStacksResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStacksResponse -&gt; Int)
+-&gt; (ListStacksResponse -&gt; Int -&gt; ListStacksResponse)
+-&gt; Lens ListStacksResponse ListStacksResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse%27"><span class="hs-identifier hs-type">ListStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432768"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListStacksResponse' :: ListStacksResponse -&gt; Int
+</span><a href="#local-6989586621679432768"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432768"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432767"><span class="annot"><span class="annottext">s :: ListStacksResponse
+</span><a href="#local-6989586621679432767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse%27"><span class="hs-identifier hs-type">ListStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStacksResponse
+</span><a href="#local-6989586621679432767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStacksResponse' :: Int
+</span><a href="Amazonka.CloudFormation.ListStacks.html#%24sel%3AhttpStatus%3AListStacksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-type">ListStacksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432764"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListStacks.html#ListStacksResponse"><span class="hs-identifier hs-type">ListStacksResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

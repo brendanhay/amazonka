@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CostAndUsageReport.Types.ReportFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CostAndUsageReport.Types.ReportFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat"><span class="hs-identifier">ReportFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat_Parquet"><span class="hs-identifier">ReportFormat_Parquet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat_TextORcsv"><span class="hs-identifier">ReportFormat_TextORcsv</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The format that AWS saves the report in.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679150487"><span id="local-6989586621679150488"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportFormat"><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat"><span class="hs-identifier hs-var">ReportFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportFormat%27"><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat%27"><span class="hs-identifier hs-var">ReportFormat'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReportFormat"><span class="annot"><span class="annottext">ReportFormat -&gt; Text
+</span><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#fromReportFormat"><span class="hs-identifier hs-var hs-var">fromReportFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150479"><span id="local-6989586621679150481"><span id="local-6989586621679150483"><span class="annot"><span class="annottext">Int -&gt; ReportFormat -&gt; ShowS
+[ReportFormat] -&gt; ShowS
+ReportFormat -&gt; String
+(Int -&gt; ReportFormat -&gt; ShowS)
+-&gt; (ReportFormat -&gt; String)
+-&gt; ([ReportFormat] -&gt; ShowS)
+-&gt; Show ReportFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReportFormat] -&gt; ShowS
+$cshowList :: [ReportFormat] -&gt; ShowS
+show :: ReportFormat -&gt; String
+$cshow :: ReportFormat -&gt; String
+showsPrec :: Int -&gt; ReportFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReportFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679150470"><span id="local-6989586621679150472"><span id="local-6989586621679150474"><span id="local-6989586621679150476"><span class="annot"><span class="annottext">ReadPrec [ReportFormat]
+ReadPrec ReportFormat
+Int -&gt; ReadS ReportFormat
+ReadS [ReportFormat]
+(Int -&gt; ReadS ReportFormat)
+-&gt; ReadS [ReportFormat]
+-&gt; ReadPrec ReportFormat
+-&gt; ReadPrec [ReportFormat]
+-&gt; Read ReportFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReportFormat]
+$creadListPrec :: ReadPrec [ReportFormat]
+readPrec :: ReadPrec ReportFormat
+$creadPrec :: ReadPrec ReportFormat
+readList :: ReadS [ReportFormat]
+$creadList :: ReadS [ReportFormat]
+readsPrec :: Int -&gt; ReadS ReportFormat
+$creadsPrec :: Int -&gt; ReadS ReportFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679150465"><span id="local-6989586621679150467"><span class="annot"><span class="annottext">ReportFormat -&gt; ReportFormat -&gt; Bool
+(ReportFormat -&gt; ReportFormat -&gt; Bool)
+-&gt; (ReportFormat -&gt; ReportFormat -&gt; Bool) -&gt; Eq ReportFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReportFormat -&gt; ReportFormat -&gt; Bool
+$c/= :: ReportFormat -&gt; ReportFormat -&gt; Bool
+== :: ReportFormat -&gt; ReportFormat -&gt; Bool
+$c== :: ReportFormat -&gt; ReportFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679150449"><span id="local-6989586621679150451"><span id="local-6989586621679150453"><span id="local-6989586621679150455"><span id="local-6989586621679150457"><span id="local-6989586621679150459"><span id="local-6989586621679150461"><span class="annot"><span class="annottext">Eq ReportFormat
+Eq ReportFormat
+-&gt; (ReportFormat -&gt; ReportFormat -&gt; Ordering)
+-&gt; (ReportFormat -&gt; ReportFormat -&gt; Bool)
+-&gt; (ReportFormat -&gt; ReportFormat -&gt; Bool)
+-&gt; (ReportFormat -&gt; ReportFormat -&gt; Bool)
+-&gt; (ReportFormat -&gt; ReportFormat -&gt; Bool)
+-&gt; (ReportFormat -&gt; ReportFormat -&gt; ReportFormat)
+-&gt; (ReportFormat -&gt; ReportFormat -&gt; ReportFormat)
+-&gt; Ord ReportFormat
+ReportFormat -&gt; ReportFormat -&gt; Bool
+ReportFormat -&gt; ReportFormat -&gt; Ordering
+ReportFormat -&gt; ReportFormat -&gt; ReportFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReportFormat -&gt; ReportFormat -&gt; ReportFormat
+$cmin :: ReportFormat -&gt; ReportFormat -&gt; ReportFormat
+max :: ReportFormat -&gt; ReportFormat -&gt; ReportFormat
+$cmax :: ReportFormat -&gt; ReportFormat -&gt; ReportFormat
+&gt;= :: ReportFormat -&gt; ReportFormat -&gt; Bool
+$c&gt;= :: ReportFormat -&gt; ReportFormat -&gt; Bool
+&gt; :: ReportFormat -&gt; ReportFormat -&gt; Bool
+$c&gt; :: ReportFormat -&gt; ReportFormat -&gt; Bool
+&lt;= :: ReportFormat -&gt; ReportFormat -&gt; Bool
+$c&lt;= :: ReportFormat -&gt; ReportFormat -&gt; Bool
+&lt; :: ReportFormat -&gt; ReportFormat -&gt; Bool
+$c&lt; :: ReportFormat -&gt; ReportFormat -&gt; Bool
+compare :: ReportFormat -&gt; ReportFormat -&gt; Ordering
+$ccompare :: ReportFormat -&gt; ReportFormat -&gt; Ordering
+$cp1Ord :: Eq ReportFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReportFormat -&gt; Rep ReportFormat x)
+-&gt; (forall x. Rep ReportFormat x -&gt; ReportFormat)
+-&gt; Generic ReportFormat
+forall x. Rep ReportFormat x -&gt; ReportFormat
+forall x. ReportFormat -&gt; Rep ReportFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReportFormat x -&gt; ReportFormat
+$cfrom :: forall x. ReportFormat -&gt; Rep ReportFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150441"><span id="local-6989586621679150443"><span class="annot"><span class="annottext">Int -&gt; ReportFormat -&gt; Int
+ReportFormat -&gt; Int
+(Int -&gt; ReportFormat -&gt; Int)
+-&gt; (ReportFormat -&gt; Int) -&gt; Hashable ReportFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReportFormat -&gt; Int
+$chash :: ReportFormat -&gt; Int
+hashWithSalt :: Int -&gt; ReportFormat -&gt; Int
+$chashWithSalt :: Int -&gt; ReportFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679150438"><span class="annot"><span class="annottext">ReportFormat -&gt; ()
+(ReportFormat -&gt; ()) -&gt; NFData ReportFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReportFormat -&gt; ()
+$crnf :: ReportFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679150435"><span class="annot"><span class="annottext">Text -&gt; Either String ReportFormat
+(Text -&gt; Either String ReportFormat) -&gt; FromText ReportFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReportFormat
+$cfromText :: Text -&gt; Either String ReportFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679150432"><span class="annot"><span class="annottext">ReportFormat -&gt; Text
+(ReportFormat -&gt; Text) -&gt; ToText ReportFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReportFormat -&gt; Text
+$ctoText :: ReportFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679150429"><span class="annot"><span class="annottext">ReportFormat -&gt; ByteString
+(ReportFormat -&gt; ByteString) -&gt; ToByteString ReportFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReportFormat -&gt; ByteString
+$ctoBS :: ReportFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679150426"><span class="annot"><span class="annottext">ReportFormat -&gt; ByteStringBuilder
+(ReportFormat -&gt; ByteStringBuilder) -&gt; ToLog ReportFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReportFormat -&gt; ByteStringBuilder
+$cbuild :: ReportFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679150423"><span class="annot"><span class="annottext">HeaderName -&gt; ReportFormat -&gt; [Header]
+(HeaderName -&gt; ReportFormat -&gt; [Header]) -&gt; ToHeader ReportFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReportFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReportFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679150420"><span class="annot"><span class="annottext">ReportFormat -&gt; QueryString
+(ReportFormat -&gt; QueryString) -&gt; ToQuery ReportFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReportFormat -&gt; QueryString
+$ctoQuery :: ReportFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679150415"><span id="local-6989586621679150417"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportFormat]
+Value -&gt; Parser ReportFormat
+(Value -&gt; Parser ReportFormat)
+-&gt; (Value -&gt; Parser [ReportFormat]) -&gt; FromJSON ReportFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReportFormat]
+$cparseJSONList :: Value -&gt; Parser [ReportFormat]
+parseJSON :: Value -&gt; Parser ReportFormat
+$cparseJSON :: Value -&gt; Parser ReportFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679150410"><span id="local-6989586621679150412"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportFormat]
+FromJSONKeyFunction ReportFormat
+FromJSONKeyFunction ReportFormat
+-&gt; FromJSONKeyFunction [ReportFormat] -&gt; FromJSONKey ReportFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReportFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReportFormat]
+fromJSONKey :: FromJSONKeyFunction ReportFormat
+$cfromJSONKey :: FromJSONKeyFunction ReportFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679150401"><span id="local-6989586621679150403"><span id="local-6989586621679150405"><span id="local-6989586621679150407"><span class="annot"><span class="annottext">[ReportFormat] -&gt; Encoding
+[ReportFormat] -&gt; Value
+ReportFormat -&gt; Encoding
+ReportFormat -&gt; Value
+(ReportFormat -&gt; Value)
+-&gt; (ReportFormat -&gt; Encoding)
+-&gt; ([ReportFormat] -&gt; Value)
+-&gt; ([ReportFormat] -&gt; Encoding)
+-&gt; ToJSON ReportFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReportFormat] -&gt; Encoding
+$ctoEncodingList :: [ReportFormat] -&gt; Encoding
+toJSONList :: [ReportFormat] -&gt; Value
+$ctoJSONList :: [ReportFormat] -&gt; Value
+toEncoding :: ReportFormat -&gt; Encoding
+$ctoEncoding :: ReportFormat -&gt; Encoding
+toJSON :: ReportFormat -&gt; Value
+$ctoJSON :: ReportFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679150396"><span id="local-6989586621679150398"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportFormat]
+ToJSONKeyFunction ReportFormat
+ToJSONKeyFunction ReportFormat
+-&gt; ToJSONKeyFunction [ReportFormat] -&gt; ToJSONKey ReportFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReportFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReportFormat]
+toJSONKey :: ToJSONKeyFunction ReportFormat
+$ctoJSONKey :: ToJSONKeyFunction ReportFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679150393"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportFormat
+([Node] -&gt; Either String ReportFormat) -&gt; FromXML ReportFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReportFormat
+$cparseXML :: [Node] -&gt; Either String ReportFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679150390"><span class="annot"><span class="annottext">ReportFormat -&gt; XML
+(ReportFormat -&gt; XML) -&gt; ToXML ReportFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReportFormat -&gt; XML
+$ctoXML :: ReportFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat_Parquet"><span class="hs-identifier hs-type">ReportFormat_Parquet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat"><span class="hs-identifier hs-type">ReportFormat</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportFormat_Parquet"><span id="%24mReportFormat_Parquet"><span id="ReportFormat_Parquet"><span class="annot"><span class="annottext">$bReportFormat_Parquet :: ReportFormat
+$mReportFormat_Parquet :: forall r. ReportFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#%24bReportFormat_Parquet"><span class="hs-identifier hs-var hs-var hs-var">ReportFormat_Parquet</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat%27"><span class="hs-identifier hs-type">ReportFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Parquet&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat_TextORcsv"><span class="hs-identifier hs-type">ReportFormat_TextORcsv</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat"><span class="hs-identifier hs-type">ReportFormat</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportFormat_TextORcsv"><span id="%24mReportFormat_TextORcsv"><span id="ReportFormat_TextORcsv"><span class="annot"><span class="annottext">$bReportFormat_TextORcsv :: ReportFormat
+$mReportFormat_TextORcsv :: forall r. ReportFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#%24bReportFormat_TextORcsv"><span class="hs-identifier hs-var hs-var hs-var">ReportFormat_TextORcsv</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat%27"><span class="hs-identifier hs-type">ReportFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;textORcsv&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat_Parquet"><span class="hs-pragma hs-type">ReportFormat_Parquet</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat_TextORcsv"><span class="hs-pragma hs-type">ReportFormat_TextORcsv</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.CostAndUsageReport.Types.ReportFormat.html#ReportFormat%27"><span class="hs-pragma hs-type">ReportFormat'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

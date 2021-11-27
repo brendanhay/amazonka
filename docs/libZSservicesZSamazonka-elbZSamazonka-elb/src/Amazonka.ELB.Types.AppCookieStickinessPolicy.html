@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ELB.Types.AppCookieStickinessPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ELB.Types.AppCookieStickinessPolicy</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ELB.Internal.html"><span class="hs-identifier">Amazonka.ELB.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about a policy for application-controlled session</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- stickiness.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAppCookieStickinessPolicy' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679195191"><span id="local-6989586621679195192"></span></span><span class="hs-keyword">data</span><span> </span><span id="AppCookieStickinessPolicy"><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-var">AppCookieStickinessPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppCookieStickinessPolicy%27"><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">AppCookieStickinessPolicy'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The mnemonic name for the policy being created. The name must be unique</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- within a set of policies for this load balancer.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApolicyName%3AAppCookieStickinessPolicy%27"><span class="annot"><span class="annottext">AppCookieStickinessPolicy -&gt; Maybe Text
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#%24sel%3ApolicyName%3AAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the application cookie used for stickiness.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcookieName%3AAppCookieStickinessPolicy%27"><span class="annot"><span class="annottext">AppCookieStickinessPolicy -&gt; Maybe Text
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#%24sel%3AcookieName%3AAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var hs-var">cookieName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195184"><span id="local-6989586621679195186"><span class="annot"><span class="annottext">AppCookieStickinessPolicy -&gt; AppCookieStickinessPolicy -&gt; Bool
+(AppCookieStickinessPolicy -&gt; AppCookieStickinessPolicy -&gt; Bool)
+-&gt; (AppCookieStickinessPolicy -&gt; AppCookieStickinessPolicy -&gt; Bool)
+-&gt; Eq AppCookieStickinessPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AppCookieStickinessPolicy -&gt; AppCookieStickinessPolicy -&gt; Bool
+$c/= :: AppCookieStickinessPolicy -&gt; AppCookieStickinessPolicy -&gt; Bool
+== :: AppCookieStickinessPolicy -&gt; AppCookieStickinessPolicy -&gt; Bool
+$c== :: AppCookieStickinessPolicy -&gt; AppCookieStickinessPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195175"><span id="local-6989586621679195177"><span id="local-6989586621679195179"><span id="local-6989586621679195181"><span class="annot"><span class="annottext">ReadPrec [AppCookieStickinessPolicy]
+ReadPrec AppCookieStickinessPolicy
+Int -&gt; ReadS AppCookieStickinessPolicy
+ReadS [AppCookieStickinessPolicy]
+(Int -&gt; ReadS AppCookieStickinessPolicy)
+-&gt; ReadS [AppCookieStickinessPolicy]
+-&gt; ReadPrec AppCookieStickinessPolicy
+-&gt; ReadPrec [AppCookieStickinessPolicy]
+-&gt; Read AppCookieStickinessPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AppCookieStickinessPolicy]
+$creadListPrec :: ReadPrec [AppCookieStickinessPolicy]
+readPrec :: ReadPrec AppCookieStickinessPolicy
+$creadPrec :: ReadPrec AppCookieStickinessPolicy
+readList :: ReadS [AppCookieStickinessPolicy]
+$creadList :: ReadS [AppCookieStickinessPolicy]
+readsPrec :: Int -&gt; ReadS AppCookieStickinessPolicy
+$creadsPrec :: Int -&gt; ReadS AppCookieStickinessPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195168"><span id="local-6989586621679195170"><span id="local-6989586621679195172"><span class="annot"><span class="annottext">Int -&gt; AppCookieStickinessPolicy -&gt; ShowS
+[AppCookieStickinessPolicy] -&gt; ShowS
+AppCookieStickinessPolicy -&gt; String
+(Int -&gt; AppCookieStickinessPolicy -&gt; ShowS)
+-&gt; (AppCookieStickinessPolicy -&gt; String)
+-&gt; ([AppCookieStickinessPolicy] -&gt; ShowS)
+-&gt; Show AppCookieStickinessPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AppCookieStickinessPolicy] -&gt; ShowS
+$cshowList :: [AppCookieStickinessPolicy] -&gt; ShowS
+show :: AppCookieStickinessPolicy -&gt; String
+$cshow :: AppCookieStickinessPolicy -&gt; String
+showsPrec :: Int -&gt; AppCookieStickinessPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; AppCookieStickinessPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AppCookieStickinessPolicy -&gt; Rep AppCookieStickinessPolicy x)
+-&gt; (forall x.
+    Rep AppCookieStickinessPolicy x -&gt; AppCookieStickinessPolicy)
+-&gt; Generic AppCookieStickinessPolicy
+forall x.
+Rep AppCookieStickinessPolicy x -&gt; AppCookieStickinessPolicy
+forall x.
+AppCookieStickinessPolicy -&gt; Rep AppCookieStickinessPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AppCookieStickinessPolicy x -&gt; AppCookieStickinessPolicy
+$cfrom :: forall x.
+AppCookieStickinessPolicy -&gt; Rep AppCookieStickinessPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'AppCookieStickinessPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'policyName', 'appCookieStickinessPolicy_policyName' - The mnemonic name for the policy being created. The name must be unique</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- within a set of policies for this load balancer.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'cookieName', 'appCookieStickinessPolicy_cookieName' - The name of the application cookie used for stickiness.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#newAppCookieStickinessPolicy"><span class="hs-identifier hs-type">newAppCookieStickinessPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-type">AppCookieStickinessPolicy</span></a></span><span>
+</span><span id="line-54"></span><span id="newAppCookieStickinessPolicy"><span class="annot"><span class="annottext">newAppCookieStickinessPolicy :: AppCookieStickinessPolicy
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#newAppCookieStickinessPolicy"><span class="hs-identifier hs-var hs-var">newAppCookieStickinessPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">AppCookieStickinessPolicy' :: Maybe Text -&gt; Maybe Text -&gt; AppCookieStickinessPolicy
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">AppCookieStickinessPolicy'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyName:AppCookieStickinessPolicy' :: Maybe Text
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#%24sel%3ApolicyName%3AAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:cookieName:AppCookieStickinessPolicy' :: Maybe Text
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#%24sel%3AcookieName%3AAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">cookieName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The mnemonic name for the policy being created. The name must be unique</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- within a set of policies for this load balancer.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#appCookieStickinessPolicy_policyName"><span class="hs-identifier hs-type">appCookieStickinessPolicy_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-type">AppCookieStickinessPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="appCookieStickinessPolicy_policyName"><span class="annot"><span class="annottext">appCookieStickinessPolicy_policyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AppCookieStickinessPolicy -&gt; f AppCookieStickinessPolicy
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#appCookieStickinessPolicy_policyName"><span class="hs-identifier hs-var hs-var">appCookieStickinessPolicy_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AppCookieStickinessPolicy -&gt; Maybe Text)
+-&gt; (AppCookieStickinessPolicy
+    -&gt; Maybe Text -&gt; AppCookieStickinessPolicy)
+-&gt; Lens
+     AppCookieStickinessPolicy
+     AppCookieStickinessPolicy
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">AppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195159"><span class="annot"><span class="annottext">Maybe Text
+policyName :: Maybe Text
+$sel:policyName:AppCookieStickinessPolicy' :: AppCookieStickinessPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679195159"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195159"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195158"><span class="annot"><span class="annottext">s :: AppCookieStickinessPolicy
+</span><a href="#local-6989586621679195158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">AppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppCookieStickinessPolicy
+</span><a href="#local-6989586621679195158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:AppCookieStickinessPolicy' :: Maybe Text
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#%24sel%3ApolicyName%3AAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-type">AppCookieStickinessPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The name of the application cookie used for stickiness.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#appCookieStickinessPolicy_cookieName"><span class="hs-identifier hs-type">appCookieStickinessPolicy_cookieName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-type">AppCookieStickinessPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="appCookieStickinessPolicy_cookieName"><span class="annot"><span class="annottext">appCookieStickinessPolicy_cookieName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AppCookieStickinessPolicy -&gt; f AppCookieStickinessPolicy
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#appCookieStickinessPolicy_cookieName"><span class="hs-identifier hs-var hs-var">appCookieStickinessPolicy_cookieName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AppCookieStickinessPolicy -&gt; Maybe Text)
+-&gt; (AppCookieStickinessPolicy
+    -&gt; Maybe Text -&gt; AppCookieStickinessPolicy)
+-&gt; Lens
+     AppCookieStickinessPolicy
+     AppCookieStickinessPolicy
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">AppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195155"><span class="annot"><span class="annottext">Maybe Text
+cookieName :: Maybe Text
+$sel:cookieName:AppCookieStickinessPolicy' :: AppCookieStickinessPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679195155"><span class="hs-identifier hs-var hs-var">cookieName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195155"><span class="hs-identifier hs-var">cookieName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195154"><span class="annot"><span class="annottext">s :: AppCookieStickinessPolicy
+</span><a href="#local-6989586621679195154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">AppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppCookieStickinessPolicy
+</span><a href="#local-6989586621679195154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cookieName:AppCookieStickinessPolicy' :: Maybe Text
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#%24sel%3AcookieName%3AAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">cookieName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-type">AppCookieStickinessPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-type">AppCookieStickinessPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679195150"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AppCookieStickinessPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679195148"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679195148"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; AppCookieStickinessPolicy
+</span><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">AppCookieStickinessPolicy'</span></a></span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; AppCookieStickinessPolicy)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; AppCookieStickinessPolicy)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679195148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; AppCookieStickinessPolicy)
+-&gt; Either String (Maybe Text)
+-&gt; Either String AppCookieStickinessPolicy
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679195148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CookieName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195142"><span id="local-6989586621679195144"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-type">AppCookieStickinessPolicy</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195139"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-type">AppCookieStickinessPolicy</span></a></span></span><span>
+</span><span id="line-79"></span></pre></body></html>

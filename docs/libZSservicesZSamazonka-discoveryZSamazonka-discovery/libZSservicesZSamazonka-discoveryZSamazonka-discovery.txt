@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Discovery.Types.AgentConfigurationStatus
+module Amazonka.Discovery.Types.AgentConfigurationStatus
 
 -- | Information about agents or connectors that were instructed to start
 --   collecting data. Information includes the agent/connector ID, a
@@ -63,16 +63,16 @@ agentConfigurationStatus_operationSucceeded :: Lens' AgentConfigurationStatus (M
 
 -- | A description of the operation performed.
 agentConfigurationStatus_description :: Lens' AgentConfigurationStatus (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
-instance GHC.Show.Show Network.AWS.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
-instance GHC.Read.Read Network.AWS.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
+instance GHC.Generics.Generic Amazonka.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
+instance GHC.Show.Show Amazonka.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
+instance GHC.Read.Read Amazonka.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
+instance GHC.Classes.Eq Amazonka.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.AgentConfigurationStatus.AgentConfigurationStatus
 
 
-module Network.AWS.Discovery.Types.AgentNetworkInfo
+module Amazonka.Discovery.Types.AgentNetworkInfo
 
 -- | Network details about the host where the agent/connector resides.
 --   
@@ -109,16 +109,16 @@ agentNetworkInfo_ipAddress :: Lens' AgentNetworkInfo (Maybe Text)
 
 -- | The MAC address for the host where the agent/connector resides.
 agentNetworkInfo_macAddress :: Lens' AgentNetworkInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
-instance GHC.Show.Show Network.AWS.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
-instance GHC.Read.Read Network.AWS.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
+instance GHC.Generics.Generic Amazonka.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
+instance GHC.Show.Show Amazonka.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
+instance GHC.Read.Read Amazonka.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
+instance GHC.Classes.Eq Amazonka.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.AgentNetworkInfo.AgentNetworkInfo
 
 
-module Network.AWS.Discovery.Types.AgentStatus
+module Amazonka.Discovery.Types.AgentStatus
 newtype AgentStatus
 AgentStatus' :: Text -> AgentStatus
 [fromAgentStatus] :: AgentStatus -> Text
@@ -128,28 +128,28 @@ pattern AgentStatus_RUNNING :: AgentStatus
 pattern AgentStatus_SHUTDOWN :: AgentStatus
 pattern AgentStatus_UNHEALTHY :: AgentStatus
 pattern AgentStatus_UNKNOWN :: AgentStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance GHC.Read.Read Network.AWS.Discovery.Types.AgentStatus.AgentStatus
-instance GHC.Show.Show Network.AWS.Discovery.Types.AgentStatus.AgentStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance GHC.Generics.Generic Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance GHC.Classes.Ord Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance GHC.Classes.Eq Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance GHC.Read.Read Amazonka.Discovery.Types.AgentStatus.AgentStatus
+instance GHC.Show.Show Amazonka.Discovery.Types.AgentStatus.AgentStatus
 
 
-module Network.AWS.Discovery.Types.AgentInfo
+module Amazonka.Discovery.Types.AgentInfo
 
 -- | Information about agents or connectors associated with the user’s AWS
 --   account. Information includes agent or connector IDs, IP addresses,
@@ -265,44 +265,44 @@ agentInfo_registeredTime :: Lens' AgentInfo (Maybe Text)
 
 -- | Type of agent.
 agentInfo_agentType :: Lens' AgentInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.AgentInfo.AgentInfo
-instance GHC.Show.Show Network.AWS.Discovery.Types.AgentInfo.AgentInfo
-instance GHC.Read.Read Network.AWS.Discovery.Types.AgentInfo.AgentInfo
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.AgentInfo.AgentInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.AgentInfo.AgentInfo
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.AgentInfo.AgentInfo
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.AgentInfo.AgentInfo
+instance GHC.Generics.Generic Amazonka.Discovery.Types.AgentInfo.AgentInfo
+instance GHC.Show.Show Amazonka.Discovery.Types.AgentInfo.AgentInfo
+instance GHC.Read.Read Amazonka.Discovery.Types.AgentInfo.AgentInfo
+instance GHC.Classes.Eq Amazonka.Discovery.Types.AgentInfo.AgentInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.AgentInfo.AgentInfo
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.AgentInfo.AgentInfo
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.AgentInfo.AgentInfo
 
 
-module Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
+module Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode
 newtype BatchDeleteImportDataErrorCode
 BatchDeleteImportDataErrorCode' :: Text -> BatchDeleteImportDataErrorCode
 [fromBatchDeleteImportDataErrorCode] :: BatchDeleteImportDataErrorCode -> Text
 pattern BatchDeleteImportDataErrorCode_INTERNAL_SERVER_ERROR :: BatchDeleteImportDataErrorCode
 pattern BatchDeleteImportDataErrorCode_NOT_FOUND :: BatchDeleteImportDataErrorCode
 pattern BatchDeleteImportDataErrorCode_OVER_LIMIT :: BatchDeleteImportDataErrorCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance GHC.Read.Read Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
-instance GHC.Show.Show Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance GHC.Generics.Generic Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance GHC.Classes.Ord Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance GHC.Classes.Eq Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance GHC.Read.Read Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
+instance GHC.Show.Show Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode.BatchDeleteImportDataErrorCode
 
 
-module Network.AWS.Discovery.Types.BatchDeleteImportDataError
+module Amazonka.Discovery.Types.BatchDeleteImportDataError
 
 -- | Error messages returned for each import task that you deleted as a
 --   response for this command.
@@ -350,16 +350,16 @@ batchDeleteImportDataError_errorCode :: Lens' BatchDeleteImportDataError (Maybe 
 
 -- | The description of the error that occurred for a specific import task.
 batchDeleteImportDataError_errorDescription :: Lens' BatchDeleteImportDataError (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
-instance GHC.Show.Show Network.AWS.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
-instance GHC.Read.Read Network.AWS.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
+instance GHC.Generics.Generic Amazonka.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
+instance GHC.Show.Show Amazonka.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
+instance GHC.Read.Read Amazonka.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
+instance GHC.Classes.Eq Amazonka.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.BatchDeleteImportDataError.BatchDeleteImportDataError
 
 
-module Network.AWS.Discovery.Types.ConfigurationItemType
+module Amazonka.Discovery.Types.ConfigurationItemType
 newtype ConfigurationItemType
 ConfigurationItemType' :: Text -> ConfigurationItemType
 [fromConfigurationItemType] :: ConfigurationItemType -> Text
@@ -367,28 +367,28 @@ pattern ConfigurationItemType_APPLICATION :: ConfigurationItemType
 pattern ConfigurationItemType_CONNECTION :: ConfigurationItemType
 pattern ConfigurationItemType_PROCESS :: ConfigurationItemType
 pattern ConfigurationItemType_SERVER :: ConfigurationItemType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance GHC.Read.Read Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
-instance GHC.Show.Show Network.AWS.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance GHC.Classes.Ord Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance GHC.Read.Read Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
+instance GHC.Show.Show Amazonka.Discovery.Types.ConfigurationItemType.ConfigurationItemType
 
 
-module Network.AWS.Discovery.Types.ConfigurationTag
+module Amazonka.Discovery.Types.ConfigurationTag
 
 -- | Tags for a configuration item. Tags are metadata that help you
 --   categorize IT assets.
@@ -460,16 +460,16 @@ configurationTag_value :: Lens' ConfigurationTag (Maybe Text)
 
 -- | A type of tag on which to filter. For example, <i>serverType</i>.
 configurationTag_key :: Lens' ConfigurationTag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ConfigurationTag.ConfigurationTag
-instance GHC.Show.Show Network.AWS.Discovery.Types.ConfigurationTag.ConfigurationTag
-instance GHC.Read.Read Network.AWS.Discovery.Types.ConfigurationTag.ConfigurationTag
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ConfigurationTag.ConfigurationTag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ConfigurationTag.ConfigurationTag
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ConfigurationTag.ConfigurationTag
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ConfigurationTag.ConfigurationTag
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ConfigurationTag.ConfigurationTag
+instance GHC.Show.Show Amazonka.Discovery.Types.ConfigurationTag.ConfigurationTag
+instance GHC.Read.Read Amazonka.Discovery.Types.ConfigurationTag.ConfigurationTag
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ConfigurationTag.ConfigurationTag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ConfigurationTag.ConfigurationTag
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ConfigurationTag.ConfigurationTag
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ConfigurationTag.ConfigurationTag
 
 
-module Network.AWS.Discovery.Types.ContinuousExportStatus
+module Amazonka.Discovery.Types.ContinuousExportStatus
 newtype ContinuousExportStatus
 ContinuousExportStatus' :: Text -> ContinuousExportStatus
 [fromContinuousExportStatus] :: ContinuousExportStatus -> Text
@@ -480,28 +480,28 @@ pattern ContinuousExportStatus_START_FAILED :: ContinuousExportStatus
 pattern ContinuousExportStatus_START_IN_PROGRESS :: ContinuousExportStatus
 pattern ContinuousExportStatus_STOP_FAILED :: ContinuousExportStatus
 pattern ContinuousExportStatus_STOP_IN_PROGRESS :: ContinuousExportStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance GHC.Read.Read Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
-instance GHC.Show.Show Network.AWS.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance GHC.Classes.Ord Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance GHC.Read.Read Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
+instance GHC.Show.Show Amazonka.Discovery.Types.ContinuousExportStatus.ContinuousExportStatus
 
 
-module Network.AWS.Discovery.Types.CustomerAgentInfo
+module Amazonka.Discovery.Types.CustomerAgentInfo
 
 -- | Inventory data for installed discovery agents.
 --   
@@ -588,16 +588,16 @@ customerAgentInfo_totalAgents :: Lens' CustomerAgentInfo Int
 
 -- | Number of unknown discovery agents.
 customerAgentInfo_unknownAgents :: Lens' CustomerAgentInfo Int
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
-instance GHC.Show.Show Network.AWS.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
-instance GHC.Read.Read Network.AWS.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
+instance GHC.Generics.Generic Amazonka.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
+instance GHC.Show.Show Amazonka.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
+instance GHC.Read.Read Amazonka.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
+instance GHC.Classes.Eq Amazonka.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.CustomerAgentInfo.CustomerAgentInfo
 
 
-module Network.AWS.Discovery.Types.CustomerConnectorInfo
+module Amazonka.Discovery.Types.CustomerConnectorInfo
 
 -- | Inventory data for installed discovery connectors.
 --   
@@ -684,42 +684,42 @@ customerConnectorInfo_totalConnectors :: Lens' CustomerConnectorInfo Int
 
 -- | Number of unknown discovery connectors.
 customerConnectorInfo_unknownConnectors :: Lens' CustomerConnectorInfo Int
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
-instance GHC.Show.Show Network.AWS.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
-instance GHC.Read.Read Network.AWS.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
+instance GHC.Generics.Generic Amazonka.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
+instance GHC.Show.Show Amazonka.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
+instance GHC.Read.Read Amazonka.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
+instance GHC.Classes.Eq Amazonka.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.CustomerConnectorInfo.CustomerConnectorInfo
 
 
-module Network.AWS.Discovery.Types.DataSource
+module Amazonka.Discovery.Types.DataSource
 newtype DataSource
 DataSource' :: Text -> DataSource
 [fromDataSource] :: DataSource -> Text
 pattern DataSource_AGENT :: DataSource
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.DataSource.DataSource
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.DataSource.DataSource
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.DataSource.DataSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.DataSource.DataSource
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.DataSource.DataSource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.DataSource.DataSource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.DataSource.DataSource
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.DataSource.DataSource
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.DataSource.DataSource
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.DataSource.DataSource
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.DataSource.DataSource
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.DataSource.DataSource
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.DataSource.DataSource
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.DataSource.DataSource
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.DataSource.DataSource
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.DataSource.DataSource
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.DataSource.DataSource
-instance GHC.Read.Read Network.AWS.Discovery.Types.DataSource.DataSource
-instance GHC.Show.Show Network.AWS.Discovery.Types.DataSource.DataSource
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.DataSource.DataSource
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.DataSource.DataSource
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.DataSource.DataSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.DataSource.DataSource
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.DataSource.DataSource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.DataSource.DataSource
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.DataSource.DataSource
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.DataSource.DataSource
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.DataSource.DataSource
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.DataSource.DataSource
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.DataSource.DataSource
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.DataSource.DataSource
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.DataSource.DataSource
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.DataSource.DataSource
+instance GHC.Generics.Generic Amazonka.Discovery.Types.DataSource.DataSource
+instance GHC.Classes.Ord Amazonka.Discovery.Types.DataSource.DataSource
+instance GHC.Classes.Eq Amazonka.Discovery.Types.DataSource.DataSource
+instance GHC.Read.Read Amazonka.Discovery.Types.DataSource.DataSource
+instance GHC.Show.Show Amazonka.Discovery.Types.DataSource.DataSource
 
 
-module Network.AWS.Discovery.Types.ContinuousExportDescription
+module Amazonka.Discovery.Types.ContinuousExportDescription
 
 -- | A list of continuous export descriptions.
 --   
@@ -984,43 +984,43 @@ continuousExportDescription_s3Bucket :: Lens' ContinuousExportDescription (Maybe
 
 -- | The unique ID assigned to this export.
 continuousExportDescription_exportId :: Lens' ContinuousExportDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
-instance GHC.Show.Show Network.AWS.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
-instance GHC.Read.Read Network.AWS.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
+instance GHC.Show.Show Amazonka.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
+instance GHC.Read.Read Amazonka.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ContinuousExportDescription.ContinuousExportDescription
 
 
-module Network.AWS.Discovery.Types.ExportDataFormat
+module Amazonka.Discovery.Types.ExportDataFormat
 newtype ExportDataFormat
 ExportDataFormat' :: Text -> ExportDataFormat
 [fromExportDataFormat] :: ExportDataFormat -> Text
 pattern ExportDataFormat_CSV :: ExportDataFormat
 pattern ExportDataFormat_GRAPHML :: ExportDataFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance GHC.Read.Read Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
-instance GHC.Show.Show Network.AWS.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance GHC.Classes.Ord Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance GHC.Read.Read Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
+instance GHC.Show.Show Amazonka.Discovery.Types.ExportDataFormat.ExportDataFormat
 
 
-module Network.AWS.Discovery.Types.ExportFilter
+module Amazonka.Discovery.Types.ExportFilter
 
 -- | Used to select which agent's data is to be exported. A single agent ID
 --   may be selected for export using the <a>StartExportTask</a> action.
@@ -1073,44 +1073,44 @@ exportFilter_values :: Lens' ExportFilter [Text]
 
 -- | Supported condition: <tt>EQUALS</tt>
 exportFilter_condition :: Lens' ExportFilter Text
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ExportFilter.ExportFilter
-instance GHC.Show.Show Network.AWS.Discovery.Types.ExportFilter.ExportFilter
-instance GHC.Read.Read Network.AWS.Discovery.Types.ExportFilter.ExportFilter
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ExportFilter.ExportFilter
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ExportFilter.ExportFilter
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ExportFilter.ExportFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.ExportFilter.ExportFilter
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ExportFilter.ExportFilter
+instance GHC.Show.Show Amazonka.Discovery.Types.ExportFilter.ExportFilter
+instance GHC.Read.Read Amazonka.Discovery.Types.ExportFilter.ExportFilter
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ExportFilter.ExportFilter
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ExportFilter.ExportFilter
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ExportFilter.ExportFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.ExportFilter.ExportFilter
 
 
-module Network.AWS.Discovery.Types.ExportStatus
+module Amazonka.Discovery.Types.ExportStatus
 newtype ExportStatus
 ExportStatus' :: Text -> ExportStatus
 [fromExportStatus] :: ExportStatus -> Text
 pattern ExportStatus_FAILED :: ExportStatus
 pattern ExportStatus_IN_PROGRESS :: ExportStatus
 pattern ExportStatus_SUCCEEDED :: ExportStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance GHC.Read.Read Network.AWS.Discovery.Types.ExportStatus.ExportStatus
-instance GHC.Show.Show Network.AWS.Discovery.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance GHC.Classes.Ord Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance GHC.Read.Read Amazonka.Discovery.Types.ExportStatus.ExportStatus
+instance GHC.Show.Show Amazonka.Discovery.Types.ExportStatus.ExportStatus
 
 
-module Network.AWS.Discovery.Types.ExportInfo
+module Amazonka.Discovery.Types.ExportInfo
 
 -- | Information regarding the export status of discovered data. The value
 --   is an array of objects.
@@ -1226,16 +1226,16 @@ exportInfo_statusMessage :: Lens' ExportInfo Text
 
 -- | The time that the data export was initiated.
 exportInfo_exportRequestTime :: Lens' ExportInfo UTCTime
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ExportInfo.ExportInfo
-instance GHC.Show.Show Network.AWS.Discovery.Types.ExportInfo.ExportInfo
-instance GHC.Read.Read Network.AWS.Discovery.Types.ExportInfo.ExportInfo
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ExportInfo.ExportInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ExportInfo.ExportInfo
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ExportInfo.ExportInfo
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ExportInfo.ExportInfo
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ExportInfo.ExportInfo
+instance GHC.Show.Show Amazonka.Discovery.Types.ExportInfo.ExportInfo
+instance GHC.Read.Read Amazonka.Discovery.Types.ExportInfo.ExportInfo
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ExportInfo.ExportInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ExportInfo.ExportInfo
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ExportInfo.ExportInfo
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ExportInfo.ExportInfo
 
 
-module Network.AWS.Discovery.Types.Filter
+module Amazonka.Discovery.Types.Filter
 
 -- | A filter that can use conditional operators.
 --   
@@ -1305,16 +1305,16 @@ filter_values :: Lens' Filter [Text]
 --   <i>DescribeConfigurations</i> or <i>ListConfigurations</i> returns
 --   attributes of matching configuration items.
 filter_condition :: Lens' Filter Text
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.Filter.Filter
-instance GHC.Show.Show Network.AWS.Discovery.Types.Filter.Filter
-instance GHC.Read.Read Network.AWS.Discovery.Types.Filter.Filter
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.Filter.Filter
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.Filter.Filter
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.Filter.Filter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.Filter.Filter
+instance GHC.Generics.Generic Amazonka.Discovery.Types.Filter.Filter
+instance GHC.Show.Show Amazonka.Discovery.Types.Filter.Filter
+instance GHC.Read.Read Amazonka.Discovery.Types.Filter.Filter
+instance GHC.Classes.Eq Amazonka.Discovery.Types.Filter.Filter
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.Filter.Filter
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.Filter.Filter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.Filter.Filter
 
 
-module Network.AWS.Discovery.Types.ImportStatus
+module Amazonka.Discovery.Types.ImportStatus
 newtype ImportStatus
 ImportStatus' :: Text -> ImportStatus
 [fromImportStatus] :: ImportStatus -> Text
@@ -1329,28 +1329,28 @@ pattern ImportStatus_IMPORT_FAILED_RECORD_LIMIT_EXCEEDED :: ImportStatus
 pattern ImportStatus_IMPORT_FAILED_SERVER_LIMIT_EXCEEDED :: ImportStatus
 pattern ImportStatus_IMPORT_IN_PROGRESS :: ImportStatus
 pattern ImportStatus_INTERNAL_ERROR :: ImportStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance GHC.Read.Read Network.AWS.Discovery.Types.ImportStatus.ImportStatus
-instance GHC.Show.Show Network.AWS.Discovery.Types.ImportStatus.ImportStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance GHC.Classes.Ord Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance GHC.Read.Read Amazonka.Discovery.Types.ImportStatus.ImportStatus
+instance GHC.Show.Show Amazonka.Discovery.Types.ImportStatus.ImportStatus
 
 
-module Network.AWS.Discovery.Types.ImportTask
+module Amazonka.Discovery.Types.ImportTask
 
 -- | An array of information related to the import task request that
 --   includes status information, times, IDs, the Amazon S3 Object URL for
@@ -1575,44 +1575,44 @@ importTask_importUrl :: Lens' ImportTask (Maybe Text)
 -- | The time that the import task request was made, presented in the Unix
 --   time stamp format.
 importTask_importRequestTime :: Lens' ImportTask (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ImportTask.ImportTask
-instance GHC.Show.Show Network.AWS.Discovery.Types.ImportTask.ImportTask
-instance GHC.Read.Read Network.AWS.Discovery.Types.ImportTask.ImportTask
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ImportTask.ImportTask
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ImportTask.ImportTask
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ImportTask.ImportTask
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ImportTask.ImportTask
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ImportTask.ImportTask
+instance GHC.Show.Show Amazonka.Discovery.Types.ImportTask.ImportTask
+instance GHC.Read.Read Amazonka.Discovery.Types.ImportTask.ImportTask
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ImportTask.ImportTask
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ImportTask.ImportTask
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ImportTask.ImportTask
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ImportTask.ImportTask
 
 
-module Network.AWS.Discovery.Types.ImportTaskFilterName
+module Amazonka.Discovery.Types.ImportTaskFilterName
 newtype ImportTaskFilterName
 ImportTaskFilterName' :: Text -> ImportTaskFilterName
 [fromImportTaskFilterName] :: ImportTaskFilterName -> Text
 pattern ImportTaskFilterName_IMPORT_TASK_ID :: ImportTaskFilterName
 pattern ImportTaskFilterName_NAME :: ImportTaskFilterName
 pattern ImportTaskFilterName_STATUS :: ImportTaskFilterName
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance GHC.Read.Read Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
-instance GHC.Show.Show Network.AWS.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance GHC.Classes.Ord Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance GHC.Read.Read Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
+instance GHC.Show.Show Amazonka.Discovery.Types.ImportTaskFilterName.ImportTaskFilterName
 
 
-module Network.AWS.Discovery.Types.ImportTaskFilter
+module Amazonka.Discovery.Types.ImportTaskFilter
 
 -- | A name-values pair of elements you can use to filter the results when
 --   querying your import tasks. Currently, wildcards are not supported for
@@ -1657,16 +1657,16 @@ importTaskFilter_values :: Lens' ImportTaskFilter (Maybe (NonEmpty Text))
 
 -- | The name, status, or import task ID for a specific import task.
 importTaskFilter_name :: Lens' ImportTaskFilter (Maybe ImportTaskFilterName)
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.ImportTaskFilter.ImportTaskFilter
-instance GHC.Show.Show Network.AWS.Discovery.Types.ImportTaskFilter.ImportTaskFilter
-instance GHC.Read.Read Network.AWS.Discovery.Types.ImportTaskFilter.ImportTaskFilter
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.ImportTaskFilter.ImportTaskFilter
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.ImportTaskFilter.ImportTaskFilter
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.ImportTaskFilter.ImportTaskFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.ImportTaskFilter.ImportTaskFilter
+instance GHC.Generics.Generic Amazonka.Discovery.Types.ImportTaskFilter.ImportTaskFilter
+instance GHC.Show.Show Amazonka.Discovery.Types.ImportTaskFilter.ImportTaskFilter
+instance GHC.Read.Read Amazonka.Discovery.Types.ImportTaskFilter.ImportTaskFilter
+instance GHC.Classes.Eq Amazonka.Discovery.Types.ImportTaskFilter.ImportTaskFilter
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.ImportTaskFilter.ImportTaskFilter
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.ImportTaskFilter.ImportTaskFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.ImportTaskFilter.ImportTaskFilter
 
 
-module Network.AWS.Discovery.Types.NeighborConnectionDetail
+module Amazonka.Discovery.Types.NeighborConnectionDetail
 
 -- | Details about neighboring servers.
 --   
@@ -1733,43 +1733,43 @@ neighborConnectionDetail_destinationServerId :: Lens' NeighborConnectionDetail T
 
 -- | The number of open network connections with the neighboring server.
 neighborConnectionDetail_connectionsCount :: Lens' NeighborConnectionDetail Integer
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
-instance GHC.Show.Show Network.AWS.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
-instance GHC.Read.Read Network.AWS.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
+instance GHC.Generics.Generic Amazonka.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
+instance GHC.Show.Show Amazonka.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
+instance GHC.Read.Read Amazonka.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
+instance GHC.Classes.Eq Amazonka.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.NeighborConnectionDetail.NeighborConnectionDetail
 
 
-module Network.AWS.Discovery.Types.OrderString
+module Amazonka.Discovery.Types.OrderString
 newtype OrderString
 OrderString' :: Text -> OrderString
 [fromOrderString] :: OrderString -> Text
 pattern OrderString_ASC :: OrderString
 pattern OrderString_DESC :: OrderString
-instance Network.AWS.Data.XML.ToXML Network.AWS.Discovery.Types.OrderString.OrderString
-instance Network.AWS.Data.XML.FromXML Network.AWS.Discovery.Types.OrderString.OrderString
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Discovery.Types.OrderString.OrderString
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.OrderString.OrderString
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Discovery.Types.OrderString.OrderString
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Discovery.Types.OrderString.OrderString
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.Types.OrderString.OrderString
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Discovery.Types.OrderString.OrderString
-instance Network.AWS.Data.Log.ToLog Network.AWS.Discovery.Types.OrderString.OrderString
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Discovery.Types.OrderString.OrderString
-instance Network.AWS.Data.Text.ToText Network.AWS.Discovery.Types.OrderString.OrderString
-instance Network.AWS.Data.Text.FromText Network.AWS.Discovery.Types.OrderString.OrderString
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.OrderString.OrderString
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.OrderString.OrderString
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.OrderString.OrderString
-instance GHC.Classes.Ord Network.AWS.Discovery.Types.OrderString.OrderString
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.OrderString.OrderString
-instance GHC.Read.Read Network.AWS.Discovery.Types.OrderString.OrderString
-instance GHC.Show.Show Network.AWS.Discovery.Types.OrderString.OrderString
+instance Amazonka.Data.XML.ToXML Amazonka.Discovery.Types.OrderString.OrderString
+instance Amazonka.Data.XML.FromXML Amazonka.Discovery.Types.OrderString.OrderString
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Discovery.Types.OrderString.OrderString
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.OrderString.OrderString
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Discovery.Types.OrderString.OrderString
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Discovery.Types.OrderString.OrderString
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.Types.OrderString.OrderString
+instance Amazonka.Data.Headers.ToHeader Amazonka.Discovery.Types.OrderString.OrderString
+instance Amazonka.Data.Log.ToLog Amazonka.Discovery.Types.OrderString.OrderString
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Discovery.Types.OrderString.OrderString
+instance Amazonka.Data.Text.ToText Amazonka.Discovery.Types.OrderString.OrderString
+instance Amazonka.Data.Text.FromText Amazonka.Discovery.Types.OrderString.OrderString
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.OrderString.OrderString
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.OrderString.OrderString
+instance GHC.Generics.Generic Amazonka.Discovery.Types.OrderString.OrderString
+instance GHC.Classes.Ord Amazonka.Discovery.Types.OrderString.OrderString
+instance GHC.Classes.Eq Amazonka.Discovery.Types.OrderString.OrderString
+instance GHC.Read.Read Amazonka.Discovery.Types.OrderString.OrderString
+instance GHC.Show.Show Amazonka.Discovery.Types.OrderString.OrderString
 
 
-module Network.AWS.Discovery.Types.OrderByElement
+module Amazonka.Discovery.Types.OrderByElement
 
 -- | A field and direction for ordered output.
 --   
@@ -1804,16 +1804,16 @@ orderByElement_sortOrder :: Lens' OrderByElement (Maybe OrderString)
 
 -- | The field on which to order.
 orderByElement_fieldName :: Lens' OrderByElement Text
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.OrderByElement.OrderByElement
-instance GHC.Show.Show Network.AWS.Discovery.Types.OrderByElement.OrderByElement
-instance GHC.Read.Read Network.AWS.Discovery.Types.OrderByElement.OrderByElement
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.OrderByElement.OrderByElement
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.OrderByElement.OrderByElement
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.OrderByElement.OrderByElement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.OrderByElement.OrderByElement
+instance GHC.Generics.Generic Amazonka.Discovery.Types.OrderByElement.OrderByElement
+instance GHC.Show.Show Amazonka.Discovery.Types.OrderByElement.OrderByElement
+instance GHC.Read.Read Amazonka.Discovery.Types.OrderByElement.OrderByElement
+instance GHC.Classes.Eq Amazonka.Discovery.Types.OrderByElement.OrderByElement
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.OrderByElement.OrderByElement
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.OrderByElement.OrderByElement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.OrderByElement.OrderByElement
 
 
-module Network.AWS.Discovery.Types.Tag
+module Amazonka.Discovery.Types.Tag
 
 -- | Metadata that help you categorize IT assets.
 --   
@@ -1847,16 +1847,16 @@ tag_key :: Lens' Tag Text
 
 -- | A value for a tag key on which to filter.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.Discovery.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.Discovery.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.Discovery.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.Discovery.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.Discovery.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.Discovery.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.Tag.Tag
 
 
-module Network.AWS.Discovery.Types.TagFilter
+module Amazonka.Discovery.Types.TagFilter
 
 -- | The tag filter. Valid names are: <tt>tagKey</tt>, <tt>tagValue</tt>,
 --   <tt>configurationId</tt>.
@@ -1891,16 +1891,16 @@ tagFilter_name :: Lens' TagFilter Text
 
 -- | Values for the tag filter.
 tagFilter_values :: Lens' TagFilter [Text]
-instance GHC.Generics.Generic Network.AWS.Discovery.Types.TagFilter.TagFilter
-instance GHC.Show.Show Network.AWS.Discovery.Types.TagFilter.TagFilter
-instance GHC.Read.Read Network.AWS.Discovery.Types.TagFilter.TagFilter
-instance GHC.Classes.Eq Network.AWS.Discovery.Types.TagFilter.TagFilter
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.Types.TagFilter.TagFilter
-instance Control.DeepSeq.NFData Network.AWS.Discovery.Types.TagFilter.TagFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.Types.TagFilter.TagFilter
+instance GHC.Generics.Generic Amazonka.Discovery.Types.TagFilter.TagFilter
+instance GHC.Show.Show Amazonka.Discovery.Types.TagFilter.TagFilter
+instance GHC.Read.Read Amazonka.Discovery.Types.TagFilter.TagFilter
+instance GHC.Classes.Eq Amazonka.Discovery.Types.TagFilter.TagFilter
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.Types.TagFilter.TagFilter
+instance Control.DeepSeq.NFData Amazonka.Discovery.Types.TagFilter.TagFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.Types.TagFilter.TagFilter
 
 
-module Network.AWS.Discovery.Types
+module Amazonka.Discovery.Types
 
 -- | API version <tt>2015-11-01</tt> of the Amazon Application Discovery
 --   Service SDK configuration.
@@ -3448,7 +3448,7 @@ tagFilter_values :: Lens' TagFilter [Text]
 
 
 -- | Instructs the specified agents or connectors to stop collecting data.
-module Network.AWS.Discovery.StopDataCollectionByAgentIds
+module Amazonka.Discovery.StopDataCollectionByAgentIds
 
 -- | <i>See:</i> <a>newStopDataCollectionByAgentIds</a> smart constructor.
 data StopDataCollectionByAgentIds
@@ -3520,27 +3520,27 @@ stopDataCollectionByAgentIdsResponse_agentsConfigurationStatus :: Lens' StopData
 
 -- | The response's http status code.
 stopDataCollectionByAgentIdsResponse_httpStatus :: Lens' StopDataCollectionByAgentIdsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance GHC.Show.Show Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance GHC.Read.Read Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance GHC.Classes.Eq Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance GHC.Generics.Generic Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
-instance GHC.Show.Show Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
-instance GHC.Read.Read Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance GHC.Generics.Generic Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance GHC.Show.Show Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance GHC.Read.Read Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance GHC.Classes.Eq Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance GHC.Generics.Generic Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
+instance GHC.Show.Show Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
+instance GHC.Read.Read Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance Control.DeepSeq.NFData Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIdsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance Control.DeepSeq.NFData Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.StopDataCollectionByAgentIds.StopDataCollectionByAgentIds
 
 
 -- | Stop the continuous flow of agent's discovered data into Amazon
 --   Athena.
-module Network.AWS.Discovery.StopContinuousExport
+module Amazonka.Discovery.StopContinuousExport
 
 -- | <i>See:</i> <a>newStopContinuousExport</a> smart constructor.
 data StopContinuousExport
@@ -3611,22 +3611,22 @@ stopContinuousExportResponse_stopTime :: Lens' StopContinuousExportResponse (May
 
 -- | The response's http status code.
 stopContinuousExportResponse_httpStatus :: Lens' StopContinuousExportResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance GHC.Show.Show Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance GHC.Read.Read Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance GHC.Classes.Eq Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance GHC.Generics.Generic Network.AWS.Discovery.StopContinuousExport.StopContinuousExportResponse
-instance GHC.Show.Show Network.AWS.Discovery.StopContinuousExport.StopContinuousExportResponse
-instance GHC.Read.Read Network.AWS.Discovery.StopContinuousExport.StopContinuousExportResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.StopContinuousExport.StopContinuousExportResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StopContinuousExport.StopContinuousExportResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.StopContinuousExport.StopContinuousExport
+instance GHC.Generics.Generic Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance GHC.Show.Show Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance GHC.Read.Read Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance GHC.Classes.Eq Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance GHC.Generics.Generic Amazonka.Discovery.StopContinuousExport.StopContinuousExportResponse
+instance GHC.Show.Show Amazonka.Discovery.StopContinuousExport.StopContinuousExportResponse
+instance GHC.Read.Read Amazonka.Discovery.StopContinuousExport.StopContinuousExportResponse
+instance GHC.Classes.Eq Amazonka.Discovery.StopContinuousExport.StopContinuousExportResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance Control.DeepSeq.NFData Amazonka.Discovery.StopContinuousExport.StopContinuousExportResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance Control.DeepSeq.NFData Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.StopContinuousExport.StopContinuousExport
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.StopContinuousExport.StopContinuousExport
 
 
 -- | Starts an import task, which allows you to import details of your
@@ -3659,7 +3659,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.StopContinuousExpo
 --   delete) in an AWS account. For more information, see <a>AWS
 --   Application Discovery Service Limits</a> in the <i>AWS Application
 --   Discovery Service User Guide</i>.
-module Network.AWS.Discovery.StartImportTask
+module Amazonka.Discovery.StartImportTask
 
 -- | <i>See:</i> <a>newStartImportTask</a> smart constructor.
 data StartImportTask
@@ -3778,22 +3778,22 @@ startImportTaskResponse_task :: Lens' StartImportTaskResponse (Maybe ImportTask)
 
 -- | The response's http status code.
 startImportTaskResponse_httpStatus :: Lens' StartImportTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.StartImportTask.StartImportTask
-instance GHC.Show.Show Network.AWS.Discovery.StartImportTask.StartImportTask
-instance GHC.Read.Read Network.AWS.Discovery.StartImportTask.StartImportTask
-instance GHC.Classes.Eq Network.AWS.Discovery.StartImportTask.StartImportTask
-instance GHC.Generics.Generic Network.AWS.Discovery.StartImportTask.StartImportTaskResponse
-instance GHC.Show.Show Network.AWS.Discovery.StartImportTask.StartImportTaskResponse
-instance GHC.Read.Read Network.AWS.Discovery.StartImportTask.StartImportTaskResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.StartImportTask.StartImportTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.StartImportTask.StartImportTask
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StartImportTask.StartImportTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.StartImportTask.StartImportTask
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StartImportTask.StartImportTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.StartImportTask.StartImportTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.StartImportTask.StartImportTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.StartImportTask.StartImportTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.StartImportTask.StartImportTask
+instance GHC.Generics.Generic Amazonka.Discovery.StartImportTask.StartImportTask
+instance GHC.Show.Show Amazonka.Discovery.StartImportTask.StartImportTask
+instance GHC.Read.Read Amazonka.Discovery.StartImportTask.StartImportTask
+instance GHC.Classes.Eq Amazonka.Discovery.StartImportTask.StartImportTask
+instance GHC.Generics.Generic Amazonka.Discovery.StartImportTask.StartImportTaskResponse
+instance GHC.Show.Show Amazonka.Discovery.StartImportTask.StartImportTaskResponse
+instance GHC.Read.Read Amazonka.Discovery.StartImportTask.StartImportTaskResponse
+instance GHC.Classes.Eq Amazonka.Discovery.StartImportTask.StartImportTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.StartImportTask.StartImportTask
+instance Control.DeepSeq.NFData Amazonka.Discovery.StartImportTask.StartImportTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.StartImportTask.StartImportTask
+instance Control.DeepSeq.NFData Amazonka.Discovery.StartImportTask.StartImportTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.StartImportTask.StartImportTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.StartImportTask.StartImportTask
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.StartImportTask.StartImportTask
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.StartImportTask.StartImportTask
 
 
 -- | Begins the export of discovered data to an S3 bucket.
@@ -3809,7 +3809,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.StartImportTask.St
 --   exported that includes both AWS Agentless Discovery Connector data and
 --   summary data from AWS Discovery Agents. Export of summary data is
 --   limited to two exports per day.
-module Network.AWS.Discovery.StartExportTask
+module Amazonka.Discovery.StartExportTask
 
 -- | <i>See:</i> <a>newStartExportTask</a> smart constructor.
 data StartExportTask
@@ -3931,26 +3931,26 @@ startExportTaskResponse_exportId :: Lens' StartExportTaskResponse (Maybe Text)
 
 -- | The response's http status code.
 startExportTaskResponse_httpStatus :: Lens' StartExportTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.StartExportTask.StartExportTask
-instance GHC.Show.Show Network.AWS.Discovery.StartExportTask.StartExportTask
-instance GHC.Read.Read Network.AWS.Discovery.StartExportTask.StartExportTask
-instance GHC.Classes.Eq Network.AWS.Discovery.StartExportTask.StartExportTask
-instance GHC.Generics.Generic Network.AWS.Discovery.StartExportTask.StartExportTaskResponse
-instance GHC.Show.Show Network.AWS.Discovery.StartExportTask.StartExportTaskResponse
-instance GHC.Read.Read Network.AWS.Discovery.StartExportTask.StartExportTaskResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.StartExportTask.StartExportTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.StartExportTask.StartExportTask
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StartExportTask.StartExportTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.StartExportTask.StartExportTask
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StartExportTask.StartExportTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.StartExportTask.StartExportTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.StartExportTask.StartExportTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.StartExportTask.StartExportTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.StartExportTask.StartExportTask
+instance GHC.Generics.Generic Amazonka.Discovery.StartExportTask.StartExportTask
+instance GHC.Show.Show Amazonka.Discovery.StartExportTask.StartExportTask
+instance GHC.Read.Read Amazonka.Discovery.StartExportTask.StartExportTask
+instance GHC.Classes.Eq Amazonka.Discovery.StartExportTask.StartExportTask
+instance GHC.Generics.Generic Amazonka.Discovery.StartExportTask.StartExportTaskResponse
+instance GHC.Show.Show Amazonka.Discovery.StartExportTask.StartExportTaskResponse
+instance GHC.Read.Read Amazonka.Discovery.StartExportTask.StartExportTaskResponse
+instance GHC.Classes.Eq Amazonka.Discovery.StartExportTask.StartExportTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.StartExportTask.StartExportTask
+instance Control.DeepSeq.NFData Amazonka.Discovery.StartExportTask.StartExportTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.StartExportTask.StartExportTask
+instance Control.DeepSeq.NFData Amazonka.Discovery.StartExportTask.StartExportTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.StartExportTask.StartExportTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.StartExportTask.StartExportTask
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.StartExportTask.StartExportTask
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.StartExportTask.StartExportTask
 
 
 -- | Instructs the specified agents or connectors to start collecting data.
-module Network.AWS.Discovery.StartDataCollectionByAgentIds
+module Amazonka.Discovery.StartDataCollectionByAgentIds
 
 -- | <i>See:</i> <a>newStartDataCollectionByAgentIds</a> smart constructor.
 data StartDataCollectionByAgentIds
@@ -4043,27 +4043,27 @@ startDataCollectionByAgentIdsResponse_agentsConfigurationStatus :: Lens' StartDa
 
 -- | The response's http status code.
 startDataCollectionByAgentIdsResponse_httpStatus :: Lens' StartDataCollectionByAgentIdsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance GHC.Show.Show Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance GHC.Read.Read Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance GHC.Classes.Eq Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance GHC.Generics.Generic Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
-instance GHC.Show.Show Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
-instance GHC.Read.Read Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance GHC.Generics.Generic Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance GHC.Show.Show Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance GHC.Read.Read Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance GHC.Classes.Eq Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance GHC.Generics.Generic Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
+instance GHC.Show.Show Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
+instance GHC.Read.Read Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance Control.DeepSeq.NFData Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIdsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance Control.DeepSeq.NFData Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.StartDataCollectionByAgentIds.StartDataCollectionByAgentIds
 
 
 -- | Start the continuous flow of agent's discovered data into Amazon
 --   Athena.
-module Network.AWS.Discovery.StartContinuousExport
+module Amazonka.Discovery.StartContinuousExport
 
 -- | <i>See:</i> <a>newStartContinuousExport</a> smart constructor.
 data StartContinuousExport
@@ -4168,27 +4168,27 @@ startContinuousExportResponse_exportId :: Lens' StartContinuousExportResponse (M
 
 -- | The response's http status code.
 startContinuousExportResponse_httpStatus :: Lens' StartContinuousExportResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance GHC.Show.Show Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance GHC.Read.Read Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance GHC.Classes.Eq Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance GHC.Generics.Generic Network.AWS.Discovery.StartContinuousExport.StartContinuousExportResponse
-instance GHC.Show.Show Network.AWS.Discovery.StartContinuousExport.StartContinuousExportResponse
-instance GHC.Read.Read Network.AWS.Discovery.StartContinuousExport.StartContinuousExportResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.StartContinuousExport.StartContinuousExportResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StartContinuousExport.StartContinuousExportResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance Control.DeepSeq.NFData Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.StartContinuousExport.StartContinuousExport
+instance GHC.Generics.Generic Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance GHC.Show.Show Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance GHC.Read.Read Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance GHC.Classes.Eq Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance GHC.Generics.Generic Amazonka.Discovery.StartContinuousExport.StartContinuousExportResponse
+instance GHC.Show.Show Amazonka.Discovery.StartContinuousExport.StartContinuousExportResponse
+instance GHC.Read.Read Amazonka.Discovery.StartContinuousExport.StartContinuousExportResponse
+instance GHC.Classes.Eq Amazonka.Discovery.StartContinuousExport.StartContinuousExportResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance Control.DeepSeq.NFData Amazonka.Discovery.StartContinuousExport.StartContinuousExportResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance Control.DeepSeq.NFData Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.StartContinuousExport.StartContinuousExport
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.StartContinuousExport.StartContinuousExport
 
 
 -- | Retrieves a list of servers that are one network hop away from a
 --   specified server.
-module Network.AWS.Discovery.ListServerNeighbors
+module Amazonka.Discovery.ListServerNeighbors
 
 -- | <i>See:</i> <a>newListServerNeighbors</a> smart constructor.
 data ListServerNeighbors
@@ -4337,22 +4337,22 @@ listServerNeighborsResponse_httpStatus :: Lens' ListServerNeighborsResponse Int
 
 -- | List of distinct servers that are one hop away from the given server.
 listServerNeighborsResponse_neighbors :: Lens' ListServerNeighborsResponse [NeighborConnectionDetail]
-instance GHC.Generics.Generic Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance GHC.Show.Show Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance GHC.Read.Read Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance GHC.Classes.Eq Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance GHC.Generics.Generic Network.AWS.Discovery.ListServerNeighbors.ListServerNeighborsResponse
-instance GHC.Show.Show Network.AWS.Discovery.ListServerNeighbors.ListServerNeighborsResponse
-instance GHC.Read.Read Network.AWS.Discovery.ListServerNeighbors.ListServerNeighborsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.ListServerNeighbors.ListServerNeighborsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance Control.DeepSeq.NFData Network.AWS.Discovery.ListServerNeighbors.ListServerNeighborsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance Control.DeepSeq.NFData Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.ListServerNeighbors.ListServerNeighbors
+instance GHC.Generics.Generic Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance GHC.Show.Show Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance GHC.Read.Read Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance GHC.Classes.Eq Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance GHC.Generics.Generic Amazonka.Discovery.ListServerNeighbors.ListServerNeighborsResponse
+instance GHC.Show.Show Amazonka.Discovery.ListServerNeighbors.ListServerNeighborsResponse
+instance GHC.Read.Read Amazonka.Discovery.ListServerNeighbors.ListServerNeighborsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.ListServerNeighbors.ListServerNeighborsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance Control.DeepSeq.NFData Amazonka.Discovery.ListServerNeighbors.ListServerNeighborsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance Control.DeepSeq.NFData Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.ListServerNeighbors.ListServerNeighbors
 
 
 -- | Retrieves a list of configuration items as specified by the value
@@ -4360,7 +4360,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.ListServerNeighbor
 --   filtering may be applied to refine search results.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Discovery.ListConfigurations
+module Amazonka.Discovery.ListConfigurations
 
 -- | <i>See:</i> <a>newListConfigurations</a> smart constructor.
 data ListConfigurations
@@ -4532,30 +4532,30 @@ listConfigurationsResponse_nextToken :: Lens' ListConfigurationsResponse (Maybe 
 
 -- | The response's http status code.
 listConfigurationsResponse_httpStatus :: Lens' ListConfigurationsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance GHC.Show.Show Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance GHC.Read.Read Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance GHC.Classes.Eq Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance GHC.Generics.Generic Network.AWS.Discovery.ListConfigurations.ListConfigurationsResponse
-instance GHC.Show.Show Network.AWS.Discovery.ListConfigurations.ListConfigurationsResponse
-instance GHC.Read.Read Network.AWS.Discovery.ListConfigurations.ListConfigurationsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.ListConfigurations.ListConfigurationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance Control.DeepSeq.NFData Network.AWS.Discovery.ListConfigurations.ListConfigurationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance Control.DeepSeq.NFData Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.ListConfigurations.ListConfigurations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.ListConfigurations.ListConfigurations
+instance GHC.Generics.Generic Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance GHC.Show.Show Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance GHC.Read.Read Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance GHC.Classes.Eq Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance GHC.Generics.Generic Amazonka.Discovery.ListConfigurations.ListConfigurationsResponse
+instance GHC.Show.Show Amazonka.Discovery.ListConfigurations.ListConfigurationsResponse
+instance GHC.Read.Read Amazonka.Discovery.ListConfigurations.ListConfigurationsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.ListConfigurations.ListConfigurationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance Control.DeepSeq.NFData Amazonka.Discovery.ListConfigurations.ListConfigurationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance Control.DeepSeq.NFData Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.ListConfigurations.ListConfigurations
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.ListConfigurations.ListConfigurations
 
 
 -- | Retrieves a short summary of discovered assets.
 --   
 --   This API operation takes no request parameters and is called as is at
 --   the command prompt as shown in the example.
-module Network.AWS.Discovery.GetDiscoverySummary
+module Amazonka.Discovery.GetDiscoverySummary
 
 -- | <i>See:</i> <a>newGetDiscoverySummary</a> smart constructor.
 data GetDiscoverySummary
@@ -4653,26 +4653,26 @@ getDiscoverySummaryResponse_applications :: Lens' GetDiscoverySummaryResponse (M
 
 -- | The response's http status code.
 getDiscoverySummaryResponse_httpStatus :: Lens' GetDiscoverySummaryResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance GHC.Show.Show Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance GHC.Read.Read Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance GHC.Classes.Eq Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance GHC.Generics.Generic Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
-instance GHC.Show.Show Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
-instance GHC.Read.Read Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance Control.DeepSeq.NFData Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance Control.DeepSeq.NFData Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance GHC.Generics.Generic Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance GHC.Show.Show Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance GHC.Read.Read Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance GHC.Classes.Eq Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance GHC.Generics.Generic Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
+instance GHC.Show.Show Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
+instance GHC.Read.Read Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
+instance GHC.Classes.Eq Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance Control.DeepSeq.NFData Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummaryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance Control.DeepSeq.NFData Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.GetDiscoverySummary.GetDiscoverySummary
 
 
 -- | Disassociates one or more configuration items from an application.
-module Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
+module Amazonka.Discovery.DisassociateConfigurationItemsFromApplication
 
 -- | <i>See:</i> <a>newDisassociateConfigurationItemsFromApplication</a>
 --   smart constructor.
@@ -4742,22 +4742,22 @@ newDisassociateConfigurationItemsFromApplicationResponse :: Int -> DisassociateC
 
 -- | The response's http status code.
 disassociateConfigurationItemsFromApplicationResponse_httpStatus :: Lens' DisassociateConfigurationItemsFromApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance GHC.Show.Show Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance GHC.Read.Read Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance GHC.Classes.Eq Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance GHC.Generics.Generic Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
-instance GHC.Show.Show Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
-instance GHC.Read.Read Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance GHC.Generics.Generic Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance GHC.Show.Show Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance GHC.Read.Read Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance GHC.Classes.Eq Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance GHC.Generics.Generic Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
+instance GHC.Show.Show Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
+instance GHC.Read.Read Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
+instance GHC.Classes.Eq Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance Control.DeepSeq.NFData Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance Control.DeepSeq.NFData Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.DisassociateConfigurationItemsFromApplication.DisassociateConfigurationItemsFromApplication
 
 
 -- | Retrieves a list of configuration items that have tags as specified by
@@ -4777,7 +4777,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DisassociateConfig
 --   without passing any parameters.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Discovery.DescribeTags
+module Amazonka.Discovery.DescribeTags
 
 -- | <i>See:</i> <a>newDescribeTags</a> smart constructor.
 data DescribeTags
@@ -4885,29 +4885,29 @@ describeTagsResponse_tags :: Lens' DescribeTagsResponse (Maybe [ConfigurationTag
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens' DescribeTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeTags.DescribeTags
-instance GHC.Show.Show Network.AWS.Discovery.DescribeTags.DescribeTags
-instance GHC.Read.Read Network.AWS.Discovery.DescribeTags.DescribeTags
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeTags.DescribeTags
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeTags.DescribeTagsResponse
-instance GHC.Show.Show Network.AWS.Discovery.DescribeTags.DescribeTagsResponse
-instance GHC.Read.Read Network.AWS.Discovery.DescribeTags.DescribeTagsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeTags.DescribeTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.DescribeTags.DescribeTags
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeTags.DescribeTagsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Discovery.DescribeTags.DescribeTags
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.DescribeTags.DescribeTags
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeTags.DescribeTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.DescribeTags.DescribeTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.DescribeTags.DescribeTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.DescribeTags.DescribeTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DescribeTags.DescribeTags
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeTags.DescribeTags
+instance GHC.Show.Show Amazonka.Discovery.DescribeTags.DescribeTags
+instance GHC.Read.Read Amazonka.Discovery.DescribeTags.DescribeTags
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeTags.DescribeTags
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeTags.DescribeTagsResponse
+instance GHC.Show.Show Amazonka.Discovery.DescribeTags.DescribeTagsResponse
+instance GHC.Read.Read Amazonka.Discovery.DescribeTags.DescribeTagsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeTags.DescribeTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.DescribeTags.DescribeTags
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeTags.DescribeTagsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Discovery.DescribeTags.DescribeTags
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.DescribeTags.DescribeTags
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeTags.DescribeTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.DescribeTags.DescribeTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.DescribeTags.DescribeTags
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.DescribeTags.DescribeTags
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.DescribeTags.DescribeTags
 
 
 -- | Returns an array of import tasks for your account, including status
 --   information, times, IDs, the Amazon S3 Object URL for the import file,
 --   and more.
-module Network.AWS.Discovery.DescribeImportTasks
+module Amazonka.Discovery.DescribeImportTasks
 
 -- | <i>See:</i> <a>newDescribeImportTasks</a> smart constructor.
 data DescribeImportTasks
@@ -5007,29 +5007,29 @@ describeImportTasksResponse_nextToken :: Lens' DescribeImportTasksResponse (Mayb
 
 -- | The response's http status code.
 describeImportTasksResponse_httpStatus :: Lens' DescribeImportTasksResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance GHC.Show.Show Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance GHC.Read.Read Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasksResponse
-instance GHC.Show.Show Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasksResponse
-instance GHC.Read.Read Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasksResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasksResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DescribeImportTasks.DescribeImportTasks
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance GHC.Show.Show Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance GHC.Read.Read Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeImportTasks.DescribeImportTasksResponse
+instance GHC.Show.Show Amazonka.Discovery.DescribeImportTasks.DescribeImportTasksResponse
+instance GHC.Read.Read Amazonka.Discovery.DescribeImportTasks.DescribeImportTasksResponse
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeImportTasks.DescribeImportTasksResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeImportTasks.DescribeImportTasksResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.DescribeImportTasks.DescribeImportTasks
 
 
 -- | Retrieve status of one or more export tasks. You can retrieve the
 --   status of up to 100 export tasks.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Discovery.DescribeExportTasks
+module Amazonka.Discovery.DescribeExportTasks
 
 -- | <i>See:</i> <a>newDescribeExportTasks</a> smart constructor.
 data DescribeExportTasks
@@ -5187,23 +5187,23 @@ describeExportTasksResponse_exportsInfo :: Lens' DescribeExportTasksResponse (Ma
 
 -- | The response's http status code.
 describeExportTasksResponse_httpStatus :: Lens' DescribeExportTasksResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance GHC.Show.Show Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance GHC.Read.Read Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasksResponse
-instance GHC.Show.Show Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasksResponse
-instance GHC.Read.Read Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasksResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasksResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DescribeExportTasks.DescribeExportTasks
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance GHC.Show.Show Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance GHC.Read.Read Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeExportTasks.DescribeExportTasksResponse
+instance GHC.Show.Show Amazonka.Discovery.DescribeExportTasks.DescribeExportTasksResponse
+instance GHC.Read.Read Amazonka.Discovery.DescribeExportTasks.DescribeExportTasksResponse
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeExportTasks.DescribeExportTasksResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeExportTasks.DescribeExportTasksResponse
+instance Amazonka.Pager.AWSPager Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.DescribeExportTasks.DescribeExportTasks
 
 
 -- | Lists exports as specified by ID. All continuous exports associated
@@ -5212,7 +5212,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DescribeExportTask
 --   parameters.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Discovery.DescribeContinuousExports
+module Amazonka.Discovery.DescribeContinuousExports
 
 -- | <i>See:</i> <a>newDescribeContinuousExports</a> smart constructor.
 data DescribeContinuousExports
@@ -5305,23 +5305,23 @@ describeContinuousExportsResponse_descriptions :: Lens' DescribeContinuousExport
 
 -- | The response's http status code.
 describeContinuousExportsResponse_httpStatus :: Lens' DescribeContinuousExportsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance GHC.Show.Show Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance GHC.Read.Read Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
-instance GHC.Show.Show Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
-instance GHC.Read.Read Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance GHC.Show.Show Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance GHC.Read.Read Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
+instance GHC.Show.Show Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
+instance GHC.Read.Read Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExportsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.DescribeContinuousExports.DescribeContinuousExports
 
 
 -- | Retrieves attributes for a list of configuration item IDs.
@@ -5344,7 +5344,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DescribeContinuous
 --   For a complete list of outputs for each asset type, see <a>Using the
 --   DescribeConfigurations Action</a> in the <i>AWS Application Discovery
 --   Service User Guide</i>.
-module Network.AWS.Discovery.DescribeConfigurations
+module Amazonka.Discovery.DescribeConfigurations
 
 -- | <i>See:</i> <a>newDescribeConfigurations</a> smart constructor.
 data DescribeConfigurations
@@ -5404,22 +5404,22 @@ describeConfigurationsResponse_configurations :: Lens' DescribeConfigurationsRes
 
 -- | The response's http status code.
 describeConfigurationsResponse_httpStatus :: Lens' DescribeConfigurationsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance GHC.Show.Show Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance GHC.Read.Read Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
-instance GHC.Show.Show Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
-instance GHC.Read.Read Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DescribeConfigurations.DescribeConfigurations
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance GHC.Show.Show Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance GHC.Read.Read Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
+instance GHC.Show.Show Amazonka.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
+instance GHC.Read.Read Amazonka.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeConfigurations.DescribeConfigurationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.DescribeConfigurations.DescribeConfigurations
 
 
 -- | Lists agents or connectors as specified by ID or other filters. All
@@ -5427,7 +5427,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DescribeConfigurat
 --   you call <tt>DescribeAgents</tt> as is without passing any parameters.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Discovery.DescribeAgents
+module Amazonka.Discovery.DescribeAgents
 
 -- | <i>See:</i> <a>newDescribeAgents</a> smart constructor.
 data DescribeAgents
@@ -5588,28 +5588,28 @@ describeAgentsResponse_nextToken :: Lens' DescribeAgentsResponse (Maybe Text)
 
 -- | The response's http status code.
 describeAgentsResponse_httpStatus :: Lens' DescribeAgentsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance GHC.Show.Show Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance GHC.Read.Read Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance GHC.Generics.Generic Network.AWS.Discovery.DescribeAgents.DescribeAgentsResponse
-instance GHC.Show.Show Network.AWS.Discovery.DescribeAgents.DescribeAgentsResponse
-instance GHC.Read.Read Network.AWS.Discovery.DescribeAgents.DescribeAgentsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.DescribeAgents.DescribeAgentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeAgents.DescribeAgentsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.DescribeAgents.DescribeAgents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DescribeAgents.DescribeAgents
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance GHC.Show.Show Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance GHC.Read.Read Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance GHC.Generics.Generic Amazonka.Discovery.DescribeAgents.DescribeAgentsResponse
+instance GHC.Show.Show Amazonka.Discovery.DescribeAgents.DescribeAgentsResponse
+instance GHC.Read.Read Amazonka.Discovery.DescribeAgents.DescribeAgentsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.DescribeAgents.DescribeAgentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeAgents.DescribeAgentsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance Control.DeepSeq.NFData Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.DescribeAgents.DescribeAgents
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.DescribeAgents.DescribeAgents
 
 
 -- | Deletes the association between configuration items and one or more
 --   tags. This API accepts a list of multiple configuration items.
-module Network.AWS.Discovery.DeleteTags
+module Amazonka.Discovery.DeleteTags
 
 -- | <i>See:</i> <a>newDeleteTags</a> smart constructor.
 data DeleteTags
@@ -5684,27 +5684,27 @@ newDeleteTagsResponse :: Int -> DeleteTagsResponse
 
 -- | The response's http status code.
 deleteTagsResponse_httpStatus :: Lens' DeleteTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.DeleteTags.DeleteTags
-instance GHC.Show.Show Network.AWS.Discovery.DeleteTags.DeleteTags
-instance GHC.Read.Read Network.AWS.Discovery.DeleteTags.DeleteTags
-instance GHC.Classes.Eq Network.AWS.Discovery.DeleteTags.DeleteTags
-instance GHC.Generics.Generic Network.AWS.Discovery.DeleteTags.DeleteTagsResponse
-instance GHC.Show.Show Network.AWS.Discovery.DeleteTags.DeleteTagsResponse
-instance GHC.Read.Read Network.AWS.Discovery.DeleteTags.DeleteTagsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.DeleteTags.DeleteTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.DeleteTags.DeleteTags
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DeleteTags.DeleteTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.DeleteTags.DeleteTags
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DeleteTags.DeleteTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.DeleteTags.DeleteTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.DeleteTags.DeleteTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.DeleteTags.DeleteTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DeleteTags.DeleteTags
+instance GHC.Generics.Generic Amazonka.Discovery.DeleteTags.DeleteTags
+instance GHC.Show.Show Amazonka.Discovery.DeleteTags.DeleteTags
+instance GHC.Read.Read Amazonka.Discovery.DeleteTags.DeleteTags
+instance GHC.Classes.Eq Amazonka.Discovery.DeleteTags.DeleteTags
+instance GHC.Generics.Generic Amazonka.Discovery.DeleteTags.DeleteTagsResponse
+instance GHC.Show.Show Amazonka.Discovery.DeleteTags.DeleteTagsResponse
+instance GHC.Read.Read Amazonka.Discovery.DeleteTags.DeleteTagsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.DeleteTags.DeleteTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.DeleteTags.DeleteTags
+instance Control.DeepSeq.NFData Amazonka.Discovery.DeleteTags.DeleteTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.DeleteTags.DeleteTags
+instance Control.DeepSeq.NFData Amazonka.Discovery.DeleteTags.DeleteTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.DeleteTags.DeleteTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.DeleteTags.DeleteTags
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.DeleteTags.DeleteTags
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.DeleteTags.DeleteTags
 
 
 -- | Deletes a list of applications and their associations with
 --   configuration items.
-module Network.AWS.Discovery.DeleteApplications
+module Amazonka.Discovery.DeleteApplications
 
 -- | <i>See:</i> <a>newDeleteApplications</a> smart constructor.
 data DeleteApplications
@@ -5753,28 +5753,28 @@ newDeleteApplicationsResponse :: Int -> DeleteApplicationsResponse
 
 -- | The response's http status code.
 deleteApplicationsResponse_httpStatus :: Lens' DeleteApplicationsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance GHC.Show.Show Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance GHC.Read.Read Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance GHC.Classes.Eq Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance GHC.Generics.Generic Network.AWS.Discovery.DeleteApplications.DeleteApplicationsResponse
-instance GHC.Show.Show Network.AWS.Discovery.DeleteApplications.DeleteApplicationsResponse
-instance GHC.Read.Read Network.AWS.Discovery.DeleteApplications.DeleteApplicationsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.DeleteApplications.DeleteApplicationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DeleteApplications.DeleteApplicationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance Control.DeepSeq.NFData Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.DeleteApplications.DeleteApplications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.DeleteApplications.DeleteApplications
+instance GHC.Generics.Generic Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance GHC.Show.Show Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance GHC.Read.Read Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance GHC.Classes.Eq Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance GHC.Generics.Generic Amazonka.Discovery.DeleteApplications.DeleteApplicationsResponse
+instance GHC.Show.Show Amazonka.Discovery.DeleteApplications.DeleteApplicationsResponse
+instance GHC.Read.Read Amazonka.Discovery.DeleteApplications.DeleteApplicationsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.DeleteApplications.DeleteApplicationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance Control.DeepSeq.NFData Amazonka.Discovery.DeleteApplications.DeleteApplicationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance Control.DeepSeq.NFData Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.DeleteApplications.DeleteApplications
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.DeleteApplications.DeleteApplications
 
 
 -- | Creates one or more tags for configuration items. Tags are metadata
 --   that help you categorize IT assets. This API accepts a list of
 --   multiple configuration items.
-module Network.AWS.Discovery.CreateTags
+module Amazonka.Discovery.CreateTags
 
 -- | <i>See:</i> <a>newCreateTags</a> smart constructor.
 data CreateTags
@@ -5849,26 +5849,26 @@ newCreateTagsResponse :: Int -> CreateTagsResponse
 
 -- | The response's http status code.
 createTagsResponse_httpStatus :: Lens' CreateTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.CreateTags.CreateTags
-instance GHC.Show.Show Network.AWS.Discovery.CreateTags.CreateTags
-instance GHC.Read.Read Network.AWS.Discovery.CreateTags.CreateTags
-instance GHC.Classes.Eq Network.AWS.Discovery.CreateTags.CreateTags
-instance GHC.Generics.Generic Network.AWS.Discovery.CreateTags.CreateTagsResponse
-instance GHC.Show.Show Network.AWS.Discovery.CreateTags.CreateTagsResponse
-instance GHC.Read.Read Network.AWS.Discovery.CreateTags.CreateTagsResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.CreateTags.CreateTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.CreateTags.CreateTags
-instance Control.DeepSeq.NFData Network.AWS.Discovery.CreateTags.CreateTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.CreateTags.CreateTags
-instance Control.DeepSeq.NFData Network.AWS.Discovery.CreateTags.CreateTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.CreateTags.CreateTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.CreateTags.CreateTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.CreateTags.CreateTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.CreateTags.CreateTags
+instance GHC.Generics.Generic Amazonka.Discovery.CreateTags.CreateTags
+instance GHC.Show.Show Amazonka.Discovery.CreateTags.CreateTags
+instance GHC.Read.Read Amazonka.Discovery.CreateTags.CreateTags
+instance GHC.Classes.Eq Amazonka.Discovery.CreateTags.CreateTags
+instance GHC.Generics.Generic Amazonka.Discovery.CreateTags.CreateTagsResponse
+instance GHC.Show.Show Amazonka.Discovery.CreateTags.CreateTagsResponse
+instance GHC.Read.Read Amazonka.Discovery.CreateTags.CreateTagsResponse
+instance GHC.Classes.Eq Amazonka.Discovery.CreateTags.CreateTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.CreateTags.CreateTags
+instance Control.DeepSeq.NFData Amazonka.Discovery.CreateTags.CreateTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.CreateTags.CreateTags
+instance Control.DeepSeq.NFData Amazonka.Discovery.CreateTags.CreateTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.CreateTags.CreateTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.CreateTags.CreateTags
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.CreateTags.CreateTags
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.CreateTags.CreateTags
 
 
 -- | Creates an application with the given name and description.
-module Network.AWS.Discovery.CreateApplication
+module Amazonka.Discovery.CreateApplication
 
 -- | <i>See:</i> <a>newCreateApplication</a> smart constructor.
 data CreateApplication
@@ -5936,22 +5936,22 @@ createApplicationResponse_configurationId :: Lens' CreateApplicationResponse (Ma
 
 -- | The response's http status code.
 createApplicationResponse_httpStatus :: Lens' CreateApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.CreateApplication.CreateApplication
-instance GHC.Show.Show Network.AWS.Discovery.CreateApplication.CreateApplication
-instance GHC.Read.Read Network.AWS.Discovery.CreateApplication.CreateApplication
-instance GHC.Classes.Eq Network.AWS.Discovery.CreateApplication.CreateApplication
-instance GHC.Generics.Generic Network.AWS.Discovery.CreateApplication.CreateApplicationResponse
-instance GHC.Show.Show Network.AWS.Discovery.CreateApplication.CreateApplicationResponse
-instance GHC.Read.Read Network.AWS.Discovery.CreateApplication.CreateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.CreateApplication.CreateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.Discovery.CreateApplication.CreateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.Discovery.CreateApplication.CreateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.CreateApplication.CreateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.CreateApplication.CreateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.CreateApplication.CreateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.Discovery.CreateApplication.CreateApplication
+instance GHC.Show.Show Amazonka.Discovery.CreateApplication.CreateApplication
+instance GHC.Read.Read Amazonka.Discovery.CreateApplication.CreateApplication
+instance GHC.Classes.Eq Amazonka.Discovery.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.Discovery.CreateApplication.CreateApplicationResponse
+instance GHC.Show.Show Amazonka.Discovery.CreateApplication.CreateApplicationResponse
+instance GHC.Read.Read Amazonka.Discovery.CreateApplication.CreateApplicationResponse
+instance GHC.Classes.Eq Amazonka.Discovery.CreateApplication.CreateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.Discovery.CreateApplication.CreateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.Discovery.CreateApplication.CreateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.CreateApplication.CreateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.CreateApplication.CreateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.CreateApplication.CreateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.CreateApplication.CreateApplication
 
 
 -- | Deletes one or more import tasks, each identified by their import ID.
@@ -5965,7 +5965,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.CreateApplication.
 --   contains records that were used to match, the information in those
 --   matched records that comes from the deleted records will also be
 --   deleted.
-module Network.AWS.Discovery.BatchDeleteImportData
+module Amazonka.Discovery.BatchDeleteImportData
 
 -- | <i>See:</i> <a>newBatchDeleteImportData</a> smart constructor.
 data BatchDeleteImportData
@@ -6026,26 +6026,26 @@ batchDeleteImportDataResponse_errors :: Lens' BatchDeleteImportDataResponse (May
 
 -- | The response's http status code.
 batchDeleteImportDataResponse_httpStatus :: Lens' BatchDeleteImportDataResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance GHC.Show.Show Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance GHC.Read.Read Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance GHC.Classes.Eq Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance GHC.Generics.Generic Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
-instance GHC.Show.Show Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
-instance GHC.Read.Read Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance Control.DeepSeq.NFData Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance Control.DeepSeq.NFData Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance GHC.Generics.Generic Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance GHC.Show.Show Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance GHC.Read.Read Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance GHC.Classes.Eq Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance GHC.Generics.Generic Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
+instance GHC.Show.Show Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
+instance GHC.Read.Read Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
+instance GHC.Classes.Eq Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance Control.DeepSeq.NFData Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance Control.DeepSeq.NFData Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.BatchDeleteImportData.BatchDeleteImportData
 
 
 -- | Associates one or more configuration items with an application.
-module Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+module Amazonka.Discovery.AssociateConfigurationItemsToApplication
 
 -- | <i>See:</i> <a>newAssociateConfigurationItemsToApplication</a> smart
 --   constructor.
@@ -6115,26 +6115,26 @@ newAssociateConfigurationItemsToApplicationResponse :: Int -> AssociateConfigura
 
 -- | The response's http status code.
 associateConfigurationItemsToApplicationResponse_httpStatus :: Lens' AssociateConfigurationItemsToApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance GHC.Show.Show Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance GHC.Read.Read Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance GHC.Classes.Eq Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance GHC.Generics.Generic Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
-instance GHC.Show.Show Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
-instance GHC.Read.Read Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance Control.DeepSeq.NFData Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance Control.DeepSeq.NFData Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance GHC.Generics.Generic Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance GHC.Show.Show Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance GHC.Read.Read Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance GHC.Classes.Eq Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance GHC.Generics.Generic Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
+instance GHC.Show.Show Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
+instance GHC.Read.Read Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
+instance GHC.Classes.Eq Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance Control.DeepSeq.NFData Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance Control.DeepSeq.NFData Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.AssociateConfigurationItemsToApplication.AssociateConfigurationItemsToApplication
 
 
 -- | Updates metadata about an application.
-module Network.AWS.Discovery.UpdateApplication
+module Amazonka.Discovery.UpdateApplication
 
 -- | <i>See:</i> <a>newUpdateApplication</a> smart constructor.
 data UpdateApplication
@@ -6202,25 +6202,25 @@ newUpdateApplicationResponse :: Int -> UpdateApplicationResponse
 
 -- | The response's http status code.
 updateApplicationResponse_httpStatus :: Lens' UpdateApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance GHC.Show.Show Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance GHC.Read.Read Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance GHC.Classes.Eq Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance GHC.Generics.Generic Network.AWS.Discovery.UpdateApplication.UpdateApplicationResponse
-instance GHC.Show.Show Network.AWS.Discovery.UpdateApplication.UpdateApplicationResponse
-instance GHC.Read.Read Network.AWS.Discovery.UpdateApplication.UpdateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.Discovery.UpdateApplication.UpdateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.Discovery.UpdateApplication.UpdateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.Discovery.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Discovery.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance GHC.Show.Show Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance GHC.Read.Read Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance GHC.Classes.Eq Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.Discovery.UpdateApplication.UpdateApplicationResponse
+instance GHC.Show.Show Amazonka.Discovery.UpdateApplication.UpdateApplicationResponse
+instance GHC.Read.Read Amazonka.Discovery.UpdateApplication.UpdateApplicationResponse
+instance GHC.Classes.Eq Amazonka.Discovery.UpdateApplication.UpdateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.Discovery.UpdateApplication.UpdateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.Discovery.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.Discovery.UpdateApplication.UpdateApplication
 
 
-module Network.AWS.Discovery.Lens
+module Amazonka.Discovery.Lens
 
 -- | You can filter the list using a <i>key</i>-<i>value</i> format. You
 --   can separate these items by using logical operators. Allowed filters
@@ -7079,7 +7079,7 @@ tagFilter_name :: Lens' TagFilter Text
 tagFilter_values :: Lens' TagFilter [Text]
 
 
-module Network.AWS.Discovery.Waiters
+module Amazonka.Discovery.Waiters
 
 
 -- | Derived from API version <tt>2015-11-01</tt> of the AWS service
@@ -7162,7 +7162,7 @@ module Network.AWS.Discovery.Waiters
 --   All data is handled according to the <a>AWS Privacy Policy</a>. You
 --   can operate Application Discovery Service offline to inspect collected
 --   data before it is shared with the service.
-module Network.AWS.Discovery
+module Amazonka.Discovery
 
 -- | API version <tt>2015-11-01</tt> of the Amazon Application Discovery
 --   Service SDK configuration.

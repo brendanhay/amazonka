@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GuardDuty.CreateIPSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new IPSet, which is called a trusted IP list in the console</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- user interface. An IPSet is a list of IP addresses that are trusted for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- secure communication with AWS infrastructure and applications. GuardDuty</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- doesn\'t generate findings for IP addresses that are included in IPSets.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Only users from the administrator account can use this operation.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GuardDuty.CreateIPSet</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier">CreateIPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#newCreateIPSet"><span class="hs-identifier">newCreateIPSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_clientToken"><span class="hs-identifier">createIPSet_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_tags"><span class="hs-identifier">createIPSet_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_detectorId"><span class="hs-identifier">createIPSet_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_name"><span class="hs-identifier">createIPSet_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_format"><span class="hs-identifier">createIPSet_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_location"><span class="hs-identifier">createIPSet_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_activate"><span class="hs-identifier">createIPSet_activate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier">CreateIPSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#newCreateIPSetResponse"><span class="hs-identifier">newCreateIPSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSetResponse_httpStatus"><span class="hs-identifier">createIPSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSetResponse_ipSetId"><span class="hs-identifier">createIPSetResponse_ipSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.html"><span class="hs-identifier">Amazonka.GuardDuty.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newCreateIPSet' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679313967"><span id="local-6989586621679313968"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIPSet"><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-var">CreateIPSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIPSet%27"><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-var">CreateIPSet'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The idempotency token for the create request.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateIPSet%27"><span class="annot"><span class="annottext">CreateIPSet -&gt; Maybe Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AclientToken%3ACreateIPSet%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The tags to be added to a new IP set resource.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atags%3ACreateIPSet%27"><span class="annot"><span class="annottext">CreateIPSet -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Atags%3ACreateIPSet%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty account that you want to</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- create an IPSet for.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AdetectorId%3ACreateIPSet%27"><span class="annot"><span class="annottext">CreateIPSet -&gt; Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AdetectorId%3ACreateIPSet%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The user-friendly name to identify the IPSet.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Allowed characters are alphanumerics, spaces, hyphens (-), and</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- underscores (_).</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Aname%3ACreateIPSet%27"><span class="annot"><span class="annottext">CreateIPSet -&gt; Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Aname%3ACreateIPSet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The format of the file that contains the IPSet.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aformat%3ACreateIPSet%27"><span class="annot"><span class="annottext">CreateIPSet -&gt; IpSetFormat
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Aformat%3ACreateIPSet%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.IpSetFormat.html#IpSetFormat"><span class="hs-identifier hs-type">IpSetFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The URI of the file that contains the IPSet. For example:</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Alocation%3ACreateIPSet%27"><span class="annot"><span class="annottext">CreateIPSet -&gt; Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Alocation%3ACreateIPSet%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A Boolean value that indicates whether GuardDuty is to start using the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- uploaded IPSet.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aactivate%3ACreateIPSet%27"><span class="annot"><span class="annottext">CreateIPSet -&gt; Bool
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Aactivate%3ACreateIPSet%27"><span class="hs-identifier hs-var hs-var">activate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313955"><span id="local-6989586621679313957"><span class="annot"><span class="annottext">CreateIPSet -&gt; CreateIPSet -&gt; Bool
+(CreateIPSet -&gt; CreateIPSet -&gt; Bool)
+-&gt; (CreateIPSet -&gt; CreateIPSet -&gt; Bool) -&gt; Eq CreateIPSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateIPSet -&gt; CreateIPSet -&gt; Bool
+$c/= :: CreateIPSet -&gt; CreateIPSet -&gt; Bool
+== :: CreateIPSet -&gt; CreateIPSet -&gt; Bool
+$c== :: CreateIPSet -&gt; CreateIPSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313946"><span id="local-6989586621679313948"><span id="local-6989586621679313950"><span id="local-6989586621679313952"><span class="annot"><span class="annottext">ReadPrec [CreateIPSet]
+ReadPrec CreateIPSet
+Int -&gt; ReadS CreateIPSet
+ReadS [CreateIPSet]
+(Int -&gt; ReadS CreateIPSet)
+-&gt; ReadS [CreateIPSet]
+-&gt; ReadPrec CreateIPSet
+-&gt; ReadPrec [CreateIPSet]
+-&gt; Read CreateIPSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateIPSet]
+$creadListPrec :: ReadPrec [CreateIPSet]
+readPrec :: ReadPrec CreateIPSet
+$creadPrec :: ReadPrec CreateIPSet
+readList :: ReadS [CreateIPSet]
+$creadList :: ReadS [CreateIPSet]
+readsPrec :: Int -&gt; ReadS CreateIPSet
+$creadsPrec :: Int -&gt; ReadS CreateIPSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313939"><span id="local-6989586621679313941"><span id="local-6989586621679313943"><span class="annot"><span class="annottext">Int -&gt; CreateIPSet -&gt; ShowS
+[CreateIPSet] -&gt; ShowS
+CreateIPSet -&gt; String
+(Int -&gt; CreateIPSet -&gt; ShowS)
+-&gt; (CreateIPSet -&gt; String)
+-&gt; ([CreateIPSet] -&gt; ShowS)
+-&gt; Show CreateIPSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateIPSet] -&gt; ShowS
+$cshowList :: [CreateIPSet] -&gt; ShowS
+show :: CreateIPSet -&gt; String
+$cshow :: CreateIPSet -&gt; String
+showsPrec :: Int -&gt; CreateIPSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateIPSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateIPSet -&gt; Rep CreateIPSet x)
+-&gt; (forall x. Rep CreateIPSet x -&gt; CreateIPSet)
+-&gt; Generic CreateIPSet
+forall x. Rep CreateIPSet x -&gt; CreateIPSet
+forall x. CreateIPSet -&gt; Rep CreateIPSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateIPSet x -&gt; CreateIPSet
+$cfrom :: forall x. CreateIPSet -&gt; Rep CreateIPSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'CreateIPSet' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'clientToken', 'createIPSet_clientToken' - The idempotency token for the create request.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'tags', 'createIPSet_tags' - The tags to be added to a new IP set resource.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'detectorId', 'createIPSet_detectorId' - The unique ID of the detector of the GuardDuty account that you want to</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- create an IPSet for.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'name', 'createIPSet_name' - The user-friendly name to identify the IPSet.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Allowed characters are alphanumerics, spaces, hyphens (-), and</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- underscores (_).</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'format', 'createIPSet_format' - The format of the file that contains the IPSet.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'location', 'createIPSet_location' - The URI of the file that contains the IPSet. For example:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'activate', 'createIPSet_activate' - A Boolean value that indicates whether GuardDuty is to start using the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- uploaded IPSet.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#newCreateIPSet"><span class="hs-identifier hs-type">newCreateIPSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'format'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.Types.IpSetFormat.html#IpSetFormat"><span class="hs-identifier hs-type">IpSetFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'location'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'activate'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span>
+</span><span id="line-123"></span><span id="newCreateIPSet"><span class="annot"><span class="annottext">newCreateIPSet :: Text -&gt; Text -&gt; IpSetFormat -&gt; Text -&gt; Bool -&gt; CreateIPSet
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#newCreateIPSet"><span class="hs-identifier hs-var hs-var">newCreateIPSet</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679313934"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313934"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679313933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313933"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679313932"><span class="annot"><span class="annottext">IpSetFormat
+</span><a href="#local-6989586621679313932"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679313931"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313931"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679313930"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679313930"><span class="hs-identifier hs-var">pActivate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">CreateIPSet' :: Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; IpSetFormat
+-&gt; Text
+-&gt; Bool
+-&gt; CreateIPSet
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateIPSet' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AclientToken%3ACreateIPSet%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateIPSet' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Atags%3ACreateIPSet%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:detectorId:CreateIPSet' :: Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AdetectorId%3ACreateIPSet%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313934"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateIPSet' :: Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Aname%3ACreateIPSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313933"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:format:CreateIPSet' :: IpSetFormat
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Aformat%3ACreateIPSet%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IpSetFormat
+</span><a href="#local-6989586621679313932"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:location:CreateIPSet' :: Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Alocation%3ACreateIPSet%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313931"><span class="hs-identifier hs-var">pLocation_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:activate:CreateIPSet' :: Bool
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Aactivate%3ACreateIPSet%27"><span class="hs-identifier hs-var">activate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679313930"><span class="hs-identifier hs-var">pActivate_</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The idempotency token for the create request.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_clientToken"><span class="hs-identifier hs-type">createIPSet_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="createIPSet_clientToken"><span class="annot"><span class="annottext">createIPSet_clientToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateIPSet -&gt; f CreateIPSet
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_clientToken"><span class="hs-identifier hs-var hs-var">createIPSet_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSet -&gt; Maybe Text)
+-&gt; (CreateIPSet -&gt; Maybe Text -&gt; CreateIPSet)
+-&gt; Lens CreateIPSet CreateIPSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313927"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateIPSet' :: CreateIPSet -&gt; Maybe Text
+</span><a href="#local-6989586621679313927"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313927"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313926"><span class="annot"><span class="annottext">s :: CreateIPSet
+</span><a href="#local-6989586621679313926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313925"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSet
+</span><a href="#local-6989586621679313926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateIPSet' :: Maybe Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AclientToken%3ACreateIPSet%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The tags to be added to a new IP set resource.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_tags"><span class="hs-identifier hs-type">createIPSet_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="createIPSet_tags"><span class="annot"><span class="annottext">createIPSet_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIPSet -&gt; f CreateIPSet
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_tags"><span class="hs-identifier hs-var hs-var">createIPSet_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSet -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateIPSet -&gt; Maybe (HashMap Text Text) -&gt; CreateIPSet)
+-&gt; Lens
+     CreateIPSet
+     CreateIPSet
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313924"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateIPSet' :: CreateIPSet -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679313924"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679313924"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313923"><span class="annot"><span class="annottext">s :: CreateIPSet
+</span><a href="#local-6989586621679313923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313922"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679313922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSet
+</span><a href="#local-6989586621679313923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateIPSet' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Atags%3ACreateIPSet%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679313922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateIPSet -&gt; f CreateIPSet)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateIPSet
+-&gt; f CreateIPSet
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty account that you want to</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- create an IPSet for.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_detectorId"><span class="hs-identifier hs-type">createIPSet_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-150"></span><span id="createIPSet_detectorId"><span class="annot"><span class="annottext">createIPSet_detectorId :: (Text -&gt; f Text) -&gt; CreateIPSet -&gt; f CreateIPSet
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_detectorId"><span class="hs-identifier hs-var hs-var">createIPSet_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSet -&gt; Text)
+-&gt; (CreateIPSet -&gt; Text -&gt; CreateIPSet)
+-&gt; Lens CreateIPSet CreateIPSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313918"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:CreateIPSet' :: CreateIPSet -&gt; Text
+</span><a href="#local-6989586621679313918"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313918"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313917"><span class="annot"><span class="annottext">s :: CreateIPSet
+</span><a href="#local-6989586621679313917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313916"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSet
+</span><a href="#local-6989586621679313917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:CreateIPSet' :: Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AdetectorId%3ACreateIPSet%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The user-friendly name to identify the IPSet.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Allowed characters are alphanumerics, spaces, hyphens (-), and</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- underscores (_).</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_name"><span class="hs-identifier hs-type">createIPSet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="createIPSet_name"><span class="annot"><span class="annottext">createIPSet_name :: (Text -&gt; f Text) -&gt; CreateIPSet -&gt; f CreateIPSet
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_name"><span class="hs-identifier hs-var hs-var">createIPSet_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSet -&gt; Text)
+-&gt; (CreateIPSet -&gt; Text -&gt; CreateIPSet)
+-&gt; Lens CreateIPSet CreateIPSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313915"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateIPSet' :: CreateIPSet -&gt; Text
+</span><a href="#local-6989586621679313915"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313915"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313914"><span class="annot"><span class="annottext">s :: CreateIPSet
+</span><a href="#local-6989586621679313914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSet
+</span><a href="#local-6989586621679313914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateIPSet' :: Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Aname%3ACreateIPSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The format of the file that contains the IPSet.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_format"><span class="hs-identifier hs-type">createIPSet_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.Types.IpSetFormat.html#IpSetFormat"><span class="hs-identifier hs-type">IpSetFormat</span></a></span><span>
+</span><span id="line-161"></span><span id="createIPSet_format"><span class="annot"><span class="annottext">createIPSet_format :: (IpSetFormat -&gt; f IpSetFormat) -&gt; CreateIPSet -&gt; f CreateIPSet
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_format"><span class="hs-identifier hs-var hs-var">createIPSet_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSet -&gt; IpSetFormat)
+-&gt; (CreateIPSet -&gt; IpSetFormat -&gt; CreateIPSet)
+-&gt; Lens CreateIPSet CreateIPSet IpSetFormat IpSetFormat
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313912"><span class="annot"><span class="annottext">IpSetFormat
+format :: IpSetFormat
+$sel:format:CreateIPSet' :: CreateIPSet -&gt; IpSetFormat
+</span><a href="#local-6989586621679313912"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpSetFormat
+</span><a href="#local-6989586621679313912"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313911"><span class="annot"><span class="annottext">s :: CreateIPSet
+</span><a href="#local-6989586621679313911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313910"><span class="annot"><span class="annottext">IpSetFormat
+</span><a href="#local-6989586621679313910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSet
+</span><a href="#local-6989586621679313911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:CreateIPSet' :: IpSetFormat
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Aformat%3ACreateIPSet%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IpSetFormat
+</span><a href="#local-6989586621679313910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The URI of the file that contains the IPSet. For example:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_location"><span class="hs-identifier hs-type">createIPSet_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-166"></span><span id="createIPSet_location"><span class="annot"><span class="annottext">createIPSet_location :: (Text -&gt; f Text) -&gt; CreateIPSet -&gt; f CreateIPSet
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_location"><span class="hs-identifier hs-var hs-var">createIPSet_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSet -&gt; Text)
+-&gt; (CreateIPSet -&gt; Text -&gt; CreateIPSet)
+-&gt; Lens CreateIPSet CreateIPSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313909"><span class="annot"><span class="annottext">Text
+location :: Text
+$sel:location:CreateIPSet' :: CreateIPSet -&gt; Text
+</span><a href="#local-6989586621679313909"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313909"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313908"><span class="annot"><span class="annottext">s :: CreateIPSet
+</span><a href="#local-6989586621679313908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313907"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSet
+</span><a href="#local-6989586621679313908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateIPSet' :: Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Alocation%3ACreateIPSet%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | A Boolean value that indicates whether GuardDuty is to start using the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- uploaded IPSet.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_activate"><span class="hs-identifier hs-type">createIPSet_activate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-171"></span><span id="createIPSet_activate"><span class="annot"><span class="annottext">createIPSet_activate :: (Bool -&gt; f Bool) -&gt; CreateIPSet -&gt; f CreateIPSet
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSet_activate"><span class="hs-identifier hs-var hs-var">createIPSet_activate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSet -&gt; Bool)
+-&gt; (CreateIPSet -&gt; Bool -&gt; CreateIPSet)
+-&gt; Lens CreateIPSet CreateIPSet Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313906"><span class="annot"><span class="annottext">Bool
+activate :: Bool
+$sel:activate:CreateIPSet' :: CreateIPSet -&gt; Bool
+</span><a href="#local-6989586621679313906"><span class="hs-identifier hs-var hs-var">activate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679313906"><span class="hs-identifier hs-var">activate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313905"><span class="annot"><span class="annottext">s :: CreateIPSet
+</span><a href="#local-6989586621679313905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313904"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679313904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSet
+</span><a href="#local-6989586621679313905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activate:CreateIPSet' :: Bool
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3Aactivate%3ACreateIPSet%27"><span class="hs-identifier hs-var">activate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679313904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679313900"><span class="annot"><span class="annottext">request :: CreateIPSet -&gt; Request CreateIPSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateIPSet -&gt; Request CreateIPSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679313896"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateIPSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateIPSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateIPSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateIPSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateIPSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313893"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313893"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313892"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313892"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313891"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313891"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateIPSetResponse
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-var">CreateIPSetResponse'</span></a></span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateIPSetResponse)
+-&gt; Either String Int -&gt; Either String (Text -&gt; CreateIPSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313893"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateIPSetResponse)
+-&gt; Either String Text -&gt; Either String CreateIPSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313883"><span id="local-6989586621679313885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span></span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679313876"><span class="annot"><span class="annottext">toHeaders :: CreateIPSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateIPSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-195"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313866"><span id="local-6989586621679313868"><span id="local-6989586621679313870"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679313864"><span class="annot"><span class="annottext">toJSON :: CreateIPSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313856"><span id="local-6989586621679313857"><span id="local-6989586621679313858"><span id="local-6989586621679313859"><span id="local-6989586621679313860"><span id="local-6989586621679313861"><span id="local-6989586621679313862"><span class="annot"><span class="annottext">Bool
+Maybe Text
+Maybe (HashMap Text Text)
+Text
+IpSetFormat
+activate :: Bool
+location :: Text
+format :: IpSetFormat
+name :: Text
+detectorId :: Text
+tags :: Maybe (HashMap Text Text)
+clientToken :: Maybe Text
+$sel:activate:CreateIPSet' :: CreateIPSet -&gt; Bool
+$sel:location:CreateIPSet' :: CreateIPSet -&gt; Text
+$sel:format:CreateIPSet' :: CreateIPSet -&gt; IpSetFormat
+$sel:name:CreateIPSet' :: CreateIPSet -&gt; Text
+$sel:detectorId:CreateIPSet' :: CreateIPSet -&gt; Text
+$sel:tags:CreateIPSet' :: CreateIPSet -&gt; Maybe (HashMap Text Text)
+$sel:clientToken:CreateIPSet' :: CreateIPSet -&gt; Maybe Text
+</span><a href="#local-6989586621679313856"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313862"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679313861"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313859"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IpSetFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">IpSetFormat
+</span><a href="#local-6989586621679313858"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313857"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;activate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679313856"><span class="hs-identifier hs-var">activate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679313850"><span class="annot"><span class="annottext">toPath :: CreateIPSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet%27"><span class="hs-identifier hs-type">CreateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313842"><span id="local-6989586621679313843"><span id="local-6989586621679313844"><span id="local-6989586621679313845"><span id="local-6989586621679313846"><span id="local-6989586621679313847"><span id="local-6989586621679313848"><span class="annot"><span class="annottext">Bool
+Maybe Text
+Maybe (HashMap Text Text)
+Text
+IpSetFormat
+activate :: Bool
+location :: Text
+format :: IpSetFormat
+name :: Text
+detectorId :: Text
+tags :: Maybe (HashMap Text Text)
+clientToken :: Maybe Text
+$sel:activate:CreateIPSet' :: CreateIPSet -&gt; Bool
+$sel:location:CreateIPSet' :: CreateIPSet -&gt; Text
+$sel:format:CreateIPSet' :: CreateIPSet -&gt; IpSetFormat
+$sel:name:CreateIPSet' :: CreateIPSet -&gt; Text
+$sel:detectorId:CreateIPSet' :: CreateIPSet -&gt; Text
+$sel:tags:CreateIPSet' :: CreateIPSet -&gt; Maybe (HashMap Text Text)
+$sel:clientToken:CreateIPSet' :: CreateIPSet -&gt; Maybe Text
+</span><a href="#local-6989586621679313842"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313846"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ipset&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSet"><span class="hs-identifier hs-type">CreateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679313838"><span class="annot"><span class="annottext">toQuery :: CreateIPSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateIPSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | /See:/ 'newCreateIPSetResponse' smart constructor.</span><span>
+</span><span id="line-221"></span><span id="local-6989586621679313835"><span id="local-6989586621679313836"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIPSetResponse"><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-var">CreateIPSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIPSetResponse%27"><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-var">CreateIPSetResponse'</span></a></span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateIPSetResponse%27"><span class="annot"><span class="annottext">CreateIPSetResponse -&gt; Int
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AhttpStatus%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | The ID of the IPSet resource.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AipSetId%3ACreateIPSetResponse%27"><span class="annot"><span class="annottext">CreateIPSetResponse -&gt; Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AipSetId%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var hs-var">ipSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313829"><span id="local-6989586621679313831"><span class="annot"><span class="annottext">CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+(CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool)
+-&gt; (CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool)
+-&gt; Eq CreateIPSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+$c/= :: CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+== :: CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+$c== :: CreateIPSetResponse -&gt; CreateIPSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313821"><span id="local-6989586621679313823"><span id="local-6989586621679313825"><span id="local-6989586621679313827"><span class="annot"><span class="annottext">ReadPrec [CreateIPSetResponse]
+ReadPrec CreateIPSetResponse
+Int -&gt; ReadS CreateIPSetResponse
+ReadS [CreateIPSetResponse]
+(Int -&gt; ReadS CreateIPSetResponse)
+-&gt; ReadS [CreateIPSetResponse]
+-&gt; ReadPrec CreateIPSetResponse
+-&gt; ReadPrec [CreateIPSetResponse]
+-&gt; Read CreateIPSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateIPSetResponse]
+$creadListPrec :: ReadPrec [CreateIPSetResponse]
+readPrec :: ReadPrec CreateIPSetResponse
+$creadPrec :: ReadPrec CreateIPSetResponse
+readList :: ReadS [CreateIPSetResponse]
+$creadList :: ReadS [CreateIPSetResponse]
+readsPrec :: Int -&gt; ReadS CreateIPSetResponse
+$creadsPrec :: Int -&gt; ReadS CreateIPSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313815"><span id="local-6989586621679313817"><span id="local-6989586621679313819"><span class="annot"><span class="annottext">Int -&gt; CreateIPSetResponse -&gt; ShowS
+[CreateIPSetResponse] -&gt; ShowS
+CreateIPSetResponse -&gt; String
+(Int -&gt; CreateIPSetResponse -&gt; ShowS)
+-&gt; (CreateIPSetResponse -&gt; String)
+-&gt; ([CreateIPSetResponse] -&gt; ShowS)
+-&gt; Show CreateIPSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateIPSetResponse] -&gt; ShowS
+$cshowList :: [CreateIPSetResponse] -&gt; ShowS
+show :: CreateIPSetResponse -&gt; String
+$cshow :: CreateIPSetResponse -&gt; String
+showsPrec :: Int -&gt; CreateIPSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateIPSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateIPSetResponse -&gt; Rep CreateIPSetResponse x)
+-&gt; (forall x. Rep CreateIPSetResponse x -&gt; CreateIPSetResponse)
+-&gt; Generic CreateIPSetResponse
+forall x. Rep CreateIPSetResponse x -&gt; CreateIPSetResponse
+forall x. CreateIPSetResponse -&gt; Rep CreateIPSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateIPSetResponse x -&gt; CreateIPSetResponse
+$cfrom :: forall x. CreateIPSetResponse -&gt; Rep CreateIPSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Create a value of 'CreateIPSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'httpStatus', 'createIPSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'ipSetId', 'createIPSetResponse_ipSetId' - The ID of the IPSet resource.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#newCreateIPSetResponse"><span class="hs-identifier hs-type">newCreateIPSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'ipSetId'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span>
+</span><span id="line-246"></span><span id="newCreateIPSetResponse"><span class="annot"><span class="annottext">newCreateIPSetResponse :: Int -&gt; Text -&gt; CreateIPSetResponse
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#newCreateIPSetResponse"><span class="hs-identifier hs-var hs-var">newCreateIPSetResponse</span></a></span></span><span> </span><span id="local-6989586621679313812"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313812"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679313811"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313811"><span class="hs-identifier hs-var">pIpSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">CreateIPSetResponse' :: Int -&gt; Text -&gt; CreateIPSetResponse
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateIPSetResponse' :: Int
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AhttpStatus%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313812"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipSetId:CreateIPSetResponse' :: Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AipSetId%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">ipSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313811"><span class="hs-identifier hs-var">pIpSetId_</span></a></span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSetResponse_httpStatus"><span class="hs-identifier hs-type">createIPSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-254"></span><span id="createIPSetResponse_httpStatus"><span class="annot"><span class="annottext">createIPSetResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateIPSetResponse -&gt; f CreateIPSetResponse
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createIPSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSetResponse -&gt; Int)
+-&gt; (CreateIPSetResponse -&gt; Int -&gt; CreateIPSetResponse)
+-&gt; Lens CreateIPSetResponse CreateIPSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313810"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateIPSetResponse' :: CreateIPSetResponse -&gt; Int
+</span><a href="#local-6989586621679313810"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313810"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313809"><span class="annot"><span class="annottext">s :: CreateIPSetResponse
+</span><a href="#local-6989586621679313809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSetResponse
+</span><a href="#local-6989586621679313809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateIPSetResponse' :: Int
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AhttpStatus%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The ID of the IPSet resource.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSetResponse_ipSetId"><span class="hs-identifier hs-type">createIPSetResponse_ipSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-258"></span><span id="createIPSetResponse_ipSetId"><span class="annot"><span class="annottext">createIPSetResponse_ipSetId :: (Text -&gt; f Text) -&gt; CreateIPSetResponse -&gt; f CreateIPSetResponse
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#createIPSetResponse_ipSetId"><span class="hs-identifier hs-var hs-var">createIPSetResponse_ipSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIPSetResponse -&gt; Text)
+-&gt; (CreateIPSetResponse -&gt; Text -&gt; CreateIPSetResponse)
+-&gt; Lens CreateIPSetResponse CreateIPSetResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313807"><span class="annot"><span class="annottext">Text
+ipSetId :: Text
+$sel:ipSetId:CreateIPSetResponse' :: CreateIPSetResponse -&gt; Text
+</span><a href="#local-6989586621679313807"><span class="hs-identifier hs-var hs-var">ipSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313807"><span class="hs-identifier hs-var">ipSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313806"><span class="annot"><span class="annottext">s :: CreateIPSetResponse
+</span><a href="#local-6989586621679313806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse%27"><span class="hs-identifier hs-type">CreateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313805"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIPSetResponse
+</span><a href="#local-6989586621679313806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipSetId:CreateIPSetResponse' :: Text
+</span><a href="Amazonka.GuardDuty.CreateIPSet.html#%24sel%3AipSetId%3ACreateIPSetResponse%27"><span class="hs-identifier hs-var">ipSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GuardDuty.CreateIPSet.html#CreateIPSetResponse"><span class="hs-identifier hs-type">CreateIPSetResponse</span></a></span></span><span>
+</span><span id="line-261"></span></pre></body></html>

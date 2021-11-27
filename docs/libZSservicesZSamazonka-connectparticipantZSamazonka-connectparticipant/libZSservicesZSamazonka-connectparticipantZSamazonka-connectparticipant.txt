@@ -5,35 +5,35 @@
 @version 2.0
 
 
-module Network.AWS.ConnectParticipant.Types.ArtifactStatus
+module Amazonka.ConnectParticipant.Types.ArtifactStatus
 newtype ArtifactStatus
 ArtifactStatus' :: Text -> ArtifactStatus
 [fromArtifactStatus] :: ArtifactStatus -> Text
 pattern ArtifactStatus_APPROVED :: ArtifactStatus
 pattern ArtifactStatus_IN_PROGRESS :: ArtifactStatus
 pattern ArtifactStatus_REJECTED :: ArtifactStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance GHC.Classes.Ord Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Amazonka.Data.XML.ToXML Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Amazonka.Data.XML.FromXML Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Amazonka.Data.Log.ToLog Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Amazonka.Data.Text.ToText Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Amazonka.Data.Text.FromText Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance GHC.Classes.Ord Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.ArtifactStatus.ArtifactStatus
 
 
-module Network.AWS.ConnectParticipant.Types.AttachmentItem
+module Amazonka.ConnectParticipant.Types.AttachmentItem
 
 -- | The case-insensitive input to indicate standard MIME type that
 --   describes the format of the file that will be uploaded.
@@ -95,16 +95,16 @@ attachmentItem_attachmentId :: Lens' AttachmentItem (Maybe Text)
 --   supported file types, see <a>Feature specifications</a> in the
 --   <i>Amazon Connect Administrator Guide</i>.
 attachmentItem_contentType :: Lens' AttachmentItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.AttachmentItem.AttachmentItem
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.AttachmentItem.AttachmentItem
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.AttachmentItem.AttachmentItem
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.AttachmentItem.AttachmentItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.AttachmentItem.AttachmentItem
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.AttachmentItem.AttachmentItem
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.AttachmentItem.AttachmentItem
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.AttachmentItem.AttachmentItem
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.AttachmentItem.AttachmentItem
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.AttachmentItem.AttachmentItem
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.AttachmentItem.AttachmentItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.AttachmentItem.AttachmentItem
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.AttachmentItem.AttachmentItem
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.AttachmentItem.AttachmentItem
 
 
-module Network.AWS.ConnectParticipant.Types.ChatItemType
+module Amazonka.ConnectParticipant.Types.ChatItemType
 newtype ChatItemType
 ChatItemType' :: Text -> ChatItemType
 [fromChatItemType] :: ChatItemType -> Text
@@ -118,28 +118,28 @@ pattern ChatItemType_PARTICIPANT_LEFT :: ChatItemType
 pattern ChatItemType_TRANSFER_FAILED :: ChatItemType
 pattern ChatItemType_TRANSFER_SUCCEEDED :: ChatItemType
 pattern ChatItemType_TYPING :: ChatItemType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Network.AWS.Data.Text.ToText Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Network.AWS.Data.Text.FromText Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance GHC.Classes.Ord Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Amazonka.Data.XML.ToXML Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Amazonka.Data.XML.FromXML Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Amazonka.Data.Log.ToLog Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Amazonka.Data.Text.ToText Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Amazonka.Data.Text.FromText Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance GHC.Classes.Ord Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.ChatItemType.ChatItemType
 
 
-module Network.AWS.ConnectParticipant.Types.ConnectionCredentials
+module Amazonka.ConnectParticipant.Types.ConnectionCredentials
 
 -- | Connection credentials.
 --   
@@ -183,71 +183,71 @@ connectionCredentials_expiry :: Lens' ConnectionCredentials (Maybe Text)
 
 -- | The connection token.
 connectionCredentials_connectionToken :: Lens' ConnectionCredentials (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.ConnectionCredentials.ConnectionCredentials
 
 
-module Network.AWS.ConnectParticipant.Types.ConnectionType
+module Amazonka.ConnectParticipant.Types.ConnectionType
 newtype ConnectionType
 ConnectionType' :: Text -> ConnectionType
 [fromConnectionType] :: ConnectionType -> Text
 pattern ConnectionType_CONNECTION_CREDENTIALS :: ConnectionType
 pattern ConnectionType_WEBSOCKET :: ConnectionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Text.ToText Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Text.FromText Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance GHC.Classes.Ord Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.XML.ToXML Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.XML.FromXML Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Log.ToLog Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Text.ToText Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Text.FromText Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance GHC.Classes.Ord Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.ConnectionType.ConnectionType
 
 
-module Network.AWS.ConnectParticipant.Types.ParticipantRole
+module Amazonka.ConnectParticipant.Types.ParticipantRole
 newtype ParticipantRole
 ParticipantRole' :: Text -> ParticipantRole
 [fromParticipantRole] :: ParticipantRole -> Text
 pattern ParticipantRole_AGENT :: ParticipantRole
 pattern ParticipantRole_CUSTOMER :: ParticipantRole
 pattern ParticipantRole_SYSTEM :: ParticipantRole
-instance Network.AWS.Data.XML.ToXML Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Network.AWS.Data.XML.FromXML Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Network.AWS.Data.Log.ToLog Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Network.AWS.Data.Text.ToText Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Network.AWS.Data.Text.FromText Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance GHC.Classes.Ord Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Amazonka.Data.XML.ToXML Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Amazonka.Data.XML.FromXML Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Amazonka.Data.Headers.ToHeader Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Amazonka.Data.Log.ToLog Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Amazonka.Data.Text.ToText Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Amazonka.Data.Text.FromText Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance GHC.Classes.Ord Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.ParticipantRole.ParticipantRole
 
 
-module Network.AWS.ConnectParticipant.Types.Item
+module Amazonka.ConnectParticipant.Types.Item
 
 -- | An item - message or event - that has been sent.
 --   
@@ -354,70 +354,70 @@ item_type :: Lens' Item (Maybe ChatItemType)
 
 -- | The type of content of the item.
 item_contentType :: Lens' Item (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.Item.Item
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.Item.Item
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.Item.Item
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.Item.Item
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.Item.Item
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.Item.Item
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.Item.Item
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.Item.Item
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.Item.Item
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.Item.Item
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.Item.Item
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.Item.Item
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.Item.Item
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.Item.Item
 
 
-module Network.AWS.ConnectParticipant.Types.ScanDirection
+module Amazonka.ConnectParticipant.Types.ScanDirection
 newtype ScanDirection
 ScanDirection' :: Text -> ScanDirection
 [fromScanDirection] :: ScanDirection -> Text
 pattern ScanDirection_BACKWARD :: ScanDirection
 pattern ScanDirection_FORWARD :: ScanDirection
-instance Network.AWS.Data.XML.ToXML Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Network.AWS.Data.XML.FromXML Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Network.AWS.Data.Log.ToLog Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Network.AWS.Data.Text.ToText Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Network.AWS.Data.Text.FromText Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance GHC.Classes.Ord Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Amazonka.Data.XML.ToXML Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Amazonka.Data.XML.FromXML Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Amazonka.Data.Headers.ToHeader Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Amazonka.Data.Log.ToLog Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Amazonka.Data.Text.ToText Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Amazonka.Data.Text.FromText Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance GHC.Classes.Ord Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.ScanDirection.ScanDirection
 
 
-module Network.AWS.ConnectParticipant.Types.SortKey
+module Amazonka.ConnectParticipant.Types.SortKey
 newtype SortKey
 SortKey' :: Text -> SortKey
 [fromSortKey] :: SortKey -> Text
 pattern SortKey_ASCENDING :: SortKey
 pattern SortKey_DESCENDING :: SortKey
-instance Network.AWS.Data.XML.ToXML Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Network.AWS.Data.XML.FromXML Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Network.AWS.Data.Log.ToLog Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Network.AWS.Data.Text.ToText Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Network.AWS.Data.Text.FromText Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance GHC.Classes.Ord Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.SortKey.SortKey
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.SortKey.SortKey
+instance Amazonka.Data.XML.ToXML Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Amazonka.Data.XML.FromXML Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Amazonka.Data.Headers.ToHeader Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Amazonka.Data.Log.ToLog Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Amazonka.Data.Text.ToText Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Amazonka.Data.Text.FromText Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance GHC.Classes.Ord Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.SortKey.SortKey
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.SortKey.SortKey
 
 
-module Network.AWS.ConnectParticipant.Types.StartPosition
+module Amazonka.ConnectParticipant.Types.StartPosition
 
 -- | A filtering option for where to start. For example, if you sent 100
 --   messages, start with message 50.
@@ -473,16 +473,16 @@ startPosition_id :: Lens' StartPosition (Maybe Text)
 
 -- | The start position of the most recent message where you want to start.
 startPosition_mostRecent :: Lens' StartPosition (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.StartPosition.StartPosition
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.StartPosition.StartPosition
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.StartPosition.StartPosition
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.StartPosition.StartPosition
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.StartPosition.StartPosition
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.StartPosition.StartPosition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.Types.StartPosition.StartPosition
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.StartPosition.StartPosition
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.StartPosition.StartPosition
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.StartPosition.StartPosition
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.StartPosition.StartPosition
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.StartPosition.StartPosition
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.StartPosition.StartPosition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.Types.StartPosition.StartPosition
 
 
-module Network.AWS.ConnectParticipant.Types.UploadMetadata
+module Amazonka.ConnectParticipant.Types.UploadMetadata
 
 -- | Fields to be used while uploading the attachment.
 --   
@@ -536,16 +536,16 @@ uploadMetadata_headersToInclude :: Lens' UploadMetadata (Maybe (HashMap Text Tex
 -- | The pre-signed URL using which file would be downloaded from Amazon S3
 --   by the API caller.
 uploadMetadata_url :: Lens' UploadMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.UploadMetadata.UploadMetadata
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.UploadMetadata.UploadMetadata
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.UploadMetadata.UploadMetadata
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.UploadMetadata.UploadMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.UploadMetadata.UploadMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.UploadMetadata.UploadMetadata
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.UploadMetadata.UploadMetadata
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.UploadMetadata.UploadMetadata
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.UploadMetadata.UploadMetadata
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.UploadMetadata.UploadMetadata
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.UploadMetadata.UploadMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.UploadMetadata.UploadMetadata
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.UploadMetadata.UploadMetadata
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.UploadMetadata.UploadMetadata
 
 
-module Network.AWS.ConnectParticipant.Types.Websocket
+module Amazonka.ConnectParticipant.Types.Websocket
 
 -- | The websocket for the participant's connection.
 --   
@@ -589,16 +589,16 @@ websocket_url :: Lens' Websocket (Maybe Text)
 --   It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
 --   example, 2019-11-08T02:41:28.172Z.
 websocket_connectionExpiry :: Lens' Websocket (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.Types.Websocket.Websocket
-instance GHC.Show.Show Network.AWS.ConnectParticipant.Types.Websocket.Websocket
-instance GHC.Read.Read Network.AWS.ConnectParticipant.Types.Websocket.Websocket
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.Types.Websocket.Websocket
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ConnectParticipant.Types.Websocket.Websocket
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.Types.Websocket.Websocket
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.Types.Websocket.Websocket
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.Types.Websocket.Websocket
+instance GHC.Show.Show Amazonka.ConnectParticipant.Types.Websocket.Websocket
+instance GHC.Read.Read Amazonka.ConnectParticipant.Types.Websocket.Websocket
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.Types.Websocket.Websocket
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ConnectParticipant.Types.Websocket.Websocket
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.Types.Websocket.Websocket
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.Types.Websocket.Websocket
 
 
-module Network.AWS.ConnectParticipant.Types
+module Amazonka.ConnectParticipant.Types
 
 -- | API version <tt>2018-09-07</tt> of the Amazon Connect Participant
 --   Service SDK configuration.
@@ -1028,7 +1028,7 @@ websocket_connectionExpiry :: Lens' Websocket (Maybe Text)
 
 -- | Provides a pre-signed Amazon S3 URL in response for uploading the file
 --   directly to S3.
-module Network.AWS.ConnectParticipant.StartAttachmentUpload
+module Amazonka.ConnectParticipant.StartAttachmentUpload
 
 -- | <i>See:</i> <a>newStartAttachmentUpload</a> smart constructor.
 data StartAttachmentUpload
@@ -1143,22 +1143,22 @@ startAttachmentUploadResponse_uploadMetadata :: Lens' StartAttachmentUploadRespo
 
 -- | The response's http status code.
 startAttachmentUploadResponse_httpStatus :: Lens' StartAttachmentUploadResponse Int
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance GHC.Show.Show Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance GHC.Read.Read Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
-instance GHC.Show.Show Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
-instance GHC.Read.Read Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance Network.AWS.Data.Path.ToPath Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance GHC.Show.Show Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance GHC.Read.Read Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
+instance GHC.Show.Show Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
+instance GHC.Read.Read Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
+instance Amazonka.Types.AWSRequest Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUploadResponse
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance Amazonka.Data.Path.ToPath Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.StartAttachmentUpload.StartAttachmentUpload
 
 
 -- | Sends a message. Note that ConnectionToken is used for invoking this
@@ -1166,7 +1166,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.StartAtta
 --   
 --   The Amazon Connect Participant Service APIs do not use <a>Signature
 --   Version 4 authentication</a>.
-module Network.AWS.ConnectParticipant.SendMessage
+module Amazonka.ConnectParticipant.SendMessage
 
 -- | <i>See:</i> <a>newSendMessage</a> smart constructor.
 data SendMessage
@@ -1272,22 +1272,22 @@ sendMessageResponse_id :: Lens' SendMessageResponse (Maybe Text)
 
 -- | The response's http status code.
 sendMessageResponse_httpStatus :: Lens' SendMessageResponse Int
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance GHC.Show.Show Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance GHC.Read.Read Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.SendMessage.SendMessageResponse
-instance GHC.Show.Show Network.AWS.ConnectParticipant.SendMessage.SendMessageResponse
-instance GHC.Read.Read Network.AWS.ConnectParticipant.SendMessage.SendMessageResponse
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.SendMessage.SendMessageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.SendMessage.SendMessageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance Network.AWS.Data.Path.ToPath Network.AWS.ConnectParticipant.SendMessage.SendMessage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.SendMessage.SendMessage
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance GHC.Show.Show Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance GHC.Read.Read Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.SendMessage.SendMessageResponse
+instance GHC.Show.Show Amazonka.ConnectParticipant.SendMessage.SendMessageResponse
+instance GHC.Read.Read Amazonka.ConnectParticipant.SendMessage.SendMessageResponse
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.SendMessage.SendMessageResponse
+instance Amazonka.Types.AWSRequest Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.SendMessage.SendMessageResponse
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance Amazonka.Data.Path.ToPath Amazonka.ConnectParticipant.SendMessage.SendMessage
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.SendMessage.SendMessage
 
 
 -- | Sends an event. Note that ConnectionToken is used for invoking this
@@ -1295,7 +1295,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.SendMessa
 --   
 --   The Amazon Connect Participant Service APIs do not use <a>Signature
 --   Version 4 authentication</a>.
-module Network.AWS.ConnectParticipant.SendEvent
+module Amazonka.ConnectParticipant.SendEvent
 
 -- | <i>See:</i> <a>newSendEvent</a> smart constructor.
 data SendEvent
@@ -1421,22 +1421,22 @@ sendEventResponse_id :: Lens' SendEventResponse (Maybe Text)
 
 -- | The response's http status code.
 sendEventResponse_httpStatus :: Lens' SendEventResponse Int
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance GHC.Show.Show Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance GHC.Read.Read Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.SendEvent.SendEventResponse
-instance GHC.Show.Show Network.AWS.ConnectParticipant.SendEvent.SendEventResponse
-instance GHC.Read.Read Network.AWS.ConnectParticipant.SendEvent.SendEventResponse
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.SendEvent.SendEventResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.SendEvent.SendEventResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance Network.AWS.Data.Path.ToPath Network.AWS.ConnectParticipant.SendEvent.SendEvent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.SendEvent.SendEvent
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance GHC.Show.Show Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance GHC.Read.Read Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.SendEvent.SendEventResponse
+instance GHC.Show.Show Amazonka.ConnectParticipant.SendEvent.SendEventResponse
+instance GHC.Read.Read Amazonka.ConnectParticipant.SendEvent.SendEventResponse
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.SendEvent.SendEventResponse
+instance Amazonka.Types.AWSRequest Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.SendEvent.SendEventResponse
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance Amazonka.Data.Path.ToPath Amazonka.ConnectParticipant.SendEvent.SendEvent
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.SendEvent.SendEvent
 
 
 -- | Retrieves a transcript of the session, including details about any
@@ -1445,7 +1445,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.SendEvent
 --   
 --   The Amazon Connect Participant Service APIs do not use <a>Signature
 --   Version 4 authentication</a>.
-module Network.AWS.ConnectParticipant.GetTranscript
+module Amazonka.ConnectParticipant.GetTranscript
 
 -- | <i>See:</i> <a>newGetTranscript</a> smart constructor.
 data GetTranscript
@@ -1594,27 +1594,27 @@ getTranscriptResponse_transcript :: Lens' GetTranscriptResponse (Maybe [Item])
 
 -- | The response's http status code.
 getTranscriptResponse_httpStatus :: Lens' GetTranscriptResponse Int
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance GHC.Show.Show Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance GHC.Read.Read Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.GetTranscript.GetTranscriptResponse
-instance GHC.Show.Show Network.AWS.ConnectParticipant.GetTranscript.GetTranscriptResponse
-instance GHC.Read.Read Network.AWS.ConnectParticipant.GetTranscript.GetTranscriptResponse
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.GetTranscript.GetTranscriptResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.GetTranscript.GetTranscriptResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance Network.AWS.Data.Path.ToPath Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.GetTranscript.GetTranscript
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance GHC.Show.Show Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance GHC.Read.Read Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.GetTranscript.GetTranscriptResponse
+instance GHC.Show.Show Amazonka.ConnectParticipant.GetTranscript.GetTranscriptResponse
+instance GHC.Read.Read Amazonka.ConnectParticipant.GetTranscript.GetTranscriptResponse
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.GetTranscript.GetTranscriptResponse
+instance Amazonka.Types.AWSRequest Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.GetTranscript.GetTranscriptResponse
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance Amazonka.Data.Path.ToPath Amazonka.ConnectParticipant.GetTranscript.GetTranscript
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.GetTranscript.GetTranscript
 
 
 -- | Provides a pre-signed URL for download of a completed attachment. This
 --   is an asynchronous API for use with active contacts.
-module Network.AWS.ConnectParticipant.GetAttachment
+module Amazonka.ConnectParticipant.GetAttachment
 
 -- | <i>See:</i> <a>newGetAttachment</a> smart constructor.
 data GetAttachment
@@ -1700,22 +1700,22 @@ getAttachmentResponse_url :: Lens' GetAttachmentResponse (Maybe Text)
 
 -- | The response's http status code.
 getAttachmentResponse_httpStatus :: Lens' GetAttachmentResponse Int
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance GHC.Show.Show Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance GHC.Read.Read Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.GetAttachment.GetAttachmentResponse
-instance GHC.Show.Show Network.AWS.ConnectParticipant.GetAttachment.GetAttachmentResponse
-instance GHC.Read.Read Network.AWS.ConnectParticipant.GetAttachment.GetAttachmentResponse
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.GetAttachment.GetAttachmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.GetAttachment.GetAttachmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance Network.AWS.Data.Path.ToPath Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.GetAttachment.GetAttachment
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance GHC.Show.Show Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance GHC.Read.Read Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.GetAttachment.GetAttachmentResponse
+instance GHC.Show.Show Amazonka.ConnectParticipant.GetAttachment.GetAttachmentResponse
+instance GHC.Read.Read Amazonka.ConnectParticipant.GetAttachment.GetAttachmentResponse
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.GetAttachment.GetAttachmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.GetAttachment.GetAttachmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance Amazonka.Data.Path.ToPath Amazonka.ConnectParticipant.GetAttachment.GetAttachment
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.GetAttachment.GetAttachment
 
 
 -- | Disconnects a participant. Note that ConnectionToken is used for
@@ -1723,7 +1723,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.GetAttach
 --   
 --   The Amazon Connect Participant Service APIs do not use <a>Signature
 --   Version 4 authentication</a>.
-module Network.AWS.ConnectParticipant.DisconnectParticipant
+module Amazonka.ConnectParticipant.DisconnectParticipant
 
 -- | <i>See:</i> <a>newDisconnectParticipant</a> smart constructor.
 data DisconnectParticipant
@@ -1784,22 +1784,22 @@ newDisconnectParticipantResponse :: Int -> DisconnectParticipantResponse
 
 -- | The response's http status code.
 disconnectParticipantResponse_httpStatus :: Lens' DisconnectParticipantResponse Int
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance GHC.Show.Show Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance GHC.Read.Read Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
-instance GHC.Show.Show Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
-instance GHC.Read.Read Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance Network.AWS.Data.Path.ToPath Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance GHC.Show.Show Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance GHC.Read.Read Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
+instance GHC.Show.Show Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
+instance GHC.Read.Read Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
+instance Amazonka.Types.AWSRequest Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipantResponse
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance Amazonka.Data.Path.ToPath Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.DisconnectParticipant.DisconnectParticipant
 
 
 -- | Creates the participant's connection. Note that ParticipantToken is
@@ -1825,7 +1825,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.Disconnec
 --   
 --   The Amazon Connect Participant Service APIs do not use <a>Signature
 --   Version 4 authentication</a>.
-module Network.AWS.ConnectParticipant.CreateParticipantConnection
+module Amazonka.ConnectParticipant.CreateParticipantConnection
 
 -- | <i>See:</i> <a>newCreateParticipantConnection</a> smart constructor.
 data CreateParticipantConnection
@@ -1918,27 +1918,27 @@ createParticipantConnectionResponse_websocket :: Lens' CreateParticipantConnecti
 
 -- | The response's http status code.
 createParticipantConnectionResponse_httpStatus :: Lens' CreateParticipantConnectionResponse Int
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance GHC.Show.Show Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance GHC.Read.Read Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
-instance GHC.Show.Show Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
-instance GHC.Read.Read Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance Network.AWS.Data.Path.ToPath Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance GHC.Show.Show Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance GHC.Read.Read Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
+instance GHC.Show.Show Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
+instance GHC.Read.Read Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
+instance Amazonka.Types.AWSRequest Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnectionResponse
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance Amazonka.Data.Path.ToPath Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.CreateParticipantConnection.CreateParticipantConnection
 
 
 -- | Allows you to confirm that the attachment has been uploaded using the
 --   pre-signed URL provided in StartAttachmentUpload API.
-module Network.AWS.ConnectParticipant.CompleteAttachmentUpload
+module Amazonka.ConnectParticipant.CompleteAttachmentUpload
 
 -- | <i>See:</i> <a>newCompleteAttachmentUpload</a> smart constructor.
 data CompleteAttachmentUpload
@@ -2010,25 +2010,25 @@ newCompleteAttachmentUploadResponse :: Int -> CompleteAttachmentUploadResponse
 
 -- | The response's http status code.
 completeAttachmentUploadResponse_httpStatus :: Lens' CompleteAttachmentUploadResponse Int
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance GHC.Show.Show Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance GHC.Read.Read Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance GHC.Generics.Generic Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
-instance GHC.Show.Show Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
-instance GHC.Read.Read Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
-instance GHC.Classes.Eq Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance Control.DeepSeq.NFData Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance Network.AWS.Data.Path.ToPath Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance GHC.Show.Show Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance GHC.Read.Read Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance GHC.Generics.Generic Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
+instance GHC.Show.Show Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
+instance GHC.Read.Read Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
+instance GHC.Classes.Eq Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
+instance Amazonka.Types.AWSRequest Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUploadResponse
+instance Data.Hashable.Class.Hashable Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance Control.DeepSeq.NFData Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance Amazonka.Data.Path.ToPath Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
+instance Amazonka.Data.Query.ToQuery Amazonka.ConnectParticipant.CompleteAttachmentUpload.CompleteAttachmentUpload
 
 
-module Network.AWS.ConnectParticipant.Lens
+module Amazonka.ConnectParticipant.Lens
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 --   idempotency of the request.
@@ -2299,7 +2299,7 @@ websocket_url :: Lens' Websocket (Maybe Text)
 websocket_connectionExpiry :: Lens' Websocket (Maybe Text)
 
 
-module Network.AWS.ConnectParticipant.Waiters
+module Amazonka.ConnectParticipant.Waiters
 
 
 -- | Derived from API version <tt>2018-09-07</tt> of the AWS service
@@ -2313,7 +2313,7 @@ module Network.AWS.ConnectParticipant.Waiters
 --   
 --   The APIs described here are used by chat participants, such as agents
 --   and customers.
-module Network.AWS.ConnectParticipant
+module Amazonka.ConnectParticipant
 
 -- | API version <tt>2018-09-07</tt> of the Amazon Connect Participant
 --   Service SDK configuration.

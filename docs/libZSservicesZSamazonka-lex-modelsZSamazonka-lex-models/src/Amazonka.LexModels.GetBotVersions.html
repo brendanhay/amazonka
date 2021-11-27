@@ -1,0 +1,688 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LexModels.GetBotVersions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about all of the versions of a bot.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- The @GetBotVersions@ operation returns a @BotMetadata@ object for each</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- version of a bot. For example, if a bot has three numbered versions, the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @GetBotVersions@ operation returns four @BotMetadata@ objects in the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- response, one for each numbered version and one for the @$LATEST@</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- version.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- The @GetBotVersions@ operation always returns at least one version, the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @$LATEST@ version.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- This operation requires permissions for the @lex:GetBotVersions@ action.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LexModels.GetBotVersions</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier">GetBotVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#newGetBotVersions"><span class="hs-identifier">newGetBotVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_nextToken"><span class="hs-identifier">getBotVersions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_maxResults"><span class="hs-identifier">getBotVersions_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_name"><span class="hs-identifier">getBotVersions_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier">GetBotVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#newGetBotVersionsResponse"><span class="hs-identifier">newGetBotVersionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_bots"><span class="hs-identifier">getBotVersionsResponse_bots</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_nextToken"><span class="hs-identifier">getBotVersionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_httpStatus"><span class="hs-identifier">getBotVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.html"><span class="hs-identifier">Amazonka.LexModels.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newGetBotVersions' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679324285"><span id="local-6989586621679324286"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBotVersions"><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-var">GetBotVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBotVersions%27"><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-var">GetBotVersions'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token for fetching the next page of bot versions. If the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- response to this call is truncated, Amazon Lex returns a pagination</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- token in the response. To fetch the next page of versions, specify the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- pagination token in the next request.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AnextToken%3AGetBotVersions%27"><span class="annot"><span class="annottext">GetBotVersions -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AnextToken%3AGetBotVersions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The maximum number of bot versions to return in the response. The</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- default is 10.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetBotVersions%27"><span class="annot"><span class="annottext">GetBotVersions -&gt; Maybe Natural
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AmaxResults%3AGetBotVersions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The name of the bot for which versions should be returned.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aname%3AGetBotVersions%27"><span class="annot"><span class="annottext">GetBotVersions -&gt; Text
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3Aname%3AGetBotVersions%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324277"><span id="local-6989586621679324279"><span class="annot"><span class="annottext">GetBotVersions -&gt; GetBotVersions -&gt; Bool
+(GetBotVersions -&gt; GetBotVersions -&gt; Bool)
+-&gt; (GetBotVersions -&gt; GetBotVersions -&gt; Bool) -&gt; Eq GetBotVersions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBotVersions -&gt; GetBotVersions -&gt; Bool
+$c/= :: GetBotVersions -&gt; GetBotVersions -&gt; Bool
+== :: GetBotVersions -&gt; GetBotVersions -&gt; Bool
+$c== :: GetBotVersions -&gt; GetBotVersions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324268"><span id="local-6989586621679324270"><span id="local-6989586621679324272"><span id="local-6989586621679324274"><span class="annot"><span class="annottext">ReadPrec [GetBotVersions]
+ReadPrec GetBotVersions
+Int -&gt; ReadS GetBotVersions
+ReadS [GetBotVersions]
+(Int -&gt; ReadS GetBotVersions)
+-&gt; ReadS [GetBotVersions]
+-&gt; ReadPrec GetBotVersions
+-&gt; ReadPrec [GetBotVersions]
+-&gt; Read GetBotVersions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBotVersions]
+$creadListPrec :: ReadPrec [GetBotVersions]
+readPrec :: ReadPrec GetBotVersions
+$creadPrec :: ReadPrec GetBotVersions
+readList :: ReadS [GetBotVersions]
+$creadList :: ReadS [GetBotVersions]
+readsPrec :: Int -&gt; ReadS GetBotVersions
+$creadsPrec :: Int -&gt; ReadS GetBotVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324261"><span id="local-6989586621679324263"><span id="local-6989586621679324265"><span class="annot"><span class="annottext">Int -&gt; GetBotVersions -&gt; ShowS
+[GetBotVersions] -&gt; ShowS
+GetBotVersions -&gt; String
+(Int -&gt; GetBotVersions -&gt; ShowS)
+-&gt; (GetBotVersions -&gt; String)
+-&gt; ([GetBotVersions] -&gt; ShowS)
+-&gt; Show GetBotVersions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBotVersions] -&gt; ShowS
+$cshowList :: [GetBotVersions] -&gt; ShowS
+show :: GetBotVersions -&gt; String
+$cshow :: GetBotVersions -&gt; String
+showsPrec :: Int -&gt; GetBotVersions -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBotVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBotVersions -&gt; Rep GetBotVersions x)
+-&gt; (forall x. Rep GetBotVersions x -&gt; GetBotVersions)
+-&gt; Generic GetBotVersions
+forall x. Rep GetBotVersions x -&gt; GetBotVersions
+forall x. GetBotVersions -&gt; Rep GetBotVersions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBotVersions x -&gt; GetBotVersions
+$cfrom :: forall x. GetBotVersions -&gt; Rep GetBotVersions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'GetBotVersions' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'nextToken', 'getBotVersions_nextToken' - A pagination token for fetching the next page of bot versions. If the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- response to this call is truncated, Amazon Lex returns a pagination</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- token in the response. To fetch the next page of versions, specify the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- pagination token in the next request.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'maxResults', 'getBotVersions_maxResults' - The maximum number of bot versions to return in the response. The</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- default is 10.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'name', 'getBotVersions_name' - The name of the bot for which versions should be returned.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#newGetBotVersions"><span class="hs-identifier hs-type">newGetBotVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span>
+</span><span id="line-101"></span><span id="newGetBotVersions"><span class="annot"><span class="annottext">newGetBotVersions :: Text -&gt; GetBotVersions
+</span><a href="Amazonka.LexModels.GetBotVersions.html#newGetBotVersions"><span class="hs-identifier hs-var hs-var">newGetBotVersions</span></a></span></span><span> </span><span id="local-6989586621679324256"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324256"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">GetBotVersions' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; GetBotVersions
+</span><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-type">GetBotVersions'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetBotVersions' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AnextToken%3AGetBotVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetBotVersions' :: Maybe Natural
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AmaxResults%3AGetBotVersions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetBotVersions' :: Text
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3Aname%3AGetBotVersions%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324256"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | A pagination token for fetching the next page of bot versions. If the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- response to this call is truncated, Amazon Lex returns a pagination</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- token in the response. To fetch the next page of versions, specify the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- pagination token in the next request.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_nextToken"><span class="hs-identifier hs-type">getBotVersions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="getBotVersions_nextToken"><span class="annot"><span class="annottext">getBotVersions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBotVersions -&gt; f GetBotVersions
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_nextToken"><span class="hs-identifier hs-var hs-var">getBotVersions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotVersions -&gt; Maybe Text)
+-&gt; (GetBotVersions -&gt; Maybe Text -&gt; GetBotVersions)
+-&gt; Lens GetBotVersions GetBotVersions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-type">GetBotVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324254"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetBotVersions' :: GetBotVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679324254"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324254"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324253"><span class="annot"><span class="annottext">s :: GetBotVersions
+</span><a href="#local-6989586621679324253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-type">GetBotVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324252"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotVersions
+</span><a href="#local-6989586621679324253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetBotVersions' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AnextToken%3AGetBotVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The maximum number of bot versions to return in the response. The</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- default is 10.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_maxResults"><span class="hs-identifier hs-type">getBotVersions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="getBotVersions_maxResults"><span class="annot"><span class="annottext">getBotVersions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetBotVersions -&gt; f GetBotVersions
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_maxResults"><span class="hs-identifier hs-var hs-var">getBotVersions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotVersions -&gt; Maybe Natural)
+-&gt; (GetBotVersions -&gt; Maybe Natural -&gt; GetBotVersions)
+-&gt; Lens
+     GetBotVersions GetBotVersions (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-type">GetBotVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324251"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetBotVersions' :: GetBotVersions -&gt; Maybe Natural
+</span><a href="#local-6989586621679324251"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679324251"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324250"><span class="annot"><span class="annottext">s :: GetBotVersions
+</span><a href="#local-6989586621679324250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-type">GetBotVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324249"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679324249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotVersions
+</span><a href="#local-6989586621679324250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetBotVersions' :: Maybe Natural
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AmaxResults%3AGetBotVersions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679324249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The name of the bot for which versions should be returned.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_name"><span class="hs-identifier hs-type">getBotVersions_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="getBotVersions_name"><span class="annot"><span class="annottext">getBotVersions_name :: (Text -&gt; f Text) -&gt; GetBotVersions -&gt; f GetBotVersions
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_name"><span class="hs-identifier hs-var hs-var">getBotVersions_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotVersions -&gt; Text)
+-&gt; (GetBotVersions -&gt; Text -&gt; GetBotVersions)
+-&gt; Lens GetBotVersions GetBotVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-type">GetBotVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324248"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetBotVersions' :: GetBotVersions -&gt; Text
+</span><a href="#local-6989586621679324248"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324248"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324247"><span class="annot"><span class="annottext">s :: GetBotVersions
+</span><a href="#local-6989586621679324247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-type">GetBotVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324246"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotVersions
+</span><a href="#local-6989586621679324247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetBotVersions' :: Text
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3Aname%3AGetBotVersions%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679324242"><span class="annot"><span class="annottext">page :: GetBotVersions
+-&gt; AWSResponse GetBotVersions -&gt; Maybe GetBotVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679324240"><span class="annot"><span class="annottext">GetBotVersions
+</span><a href="#local-6989586621679324240"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679324239"><span class="annot"><span class="annottext">AWSResponse GetBotVersions
+</span><a href="#local-6989586621679324239"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-127"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetBotVersions
+GetBotVersionsResponse
+</span><a href="#local-6989586621679324239"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">GetBotVersionsResponse
+-&gt; Getting (First Text) GetBotVersionsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetBotVersionsResponse
+-&gt; Const (First Text) GetBotVersionsResponse
+Lens' GetBotVersionsResponse (Maybe Text)
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_nextToken"><span class="hs-identifier hs-var">getBotVersionsResponse_nextToken</span></a></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetBotVersionsResponse
+ -&gt; Const (First Text) GetBotVersionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetBotVersionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetBotVersions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [BotMetadata] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-133"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetBotVersions
+GetBotVersionsResponse
+</span><a href="#local-6989586621679324239"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">GetBotVersionsResponse
+-&gt; Getting
+     (First [BotMetadata]) GetBotVersionsResponse [BotMetadata]
+-&gt; Maybe [BotMetadata]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [BotMetadata]
+ -&gt; Const (First [BotMetadata]) (Maybe [BotMetadata]))
+-&gt; GetBotVersionsResponse
+-&gt; Const (First [BotMetadata]) GetBotVersionsResponse
+Lens' GetBotVersionsResponse (Maybe [BotMetadata])
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_bots"><span class="hs-identifier hs-var">getBotVersionsResponse_bots</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [BotMetadata]
+  -&gt; Const (First [BotMetadata]) (Maybe [BotMetadata]))
+ -&gt; GetBotVersionsResponse
+ -&gt; Const (First [BotMetadata]) GetBotVersionsResponse)
+-&gt; (([BotMetadata] -&gt; Const (First [BotMetadata]) [BotMetadata])
+    -&gt; Maybe [BotMetadata]
+    -&gt; Const (First [BotMetadata]) (Maybe [BotMetadata]))
+-&gt; Getting
+     (First [BotMetadata]) GetBotVersionsResponse [BotMetadata]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BotMetadata] -&gt; Const (First [BotMetadata]) [BotMetadata])
+-&gt; Maybe [BotMetadata]
+-&gt; Const (First [BotMetadata]) (Maybe [BotMetadata])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetBotVersions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">GetBotVersions -&gt; Maybe GetBotVersions
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetBotVersions -&gt; Maybe GetBotVersions)
+-&gt; GetBotVersions -&gt; Maybe GetBotVersions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">GetBotVersions
+</span><a href="#local-6989586621679324240"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">GetBotVersions
+-&gt; (GetBotVersions -&gt; GetBotVersions) -&gt; GetBotVersions
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetBotVersions -&gt; Identity GetBotVersions
+Lens GetBotVersions GetBotVersions (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersions_nextToken"><span class="hs-identifier hs-var">getBotVersions_nextToken</span></a></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetBotVersions -&gt; Identity GetBotVersions)
+-&gt; Maybe Text -&gt; GetBotVersions -&gt; GetBotVersions
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetBotVersions
+GetBotVersionsResponse
+</span><a href="#local-6989586621679324239"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">GetBotVersionsResponse
+-&gt; Getting (First Text) GetBotVersionsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetBotVersionsResponse
+-&gt; Const (First Text) GetBotVersionsResponse
+Lens' GetBotVersionsResponse (Maybe Text)
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_nextToken"><span class="hs-identifier hs-var">getBotVersionsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetBotVersionsResponse
+ -&gt; Const (First Text) GetBotVersionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetBotVersionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-type">GetBotVersionsResponse</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679324229"><span class="annot"><span class="annottext">request :: GetBotVersions -&gt; Request GetBotVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBotVersions -&gt; Request GetBotVersions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679324225"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBotVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBotVersions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetBotVersions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBotVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBotVersions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324222"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324222"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679324221"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679324221"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679324220"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324220"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BotMetadata] -&gt; Maybe Text -&gt; Int -&gt; GetBotVersionsResponse
+</span><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse%27"><span class="hs-identifier hs-var">GetBotVersionsResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BotMetadata]
+ -&gt; Maybe Text -&gt; Int -&gt; GetBotVersionsResponse)
+-&gt; Either String (Maybe [BotMetadata])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetBotVersionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BotMetadata]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bots&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BotMetadata]))
+-&gt; Maybe [BotMetadata] -&gt; Either String (Maybe [BotMetadata])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BotMetadata]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetBotVersionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetBotVersionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBotVersionsResponse)
+-&gt; Either String Int -&gt; Either String GetBotVersionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324222"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324211"><span id="local-6989586621679324213"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679324204"><span class="annot"><span class="annottext">toHeaders :: GetBotVersions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBotVersions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-169"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679324198"><span class="annot"><span class="annottext">toPath :: GetBotVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-type">GetBotVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324194"><span id="local-6989586621679324195"><span id="local-6989586621679324196"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+name :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:name:GetBotVersions' :: GetBotVersions -&gt; Text
+$sel:maxResults:GetBotVersions' :: GetBotVersions -&gt; Maybe Natural
+$sel:nextToken:GetBotVersions' :: GetBotVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679324194"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/bots/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324194"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions"><span class="hs-identifier hs-type">GetBotVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679324190"><span class="annot"><span class="annottext">toQuery :: GetBotVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersions%27"><span class="hs-identifier hs-type">GetBotVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324186"><span id="local-6989586621679324187"><span id="local-6989586621679324188"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+name :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:name:GetBotVersions' :: GetBotVersions -&gt; Text
+$sel:maxResults:GetBotVersions' :: GetBotVersions -&gt; Maybe Natural
+$sel:nextToken:GetBotVersions' :: GetBotVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679324186"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324188"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679324187"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newGetBotVersionsResponse' smart constructor.</span><span>
+</span><span id="line-186"></span><span id="local-6989586621679324183"><span id="local-6989586621679324184"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBotVersionsResponse"><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-var">GetBotVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBotVersionsResponse%27"><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse%27"><span class="hs-identifier hs-var">GetBotVersionsResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @BotMetadata@ objects, one for each numbered version of the</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- bot plus one for the @$LATEST@ version.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3Abots%3AGetBotVersionsResponse%27"><span class="annot"><span class="annottext">GetBotVersionsResponse -&gt; Maybe [BotMetadata]
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3Abots%3AGetBotVersionsResponse%27"><span class="hs-identifier hs-var hs-var">bots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LexModels.Types.BotMetadata.html#BotMetadata"><span class="hs-identifier hs-type">BotMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | A pagination token for fetching the next page of bot versions. If the</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- response to this call is truncated, Amazon Lex returns a pagination</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- token in the response. To fetch the next page of versions, specify the</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- pagination token in the next request.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AnextToken%3AGetBotVersionsResponse%27"><span class="annot"><span class="annottext">GetBotVersionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AnextToken%3AGetBotVersionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBotVersionsResponse%27"><span class="annot"><span class="annottext">GetBotVersionsResponse -&gt; Int
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AhttpStatus%3AGetBotVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324176"><span id="local-6989586621679324178"><span class="annot"><span class="annottext">GetBotVersionsResponse -&gt; GetBotVersionsResponse -&gt; Bool
+(GetBotVersionsResponse -&gt; GetBotVersionsResponse -&gt; Bool)
+-&gt; (GetBotVersionsResponse -&gt; GetBotVersionsResponse -&gt; Bool)
+-&gt; Eq GetBotVersionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBotVersionsResponse -&gt; GetBotVersionsResponse -&gt; Bool
+$c/= :: GetBotVersionsResponse -&gt; GetBotVersionsResponse -&gt; Bool
+== :: GetBotVersionsResponse -&gt; GetBotVersionsResponse -&gt; Bool
+$c== :: GetBotVersionsResponse -&gt; GetBotVersionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324168"><span id="local-6989586621679324170"><span id="local-6989586621679324172"><span id="local-6989586621679324174"><span class="annot"><span class="annottext">ReadPrec [GetBotVersionsResponse]
+ReadPrec GetBotVersionsResponse
+Int -&gt; ReadS GetBotVersionsResponse
+ReadS [GetBotVersionsResponse]
+(Int -&gt; ReadS GetBotVersionsResponse)
+-&gt; ReadS [GetBotVersionsResponse]
+-&gt; ReadPrec GetBotVersionsResponse
+-&gt; ReadPrec [GetBotVersionsResponse]
+-&gt; Read GetBotVersionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBotVersionsResponse]
+$creadListPrec :: ReadPrec [GetBotVersionsResponse]
+readPrec :: ReadPrec GetBotVersionsResponse
+$creadPrec :: ReadPrec GetBotVersionsResponse
+readList :: ReadS [GetBotVersionsResponse]
+$creadList :: ReadS [GetBotVersionsResponse]
+readsPrec :: Int -&gt; ReadS GetBotVersionsResponse
+$creadsPrec :: Int -&gt; ReadS GetBotVersionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324162"><span id="local-6989586621679324164"><span id="local-6989586621679324166"><span class="annot"><span class="annottext">Int -&gt; GetBotVersionsResponse -&gt; ShowS
+[GetBotVersionsResponse] -&gt; ShowS
+GetBotVersionsResponse -&gt; String
+(Int -&gt; GetBotVersionsResponse -&gt; ShowS)
+-&gt; (GetBotVersionsResponse -&gt; String)
+-&gt; ([GetBotVersionsResponse] -&gt; ShowS)
+-&gt; Show GetBotVersionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBotVersionsResponse] -&gt; ShowS
+$cshowList :: [GetBotVersionsResponse] -&gt; ShowS
+show :: GetBotVersionsResponse -&gt; String
+$cshow :: GetBotVersionsResponse -&gt; String
+showsPrec :: Int -&gt; GetBotVersionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBotVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBotVersionsResponse -&gt; Rep GetBotVersionsResponse x)
+-&gt; (forall x.
+    Rep GetBotVersionsResponse x -&gt; GetBotVersionsResponse)
+-&gt; Generic GetBotVersionsResponse
+forall x. Rep GetBotVersionsResponse x -&gt; GetBotVersionsResponse
+forall x. GetBotVersionsResponse -&gt; Rep GetBotVersionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBotVersionsResponse x -&gt; GetBotVersionsResponse
+$cfrom :: forall x. GetBotVersionsResponse -&gt; Rep GetBotVersionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Create a value of 'GetBotVersionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'bots', 'getBotVersionsResponse_bots' - An array of @BotMetadata@ objects, one for each numbered version of the</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- bot plus one for the @$LATEST@ version.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'nextToken', 'getBotVersionsResponse_nextToken' - A pagination token for fetching the next page of bot versions. If the</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- response to this call is truncated, Amazon Lex returns a pagination</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- token in the response. To fetch the next page of versions, specify the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- pagination token in the next request.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'httpStatus', 'getBotVersionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#newGetBotVersionsResponse"><span class="hs-identifier hs-type">newGetBotVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-type">GetBotVersionsResponse</span></a></span><span>
+</span><span id="line-221"></span><span id="newGetBotVersionsResponse"><span class="annot"><span class="annottext">newGetBotVersionsResponse :: Int -&gt; GetBotVersionsResponse
+</span><a href="Amazonka.LexModels.GetBotVersions.html#newGetBotVersionsResponse"><span class="hs-identifier hs-var hs-var">newGetBotVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679324159"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324159"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">GetBotVersionsResponse' :: Maybe [BotMetadata] -&gt; Maybe Text -&gt; Int -&gt; GetBotVersionsResponse
+</span><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse%27"><span class="hs-identifier hs-type">GetBotVersionsResponse'</span></a></span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bots:GetBotVersionsResponse' :: Maybe [BotMetadata]
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3Abots%3AGetBotVersionsResponse%27"><span class="hs-identifier hs-var">bots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BotMetadata]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetBotVersionsResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AnextToken%3AGetBotVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBotVersionsResponse' :: Int
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AhttpStatus%3AGetBotVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324159"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | An array of @BotMetadata@ objects, one for each numbered version of the</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- bot plus one for the @$LATEST@ version.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_bots"><span class="hs-identifier hs-type">getBotVersionsResponse_bots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-type">GetBotVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.LexModels.Types.BotMetadata.html#BotMetadata"><span class="hs-identifier hs-type">BotMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="getBotVersionsResponse_bots"><span class="annot"><span class="annottext">getBotVersionsResponse_bots :: (Maybe [BotMetadata] -&gt; f (Maybe [BotMetadata]))
+-&gt; GetBotVersionsResponse -&gt; f GetBotVersionsResponse
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_bots"><span class="hs-identifier hs-var hs-var">getBotVersionsResponse_bots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotVersionsResponse -&gt; Maybe [BotMetadata])
+-&gt; (GetBotVersionsResponse
+    -&gt; Maybe [BotMetadata] -&gt; GetBotVersionsResponse)
+-&gt; Lens' GetBotVersionsResponse (Maybe [BotMetadata])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse%27"><span class="hs-identifier hs-type">GetBotVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324158"><span class="annot"><span class="annottext">Maybe [BotMetadata]
+bots :: Maybe [BotMetadata]
+$sel:bots:GetBotVersionsResponse' :: GetBotVersionsResponse -&gt; Maybe [BotMetadata]
+</span><a href="#local-6989586621679324158"><span class="hs-identifier hs-var hs-var">bots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BotMetadata]
+</span><a href="#local-6989586621679324158"><span class="hs-identifier hs-var">bots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324157"><span class="annot"><span class="annottext">s :: GetBotVersionsResponse
+</span><a href="#local-6989586621679324157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse%27"><span class="hs-identifier hs-type">GetBotVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324156"><span class="annot"><span class="annottext">Maybe [BotMetadata]
+</span><a href="#local-6989586621679324156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotVersionsResponse
+</span><a href="#local-6989586621679324157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bots:GetBotVersionsResponse' :: Maybe [BotMetadata]
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3Abots%3AGetBotVersionsResponse%27"><span class="hs-identifier hs-var">bots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BotMetadata]
+</span><a href="#local-6989586621679324156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-type">GetBotVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BotMetadata] -&gt; f (Maybe [BotMetadata]))
+ -&gt; GetBotVersionsResponse -&gt; f GetBotVersionsResponse)
+-&gt; ((Maybe [BotMetadata] -&gt; f (Maybe [BotMetadata]))
+    -&gt; Maybe [BotMetadata] -&gt; f (Maybe [BotMetadata]))
+-&gt; (Maybe [BotMetadata] -&gt; f (Maybe [BotMetadata]))
+-&gt; GetBotVersionsResponse
+-&gt; f GetBotVersionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [BotMetadata] [BotMetadata] [BotMetadata] [BotMetadata]
+-&gt; Iso
+     (Maybe [BotMetadata])
+     (Maybe [BotMetadata])
+     (Maybe [BotMetadata])
+     (Maybe [BotMetadata])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [BotMetadata] [BotMetadata] [BotMetadata] [BotMetadata]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | A pagination token for fetching the next page of bot versions. If the</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- response to this call is truncated, Amazon Lex returns a pagination</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- token in the response. To fetch the next page of versions, specify the</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- pagination token in the next request.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_nextToken"><span class="hs-identifier hs-type">getBotVersionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-type">GetBotVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="getBotVersionsResponse_nextToken"><span class="annot"><span class="annottext">getBotVersionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBotVersionsResponse -&gt; f GetBotVersionsResponse
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getBotVersionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotVersionsResponse -&gt; Maybe Text)
+-&gt; (GetBotVersionsResponse -&gt; Maybe Text -&gt; GetBotVersionsResponse)
+-&gt; Lens' GetBotVersionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse%27"><span class="hs-identifier hs-type">GetBotVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324153"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetBotVersionsResponse' :: GetBotVersionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679324153"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324153"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324152"><span class="annot"><span class="annottext">s :: GetBotVersionsResponse
+</span><a href="#local-6989586621679324152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse%27"><span class="hs-identifier hs-type">GetBotVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324151"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotVersionsResponse
+</span><a href="#local-6989586621679324152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetBotVersionsResponse' :: Maybe Text
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AnextToken%3AGetBotVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-type">GetBotVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_httpStatus"><span class="hs-identifier hs-type">getBotVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-type">GetBotVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-242"></span><span id="getBotVersionsResponse_httpStatus"><span class="annot"><span class="annottext">getBotVersionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetBotVersionsResponse -&gt; f GetBotVersionsResponse
+</span><a href="Amazonka.LexModels.GetBotVersions.html#getBotVersionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBotVersionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotVersionsResponse -&gt; Int)
+-&gt; (GetBotVersionsResponse -&gt; Int -&gt; GetBotVersionsResponse)
+-&gt; Lens GetBotVersionsResponse GetBotVersionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse%27"><span class="hs-identifier hs-type">GetBotVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324150"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBotVersionsResponse' :: GetBotVersionsResponse -&gt; Int
+</span><a href="#local-6989586621679324150"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324150"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324149"><span class="annot"><span class="annottext">s :: GetBotVersionsResponse
+</span><a href="#local-6989586621679324149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse%27"><span class="hs-identifier hs-type">GetBotVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324148"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotVersionsResponse
+</span><a href="#local-6989586621679324149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBotVersionsResponse' :: Int
+</span><a href="Amazonka.LexModels.GetBotVersions.html#%24sel%3AhttpStatus%3AGetBotVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-type">GetBotVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.GetBotVersions.html#GetBotVersionsResponse"><span class="hs-identifier hs-type">GetBotVersionsResponse</span></a></span></span><span>
+</span><span id="line-245"></span></pre></body></html>

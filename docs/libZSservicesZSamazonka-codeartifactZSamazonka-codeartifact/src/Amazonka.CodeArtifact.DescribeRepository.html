@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeArtifact.DescribeRepository</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a @RepositoryDescription@ object that contains detailed</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information about the requested repository.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeArtifact.DescribeRepository</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier">DescribeRepository</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#newDescribeRepository"><span class="hs-identifier">newDescribeRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepository_domainOwner"><span class="hs-identifier">describeRepository_domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepository_domain"><span class="hs-identifier">describeRepository_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepository_repository"><span class="hs-identifier">describeRepository_repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse"><span class="hs-identifier">DescribeRepositoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#newDescribeRepositoryResponse"><span class="hs-identifier">newDescribeRepositoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepositoryResponse_repository"><span class="hs-identifier">describeRepositoryResponse_repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepositoryResponse_httpStatus"><span class="hs-identifier">describeRepositoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.html"><span class="hs-identifier">Amazonka.CodeArtifact.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDescribeRepository' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679237776"><span id="local-6989586621679237777"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRepository"><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-var">DescribeRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRepository%27"><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository%27"><span class="hs-identifier hs-var">DescribeRepository'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdomainOwner%3ADescribeRepository%27"><span class="annot"><span class="annottext">DescribeRepository -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3AdomainOwner%3ADescribeRepository%27"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the domain that contains the repository to describe.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Adomain%3ADescribeRepository%27"><span class="annot"><span class="annottext">DescribeRepository -&gt; Text
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3Adomain%3ADescribeRepository%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A string that specifies the name of the requested repository.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Arepository%3ADescribeRepository%27"><span class="annot"><span class="annottext">DescribeRepository -&gt; Text
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3Arepository%3ADescribeRepository%27"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237768"><span id="local-6989586621679237770"><span class="annot"><span class="annottext">DescribeRepository -&gt; DescribeRepository -&gt; Bool
+(DescribeRepository -&gt; DescribeRepository -&gt; Bool)
+-&gt; (DescribeRepository -&gt; DescribeRepository -&gt; Bool)
+-&gt; Eq DescribeRepository
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRepository -&gt; DescribeRepository -&gt; Bool
+$c/= :: DescribeRepository -&gt; DescribeRepository -&gt; Bool
+== :: DescribeRepository -&gt; DescribeRepository -&gt; Bool
+$c== :: DescribeRepository -&gt; DescribeRepository -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237759"><span id="local-6989586621679237761"><span id="local-6989586621679237763"><span id="local-6989586621679237765"><span class="annot"><span class="annottext">ReadPrec [DescribeRepository]
+ReadPrec DescribeRepository
+Int -&gt; ReadS DescribeRepository
+ReadS [DescribeRepository]
+(Int -&gt; ReadS DescribeRepository)
+-&gt; ReadS [DescribeRepository]
+-&gt; ReadPrec DescribeRepository
+-&gt; ReadPrec [DescribeRepository]
+-&gt; Read DescribeRepository
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRepository]
+$creadListPrec :: ReadPrec [DescribeRepository]
+readPrec :: ReadPrec DescribeRepository
+$creadPrec :: ReadPrec DescribeRepository
+readList :: ReadS [DescribeRepository]
+$creadList :: ReadS [DescribeRepository]
+readsPrec :: Int -&gt; ReadS DescribeRepository
+$creadsPrec :: Int -&gt; ReadS DescribeRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237752"><span id="local-6989586621679237754"><span id="local-6989586621679237756"><span class="annot"><span class="annottext">Int -&gt; DescribeRepository -&gt; ShowS
+[DescribeRepository] -&gt; ShowS
+DescribeRepository -&gt; String
+(Int -&gt; DescribeRepository -&gt; ShowS)
+-&gt; (DescribeRepository -&gt; String)
+-&gt; ([DescribeRepository] -&gt; ShowS)
+-&gt; Show DescribeRepository
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRepository] -&gt; ShowS
+$cshowList :: [DescribeRepository] -&gt; ShowS
+show :: DescribeRepository -&gt; String
+$cshow :: DescribeRepository -&gt; String
+showsPrec :: Int -&gt; DescribeRepository -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRepository -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeRepository -&gt; Rep DescribeRepository x)
+-&gt; (forall x. Rep DescribeRepository x -&gt; DescribeRepository)
+-&gt; Generic DescribeRepository
+forall x. Rep DescribeRepository x -&gt; DescribeRepository
+forall x. DescribeRepository -&gt; Rep DescribeRepository x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeRepository x -&gt; DescribeRepository
+$cfrom :: forall x. DescribeRepository -&gt; Rep DescribeRepository x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DescribeRepository' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'domainOwner', 'describeRepository_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'domain', 'describeRepository_domain' - The name of the domain that contains the repository to describe.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'repository', 'describeRepository_repository' - A string that specifies the name of the requested repository.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#newDescribeRepository"><span class="hs-identifier hs-type">newDescribeRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'repository'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span>
+</span><span id="line-84"></span><span id="newDescribeRepository"><span class="annot"><span class="annottext">newDescribeRepository :: Text -&gt; Text -&gt; DescribeRepository
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#newDescribeRepository"><span class="hs-identifier hs-var hs-var">newDescribeRepository</span></a></span></span><span> </span><span id="local-6989586621679237747"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237747"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span> </span><span id="local-6989586621679237746"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237746"><span class="hs-identifier hs-var">pRepository_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeRepository' :: Maybe Text -&gt; Text -&gt; Text -&gt; DescribeRepository
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository%27"><span class="hs-identifier hs-type">DescribeRepository'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainOwner:DescribeRepository' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3AdomainOwner%3ADescribeRepository%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:domain:DescribeRepository' :: Text
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3Adomain%3ADescribeRepository%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237747"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:repository:DescribeRepository' :: Text
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3Arepository%3ADescribeRepository%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237746"><span class="hs-identifier hs-var">pRepository_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepository_domainOwner"><span class="hs-identifier hs-type">describeRepository_domainOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="describeRepository_domainOwner"><span class="annot"><span class="annottext">describeRepository_domainOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeRepository -&gt; f DescribeRepository
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepository_domainOwner"><span class="hs-identifier hs-var hs-var">describeRepository_domainOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepository -&gt; Maybe Text)
+-&gt; (DescribeRepository -&gt; Maybe Text -&gt; DescribeRepository)
+-&gt; Lens
+     DescribeRepository DescribeRepository (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository%27"><span class="hs-identifier hs-type">DescribeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237743"><span class="annot"><span class="annottext">Maybe Text
+domainOwner :: Maybe Text
+$sel:domainOwner:DescribeRepository' :: DescribeRepository -&gt; Maybe Text
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237742"><span class="annot"><span class="annottext">s :: DescribeRepository
+</span><a href="#local-6989586621679237742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository%27"><span class="hs-identifier hs-type">DescribeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237741"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepository
+</span><a href="#local-6989586621679237742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainOwner:DescribeRepository' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3AdomainOwner%3ADescribeRepository%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The name of the domain that contains the repository to describe.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepository_domain"><span class="hs-identifier hs-type">describeRepository_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="describeRepository_domain"><span class="annot"><span class="annottext">describeRepository_domain :: (Text -&gt; f Text) -&gt; DescribeRepository -&gt; f DescribeRepository
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepository_domain"><span class="hs-identifier hs-var hs-var">describeRepository_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepository -&gt; Text)
+-&gt; (DescribeRepository -&gt; Text -&gt; DescribeRepository)
+-&gt; Lens DescribeRepository DescribeRepository Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository%27"><span class="hs-identifier hs-type">DescribeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237740"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:DescribeRepository' :: DescribeRepository -&gt; Text
+</span><a href="#local-6989586621679237740"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237740"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237739"><span class="annot"><span class="annottext">s :: DescribeRepository
+</span><a href="#local-6989586621679237739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository%27"><span class="hs-identifier hs-type">DescribeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237738"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepository
+</span><a href="#local-6989586621679237739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:DescribeRepository' :: Text
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3Adomain%3ADescribeRepository%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | A string that specifies the name of the requested repository.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepository_repository"><span class="hs-identifier hs-type">describeRepository_repository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="describeRepository_repository"><span class="annot"><span class="annottext">describeRepository_repository :: (Text -&gt; f Text) -&gt; DescribeRepository -&gt; f DescribeRepository
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepository_repository"><span class="hs-identifier hs-var hs-var">describeRepository_repository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepository -&gt; Text)
+-&gt; (DescribeRepository -&gt; Text -&gt; DescribeRepository)
+-&gt; Lens DescribeRepository DescribeRepository Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository%27"><span class="hs-identifier hs-type">DescribeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237737"><span class="annot"><span class="annottext">Text
+repository :: Text
+$sel:repository:DescribeRepository' :: DescribeRepository -&gt; Text
+</span><a href="#local-6989586621679237737"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237737"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237736"><span class="annot"><span class="annottext">s :: DescribeRepository
+</span><a href="#local-6989586621679237736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository%27"><span class="hs-identifier hs-type">DescribeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237735"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepository
+</span><a href="#local-6989586621679237736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:DescribeRepository' :: Text
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3Arepository%3ADescribeRepository%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse"><span class="hs-identifier hs-type">DescribeRepositoryResponse</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679237731"><span class="annot"><span class="annottext">request :: DescribeRepository -&gt; Request DescribeRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeRepository -&gt; Request DescribeRepository
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeArtifact.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679237727"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeRepository
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeRepository)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeRepository))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeRepository
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeRepository)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237724"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237724"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237723"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679237723"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237722"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237722"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe RepositoryDescription -&gt; Int -&gt; DescribeRepositoryResponse
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse%27"><span class="hs-identifier hs-var">DescribeRepositoryResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RepositoryDescription -&gt; Int -&gt; DescribeRepositoryResponse)
+-&gt; Either String (Maybe RepositoryDescription)
+-&gt; Either String (Int -&gt; DescribeRepositoryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RepositoryDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repository&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeRepositoryResponse)
+-&gt; Either String Int -&gt; Either String DescribeRepositoryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237724"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237714"><span id="local-6989586621679237716"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679237707"><span class="annot"><span class="annottext">toHeaders :: DescribeRepository -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRepository -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679237701"><span class="annot"><span class="annottext">toPath :: DescribeRepository -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRepository -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/repository&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository"><span class="hs-identifier hs-type">DescribeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679237697"><span class="annot"><span class="annottext">toQuery :: DescribeRepository -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepository%27"><span class="hs-identifier hs-type">DescribeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237693"><span id="local-6989586621679237694"><span id="local-6989586621679237695"><span class="annot"><span class="annottext">Maybe Text
+Text
+repository :: Text
+domain :: Text
+domainOwner :: Maybe Text
+$sel:repository:DescribeRepository' :: DescribeRepository -&gt; Text
+$sel:domain:DescribeRepository' :: DescribeRepository -&gt; Text
+$sel:domainOwner:DescribeRepository' :: DescribeRepository -&gt; Maybe Text
+</span><a href="#local-6989586621679237693"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain-owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237695"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237694"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;repository&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237693"><span class="hs-identifier hs-var">repository</span></a></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newDescribeRepositoryResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679237690"><span id="local-6989586621679237691"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRepositoryResponse"><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse"><span class="hs-identifier hs-var">DescribeRepositoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRepositoryResponse%27"><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse%27"><span class="hs-identifier hs-var">DescribeRepositoryResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @RepositoryDescription@ object that contains the requested repository</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3Arepository%3ADescribeRepositoryResponse%27"><span class="annot"><span class="annottext">DescribeRepositoryResponse -&gt; Maybe RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3Arepository%3ADescribeRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRepositoryResponse%27"><span class="annot"><span class="annottext">DescribeRepositoryResponse -&gt; Int
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3AhttpStatus%3ADescribeRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237684"><span id="local-6989586621679237686"><span class="annot"><span class="annottext">DescribeRepositoryResponse -&gt; DescribeRepositoryResponse -&gt; Bool
+(DescribeRepositoryResponse -&gt; DescribeRepositoryResponse -&gt; Bool)
+-&gt; (DescribeRepositoryResponse
+    -&gt; DescribeRepositoryResponse -&gt; Bool)
+-&gt; Eq DescribeRepositoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRepositoryResponse -&gt; DescribeRepositoryResponse -&gt; Bool
+$c/= :: DescribeRepositoryResponse -&gt; DescribeRepositoryResponse -&gt; Bool
+== :: DescribeRepositoryResponse -&gt; DescribeRepositoryResponse -&gt; Bool
+$c== :: DescribeRepositoryResponse -&gt; DescribeRepositoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237676"><span id="local-6989586621679237678"><span id="local-6989586621679237680"><span id="local-6989586621679237682"><span class="annot"><span class="annottext">ReadPrec [DescribeRepositoryResponse]
+ReadPrec DescribeRepositoryResponse
+Int -&gt; ReadS DescribeRepositoryResponse
+ReadS [DescribeRepositoryResponse]
+(Int -&gt; ReadS DescribeRepositoryResponse)
+-&gt; ReadS [DescribeRepositoryResponse]
+-&gt; ReadPrec DescribeRepositoryResponse
+-&gt; ReadPrec [DescribeRepositoryResponse]
+-&gt; Read DescribeRepositoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRepositoryResponse]
+$creadListPrec :: ReadPrec [DescribeRepositoryResponse]
+readPrec :: ReadPrec DescribeRepositoryResponse
+$creadPrec :: ReadPrec DescribeRepositoryResponse
+readList :: ReadS [DescribeRepositoryResponse]
+$creadList :: ReadS [DescribeRepositoryResponse]
+readsPrec :: Int -&gt; ReadS DescribeRepositoryResponse
+$creadsPrec :: Int -&gt; ReadS DescribeRepositoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237670"><span id="local-6989586621679237672"><span id="local-6989586621679237674"><span class="annot"><span class="annottext">Int -&gt; DescribeRepositoryResponse -&gt; ShowS
+[DescribeRepositoryResponse] -&gt; ShowS
+DescribeRepositoryResponse -&gt; String
+(Int -&gt; DescribeRepositoryResponse -&gt; ShowS)
+-&gt; (DescribeRepositoryResponse -&gt; String)
+-&gt; ([DescribeRepositoryResponse] -&gt; ShowS)
+-&gt; Show DescribeRepositoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRepositoryResponse] -&gt; ShowS
+$cshowList :: [DescribeRepositoryResponse] -&gt; ShowS
+show :: DescribeRepositoryResponse -&gt; String
+$cshow :: DescribeRepositoryResponse -&gt; String
+showsPrec :: Int -&gt; DescribeRepositoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRepositoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeRepositoryResponse -&gt; Rep DescribeRepositoryResponse x)
+-&gt; (forall x.
+    Rep DescribeRepositoryResponse x -&gt; DescribeRepositoryResponse)
+-&gt; Generic DescribeRepositoryResponse
+forall x.
+Rep DescribeRepositoryResponse x -&gt; DescribeRepositoryResponse
+forall x.
+DescribeRepositoryResponse -&gt; Rep DescribeRepositoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeRepositoryResponse x -&gt; DescribeRepositoryResponse
+$cfrom :: forall x.
+DescribeRepositoryResponse -&gt; Rep DescribeRepositoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'DescribeRepositoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'repository', 'describeRepositoryResponse_repository' - A @RepositoryDescription@ object that contains the requested repository</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'httpStatus', 'describeRepositoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#newDescribeRepositoryResponse"><span class="hs-identifier hs-type">newDescribeRepositoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse"><span class="hs-identifier hs-type">DescribeRepositoryResponse</span></a></span><span>
+</span><span id="line-169"></span><span id="newDescribeRepositoryResponse"><span class="annot"><span class="annottext">newDescribeRepositoryResponse :: Int -&gt; DescribeRepositoryResponse
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#newDescribeRepositoryResponse"><span class="hs-identifier hs-var hs-var">newDescribeRepositoryResponse</span></a></span></span><span> </span><span id="local-6989586621679237667"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237667"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">DescribeRepositoryResponse' :: Maybe RepositoryDescription -&gt; Int -&gt; DescribeRepositoryResponse
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse%27"><span class="hs-identifier hs-type">DescribeRepositoryResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repository:DescribeRepositoryResponse' :: Maybe RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3Arepository%3ADescribeRepositoryResponse%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Maybe RepositoryDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRepositoryResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3AhttpStatus%3ADescribeRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237667"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | A @RepositoryDescription@ object that contains the requested repository</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepositoryResponse_repository"><span class="hs-identifier hs-type">describeRepositoryResponse_repository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse"><span class="hs-identifier hs-type">DescribeRepositoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.RepositoryDescription.html#RepositoryDescription"><span class="hs-identifier hs-type">RepositoryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="describeRepositoryResponse_repository"><span class="annot"><span class="annottext">describeRepositoryResponse_repository :: (Maybe RepositoryDescription -&gt; f (Maybe RepositoryDescription))
+-&gt; DescribeRepositoryResponse -&gt; f DescribeRepositoryResponse
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepositoryResponse_repository"><span class="hs-identifier hs-var hs-var">describeRepositoryResponse_repository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositoryResponse -&gt; Maybe RepositoryDescription)
+-&gt; (DescribeRepositoryResponse
+    -&gt; Maybe RepositoryDescription -&gt; DescribeRepositoryResponse)
+-&gt; Lens
+     DescribeRepositoryResponse
+     DescribeRepositoryResponse
+     (Maybe RepositoryDescription)
+     (Maybe RepositoryDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse%27"><span class="hs-identifier hs-type">DescribeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237666"><span class="annot"><span class="annottext">Maybe RepositoryDescription
+repository :: Maybe RepositoryDescription
+$sel:repository:DescribeRepositoryResponse' :: DescribeRepositoryResponse -&gt; Maybe RepositoryDescription
+</span><a href="#local-6989586621679237666"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryDescription
+</span><a href="#local-6989586621679237666"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237665"><span class="annot"><span class="annottext">s :: DescribeRepositoryResponse
+</span><a href="#local-6989586621679237665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse%27"><span class="hs-identifier hs-type">DescribeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237664"><span class="annot"><span class="annottext">Maybe RepositoryDescription
+</span><a href="#local-6989586621679237664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositoryResponse
+</span><a href="#local-6989586621679237665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:DescribeRepositoryResponse' :: Maybe RepositoryDescription
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3Arepository%3ADescribeRepositoryResponse%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryDescription
+</span><a href="#local-6989586621679237664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse"><span class="hs-identifier hs-type">DescribeRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepositoryResponse_httpStatus"><span class="hs-identifier hs-type">describeRepositoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse"><span class="hs-identifier hs-type">DescribeRepositoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="describeRepositoryResponse_httpStatus"><span class="annot"><span class="annottext">describeRepositoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeRepositoryResponse -&gt; f DescribeRepositoryResponse
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#describeRepositoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeRepositoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositoryResponse -&gt; Int)
+-&gt; (DescribeRepositoryResponse
+    -&gt; Int -&gt; DescribeRepositoryResponse)
+-&gt; Lens
+     DescribeRepositoryResponse DescribeRepositoryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse%27"><span class="hs-identifier hs-type">DescribeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237663"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeRepositoryResponse' :: DescribeRepositoryResponse -&gt; Int
+</span><a href="#local-6989586621679237663"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237663"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237662"><span class="annot"><span class="annottext">s :: DescribeRepositoryResponse
+</span><a href="#local-6989586621679237662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse%27"><span class="hs-identifier hs-type">DescribeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237661"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositoryResponse
+</span><a href="#local-6989586621679237662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRepositoryResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.DescribeRepository.html#%24sel%3AhttpStatus%3ADescribeRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse"><span class="hs-identifier hs-type">DescribeRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DescribeRepository.html#DescribeRepositoryResponse"><span class="hs-identifier hs-type">DescribeRepositoryResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

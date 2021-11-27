@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Nimble.GetEula</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Get Eula.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Nimble.GetEula</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier">GetEula</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#newGetEula"><span class="hs-identifier">newGetEula</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#getEula_eulaId"><span class="hs-identifier">getEula_eulaId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse"><span class="hs-identifier">GetEulaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#newGetEulaResponse"><span class="hs-identifier">newGetEulaResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#getEulaResponse_eula"><span class="hs-identifier">getEulaResponse_eula</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#getEulaResponse_httpStatus"><span class="hs-identifier">getEulaResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.html"><span class="hs-identifier">Amazonka.Nimble.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetEula' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679295399"><span id="local-6989586621679295400"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEula"><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-var">GetEula</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEula%27"><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula%27"><span class="hs-identifier hs-var">GetEula'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The EULA ID.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AeulaId%3AGetEula%27"><span class="annot"><span class="annottext">GetEula -&gt; Text
+</span><a href="Amazonka.Nimble.GetEula.html#%24sel%3AeulaId%3AGetEula%27"><span class="hs-identifier hs-var hs-var">eulaId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295393"><span id="local-6989586621679295395"><span class="annot"><span class="annottext">GetEula -&gt; GetEula -&gt; Bool
+(GetEula -&gt; GetEula -&gt; Bool)
+-&gt; (GetEula -&gt; GetEula -&gt; Bool) -&gt; Eq GetEula
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEula -&gt; GetEula -&gt; Bool
+$c/= :: GetEula -&gt; GetEula -&gt; Bool
+== :: GetEula -&gt; GetEula -&gt; Bool
+$c== :: GetEula -&gt; GetEula -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295384"><span id="local-6989586621679295386"><span id="local-6989586621679295388"><span id="local-6989586621679295390"><span class="annot"><span class="annottext">ReadPrec [GetEula]
+ReadPrec GetEula
+Int -&gt; ReadS GetEula
+ReadS [GetEula]
+(Int -&gt; ReadS GetEula)
+-&gt; ReadS [GetEula]
+-&gt; ReadPrec GetEula
+-&gt; ReadPrec [GetEula]
+-&gt; Read GetEula
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEula]
+$creadListPrec :: ReadPrec [GetEula]
+readPrec :: ReadPrec GetEula
+$creadPrec :: ReadPrec GetEula
+readList :: ReadS [GetEula]
+$creadList :: ReadS [GetEula]
+readsPrec :: Int -&gt; ReadS GetEula
+$creadsPrec :: Int -&gt; ReadS GetEula
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295377"><span id="local-6989586621679295379"><span id="local-6989586621679295381"><span class="annot"><span class="annottext">Int -&gt; GetEula -&gt; ShowS
+[GetEula] -&gt; ShowS
+GetEula -&gt; String
+(Int -&gt; GetEula -&gt; ShowS)
+-&gt; (GetEula -&gt; String) -&gt; ([GetEula] -&gt; ShowS) -&gt; Show GetEula
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEula] -&gt; ShowS
+$cshowList :: [GetEula] -&gt; ShowS
+show :: GetEula -&gt; String
+$cshow :: GetEula -&gt; String
+showsPrec :: Int -&gt; GetEula -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEula -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEula -&gt; Rep GetEula x)
+-&gt; (forall x. Rep GetEula x -&gt; GetEula) -&gt; Generic GetEula
+forall x. Rep GetEula x -&gt; GetEula
+forall x. GetEula -&gt; Rep GetEula x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEula x -&gt; GetEula
+$cfrom :: forall x. GetEula -&gt; Rep GetEula x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetEula' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'eulaId', 'getEula_eulaId' - The EULA ID.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#newGetEula"><span class="hs-identifier hs-type">newGetEula</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'eulaId'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetEula"><span class="annot"><span class="annottext">newGetEula :: Text -&gt; GetEula
+</span><a href="Amazonka.Nimble.GetEula.html#newGetEula"><span class="hs-identifier hs-var hs-var">newGetEula</span></a></span></span><span> </span><span id="local-6989586621679295372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295372"><span class="hs-identifier hs-var">pEulaId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetEula' :: Text -&gt; GetEula
+</span><a href="Amazonka.Nimble.GetEula.html#GetEula%27"><span class="hs-identifier hs-type">GetEula'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eulaId:GetEula' :: Text
+</span><a href="Amazonka.Nimble.GetEula.html#%24sel%3AeulaId%3AGetEula%27"><span class="hs-identifier hs-var">eulaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295372"><span class="hs-identifier hs-var">pEulaId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The EULA ID.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#getEula_eulaId"><span class="hs-identifier hs-type">getEula_eulaId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="getEula_eulaId"><span class="annot"><span class="annottext">getEula_eulaId :: (Text -&gt; f Text) -&gt; GetEula -&gt; f GetEula
+</span><a href="Amazonka.Nimble.GetEula.html#getEula_eulaId"><span class="hs-identifier hs-var hs-var">getEula_eulaId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEula -&gt; Text)
+-&gt; (GetEula -&gt; Text -&gt; GetEula) -&gt; Lens GetEula GetEula Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula%27"><span class="hs-identifier hs-type">GetEula'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295369"><span class="annot"><span class="annottext">Text
+eulaId :: Text
+$sel:eulaId:GetEula' :: GetEula -&gt; Text
+</span><a href="#local-6989586621679295369"><span class="hs-identifier hs-var hs-var">eulaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295369"><span class="hs-identifier hs-var">eulaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295368"><span class="annot"><span class="annottext">s :: GetEula
+</span><a href="#local-6989586621679295368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula%27"><span class="hs-identifier hs-type">GetEula'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295367"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEula
+</span><a href="#local-6989586621679295368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eulaId:GetEula' :: Text
+</span><a href="Amazonka.Nimble.GetEula.html#%24sel%3AeulaId%3AGetEula%27"><span class="hs-identifier hs-var">eulaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse"><span class="hs-identifier hs-type">GetEulaResponse</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679295363"><span class="annot"><span class="annottext">request :: GetEula -&gt; Request GetEula
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEula -&gt; Request GetEula
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Nimble.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679295359"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetEula
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetEula)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetEula))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetEula
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetEula)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295356"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295356"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295355"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679295355"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295354"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295354"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Eula -&gt; Int -&gt; GetEulaResponse
+</span><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse%27"><span class="hs-identifier hs-var">GetEulaResponse'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Eula -&gt; Int -&gt; GetEulaResponse)
+-&gt; Either String (Maybe Eula)
+-&gt; Either String (Int -&gt; GetEulaResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295354"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Eula)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eula&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetEulaResponse)
+-&gt; Either String Int -&gt; Either String GetEulaResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295356"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295346"><span id="local-6989586621679295348"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295343"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679295339"><span class="annot"><span class="annottext">toHeaders :: GetEula -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEula -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-97"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679295333"><span class="annot"><span class="annottext">toPath :: GetEula -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula%27"><span class="hs-identifier hs-type">GetEula'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295331"><span class="annot"><span class="annottext">Text
+eulaId :: Text
+$sel:eulaId:GetEula' :: GetEula -&gt; Text
+</span><a href="#local-6989586621679295331"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-08-01/eulas/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295331"><span class="hs-identifier hs-var">eulaId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEula"><span class="hs-identifier hs-type">GetEula</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679295327"><span class="annot"><span class="annottext">toQuery :: GetEula -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetEula -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newGetEulaResponse' smart constructor.</span><span>
+</span><span id="line-110"></span><span id="local-6989586621679295324"><span id="local-6989586621679295325"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEulaResponse"><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse"><span class="hs-identifier hs-var">GetEulaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEulaResponse%27"><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse%27"><span class="hs-identifier hs-var">GetEulaResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The EULA.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3Aeula%3AGetEulaResponse%27"><span class="annot"><span class="annottext">GetEulaResponse -&gt; Maybe Eula
+</span><a href="Amazonka.Nimble.GetEula.html#%24sel%3Aeula%3AGetEulaResponse%27"><span class="hs-identifier hs-var hs-var">eula</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.Eula.html#Eula"><span class="hs-identifier hs-type">Eula</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEulaResponse%27"><span class="annot"><span class="annottext">GetEulaResponse -&gt; Int
+</span><a href="Amazonka.Nimble.GetEula.html#%24sel%3AhttpStatus%3AGetEulaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295318"><span id="local-6989586621679295320"><span class="annot"><span class="annottext">GetEulaResponse -&gt; GetEulaResponse -&gt; Bool
+(GetEulaResponse -&gt; GetEulaResponse -&gt; Bool)
+-&gt; (GetEulaResponse -&gt; GetEulaResponse -&gt; Bool)
+-&gt; Eq GetEulaResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEulaResponse -&gt; GetEulaResponse -&gt; Bool
+$c/= :: GetEulaResponse -&gt; GetEulaResponse -&gt; Bool
+== :: GetEulaResponse -&gt; GetEulaResponse -&gt; Bool
+$c== :: GetEulaResponse -&gt; GetEulaResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295310"><span id="local-6989586621679295312"><span id="local-6989586621679295314"><span id="local-6989586621679295316"><span class="annot"><span class="annottext">ReadPrec [GetEulaResponse]
+ReadPrec GetEulaResponse
+Int -&gt; ReadS GetEulaResponse
+ReadS [GetEulaResponse]
+(Int -&gt; ReadS GetEulaResponse)
+-&gt; ReadS [GetEulaResponse]
+-&gt; ReadPrec GetEulaResponse
+-&gt; ReadPrec [GetEulaResponse]
+-&gt; Read GetEulaResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEulaResponse]
+$creadListPrec :: ReadPrec [GetEulaResponse]
+readPrec :: ReadPrec GetEulaResponse
+$creadPrec :: ReadPrec GetEulaResponse
+readList :: ReadS [GetEulaResponse]
+$creadList :: ReadS [GetEulaResponse]
+readsPrec :: Int -&gt; ReadS GetEulaResponse
+$creadsPrec :: Int -&gt; ReadS GetEulaResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295304"><span id="local-6989586621679295306"><span id="local-6989586621679295308"><span class="annot"><span class="annottext">Int -&gt; GetEulaResponse -&gt; ShowS
+[GetEulaResponse] -&gt; ShowS
+GetEulaResponse -&gt; String
+(Int -&gt; GetEulaResponse -&gt; ShowS)
+-&gt; (GetEulaResponse -&gt; String)
+-&gt; ([GetEulaResponse] -&gt; ShowS)
+-&gt; Show GetEulaResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEulaResponse] -&gt; ShowS
+$cshowList :: [GetEulaResponse] -&gt; ShowS
+show :: GetEulaResponse -&gt; String
+$cshow :: GetEulaResponse -&gt; String
+showsPrec :: Int -&gt; GetEulaResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEulaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEulaResponse -&gt; Rep GetEulaResponse x)
+-&gt; (forall x. Rep GetEulaResponse x -&gt; GetEulaResponse)
+-&gt; Generic GetEulaResponse
+forall x. Rep GetEulaResponse x -&gt; GetEulaResponse
+forall x. GetEulaResponse -&gt; Rep GetEulaResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEulaResponse x -&gt; GetEulaResponse
+$cfrom :: forall x. GetEulaResponse -&gt; Rep GetEulaResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'GetEulaResponse' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'eula', 'getEulaResponse_eula' - The EULA.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'httpStatus', 'getEulaResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#newGetEulaResponse"><span class="hs-identifier hs-type">newGetEulaResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse"><span class="hs-identifier hs-type">GetEulaResponse</span></a></span><span>
+</span><span id="line-133"></span><span id="newGetEulaResponse"><span class="annot"><span class="annottext">newGetEulaResponse :: Int -&gt; GetEulaResponse
+</span><a href="Amazonka.Nimble.GetEula.html#newGetEulaResponse"><span class="hs-identifier hs-var hs-var">newGetEulaResponse</span></a></span></span><span> </span><span id="local-6989586621679295301"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">GetEulaResponse' :: Maybe Eula -&gt; Int -&gt; GetEulaResponse
+</span><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse%27"><span class="hs-identifier hs-type">GetEulaResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eula:GetEulaResponse' :: Maybe Eula
+</span><a href="Amazonka.Nimble.GetEula.html#%24sel%3Aeula%3AGetEulaResponse%27"><span class="hs-identifier hs-var">eula</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Eula
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEulaResponse' :: Int
+</span><a href="Amazonka.Nimble.GetEula.html#%24sel%3AhttpStatus%3AGetEulaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The EULA.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#getEulaResponse_eula"><span class="hs-identifier hs-type">getEulaResponse_eula</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse"><span class="hs-identifier hs-type">GetEulaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.Eula.html#Eula"><span class="hs-identifier hs-type">Eula</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="getEulaResponse_eula"><span class="annot"><span class="annottext">getEulaResponse_eula :: (Maybe Eula -&gt; f (Maybe Eula))
+-&gt; GetEulaResponse -&gt; f GetEulaResponse
+</span><a href="Amazonka.Nimble.GetEula.html#getEulaResponse_eula"><span class="hs-identifier hs-var hs-var">getEulaResponse_eula</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEulaResponse -&gt; Maybe Eula)
+-&gt; (GetEulaResponse -&gt; Maybe Eula -&gt; GetEulaResponse)
+-&gt; Lens GetEulaResponse GetEulaResponse (Maybe Eula) (Maybe Eula)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse%27"><span class="hs-identifier hs-type">GetEulaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295300"><span class="annot"><span class="annottext">Maybe Eula
+eula :: Maybe Eula
+$sel:eula:GetEulaResponse' :: GetEulaResponse -&gt; Maybe Eula
+</span><a href="#local-6989586621679295300"><span class="hs-identifier hs-var hs-var">eula</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Eula
+</span><a href="#local-6989586621679295300"><span class="hs-identifier hs-var">eula</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295299"><span class="annot"><span class="annottext">s :: GetEulaResponse
+</span><a href="#local-6989586621679295299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse%27"><span class="hs-identifier hs-type">GetEulaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295298"><span class="annot"><span class="annottext">Maybe Eula
+</span><a href="#local-6989586621679295298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEulaResponse
+</span><a href="#local-6989586621679295299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eula:GetEulaResponse' :: Maybe Eula
+</span><a href="Amazonka.Nimble.GetEula.html#%24sel%3Aeula%3AGetEulaResponse%27"><span class="hs-identifier hs-var">eula</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Eula
+</span><a href="#local-6989586621679295298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse"><span class="hs-identifier hs-type">GetEulaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#getEulaResponse_httpStatus"><span class="hs-identifier hs-type">getEulaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse"><span class="hs-identifier hs-type">GetEulaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span id="getEulaResponse_httpStatus"><span class="annot"><span class="annottext">getEulaResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetEulaResponse -&gt; f GetEulaResponse
+</span><a href="Amazonka.Nimble.GetEula.html#getEulaResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getEulaResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEulaResponse -&gt; Int)
+-&gt; (GetEulaResponse -&gt; Int -&gt; GetEulaResponse)
+-&gt; Lens GetEulaResponse GetEulaResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse%27"><span class="hs-identifier hs-type">GetEulaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295297"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetEulaResponse' :: GetEulaResponse -&gt; Int
+</span><a href="#local-6989586621679295297"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295297"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295296"><span class="annot"><span class="annottext">s :: GetEulaResponse
+</span><a href="#local-6989586621679295296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse%27"><span class="hs-identifier hs-type">GetEulaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295295"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEulaResponse
+</span><a href="#local-6989586621679295296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEulaResponse' :: Int
+</span><a href="Amazonka.Nimble.GetEula.html#%24sel%3AhttpStatus%3AGetEulaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse"><span class="hs-identifier hs-type">GetEulaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetEula.html#GetEulaResponse"><span class="hs-identifier hs-type">GetEulaResponse</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudHSM.DeleteLunaClient</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This is documentation for __AWS CloudHSM Classic__. For more</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs&gt;,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide&gt;,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- and the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- __For information about the current version of AWS CloudHSM__, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/cloudhsm/ AWS CloudHSM&gt;, the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide&gt;,</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- and the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Deletes a client.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudHSM.DeleteLunaClient</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier">DeleteLunaClient</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#newDeleteLunaClient"><span class="hs-identifier">newDeleteLunaClient</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#deleteLunaClient_clientArn"><span class="hs-identifier">deleteLunaClient_clientArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse"><span class="hs-identifier">DeleteLunaClientResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#newDeleteLunaClientResponse"><span class="hs-identifier">newDeleteLunaClientResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#deleteLunaClientResponse_httpStatus"><span class="hs-identifier">deleteLunaClientResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#deleteLunaClientResponse_status"><span class="hs-identifier">deleteLunaClientResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.Types.html"><span class="hs-identifier">Amazonka.CloudHSM.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newDeleteLunaClient' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679177803"><span id="local-6989586621679177804"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLunaClient"><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-var">DeleteLunaClient</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLunaClient%27"><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient%27"><span class="hs-identifier hs-var">DeleteLunaClient'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the client to delete.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AclientArn%3ADeleteLunaClient%27"><span class="annot"><span class="annottext">DeleteLunaClient -&gt; Text
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#%24sel%3AclientArn%3ADeleteLunaClient%27"><span class="hs-identifier hs-var hs-var">clientArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177797"><span id="local-6989586621679177799"><span class="annot"><span class="annottext">DeleteLunaClient -&gt; DeleteLunaClient -&gt; Bool
+(DeleteLunaClient -&gt; DeleteLunaClient -&gt; Bool)
+-&gt; (DeleteLunaClient -&gt; DeleteLunaClient -&gt; Bool)
+-&gt; Eq DeleteLunaClient
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteLunaClient -&gt; DeleteLunaClient -&gt; Bool
+$c/= :: DeleteLunaClient -&gt; DeleteLunaClient -&gt; Bool
+== :: DeleteLunaClient -&gt; DeleteLunaClient -&gt; Bool
+$c== :: DeleteLunaClient -&gt; DeleteLunaClient -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177788"><span id="local-6989586621679177790"><span id="local-6989586621679177792"><span id="local-6989586621679177794"><span class="annot"><span class="annottext">ReadPrec [DeleteLunaClient]
+ReadPrec DeleteLunaClient
+Int -&gt; ReadS DeleteLunaClient
+ReadS [DeleteLunaClient]
+(Int -&gt; ReadS DeleteLunaClient)
+-&gt; ReadS [DeleteLunaClient]
+-&gt; ReadPrec DeleteLunaClient
+-&gt; ReadPrec [DeleteLunaClient]
+-&gt; Read DeleteLunaClient
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteLunaClient]
+$creadListPrec :: ReadPrec [DeleteLunaClient]
+readPrec :: ReadPrec DeleteLunaClient
+$creadPrec :: ReadPrec DeleteLunaClient
+readList :: ReadS [DeleteLunaClient]
+$creadList :: ReadS [DeleteLunaClient]
+readsPrec :: Int -&gt; ReadS DeleteLunaClient
+$creadsPrec :: Int -&gt; ReadS DeleteLunaClient
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177781"><span id="local-6989586621679177783"><span id="local-6989586621679177785"><span class="annot"><span class="annottext">Int -&gt; DeleteLunaClient -&gt; ShowS
+[DeleteLunaClient] -&gt; ShowS
+DeleteLunaClient -&gt; String
+(Int -&gt; DeleteLunaClient -&gt; ShowS)
+-&gt; (DeleteLunaClient -&gt; String)
+-&gt; ([DeleteLunaClient] -&gt; ShowS)
+-&gt; Show DeleteLunaClient
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteLunaClient] -&gt; ShowS
+$cshowList :: [DeleteLunaClient] -&gt; ShowS
+show :: DeleteLunaClient -&gt; String
+$cshow :: DeleteLunaClient -&gt; String
+showsPrec :: Int -&gt; DeleteLunaClient -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteLunaClient -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteLunaClient -&gt; Rep DeleteLunaClient x)
+-&gt; (forall x. Rep DeleteLunaClient x -&gt; DeleteLunaClient)
+-&gt; Generic DeleteLunaClient
+forall x. Rep DeleteLunaClient x -&gt; DeleteLunaClient
+forall x. DeleteLunaClient -&gt; Rep DeleteLunaClient x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteLunaClient x -&gt; DeleteLunaClient
+$cfrom :: forall x. DeleteLunaClient -&gt; Rep DeleteLunaClient x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'DeleteLunaClient' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'clientArn', 'deleteLunaClient_clientArn' - The ARN of the client to delete.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#newDeleteLunaClient"><span class="hs-identifier hs-type">newDeleteLunaClient</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'clientArn'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span><span>
+</span><span id="line-83"></span><span id="newDeleteLunaClient"><span class="annot"><span class="annottext">newDeleteLunaClient :: Text -&gt; DeleteLunaClient
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#newDeleteLunaClient"><span class="hs-identifier hs-var hs-var">newDeleteLunaClient</span></a></span></span><span> </span><span id="local-6989586621679177776"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177776"><span class="hs-identifier hs-var">pClientArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">DeleteLunaClient' :: Text -&gt; DeleteLunaClient
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient%27"><span class="hs-identifier hs-type">DeleteLunaClient'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientArn:DeleteLunaClient' :: Text
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#%24sel%3AclientArn%3ADeleteLunaClient%27"><span class="hs-identifier hs-var">clientArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177776"><span class="hs-identifier hs-var">pClientArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ARN of the client to delete.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#deleteLunaClient_clientArn"><span class="hs-identifier hs-type">deleteLunaClient_clientArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="deleteLunaClient_clientArn"><span class="annot"><span class="annottext">deleteLunaClient_clientArn :: (Text -&gt; f Text) -&gt; DeleteLunaClient -&gt; f DeleteLunaClient
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#deleteLunaClient_clientArn"><span class="hs-identifier hs-var hs-var">deleteLunaClient_clientArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLunaClient -&gt; Text)
+-&gt; (DeleteLunaClient -&gt; Text -&gt; DeleteLunaClient)
+-&gt; Lens DeleteLunaClient DeleteLunaClient Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient%27"><span class="hs-identifier hs-type">DeleteLunaClient'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177773"><span class="annot"><span class="annottext">Text
+clientArn :: Text
+$sel:clientArn:DeleteLunaClient' :: DeleteLunaClient -&gt; Text
+</span><a href="#local-6989586621679177773"><span class="hs-identifier hs-var hs-var">clientArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177773"><span class="hs-identifier hs-var">clientArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177772"><span class="annot"><span class="annottext">s :: DeleteLunaClient
+</span><a href="#local-6989586621679177772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient%27"><span class="hs-identifier hs-type">DeleteLunaClient'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177771"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLunaClient
+</span><a href="#local-6989586621679177772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientArn:DeleteLunaClient' :: Text
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#%24sel%3AclientArn%3ADeleteLunaClient%27"><span class="hs-identifier hs-var">clientArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse"><span class="hs-identifier hs-type">DeleteLunaClientResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679177767"><span class="annot"><span class="annottext">request :: DeleteLunaClient -&gt; Request DeleteLunaClient
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLunaClient -&gt; Request DeleteLunaClient
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudHSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679177763"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteLunaClient
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteLunaClient)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteLunaClient))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteLunaClient
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteLunaClient)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177760"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177759"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177759"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177758"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; DeleteLunaClientResponse
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse%27"><span class="hs-identifier hs-var">DeleteLunaClientResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; DeleteLunaClientResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; DeleteLunaClientResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177760"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; DeleteLunaClientResponse)
+-&gt; Either String Text -&gt; Either String DeleteLunaClientResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177750"><span id="local-6989586621679177752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679177743"><span class="annot"><span class="annottext">toHeaders :: DeleteLunaClient -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteLunaClient -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CloudHsmFrontendService.DeleteLunaClient&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177733"><span id="local-6989586621679177735"><span id="local-6989586621679177737"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679177731"><span class="annot"><span class="annottext">toJSON :: DeleteLunaClient -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient%27"><span class="hs-identifier hs-type">DeleteLunaClient'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177729"><span class="annot"><span class="annottext">Text
+clientArn :: Text
+$sel:clientArn:DeleteLunaClient' :: DeleteLunaClient -&gt; Text
+</span><a href="#local-6989586621679177729"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177729"><span class="hs-identifier hs-var">clientArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679177723"><span class="annot"><span class="annottext">toPath :: DeleteLunaClient -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteLunaClient -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClient"><span class="hs-identifier hs-type">DeleteLunaClient</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679177719"><span class="annot"><span class="annottext">toQuery :: DeleteLunaClient -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteLunaClient -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDeleteLunaClientResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679177716"><span id="local-6989586621679177717"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLunaClientResponse"><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse"><span class="hs-identifier hs-var">DeleteLunaClientResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLunaClientResponse%27"><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse%27"><span class="hs-identifier hs-var">DeleteLunaClientResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteLunaClientResponse%27"><span class="annot"><span class="annottext">DeleteLunaClientResponse -&gt; Int
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#%24sel%3AhttpStatus%3ADeleteLunaClientResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The status of the action.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3Astatus%3ADeleteLunaClientResponse%27"><span class="annot"><span class="annottext">DeleteLunaClientResponse -&gt; Text
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#%24sel%3Astatus%3ADeleteLunaClientResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177710"><span id="local-6989586621679177712"><span class="annot"><span class="annottext">DeleteLunaClientResponse -&gt; DeleteLunaClientResponse -&gt; Bool
+(DeleteLunaClientResponse -&gt; DeleteLunaClientResponse -&gt; Bool)
+-&gt; (DeleteLunaClientResponse -&gt; DeleteLunaClientResponse -&gt; Bool)
+-&gt; Eq DeleteLunaClientResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteLunaClientResponse -&gt; DeleteLunaClientResponse -&gt; Bool
+$c/= :: DeleteLunaClientResponse -&gt; DeleteLunaClientResponse -&gt; Bool
+== :: DeleteLunaClientResponse -&gt; DeleteLunaClientResponse -&gt; Bool
+$c== :: DeleteLunaClientResponse -&gt; DeleteLunaClientResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177702"><span id="local-6989586621679177704"><span id="local-6989586621679177706"><span id="local-6989586621679177708"><span class="annot"><span class="annottext">ReadPrec [DeleteLunaClientResponse]
+ReadPrec DeleteLunaClientResponse
+Int -&gt; ReadS DeleteLunaClientResponse
+ReadS [DeleteLunaClientResponse]
+(Int -&gt; ReadS DeleteLunaClientResponse)
+-&gt; ReadS [DeleteLunaClientResponse]
+-&gt; ReadPrec DeleteLunaClientResponse
+-&gt; ReadPrec [DeleteLunaClientResponse]
+-&gt; Read DeleteLunaClientResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteLunaClientResponse]
+$creadListPrec :: ReadPrec [DeleteLunaClientResponse]
+readPrec :: ReadPrec DeleteLunaClientResponse
+$creadPrec :: ReadPrec DeleteLunaClientResponse
+readList :: ReadS [DeleteLunaClientResponse]
+$creadList :: ReadS [DeleteLunaClientResponse]
+readsPrec :: Int -&gt; ReadS DeleteLunaClientResponse
+$creadsPrec :: Int -&gt; ReadS DeleteLunaClientResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177696"><span id="local-6989586621679177698"><span id="local-6989586621679177700"><span class="annot"><span class="annottext">Int -&gt; DeleteLunaClientResponse -&gt; ShowS
+[DeleteLunaClientResponse] -&gt; ShowS
+DeleteLunaClientResponse -&gt; String
+(Int -&gt; DeleteLunaClientResponse -&gt; ShowS)
+-&gt; (DeleteLunaClientResponse -&gt; String)
+-&gt; ([DeleteLunaClientResponse] -&gt; ShowS)
+-&gt; Show DeleteLunaClientResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteLunaClientResponse] -&gt; ShowS
+$cshowList :: [DeleteLunaClientResponse] -&gt; ShowS
+show :: DeleteLunaClientResponse -&gt; String
+$cshow :: DeleteLunaClientResponse -&gt; String
+showsPrec :: Int -&gt; DeleteLunaClientResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteLunaClientResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteLunaClientResponse -&gt; Rep DeleteLunaClientResponse x)
+-&gt; (forall x.
+    Rep DeleteLunaClientResponse x -&gt; DeleteLunaClientResponse)
+-&gt; Generic DeleteLunaClientResponse
+forall x.
+Rep DeleteLunaClientResponse x -&gt; DeleteLunaClientResponse
+forall x.
+DeleteLunaClientResponse -&gt; Rep DeleteLunaClientResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteLunaClientResponse x -&gt; DeleteLunaClientResponse
+$cfrom :: forall x.
+DeleteLunaClientResponse -&gt; Rep DeleteLunaClientResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'DeleteLunaClientResponse' with all optional fields omitted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'deleteLunaClientResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'status', 'deleteLunaClientResponse_status' - The status of the action.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#newDeleteLunaClientResponse"><span class="hs-identifier hs-type">newDeleteLunaClientResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse"><span class="hs-identifier hs-type">DeleteLunaClientResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newDeleteLunaClientResponse"><span class="annot"><span class="annottext">newDeleteLunaClientResponse :: Int -&gt; Text -&gt; DeleteLunaClientResponse
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#newDeleteLunaClientResponse"><span class="hs-identifier hs-var hs-var">newDeleteLunaClientResponse</span></a></span></span><span> </span><span id="local-6989586621679177693"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679177692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177692"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DeleteLunaClientResponse' :: Int -&gt; Text -&gt; DeleteLunaClientResponse
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse%27"><span class="hs-identifier hs-type">DeleteLunaClientResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLunaClientResponse' :: Int
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#%24sel%3AhttpStatus%3ADeleteLunaClientResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DeleteLunaClientResponse' :: Text
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#%24sel%3Astatus%3ADeleteLunaClientResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177692"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#deleteLunaClientResponse_httpStatus"><span class="hs-identifier hs-type">deleteLunaClientResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse"><span class="hs-identifier hs-type">DeleteLunaClientResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="deleteLunaClientResponse_httpStatus"><span class="annot"><span class="annottext">deleteLunaClientResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteLunaClientResponse -&gt; f DeleteLunaClientResponse
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#deleteLunaClientResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteLunaClientResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLunaClientResponse -&gt; Int)
+-&gt; (DeleteLunaClientResponse -&gt; Int -&gt; DeleteLunaClientResponse)
+-&gt; Lens DeleteLunaClientResponse DeleteLunaClientResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse%27"><span class="hs-identifier hs-type">DeleteLunaClientResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177691"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteLunaClientResponse' :: DeleteLunaClientResponse -&gt; Int
+</span><a href="#local-6989586621679177691"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177691"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177690"><span class="annot"><span class="annottext">s :: DeleteLunaClientResponse
+</span><a href="#local-6989586621679177690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse%27"><span class="hs-identifier hs-type">DeleteLunaClientResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177689"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLunaClientResponse
+</span><a href="#local-6989586621679177690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLunaClientResponse' :: Int
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#%24sel%3AhttpStatus%3ADeleteLunaClientResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse"><span class="hs-identifier hs-type">DeleteLunaClientResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The status of the action.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#deleteLunaClientResponse_status"><span class="hs-identifier hs-type">deleteLunaClientResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse"><span class="hs-identifier hs-type">DeleteLunaClientResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-174"></span><span id="deleteLunaClientResponse_status"><span class="annot"><span class="annottext">deleteLunaClientResponse_status :: (Text -&gt; f Text)
+-&gt; DeleteLunaClientResponse -&gt; f DeleteLunaClientResponse
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#deleteLunaClientResponse_status"><span class="hs-identifier hs-var hs-var">deleteLunaClientResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLunaClientResponse -&gt; Text)
+-&gt; (DeleteLunaClientResponse -&gt; Text -&gt; DeleteLunaClientResponse)
+-&gt; Lens DeleteLunaClientResponse DeleteLunaClientResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse%27"><span class="hs-identifier hs-type">DeleteLunaClientResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177688"><span class="annot"><span class="annottext">Text
+status :: Text
+$sel:status:DeleteLunaClientResponse' :: DeleteLunaClientResponse -&gt; Text
+</span><a href="#local-6989586621679177688"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177688"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177687"><span class="annot"><span class="annottext">s :: DeleteLunaClientResponse
+</span><a href="#local-6989586621679177687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse%27"><span class="hs-identifier hs-type">DeleteLunaClientResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177686"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLunaClientResponse
+</span><a href="#local-6989586621679177687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteLunaClientResponse' :: Text
+</span><a href="Amazonka.CloudHSM.DeleteLunaClient.html#%24sel%3Astatus%3ADeleteLunaClientResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse"><span class="hs-identifier hs-type">DeleteLunaClientResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSM.DeleteLunaClient.html#DeleteLunaClientResponse"><span class="hs-identifier hs-type">DeleteLunaClientResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Macie.Types.MemberAccount
+module Amazonka.Macie.Types.MemberAccount
 
 -- | Contains information about the Amazon Macie Classic member account.
 --   
@@ -31,69 +31,69 @@ newMemberAccount :: MemberAccount
 
 -- | The AWS account ID of the Amazon Macie Classic member account.
 memberAccount_accountId :: Lens' MemberAccount (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Macie.Types.MemberAccount.MemberAccount
-instance GHC.Show.Show Network.AWS.Macie.Types.MemberAccount.MemberAccount
-instance GHC.Read.Read Network.AWS.Macie.Types.MemberAccount.MemberAccount
-instance GHC.Classes.Eq Network.AWS.Macie.Types.MemberAccount.MemberAccount
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Macie.Types.MemberAccount.MemberAccount
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.Types.MemberAccount.MemberAccount
-instance Control.DeepSeq.NFData Network.AWS.Macie.Types.MemberAccount.MemberAccount
+instance GHC.Generics.Generic Amazonka.Macie.Types.MemberAccount.MemberAccount
+instance GHC.Show.Show Amazonka.Macie.Types.MemberAccount.MemberAccount
+instance GHC.Read.Read Amazonka.Macie.Types.MemberAccount.MemberAccount
+instance GHC.Classes.Eq Amazonka.Macie.Types.MemberAccount.MemberAccount
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Macie.Types.MemberAccount.MemberAccount
+instance Data.Hashable.Class.Hashable Amazonka.Macie.Types.MemberAccount.MemberAccount
+instance Control.DeepSeq.NFData Amazonka.Macie.Types.MemberAccount.MemberAccount
 
 
-module Network.AWS.Macie.Types.S3ContinuousClassificationType
+module Amazonka.Macie.Types.S3ContinuousClassificationType
 newtype S3ContinuousClassificationType
 S3ContinuousClassificationType' :: Text -> S3ContinuousClassificationType
 [fromS3ContinuousClassificationType] :: S3ContinuousClassificationType -> Text
 pattern S3ContinuousClassificationType_FULL :: S3ContinuousClassificationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Network.AWS.Data.Text.ToText Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Network.AWS.Data.Text.FromText Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Control.DeepSeq.NFData Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance GHC.Generics.Generic Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance GHC.Classes.Ord Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance GHC.Classes.Eq Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance GHC.Read.Read Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
-instance GHC.Show.Show Network.AWS.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Amazonka.Data.XML.ToXML Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Amazonka.Data.XML.FromXML Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Amazonka.Data.Query.ToQuery Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Amazonka.Data.Log.ToLog Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Amazonka.Data.Text.ToText Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Amazonka.Data.Text.FromText Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Control.DeepSeq.NFData Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance Data.Hashable.Class.Hashable Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance GHC.Generics.Generic Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance GHC.Classes.Ord Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance GHC.Classes.Eq Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance GHC.Read.Read Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
+instance GHC.Show.Show Amazonka.Macie.Types.S3ContinuousClassificationType.S3ContinuousClassificationType
 
 
-module Network.AWS.Macie.Types.S3OneTimeClassificationType
+module Amazonka.Macie.Types.S3OneTimeClassificationType
 newtype S3OneTimeClassificationType
 S3OneTimeClassificationType' :: Text -> S3OneTimeClassificationType
 [fromS3OneTimeClassificationType] :: S3OneTimeClassificationType -> Text
 pattern S3OneTimeClassificationType_FULL :: S3OneTimeClassificationType
 pattern S3OneTimeClassificationType_NONE :: S3OneTimeClassificationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Network.AWS.Data.Text.ToText Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Network.AWS.Data.Text.FromText Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Control.DeepSeq.NFData Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance GHC.Generics.Generic Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance GHC.Classes.Ord Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance GHC.Classes.Eq Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance GHC.Read.Read Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
-instance GHC.Show.Show Network.AWS.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Amazonka.Data.XML.ToXML Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Amazonka.Data.XML.FromXML Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Amazonka.Data.Query.ToQuery Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Amazonka.Data.Log.ToLog Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Amazonka.Data.Text.ToText Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Amazonka.Data.Text.FromText Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Control.DeepSeq.NFData Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance Data.Hashable.Class.Hashable Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance GHC.Generics.Generic Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance GHC.Classes.Ord Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance GHC.Classes.Eq Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance GHC.Read.Read Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
+instance GHC.Show.Show Amazonka.Macie.Types.S3OneTimeClassificationType.S3OneTimeClassificationType
 
 
-module Network.AWS.Macie.Types.ClassificationTypeUpdate
+module Amazonka.Macie.Types.ClassificationTypeUpdate
 
 -- | The classification type that Amazon Macie Classic applies to the
 --   associated S3 resources. At least one of the classification types
@@ -142,16 +142,16 @@ classificationTypeUpdate_continuous :: Lens' ClassificationTypeUpdate (Maybe S3C
 -- | A one-time classification of all of the existing objects in a
 --   specified S3 bucket.
 classificationTypeUpdate_oneTime :: Lens' ClassificationTypeUpdate (Maybe S3OneTimeClassificationType)
-instance GHC.Generics.Generic Network.AWS.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
-instance GHC.Show.Show Network.AWS.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
-instance GHC.Read.Read Network.AWS.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
-instance GHC.Classes.Eq Network.AWS.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
-instance Control.DeepSeq.NFData Network.AWS.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
+instance GHC.Generics.Generic Amazonka.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
+instance GHC.Show.Show Amazonka.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
+instance GHC.Read.Read Amazonka.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
+instance GHC.Classes.Eq Amazonka.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
+instance Data.Hashable.Class.Hashable Amazonka.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
+instance Control.DeepSeq.NFData Amazonka.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.Types.ClassificationTypeUpdate.ClassificationTypeUpdate
 
 
-module Network.AWS.Macie.Types.ClassificationType
+module Amazonka.Macie.Types.ClassificationType
 
 -- | The classification type that Amazon Macie Classic applies to the
 --   associated S3 resources.
@@ -199,17 +199,17 @@ classificationType_oneTime :: Lens' ClassificationType S3OneTimeClassificationTy
 --   classification after a bucket is successfully associated with Macie
 --   Classic.
 classificationType_continuous :: Lens' ClassificationType S3ContinuousClassificationType
-instance GHC.Generics.Generic Network.AWS.Macie.Types.ClassificationType.ClassificationType
-instance GHC.Show.Show Network.AWS.Macie.Types.ClassificationType.ClassificationType
-instance GHC.Read.Read Network.AWS.Macie.Types.ClassificationType.ClassificationType
-instance GHC.Classes.Eq Network.AWS.Macie.Types.ClassificationType.ClassificationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Macie.Types.ClassificationType.ClassificationType
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.Types.ClassificationType.ClassificationType
-instance Control.DeepSeq.NFData Network.AWS.Macie.Types.ClassificationType.ClassificationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.Types.ClassificationType.ClassificationType
+instance GHC.Generics.Generic Amazonka.Macie.Types.ClassificationType.ClassificationType
+instance GHC.Show.Show Amazonka.Macie.Types.ClassificationType.ClassificationType
+instance GHC.Read.Read Amazonka.Macie.Types.ClassificationType.ClassificationType
+instance GHC.Classes.Eq Amazonka.Macie.Types.ClassificationType.ClassificationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Macie.Types.ClassificationType.ClassificationType
+instance Data.Hashable.Class.Hashable Amazonka.Macie.Types.ClassificationType.ClassificationType
+instance Control.DeepSeq.NFData Amazonka.Macie.Types.ClassificationType.ClassificationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.Types.ClassificationType.ClassificationType
 
 
-module Network.AWS.Macie.Types.S3Resource
+module Amazonka.Macie.Types.S3Resource
 
 -- | Contains information about the S3 resource. This data type is used as
 --   a request parameter in the DisassociateS3Resources action and can be
@@ -246,17 +246,17 @@ s3Resource_prefix :: Lens' S3Resource (Maybe Text)
 
 -- | The name of the S3 bucket.
 s3Resource_bucketName :: Lens' S3Resource Text
-instance GHC.Generics.Generic Network.AWS.Macie.Types.S3Resource.S3Resource
-instance GHC.Show.Show Network.AWS.Macie.Types.S3Resource.S3Resource
-instance GHC.Read.Read Network.AWS.Macie.Types.S3Resource.S3Resource
-instance GHC.Classes.Eq Network.AWS.Macie.Types.S3Resource.S3Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Macie.Types.S3Resource.S3Resource
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.Types.S3Resource.S3Resource
-instance Control.DeepSeq.NFData Network.AWS.Macie.Types.S3Resource.S3Resource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.Types.S3Resource.S3Resource
+instance GHC.Generics.Generic Amazonka.Macie.Types.S3Resource.S3Resource
+instance GHC.Show.Show Amazonka.Macie.Types.S3Resource.S3Resource
+instance GHC.Read.Read Amazonka.Macie.Types.S3Resource.S3Resource
+instance GHC.Classes.Eq Amazonka.Macie.Types.S3Resource.S3Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Macie.Types.S3Resource.S3Resource
+instance Data.Hashable.Class.Hashable Amazonka.Macie.Types.S3Resource.S3Resource
+instance Control.DeepSeq.NFData Amazonka.Macie.Types.S3Resource.S3Resource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.Types.S3Resource.S3Resource
 
 
-module Network.AWS.Macie.Types.FailedS3Resource
+module Amazonka.Macie.Types.FailedS3Resource
 
 -- | Includes details about the failed S3 resources.
 --   
@@ -301,16 +301,16 @@ failedS3Resource_errorMessage :: Lens' FailedS3Resource (Maybe Text)
 
 -- | The failed S3 resources.
 failedS3Resource_failedItem :: Lens' FailedS3Resource (Maybe S3Resource)
-instance GHC.Generics.Generic Network.AWS.Macie.Types.FailedS3Resource.FailedS3Resource
-instance GHC.Show.Show Network.AWS.Macie.Types.FailedS3Resource.FailedS3Resource
-instance GHC.Read.Read Network.AWS.Macie.Types.FailedS3Resource.FailedS3Resource
-instance GHC.Classes.Eq Network.AWS.Macie.Types.FailedS3Resource.FailedS3Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Macie.Types.FailedS3Resource.FailedS3Resource
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.Types.FailedS3Resource.FailedS3Resource
-instance Control.DeepSeq.NFData Network.AWS.Macie.Types.FailedS3Resource.FailedS3Resource
+instance GHC.Generics.Generic Amazonka.Macie.Types.FailedS3Resource.FailedS3Resource
+instance GHC.Show.Show Amazonka.Macie.Types.FailedS3Resource.FailedS3Resource
+instance GHC.Read.Read Amazonka.Macie.Types.FailedS3Resource.FailedS3Resource
+instance GHC.Classes.Eq Amazonka.Macie.Types.FailedS3Resource.FailedS3Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Macie.Types.FailedS3Resource.FailedS3Resource
+instance Data.Hashable.Class.Hashable Amazonka.Macie.Types.FailedS3Resource.FailedS3Resource
+instance Control.DeepSeq.NFData Amazonka.Macie.Types.FailedS3Resource.FailedS3Resource
 
 
-module Network.AWS.Macie.Types.S3ResourceClassification
+module Amazonka.Macie.Types.S3ResourceClassification
 
 -- | The S3 resources that you want to associate with Amazon Macie Classic
 --   for monitoring and data classification. This data type is used as a
@@ -367,17 +367,17 @@ s3ResourceClassification_bucketName :: Lens' S3ResourceClassification Text
 -- | The classification type that you want to specify for the resource
 --   associated with Amazon Macie Classic.
 s3ResourceClassification_classificationType :: Lens' S3ResourceClassification ClassificationType
-instance GHC.Generics.Generic Network.AWS.Macie.Types.S3ResourceClassification.S3ResourceClassification
-instance GHC.Show.Show Network.AWS.Macie.Types.S3ResourceClassification.S3ResourceClassification
-instance GHC.Read.Read Network.AWS.Macie.Types.S3ResourceClassification.S3ResourceClassification
-instance GHC.Classes.Eq Network.AWS.Macie.Types.S3ResourceClassification.S3ResourceClassification
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Macie.Types.S3ResourceClassification.S3ResourceClassification
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.Types.S3ResourceClassification.S3ResourceClassification
-instance Control.DeepSeq.NFData Network.AWS.Macie.Types.S3ResourceClassification.S3ResourceClassification
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.Types.S3ResourceClassification.S3ResourceClassification
+instance GHC.Generics.Generic Amazonka.Macie.Types.S3ResourceClassification.S3ResourceClassification
+instance GHC.Show.Show Amazonka.Macie.Types.S3ResourceClassification.S3ResourceClassification
+instance GHC.Read.Read Amazonka.Macie.Types.S3ResourceClassification.S3ResourceClassification
+instance GHC.Classes.Eq Amazonka.Macie.Types.S3ResourceClassification.S3ResourceClassification
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Macie.Types.S3ResourceClassification.S3ResourceClassification
+instance Data.Hashable.Class.Hashable Amazonka.Macie.Types.S3ResourceClassification.S3ResourceClassification
+instance Control.DeepSeq.NFData Amazonka.Macie.Types.S3ResourceClassification.S3ResourceClassification
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.Types.S3ResourceClassification.S3ResourceClassification
 
 
-module Network.AWS.Macie.Types.S3ResourceClassificationUpdate
+module Amazonka.Macie.Types.S3ResourceClassificationUpdate
 
 -- | The S3 resources whose classification types you want to update. This
 --   data type is used as a request parameter in the UpdateS3Resources
@@ -434,16 +434,16 @@ s3ResourceClassificationUpdate_bucketName :: Lens' S3ResourceClassificationUpdat
 -- | The classification type that you want to update for the resource
 --   associated with Amazon Macie Classic.
 s3ResourceClassificationUpdate_classificationTypeUpdate :: Lens' S3ResourceClassificationUpdate ClassificationTypeUpdate
-instance GHC.Generics.Generic Network.AWS.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
-instance GHC.Show.Show Network.AWS.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
-instance GHC.Read.Read Network.AWS.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
-instance GHC.Classes.Eq Network.AWS.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
-instance Control.DeepSeq.NFData Network.AWS.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
+instance GHC.Generics.Generic Amazonka.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
+instance GHC.Show.Show Amazonka.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
+instance GHC.Read.Read Amazonka.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
+instance GHC.Classes.Eq Amazonka.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
+instance Data.Hashable.Class.Hashable Amazonka.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
+instance Control.DeepSeq.NFData Amazonka.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.Types.S3ResourceClassificationUpdate.S3ResourceClassificationUpdate
 
 
-module Network.AWS.Macie.Types
+module Amazonka.Macie.Types
 
 -- | API version <tt>2017-12-19</tt> of the Amazon Macie SDK configuration.
 defaultService :: Service
@@ -793,7 +793,7 @@ s3ResourceClassificationUpdate_classificationTypeUpdate :: Lens' S3ResourceClass
 --   member account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Macie.ListS3Resources
+module Amazonka.Macie.ListS3Resources
 
 -- | <i>See:</i> <a>newListS3Resources</a> smart constructor.
 data ListS3Resources
@@ -905,30 +905,30 @@ listS3ResourcesResponse_s3Resources :: Lens' ListS3ResourcesResponse (Maybe [S3R
 
 -- | The response's http status code.
 listS3ResourcesResponse_httpStatus :: Lens' ListS3ResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance GHC.Show.Show Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance GHC.Read.Read Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance GHC.Classes.Eq Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance GHC.Generics.Generic Network.AWS.Macie.ListS3Resources.ListS3ResourcesResponse
-instance GHC.Show.Show Network.AWS.Macie.ListS3Resources.ListS3ResourcesResponse
-instance GHC.Read.Read Network.AWS.Macie.ListS3Resources.ListS3ResourcesResponse
-instance GHC.Classes.Eq Network.AWS.Macie.ListS3Resources.ListS3ResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance Control.DeepSeq.NFData Network.AWS.Macie.ListS3Resources.ListS3ResourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance Control.DeepSeq.NFData Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance Network.AWS.Data.Path.ToPath Network.AWS.Macie.ListS3Resources.ListS3Resources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.ListS3Resources.ListS3Resources
+instance GHC.Generics.Generic Amazonka.Macie.ListS3Resources.ListS3Resources
+instance GHC.Show.Show Amazonka.Macie.ListS3Resources.ListS3Resources
+instance GHC.Read.Read Amazonka.Macie.ListS3Resources.ListS3Resources
+instance GHC.Classes.Eq Amazonka.Macie.ListS3Resources.ListS3Resources
+instance GHC.Generics.Generic Amazonka.Macie.ListS3Resources.ListS3ResourcesResponse
+instance GHC.Show.Show Amazonka.Macie.ListS3Resources.ListS3ResourcesResponse
+instance GHC.Read.Read Amazonka.Macie.ListS3Resources.ListS3ResourcesResponse
+instance GHC.Classes.Eq Amazonka.Macie.ListS3Resources.ListS3ResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Macie.ListS3Resources.ListS3Resources
+instance Control.DeepSeq.NFData Amazonka.Macie.ListS3Resources.ListS3ResourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Macie.ListS3Resources.ListS3Resources
+instance Data.Hashable.Class.Hashable Amazonka.Macie.ListS3Resources.ListS3Resources
+instance Control.DeepSeq.NFData Amazonka.Macie.ListS3Resources.ListS3Resources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Macie.ListS3Resources.ListS3Resources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.ListS3Resources.ListS3Resources
+instance Amazonka.Data.Path.ToPath Amazonka.Macie.ListS3Resources.ListS3Resources
+instance Amazonka.Data.Query.ToQuery Amazonka.Macie.ListS3Resources.ListS3Resources
 
 
 -- | Lists all Amazon Macie Classic member accounts for the current Macie
 --   Classic administrator account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Macie.ListMemberAccounts
+module Amazonka.Macie.ListMemberAccounts
 
 -- | <i>See:</i> <a>newListMemberAccounts</a> smart constructor.
 data ListMemberAccounts
@@ -1036,23 +1036,23 @@ listMemberAccountsResponse_memberAccounts :: Lens' ListMemberAccountsResponse (M
 
 -- | The response's http status code.
 listMemberAccountsResponse_httpStatus :: Lens' ListMemberAccountsResponse Int
-instance GHC.Generics.Generic Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance GHC.Show.Show Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance GHC.Read.Read Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance GHC.Classes.Eq Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance GHC.Generics.Generic Network.AWS.Macie.ListMemberAccounts.ListMemberAccountsResponse
-instance GHC.Show.Show Network.AWS.Macie.ListMemberAccounts.ListMemberAccountsResponse
-instance GHC.Read.Read Network.AWS.Macie.ListMemberAccounts.ListMemberAccountsResponse
-instance GHC.Classes.Eq Network.AWS.Macie.ListMemberAccounts.ListMemberAccountsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance Control.DeepSeq.NFData Network.AWS.Macie.ListMemberAccounts.ListMemberAccountsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance Control.DeepSeq.NFData Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance Network.AWS.Data.Path.ToPath Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.ListMemberAccounts.ListMemberAccounts
+instance GHC.Generics.Generic Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance GHC.Show.Show Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance GHC.Read.Read Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance GHC.Classes.Eq Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance GHC.Generics.Generic Amazonka.Macie.ListMemberAccounts.ListMemberAccountsResponse
+instance GHC.Show.Show Amazonka.Macie.ListMemberAccounts.ListMemberAccountsResponse
+instance GHC.Read.Read Amazonka.Macie.ListMemberAccounts.ListMemberAccountsResponse
+instance GHC.Classes.Eq Amazonka.Macie.ListMemberAccounts.ListMemberAccountsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance Control.DeepSeq.NFData Amazonka.Macie.ListMemberAccounts.ListMemberAccountsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance Data.Hashable.Class.Hashable Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance Control.DeepSeq.NFData Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance Amazonka.Data.Path.ToPath Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
+instance Amazonka.Data.Query.ToQuery Amazonka.Macie.ListMemberAccounts.ListMemberAccounts
 
 
 -- | Removes specified S3 resources from being monitored by Amazon Macie
@@ -1061,7 +1061,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.ListMemberAccounts.Lis
 --   Classic administrator account. If memberAccountId is specified, the
 --   action removes specified S3 resources from Macie Classic for the
 --   specified member account.
-module Network.AWS.Macie.DisassociateS3Resources
+module Amazonka.Macie.DisassociateS3Resources
 
 -- | <i>See:</i> <a>newDisassociateS3Resources</a> smart constructor.
 data DisassociateS3Resources
@@ -1143,26 +1143,26 @@ disassociateS3ResourcesResponse_failedS3Resources :: Lens' DisassociateS3Resourc
 
 -- | The response's http status code.
 disassociateS3ResourcesResponse_httpStatus :: Lens' DisassociateS3ResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance GHC.Show.Show Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance GHC.Read.Read Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance GHC.Classes.Eq Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance GHC.Generics.Generic Network.AWS.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
-instance GHC.Show.Show Network.AWS.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
-instance GHC.Read.Read Network.AWS.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
-instance GHC.Classes.Eq Network.AWS.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance Control.DeepSeq.NFData Network.AWS.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance Control.DeepSeq.NFData Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance Network.AWS.Data.Path.ToPath Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance GHC.Generics.Generic Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance GHC.Show.Show Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance GHC.Read.Read Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance GHC.Classes.Eq Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance GHC.Generics.Generic Amazonka.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
+instance GHC.Show.Show Amazonka.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
+instance GHC.Read.Read Amazonka.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
+instance GHC.Classes.Eq Amazonka.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance Control.DeepSeq.NFData Amazonka.Macie.DisassociateS3Resources.DisassociateS3ResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance Control.DeepSeq.NFData Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance Amazonka.Data.Path.ToPath Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
+instance Amazonka.Data.Query.ToQuery Amazonka.Macie.DisassociateS3Resources.DisassociateS3Resources
 
 
 -- | Removes the specified member account from Amazon Macie Classic.
-module Network.AWS.Macie.DisassociateMemberAccount
+module Amazonka.Macie.DisassociateMemberAccount
 
 -- | <i>See:</i> <a>newDisassociateMemberAccount</a> smart constructor.
 data DisassociateMemberAccount
@@ -1201,22 +1201,22 @@ DisassociateMemberAccountResponse' :: DisassociateMemberAccountResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDisassociateMemberAccountResponse :: DisassociateMemberAccountResponse
-instance GHC.Generics.Generic Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance GHC.Show.Show Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance GHC.Read.Read Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance GHC.Classes.Eq Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance GHC.Generics.Generic Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
-instance GHC.Show.Show Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
-instance GHC.Read.Read Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
-instance GHC.Classes.Eq Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance Control.DeepSeq.NFData Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance Control.DeepSeq.NFData Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance Network.AWS.Data.Path.ToPath Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance GHC.Generics.Generic Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance GHC.Show.Show Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance GHC.Read.Read Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance GHC.Classes.Eq Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance GHC.Generics.Generic Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
+instance GHC.Show.Show Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
+instance GHC.Read.Read Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
+instance GHC.Classes.Eq Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
+instance Amazonka.Types.AWSRequest Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance Control.DeepSeq.NFData Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccountResponse
+instance Data.Hashable.Class.Hashable Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance Control.DeepSeq.NFData Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance Amazonka.Data.Path.ToPath Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
+instance Amazonka.Data.Query.ToQuery Amazonka.Macie.DisassociateMemberAccount.DisassociateMemberAccount
 
 
 -- | Associates specified S3 resources with Amazon Macie Classic for
@@ -1225,7 +1225,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.DisassociateMemberAcco
 --   Classic for the current Macie Classic administrator account. If
 --   memberAccountId is specified, the action associates specified S3
 --   resources with Macie Classic for the specified member account.
-module Network.AWS.Macie.AssociateS3Resources
+module Amazonka.Macie.AssociateS3Resources
 
 -- | <i>See:</i> <a>newAssociateS3Resources</a> smart constructor.
 data AssociateS3Resources
@@ -1303,27 +1303,27 @@ associateS3ResourcesResponse_failedS3Resources :: Lens' AssociateS3ResourcesResp
 
 -- | The response's http status code.
 associateS3ResourcesResponse_httpStatus :: Lens' AssociateS3ResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance GHC.Show.Show Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance GHC.Read.Read Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance GHC.Classes.Eq Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance GHC.Generics.Generic Network.AWS.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
-instance GHC.Show.Show Network.AWS.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
-instance GHC.Read.Read Network.AWS.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
-instance GHC.Classes.Eq Network.AWS.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance Control.DeepSeq.NFData Network.AWS.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance Control.DeepSeq.NFData Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance Network.AWS.Data.Path.ToPath Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.AssociateS3Resources.AssociateS3Resources
+instance GHC.Generics.Generic Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance GHC.Show.Show Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance GHC.Read.Read Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance GHC.Classes.Eq Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance GHC.Generics.Generic Amazonka.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
+instance GHC.Show.Show Amazonka.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
+instance GHC.Read.Read Amazonka.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
+instance GHC.Classes.Eq Amazonka.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance Control.DeepSeq.NFData Amazonka.Macie.AssociateS3Resources.AssociateS3ResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance Control.DeepSeq.NFData Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance Amazonka.Data.Path.ToPath Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
+instance Amazonka.Data.Query.ToQuery Amazonka.Macie.AssociateS3Resources.AssociateS3Resources
 
 
 -- | Associates a specified AWS account with Amazon Macie Classic as a
 --   member account.
-module Network.AWS.Macie.AssociateMemberAccount
+module Amazonka.Macie.AssociateMemberAccount
 
 -- | <i>See:</i> <a>newAssociateMemberAccount</a> smart constructor.
 data AssociateMemberAccount
@@ -1363,22 +1363,22 @@ AssociateMemberAccountResponse' :: AssociateMemberAccountResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAssociateMemberAccountResponse :: AssociateMemberAccountResponse
-instance GHC.Generics.Generic Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance GHC.Show.Show Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance GHC.Read.Read Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance GHC.Classes.Eq Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance GHC.Generics.Generic Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
-instance GHC.Show.Show Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
-instance GHC.Read.Read Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
-instance GHC.Classes.Eq Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance Control.DeepSeq.NFData Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance Control.DeepSeq.NFData Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance Network.AWS.Data.Path.ToPath Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance GHC.Generics.Generic Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance GHC.Show.Show Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance GHC.Read.Read Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance GHC.Classes.Eq Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance GHC.Generics.Generic Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
+instance GHC.Show.Show Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
+instance GHC.Read.Read Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
+instance GHC.Classes.Eq Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
+instance Amazonka.Types.AWSRequest Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance Control.DeepSeq.NFData Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccountResponse
+instance Data.Hashable.Class.Hashable Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance Control.DeepSeq.NFData Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance Amazonka.Data.Path.ToPath Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
+instance Amazonka.Data.Query.ToQuery Amazonka.Macie.AssociateMemberAccount.AssociateMemberAccount
 
 
 -- | Updates the classification types for the specified S3 resources. If
@@ -1388,7 +1388,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.AssociateMemberAccount
 --   specified, the action updates the classification types of the S3
 --   resources associated with Macie Classic for the specified member
 --   account.
-module Network.AWS.Macie.UpdateS3Resources
+module Amazonka.Macie.UpdateS3Resources
 
 -- | <i>See:</i> <a>newUpdateS3Resources</a> smart constructor.
 data UpdateS3Resources
@@ -1463,25 +1463,25 @@ updateS3ResourcesResponse_failedS3Resources :: Lens' UpdateS3ResourcesResponse (
 
 -- | The response's http status code.
 updateS3ResourcesResponse_httpStatus :: Lens' UpdateS3ResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance GHC.Show.Show Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance GHC.Read.Read Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance GHC.Classes.Eq Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance GHC.Generics.Generic Network.AWS.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
-instance GHC.Show.Show Network.AWS.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
-instance GHC.Read.Read Network.AWS.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
-instance GHC.Classes.Eq Network.AWS.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance Control.DeepSeq.NFData Network.AWS.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance Control.DeepSeq.NFData Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance Network.AWS.Data.Path.ToPath Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Macie.UpdateS3Resources.UpdateS3Resources
+instance GHC.Generics.Generic Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance GHC.Show.Show Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance GHC.Read.Read Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance GHC.Classes.Eq Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance GHC.Generics.Generic Amazonka.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
+instance GHC.Show.Show Amazonka.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
+instance GHC.Read.Read Amazonka.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
+instance GHC.Classes.Eq Amazonka.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance Control.DeepSeq.NFData Amazonka.Macie.UpdateS3Resources.UpdateS3ResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance Control.DeepSeq.NFData Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance Amazonka.Data.Path.ToPath Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
+instance Amazonka.Data.Query.ToQuery Amazonka.Macie.UpdateS3Resources.UpdateS3Resources
 
 
-module Network.AWS.Macie.Lens
+module Amazonka.Macie.Lens
 
 -- | The ID of the Amazon Macie Classic member account whose resources you
 --   want to associate with Macie Classic.
@@ -1650,7 +1650,7 @@ s3ResourceClassificationUpdate_bucketName :: Lens' S3ResourceClassificationUpdat
 s3ResourceClassificationUpdate_classificationTypeUpdate :: Lens' S3ResourceClassificationUpdate ClassificationTypeUpdate
 
 
-module Network.AWS.Macie.Waiters
+module Amazonka.Macie.Waiters
 
 
 -- | Derived from API version <tt>2017-12-19</tt> of the AWS service
@@ -1665,7 +1665,7 @@ module Network.AWS.Macie.Waiters
 --   you with dashboards and alerts that give visibility into how this data
 --   is being accessed or moved. For more information, see the <a>Amazon
 --   Macie Classic User Guide</a>.
-module Network.AWS.Macie
+module Amazonka.Macie
 
 -- | API version <tt>2017-12-19</tt> of the Amazon Macie SDK configuration.
 defaultService :: Service

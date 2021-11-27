@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Connect.Types.ContactFlowSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.Types.ContactFlowSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowType.html"><span class="hs-identifier">Amazonka.Connect.Types.ContactFlowType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains summary information about a contact flow.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- You can also create and update contact flows using the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html Amazon Connect Flow language&gt;.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newContactFlowSummary' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679394915"><span id="local-6989586621679394916"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContactFlowSummary"><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-var">ContactFlowSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactFlowSummary%27"><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-var">ContactFlowSummary'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact flow.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aarn%3AContactFlowSummary%27"><span class="annot"><span class="annottext">ContactFlowSummary -&gt; Maybe Text
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3Aarn%3AContactFlowSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the contact flow.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AContactFlowSummary%27"><span class="annot"><span class="annottext">ContactFlowSummary -&gt; Maybe Text
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3Aname%3AContactFlowSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of contact flow.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcontactFlowType%3AContactFlowSummary%27"><span class="annot"><span class="annottext">ContactFlowSummary -&gt; Maybe ContactFlowType
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3AcontactFlowType%3AContactFlowSummary%27"><span class="hs-identifier hs-var hs-var">contactFlowType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The identifier of the contact flow.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aid%3AContactFlowSummary%27"><span class="annot"><span class="annottext">ContactFlowSummary -&gt; Maybe Text
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3Aid%3AContactFlowSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394906"><span id="local-6989586621679394908"><span class="annot"><span class="annottext">ContactFlowSummary -&gt; ContactFlowSummary -&gt; Bool
+(ContactFlowSummary -&gt; ContactFlowSummary -&gt; Bool)
+-&gt; (ContactFlowSummary -&gt; ContactFlowSummary -&gt; Bool)
+-&gt; Eq ContactFlowSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContactFlowSummary -&gt; ContactFlowSummary -&gt; Bool
+$c/= :: ContactFlowSummary -&gt; ContactFlowSummary -&gt; Bool
+== :: ContactFlowSummary -&gt; ContactFlowSummary -&gt; Bool
+$c== :: ContactFlowSummary -&gt; ContactFlowSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394897"><span id="local-6989586621679394899"><span id="local-6989586621679394901"><span id="local-6989586621679394903"><span class="annot"><span class="annottext">ReadPrec [ContactFlowSummary]
+ReadPrec ContactFlowSummary
+Int -&gt; ReadS ContactFlowSummary
+ReadS [ContactFlowSummary]
+(Int -&gt; ReadS ContactFlowSummary)
+-&gt; ReadS [ContactFlowSummary]
+-&gt; ReadPrec ContactFlowSummary
+-&gt; ReadPrec [ContactFlowSummary]
+-&gt; Read ContactFlowSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContactFlowSummary]
+$creadListPrec :: ReadPrec [ContactFlowSummary]
+readPrec :: ReadPrec ContactFlowSummary
+$creadPrec :: ReadPrec ContactFlowSummary
+readList :: ReadS [ContactFlowSummary]
+$creadList :: ReadS [ContactFlowSummary]
+readsPrec :: Int -&gt; ReadS ContactFlowSummary
+$creadsPrec :: Int -&gt; ReadS ContactFlowSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394890"><span id="local-6989586621679394892"><span id="local-6989586621679394894"><span class="annot"><span class="annottext">Int -&gt; ContactFlowSummary -&gt; ShowS
+[ContactFlowSummary] -&gt; ShowS
+ContactFlowSummary -&gt; String
+(Int -&gt; ContactFlowSummary -&gt; ShowS)
+-&gt; (ContactFlowSummary -&gt; String)
+-&gt; ([ContactFlowSummary] -&gt; ShowS)
+-&gt; Show ContactFlowSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContactFlowSummary] -&gt; ShowS
+$cshowList :: [ContactFlowSummary] -&gt; ShowS
+show :: ContactFlowSummary -&gt; String
+$cshow :: ContactFlowSummary -&gt; String
+showsPrec :: Int -&gt; ContactFlowSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContactFlowSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ContactFlowSummary -&gt; Rep ContactFlowSummary x)
+-&gt; (forall x. Rep ContactFlowSummary x -&gt; ContactFlowSummary)
+-&gt; Generic ContactFlowSummary
+forall x. Rep ContactFlowSummary x -&gt; ContactFlowSummary
+forall x. ContactFlowSummary -&gt; Rep ContactFlowSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContactFlowSummary x -&gt; ContactFlowSummary
+$cfrom :: forall x. ContactFlowSummary -&gt; Rep ContactFlowSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'ContactFlowSummary' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'arn', 'contactFlowSummary_arn' - The Amazon Resource Name (ARN) of the contact flow.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'name', 'contactFlowSummary_name' - The name of the contact flow.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'contactFlowType', 'contactFlowSummary_contactFlowType' - The type of contact flow.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'id', 'contactFlowSummary_id' - The identifier of the contact flow.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#newContactFlowSummary"><span class="hs-identifier hs-type">newContactFlowSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span>
+</span><span id="line-62"></span><span id="newContactFlowSummary"><span class="annot"><span class="annottext">newContactFlowSummary :: ContactFlowSummary
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#newContactFlowSummary"><span class="hs-identifier hs-var hs-var">newContactFlowSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ContactFlowSummary' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ContactFlowType
+-&gt; Maybe Text
+-&gt; ContactFlowSummary
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-type">ContactFlowSummary'</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:ContactFlowSummary' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3Aarn%3AContactFlowSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ContactFlowSummary' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3Aname%3AContactFlowSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactFlowType:ContactFlowSummary' :: Maybe ContactFlowType
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3AcontactFlowType%3AContactFlowSummary%27"><span class="hs-identifier hs-var">contactFlowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactFlowType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ContactFlowSummary' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3Aid%3AContactFlowSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact flow.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#contactFlowSummary_arn"><span class="hs-identifier hs-type">contactFlowSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="contactFlowSummary_arn"><span class="annot"><span class="annottext">contactFlowSummary_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContactFlowSummary -&gt; f ContactFlowSummary
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#contactFlowSummary_arn"><span class="hs-identifier hs-var hs-var">contactFlowSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactFlowSummary -&gt; Maybe Text)
+-&gt; (ContactFlowSummary -&gt; Maybe Text -&gt; ContactFlowSummary)
+-&gt; Lens
+     ContactFlowSummary ContactFlowSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-type">ContactFlowSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394881"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ContactFlowSummary' :: ContactFlowSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679394881"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394881"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394880"><span class="annot"><span class="annottext">s :: ContactFlowSummary
+</span><a href="#local-6989586621679394880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-type">ContactFlowSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactFlowSummary
+</span><a href="#local-6989586621679394880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ContactFlowSummary' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3Aarn%3AContactFlowSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The name of the contact flow.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#contactFlowSummary_name"><span class="hs-identifier hs-type">contactFlowSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="contactFlowSummary_name"><span class="annot"><span class="annottext">contactFlowSummary_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContactFlowSummary -&gt; f ContactFlowSummary
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#contactFlowSummary_name"><span class="hs-identifier hs-var hs-var">contactFlowSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactFlowSummary -&gt; Maybe Text)
+-&gt; (ContactFlowSummary -&gt; Maybe Text -&gt; ContactFlowSummary)
+-&gt; Lens
+     ContactFlowSummary ContactFlowSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-type">ContactFlowSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394877"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ContactFlowSummary' :: ContactFlowSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679394877"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394877"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394876"><span class="annot"><span class="annottext">s :: ContactFlowSummary
+</span><a href="#local-6989586621679394876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-type">ContactFlowSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394875"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactFlowSummary
+</span><a href="#local-6989586621679394876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ContactFlowSummary' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3Aname%3AContactFlowSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The type of contact flow.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#contactFlowSummary_contactFlowType"><span class="hs-identifier hs-type">contactFlowSummary_contactFlowType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="contactFlowSummary_contactFlowType"><span class="annot"><span class="annottext">contactFlowSummary_contactFlowType :: (Maybe ContactFlowType -&gt; f (Maybe ContactFlowType))
+-&gt; ContactFlowSummary -&gt; f ContactFlowSummary
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#contactFlowSummary_contactFlowType"><span class="hs-identifier hs-var hs-var">contactFlowSummary_contactFlowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactFlowSummary -&gt; Maybe ContactFlowType)
+-&gt; (ContactFlowSummary
+    -&gt; Maybe ContactFlowType -&gt; ContactFlowSummary)
+-&gt; Lens
+     ContactFlowSummary
+     ContactFlowSummary
+     (Maybe ContactFlowType)
+     (Maybe ContactFlowType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-type">ContactFlowSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394873"><span class="annot"><span class="annottext">Maybe ContactFlowType
+contactFlowType :: Maybe ContactFlowType
+$sel:contactFlowType:ContactFlowSummary' :: ContactFlowSummary -&gt; Maybe ContactFlowType
+</span><a href="#local-6989586621679394873"><span class="hs-identifier hs-var hs-var">contactFlowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactFlowType
+</span><a href="#local-6989586621679394873"><span class="hs-identifier hs-var">contactFlowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394872"><span class="annot"><span class="annottext">s :: ContactFlowSummary
+</span><a href="#local-6989586621679394872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-type">ContactFlowSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394871"><span class="annot"><span class="annottext">Maybe ContactFlowType
+</span><a href="#local-6989586621679394871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactFlowSummary
+</span><a href="#local-6989586621679394872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactFlowType:ContactFlowSummary' :: Maybe ContactFlowType
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3AcontactFlowType%3AContactFlowSummary%27"><span class="hs-identifier hs-var">contactFlowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactFlowType
+</span><a href="#local-6989586621679394871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The identifier of the contact flow.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#contactFlowSummary_id"><span class="hs-identifier hs-type">contactFlowSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="contactFlowSummary_id"><span class="annot"><span class="annottext">contactFlowSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContactFlowSummary -&gt; f ContactFlowSummary
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#contactFlowSummary_id"><span class="hs-identifier hs-var hs-var">contactFlowSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactFlowSummary -&gt; Maybe Text)
+-&gt; (ContactFlowSummary -&gt; Maybe Text -&gt; ContactFlowSummary)
+-&gt; Lens
+     ContactFlowSummary ContactFlowSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-type">ContactFlowSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394869"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ContactFlowSummary' :: ContactFlowSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679394869"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394869"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394868"><span class="annot"><span class="annottext">s :: ContactFlowSummary
+</span><a href="#local-6989586621679394868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-type">ContactFlowSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactFlowSummary
+</span><a href="#local-6989586621679394868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ContactFlowSummary' :: Maybe Text
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#%24sel%3Aid%3AContactFlowSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394864"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679394862"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContactFlowSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ContactFlowSummary)
+-&gt; Value
+-&gt; Parser ContactFlowSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ContactFlowSummary&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394859"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ContactFlowType
+-&gt; Maybe Text
+-&gt; ContactFlowSummary
+</span><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary%27"><span class="hs-identifier hs-var">ContactFlowSummary'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ContactFlowType
+ -&gt; Maybe Text
+ -&gt; ContactFlowSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ContactFlowType -&gt; Maybe Text -&gt; ContactFlowSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ContactFlowType -&gt; Maybe Text -&gt; ContactFlowSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ContactFlowType -&gt; Maybe Text -&gt; ContactFlowSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ContactFlowType -&gt; Maybe Text -&gt; ContactFlowSummary)
+-&gt; Parser (Maybe ContactFlowType)
+-&gt; Parser (Maybe Text -&gt; ContactFlowSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactFlowType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactFlowType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ContactFlowSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser ContactFlowSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394853"><span id="local-6989586621679394855"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span></span><span>
+</span><span id="line-101"></span></pre></body></html>

@@ -1,0 +1,908 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.CreateAutoMLJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an Autopilot job.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Find the best-performing model after you run an Autopilot job by calling</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- .</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- For information about how to use Autopilot, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html Automate Model Development with Amazon SageMaker Autopilot&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.CreateAutoMLJob</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier">CreateAutoMLJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#newCreateAutoMLJob"><span class="hs-identifier">newCreateAutoMLJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_generateCandidateDefinitionsOnly"><span class="hs-identifier">createAutoMLJob_generateCandidateDefinitionsOnly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_problemType"><span class="hs-identifier">createAutoMLJob_problemType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_autoMLJobConfig"><span class="hs-identifier">createAutoMLJob_autoMLJobConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_autoMLJobObjective"><span class="hs-identifier">createAutoMLJob_autoMLJobObjective</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_modelDeployConfig"><span class="hs-identifier">createAutoMLJob_modelDeployConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_tags"><span class="hs-identifier">createAutoMLJob_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_autoMLJobName"><span class="hs-identifier">createAutoMLJob_autoMLJobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_inputDataConfig"><span class="hs-identifier">createAutoMLJob_inputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_outputDataConfig"><span class="hs-identifier">createAutoMLJob_outputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_roleArn"><span class="hs-identifier">createAutoMLJob_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse"><span class="hs-identifier">CreateAutoMLJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#newCreateAutoMLJobResponse"><span class="hs-identifier">newCreateAutoMLJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJobResponse_httpStatus"><span class="hs-identifier">createAutoMLJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJobResponse_autoMLJobArn"><span class="hs-identifier">createAutoMLJobResponse_autoMLJobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newCreateAutoMLJob' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621680422536"><span id="local-6989586621680422537"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAutoMLJob"><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-var">CreateAutoMLJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAutoMLJob%27"><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-var">CreateAutoMLJob'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Generates possible candidates without training the models. A candidate</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- is a combination of data preprocessors, algorithms, and algorithm</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- parameter settings.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AgenerateCandidateDefinitionsOnly%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; Maybe Bool
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AgenerateCandidateDefinitionsOnly%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">generateCandidateDefinitionsOnly</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Defines the type of supervised learning available for the candidates.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Options include: @BinaryClassification@, @MulticlassClassification@, and</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @Regression@. For more information, see</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support&gt;.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AproblemType%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; Maybe ProblemType
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AproblemType%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">problemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProblemType.html#ProblemType"><span class="hs-identifier hs-type">ProblemType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Contains @CompletionCriteria@ and @SecurityConfig@ settings for the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- AutoML job.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AautoMLJobConfig%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; Maybe AutoMLJobConfig
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">autoMLJobConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Defines the objective metric used to measure the predictive quality of</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- an AutoML job. You provide an AutoMLJobObjective$MetricName and</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Autopilot infers whether to minimize or maximize it.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AautoMLJobObjective%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; Maybe AutoMLJobObjective
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobObjective%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">autoMLJobObjective</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Specifies how to generate the endpoint name for an automatic one-click</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Autopilot model deployment.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AmodelDeployConfig%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; Maybe ModelDeployConfig
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AmodelDeployConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">modelDeployConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Each tag consists of a key and an optional value. Tag keys must be</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- unique per resource.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Atags%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3Atags%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Identifies an Autopilot job. The name must be unique to your account and</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- is case-insensitive.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AautoMLJobName%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobName%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">autoMLJobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | An array of channel objects that describes the input data and its</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- location. Each channel is a named input source. Similar to</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- @InputDataConfig@ supported by . Format(s) supported: CSV. Minimum of</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- 500 rows.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AinputDataConfig%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; NonEmpty AutoMLChannel
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AinputDataConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Provides information about encryption and the Amazon S3 output path</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- needed to store artifacts from an AutoML job. Format(s) supported: CSV.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AoutputDataConfig%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; AutoMLOutputDataConfig
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AoutputDataConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLOutputDataConfig.html#AutoMLOutputDataConfig"><span class="hs-identifier hs-type">AutoMLOutputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The ARN of the role that is used to access the data.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateAutoMLJob%27"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AroleArn%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680422521"><span id="local-6989586621680422523"><span class="annot"><span class="annottext">CreateAutoMLJob -&gt; CreateAutoMLJob -&gt; Bool
+(CreateAutoMLJob -&gt; CreateAutoMLJob -&gt; Bool)
+-&gt; (CreateAutoMLJob -&gt; CreateAutoMLJob -&gt; Bool)
+-&gt; Eq CreateAutoMLJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAutoMLJob -&gt; CreateAutoMLJob -&gt; Bool
+$c/= :: CreateAutoMLJob -&gt; CreateAutoMLJob -&gt; Bool
+== :: CreateAutoMLJob -&gt; CreateAutoMLJob -&gt; Bool
+$c== :: CreateAutoMLJob -&gt; CreateAutoMLJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422512"><span id="local-6989586621680422514"><span id="local-6989586621680422516"><span id="local-6989586621680422518"><span class="annot"><span class="annottext">ReadPrec [CreateAutoMLJob]
+ReadPrec CreateAutoMLJob
+Int -&gt; ReadS CreateAutoMLJob
+ReadS [CreateAutoMLJob]
+(Int -&gt; ReadS CreateAutoMLJob)
+-&gt; ReadS [CreateAutoMLJob]
+-&gt; ReadPrec CreateAutoMLJob
+-&gt; ReadPrec [CreateAutoMLJob]
+-&gt; Read CreateAutoMLJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAutoMLJob]
+$creadListPrec :: ReadPrec [CreateAutoMLJob]
+readPrec :: ReadPrec CreateAutoMLJob
+$creadPrec :: ReadPrec CreateAutoMLJob
+readList :: ReadS [CreateAutoMLJob]
+$creadList :: ReadS [CreateAutoMLJob]
+readsPrec :: Int -&gt; ReadS CreateAutoMLJob
+$creadsPrec :: Int -&gt; ReadS CreateAutoMLJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422505"><span id="local-6989586621680422507"><span id="local-6989586621680422509"><span class="annot"><span class="annottext">Int -&gt; CreateAutoMLJob -&gt; ShowS
+[CreateAutoMLJob] -&gt; ShowS
+CreateAutoMLJob -&gt; String
+(Int -&gt; CreateAutoMLJob -&gt; ShowS)
+-&gt; (CreateAutoMLJob -&gt; String)
+-&gt; ([CreateAutoMLJob] -&gt; ShowS)
+-&gt; Show CreateAutoMLJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAutoMLJob] -&gt; ShowS
+$cshowList :: [CreateAutoMLJob] -&gt; ShowS
+show :: CreateAutoMLJob -&gt; String
+$cshow :: CreateAutoMLJob -&gt; String
+showsPrec :: Int -&gt; CreateAutoMLJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAutoMLJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateAutoMLJob -&gt; Rep CreateAutoMLJob x)
+-&gt; (forall x. Rep CreateAutoMLJob x -&gt; CreateAutoMLJob)
+-&gt; Generic CreateAutoMLJob
+forall x. Rep CreateAutoMLJob x -&gt; CreateAutoMLJob
+forall x. CreateAutoMLJob -&gt; Rep CreateAutoMLJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateAutoMLJob x -&gt; CreateAutoMLJob
+$cfrom :: forall x. CreateAutoMLJob -&gt; Rep CreateAutoMLJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Create a value of 'CreateAutoMLJob' with all optional fields omitted.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'generateCandidateDefinitionsOnly', 'createAutoMLJob_generateCandidateDefinitionsOnly' - Generates possible candidates without training the models. A candidate</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- is a combination of data preprocessors, algorithms, and algorithm</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- parameter settings.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'problemType', 'createAutoMLJob_problemType' - Defines the type of supervised learning available for the candidates.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Options include: @BinaryClassification@, @MulticlassClassification@, and</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @Regression@. For more information, see</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support&gt;.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'autoMLJobConfig', 'createAutoMLJob_autoMLJobConfig' - Contains @CompletionCriteria@ and @SecurityConfig@ settings for the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- AutoML job.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'autoMLJobObjective', 'createAutoMLJob_autoMLJobObjective' - Defines the objective metric used to measure the predictive quality of</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- an AutoML job. You provide an AutoMLJobObjective$MetricName and</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Autopilot infers whether to minimize or maximize it.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'modelDeployConfig', 'createAutoMLJob_modelDeployConfig' - Specifies how to generate the endpoint name for an automatic one-click</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Autopilot model deployment.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'tags', 'createAutoMLJob_tags' - Each tag consists of a key and an optional value. Tag keys must be</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- unique per resource.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'autoMLJobName', 'createAutoMLJob_autoMLJobName' - Identifies an Autopilot job. The name must be unique to your account and</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- is case-insensitive.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'inputDataConfig', 'createAutoMLJob_inputDataConfig' - An array of channel objects that describes the input data and its</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- location. Each channel is a named input source. Similar to</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @InputDataConfig@ supported by . Format(s) supported: CSV. Minimum of</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 500 rows.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'outputDataConfig', 'createAutoMLJob_outputDataConfig' - Provides information about encryption and the Amazon S3 output path</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- needed to store artifacts from an AutoML job. Format(s) supported: CSV.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'roleArn', 'createAutoMLJob_roleArn' - The ARN of the role that is used to access the data.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#newCreateAutoMLJob"><span class="hs-identifier hs-type">newCreateAutoMLJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'autoMLJobName'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'inputDataConfig'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'outputDataConfig'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLOutputDataConfig.html#AutoMLOutputDataConfig"><span class="hs-identifier hs-type">AutoMLOutputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span>
+</span><span id="line-156"></span><span id="newCreateAutoMLJob"><span class="annot"><span class="annottext">newCreateAutoMLJob :: Text
+-&gt; NonEmpty AutoMLChannel
+-&gt; AutoMLOutputDataConfig
+-&gt; Text
+-&gt; CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#newCreateAutoMLJob"><span class="hs-identifier hs-var hs-var">newCreateAutoMLJob</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621680422500"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422500"><span class="hs-identifier hs-var">pAutoMLJobName_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621680422499"><span class="annot"><span class="annottext">NonEmpty AutoMLChannel
+</span><a href="#local-6989586621680422499"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621680422498"><span class="annot"><span class="annottext">AutoMLOutputDataConfig
+</span><a href="#local-6989586621680422498"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621680422497"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422497"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">CreateAutoMLJob' :: Maybe Bool
+-&gt; Maybe ProblemType
+-&gt; Maybe AutoMLJobConfig
+-&gt; Maybe AutoMLJobObjective
+-&gt; Maybe ModelDeployConfig
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; NonEmpty AutoMLChannel
+-&gt; AutoMLOutputDataConfig
+-&gt; Text
+-&gt; CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:generateCandidateDefinitionsOnly:CreateAutoMLJob' :: Maybe Bool
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AgenerateCandidateDefinitionsOnly%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">generateCandidateDefinitionsOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:problemType:CreateAutoMLJob' :: Maybe ProblemType
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AproblemType%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">problemType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProblemType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoMLJobConfig:CreateAutoMLJob' :: Maybe AutoMLJobConfig
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">autoMLJobConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoMLJobObjective:CreateAutoMLJob' :: Maybe AutoMLJobObjective
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobObjective%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">autoMLJobObjective</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobObjective
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelDeployConfig:CreateAutoMLJob' :: Maybe ModelDeployConfig
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AmodelDeployConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">modelDeployConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelDeployConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateAutoMLJob' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3Atags%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoMLJobName:CreateAutoMLJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobName%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">autoMLJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422500"><span class="hs-identifier hs-var">pAutoMLJobName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputDataConfig:CreateAutoMLJob' :: NonEmpty AutoMLChannel
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AinputDataConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty AutoMLChannel) (Identity (NonEmpty AutoMLChannel))
+-&gt; Tagged
+     (NonEmpty AutoMLChannel) (Identity (NonEmpty AutoMLChannel))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty AutoMLChannel) (Identity (NonEmpty AutoMLChannel))
+ -&gt; Tagged
+      (NonEmpty AutoMLChannel) (Identity (NonEmpty AutoMLChannel)))
+-&gt; NonEmpty AutoMLChannel -&gt; NonEmpty AutoMLChannel
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AutoMLChannel
+</span><a href="#local-6989586621680422499"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputDataConfig:CreateAutoMLJob' :: AutoMLOutputDataConfig
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AoutputDataConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLOutputDataConfig
+</span><a href="#local-6989586621680422498"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateAutoMLJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AroleArn%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422497"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Generates possible candidates without training the models. A candidate</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- is a combination of data preprocessors, algorithms, and algorithm</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- parameter settings.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_generateCandidateDefinitionsOnly"><span class="hs-identifier hs-type">createAutoMLJob_generateCandidateDefinitionsOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="createAutoMLJob_generateCandidateDefinitionsOnly"><span class="annot"><span class="annottext">createAutoMLJob_generateCandidateDefinitionsOnly :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_generateCandidateDefinitionsOnly"><span class="hs-identifier hs-var hs-var">createAutoMLJob_generateCandidateDefinitionsOnly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; Maybe Bool)
+-&gt; (CreateAutoMLJob -&gt; Maybe Bool -&gt; CreateAutoMLJob)
+-&gt; Lens CreateAutoMLJob CreateAutoMLJob (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422492"><span class="annot"><span class="annottext">Maybe Bool
+generateCandidateDefinitionsOnly :: Maybe Bool
+$sel:generateCandidateDefinitionsOnly:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe Bool
+</span><a href="#local-6989586621680422492"><span class="hs-identifier hs-var hs-var">generateCandidateDefinitionsOnly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680422492"><span class="hs-identifier hs-var">generateCandidateDefinitionsOnly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422491"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422490"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680422490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:generateCandidateDefinitionsOnly:CreateAutoMLJob' :: Maybe Bool
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AgenerateCandidateDefinitionsOnly%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">generateCandidateDefinitionsOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680422490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Defines the type of supervised learning available for the candidates.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Options include: @BinaryClassification@, @MulticlassClassification@, and</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- @Regression@. For more information, see</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support&gt;.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_problemType"><span class="hs-identifier hs-type">createAutoMLJob_problemType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProblemType.html#ProblemType"><span class="hs-identifier hs-type">ProblemType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="createAutoMLJob_problemType"><span class="annot"><span class="annottext">createAutoMLJob_problemType :: (Maybe ProblemType -&gt; f (Maybe ProblemType))
+-&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_problemType"><span class="hs-identifier hs-var hs-var">createAutoMLJob_problemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; Maybe ProblemType)
+-&gt; (CreateAutoMLJob -&gt; Maybe ProblemType -&gt; CreateAutoMLJob)
+-&gt; Lens
+     CreateAutoMLJob
+     CreateAutoMLJob
+     (Maybe ProblemType)
+     (Maybe ProblemType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422489"><span class="annot"><span class="annottext">Maybe ProblemType
+problemType :: Maybe ProblemType
+$sel:problemType:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe ProblemType
+</span><a href="#local-6989586621680422489"><span class="hs-identifier hs-var hs-var">problemType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProblemType
+</span><a href="#local-6989586621680422489"><span class="hs-identifier hs-var">problemType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422488"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422487"><span class="annot"><span class="annottext">Maybe ProblemType
+</span><a href="#local-6989586621680422487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:problemType:CreateAutoMLJob' :: Maybe ProblemType
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AproblemType%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">problemType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProblemType
+</span><a href="#local-6989586621680422487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Contains @CompletionCriteria@ and @SecurityConfig@ settings for the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- AutoML job.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_autoMLJobConfig"><span class="hs-identifier hs-type">createAutoMLJob_autoMLJobConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="createAutoMLJob_autoMLJobConfig"><span class="annot"><span class="annottext">createAutoMLJob_autoMLJobConfig :: (Maybe AutoMLJobConfig -&gt; f (Maybe AutoMLJobConfig))
+-&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_autoMLJobConfig"><span class="hs-identifier hs-var hs-var">createAutoMLJob_autoMLJobConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; Maybe AutoMLJobConfig)
+-&gt; (CreateAutoMLJob -&gt; Maybe AutoMLJobConfig -&gt; CreateAutoMLJob)
+-&gt; Lens
+     CreateAutoMLJob
+     CreateAutoMLJob
+     (Maybe AutoMLJobConfig)
+     (Maybe AutoMLJobConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422486"><span class="annot"><span class="annottext">Maybe AutoMLJobConfig
+autoMLJobConfig :: Maybe AutoMLJobConfig
+$sel:autoMLJobConfig:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe AutoMLJobConfig
+</span><a href="#local-6989586621680422486"><span class="hs-identifier hs-var hs-var">autoMLJobConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobConfig
+</span><a href="#local-6989586621680422486"><span class="hs-identifier hs-var">autoMLJobConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422485"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422484"><span class="annot"><span class="annottext">Maybe AutoMLJobConfig
+</span><a href="#local-6989586621680422484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobConfig:CreateAutoMLJob' :: Maybe AutoMLJobConfig
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">autoMLJobConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobConfig
+</span><a href="#local-6989586621680422484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Defines the objective metric used to measure the predictive quality of</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- an AutoML job. You provide an AutoMLJobObjective$MetricName and</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Autopilot infers whether to minimize or maximize it.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_autoMLJobObjective"><span class="hs-identifier hs-type">createAutoMLJob_autoMLJobObjective</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="createAutoMLJob_autoMLJobObjective"><span class="annot"><span class="annottext">createAutoMLJob_autoMLJobObjective :: (Maybe AutoMLJobObjective -&gt; f (Maybe AutoMLJobObjective))
+-&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_autoMLJobObjective"><span class="hs-identifier hs-var hs-var">createAutoMLJob_autoMLJobObjective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; Maybe AutoMLJobObjective)
+-&gt; (CreateAutoMLJob -&gt; Maybe AutoMLJobObjective -&gt; CreateAutoMLJob)
+-&gt; Lens
+     CreateAutoMLJob
+     CreateAutoMLJob
+     (Maybe AutoMLJobObjective)
+     (Maybe AutoMLJobObjective)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422483"><span class="annot"><span class="annottext">Maybe AutoMLJobObjective
+autoMLJobObjective :: Maybe AutoMLJobObjective
+$sel:autoMLJobObjective:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe AutoMLJobObjective
+</span><a href="#local-6989586621680422483"><span class="hs-identifier hs-var hs-var">autoMLJobObjective</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobObjective
+</span><a href="#local-6989586621680422483"><span class="hs-identifier hs-var">autoMLJobObjective</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422482"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422481"><span class="annot"><span class="annottext">Maybe AutoMLJobObjective
+</span><a href="#local-6989586621680422481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobObjective:CreateAutoMLJob' :: Maybe AutoMLJobObjective
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobObjective%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">autoMLJobObjective</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobObjective
+</span><a href="#local-6989586621680422481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | Specifies how to generate the endpoint name for an automatic one-click</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Autopilot model deployment.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_modelDeployConfig"><span class="hs-identifier hs-type">createAutoMLJob_modelDeployConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelDeployConfig.html#ModelDeployConfig"><span class="hs-identifier hs-type">ModelDeployConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="createAutoMLJob_modelDeployConfig"><span class="annot"><span class="annottext">createAutoMLJob_modelDeployConfig :: (Maybe ModelDeployConfig -&gt; f (Maybe ModelDeployConfig))
+-&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_modelDeployConfig"><span class="hs-identifier hs-var hs-var">createAutoMLJob_modelDeployConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; Maybe ModelDeployConfig)
+-&gt; (CreateAutoMLJob -&gt; Maybe ModelDeployConfig -&gt; CreateAutoMLJob)
+-&gt; Lens
+     CreateAutoMLJob
+     CreateAutoMLJob
+     (Maybe ModelDeployConfig)
+     (Maybe ModelDeployConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422480"><span class="annot"><span class="annottext">Maybe ModelDeployConfig
+modelDeployConfig :: Maybe ModelDeployConfig
+$sel:modelDeployConfig:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe ModelDeployConfig
+</span><a href="#local-6989586621680422480"><span class="hs-identifier hs-var hs-var">modelDeployConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelDeployConfig
+</span><a href="#local-6989586621680422480"><span class="hs-identifier hs-var">modelDeployConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422479"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422478"><span class="annot"><span class="annottext">Maybe ModelDeployConfig
+</span><a href="#local-6989586621680422478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelDeployConfig:CreateAutoMLJob' :: Maybe ModelDeployConfig
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AmodelDeployConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">modelDeployConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelDeployConfig
+</span><a href="#local-6989586621680422478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Each tag consists of a key and an optional value. Tag keys must be</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- unique per resource.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_tags"><span class="hs-identifier hs-type">createAutoMLJob_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="createAutoMLJob_tags"><span class="annot"><span class="annottext">createAutoMLJob_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_tags"><span class="hs-identifier hs-var hs-var">createAutoMLJob_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; Maybe [Tag])
+-&gt; (CreateAutoMLJob -&gt; Maybe [Tag] -&gt; CreateAutoMLJob)
+-&gt; Lens CreateAutoMLJob CreateAutoMLJob (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422477"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680422477"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422477"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422476"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422475"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateAutoMLJob' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3Atags%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateAutoMLJob
+-&gt; f CreateAutoMLJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Identifies an Autopilot job. The name must be unique to your account and</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- is case-insensitive.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_autoMLJobName"><span class="hs-identifier hs-type">createAutoMLJob_autoMLJobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-213"></span><span id="createAutoMLJob_autoMLJobName"><span class="annot"><span class="annottext">createAutoMLJob_autoMLJobName :: (Text -&gt; f Text) -&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_autoMLJobName"><span class="hs-identifier hs-var hs-var">createAutoMLJob_autoMLJobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; Text)
+-&gt; (CreateAutoMLJob -&gt; Text -&gt; CreateAutoMLJob)
+-&gt; Lens CreateAutoMLJob CreateAutoMLJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422472"><span class="annot"><span class="annottext">Text
+autoMLJobName :: Text
+$sel:autoMLJobName:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Text
+</span><a href="#local-6989586621680422472"><span class="hs-identifier hs-var hs-var">autoMLJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422472"><span class="hs-identifier hs-var">autoMLJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422471"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422470"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobName:CreateAutoMLJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobName%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">autoMLJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | An array of channel objects that describes the input data and its</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- location. Each channel is a named input source. Similar to</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- @InputDataConfig@ supported by . Format(s) supported: CSV. Minimum of</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 500 rows.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_inputDataConfig"><span class="hs-identifier hs-type">createAutoMLJob_inputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLChannel.html#AutoMLChannel"><span class="hs-identifier hs-type">AutoMLChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="createAutoMLJob_inputDataConfig"><span class="annot"><span class="annottext">createAutoMLJob_inputDataConfig :: (NonEmpty AutoMLChannel -&gt; f (NonEmpty AutoMLChannel))
+-&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_inputDataConfig"><span class="hs-identifier hs-var hs-var">createAutoMLJob_inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; NonEmpty AutoMLChannel)
+-&gt; (CreateAutoMLJob -&gt; NonEmpty AutoMLChannel -&gt; CreateAutoMLJob)
+-&gt; Lens
+     CreateAutoMLJob
+     CreateAutoMLJob
+     (NonEmpty AutoMLChannel)
+     (NonEmpty AutoMLChannel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422469"><span class="annot"><span class="annottext">NonEmpty AutoMLChannel
+inputDataConfig :: NonEmpty AutoMLChannel
+$sel:inputDataConfig:CreateAutoMLJob' :: CreateAutoMLJob -&gt; NonEmpty AutoMLChannel
+</span><a href="#local-6989586621680422469"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AutoMLChannel
+</span><a href="#local-6989586621680422469"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422468"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422467"><span class="annot"><span class="annottext">NonEmpty AutoMLChannel
+</span><a href="#local-6989586621680422467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataConfig:CreateAutoMLJob' :: NonEmpty AutoMLChannel
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AinputDataConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty AutoMLChannel
+</span><a href="#local-6989586621680422467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AutoMLChannel -&gt; f (NonEmpty AutoMLChannel))
+ -&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob)
+-&gt; ((NonEmpty AutoMLChannel -&gt; f (NonEmpty AutoMLChannel))
+    -&gt; NonEmpty AutoMLChannel -&gt; f (NonEmpty AutoMLChannel))
+-&gt; (NonEmpty AutoMLChannel -&gt; f (NonEmpty AutoMLChannel))
+-&gt; CreateAutoMLJob
+-&gt; f CreateAutoMLJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty AutoMLChannel -&gt; f (NonEmpty AutoMLChannel))
+-&gt; NonEmpty AutoMLChannel -&gt; f (NonEmpty AutoMLChannel)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | Provides information about encryption and the Amazon S3 output path</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- needed to store artifacts from an AutoML job. Format(s) supported: CSV.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_outputDataConfig"><span class="hs-identifier hs-type">createAutoMLJob_outputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AutoMLOutputDataConfig.html#AutoMLOutputDataConfig"><span class="hs-identifier hs-type">AutoMLOutputDataConfig</span></a></span><span>
+</span><span id="line-225"></span><span id="createAutoMLJob_outputDataConfig"><span class="annot"><span class="annottext">createAutoMLJob_outputDataConfig :: (AutoMLOutputDataConfig -&gt; f AutoMLOutputDataConfig)
+-&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_outputDataConfig"><span class="hs-identifier hs-var hs-var">createAutoMLJob_outputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; AutoMLOutputDataConfig)
+-&gt; (CreateAutoMLJob -&gt; AutoMLOutputDataConfig -&gt; CreateAutoMLJob)
+-&gt; Lens
+     CreateAutoMLJob
+     CreateAutoMLJob
+     AutoMLOutputDataConfig
+     AutoMLOutputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422466"><span class="annot"><span class="annottext">AutoMLOutputDataConfig
+outputDataConfig :: AutoMLOutputDataConfig
+$sel:outputDataConfig:CreateAutoMLJob' :: CreateAutoMLJob -&gt; AutoMLOutputDataConfig
+</span><a href="#local-6989586621680422466"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLOutputDataConfig
+</span><a href="#local-6989586621680422466"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422465"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422464"><span class="annot"><span class="annottext">AutoMLOutputDataConfig
+</span><a href="#local-6989586621680422464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputDataConfig:CreateAutoMLJob' :: AutoMLOutputDataConfig
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AoutputDataConfig%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLOutputDataConfig
+</span><a href="#local-6989586621680422464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The ARN of the role that is used to access the data.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_roleArn"><span class="hs-identifier hs-type">createAutoMLJob_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-229"></span><span id="createAutoMLJob_roleArn"><span class="annot"><span class="annottext">createAutoMLJob_roleArn :: (Text -&gt; f Text) -&gt; CreateAutoMLJob -&gt; f CreateAutoMLJob
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJob_roleArn"><span class="hs-identifier hs-var hs-var">createAutoMLJob_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJob -&gt; Text)
+-&gt; (CreateAutoMLJob -&gt; Text -&gt; CreateAutoMLJob)
+-&gt; Lens CreateAutoMLJob CreateAutoMLJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422463"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Text
+</span><a href="#local-6989586621680422463"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422463"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422462"><span class="annot"><span class="annottext">s :: CreateAutoMLJob
+</span><a href="#local-6989586621680422462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJob
+</span><a href="#local-6989586621680422462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateAutoMLJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AroleArn%3ACreateAutoMLJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-233"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse"><span class="hs-identifier hs-type">CreateAutoMLJobResponse</span></a></span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621680422457"><span class="annot"><span class="annottext">request :: CreateAutoMLJob -&gt; Request CreateAutoMLJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateAutoMLJob -&gt; Request CreateAutoMLJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621680422453"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateAutoMLJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateAutoMLJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateAutoMLJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateAutoMLJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateAutoMLJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680422450"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422450"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680422449"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680422449"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680422448"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680422448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateAutoMLJobResponse
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse%27"><span class="hs-identifier hs-var">CreateAutoMLJobResponse'</span></a></span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateAutoMLJobResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateAutoMLJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422450"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateAutoMLJobResponse)
+-&gt; Either String Text -&gt; Either String CreateAutoMLJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680422448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoMLJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422440"><span id="local-6989586621680422442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span></span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621680422433"><span class="annot"><span class="annottext">toHeaders :: CreateAutoMLJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAutoMLJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-252"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.CreateAutoMLJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-256"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-257"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422423"><span id="local-6989586621680422425"><span id="local-6989586621680422427"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621680422421"><span class="annot"><span class="annottext">toJSON :: CreateAutoMLJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob%27"><span class="hs-identifier hs-type">CreateAutoMLJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422410"><span id="local-6989586621680422411"><span id="local-6989586621680422412"><span id="local-6989586621680422413"><span id="local-6989586621680422414"><span id="local-6989586621680422415"><span id="local-6989586621680422416"><span id="local-6989586621680422417"><span id="local-6989586621680422418"><span id="local-6989586621680422419"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Tag]
+Maybe AutoMLJobObjective
+Maybe ModelDeployConfig
+Maybe ProblemType
+Maybe AutoMLJobConfig
+NonEmpty AutoMLChannel
+Text
+AutoMLOutputDataConfig
+roleArn :: Text
+outputDataConfig :: AutoMLOutputDataConfig
+inputDataConfig :: NonEmpty AutoMLChannel
+autoMLJobName :: Text
+tags :: Maybe [Tag]
+modelDeployConfig :: Maybe ModelDeployConfig
+autoMLJobObjective :: Maybe AutoMLJobObjective
+autoMLJobConfig :: Maybe AutoMLJobConfig
+problemType :: Maybe ProblemType
+generateCandidateDefinitionsOnly :: Maybe Bool
+$sel:roleArn:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Text
+$sel:outputDataConfig:CreateAutoMLJob' :: CreateAutoMLJob -&gt; AutoMLOutputDataConfig
+$sel:inputDataConfig:CreateAutoMLJob' :: CreateAutoMLJob -&gt; NonEmpty AutoMLChannel
+$sel:autoMLJobName:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Text
+$sel:tags:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe [Tag]
+$sel:modelDeployConfig:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe ModelDeployConfig
+$sel:autoMLJobObjective:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe AutoMLJobObjective
+$sel:autoMLJobConfig:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe AutoMLJobConfig
+$sel:problemType:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe ProblemType
+$sel:generateCandidateDefinitionsOnly:CreateAutoMLJob' :: CreateAutoMLJob -&gt; Maybe Bool
+</span><a href="#local-6989586621680422410"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-265"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GenerateCandidateDefinitionsOnly&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680422419"><span class="hs-identifier hs-var">generateCandidateDefinitionsOnly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProblemType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProblemType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ProblemType -&gt; Pair) -&gt; Maybe ProblemType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProblemType
+</span><a href="#local-6989586621680422418"><span class="hs-identifier hs-var">problemType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoMLJobConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutoMLJobConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>              </span><span class="annot"><span class="annottext">(AutoMLJobConfig -&gt; Pair) -&gt; Maybe AutoMLJobConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobConfig
+</span><a href="#local-6989586621680422417"><span class="hs-identifier hs-var">autoMLJobConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoMLJobObjective&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutoMLJobObjective -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>              </span><span class="annot"><span class="annottext">(AutoMLJobObjective -&gt; Pair)
+-&gt; Maybe AutoMLJobObjective -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobObjective
+</span><a href="#local-6989586621680422416"><span class="hs-identifier hs-var">autoMLJobObjective</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelDeployConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelDeployConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>              </span><span class="annot"><span class="annottext">(ModelDeployConfig -&gt; Pair)
+-&gt; Maybe ModelDeployConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelDeployConfig
+</span><a href="#local-6989586621680422415"><span class="hs-identifier hs-var">modelDeployConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422414"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoMLJobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422413"><span class="hs-identifier hs-var">autoMLJobName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-277"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AutoMLChannel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AutoMLChannel
+</span><a href="#local-6989586621680422412"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-279"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutoMLOutputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AutoMLOutputDataConfig
+</span><a href="#local-6989586621680422411"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422410"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-282"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621680422404"><span class="annot"><span class="annottext">toPath :: CreateAutoMLJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAutoMLJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJob"><span class="hs-identifier hs-type">CreateAutoMLJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621680422400"><span class="annot"><span class="annottext">toQuery :: CreateAutoMLJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateAutoMLJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | /See:/ 'newCreateAutoMLJobResponse' smart constructor.</span><span>
+</span><span id="line-291"></span><span id="local-6989586621680422397"><span id="local-6989586621680422398"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAutoMLJobResponse"><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse"><span class="hs-identifier hs-var">CreateAutoMLJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAutoMLJobResponse%27"><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse%27"><span class="hs-identifier hs-var">CreateAutoMLJobResponse'</span></a></span></span><span>
+</span><span id="line-292"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-293"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAutoMLJobResponse%27"><span class="annot"><span class="annottext">CreateAutoMLJobResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AhttpStatus%3ACreateAutoMLJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-comment">-- | The unique ARN assigned to the AutoML job when it is created.</span><span>
+</span><span id="line-295"></span><span>    </span><span id="%24sel%3AautoMLJobArn%3ACreateAutoMLJobResponse%27"><span class="annot"><span class="annottext">CreateAutoMLJobResponse -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobArn%3ACreateAutoMLJobResponse%27"><span class="hs-identifier hs-var hs-var">autoMLJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680422391"><span id="local-6989586621680422393"><span class="annot"><span class="annottext">CreateAutoMLJobResponse -&gt; CreateAutoMLJobResponse -&gt; Bool
+(CreateAutoMLJobResponse -&gt; CreateAutoMLJobResponse -&gt; Bool)
+-&gt; (CreateAutoMLJobResponse -&gt; CreateAutoMLJobResponse -&gt; Bool)
+-&gt; Eq CreateAutoMLJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAutoMLJobResponse -&gt; CreateAutoMLJobResponse -&gt; Bool
+$c/= :: CreateAutoMLJobResponse -&gt; CreateAutoMLJobResponse -&gt; Bool
+== :: CreateAutoMLJobResponse -&gt; CreateAutoMLJobResponse -&gt; Bool
+$c== :: CreateAutoMLJobResponse -&gt; CreateAutoMLJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422383"><span id="local-6989586621680422385"><span id="local-6989586621680422387"><span id="local-6989586621680422389"><span class="annot"><span class="annottext">ReadPrec [CreateAutoMLJobResponse]
+ReadPrec CreateAutoMLJobResponse
+Int -&gt; ReadS CreateAutoMLJobResponse
+ReadS [CreateAutoMLJobResponse]
+(Int -&gt; ReadS CreateAutoMLJobResponse)
+-&gt; ReadS [CreateAutoMLJobResponse]
+-&gt; ReadPrec CreateAutoMLJobResponse
+-&gt; ReadPrec [CreateAutoMLJobResponse]
+-&gt; Read CreateAutoMLJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAutoMLJobResponse]
+$creadListPrec :: ReadPrec [CreateAutoMLJobResponse]
+readPrec :: ReadPrec CreateAutoMLJobResponse
+$creadPrec :: ReadPrec CreateAutoMLJobResponse
+readList :: ReadS [CreateAutoMLJobResponse]
+$creadList :: ReadS [CreateAutoMLJobResponse]
+readsPrec :: Int -&gt; ReadS CreateAutoMLJobResponse
+$creadsPrec :: Int -&gt; ReadS CreateAutoMLJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422377"><span id="local-6989586621680422379"><span id="local-6989586621680422381"><span class="annot"><span class="annottext">Int -&gt; CreateAutoMLJobResponse -&gt; ShowS
+[CreateAutoMLJobResponse] -&gt; ShowS
+CreateAutoMLJobResponse -&gt; String
+(Int -&gt; CreateAutoMLJobResponse -&gt; ShowS)
+-&gt; (CreateAutoMLJobResponse -&gt; String)
+-&gt; ([CreateAutoMLJobResponse] -&gt; ShowS)
+-&gt; Show CreateAutoMLJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAutoMLJobResponse] -&gt; ShowS
+$cshowList :: [CreateAutoMLJobResponse] -&gt; ShowS
+show :: CreateAutoMLJobResponse -&gt; String
+$cshow :: CreateAutoMLJobResponse -&gt; String
+showsPrec :: Int -&gt; CreateAutoMLJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAutoMLJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAutoMLJobResponse -&gt; Rep CreateAutoMLJobResponse x)
+-&gt; (forall x.
+    Rep CreateAutoMLJobResponse x -&gt; CreateAutoMLJobResponse)
+-&gt; Generic CreateAutoMLJobResponse
+forall x. Rep CreateAutoMLJobResponse x -&gt; CreateAutoMLJobResponse
+forall x. CreateAutoMLJobResponse -&gt; Rep CreateAutoMLJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateAutoMLJobResponse x -&gt; CreateAutoMLJobResponse
+$cfrom :: forall x. CreateAutoMLJobResponse -&gt; Rep CreateAutoMLJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- Create a value of 'CreateAutoMLJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- 'httpStatus', 'createAutoMLJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- 'autoMLJobArn', 'createAutoMLJobResponse_autoMLJobArn' - The unique ARN assigned to the AutoML job when it is created.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#newCreateAutoMLJobResponse"><span class="hs-identifier hs-type">newCreateAutoMLJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-311"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-312"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-313"></span><span>  </span><span class="hs-comment">-- | 'autoMLJobArn'</span><span>
+</span><span id="line-314"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-315"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse"><span class="hs-identifier hs-type">CreateAutoMLJobResponse</span></a></span><span>
+</span><span id="line-316"></span><span id="newCreateAutoMLJobResponse"><span class="annot"><span class="annottext">newCreateAutoMLJobResponse :: Int -&gt; Text -&gt; CreateAutoMLJobResponse
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#newCreateAutoMLJobResponse"><span class="hs-identifier hs-var hs-var">newCreateAutoMLJobResponse</span></a></span></span><span>
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621680422374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422374"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621680422373"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422373"><span class="hs-identifier hs-var">pAutoMLJobArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><span class="annottext">CreateAutoMLJobResponse' :: Int -&gt; Text -&gt; CreateAutoMLJobResponse
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse%27"><span class="hs-identifier hs-type">CreateAutoMLJobResponse'</span></a></span><span>
+</span><span id="line-320"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAutoMLJobResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AhttpStatus%3ACreateAutoMLJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422374"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoMLJobArn:CreateAutoMLJobResponse' :: Text
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobArn%3ACreateAutoMLJobResponse%27"><span class="hs-identifier hs-var">autoMLJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422373"><span class="hs-identifier hs-var">pAutoMLJobArn_</span></a></span><span>
+</span><span id="line-322"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJobResponse_httpStatus"><span class="hs-identifier hs-type">createAutoMLJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse"><span class="hs-identifier hs-type">CreateAutoMLJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-326"></span><span id="createAutoMLJobResponse_httpStatus"><span class="annot"><span class="annottext">createAutoMLJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateAutoMLJobResponse -&gt; f CreateAutoMLJobResponse
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createAutoMLJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJobResponse -&gt; Int)
+-&gt; (CreateAutoMLJobResponse -&gt; Int -&gt; CreateAutoMLJobResponse)
+-&gt; Lens CreateAutoMLJobResponse CreateAutoMLJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse%27"><span class="hs-identifier hs-type">CreateAutoMLJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422372"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateAutoMLJobResponse' :: CreateAutoMLJobResponse -&gt; Int
+</span><a href="#local-6989586621680422372"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422372"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422371"><span class="annot"><span class="annottext">s :: CreateAutoMLJobResponse
+</span><a href="#local-6989586621680422371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse%27"><span class="hs-identifier hs-type">CreateAutoMLJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422370"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJobResponse
+</span><a href="#local-6989586621680422371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAutoMLJobResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AhttpStatus%3ACreateAutoMLJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse"><span class="hs-identifier hs-type">CreateAutoMLJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | The unique ARN assigned to the AutoML job when it is created.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJobResponse_autoMLJobArn"><span class="hs-identifier hs-type">createAutoMLJobResponse_autoMLJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse"><span class="hs-identifier hs-type">CreateAutoMLJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-330"></span><span id="createAutoMLJobResponse_autoMLJobArn"><span class="annot"><span class="annottext">createAutoMLJobResponse_autoMLJobArn :: (Text -&gt; f Text)
+-&gt; CreateAutoMLJobResponse -&gt; f CreateAutoMLJobResponse
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#createAutoMLJobResponse_autoMLJobArn"><span class="hs-identifier hs-var hs-var">createAutoMLJobResponse_autoMLJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAutoMLJobResponse -&gt; Text)
+-&gt; (CreateAutoMLJobResponse -&gt; Text -&gt; CreateAutoMLJobResponse)
+-&gt; Lens CreateAutoMLJobResponse CreateAutoMLJobResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse%27"><span class="hs-identifier hs-type">CreateAutoMLJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422369"><span class="annot"><span class="annottext">Text
+autoMLJobArn :: Text
+$sel:autoMLJobArn:CreateAutoMLJobResponse' :: CreateAutoMLJobResponse -&gt; Text
+</span><a href="#local-6989586621680422369"><span class="hs-identifier hs-var hs-var">autoMLJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422369"><span class="hs-identifier hs-var">autoMLJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422368"><span class="annot"><span class="annottext">s :: CreateAutoMLJobResponse
+</span><a href="#local-6989586621680422368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse%27"><span class="hs-identifier hs-type">CreateAutoMLJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422367"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAutoMLJobResponse
+</span><a href="#local-6989586621680422368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobArn:CreateAutoMLJobResponse' :: Text
+</span><a href="Amazonka.SageMaker.CreateAutoMLJob.html#%24sel%3AautoMLJobArn%3ACreateAutoMLJobResponse%27"><span class="hs-identifier hs-var">autoMLJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse"><span class="hs-identifier hs-type">CreateAutoMLJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateAutoMLJob.html#CreateAutoMLJobResponse"><span class="hs-identifier hs-type">CreateAutoMLJobResponse</span></a></span></span><span>
+</span><span id="line-333"></span></pre></body></html>

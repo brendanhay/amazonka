@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Glue.GetBlueprintRun</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the details of a blueprint run.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.GetBlueprintRun</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier">GetBlueprintRun</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#newGetBlueprintRun"><span class="hs-identifier">newGetBlueprintRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRun_blueprintName"><span class="hs-identifier">getBlueprintRun_blueprintName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRun_runId"><span class="hs-identifier">getBlueprintRun_runId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse"><span class="hs-identifier">GetBlueprintRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#newGetBlueprintRunResponse"><span class="hs-identifier">newGetBlueprintRunResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRunResponse_blueprintRun"><span class="hs-identifier">getBlueprintRunResponse_blueprintRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRunResponse_httpStatus"><span class="hs-identifier">getBlueprintRunResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.html"><span class="hs-identifier">Amazonka.Glue.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetBlueprintRun' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679732257"><span id="local-6989586621679732258"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlueprintRun"><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-var">GetBlueprintRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlueprintRun%27"><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun%27"><span class="hs-identifier hs-var">GetBlueprintRun'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the blueprint.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AblueprintName%3AGetBlueprintRun%27"><span class="annot"><span class="annottext">GetBlueprintRun -&gt; Text
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3AblueprintName%3AGetBlueprintRun%27"><span class="hs-identifier hs-var hs-var">blueprintName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The run ID for the blueprint run you want to retrieve.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ArunId%3AGetBlueprintRun%27"><span class="annot"><span class="annottext">GetBlueprintRun -&gt; Text
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3ArunId%3AGetBlueprintRun%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732250"><span id="local-6989586621679732252"><span class="annot"><span class="annottext">GetBlueprintRun -&gt; GetBlueprintRun -&gt; Bool
+(GetBlueprintRun -&gt; GetBlueprintRun -&gt; Bool)
+-&gt; (GetBlueprintRun -&gt; GetBlueprintRun -&gt; Bool)
+-&gt; Eq GetBlueprintRun
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBlueprintRun -&gt; GetBlueprintRun -&gt; Bool
+$c/= :: GetBlueprintRun -&gt; GetBlueprintRun -&gt; Bool
+== :: GetBlueprintRun -&gt; GetBlueprintRun -&gt; Bool
+$c== :: GetBlueprintRun -&gt; GetBlueprintRun -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732241"><span id="local-6989586621679732243"><span id="local-6989586621679732245"><span id="local-6989586621679732247"><span class="annot"><span class="annottext">ReadPrec [GetBlueprintRun]
+ReadPrec GetBlueprintRun
+Int -&gt; ReadS GetBlueprintRun
+ReadS [GetBlueprintRun]
+(Int -&gt; ReadS GetBlueprintRun)
+-&gt; ReadS [GetBlueprintRun]
+-&gt; ReadPrec GetBlueprintRun
+-&gt; ReadPrec [GetBlueprintRun]
+-&gt; Read GetBlueprintRun
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBlueprintRun]
+$creadListPrec :: ReadPrec [GetBlueprintRun]
+readPrec :: ReadPrec GetBlueprintRun
+$creadPrec :: ReadPrec GetBlueprintRun
+readList :: ReadS [GetBlueprintRun]
+$creadList :: ReadS [GetBlueprintRun]
+readsPrec :: Int -&gt; ReadS GetBlueprintRun
+$creadsPrec :: Int -&gt; ReadS GetBlueprintRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732234"><span id="local-6989586621679732236"><span id="local-6989586621679732238"><span class="annot"><span class="annottext">Int -&gt; GetBlueprintRun -&gt; ShowS
+[GetBlueprintRun] -&gt; ShowS
+GetBlueprintRun -&gt; String
+(Int -&gt; GetBlueprintRun -&gt; ShowS)
+-&gt; (GetBlueprintRun -&gt; String)
+-&gt; ([GetBlueprintRun] -&gt; ShowS)
+-&gt; Show GetBlueprintRun
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBlueprintRun] -&gt; ShowS
+$cshowList :: [GetBlueprintRun] -&gt; ShowS
+show :: GetBlueprintRun -&gt; String
+$cshow :: GetBlueprintRun -&gt; String
+showsPrec :: Int -&gt; GetBlueprintRun -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBlueprintRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetBlueprintRun -&gt; Rep GetBlueprintRun x)
+-&gt; (forall x. Rep GetBlueprintRun x -&gt; GetBlueprintRun)
+-&gt; Generic GetBlueprintRun
+forall x. Rep GetBlueprintRun x -&gt; GetBlueprintRun
+forall x. GetBlueprintRun -&gt; Rep GetBlueprintRun x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBlueprintRun x -&gt; GetBlueprintRun
+$cfrom :: forall x. GetBlueprintRun -&gt; Rep GetBlueprintRun x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetBlueprintRun' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'blueprintName', 'getBlueprintRun_blueprintName' - The name of the blueprint.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'runId', 'getBlueprintRun_runId' - The run ID for the blueprint run you want to retrieve.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#newGetBlueprintRun"><span class="hs-identifier hs-type">newGetBlueprintRun</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'blueprintName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'runId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span>
+</span><span id="line-76"></span><span id="newGetBlueprintRun"><span class="annot"><span class="annottext">newGetBlueprintRun :: Text -&gt; Text -&gt; GetBlueprintRun
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#newGetBlueprintRun"><span class="hs-identifier hs-var hs-var">newGetBlueprintRun</span></a></span></span><span> </span><span id="local-6989586621679732229"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732229"><span class="hs-identifier hs-var">pBlueprintName_</span></a></span></span><span> </span><span id="local-6989586621679732228"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732228"><span class="hs-identifier hs-var">pRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetBlueprintRun' :: Text -&gt; Text -&gt; GetBlueprintRun
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun%27"><span class="hs-identifier hs-type">GetBlueprintRun'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:blueprintName:GetBlueprintRun' :: Text
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3AblueprintName%3AGetBlueprintRun%27"><span class="hs-identifier hs-var">blueprintName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732229"><span class="hs-identifier hs-var">pBlueprintName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:runId:GetBlueprintRun' :: Text
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3ArunId%3AGetBlueprintRun%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732228"><span class="hs-identifier hs-var">pRunId_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the blueprint.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRun_blueprintName"><span class="hs-identifier hs-type">getBlueprintRun_blueprintName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="getBlueprintRun_blueprintName"><span class="annot"><span class="annottext">getBlueprintRun_blueprintName :: (Text -&gt; f Text) -&gt; GetBlueprintRun -&gt; f GetBlueprintRun
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRun_blueprintName"><span class="hs-identifier hs-var hs-var">getBlueprintRun_blueprintName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBlueprintRun -&gt; Text)
+-&gt; (GetBlueprintRun -&gt; Text -&gt; GetBlueprintRun)
+-&gt; Lens GetBlueprintRun GetBlueprintRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun%27"><span class="hs-identifier hs-type">GetBlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732225"><span class="annot"><span class="annottext">Text
+blueprintName :: Text
+$sel:blueprintName:GetBlueprintRun' :: GetBlueprintRun -&gt; Text
+</span><a href="#local-6989586621679732225"><span class="hs-identifier hs-var hs-var">blueprintName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732225"><span class="hs-identifier hs-var">blueprintName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732224"><span class="annot"><span class="annottext">s :: GetBlueprintRun
+</span><a href="#local-6989586621679732224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun%27"><span class="hs-identifier hs-type">GetBlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732223"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRun
+</span><a href="#local-6989586621679732224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintName:GetBlueprintRun' :: Text
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3AblueprintName%3AGetBlueprintRun%27"><span class="hs-identifier hs-var">blueprintName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The run ID for the blueprint run you want to retrieve.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRun_runId"><span class="hs-identifier hs-type">getBlueprintRun_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="getBlueprintRun_runId"><span class="annot"><span class="annottext">getBlueprintRun_runId :: (Text -&gt; f Text) -&gt; GetBlueprintRun -&gt; f GetBlueprintRun
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRun_runId"><span class="hs-identifier hs-var hs-var">getBlueprintRun_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBlueprintRun -&gt; Text)
+-&gt; (GetBlueprintRun -&gt; Text -&gt; GetBlueprintRun)
+-&gt; Lens GetBlueprintRun GetBlueprintRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun%27"><span class="hs-identifier hs-type">GetBlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732222"><span class="annot"><span class="annottext">Text
+runId :: Text
+$sel:runId:GetBlueprintRun' :: GetBlueprintRun -&gt; Text
+</span><a href="#local-6989586621679732222"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732222"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732221"><span class="annot"><span class="annottext">s :: GetBlueprintRun
+</span><a href="#local-6989586621679732221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun%27"><span class="hs-identifier hs-type">GetBlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732220"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRun
+</span><a href="#local-6989586621679732221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:GetBlueprintRun' :: Text
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3ArunId%3AGetBlueprintRun%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse"><span class="hs-identifier hs-type">GetBlueprintRunResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679732216"><span class="annot"><span class="annottext">request :: GetBlueprintRun -&gt; Request GetBlueprintRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBlueprintRun -&gt; Request GetBlueprintRun
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679732212"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBlueprintRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBlueprintRun)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetBlueprintRun))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBlueprintRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetBlueprintRun)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679732209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732209"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679732208"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679732208"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679732207"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679732207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe BlueprintRun -&gt; Int -&gt; GetBlueprintRunResponse
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse%27"><span class="hs-identifier hs-var">GetBlueprintRunResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BlueprintRun -&gt; Int -&gt; GetBlueprintRunResponse)
+-&gt; Either String (Maybe BlueprintRun)
+-&gt; Either String (Int -&gt; GetBlueprintRunResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679732207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BlueprintRun)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BlueprintRun&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBlueprintRunResponse)
+-&gt; Either String Int -&gt; Either String GetBlueprintRunResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732209"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732199"><span id="local-6989586621679732201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679732192"><span class="annot"><span class="annottext">toHeaders :: GetBlueprintRun -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBlueprintRun -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.GetBlueprintRun&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732182"><span id="local-6989586621679732184"><span id="local-6989586621679732186"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679732180"><span class="annot"><span class="annottext">toJSON :: GetBlueprintRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun%27"><span class="hs-identifier hs-type">GetBlueprintRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732177"><span id="local-6989586621679732178"><span class="annot"><span class="annottext">Text
+runId :: Text
+blueprintName :: Text
+$sel:runId:GetBlueprintRun' :: GetBlueprintRun -&gt; Text
+$sel:blueprintName:GetBlueprintRun' :: GetBlueprintRun -&gt; Text
+</span><a href="#local-6989586621679732177"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BlueprintName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732178"><span class="hs-identifier hs-var">blueprintName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732177"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679732171"><span class="annot"><span class="annottext">toPath :: GetBlueprintRun -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetBlueprintRun -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRun"><span class="hs-identifier hs-type">GetBlueprintRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679732167"><span class="annot"><span class="annottext">toQuery :: GetBlueprintRun -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBlueprintRun -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newGetBlueprintRunResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679732164"><span id="local-6989586621679732165"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlueprintRunResponse"><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse"><span class="hs-identifier hs-var">GetBlueprintRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlueprintRunResponse%27"><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse%27"><span class="hs-identifier hs-var">GetBlueprintRunResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a @BlueprintRun@ object.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AblueprintRun%3AGetBlueprintRunResponse%27"><span class="annot"><span class="annottext">GetBlueprintRunResponse -&gt; Maybe BlueprintRun
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3AblueprintRun%3AGetBlueprintRunResponse%27"><span class="hs-identifier hs-var hs-var">blueprintRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBlueprintRunResponse%27"><span class="annot"><span class="annottext">GetBlueprintRunResponse -&gt; Int
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3AhttpStatus%3AGetBlueprintRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732158"><span id="local-6989586621679732160"><span class="annot"><span class="annottext">GetBlueprintRunResponse -&gt; GetBlueprintRunResponse -&gt; Bool
+(GetBlueprintRunResponse -&gt; GetBlueprintRunResponse -&gt; Bool)
+-&gt; (GetBlueprintRunResponse -&gt; GetBlueprintRunResponse -&gt; Bool)
+-&gt; Eq GetBlueprintRunResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBlueprintRunResponse -&gt; GetBlueprintRunResponse -&gt; Bool
+$c/= :: GetBlueprintRunResponse -&gt; GetBlueprintRunResponse -&gt; Bool
+== :: GetBlueprintRunResponse -&gt; GetBlueprintRunResponse -&gt; Bool
+$c== :: GetBlueprintRunResponse -&gt; GetBlueprintRunResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732150"><span id="local-6989586621679732152"><span id="local-6989586621679732154"><span id="local-6989586621679732156"><span class="annot"><span class="annottext">ReadPrec [GetBlueprintRunResponse]
+ReadPrec GetBlueprintRunResponse
+Int -&gt; ReadS GetBlueprintRunResponse
+ReadS [GetBlueprintRunResponse]
+(Int -&gt; ReadS GetBlueprintRunResponse)
+-&gt; ReadS [GetBlueprintRunResponse]
+-&gt; ReadPrec GetBlueprintRunResponse
+-&gt; ReadPrec [GetBlueprintRunResponse]
+-&gt; Read GetBlueprintRunResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBlueprintRunResponse]
+$creadListPrec :: ReadPrec [GetBlueprintRunResponse]
+readPrec :: ReadPrec GetBlueprintRunResponse
+$creadPrec :: ReadPrec GetBlueprintRunResponse
+readList :: ReadS [GetBlueprintRunResponse]
+$creadList :: ReadS [GetBlueprintRunResponse]
+readsPrec :: Int -&gt; ReadS GetBlueprintRunResponse
+$creadsPrec :: Int -&gt; ReadS GetBlueprintRunResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732144"><span id="local-6989586621679732146"><span id="local-6989586621679732148"><span class="annot"><span class="annottext">Int -&gt; GetBlueprintRunResponse -&gt; ShowS
+[GetBlueprintRunResponse] -&gt; ShowS
+GetBlueprintRunResponse -&gt; String
+(Int -&gt; GetBlueprintRunResponse -&gt; ShowS)
+-&gt; (GetBlueprintRunResponse -&gt; String)
+-&gt; ([GetBlueprintRunResponse] -&gt; ShowS)
+-&gt; Show GetBlueprintRunResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBlueprintRunResponse] -&gt; ShowS
+$cshowList :: [GetBlueprintRunResponse] -&gt; ShowS
+show :: GetBlueprintRunResponse -&gt; String
+$cshow :: GetBlueprintRunResponse -&gt; String
+showsPrec :: Int -&gt; GetBlueprintRunResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBlueprintRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBlueprintRunResponse -&gt; Rep GetBlueprintRunResponse x)
+-&gt; (forall x.
+    Rep GetBlueprintRunResponse x -&gt; GetBlueprintRunResponse)
+-&gt; Generic GetBlueprintRunResponse
+forall x. Rep GetBlueprintRunResponse x -&gt; GetBlueprintRunResponse
+forall x. GetBlueprintRunResponse -&gt; Rep GetBlueprintRunResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBlueprintRunResponse x -&gt; GetBlueprintRunResponse
+$cfrom :: forall x. GetBlueprintRunResponse -&gt; Rep GetBlueprintRunResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Create a value of 'GetBlueprintRunResponse' with all optional fields omitted.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'blueprintRun', 'getBlueprintRunResponse_blueprintRun' - Returns a @BlueprintRun@ object.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'httpStatus', 'getBlueprintRunResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#newGetBlueprintRunResponse"><span class="hs-identifier hs-type">newGetBlueprintRunResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse"><span class="hs-identifier hs-type">GetBlueprintRunResponse</span></a></span><span>
+</span><span id="line-160"></span><span id="newGetBlueprintRunResponse"><span class="annot"><span class="annottext">newGetBlueprintRunResponse :: Int -&gt; GetBlueprintRunResponse
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#newGetBlueprintRunResponse"><span class="hs-identifier hs-var hs-var">newGetBlueprintRunResponse</span></a></span></span><span> </span><span id="local-6989586621679732141"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732141"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">GetBlueprintRunResponse' :: Maybe BlueprintRun -&gt; Int -&gt; GetBlueprintRunResponse
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunResponse'</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:blueprintRun:GetBlueprintRunResponse' :: Maybe BlueprintRun
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3AblueprintRun%3AGetBlueprintRunResponse%27"><span class="hs-identifier hs-var">blueprintRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Maybe BlueprintRun
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlueprintRunResponse' :: Int
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3AhttpStatus%3AGetBlueprintRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732141"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Returns a @BlueprintRun@ object.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRunResponse_blueprintRun"><span class="hs-identifier hs-type">getBlueprintRunResponse_blueprintRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse"><span class="hs-identifier hs-type">GetBlueprintRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="getBlueprintRunResponse_blueprintRun"><span class="annot"><span class="annottext">getBlueprintRunResponse_blueprintRun :: (Maybe BlueprintRun -&gt; f (Maybe BlueprintRun))
+-&gt; GetBlueprintRunResponse -&gt; f GetBlueprintRunResponse
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRunResponse_blueprintRun"><span class="hs-identifier hs-var hs-var">getBlueprintRunResponse_blueprintRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBlueprintRunResponse -&gt; Maybe BlueprintRun)
+-&gt; (GetBlueprintRunResponse
+    -&gt; Maybe BlueprintRun -&gt; GetBlueprintRunResponse)
+-&gt; Lens
+     GetBlueprintRunResponse
+     GetBlueprintRunResponse
+     (Maybe BlueprintRun)
+     (Maybe BlueprintRun)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732140"><span class="annot"><span class="annottext">Maybe BlueprintRun
+blueprintRun :: Maybe BlueprintRun
+$sel:blueprintRun:GetBlueprintRunResponse' :: GetBlueprintRunResponse -&gt; Maybe BlueprintRun
+</span><a href="#local-6989586621679732140"><span class="hs-identifier hs-var hs-var">blueprintRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlueprintRun
+</span><a href="#local-6989586621679732140"><span class="hs-identifier hs-var">blueprintRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732139"><span class="annot"><span class="annottext">s :: GetBlueprintRunResponse
+</span><a href="#local-6989586621679732139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732138"><span class="annot"><span class="annottext">Maybe BlueprintRun
+</span><a href="#local-6989586621679732138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRunResponse
+</span><a href="#local-6989586621679732139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintRun:GetBlueprintRunResponse' :: Maybe BlueprintRun
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3AblueprintRun%3AGetBlueprintRunResponse%27"><span class="hs-identifier hs-var">blueprintRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlueprintRun
+</span><a href="#local-6989586621679732138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse"><span class="hs-identifier hs-type">GetBlueprintRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRunResponse_httpStatus"><span class="hs-identifier hs-type">getBlueprintRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse"><span class="hs-identifier hs-type">GetBlueprintRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span id="getBlueprintRunResponse_httpStatus"><span class="annot"><span class="annottext">getBlueprintRunResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetBlueprintRunResponse -&gt; f GetBlueprintRunResponse
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#getBlueprintRunResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBlueprintRunResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBlueprintRunResponse -&gt; Int)
+-&gt; (GetBlueprintRunResponse -&gt; Int -&gt; GetBlueprintRunResponse)
+-&gt; Lens GetBlueprintRunResponse GetBlueprintRunResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732137"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBlueprintRunResponse' :: GetBlueprintRunResponse -&gt; Int
+</span><a href="#local-6989586621679732137"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732137"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732136"><span class="annot"><span class="annottext">s :: GetBlueprintRunResponse
+</span><a href="#local-6989586621679732136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732135"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRunResponse
+</span><a href="#local-6989586621679732136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlueprintRunResponse' :: Int
+</span><a href="Amazonka.Glue.GetBlueprintRun.html#%24sel%3AhttpStatus%3AGetBlueprintRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse"><span class="hs-identifier hs-type">GetBlueprintRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.GetBlueprintRun.html#GetBlueprintRunResponse"><span class="hs-identifier hs-type">GetBlueprintRunResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

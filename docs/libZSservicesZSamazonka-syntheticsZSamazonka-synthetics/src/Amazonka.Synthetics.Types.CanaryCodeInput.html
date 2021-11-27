@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Synthetics.Types.CanaryCodeInput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Synthetics.Types.CanaryCodeInput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Use this structure to input your script code for the canary. This</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- structure contains the Lambda handler with the location where the canary</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- should start running the script. If the script is stored in an S3</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- bucket, the bucket name, key, and version are also included. If the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- script was passed into the canary directly, the script code is contained</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the value of @Zipfile@.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCanaryCodeInput' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679179541"><span id="local-6989586621679179542"></span></span><span class="hs-keyword">data</span><span> </span><span id="CanaryCodeInput"><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-var">CanaryCodeInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CanaryCodeInput%27"><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-var">CanaryCodeInput'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 key of your script. For more information, see</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html Working with Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3As3Key%3ACanaryCodeInput%27"><span class="annot"><span class="annottext">CanaryCodeInput -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3As3Key%3ACanaryCodeInput%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The S3 version ID of your script.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3As3Version%3ACanaryCodeInput%27"><span class="annot"><span class="annottext">CanaryCodeInput -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3As3Version%3ACanaryCodeInput%27"><span class="hs-identifier hs-var hs-var">s3Version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | If you input your canary script directly into the canary instead of</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- referring to an S3 location, the value of this parameter is the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- base64-encoded contents of the .zip file that contains the script. It</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- must be smaller than 256 Kb.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AzipFile%3ACanaryCodeInput%27"><span class="annot"><span class="annottext">CanaryCodeInput -&gt; Maybe Base64
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3AzipFile%3ACanaryCodeInput%27"><span class="hs-identifier hs-var hs-var">zipFile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | If your canary script is located in S3, specify the bucket name here. Do</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- not include @s3:\/\/@ as the start of the bucket name.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3As3Bucket%3ACanaryCodeInput%27"><span class="annot"><span class="annottext">CanaryCodeInput -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3As3Bucket%3ACanaryCodeInput%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The entry point to use for the source code when running the canary. This</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- value must end with the string @.handler@. The string is limited to 29</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- characters or fewer.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Ahandler%3ACanaryCodeInput%27"><span class="annot"><span class="annottext">CanaryCodeInput -&gt; Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3Ahandler%3ACanaryCodeInput%27"><span class="hs-identifier hs-var hs-var">handler</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179531"><span id="local-6989586621679179533"><span class="annot"><span class="annottext">CanaryCodeInput -&gt; CanaryCodeInput -&gt; Bool
+(CanaryCodeInput -&gt; CanaryCodeInput -&gt; Bool)
+-&gt; (CanaryCodeInput -&gt; CanaryCodeInput -&gt; Bool)
+-&gt; Eq CanaryCodeInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CanaryCodeInput -&gt; CanaryCodeInput -&gt; Bool
+$c/= :: CanaryCodeInput -&gt; CanaryCodeInput -&gt; Bool
+== :: CanaryCodeInput -&gt; CanaryCodeInput -&gt; Bool
+$c== :: CanaryCodeInput -&gt; CanaryCodeInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179522"><span id="local-6989586621679179524"><span id="local-6989586621679179526"><span id="local-6989586621679179528"><span class="annot"><span class="annottext">ReadPrec [CanaryCodeInput]
+ReadPrec CanaryCodeInput
+Int -&gt; ReadS CanaryCodeInput
+ReadS [CanaryCodeInput]
+(Int -&gt; ReadS CanaryCodeInput)
+-&gt; ReadS [CanaryCodeInput]
+-&gt; ReadPrec CanaryCodeInput
+-&gt; ReadPrec [CanaryCodeInput]
+-&gt; Read CanaryCodeInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CanaryCodeInput]
+$creadListPrec :: ReadPrec [CanaryCodeInput]
+readPrec :: ReadPrec CanaryCodeInput
+$creadPrec :: ReadPrec CanaryCodeInput
+readList :: ReadS [CanaryCodeInput]
+$creadList :: ReadS [CanaryCodeInput]
+readsPrec :: Int -&gt; ReadS CanaryCodeInput
+$creadsPrec :: Int -&gt; ReadS CanaryCodeInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179515"><span id="local-6989586621679179517"><span id="local-6989586621679179519"><span class="annot"><span class="annottext">Int -&gt; CanaryCodeInput -&gt; ShowS
+[CanaryCodeInput] -&gt; ShowS
+CanaryCodeInput -&gt; String
+(Int -&gt; CanaryCodeInput -&gt; ShowS)
+-&gt; (CanaryCodeInput -&gt; String)
+-&gt; ([CanaryCodeInput] -&gt; ShowS)
+-&gt; Show CanaryCodeInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CanaryCodeInput] -&gt; ShowS
+$cshowList :: [CanaryCodeInput] -&gt; ShowS
+show :: CanaryCodeInput -&gt; String
+$cshow :: CanaryCodeInput -&gt; String
+showsPrec :: Int -&gt; CanaryCodeInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; CanaryCodeInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CanaryCodeInput -&gt; Rep CanaryCodeInput x)
+-&gt; (forall x. Rep CanaryCodeInput x -&gt; CanaryCodeInput)
+-&gt; Generic CanaryCodeInput
+forall x. Rep CanaryCodeInput x -&gt; CanaryCodeInput
+forall x. CanaryCodeInput -&gt; Rep CanaryCodeInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CanaryCodeInput x -&gt; CanaryCodeInput
+$cfrom :: forall x. CanaryCodeInput -&gt; Rep CanaryCodeInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'CanaryCodeInput' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 's3Key', 'canaryCodeInput_s3Key' - The S3 key of your script. For more information, see</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html Working with Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 's3Version', 'canaryCodeInput_s3Version' - The S3 version ID of your script.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'zipFile', 'canaryCodeInput_zipFile' - If you input your canary script directly into the canary instead of</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- referring to an S3 location, the value of this parameter is the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- base64-encoded contents of the .zip file that contains the script. It</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- must be smaller than 256 Kb.--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 's3Bucket', 'canaryCodeInput_s3Bucket' - If your canary script is located in S3, specify the bucket name here. Do</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- not include @s3:\/\/@ as the start of the bucket name.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'handler', 'canaryCodeInput_handler' - The entry point to use for the source code when running the canary. This</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- value must end with the string @.handler@. The string is limited to 29</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- characters or fewer.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#newCanaryCodeInput"><span class="hs-identifier hs-type">newCanaryCodeInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'handler'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span>
+</span><span id="line-87"></span><span id="newCanaryCodeInput"><span class="annot"><span class="annottext">newCanaryCodeInput :: Text -&gt; CanaryCodeInput
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#newCanaryCodeInput"><span class="hs-identifier hs-var hs-var">newCanaryCodeInput</span></a></span></span><span> </span><span id="local-6989586621679179509"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179509"><span class="hs-identifier hs-var">pHandler_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">CanaryCodeInput' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Base64
+-&gt; Maybe Text
+-&gt; Text
+-&gt; CanaryCodeInput
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Key:CanaryCodeInput' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3As3Key%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Version:CanaryCodeInput' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3As3Version%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">s3Version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:zipFile:CanaryCodeInput' :: Maybe Base64
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3AzipFile%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">zipFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:CanaryCodeInput' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3As3Bucket%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:handler:CanaryCodeInput' :: Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3Ahandler%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">handler</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179509"><span class="hs-identifier hs-var">pHandler_</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The S3 key of your script. For more information, see</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html Working with Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_s3Key"><span class="hs-identifier hs-type">canaryCodeInput_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="canaryCodeInput_s3Key"><span class="annot"><span class="annottext">canaryCodeInput_s3Key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CanaryCodeInput -&gt; f CanaryCodeInput
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_s3Key"><span class="hs-identifier hs-var hs-var">canaryCodeInput_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CanaryCodeInput -&gt; Maybe Text)
+-&gt; (CanaryCodeInput -&gt; Maybe Text -&gt; CanaryCodeInput)
+-&gt; Lens CanaryCodeInput CanaryCodeInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179505"><span class="annot"><span class="annottext">Maybe Text
+s3Key :: Maybe Text
+$sel:s3Key:CanaryCodeInput' :: CanaryCodeInput -&gt; Maybe Text
+</span><a href="#local-6989586621679179505"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179505"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179504"><span class="annot"><span class="annottext">s :: CanaryCodeInput
+</span><a href="#local-6989586621679179504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179503"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CanaryCodeInput
+</span><a href="#local-6989586621679179504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:CanaryCodeInput' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3As3Key%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The S3 version ID of your script.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_s3Version"><span class="hs-identifier hs-type">canaryCodeInput_s3Version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="canaryCodeInput_s3Version"><span class="annot"><span class="annottext">canaryCodeInput_s3Version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CanaryCodeInput -&gt; f CanaryCodeInput
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_s3Version"><span class="hs-identifier hs-var hs-var">canaryCodeInput_s3Version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CanaryCodeInput -&gt; Maybe Text)
+-&gt; (CanaryCodeInput -&gt; Maybe Text -&gt; CanaryCodeInput)
+-&gt; Lens CanaryCodeInput CanaryCodeInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179501"><span class="annot"><span class="annottext">Maybe Text
+s3Version :: Maybe Text
+$sel:s3Version:CanaryCodeInput' :: CanaryCodeInput -&gt; Maybe Text
+</span><a href="#local-6989586621679179501"><span class="hs-identifier hs-var hs-var">s3Version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179501"><span class="hs-identifier hs-var">s3Version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179500"><span class="annot"><span class="annottext">s :: CanaryCodeInput
+</span><a href="#local-6989586621679179500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179499"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CanaryCodeInput
+</span><a href="#local-6989586621679179500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Version:CanaryCodeInput' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3As3Version%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">s3Version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | If you input your canary script directly into the canary instead of</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- referring to an S3 location, the value of this parameter is the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- base64-encoded contents of the .zip file that contains the script. It</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- must be smaller than 256 Kb.--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_zipFile"><span class="hs-identifier hs-type">canaryCodeInput_zipFile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="canaryCodeInput_zipFile"><span class="annot"><span class="annottext">canaryCodeInput_zipFile :: (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; CanaryCodeInput -&gt; f CanaryCodeInput
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_zipFile"><span class="hs-identifier hs-var hs-var">canaryCodeInput_zipFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CanaryCodeInput -&gt; Maybe Base64)
+-&gt; (CanaryCodeInput -&gt; Maybe Base64 -&gt; CanaryCodeInput)
+-&gt; Lens
+     CanaryCodeInput CanaryCodeInput (Maybe Base64) (Maybe Base64)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179497"><span class="annot"><span class="annottext">Maybe Base64
+zipFile :: Maybe Base64
+$sel:zipFile:CanaryCodeInput' :: CanaryCodeInput -&gt; Maybe Base64
+</span><a href="#local-6989586621679179497"><span class="hs-identifier hs-var hs-var">zipFile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679179497"><span class="hs-identifier hs-var">zipFile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179496"><span class="annot"><span class="annottext">s :: CanaryCodeInput
+</span><a href="#local-6989586621679179496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179495"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679179495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CanaryCodeInput
+</span><a href="#local-6989586621679179496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zipFile:CanaryCodeInput' :: Maybe Base64
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3AzipFile%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">zipFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679179495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+ -&gt; CanaryCodeInput -&gt; f CanaryCodeInput)
+-&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
+    -&gt; Maybe Base64 -&gt; f (Maybe Base64))
+-&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; CanaryCodeInput
+-&gt; f CanaryCodeInput
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
+-&gt; Iso
+     (Maybe Base64) (Maybe Base64) (Maybe ByteString) (Maybe ByteString)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | If your canary script is located in S3, specify the bucket name here. Do</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- not include @s3:\/\/@ as the start of the bucket name.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_s3Bucket"><span class="hs-identifier hs-type">canaryCodeInput_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="canaryCodeInput_s3Bucket"><span class="annot"><span class="annottext">canaryCodeInput_s3Bucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CanaryCodeInput -&gt; f CanaryCodeInput
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_s3Bucket"><span class="hs-identifier hs-var hs-var">canaryCodeInput_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CanaryCodeInput -&gt; Maybe Text)
+-&gt; (CanaryCodeInput -&gt; Maybe Text -&gt; CanaryCodeInput)
+-&gt; Lens CanaryCodeInput CanaryCodeInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179490"><span class="annot"><span class="annottext">Maybe Text
+s3Bucket :: Maybe Text
+$sel:s3Bucket:CanaryCodeInput' :: CanaryCodeInput -&gt; Maybe Text
+</span><a href="#local-6989586621679179490"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179490"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179489"><span class="annot"><span class="annottext">s :: CanaryCodeInput
+</span><a href="#local-6989586621679179489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179488"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CanaryCodeInput
+</span><a href="#local-6989586621679179489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:CanaryCodeInput' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3As3Bucket%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The entry point to use for the source code when running the canary. This</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- value must end with the string @.handler@. The string is limited to 29</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- characters or fewer.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_handler"><span class="hs-identifier hs-type">canaryCodeInput_handler</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span id="canaryCodeInput_handler"><span class="annot"><span class="annottext">canaryCodeInput_handler :: (Text -&gt; f Text) -&gt; CanaryCodeInput -&gt; f CanaryCodeInput
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#canaryCodeInput_handler"><span class="hs-identifier hs-var hs-var">canaryCodeInput_handler</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CanaryCodeInput -&gt; Text)
+-&gt; (CanaryCodeInput -&gt; Text -&gt; CanaryCodeInput)
+-&gt; Lens CanaryCodeInput CanaryCodeInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179486"><span class="annot"><span class="annottext">Text
+handler :: Text
+$sel:handler:CanaryCodeInput' :: CanaryCodeInput -&gt; Text
+</span><a href="#local-6989586621679179486"><span class="hs-identifier hs-var hs-var">handler</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179486"><span class="hs-identifier hs-var">handler</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179485"><span class="annot"><span class="annottext">s :: CanaryCodeInput
+</span><a href="#local-6989586621679179485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179484"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CanaryCodeInput
+</span><a href="#local-6989586621679179485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handler:CanaryCodeInput' :: Text
+</span><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#%24sel%3Ahandler%3ACanaryCodeInput%27"><span class="hs-identifier hs-var">handler</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179480"><span id="local-6989586621679179482"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179469"><span id="local-6989586621679179471"><span id="local-6989586621679179473"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput"><span class="hs-identifier hs-type">CanaryCodeInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679179467"><span class="annot"><span class="annottext">toJSON :: CanaryCodeInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeInput.html#CanaryCodeInput%27"><span class="hs-identifier hs-type">CanaryCodeInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179461"><span id="local-6989586621679179462"><span id="local-6989586621679179463"><span id="local-6989586621679179464"><span id="local-6989586621679179465"><span class="annot"><span class="annottext">Maybe Text
+Maybe Base64
+Text
+handler :: Text
+s3Bucket :: Maybe Text
+zipFile :: Maybe Base64
+s3Version :: Maybe Text
+s3Key :: Maybe Text
+$sel:handler:CanaryCodeInput' :: CanaryCodeInput -&gt; Text
+$sel:s3Bucket:CanaryCodeInput' :: CanaryCodeInput -&gt; Maybe Text
+$sel:zipFile:CanaryCodeInput' :: CanaryCodeInput -&gt; Maybe Base64
+$sel:s3Version:CanaryCodeInput' :: CanaryCodeInput -&gt; Maybe Text
+$sel:s3Key:CanaryCodeInput' :: CanaryCodeInput -&gt; Maybe Text
+</span><a href="#local-6989586621679179461"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179465"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179464"><span class="hs-identifier hs-var">s3Version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ZipFile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Base64 -&gt; Pair) -&gt; Maybe Base64 -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679179463"><span class="hs-identifier hs-var">zipFile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179462"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Handler&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179461"><span class="hs-identifier hs-var">handler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span></pre></body></html>

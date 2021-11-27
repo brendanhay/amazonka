@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an existing Recovery Group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier">UpdateRecoveryGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#newUpdateRecoveryGroup"><span class="hs-identifier">newUpdateRecoveryGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroup_recoveryGroupName"><span class="hs-identifier">updateRecoveryGroup_recoveryGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroup_cells"><span class="hs-identifier">updateRecoveryGroup_cells</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier">UpdateRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#newUpdateRecoveryGroupResponse"><span class="hs-identifier">newUpdateRecoveryGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_cells"><span class="hs-identifier">updateRecoveryGroupResponse_cells</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_recoveryGroupName"><span class="hs-identifier">updateRecoveryGroupResponse_recoveryGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_recoveryGroupArn"><span class="hs-identifier">updateRecoveryGroupResponse_recoveryGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_tags"><span class="hs-identifier">updateRecoveryGroupResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_httpStatus"><span class="hs-identifier">updateRecoveryGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.html"><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Parameters to update for the RecoveryGroup</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newUpdateRecoveryGroup' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679207966"><span id="local-6989586621679207967"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRecoveryGroup"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-var">UpdateRecoveryGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRecoveryGroup%27"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup%27"><span class="hs-identifier hs-var">UpdateRecoveryGroup'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The RecoveryGroup to update</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ArecoveryGroupName%3AUpdateRecoveryGroup%27"><span class="annot"><span class="annottext">UpdateRecoveryGroup -&gt; Text
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AUpdateRecoveryGroup%27"><span class="hs-identifier hs-var hs-var">recoveryGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A list of Cell arns, completely replaces previous list</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Acells%3AUpdateRecoveryGroup%27"><span class="annot"><span class="annottext">UpdateRecoveryGroup -&gt; [Text]
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3Acells%3AUpdateRecoveryGroup%27"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207959"><span id="local-6989586621679207961"><span class="annot"><span class="annottext">UpdateRecoveryGroup -&gt; UpdateRecoveryGroup -&gt; Bool
+(UpdateRecoveryGroup -&gt; UpdateRecoveryGroup -&gt; Bool)
+-&gt; (UpdateRecoveryGroup -&gt; UpdateRecoveryGroup -&gt; Bool)
+-&gt; Eq UpdateRecoveryGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRecoveryGroup -&gt; UpdateRecoveryGroup -&gt; Bool
+$c/= :: UpdateRecoveryGroup -&gt; UpdateRecoveryGroup -&gt; Bool
+== :: UpdateRecoveryGroup -&gt; UpdateRecoveryGroup -&gt; Bool
+$c== :: UpdateRecoveryGroup -&gt; UpdateRecoveryGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207950"><span id="local-6989586621679207952"><span id="local-6989586621679207954"><span id="local-6989586621679207956"><span class="annot"><span class="annottext">ReadPrec [UpdateRecoveryGroup]
+ReadPrec UpdateRecoveryGroup
+Int -&gt; ReadS UpdateRecoveryGroup
+ReadS [UpdateRecoveryGroup]
+(Int -&gt; ReadS UpdateRecoveryGroup)
+-&gt; ReadS [UpdateRecoveryGroup]
+-&gt; ReadPrec UpdateRecoveryGroup
+-&gt; ReadPrec [UpdateRecoveryGroup]
+-&gt; Read UpdateRecoveryGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRecoveryGroup]
+$creadListPrec :: ReadPrec [UpdateRecoveryGroup]
+readPrec :: ReadPrec UpdateRecoveryGroup
+$creadPrec :: ReadPrec UpdateRecoveryGroup
+readList :: ReadS [UpdateRecoveryGroup]
+$creadList :: ReadS [UpdateRecoveryGroup]
+readsPrec :: Int -&gt; ReadS UpdateRecoveryGroup
+$creadsPrec :: Int -&gt; ReadS UpdateRecoveryGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207943"><span id="local-6989586621679207945"><span id="local-6989586621679207947"><span class="annot"><span class="annottext">Int -&gt; UpdateRecoveryGroup -&gt; ShowS
+[UpdateRecoveryGroup] -&gt; ShowS
+UpdateRecoveryGroup -&gt; String
+(Int -&gt; UpdateRecoveryGroup -&gt; ShowS)
+-&gt; (UpdateRecoveryGroup -&gt; String)
+-&gt; ([UpdateRecoveryGroup] -&gt; ShowS)
+-&gt; Show UpdateRecoveryGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRecoveryGroup] -&gt; ShowS
+$cshowList :: [UpdateRecoveryGroup] -&gt; ShowS
+show :: UpdateRecoveryGroup -&gt; String
+$cshow :: UpdateRecoveryGroup -&gt; String
+showsPrec :: Int -&gt; UpdateRecoveryGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRecoveryGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateRecoveryGroup -&gt; Rep UpdateRecoveryGroup x)
+-&gt; (forall x. Rep UpdateRecoveryGroup x -&gt; UpdateRecoveryGroup)
+-&gt; Generic UpdateRecoveryGroup
+forall x. Rep UpdateRecoveryGroup x -&gt; UpdateRecoveryGroup
+forall x. UpdateRecoveryGroup -&gt; Rep UpdateRecoveryGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateRecoveryGroup x -&gt; UpdateRecoveryGroup
+$cfrom :: forall x. UpdateRecoveryGroup -&gt; Rep UpdateRecoveryGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'UpdateRecoveryGroup' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'recoveryGroupName', 'updateRecoveryGroup_recoveryGroupName' - The RecoveryGroup to update</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'cells', 'updateRecoveryGroup_cells' - A list of Cell arns, completely replaces previous list</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#newUpdateRecoveryGroup"><span class="hs-identifier hs-type">newUpdateRecoveryGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'recoveryGroupName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span>
+</span><span id="line-79"></span><span id="newUpdateRecoveryGroup"><span class="annot"><span class="annottext">newUpdateRecoveryGroup :: Text -&gt; UpdateRecoveryGroup
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#newUpdateRecoveryGroup"><span class="hs-identifier hs-var hs-var">newUpdateRecoveryGroup</span></a></span></span><span> </span><span id="local-6989586621679207938"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207938"><span class="hs-identifier hs-var">pRecoveryGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">UpdateRecoveryGroup' :: Text -&gt; [Text] -&gt; UpdateRecoveryGroup
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup%27"><span class="hs-identifier hs-type">UpdateRecoveryGroup'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:recoveryGroupName:UpdateRecoveryGroup' :: Text
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AUpdateRecoveryGroup%27"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207938"><span class="hs-identifier hs-var">pRecoveryGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:cells:UpdateRecoveryGroup' :: [Text]
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3Acells%3AUpdateRecoveryGroup%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The RecoveryGroup to update</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroup_recoveryGroupName"><span class="hs-identifier hs-type">updateRecoveryGroup_recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="updateRecoveryGroup_recoveryGroupName"><span class="annot"><span class="annottext">updateRecoveryGroup_recoveryGroupName :: (Text -&gt; f Text) -&gt; UpdateRecoveryGroup -&gt; f UpdateRecoveryGroup
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroup_recoveryGroupName"><span class="hs-identifier hs-var hs-var">updateRecoveryGroup_recoveryGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRecoveryGroup -&gt; Text)
+-&gt; (UpdateRecoveryGroup -&gt; Text -&gt; UpdateRecoveryGroup)
+-&gt; Lens UpdateRecoveryGroup UpdateRecoveryGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup%27"><span class="hs-identifier hs-type">UpdateRecoveryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207935"><span class="annot"><span class="annottext">Text
+recoveryGroupName :: Text
+$sel:recoveryGroupName:UpdateRecoveryGroup' :: UpdateRecoveryGroup -&gt; Text
+</span><a href="#local-6989586621679207935"><span class="hs-identifier hs-var hs-var">recoveryGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207935"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207934"><span class="annot"><span class="annottext">s :: UpdateRecoveryGroup
+</span><a href="#local-6989586621679207934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup%27"><span class="hs-identifier hs-type">UpdateRecoveryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRecoveryGroup
+</span><a href="#local-6989586621679207934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recoveryGroupName:UpdateRecoveryGroup' :: Text
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AUpdateRecoveryGroup%27"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | A list of Cell arns, completely replaces previous list</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroup_cells"><span class="hs-identifier hs-type">updateRecoveryGroup_cells</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span id="updateRecoveryGroup_cells"><span class="annot"><span class="annottext">updateRecoveryGroup_cells :: ([Text] -&gt; f [Text])
+-&gt; UpdateRecoveryGroup -&gt; f UpdateRecoveryGroup
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroup_cells"><span class="hs-identifier hs-var hs-var">updateRecoveryGroup_cells</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRecoveryGroup -&gt; [Text])
+-&gt; (UpdateRecoveryGroup -&gt; [Text] -&gt; UpdateRecoveryGroup)
+-&gt; Lens UpdateRecoveryGroup UpdateRecoveryGroup [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup%27"><span class="hs-identifier hs-type">UpdateRecoveryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207932"><span class="annot"><span class="annottext">[Text]
+cells :: [Text]
+$sel:cells:UpdateRecoveryGroup' :: UpdateRecoveryGroup -&gt; [Text]
+</span><a href="#local-6989586621679207932"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679207932"><span class="hs-identifier hs-var">cells</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207931"><span class="annot"><span class="annottext">s :: UpdateRecoveryGroup
+</span><a href="#local-6989586621679207931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup%27"><span class="hs-identifier hs-type">UpdateRecoveryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207930"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679207930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRecoveryGroup
+</span><a href="#local-6989586621679207931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cells:UpdateRecoveryGroup' :: [Text]
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3Acells%3AUpdateRecoveryGroup%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679207930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; UpdateRecoveryGroup -&gt; f UpdateRecoveryGroup)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; UpdateRecoveryGroup
+-&gt; f UpdateRecoveryGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679207924"><span class="annot"><span class="annottext">request :: UpdateRecoveryGroup -&gt; Request UpdateRecoveryGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRecoveryGroup -&gt; Request UpdateRecoveryGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679207920"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateRecoveryGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRecoveryGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateRecoveryGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateRecoveryGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRecoveryGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207917"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207917"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679207916"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679207916"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679207915"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207915"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; UpdateRecoveryGroupResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">UpdateRecoveryGroupResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; UpdateRecoveryGroupResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; UpdateRecoveryGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cells&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; UpdateRecoveryGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; UpdateRecoveryGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;recoveryGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; UpdateRecoveryGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text) -&gt; Int -&gt; UpdateRecoveryGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;recoveryGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text) -&gt; Int -&gt; UpdateRecoveryGroupResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; UpdateRecoveryGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRecoveryGroupResponse)
+-&gt; Either String Int -&gt; Either String UpdateRecoveryGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207917"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207906"><span id="local-6989586621679207908"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679207899"><span class="annot"><span class="annottext">toHeaders :: UpdateRecoveryGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRecoveryGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207889"><span id="local-6989586621679207891"><span id="local-6989586621679207893"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679207887"><span class="annot"><span class="annottext">toJSON :: UpdateRecoveryGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup%27"><span class="hs-identifier hs-type">UpdateRecoveryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207884"><span id="local-6989586621679207885"><span class="annot"><span class="annottext">[Text]
+Text
+cells :: [Text]
+recoveryGroupName :: Text
+$sel:cells:UpdateRecoveryGroup' :: UpdateRecoveryGroup -&gt; [Text]
+$sel:recoveryGroupName:UpdateRecoveryGroup' :: UpdateRecoveryGroup -&gt; Text
+</span><a href="#local-6989586621679207884"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cells&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679207884"><span class="hs-identifier hs-var">cells</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679207878"><span class="annot"><span class="annottext">toPath :: UpdateRecoveryGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup%27"><span class="hs-identifier hs-type">UpdateRecoveryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207875"><span id="local-6989586621679207876"><span class="annot"><span class="annottext">[Text]
+Text
+cells :: [Text]
+recoveryGroupName :: Text
+$sel:cells:UpdateRecoveryGroup' :: UpdateRecoveryGroup -&gt; [Text]
+$sel:recoveryGroupName:UpdateRecoveryGroup' :: UpdateRecoveryGroup -&gt; Text
+</span><a href="#local-6989586621679207875"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/recoverygroups/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207876"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroup"><span class="hs-identifier hs-type">UpdateRecoveryGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679207871"><span class="annot"><span class="annottext">toQuery :: UpdateRecoveryGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRecoveryGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newUpdateRecoveryGroupResponse' smart constructor.</span><span>
+</span><span id="line-141"></span><span id="local-6989586621679207868"><span id="local-6989586621679207869"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRecoveryGroupResponse"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-var">UpdateRecoveryGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRecoveryGroupResponse%27"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">UpdateRecoveryGroupResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Cell arns</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3Acells%3AUpdateRecoveryGroupResponse%27"><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3Acells%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The name of the RecoveryGroup</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3ArecoveryGroupName%3AUpdateRecoveryGroupResponse%27"><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse -&gt; Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">recoveryGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The arn for the RecoveryGroup</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3ArecoveryGroupArn%3AUpdateRecoveryGroupResponse%27"><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse -&gt; Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3ArecoveryGroupArn%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">recoveryGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3Atags%3AUpdateRecoveryGroupResponse%27"><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3Atags%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRecoveryGroupResponse%27"><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse -&gt; Int
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3AhttpStatus%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207859"><span id="local-6989586621679207861"><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse -&gt; UpdateRecoveryGroupResponse -&gt; Bool
+(UpdateRecoveryGroupResponse
+ -&gt; UpdateRecoveryGroupResponse -&gt; Bool)
+-&gt; (UpdateRecoveryGroupResponse
+    -&gt; UpdateRecoveryGroupResponse -&gt; Bool)
+-&gt; Eq UpdateRecoveryGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRecoveryGroupResponse -&gt; UpdateRecoveryGroupResponse -&gt; Bool
+$c/= :: UpdateRecoveryGroupResponse -&gt; UpdateRecoveryGroupResponse -&gt; Bool
+== :: UpdateRecoveryGroupResponse -&gt; UpdateRecoveryGroupResponse -&gt; Bool
+$c== :: UpdateRecoveryGroupResponse -&gt; UpdateRecoveryGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207851"><span id="local-6989586621679207853"><span id="local-6989586621679207855"><span id="local-6989586621679207857"><span class="annot"><span class="annottext">ReadPrec [UpdateRecoveryGroupResponse]
+ReadPrec UpdateRecoveryGroupResponse
+Int -&gt; ReadS UpdateRecoveryGroupResponse
+ReadS [UpdateRecoveryGroupResponse]
+(Int -&gt; ReadS UpdateRecoveryGroupResponse)
+-&gt; ReadS [UpdateRecoveryGroupResponse]
+-&gt; ReadPrec UpdateRecoveryGroupResponse
+-&gt; ReadPrec [UpdateRecoveryGroupResponse]
+-&gt; Read UpdateRecoveryGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRecoveryGroupResponse]
+$creadListPrec :: ReadPrec [UpdateRecoveryGroupResponse]
+readPrec :: ReadPrec UpdateRecoveryGroupResponse
+$creadPrec :: ReadPrec UpdateRecoveryGroupResponse
+readList :: ReadS [UpdateRecoveryGroupResponse]
+$creadList :: ReadS [UpdateRecoveryGroupResponse]
+readsPrec :: Int -&gt; ReadS UpdateRecoveryGroupResponse
+$creadsPrec :: Int -&gt; ReadS UpdateRecoveryGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207845"><span id="local-6989586621679207847"><span id="local-6989586621679207849"><span class="annot"><span class="annottext">Int -&gt; UpdateRecoveryGroupResponse -&gt; ShowS
+[UpdateRecoveryGroupResponse] -&gt; ShowS
+UpdateRecoveryGroupResponse -&gt; String
+(Int -&gt; UpdateRecoveryGroupResponse -&gt; ShowS)
+-&gt; (UpdateRecoveryGroupResponse -&gt; String)
+-&gt; ([UpdateRecoveryGroupResponse] -&gt; ShowS)
+-&gt; Show UpdateRecoveryGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRecoveryGroupResponse] -&gt; ShowS
+$cshowList :: [UpdateRecoveryGroupResponse] -&gt; ShowS
+show :: UpdateRecoveryGroupResponse -&gt; String
+$cshow :: UpdateRecoveryGroupResponse -&gt; String
+showsPrec :: Int -&gt; UpdateRecoveryGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRecoveryGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRecoveryGroupResponse -&gt; Rep UpdateRecoveryGroupResponse x)
+-&gt; (forall x.
+    Rep UpdateRecoveryGroupResponse x -&gt; UpdateRecoveryGroupResponse)
+-&gt; Generic UpdateRecoveryGroupResponse
+forall x.
+Rep UpdateRecoveryGroupResponse x -&gt; UpdateRecoveryGroupResponse
+forall x.
+UpdateRecoveryGroupResponse -&gt; Rep UpdateRecoveryGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRecoveryGroupResponse x -&gt; UpdateRecoveryGroupResponse
+$cfrom :: forall x.
+UpdateRecoveryGroupResponse -&gt; Rep UpdateRecoveryGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Create a value of 'UpdateRecoveryGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'cells', 'updateRecoveryGroupResponse_cells' - A list of Cell arns</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'recoveryGroupName', 'updateRecoveryGroupResponse_recoveryGroupName' - The name of the RecoveryGroup</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'recoveryGroupArn', 'updateRecoveryGroupResponse_recoveryGroupArn' - The arn for the RecoveryGroup</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'tags', 'updateRecoveryGroupResponse_tags' - Undocumented member.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'updateRecoveryGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#newUpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">newUpdateRecoveryGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newUpdateRecoveryGroupResponse"><span class="annot"><span class="annottext">newUpdateRecoveryGroupResponse :: Int -&gt; UpdateRecoveryGroupResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#newUpdateRecoveryGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateRecoveryGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679207842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207842"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; UpdateRecoveryGroupResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cells:UpdateRecoveryGroupResponse' :: Maybe [Text]
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3Acells%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:recoveryGroupName:UpdateRecoveryGroupResponse' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:recoveryGroupArn:UpdateRecoveryGroupResponse' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3ArecoveryGroupArn%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">recoveryGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:UpdateRecoveryGroupResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3Atags%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRecoveryGroupResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3AhttpStatus%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207842"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | A list of Cell arns</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_cells"><span class="hs-identifier hs-type">updateRecoveryGroupResponse_cells</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="updateRecoveryGroupResponse_cells"><span class="annot"><span class="annottext">updateRecoveryGroupResponse_cells :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateRecoveryGroupResponse -&gt; f UpdateRecoveryGroupResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_cells"><span class="hs-identifier hs-var hs-var">updateRecoveryGroupResponse_cells</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRecoveryGroupResponse -&gt; Maybe [Text])
+-&gt; (UpdateRecoveryGroupResponse
+    -&gt; Maybe [Text] -&gt; UpdateRecoveryGroupResponse)
+-&gt; Lens
+     UpdateRecoveryGroupResponse
+     UpdateRecoveryGroupResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207841"><span class="annot"><span class="annottext">Maybe [Text]
+cells :: Maybe [Text]
+$sel:cells:UpdateRecoveryGroupResponse' :: UpdateRecoveryGroupResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679207841"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207841"><span class="hs-identifier hs-var">cells</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207840"><span class="annot"><span class="annottext">s :: UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207839"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cells:UpdateRecoveryGroupResponse' :: Maybe [Text]
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3Acells%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateRecoveryGroupResponse -&gt; f UpdateRecoveryGroupResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateRecoveryGroupResponse
+-&gt; f UpdateRecoveryGroupResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The name of the RecoveryGroup</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_recoveryGroupName"><span class="hs-identifier hs-type">updateRecoveryGroupResponse_recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="updateRecoveryGroupResponse_recoveryGroupName"><span class="annot"><span class="annottext">updateRecoveryGroupResponse_recoveryGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRecoveryGroupResponse -&gt; f UpdateRecoveryGroupResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_recoveryGroupName"><span class="hs-identifier hs-var hs-var">updateRecoveryGroupResponse_recoveryGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRecoveryGroupResponse -&gt; Maybe Text)
+-&gt; (UpdateRecoveryGroupResponse
+    -&gt; Maybe Text -&gt; UpdateRecoveryGroupResponse)
+-&gt; Lens
+     UpdateRecoveryGroupResponse
+     UpdateRecoveryGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207837"><span class="annot"><span class="annottext">Maybe Text
+recoveryGroupName :: Maybe Text
+$sel:recoveryGroupName:UpdateRecoveryGroupResponse' :: UpdateRecoveryGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679207837"><span class="hs-identifier hs-var hs-var">recoveryGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207837"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207836"><span class="annot"><span class="annottext">s :: UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207835"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recoveryGroupName:UpdateRecoveryGroupResponse' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The arn for the RecoveryGroup</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_recoveryGroupArn"><span class="hs-identifier hs-type">updateRecoveryGroupResponse_recoveryGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="updateRecoveryGroupResponse_recoveryGroupArn"><span class="annot"><span class="annottext">updateRecoveryGroupResponse_recoveryGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRecoveryGroupResponse -&gt; f UpdateRecoveryGroupResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_recoveryGroupArn"><span class="hs-identifier hs-var hs-var">updateRecoveryGroupResponse_recoveryGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRecoveryGroupResponse -&gt; Maybe Text)
+-&gt; (UpdateRecoveryGroupResponse
+    -&gt; Maybe Text -&gt; UpdateRecoveryGroupResponse)
+-&gt; Lens
+     UpdateRecoveryGroupResponse
+     UpdateRecoveryGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207834"><span class="annot"><span class="annottext">Maybe Text
+recoveryGroupArn :: Maybe Text
+$sel:recoveryGroupArn:UpdateRecoveryGroupResponse' :: UpdateRecoveryGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var hs-var">recoveryGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var">recoveryGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207833"><span class="annot"><span class="annottext">s :: UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207832"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recoveryGroupArn:UpdateRecoveryGroupResponse' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3ArecoveryGroupArn%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">recoveryGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_tags"><span class="hs-identifier hs-type">updateRecoveryGroupResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="updateRecoveryGroupResponse_tags"><span class="annot"><span class="annottext">updateRecoveryGroupResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateRecoveryGroupResponse -&gt; f UpdateRecoveryGroupResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_tags"><span class="hs-identifier hs-var hs-var">updateRecoveryGroupResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRecoveryGroupResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (UpdateRecoveryGroupResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; UpdateRecoveryGroupResponse)
+-&gt; Lens
+     UpdateRecoveryGroupResponse
+     UpdateRecoveryGroupResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207831"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:UpdateRecoveryGroupResponse' :: UpdateRecoveryGroupResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207830"><span class="annot"><span class="annottext">s :: UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207829"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UpdateRecoveryGroupResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3Atags%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; UpdateRecoveryGroupResponse -&gt; f UpdateRecoveryGroupResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateRecoveryGroupResponse
+-&gt; f UpdateRecoveryGroupResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_httpStatus"><span class="hs-identifier hs-type">updateRecoveryGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-203"></span><span id="updateRecoveryGroupResponse_httpStatus"><span class="annot"><span class="annottext">updateRecoveryGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateRecoveryGroupResponse -&gt; f UpdateRecoveryGroupResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#updateRecoveryGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRecoveryGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRecoveryGroupResponse -&gt; Int)
+-&gt; (UpdateRecoveryGroupResponse
+    -&gt; Int -&gt; UpdateRecoveryGroupResponse)
+-&gt; Lens
+     UpdateRecoveryGroupResponse UpdateRecoveryGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207828"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateRecoveryGroupResponse' :: UpdateRecoveryGroupResponse -&gt; Int
+</span><a href="#local-6989586621679207828"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207828"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207827"><span class="annot"><span class="annottext">s :: UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRecoveryGroupResponse
+</span><a href="#local-6989586621679207827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRecoveryGroupResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#%24sel%3AhttpStatus%3AUpdateRecoveryGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup.html#UpdateRecoveryGroupResponse"><span class="hs-identifier hs-type">UpdateRecoveryGroupResponse</span></a></span></span><span>
+</span><span id="line-206"></span></pre></body></html>

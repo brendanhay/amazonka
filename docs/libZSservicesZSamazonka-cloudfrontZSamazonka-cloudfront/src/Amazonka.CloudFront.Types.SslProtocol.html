@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.SslProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.SslProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol"><span class="hs-identifier">SslProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_SSLv3"><span class="hs-identifier">SslProtocol_SSLv3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_TLSv1"><span class="hs-identifier">SslProtocol_TLSv1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_TLSv1_1"><span class="hs-identifier">SslProtocol_TLSv1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_TLSv1_2"><span class="hs-identifier">SslProtocol_TLSv1_2</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679401972"><span id="local-6989586621679401973"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SslProtocol"><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol"><span class="hs-identifier hs-var">SslProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SslProtocol%27"><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol%27"><span class="hs-identifier hs-var">SslProtocol'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSslProtocol"><span class="annot"><span class="annottext">SslProtocol -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.SslProtocol.html#fromSslProtocol"><span class="hs-identifier hs-var hs-var">fromSslProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401964"><span id="local-6989586621679401966"><span id="local-6989586621679401968"><span class="annot"><span class="annottext">Int -&gt; SslProtocol -&gt; ShowS
+[SslProtocol] -&gt; ShowS
+SslProtocol -&gt; String
+(Int -&gt; SslProtocol -&gt; ShowS)
+-&gt; (SslProtocol -&gt; String)
+-&gt; ([SslProtocol] -&gt; ShowS)
+-&gt; Show SslProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SslProtocol] -&gt; ShowS
+$cshowList :: [SslProtocol] -&gt; ShowS
+show :: SslProtocol -&gt; String
+$cshow :: SslProtocol -&gt; String
+showsPrec :: Int -&gt; SslProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; SslProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679401955"><span id="local-6989586621679401957"><span id="local-6989586621679401959"><span id="local-6989586621679401961"><span class="annot"><span class="annottext">ReadPrec [SslProtocol]
+ReadPrec SslProtocol
+Int -&gt; ReadS SslProtocol
+ReadS [SslProtocol]
+(Int -&gt; ReadS SslProtocol)
+-&gt; ReadS [SslProtocol]
+-&gt; ReadPrec SslProtocol
+-&gt; ReadPrec [SslProtocol]
+-&gt; Read SslProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SslProtocol]
+$creadListPrec :: ReadPrec [SslProtocol]
+readPrec :: ReadPrec SslProtocol
+$creadPrec :: ReadPrec SslProtocol
+readList :: ReadS [SslProtocol]
+$creadList :: ReadS [SslProtocol]
+readsPrec :: Int -&gt; ReadS SslProtocol
+$creadsPrec :: Int -&gt; ReadS SslProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679401950"><span id="local-6989586621679401952"><span class="annot"><span class="annottext">SslProtocol -&gt; SslProtocol -&gt; Bool
+(SslProtocol -&gt; SslProtocol -&gt; Bool)
+-&gt; (SslProtocol -&gt; SslProtocol -&gt; Bool) -&gt; Eq SslProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SslProtocol -&gt; SslProtocol -&gt; Bool
+$c/= :: SslProtocol -&gt; SslProtocol -&gt; Bool
+== :: SslProtocol -&gt; SslProtocol -&gt; Bool
+$c== :: SslProtocol -&gt; SslProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679401934"><span id="local-6989586621679401936"><span id="local-6989586621679401938"><span id="local-6989586621679401940"><span id="local-6989586621679401942"><span id="local-6989586621679401944"><span id="local-6989586621679401946"><span class="annot"><span class="annottext">Eq SslProtocol
+Eq SslProtocol
+-&gt; (SslProtocol -&gt; SslProtocol -&gt; Ordering)
+-&gt; (SslProtocol -&gt; SslProtocol -&gt; Bool)
+-&gt; (SslProtocol -&gt; SslProtocol -&gt; Bool)
+-&gt; (SslProtocol -&gt; SslProtocol -&gt; Bool)
+-&gt; (SslProtocol -&gt; SslProtocol -&gt; Bool)
+-&gt; (SslProtocol -&gt; SslProtocol -&gt; SslProtocol)
+-&gt; (SslProtocol -&gt; SslProtocol -&gt; SslProtocol)
+-&gt; Ord SslProtocol
+SslProtocol -&gt; SslProtocol -&gt; Bool
+SslProtocol -&gt; SslProtocol -&gt; Ordering
+SslProtocol -&gt; SslProtocol -&gt; SslProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SslProtocol -&gt; SslProtocol -&gt; SslProtocol
+$cmin :: SslProtocol -&gt; SslProtocol -&gt; SslProtocol
+max :: SslProtocol -&gt; SslProtocol -&gt; SslProtocol
+$cmax :: SslProtocol -&gt; SslProtocol -&gt; SslProtocol
+&gt;= :: SslProtocol -&gt; SslProtocol -&gt; Bool
+$c&gt;= :: SslProtocol -&gt; SslProtocol -&gt; Bool
+&gt; :: SslProtocol -&gt; SslProtocol -&gt; Bool
+$c&gt; :: SslProtocol -&gt; SslProtocol -&gt; Bool
+&lt;= :: SslProtocol -&gt; SslProtocol -&gt; Bool
+$c&lt;= :: SslProtocol -&gt; SslProtocol -&gt; Bool
+&lt; :: SslProtocol -&gt; SslProtocol -&gt; Bool
+$c&lt; :: SslProtocol -&gt; SslProtocol -&gt; Bool
+compare :: SslProtocol -&gt; SslProtocol -&gt; Ordering
+$ccompare :: SslProtocol -&gt; SslProtocol -&gt; Ordering
+$cp1Ord :: Eq SslProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SslProtocol -&gt; Rep SslProtocol x)
+-&gt; (forall x. Rep SslProtocol x -&gt; SslProtocol)
+-&gt; Generic SslProtocol
+forall x. Rep SslProtocol x -&gt; SslProtocol
+forall x. SslProtocol -&gt; Rep SslProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SslProtocol x -&gt; SslProtocol
+$cfrom :: forall x. SslProtocol -&gt; Rep SslProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401926"><span id="local-6989586621679401928"><span class="annot"><span class="annottext">Int -&gt; SslProtocol -&gt; Int
+SslProtocol -&gt; Int
+(Int -&gt; SslProtocol -&gt; Int)
+-&gt; (SslProtocol -&gt; Int) -&gt; Hashable SslProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SslProtocol -&gt; Int
+$chash :: SslProtocol -&gt; Int
+hashWithSalt :: Int -&gt; SslProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; SslProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401923"><span class="annot"><span class="annottext">SslProtocol -&gt; ()
+(SslProtocol -&gt; ()) -&gt; NFData SslProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SslProtocol -&gt; ()
+$crnf :: SslProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401920"><span class="annot"><span class="annottext">Text -&gt; Either String SslProtocol
+(Text -&gt; Either String SslProtocol) -&gt; FromText SslProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SslProtocol
+$cfromText :: Text -&gt; Either String SslProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401917"><span class="annot"><span class="annottext">SslProtocol -&gt; Text
+(SslProtocol -&gt; Text) -&gt; ToText SslProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SslProtocol -&gt; Text
+$ctoText :: SslProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401914"><span class="annot"><span class="annottext">SslProtocol -&gt; ByteString
+(SslProtocol -&gt; ByteString) -&gt; ToByteString SslProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SslProtocol -&gt; ByteString
+$ctoBS :: SslProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401911"><span class="annot"><span class="annottext">SslProtocol -&gt; ByteStringBuilder
+(SslProtocol -&gt; ByteStringBuilder) -&gt; ToLog SslProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SslProtocol -&gt; ByteStringBuilder
+$cbuild :: SslProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401908"><span class="annot"><span class="annottext">HeaderName -&gt; SslProtocol -&gt; [Header]
+(HeaderName -&gt; SslProtocol -&gt; [Header]) -&gt; ToHeader SslProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SslProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SslProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401905"><span class="annot"><span class="annottext">SslProtocol -&gt; QueryString
+(SslProtocol -&gt; QueryString) -&gt; ToQuery SslProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SslProtocol -&gt; QueryString
+$ctoQuery :: SslProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401900"><span id="local-6989586621679401902"><span class="annot"><span class="annottext">Value -&gt; Parser [SslProtocol]
+Value -&gt; Parser SslProtocol
+(Value -&gt; Parser SslProtocol)
+-&gt; (Value -&gt; Parser [SslProtocol]) -&gt; FromJSON SslProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SslProtocol]
+$cparseJSONList :: Value -&gt; Parser [SslProtocol]
+parseJSON :: Value -&gt; Parser SslProtocol
+$cparseJSON :: Value -&gt; Parser SslProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401895"><span id="local-6989586621679401897"><span class="annot"><span class="annottext">FromJSONKeyFunction [SslProtocol]
+FromJSONKeyFunction SslProtocol
+FromJSONKeyFunction SslProtocol
+-&gt; FromJSONKeyFunction [SslProtocol] -&gt; FromJSONKey SslProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SslProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [SslProtocol]
+fromJSONKey :: FromJSONKeyFunction SslProtocol
+$cfromJSONKey :: FromJSONKeyFunction SslProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401886"><span id="local-6989586621679401888"><span id="local-6989586621679401890"><span id="local-6989586621679401892"><span class="annot"><span class="annottext">[SslProtocol] -&gt; Encoding
+[SslProtocol] -&gt; Value
+SslProtocol -&gt; Encoding
+SslProtocol -&gt; Value
+(SslProtocol -&gt; Value)
+-&gt; (SslProtocol -&gt; Encoding)
+-&gt; ([SslProtocol] -&gt; Value)
+-&gt; ([SslProtocol] -&gt; Encoding)
+-&gt; ToJSON SslProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SslProtocol] -&gt; Encoding
+$ctoEncodingList :: [SslProtocol] -&gt; Encoding
+toJSONList :: [SslProtocol] -&gt; Value
+$ctoJSONList :: [SslProtocol] -&gt; Value
+toEncoding :: SslProtocol -&gt; Encoding
+$ctoEncoding :: SslProtocol -&gt; Encoding
+toJSON :: SslProtocol -&gt; Value
+$ctoJSON :: SslProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401881"><span id="local-6989586621679401883"><span class="annot"><span class="annottext">ToJSONKeyFunction [SslProtocol]
+ToJSONKeyFunction SslProtocol
+ToJSONKeyFunction SslProtocol
+-&gt; ToJSONKeyFunction [SslProtocol] -&gt; ToJSONKey SslProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SslProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [SslProtocol]
+toJSONKey :: ToJSONKeyFunction SslProtocol
+$ctoJSONKey :: ToJSONKeyFunction SslProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679401878"><span class="annot"><span class="annottext">[Node] -&gt; Either String SslProtocol
+([Node] -&gt; Either String SslProtocol) -&gt; FromXML SslProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SslProtocol
+$cparseXML :: [Node] -&gt; Either String SslProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679401875"><span class="annot"><span class="annottext">SslProtocol -&gt; XML
+(SslProtocol -&gt; XML) -&gt; ToXML SslProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SslProtocol -&gt; XML
+$ctoXML :: SslProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_SSLv3"><span class="hs-identifier hs-type">SslProtocol_SSLv3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol"><span class="hs-identifier hs-type">SslProtocol</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSslProtocol_SSLv3"><span id="%24mSslProtocol_SSLv3"><span id="SslProtocol_SSLv3"><span class="annot"><span class="annottext">$bSslProtocol_SSLv3 :: SslProtocol
+$mSslProtocol_SSLv3 :: forall r. SslProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.SslProtocol.html#%24bSslProtocol_SSLv3"><span class="hs-identifier hs-var hs-var hs-var">SslProtocol_SSLv3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol%27"><span class="hs-identifier hs-type">SslProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SSLv3&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_TLSv1"><span class="hs-identifier hs-type">SslProtocol_TLSv1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol"><span class="hs-identifier hs-type">SslProtocol</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSslProtocol_TLSv1"><span id="%24mSslProtocol_TLSv1"><span id="SslProtocol_TLSv1"><span class="annot"><span class="annottext">$bSslProtocol_TLSv1 :: SslProtocol
+$mSslProtocol_TLSv1 :: forall r. SslProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.SslProtocol.html#%24bSslProtocol_TLSv1"><span class="hs-identifier hs-var hs-var hs-var">SslProtocol_TLSv1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol%27"><span class="hs-identifier hs-type">SslProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLSv1&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_TLSv1_1"><span class="hs-identifier hs-type">SslProtocol_TLSv1_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol"><span class="hs-identifier hs-type">SslProtocol</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSslProtocol_TLSv1_1"><span id="%24mSslProtocol_TLSv1_1"><span id="SslProtocol_TLSv1_1"><span class="annot"><span class="annottext">$bSslProtocol_TLSv1_1 :: SslProtocol
+$mSslProtocol_TLSv1_1 :: forall r. SslProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.SslProtocol.html#%24bSslProtocol_TLSv1_1"><span class="hs-identifier hs-var hs-var hs-var">SslProtocol_TLSv1_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol%27"><span class="hs-identifier hs-type">SslProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLSv1.1&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_TLSv1_2"><span class="hs-identifier hs-type">SslProtocol_TLSv1_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol"><span class="hs-identifier hs-type">SslProtocol</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSslProtocol_TLSv1_2"><span id="%24mSslProtocol_TLSv1_2"><span id="SslProtocol_TLSv1_2"><span class="annot"><span class="annottext">$bSslProtocol_TLSv1_2 :: SslProtocol
+$mSslProtocol_TLSv1_2 :: forall r. SslProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFront.Types.SslProtocol.html#%24bSslProtocol_TLSv1_2"><span class="hs-identifier hs-var hs-var hs-var">SslProtocol_TLSv1_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol%27"><span class="hs-identifier hs-type">SslProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLSv1.2&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_SSLv3"><span class="hs-pragma hs-type">SslProtocol_SSLv3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_TLSv1"><span class="hs-pragma hs-type">SslProtocol_TLSv1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_TLSv1_1"><span class="hs-pragma hs-type">SslProtocol_TLSv1_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol_TLSv1_2"><span class="hs-pragma hs-type">SslProtocol_TLSv1_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.SslProtocol.html#SslProtocol%27"><span class="hs-pragma hs-type">SslProtocol'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

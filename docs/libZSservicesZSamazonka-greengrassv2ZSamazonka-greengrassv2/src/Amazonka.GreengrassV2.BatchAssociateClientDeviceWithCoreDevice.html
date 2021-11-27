@@ -1,0 +1,663 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associate a list of client devices with a core device. Use this API</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- operation to specify which client devices can discover a core device</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- through cloud discovery. With cloud discovery, client devices connect to</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- IoT Greengrass to retrieve associated core devices\' connectivity</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- information and certificates. For more information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html Configure cloud discovery&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- in the /IoT Greengrass V2 Developer Guide/.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Client devices are local IoT devices that connect to and communicate</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- with an IoT Greengrass core device over MQTT. You can connect client</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- devices to a core device to sync MQTT messages and data to Amazon Web</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Services IoT Core and interact with client devices in Greengrass</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- components. For more information, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html Interact with local IoT devices&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- in the /IoT Greengrass V2 Developer Guide/.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#newBatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier">newBatchAssociateClientDeviceWithCoreDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDevice_entries"><span class="hs-identifier">batchAssociateClientDeviceWithCoreDevice_entries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDevice_coreDeviceThingName"><span class="hs-identifier">batchAssociateClientDeviceWithCoreDevice_coreDeviceThingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier">BatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#newBatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier">newBatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDeviceResponse_errorEntries"><span class="hs-identifier">batchAssociateClientDeviceWithCoreDeviceResponse_errorEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDeviceResponse_httpStatus"><span class="hs-identifier">batchAssociateClientDeviceWithCoreDeviceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.html"><span class="hs-identifier">Amazonka.GreengrassV2.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newBatchAssociateClientDeviceWithCoreDevice' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679238954"><span id="local-6989586621679238955"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchAssociateClientDeviceWithCoreDevice"><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-var">BatchAssociateClientDeviceWithCoreDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchAssociateClientDeviceWithCoreDevice%27"><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-var">BatchAssociateClientDeviceWithCoreDevice'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of client devices to associate.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aentries%3ABatchAssociateClientDeviceWithCoreDevice%27"><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDevice
+-&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3Aentries%3ABatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceEntry.html#AssociateClientDeviceWithCoreDeviceEntry"><span class="hs-identifier hs-type">AssociateClientDeviceWithCoreDeviceEntry</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the core device. This is also the name of the IoT thing.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AcoreDeviceThingName%3ABatchAssociateClientDeviceWithCoreDevice%27"><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDevice -&gt; Text
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3AcoreDeviceThingName%3ABatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-var hs-var">coreDeviceThingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238947"><span id="local-6989586621679238949"><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDevice
+-&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; Bool
+(BatchAssociateClientDeviceWithCoreDevice
+ -&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; Bool)
+-&gt; (BatchAssociateClientDeviceWithCoreDevice
+    -&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; Bool)
+-&gt; Eq BatchAssociateClientDeviceWithCoreDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchAssociateClientDeviceWithCoreDevice
+-&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; Bool
+$c/= :: BatchAssociateClientDeviceWithCoreDevice
+-&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; Bool
+== :: BatchAssociateClientDeviceWithCoreDevice
+-&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; Bool
+$c== :: BatchAssociateClientDeviceWithCoreDevice
+-&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238938"><span id="local-6989586621679238940"><span id="local-6989586621679238942"><span id="local-6989586621679238944"><span class="annot"><span class="annottext">ReadPrec [BatchAssociateClientDeviceWithCoreDevice]
+ReadPrec BatchAssociateClientDeviceWithCoreDevice
+Int -&gt; ReadS BatchAssociateClientDeviceWithCoreDevice
+ReadS [BatchAssociateClientDeviceWithCoreDevice]
+(Int -&gt; ReadS BatchAssociateClientDeviceWithCoreDevice)
+-&gt; ReadS [BatchAssociateClientDeviceWithCoreDevice]
+-&gt; ReadPrec BatchAssociateClientDeviceWithCoreDevice
+-&gt; ReadPrec [BatchAssociateClientDeviceWithCoreDevice]
+-&gt; Read BatchAssociateClientDeviceWithCoreDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchAssociateClientDeviceWithCoreDevice]
+$creadListPrec :: ReadPrec [BatchAssociateClientDeviceWithCoreDevice]
+readPrec :: ReadPrec BatchAssociateClientDeviceWithCoreDevice
+$creadPrec :: ReadPrec BatchAssociateClientDeviceWithCoreDevice
+readList :: ReadS [BatchAssociateClientDeviceWithCoreDevice]
+$creadList :: ReadS [BatchAssociateClientDeviceWithCoreDevice]
+readsPrec :: Int -&gt; ReadS BatchAssociateClientDeviceWithCoreDevice
+$creadsPrec :: Int -&gt; ReadS BatchAssociateClientDeviceWithCoreDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238931"><span id="local-6989586621679238933"><span id="local-6989586621679238935"><span class="annot"><span class="annottext">Int -&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; ShowS
+[BatchAssociateClientDeviceWithCoreDevice] -&gt; ShowS
+BatchAssociateClientDeviceWithCoreDevice -&gt; String
+(Int -&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; ShowS)
+-&gt; (BatchAssociateClientDeviceWithCoreDevice -&gt; String)
+-&gt; ([BatchAssociateClientDeviceWithCoreDevice] -&gt; ShowS)
+-&gt; Show BatchAssociateClientDeviceWithCoreDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchAssociateClientDeviceWithCoreDevice] -&gt; ShowS
+$cshowList :: [BatchAssociateClientDeviceWithCoreDevice] -&gt; ShowS
+show :: BatchAssociateClientDeviceWithCoreDevice -&gt; String
+$cshow :: BatchAssociateClientDeviceWithCoreDevice -&gt; String
+showsPrec :: Int -&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchAssociateClientDeviceWithCoreDevice
+ -&gt; Rep BatchAssociateClientDeviceWithCoreDevice x)
+-&gt; (forall x.
+    Rep BatchAssociateClientDeviceWithCoreDevice x
+    -&gt; BatchAssociateClientDeviceWithCoreDevice)
+-&gt; Generic BatchAssociateClientDeviceWithCoreDevice
+forall x.
+Rep BatchAssociateClientDeviceWithCoreDevice x
+-&gt; BatchAssociateClientDeviceWithCoreDevice
+forall x.
+BatchAssociateClientDeviceWithCoreDevice
+-&gt; Rep BatchAssociateClientDeviceWithCoreDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchAssociateClientDeviceWithCoreDevice x
+-&gt; BatchAssociateClientDeviceWithCoreDevice
+$cfrom :: forall x.
+BatchAssociateClientDeviceWithCoreDevice
+-&gt; Rep BatchAssociateClientDeviceWithCoreDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'BatchAssociateClientDeviceWithCoreDevice' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'entries', 'batchAssociateClientDeviceWithCoreDevice_entries' - The list of client devices to associate.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'coreDeviceThingName', 'batchAssociateClientDeviceWithCoreDevice_coreDeviceThingName' - The name of the core device. This is also the name of the IoT thing.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#newBatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">newBatchAssociateClientDeviceWithCoreDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'coreDeviceThingName'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span>
+</span><span id="line-88"></span><span id="newBatchAssociateClientDeviceWithCoreDevice"><span class="annot"><span class="annottext">newBatchAssociateClientDeviceWithCoreDevice :: Text -&gt; BatchAssociateClientDeviceWithCoreDevice
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#newBatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-var hs-var">newBatchAssociateClientDeviceWithCoreDevice</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679238926"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238926"><span class="hs-identifier hs-var">pCoreDeviceThingName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDevice' :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+-&gt; Text -&gt; BatchAssociateClientDeviceWithCoreDevice
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice'</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entries:BatchAssociateClientDeviceWithCoreDevice' :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3Aentries%3ABatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:coreDeviceThingName:BatchAssociateClientDeviceWithCoreDevice' :: Text
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3AcoreDeviceThingName%3ABatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-var">coreDeviceThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238926"><span class="hs-identifier hs-var">pCoreDeviceThingName_</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The list of client devices to associate.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDevice_entries"><span class="hs-identifier hs-type">batchAssociateClientDeviceWithCoreDevice_entries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceEntry.html#AssociateClientDeviceWithCoreDeviceEntry"><span class="hs-identifier hs-type">AssociateClientDeviceWithCoreDeviceEntry</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="batchAssociateClientDeviceWithCoreDevice_entries"><span class="annot"><span class="annottext">batchAssociateClientDeviceWithCoreDevice_entries :: (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+ -&gt; f (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)))
+-&gt; BatchAssociateClientDeviceWithCoreDevice
+-&gt; f BatchAssociateClientDeviceWithCoreDevice
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDevice_entries"><span class="hs-identifier hs-var hs-var">batchAssociateClientDeviceWithCoreDevice_entries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAssociateClientDeviceWithCoreDevice
+ -&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry))
+-&gt; (BatchAssociateClientDeviceWithCoreDevice
+    -&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+    -&gt; BatchAssociateClientDeviceWithCoreDevice)
+-&gt; Lens
+     BatchAssociateClientDeviceWithCoreDevice
+     BatchAssociateClientDeviceWithCoreDevice
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry))
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238923"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+entries :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+$sel:entries:BatchAssociateClientDeviceWithCoreDevice' :: BatchAssociateClientDeviceWithCoreDevice
+-&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="#local-6989586621679238923"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="#local-6989586621679238923"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238922"><span class="annot"><span class="annottext">s :: BatchAssociateClientDeviceWithCoreDevice
+</span><a href="#local-6989586621679238922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238921"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="#local-6989586621679238921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDevice
+</span><a href="#local-6989586621679238922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:BatchAssociateClientDeviceWithCoreDevice' :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3Aentries%3ABatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="#local-6989586621679238921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+  -&gt; f (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)))
+ -&gt; BatchAssociateClientDeviceWithCoreDevice
+ -&gt; f BatchAssociateClientDeviceWithCoreDevice)
+-&gt; ((Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+     -&gt; f (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)))
+    -&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+    -&gt; f (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)))
+-&gt; (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+    -&gt; f (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)))
+-&gt; BatchAssociateClientDeviceWithCoreDevice
+-&gt; f BatchAssociateClientDeviceWithCoreDevice
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+-&gt; Iso
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry))
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry))
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry))
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name of the core device. This is also the name of the IoT thing.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDevice_coreDeviceThingName"><span class="hs-identifier hs-type">batchAssociateClientDeviceWithCoreDevice_coreDeviceThingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="batchAssociateClientDeviceWithCoreDevice_coreDeviceThingName"><span class="annot"><span class="annottext">batchAssociateClientDeviceWithCoreDevice_coreDeviceThingName :: (Text -&gt; f Text)
+-&gt; BatchAssociateClientDeviceWithCoreDevice
+-&gt; f BatchAssociateClientDeviceWithCoreDevice
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDevice_coreDeviceThingName"><span class="hs-identifier hs-var hs-var">batchAssociateClientDeviceWithCoreDevice_coreDeviceThingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAssociateClientDeviceWithCoreDevice -&gt; Text)
+-&gt; (BatchAssociateClientDeviceWithCoreDevice
+    -&gt; Text -&gt; BatchAssociateClientDeviceWithCoreDevice)
+-&gt; Lens
+     BatchAssociateClientDeviceWithCoreDevice
+     BatchAssociateClientDeviceWithCoreDevice
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238917"><span class="annot"><span class="annottext">Text
+coreDeviceThingName :: Text
+$sel:coreDeviceThingName:BatchAssociateClientDeviceWithCoreDevice' :: BatchAssociateClientDeviceWithCoreDevice -&gt; Text
+</span><a href="#local-6989586621679238917"><span class="hs-identifier hs-var hs-var">coreDeviceThingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238917"><span class="hs-identifier hs-var">coreDeviceThingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238916"><span class="annot"><span class="annottext">s :: BatchAssociateClientDeviceWithCoreDevice
+</span><a href="#local-6989586621679238916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238915"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDevice
+</span><a href="#local-6989586621679238916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreDeviceThingName:BatchAssociateClientDeviceWithCoreDevice' :: Text
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3AcoreDeviceThingName%3ABatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-var">coreDeviceThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679238911"><span class="annot"><span class="annottext">request :: BatchAssociateClientDeviceWithCoreDevice
+-&gt; Request BatchAssociateClientDeviceWithCoreDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; BatchAssociateClientDeviceWithCoreDevice
+-&gt; Request BatchAssociateClientDeviceWithCoreDevice
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GreengrassV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679238907"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchAssociateClientDeviceWithCoreDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse BatchAssociateClientDeviceWithCoreDevice)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse BatchAssociateClientDeviceWithCoreDevice))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchAssociateClientDeviceWithCoreDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse BatchAssociateClientDeviceWithCoreDevice)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238904"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679238903"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679238903"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679238902"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238902"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+-&gt; Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-var">BatchAssociateClientDeviceWithCoreDeviceResponse'</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+ -&gt; Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse)
+-&gt; Either
+     String
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry))
+-&gt; Either
+     String (Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorEntries&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse)
+-&gt; Either String Int
+-&gt; Either String BatchAssociateClientDeviceWithCoreDeviceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238904"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679238894"><span id="local-6989586621679238896"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679238891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679238887"><span class="annot"><span class="annottext">toHeaders :: BatchAssociateClientDeviceWithCoreDevice -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679238877"><span id="local-6989586621679238879"><span id="local-6989586621679238881"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span></span></span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679238875"><span class="annot"><span class="annottext">toJSON :: BatchAssociateClientDeviceWithCoreDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238872"><span id="local-6989586621679238873"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+Text
+coreDeviceThingName :: Text
+entries :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+$sel:coreDeviceThingName:BatchAssociateClientDeviceWithCoreDevice' :: BatchAssociateClientDeviceWithCoreDevice -&gt; Text
+$sel:entries:BatchAssociateClientDeviceWithCoreDevice' :: BatchAssociateClientDeviceWithCoreDevice
+-&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="#local-6989586621679238872"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AssociateClientDeviceWithCoreDeviceEntry -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty AssociateClientDeviceWithCoreDeviceEntry -&gt; Pair)
+-&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="#local-6989586621679238873"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679238866"><span class="annot"><span class="annottext">toPath :: BatchAssociateClientDeviceWithCoreDevice -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238863"><span id="local-6989586621679238864"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+Text
+coreDeviceThingName :: Text
+entries :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+$sel:coreDeviceThingName:BatchAssociateClientDeviceWithCoreDevice' :: BatchAssociateClientDeviceWithCoreDevice -&gt; Text
+$sel:entries:BatchAssociateClientDeviceWithCoreDevice' :: BatchAssociateClientDeviceWithCoreDevice
+-&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceEntry)
+</span><a href="#local-6989586621679238863"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/v2/coreDevices/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679238863"><span class="hs-identifier hs-var">coreDeviceThingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/associateClientDevices&quot;</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDevice"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDevice</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679238859"><span class="annot"><span class="annottext">toQuery :: BatchAssociateClientDeviceWithCoreDevice -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; BatchAssociateClientDeviceWithCoreDevice -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newBatchAssociateClientDeviceWithCoreDeviceResponse' smart constructor.</span><span>
+</span><span id="line-172"></span><span id="local-6989586621679238856"><span id="local-6989586621679238857"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-var">BatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-var">BatchAssociateClientDeviceWithCoreDeviceResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of any errors for the entries in the request. Each error entry</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- contains the name of the IoT thing that failed to associate.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AerrorEntries%3ABatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3AerrorEntries%3ABatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-var hs-var">errorEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceErrorEntry.html#AssociateClientDeviceWithCoreDeviceErrorEntry"><span class="hs-identifier hs-type">AssociateClientDeviceWithCoreDeviceErrorEntry</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Int
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3AhttpStatus%3ABatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238850"><span id="local-6989586621679238852"><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Bool
+(BatchAssociateClientDeviceWithCoreDeviceResponse
+ -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Bool)
+-&gt; (BatchAssociateClientDeviceWithCoreDeviceResponse
+    -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Bool)
+-&gt; Eq BatchAssociateClientDeviceWithCoreDeviceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Bool
+$c/= :: BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Bool
+== :: BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Bool
+$c== :: BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238842"><span id="local-6989586621679238844"><span id="local-6989586621679238846"><span id="local-6989586621679238848"><span class="annot"><span class="annottext">ReadPrec [BatchAssociateClientDeviceWithCoreDeviceResponse]
+ReadPrec BatchAssociateClientDeviceWithCoreDeviceResponse
+Int -&gt; ReadS BatchAssociateClientDeviceWithCoreDeviceResponse
+ReadS [BatchAssociateClientDeviceWithCoreDeviceResponse]
+(Int -&gt; ReadS BatchAssociateClientDeviceWithCoreDeviceResponse)
+-&gt; ReadS [BatchAssociateClientDeviceWithCoreDeviceResponse]
+-&gt; ReadPrec BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; ReadPrec [BatchAssociateClientDeviceWithCoreDeviceResponse]
+-&gt; Read BatchAssociateClientDeviceWithCoreDeviceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchAssociateClientDeviceWithCoreDeviceResponse]
+$creadListPrec :: ReadPrec [BatchAssociateClientDeviceWithCoreDeviceResponse]
+readPrec :: ReadPrec BatchAssociateClientDeviceWithCoreDeviceResponse
+$creadPrec :: ReadPrec BatchAssociateClientDeviceWithCoreDeviceResponse
+readList :: ReadS [BatchAssociateClientDeviceWithCoreDeviceResponse]
+$creadList :: ReadS [BatchAssociateClientDeviceWithCoreDeviceResponse]
+readsPrec :: Int -&gt; ReadS BatchAssociateClientDeviceWithCoreDeviceResponse
+$creadsPrec :: Int -&gt; ReadS BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238836"><span id="local-6989586621679238838"><span id="local-6989586621679238840"><span class="annot"><span class="annottext">Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; ShowS
+[BatchAssociateClientDeviceWithCoreDeviceResponse] -&gt; ShowS
+BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; String
+(Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; ShowS)
+-&gt; (BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; String)
+-&gt; ([BatchAssociateClientDeviceWithCoreDeviceResponse] -&gt; ShowS)
+-&gt; Show BatchAssociateClientDeviceWithCoreDeviceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchAssociateClientDeviceWithCoreDeviceResponse] -&gt; ShowS
+$cshowList :: [BatchAssociateClientDeviceWithCoreDeviceResponse] -&gt; ShowS
+show :: BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; String
+$cshow :: BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; String
+showsPrec :: Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchAssociateClientDeviceWithCoreDeviceResponse
+ -&gt; Rep BatchAssociateClientDeviceWithCoreDeviceResponse x)
+-&gt; (forall x.
+    Rep BatchAssociateClientDeviceWithCoreDeviceResponse x
+    -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse)
+-&gt; Generic BatchAssociateClientDeviceWithCoreDeviceResponse
+forall x.
+Rep BatchAssociateClientDeviceWithCoreDeviceResponse x
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse
+forall x.
+BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; Rep BatchAssociateClientDeviceWithCoreDeviceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchAssociateClientDeviceWithCoreDeviceResponse x
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse
+$cfrom :: forall x.
+BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; Rep BatchAssociateClientDeviceWithCoreDeviceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Create a value of 'BatchAssociateClientDeviceWithCoreDeviceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'errorEntries', 'batchAssociateClientDeviceWithCoreDeviceResponse_errorEntries' - The list of any errors for the entries in the request. Each error entry</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- contains the name of the IoT thing that failed to associate.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'httpStatus', 'batchAssociateClientDeviceWithCoreDeviceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#newBatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-type">newBatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span><span>
+</span><span id="line-197"></span><span id="newBatchAssociateClientDeviceWithCoreDeviceResponse"><span class="annot"><span class="annottext">newBatchAssociateClientDeviceWithCoreDeviceResponse :: Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#newBatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-var hs-var">newBatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679238833"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238833"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDeviceResponse' :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+-&gt; Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorEntries:BatchAssociateClientDeviceWithCoreDeviceResponse' :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3AerrorEntries%3ABatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-var">errorEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchAssociateClientDeviceWithCoreDeviceResponse' :: Int
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3AhttpStatus%3ABatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238833"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The list of any errors for the entries in the request. Each error entry</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- contains the name of the IoT thing that failed to associate.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDeviceResponse_errorEntries"><span class="hs-identifier hs-type">batchAssociateClientDeviceWithCoreDeviceResponse_errorEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceErrorEntry.html#AssociateClientDeviceWithCoreDeviceErrorEntry"><span class="hs-identifier hs-type">AssociateClientDeviceWithCoreDeviceErrorEntry</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="batchAssociateClientDeviceWithCoreDeviceResponse_errorEntries"><span class="annot"><span class="annottext">batchAssociateClientDeviceWithCoreDeviceResponse_errorEntries :: (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+ -&gt; f (Maybe
+         (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)))
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; f BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDeviceResponse_errorEntries"><span class="hs-identifier hs-var hs-var">batchAssociateClientDeviceWithCoreDeviceResponse_errorEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAssociateClientDeviceWithCoreDeviceResponse
+ -&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry))
+-&gt; (BatchAssociateClientDeviceWithCoreDeviceResponse
+    -&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+    -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse)
+-&gt; Lens
+     BatchAssociateClientDeviceWithCoreDeviceResponse
+     BatchAssociateClientDeviceWithCoreDeviceResponse
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry))
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238832"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+errorEntries :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+$sel:errorEntries:BatchAssociateClientDeviceWithCoreDeviceResponse' :: BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+</span><a href="#local-6989586621679238832"><span class="hs-identifier hs-var hs-var">errorEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+</span><a href="#local-6989586621679238832"><span class="hs-identifier hs-var">errorEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238831"><span class="annot"><span class="annottext">s :: BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><a href="#local-6989586621679238831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238830"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+</span><a href="#local-6989586621679238830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><a href="#local-6989586621679238831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorEntries:BatchAssociateClientDeviceWithCoreDeviceResponse' :: Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3AerrorEntries%3ABatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-var">errorEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+</span><a href="#local-6989586621679238830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+  -&gt; f (Maybe
+          (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)))
+ -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse
+ -&gt; f BatchAssociateClientDeviceWithCoreDeviceResponse)
+-&gt; ((Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+     -&gt; f (Maybe
+             (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)))
+    -&gt; Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+    -&gt; f (Maybe
+            (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)))
+-&gt; (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+    -&gt; f (Maybe
+            (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)))
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; f BatchAssociateClientDeviceWithCoreDeviceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+-&gt; Iso
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry))
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry))
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry))
+     (Maybe (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+  (NonEmpty AssociateClientDeviceWithCoreDeviceErrorEntry)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDeviceResponse_httpStatus"><span class="hs-identifier hs-type">batchAssociateClientDeviceWithCoreDeviceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span id="batchAssociateClientDeviceWithCoreDeviceResponse_httpStatus"><span class="annot"><span class="annottext">batchAssociateClientDeviceWithCoreDeviceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchAssociateClientDeviceWithCoreDeviceResponse
+-&gt; f BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#batchAssociateClientDeviceWithCoreDeviceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchAssociateClientDeviceWithCoreDeviceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Int)
+-&gt; (BatchAssociateClientDeviceWithCoreDeviceResponse
+    -&gt; Int -&gt; BatchAssociateClientDeviceWithCoreDeviceResponse)
+-&gt; Lens
+     BatchAssociateClientDeviceWithCoreDeviceResponse
+     BatchAssociateClientDeviceWithCoreDeviceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238829"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchAssociateClientDeviceWithCoreDeviceResponse' :: BatchAssociateClientDeviceWithCoreDeviceResponse -&gt; Int
+</span><a href="#local-6989586621679238829"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238829"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238828"><span class="annot"><span class="annottext">s :: BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><a href="#local-6989586621679238828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238827"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateClientDeviceWithCoreDeviceResponse
+</span><a href="#local-6989586621679238828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchAssociateClientDeviceWithCoreDeviceResponse' :: Int
+</span><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#%24sel%3AhttpStatus%3ABatchAssociateClientDeviceWithCoreDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679238827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679238825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice.html#BatchAssociateClientDeviceWithCoreDeviceResponse"><span class="hs-identifier hs-type">BatchAssociateClientDeviceWithCoreDeviceResponse</span></a></span></span><span>
+</span><span id="line-217"></span></pre></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeGuruProfiler.Types.FeedbackType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeGuruProfiler.Types.FeedbackType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType"><span class="hs-identifier">FeedbackType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType_Negative"><span class="hs-identifier">FeedbackType_Negative</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType_Positive"><span class="hs-identifier">FeedbackType_Positive</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679197917"><span id="local-6989586621679197918"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FeedbackType"><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType"><span class="hs-identifier hs-var">FeedbackType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeedbackType%27"><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType%27"><span class="hs-identifier hs-var">FeedbackType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFeedbackType"><span class="annot"><span class="annottext">FeedbackType -&gt; Text
+</span><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#fromFeedbackType"><span class="hs-identifier hs-var hs-var">fromFeedbackType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197909"><span id="local-6989586621679197911"><span id="local-6989586621679197913"><span class="annot"><span class="annottext">Int -&gt; FeedbackType -&gt; ShowS
+[FeedbackType] -&gt; ShowS
+FeedbackType -&gt; String
+(Int -&gt; FeedbackType -&gt; ShowS)
+-&gt; (FeedbackType -&gt; String)
+-&gt; ([FeedbackType] -&gt; ShowS)
+-&gt; Show FeedbackType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FeedbackType] -&gt; ShowS
+$cshowList :: [FeedbackType] -&gt; ShowS
+show :: FeedbackType -&gt; String
+$cshow :: FeedbackType -&gt; String
+showsPrec :: Int -&gt; FeedbackType -&gt; ShowS
+$cshowsPrec :: Int -&gt; FeedbackType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679197900"><span id="local-6989586621679197902"><span id="local-6989586621679197904"><span id="local-6989586621679197906"><span class="annot"><span class="annottext">ReadPrec [FeedbackType]
+ReadPrec FeedbackType
+Int -&gt; ReadS FeedbackType
+ReadS [FeedbackType]
+(Int -&gt; ReadS FeedbackType)
+-&gt; ReadS [FeedbackType]
+-&gt; ReadPrec FeedbackType
+-&gt; ReadPrec [FeedbackType]
+-&gt; Read FeedbackType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FeedbackType]
+$creadListPrec :: ReadPrec [FeedbackType]
+readPrec :: ReadPrec FeedbackType
+$creadPrec :: ReadPrec FeedbackType
+readList :: ReadS [FeedbackType]
+$creadList :: ReadS [FeedbackType]
+readsPrec :: Int -&gt; ReadS FeedbackType
+$creadsPrec :: Int -&gt; ReadS FeedbackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679197895"><span id="local-6989586621679197897"><span class="annot"><span class="annottext">FeedbackType -&gt; FeedbackType -&gt; Bool
+(FeedbackType -&gt; FeedbackType -&gt; Bool)
+-&gt; (FeedbackType -&gt; FeedbackType -&gt; Bool) -&gt; Eq FeedbackType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FeedbackType -&gt; FeedbackType -&gt; Bool
+$c/= :: FeedbackType -&gt; FeedbackType -&gt; Bool
+== :: FeedbackType -&gt; FeedbackType -&gt; Bool
+$c== :: FeedbackType -&gt; FeedbackType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679197879"><span id="local-6989586621679197881"><span id="local-6989586621679197883"><span id="local-6989586621679197885"><span id="local-6989586621679197887"><span id="local-6989586621679197889"><span id="local-6989586621679197891"><span class="annot"><span class="annottext">Eq FeedbackType
+Eq FeedbackType
+-&gt; (FeedbackType -&gt; FeedbackType -&gt; Ordering)
+-&gt; (FeedbackType -&gt; FeedbackType -&gt; Bool)
+-&gt; (FeedbackType -&gt; FeedbackType -&gt; Bool)
+-&gt; (FeedbackType -&gt; FeedbackType -&gt; Bool)
+-&gt; (FeedbackType -&gt; FeedbackType -&gt; Bool)
+-&gt; (FeedbackType -&gt; FeedbackType -&gt; FeedbackType)
+-&gt; (FeedbackType -&gt; FeedbackType -&gt; FeedbackType)
+-&gt; Ord FeedbackType
+FeedbackType -&gt; FeedbackType -&gt; Bool
+FeedbackType -&gt; FeedbackType -&gt; Ordering
+FeedbackType -&gt; FeedbackType -&gt; FeedbackType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FeedbackType -&gt; FeedbackType -&gt; FeedbackType
+$cmin :: FeedbackType -&gt; FeedbackType -&gt; FeedbackType
+max :: FeedbackType -&gt; FeedbackType -&gt; FeedbackType
+$cmax :: FeedbackType -&gt; FeedbackType -&gt; FeedbackType
+&gt;= :: FeedbackType -&gt; FeedbackType -&gt; Bool
+$c&gt;= :: FeedbackType -&gt; FeedbackType -&gt; Bool
+&gt; :: FeedbackType -&gt; FeedbackType -&gt; Bool
+$c&gt; :: FeedbackType -&gt; FeedbackType -&gt; Bool
+&lt;= :: FeedbackType -&gt; FeedbackType -&gt; Bool
+$c&lt;= :: FeedbackType -&gt; FeedbackType -&gt; Bool
+&lt; :: FeedbackType -&gt; FeedbackType -&gt; Bool
+$c&lt; :: FeedbackType -&gt; FeedbackType -&gt; Bool
+compare :: FeedbackType -&gt; FeedbackType -&gt; Ordering
+$ccompare :: FeedbackType -&gt; FeedbackType -&gt; Ordering
+$cp1Ord :: Eq FeedbackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FeedbackType -&gt; Rep FeedbackType x)
+-&gt; (forall x. Rep FeedbackType x -&gt; FeedbackType)
+-&gt; Generic FeedbackType
+forall x. Rep FeedbackType x -&gt; FeedbackType
+forall x. FeedbackType -&gt; Rep FeedbackType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FeedbackType x -&gt; FeedbackType
+$cfrom :: forall x. FeedbackType -&gt; Rep FeedbackType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679197871"><span id="local-6989586621679197873"><span class="annot"><span class="annottext">Int -&gt; FeedbackType -&gt; Int
+FeedbackType -&gt; Int
+(Int -&gt; FeedbackType -&gt; Int)
+-&gt; (FeedbackType -&gt; Int) -&gt; Hashable FeedbackType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FeedbackType -&gt; Int
+$chash :: FeedbackType -&gt; Int
+hashWithSalt :: Int -&gt; FeedbackType -&gt; Int
+$chashWithSalt :: Int -&gt; FeedbackType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679197868"><span class="annot"><span class="annottext">FeedbackType -&gt; ()
+(FeedbackType -&gt; ()) -&gt; NFData FeedbackType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FeedbackType -&gt; ()
+$crnf :: FeedbackType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679197865"><span class="annot"><span class="annottext">Text -&gt; Either String FeedbackType
+(Text -&gt; Either String FeedbackType) -&gt; FromText FeedbackType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FeedbackType
+$cfromText :: Text -&gt; Either String FeedbackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679197862"><span class="annot"><span class="annottext">FeedbackType -&gt; Text
+(FeedbackType -&gt; Text) -&gt; ToText FeedbackType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FeedbackType -&gt; Text
+$ctoText :: FeedbackType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679197859"><span class="annot"><span class="annottext">FeedbackType -&gt; ByteString
+(FeedbackType -&gt; ByteString) -&gt; ToByteString FeedbackType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FeedbackType -&gt; ByteString
+$ctoBS :: FeedbackType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679197856"><span class="annot"><span class="annottext">FeedbackType -&gt; ByteStringBuilder
+(FeedbackType -&gt; ByteStringBuilder) -&gt; ToLog FeedbackType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FeedbackType -&gt; ByteStringBuilder
+$cbuild :: FeedbackType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679197853"><span class="annot"><span class="annottext">HeaderName -&gt; FeedbackType -&gt; [Header]
+(HeaderName -&gt; FeedbackType -&gt; [Header]) -&gt; ToHeader FeedbackType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FeedbackType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FeedbackType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679197850"><span class="annot"><span class="annottext">FeedbackType -&gt; QueryString
+(FeedbackType -&gt; QueryString) -&gt; ToQuery FeedbackType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FeedbackType -&gt; QueryString
+$ctoQuery :: FeedbackType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679197845"><span id="local-6989586621679197847"><span class="annot"><span class="annottext">Value -&gt; Parser [FeedbackType]
+Value -&gt; Parser FeedbackType
+(Value -&gt; Parser FeedbackType)
+-&gt; (Value -&gt; Parser [FeedbackType]) -&gt; FromJSON FeedbackType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FeedbackType]
+$cparseJSONList :: Value -&gt; Parser [FeedbackType]
+parseJSON :: Value -&gt; Parser FeedbackType
+$cparseJSON :: Value -&gt; Parser FeedbackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679197840"><span id="local-6989586621679197842"><span class="annot"><span class="annottext">FromJSONKeyFunction [FeedbackType]
+FromJSONKeyFunction FeedbackType
+FromJSONKeyFunction FeedbackType
+-&gt; FromJSONKeyFunction [FeedbackType] -&gt; FromJSONKey FeedbackType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FeedbackType]
+$cfromJSONKeyList :: FromJSONKeyFunction [FeedbackType]
+fromJSONKey :: FromJSONKeyFunction FeedbackType
+$cfromJSONKey :: FromJSONKeyFunction FeedbackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679197831"><span id="local-6989586621679197833"><span id="local-6989586621679197835"><span id="local-6989586621679197837"><span class="annot"><span class="annottext">[FeedbackType] -&gt; Encoding
+[FeedbackType] -&gt; Value
+FeedbackType -&gt; Encoding
+FeedbackType -&gt; Value
+(FeedbackType -&gt; Value)
+-&gt; (FeedbackType -&gt; Encoding)
+-&gt; ([FeedbackType] -&gt; Value)
+-&gt; ([FeedbackType] -&gt; Encoding)
+-&gt; ToJSON FeedbackType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FeedbackType] -&gt; Encoding
+$ctoEncodingList :: [FeedbackType] -&gt; Encoding
+toJSONList :: [FeedbackType] -&gt; Value
+$ctoJSONList :: [FeedbackType] -&gt; Value
+toEncoding :: FeedbackType -&gt; Encoding
+$ctoEncoding :: FeedbackType -&gt; Encoding
+toJSON :: FeedbackType -&gt; Value
+$ctoJSON :: FeedbackType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679197826"><span id="local-6989586621679197828"><span class="annot"><span class="annottext">ToJSONKeyFunction [FeedbackType]
+ToJSONKeyFunction FeedbackType
+ToJSONKeyFunction FeedbackType
+-&gt; ToJSONKeyFunction [FeedbackType] -&gt; ToJSONKey FeedbackType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FeedbackType]
+$ctoJSONKeyList :: ToJSONKeyFunction [FeedbackType]
+toJSONKey :: ToJSONKeyFunction FeedbackType
+$ctoJSONKey :: ToJSONKeyFunction FeedbackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679197823"><span class="annot"><span class="annottext">[Node] -&gt; Either String FeedbackType
+([Node] -&gt; Either String FeedbackType) -&gt; FromXML FeedbackType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FeedbackType
+$cparseXML :: [Node] -&gt; Either String FeedbackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679197820"><span class="annot"><span class="annottext">FeedbackType -&gt; XML
+(FeedbackType -&gt; XML) -&gt; ToXML FeedbackType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FeedbackType -&gt; XML
+$ctoXML :: FeedbackType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType_Negative"><span class="hs-identifier hs-type">FeedbackType_Negative</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType"><span class="hs-identifier hs-type">FeedbackType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFeedbackType_Negative"><span id="%24mFeedbackType_Negative"><span id="FeedbackType_Negative"><span class="annot"><span class="annottext">$bFeedbackType_Negative :: FeedbackType
+$mFeedbackType_Negative :: forall r. FeedbackType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#%24bFeedbackType_Negative"><span class="hs-identifier hs-var hs-var hs-var">FeedbackType_Negative</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType%27"><span class="hs-identifier hs-type">FeedbackType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Negative&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType_Positive"><span class="hs-identifier hs-type">FeedbackType_Positive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType"><span class="hs-identifier hs-type">FeedbackType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFeedbackType_Positive"><span id="%24mFeedbackType_Positive"><span id="FeedbackType_Positive"><span class="annot"><span class="annottext">$bFeedbackType_Positive :: FeedbackType
+$mFeedbackType_Positive :: forall r. FeedbackType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#%24bFeedbackType_Positive"><span class="hs-identifier hs-var hs-var hs-var">FeedbackType_Positive</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType%27"><span class="hs-identifier hs-type">FeedbackType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Positive&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType_Negative"><span class="hs-pragma hs-type">FeedbackType_Negative</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType_Positive"><span class="hs-pragma hs-type">FeedbackType_Positive</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FeedbackType.html#FeedbackType%27"><span class="hs-pragma hs-type">FeedbackType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

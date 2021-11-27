@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataSync.Types.SmbVersion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataSync.Types.SmbVersion</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion"><span class="hs-identifier">SmbVersion</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion_AUTOMATIC"><span class="hs-identifier">SmbVersion_AUTOMATIC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion_SMB2"><span class="hs-identifier">SmbVersion_SMB2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion_SMB3"><span class="hs-identifier">SmbVersion_SMB3</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679250881"><span id="local-6989586621679250882"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SmbVersion"><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion"><span class="hs-identifier hs-var">SmbVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SmbVersion%27"><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion%27"><span class="hs-identifier hs-var">SmbVersion'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSmbVersion"><span class="annot"><span class="annottext">SmbVersion -&gt; Text
+</span><a href="Amazonka.DataSync.Types.SmbVersion.html#fromSmbVersion"><span class="hs-identifier hs-var hs-var">fromSmbVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250873"><span id="local-6989586621679250875"><span id="local-6989586621679250877"><span class="annot"><span class="annottext">Int -&gt; SmbVersion -&gt; ShowS
+[SmbVersion] -&gt; ShowS
+SmbVersion -&gt; String
+(Int -&gt; SmbVersion -&gt; ShowS)
+-&gt; (SmbVersion -&gt; String)
+-&gt; ([SmbVersion] -&gt; ShowS)
+-&gt; Show SmbVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SmbVersion] -&gt; ShowS
+$cshowList :: [SmbVersion] -&gt; ShowS
+show :: SmbVersion -&gt; String
+$cshow :: SmbVersion -&gt; String
+showsPrec :: Int -&gt; SmbVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; SmbVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679250864"><span id="local-6989586621679250866"><span id="local-6989586621679250868"><span id="local-6989586621679250870"><span class="annot"><span class="annottext">ReadPrec [SmbVersion]
+ReadPrec SmbVersion
+Int -&gt; ReadS SmbVersion
+ReadS [SmbVersion]
+(Int -&gt; ReadS SmbVersion)
+-&gt; ReadS [SmbVersion]
+-&gt; ReadPrec SmbVersion
+-&gt; ReadPrec [SmbVersion]
+-&gt; Read SmbVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SmbVersion]
+$creadListPrec :: ReadPrec [SmbVersion]
+readPrec :: ReadPrec SmbVersion
+$creadPrec :: ReadPrec SmbVersion
+readList :: ReadS [SmbVersion]
+$creadList :: ReadS [SmbVersion]
+readsPrec :: Int -&gt; ReadS SmbVersion
+$creadsPrec :: Int -&gt; ReadS SmbVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679250859"><span id="local-6989586621679250861"><span class="annot"><span class="annottext">SmbVersion -&gt; SmbVersion -&gt; Bool
+(SmbVersion -&gt; SmbVersion -&gt; Bool)
+-&gt; (SmbVersion -&gt; SmbVersion -&gt; Bool) -&gt; Eq SmbVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SmbVersion -&gt; SmbVersion -&gt; Bool
+$c/= :: SmbVersion -&gt; SmbVersion -&gt; Bool
+== :: SmbVersion -&gt; SmbVersion -&gt; Bool
+$c== :: SmbVersion -&gt; SmbVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679250843"><span id="local-6989586621679250845"><span id="local-6989586621679250847"><span id="local-6989586621679250849"><span id="local-6989586621679250851"><span id="local-6989586621679250853"><span id="local-6989586621679250855"><span class="annot"><span class="annottext">Eq SmbVersion
+Eq SmbVersion
+-&gt; (SmbVersion -&gt; SmbVersion -&gt; Ordering)
+-&gt; (SmbVersion -&gt; SmbVersion -&gt; Bool)
+-&gt; (SmbVersion -&gt; SmbVersion -&gt; Bool)
+-&gt; (SmbVersion -&gt; SmbVersion -&gt; Bool)
+-&gt; (SmbVersion -&gt; SmbVersion -&gt; Bool)
+-&gt; (SmbVersion -&gt; SmbVersion -&gt; SmbVersion)
+-&gt; (SmbVersion -&gt; SmbVersion -&gt; SmbVersion)
+-&gt; Ord SmbVersion
+SmbVersion -&gt; SmbVersion -&gt; Bool
+SmbVersion -&gt; SmbVersion -&gt; Ordering
+SmbVersion -&gt; SmbVersion -&gt; SmbVersion
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SmbVersion -&gt; SmbVersion -&gt; SmbVersion
+$cmin :: SmbVersion -&gt; SmbVersion -&gt; SmbVersion
+max :: SmbVersion -&gt; SmbVersion -&gt; SmbVersion
+$cmax :: SmbVersion -&gt; SmbVersion -&gt; SmbVersion
+&gt;= :: SmbVersion -&gt; SmbVersion -&gt; Bool
+$c&gt;= :: SmbVersion -&gt; SmbVersion -&gt; Bool
+&gt; :: SmbVersion -&gt; SmbVersion -&gt; Bool
+$c&gt; :: SmbVersion -&gt; SmbVersion -&gt; Bool
+&lt;= :: SmbVersion -&gt; SmbVersion -&gt; Bool
+$c&lt;= :: SmbVersion -&gt; SmbVersion -&gt; Bool
+&lt; :: SmbVersion -&gt; SmbVersion -&gt; Bool
+$c&lt; :: SmbVersion -&gt; SmbVersion -&gt; Bool
+compare :: SmbVersion -&gt; SmbVersion -&gt; Ordering
+$ccompare :: SmbVersion -&gt; SmbVersion -&gt; Ordering
+$cp1Ord :: Eq SmbVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SmbVersion -&gt; Rep SmbVersion x)
+-&gt; (forall x. Rep SmbVersion x -&gt; SmbVersion) -&gt; Generic SmbVersion
+forall x. Rep SmbVersion x -&gt; SmbVersion
+forall x. SmbVersion -&gt; Rep SmbVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SmbVersion x -&gt; SmbVersion
+$cfrom :: forall x. SmbVersion -&gt; Rep SmbVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250835"><span id="local-6989586621679250837"><span class="annot"><span class="annottext">Int -&gt; SmbVersion -&gt; Int
+SmbVersion -&gt; Int
+(Int -&gt; SmbVersion -&gt; Int)
+-&gt; (SmbVersion -&gt; Int) -&gt; Hashable SmbVersion
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SmbVersion -&gt; Int
+$chash :: SmbVersion -&gt; Int
+hashWithSalt :: Int -&gt; SmbVersion -&gt; Int
+$chashWithSalt :: Int -&gt; SmbVersion -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250832"><span class="annot"><span class="annottext">SmbVersion -&gt; ()
+(SmbVersion -&gt; ()) -&gt; NFData SmbVersion
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SmbVersion -&gt; ()
+$crnf :: SmbVersion -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250829"><span class="annot"><span class="annottext">Text -&gt; Either String SmbVersion
+(Text -&gt; Either String SmbVersion) -&gt; FromText SmbVersion
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SmbVersion
+$cfromText :: Text -&gt; Either String SmbVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250826"><span class="annot"><span class="annottext">SmbVersion -&gt; Text
+(SmbVersion -&gt; Text) -&gt; ToText SmbVersion
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SmbVersion -&gt; Text
+$ctoText :: SmbVersion -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250823"><span class="annot"><span class="annottext">SmbVersion -&gt; ByteString
+(SmbVersion -&gt; ByteString) -&gt; ToByteString SmbVersion
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SmbVersion -&gt; ByteString
+$ctoBS :: SmbVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250820"><span class="annot"><span class="annottext">SmbVersion -&gt; ByteStringBuilder
+(SmbVersion -&gt; ByteStringBuilder) -&gt; ToLog SmbVersion
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SmbVersion -&gt; ByteStringBuilder
+$cbuild :: SmbVersion -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250817"><span class="annot"><span class="annottext">HeaderName -&gt; SmbVersion -&gt; [Header]
+(HeaderName -&gt; SmbVersion -&gt; [Header]) -&gt; ToHeader SmbVersion
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SmbVersion -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SmbVersion -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250814"><span class="annot"><span class="annottext">SmbVersion -&gt; QueryString
+(SmbVersion -&gt; QueryString) -&gt; ToQuery SmbVersion
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SmbVersion -&gt; QueryString
+$ctoQuery :: SmbVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250809"><span id="local-6989586621679250811"><span class="annot"><span class="annottext">Value -&gt; Parser [SmbVersion]
+Value -&gt; Parser SmbVersion
+(Value -&gt; Parser SmbVersion)
+-&gt; (Value -&gt; Parser [SmbVersion]) -&gt; FromJSON SmbVersion
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SmbVersion]
+$cparseJSONList :: Value -&gt; Parser [SmbVersion]
+parseJSON :: Value -&gt; Parser SmbVersion
+$cparseJSON :: Value -&gt; Parser SmbVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250804"><span id="local-6989586621679250806"><span class="annot"><span class="annottext">FromJSONKeyFunction [SmbVersion]
+FromJSONKeyFunction SmbVersion
+FromJSONKeyFunction SmbVersion
+-&gt; FromJSONKeyFunction [SmbVersion] -&gt; FromJSONKey SmbVersion
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SmbVersion]
+$cfromJSONKeyList :: FromJSONKeyFunction [SmbVersion]
+fromJSONKey :: FromJSONKeyFunction SmbVersion
+$cfromJSONKey :: FromJSONKeyFunction SmbVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250795"><span id="local-6989586621679250797"><span id="local-6989586621679250799"><span id="local-6989586621679250801"><span class="annot"><span class="annottext">[SmbVersion] -&gt; Encoding
+[SmbVersion] -&gt; Value
+SmbVersion -&gt; Encoding
+SmbVersion -&gt; Value
+(SmbVersion -&gt; Value)
+-&gt; (SmbVersion -&gt; Encoding)
+-&gt; ([SmbVersion] -&gt; Value)
+-&gt; ([SmbVersion] -&gt; Encoding)
+-&gt; ToJSON SmbVersion
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SmbVersion] -&gt; Encoding
+$ctoEncodingList :: [SmbVersion] -&gt; Encoding
+toJSONList :: [SmbVersion] -&gt; Value
+$ctoJSONList :: [SmbVersion] -&gt; Value
+toEncoding :: SmbVersion -&gt; Encoding
+$ctoEncoding :: SmbVersion -&gt; Encoding
+toJSON :: SmbVersion -&gt; Value
+$ctoJSON :: SmbVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250790"><span id="local-6989586621679250792"><span class="annot"><span class="annottext">ToJSONKeyFunction [SmbVersion]
+ToJSONKeyFunction SmbVersion
+ToJSONKeyFunction SmbVersion
+-&gt; ToJSONKeyFunction [SmbVersion] -&gt; ToJSONKey SmbVersion
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SmbVersion]
+$ctoJSONKeyList :: ToJSONKeyFunction [SmbVersion]
+toJSONKey :: ToJSONKeyFunction SmbVersion
+$ctoJSONKey :: ToJSONKeyFunction SmbVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250787"><span class="annot"><span class="annottext">[Node] -&gt; Either String SmbVersion
+([Node] -&gt; Either String SmbVersion) -&gt; FromXML SmbVersion
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SmbVersion
+$cparseXML :: [Node] -&gt; Either String SmbVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679250784"><span class="annot"><span class="annottext">SmbVersion -&gt; XML
+(SmbVersion -&gt; XML) -&gt; ToXML SmbVersion
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SmbVersion -&gt; XML
+$ctoXML :: SmbVersion -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion_AUTOMATIC"><span class="hs-identifier hs-type">SmbVersion_AUTOMATIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion"><span class="hs-identifier hs-type">SmbVersion</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSmbVersion_AUTOMATIC"><span id="%24mSmbVersion_AUTOMATIC"><span id="SmbVersion_AUTOMATIC"><span class="annot"><span class="annottext">$bSmbVersion_AUTOMATIC :: SmbVersion
+$mSmbVersion_AUTOMATIC :: forall r. SmbVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataSync.Types.SmbVersion.html#%24bSmbVersion_AUTOMATIC"><span class="hs-identifier hs-var hs-var hs-var">SmbVersion_AUTOMATIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion%27"><span class="hs-identifier hs-type">SmbVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTOMATIC&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion_SMB2"><span class="hs-identifier hs-type">SmbVersion_SMB2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion"><span class="hs-identifier hs-type">SmbVersion</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSmbVersion_SMB2"><span id="%24mSmbVersion_SMB2"><span id="SmbVersion_SMB2"><span class="annot"><span class="annottext">$bSmbVersion_SMB2 :: SmbVersion
+$mSmbVersion_SMB2 :: forall r. SmbVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataSync.Types.SmbVersion.html#%24bSmbVersion_SMB2"><span class="hs-identifier hs-var hs-var hs-var">SmbVersion_SMB2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion%27"><span class="hs-identifier hs-type">SmbVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMB2&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion_SMB3"><span class="hs-identifier hs-type">SmbVersion_SMB3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion"><span class="hs-identifier hs-type">SmbVersion</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSmbVersion_SMB3"><span id="%24mSmbVersion_SMB3"><span id="SmbVersion_SMB3"><span class="annot"><span class="annottext">$bSmbVersion_SMB3 :: SmbVersion
+$mSmbVersion_SMB3 :: forall r. SmbVersion -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataSync.Types.SmbVersion.html#%24bSmbVersion_SMB3"><span class="hs-identifier hs-var hs-var hs-var">SmbVersion_SMB3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion%27"><span class="hs-identifier hs-type">SmbVersion'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMB3&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion_AUTOMATIC"><span class="hs-pragma hs-type">SmbVersion_AUTOMATIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion_SMB2"><span class="hs-pragma hs-type">SmbVersion_SMB2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion_SMB3"><span class="hs-pragma hs-type">SmbVersion_SMB3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbVersion.html#SmbVersion%27"><span class="hs-pragma hs-type">SmbVersion'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.StepFunctions.Types.ActivityFailedEventDetails
+module Amazonka.StepFunctions.Types.ActivityFailedEventDetails
 
 -- | Contains details about an activity that failed during an execution.
 --   
@@ -42,15 +42,15 @@ activityFailedEventDetails_error :: Lens' ActivityFailedEventDetails (Maybe Text
 
 -- | A more detailed explanation of the cause of the failure.
 activityFailedEventDetails_cause :: Lens' ActivityFailedEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ActivityFailedEventDetails.ActivityFailedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.ActivityListItem
+module Amazonka.StepFunctions.Types.ActivityListItem
 
 -- | Contains details about an activity.
 --   
@@ -138,16 +138,16 @@ activityListItem_name :: Lens' ActivityListItem Text
 
 -- | The date the activity is created.
 activityListItem_creationDate :: Lens' ActivityListItem UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ActivityListItem.ActivityListItem
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ActivityListItem.ActivityListItem
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.ActivityListItem.ActivityListItem
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ActivityListItem.ActivityListItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ActivityListItem.ActivityListItem
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ActivityListItem.ActivityListItem
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ActivityListItem.ActivityListItem
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ActivityListItem.ActivityListItem
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ActivityListItem.ActivityListItem
+instance GHC.Read.Read Amazonka.StepFunctions.Types.ActivityListItem.ActivityListItem
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ActivityListItem.ActivityListItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ActivityListItem.ActivityListItem
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ActivityListItem.ActivityListItem
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ActivityListItem.ActivityListItem
 
 
-module Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails
+module Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails
 
 -- | Contains details about an activity schedule failure that occurred
 --   during an execution.
@@ -186,15 +186,15 @@ activityScheduleFailedEventDetails_error :: Lens' ActivityScheduleFailedEventDet
 
 -- | A more detailed explanation of the cause of the failure.
 activityScheduleFailedEventDetails_cause :: Lens' ActivityScheduleFailedEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails.ActivityScheduleFailedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.ActivityStartedEventDetails
+module Amazonka.StepFunctions.Types.ActivityStartedEventDetails
 
 -- | Contains details about the start of an activity during an execution.
 --   
@@ -224,16 +224,16 @@ newActivityStartedEventDetails :: ActivityStartedEventDetails
 -- | The name of the worker that the task is assigned to. These names are
 --   provided by the workers when calling GetActivityTask.
 activityStartedEventDetails_workerName :: Lens' ActivityStartedEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
+instance GHC.Read.Read Amazonka.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ActivityStartedEventDetails.ActivityStartedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails
+module Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails
 
 -- | Contains details about an activity timeout that occurred during an
 --   execution.
@@ -271,15 +271,15 @@ activityTimedOutEventDetails_error :: Lens' ActivityTimedOutEventDetails (Maybe 
 
 -- | A more detailed explanation of the cause of the timeout.
 activityTimedOutEventDetails_cause :: Lens' ActivityTimedOutEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails.ActivityTimedOutEventDetails
 
 
-module Network.AWS.StepFunctions.Types.BillingDetails
+module Amazonka.StepFunctions.Types.BillingDetails
 
 -- | An object that describes workflow billing details.
 --   
@@ -316,16 +316,16 @@ billingDetails_billedMemoryUsedInMB :: Lens' BillingDetails (Maybe Natural)
 
 -- | Billed duration of your workflow, in milliseconds.
 billingDetails_billedDurationInMilliseconds :: Lens' BillingDetails (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.BillingDetails.BillingDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.BillingDetails.BillingDetails
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.BillingDetails.BillingDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.BillingDetails.BillingDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.BillingDetails.BillingDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.BillingDetails.BillingDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.BillingDetails.BillingDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.BillingDetails.BillingDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.BillingDetails.BillingDetails
+instance GHC.Read.Read Amazonka.StepFunctions.Types.BillingDetails.BillingDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.BillingDetails.BillingDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.BillingDetails.BillingDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.BillingDetails.BillingDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.BillingDetails.BillingDetails
 
 
-module Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails
+module Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails
 
 -- | Provides details about execution input or output.
 --   
@@ -356,16 +356,16 @@ newCloudWatchEventsExecutionDataDetails :: CloudWatchEventsExecutionDataDetails
 -- | Indicates whether input or output was included in the response. Always
 --   <tt>true</tt> for API calls.
 cloudWatchEventsExecutionDataDetails_included :: Lens' CloudWatchEventsExecutionDataDetails (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
+instance GHC.Read.Read Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails.CloudWatchEventsExecutionDataDetails
 
 
-module Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
+module Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup
 
 -- | <i>See:</i> <a>newCloudWatchLogsLogGroup</a> smart constructor.
 data CloudWatchLogsLogGroup
@@ -393,17 +393,17 @@ newCloudWatchLogsLogGroup :: CloudWatchLogsLogGroup
 -- | The ARN of the the CloudWatch log group to which you want your logs
 --   emitted to. The ARN must end with <tt>:*</tt>
 cloudWatchLogsLogGroup_logGroupArn :: Lens' CloudWatchLogsLogGroup (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
+instance GHC.Show.Show Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
+instance GHC.Read.Read Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup.CloudWatchLogsLogGroup
 
 
-module Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails
+module Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails
 
 -- | Contains details about an abort of an execution.
 --   
@@ -440,15 +440,15 @@ executionAbortedEventDetails_error :: Lens' ExecutionAbortedEventDetails (Maybe 
 
 -- | A more detailed explanation of the cause of the failure.
 executionAbortedEventDetails_cause :: Lens' ExecutionAbortedEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails.ExecutionAbortedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails
+module Amazonka.StepFunctions.Types.ExecutionFailedEventDetails
 
 -- | Contains details about an execution failure event.
 --   
@@ -485,15 +485,15 @@ executionFailedEventDetails_error :: Lens' ExecutionFailedEventDetails (Maybe Te
 
 -- | A more detailed explanation of the cause of the failure.
 executionFailedEventDetails_cause :: Lens' ExecutionFailedEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ExecutionFailedEventDetails.ExecutionFailedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.ExecutionStatus
+module Amazonka.StepFunctions.Types.ExecutionStatus
 newtype ExecutionStatus
 ExecutionStatus' :: Text -> ExecutionStatus
 [fromExecutionStatus] :: ExecutionStatus -> Text
@@ -502,28 +502,28 @@ pattern ExecutionStatus_FAILED :: ExecutionStatus
 pattern ExecutionStatus_RUNNING :: ExecutionStatus
 pattern ExecutionStatus_SUCCEEDED :: ExecutionStatus
 pattern ExecutionStatus_TIMED_OUT :: ExecutionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance GHC.Classes.Ord Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Amazonka.Data.Text.ToText Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Amazonka.Data.Text.FromText Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance GHC.Classes.Ord Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance GHC.Read.Read Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ExecutionStatus.ExecutionStatus
 
 
-module Network.AWS.StepFunctions.Types.ExecutionListItem
+module Amazonka.StepFunctions.Types.ExecutionListItem
 
 -- | Contains details about an execution.
 --   
@@ -639,16 +639,16 @@ executionListItem_status :: Lens' ExecutionListItem ExecutionStatus
 
 -- | The date the execution started.
 executionListItem_startDate :: Lens' ExecutionListItem UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ExecutionListItem.ExecutionListItem
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ExecutionListItem.ExecutionListItem
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.ExecutionListItem.ExecutionListItem
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ExecutionListItem.ExecutionListItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ExecutionListItem.ExecutionListItem
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ExecutionListItem.ExecutionListItem
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ExecutionListItem.ExecutionListItem
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ExecutionListItem.ExecutionListItem
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ExecutionListItem.ExecutionListItem
+instance GHC.Read.Read Amazonka.StepFunctions.Types.ExecutionListItem.ExecutionListItem
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ExecutionListItem.ExecutionListItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ExecutionListItem.ExecutionListItem
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ExecutionListItem.ExecutionListItem
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ExecutionListItem.ExecutionListItem
 
 
-module Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails
+module Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails
 
 -- | Contains details about the execution timeout that occurred during the
 --   execution.
@@ -686,15 +686,15 @@ executionTimedOutEventDetails_error :: Lens' ExecutionTimedOutEventDetails (Mayb
 
 -- | A more detailed explanation of the cause of the timeout.
 executionTimedOutEventDetails_cause :: Lens' ExecutionTimedOutEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails.ExecutionTimedOutEventDetails
 
 
-module Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
+module Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Provides details about input or output in an execution history event.
 --   
@@ -725,16 +725,16 @@ newHistoryEventExecutionDataDetails :: HistoryEventExecutionDataDetails
 -- | Indicates whether input or output was truncated in the response.
 --   Always <tt>false</tt> for API calls.
 historyEventExecutionDataDetails_truncated :: Lens' HistoryEventExecutionDataDetails (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
+instance GHC.Read.Read Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.HistoryEventExecutionDataDetails
 
 
-module Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails
+module Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails
 
 -- | Contains details about the successful termination of the execution.
 --   
@@ -775,15 +775,15 @@ executionSucceededEventDetails_output :: Lens' ExecutionSucceededEventDetails (M
 
 -- | Contains details about the output of an execution history event.
 executionSucceededEventDetails_outputDetails :: Lens' ExecutionSucceededEventDetails (Maybe HistoryEventExecutionDataDetails)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails.ExecutionSucceededEventDetails
 
 
-module Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails
+module Amazonka.StepFunctions.Types.ExecutionStartedEventDetails
 
 -- | Contains details about the start of the execution.
 --   
@@ -835,15 +835,15 @@ executionStartedEventDetails_input :: Lens' ExecutionStartedEventDetails (Maybe 
 -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS
 --   Lambda tasks.
 executionStartedEventDetails_roleArn :: Lens' ExecutionStartedEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ExecutionStartedEventDetails.ExecutionStartedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails
+module Amazonka.StepFunctions.Types.ActivitySucceededEventDetails
 
 -- | Contains details about an activity that successfully terminated during
 --   an execution.
@@ -884,15 +884,15 @@ activitySucceededEventDetails_output :: Lens' ActivitySucceededEventDetails (May
 
 -- | Contains details about the output of an execution history event.
 activitySucceededEventDetails_outputDetails :: Lens' ActivitySucceededEventDetails (Maybe HistoryEventExecutionDataDetails)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ActivitySucceededEventDetails.ActivitySucceededEventDetails
 
 
-module Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails
+module Amazonka.StepFunctions.Types.ActivityScheduledEventDetails
 
 -- | Contains details about an activity scheduled during an execution.
 --   
@@ -964,15 +964,15 @@ activityScheduledEventDetails_timeoutInSeconds :: Lens' ActivityScheduledEventDe
 
 -- | The Amazon Resource Name (ARN) of the scheduled activity.
 activityScheduledEventDetails_resource :: Lens' ActivityScheduledEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.ActivityScheduledEventDetails.ActivityScheduledEventDetails
 
 
-module Network.AWS.StepFunctions.Types.HistoryEventType
+module Amazonka.StepFunctions.Types.HistoryEventType
 newtype HistoryEventType
 HistoryEventType' :: Text -> HistoryEventType
 [fromHistoryEventType] :: HistoryEventType -> Text
@@ -1031,28 +1031,28 @@ pattern HistoryEventType_TaskTimedOut :: HistoryEventType
 pattern HistoryEventType_WaitStateAborted :: HistoryEventType
 pattern HistoryEventType_WaitStateEntered :: HistoryEventType
 pattern HistoryEventType_WaitStateExited :: HistoryEventType
-instance Network.AWS.Data.XML.ToXML Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Network.AWS.Data.XML.FromXML Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Network.AWS.Data.Log.ToLog Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Network.AWS.Data.Text.ToText Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Network.AWS.Data.Text.FromText Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance GHC.Classes.Ord Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Amazonka.Data.XML.ToXML Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Amazonka.Data.XML.FromXML Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Amazonka.Data.Headers.ToHeader Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Amazonka.Data.Log.ToLog Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Amazonka.Data.Text.ToText Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Amazonka.Data.Text.FromText Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance GHC.Classes.Ord Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance GHC.Read.Read Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
+instance GHC.Show.Show Amazonka.StepFunctions.Types.HistoryEventType.HistoryEventType
 
 
-module Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails
+module Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails
 
 -- | Contains details about a lambda function that failed during an
 --   execution.
@@ -1091,15 +1091,15 @@ lambdaFunctionFailedEventDetails_error :: Lens' LambdaFunctionFailedEventDetails
 
 -- | A more detailed explanation of the cause of the failure.
 lambdaFunctionFailedEventDetails_cause :: Lens' LambdaFunctionFailedEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails.LambdaFunctionFailedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails
+module Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails
 
 -- | Contains details about a failed lambda function schedule event that
 --   occurred during an execution.
@@ -1138,15 +1138,15 @@ lambdaFunctionScheduleFailedEventDetails_error :: Lens' LambdaFunctionScheduleFa
 
 -- | A more detailed explanation of the cause of the failure.
 lambdaFunctionScheduleFailedEventDetails_cause :: Lens' LambdaFunctionScheduleFailedEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails.LambdaFunctionScheduleFailedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails
+module Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails
 
 -- | Contains details about a lambda function scheduled during an
 --   execution.
@@ -1208,15 +1208,15 @@ lambdaFunctionScheduledEventDetails_timeoutInSeconds :: Lens' LambdaFunctionSche
 
 -- | The Amazon Resource Name (ARN) of the scheduled lambda function.
 lambdaFunctionScheduledEventDetails_resource :: Lens' LambdaFunctionScheduledEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.LambdaFunctionScheduledEventDetails
 
 
-module Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails
+module Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails
 
 -- | Contains details about a lambda function that failed to start during
 --   an execution.
@@ -1255,15 +1255,15 @@ lambdaFunctionStartFailedEventDetails_error :: Lens' LambdaFunctionStartFailedEv
 
 -- | A more detailed explanation of the cause of the failure.
 lambdaFunctionStartFailedEventDetails_cause :: Lens' LambdaFunctionStartFailedEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails.LambdaFunctionStartFailedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails
+module Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails
 
 -- | Contains details about a lambda function that successfully terminated
 --   during an execution.
@@ -1305,15 +1305,15 @@ lambdaFunctionSucceededEventDetails_output :: Lens' LambdaFunctionSucceededEvent
 
 -- | Contains details about the output of an execution history event.
 lambdaFunctionSucceededEventDetails_outputDetails :: Lens' LambdaFunctionSucceededEventDetails (Maybe HistoryEventExecutionDataDetails)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails.LambdaFunctionSucceededEventDetails
 
 
-module Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails
+module Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails
 
 -- | Contains details about a lambda function timeout that occurred during
 --   an execution.
@@ -1352,15 +1352,15 @@ lambdaFunctionTimedOutEventDetails_error :: Lens' LambdaFunctionTimedOutEventDet
 
 -- | A more detailed explanation of the cause of the timeout.
 lambdaFunctionTimedOutEventDetails_cause :: Lens' LambdaFunctionTimedOutEventDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails.LambdaFunctionTimedOutEventDetails
 
 
-module Network.AWS.StepFunctions.Types.LogDestination
+module Amazonka.StepFunctions.Types.LogDestination
 
 -- | <i>See:</i> <a>newLogDestination</a> smart constructor.
 data LogDestination
@@ -1388,17 +1388,17 @@ newLogDestination :: LogDestination
 -- | An object describing a CloudWatch log group. For more information, see
 --   <a>AWS::Logs::LogGroup</a> in the AWS CloudFormation User Guide.
 logDestination_cloudWatchLogsLogGroup :: Lens' LogDestination (Maybe CloudWatchLogsLogGroup)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.LogDestination.LogDestination
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.LogDestination.LogDestination
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.LogDestination.LogDestination
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.LogDestination.LogDestination
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.LogDestination.LogDestination
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.LogDestination.LogDestination
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.LogDestination.LogDestination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.LogDestination.LogDestination
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.LogDestination.LogDestination
+instance GHC.Show.Show Amazonka.StepFunctions.Types.LogDestination.LogDestination
+instance GHC.Read.Read Amazonka.StepFunctions.Types.LogDestination.LogDestination
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.LogDestination.LogDestination
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.LogDestination.LogDestination
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.LogDestination.LogDestination
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.LogDestination.LogDestination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.LogDestination.LogDestination
 
 
-module Network.AWS.StepFunctions.Types.LogLevel
+module Amazonka.StepFunctions.Types.LogLevel
 newtype LogLevel
 LogLevel' :: Text -> LogLevel
 [fromLogLevel] :: LogLevel -> Text
@@ -1406,28 +1406,28 @@ pattern LogLevel_ALL :: LogLevel
 pattern LogLevel_ERROR :: LogLevel
 pattern LogLevel_FATAL :: LogLevel
 pattern LogLevel_OFF :: LogLevel
-instance Network.AWS.Data.XML.ToXML Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Network.AWS.Data.XML.FromXML Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Network.AWS.Data.Log.ToLog Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Network.AWS.Data.Text.ToText Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Network.AWS.Data.Text.FromText Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance GHC.Classes.Ord Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.LogLevel.LogLevel
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.LogLevel.LogLevel
+instance Amazonka.Data.XML.ToXML Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Amazonka.Data.XML.FromXML Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Amazonka.Data.Headers.ToHeader Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Amazonka.Data.Log.ToLog Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Amazonka.Data.ByteString.ToByteString Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Amazonka.Data.Text.ToText Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Amazonka.Data.Text.FromText Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance GHC.Classes.Ord Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance GHC.Read.Read Amazonka.StepFunctions.Types.LogLevel.LogLevel
+instance GHC.Show.Show Amazonka.StepFunctions.Types.LogLevel.LogLevel
 
 
-module Network.AWS.StepFunctions.Types.LoggingConfiguration
+module Amazonka.StepFunctions.Types.LoggingConfiguration
 
 -- | The <tt>LoggingConfiguration</tt> data type is used to set CloudWatch
 --   Logs options.
@@ -1483,17 +1483,17 @@ loggingConfiguration_destinations :: Lens' LoggingConfiguration (Maybe [LogDesti
 
 -- | Defines which category of execution history events are logged.
 loggingConfiguration_level :: Lens' LoggingConfiguration (Maybe LogLevel)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
+instance GHC.Show.Show Amazonka.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
+instance GHC.Read.Read Amazonka.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.LoggingConfiguration.LoggingConfiguration
 
 
-module Network.AWS.StepFunctions.Types.MapIterationEventDetails
+module Amazonka.StepFunctions.Types.MapIterationEventDetails
 
 -- | Contains details about an iteration of a Map state.
 --   
@@ -1530,16 +1530,16 @@ mapIterationEventDetails_name :: Lens' MapIterationEventDetails (Maybe Text)
 
 -- | The index of the array belonging to the Map state iteration.
 mapIterationEventDetails_index :: Lens' MapIterationEventDetails (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
+instance GHC.Read.Read Amazonka.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.MapIterationEventDetails.MapIterationEventDetails
 
 
-module Network.AWS.StepFunctions.Types.MapStateStartedEventDetails
+module Amazonka.StepFunctions.Types.MapStateStartedEventDetails
 
 -- | Details about a Map state that was started.
 --   
@@ -1566,16 +1566,16 @@ newMapStateStartedEventDetails :: MapStateStartedEventDetails
 
 -- | The size of the array for Map state iterations.
 mapStateStartedEventDetails_length :: Lens' MapStateStartedEventDetails (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
+instance GHC.Read.Read Amazonka.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.MapStateStartedEventDetails.MapStateStartedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.StateEnteredEventDetails
+module Amazonka.StepFunctions.Types.StateEnteredEventDetails
 
 -- | Contains details about a state entered during an execution.
 --   
@@ -1626,15 +1626,15 @@ stateEnteredEventDetails_input :: Lens' StateEnteredEventDetails (Maybe Text)
 
 -- | The name of the state.
 stateEnteredEventDetails_name :: Lens' StateEnteredEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.StateEnteredEventDetails.StateEnteredEventDetails
 
 
-module Network.AWS.StepFunctions.Types.StateExitedEventDetails
+module Amazonka.StepFunctions.Types.StateExitedEventDetails
 
 -- | Contains details about an exit from a state during an execution.
 --   
@@ -1725,69 +1725,69 @@ stateExitedEventDetails_outputDetails :: Lens' StateExitedEventDetails (Maybe Hi
 --   To enable logging with CloudWatch Logs, the name should only contain
 --   0-9, A-Z, a-z, - and _.
 stateExitedEventDetails_name :: Lens' StateExitedEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.StateExitedEventDetails.StateExitedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.StateMachineStatus
+module Amazonka.StepFunctions.Types.StateMachineStatus
 newtype StateMachineStatus
 StateMachineStatus' :: Text -> StateMachineStatus
 [fromStateMachineStatus] :: StateMachineStatus -> Text
 pattern StateMachineStatus_ACTIVE :: StateMachineStatus
 pattern StateMachineStatus_DELETING :: StateMachineStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance GHC.Classes.Ord Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Amazonka.Data.XML.ToXML Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Amazonka.Data.XML.FromXML Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Amazonka.Data.Log.ToLog Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Amazonka.Data.Text.ToText Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Amazonka.Data.Text.FromText Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance GHC.Classes.Ord Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance GHC.Read.Read Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
+instance GHC.Show.Show Amazonka.StepFunctions.Types.StateMachineStatus.StateMachineStatus
 
 
-module Network.AWS.StepFunctions.Types.StateMachineType
+module Amazonka.StepFunctions.Types.StateMachineType
 newtype StateMachineType
 StateMachineType' :: Text -> StateMachineType
 [fromStateMachineType] :: StateMachineType -> Text
 pattern StateMachineType_EXPRESS :: StateMachineType
 pattern StateMachineType_STANDARD :: StateMachineType
-instance Network.AWS.Data.XML.ToXML Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Network.AWS.Data.XML.FromXML Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Network.AWS.Data.Log.ToLog Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Network.AWS.Data.Text.ToText Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Network.AWS.Data.Text.FromText Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance GHC.Classes.Ord Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.StateMachineType.StateMachineType
+instance Amazonka.Data.XML.ToXML Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Amazonka.Data.XML.FromXML Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Amazonka.Data.Headers.ToHeader Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Amazonka.Data.Log.ToLog Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Amazonka.Data.Text.ToText Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Amazonka.Data.Text.FromText Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance GHC.Classes.Ord Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance GHC.Read.Read Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
+instance GHC.Show.Show Amazonka.StepFunctions.Types.StateMachineType.StateMachineType
 
 
-module Network.AWS.StepFunctions.Types.StateMachineListItem
+module Amazonka.StepFunctions.Types.StateMachineListItem
 
 -- | Contains details about the state machine.
 --   
@@ -1881,44 +1881,44 @@ stateMachineListItem_type :: Lens' StateMachineListItem StateMachineType
 
 -- | The date the state machine is created.
 stateMachineListItem_creationDate :: Lens' StateMachineListItem UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.StateMachineListItem.StateMachineListItem
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.StateMachineListItem.StateMachineListItem
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.StateMachineListItem.StateMachineListItem
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.StateMachineListItem.StateMachineListItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.StateMachineListItem.StateMachineListItem
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.StateMachineListItem.StateMachineListItem
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.StateMachineListItem.StateMachineListItem
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.StateMachineListItem.StateMachineListItem
+instance GHC.Show.Show Amazonka.StepFunctions.Types.StateMachineListItem.StateMachineListItem
+instance GHC.Read.Read Amazonka.StepFunctions.Types.StateMachineListItem.StateMachineListItem
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.StateMachineListItem.StateMachineListItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.StateMachineListItem.StateMachineListItem
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.StateMachineListItem.StateMachineListItem
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.StateMachineListItem.StateMachineListItem
 
 
-module Network.AWS.StepFunctions.Types.SyncExecutionStatus
+module Amazonka.StepFunctions.Types.SyncExecutionStatus
 newtype SyncExecutionStatus
 SyncExecutionStatus' :: Text -> SyncExecutionStatus
 [fromSyncExecutionStatus] :: SyncExecutionStatus -> Text
 pattern SyncExecutionStatus_FAILED :: SyncExecutionStatus
 pattern SyncExecutionStatus_SUCCEEDED :: SyncExecutionStatus
 pattern SyncExecutionStatus_TIMED_OUT :: SyncExecutionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance GHC.Classes.Ord Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Amazonka.Data.Text.ToText Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Amazonka.Data.Text.FromText Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance GHC.Classes.Ord Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance GHC.Read.Read Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
+instance GHC.Show.Show Amazonka.StepFunctions.Types.SyncExecutionStatus.SyncExecutionStatus
 
 
-module Network.AWS.StepFunctions.Types.Tag
+module Amazonka.StepFunctions.Types.Tag
 
 -- | Tags are key-value pairs that can be associated with Step Functions
 --   state machines and activities.
@@ -1958,17 +1958,17 @@ tag_value :: Lens' Tag (Maybe Text)
 
 -- | The key of a tag.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.StepFunctions.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.StepFunctions.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.Tag.Tag
 
 
-module Network.AWS.StepFunctions.Types.TaskFailedEventDetails
+module Amazonka.StepFunctions.Types.TaskFailedEventDetails
 
 -- | Contains details about a task failure event.
 --   
@@ -2024,15 +2024,15 @@ taskFailedEventDetails_resourceType :: Lens' TaskFailedEventDetails Text
 
 -- | The service name of the resource in a task state.
 taskFailedEventDetails_resource :: Lens' TaskFailedEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.TaskFailedEventDetails.TaskFailedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.TaskScheduledEventDetails
+module Amazonka.StepFunctions.Types.TaskScheduledEventDetails
 
 -- | Contains details about a task scheduled during an execution.
 --   
@@ -2114,15 +2114,15 @@ taskScheduledEventDetails_region :: Lens' TaskScheduledEventDetails Text
 --   Length constraints apply to the payload size, and are expressed as
 --   bytes in UTF-8 encoding.
 taskScheduledEventDetails_parameters :: Lens' TaskScheduledEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.TaskScheduledEventDetails.TaskScheduledEventDetails
 
 
-module Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails
+module Amazonka.StepFunctions.Types.TaskStartFailedEventDetails
 
 -- | Contains details about a task that failed to start during an
 --   execution.
@@ -2180,15 +2180,15 @@ taskStartFailedEventDetails_resourceType :: Lens' TaskStartFailedEventDetails Te
 
 -- | The service name of the resource in a task state.
 taskStartFailedEventDetails_resource :: Lens' TaskStartFailedEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.TaskStartFailedEventDetails.TaskStartFailedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.TaskStartedEventDetails
+module Amazonka.StepFunctions.Types.TaskStartedEventDetails
 
 -- | Contains details about the start of a task during an execution.
 --   
@@ -2225,16 +2225,16 @@ taskStartedEventDetails_resourceType :: Lens' TaskStartedEventDetails Text
 
 -- | The service name of the resource in a task state.
 taskStartedEventDetails_resource :: Lens' TaskStartedEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
+instance GHC.Read.Read Amazonka.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.TaskStartedEventDetails.TaskStartedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails
+module Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails
 
 -- | Contains details about a task that failed to submit during an
 --   execution.
@@ -2292,15 +2292,15 @@ taskSubmitFailedEventDetails_resourceType :: Lens' TaskSubmitFailedEventDetails 
 
 -- | The service name of the resource in a task state.
 taskSubmitFailedEventDetails_resource :: Lens' TaskSubmitFailedEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails.TaskSubmitFailedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails
+module Amazonka.StepFunctions.Types.TaskSubmittedEventDetails
 
 -- | Contains details about a task submitted to a resource .
 --   
@@ -2362,15 +2362,15 @@ taskSubmittedEventDetails_resourceType :: Lens' TaskSubmittedEventDetails Text
 
 -- | The service name of the resource in a task state.
 taskSubmittedEventDetails_resource :: Lens' TaskSubmittedEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.TaskSubmittedEventDetails.TaskSubmittedEventDetails
 
 
-module Network.AWS.StepFunctions.Types.TaskSucceededEventDetails
+module Amazonka.StepFunctions.Types.TaskSucceededEventDetails
 
 -- | Contains details about the successful completion of a task state.
 --   
@@ -2435,15 +2435,15 @@ taskSucceededEventDetails_resourceType :: Lens' TaskSucceededEventDetails Text
 
 -- | The service name of the resource in a task state.
 taskSucceededEventDetails_resource :: Lens' TaskSucceededEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.TaskSucceededEventDetails.TaskSucceededEventDetails
 
 
-module Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
+module Amazonka.StepFunctions.Types.TaskTimedOutEventDetails
 
 -- | Contains details about a resource timeout that occurred during an
 --   execution.
@@ -2500,15 +2500,15 @@ taskTimedOutEventDetails_resourceType :: Lens' TaskTimedOutEventDetails Text
 
 -- | The service name of the resource in a task state.
 taskTimedOutEventDetails_resource :: Lens' TaskTimedOutEventDetails Text
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
+instance GHC.Show.Show Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.TaskTimedOutEventDetails.TaskTimedOutEventDetails
 
 
-module Network.AWS.StepFunctions.Types.HistoryEvent
+module Amazonka.StepFunctions.Types.HistoryEvent
 
 -- | Contains details about the events of an execution.
 --   
@@ -2855,15 +2855,15 @@ historyEvent_type :: Lens' HistoryEvent HistoryEventType
 -- | The id of the event. Events are numbered sequentially, starting at
 --   one.
 historyEvent_id :: Lens' HistoryEvent Integer
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.HistoryEvent.HistoryEvent
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.HistoryEvent.HistoryEvent
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.HistoryEvent.HistoryEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.HistoryEvent.HistoryEvent
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.HistoryEvent.HistoryEvent
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.HistoryEvent.HistoryEvent
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.HistoryEvent.HistoryEvent
+instance GHC.Show.Show Amazonka.StepFunctions.Types.HistoryEvent.HistoryEvent
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.HistoryEvent.HistoryEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.HistoryEvent.HistoryEvent
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.HistoryEvent.HistoryEvent
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.HistoryEvent.HistoryEvent
 
 
-module Network.AWS.StepFunctions.Types.TracingConfiguration
+module Amazonka.StepFunctions.Types.TracingConfiguration
 
 -- | Selects whether or not the state machine's AWS X-Ray tracing is
 --   enabled. Default is <tt>false</tt>
@@ -2891,17 +2891,17 @@ newTracingConfiguration :: TracingConfiguration
 
 -- | When set to <tt>true</tt>, AWS X-Ray tracing is enabled.
 tracingConfiguration_enabled :: Lens' TracingConfiguration (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.StepFunctions.Types.TracingConfiguration.TracingConfiguration
-instance GHC.Show.Show Network.AWS.StepFunctions.Types.TracingConfiguration.TracingConfiguration
-instance GHC.Read.Read Network.AWS.StepFunctions.Types.TracingConfiguration.TracingConfiguration
-instance GHC.Classes.Eq Network.AWS.StepFunctions.Types.TracingConfiguration.TracingConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StepFunctions.Types.TracingConfiguration.TracingConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.Types.TracingConfiguration.TracingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.Types.TracingConfiguration.TracingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.Types.TracingConfiguration.TracingConfiguration
+instance GHC.Generics.Generic Amazonka.StepFunctions.Types.TracingConfiguration.TracingConfiguration
+instance GHC.Show.Show Amazonka.StepFunctions.Types.TracingConfiguration.TracingConfiguration
+instance GHC.Read.Read Amazonka.StepFunctions.Types.TracingConfiguration.TracingConfiguration
+instance GHC.Classes.Eq Amazonka.StepFunctions.Types.TracingConfiguration.TracingConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.StepFunctions.Types.TracingConfiguration.TracingConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.Types.TracingConfiguration.TracingConfiguration
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.Types.TracingConfiguration.TracingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.Types.TracingConfiguration.TracingConfiguration
 
 
-module Network.AWS.StepFunctions.Types
+module Amazonka.StepFunctions.Types
 
 -- | API version <tt>2016-11-23</tt> of the Amazon Step Functions SDK
 --   configuration.
@@ -5375,7 +5375,7 @@ tracingConfiguration_enabled :: Lens' TracingConfiguration (Maybe Bool)
 --   
 --   Tags may only contain Unicode letters, digits, white space, or these
 --   symbols: <tt>_ . : / = + - @</tt>.
-module Network.AWS.StepFunctions.TagResource
+module Amazonka.StepFunctions.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -5443,28 +5443,28 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.StepFunctions.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.StepFunctions.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.StepFunctions.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.StepFunctions.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.StepFunctions.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.StepFunctions.TagResource.TagResource
+instance GHC.Show.Show Amazonka.StepFunctions.TagResource.TagResource
+instance GHC.Read.Read Amazonka.StepFunctions.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.StepFunctions.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.StepFunctions.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.StepFunctions.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.StepFunctions.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.TagResource.TagResource
 
 
 -- | Stops an execution.
 --   
 --   This API action is not supported by <tt>EXPRESS</tt> state machines.
-module Network.AWS.StepFunctions.StopExecution
+module Amazonka.StepFunctions.StopExecution
 
 -- | <i>See:</i> <a>newStopExecution</a> smart constructor.
 data StopExecution
@@ -5541,25 +5541,25 @@ stopExecutionResponse_httpStatus :: Lens' StopExecutionResponse Int
 
 -- | The date the execution is stopped.
 stopExecutionResponse_stopDate :: Lens' StopExecutionResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.StopExecution.StopExecution
-instance GHC.Show.Show Network.AWS.StepFunctions.StopExecution.StopExecution
-instance GHC.Classes.Eq Network.AWS.StepFunctions.StopExecution.StopExecution
-instance GHC.Generics.Generic Network.AWS.StepFunctions.StopExecution.StopExecutionResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.StopExecution.StopExecutionResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.StopExecution.StopExecutionResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.StopExecution.StopExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.StopExecution.StopExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.StopExecution.StopExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.StopExecution.StopExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.StopExecution.StopExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.StopExecution.StopExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.StopExecution.StopExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.StopExecution.StopExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.StopExecution.StopExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.StopExecution.StopExecution
+instance GHC.Show.Show Amazonka.StepFunctions.StopExecution.StopExecution
+instance GHC.Classes.Eq Amazonka.StepFunctions.StopExecution.StopExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.StopExecution.StopExecutionResponse
+instance GHC.Show.Show Amazonka.StepFunctions.StopExecution.StopExecutionResponse
+instance GHC.Read.Read Amazonka.StepFunctions.StopExecution.StopExecutionResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.StopExecution.StopExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.StopExecution.StopExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.StopExecution.StopExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.StopExecution.StopExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.StopExecution.StopExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.StopExecution.StopExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.StopExecution.StopExecution
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.StopExecution.StopExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.StopExecution.StopExecution
 
 
 -- | Starts a Synchronous Express state machine execution.
-module Network.AWS.StepFunctions.StartSyncExecution
+module Amazonka.StepFunctions.StartSyncExecution
 
 -- | <i>See:</i> <a>newStartSyncExecution</a> smart constructor.
 data StartSyncExecution
@@ -5824,20 +5824,20 @@ startSyncExecutionResponse_stopDate :: Lens' StartSyncExecutionResponse UTCTime
 
 -- | The current status of the execution.
 startSyncExecutionResponse_status :: Lens' StartSyncExecutionResponse SyncExecutionStatus
-instance GHC.Generics.Generic Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
-instance GHC.Show.Show Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
-instance GHC.Classes.Eq Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
-instance GHC.Generics.Generic Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecutionResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecutionResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.StartSyncExecution.StartSyncExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
+instance GHC.Show.Show Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
+instance GHC.Classes.Eq Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.StartSyncExecution.StartSyncExecutionResponse
+instance GHC.Show.Show Amazonka.StepFunctions.StartSyncExecution.StartSyncExecutionResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.StartSyncExecution.StartSyncExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.StartSyncExecution.StartSyncExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.StartSyncExecution.StartSyncExecution
 
 
 -- | Starts a state machine execution.
@@ -5848,7 +5848,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.StartSyncExecu
 --   the execution is closed or if the input is different, it will return a
 --   400 <tt>ExecutionAlreadyExists</tt> error. Names can be reused after
 --   90 days.
-module Network.AWS.StepFunctions.StartExecution
+module Amazonka.StepFunctions.StartExecution
 
 -- | <i>See:</i> <a>newStartExecution</a> smart constructor.
 data StartExecution
@@ -6031,27 +6031,27 @@ startExecutionResponse_executionArn :: Lens' StartExecutionResponse Text
 
 -- | The date the execution is started.
 startExecutionResponse_startDate :: Lens' StartExecutionResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.StartExecution.StartExecution
-instance GHC.Show.Show Network.AWS.StepFunctions.StartExecution.StartExecution
-instance GHC.Classes.Eq Network.AWS.StepFunctions.StartExecution.StartExecution
-instance GHC.Generics.Generic Network.AWS.StepFunctions.StartExecution.StartExecutionResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.StartExecution.StartExecutionResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.StartExecution.StartExecutionResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.StartExecution.StartExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.StartExecution.StartExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.StartExecution.StartExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.StartExecution.StartExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.StartExecution.StartExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.StartExecution.StartExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.StartExecution.StartExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.StartExecution.StartExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.StartExecution.StartExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.StartExecution.StartExecution
+instance GHC.Show.Show Amazonka.StepFunctions.StartExecution.StartExecution
+instance GHC.Classes.Eq Amazonka.StepFunctions.StartExecution.StartExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.StartExecution.StartExecutionResponse
+instance GHC.Show.Show Amazonka.StepFunctions.StartExecution.StartExecutionResponse
+instance GHC.Read.Read Amazonka.StepFunctions.StartExecution.StartExecutionResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.StartExecution.StartExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.StartExecution.StartExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.StartExecution.StartExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.StartExecution.StartExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.StartExecution.StartExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.StartExecution.StartExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.StartExecution.StartExecution
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.StartExecution.StartExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.StartExecution.StartExecution
 
 
 -- | Used by activity workers and task states using the <a>callback</a>
 --   pattern to report that the task identified by the <tt>taskToken</tt>
 --   completed successfully.
-module Network.AWS.StepFunctions.SendTaskSuccess
+module Amazonka.StepFunctions.SendTaskSuccess
 
 -- | <i>See:</i> <a>newSendTaskSuccess</a> smart constructor.
 data SendTaskSuccess
@@ -6120,21 +6120,21 @@ newSendTaskSuccessResponse :: Int -> SendTaskSuccessResponse
 
 -- | The response's http status code.
 sendTaskSuccessResponse_httpStatus :: Lens' SendTaskSuccessResponse Int
-instance GHC.Generics.Generic Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
-instance GHC.Show.Show Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
-instance GHC.Classes.Eq Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
-instance GHC.Generics.Generic Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance GHC.Generics.Generic Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance GHC.Show.Show Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance GHC.Classes.Eq Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance GHC.Generics.Generic Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
+instance GHC.Show.Show Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
+instance GHC.Read.Read Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccessResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.SendTaskSuccess.SendTaskSuccess
 
 
 -- | Used by activity workers and task states using the <a>callback</a>
@@ -6153,7 +6153,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.SendTaskSucces
 --   regardless of the number of SendTaskHeartbeat requests received. Use
 --   <tt>HeartbeatSeconds</tt> to configure the timeout interval for
 --   heartbeats.
-module Network.AWS.StepFunctions.SendTaskHeartbeat
+module Amazonka.StepFunctions.SendTaskHeartbeat
 
 -- | <i>See:</i> <a>newSendTaskHeartbeat</a> smart constructor.
 data SendTaskHeartbeat
@@ -6210,28 +6210,28 @@ newSendTaskHeartbeatResponse :: Int -> SendTaskHeartbeatResponse
 
 -- | The response's http status code.
 sendTaskHeartbeatResponse_httpStatus :: Lens' SendTaskHeartbeatResponse Int
-instance GHC.Generics.Generic Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance GHC.Show.Show Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance GHC.Read.Read Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance GHC.Classes.Eq Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance GHC.Generics.Generic Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance GHC.Generics.Generic Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance GHC.Show.Show Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance GHC.Read.Read Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance GHC.Classes.Eq Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance GHC.Generics.Generic Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
+instance GHC.Show.Show Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
+instance GHC.Read.Read Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeatResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.SendTaskHeartbeat.SendTaskHeartbeat
 
 
 -- | Used by activity workers and task states using the <a>callback</a>
 --   pattern to report that the task identified by the <tt>taskToken</tt>
 --   failed.
-module Network.AWS.StepFunctions.SendTaskFailure
+module Amazonka.StepFunctions.SendTaskFailure
 
 -- | <i>See:</i> <a>newSendTaskFailure</a> smart constructor.
 data SendTaskFailure
@@ -6306,28 +6306,28 @@ newSendTaskFailureResponse :: Int -> SendTaskFailureResponse
 
 -- | The response's http status code.
 sendTaskFailureResponse_httpStatus :: Lens' SendTaskFailureResponse Int
-instance GHC.Generics.Generic Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
-instance GHC.Show.Show Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
-instance GHC.Classes.Eq Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
-instance GHC.Generics.Generic Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailureResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailureResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailureResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailureResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailureResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.SendTaskFailure.SendTaskFailure
+instance GHC.Generics.Generic Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
+instance GHC.Show.Show Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
+instance GHC.Classes.Eq Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
+instance GHC.Generics.Generic Amazonka.StepFunctions.SendTaskFailure.SendTaskFailureResponse
+instance GHC.Show.Show Amazonka.StepFunctions.SendTaskFailure.SendTaskFailureResponse
+instance GHC.Read.Read Amazonka.StepFunctions.SendTaskFailure.SendTaskFailureResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.SendTaskFailure.SendTaskFailureResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.SendTaskFailure.SendTaskFailureResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.SendTaskFailure.SendTaskFailure
 
 
 -- | List tags for a given resource.
 --   
 --   Tags may only contain Unicode letters, digits, white space, or these
 --   symbols: <tt>_ . : / = + - @</tt>.
-module Network.AWS.StepFunctions.ListTagsForResource
+module Amazonka.StepFunctions.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -6388,22 +6388,22 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the existing state machines.
@@ -6419,7 +6419,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.ListTagsForRes
 --   and may not reflect very recent updates and changes.
 --   
 --   This operation returns paginated results.
-module Network.AWS.StepFunctions.ListStateMachines
+module Amazonka.StepFunctions.ListStateMachines
 
 -- | <i>See:</i> <a>newListStateMachines</a> smart constructor.
 data ListStateMachines
@@ -6542,23 +6542,23 @@ listStateMachinesResponse_httpStatus :: Lens' ListStateMachinesResponse Int
 
 -- | Undocumented member.
 listStateMachinesResponse_stateMachines :: Lens' ListStateMachinesResponse [StateMachineListItem]
-instance GHC.Generics.Generic Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance GHC.Show.Show Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance GHC.Read.Read Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance GHC.Classes.Eq Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance GHC.Generics.Generic Network.AWS.StepFunctions.ListStateMachines.ListStateMachinesResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.ListStateMachines.ListStateMachinesResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.ListStateMachines.ListStateMachinesResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.ListStateMachines.ListStateMachinesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.ListStateMachines.ListStateMachinesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.ListStateMachines.ListStateMachines
+instance GHC.Generics.Generic Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance GHC.Show.Show Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance GHC.Read.Read Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance GHC.Classes.Eq Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance GHC.Generics.Generic Amazonka.StepFunctions.ListStateMachines.ListStateMachinesResponse
+instance GHC.Show.Show Amazonka.StepFunctions.ListStateMachines.ListStateMachinesResponse
+instance GHC.Read.Read Amazonka.StepFunctions.ListStateMachines.ListStateMachinesResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.ListStateMachines.ListStateMachinesResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.ListStateMachines.ListStateMachinesResponse
+instance Amazonka.Pager.AWSPager Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.ListStateMachines.ListStateMachines
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.ListStateMachines.ListStateMachines
 
 
 -- | Lists the executions of a state machine that meet the filtering
@@ -6578,7 +6578,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.ListStateMachi
 --   This API action is not supported by <tt>EXPRESS</tt> state machines.
 --   
 --   This operation returns paginated results.
-module Network.AWS.StepFunctions.ListExecutions
+module Amazonka.StepFunctions.ListExecutions
 
 -- | <i>See:</i> <a>newListExecutions</a> smart constructor.
 data ListExecutions
@@ -6727,23 +6727,23 @@ listExecutionsResponse_httpStatus :: Lens' ListExecutionsResponse Int
 
 -- | The list of matching executions.
 listExecutionsResponse_executions :: Lens' ListExecutionsResponse [ExecutionListItem]
-instance GHC.Generics.Generic Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance GHC.Show.Show Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance GHC.Read.Read Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance GHC.Classes.Eq Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance GHC.Generics.Generic Network.AWS.StepFunctions.ListExecutions.ListExecutionsResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.ListExecutions.ListExecutionsResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.ListExecutions.ListExecutionsResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.ListExecutions.ListExecutionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.ListExecutions.ListExecutionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.ListExecutions.ListExecutions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.ListExecutions.ListExecutions
+instance GHC.Generics.Generic Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance GHC.Show.Show Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance GHC.Read.Read Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance GHC.Classes.Eq Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance GHC.Generics.Generic Amazonka.StepFunctions.ListExecutions.ListExecutionsResponse
+instance GHC.Show.Show Amazonka.StepFunctions.ListExecutions.ListExecutionsResponse
+instance GHC.Read.Read Amazonka.StepFunctions.ListExecutions.ListExecutionsResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.ListExecutions.ListExecutionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.ListExecutions.ListExecutionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.ListExecutions.ListExecutions
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.ListExecutions.ListExecutions
 
 
 -- | Lists the existing activities.
@@ -6759,7 +6759,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.ListExecutions
 --   and may not reflect very recent updates and changes.
 --   
 --   This operation returns paginated results.
-module Network.AWS.StepFunctions.ListActivities
+module Amazonka.StepFunctions.ListActivities
 
 -- | <i>See:</i> <a>newListActivities</a> smart constructor.
 data ListActivities
@@ -6883,23 +6883,23 @@ listActivitiesResponse_httpStatus :: Lens' ListActivitiesResponse Int
 
 -- | The list of activities.
 listActivitiesResponse_activities :: Lens' ListActivitiesResponse [ActivityListItem]
-instance GHC.Generics.Generic Network.AWS.StepFunctions.ListActivities.ListActivities
-instance GHC.Show.Show Network.AWS.StepFunctions.ListActivities.ListActivities
-instance GHC.Read.Read Network.AWS.StepFunctions.ListActivities.ListActivities
-instance GHC.Classes.Eq Network.AWS.StepFunctions.ListActivities.ListActivities
-instance GHC.Generics.Generic Network.AWS.StepFunctions.ListActivities.ListActivitiesResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.ListActivities.ListActivitiesResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.ListActivities.ListActivitiesResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.ListActivities.ListActivitiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.ListActivities.ListActivities
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.ListActivities.ListActivitiesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.StepFunctions.ListActivities.ListActivities
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.ListActivities.ListActivities
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.ListActivities.ListActivities
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.ListActivities.ListActivities
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.ListActivities.ListActivities
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.ListActivities.ListActivities
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.ListActivities.ListActivities
+instance GHC.Generics.Generic Amazonka.StepFunctions.ListActivities.ListActivities
+instance GHC.Show.Show Amazonka.StepFunctions.ListActivities.ListActivities
+instance GHC.Read.Read Amazonka.StepFunctions.ListActivities.ListActivities
+instance GHC.Classes.Eq Amazonka.StepFunctions.ListActivities.ListActivities
+instance GHC.Generics.Generic Amazonka.StepFunctions.ListActivities.ListActivitiesResponse
+instance GHC.Show.Show Amazonka.StepFunctions.ListActivities.ListActivitiesResponse
+instance GHC.Read.Read Amazonka.StepFunctions.ListActivities.ListActivitiesResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.ListActivities.ListActivitiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.ListActivities.ListActivities
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.ListActivities.ListActivitiesResponse
+instance Amazonka.Pager.AWSPager Amazonka.StepFunctions.ListActivities.ListActivities
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.ListActivities.ListActivities
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.ListActivities.ListActivities
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.ListActivities.ListActivities
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.ListActivities.ListActivities
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.ListActivities.ListActivities
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.ListActivities.ListActivities
 
 
 -- | Returns the history of the specified execution as a list of events. By
@@ -6917,7 +6917,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.ListActivities
 --   This API action is not supported by <tt>EXPRESS</tt> state machines.
 --   
 --   This operation returns paginated results.
-module Network.AWS.StepFunctions.GetExecutionHistory
+module Amazonka.StepFunctions.GetExecutionHistory
 
 -- | <i>See:</i> <a>newGetExecutionHistory</a> smart constructor.
 data GetExecutionHistory
@@ -7076,22 +7076,22 @@ getExecutionHistoryResponse_httpStatus :: Lens' GetExecutionHistoryResponse Int
 
 -- | The list of events that occurred in the execution.
 getExecutionHistoryResponse_events :: Lens' GetExecutionHistoryResponse [HistoryEvent]
-instance GHC.Generics.Generic Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance GHC.Show.Show Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance GHC.Read.Read Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance GHC.Classes.Eq Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance GHC.Generics.Generic Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistoryResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistoryResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistoryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistoryResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance GHC.Generics.Generic Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance GHC.Show.Show Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance GHC.Read.Read Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance GHC.Classes.Eq Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance GHC.Generics.Generic Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistoryResponse
+instance GHC.Show.Show Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistoryResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistoryResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistoryResponse
+instance Amazonka.Pager.AWSPager Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.GetExecutionHistory.GetExecutionHistory
 
 
 -- | Used by workers to retrieve a task (with the specified activity ARN)
@@ -7110,7 +7110,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.GetExecutionHi
 --   Polling with <tt>GetActivityTask</tt> can cause latency in some
 --   implementations. See <a>Avoid Latency When Polling for Activity
 --   Tasks</a> in the Step Functions Developer Guide.
-module Network.AWS.StepFunctions.GetActivityTask
+module Amazonka.StepFunctions.GetActivityTask
 
 -- | <i>See:</i> <a>newGetActivityTask</a> smart constructor.
 data GetActivityTask
@@ -7210,21 +7210,21 @@ getActivityTaskResponse_taskToken :: Lens' GetActivityTaskResponse (Maybe Text)
 
 -- | The response's http status code.
 getActivityTaskResponse_httpStatus :: Lens' GetActivityTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance GHC.Show.Show Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance GHC.Read.Read Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance GHC.Classes.Eq Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance GHC.Generics.Generic Network.AWS.StepFunctions.GetActivityTask.GetActivityTaskResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.GetActivityTask.GetActivityTaskResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.GetActivityTask.GetActivityTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.GetActivityTask.GetActivityTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.GetActivityTask.GetActivityTask
+instance GHC.Generics.Generic Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance GHC.Show.Show Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance GHC.Read.Read Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance GHC.Classes.Eq Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance GHC.Generics.Generic Amazonka.StepFunctions.GetActivityTask.GetActivityTaskResponse
+instance GHC.Show.Show Amazonka.StepFunctions.GetActivityTask.GetActivityTaskResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.GetActivityTask.GetActivityTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.GetActivityTask.GetActivityTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.GetActivityTask.GetActivityTask
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.GetActivityTask.GetActivityTask
 
 
 -- | Describes the state machine associated with a specific execution.
@@ -7233,7 +7233,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.GetActivityTas
 --   and may not reflect very recent updates and changes.
 --   
 --   This API action is not supported by <tt>EXPRESS</tt> state machines.
-module Network.AWS.StepFunctions.DescribeStateMachineForExecution
+module Amazonka.StepFunctions.DescribeStateMachineForExecution
 
 -- | <i>See:</i> <a>newDescribeStateMachineForExecution</a> smart
 --   constructor.
@@ -7369,28 +7369,28 @@ describeStateMachineForExecutionResponse_roleArn :: Lens' DescribeStateMachineFo
 -- | The date and time the state machine associated with an execution was
 --   updated. For a newly created state machine, this is the creation date.
 describeStateMachineForExecutionResponse_updateDate :: Lens' DescribeStateMachineForExecutionResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance GHC.Show.Show Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance GHC.Read.Read Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecutionResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecutionResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance GHC.Show.Show Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance GHC.Read.Read Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance GHC.Classes.Eq Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecutionResponse
+instance GHC.Show.Show Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecutionResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.DescribeStateMachineForExecution.DescribeStateMachineForExecution
 
 
 -- | Describes a state machine.
 --   
 --   This operation is eventually consistent. The results are best effort
 --   and may not reflect very recent updates and changes.
-module Network.AWS.StepFunctions.DescribeStateMachine
+module Amazonka.StepFunctions.DescribeStateMachine
 
 -- | <i>See:</i> <a>newDescribeStateMachine</a> smart constructor.
 data DescribeStateMachine
@@ -7580,21 +7580,21 @@ describeStateMachineResponse_type :: Lens' DescribeStateMachineResponse StateMac
 
 -- | The date the state machine is created.
 describeStateMachineResponse_creationDate :: Lens' DescribeStateMachineResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance GHC.Show.Show Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance GHC.Read.Read Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachineResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachineResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance GHC.Generics.Generic Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance GHC.Show.Show Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance GHC.Read.Read Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance GHC.Classes.Eq Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance GHC.Generics.Generic Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachineResponse
+instance GHC.Show.Show Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachineResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachineResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachineResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.DescribeStateMachine.DescribeStateMachine
 
 
 -- | Describes an execution.
@@ -7603,7 +7603,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.DescribeStateM
 --   and may not reflect very recent updates and changes.
 --   
 --   This API action is not supported by <tt>EXPRESS</tt> state machines.
-module Network.AWS.StepFunctions.DescribeExecution
+module Amazonka.StepFunctions.DescribeExecution
 
 -- | <i>See:</i> <a>newDescribeExecution</a> smart constructor.
 data DescribeExecution
@@ -7814,28 +7814,28 @@ describeExecutionResponse_status :: Lens' DescribeExecutionResponse ExecutionSta
 
 -- | The date the execution is started.
 describeExecutionResponse_startDate :: Lens' DescribeExecutionResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance GHC.Show.Show Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance GHC.Read.Read Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DescribeExecution.DescribeExecutionResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.DescribeExecution.DescribeExecutionResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DescribeExecution.DescribeExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DescribeExecution.DescribeExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.DescribeExecution.DescribeExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance GHC.Show.Show Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance GHC.Read.Read Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance GHC.Classes.Eq Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance GHC.Generics.Generic Amazonka.StepFunctions.DescribeExecution.DescribeExecutionResponse
+instance GHC.Show.Show Amazonka.StepFunctions.DescribeExecution.DescribeExecutionResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.DescribeExecution.DescribeExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DescribeExecution.DescribeExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.DescribeExecution.DescribeExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.DescribeExecution.DescribeExecution
 
 
 -- | Describes an activity.
 --   
 --   This operation is eventually consistent. The results are best effort
 --   and may not reflect very recent updates and changes.
-module Network.AWS.StepFunctions.DescribeActivity
+module Amazonka.StepFunctions.DescribeActivity
 
 -- | <i>See:</i> <a>newDescribeActivity</a> smart constructor.
 data DescribeActivity
@@ -7955,22 +7955,22 @@ describeActivityResponse_name :: Lens' DescribeActivityResponse Text
 
 -- | The date the activity is created.
 describeActivityResponse_creationDate :: Lens' DescribeActivityResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance GHC.Show.Show Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance GHC.Read.Read Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DescribeActivity.DescribeActivityResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.DescribeActivity.DescribeActivityResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.DescribeActivity.DescribeActivityResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DescribeActivity.DescribeActivityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DescribeActivity.DescribeActivityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.DescribeActivity.DescribeActivity
+instance GHC.Generics.Generic Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance GHC.Show.Show Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance GHC.Read.Read Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance GHC.Classes.Eq Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance GHC.Generics.Generic Amazonka.StepFunctions.DescribeActivity.DescribeActivityResponse
+instance GHC.Show.Show Amazonka.StepFunctions.DescribeActivity.DescribeActivityResponse
+instance GHC.Read.Read Amazonka.StepFunctions.DescribeActivity.DescribeActivityResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.DescribeActivity.DescribeActivityResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DescribeActivity.DescribeActivityResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.DescribeActivity.DescribeActivity
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.DescribeActivity.DescribeActivity
 
 
 -- | Deletes a state machine. This is an asynchronous operation: It sets
@@ -7980,7 +7980,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.DescribeActivi
 --   For <tt>EXPRESS</tt>state machines, the deletion will happen
 --   eventually (usually less than a minute). Running executions may emit
 --   logs after <tt>DeleteStateMachine</tt> API is called.
-module Network.AWS.StepFunctions.DeleteStateMachine
+module Amazonka.StepFunctions.DeleteStateMachine
 
 -- | <i>See:</i> <a>newDeleteStateMachine</a> smart constructor.
 data DeleteStateMachine
@@ -8029,26 +8029,26 @@ newDeleteStateMachineResponse :: Int -> DeleteStateMachineResponse
 
 -- | The response's http status code.
 deleteStateMachineResponse_httpStatus :: Lens' DeleteStateMachineResponse Int
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance GHC.Show.Show Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance GHC.Read.Read Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance GHC.Generics.Generic Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance GHC.Show.Show Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance GHC.Read.Read Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance GHC.Classes.Eq Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance GHC.Generics.Generic Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
+instance GHC.Show.Show Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
+instance GHC.Read.Read Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachineResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.DeleteStateMachine.DeleteStateMachine
 
 
 -- | Deletes an activity.
-module Network.AWS.StepFunctions.DeleteActivity
+module Amazonka.StepFunctions.DeleteActivity
 
 -- | <i>See:</i> <a>newDeleteActivity</a> smart constructor.
 data DeleteActivity
@@ -8097,22 +8097,22 @@ newDeleteActivityResponse :: Int -> DeleteActivityResponse
 
 -- | The response's http status code.
 deleteActivityResponse_httpStatus :: Lens' DeleteActivityResponse Int
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance GHC.Show.Show Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance GHC.Read.Read Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance GHC.Generics.Generic Network.AWS.StepFunctions.DeleteActivity.DeleteActivityResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.DeleteActivity.DeleteActivityResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.DeleteActivity.DeleteActivityResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.DeleteActivity.DeleteActivityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DeleteActivity.DeleteActivityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.DeleteActivity.DeleteActivity
+instance GHC.Generics.Generic Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance GHC.Show.Show Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance GHC.Read.Read Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance GHC.Classes.Eq Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance GHC.Generics.Generic Amazonka.StepFunctions.DeleteActivity.DeleteActivityResponse
+instance GHC.Show.Show Amazonka.StepFunctions.DeleteActivity.DeleteActivityResponse
+instance GHC.Read.Read Amazonka.StepFunctions.DeleteActivity.DeleteActivityResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.DeleteActivity.DeleteActivityResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DeleteActivity.DeleteActivityResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.DeleteActivity.DeleteActivity
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.DeleteActivity.DeleteActivity
 
 
 -- | Creates a state machine. A state machine consists of a collection of
@@ -8135,7 +8135,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.DeleteActivity
 --   Step Functions will ignore these differences and treat it as an
 --   idempotent request of the previous. In this case, <tt>roleArn</tt> and
 --   <tt>tags</tt> will not be updated, even if they are different.
-module Network.AWS.StepFunctions.CreateStateMachine
+module Amazonka.StepFunctions.CreateStateMachine
 
 -- | <i>See:</i> <a>newCreateStateMachine</a> smart constructor.
 data CreateStateMachine
@@ -8350,21 +8350,21 @@ createStateMachineResponse_stateMachineArn :: Lens' CreateStateMachineResponse T
 
 -- | The date the state machine is created.
 createStateMachineResponse_creationDate :: Lens' CreateStateMachineResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
-instance GHC.Show.Show Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
-instance GHC.Classes.Eq Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
-instance GHC.Generics.Generic Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachineResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachineResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachineResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.CreateStateMachine.CreateStateMachine
+instance GHC.Generics.Generic Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
+instance GHC.Show.Show Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
+instance GHC.Classes.Eq Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
+instance GHC.Generics.Generic Amazonka.StepFunctions.CreateStateMachine.CreateStateMachineResponse
+instance GHC.Show.Show Amazonka.StepFunctions.CreateStateMachine.CreateStateMachineResponse
+instance GHC.Read.Read Amazonka.StepFunctions.CreateStateMachine.CreateStateMachineResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.CreateStateMachine.CreateStateMachineResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.CreateStateMachine.CreateStateMachineResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.CreateStateMachine.CreateStateMachine
 
 
 -- | Creates an activity. An activity is a task that you write in any
@@ -8385,7 +8385,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.CreateStateMac
 --   values, Step Functions will ignore these differences and treat it as
 --   an idempotent request of the previous. In this case, <tt>tags</tt>
 --   will not be updated, even if they are different.
-module Network.AWS.StepFunctions.CreateActivity
+module Amazonka.StepFunctions.CreateActivity
 
 -- | <i>See:</i> <a>newCreateActivity</a> smart constructor.
 data CreateActivity
@@ -8534,26 +8534,26 @@ createActivityResponse_activityArn :: Lens' CreateActivityResponse Text
 
 -- | The date the activity is created.
 createActivityResponse_creationDate :: Lens' CreateActivityResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance GHC.Show.Show Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance GHC.Read.Read Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance GHC.Classes.Eq Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance GHC.Generics.Generic Network.AWS.StepFunctions.CreateActivity.CreateActivityResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.CreateActivity.CreateActivityResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.CreateActivity.CreateActivityResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.CreateActivity.CreateActivityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.CreateActivity.CreateActivityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.CreateActivity.CreateActivity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.CreateActivity.CreateActivity
+instance GHC.Generics.Generic Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance GHC.Show.Show Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance GHC.Read.Read Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance GHC.Classes.Eq Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance GHC.Generics.Generic Amazonka.StepFunctions.CreateActivity.CreateActivityResponse
+instance GHC.Show.Show Amazonka.StepFunctions.CreateActivity.CreateActivityResponse
+instance GHC.Read.Read Amazonka.StepFunctions.CreateActivity.CreateActivityResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.CreateActivity.CreateActivityResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.CreateActivity.CreateActivityResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.CreateActivity.CreateActivity
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.CreateActivity.CreateActivity
 
 
 -- | Remove a tag from a Step Functions resource
-module Network.AWS.StepFunctions.UntagResource
+module Amazonka.StepFunctions.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -8613,22 +8613,22 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.StepFunctions.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.StepFunctions.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.StepFunctions.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.StepFunctions.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.StepFunctions.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.StepFunctions.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.StepFunctions.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.StepFunctions.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.StepFunctions.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.StepFunctions.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.StepFunctions.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.StepFunctions.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.UntagResource.UntagResource
 
 
 -- | Updates an existing state machine by modifying its
@@ -8642,7 +8642,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.UntagResource.
 --   updated <tt>definition</tt> and <tt>roleArn</tt>. Executions started
 --   immediately after calling <tt>UpdateStateMachine</tt> may use the
 --   previous state machine <tt>definition</tt> and <tt>roleArn</tt>.
-module Network.AWS.StepFunctions.UpdateStateMachine
+module Amazonka.StepFunctions.UpdateStateMachine
 
 -- | <i>See:</i> <a>newUpdateStateMachine</a> smart constructor.
 data UpdateStateMachine
@@ -8746,24 +8746,24 @@ updateStateMachineResponse_httpStatus :: Lens' UpdateStateMachineResponse Int
 
 -- | The date and time the state machine was updated.
 updateStateMachineResponse_updateDate :: Lens' UpdateStateMachineResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
-instance GHC.Show.Show Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
-instance GHC.Classes.Eq Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
-instance GHC.Generics.Generic Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
-instance GHC.Show.Show Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
-instance GHC.Read.Read Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
-instance GHC.Classes.Eq Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
-instance Data.Hashable.Class.Hashable Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
-instance Control.DeepSeq.NFData Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
-instance Network.AWS.Data.Path.ToPath Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
-instance Network.AWS.Data.Query.ToQuery Network.AWS.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance GHC.Generics.Generic Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance GHC.Show.Show Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance GHC.Classes.Eq Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance GHC.Generics.Generic Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
+instance GHC.Show.Show Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
+instance GHC.Read.Read Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
+instance GHC.Classes.Eq Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
+instance Amazonka.Types.AWSRequest Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachineResponse
+instance Data.Hashable.Class.Hashable Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance Control.DeepSeq.NFData Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance Amazonka.Data.Headers.ToHeaders Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance Amazonka.Data.Path.ToPath Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
+instance Amazonka.Data.Query.ToQuery Amazonka.StepFunctions.UpdateStateMachine.UpdateStateMachine
 
 
-module Network.AWS.StepFunctions.Lens
+module Amazonka.StepFunctions.Lens
 
 -- | The Amazon Resource Name (ARN) of the activity to delete.
 deleteActivity_activityArn :: Lens' DeleteActivity Text
@@ -9956,7 +9956,7 @@ taskTimedOutEventDetails_resource :: Lens' TaskTimedOutEventDetails Text
 tracingConfiguration_enabled :: Lens' TracingConfiguration (Maybe Bool)
 
 
-module Network.AWS.StepFunctions.Waiters
+module Amazonka.StepFunctions.Waiters
 
 
 -- | Derived from API version <tt>2016-11-23</tt> of the AWS service
@@ -9985,7 +9985,7 @@ module Network.AWS.StepFunctions.Waiters
 --   an HTTP API. For more information about Step Functions, see the
 --   <i>&lt;https:</i><i>docs.aws.amazon.com</i>step-functions<i>latest</i>dg<i>welcome.html
 --   AWS Step Functions Developer Guide&gt;</i> .
-module Network.AWS.StepFunctions
+module Amazonka.StepFunctions
 
 -- | API version <tt>2016-11-23</tt> of the Amazon Step Functions SDK
 --   configuration.

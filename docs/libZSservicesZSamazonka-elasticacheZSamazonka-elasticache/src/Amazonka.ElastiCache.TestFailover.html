@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.TestFailover</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Represents the input of a @TestFailover@ operation which test automatic</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- failover on a specified node group (called shard in the console) in a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- replication group (called cluster in the console).</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __Note the following__</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   A customer can use this operation to test automatic failover on up</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     to 5 shards (called node groups in the ElastiCache API and Amazon</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     CLI) in any rolling 24-hour period.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   If calling this operation on shards in different clusters (called</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     replication groups in the API and CLI), the calls can be made</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     concurrently.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   If calling this operation multiple times on different shards in the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     same Redis (cluster mode enabled) replication group, the first node</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     replacement must complete before a subsequent call can be made.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   To determine whether the node replacement is complete you can check</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     Events using the Amazon ElastiCache console, the Amazon CLI, or the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     ElastiCache API. Look for the following automatic failover related</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     events, listed here in order of occurrance:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     1.  Replication group message:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--         @Test Failover API called for node group \&lt;node-group-id&gt;@</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     2.  Cache cluster message:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--         @Failover from primary node \&lt;primary-node-id&gt; to replica node \&lt;node-id&gt; completed@</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     3.  Replication group message:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--         @Failover from primary node \&lt;primary-node-id&gt; to replica node \&lt;node-id&gt; completed@</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     4.  Cache cluster message: @Recovering cache nodes \&lt;node-id&gt;@</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--     5.  Cache cluster message:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--         @Finished recovery for cache nodes \&lt;node-id&gt;@</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--     For more information see:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--     -   &lt;https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ECEvents.Viewing.html Viewing ElastiCache Events&gt;</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--         in the /ElastiCache User Guide/</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--     -   &lt;https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html DescribeEvents&gt;</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--         in the ElastiCache API Reference</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Also see,</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test Testing Multi-AZ&gt;</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- in the /ElastiCache User Guide/.</span><span>
+</span><span id="line-71"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.TestFailover</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier">TestFailover</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#newTestFailover"><span class="hs-identifier">newTestFailover</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#testFailover_replicationGroupId"><span class="hs-identifier">testFailover_replicationGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#testFailover_nodeGroupId"><span class="hs-identifier">testFailover_nodeGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse"><span class="hs-identifier">TestFailoverResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#newTestFailoverResponse"><span class="hs-identifier">newTestFailoverResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#testFailoverResponse_replicationGroup"><span class="hs-identifier">testFailoverResponse_replicationGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#testFailoverResponse_httpStatus"><span class="hs-identifier">testFailoverResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.html"><span class="hs-identifier">Amazonka.ElastiCache.Types</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | /See:/ 'newTestFailover' smart constructor.</span><span>
+</span><span id="line-98"></span><span id="local-6989586621679410136"><span id="local-6989586621679410137"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestFailover"><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-var">TestFailover</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestFailover%27"><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover%27"><span class="hs-identifier hs-var">TestFailover'</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the replication group (console: cluster) whose automatic</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- failover is being tested by this operation.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AreplicationGroupId%3ATestFailover%27"><span class="annot"><span class="annottext">TestFailover -&gt; Text
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AreplicationGroupId%3ATestFailover%27"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The name of the node group (called shard in the console) in this</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- replication group on which automatic failover is to be tested. You may</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- test automatic failover on up to 5 node groups in any rolling 24-hour</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AnodeGroupId%3ATestFailover%27"><span class="annot"><span class="annottext">TestFailover -&gt; Text
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AnodeGroupId%3ATestFailover%27"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410129"><span id="local-6989586621679410131"><span class="annot"><span class="annottext">TestFailover -&gt; TestFailover -&gt; Bool
+(TestFailover -&gt; TestFailover -&gt; Bool)
+-&gt; (TestFailover -&gt; TestFailover -&gt; Bool) -&gt; Eq TestFailover
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TestFailover -&gt; TestFailover -&gt; Bool
+$c/= :: TestFailover -&gt; TestFailover -&gt; Bool
+== :: TestFailover -&gt; TestFailover -&gt; Bool
+$c== :: TestFailover -&gt; TestFailover -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410120"><span id="local-6989586621679410122"><span id="local-6989586621679410124"><span id="local-6989586621679410126"><span class="annot"><span class="annottext">ReadPrec [TestFailover]
+ReadPrec TestFailover
+Int -&gt; ReadS TestFailover
+ReadS [TestFailover]
+(Int -&gt; ReadS TestFailover)
+-&gt; ReadS [TestFailover]
+-&gt; ReadPrec TestFailover
+-&gt; ReadPrec [TestFailover]
+-&gt; Read TestFailover
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TestFailover]
+$creadListPrec :: ReadPrec [TestFailover]
+readPrec :: ReadPrec TestFailover
+$creadPrec :: ReadPrec TestFailover
+readList :: ReadS [TestFailover]
+$creadList :: ReadS [TestFailover]
+readsPrec :: Int -&gt; ReadS TestFailover
+$creadsPrec :: Int -&gt; ReadS TestFailover
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410113"><span id="local-6989586621679410115"><span id="local-6989586621679410117"><span class="annot"><span class="annottext">Int -&gt; TestFailover -&gt; ShowS
+[TestFailover] -&gt; ShowS
+TestFailover -&gt; String
+(Int -&gt; TestFailover -&gt; ShowS)
+-&gt; (TestFailover -&gt; String)
+-&gt; ([TestFailover] -&gt; ShowS)
+-&gt; Show TestFailover
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TestFailover] -&gt; ShowS
+$cshowList :: [TestFailover] -&gt; ShowS
+show :: TestFailover -&gt; String
+$cshow :: TestFailover -&gt; String
+showsPrec :: Int -&gt; TestFailover -&gt; ShowS
+$cshowsPrec :: Int -&gt; TestFailover -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TestFailover -&gt; Rep TestFailover x)
+-&gt; (forall x. Rep TestFailover x -&gt; TestFailover)
+-&gt; Generic TestFailover
+forall x. Rep TestFailover x -&gt; TestFailover
+forall x. TestFailover -&gt; Rep TestFailover x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TestFailover x -&gt; TestFailover
+$cfrom :: forall x. TestFailover -&gt; Rep TestFailover x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Create a value of 'TestFailover' with all optional fields omitted.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'replicationGroupId', 'testFailover_replicationGroupId' - The name of the replication group (console: cluster) whose automatic</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- failover is being tested by this operation.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'nodeGroupId', 'testFailover_nodeGroupId' - The name of the node group (called shard in the console) in this</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- replication group on which automatic failover is to be tested. You may</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- test automatic failover on up to 5 node groups in any rolling 24-hour</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#newTestFailover"><span class="hs-identifier hs-type">newTestFailover</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'replicationGroupId'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'nodeGroupId'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span>
+</span><span id="line-131"></span><span id="newTestFailover"><span class="annot"><span class="annottext">newTestFailover :: Text -&gt; Text -&gt; TestFailover
+</span><a href="Amazonka.ElastiCache.TestFailover.html#newTestFailover"><span class="hs-identifier hs-var hs-var">newTestFailover</span></a></span></span><span> </span><span id="local-6989586621679410108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410108"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span></span><span> </span><span id="local-6989586621679410107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410107"><span class="hs-identifier hs-var">pNodeGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">TestFailover' :: Text -&gt; Text -&gt; TestFailover
+</span><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover%27"><span class="hs-identifier hs-type">TestFailover'</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationGroupId:TestFailover' :: Text
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AreplicationGroupId%3ATestFailover%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410108"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeGroupId:TestFailover' :: Text
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AnodeGroupId%3ATestFailover%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410107"><span class="hs-identifier hs-var">pNodeGroupId_</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The name of the replication group (console: cluster) whose automatic</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- failover is being tested by this operation.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#testFailover_replicationGroupId"><span class="hs-identifier hs-type">testFailover_replicationGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="testFailover_replicationGroupId"><span class="annot"><span class="annottext">testFailover_replicationGroupId :: (Text -&gt; f Text) -&gt; TestFailover -&gt; f TestFailover
+</span><a href="Amazonka.ElastiCache.TestFailover.html#testFailover_replicationGroupId"><span class="hs-identifier hs-var hs-var">testFailover_replicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestFailover -&gt; Text)
+-&gt; (TestFailover -&gt; Text -&gt; TestFailover)
+-&gt; Lens TestFailover TestFailover Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover%27"><span class="hs-identifier hs-type">TestFailover'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410104"><span class="annot"><span class="annottext">Text
+replicationGroupId :: Text
+$sel:replicationGroupId:TestFailover' :: TestFailover -&gt; Text
+</span><a href="#local-6989586621679410104"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410104"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410103"><span class="annot"><span class="annottext">s :: TestFailover
+</span><a href="#local-6989586621679410103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover%27"><span class="hs-identifier hs-type">TestFailover'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFailover
+</span><a href="#local-6989586621679410103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupId:TestFailover' :: Text
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AreplicationGroupId%3ATestFailover%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The name of the node group (called shard in the console) in this</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- replication group on which automatic failover is to be tested. You may</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- test automatic failover on up to 5 node groups in any rolling 24-hour</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#testFailover_nodeGroupId"><span class="hs-identifier hs-type">testFailover_nodeGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="testFailover_nodeGroupId"><span class="annot"><span class="annottext">testFailover_nodeGroupId :: (Text -&gt; f Text) -&gt; TestFailover -&gt; f TestFailover
+</span><a href="Amazonka.ElastiCache.TestFailover.html#testFailover_nodeGroupId"><span class="hs-identifier hs-var hs-var">testFailover_nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestFailover -&gt; Text)
+-&gt; (TestFailover -&gt; Text -&gt; TestFailover)
+-&gt; Lens TestFailover TestFailover Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover%27"><span class="hs-identifier hs-type">TestFailover'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410101"><span class="annot"><span class="annottext">Text
+nodeGroupId :: Text
+$sel:nodeGroupId:TestFailover' :: TestFailover -&gt; Text
+</span><a href="#local-6989586621679410101"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410101"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410100"><span class="annot"><span class="annottext">s :: TestFailover
+</span><a href="#local-6989586621679410100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover%27"><span class="hs-identifier hs-type">TestFailover'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFailover
+</span><a href="#local-6989586621679410100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupId:TestFailover' :: Text
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AnodeGroupId%3ATestFailover%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse"><span class="hs-identifier hs-type">TestFailoverResponse</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679410095"><span class="annot"><span class="annottext">request :: TestFailover -&gt; Request TestFailover
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TestFailover -&gt; Request TestFailover
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679410091"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy TestFailover
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse TestFailover)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse TestFailover))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy TestFailover
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse TestFailover)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TestFailoverResult&quot;</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679410088"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410088"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679410087"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679410087"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679410086"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679410086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationGroup -&gt; Int -&gt; TestFailoverResponse
+</span><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse%27"><span class="hs-identifier hs-var">TestFailoverResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReplicationGroup -&gt; Int -&gt; TestFailoverResponse)
+-&gt; Either String (Maybe ReplicationGroup)
+-&gt; Either String (Int -&gt; TestFailoverResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679410086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicationGroup)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; TestFailoverResponse)
+-&gt; Either String Int -&gt; Either String TestFailoverResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410088"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410078"><span id="local-6989586621679410080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679410071"><span class="annot"><span class="annottext">toHeaders :: TestFailover -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TestFailover -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679410066"><span class="annot"><span class="annottext">toPath :: TestFailover -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TestFailover -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover"><span class="hs-identifier hs-type">TestFailover</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679410062"><span class="annot"><span class="annottext">toQuery :: TestFailover -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailover%27"><span class="hs-identifier hs-type">TestFailover'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410059"><span id="local-6989586621679410060"><span class="annot"><span class="annottext">Text
+nodeGroupId :: Text
+replicationGroupId :: Text
+$sel:nodeGroupId:TestFailover' :: TestFailover -&gt; Text
+$sel:replicationGroupId:TestFailover' :: TestFailover -&gt; Text
+</span><a href="#local-6989586621679410059"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TestFailover&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-02-02&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReplicationGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410060"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NodeGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410059"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newTestFailoverResponse' smart constructor.</span><span>
+</span><span id="line-184"></span><span id="local-6989586621679410056"><span id="local-6989586621679410057"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestFailoverResponse"><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse"><span class="hs-identifier hs-var">TestFailoverResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestFailoverResponse%27"><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse%27"><span class="hs-identifier hs-var">TestFailoverResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreplicationGroup%3ATestFailoverResponse%27"><span class="annot"><span class="annottext">TestFailoverResponse -&gt; Maybe ReplicationGroup
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AreplicationGroup%3ATestFailoverResponse%27"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReplicationGroup.html#ReplicationGroup"><span class="hs-identifier hs-type">ReplicationGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATestFailoverResponse%27"><span class="annot"><span class="annottext">TestFailoverResponse -&gt; Int
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AhttpStatus%3ATestFailoverResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410050"><span id="local-6989586621679410052"><span class="annot"><span class="annottext">TestFailoverResponse -&gt; TestFailoverResponse -&gt; Bool
+(TestFailoverResponse -&gt; TestFailoverResponse -&gt; Bool)
+-&gt; (TestFailoverResponse -&gt; TestFailoverResponse -&gt; Bool)
+-&gt; Eq TestFailoverResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TestFailoverResponse -&gt; TestFailoverResponse -&gt; Bool
+$c/= :: TestFailoverResponse -&gt; TestFailoverResponse -&gt; Bool
+== :: TestFailoverResponse -&gt; TestFailoverResponse -&gt; Bool
+$c== :: TestFailoverResponse -&gt; TestFailoverResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410042"><span id="local-6989586621679410044"><span id="local-6989586621679410046"><span id="local-6989586621679410048"><span class="annot"><span class="annottext">ReadPrec [TestFailoverResponse]
+ReadPrec TestFailoverResponse
+Int -&gt; ReadS TestFailoverResponse
+ReadS [TestFailoverResponse]
+(Int -&gt; ReadS TestFailoverResponse)
+-&gt; ReadS [TestFailoverResponse]
+-&gt; ReadPrec TestFailoverResponse
+-&gt; ReadPrec [TestFailoverResponse]
+-&gt; Read TestFailoverResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TestFailoverResponse]
+$creadListPrec :: ReadPrec [TestFailoverResponse]
+readPrec :: ReadPrec TestFailoverResponse
+$creadPrec :: ReadPrec TestFailoverResponse
+readList :: ReadS [TestFailoverResponse]
+$creadList :: ReadS [TestFailoverResponse]
+readsPrec :: Int -&gt; ReadS TestFailoverResponse
+$creadsPrec :: Int -&gt; ReadS TestFailoverResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410036"><span id="local-6989586621679410038"><span id="local-6989586621679410040"><span class="annot"><span class="annottext">Int -&gt; TestFailoverResponse -&gt; ShowS
+[TestFailoverResponse] -&gt; ShowS
+TestFailoverResponse -&gt; String
+(Int -&gt; TestFailoverResponse -&gt; ShowS)
+-&gt; (TestFailoverResponse -&gt; String)
+-&gt; ([TestFailoverResponse] -&gt; ShowS)
+-&gt; Show TestFailoverResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TestFailoverResponse] -&gt; ShowS
+$cshowList :: [TestFailoverResponse] -&gt; ShowS
+show :: TestFailoverResponse -&gt; String
+$cshow :: TestFailoverResponse -&gt; String
+showsPrec :: Int -&gt; TestFailoverResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; TestFailoverResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TestFailoverResponse -&gt; Rep TestFailoverResponse x)
+-&gt; (forall x. Rep TestFailoverResponse x -&gt; TestFailoverResponse)
+-&gt; Generic TestFailoverResponse
+forall x. Rep TestFailoverResponse x -&gt; TestFailoverResponse
+forall x. TestFailoverResponse -&gt; Rep TestFailoverResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TestFailoverResponse x -&gt; TestFailoverResponse
+$cfrom :: forall x. TestFailoverResponse -&gt; Rep TestFailoverResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Create a value of 'TestFailoverResponse' with all optional fields omitted.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'replicationGroup', 'testFailoverResponse_replicationGroup' - Undocumented member.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'httpStatus', 'testFailoverResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#newTestFailoverResponse"><span class="hs-identifier hs-type">newTestFailoverResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse"><span class="hs-identifier hs-type">TestFailoverResponse</span></a></span><span>
+</span><span id="line-206"></span><span id="newTestFailoverResponse"><span class="annot"><span class="annottext">newTestFailoverResponse :: Int -&gt; TestFailoverResponse
+</span><a href="Amazonka.ElastiCache.TestFailover.html#newTestFailoverResponse"><span class="hs-identifier hs-var hs-var">newTestFailoverResponse</span></a></span></span><span> </span><span id="local-6989586621679410033"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">TestFailoverResponse' :: Maybe ReplicationGroup -&gt; Int -&gt; TestFailoverResponse
+</span><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse%27"><span class="hs-identifier hs-type">TestFailoverResponse'</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationGroup:TestFailoverResponse' :: Maybe ReplicationGroup
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AreplicationGroup%3ATestFailoverResponse%27"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TestFailoverResponse' :: Int
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AhttpStatus%3ATestFailoverResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#testFailoverResponse_replicationGroup"><span class="hs-identifier hs-type">testFailoverResponse_replicationGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse"><span class="hs-identifier hs-type">TestFailoverResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReplicationGroup.html#ReplicationGroup"><span class="hs-identifier hs-type">ReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="testFailoverResponse_replicationGroup"><span class="annot"><span class="annottext">testFailoverResponse_replicationGroup :: (Maybe ReplicationGroup -&gt; f (Maybe ReplicationGroup))
+-&gt; TestFailoverResponse -&gt; f TestFailoverResponse
+</span><a href="Amazonka.ElastiCache.TestFailover.html#testFailoverResponse_replicationGroup"><span class="hs-identifier hs-var hs-var">testFailoverResponse_replicationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestFailoverResponse -&gt; Maybe ReplicationGroup)
+-&gt; (TestFailoverResponse
+    -&gt; Maybe ReplicationGroup -&gt; TestFailoverResponse)
+-&gt; Lens
+     TestFailoverResponse
+     TestFailoverResponse
+     (Maybe ReplicationGroup)
+     (Maybe ReplicationGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse%27"><span class="hs-identifier hs-type">TestFailoverResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410032"><span class="annot"><span class="annottext">Maybe ReplicationGroup
+replicationGroup :: Maybe ReplicationGroup
+$sel:replicationGroup:TestFailoverResponse' :: TestFailoverResponse -&gt; Maybe ReplicationGroup
+</span><a href="#local-6989586621679410032"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679410032"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410031"><span class="annot"><span class="annottext">s :: TestFailoverResponse
+</span><a href="#local-6989586621679410031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse%27"><span class="hs-identifier hs-type">TestFailoverResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410030"><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679410030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFailoverResponse
+</span><a href="#local-6989586621679410031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:TestFailoverResponse' :: Maybe ReplicationGroup
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AreplicationGroup%3ATestFailoverResponse%27"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679410030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse"><span class="hs-identifier hs-type">TestFailoverResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#testFailoverResponse_httpStatus"><span class="hs-identifier hs-type">testFailoverResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse"><span class="hs-identifier hs-type">TestFailoverResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-219"></span><span id="testFailoverResponse_httpStatus"><span class="annot"><span class="annottext">testFailoverResponse_httpStatus :: (Int -&gt; f Int) -&gt; TestFailoverResponse -&gt; f TestFailoverResponse
+</span><a href="Amazonka.ElastiCache.TestFailover.html#testFailoverResponse_httpStatus"><span class="hs-identifier hs-var hs-var">testFailoverResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestFailoverResponse -&gt; Int)
+-&gt; (TestFailoverResponse -&gt; Int -&gt; TestFailoverResponse)
+-&gt; Lens TestFailoverResponse TestFailoverResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse%27"><span class="hs-identifier hs-type">TestFailoverResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410029"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:TestFailoverResponse' :: TestFailoverResponse -&gt; Int
+</span><a href="#local-6989586621679410029"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410029"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410028"><span class="annot"><span class="annottext">s :: TestFailoverResponse
+</span><a href="#local-6989586621679410028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse%27"><span class="hs-identifier hs-type">TestFailoverResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410027"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFailoverResponse
+</span><a href="#local-6989586621679410028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestFailoverResponse' :: Int
+</span><a href="Amazonka.ElastiCache.TestFailover.html#%24sel%3AhttpStatus%3ATestFailoverResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse"><span class="hs-identifier hs-type">TestFailoverResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.TestFailover.html#TestFailoverResponse"><span class="hs-identifier hs-type">TestFailoverResponse</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

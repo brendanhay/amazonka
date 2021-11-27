@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Shield.Types.ProtectionGroupPattern</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Shield.Types.ProtectionGroupPattern</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern"><span class="hs-identifier">ProtectionGroupPattern</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern_ALL"><span class="hs-identifier">ProtectionGroupPattern_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern_ARBITRARY"><span class="hs-identifier">ProtectionGroupPattern_ARBITRARY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern_BY_RESOURCE_TYPE"><span class="hs-identifier">ProtectionGroupPattern_BY_RESOURCE_TYPE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679202862"><span id="local-6989586621679202863"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProtectionGroupPattern"><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern"><span class="hs-identifier hs-var">ProtectionGroupPattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtectionGroupPattern%27"><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern%27"><span class="hs-identifier hs-var">ProtectionGroupPattern'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProtectionGroupPattern"><span class="annot"><span class="annottext">ProtectionGroupPattern -&gt; Text
+</span><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#fromProtectionGroupPattern"><span class="hs-identifier hs-var hs-var">fromProtectionGroupPattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202854"><span id="local-6989586621679202856"><span id="local-6989586621679202858"><span class="annot"><span class="annottext">Int -&gt; ProtectionGroupPattern -&gt; ShowS
+[ProtectionGroupPattern] -&gt; ShowS
+ProtectionGroupPattern -&gt; String
+(Int -&gt; ProtectionGroupPattern -&gt; ShowS)
+-&gt; (ProtectionGroupPattern -&gt; String)
+-&gt; ([ProtectionGroupPattern] -&gt; ShowS)
+-&gt; Show ProtectionGroupPattern
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProtectionGroupPattern] -&gt; ShowS
+$cshowList :: [ProtectionGroupPattern] -&gt; ShowS
+show :: ProtectionGroupPattern -&gt; String
+$cshow :: ProtectionGroupPattern -&gt; String
+showsPrec :: Int -&gt; ProtectionGroupPattern -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProtectionGroupPattern -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679202845"><span id="local-6989586621679202847"><span id="local-6989586621679202849"><span id="local-6989586621679202851"><span class="annot"><span class="annottext">ReadPrec [ProtectionGroupPattern]
+ReadPrec ProtectionGroupPattern
+Int -&gt; ReadS ProtectionGroupPattern
+ReadS [ProtectionGroupPattern]
+(Int -&gt; ReadS ProtectionGroupPattern)
+-&gt; ReadS [ProtectionGroupPattern]
+-&gt; ReadPrec ProtectionGroupPattern
+-&gt; ReadPrec [ProtectionGroupPattern]
+-&gt; Read ProtectionGroupPattern
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProtectionGroupPattern]
+$creadListPrec :: ReadPrec [ProtectionGroupPattern]
+readPrec :: ReadPrec ProtectionGroupPattern
+$creadPrec :: ReadPrec ProtectionGroupPattern
+readList :: ReadS [ProtectionGroupPattern]
+$creadList :: ReadS [ProtectionGroupPattern]
+readsPrec :: Int -&gt; ReadS ProtectionGroupPattern
+$creadsPrec :: Int -&gt; ReadS ProtectionGroupPattern
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679202840"><span id="local-6989586621679202842"><span class="annot"><span class="annottext">ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+(ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool)
+-&gt; (ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool)
+-&gt; Eq ProtectionGroupPattern
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+$c/= :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+== :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+$c== :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679202824"><span id="local-6989586621679202826"><span id="local-6989586621679202828"><span id="local-6989586621679202830"><span id="local-6989586621679202832"><span id="local-6989586621679202834"><span id="local-6989586621679202836"><span class="annot"><span class="annottext">Eq ProtectionGroupPattern
+Eq ProtectionGroupPattern
+-&gt; (ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Ordering)
+-&gt; (ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool)
+-&gt; (ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool)
+-&gt; (ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool)
+-&gt; (ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool)
+-&gt; (ProtectionGroupPattern
+    -&gt; ProtectionGroupPattern -&gt; ProtectionGroupPattern)
+-&gt; (ProtectionGroupPattern
+    -&gt; ProtectionGroupPattern -&gt; ProtectionGroupPattern)
+-&gt; Ord ProtectionGroupPattern
+ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Ordering
+ProtectionGroupPattern
+-&gt; ProtectionGroupPattern -&gt; ProtectionGroupPattern
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ProtectionGroupPattern
+-&gt; ProtectionGroupPattern -&gt; ProtectionGroupPattern
+$cmin :: ProtectionGroupPattern
+-&gt; ProtectionGroupPattern -&gt; ProtectionGroupPattern
+max :: ProtectionGroupPattern
+-&gt; ProtectionGroupPattern -&gt; ProtectionGroupPattern
+$cmax :: ProtectionGroupPattern
+-&gt; ProtectionGroupPattern -&gt; ProtectionGroupPattern
+&gt;= :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+$c&gt;= :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+&gt; :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+$c&gt; :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+&lt;= :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+$c&lt;= :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+&lt; :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+$c&lt; :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Bool
+compare :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Ordering
+$ccompare :: ProtectionGroupPattern -&gt; ProtectionGroupPattern -&gt; Ordering
+$cp1Ord :: Eq ProtectionGroupPattern
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ProtectionGroupPattern -&gt; Rep ProtectionGroupPattern x)
+-&gt; (forall x.
+    Rep ProtectionGroupPattern x -&gt; ProtectionGroupPattern)
+-&gt; Generic ProtectionGroupPattern
+forall x. Rep ProtectionGroupPattern x -&gt; ProtectionGroupPattern
+forall x. ProtectionGroupPattern -&gt; Rep ProtectionGroupPattern x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProtectionGroupPattern x -&gt; ProtectionGroupPattern
+$cfrom :: forall x. ProtectionGroupPattern -&gt; Rep ProtectionGroupPattern x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202816"><span id="local-6989586621679202818"><span class="annot"><span class="annottext">Int -&gt; ProtectionGroupPattern -&gt; Int
+ProtectionGroupPattern -&gt; Int
+(Int -&gt; ProtectionGroupPattern -&gt; Int)
+-&gt; (ProtectionGroupPattern -&gt; Int)
+-&gt; Hashable ProtectionGroupPattern
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ProtectionGroupPattern -&gt; Int
+$chash :: ProtectionGroupPattern -&gt; Int
+hashWithSalt :: Int -&gt; ProtectionGroupPattern -&gt; Int
+$chashWithSalt :: Int -&gt; ProtectionGroupPattern -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679202813"><span class="annot"><span class="annottext">ProtectionGroupPattern -&gt; ()
+(ProtectionGroupPattern -&gt; ()) -&gt; NFData ProtectionGroupPattern
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ProtectionGroupPattern -&gt; ()
+$crnf :: ProtectionGroupPattern -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679202810"><span class="annot"><span class="annottext">Text -&gt; Either String ProtectionGroupPattern
+(Text -&gt; Either String ProtectionGroupPattern)
+-&gt; FromText ProtectionGroupPattern
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ProtectionGroupPattern
+$cfromText :: Text -&gt; Either String ProtectionGroupPattern
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679202807"><span class="annot"><span class="annottext">ProtectionGroupPattern -&gt; Text
+(ProtectionGroupPattern -&gt; Text) -&gt; ToText ProtectionGroupPattern
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ProtectionGroupPattern -&gt; Text
+$ctoText :: ProtectionGroupPattern -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679202804"><span class="annot"><span class="annottext">ProtectionGroupPattern -&gt; ByteString
+(ProtectionGroupPattern -&gt; ByteString)
+-&gt; ToByteString ProtectionGroupPattern
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ProtectionGroupPattern -&gt; ByteString
+$ctoBS :: ProtectionGroupPattern -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202801"><span class="annot"><span class="annottext">ProtectionGroupPattern -&gt; ByteStringBuilder
+(ProtectionGroupPattern -&gt; ByteStringBuilder)
+-&gt; ToLog ProtectionGroupPattern
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ProtectionGroupPattern -&gt; ByteStringBuilder
+$cbuild :: ProtectionGroupPattern -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202798"><span class="annot"><span class="annottext">HeaderName -&gt; ProtectionGroupPattern -&gt; [Header]
+(HeaderName -&gt; ProtectionGroupPattern -&gt; [Header])
+-&gt; ToHeader ProtectionGroupPattern
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ProtectionGroupPattern -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ProtectionGroupPattern -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202795"><span class="annot"><span class="annottext">ProtectionGroupPattern -&gt; QueryString
+(ProtectionGroupPattern -&gt; QueryString)
+-&gt; ToQuery ProtectionGroupPattern
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ProtectionGroupPattern -&gt; QueryString
+$ctoQuery :: ProtectionGroupPattern -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202790"><span id="local-6989586621679202792"><span class="annot"><span class="annottext">Value -&gt; Parser [ProtectionGroupPattern]
+Value -&gt; Parser ProtectionGroupPattern
+(Value -&gt; Parser ProtectionGroupPattern)
+-&gt; (Value -&gt; Parser [ProtectionGroupPattern])
+-&gt; FromJSON ProtectionGroupPattern
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ProtectionGroupPattern]
+$cparseJSONList :: Value -&gt; Parser [ProtectionGroupPattern]
+parseJSON :: Value -&gt; Parser ProtectionGroupPattern
+$cparseJSON :: Value -&gt; Parser ProtectionGroupPattern
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202785"><span id="local-6989586621679202787"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProtectionGroupPattern]
+FromJSONKeyFunction ProtectionGroupPattern
+FromJSONKeyFunction ProtectionGroupPattern
+-&gt; FromJSONKeyFunction [ProtectionGroupPattern]
+-&gt; FromJSONKey ProtectionGroupPattern
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ProtectionGroupPattern]
+$cfromJSONKeyList :: FromJSONKeyFunction [ProtectionGroupPattern]
+fromJSONKey :: FromJSONKeyFunction ProtectionGroupPattern
+$cfromJSONKey :: FromJSONKeyFunction ProtectionGroupPattern
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202776"><span id="local-6989586621679202778"><span id="local-6989586621679202780"><span id="local-6989586621679202782"><span class="annot"><span class="annottext">[ProtectionGroupPattern] -&gt; Encoding
+[ProtectionGroupPattern] -&gt; Value
+ProtectionGroupPattern -&gt; Encoding
+ProtectionGroupPattern -&gt; Value
+(ProtectionGroupPattern -&gt; Value)
+-&gt; (ProtectionGroupPattern -&gt; Encoding)
+-&gt; ([ProtectionGroupPattern] -&gt; Value)
+-&gt; ([ProtectionGroupPattern] -&gt; Encoding)
+-&gt; ToJSON ProtectionGroupPattern
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ProtectionGroupPattern] -&gt; Encoding
+$ctoEncodingList :: [ProtectionGroupPattern] -&gt; Encoding
+toJSONList :: [ProtectionGroupPattern] -&gt; Value
+$ctoJSONList :: [ProtectionGroupPattern] -&gt; Value
+toEncoding :: ProtectionGroupPattern -&gt; Encoding
+$ctoEncoding :: ProtectionGroupPattern -&gt; Encoding
+toJSON :: ProtectionGroupPattern -&gt; Value
+$ctoJSON :: ProtectionGroupPattern -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202771"><span id="local-6989586621679202773"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProtectionGroupPattern]
+ToJSONKeyFunction ProtectionGroupPattern
+ToJSONKeyFunction ProtectionGroupPattern
+-&gt; ToJSONKeyFunction [ProtectionGroupPattern]
+-&gt; ToJSONKey ProtectionGroupPattern
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ProtectionGroupPattern]
+$ctoJSONKeyList :: ToJSONKeyFunction [ProtectionGroupPattern]
+toJSONKey :: ToJSONKeyFunction ProtectionGroupPattern
+$ctoJSONKey :: ToJSONKeyFunction ProtectionGroupPattern
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679202768"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProtectionGroupPattern
+([Node] -&gt; Either String ProtectionGroupPattern)
+-&gt; FromXML ProtectionGroupPattern
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ProtectionGroupPattern
+$cparseXML :: [Node] -&gt; Either String ProtectionGroupPattern
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679202765"><span class="annot"><span class="annottext">ProtectionGroupPattern -&gt; XML
+(ProtectionGroupPattern -&gt; XML) -&gt; ToXML ProtectionGroupPattern
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ProtectionGroupPattern -&gt; XML
+$ctoXML :: ProtectionGroupPattern -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern_ALL"><span class="hs-identifier hs-type">ProtectionGroupPattern_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern"><span class="hs-identifier hs-type">ProtectionGroupPattern</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProtectionGroupPattern_ALL"><span id="%24mProtectionGroupPattern_ALL"><span id="ProtectionGroupPattern_ALL"><span class="annot"><span class="annottext">$bProtectionGroupPattern_ALL :: ProtectionGroupPattern
+$mProtectionGroupPattern_ALL :: forall r.
+ProtectionGroupPattern -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#%24bProtectionGroupPattern_ALL"><span class="hs-identifier hs-var hs-var hs-var">ProtectionGroupPattern_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern%27"><span class="hs-identifier hs-type">ProtectionGroupPattern'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALL&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern_ARBITRARY"><span class="hs-identifier hs-type">ProtectionGroupPattern_ARBITRARY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern"><span class="hs-identifier hs-type">ProtectionGroupPattern</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProtectionGroupPattern_ARBITRARY"><span id="%24mProtectionGroupPattern_ARBITRARY"><span id="ProtectionGroupPattern_ARBITRARY"><span class="annot"><span class="annottext">$bProtectionGroupPattern_ARBITRARY :: ProtectionGroupPattern
+$mProtectionGroupPattern_ARBITRARY :: forall r.
+ProtectionGroupPattern -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#%24bProtectionGroupPattern_ARBITRARY"><span class="hs-identifier hs-var hs-var hs-var">ProtectionGroupPattern_ARBITRARY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern%27"><span class="hs-identifier hs-type">ProtectionGroupPattern'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ARBITRARY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern_BY_RESOURCE_TYPE"><span class="hs-identifier hs-type">ProtectionGroupPattern_BY_RESOURCE_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern"><span class="hs-identifier hs-type">ProtectionGroupPattern</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProtectionGroupPattern_BY_RESOURCE_TYPE"><span id="%24mProtectionGroupPattern_BY_RESOURCE_TYPE"><span id="ProtectionGroupPattern_BY_RESOURCE_TYPE"><span class="annot"><span class="annottext">$bProtectionGroupPattern_BY_RESOURCE_TYPE :: ProtectionGroupPattern
+$mProtectionGroupPattern_BY_RESOURCE_TYPE :: forall r.
+ProtectionGroupPattern -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#%24bProtectionGroupPattern_BY_RESOURCE_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ProtectionGroupPattern_BY_RESOURCE_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern%27"><span class="hs-identifier hs-type">ProtectionGroupPattern'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BY_RESOURCE_TYPE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern_ALL"><span class="hs-pragma hs-type">ProtectionGroupPattern_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern_ARBITRARY"><span class="hs-pragma hs-type">ProtectionGroupPattern_ARBITRARY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern_BY_RESOURCE_TYPE"><span class="hs-pragma hs-type">ProtectionGroupPattern_BY_RESOURCE_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern%27"><span class="hs-pragma hs-type">ProtectionGroupPattern'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

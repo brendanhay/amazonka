@@ -1,0 +1,787 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTThingsGraph.GetUploadStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the status of the specified upload.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTThingsGraph.GetUploadStatus</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier">GetUploadStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#newGetUploadStatus"><span class="hs-identifier">newGetUploadStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatus_uploadId"><span class="hs-identifier">getUploadStatus_uploadId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier">GetUploadStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#newGetUploadStatusResponse"><span class="hs-identifier">newGetUploadStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_failureReason"><span class="hs-identifier">getUploadStatusResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_namespaceArn"><span class="hs-identifier">getUploadStatusResponse_namespaceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_namespaceVersion"><span class="hs-identifier">getUploadStatusResponse_namespaceVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_namespaceName"><span class="hs-identifier">getUploadStatusResponse_namespaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_httpStatus"><span class="hs-identifier">getUploadStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_uploadId"><span class="hs-identifier">getUploadStatusResponse_uploadId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_uploadStatus"><span class="hs-identifier">getUploadStatusResponse_uploadStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_createdDate"><span class="hs-identifier">getUploadStatusResponse_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.html"><span class="hs-identifier">Amazonka.IoTThingsGraph.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetUploadStatus' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679222986"><span id="local-6989586621679222987"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUploadStatus"><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-var">GetUploadStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUploadStatus%27"><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus%27"><span class="hs-identifier hs-var">GetUploadStatus'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the upload. This value is returned by the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @UploadEntityDefinitions@ action.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AuploadId%3AGetUploadStatus%27"><span class="annot"><span class="annottext">GetUploadStatus -&gt; Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AuploadId%3AGetUploadStatus%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222980"><span id="local-6989586621679222982"><span class="annot"><span class="annottext">GetUploadStatus -&gt; GetUploadStatus -&gt; Bool
+(GetUploadStatus -&gt; GetUploadStatus -&gt; Bool)
+-&gt; (GetUploadStatus -&gt; GetUploadStatus -&gt; Bool)
+-&gt; Eq GetUploadStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetUploadStatus -&gt; GetUploadStatus -&gt; Bool
+$c/= :: GetUploadStatus -&gt; GetUploadStatus -&gt; Bool
+== :: GetUploadStatus -&gt; GetUploadStatus -&gt; Bool
+$c== :: GetUploadStatus -&gt; GetUploadStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222971"><span id="local-6989586621679222973"><span id="local-6989586621679222975"><span id="local-6989586621679222977"><span class="annot"><span class="annottext">ReadPrec [GetUploadStatus]
+ReadPrec GetUploadStatus
+Int -&gt; ReadS GetUploadStatus
+ReadS [GetUploadStatus]
+(Int -&gt; ReadS GetUploadStatus)
+-&gt; ReadS [GetUploadStatus]
+-&gt; ReadPrec GetUploadStatus
+-&gt; ReadPrec [GetUploadStatus]
+-&gt; Read GetUploadStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetUploadStatus]
+$creadListPrec :: ReadPrec [GetUploadStatus]
+readPrec :: ReadPrec GetUploadStatus
+$creadPrec :: ReadPrec GetUploadStatus
+readList :: ReadS [GetUploadStatus]
+$creadList :: ReadS [GetUploadStatus]
+readsPrec :: Int -&gt; ReadS GetUploadStatus
+$creadsPrec :: Int -&gt; ReadS GetUploadStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222964"><span id="local-6989586621679222966"><span id="local-6989586621679222968"><span class="annot"><span class="annottext">Int -&gt; GetUploadStatus -&gt; ShowS
+[GetUploadStatus] -&gt; ShowS
+GetUploadStatus -&gt; String
+(Int -&gt; GetUploadStatus -&gt; ShowS)
+-&gt; (GetUploadStatus -&gt; String)
+-&gt; ([GetUploadStatus] -&gt; ShowS)
+-&gt; Show GetUploadStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetUploadStatus] -&gt; ShowS
+$cshowList :: [GetUploadStatus] -&gt; ShowS
+show :: GetUploadStatus -&gt; String
+$cshow :: GetUploadStatus -&gt; String
+showsPrec :: Int -&gt; GetUploadStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetUploadStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetUploadStatus -&gt; Rep GetUploadStatus x)
+-&gt; (forall x. Rep GetUploadStatus x -&gt; GetUploadStatus)
+-&gt; Generic GetUploadStatus
+forall x. Rep GetUploadStatus x -&gt; GetUploadStatus
+forall x. GetUploadStatus -&gt; Rep GetUploadStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetUploadStatus x -&gt; GetUploadStatus
+$cfrom :: forall x. GetUploadStatus -&gt; Rep GetUploadStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'GetUploadStatus' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'uploadId', 'getUploadStatus_uploadId' - The ID of the upload. This value is returned by the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @UploadEntityDefinitions@ action.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#newGetUploadStatus"><span class="hs-identifier hs-type">newGetUploadStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'uploadId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span><span>
+</span><span id="line-77"></span><span id="newGetUploadStatus"><span class="annot"><span class="annottext">newGetUploadStatus :: Text -&gt; GetUploadStatus
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#newGetUploadStatus"><span class="hs-identifier hs-var hs-var">newGetUploadStatus</span></a></span></span><span> </span><span id="local-6989586621679222959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222959"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GetUploadStatus' :: Text -&gt; GetUploadStatus
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus%27"><span class="hs-identifier hs-type">GetUploadStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:GetUploadStatus' :: Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AuploadId%3AGetUploadStatus%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222959"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The ID of the upload. This value is returned by the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @UploadEntityDefinitions@ action.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatus_uploadId"><span class="hs-identifier hs-type">getUploadStatus_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="getUploadStatus_uploadId"><span class="annot"><span class="annottext">getUploadStatus_uploadId :: (Text -&gt; f Text) -&gt; GetUploadStatus -&gt; f GetUploadStatus
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatus_uploadId"><span class="hs-identifier hs-var hs-var">getUploadStatus_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadStatus -&gt; Text)
+-&gt; (GetUploadStatus -&gt; Text -&gt; GetUploadStatus)
+-&gt; Lens GetUploadStatus GetUploadStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus%27"><span class="hs-identifier hs-type">GetUploadStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222956"><span class="annot"><span class="annottext">Text
+uploadId :: Text
+$sel:uploadId:GetUploadStatus' :: GetUploadStatus -&gt; Text
+</span><a href="#local-6989586621679222956"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222956"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222955"><span class="annot"><span class="annottext">s :: GetUploadStatus
+</span><a href="#local-6989586621679222955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus%27"><span class="hs-identifier hs-type">GetUploadStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222954"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadStatus
+</span><a href="#local-6989586621679222955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:GetUploadStatus' :: Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AuploadId%3AGetUploadStatus%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679222950"><span class="annot"><span class="annottext">request :: GetUploadStatus -&gt; Request GetUploadStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetUploadStatus -&gt; Request GetUploadStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTThingsGraph.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679222946"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetUploadStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetUploadStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetUploadStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetUploadStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetUploadStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222943"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222942"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222942"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222941"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Int
+-&gt; Text
+-&gt; UploadStatus
+-&gt; POSIX
+-&gt; GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-var">GetUploadStatusResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; Text
+ -&gt; UploadStatus
+ -&gt; POSIX
+ -&gt; GetUploadStatusResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; UploadStatus
+      -&gt; POSIX
+      -&gt; GetUploadStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureReason&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; UploadStatus
+   -&gt; POSIX
+   -&gt; GetUploadStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; UploadStatus
+      -&gt; POSIX
+      -&gt; GetUploadStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespaceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; UploadStatus
+   -&gt; POSIX
+   -&gt; GetUploadStatusResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Int -&gt; Text -&gt; UploadStatus -&gt; POSIX -&gt; GetUploadStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespaceVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Int -&gt; Text -&gt; UploadStatus -&gt; POSIX -&gt; GetUploadStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Int -&gt; Text -&gt; UploadStatus -&gt; POSIX -&gt; GetUploadStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespaceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; Text -&gt; UploadStatus -&gt; POSIX -&gt; GetUploadStatusResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Text -&gt; UploadStatus -&gt; POSIX -&gt; GetUploadStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222943"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; UploadStatus -&gt; POSIX -&gt; GetUploadStatusResponse)
+-&gt; Either String Text
+-&gt; Either String (UploadStatus -&gt; POSIX -&gt; GetUploadStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uploadId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (UploadStatus -&gt; POSIX -&gt; GetUploadStatusResponse)
+-&gt; Either String UploadStatus
+-&gt; Either String (POSIX -&gt; GetUploadStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String UploadStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uploadStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; GetUploadStatusResponse)
+-&gt; Either String POSIX -&gt; Either String GetUploadStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222931"><span id="local-6989586621679222933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679222924"><span class="annot"><span class="annottext">toHeaders :: GetUploadStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetUploadStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IotThingsGraphFrontEndService.GetUploadStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222914"><span id="local-6989586621679222916"><span id="local-6989586621679222918"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679222912"><span class="annot"><span class="annottext">toJSON :: GetUploadStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus%27"><span class="hs-identifier hs-type">GetUploadStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222910"><span class="annot"><span class="annottext">Text
+uploadId :: Text
+$sel:uploadId:GetUploadStatus' :: GetUploadStatus -&gt; Text
+</span><a href="#local-6989586621679222910"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uploadId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222910"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679222904"><span class="annot"><span class="annottext">toPath :: GetUploadStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetUploadStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatus"><span class="hs-identifier hs-type">GetUploadStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679222900"><span class="annot"><span class="annottext">toQuery :: GetUploadStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetUploadStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newGetUploadStatusResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679222897"><span id="local-6989586621679222898"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUploadStatusResponse"><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-var">GetUploadStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUploadStatusResponse%27"><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-var">GetUploadStatusResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason for an upload failure.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AfailureReason%3AGetUploadStatusResponse%27"><span class="annot"><span class="annottext">GetUploadStatusResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AfailureReason%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The ARN of the upload.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AnamespaceArn%3AGetUploadStatusResponse%27"><span class="annot"><span class="annottext">GetUploadStatusResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AnamespaceArn%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var hs-var">namespaceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The version of the user\'s namespace. Defaults to the latest version of</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- the user\'s namespace.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AnamespaceVersion%3AGetUploadStatusResponse%27"><span class="annot"><span class="annottext">GetUploadStatusResponse -&gt; Maybe Integer
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AnamespaceVersion%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var hs-var">namespaceVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The name of the upload\'s namespace.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AnamespaceName%3AGetUploadStatusResponse%27"><span class="annot"><span class="annottext">GetUploadStatusResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AnamespaceName%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var hs-var">namespaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetUploadStatusResponse%27"><span class="annot"><span class="annottext">GetUploadStatusResponse -&gt; Int
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AhttpStatus%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The ID of the upload.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AuploadId%3AGetUploadStatusResponse%27"><span class="annot"><span class="annottext">GetUploadStatusResponse -&gt; Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AuploadId%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The status of the upload. The initial status is @IN_PROGRESS@. The</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- response show all validation failures if the upload fails.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AuploadStatus%3AGetUploadStatusResponse%27"><span class="annot"><span class="annottext">GetUploadStatusResponse -&gt; UploadStatus
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AuploadStatus%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var hs-var">uploadStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.UploadStatus.html#UploadStatus"><span class="hs-identifier hs-type">UploadStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The date at which the upload was created.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AcreatedDate%3AGetUploadStatusResponse%27"><span class="annot"><span class="annottext">GetUploadStatusResponse -&gt; POSIX
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AcreatedDate%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222885"><span id="local-6989586621679222887"><span class="annot"><span class="annottext">GetUploadStatusResponse -&gt; GetUploadStatusResponse -&gt; Bool
+(GetUploadStatusResponse -&gt; GetUploadStatusResponse -&gt; Bool)
+-&gt; (GetUploadStatusResponse -&gt; GetUploadStatusResponse -&gt; Bool)
+-&gt; Eq GetUploadStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetUploadStatusResponse -&gt; GetUploadStatusResponse -&gt; Bool
+$c/= :: GetUploadStatusResponse -&gt; GetUploadStatusResponse -&gt; Bool
+== :: GetUploadStatusResponse -&gt; GetUploadStatusResponse -&gt; Bool
+$c== :: GetUploadStatusResponse -&gt; GetUploadStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222877"><span id="local-6989586621679222879"><span id="local-6989586621679222881"><span id="local-6989586621679222883"><span class="annot"><span class="annottext">ReadPrec [GetUploadStatusResponse]
+ReadPrec GetUploadStatusResponse
+Int -&gt; ReadS GetUploadStatusResponse
+ReadS [GetUploadStatusResponse]
+(Int -&gt; ReadS GetUploadStatusResponse)
+-&gt; ReadS [GetUploadStatusResponse]
+-&gt; ReadPrec GetUploadStatusResponse
+-&gt; ReadPrec [GetUploadStatusResponse]
+-&gt; Read GetUploadStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetUploadStatusResponse]
+$creadListPrec :: ReadPrec [GetUploadStatusResponse]
+readPrec :: ReadPrec GetUploadStatusResponse
+$creadPrec :: ReadPrec GetUploadStatusResponse
+readList :: ReadS [GetUploadStatusResponse]
+$creadList :: ReadS [GetUploadStatusResponse]
+readsPrec :: Int -&gt; ReadS GetUploadStatusResponse
+$creadsPrec :: Int -&gt; ReadS GetUploadStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222871"><span id="local-6989586621679222873"><span id="local-6989586621679222875"><span class="annot"><span class="annottext">Int -&gt; GetUploadStatusResponse -&gt; ShowS
+[GetUploadStatusResponse] -&gt; ShowS
+GetUploadStatusResponse -&gt; String
+(Int -&gt; GetUploadStatusResponse -&gt; ShowS)
+-&gt; (GetUploadStatusResponse -&gt; String)
+-&gt; ([GetUploadStatusResponse] -&gt; ShowS)
+-&gt; Show GetUploadStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetUploadStatusResponse] -&gt; ShowS
+$cshowList :: [GetUploadStatusResponse] -&gt; ShowS
+show :: GetUploadStatusResponse -&gt; String
+$cshow :: GetUploadStatusResponse -&gt; String
+showsPrec :: Int -&gt; GetUploadStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetUploadStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetUploadStatusResponse -&gt; Rep GetUploadStatusResponse x)
+-&gt; (forall x.
+    Rep GetUploadStatusResponse x -&gt; GetUploadStatusResponse)
+-&gt; Generic GetUploadStatusResponse
+forall x. Rep GetUploadStatusResponse x -&gt; GetUploadStatusResponse
+forall x. GetUploadStatusResponse -&gt; Rep GetUploadStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetUploadStatusResponse x -&gt; GetUploadStatusResponse
+$cfrom :: forall x. GetUploadStatusResponse -&gt; Rep GetUploadStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'GetUploadStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'failureReason', 'getUploadStatusResponse_failureReason' - The reason for an upload failure.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'namespaceArn', 'getUploadStatusResponse_namespaceArn' - The ARN of the upload.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'namespaceVersion', 'getUploadStatusResponse_namespaceVersion' - The version of the user\'s namespace. Defaults to the latest version of</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- the user\'s namespace.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'namespaceName', 'getUploadStatusResponse_namespaceName' - The name of the upload\'s namespace.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'httpStatus', 'getUploadStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'uploadId', 'getUploadStatusResponse_uploadId' - The ID of the upload.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'uploadStatus', 'getUploadStatusResponse_uploadStatus' - The status of the upload. The initial status is @IN_PROGRESS@. The</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- response show all validation failures if the upload fails.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'createdDate', 'getUploadStatusResponse_createdDate' - The date at which the upload was created.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#newGetUploadStatusResponse"><span class="hs-identifier hs-type">newGetUploadStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-comment">-- | 'uploadId'</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'uploadStatus'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.UploadStatus.html#UploadStatus"><span class="hs-identifier hs-type">UploadStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'createdDate'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span>
+</span><span id="line-194"></span><span id="newGetUploadStatusResponse"><span class="annot"><span class="annottext">newGetUploadStatusResponse :: Int -&gt; Text -&gt; UploadStatus -&gt; UTCTime -&gt; GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#newGetUploadStatusResponse"><span class="hs-identifier hs-var hs-var">newGetUploadStatusResponse</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679222868"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679222867"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222867"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679222866"><span class="annot"><span class="annottext">UploadStatus
+</span><a href="#local-6989586621679222866"><span class="hs-identifier hs-var">pUploadStatus_</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679222865"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679222865"><span class="hs-identifier hs-var">pCreatedDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">GetUploadStatusResponse' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Int
+-&gt; Text
+-&gt; UploadStatus
+-&gt; POSIX
+-&gt; GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:GetUploadStatusResponse' :: Maybe [Text]
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AfailureReason%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespaceArn:GetUploadStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AnamespaceArn%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">namespaceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespaceVersion:GetUploadStatusResponse' :: Maybe Integer
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AnamespaceVersion%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">namespaceVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespaceName:GetUploadStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AnamespaceName%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">namespaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetUploadStatusResponse' :: Int
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AhttpStatus%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">$sel:uploadId:GetUploadStatusResponse' :: Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AuploadId%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222867"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">$sel:uploadStatus:GetUploadStatusResponse' :: UploadStatus
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AuploadStatus%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">uploadStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UploadStatus
+</span><a href="#local-6989586621679222866"><span class="hs-identifier hs-var">pUploadStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdDate:GetUploadStatusResponse' :: POSIX
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AcreatedDate%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679222865"><span class="hs-identifier hs-var">pCreatedDate_</span></a></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The reason for an upload failure.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_failureReason"><span class="hs-identifier hs-type">getUploadStatusResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="getUploadStatusResponse_failureReason"><span class="annot"><span class="annottext">getUploadStatusResponse_failureReason :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_failureReason"><span class="hs-identifier hs-var hs-var">getUploadStatusResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadStatusResponse -&gt; Maybe [Text])
+-&gt; (GetUploadStatusResponse
+    -&gt; Maybe [Text] -&gt; GetUploadStatusResponse)
+-&gt; Lens
+     GetUploadStatusResponse
+     GetUploadStatusResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222862"><span class="annot"><span class="annottext">Maybe [Text]
+failureReason :: Maybe [Text]
+$sel:failureReason:GetUploadStatusResponse' :: GetUploadStatusResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679222862"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679222862"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222861"><span class="annot"><span class="annottext">s :: GetUploadStatusResponse
+</span><a href="#local-6989586621679222861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222860"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679222860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadStatusResponse
+</span><a href="#local-6989586621679222861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:GetUploadStatusResponse' :: Maybe [Text]
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AfailureReason%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679222860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetUploadStatusResponse
+-&gt; f GetUploadStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The ARN of the upload.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_namespaceArn"><span class="hs-identifier hs-type">getUploadStatusResponse_namespaceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="getUploadStatusResponse_namespaceArn"><span class="annot"><span class="annottext">getUploadStatusResponse_namespaceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_namespaceArn"><span class="hs-identifier hs-var hs-var">getUploadStatusResponse_namespaceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadStatusResponse -&gt; Maybe Text)
+-&gt; (GetUploadStatusResponse
+    -&gt; Maybe Text -&gt; GetUploadStatusResponse)
+-&gt; Lens
+     GetUploadStatusResponse
+     GetUploadStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222856"><span class="annot"><span class="annottext">Maybe Text
+namespaceArn :: Maybe Text
+$sel:namespaceArn:GetUploadStatusResponse' :: GetUploadStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679222856"><span class="hs-identifier hs-var hs-var">namespaceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222856"><span class="hs-identifier hs-var">namespaceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222855"><span class="annot"><span class="annottext">s :: GetUploadStatusResponse
+</span><a href="#local-6989586621679222855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222854"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadStatusResponse
+</span><a href="#local-6989586621679222855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceArn:GetUploadStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AnamespaceArn%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">namespaceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The version of the user\'s namespace. Defaults to the latest version of</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- the user\'s namespace.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_namespaceVersion"><span class="hs-identifier hs-type">getUploadStatusResponse_namespaceVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="getUploadStatusResponse_namespaceVersion"><span class="annot"><span class="annottext">getUploadStatusResponse_namespaceVersion :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_namespaceVersion"><span class="hs-identifier hs-var hs-var">getUploadStatusResponse_namespaceVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadStatusResponse -&gt; Maybe Integer)
+-&gt; (GetUploadStatusResponse
+    -&gt; Maybe Integer -&gt; GetUploadStatusResponse)
+-&gt; Lens
+     GetUploadStatusResponse
+     GetUploadStatusResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222853"><span class="annot"><span class="annottext">Maybe Integer
+namespaceVersion :: Maybe Integer
+$sel:namespaceVersion:GetUploadStatusResponse' :: GetUploadStatusResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679222853"><span class="hs-identifier hs-var hs-var">namespaceVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679222853"><span class="hs-identifier hs-var">namespaceVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222852"><span class="annot"><span class="annottext">s :: GetUploadStatusResponse
+</span><a href="#local-6989586621679222852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222851"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679222851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadStatusResponse
+</span><a href="#local-6989586621679222852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceVersion:GetUploadStatusResponse' :: Maybe Integer
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AnamespaceVersion%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">namespaceVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679222851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The name of the upload\'s namespace.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_namespaceName"><span class="hs-identifier hs-type">getUploadStatusResponse_namespaceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="getUploadStatusResponse_namespaceName"><span class="annot"><span class="annottext">getUploadStatusResponse_namespaceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_namespaceName"><span class="hs-identifier hs-var hs-var">getUploadStatusResponse_namespaceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadStatusResponse -&gt; Maybe Text)
+-&gt; (GetUploadStatusResponse
+    -&gt; Maybe Text -&gt; GetUploadStatusResponse)
+-&gt; Lens
+     GetUploadStatusResponse
+     GetUploadStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222850"><span class="annot"><span class="annottext">Maybe Text
+namespaceName :: Maybe Text
+$sel:namespaceName:GetUploadStatusResponse' :: GetUploadStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679222850"><span class="hs-identifier hs-var hs-var">namespaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222850"><span class="hs-identifier hs-var">namespaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222849"><span class="annot"><span class="annottext">s :: GetUploadStatusResponse
+</span><a href="#local-6989586621679222849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222848"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadStatusResponse
+</span><a href="#local-6989586621679222849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceName:GetUploadStatusResponse' :: Maybe Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AnamespaceName%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">namespaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_httpStatus"><span class="hs-identifier hs-type">getUploadStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-230"></span><span id="getUploadStatusResponse_httpStatus"><span class="annot"><span class="annottext">getUploadStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getUploadStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadStatusResponse -&gt; Int)
+-&gt; (GetUploadStatusResponse -&gt; Int -&gt; GetUploadStatusResponse)
+-&gt; Lens GetUploadStatusResponse GetUploadStatusResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222847"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetUploadStatusResponse' :: GetUploadStatusResponse -&gt; Int
+</span><a href="#local-6989586621679222847"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222847"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222846"><span class="annot"><span class="annottext">s :: GetUploadStatusResponse
+</span><a href="#local-6989586621679222846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222845"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadStatusResponse
+</span><a href="#local-6989586621679222846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUploadStatusResponse' :: Int
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AhttpStatus%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The ID of the upload.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_uploadId"><span class="hs-identifier hs-type">getUploadStatusResponse_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-234"></span><span id="getUploadStatusResponse_uploadId"><span class="annot"><span class="annottext">getUploadStatusResponse_uploadId :: (Text -&gt; f Text)
+-&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_uploadId"><span class="hs-identifier hs-var hs-var">getUploadStatusResponse_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadStatusResponse -&gt; Text)
+-&gt; (GetUploadStatusResponse -&gt; Text -&gt; GetUploadStatusResponse)
+-&gt; Lens GetUploadStatusResponse GetUploadStatusResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222844"><span class="annot"><span class="annottext">Text
+uploadId :: Text
+$sel:uploadId:GetUploadStatusResponse' :: GetUploadStatusResponse -&gt; Text
+</span><a href="#local-6989586621679222844"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222844"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222843"><span class="annot"><span class="annottext">s :: GetUploadStatusResponse
+</span><a href="#local-6989586621679222843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadStatusResponse
+</span><a href="#local-6989586621679222843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:GetUploadStatusResponse' :: Text
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AuploadId%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The status of the upload. The initial status is @IN_PROGRESS@. The</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- response show all validation failures if the upload fails.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_uploadStatus"><span class="hs-identifier hs-type">getUploadStatusResponse_uploadStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.UploadStatus.html#UploadStatus"><span class="hs-identifier hs-type">UploadStatus</span></a></span><span>
+</span><span id="line-239"></span><span id="getUploadStatusResponse_uploadStatus"><span class="annot"><span class="annottext">getUploadStatusResponse_uploadStatus :: (UploadStatus -&gt; f UploadStatus)
+-&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_uploadStatus"><span class="hs-identifier hs-var hs-var">getUploadStatusResponse_uploadStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadStatusResponse -&gt; UploadStatus)
+-&gt; (GetUploadStatusResponse
+    -&gt; UploadStatus -&gt; GetUploadStatusResponse)
+-&gt; Lens
+     GetUploadStatusResponse
+     GetUploadStatusResponse
+     UploadStatus
+     UploadStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222841"><span class="annot"><span class="annottext">UploadStatus
+uploadStatus :: UploadStatus
+$sel:uploadStatus:GetUploadStatusResponse' :: GetUploadStatusResponse -&gt; UploadStatus
+</span><a href="#local-6989586621679222841"><span class="hs-identifier hs-var hs-var">uploadStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadStatus
+</span><a href="#local-6989586621679222841"><span class="hs-identifier hs-var">uploadStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222840"><span class="annot"><span class="annottext">s :: GetUploadStatusResponse
+</span><a href="#local-6989586621679222840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222839"><span class="annot"><span class="annottext">UploadStatus
+</span><a href="#local-6989586621679222839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadStatusResponse
+</span><a href="#local-6989586621679222840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadStatus:GetUploadStatusResponse' :: UploadStatus
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AuploadStatus%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">uploadStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UploadStatus
+</span><a href="#local-6989586621679222839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The date at which the upload was created.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_createdDate"><span class="hs-identifier hs-type">getUploadStatusResponse_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-243"></span><span id="getUploadStatusResponse_createdDate"><span class="annot"><span class="annottext">getUploadStatusResponse_createdDate :: (UTCTime -&gt; f UTCTime)
+-&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#getUploadStatusResponse_createdDate"><span class="hs-identifier hs-var hs-var">getUploadStatusResponse_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadStatusResponse -&gt; POSIX)
+-&gt; (GetUploadStatusResponse -&gt; POSIX -&gt; GetUploadStatusResponse)
+-&gt; Lens GetUploadStatusResponse GetUploadStatusResponse POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222838"><span class="annot"><span class="annottext">POSIX
+createdDate :: POSIX
+$sel:createdDate:GetUploadStatusResponse' :: GetUploadStatusResponse -&gt; POSIX
+</span><a href="#local-6989586621679222838"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679222838"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222837"><span class="annot"><span class="annottext">s :: GetUploadStatusResponse
+</span><a href="#local-6989586621679222837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse%27"><span class="hs-identifier hs-type">GetUploadStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222836"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679222836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadStatusResponse
+</span><a href="#local-6989586621679222837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:GetUploadStatusResponse' :: POSIX
+</span><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#%24sel%3AcreatedDate%3AGetUploadStatusResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679222836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; GetUploadStatusResponse -&gt; f GetUploadStatusResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; GetUploadStatusResponse
+-&gt; f GetUploadStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.GetUploadStatus.html#GetUploadStatusResponse"><span class="hs-identifier hs-type">GetUploadStatusResponse</span></a></span></span><span>
+</span><span id="line-246"></span></pre></body></html>
